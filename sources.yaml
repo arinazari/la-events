@@ -1,0 +1,294 @@
+# LA Events — Source Registry
+# ---------------------------------------------------------------------------
+# Schema per source:
+#   name:      display name
+#   category:  electronic | live_music | comedy | film | theater | editorial |
+#              general | beer_food | multi
+#   method:    api | graphql | jsonld | scrape | rss | ics | gmail | manual
+#   url:       endpoint or calendar page (or IG handle for manual)
+#   priority:  1 (always fetch) .. 3 (only on category-specific requests)
+#   status:    active | candidate | manual | flaky | dead
+#   notes:     anything operationally useful
+#
+# last_discovery: updated whenever Discover mode runs
+# ---------------------------------------------------------------------------
+
+last_discovery: null
+
+sources:
+
+  # ── Tier 1: structured pipelines ─────────────────────────────────────────
+  - name: Ticketmaster Discovery API
+    category: multi
+    method: api
+    url: https://app.ticketmaster.com/discovery/v2/events.json
+    priority: 1
+    status: active
+    notes: >
+      Free key, 5000 calls/day. dmaId=324 for LA. Covers TM, TicketWeb, Universe,
+      FrontGate — incl. Pantages (Broadway in Hollywood). Use scripts/fetch_ticketmaster.py.
+
+  - name: Resident Advisor (LA)
+    category: electronic
+    method: graphql
+    url: https://ra.co/graphql
+    priority: 1
+    status: active
+    notes: >
+      Unofficial GraphQL. scripts/fetch_ra.py. Verify AREA_ID once (see script header).
+      Late start times = afterhours flags. Catches most semi-public warehouse events.
+
+  - name: DICE (LA)
+    category: electronic
+    method: jsonld
+    url: https://dice.fm/browse/los-angeles
+    priority: 1
+    status: active
+    notes: >
+      No public API. Event pages embed schema.org JSON-LD. Heavy eastside/indie-club
+      coverage; overlaps RA — dedupe expected.
+
+  - name: Gmail "Events" label
+    category: multi
+    method: gmail
+    url: label:Events
+    priority: 1
+    status: active
+    notes: >
+      Promoter blasts, venue newsletters, SMS forwards. The afterhours backbone.
+      User action: sign up for promoter lists, filter to this label.
+
+  # ── Tier 2: editorial / curation signals (ranking boosts, not catalog) ──
+  - name: LAist — Best Things To Do
+    category: editorial
+    method: scrape
+    url: https://laist.com/news/la-history/best-things-to-do-los-angeles
+    priority: 1
+    status: active
+    notes: Weekly roundup; URL pattern varies — search site if stale.
+
+  - name: Time Out Los Angeles
+    category: editorial
+    method: scrape
+    url: https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-this-weekend
+    priority: 1
+    status: active
+
+  - name: We Like LA
+    category: editorial
+    method: rss
+    url: https://www.welikela.com/feed/
+    priority: 2
+    status: active
+
+  - name: Secret Los Angeles
+    category: editorial
+    method: scrape
+    url: https://secretlosangeles.com/things-to-do/
+    priority: 2
+    status: active
+    notes: Site, not the IG. IG account is manual-capture only.
+
+  - name: LA Times — Things to Do
+    category: editorial
+    method: scrape
+    url: https://www.latimes.com/entertainment-arts/things-to-do
+    priority: 2
+    status: active
+    notes: Possible paywall friction; degrade gracefully.
+
+  - name: 6AM Group — weekly LA picks
+    category: electronic
+    method: scrape
+    url: https://www.6amgroup.com/
+    priority: 1
+    status: active
+    notes: Techno/underground editorial + their own events. Also has newsletter → Gmail.
+
+  - name: Dirty Epic — weekly picks
+    category: electronic
+    method: scrape
+    url: https://dirtyepic.com/
+    priority: 2
+    status: active
+    notes: Underground techno editorial. Newsletter available → Gmail label.
+
+  - name: Restless Nites
+    category: electronic
+    method: scrape
+    url: https://www.restlessnites.com/
+    priority: 2
+    status: candidate
+    notes: Eastside-leaning nightlife calendar. Verify current activity on first run.
+
+  # ── Tier 3: venues & promoters (JSON-LD / scrape) ────────────────────────
+  - name: Goldenvoice
+    category: live_music
+    method: scrape
+    url: https://www.goldenvoice.com/events/
+    priority: 1
+    status: active
+    notes: AXS venues (Fonda, El Rey, Shrine, Novo...). AXS has no public API; scrape GV directly.
+
+  - name: Eventbrite (LA browse)
+    category: multi
+    method: jsonld
+    url: https://www.eventbrite.com/d/ca--los-angeles/events/
+    priority: 2
+    status: active
+    notes: Public event-search API was retired; use browse pages + JSON-LD. High noise — filter hard.
+
+  - name: Hollywood Pantages / Broadway in Hollywood
+    category: theater
+    method: jsonld
+    url: https://www.broadwayinhollywood.com/events
+    priority: 2
+    status: active
+    notes: Also surfaces via Ticketmaster API; direct page has season info earlier.
+
+  - name: Center Theatre Group (Ahmanson/Taper/Douglas)
+    category: theater
+    method: scrape
+    url: https://www.centertheatregroup.org/tickets/
+    priority: 3
+    status: candidate
+
+  - name: Vidiots (Eagle Rock)
+    category: film
+    method: jsonld
+    url: https://vidiotsfoundation.org/coming-soon/
+    priority: 1
+    status: active
+
+  - name: Brain Dead Studios
+    category: film
+    method: scrape
+    url: https://studios.wearebraindead.com/
+    priority: 1
+    status: active
+
+  - name: American Cinematheque (Egyptian/Aero/Los Feliz 3)
+    category: film
+    method: scrape
+    url: https://www.americancinematheque.com/now-showing/
+    priority: 1
+    status: active
+    notes: Los Feliz 3 is walkable-ish from Silver Lake.
+
+  - name: New Beverly Cinema
+    category: film
+    method: scrape
+    url: https://thenewbev.com/schedule/
+    priority: 2
+    status: active
+    notes: 35mm always; monthly calendar drops sell fast — flag on-sale dates.
+
+  - name: Vista Theater
+    category: film
+    method: scrape
+    url: https://www.vintagecinemas.com/vista/
+    priority: 2
+    status: active
+
+  - name: Comedy Store
+    category: comedy
+    method: scrape
+    url: https://thecomedystore.com/shows/
+    priority: 2
+    status: active
+
+  - name: Largo at the Coronet
+    category: comedy
+    method: scrape
+    url: https://www.largo-la.com/calendar/
+    priority: 2
+    status: active
+    notes: Comedy + music hybrid; lineups often unannounced ("and friends") — high hit rate anyway.
+
+  - name: Dynasty Typewriter
+    category: comedy
+    method: scrape
+    url: https://www.dynastytypewriter.com/calendar
+    priority: 2
+    status: active
+    notes: Westlake; alt-comedy. Close to Silver Lake.
+
+  - name: Elysian Theater (Frogtown)
+    category: comedy
+    method: scrape
+    url: https://www.elysiantheater.com/
+    priority: 2
+    status: active
+
+  - name: Hollywood Bowl / LA Phil
+    category: live_music
+    method: scrape
+    url: https://www.hollywoodbowl.com/events
+    priority: 2
+    status: active
+
+  - name: Lodge Room (Highland Park)
+    category: live_music
+    method: jsonld
+    url: https://lodgeroomhlp.com/
+    priority: 2
+    status: active
+
+  - name: Zebulon (Frogtown)
+    category: live_music
+    method: scrape
+    url: https://zebulon.la/
+    priority: 1
+    status: active
+    notes: Experimental/electronic-adjacent bookings; very on-profile, close to home.
+
+  - name: 2220 Arts + Archives
+    category: live_music
+    method: scrape
+    url: https://2220arts.org/
+    priority: 2
+    status: active
+
+  - name: The Echo / Echoplex
+    category: live_music
+    method: scrape
+    url: https://www.theecho.com/
+    priority: 2
+    status: active
+    notes: Spaceland/LiveNation booking; also appears in TM API — dedupe.
+
+  # ── Manual-capture sources (IG / SMS — never scraped) ───────────────────
+  - name: "@secret.losangeles"
+    category: editorial
+    method: manual
+    url: instagram.com/secret.losangeles
+    priority: 3
+    status: manual
+    notes: Website covers most of it; IG capture via screenshot → flyer mode.
+
+  - name: Afterhours promoter IG/SMS lists
+    category: electronic
+    method: manual
+    url: (rolling — add handles as discovered)
+    priority: 1
+    status: manual
+    notes: >
+      Capture path: screenshot IG story → /la-events flyer, or join SMS/email list →
+      Gmail "Events" label. Discover mode should keep proposing new promoter handles.
+
+  # ── Candidates queue (vet in Discover mode) ──────────────────────────────
+  - name: StubHub
+    category: multi
+    method: scrape
+    url: https://www.stubhub.com/los-angeles-tickets/
+    priority: 3
+    status: candidate
+    notes: Resale — discovery value low; useful only for price checks on sold-out shows.
+
+  - name: Songkick / Bandsintown (LA)
+    category: live_music
+    method: scrape
+    url: https://www.songkick.com/metro-areas/17835-us-los-angeles-la
+    priority: 3
+    status: candidate
+    notes: Good artist-tracking angle once personalization phase starts.
