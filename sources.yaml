@@ -4,7 +4,7 @@
 #   name:      display name
 #   category:  electronic | live_music | comedy | film | theater | editorial |
 #              general | beer_food | multi
-#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | dice | seetickets | rss | ics | gmail | manual
+#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | dice | seetickets | squarespace | rss | ics | gmail | manual
 #              (webfetch = read at digest time via the WebFetch tool; for bot-walled/JS pages)
 #   url:       endpoint or calendar page (or IG handle for manual)
 #   priority:  1 (always fetch) .. 3 (only on category-specific requests)
@@ -442,135 +442,139 @@ sources:
   # (Gold Diggers, The Mint, Townhouse, The Virgil, Permanent Records, Grand Star)
   # live in the "DICE (LA venues)" source above — one fetcher. These are the rest.
 
-  # -- own-site scrape (structured HTML; no third-party ticketer unless noted) --
-  - name: McCabe's Guitar Shop
-    category: live_music
-    method: scrape
-    url: https://www.mccabes.com/concerts-landing/
-    priority: 2
-    status: active
-    notes: Santa Monica. Folk/acoustic/Americana listening room. Server-rendered HTML, WooCommerce tickets, no JSON-LD.
-  - name: Harvelle's (Santa Monica)
-    category: live_music
-    method: scrape
-    url: https://santamonica.harvelles.com/calendar
-    priority: 3
-    status: active
-    notes: Blues/soul/funk/burlesque since 1931. Seat Engine ticketing on own subdomain.
+  # -- Squarespace JSON feed — scripts/fetch_squarespace.py (?format=json-pretty) --
   - name: Vibrato Grill Jazz (Bel Air)
     category: live_music
-    method: scrape
+    method: squarespace
     url: https://www.vibratogrilljazz.com/music
     priority: 3
     status: active
-    notes: Herb Alpert's upscale jazz supper club. Squarespace; listings in raw HTML; Resy events. Unique coverage (no ticketer).
-  - name: The Dresden (Los Feliz)
-    category: live_music
-    method: scrape
-    url: https://www.thedresden.com/events/
-    priority: 2
-    status: active
-    notes: Lounge/jazz nightly, no cover (Marty & Elayne legacy). BentoBox CMS; recurring residencies; close to Silver Lake.
-  - name: Sam First (Westchester)
-    category: live_music
-    method: scrape
-    url: https://www.samfirstbar.com/upcoming-shows
-    priority: 3
-    status: active
-    notes: Tiny modern-jazz room by LAX; records live albums. Own-site static HTML, internal ticketing.
-  - name: Saint Rocke (Hermosa Beach)
-    category: live_music
-    method: scrape
-    url: https://www.saintrocke.com/calendar/
-    priority: 3
-    status: candidate
-    notes: South Bay; rock/tribute/reggae/blues. WordPress calendar; also AXS/TM — cross-check to dedupe.
-  - name: Alva's Showroom (San Pedro)
-    category: live_music
-    method: scrape
-    url: https://alvasshowroom.com/events/
-    priority: 3
-    status: active
-    notes: 99-cap seated jazz/acoustic/world listening room. Plain HTML, direct ticketing.
-  - name: The Venice West
-    category: live_music
-    method: scrape
-    url: https://thevenicewest.com/calendar
-    priority: 2
-    status: active
-    notes: Venice (former Witzend). Funk/soul/jam/Americana + comedy. Webflow, listings in static HTML; Tixr ticketing.
-  - name: TRiP (Santa Monica)
-    category: live_music
-    method: scrape
-    url: https://www.tripsantamonica.com/trip-santa-monica-events
-    priority: 3
-    status: candidate
-    notes: Free nightly jazz/Latin/blues/open-mic. Wix; shows page is recurring prose (not dated) — parse carefully.
-  - name: Harvard & Stone (East Hollywood)
-    category: live_music
-    method: scrape
-    url: https://harvardandstone.com/events/
-    priority: 2
-    status: active
-    notes: Free nightly local garage/punk/R&B + burlesque. WordPress + Events Manager plugin; close to Silver Lake.
+    notes: Herb Alpert's upscale jazz supper club. Squarespace events collection (verified 2026-06-16, ~19 shows/3wk).
   - name: Junior High (Glendale)
     category: live_music
-    method: scrape
+    method: squarespace
     url: https://juniorhighlosangeles.com/calendar
     priority: 3
     status: active
-    notes: DIY/queer arts space — showcases, DJ sets, screenings. Squarespace native ticketing (/tickets/p/<slug>).
-  - name: Highland Park Bowl
-    category: live_music
-    method: scrape
-    url: https://www.highlandparkbowl.com/calendar
-    priority: 2
-    status: candidate
-    notes: 1933 Group bowling alley + live music. Squarespace calendar is JS-rendered (may need rendered fetch); confirm ticket domain on first event.
-  - name: The Baked Potato (Studio City)
-    category: live_music
-    method: scrape
-    url: https://www.thebakedpotato.com/events-calendar/
-    priority: 3
-    status: candidate
-    notes: Jazz/fusion institution (since 1970), nightly. Index JS-loaded but per-event pages crawlable; no JSON-LD.
+    notes: DIY/queer arts space — showcases, DJ sets, screenings. Squarespace (verified 2026-06-16, ~19 events/3wk).
   - name: Bar Franca (DTLA)
     category: live_music
-    method: scrape
+    method: squarespace
     url: https://barfranca.com/events
     priority: 2
-    status: active
-    notes: Historic Core Euro hi-fi "sound bar"; jazz/funk/disco DJ nights. Squarespace; RSVP scattered (EB/Posh/Partiful). Surfaced in the 6/19 digest (Eddie C).
+    status: candidate
+    notes: Historic Core Euro hi-fi "sound bar"; jazz/funk/disco DJ. Squarespace, but /events?format=json-pretty returned 0 — find the right events collection slug. Surfaced in the 6/19 digest (Eddie C).
   - name: Somerville (View Park)
     category: live_music
-    method: scrape
+    method: squarespace
     url: https://somervilleslauson.com/sessions-on-slauson
     priority: 3
     status: candidate
-    notes: Art Deco supper club nr Leimert; nightly jazz w/ grand piano. Squarespace + SevenRooms; lineup on IG.
+    notes: Art Deco supper club nr Leimert; nightly jazz w/ grand piano. Squarespace; that page returned 0 — verify the events collection URL.
+
+  # -- webfetch at digest time (no feed, no Event JSON-LD; heterogeneous CMS — verified 2026-06-16) --
+  # Probed JSON-LD + Squarespace ical/json on all of these: none expose structured events. Read the
+  # rendered calendar via the WebFetch tool at digest time rather than maintaining brittle per-CMS scrapers.
+  - name: McCabe's Guitar Shop
+    category: live_music
+    method: webfetch
+    url: https://www.mccabes.com/concerts-landing/
+    priority: 2
+    status: active
+    notes: Santa Monica. Folk/acoustic/Americana listening room. WooCommerce; no JSON-LD.
+  - name: Harvelle's (Santa Monica)
+    category: live_music
+    method: webfetch
+    url: https://santamonica.harvelles.com/calendar
+    priority: 3
+    status: active
+    notes: Blues/soul/funk/burlesque since 1931. Seat Engine ticketing; no JSON-LD.
+  - name: The Dresden (Los Feliz)
+    category: live_music
+    method: webfetch
+    url: https://www.thedresden.com/events/
+    priority: 2
+    status: active
+    notes: Lounge/jazz nightly, no cover (Marty & Elayne legacy). BentoBox CMS; only FoodEstablishment JSON-LD. Close to Silver Lake.
+  - name: Sam First (Westchester)
+    category: live_music
+    method: webfetch
+    url: https://www.samfirstbar.com/upcoming-shows
+    priority: 3
+    status: active
+    notes: Tiny modern-jazz room by LAX; records live albums. Wix; no JSON-LD.
+  - name: Saint Rocke (Hermosa Beach)
+    category: live_music
+    method: webfetch
+    url: https://www.saintrocke.com/calendar/
+    priority: 3
+    status: candidate
+    notes: South Bay; rock/tribute/reggae/blues. WordPress; also AXS/TM — cross-check to dedupe.
+  - name: Alva's Showroom (San Pedro)
+    category: live_music
+    method: webfetch
+    url: https://alvasshowroom.com/events/
+    priority: 3
+    status: active
+    notes: 99-cap seated jazz/acoustic/world listening room. Plain HTML, no JSON-LD.
+  - name: The Venice West
+    category: live_music
+    method: webfetch
+    url: https://thevenicewest.com/calendar
+    priority: 2
+    status: active
+    notes: Venice (former Witzend). Funk/soul/jam/Americana + comedy. Webflow; Tixr ticketing; no JSON-LD.
+  - name: TRiP (Santa Monica)
+    category: live_music
+    method: webfetch
+    url: https://www.tripsantamonica.com/trip-santa-monica-events
+    priority: 3
+    status: candidate
+    notes: Free nightly jazz/Latin/blues/open-mic. Wix; shows page is recurring prose (not dated).
+  - name: Harvard & Stone (East Hollywood)
+    category: live_music
+    method: webfetch
+    url: https://harvardandstone.com/events/
+    priority: 2
+    status: active
+    notes: Free nightly local garage/punk/R&B + burlesque. WordPress + Events Manager; no JSON-LD. Close to Silver Lake.
+  - name: Highland Park Bowl
+    category: live_music
+    method: webfetch
+    url: https://www.highlandparkbowl.com/calendar
+    priority: 2
+    status: candidate
+    notes: 1933 Group bowling alley + live music. Squarespace calendar JS-rendered; confirm ticket domain on first event.
+  - name: The Baked Potato (Studio City)
+    category: live_music
+    method: webfetch
+    url: https://www.thebakedpotato.com/events-calendar/
+    priority: 3
+    status: candidate
+    notes: Jazz/fusion institution (since 1970), nightly. Index JS-loaded; no JSON-LD.
   - name: Vitello's / E Spot Lounge (Studio City)
     category: live_music
-    method: scrape
+    method: webfetch
     url: https://www.vitellosrestaurant.com/events
     priority: 3
     status: candidate
-    notes: Italian supper club; nightly jazz + cabaret. Wix + SevenRooms.
+    notes: Italian supper club; nightly jazz + cabaret. Wix + SevenRooms; no JSON-LD.
 
-  # -- ICS feed (cleanest — a structured calendar export) --
+  # -- ICS / Tockify + Squarespace-JSON feeds — fetch_ics.py / fetch_squarespace.py --
   - name: The Smell (DTLA)
     category: live_music
-    method: ics
+    method: squarespace
     url: https://www.thesmell.org/events
     priority: 2
     status: active
-    notes: All-ages, alcohol-free DIY punk/noise/experimental; volunteer-run. Squarespace with per-event .ics export links.
+    notes: All-ages, alcohol-free DIY punk/noise/experimental; volunteer-run. Fetched via Squarespace JSON (fetch_squarespace.py) — date-titled entries, lineup in body (verified 2026-06-16, ~9 nights/3wk).
   - name: Maui Sugar Mill Saloon (Tarzana)
     category: live_music
     method: ics
     url: https://tockify.com/api/feeds/ics/sugarmillsaloon
     priority: 3
-    status: candidate
-    notes: Valley dive; blues/country/rock cover & original bands. Tockify widget exposes an ICS feed (slug sugarmillsaloon).
+    status: active
+    notes: Valley dive; blues/country/rock cover & original bands. Tockify ICS feed (verified 2026-06-16 via fetch_ics.py).
 
   # -- Eventbrite-harvest series & See Tickets (need EB organizer add / headless) --
   - name: The World Stage / Leimert Park Jazz
