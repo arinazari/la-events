@@ -23,6 +23,9 @@
 # results. Don't mark a source flaky just because the page blocks fetching.
 #   fetch:  ok            -> direct WebFetch works
 #           search_only   -> direct fetch bot-blocked; use domain-scoped web search
+#           blocked       -> BOTH direct fetch AND the search crawler are denied this
+#                            domain in-env; only reachable secondhand (general search
+#                            surfacing third-party coverage) or manual. Note the gap.
 #
 # last_discovery: updated whenever Discover mode runs
 #
@@ -42,11 +45,13 @@ sources:
     method: rss
     url: https://la.eater.com/rss/index.xml
     priority: 1
-    status: active
+    status: flaky
     notes: >
-      RSS catches new posts, but the real signal is the roundup articles — scan
-      the front page + Heatmap index every run. Strongest source for new openings.
-    fetch: search_only      # direct fetch + RSS bot-blocked (verified 6/16) — use domain-scoped search
+      Strong content (Heatmaps, where-to-eat roundups) but UNREACHABLE in this env:
+      direct fetch AND domain-scoped crawler both denied (la.eater.com blocks the
+      Anthropic crawler; verified 6/16). Only surfaces secondhand via general search.
+      Note the gap in the radar footer. Re-test if the network policy changes.
+    fetch: blocked          # both fetch and search crawler denied (verified 6/16)
     harvest:
       - https://la.eater.com/                # front page — current roundups/listicles
       - https://la.eater.com/maps            # Heatmaps: Hottest New, Where to Eat Right Now
@@ -71,12 +76,13 @@ sources:
     method: scrape
     url: https://www.latimes.com/food
     priority: 1
-    status: active
+    status: flaky
     notes: >
-      Bill Addison reviews, the 101 Best Restaurants list, and front-page "best
-      new / where to eat" roundups. Possible paywall friction — degrade gracefully.
-      Badge entries as "(LAT 101)".
-    fetch: search_only      # direct fetch bot-blocked/paywalled (verified 6/16) — use domain-scoped search
+      Bill Addison reviews + 101 Best list are great, but UNREACHABLE in this env:
+      direct fetch blocked and the search crawler is denied latimes.com (400;
+      verified 6/16), on top of the paywall. Only surfaces secondhand via general
+      search. Note the gap in the footer. Badge entries as "(LAT 101)".
+    fetch: blocked          # both fetch and search crawler denied (verified 6/16)
     harvest:
       - https://www.latimes.com/food                              # front page — roundups + reviews
       - https://www.latimes.com/projects/best-restaurants-la-101   # 101 Best Restaurants
