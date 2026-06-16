@@ -86,14 +86,16 @@ Web-fetch the relevant editorial/guide sources from `dining-sources.yaml`:
   Resy **Hit List** + "Right This Way" blog, and OpenTable's trending/"best of" lists. Save
   their booking/availability for Step 2.
 
-**Fetch reality (verified 6/16) — fall back to search, don't drop the source.** Several
-sources bot-block a direct page fetch in the cloud env: Infatuation and the Resy blog fetch
-clean, but **Eater, LA Times, Michelin, and OpenTable refuse the fetcher** (each tagged
-`fetch: search_only` in `dining-sources.yaml`). They are not dead — their roundups are fully
-reachable via a **domain-scoped web search** (`allowed_domains: [that domain]`) for the
-current "best / new / hot / where to eat" lists; harvest the named restaurants from the
-results. Only mark a source `flaky` if *both* its direct fetch and a domain-scoped search come
-back empty across runs.
+**Fetch reality (verified 6/16) — three tiers, check the `fetch:` tag.**
+- `fetch: ok` — **Infatuation** and the **Resy blog** fetch clean; web-fetch the harvest URLs.
+- `fetch: search_only` — **Michelin** and **OpenTable** refuse direct fetch but their roundups
+  come through a **domain-scoped web search** (`allowed_domains: [that domain]`) for current
+  "best / new / hot" lists; harvest names from the results.
+- `fetch: blocked` — **Eater LA** and **LA Times** are denied *both* direct fetch and the
+  search crawler in this env (and LAT is paywalled). They're tagged `flaky`; you'll only catch
+  them secondhand when a general (un-scoped) search surfaces third-party coverage. **Note the
+  coverage gap in the radar footer** — don't silently pretend they were covered.
+Re-test the blocked tier if the network policy changes; promote back to `ok`/`search_only`.
 
 Extract: restaurant name, neighborhood, cuisine, price band, the angle (new / best-of /
 critic pick / starred / on a hot-list), the list it appeared on, and the source URL.
