@@ -1,17 +1,44 @@
 [
   {
+    "title": "The First Slam Dunk",
+    "date": "2026-06-16",
+    "start": "13:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "125min (2022)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/the-first-slam-dunk-6-16-26-100-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Love Island Watch Party & Taco Tuesday Specials",
     "date": "2026-06-16",
     "start": "16:00:00",
     "venue": "Copper Blues Oxnard Resturant",
     "neighborhood": "Oxnard",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -25,18 +52,71 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "I Love Boosters",
+    "date": "2026-06-16",
+    "start": "19:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "105min (2026) SOLD OUT",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/i-love-boosters-6-16-26-700-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "By Hook or by Crook",
+    "date": "2026-06-16",
+    "start": "19:30",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "103min (2001) SOLD OUT",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/by-hook-or-by-crook-6-16-26-730-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Good Luck Vinyl Club Presents: Purple Rain Listening Session",
     "date": "2026-06-16",
     "start": "2026-06-16T18:00:00.000",
     "venue": "Dolores LBC",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 2,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -55,13 +135,14 @@
     "start": "2026-06-16T20:00:00.000",
     "venue": "El Rey Theatre",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 32,
     "price": "$34",
     "organizers": "Goldenvoice",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -85,13 +166,14 @@
     "start": "2026-06-16T20:00:00.000",
     "venue": "The Redwood Bar And Grill",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -110,13 +192,14 @@
     "start": "2026-06-16T23:00:00.000",
     "venue": "The Lexington",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 2,
     "price": "free w/rsvp b4 1 / $23",
     "organizers": "Blind Tiger",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -140,13 +223,14 @@
     "start": "7pm",
     "venue": "The Paramount (Los Angeles) darkwave, EBM, synthwave, post-punk",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$20",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -165,13 +249,14 @@
     "start": "7pm-11:45pm",
     "venue": "Sid The Cat Auditorium (Pasadena/Los Angeles) indie dance, electropop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$41.31",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -190,13 +275,14 @@
     "start": "8pm-2am",
     "venue": "Eq (San Diego) drum and bass, jungle",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free",
     "organizers": "San Dnb",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -215,13 +301,14 @@
     "start": "10pm",
     "venue": "Rich's (San Diego) EDM, hip-hop, drag",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -235,18 +322,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "PlayTime",
+    "date": "2026-06-17",
+    "start": "13:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "115min (1967)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/playtime-6-17-26-100-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Bruce Hornsby & the Noisemakers - Tuesday",
     "date": "2026-06-17",
     "start": "19:00:00",
     "venue": "Troubadour",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -265,13 +379,14 @@
     "start": "19:00:00",
     "venue": "The Peppermint Club",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -290,13 +405,14 @@
     "start": "19:00:00",
     "venue": "Greek Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -315,13 +431,14 @@
     "start": "19:00:00",
     "venue": "The Belasco",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -340,13 +457,14 @@
     "start": "19:00:00",
     "venue": "The Parish at House of Blues Anaheim",
     "neighborhood": "Anaheim",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -365,13 +483,14 @@
     "start": "19:00:00",
     "venue": "Teragram Ballroom",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -385,18 +504,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "I Love Boosters",
+    "date": "2026-06-17",
+    "start": "19:30",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "105min (2026)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/i-love-boosters-6-17-26-700-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Hell's Kitchen (Touring)",
     "date": "2026-06-17",
     "start": "19:30:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -415,13 +561,14 @@
     "start": "2026-06-17T20:00:00.000",
     "venue": "The Redwood Bar And Grill",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 1,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -440,13 +587,14 @@
     "start": "2026-06-17T20:30:00.000",
     "venue": "EOS Lounge",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": "free",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -470,13 +618,14 @@
     "start": "2026-06-17T22:00:00.000",
     "venue": "Jungle Hollywood",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 12,
     "price": "$5 b4 11 w rsvp / $20",
     "organizers": "Underrated",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -500,13 +649,14 @@
     "start": "2026-06-17T23:00:00.000",
     "venue": "The Lexington",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 0,
     "price": "free w/rsvp b4 1 / $23",
     "organizers": "Blind Tiger",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -530,13 +680,14 @@
     "start": "20:00:00",
     "venue": "Roxy Theatre-CA",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -555,13 +706,14 @@
     "start": "20:00:00",
     "venue": "Yaamava Resort & Casino at San Manuel",
     "neighborhood": "Highland",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -580,13 +732,14 @@
     "start": "20:00:00",
     "venue": "The Echo",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -605,13 +758,14 @@
     "start": "21:30:00",
     "venue": "Blue Note Los Angeles",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -630,13 +784,14 @@
     "start": "21:30:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -655,13 +810,14 @@
     "start": "5pm-11:45pm",
     "venue": "Sid The Cat Auditorium (Pasadena/Los Angeles) indie dance, electropop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -680,13 +836,14 @@
     "start": "6pm",
     "venue": "Whisky A Go Go (Los Angeles) electropop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$23+",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -705,13 +862,14 @@
     "start": "7pm",
     "venue": "The Wiltern (Los Angeles) downtempo, r&b",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$33+",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -730,13 +888,14 @@
     "start": "11pm-3am",
     "venue": "The Spotlight (Los Angeles) progressive house, tech house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$31",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -755,13 +914,14 @@
     "start": "18:00:00",
     "venue": "Foxhole Hollywood",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -784,13 +944,14 @@
     "start": "19:00:00",
     "venue": "The GRAMMY Museum",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -809,13 +970,14 @@
     "start": "19:00:00",
     "venue": "Troubadour",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -834,13 +996,14 @@
     "start": "19:00:00",
     "venue": "The Wiltern",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -859,13 +1022,14 @@
     "start": "19:00:00",
     "venue": "The Echo",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -884,13 +1048,14 @@
     "start": "19:00:00",
     "venue": "The Peppermint Club",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -904,18 +1069,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Kids in the Hall: Brain Candy",
+    "date": "2026-06-18",
+    "start": "19:30",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "88min (1996) SOLD OUT",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/kids-in-the-hall-brain-candy-6-18-26-730-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Jeff Allen",
     "date": "2026-06-18",
     "start": "19:30:00",
     "venue": "Improv Comedy Club-Irvine",
     "neighborhood": "Irvine",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -934,13 +1126,14 @@
     "start": "19:30:00",
     "venue": "Grove of Anaheim",
     "neighborhood": "Anaheim",
-    "lineup": [],
     "category": "comedy",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -959,13 +1152,14 @@
     "start": "19:30:00",
     "venue": "Hamburger Mary's - Long Beach",
     "neighborhood": "Long Beach",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -984,13 +1178,14 @@
     "start": "19:30:00",
     "venue": "The Renberg Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1009,13 +1204,14 @@
     "start": "19:30:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1034,15 +1230,16 @@
     "start": "2026-06-18T18:00:00.000",
     "venue": "TBA - Los Angeles",
     "neighborhood": null,
-    "lineup": [
-      "SHDW"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 102,
     "price": "free w/rsvp",
     "organizers": "6AM Group, Synthetik Minds, Work",
+    "detail": null,
+    "lineup": [
+      "SHDW"
+    ],
     "links": [
       {
         "source": "ra",
@@ -1066,15 +1263,16 @@
     "start": "2026-06-18T20:00:00.000",
     "venue": "8th & Santa Fe",
     "neighborhood": null,
-    "lineup": [
-      "yNOTi"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 15,
     "price": "$5.50-17.25",
     "organizers": "Grace Ktown",
+    "detail": null,
+    "lineup": [
+      "yNOTi"
+    ],
     "links": [
       {
         "source": "ra",
@@ -1098,13 +1296,14 @@
     "start": "2026-06-18T20:00:00.000",
     "venue": "The Roxy",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 6,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -1123,15 +1322,16 @@
     "start": "2026-06-18T20:00:00.000",
     "venue": "Water & Power",
     "neighborhood": null,
-    "lineup": [
-      "hearthealer"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 3,
     "price": null,
     "organizers": "Water & Power",
+    "detail": null,
+    "lineup": [
+      "hearthealer"
+    ],
     "links": [
       {
         "source": "ra",
@@ -1155,16 +1355,17 @@
     "start": "2026-06-18T21:00:00.000",
     "venue": "The Slipper Clutch",
     "neighborhood": null,
-    "lineup": [
-      "Industria Nova",
-      "Damascus Knives"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 13,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Industria Nova",
+      "Damascus Knives"
+    ],
     "links": [
       {
         "source": "ra",
@@ -1183,13 +1384,14 @@
     "start": "2026-06-18T22:00:00.000",
     "venue": "Warwick LA",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 2,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -1208,13 +1410,14 @@
     "start": "2026-06-18T23:00:00.000",
     "venue": "The Lexington",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 0,
     "price": "free w/rsvp b4 1 / $23",
     "organizers": "Blind Tiger",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -1238,13 +1441,14 @@
     "start": "2026-06-18T23:00:00.000",
     "venue": "TBA - Location Link in Bio on Instagram @recollectafters",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 2,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -1263,13 +1467,14 @@
     "start": "20:00:00",
     "venue": "Roxy Theatre-CA",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1288,13 +1493,14 @@
     "start": "20:00:00",
     "venue": "Kia Forum",
     "neighborhood": "Inglewood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1313,13 +1519,14 @@
     "start": "20:30:00",
     "venue": "Acrisure Arena at Greater Palm Springs",
     "neighborhood": "Palm Desert",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1338,13 +1545,14 @@
     "start": "21:00:00",
     "venue": "Pappy and Harriets Pioneertown Palace",
     "neighborhood": "Pioneertown",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1363,13 +1571,14 @@
     "start": "7pm-11:45pm",
     "venue": "Sid The Cat Auditorium (Pasadena/Los Angeles) indie dance, electropop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$41.31",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1388,13 +1597,14 @@
     "start": "7pm-9pm",
     "venue": "Spin (San Diego) producer workshop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free",
     "organizers": "Headroom Collective",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1413,13 +1623,14 @@
     "start": "8pm",
     "venue": "Roxy Theatre Hollywood (Los Angeles) house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "All ages",
     "organizers": "Goldenvoice",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1438,13 +1649,14 @@
     "start": "9pm",
     "venue": "Fonda Theatre (Los Angeles) hyperpop, EDM, emo, shoegaze",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "All ages",
     "organizers": "Goldenvoice",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1463,13 +1675,14 @@
     "start": "9pm-11:59pm",
     "venue": "Rockefellas (Corona) house, bass house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp",
     "organizers": "Afters Hour",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1488,13 +1701,14 @@
     "start": "9pm-12am",
     "venue": "Banana Bay Restaurant (Rowland Heights) dubstep, bass music",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free w/free w/rsvp",
     "organizers": "The Illusion Night",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1513,13 +1727,14 @@
     "start": "9pm-2am",
     "venue": "3Oz Dive Club (San Diego) tech house, deep house, techno",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$5 pre",
     "organizers": "Akela Recs",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1538,13 +1753,14 @@
     "start": "9pm-2am",
     "venue": "The Slipper Clutch (Los Angeles) goth, industrial, EBM, darkwave",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free",
     "organizers": "Los Angeles Industrial",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1563,13 +1779,14 @@
     "start": "10:30pm",
     "venue": "Time Nightclub (Costa Mesa) big room house, electro house, pop EDM",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 11pm / $15",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1588,13 +1805,14 @@
     "start": "10pm",
     "venue": "Los Globos (Los Angeles) tech house, EDM",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "21+",
     "organizers": "EMX",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1613,13 +1831,14 @@
     "start": "10pm",
     "venue": "Academy (Los Angeles) big room, progressive house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "21+",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1638,13 +1857,14 @@
     "start": "10pm-2:30am",
     "venue": "Sound Nightclub (Los Angeles) tech house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$36.26",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1663,13 +1883,14 @@
     "start": "10pm-2am",
     "venue": "Avalon Hollywood (Los Angeles) house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$17 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1688,13 +1909,14 @@
     "start": "10pm-2am",
     "venue": "Kiss Kiss Bang Bang (Los Angeles) disco, house, nu-disco",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp",
     "organizers": "Momentus La",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1713,13 +1935,14 @@
     "start": "10pm-2am",
     "venue": "The Virgil (Los Angeles) hard techno, hardstyle, hard dance",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 11pm / $12-17",
     "organizers": "We Love Kandy Tour",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1738,13 +1961,14 @@
     "start": "10pm-2am",
     "venue": "Nova Sd (San Diego) progressive house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$15",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1763,13 +1987,14 @@
     "start": "10pm-5am",
     "venue": "The Ba11room (San Diego) tech house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 midnight",
     "organizers": "Music Is 4 Lovers",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1788,13 +2013,14 @@
     "start": "11pm-4am",
     "venue": "TBA (San Diego) hard techno",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$20 pre",
     "organizers": "Steppin' Til Checkout",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1813,13 +2039,14 @@
     "start": "11pm-5am",
     "venue": "9Thirty (Los Angeles) hardstyle, hardcore",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$24-48",
     "organizers": "Code Red",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1838,13 +2065,14 @@
     "start": "11pm-5am",
     "venue": "TBA (Los Angeles) techno",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$30 b4 12 / $42",
     "organizers": "6AM Group, Synthetik Minds",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -1858,18 +2086,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Mad Max: Fury Road",
+    "date": "2026-06-19",
+    "start": "16:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "121min (2015)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/mad-max-fury-road-6-19-26-400-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Apocalypse Zombie Land",
     "date": "2026-06-19",
     "start": "16:00:00",
     "venue": "The Queen Mary",
     "neighborhood": "Long Beach",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1883,18 +2138,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "A Weekend with Bill Duke: Deep Cover",
+    "date": "2026-06-19",
+    "start": "19:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "108min (1992)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/a-weekend-with-bill-duke-deep-cover-6-19-26-700-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Neal Francis w/ Parlor Greens",
     "date": "2026-06-19",
     "start": "19:00:00",
     "venue": "Troubadour",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1913,13 +2195,14 @@
     "start": "19:00:00",
     "venue": "The Peppermint Club",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1938,13 +2221,14 @@
     "start": "19:00:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1963,13 +2247,14 @@
     "start": "19:00:00",
     "venue": "The Echo",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -1988,13 +2273,14 @@
     "start": "19:30:00",
     "venue": "The GRAMMY Museum",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -2013,13 +2299,14 @@
     "start": "19:30:00",
     "venue": "Beverly O'Neill - Long Beach Convention and Entertainment Center",
     "neighborhood": "Long Beach",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -2038,13 +2325,14 @@
     "start": "19:30:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -2063,13 +2351,14 @@
     "start": "2026-06-19T15:00:00.000",
     "venue": "The Queen Mary",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 12,
     "price": "$150+",
     "organizers": "insomniac",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -2097,15 +2386,16 @@
     "start": "2026-06-19T16:00:00.000",
     "venue": "TBA -  Select Radio London ",
     "neighborhood": null,
-    "lineup": [
-      "GraceBones"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "GraceBones"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2124,15 +2414,16 @@
     "start": "2026-06-19T17:00:00.000",
     "venue": "Los Angeles State Historic Park",
     "neighborhood": null,
-    "lineup": [
-      "Chris Lake"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 53,
     "price": "18+",
     "organizers": "Goldenvoice, Framework",
+    "detail": null,
+    "lineup": [
+      "Chris Lake"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2156,15 +2447,16 @@
     "start": "2026-06-19T20:00:00.000",
     "venue": "Baby Battista",
     "neighborhood": null,
-    "lineup": [
-      "Pretty Gay Friendly"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 10,
     "price": "free",
     "organizers": "Vpn Radio",
+    "detail": null,
+    "lineup": [
+      "Pretty Gay Friendly"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2188,13 +2480,14 @@
     "start": "2026-06-19T20:00:00.000",
     "venue": "The Redwood Bar And Grill",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -2213,13 +2506,14 @@
     "start": "2026-06-19T20:00:00.000",
     "venue": "The Redwood Bar And Grill",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -2238,15 +2532,16 @@
     "start": "2026-06-19T21:00:00.000",
     "venue": "Bar Franca",
     "neighborhood": null,
-    "lineup": [
-      "Eddie C"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 155,
     "price": "free w/rsvp",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Eddie C"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2270,18 +2565,19 @@
     "start": "2026-06-19T21:00:00.000",
     "venue": "Pacific Electric",
     "neighborhood": null,
-    "lineup": [
-      "Phase Fatale",
-      "Unhuman",
-      "Sharlese",
-      "Remy Marc"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 26,
     "price": "$26 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Phase Fatale",
+      "Unhuman",
+      "Sharlese",
+      "Remy Marc"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2305,15 +2601,16 @@
     "start": "2026-06-19T21:00:00.000",
     "venue": "The Airliner",
     "neighborhood": null,
-    "lineup": [
-      "Juliet Mendoza"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 12,
     "price": "free w/rsvp b4 10pm / $10",
     "organizers": "Yes Yes Ya\u00c6Ll",
+    "detail": null,
+    "lineup": [
+      "Juliet Mendoza"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2337,16 +2634,17 @@
     "start": "2026-06-19T21:00:00.000",
     "venue": "Hello Stranger",
     "neighborhood": null,
-    "lineup": [
-      "wave Groove",
-      "m_boogs"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 8,
     "price": "$10",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "wave Groove",
+      "m_boogs"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2370,13 +2668,14 @@
     "start": "2026-06-19T21:00:00.000",
     "venue": "Catch One",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 4,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -2395,15 +2694,16 @@
     "start": "2026-06-19T21:00:00.000",
     "venue": "Lost and Found",
     "neighborhood": null,
-    "lineup": [
-      "Isimo!"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 5,
     "price": "free",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Isimo!"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2427,13 +2727,14 @@
     "start": "2026-06-19T21:00:00.000",
     "venue": "The Bullet Bar",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 0,
     "price": "$10 pre",
     "organizers": "Hump Events",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -2457,6 +2758,13 @@
     "start": "2026-06-19T21:30:00.000",
     "venue": "TBA",
     "neighborhood": null,
+    "category": "electronic",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": 118,
+    "price": "$22-27.55",
+    "organizers": "Bae Bae",
+    "detail": null,
     "lineup": [
       "Waajeed",
       "Trovarsi",
@@ -2464,12 +2772,6 @@
       "Rivussy",
       "92Jelani"
     ],
-    "category": "electronic",
-    "afterhours": false,
-    "ra_pick": false,
-    "attending": 118,
-    "price": "$22-27.55",
-    "organizers": "Bae Bae",
     "links": [
       {
         "source": "ra",
@@ -2493,6 +2795,13 @@
     "start": "2026-06-19T22:00:00.000",
     "venue": "TBA - DTLA",
     "neighborhood": null,
+    "category": "electronic",
+    "afterhours": true,
+    "ra_pick": false,
+    "attending": 134,
+    "price": "$16.95-36.20",
+    "organizers": "Bbcparty.La, No Prxssure",
+    "detail": null,
     "lineup": [
       "MikeQ",
       "Gbenga",
@@ -2500,12 +2809,6 @@
       "Alxander Ivey",
       "Zuri Adia"
     ],
-    "category": "electronic",
-    "afterhours": true,
-    "ra_pick": false,
-    "attending": 134,
-    "price": "$16.95-36.20",
-    "organizers": "Bbcparty.La, No Prxssure",
     "links": [
       {
         "source": "ra",
@@ -2529,16 +2832,17 @@
     "start": "2026-06-19T22:00:00.000",
     "venue": "The Bridge",
     "neighborhood": null,
-    "lineup": [
-      "Ali Farahani",
-      "Shan Nash"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 115,
     "price": "$28.75-91.95",
     "organizers": "Safra, SET Underground",
+    "detail": null,
+    "lineup": [
+      "Ali Farahani",
+      "Shan Nash"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2562,18 +2866,19 @@
     "start": "2026-06-19T22:00:00.000",
     "venue": "TBA - DTLA",
     "neighborhood": null,
-    "lineup": [
-      "LYDO",
-      "Frankie Teardrop",
-      "Miracles",
-      "J.dB"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": true,
     "attending": 76,
     "price": "$25-35",
     "organizers": "Miracles, Zermisher",
+    "detail": null,
+    "lineup": [
+      "LYDO",
+      "Frankie Teardrop",
+      "Miracles",
+      "J.dB"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2597,13 +2902,14 @@
     "start": "2026-06-19T22:00:00.000",
     "venue": "Exchange LA",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 8,
     "price": "free w/rsvp b4 11pm / $10",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -2627,13 +2933,14 @@
     "start": "2026-06-19T22:00:00.000",
     "venue": "The Roxy",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 1,
     "price": "All ages",
     "organizers": "Goldenvoice",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -2657,13 +2964,14 @@
     "start": "2026-06-19T22:00:00.000",
     "venue": "El Cid",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 0,
     "price": "$7",
     "organizers": "Pauz",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -2687,16 +2995,17 @@
     "start": "2026-06-19T23:00:00.000",
     "venue": "TBA",
     "neighborhood": null,
-    "lineup": [
-      "DJ Minx",
-      "Josh Caff\u00e9"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 657,
     "price": "$47 pre",
     "organizers": "Smd-La",
+    "detail": null,
+    "lineup": [
+      "DJ Minx",
+      "Josh Caff\u00e9"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2720,15 +3029,16 @@
     "start": "2026-06-19T23:00:00.000",
     "venue": "TBA - Los Angeles",
     "neighborhood": null,
-    "lineup": [
-      "SHDW"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 515,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "SHDW"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2747,18 +3057,19 @@
     "start": "2026-06-19T23:00:00.000",
     "venue": "TBA - Los Angeles (Downtown)",
     "neighborhood": null,
-    "lineup": [
-      "Jex Opolis",
-      "Francis Inferno Orchestra",
-      "Dirty Dave",
-      "AIRS"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 65,
     "price": "$17 b4 12 / $23-34.50",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Jex Opolis",
+      "Francis Inferno Orchestra",
+      "Dirty Dave",
+      "AIRS"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2782,13 +3093,14 @@
     "start": "2026-06-19T23:00:00.000",
     "venue": "The Lexington",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 0,
     "price": "free w/rsvp b4 1 / $23",
     "organizers": "Blind Tiger",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -2812,13 +3124,14 @@
     "start": "20:00:00",
     "venue": "Crypto.com Arena",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -2837,13 +3150,14 @@
     "start": "20:00:00",
     "venue": "Yaamava Resort & Casino at San Manuel",
     "neighborhood": "Highland",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -2862,13 +3176,14 @@
     "start": "20:00:00",
     "venue": "El Rey Theatre - Los Angeles",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -2887,13 +3202,14 @@
     "start": "20:00:00",
     "venue": "Roxy Theatre-CA",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -2912,13 +3228,14 @@
     "start": "20:00:00",
     "venue": "Ventura Music Hall",
     "neighborhood": "Ventura",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -2937,13 +3254,14 @@
     "start": "20:00:00",
     "venue": "Libbey Bowl",
     "neighborhood": "Ojai",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -2962,13 +3280,14 @@
     "start": "20:00:00",
     "venue": "Brea Improv",
     "neighborhood": "Brea",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -2987,13 +3306,14 @@
     "start": "20:00:00",
     "venue": "Pechanga Resort Casino",
     "neighborhood": "Temecula",
-    "lineup": [],
     "category": "comedy",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3012,13 +3332,14 @@
     "start": "20:30:00",
     "venue": "The Observatory",
     "neighborhood": "Santa Ana",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3037,26 +3358,48 @@
     "start": "21:00:00",
     "venue": "The Fonda Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
-    "price": "$86-251",
-    "organizers": "Goldenvoice",
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
         "url": "https://www.ticketmaster.com/event/Z7r9jZ1A70v8K"
-      },
-      {
-        "source": "19hz",
-        "url": "https://www.axs.com/events/1418828/jane-remover-2nd-show-added-tickets"
       }
     ],
     "sources": [
-      "19hz",
       "tm"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "D.E.B.S.",
+    "date": "2026-06-19",
+    "start": "21:45",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "91min (2005)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/d-e-b-s-6-19-26-945-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -3067,13 +3410,14 @@
     "start": "4pm-9pm",
     "venue": "Dream Rooftop (Los Angeles) progressive house, tech house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$51",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3092,13 +3436,14 @@
     "start": "5pm-10pm",
     "venue": "Golden Hour at Level 8 (Los Angeles) house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3117,13 +3462,14 @@
     "start": "7:30pm",
     "venue": "Corona Grandstand Stage (San Diego) pop EDM",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$110+",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3142,13 +3488,14 @@
     "start": "7:30pm-11:45pm",
     "venue": "2220 Arts + Archives (Los Angeles) house, beats",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$20",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3167,13 +3514,14 @@
     "start": "7pm-11:45pm",
     "venue": "Sid The Cat Auditorium (Pasadena/Los Angeles) indie dance, electropop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$41",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3192,13 +3540,14 @@
     "start": "9:30pm",
     "venue": "Catch One Underground (Los Angeles) big room house, big room techno, dubstep, pop EDM",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 10:30pm / $14-32",
     "organizers": "Breckenridge",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3217,13 +3566,14 @@
     "start": "9pm",
     "venue": "1720 (Los Angeles) big room hard techno",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$13.68-24.30",
     "organizers": "Wasted",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3246,17 +3596,44 @@
     "start": "9pm",
     "venue": "Eq (San Diego) techno",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 11:30pm",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
         "url": "https://www.facebook.com/events/1694603385005047/"
+      }
+    ],
+    "sources": [
+      "19hz"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "Jane Remover, Dazegxd",
+    "date": "2026-06-19",
+    "start": "9pm",
+    "venue": "Fonda Theatre (Los Angeles) hyperpop, EDM, emo, shoegaze",
+    "neighborhood": null,
+    "category": "electronic",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": "$86-251",
+    "organizers": "Goldenvoice",
+    "detail": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "19hz",
+        "url": "https://www.axs.com/events/1418828/jane-remover-2nd-show-added-tickets"
       }
     ],
     "sources": [
@@ -3271,13 +3648,14 @@
     "start": "9pm",
     "venue": "The Regent (Los Angeles) hip-hop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$28-72",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3296,13 +3674,14 @@
     "start": "9pm-1am",
     "venue": "EOS Lounge (Santa Barbara) tech house, big room techno",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$18 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3321,13 +3700,14 @@
     "start": "9pm-2am",
     "venue": "Bleu Nightclub (Westminster) dubstep, bass music, riddim",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$12-28",
     "organizers": "Keepitil",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3346,13 +3726,14 @@
     "start": "9pm-2am",
     "venue": "The Circle OC (Huntington Beach) afro house, deep house, house, tech house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$5-20",
     "organizers": "True House LA",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3371,13 +3752,14 @@
     "start": "9pm-3am",
     "venue": "Dirt Dog Compound (Los Angeles) psytrance",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 10:30pm / $17-22",
     "organizers": "Subterranean Dwellers",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3396,13 +3778,14 @@
     "start": "9pm-4am",
     "venue": "Spin Nightclub (San Diego) tech house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$23 pre",
     "organizers": "Kino Village Records",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3421,13 +3804,14 @@
     "start": "9pm-6am",
     "venue": "660 S Westlake Ave (Los Angeles) live electronic",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$15-25",
     "organizers": "Club Rickii",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3446,13 +3830,14 @@
     "start": "Fri: 12pm-Mon: 7am",
     "venue": "TBA Mountain Center (Los Angeles) tech house, progressive house, electro, techno",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$290+",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3471,13 +3856,14 @@
     "start": "10am-10pm",
     "venue": "The Hollywood Roosevelt (Los Angeles) house, amapiano, afrobeats, baile funk, bounce, dancehall, hip-hop, jersey club, latin r&b",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$40 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3496,13 +3882,14 @@
     "start": "10pm-2:30am",
     "venue": "Sound Nightclub (Los Angeles) progressive house, afro house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$31 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3521,13 +3908,14 @@
     "start": "10pm-2am",
     "venue": "Vuuka House (Los Angeles) amapiano",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$36-47",
     "organizers": "Enjoyment Worldwide",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3546,13 +3934,14 @@
     "start": "10pm-2am",
     "venue": "Kiss Kiss Bang Bang (Los Angeles) house, disco",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp",
     "organizers": "Stereo Punks",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3571,13 +3960,14 @@
     "start": "10pm-2am",
     "venue": "The Vermont (Hollywood/Los Angeles) techno, deep house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$39.19-49.87",
     "organizers": "Blakcircle",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3596,13 +3986,14 @@
     "start": "10pm-3am",
     "venue": "The Spotlight (Los Angeles) tech house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$24.93",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3621,13 +4012,14 @@
     "start": "10pm-4am",
     "venue": "Rich's (San Diego) tech house, hip-hop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$18",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3646,13 +4038,14 @@
     "start": "10pm-4am",
     "venue": "TBA (San Diego) techno, tech house, trap, dubstep",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$20",
     "organizers": "Peaking Duck Group",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3671,13 +4064,14 @@
     "start": "11:45pm-6am",
     "venue": "TBA (Los Angeles) hard techno, house, pop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$15-20",
     "organizers": "Lickndip",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -3691,18 +4085,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Labyrinth",
+    "date": "2026-06-20",
+    "start": "13:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "102min (1986)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/labyrinth-6-20-26-100-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Godspell",
     "date": "2026-06-20",
     "start": "14:00:00",
     "venue": "Yucaipa Performing Arts Center Indoor Theatre",
     "neighborhood": "Yucaipa",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3721,13 +4142,14 @@
     "start": "15:00:00",
     "venue": "The Observatory",
     "neighborhood": "Santa Ana",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3741,18 +4163,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Second Nature: Gender and Sexuality in the Animal World",
+    "date": "2026-06-20",
+    "start": "16:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "81min (2025)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/second-nature-gender-and-sexuality-in-the-animal-world-6-20-26-415-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Soul Service Vol. 3",
     "date": "2026-06-20",
     "start": "16:00:00",
     "venue": "Farm House Collective",
     "neighborhood": "Riverside",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3771,17 +4220,74 @@
     "start": "16:00:00",
     "venue": "The Queen Mary",
     "neighborhood": "Long Beach",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
         "url": "https://on.fgtix.com/trk/WQXeb"
+      }
+    ],
+    "sources": [
+      "tm"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "Is God Is",
+    "date": "2026-06-20",
+    "start": "16:30",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "99min (2026)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/is-god-is-6-20-26-430-pm/"
+      },
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/is-god-is-6-20-26-730-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "Chris Lake (18 and Over) - Friday",
+    "date": "2026-06-20",
+    "start": "17:00:00",
+    "venue": "Los Angeles State Historic Park",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "tm",
+        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7OyOE"
       }
     ],
     "sources": [
@@ -3796,13 +4302,14 @@
     "start": "18:00:00",
     "venue": "The Midnight Hour",
     "neighborhood": "San Fernando",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3821,13 +4328,14 @@
     "start": "18:00:00",
     "venue": "The Observatory",
     "neighborhood": "Santa Ana",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3846,13 +4354,14 @@
     "start": "18:00:00",
     "venue": "Fred Kavli Theatre- B of A Performing Arts Center,Thousand Oaks",
     "neighborhood": "Thousand Oaks",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3879,13 +4388,14 @@
     "start": "18:00:00",
     "venue": "Scherr Forum- B of A Performing Arts Center, Thousand Oaks",
     "neighborhood": "Thousand Oaks",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3908,13 +4418,14 @@
     "start": "18:30:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3928,18 +4439,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "My Best Friend\u2019s Wedding",
+    "date": "2026-06-20",
+    "start": "19:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/my-best-friends-wedding-6-20-26-700-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Big Watch Party + Drag Shows After: \"Pumped Fridays\" @ Mary's We-Ho",
     "date": "2026-06-20",
     "start": "19:00:00",
     "venue": "Hamburger Mary's - West Hollywood",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3974,13 +4512,14 @@
     "start": "19:00:00",
     "venue": "Troubadour",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -3999,13 +4538,14 @@
     "start": "19:00:00",
     "venue": "Pacific Amphitheatre",
     "neighborhood": "Costa Mesa",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4024,13 +4564,14 @@
     "start": "19:00:00",
     "venue": "The Peppermint Club",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4049,13 +4590,14 @@
     "start": "19:00:00",
     "venue": "The Echo",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4074,13 +4616,14 @@
     "start": "19:00:00",
     "venue": "The Parish at House of Blues Anaheim",
     "neighborhood": "Anaheim",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4099,13 +4642,14 @@
     "start": "19:00:00",
     "venue": "Teragram Ballroom",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4124,13 +4668,14 @@
     "start": "19:00:00",
     "venue": "Pechanga Resort Casino",
     "neighborhood": "Temecula",
-    "lineup": [],
     "category": "comedy",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4153,13 +4698,14 @@
     "start": "19:00:00",
     "venue": "Yucaipa Performing Arts Center Indoor Theatre",
     "neighborhood": "Yucaipa",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4178,13 +4724,14 @@
     "start": "19:30:00",
     "venue": "The Wiltern",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4203,13 +4750,14 @@
     "start": "19:30:00",
     "venue": "Greek Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4228,13 +4776,14 @@
     "start": "19:30:00",
     "venue": "Brea Improv",
     "neighborhood": "Brea",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4257,13 +4806,14 @@
     "start": "19:30:00",
     "venue": "Beverly O'Neill - Long Beach Convention and Entertainment Center",
     "neighborhood": "Long Beach",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4282,13 +4832,14 @@
     "start": "19:30:00",
     "venue": "Comedy Store - Los Angeles",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -4307,13 +4858,14 @@
     "start": "1pm-5pm",
     "venue": "The Broad (Los Angeles) hip-hop, house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free",
     "organizers": "KCRW Music",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -4332,6 +4884,13 @@
     "start": "2026-06-20T11:00:00.000",
     "venue": "Academy LA",
     "neighborhood": null,
+    "category": "electronic",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": 5,
+    "price": null,
+    "organizers": null,
+    "detail": null,
     "lineup": [
       "Ardalan",
       "Blaq PAGES",
@@ -4354,12 +4913,6 @@
       "Todd Edwards",
       "Gasolina"
     ],
-    "category": "electronic",
-    "afterhours": false,
-    "ra_pick": false,
-    "attending": 5,
-    "price": null,
-    "organizers": null,
     "links": [
       {
         "source": "ra",
@@ -4402,13 +4955,14 @@
     "start": "2026-06-20T13:00:00.000",
     "venue": "The Broad",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 4,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -4427,15 +4981,16 @@
     "start": "2026-06-20T15:00:00.000",
     "venue": "IO Music Academy LA",
     "neighborhood": null,
-    "lineup": [
-      "Pilo"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 87,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Pilo"
+    ],
     "links": [
       {
         "source": "ra",
@@ -4458,13 +5013,14 @@
     "start": "2026-06-20T15:00:00.000",
     "venue": "Somewhere Special",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": "free",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -4488,13 +5044,14 @@
     "start": "2026-06-20T15:30:00.000",
     "venue": "TBA",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 67,
     "price": "$44-55",
     "organizers": "Angelm00nn",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -4518,13 +5075,14 @@
     "start": "2026-06-20T16:00:00.000",
     "venue": "TBA - Open Air Garden in East Hollywood",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 1,
     "price": "$33-77 pre",
     "organizers": "Cosmic Ascension",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -4548,13 +5106,14 @@
     "start": "2026-06-20T16:00:00.000",
     "venue": "The Redwood Bar And Grill",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -4573,16 +5132,17 @@
     "start": "2026-06-20T16:00:00.000",
     "venue": "Level 8 DTLA",
     "neighborhood": null,
-    "lineup": [
-      "Aplex",
-      "Electric Field"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Aplex",
+      "Electric Field"
+    ],
     "links": [
       {
         "source": "ra",
@@ -4601,6 +5161,13 @@
     "start": "2026-06-20T17:00:00.000",
     "venue": "The Bridge",
     "neighborhood": null,
+    "category": "electronic",
+    "afterhours": false,
+    "ra_pick": true,
+    "attending": 232,
+    "price": null,
+    "organizers": null,
+    "detail": null,
     "lineup": [
       "Bradley Zero",
       "Masha Mar",
@@ -4611,12 +5178,6 @@
       "Extrachuy",
       "Planet Rolly"
     ],
-    "category": "electronic",
-    "afterhours": false,
-    "ra_pick": true,
-    "attending": 232,
-    "price": null,
-    "organizers": null,
     "links": [
       {
         "source": "ra",
@@ -4635,24 +5196,21 @@
     "start": "2026-06-20T17:00:00.000",
     "venue": "Los Angeles State Historic Park",
     "neighborhood": null,
-    "lineup": [
-      "Chris Lake",
-      "Hot Since 82"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 63,
     "price": "$105+",
     "organizers": "Goldenvoice, Framework",
+    "detail": null,
+    "lineup": [
+      "Chris Lake",
+      "Hot Since 82"
+    ],
     "links": [
       {
         "source": "ra",
         "url": "https://ra.co/events/2367331"
-      },
-      {
-        "source": "tm",
-        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7OyOE"
       },
       {
         "source": "19hz",
@@ -4661,8 +5219,7 @@
     ],
     "sources": [
       "19hz",
-      "ra",
-      "tm"
+      "ra"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -4673,15 +5230,16 @@
     "start": "2026-06-20T19:00:00.000",
     "venue": "The Broken Shaker Los Angeles",
     "neighborhood": null,
-    "lineup": [
-      "No Pressure"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 33,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "No Pressure"
+    ],
     "links": [
       {
         "source": "ra",
@@ -4704,17 +5262,18 @@
     "start": "2026-06-20T19:00:00.000",
     "venue": "Apotheke",
     "neighborhood": null,
-    "lineup": [
-      "Dirtie Blonde",
-      "E-Mood",
-      "Michelle Leshem"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 8,
     "price": "free",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Dirtie Blonde",
+      "E-Mood",
+      "Michelle Leshem"
+    ],
     "links": [
       {
         "source": "ra",
@@ -4738,13 +5297,14 @@
     "start": "2026-06-20T19:00:00.000",
     "venue": "California African American Museum",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -4763,13 +5323,14 @@
     "start": "2026-06-20T20:00:00.000",
     "venue": "Dtla Warehouse Location",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 8,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -4788,15 +5349,16 @@
     "start": "2026-06-20T20:00:00.000",
     "venue": "The Airliner",
     "neighborhood": null,
-    "lineup": [
-      "Lefto Early Bird"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 4,
     "price": "$10",
     "organizers": "The Airliner",
+    "detail": null,
+    "lineup": [
+      "Lefto Early Bird"
+    ],
     "links": [
       {
         "source": "ra",
@@ -4820,13 +5382,14 @@
     "start": "2026-06-20T20:00:00.000",
     "venue": "TBA",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -4849,13 +5412,14 @@
     "start": "2026-06-20T20:00:00.000",
     "venue": "The Redwood Bar And Grill",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -4874,18 +5438,19 @@
     "start": "2026-06-20T21:00:00.000",
     "venue": "TBA - Community Berlin in Los Angeles",
     "neighborhood": null,
-    "lineup": [
-      "Nhii",
-      "Sarkis Mikael",
-      "Treavor Moontribe",
-      "bawab"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 101,
     "price": "$29-35",
     "organizers": "Sound Of Symmetry",
+    "detail": null,
+    "lineup": [
+      "Nhii",
+      "Sarkis Mikael",
+      "Treavor Moontribe",
+      "bawab"
+    ],
     "links": [
       {
         "source": "ra",
@@ -4909,18 +5474,19 @@
     "start": "2026-06-20T21:00:00.000",
     "venue": "TBA",
     "neighborhood": null,
-    "lineup": [
-      "Dazegxd",
-      "DJ Sakee",
-      "Draik Lezbijan",
-      "Ava Blank"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 20,
     "price": "free",
     "organizers": "Palacio Palace",
+    "detail": null,
+    "lineup": [
+      "Dazegxd",
+      "DJ Sakee",
+      "Draik Lezbijan",
+      "Ava Blank"
+    ],
     "links": [
       {
         "source": "ra",
@@ -4944,6 +5510,13 @@
     "start": "2026-06-20T22:00:00.000",
     "venue": "TBA",
     "neighborhood": null,
+    "category": "electronic",
+    "afterhours": true,
+    "ra_pick": true,
+    "attending": 1238,
+    "price": "$35-45",
+    "organizers": "Tunnel, Floorgasm",
+    "detail": null,
     "lineup": [
       "LSDXOXO",
       "Juliana Huxtable",
@@ -4955,12 +5528,6 @@
       "flirty800",
       "Maara"
     ],
-    "category": "electronic",
-    "afterhours": true,
-    "ra_pick": true,
-    "attending": 1238,
-    "price": "$35-45",
-    "organizers": "Tunnel, Floorgasm",
     "links": [
       {
         "source": "ra",
@@ -4992,15 +5559,16 @@
     "start": "2026-06-20T22:00:00.000",
     "venue": "TBA - DTLA",
     "neighborhood": null,
-    "lineup": [
-      "Antal"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": true,
     "attending": 224,
     "price": "$25-50",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Antal"
+    ],
     "links": [
       {
         "source": "ra",
@@ -5024,18 +5592,19 @@
     "start": "2026-06-20T22:00:00.000",
     "venue": "TBA - Downtown Los Angeles",
     "neighborhood": null,
-    "lineup": [
-      "Damon Jee",
-      "PATRICIO",
-      "VILENA",
-      "Heart of Gold"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 66,
     "price": "$20+",
     "organizers": "Sirens",
+    "detail": null,
+    "lineup": [
+      "Damon Jee",
+      "PATRICIO",
+      "VILENA",
+      "Heart of Gold"
+    ],
     "links": [
       {
         "source": "ra",
@@ -5059,13 +5628,14 @@
     "start": "2026-06-20T22:00:00.000",
     "venue": "Academy LA",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 23,
     "price": "$35 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -5089,15 +5659,16 @@
     "start": "2026-06-20T22:00:00.000",
     "venue": "Homage Brewing",
     "neighborhood": null,
-    "lineup": [
-      "Beautiful Swimmers"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 15,
     "price": "$10",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Beautiful Swimmers"
+    ],
     "links": [
       {
         "source": "ra",
@@ -5121,15 +5692,16 @@
     "start": "2026-06-20T22:00:00.000",
     "venue": "Los Globos",
     "neighborhood": null,
-    "lineup": [
-      "baby.com"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 7,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "baby.com"
+    ],
     "links": [
       {
         "source": "ra",
@@ -5148,15 +5720,16 @@
     "start": "2026-06-20T22:00:00.000",
     "venue": "Avalon Hollywood",
     "neighborhood": null,
-    "lineup": [
-      "Aly & Fila"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 4,
     "price": "$29 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Aly & Fila"
+    ],
     "links": [
       {
         "source": "ra",
@@ -5180,13 +5753,14 @@
     "start": "2026-06-20T22:00:00.000",
     "venue": "Kiss Kiss Bang Bang",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 1,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -5205,15 +5779,16 @@
     "start": "2026-06-20T23:00:00.000",
     "venue": "TBA - Los Angeles",
     "neighborhood": null,
-    "lineup": [
-      "Pleasurekraft"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 287,
     "price": "$24 b4 12 / $35-42.50",
     "organizers": "6AM Group, Synthetik Minds, Work",
+    "detail": null,
+    "lineup": [
+      "Pleasurekraft"
+    ],
     "links": [
       {
         "source": "ra",
@@ -5237,13 +5812,14 @@
     "start": "2026-06-20T23:00:00.000",
     "venue": "The Lexington",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 4,
     "price": "free w/rsvp b4 1 / $23",
     "organizers": "Blind Tiger",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -5267,13 +5843,14 @@
     "start": "2026-06-20T23:00:00.000",
     "venue": "The Redwood Bar And Grill",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -5292,17 +5869,18 @@
     "start": "2026-06-20T23:59:00.000",
     "venue": "TBA - Silverlake",
     "neighborhood": null,
-    "lineup": [
-      "Nala",
-      "Richie Panic",
-      "Corey Sizemore"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 83,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Nala",
+      "Richie Panic",
+      "Corey Sizemore"
+    ],
     "links": [
       {
         "source": "ra",
@@ -5321,13 +5899,14 @@
     "start": "20:00:00",
     "venue": "CG's Comedy Club",
     "neighborhood": "Bolingbrook",
-    "lineup": [],
     "category": "comedy",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5346,13 +5925,14 @@
     "start": "20:00:00",
     "venue": "Hollywood Bowl",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5371,13 +5951,14 @@
     "start": "20:00:00",
     "venue": "El Rey Theatre - Los Angeles",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5396,13 +5977,14 @@
     "start": "20:00:00",
     "venue": "Dolby Theatre",
     "neighborhood": "Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5421,13 +6003,14 @@
     "start": "20:00:00",
     "venue": "Grove of Anaheim",
     "neighborhood": "Anaheim",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5446,13 +6029,14 @@
     "start": "20:00:00",
     "venue": "Constellation Room",
     "neighborhood": "Santa Ana",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5471,13 +6055,14 @@
     "start": "20:00:00",
     "venue": "The Bellwether",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5496,13 +6081,14 @@
     "start": "20:00:00",
     "venue": "Kia Forum",
     "neighborhood": "Inglewood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5521,13 +6107,14 @@
     "start": "20:00:00",
     "venue": "Constellation Room",
     "neighborhood": "Santa Ana",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5546,13 +6133,14 @@
     "start": "20:00:00",
     "venue": "Stage Red",
     "neighborhood": "Fontana",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5571,13 +6159,14 @@
     "start": "20:00:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5600,25 +6189,21 @@
     "start": "21:00:00",
     "venue": "The Fonda Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
-    "price": "$139+",
-    "organizers": "Goldenvoice",
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
         "url": "https://www.ticketmaster.com/event/Z7r9jZ1A70v8f"
-      },
-      {
-        "source": "19hz",
-        "url": "https://www.axs.com/events/1423190/jane-remover-3rd-show-added-tickets"
       }
     ],
     "sources": [
-      "19hz",
       "tm"
     ],
     "first_seen": "2026-06-16",
@@ -5630,13 +6215,14 @@
     "start": "21:00:00",
     "venue": "House of Blues Anaheim",
     "neighborhood": "Anaheim",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5655,13 +6241,14 @@
     "start": "21:00:00",
     "venue": "Morongo Casino Resort and Spa",
     "neighborhood": "Cabazon",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5680,13 +6267,14 @@
     "start": "21:00:00",
     "venue": "Morongo Casino Resort and Spa",
     "neighborhood": "Cabazon",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5705,13 +6293,14 @@
     "start": "21:00:00",
     "venue": "Pacific Electric",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5730,13 +6319,14 @@
     "start": "21:00:00",
     "venue": "The Regent Theater",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5750,18 +6340,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Crash",
+    "date": "2026-06-20",
+    "start": "21:30",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "100min (1996) SOLD OUT",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/crash-6-20-26-930-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "The Builders and The Butchers (A valid government-issued photo ID is required for entry, Under 18 must be accompanied by adult at all times)",
     "date": "2026-06-20",
     "start": "21:30:00",
     "venue": "Pappy and Harriets Pioneertown Palace",
     "neighborhood": "Pioneertown",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5780,13 +6397,14 @@
     "start": "21:30:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -5800,18 +6418,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "I Love Boosters",
+    "date": "2026-06-20",
+    "start": "22:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "105min (2026)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/is-god-is-6-20-26-1000-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Creative Sound Design w/ Demotapes",
     "date": "2026-06-20",
     "start": "3pm-6pm",
     "venue": "Io Music Academy (Los Angeles) producer workshop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free",
     "organizers": "Io Music Academy",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -5830,13 +6475,14 @@
     "start": "3pm-9pm",
     "venue": "Spin (San Diego) house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$11.50-15",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -5855,13 +6501,14 @@
     "start": "5pm-3am",
     "venue": "630 S Anderson St (Los Angeles) techno, electro",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$27",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -5880,13 +6527,14 @@
     "start": "7pm-11:45pm",
     "venue": "Sid The Cat Auditorium (Pasadena/Los Angeles) indie dance, electropop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$41",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -5905,13 +6553,14 @@
     "start": "7pm-7am",
     "venue": "TBA (Mojave Desert) house, dubstep, EDM",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$29 pre / $40",
     "organizers": "Bass Blown Ent",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -5930,13 +6579,14 @@
     "start": "8pm-1am",
     "venue": "Majestic Theatre (Ventura) latin club, pop EDM",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$32-73",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -5955,13 +6605,14 @@
     "start": "8pm-2am",
     "venue": "TBA (San Diego) dubstep, bass music",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$29-68",
     "organizers": "Plur Factory, The Sandiego Ravers",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -5980,13 +6631,14 @@
     "start": "8pm-3am",
     "venue": "3431 E Olympic Blvd (Los Angeles) reggae, jungle, dubstep",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$30-50",
     "organizers": "Dub Siren Hifi",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -6005,13 +6657,14 @@
     "start": "9:30pm-3am",
     "venue": "TBA (San Diego) house, techno, dubstep, bass music, breaks",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$15",
     "organizers": "OMENS",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -6030,17 +6683,44 @@
     "start": "9pm",
     "venue": "TBA (San Diego) hardcore, gabber, happy hardcore",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$20 pre / $25",
     "organizers": "Subs At Max",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
         "url": "https://www.instagram.com/p/DZIa5rOGrNw/"
+      }
+    ],
+    "sources": [
+      "19hz"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "Jane Remover, Dazegxd",
+    "date": "2026-06-20",
+    "start": "9pm",
+    "venue": "Fonda Theatre (Los Angeles) hyperpop, EDM, emo, shoegaze",
+    "neighborhood": null,
+    "category": "electronic",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": "$139+",
+    "organizers": "Goldenvoice",
+    "detail": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "19hz",
+        "url": "https://www.axs.com/events/1423190/jane-remover-3rd-show-added-tickets"
       }
     ],
     "sources": [
@@ -6055,13 +6735,14 @@
     "start": "9pm",
     "venue": "Deep End Live (Redondo Beach) deep house, tech house, progressive house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$27-54",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -6080,13 +6761,14 @@
     "start": "9pm",
     "venue": "The Novo (Los Angeles) disco, funk",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$44-55",
     "organizers": "Goldenvoice",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -6105,13 +6787,14 @@
     "start": "9pm-2am",
     "venue": "Eq (San Diego) house, disco, funk",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 10:30pm / $7-15",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -6130,13 +6813,14 @@
     "start": "9pm-2am",
     "venue": "3Oz Dive Club (San Diego) house, electro",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 11pm / $5",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -6155,13 +6839,14 @@
     "start": "11:00:00",
     "venue": "The Biergarten at Old World HB",
     "neighborhood": "Huntington Beach",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6180,13 +6865,14 @@
     "start": "11:00:00",
     "venue": "Fred Kavli Theatre- B of A Performing Arts Center,Thousand Oaks",
     "neighborhood": "Thousand Oaks",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6209,13 +6895,14 @@
     "start": "12pm",
     "venue": "Baja's Grill (Los Angeles) house, disco",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free",
     "organizers": "Green Life Ent",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -6234,13 +6921,14 @@
     "start": "14:00:00",
     "venue": "Pico Rivera Sports Arena",
     "neighborhood": "Pico Rivera",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6259,13 +6947,14 @@
     "start": "14:00:00",
     "venue": "Yucaipa Performing Arts Center Indoor Theatre",
     "neighborhood": "Yucaipa",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6279,18 +6968,71 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "A Weekend with Bill Duke: Predator on 35mm",
+    "date": "2026-06-21",
+    "start": "15:30",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "35MM 107min (1987) SOLD OUT",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/a-weekend-with-bill-duke-predator-6-21-26-330-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "I Love Boosters",
+    "date": "2026-06-21",
+    "start": "16:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "105min (2026)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/is-god-is-6-21-26-400-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Chris Lake (18 and Over) - Saturday",
     "date": "2026-06-21",
     "start": "17:00:00",
     "venue": "Los Angeles State Historic Park",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6309,13 +7051,14 @@
     "start": "17:00:00",
     "venue": "The Belasco",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6334,13 +7077,14 @@
     "start": "18:00:00",
     "venue": "Toyota Arena",
     "neighborhood": "Ontario",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6359,13 +7103,14 @@
     "start": "18:00:00",
     "venue": "Dolby Theatre",
     "neighborhood": "Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6384,13 +7129,14 @@
     "start": "18:00:00",
     "venue": "Scherr Forum- B of A Performing Arts Center, Thousand Oaks",
     "neighborhood": "Thousand Oaks",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6409,13 +7155,14 @@
     "start": "18:30:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6429,18 +7176,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Stand by Me",
+    "date": "2026-06-21",
+    "start": "19:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "89min (1986)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/stand-by-me-6-21-26-700-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Tone 6",
     "date": "2026-06-21",
     "start": "19:00:00",
     "venue": "Copper Blues Oxnard Resturant",
     "neighborhood": "Oxnard",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6459,13 +7233,14 @@
     "start": "19:00:00",
     "venue": "The Biergarten at Old World HB",
     "neighborhood": "Huntington Beach",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6484,13 +7259,14 @@
     "start": "19:00:00",
     "venue": "Yaamava Poolside",
     "neighborhood": "Highland",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6509,13 +7285,14 @@
     "start": "19:00:00",
     "venue": "The Wiltern",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6534,13 +7311,14 @@
     "start": "19:00:00",
     "venue": "The Parish at House of Blues Anaheim",
     "neighborhood": "Anaheim",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6559,13 +7337,14 @@
     "start": "19:00:00",
     "venue": "The Echo",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6584,13 +7363,14 @@
     "start": "19:00:00",
     "venue": "House of Blues Anaheim",
     "neighborhood": "Anaheim",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6609,13 +7389,14 @@
     "start": "19:00:00",
     "venue": "Acrisure Arena at Greater Palm Springs",
     "neighborhood": "Palm Desert",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6634,13 +7415,14 @@
     "start": "19:00:00",
     "venue": "Fox Performing Arts Center",
     "neighborhood": "Riverside",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6659,13 +7441,14 @@
     "start": "19:00:00",
     "venue": "Riverside Municipal Auditorium",
     "neighborhood": "Riverside",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6684,13 +7467,14 @@
     "start": "19:00:00",
     "venue": "Brea Improv",
     "neighborhood": "Brea",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6713,13 +7497,14 @@
     "start": "19:00:00",
     "venue": "Ontario Improv",
     "neighborhood": "Ontario",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6738,13 +7523,14 @@
     "start": "19:00:00",
     "venue": "Libbey Bowl",
     "neighborhood": "Ojai",
-    "lineup": [],
     "category": "comedy",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6763,13 +7549,14 @@
     "start": "19:00:00",
     "venue": "Pechanga Resort Casino",
     "neighborhood": "Temecula",
-    "lineup": [],
     "category": "comedy",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6792,13 +7579,14 @@
     "start": "19:00:00",
     "venue": "Comedy Store - Los Angeles",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6817,13 +7605,14 @@
     "start": "19:00:00",
     "venue": "Yucaipa Performing Arts Center Indoor Theatre",
     "neighborhood": "Yucaipa",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6837,18 +7626,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Is God Is",
+    "date": "2026-06-21",
+    "start": "19:30",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "99min (2026)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/is-god-is-6-21-26-730-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Death Angel",
     "date": "2026-06-21",
     "start": "19:30:00",
     "venue": "Ventura Music Hall",
     "neighborhood": "Ventura",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6867,13 +7683,14 @@
     "start": "19:30:00",
     "venue": "Beverly O'Neill - Long Beach Convention and Entertainment Center",
     "neighborhood": "Long Beach",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -6896,13 +7713,14 @@
     "start": "2026-06-21T13:00:00.000",
     "venue": "The Broad",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 2,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -6921,17 +7739,18 @@
     "start": "2026-06-21T14:00:00.000",
     "venue": "Los Angeles State Historic Park",
     "neighborhood": null,
-    "lineup": [
-      "Cassian",
-      "Kamino",
-      "LUMI"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 6,
     "price": "$37 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Cassian",
+      "Kamino",
+      "LUMI"
+    ],
     "links": [
       {
         "source": "ra",
@@ -6955,16 +7774,17 @@
     "start": "2026-06-21T18:00:00.000",
     "venue": "TBA",
     "neighborhood": null,
-    "lineup": [
-      "Neeko",
-      "Krane"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 75,
     "price": "free b4 7pm / $23-34",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Neeko",
+      "Krane"
+    ],
     "links": [
       {
         "source": "ra",
@@ -6988,15 +7808,16 @@
     "start": "2026-06-21T18:30:00.000",
     "venue": "Los Angeles County Museum of Art",
     "neighborhood": null,
-    "lineup": [
-      "Richie Hawtin"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 47,
     "price": "free w/rsvp",
     "organizers": "6AM Group",
+    "detail": null,
+    "lineup": [
+      "Richie Hawtin"
+    ],
     "links": [
       {
         "source": "ra",
@@ -7020,16 +7841,17 @@
     "start": "2026-06-21T19:00:00.000",
     "venue": "Old Towne Pub",
     "neighborhood": null,
-    "lineup": [
-      "Gustavisimo",
-      "Humongous Frog"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 3,
     "price": "$5",
     "organizers": "La Synth Club",
+    "detail": null,
+    "lineup": [
+      "Gustavisimo",
+      "Humongous Frog"
+    ],
     "links": [
       {
         "source": "ra",
@@ -7053,13 +7875,14 @@
     "start": "2026-06-21T20:00:00.000",
     "venue": "The Redwood Bar And Grill",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -7078,13 +7901,14 @@
     "start": "2026-06-21T21:00:00.000",
     "venue": "General Lee's Cocktail House",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 5,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -7103,13 +7927,14 @@
     "start": "2026-06-21T23:00:00.000",
     "venue": "The Lexington",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 0,
     "price": "free w/rsvp b4 1 / $23",
     "organizers": "Blind Tiger",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -7133,13 +7958,14 @@
     "start": "20:00:00",
     "venue": "CG's Comedy Club",
     "neighborhood": "Bolingbrook",
-    "lineup": [],
     "category": "comedy",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7158,13 +7984,14 @@
     "start": "20:00:00",
     "venue": "The Lido Theater",
     "neighborhood": "Newport Beach",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7183,13 +8010,14 @@
     "start": "20:00:00",
     "venue": "El Rey Theatre - Los Angeles",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7208,13 +8036,14 @@
     "start": "20:00:00",
     "venue": "Saban Theatre",
     "neighborhood": "Beverly Hills",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7233,13 +8062,14 @@
     "start": "20:00:00",
     "venue": "Hollywood Bowl",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7258,13 +8088,14 @@
     "start": "20:00:00",
     "venue": "Kia Forum",
     "neighborhood": "Inglewood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7283,13 +8114,14 @@
     "start": "20:00:00",
     "venue": "Pechanga Resort Casino",
     "neighborhood": "Temecula",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7308,13 +8140,14 @@
     "start": "20:00:00",
     "venue": "Cerritos Center for the Performing Arts",
     "neighborhood": "Cerritos",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7333,13 +8166,14 @@
     "start": "20:00:00",
     "venue": "Yaamava Resort & Casino at San Manuel",
     "neighborhood": "Highland",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7358,13 +8192,14 @@
     "start": "20:00:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7387,13 +8222,14 @@
     "start": "21:00:00",
     "venue": "The Fonda Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7412,13 +8248,14 @@
     "start": "21:30:00",
     "venue": "Pappy and Harriets Pioneertown Palace",
     "neighborhood": "Pioneertown",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7437,13 +8274,14 @@
     "start": "21:30:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7462,13 +8300,14 @@
     "start": "22:00:00",
     "venue": "Copper Blues Oxnard Resturant",
     "neighborhood": "Oxnard",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7487,13 +8326,14 @@
     "start": "22:00:00",
     "venue": "The Regent Theater",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7512,13 +8352,14 @@
     "start": "2pm-8pm",
     "venue": "TBA (Los Angeles) open decks, dubstep, bass music, drum and bass",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free",
     "organizers": "Helipad Society",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -7537,13 +8378,14 @@
     "start": "2pm-9pm",
     "venue": "The Bungalow (Huntington Beach) house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$20+",
     "organizers": "Azure Socal",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -7562,13 +8404,14 @@
     "start": "3pm-10pm",
     "venue": "630 S Anderson Street (Los Angeles) hip-hop, r&b, house, disco, afrobeats",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$15",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -7587,13 +8430,14 @@
     "start": "3pm-9pm",
     "venue": "Spin (San Diego) progressive house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$25",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -7612,13 +8456,14 @@
     "start": "4pm-9pm",
     "venue": "Quartyard (San Diego) house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$19-30",
     "organizers": "Deep End",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -7637,13 +8482,14 @@
     "start": "8pm-12am",
     "venue": "Ventura Music Hall (Ventura) breaks, electro house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$53+",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -7662,13 +8508,14 @@
     "start": "8pm-2am",
     "venue": "Kiku Room (San Diego) dark disco, indie dance, house, techno",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$10 pre / $15",
     "organizers": "Sirens",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -7682,18 +8529,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "I Was Born, But\u2026",
+    "date": "2026-06-22",
+    "start": "13:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/i-was-born-but-6-22-26-100-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Grand Ole Echo",
     "date": "2026-06-22",
     "start": "17:30:00",
     "venue": "The Echo",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7712,13 +8586,14 @@
     "start": "18:30:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7737,13 +8612,14 @@
     "start": "18:30:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7757,18 +8633,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Is God Is",
+    "date": "2026-06-22",
+    "start": "19:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "99min (2026)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/is-god-is-6-22-26-700-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Freddie Gibbs: The Last Rabbit Tour - North America",
     "date": "2026-06-22",
     "start": "19:00:00",
     "venue": "House of Blues Anaheim",
     "neighborhood": "Anaheim",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7782,18 +8685,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Working Girls",
+    "date": "2026-06-22",
+    "start": "19:30",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "93min (1987)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/working-girls-6-22-26-730-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Matteo Bocelli",
     "date": "2026-06-22",
     "start": "19:30:00",
     "venue": "The Ford - CA",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7812,13 +8742,14 @@
     "start": "2026-06-22T13:00:00.000",
     "venue": "Academy LA",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -7837,13 +8768,14 @@
     "start": "20:00:00",
     "venue": "Oxnard Performing Arts Center",
     "neighborhood": "Oxnard",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7862,13 +8794,14 @@
     "start": "20:00:00",
     "venue": "Ventura Music Hall",
     "neighborhood": "Ventura",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7887,13 +8820,14 @@
     "start": "20:00:00",
     "venue": "Yaamava Resort & Casino at San Manuel",
     "neighborhood": "Highland",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7912,13 +8846,14 @@
     "start": "20:00:00",
     "venue": "The Miracle Theater",
     "neighborhood": "Inglewood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7932,18 +8867,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "An American in Paris",
+    "date": "2026-06-23",
+    "start": "13:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/an-american-in-paris-6-23-26-100-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Love Island Watch Party & Taco Tuesday Specials",
     "date": "2026-06-23",
     "start": "16:00:00",
     "venue": "Copper Blues Oxnard Resturant",
     "neighborhood": "Oxnard",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7962,13 +8924,14 @@
     "start": "19:00:00",
     "venue": "The Peppermint Club",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -7987,15 +8950,16 @@
     "start": "2026-06-23T19:00:00.000",
     "venue": "Zizou",
     "neighborhood": null,
-    "lineup": [
-      "Darone Sassounian"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 4,
     "price": "$17",
     "organizers": "In Sheep's Clothing",
+    "detail": null,
+    "lineup": [
+      "Darone Sassounian"
+    ],
     "links": [
       {
         "source": "ra",
@@ -8019,13 +8983,14 @@
     "start": "20:00:00",
     "venue": "Masonic Lodge at Hollywood Forever",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8044,13 +9009,14 @@
     "start": "20:00:00",
     "venue": "Roxy Theatre-CA",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8069,13 +9035,14 @@
     "start": "20:00:00",
     "venue": "The Regent Theater",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8094,13 +9061,14 @@
     "start": "7pm",
     "venue": "Blue Note (Los Angeles) house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$18-66",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -8119,13 +9087,14 @@
     "start": "8pm",
     "venue": "Eq (San Diego) drum and bass, jungle",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free",
     "organizers": "San Dnb",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -8139,18 +9108,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Donnie Darko",
+    "date": "2026-06-24",
+    "start": "14:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "114min (2001)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/donnie-darko-6-24-26-100-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Olive Jones",
     "date": "2026-06-24",
     "start": "18:30:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8164,18 +9160,45 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Is God Is",
+    "date": "2026-06-24",
+    "start": "19:00",
+    "venue": "Vidiots",
+    "neighborhood": "Eagle Rock",
+    "category": "film",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": "99min (2026)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "filmbot",
+        "url": "https://vidiotsfoundation.org/showtimes/is-god-is-6-24-26-700-pm/"
+      }
+    ],
+    "sources": [
+      "filmbot"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Audrey Hobert: The Staircase To Stardom Tour",
     "date": "2026-06-24",
     "start": "19:00:00",
     "venue": "The Wiltern",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8194,13 +9217,14 @@
     "start": "19:00:00",
     "venue": "The Echo",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8219,17 +9243,44 @@
     "start": "19:00:00",
     "venue": "The Peppermint Club",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
         "url": "https://www.ticketmaster.com/oranj-goodman-los-angeles-california-06-23-2026/event/090064A6D63F7C51"
+      }
+    ],
+    "sources": [
+      "tm"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "Mamma Mia! (Touring)",
+    "date": "2026-06-24",
+    "start": "19:30:00",
+    "venue": "Ahmanson Theatre",
+    "neighborhood": "Los Angeles",
+    "category": "theater",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "tm",
+        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7bk4w"
       }
     ],
     "sources": [
@@ -8244,26 +9295,22 @@
     "start": "2026-06-24T19:30:00.000",
     "venue": "Ahmanson Theatre",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 4,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
         "url": "https://ra.co/events/2320217"
-      },
-      {
-        "source": "tm",
-        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7bk4w"
       }
     ],
     "sources": [
-      "ra",
-      "tm"
+      "ra"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -8274,13 +9321,14 @@
     "start": "2026-06-24T21:00:00.000",
     "venue": "El Cid",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": "$26",
     "organizers": "Pretty But Wicked",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -8304,13 +9352,14 @@
     "start": "20:00:00",
     "venue": "Masonic Lodge at Hollywood Forever",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8329,13 +9378,14 @@
     "start": "20:00:00",
     "venue": "Yaamava Resort & Casino at San Manuel",
     "neighborhood": "Highland",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8354,13 +9404,14 @@
     "start": "20:00:00",
     "venue": "Comedy Store - Los Angeles",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8379,13 +9430,14 @@
     "start": "7pm",
     "venue": "Music Box (San Diego) trance, techno, classical",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$33 pre",
     "organizers": "Belly Up",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -8404,13 +9456,14 @@
     "start": "7pm",
     "venue": "Blue Note (Los Angeles) house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$18-66",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -8429,13 +9482,14 @@
     "start": null,
     "venue": "Farm House Collective",
     "neighborhood": "Riverside",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8454,13 +9508,14 @@
     "start": "10pm-2am",
     "venue": "Sound Nightclub (Los Angeles) progressive house, tech house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$25 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -8479,13 +9534,14 @@
     "start": "18:30:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8504,13 +9560,14 @@
     "start": "19:00:00",
     "venue": "The Wiltern",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8529,13 +9586,14 @@
     "start": "19:00:00",
     "venue": "The Echo",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8554,13 +9612,14 @@
     "start": "19:30:00",
     "venue": "The GRAMMY Museum",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8579,13 +9638,14 @@
     "start": "19:30:00",
     "venue": "Greek Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8604,13 +9664,14 @@
     "start": "19:30:00",
     "venue": "Kia Forum",
     "neighborhood": "Inglewood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8629,13 +9690,14 @@
     "start": "19:30:00",
     "venue": "Hamburger Mary's - Long Beach",
     "neighborhood": "Long Beach",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8654,13 +9716,14 @@
     "start": "19:30:00",
     "venue": "Dorothy Chandler Pavilion",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8679,13 +9742,14 @@
     "start": "19:30:00",
     "venue": "Ahmanson Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8704,13 +9768,14 @@
     "start": "19:30:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8733,16 +9798,17 @@
     "start": "2026-06-25T11:00:00.000",
     "venue": "Bar Franca",
     "neighborhood": null,
-    "lineup": [
-      "Jackson Englund",
-      "NEKTER"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 1,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Jackson Englund",
+      "NEKTER"
+    ],
     "links": [
       {
         "source": "ra",
@@ -8761,13 +9827,14 @@
     "start": "2026-06-25T18:00:00.000",
     "venue": "Hotel Ziggy",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 9,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -8790,18 +9857,19 @@
     "start": "2026-06-25T21:00:00.000",
     "venue": "Better Tomorrow",
     "neighborhood": null,
-    "lineup": [
-      "Etari",
-      "fun2bjane",
-      "Naomi Green",
-      "Capes"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 4,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Etari",
+      "fun2bjane",
+      "Naomi Green",
+      "Capes"
+    ],
     "links": [
       {
         "source": "ra",
@@ -8820,15 +9888,16 @@
     "start": "2026-06-25T21:00:00.000",
     "venue": "The Virgil",
     "neighborhood": null,
-    "lineup": [
-      "Modern Lover"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 21,
     "price": "free w/rsvp b4 10:30pm / $10",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Modern Lover"
+    ],
     "links": [
       {
         "source": "ra",
@@ -8852,13 +9921,14 @@
     "start": "2026-06-25T21:00:00.000",
     "venue": "Warwick LA",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 6,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -8877,15 +9947,16 @@
     "start": "2026-06-25T22:00:00.000",
     "venue": "Fonda Theatre",
     "neighborhood": null,
-    "lineup": [
-      "Aaron Hibell"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 29,
     "price": "18+",
     "organizers": "Goldenvoice",
+    "detail": null,
+    "lineup": [
+      "Aaron Hibell"
+    ],
     "links": [
       {
         "source": "ra",
@@ -8909,13 +9980,14 @@
     "start": "20:00:00",
     "venue": "Roxy Theatre-CA",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8934,13 +10006,14 @@
     "start": "20:00:00",
     "venue": "The Bellwether",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8959,13 +10032,14 @@
     "start": "20:00:00",
     "venue": "Hollywood Palladium",
     "neighborhood": "Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -8984,13 +10058,14 @@
     "start": "20:00:00",
     "venue": "Yaamava Resort & Casino at San Manuel",
     "neighborhood": "Highland",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9009,13 +10084,14 @@
     "start": "20:00:00",
     "venue": "El Rey Theatre - Los Angeles",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9034,13 +10110,14 @@
     "start": "20:30:00",
     "venue": "The Miracle Theater",
     "neighborhood": "Inglewood",
-    "lineup": [],
     "category": "comedy",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9059,13 +10136,14 @@
     "start": "21:30:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9084,13 +10162,14 @@
     "start": "6pm-9pm",
     "venue": "3Oz Dive Club (San Diego) open decks, producer workshop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$25",
     "organizers": "Afternoon Umbrella Friends, Debosh",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -9109,13 +10188,14 @@
     "start": "9pm-12am",
     "venue": "Banana Bay Restaurant (Rowland Heights) tech house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "free w/free w/rsvp",
     "organizers": "The Illusion Night",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -9134,13 +10214,14 @@
     "start": "9pm-2am",
     "venue": "3Oz Dive Club (San Diego) house, electro",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 11pm / $5",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -9159,13 +10240,14 @@
     "start": "10pm",
     "venue": "Academy (Los Angeles) dubstep, bass music",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 11pm / $10",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -9184,13 +10266,14 @@
     "start": "10pm-1:30am",
     "venue": "Nova Sd (San Diego) tech house, afro house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 11pm / $10",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -9209,13 +10292,14 @@
     "start": "10pm-1:30am",
     "venue": "Time Nightclub (Costa Mesa) trap, hip-hop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$45",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -9234,13 +10318,14 @@
     "start": "10pm-2:30am",
     "venue": "Sound Nightclub (Los Angeles) tech house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$31",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -9259,13 +10344,14 @@
     "start": "10pm-3am",
     "venue": "The Spotlight (Los Angeles) house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$25 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -9284,13 +10370,14 @@
     "start": "10pm-3am",
     "venue": "Eq (San Diego) house, pop EDM",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$27-39",
     "organizers": "FNGRS CRSSD",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -9309,13 +10396,14 @@
     "start": "17:30:00",
     "venue": "Hollywood Palladium",
     "neighborhood": "Hollywood",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9334,13 +10422,14 @@
     "start": "19:00:00",
     "venue": "The Echo",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9359,13 +10448,14 @@
     "start": "19:00:00",
     "venue": "The Wiltern",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "comedy",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9384,13 +10474,14 @@
     "start": "19:30:00",
     "venue": "Crypto.com Arena",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9409,13 +10500,14 @@
     "start": "19:30:00",
     "venue": "The GRAMMY Museum",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9434,13 +10526,14 @@
     "start": "19:30:00",
     "venue": "Grove of Anaheim",
     "neighborhood": "Anaheim",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9459,13 +10552,14 @@
     "start": "19:30:00",
     "venue": "Beverly O'Neill - Long Beach Convention and Entertainment Center",
     "neighborhood": "Long Beach",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9484,13 +10578,14 @@
     "start": "19:30:00",
     "venue": "Dorothy Chandler Pavilion",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9509,13 +10604,14 @@
     "start": "19:30:00",
     "venue": "Ahmanson Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9534,13 +10630,14 @@
     "start": "19:30:00",
     "venue": "The Regent Theater",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9559,13 +10656,14 @@
     "start": "19:30:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -9584,15 +10682,16 @@
     "start": "2026-06-26T17:00:00.000",
     "venue": "Level 8 DTLA",
     "neighborhood": null,
-    "lineup": [
-      "Casmalia"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": "free",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Casmalia"
+    ],
     "links": [
       {
         "source": "ra",
@@ -9616,13 +10715,14 @@
     "start": "2026-06-26T17:30:00.000",
     "venue": "TBA",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 2,
     "price": "$25",
     "organizers": "A New House, Zova",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -9646,13 +10746,14 @@
     "start": "2026-06-26T18:00:00.000",
     "venue": "ASU Fidm Museum",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 1,
     "price": "free",
     "organizers": "KCRW Music",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -9676,6 +10777,13 @@
     "start": "2026-06-26T19:00:00.000",
     "venue": "Psst Studio",
     "neighborhood": null,
+    "category": "electronic",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": 1,
+    "price": null,
+    "organizers": null,
+    "detail": null,
     "lineup": [
       "Mr Palomar",
       "Miss Frizzle",
@@ -9683,12 +10791,6 @@
       "Blackpaw",
       "Trax Unit"
     ],
-    "category": "electronic",
-    "afterhours": false,
-    "ra_pick": false,
-    "attending": 1,
-    "price": null,
-    "organizers": null,
     "links": [
       {
         "source": "ra",
@@ -9707,13 +10809,14 @@
     "start": "2026-06-26T20:00:00.000",
     "venue": "The Room",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 2,
     "price": "free w/rsvp b4 11pm / $23",
     "organizers": "Blindtiger.La",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -9737,17 +10840,18 @@
     "start": "2026-06-26T20:00:00.000",
     "venue": "Baby Battista",
     "neighborhood": null,
-    "lineup": [
-      "mad gavs",
-      "promwitch",
-      "SUPPA"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 1,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "mad gavs",
+      "promwitch",
+      "SUPPA"
+    ],
     "links": [
       {
         "source": "ra",
@@ -9766,15 +10870,16 @@
     "start": "2026-06-26T21:00:00.000",
     "venue": "Bar Franca",
     "neighborhood": null,
-    "lineup": [
-      "JKriv"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 92,
     "price": "free",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "JKriv"
+    ],
     "links": [
       {
         "source": "ra",
@@ -9798,16 +10903,17 @@
     "start": "2026-06-26T21:00:00.000",
     "venue": "The Monty Bar",
     "neighborhood": null,
-    "lineup": [
-      "Hector Moralez",
-      "J-Dub"
-    ],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 43,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Hector Moralez",
+      "J-Dub"
+    ],
     "links": [
       {
         "source": "ra",
@@ -9826,13 +10932,14 @@
     "start": "2026-06-26T21:00:00.000",
     "venue": "Catch One",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 1,
     "price": "free w/rsvp b4 10:30pm / $14-32",
     "organizers": "Pauz",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -9856,13 +10963,14 @@
     "start": "2026-06-26T21:00:00.000",
     "venue": "The Slipper Clutch",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": 0,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -9881,15 +10989,16 @@
     "start": "2026-06-26T22:00:00.000",
     "venue": "TBA - Downtown LA",
     "neighborhood": null,
-    "lineup": [
-      "Yaeji"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 517,
     "price": "$22.20-46.50",
     "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Yaeji"
+    ],
     "links": [
       {
         "source": "ra",
@@ -9913,16 +11022,17 @@
     "start": "2026-06-26T22:00:00.000",
     "venue": "TBA - Downtown",
     "neighborhood": null,
-    "lineup": [
-      "Enayet",
-      "K Wata"
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 115,
     "price": "$16.50-33.05",
     "organizers": "Slink, Canary Sound Werk",
+    "detail": null,
+    "lineup": [
+      "Enayet",
+      "K Wata"
+    ],
     "links": [
       {
         "source": "ra",
@@ -9946,6 +11056,13 @@
     "start": "2026-06-26T22:00:00.000",
     "venue": "TBA - Arts District",
     "neighborhood": null,
+    "category": "electronic",
+    "afterhours": true,
+    "ra_pick": false,
+    "attending": 81,
+    "price": "$20.15-36.90",
+    "organizers": "Marble, Melt Collective",
+    "detail": null,
     "lineup": [
       "Halo Varga",
       "Dylan Payne",
@@ -9954,12 +11071,6 @@
       "Krane",
       "Highkin'"
     ],
-    "category": "electronic",
-    "afterhours": true,
-    "ra_pick": false,
-    "attending": 81,
-    "price": "$20.15-36.90",
-    "organizers": "Marble, Melt Collective",
     "links": [
       {
         "source": "ra",
@@ -9983,13 +11094,14 @@
     "start": "2026-06-26T22:00:00.000",
     "venue": "Exchange LA",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": 10,
     "price": "$45-95",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "ra",
@@ -10013,6 +11125,13 @@
     "start": "2026-06-26T23:00:00.000",
     "venue": "TBA - DTLA",
     "neighborhood": null,
+    "category": "electronic",
+    "afterhours": true,
+    "ra_pick": false,
+    "attending": 188,
+    "price": "$11.15 b4 12 / $17-33.40",
+    "organizers": null,
+    "detail": null,
     "lineup": [
       "Bambii",
       "Jubilee",
@@ -10020,12 +11139,6 @@
       "Spi\u00f1orita",
       "Cquestt"
     ],
-    "category": "electronic",
-    "afterhours": true,
-    "ra_pick": false,
-    "attending": 188,
-    "price": "$11.15 b4 12 / $17-33.40",
-    "organizers": null,
     "links": [
       {
         "source": "ra",
@@ -10049,17 +11162,18 @@
     "start": "2026-06-26T23:00:00.000",
     "venue": "TBA",
     "neighborhood": null,
-    "lineup": [
-      "Stacey Pullen",
-      "BAE BAE",
-      "nish."
-    ],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": true,
     "attending": 123,
     "price": "$27 b4 12 / $32",
     "organizers": "Dirty Epic, Incognito",
+    "detail": null,
+    "lineup": [
+      "Stacey Pullen",
+      "BAE BAE",
+      "nish."
+    ],
     "links": [
       {
         "source": "ra",
@@ -10083,13 +11197,14 @@
     "start": "20:00:00",
     "venue": "Ventura Music Hall",
     "neighborhood": "Ventura",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -10108,13 +11223,14 @@
     "start": "20:00:00",
     "venue": "The Peppermint Club",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -10133,13 +11249,14 @@
     "start": "20:00:00",
     "venue": "Pechanga Resort Casino",
     "neighborhood": "Temecula",
-    "lineup": [],
     "category": "comedy",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -10158,13 +11275,14 @@
     "start": "20:00:00",
     "venue": "Hamburger Mary's - West Hollywood",
     "neighborhood": "West Hollywood",
-    "lineup": [],
     "category": "theater",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -10183,13 +11301,14 @@
     "start": "21:00:00",
     "venue": "The Fonda Theatre",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -10208,13 +11327,14 @@
     "start": "21:30:00",
     "venue": "The Moroccan Lounge",
     "neighborhood": "Los Angeles",
-    "lineup": [],
     "category": "music",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": null,
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "tm",
@@ -10233,13 +11353,14 @@
     "start": "4am-12pm",
     "venue": "TBA (DTLA/Los Angeles) EDM, house, hip-hop",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free w/rsvp b4 530 / $12-20",
     "organizers": "Under_groundla, Kariwood",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10258,13 +11379,14 @@
     "start": "5pm-2am",
     "venue": "The Compound By Dirt Dog (Commerce) tech house, latin house, techno, EDM",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$25-65",
     "organizers": "Sinners Club",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10283,13 +11405,14 @@
     "start": "6pm",
     "venue": "TBA (San Diego) indie dance, dark disco, house",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$15",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10308,13 +11431,14 @@
     "start": "7:30pm",
     "venue": "Coaxial (Los Angeles) live electronic, beats, noise",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$12 pre",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10333,13 +11457,14 @@
     "start": "7:30pm-12am",
     "venue": "The Observatory North Park (San Diego) house, hip-hop, leftfield, future beats",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$27 pre",
     "organizers": "Observatory North Park",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10358,13 +11483,14 @@
     "start": "7pm",
     "venue": "11003 Sports Arena Dr (Pico Rivera) multigenre EDM",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$53+",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10383,13 +11509,14 @@
     "start": "7pm-2am",
     "venue": "3Oz Dive Club (San Diego) hip-hop, electro",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$29+",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10408,13 +11535,14 @@
     "start": "8pm-1am",
     "venue": "Don Quixote (Los Angeles) trap, future bass",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$27 pre",
     "organizers": "Brownies & Lemonade",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10433,13 +11561,14 @@
     "start": "8pm-2am",
     "venue": "Breakpoint Pb (San Diego) uk garage",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$15 pre",
     "organizers": "Sounds Good Collective",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10458,13 +11587,14 @@
     "start": "9pm",
     "venue": "Spin Nightclub (San Diego) trance",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
     "price": "$15+",
     "organizers": "Intricacy",
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10483,13 +11613,14 @@
     "start": "9pm-2am",
     "venue": "The Slipper Clutch (Los Angeles) house, hip-hop, cumbia, rock",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "free",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",
@@ -10508,13 +11639,14 @@
     "start": "9pm-3am",
     "venue": "Monty Bar (Los Angeles) jackin hose, deep house, uk garage",
     "neighborhood": null,
-    "lineup": [],
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
     "attending": null,
     "price": "$15",
     "organizers": null,
+    "detail": null,
+    "lineup": [],
     "links": [
       {
         "source": "19hz",

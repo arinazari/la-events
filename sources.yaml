@@ -175,14 +175,16 @@ sources:
 
   - name: Vidiots (Eagle Rock)
     category: film
-    method: scrape
-    url: https://vidiotsfoundation.org/coming-soon/
+    method: api
+    url: https://vidiotsfoundation.org/wp-json/nj/v1/showtime
     priority: 1
-    status: flaky
+    status: active
     notes: >
-      Showtimes load via the Filmbot widget (JS) — no JSON-LD in static HTML (verified 2026-06-16).
-      Needs the Filmbot API/embed endpoint or a headless render. Rep cinema is a high taste category,
-      so this is worth a dedicated fetcher when the JS-render helper lands.
+      Filmbot/Nightjar cinema (theater_id 249). The /coming-soon page is JS-rendered, but the
+      widget is backed by a clean REST API: /wp-json/nj/v1/showtime/listings (films) +
+      /showtime?per_page=100 (individual screenings w/ _datetime, _sold_out, series, ticket link).
+      scripts/fetch_filmbot.py --site https://vidiotsfoundation.org. Verified 2026-06-16: ~20
+      films / ~28 showtimes /2wk with runtime/year/sold-out. Generalizes to ANY nj/v1 cinema.
 
   - name: Brain Dead Studios
     category: film
@@ -196,16 +198,23 @@ sources:
     method: scrape
     url: https://www.americancinematheque.com/now-showing/
     priority: 1
-    status: active
-    notes: Los Feliz 3 is walkable-ish from Silver Lake.
+    status: flaky
+    notes: >
+      No wp-json / no nj/v1 API exposed (verified 2026-06-16) — different stack, JS-rendered.
+      Needs a true headless render or an undiscovered feed. Los Feliz 3 is walkable-ish from
+      Silver Lake, so worth revisiting. High taste category.
 
   - name: New Beverly Cinema
     category: film
     method: scrape
     url: https://thenewbev.com/schedule/
     priority: 2
-    status: active
-    notes: 35mm always; monthly calendar drops sell fast — flag on-sale dates.
+    status: flaky
+    notes: >
+      WordPress but schedule is powered by Veezi (Vista ticketing) and rendered client-side —
+      no showtime post type in wp/v2, no static listings (verified 2026-06-16). Veezi has a
+      web-service API but it's per-cinema token-gated (not public). Needs that token or a
+      headless render. 35mm always; monthly calendar drops sell fast — flag on-sale dates.
 
   - name: Vista Theater
     category: film
