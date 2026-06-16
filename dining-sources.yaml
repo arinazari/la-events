@@ -1,0 +1,126 @@
+# LA Dining — Source Registry
+# ---------------------------------------------------------------------------
+# Sibling of sources.yaml (events). Same schema, dining-specific vocab.
+#
+# Schema per source:
+#   name:      display name
+#   category:  editorial | guide | reservations | popup | general
+#   method:    api | jsonld | scrape | rss | manual
+#   url:       endpoint or page (or IG handle for manual)
+#   priority:  1 (always fetch) .. 3 (only on category/occasion-specific requests)
+#   status:    active | candidate | manual | flaky | dead
+#   notes:     anything operationally useful
+#
+# last_discovery: updated whenever Discover mode runs
+#
+# Operating principle: editorial/guide sources are SIGNALS that surface and rank
+# restaurants; reservation sources answer "what's hot" (hot-lists) and "can I get
+# in" (availability — checked only for shortlisted candidates, never bulk-scraped).
+# Never scrape Instagram; IG-only operators are method: manual.
+# ---------------------------------------------------------------------------
+
+last_discovery: null
+
+sources:
+
+  # ── Editorial: critics & trending (the backbone of "what to consider") ────
+  - name: Eater LA
+    category: editorial
+    method: rss
+    url: https://la.eater.com/rss/index.xml
+    priority: 1
+    status: active
+    notes: >
+      RSS for new posts; also web-fetch the Heatmaps directly —
+      la.eater.com/maps (Hottest New Restaurants, Where to Eat Right Now) and
+      neighborhood/cuisine guides. Strongest signal for new openings + trending.
+
+  - name: The Infatuation — Los Angeles
+    category: editorial
+    method: scrape
+    url: https://www.theinfatuation.com/los-angeles
+    priority: 1
+    status: active
+    notes: >
+      Best New Restaurants, the Hit List, and occasion/neighborhood guides
+      (date night, dinner with parents, etc.). Great for occasion-based queries.
+
+  - name: LA Times — Food
+    category: editorial
+    method: scrape
+    url: https://www.latimes.com/food
+    priority: 1
+    status: active
+    notes: >
+      Bill Addison reviews + the 101 Best Restaurants list
+      (latimes.com/projects/best-restaurants-la-101). Possible paywall friction —
+      degrade gracefully. Badge entries as "(LAT 101)".
+
+  # ── Guide: prestige / special-occasion ───────────────────────────────────
+  - name: Michelin Guide — Los Angeles
+    category: guide
+    method: scrape
+    url: https://guide.michelin.com/us/en/california/us-los_angeles/restaurants
+    priority: 2
+    status: active
+    notes: >
+      Stars, Bib Gourmand (great value), and Green stars (sustainability). Use
+      for "somewhere special" occasions. Badge as "(★)", "(Bib Gourmand)".
+
+  # ── Reservations: hot-lists + availability ───────────────────────────────
+  - name: Resy — Los Angeles
+    category: reservations
+    method: scrape
+    url: https://resy.com/cities/la
+    priority: 1
+    status: active
+    notes: >
+      Hit List (curated buzzy spots) is a trending signal; Notify/availability
+      answers "can I get in." Skews harder-to-get eastside/independent — on-profile.
+      Check availability only for shortlisted candidates with a concrete date/time;
+      never bulk-scrape. No clean public API — web-fetch public pages politely.
+
+  - name: OpenTable — Los Angeles
+    category: reservations
+    method: scrape
+    url: https://www.opentable.com/los-angeles-restaurants
+    priority: 2
+    status: active
+    notes: >
+      Trending lists, "available now," and broad availability (larger/older/
+      Westside rooms, last-minute tables). Public affiliate API effectively dead —
+      web-fetch browse/trending pages. Availability checks per-candidate only.
+
+  # ── Manual-capture (IG / SMS — never scraped) ────────────────────────────
+  - name: Popup & food-truck IG/SMS lists
+    category: popup
+    method: manual
+    url: (rolling — add handles as discovered)
+    priority: 1
+    status: manual
+    notes: >
+      Popups and trucks are date/location-bound and often IG-only. Capture path:
+      screenshot flyer/story -> /la-dining capture, or join the operator's email/SMS
+      list. Discover mode should keep proposing new operator handles. Preserve
+      "location drops day-of" exactly.
+
+  # ── Candidates queue (vet in Discover mode) ──────────────────────────────
+  - name: Tock (LA)
+    category: reservations
+    method: scrape
+    url: https://www.exploretock.com/city/los-angeles
+    priority: 3
+    status: candidate
+    notes: >
+      Reservation platform skewed toward tasting menus, ticketed dinners, and
+      popups — useful for "special occasion" and popup booking. Vet on first run.
+
+  - name: Eater LA — Heatmap (direct)
+    category: editorial
+    method: scrape
+    url: https://la.eater.com/maps
+    priority: 2
+    status: candidate
+    notes: >
+      Direct heatmap index (the RSS feed may not foreground map updates). Vet
+      whether to fetch alongside the RSS entry or fold into it.
