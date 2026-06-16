@@ -51,7 +51,9 @@ the header shows a **SAMPLE DATA** badge so demo data is never mistaken for the 
 - Plus: hide-past toggle, sort by date or rating, and a Reset.
 
 Each card's **"why?"** link expands the per-event scoring breakdown, so a rating is never
-a black box.
+a black box. **"＋ Calendar"** downloads a standard `.ics` for that event (start/end,
+venue, lineup, ticket link) — generated entirely client-side, opens in Apple/Google/
+Outlook calendars. Times are written as floating local time (correct for LA).
 
 ## Keeping it fresh
 
@@ -62,9 +64,16 @@ routine (or run manually):
 python scripts/build_dashboard.py && git add dashboard/data.json
 ```
 
-## Hosting (optional)
+## Hosting on GitHub Pages
 
-It's static, so GitHub Pages works: serve the repo (or the `dashboard/` folder) and the
-page loads `./data.json` relative to itself. A web manifest + service worker make it
-installable and openable offline on a phone — i.e. it doubles as a lightweight PWA, which
-is the Phase 3 frontend in `ROADMAP.md`.
+`.github/workflows/deploy-dashboard.yml` publishes the `dashboard/` folder to Pages on
+every push to `main` that touches it (and via manual "Run workflow"). One-time setup:
+
+> **Settings → Pages → Build and deployment → Source: GitHub Actions**
+
+After that, the site is served with `dashboard/` as its root, so it loads `./data.json`
+relative to itself — no path changes needed. A web manifest + service worker make it
+installable and openable offline on a phone, so it doubles as the lightweight PWA that is
+the Phase 3 frontend in `ROADMAP.md`.
+
+Locally you don't need any of this — just `python -m http.server` as above.

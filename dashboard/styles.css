@@ -280,6 +280,20 @@ header.site {
 }
 .ticket-link:hover { border-color: var(--accent); color: #fff; }
 
+.cal-link {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(75, 225, 196, 0.4);
+  color: var(--accent-3);
+  background: var(--bg);
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+.cal-link:hover { border-color: var(--accent-3); color: #fff; background: rgba(75, 225, 196, 0.12); }
+
 .reasons {
   display: none;
   background: var(--bg);

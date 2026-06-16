@@ -236,18 +236,110 @@ function card(ev) {
   reasonsBox.append(ul);
   c.append(reasonsBox);
 
-  // tickets
+  // actions: ticket links + add-to-calendar
   const links = ev.tickets && ev.tickets.length ? ev.tickets
     : (ev.url ? [{ source: "Tickets", url: ev.url }] : []);
-  if (links.length) {
-    const t = el("div", { className: "tickets" });
-    for (const l of links) {
-      t.append(el("a", { className: "ticket-link", href: l.url, target: "_blank", rel: "noopener", textContent: l.source || "Tickets" }));
-    }
-    c.append(t);
+  const actions = el("div", { className: "tickets" });
+  for (const l of links) {
+    actions.append(el("a", { className: "ticket-link", href: l.url, target: "_blank", rel: "noopener", textContent: l.source || "Tickets" }));
   }
+  const cal = el("button", { className: "cal-link", title: "Download .ics", textContent: "＋ Calendar" });
+  cal.onclick = () => downloadICS(ev);
+  actions.append(cal);
+  c.append(actions);
 
   return c;
+}
+
+/* ── Add-to-calendar (.ics) ─────────────────────────────── */
+const pad = (n) => String(n).padStart(2, "0");
+
+function icsEscape(s) {
+  return String(s || "")
+    .replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+    .replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+}
+
+function foldLine(line) {
+  // RFC 5545: fold lines longer than 75 octets with CRLF + a leading space.
+  if (line.length <= 75) return line;
+  let out = line.slice(0, 75), rest = line.slice(75);
+  while (rest.length > 74) { out += "\r\n " + rest.slice(0, 74); rest = rest.slice(74); }
+  return out + "\r\n " + rest;
+}
+
+function localStamp(isoDate, time) {
+  // floating local time: YYYYMMDDTHHMMSS (no Z) — calendar apps read it as local
+  const [y, m, d] = isoDate.split("-").map(Number);
+  let hh = 19, mm = 0;
+  if (time && /^\d{1,2}:\d{2}/.test(time)) { const [h, mn] = time.split(":").map(Number); hh = h; mm = mn; }
+  return `${y}${pad(m)}${pad(d)}T${pad(hh)}${pad(mm)}00`;
+}
+
+function addHoursLocal(isoDate, time, hours) {
+  const [y, m, d] = isoDate.split("-").map(Number);
+  let hh = 19, mm = 0;
+  if (time && /^\d{1,2}:\d{2}/.test(time)) { const [h, mn] = time.split(":").map(Number); hh = h; mm = mn; }
+  const dt = new Date(y, m - 1, d, hh + hours, mm);
+  return `${dt.getFullYear()}${pad(dt.getMonth() + 1)}${pad(dt.getDate())}T${pad(dt.getHours())}${pad(dt.getMinutes())}00`;
+}
+
+function nextDay(isoDate) {
+  const [y, m, d] = isoDate.split("-").map(Number);
+  const dt = new Date(y, m - 1, d + 1);
+  return `${dt.getFullYear()}-${pad(dt.getMonth() + 1)}-${pad(dt.getDate())}`;
+}
+
+function buildICS(ev) {
+  const now = new Date();
+  const stamp = `${now.getUTCFullYear()}${pad(now.getUTCMonth() + 1)}${pad(now.getUTCDate())}`
+    + `T${pad(now.getUTCHours())}${pad(now.getUTCMinutes())}${pad(now.getUTCSeconds())}Z`;
+  const uid = `${ev.id || Math.random().toString(36).slice(2)}@la-events`;
+  const loc = [ev.venue, ev.neighborhood].filter(Boolean).join(", ");
+  const url = (ev.tickets && ev.tickets[0] && ev.tickets[0].url) || ev.url || "";
+
+  const desc = [];
+  if (ev.genre) desc.push(ev.genre);
+  if (ev.lineup && ev.lineup.length) desc.push("Lineup: " + ev.lineup.join(", "));
+  if (ev.description) desc.push(ev.description);
+  if (ev.rating) desc.push(`Recommended for you: ${ev.rating}/5`);
+  if (url) desc.push(url);
+
+  const lines = [
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//la-events//dashboard//EN",
+    "CALSCALE:GREGORIAN", "BEGIN:VEVENT", `UID:${uid}`, `DTSTAMP:${stamp}`,
+  ];
+
+  if (ev.iso_date && ev.start_time) {
+    lines.push(`DTSTART:${localStamp(ev.iso_date, ev.start_time)}`);
+    let end;
+    if (ev.end_time) {
+      end = localStamp(ev.iso_date, ev.end_time);
+      if (end <= localStamp(ev.iso_date, ev.start_time)) end = localStamp(nextDay(ev.iso_date), ev.end_time);
+    } else {
+      end = addHoursLocal(ev.iso_date, ev.start_time, 3);
+    }
+    lines.push(`DTEND:${end}`);
+  } else if (ev.iso_date) {
+    lines.push(`DTSTART;VALUE=DATE:${ev.iso_date.replace(/-/g, "")}`);
+    lines.push(`DTEND;VALUE=DATE:${nextDay(ev.iso_date).replace(/-/g, "")}`);
+  }
+
+  lines.push(`SUMMARY:${icsEscape(ev.title || "Event")}`);
+  if (loc) lines.push(`LOCATION:${icsEscape(loc)}`);
+  if (desc.length) lines.push(`DESCRIPTION:${icsEscape(desc.join("\n"))}`);
+  if (url) lines.push(`URL:${icsEscape(url)}`);
+  lines.push("END:VEVENT", "END:VCALENDAR");
+  return lines.map(foldLine).join("\r\n");
+}
+
+function downloadICS(ev) {
+  const blob = new Blob([buildICS(ev)], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const name = (ev.title || "event").replace(/[^\w\- ]+/g, "").trim().slice(0, 60) || "event";
+  const a = el("a", { href: url, download: `${name}.ics` });
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 function priceLabel(ev) {
