@@ -15,6 +15,15 @@
 #              and harvest every restaurant named as a signal — these curated lists
 #              are the primary signal, not just standalone deep reviews.
 #
+# FETCH REALITY (verified 2026-06-16): some sources bot-block a direct page fetch
+# in the cloud env. They are NOT dead — their content is reachable via a
+# domain-scoped web search. Fallback rule: if a harvest URL won't fetch, run a
+# web search restricted to that domain (allowed_domains) for the current
+# "best/new/hot/where to eat" roundups and harvest the named restaurants from the
+# results. Don't mark a source flaky just because the page blocks fetching.
+#   fetch:  ok            -> direct WebFetch works
+#           search_only   -> direct fetch bot-blocked; use domain-scoped web search
+#
 # last_discovery: updated whenever Discover mode runs
 #
 # Operating principle: editorial/guide sources are SIGNALS that surface and rank
@@ -37,6 +46,7 @@ sources:
     notes: >
       RSS catches new posts, but the real signal is the roundup articles — scan
       the front page + Heatmap index every run. Strongest source for new openings.
+    fetch: search_only      # direct fetch + RSS bot-blocked (verified 6/16) — use domain-scoped search
     harvest:
       - https://la.eater.com/                # front page — current roundups/listicles
       - https://la.eater.com/maps            # Heatmaps: Hottest New, Where to Eat Right Now
@@ -51,6 +61,7 @@ sources:
       Best New Restaurants, the Hit List, and occasion/neighborhood guides
       (date night, dinner with parents, etc.). Great for occasion-based queries.
       The guides index is the goldmine — scan it for current roundups every run.
+    fetch: ok               # direct fetch works cleanly (verified 6/16) — the harvest workhorse
     harvest:
       - https://www.theinfatuation.com/los-angeles          # front page
       - https://www.theinfatuation.com/los-angeles/guides   # guides index: Hit List, Best New, occasion
@@ -65,6 +76,7 @@ sources:
       Bill Addison reviews, the 101 Best Restaurants list, and front-page "best
       new / where to eat" roundups. Possible paywall friction — degrade gracefully.
       Badge entries as "(LAT 101)".
+    fetch: search_only      # direct fetch bot-blocked/paywalled (verified 6/16) — use domain-scoped search
     harvest:
       - https://www.latimes.com/food                              # front page — roundups + reviews
       - https://www.latimes.com/projects/best-restaurants-la-101   # 101 Best Restaurants
@@ -80,6 +92,7 @@ sources:
       Stars, Bib Gourmand (great value), and Green stars (sustainability). Use
       for "somewhere special" occasions. Badge as "(★)", "(Bib Gourmand)". Also
       scan the editorial "Magazine" articles for new-addition / where-to-eat roundups.
+    fetch: search_only      # direct fetch 403s (verified 6/16) — use domain-scoped search
     harvest:
       - https://guide.michelin.com/us/en/california/us-los_angeles/restaurants  # LA listing: stars/bib
       - https://guide.michelin.com/us/en/article                                # Michelin editorial roundups
@@ -97,9 +110,10 @@ sources:
       in Step 1. (2) AVAILABILITY: Notify/booking answers "can I get in" — checked
       only for shortlisted candidates with a concrete date/time, never bulk-scraped.
       No clean public API — web-fetch public pages politely.
+    fetch: ok               # blog.resy.com front page fetches clean (verified 6/16); /category/ path 404s
     harvest:
       - https://resy.com/cities/la           # Resy Hit List (curated buzzy spots)
-      - https://blog.resy.com/category/los-angeles/   # "Right This Way" LA roundups/reviews
+      - https://blog.resy.com/                # "Right This Way" — LA roundups/reviews (front page)
 
   - name: OpenTable — Los Angeles
     category: reservations
@@ -112,6 +126,7 @@ sources:
       hot" lists + blog — harvest in Step 1. (2) AVAILABILITY: broad coverage of
       larger/older/Westside rooms + last-minute tables, checked per-candidate only.
       Public affiliate API effectively dead — web-fetch browse/list pages.
+    fetch: search_only      # direct fetch 503s (verified 6/16) — use domain-scoped search
     harvest:
       - https://www.opentable.com/los-angeles-restaurants   # trending / curated LA lists
       - https://www.opentable.com/blog/                     # OpenTable editorial roundups
