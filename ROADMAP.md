@@ -4,8 +4,8 @@ Current phase: **1 → 2 transition** (skill + specs built, repo scaffolded, not
 
 ## Phase 1 — Skill + manual runs  ✅ built / ⬜ validated
 - [x] SKILL.md (digest / discover / flyer / sources modes)
-- [x] Source registry seeded (34 sources)
-- [x] TM + RA fetchers written
+- [x] Source registry seeded (40 sources)
+- [x] Fetchers written: TM, RA, 19hz, Goldenvoice, Filmbot, Eventbrite, Posh, generic JSON-LD
 - [ ] First live digest run (validates fetchers, RA AREA_ID, output format)
 - [ ] TM_API_KEY obtained and set in cloud environment
 - [ ] Gmail "Events" label created; first promoter lists joined (6AM, Dirty Epic first)
@@ -16,7 +16,11 @@ Current phase: **1 → 2 transition** (skill + specs built, repo scaffolded, not
       "by hand" each run; the orchestrator makes it deterministic and cheap, with
       Claude only doing the synthesis/writing step on top.)
 - [ ] Dedupe module with fuzzy matching + a small test set of known-duplicate events
-- [ ] DICE fetcher (JSON-LD) and generic JSON-LD venue fetcher driven by sources.yaml
+      (currently inline in the by-hand merge — extract + test it)
+- [x] Generic JSON-LD venue fetcher (`fetch_jsonld.py`) — built; few LA targets serve
+      static JSON-LD (most are JS-rendered), so prefer per-source API fetchers.
+- [ ] DICE fetcher — needs crawl-then-parse of /event detail pages or headless render
+- [ ] Standardize all fetchers on America/Los_Angeles for window math (RA/TM use UTC today())
 - [ ] SMS ingestion live: stand up the Twilio receiver → `data/inbox.jsonl`; digest run
       consumes unprocessed lines (parse text / MMS flyer, dedupe, mark processed). Spec in
       `sms-ingestion.md` — reuses flyer-capture logic, depends on nothing else.
@@ -27,6 +31,18 @@ Current phase: **1 → 2 transition** (skill + specs built, repo scaffolded, not
 - [ ] Scheduled Routine live: daily run maintains the rolling per-weekend digest set
       (`digests/weekends/`, ~4 months out) + catalog on a long-lived `claude/digests` branch
 - [ ] Delivery: digest lands somewhere Ari actually looks (see Decision 3)
+
+### Sources brought online (2026-06-16)
+- Live: Ticketmaster, RA, 19hz, Goldenvoice (AEG blob feed), Vidiots (Filmbot API),
+  Eventbrite (curated organizers, with auto-harvest mechanism), Posh (authed tRPC explore).
+- Posh auth: `POSH_TOKEN` env var = session JWT, ~30-day life. Re-capture when it 401s
+  (events.fetchMarketplaceEvents request → x-jwt-token). Durable refresh flow = future work.
+- Future source work:
+  - [ ] Twilio textblast intake (NEXT) — SMS promoter blasts → catalog + organizer harvest
+  - [ ] Posh — durable token refresh (avoid 30-day manual re-capture)
+  - [ ] Eventbrite — retry open browse if the AWS WAF CAPTCHA lifts / via headless
+  - [ ] Rep cinema holdouts: New Bev (Veezi token), American Cinematheque (no public API)
+  - [ ] Eastside comedy (Largo / Dynasty Typewriter / UCB) via per-site APIs (Filmbot playbook)
 
 ## Phase 3 — Personalization + frontend
 - [ ] Feedback loop: reactions appended to taste.yaml `feedback`, periodically folded

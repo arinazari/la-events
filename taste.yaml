@@ -1,40 +1,157 @@
 # Taste profile — the ranking config. Edit freely; the digest re-reads this every run.
 # Weights: events accumulate points from category/genre/context matches; digest sorts by score.
+#
+# Curated as an electronic head: the spine is house / techno / tech-house across the spectrum —
+# from rooftop-vinyl-groove and proper European club nights (the north star) all the way to
+# mainstream festival/big-room headliners (Chris Lake, FISHER, etc. ARE priority, not noise).
+# North star archetype: "Sunset Sessions at Golden Hour DTLA" — chill rooftop, vinyl, house,
+# European feel. But don't let "tasteful" exclude the big fun mainstream sets.
 
 categories:
   high:    # weight +3 each match
-    - house / techno / acid / breakbeat / electro DJ events
+    - house / techno / tech-house / acid / electro / minimal / melodic — DJ sets of all sizes
+    - mainstream & festival-scale house / tech-house headliners (Chris Lake, FISHER, John Summit,
+      Dom Dolla, Gorgon City, etc.) — big-room fun counts, not just the underground
+    - fabric-London-style proper club nights / European-leaning dance lineups
+    - rooftop / sunset / daytime open-air house, disco, Balearic, groove sets
+    - vinyl-only / all-vinyl / listening-bar DJ sets
     - warehouse and afterhours parties (incl. location-TBA)
-    - rep & arthouse cinema (Vidiots, Brain Dead, Cinematheque, New Bev, Vista)
-    - standup comedy
+    - melodic/organic/afro house + progressive (Anjuna/Innervisions/Keinemusik/Afterlife orbit)
+    - rep & arthouse cinema (Vidiots, Vista, Brain Dead, Cinematheque, New Bev)
   medium:  # weight +2
-    - live bands (post-punk, electronic-adjacent, experimental)
-    - theater (Pantages-scale and black-box)
+    - live electronic / electronic-adjacent acts (Rüfüs Du Sol, ODESZA, Bonobo, Jamie xx tier)
+    - small rock / indie band shows at clubs (Troubadour, Echo, Zebulon, Moroccan, Lodge Room,
+      Teragram) — post-punk, indie, garage, dream-pop, experimental, krautrock-y
+    - daytime & lifestyle — flea / vintage / design markets (Rose Bowl Flea, Melrose Trading
+      Post), farmers markets (esp. Silver Lake/eastside), food & drink pop-ups, brand activations
+      / block parties / spritz-type parties, neighborhood street fairs
+    - record fairs, listening bars, food events with a music angle
     - craft beer events / brewery takeovers / festivals
-    - record fairs, listening bar events
-    - food events with a music angle
+    - theater (Pantages-scale and black-box)
   low:     # weight +1, include only if exceptional
-    - stadium pop
-    - mainstream EDM festival brands
-    - museum/gallery openings (skip ongoing exhibitions unless closing soon)
+    - standup comedy — NOT generally wanted; only known/favorite names (see comedians_loved)
+    - stadium pop, museum/gallery openings (skip ongoing exhibitions unless closing soon)
 
-boosts:    # +1 each
+boosts:    # +1 each (stack)
+  - rooftop / open-air / sunset / golden-hour setting
+  - vinyl-only or "all night long" / open-to-close single-DJ sets
+  - European vibe/feel — UK/EU DJs, labels (fabric, Rush Hour, Running Back, Defected, Hot Creations,
+    Innervisions, Keinemusik) / Balearic-disco
+  - groove / soulful / deep / dub / disco-leaning house
+  - lineup artist in artists_tracked (also gets a "tracked" badge; effectively +2 via the list)
   - walkable or short drive from Silver Lake (Hyperion & Del Mar)
   - Friday or Saturday night
-  - independent editorial mention (LAist, Time Out, 6AM, Dirty Epic, etc.) — +1 per source
+  - independent editorial mention (LAist, Time Out, DiscoverLA, 6AM, Dirty Epic) — +1 per source
   - RA pick flag
-  - early-bird ticket tier still available
-  - lineup artist matches known listening orbit
+  - early-bird ticket tier still available / on-sale or selling fast
 
-penalties: # -2 each
-  - Vegas-style bottle-service clubs
-  - 18+ EDM mega-raves
+penalties: # -2 each (the expanded non-priority list)
+  - Vegas-style bottle-service / table-service clubs (Hakkasan/Marquee energy)
+  - generic Top-40 / open-format / hip-hop "club night" with no real DJ billing
+  - hardstyle / gabber / happy-hardcore / hard-dance as the main draw (not the lane)
+  - dubstep / riddim / bass-music mega-shows, brostep
+  - 18+ EDM mega-raves built on production over selection
+  - tribute / cover bands, "[decade] night" nostalgia club nights
+  - sports-bar watch parties, trivia, open-mics, networking mixers, webinars
+    (World Cup etc. belongs in "Around town," not the picks)
+  - country, Christian, kids/family programming
+  - far-flung (Temecula / Anaheim / OC / SD / Ventura / SF) unless genuinely worth the trip
   - Coachella-tier logistics without Coachella-tier payoff
 
-artists_tracked: []   # add names; matches get +2 and a "tracked artist" badge
-venues_loved: [Zebulon, Vidiots, Lodge Room, 2220 Arts]   # +1
-venues_banned: []
+# Tracked artists — match in a lineup => +2 and a "tracked" badge. Curated across the spectrum;
+# grow this as you react. (Underground/European → mainstream tech-house → techno → live.)
+artists_tracked:
+  # rooftop/vinyl/groove/disco + European house (the core lane)
+  - Bradley Zero
+  - Antal
+  - Hunee
+  - Palms Trax
+  - Young Marco
+  - DJ Harvey
+  - Gerd Janson
+  - Motor City Drum Ensemble
+  - Folamour
+  - Moodymann
+  - Theo Parrish
+  - Kerri Chandler
+  - Ron Trent
+  - Honey Dijon
+  - Jayda G
+  - Peggy Gou
+  - Eddie C
+  - Todd Terje
+  - Lindstrom
+  - Prins Thomas
+  - Call Super
+  - DJ Seinfeld
+  - Saoirse
+  - Job Jobse
+  - Folamour
+  - DJ Python
+  - Anthony Naples
+  - Yaeji
+  # melodic / progressive / afro / Innervisions-Keinemusik-Afterlife
+  - Dixon
+  - Ame
+  - Tale of Us
+  - Solomun
+  - Black Coffee
+  - Keinemusik
+  - "&ME"
+  - Adam Port
+  - Rampa
+  - Lane 8
+  - Yotto
+  - Bonobo
+  - Four Tet
+  - Floating Points
+  - Bicep
+  - Overmono
+  - Caribou
+  - Jamie xx
+  # mainstream / festival tech-house & house (priority too)
+  - Chris Lake
+  - FISHER
+  - John Summit
+  - Dom Dolla
+  - Gorgon City
+  - CamelPhat
+  - Chris Lorenzo
+  - Mau P
+  - Cloonee
+  - Vintage Culture
+  - Hot Since 82
+  - Jamie Jones
+  - Patrick Topping
+  - Michael Bibi
+  - Seth Troxler
+  - Disclosure
+  - Rufus Du Sol
+  # techno (the refined/European end)
+  - Charlotte de Witte
+  - Amelie Lens
+  - Adam Beyer
+  - Richie Hawtin
+  - Nina Kraviz
+  - Marco Carola
+  - DJ Minx
+  - Stacey Pullen
+  - Waajeed
+  - Robert Hood
+
+comedians_loved: [Stavros Halkias]   # the comedy exception — these get surfaced; others don't
+venues_loved: [Zebulon, Vidiots, Vista, Lodge Room, 2220 Arts, El Cid, Golden Hour at Level 8]   # +1
+# Named-favorite series to PIN in the digest whenever on (surface even if score is modest):
+pinned_series: ["Sunset Sessions"]   # the rooftop-vinyl-house north star @ Level 8 DTLA
 
 # Feedback log — append reactions here ("more like X", "never show Y");
 # periodically fold them into the weights above.
-feedback: []
+feedback:
+  - "2026-06-16: north star = Sunset Sessions / rooftop vinyl house w/ European feel."
+  - "2026-06-16: techno + house both mainstream and underground (fabric-London energy)."
+  - "2026-06-16: not a comedy fan generally; surface known names only (loves Stavros Halkias)."
+  - "2026-06-16: curious about Vidiots (never been); add Vista to rep-cinema rotation."
+  - "2026-06-16: ALWAYS surface Sunset Sessions @ Level 8 (the named archetype) when it's on."
+  - "2026-06-16: festival radar should be compact + urgency-driven, not a curated list dump."
+  - "2026-06-16: mainstream big-room headliners (Chris Lake et al.) ARE priority too — don't
+     down-rank them as 'mainstream EDM'. Curate like an electronic head; want MORE/additional recs."

@@ -37,6 +37,8 @@ sources.yaml                        # events source registry — schema in file 
 dining-sources.yaml                 # dining source registry — schema in file header
 taste.yaml                          # events ranking config — user-editable, re-read each run
 dining-taste.yaml                   # food-taste config — minimal, learns from reactions
+festivals.yaml                      # "on the radar" curated festivals/big-shows + live lookups
+recurring.yaml                      # predictable recurring markets/fleas/farmers markets
 sms-ingestion.md                    # Twilio SMS/MMS → catalog spec (manual-capture automation)
 scripts/fetch_ticketmaster.py       # needs TM_API_KEY env var
 scripts/fetch_ra.py                 # unofficial GraphQL; verify AREA_ID once (see header)
@@ -70,6 +72,12 @@ dashboard/                          # static PWA-lite catalog view; feed via scr
   *why*. Not an exhaustive dump — taste.yaml decides what's worth surfacing.
 - Source registry changes from Discover mode are **proposals** — present them, get
   approval, then commit. Exception: marking sources flaky/dead is automatic.
+- **Eventbrite = curated organizers** (open browse is WAF-CAPTCHA'd, search API retired).
+  Coverage lives in the Eventbrite source's `organizers:` list in sources.yaml and must keep
+  growing: `fetch_eventbrite.py --harvest <event_url>` when a blast/flyer carries an EB link,
+  and `--scan-catalog` each Discover pass. Harvest adds only the event's *own* organizer (from
+  JSON-LD), never recommended/related ones (auto-adding an event's organizer is allowed; it's a
+  precise, high-confidence signal, not a Discover-style proposal).
 
 ## Working style
 

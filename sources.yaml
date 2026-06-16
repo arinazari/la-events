@@ -4,7 +4,8 @@
 #   name:      display name
 #   category:  electronic | live_music | comedy | film | theater | editorial |
 #              general | beer_food | multi
-#   method:    api | graphql | jsonld | scrape | rss | ics | gmail | manual
+#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | rss | ics | gmail | manual
+#              (webfetch = read at digest time via the WebFetch tool; for bot-walled/JS pages)
 #   url:       endpoint or calendar page (or IG handle for manual)
 #   priority:  1 (always fetch) .. 3 (only on category-specific requests)
 #   status:    active | candidate | manual | flaky | dead
@@ -13,7 +14,7 @@
 # last_discovery: updated whenever Discover mode runs
 # ---------------------------------------------------------------------------
 
-last_discovery: null
+last_discovery: 2026-06-16
 
 sources:
 
@@ -38,15 +39,29 @@ sources:
       Unofficial GraphQL. scripts/fetch_ra.py. Verify AREA_ID once (see script header).
       Late start times = afterhours flags. Catches most semi-public warehouse events.
 
+  - name: 19hz (LA)
+    category: electronic
+    method: scrape
+    url: https://19hz.info/eventlisting_LosAngeles.php
+    priority: 1
+    status: active
+    notes: >
+      Canonical grassroots LA dance calendar (clubs, warehouses, festivals). HTML tables,
+      no JSON-LD. scripts/fetch_19hz.py. Verified 2026-06-16: ~200 events/2wk, ~half flagged
+      afterhours, with price tiers (incl. early-bird) and organizer/promoter names — the
+      organizer column is a goldmine for Discover mode. Best single electronic source.
+
   - name: DICE (LA)
     category: electronic
     method: jsonld
     url: https://dice.fm/browse/los-angeles
     priority: 1
-    status: active
+    status: flaky
     notes: >
-      No public API. Event pages embed schema.org JSON-LD. Heavy eastside/indie-club
-      coverage; overlaps RA — dedupe expected.
+      Browse page is JS-rendered — no schema.org/Event in static HTML (verified 2026-06-16,
+      generic JSON-LD scraper returns 0). Event JSON-LD may live on individual /event/ detail
+      pages; needs a crawl-then-parse step or a headless render. Heavy eastside/indie overlap
+      with RA when it works.
 
   - name: Gmail "Events" label
     category: multi
@@ -97,6 +112,28 @@ sources:
     status: active
     notes: Possible paywall friction; degrade gracefully.
 
+  - name: Eater LA
+    category: editorial
+    method: webfetch
+    url: https://la.eater.com/
+    priority: 1
+    status: active
+    notes: >
+      THE source for food & drink pop-ups, restaurant openings, and brand activations (e.g. a
+      Campari spritz block party). Read via WebFetch at digest time; extract the on-taste daytime/
+      lifestyle happenings (markets, spritz parties, pop-ups, openings worth knowing). Signal +
+      catalog when no structured source has it.
+
+  - name: UncoverLA
+    category: editorial
+    method: webfetch
+    url: https://uncoverla.com/los-angeles-news/openings/pop-ups/
+    priority: 2
+    status: active
+    notes: >
+      Retail/lifestyle pop-ups & brand activations across LA. WebFetch at digest time for the
+      special-promo / block-party / pop-up layer that ticketed sources miss.
+
   - name: 6AM Group — weekly LA picks
     category: electronic
     method: scrape
@@ -124,19 +161,45 @@ sources:
   # ── Tier 3: venues & promoters (JSON-LD / scrape) ────────────────────────
   - name: Goldenvoice
     category: live_music
-    method: scrape
-    url: https://www.goldenvoice.com/events/
+    method: api
+    url: https://aegwebprod.blob.core.windows.net/json/events/19/events.json
     priority: 1
     status: active
-    notes: AXS venues (Fonda, El Rey, Shrine, Novo...). AXS has no public API; scrape GV directly.
+    notes: >
+      AEG/AXS venues (Fonda, El Rey, The Roxy, The Novo, Shrine, Greek, Belasco). The /shows page
+      is client-rendered, but events hydrate from a public Azure-blob JSON feed (site_id 19) — no
+      bot wall. scripts/fetch_goldenvoice.py. Feed is statewide (Bay Area / SD / SB included); the
+      fetcher filters to LA-metro venue cities. Rich fields: headliners/support, price low/high,
+      on-sale + presale dates, age, tz-aware datetimes. Verified 2026-06-16 (~30 LA shows/2wk).
+      Many LA shows also appear via TM API — dedupe expected.
 
-  - name: Eventbrite (LA browse)
+  - name: Eventbrite (curated organizers)
     category: multi
-    method: jsonld
-    url: https://www.eventbrite.com/d/ca--los-angeles/events/
+    method: eventbrite
+    url: https://www.eventbrite.com/
     priority: 2
     status: active
-    notes: Public event-search API was retired; use browse pages + JSON-LD. High noise — filter hard.
+    organizers:
+      - https://www.eventbrite.com/o/the-illusion-night-35936566313   # The Illusion Night
+      - https://www.eventbrite.com/o/momentus-la-11979041397   # Momentus LA
+      - https://www.eventbrite.com/o/set-underground-29866861729   # SET UNDERGROUND
+      - https://www.eventbrite.com/o/level-8-dtla-72910363773   # Level 8, DTLA
+      - https://www.eventbrite.com/o/blakcircle-108339115091   # Blakcircle
+      - https://www.eventbrite.com/o/afrobeats-takeover-17508767406   # AFROBEATS TAKEOVER
+      - https://www.eventbrite.com/o/we-love-kandy-tour-11369190113   # hard techno / rave promoter
+    notes: >
+      Open browse (/d/...) is behind an AWS WAF CAPTCHA — not scrapeable; public search API is
+      retired. WORKAROUND (verified 2026-06-16): individual event + organizer pages are NOT walled
+      and embed schema.org Event JSON-LD. scripts/fetch_eventbrite.py crawls the curated `organizers`
+      list above (organizer page -> event links -> event JSON-LD) and also takes one-off --event URLs
+      for flyer/link capture.
+      KEEP THIS LIST GROWING (the coverage mechanism):
+        - from a text blast / flyer link:  fetch_eventbrite.py --harvest <event_url>
+        - opportunistically from the catalog (19hz/RA carry EB ticket links):
+              fetch_eventbrite.py --scan-catalog   (run every Discover pass)
+      Both extract the event's *own* organizer from JSON-LD and append it here, deduped.
+      FUTURE: retry open browse discovery if the AWS WAF CAPTCHA is ever lifted, or via a
+      headless/authed path — would replace the need to hand-curate organizers.
 
   - name: Hollywood Pantages / Broadway in Hollywood
     category: theater
@@ -155,10 +218,16 @@ sources:
 
   - name: Vidiots (Eagle Rock)
     category: film
-    method: jsonld
-    url: https://vidiotsfoundation.org/coming-soon/
+    method: api
+    url: https://vidiotsfoundation.org/wp-json/nj/v1/showtime
     priority: 1
     status: active
+    notes: >
+      Filmbot/Nightjar cinema (theater_id 249). The /coming-soon page is JS-rendered, but the
+      widget is backed by a clean REST API: /wp-json/nj/v1/showtime/listings (films) +
+      /showtime?per_page=100 (individual screenings w/ _datetime, _sold_out, series, ticket link).
+      scripts/fetch_filmbot.py --site https://vidiotsfoundation.org. Verified 2026-06-16: ~20
+      films / ~28 showtimes /2wk with runtime/year/sold-out. Generalizes to ANY nj/v1 cinema.
 
   - name: Brain Dead Studios
     category: film
@@ -172,23 +241,36 @@ sources:
     method: scrape
     url: https://www.americancinematheque.com/now-showing/
     priority: 1
-    status: active
-    notes: Los Feliz 3 is walkable-ish from Silver Lake.
+    status: flaky
+    notes: >
+      No wp-json / no nj/v1 API exposed (verified 2026-06-16) — different stack, JS-rendered.
+      Needs a true headless render or an undiscovered feed. Los Feliz 3 is walkable-ish from
+      Silver Lake, so worth revisiting. High taste category.
 
   - name: New Beverly Cinema
     category: film
     method: scrape
     url: https://thenewbev.com/schedule/
     priority: 2
-    status: active
-    notes: 35mm always; monthly calendar drops sell fast — flag on-sale dates.
+    status: flaky
+    notes: >
+      WordPress but schedule is powered by Veezi (Vista ticketing) and rendered client-side —
+      no showtime post type in wp/v2, no static listings (verified 2026-06-16). Veezi has a
+      web-service API but it's per-cinema token-gated (not public). Needs that token or a
+      headless render. 35mm always; monthly calendar drops sell fast — flag on-sale dates.
 
-  - name: Vista Theater
+  - name: Vista Theater (Hollywood)
     category: film
-    method: scrape
-    url: https://www.vintagecinemas.com/vista/
-    priority: 2
-    status: active
+    method: webfetch
+    url: https://www.vistatheaterhollywood.com/cinema-club/schedule/
+    priority: 1
+    status: flaky
+    notes: >
+      Tarantino's Vista — 70mm/35mm, film-only, first-run + classics. Site moved to
+      vistatheaterhollywood.com (old vintagecinemas.com URL is dead). WordPress but no showtime
+      post type and the schedule is JS/Veezi-rendered; plain curl + WebFetch both blocked/empty
+      (verified 2026-06-16). Until a feed is found, read the schedule page via WebFetch at digest
+      time (rendered), or capture manually. High taste category — worth revisiting.
 
   - name: Comedy Store
     category: comedy
@@ -229,10 +311,11 @@ sources:
 
   - name: Lodge Room (Highland Park)
     category: live_music
-    method: jsonld
+    method: scrape
     url: https://lodgeroomhlp.com/
     priority: 2
-    status: active
+    status: flaky
+    notes: JS-rendered; no static JSON-LD (verified 2026-06-16). Also appears via TM/RA — lean on those.
 
   - name: Zebulon (Frogtown)
     category: live_music
@@ -292,3 +375,54 @@ sources:
     priority: 3
     status: candidate
     notes: Good artist-tracking angle once personalization phase starts.
+
+  # ── Discovered 2026-06-16 (user-proposed) ───────────────────────────────
+  - name: Subtract Music
+    category: electronic
+    method: manual
+    url: https://subtractmusic.com/
+    priority: 2
+    status: candidate
+    notes: >
+      LA techno promoter/collective. Site is a JS-rendered SPA — no static events to scrape
+      (verified 2026-06-16). Their parties almost certainly surface on RA/19hz already; best
+      path is to treat as a promoter signal (boost RA/19hz events organized by them) and join
+      their list → Gmail "Events" label. Not a standalone fetch target.
+
+  - name: Discover Los Angeles — best things this weekend
+    category: editorial
+    method: webfetch
+    url: https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend
+    priority: 1
+    status: active
+    notes: >
+      Official LA tourism board's weekend roundup. Blocks plain curl (403 "old-browser"), but the
+      WebFetch tool reads it fine (verified 2026-06-16). Use it two ways at digest time: (1) editorial
+      boost signal on catalog events, and (2) source of GENERAL LA context for the "Around town"
+      section (World Cup fan zones, big sports, citywide/seasonal happenings). Don't dump its full
+      list — it's broad/touristy; extract what's on-taste + the citywide context.
+
+  - name: Posh (posh.vip)
+    category: multi
+    method: api
+    url: https://posh.vip/api/web/v2/trpc/events.fetchMarketplaceEvents
+    priority: 1
+    status: active
+    notes: >
+      Nightlife/party platform, strong LA afterhours + warehouse coverage (incl. TBA
+      "revealed after RSVP" locations) and the promoter on every event. Authenticated tRPC API:
+      scripts/fetch_posh.py replicates the logged-in explore search (sort=Trending,
+      when=Today|This Week|This Month|Right Now, location preset LA). AUTH: needs POSH_TOKEN
+      env var = a Posh session JWT (~30-day lifespan). Capture from a logged-in browser's
+      network tab (events.fetchMarketplaceEvents request → x-jwt-token header). When it 401s,
+      it's expired — re-capture and update POSH_TOKEN. Broad feed (some watch-party/webinar
+      noise) — lean on taste.yaml ranking. Overlaps RA/19hz on afterhours — dedupe expected.
+
+  # ── Verified-this-session reality check (2026-06-16) ─────────────────────
+  # Static JSON-LD scraping (scripts/fetch_jsonld.py) covers FAR fewer LA sources than the
+  # registry's method:jsonld tags assumed. Confirmed returning 0 events via static fetch:
+  # DICE, Lodge Room, Pantages/Broadway-in-Hollywood, Vidiots (Filmbot), Zebulon, 2220 Arts.
+  # These are JS-rendered and need either each site's underlying API or a headless-render
+  # helper (proposed Phase-2 work). fetch_jsonld.py itself is correct and works on any source
+  # that serves Event JSON-LD server-side; it just has few current targets. 19hz (table parser)
+  # and the RA/TM APIs remain the reliable structured backbone.

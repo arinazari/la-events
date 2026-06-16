@@ -1,0 +1,49 @@
+# Recurring markets & happenings — predictable daytime/lifestyle events that don't need
+# scraping (fixed cadence). The digest computes the next occurrence(s) inside the window and
+# drops them onto the right day in the day-by-day agenda. Eastside/Silver Lake-local ones are
+# the priority (walkable). One-off pop-ups / brand activations are NOT here — those come from
+# editorial sources (Eater LA, UncoverLA, Secret LA, DiscoverLA) at digest time.
+#
+# cadence: weekly:<DOW> | monthly:<Nth>:<DOW> (e.g. monthly:2:Sun = 2nd Sunday)
+# Last reviewed: 2026-06-16
+
+markets:
+  - name: Silver Lake Farmers Market
+    cadence: [weekly:Tue, weekly:Sat]
+    when: Tue 1:30–7pm · Sat 8am–1:30pm
+    where: 3700 Sunset Blvd (Silver Lake)
+    category: market
+    url: https://www.instagram.com/silverlakefarmersmarket/
+    note: Walkable from home (Hyperion/Del Mar). Highest priority — surface every week.
+
+  - name: Atwater Village Farmers Market
+    cadence: [weekly:Sun]
+    when: Sun 10am–2pm
+    where: 3528 Larga Ave (Atwater Village)
+    category: market
+    url: https://www.seela.org/atwater-village
+    note: Eastside, close to home.
+
+  - name: Melrose Trading Post
+    cadence: [weekly:Sun]
+    when: Sun 10am–4pm
+    where: Fairfax High, 7850 Melrose Ave
+    category: flea
+    url: https://melrosetradingpost.org/
+    note: Vintage / design / home goods flea.
+
+  - name: Smorgasburg LA
+    cadence: [weekly:Sun]
+    when: Sun 10am–4pm
+    where: ROW DTLA, 777 S Alameda St
+    category: food_market
+    url: https://www.smorgasburg.com/
+    note: Big open-air food-vendor market; food-with-a-scene.
+
+  - name: Rose Bowl Flea Market
+    cadence: [monthly:2:Sun]
+    when: 2nd Sun, 9am GA (5am VIP)
+    where: Rose Bowl, Pasadena
+    category: flea
+    url: https://www.rgcshows.com/rose-bowl/
+    note: The big one — 2,500+ vendors. Tickets via Eventbrite in advance. Worth the drive.
