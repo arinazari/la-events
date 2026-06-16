@@ -31,7 +31,9 @@ const state = {
 
 const $ = (sel) => document.querySelector(sel);
 const el = (tag, props = {}, ...kids) => {
-  const node = Object.assign(document.createElement(tag), props);
+  const { dataset, ...rest } = props;
+  const node = Object.assign(document.createElement(tag), rest);
+  if (dataset) Object.assign(node.dataset, dataset);
   for (const k of kids) node.append(k);
   return node;
 };
