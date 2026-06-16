@@ -13,7 +13,7 @@
 # last_discovery: updated whenever Discover mode runs
 # ---------------------------------------------------------------------------
 
-last_discovery: null
+last_discovery: 2026-06-16
 
 sources:
 
@@ -38,15 +38,29 @@ sources:
       Unofficial GraphQL. scripts/fetch_ra.py. Verify AREA_ID once (see script header).
       Late start times = afterhours flags. Catches most semi-public warehouse events.
 
+  - name: 19hz (LA)
+    category: electronic
+    method: scrape
+    url: https://19hz.info/eventlisting_LosAngeles.php
+    priority: 1
+    status: active
+    notes: >
+      Canonical grassroots LA dance calendar (clubs, warehouses, festivals). HTML tables,
+      no JSON-LD. scripts/fetch_19hz.py. Verified 2026-06-16: ~200 events/2wk, ~half flagged
+      afterhours, with price tiers (incl. early-bird) and organizer/promoter names — the
+      organizer column is a goldmine for Discover mode. Best single electronic source.
+
   - name: DICE (LA)
     category: electronic
     method: jsonld
     url: https://dice.fm/browse/los-angeles
     priority: 1
-    status: active
+    status: flaky
     notes: >
-      No public API. Event pages embed schema.org JSON-LD. Heavy eastside/indie-club
-      coverage; overlaps RA — dedupe expected.
+      Browse page is JS-rendered — no schema.org/Event in static HTML (verified 2026-06-16,
+      generic JSON-LD scraper returns 0). Event JSON-LD may live on individual /event/ detail
+      pages; needs a crawl-then-parse step or a headless render. Heavy eastside/indie overlap
+      with RA when it works.
 
   - name: Gmail "Events" label
     category: multi
@@ -135,8 +149,14 @@ sources:
     method: jsonld
     url: https://www.eventbrite.com/d/ca--los-angeles/events/
     priority: 2
-    status: active
-    notes: Public event-search API was retired; use browse pages + JSON-LD. High noise — filter hard.
+    status: flaky
+    notes: >
+      Browse page DOES embed clean schema.org/Event JSON-LD (venue, geo, date, price) — verified
+      2026-06-16 it surfaces on-profile events ("OVERDRIVE: Hard Techno", afrobeats, "Sunset
+      Sessions"). BUT an anti-bot wall blocks automated fetches after the first hit (urllib 405;
+      curl gets challenged after a couple requests). Reliable only via a real browser session or a
+      proper Eventbrite integration. High noise otherwise — filter hard. Don't sink time evading
+      the bot wall; revisit with an authed/headless path.
 
   - name: Hollywood Pantages / Broadway in Hollywood
     category: theater
@@ -155,10 +175,14 @@ sources:
 
   - name: Vidiots (Eagle Rock)
     category: film
-    method: jsonld
+    method: scrape
     url: https://vidiotsfoundation.org/coming-soon/
     priority: 1
-    status: active
+    status: flaky
+    notes: >
+      Showtimes load via the Filmbot widget (JS) — no JSON-LD in static HTML (verified 2026-06-16).
+      Needs the Filmbot API/embed endpoint or a headless render. Rep cinema is a high taste category,
+      so this is worth a dedicated fetcher when the JS-render helper lands.
 
   - name: Brain Dead Studios
     category: film
@@ -229,10 +253,11 @@ sources:
 
   - name: Lodge Room (Highland Park)
     category: live_music
-    method: jsonld
+    method: scrape
     url: https://lodgeroomhlp.com/
     priority: 2
-    status: active
+    status: flaky
+    notes: JS-rendered; no static JSON-LD (verified 2026-06-16). Also appears via TM/RA — lean on those.
 
   - name: Zebulon (Frogtown)
     category: live_music
@@ -292,3 +317,36 @@ sources:
     priority: 3
     status: candidate
     notes: Good artist-tracking angle once personalization phase starts.
+
+  # ── Discovered 2026-06-16 (user-proposed) ───────────────────────────────
+  - name: Subtract Music
+    category: electronic
+    method: manual
+    url: https://subtractmusic.com/
+    priority: 2
+    status: candidate
+    notes: >
+      LA techno promoter/collective. Site is a JS-rendered SPA — no static events to scrape
+      (verified 2026-06-16). Their parties almost certainly surface on RA/19hz already; best
+      path is to treat as a promoter signal (boost RA/19hz events organized by them) and join
+      their list → Gmail "Events" label. Not a standalone fetch target.
+
+  - name: Discover Los Angeles
+    category: editorial
+    method: scrape
+    url: https://www.discoverlosangeles.com/events
+    priority: 3
+    status: candidate
+    notes: >
+      Official LA tourism board calendar — broad/touristy, useful as an editorial boost signal.
+      Bot-protected: all event paths 403 to plain curl (verified 2026-06-16). Needs a headless
+      render or their ICS/API if one exists. Low priority vs. taste-aligned sources.
+
+  # ── Verified-this-session reality check (2026-06-16) ─────────────────────
+  # Static JSON-LD scraping (scripts/fetch_jsonld.py) covers FAR fewer LA sources than the
+  # registry's method:jsonld tags assumed. Confirmed returning 0 events via static fetch:
+  # DICE, Lodge Room, Pantages/Broadway-in-Hollywood, Vidiots (Filmbot), Zebulon, 2220 Arts.
+  # These are JS-rendered and need either each site's underlying API or a headless-render
+  # helper (proposed Phase-2 work). fetch_jsonld.py itself is correct and works on any source
+  # that serves Event JSON-LD server-side; it just has few current targets. 19hz (table parser)
+  # and the RA/TM APIs remain the reliable structured backbone.
