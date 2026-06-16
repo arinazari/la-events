@@ -24,8 +24,11 @@ Current phase: **1 → 2 transition** (skill built, repo scaffolded, nothing liv
 ## Phase 3 — Personalization + frontend
 - [ ] Feedback loop: reactions appended to taste.yaml `feedback`, periodically folded
       into weights (eventually: simple learned scoring from thumbs history)
-- [ ] PWA frontend (NCCN Navigator playbook): feed UI, category/date/neighborhood
-      filters, save-to-calendar, score-explanation per event
+- [x] Static dashboard (`dashboard/`): explore + filter the catalog by date, type,
+      location, and recommended rating; per-event score explanation ("why?"); installable
+      PWA-lite (manifest + offline SW). Feed built by `scripts/build_dashboard.py` from
+      catalog + taste.yaml. (Wire its rebuild into the digest routine; save-to-calendar
+      still TODO.)
 - [ ] Artist tracking: cross-reference rekordbox/listening data → artists_tracked
 - [ ] On-sale sniper: alerts for tracked artists / New Bev calendar drops / fast sellouts
 
