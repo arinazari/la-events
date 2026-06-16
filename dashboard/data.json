@@ -1,0 +1,903 @@
+{
+  "generated_at": "2026-06-16T10:55:25",
+  "source_file": "data/sample-catalog.json",
+  "is_sample": true,
+  "count": 22,
+  "neighborhoods": [
+    "Arlington Heights",
+    "Beverly Grove",
+    "Chinatown",
+    "DTLA",
+    "Eagle Rock",
+    "East Hollywood",
+    "Echo Park",
+    "Fairfax",
+    "Frogtown",
+    "Highland Park",
+    "Historic Filipinotown",
+    "Hollywood",
+    "Los Feliz",
+    "Santa Monica",
+    "West Hollywood",
+    "Westlake"
+  ],
+  "categories": [
+    "beer_food",
+    "comedy",
+    "electronic",
+    "film",
+    "live_music",
+    "theater"
+  ],
+  "taste": {
+    "venues_loved": [
+      "Zebulon",
+      "Vidiots",
+      "Lodge Room",
+      "2220 Arts"
+    ],
+    "artists_tracked": []
+  },
+  "events": [
+    {
+      "id": "smpl-012",
+      "title": "Comedy Store: OR Showcase",
+      "date": "2026-06-16",
+      "start_time": "20:00",
+      "datetime": "2026-06-16T20:00:00",
+      "venue": "Comedy Store",
+      "neighborhood": "West Hollywood",
+      "category": "comedy",
+      "genre": "standup",
+      "lineup": [
+        "rotating lineup"
+      ],
+      "price_min": 25,
+      "price_max": 30,
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "Comedy Store",
+          "url": "https://thecomedystore.com/sample-012"
+        }
+      ],
+      "description": "Original Room showcase, drop-ins likely.",
+      "image": "",
+      "score": 3,
+      "rating": 3,
+      "reasons": [
+        "+3 comedy (high interest)"
+      ],
+      "iso_date": "2026-06-16",
+      "is_past": false
+    },
+    {
+      "id": "smpl-006",
+      "title": "Dynasty Typewriter: Alt Comedy Showcase",
+      "date": "2026-06-17",
+      "start_time": "20:30",
+      "datetime": "2026-06-17T20:30:00",
+      "venue": "Dynasty Typewriter",
+      "neighborhood": "Westlake",
+      "category": "comedy",
+      "genre": "standup",
+      "lineup": [
+        "rotating lineup"
+      ],
+      "price_min": 18,
+      "price_max": 22,
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "Dynasty",
+          "url": "https://dynastytypewriter.com/sample-006"
+        }
+      ],
+      "description": "Midweek alt-comedy showcase a short drive from Silver Lake.",
+      "image": "",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 comedy (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-17",
+      "is_past": false
+    },
+    {
+      "id": "smpl-015",
+      "title": "Elysian Theater: Improv Jam",
+      "date": "2026-06-17",
+      "start_time": "21:00",
+      "datetime": "2026-06-17T21:00:00",
+      "venue": "Elysian Theater",
+      "neighborhood": "Frogtown",
+      "category": "comedy",
+      "genre": "improv",
+      "lineup": [
+        "house teams"
+      ],
+      "price_min": 12,
+      "price_max": 12,
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "Elysian",
+          "url": "https://elysiantheater.com/sample-015"
+        }
+      ],
+      "description": "Late improv jam, walkable from the eastside.",
+      "image": "",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 comedy (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-17",
+      "is_past": false
+    },
+    {
+      "id": "smpl-003",
+      "title": "Mulholland Drive (35mm)",
+      "date": "2026-06-18",
+      "start_time": "19:30",
+      "datetime": "2026-06-18T19:30:00",
+      "venue": "Vidiots",
+      "neighborhood": "Eagle Rock",
+      "category": "film",
+      "genre": "rep cinema",
+      "lineup": [],
+      "price_min": 14,
+      "price_max": 14,
+      "editorial_mentions": [
+        "LAist"
+      ],
+      "sources": [
+        "jsonld"
+      ],
+      "tickets": [
+        {
+          "source": "Vidiots",
+          "url": "https://vidiotsfoundation.org/sample-003"
+        }
+      ],
+      "description": "Lynch on 35mm at the Eagle theater. Introduced by a local film writer.",
+      "image": "",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 film (high interest)",
+        "+1 close to Silver Lake",
+        "+1 editorial mention (LAist)",
+        "+1 venue you love"
+      ],
+      "iso_date": "2026-06-18",
+      "is_past": false
+    },
+    {
+      "id": "smpl-008",
+      "title": "2220 Arts: Ambient Listening Session",
+      "date": "2026-06-18",
+      "start_time": "20:00",
+      "datetime": "2026-06-18T20:00:00",
+      "venue": "2220 Arts + Archives",
+      "neighborhood": "Historic Filipinotown",
+      "category": "live_music",
+      "genre": "ambient / experimental",
+      "lineup": [
+        "local artists"
+      ],
+      "price_min": 15,
+      "price_max": 15,
+      "editorial_mentions": [
+        "6AM"
+      ],
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "2220",
+          "url": "https://2220arts.org/sample-008"
+        }
+      ],
+      "description": "Hi-fi ambient listening night on the big system.",
+      "image": "",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 live music (medium interest)",
+        "+1 close to Silver Lake",
+        "+1 editorial mention (6AM)"
+      ],
+      "iso_date": "2026-06-18",
+      "is_past": false
+    },
+    {
+      "id": "smpl-001",
+      "title": "Anthony Naples + Special Guest",
+      "date": "2026-06-19",
+      "start_time": "22:00",
+      "datetime": "2026-06-19T22:00:00",
+      "venue": "Zebulon",
+      "neighborhood": "Frogtown",
+      "category": "electronic",
+      "genre": "house / techno",
+      "lineup": [
+        "Anthony Naples",
+        "Jenny Slater"
+      ],
+      "price_min": 20,
+      "price_max": 25,
+      "afterhours_flag": true,
+      "ra_pick": true,
+      "editorial_mentions": [
+        "6AM"
+      ],
+      "sources": [
+        "resident_advisor",
+        "dice"
+      ],
+      "tickets": [
+        {
+          "source": "RA",
+          "url": "https://ra.co/events/sample-001"
+        },
+        {
+          "source": "DICE",
+          "url": "https://dice.fm/event/sample-001"
+        }
+      ],
+      "description": "Late-night house and techno from NY's Anthony Naples in Zebulon's back room.",
+      "image": "",
+      "score": 9,
+      "rating": 5,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
+        "+1 RA pick",
+        "+1 afterhours / late start",
+        "+1 editorial mention (6AM)",
+        "+1 venue you love"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "id": "smpl-007",
+      "title": "Yves Tumor",
+      "date": "2026-06-19",
+      "start_time": "21:00",
+      "datetime": "2026-06-19T21:00:00",
+      "venue": "Lodge Room",
+      "neighborhood": "Highland Park",
+      "category": "live_music",
+      "genre": "experimental / post-punk",
+      "lineup": [
+        "Yves Tumor"
+      ],
+      "price_min": 35,
+      "price_max": 40,
+      "ra_pick": false,
+      "editorial_mentions": [
+        "LAist",
+        "We Like LA"
+      ],
+      "sources": [
+        "jsonld",
+        "ticketmaster"
+      ],
+      "tickets": [
+        {
+          "source": "Lodge Room",
+          "url": "https://lodgeroomhlp.com/sample-007"
+        },
+        {
+          "source": "Ticketmaster",
+          "url": "https://ticketmaster.com/sample-007"
+        }
+      ],
+      "description": "Genre-bending live set in the intimate Highland Park ballroom.",
+      "image": "",
+      "score": 7,
+      "rating": 5,
+      "reasons": [
+        "+2 live music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
+        "+2 editorial mention (LAist, We Like LA)",
+        "+1 venue you love"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "id": "smpl-002",
+      "title": "Restless Nites: Warehouse (location TBA)",
+      "date": "2026-06-20",
+      "start_time": "23:00",
+      "datetime": "2026-06-20T23:00:00",
+      "venue": "TBA \u2014 location drops day-of",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "genre": "acid / breakbeat",
+      "lineup": [
+        "DJ Voices",
+        "Turtle Bugg",
+        "local support"
+      ],
+      "price_min": 30,
+      "price_max": 40,
+      "afterhours_flag": true,
+      "ra_pick": false,
+      "early_bird": true,
+      "editorial_mentions": [
+        "Dirty Epic",
+        "6AM"
+      ],
+      "sources": [
+        "resident_advisor",
+        "gmail"
+      ],
+      "tickets": [
+        {
+          "source": "RA",
+          "url": "https://ra.co/events/sample-002"
+        }
+      ],
+      "description": "All-night warehouse party, address texted to ticket holders. Early-bird tier still live.",
+      "image": "",
+      "score": 9,
+      "rating": 5,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
+        "+1 afterhours / late start",
+        "+2 editorial mention (Dirty Epic, 6AM)",
+        "+1 early-bird tier available"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "id": "smpl-005",
+      "title": "Marc Maron + Friends",
+      "date": "2026-06-20",
+      "start_time": "20:00",
+      "datetime": "2026-06-20T20:00:00",
+      "venue": "Largo at the Coronet",
+      "neighborhood": "Beverly Grove",
+      "category": "comedy",
+      "genre": "standup",
+      "lineup": [
+        "Marc Maron",
+        "surprise guests"
+      ],
+      "price_min": 35,
+      "price_max": 45,
+      "editorial_mentions": [
+        "Time Out"
+      ],
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "Largo",
+          "url": "https://largo-la.com/sample-005"
+        }
+      ],
+      "description": "Maron working out new material with the usual unannounced drop-ins.",
+      "image": "",
+      "score": 5,
+      "rating": 4,
+      "reasons": [
+        "+3 comedy (high interest)",
+        "+1 Friday/Saturday night",
+        "+1 editorial mention (Time Out)"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "id": "smpl-009",
+      "title": "Hadestown",
+      "date": "2026-06-20",
+      "start_time": "19:00",
+      "datetime": "2026-06-20T19:00:00",
+      "venue": "Hollywood Pantages",
+      "neighborhood": "Hollywood",
+      "category": "theater",
+      "genre": "musical",
+      "lineup": [],
+      "price_min": 49,
+      "price_max": 175,
+      "sources": [
+        "ticketmaster"
+      ],
+      "tickets": [
+        {
+          "source": "Ticketmaster",
+          "url": "https://ticketmaster.com/sample-009"
+        }
+      ],
+      "description": "Touring production of the Tony-winning folk opera.",
+      "image": "",
+      "score": 3,
+      "rating": 3,
+      "reasons": [
+        "+2 theater (medium interest)",
+        "+1 Friday/Saturday night"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "id": "smpl-021",
+      "title": "Brain Dead Studios: Midnight Cult Classic",
+      "date": "2026-06-20",
+      "start_time": "23:59",
+      "datetime": "2026-06-20T23:59:00",
+      "venue": "Brain Dead Studios",
+      "neighborhood": "Fairfax",
+      "category": "film",
+      "genre": "cult / rep",
+      "lineup": [],
+      "price_min": 13,
+      "price_max": 13,
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "Brain Dead",
+          "url": "https://studios.wearebraindead.sample-021"
+        }
+      ],
+      "description": "Late-night cult screening on the Fairfax microcinema screen.",
+      "image": "",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 film (high interest)",
+        "+1 Friday/Saturday night"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "id": "smpl-014",
+      "title": "Boiler Room LA: Bottle Service VIP Night",
+      "date": "2026-06-20",
+      "start_time": "22:00",
+      "datetime": "2026-06-20T22:00:00",
+      "venue": "Academy LA",
+      "neighborhood": "Hollywood",
+      "category": "electronic",
+      "genre": "mainstream EDM festival",
+      "lineup": [
+        "headliner TBA"
+      ],
+      "price_min": 60,
+      "price_max": 400,
+      "sources": [
+        "ticketmaster"
+      ],
+      "tickets": [
+        {
+          "source": "Ticketmaster",
+          "url": "https://ticketmaster.com/sample-014"
+        }
+      ],
+      "description": "Big-room EDM with bottle service tables. Vegas-style energy.",
+      "image": "",
+      "score": 0,
+      "rating": 1,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 Friday/Saturday night",
+        "-2 bottle service",
+        "-2 edm festival"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "id": "smpl-017",
+      "title": "Honey Soundsystem",
+      "date": "2026-06-21",
+      "start_time": "23:30",
+      "datetime": "2026-06-21T23:30:00",
+      "venue": "Catch One",
+      "neighborhood": "Arlington Heights",
+      "category": "electronic",
+      "genre": "disco / house",
+      "lineup": [
+        "Honey Soundsystem",
+        "local support"
+      ],
+      "price_min": 25,
+      "price_max": 30,
+      "afterhours_flag": true,
+      "ra_pick": true,
+      "sources": [
+        "resident_advisor",
+        "dice"
+      ],
+      "tickets": [
+        {
+          "source": "RA",
+          "url": "https://ra.co/events/sample-017"
+        },
+        {
+          "source": "DICE",
+          "url": "https://dice.fm/event/sample-017"
+        }
+      ],
+      "description": "SF's Honey Soundsystem on an all-night disco-house tip.",
+      "image": "",
+      "score": 5,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 RA pick",
+        "+1 afterhours / late start"
+      ],
+      "iso_date": "2026-06-21",
+      "is_past": false
+    },
+    {
+      "id": "smpl-004",
+      "title": "New Beverly: Chungking Express",
+      "date": "2026-06-21",
+      "start_time": "20:00",
+      "datetime": "2026-06-21T20:00:00",
+      "venue": "New Beverly Cinema",
+      "neighborhood": "Fairfax",
+      "category": "film",
+      "genre": "rep cinema",
+      "lineup": [],
+      "price_min": 12,
+      "price_max": 12,
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "New Bev",
+          "url": "https://thenewbev.com/sample-004"
+        }
+      ],
+      "description": "Wong Kar-wai on 35mm. Sunday night double-feature companion.",
+      "image": "",
+      "score": 3,
+      "rating": 3,
+      "reasons": [
+        "+3 film (high interest)"
+      ],
+      "iso_date": "2026-06-21",
+      "is_past": false
+    },
+    {
+      "id": "smpl-010",
+      "title": "Highland Park Brewery 9th Anniversary",
+      "date": "2026-06-21",
+      "start_time": "14:00",
+      "datetime": "2026-06-21T14:00:00",
+      "venue": "Highland Park Brewery",
+      "neighborhood": "Chinatown",
+      "category": "beer_food",
+      "genre": "brewery takeover",
+      "lineup": [
+        "DJ sets all day"
+      ],
+      "price_min": 0,
+      "price_max": 0,
+      "editorial_mentions": [
+        "We Like LA"
+      ],
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "HPB",
+          "url": "https://hpb.la/sample-010"
+        }
+      ],
+      "description": "Anniversary bash with rare pours, food trucks, and DJs into the evening.",
+      "image": "",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 beer food (medium interest)",
+        "+1 close to Silver Lake",
+        "+1 editorial mention (We Like LA)"
+      ],
+      "iso_date": "2026-06-21",
+      "is_past": false
+    },
+    {
+      "id": "smpl-018",
+      "title": "Record Fair: Eastside Wax Swap",
+      "date": "2026-06-21",
+      "start_time": "11:00",
+      "datetime": "2026-06-21T11:00:00",
+      "venue": "Gold Diggers",
+      "neighborhood": "East Hollywood",
+      "category": "beer_food",
+      "genre": "record fair",
+      "lineup": [
+        "vendors + DJs"
+      ],
+      "price_min": 0,
+      "price_max": 5,
+      "editorial_mentions": [
+        "We Like LA"
+      ],
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "Gold Diggers",
+          "url": "https://gold-diggers.sample-018"
+        }
+      ],
+      "description": "Daytime record fair with DJs and the bar open.",
+      "image": "",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 beer food (medium interest)",
+        "+1 close to Silver Lake",
+        "+1 editorial mention (We Like LA)"
+      ],
+      "iso_date": "2026-06-21",
+      "is_past": false
+    },
+    {
+      "id": "smpl-016",
+      "title": "Now Instant: 16mm Shorts Program",
+      "date": "2026-06-22",
+      "start_time": "19:00",
+      "datetime": "2026-06-22T19:00:00",
+      "venue": "Now Instant Image Hall",
+      "neighborhood": "Chinatown",
+      "category": "film",
+      "genre": "experimental / rep",
+      "lineup": [],
+      "price_min": 10,
+      "price_max": 10,
+      "editorial_mentions": [
+        "6AM"
+      ],
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "Now Instant",
+          "url": "https://nowinstant.sample-016"
+        }
+      ],
+      "description": "Curated 16mm shorts with the programmers in attendance.",
+      "image": "",
+      "score": 5,
+      "rating": 4,
+      "reasons": [
+        "+3 film (high interest)",
+        "+1 close to Silver Lake",
+        "+1 editorial mention (6AM)"
+      ],
+      "iso_date": "2026-06-22",
+      "is_past": false
+    },
+    {
+      "id": "smpl-020",
+      "title": "Khruangbin",
+      "date": "2026-06-25",
+      "start_time": "20:00",
+      "datetime": "2026-06-25T20:00:00",
+      "venue": "Greek Theatre",
+      "neighborhood": "Los Feliz",
+      "category": "live_music",
+      "genre": "psych / funk",
+      "lineup": [
+        "Khruangbin"
+      ],
+      "price_min": 50,
+      "price_max": 110,
+      "editorial_mentions": [
+        "Time Out",
+        "LAist"
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "tickets": [
+        {
+          "source": "Ticketmaster",
+          "url": "https://ticketmaster.com/sample-020"
+        }
+      ],
+      "description": "Groove-forward live set at the Greek, walkable-ish from the eastside.",
+      "image": "",
+      "score": 5,
+      "rating": 4,
+      "reasons": [
+        "+2 live music (medium interest)",
+        "+1 close to Silver Lake",
+        "+2 editorial mention (Time Out, LAist)"
+      ],
+      "iso_date": "2026-06-25",
+      "is_past": false
+    },
+    {
+      "id": "smpl-013",
+      "title": "Big Thief",
+      "date": "2026-06-26",
+      "start_time": "20:00",
+      "datetime": "2026-06-26T20:00:00",
+      "venue": "Hollywood Bowl",
+      "neighborhood": "Hollywood",
+      "category": "live_music",
+      "genre": "indie folk",
+      "lineup": [
+        "Big Thief"
+      ],
+      "price_min": 45,
+      "price_max": 120,
+      "editorial_mentions": [
+        "LAist"
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "tickets": [
+        {
+          "source": "Ticketmaster",
+          "url": "https://ticketmaster.com/sample-013"
+        }
+      ],
+      "description": "Under-the-stars set at the Bowl.",
+      "image": "",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 live music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 editorial mention (LAist)"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "id": "smpl-011",
+      "title": "Floating Points (DJ set)",
+      "date": "2026-06-27",
+      "start_time": "22:00",
+      "datetime": "2026-06-27T22:00:00",
+      "venue": "The Echo",
+      "neighborhood": "Echo Park",
+      "category": "electronic",
+      "genre": "house / techno",
+      "lineup": [
+        "Floating Points"
+      ],
+      "price_min": 30,
+      "price_max": 35,
+      "afterhours_flag": true,
+      "ra_pick": true,
+      "early_bird": true,
+      "editorial_mentions": [
+        "Dirty Epic"
+      ],
+      "sources": [
+        "resident_advisor"
+      ],
+      "tickets": [
+        {
+          "source": "RA",
+          "url": "https://ra.co/events/sample-011"
+        }
+      ],
+      "description": "Long-form vinyl set. Just announced \u2014 early-bird tier on sale now.",
+      "image": "",
+      "score": 9,
+      "rating": 5,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
+        "+1 RA pick",
+        "+1 afterhours / late start",
+        "+1 editorial mention (Dirty Epic)",
+        "+1 early-bird tier available"
+      ],
+      "iso_date": "2026-06-27",
+      "is_past": false
+    },
+    {
+      "id": "smpl-019",
+      "title": "Aero Theatre: 70mm Double Feature",
+      "date": "2026-06-28",
+      "start_time": "18:30",
+      "datetime": "2026-06-28T18:30:00",
+      "venue": "Aero Theatre",
+      "neighborhood": "Santa Monica",
+      "category": "film",
+      "genre": "rep cinema",
+      "lineup": [],
+      "price_min": 16,
+      "price_max": 16,
+      "editorial_mentions": [
+        "LAist"
+      ],
+      "sources": [
+        "scrape"
+      ],
+      "tickets": [
+        {
+          "source": "American Cinematheque",
+          "url": "https://americancinematheque.sample-019"
+        }
+      ],
+      "description": "70mm double bill out on the Westside.",
+      "image": "",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 film (high interest)",
+        "+1 editorial mention (LAist)"
+      ],
+      "iso_date": "2026-06-28",
+      "is_past": false
+    },
+    {
+      "id": "smpl-022",
+      "title": "Tycho (live)",
+      "date": "2026-07-02",
+      "start_time": "20:30",
+      "datetime": "2026-07-02T20:30:00",
+      "venue": "The Fonda Theatre",
+      "neighborhood": "Hollywood",
+      "category": "live_music",
+      "genre": "electronic / ambient",
+      "lineup": [
+        "Tycho"
+      ],
+      "price_min": 40,
+      "price_max": 55,
+      "early_bird": true,
+      "sources": [
+        "ticketmaster"
+      ],
+      "tickets": [
+        {
+          "source": "Ticketmaster",
+          "url": "https://ticketmaster.com/sample-022"
+        }
+      ],
+      "description": "Just announced \u2014 full live band show. Early-bird pricing for a week.",
+      "image": "",
+      "score": 3,
+      "rating": 3,
+      "reasons": [
+        "+2 live music (medium interest)",
+        "+1 early-bird tier available"
+      ],
+      "iso_date": "2026-07-02",
+      "is_past": false
+    }
+  ]
+}
