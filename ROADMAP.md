@@ -16,10 +16,24 @@ Current phase: **1 → 2 transition** (skill built, repo scaffolded, nothing liv
       "by hand" each run; the orchestrator makes it deterministic and cheap, with
       Claude only doing the synthesis/writing step on top.)
 - [ ] Dedupe module with fuzzy matching + a small test set of known-duplicate events
-- [ ] DICE fetcher (JSON-LD) and generic JSON-LD venue fetcher driven by sources.yaml
+      (currently inline in the by-hand merge — extract + test it)
+- [x] Generic JSON-LD venue fetcher (`fetch_jsonld.py`) — built; few LA targets serve
+      static JSON-LD (most are JS-rendered), so prefer per-source API fetchers.
+- [ ] DICE fetcher — needs crawl-then-parse of /event detail pages or headless render
+- [ ] Standardize all fetchers on America/Los_Angeles for window math (RA/TM use UTC today())
 - [ ] Catalog hygiene: expire past events, track first-seen/last-seen, on-sale alerts
 - [ ] Scheduled Routine live: daily digest committed to claude/ branch
 - [ ] Delivery: digest lands somewhere Ari actually looks (see Decision 3)
+
+### Sources brought online (2026-06-16)
+- Live: Ticketmaster, RA, 19hz, Goldenvoice (AEG blob feed), Vidiots (Filmbot API),
+  Eventbrite (curated organizers, with auto-harvest mechanism).
+- Future source work:
+  - [ ] Twilio textblast intake (NEXT) — SMS promoter blasts → catalog + organizer harvest
+  - [ ] Posh — auth-based (account follows); no anonymous LA feed exists
+  - [ ] Eventbrite — retry open browse if the AWS WAF CAPTCHA lifts / via headless
+  - [ ] Rep cinema holdouts: New Bev (Veezi token), American Cinematheque (no public API)
+  - [ ] Eastside comedy (Largo / Dynasty Typewriter / UCB) via per-site APIs (Filmbot playbook)
 
 ## Phase 3 — Personalization + frontend
 - [ ] Feedback loop: reactions appended to taste.yaml `feedback`, periodically folded

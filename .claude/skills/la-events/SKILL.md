@@ -50,11 +50,27 @@ Run in parallel where possible:
    classifications.
 2. **Resident Advisor** — `scripts/fetch_ra.py`. Hits RA's GraphQL endpoint for the LA
    area. Flag events with start times ≥ 10pm as potential afterhours/warehouse.
-3. **Gmail "Events" label** (when Gmail connector is available) — search threads labeled
+3. **19hz** — `scripts/fetch_19hz.py`. The canonical grassroots LA dance calendar (HTML
+   tables). Best single electronic source; carries price tiers + organizer names.
+4. **Goldenvoice / AEG** — `scripts/fetch_goldenvoice.py`. Pulls the public Azure-blob JSON
+   feed behind goldenvoice.com (Fonda, El Rey, Roxy, Novo, Shrine, Greek). Filters to LA metro.
+5. **Vidiots (rep cinema)** — `scripts/fetch_filmbot.py`. Hits the Filmbot/Nightjar REST API
+   (`nj/v1`) behind the JS calendar. `--site` flag works for any Nightjar cinema.
+6. **Eventbrite (curated organizers)** — `scripts/fetch_eventbrite.py`. The open browse is
+   behind an AWS WAF CAPTCHA (unscrapeable) and the search API is retired, SO coverage is via
+   a curated list of promoter/organizer pages (in `sources.yaml` under the Eventbrite source's
+   `organizers:`). Event + organizer pages are NOT walled. **This list must keep growing** — see
+   the harvesting note under Mode 3 and Mode 2.
+7. **Generic JSON-LD** — `scripts/fetch_jsonld.py` for any source that serves server-side
+   `schema.org/Event` (has a curl HTTP/2 fallback). NOTE: most LA venue calendars are
+   JS-rendered (DICE, Lodge Room, Pantages, Zebulon) and return nothing here — prefer a
+   source-specific API fetcher (Filmbot pattern) when JSON-LD is absent.
+8. **Gmail "Events" label** (when Gmail connector is available) — search threads labeled
    `Events` received in the last 14 days. These are promoter blasts (6AM, Dirty Epic,
    Restless Nites, venue newsletters, SMS-to-email forwards). Extract event name, date,
    venue/TBA status, lineup, ticket link. Promoter blasts often announce events *beyond*
    the digest window — include a "further out, just announced" section for these.
+   **When a blast contains an Eventbrite link, also run the organizer-harvest (Mode 3).**
 
 ### Step 2 — Pull editorial/curation signals
 
@@ -131,6 +147,11 @@ Run on request, or proactively suggest running it if it hasn't run in 7+ days (c
 
 1. **Gap mining**: scan the current catalog for venues/promoters that appear in event data
    but have no entry in `sources.yaml`. Each is a candidate.
+   - **Eventbrite organizer auto-harvest** (runs cheaply, do it every Discover pass):
+     `python scripts/fetch_eventbrite.py --scan-catalog`. This walks every Eventbrite link
+     already in the catalog (many arrive via 19hz/RA ticket links), extracts each event's
+     *actual* organizer from its JSON-LD, and appends new promoters to the Eventbrite
+     `organizers:` list — deduped. This is how Eventbrite coverage compounds over time.
 2. **Web sweep**: search combinations like "LA warehouse party this weekend," "los angeles
    underground techno promoter," "LA events newsletter," "best LA event calendars," "new
    venue opening los angeles," plus category-specific sweeps rotating weekly (comedy one
@@ -159,15 +180,25 @@ ticket link, promoter, 21+/18+, RSVP mechanics (e.g. "DM for address"). Output t
 normalized entry, and if the promoter isn't in `sources.yaml`, offer to add them as a
 `manual` source. If the user keeps a running catalog file, append to it.
 
+**If the blast/flyer contains an Eventbrite link** (`eventbrite.com/e/...`), also run:
+`python scripts/fetch_eventbrite.py --harvest <event_url>`. This extracts that event's
+organizer from its JSON-LD and adds the promoter to the Eventbrite `organizers:` list
+(deduped), so all of their *future* events get pulled automatically. Parsing one flyer
+thus permanently subscribes us to that promoter — the intended way Eventbrite coverage grows.
+
 ---
 
 ## Files (paths relative to repo root)
 
 - `sources.yaml` — the registry. Read at the start of every mode. Schema documented in
   the file header.
-- `scripts/fetch_ticketmaster.py` (repo root) — Discovery API fetcher (needs `TM_API_KEY`)
-- `scripts/fetch_ra.py` — RA GraphQL fetcher (no key; verify `AREA_ID` on first run, see
-  script header)
+- `scripts/fetch_ticketmaster.py` — Discovery API fetcher (needs `TM_API_KEY`)
+- `scripts/fetch_ra.py` — RA GraphQL fetcher (no key; verify `AREA_ID` on first run)
+- `scripts/fetch_19hz.py` — 19hz dance-calendar table scraper
+- `scripts/fetch_goldenvoice.py` — Goldenvoice/AEG Azure-blob feed (LA-metro filtered)
+- `scripts/fetch_filmbot.py` — Nightjar/Filmbot cinema REST API (`--site`; Vidiots default)
+- `scripts/fetch_eventbrite.py` — curated-organizer crawler + `--harvest` / `--scan-catalog`
+- `scripts/fetch_jsonld.py` — generic schema.org/Event scraper (curl fallback)
 
 ## Practical notes
 

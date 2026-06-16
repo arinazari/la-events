@@ -15,6 +15,14 @@ Usage:
     python fetch_eventbrite.py --days 14 [-o events_eventbrite.json]   # organizers from sources.yaml
     python fetch_eventbrite.py --org https://www.eventbrite.com/o/we-love-kandy-tour-11369190113
     python fetch_eventbrite.py --event https://www.eventbrite.com/e/...-tickets-123456
+
+Growing the curated list (the mechanism that keeps coverage expanding over time):
+    python fetch_eventbrite.py --harvest https://www.eventbrite.com/e/...-tickets-123456
+        ^ extracts that event's organizer and appends it to sources.yaml (deduped).
+          Use this whenever an Eventbrite link arrives via a text blast / IG / flyer.
+    python fetch_eventbrite.py --scan-catalog
+        ^ harvests organizers from every Eventbrite link already in data/catalog.json,
+          so promoters surfaced opportunistically by other sources get tracked automatically.
 """
 
 import argparse
@@ -29,8 +37,102 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_jsonld as lj  # noqa: E402  (reuse fetch + JSON-LD Event parser)
 
 EVENT_LINK = re.compile(r"https://www\.eventbrite\.com/e/[a-z0-9\-]+-tickets-\d+")
+ORG_LINK = re.compile(r"https://www\.eventbrite\.com/o/[a-z0-9\-]+-\d{6,}")
+# curated organizers sometimes run multi-city — drop the obvious non-LA localities
+NON_LA = {"san francisco", "oakland", "berkeley", "san diego", "new york",
+          "brooklyn", "las vegas", "san jose", "sacramento", "philadelphia",
+          "chicago", "atlanta", "miami", "phoenix", "seattle", "austin", "houston"}
 HOUSE = re.compile(r"house|techno|acid|rave|disco|hardstyle|warehouse|after\s?hours|dj|club", re.I)
 MAX_EVENTS_PER_ORG = 12
+REGISTRY = "sources.yaml"
+
+
+def organizer_name(org_url: str) -> str:
+    """Human-friendly name from an organizer slug, for the registry comment."""
+    slug = re.sub(r"-\d{6,}$", "", org_url.rsplit("/", 1)[-1])
+    return slug.replace("-", " ").title()
+
+
+def primary_organizer(html: str):
+    """Return (url, name) of the event's OWN organizer from its Event JSON-LD.
+    Deliberately ignores the 'related/recommended' organizer links Eventbrite also
+    renders on the page — we only auto-track the actual promoter."""
+    for block in lj.LDJSON.findall(html):
+        try:
+            d = json.loads(block.strip())
+        except json.JSONDecodeError:
+            continue
+        for obj in (d if isinstance(d, list) else [d]):
+            if isinstance(obj, dict) and "Event" in str(obj.get("@type", "")):
+                org = obj.get("organizer") or {}
+                if isinstance(org, list):
+                    org = org[0] if org else {}
+                url = org.get("url") if isinstance(org, dict) else None
+                if url and ORG_LINK.fullmatch(url):
+                    return url, (org.get("name") or organizer_name(url))
+    return None, None
+
+
+def harvest_organizers(urls: list) -> dict:
+    """Map {organizer_url: name} from event URLs (the event's own organizer only)
+    or from organizer URLs passed directly."""
+    found = {}
+    for url in urls:
+        if ORG_LINK.fullmatch(url):
+            found[url] = organizer_name(url)
+            continue
+        try:
+            html = lj.fetch(url)
+        except Exception as e:  # noqa: BLE001
+            print(f"WARN: could not fetch {url}: {e}", file=sys.stderr)
+            continue
+        org_url, name = primary_organizer(html)
+        if org_url:
+            found[org_url] = name
+        else:
+            print(f"WARN: no organizer found in JSON-LD for {url}", file=sys.stderr)
+    return found
+
+
+def registry_organizers(text: str) -> set:
+    return set(ORG_LINK.findall(text))
+
+
+def add_organizers_to_registry(new: dict) -> list:
+    """Append new organizer URLs under the Eventbrite source's `organizers:` list,
+    preserving the file's formatting/comments. Returns the URLs actually added."""
+    with open(REGISTRY) as f:
+        lines = f.readlines()
+    existing = registry_organizers("".join(lines))
+    to_add = {u: n for u, n in new.items() if u not in existing}
+    if not to_add:
+        return []
+    # find the `organizers:` line that belongs to the eventbrite source
+    idx = next((i for i, ln in enumerate(lines)
+                if re.match(r"\s*organizers:\s*$", ln)), None)
+    if idx is None:
+        print("WARN: no `organizers:` list found in sources.yaml; not modifying.", file=sys.stderr)
+        return []
+    indent = re.match(r"(\s*)", lines[idx + 1]).group(1) if idx + 1 < len(lines) else "      "
+    insert = [f"{indent}- {u}   # {n}\n" for u, n in to_add.items()]
+    lines[idx + 1:idx + 1] = insert
+    with open(REGISTRY, "w") as f:
+        f.writelines(lines)
+    return list(to_add)
+
+
+def catalog_eventbrite_urls() -> list:
+    try:
+        cat = json.load(open("data/catalog.json"))
+    except Exception:  # noqa: BLE001
+        return []
+    urls = []
+    for rec in cat:
+        for link in rec.get("links", []):
+            u = link.get("url", "")
+            if EVENT_LINK.match(u or ""):
+                urls.append(u)
+    return urls
 
 
 def organizer_event_links(org_url: str) -> list:
@@ -65,7 +167,28 @@ def main() -> int:
     ap.add_argument("--event", action="append", default=[], help="one-off event URL(s)")
     ap.add_argument("--days", type=int, default=14)
     ap.add_argument("-o", "--out", default="events_eventbrite.json")
+    ap.add_argument("--harvest", action="append", default=[], metavar="URL",
+                    help="add organizer(s) to sources.yaml from event/organizer URL(s) and exit")
+    ap.add_argument("--scan-catalog", action="store_true",
+                    help="harvest organizers from every Eventbrite link in data/catalog.json and exit")
     args = ap.parse_args()
+
+    # --- organizer-harvesting mode (keeps the curated list growing) ---
+    if args.harvest or args.scan_catalog:
+        urls = list(args.harvest)
+        if args.scan_catalog:
+            urls += catalog_eventbrite_urls()
+        if not urls:
+            print("Nothing to harvest (no --harvest URLs and no Eventbrite links in catalog).")
+            return 0
+        added = add_organizers_to_registry(harvest_organizers(urls))
+        if added:
+            print(f"Added {len(added)} organizer(s) to {REGISTRY}:")
+            for u in added:
+                print(f"  + {u}")
+        else:
+            print("No new organizers (all already in sources.yaml).")
+        return 0
 
     organizers = args.org or ([] if args.event else load_organizers())
 
@@ -81,6 +204,8 @@ def main() -> int:
     events = []
     for url in event_urls:
         for ev in lj.scrape(url, "eventbrite"):
+            if (ev.get("neighborhood") or "").strip().lower() in NON_LA:
+                continue  # multi-city organizer's non-LA event
             ev["category"] = "electronic" if HOUSE.search(ev.get("title") or "") else "general"
             d = ev.get("date")
             try:

@@ -157,14 +157,26 @@ sources:
     priority: 2
     status: active
     organizers:
+      - https://www.eventbrite.com/o/the-illusion-night-35936566313   # The Illusion Night
+      - https://www.eventbrite.com/o/momentus-la-11979041397   # Momentus LA
+      - https://www.eventbrite.com/o/set-underground-29866861729   # SET UNDERGROUND
+      - https://www.eventbrite.com/o/level-8-dtla-72910363773   # Level 8, DTLA
+      - https://www.eventbrite.com/o/blakcircle-108339115091   # Blakcircle
+      - https://www.eventbrite.com/o/afrobeats-takeover-17508767406   # AFROBEATS TAKEOVER
       - https://www.eventbrite.com/o/we-love-kandy-tour-11369190113   # hard techno / rave promoter
     notes: >
       Open browse (/d/...) is behind an AWS WAF CAPTCHA — not scrapeable; public search API is
       retired. WORKAROUND (verified 2026-06-16): individual event + organizer pages are NOT walled
       and embed schema.org Event JSON-LD. scripts/fetch_eventbrite.py crawls the curated `organizers`
       list above (organizer page -> event links -> event JSON-LD) and also takes one-off --event URLs
-      for flyer/link capture. Grow `organizers` over time: any promoter's organizer id is shown on
-      their event pages. Seed organizer found via the "OVERDRIVE: Hard Techno" event.
+      for flyer/link capture.
+      KEEP THIS LIST GROWING (the coverage mechanism):
+        - from a text blast / flyer link:  fetch_eventbrite.py --harvest <event_url>
+        - opportunistically from the catalog (19hz/RA carry EB ticket links):
+              fetch_eventbrite.py --scan-catalog   (run every Discover pass)
+      Both extract the event's *own* organizer from JSON-LD and append it here, deduped.
+      FUTURE: retry open browse discovery if the AWS WAF CAPTCHA is ever lifted, or via a
+      headless/authed path — would replace the need to hand-curate organizers.
 
   - name: Hollywood Pantages / Broadway in Hollywood
     category: theater
@@ -358,6 +370,22 @@ sources:
       Official LA tourism board calendar — broad/touristy, useful as an editorial boost signal.
       Bot-protected: all event paths 403 to plain curl (verified 2026-06-16). Needs a headless
       render or their ICS/API if one exists. Low priority vs. taste-aligned sources.
+
+  - name: Posh (posh.vip)
+    category: multi
+    method: manual
+    url: https://posh.vip/explore/los-angeles
+    priority: 2
+    status: candidate
+    notes: >
+      Nightlife/party ticketing platform with strong LA coverage — high potential, but no clean
+      public LA feed (investigated 2026-06-16). Findings: public API is api.posh.vip; the only
+      open endpoint found, /v1/landing-page/trending-events, is NATIONAL and ignores location
+      (returned Atlanta/NY/Houston, zero LA). City explore (/explore/:city), event-detail, and
+      organizer feeds are all served by authenticated client-side calls not present in the static
+      bundle; event pages are App-Router-streamed with no JSON-LD. CONCLUSION: integrate via an
+      authenticated Posh ACCOUNT (follow LA promoters → pull the followed feed) — pair this with
+      the credential/Twilio phase. Not scrapeable anonymously today.
 
   # ── Verified-this-session reality check (2026-06-16) ─────────────────────
   # Static JSON-LD scraping (scripts/fetch_jsonld.py) covers FAR fewer LA sources than the

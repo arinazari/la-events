@@ -48,6 +48,12 @@ routines/daily-digest-prompt.md     # prompt for the scheduled cloud routine
   *why*. Not an exhaustive dump — taste.yaml decides what's worth surfacing.
 - Source registry changes from Discover mode are **proposals** — present them, get
   approval, then commit. Exception: marking sources flaky/dead is automatic.
+- **Eventbrite = curated organizers** (open browse is WAF-CAPTCHA'd, search API retired).
+  Coverage lives in the Eventbrite source's `organizers:` list in sources.yaml and must keep
+  growing: `fetch_eventbrite.py --harvest <event_url>` when a blast/flyer carries an EB link,
+  and `--scan-catalog` each Discover pass. Harvest adds only the event's *own* organizer (from
+  JSON-LD), never recommended/related ones (auto-adding an event's organizer is allowed; it's a
+  precise, high-confidence signal, not a Discover-style proposal).
 
 ## Working style
 
