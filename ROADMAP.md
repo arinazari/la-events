@@ -1,123 +1,220 @@
 # ROADMAP — la-events
 
-Current phase: **Phase 2 — aggregator infrastructure.** Phase 1 done: 10 live fetchers, RA
-AREA_ID 23 confirmed, catalog ~700 events, 6/16 windowed + 6/19 weekend digests shipped,
-dashboard live. Next: `run_digest.py` orchestrator, dedupe module, catalog hygiene, scheduled routine.
+**What this is:** a private events + dining concierge for Ari and friends — *not* a venture.
+The bar is "investor-quality" only in the sense of **polish, depth of curation, and the
+"an insider made this for me" feeling**. Optimize for that, not for scale/moat/revenue.
+City portability matters because friends live in other cities and Ari travels (Berlin next
+week → same magic), not for TAM.
+
+Current phase: **Phase A — Foundation** (scoring core, config lift, deterministic orchestrator).
+Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog ~700 events, weekend + windowed digests
+shipped, dashboard live. Read this file + `CLAUDE.md` + the two `SKILL.md` files before any
+non-trivial task.
+
+---
+
+## North star — the product thesis
+
+Not a taste-filtered calendar aggregator (that's table stakes — RA/DICE/TM are catalogs too).
+The thing only this has: a **taste-native scene concierge** that understands LA's underground
+as a *graph* of artists / labels / promoters / venues, explains every pick like a knowledgeable
+friend ("Antal — Rush Hour boss, Dutch digger, deep/disco selector"), and plans the whole night
+(dinner → show → afters). The aggregation is plumbing; the **curation + context + the LA-insider
+voice** is the product. LLMs are what make being that insider — for every pick, every run —
+possible at all; that's the "why now."
+
+---
+
+## Execution architecture — how Claude Code builds + runs this
+
+Organizing principle: **mechanical work in Python (cheap, deterministic, testable); taste /
+curation / prose in Claude; fan the parallelizable Claude work out to subagents** so daily runs
+stay fast and the main context doesn't bloat. Today Claude does fetch + dedupe + score "by hand"
+each run — non-deterministic, slow, token-heavy. The three tiers fix that.
+
+- **Tier 0 — Deterministic core (`scripts/run_digest.py`, no LLM).** Fetch all sources in
+  parallel → normalize → dedupe → expire → score against the profile. **One shared, tested
+  scoring/dedupe module** (today the ranking logic is duplicated in `SKILL.md` prose *and*
+  `build_dashboard.py` — they will drift). Emits a ranked, deduped catalog + a candidate set.
+  Burns ~no tokens; safe to run daily.
+- **Tier 1 — Enrichment fan-out (`scene-researcher` subagents, top ~30–40 only).** Orchestrator
+  spawns several in parallel, each taking a batch and returning per event: type/sub-genre tags,
+  **artist notes** (who each name is, why on-taste), a **curator's note** (the opinionated take),
+  a cleaned **description**, and for the **top 10 an image**. Subagents because: parallel, and
+  **context-isolated** (each burns its own window on web research, hands back only the struct).
+  **Cache enrichment on event-id + artist** — artists recur nightly, so the *scene graph
+  accumulates* instead of re-researching Antal every day. That cache *is* the growing LA-insider
+  knowledge base.
+- **Tier 2 — Synthesis (main agent, one creative step).** Takes the enriched, scored, annotated
+  set and writes the digest in the single "LA insider" voice. The only place the prose persona lives.
+
+**Agent types** (`.claude/agents/`): `scene-researcher` (Tier 1 enrichment), `source-scout`
+(on-demand discovery), `night-planner` (events × dining itinerary). The `la-events` / `la-dining`
+SKILLs become orchestrators that call them. **Concierge** = the main conversational interface
+(natural-language ask → right mode/agent); the primary way Ari interacts.
+
+### Run cadence
+
+| Layer | Cadence |
+|---|---|
+| Events digest pipeline (fetch → dedupe → score → enrich → synthesize → weekend set → dashboard feed → commit → email) | **Daily** routine (`routines/daily-digest-prompt.md`, commits to `claude/digests`) |
+| Dining radar | **Weekly** Wed AM routine (`routines/dining-radar-prompt.md`) |
+| Fetchers | within each digest run (daily) |
+| `build_dashboard.py` | end of each daily run |
+| Spotify taste sync | rides along with the daily run (once built) |
+| Discover / `source-scout`, flyer, ad-hoc digest, concierge, night-planner | **on demand** |
+
+### What's hardcoded (Phase A target)
+
+Two tiers. **Config-file hardcodes are fine** (intended, editable): `taste.yaml`, `sources.yaml`
+(DICE slug list, Eventbrite `organizers:`), `festivals.yaml`, `recurring.yaml`. **Code hardcodes
+are the problem** — scattered city/person knobs that pin us to LA + Ari and cause scoring drift:
+- `fetch_ticketmaster.py` → `LA_DMA = "324"`
+- `fetch_ra.py` → `DEFAULT_AREA = 23`
+- `build_dashboard.py` → `NEAR_SILVERLAKE` set, the `GROOVE/EU/PENALTY/FAR` term lists,
+  `CATEGORY_WEIGHT`, score→star thresholds
+- "Home = Silver Lake (Hyperion & Del Mar)" baked into prose + near-home logic
+
+Phase A lifts these into a **`profile.yaml`** (`{ dma_id, ra_area_id, home_coords,
+near_home_neighborhoods, scoring_weights }`) — one move that both kills the drift and seeds
+portability.
+
+---
 
 ## Phase 1 — Skill + manual runs  ✅
-- [x] SKILL.md (digest / discover / flyer / sources modes)
-- [x] Source registry seeded (65 sources; live-music bar/restaurant lane added 6/16)
-- [x] Fetchers written: TM, RA, 19hz, Goldenvoice, Filmbot, Eventbrite, Posh, generic JSON-LD,
-      DICE (venue pages), Squarespace (json-pretty), ICS/Tockify
-- [x] First live digest run (RA AREA_ID 23 confirmed; 6/16 windowed + 6/19 weekend digests shipped)
-- [x] TM_API_KEY obtained and set in cloud environment
+- [x] Both SKILLs (events: digest/discover/flyer/sources; dining: query/radar/discover/capture)
+- [x] Source registry seeded (~65 sources incl. the live-music bar/restaurant lane)
+- [x] 10 live fetchers: TM, RA, 19hz, Goldenvoice, Filmbot, Eventbrite, Posh, JSON-LD, DICE,
+      Squarespace, ICS/Tockify
+- [x] First live digests (RA AREA_ID 23 confirmed; 6/16 windowed + 6/19 weekend shipped)
+- [x] Static dashboard live (build feed + PWA-lite + per-event "why?" + ICS export)
 - [ ] Gmail "Events" label created; first promoter lists joined (6AM, Dirty Epic first)
 
-## Phase 2 — Aggregator infrastructure
-- [ ] `scripts/run_digest.py` orchestrator: fetch all → normalize → dedupe → score
-      against taste.yaml → write catalog + digest. (Currently the skill does this
-      "by hand" each run; the orchestrator makes it deterministic and cheap, with
-      Claude only doing the synthesis/writing step on top.)
-- [ ] Dedupe module with fuzzy matching + a small test set of known-duplicate events
-      (currently inline in the by-hand merge — extract + test it)
-- [x] Generic JSON-LD venue fetcher (`fetch_jsonld.py`) — built; few LA targets serve
-      static JSON-LD (most are JS-rendered), so prefer per-source API fetchers.
-- [x] DICE fetcher (`fetch_dice.py`) — DONE via `dice.fm/venue/<slug>` pages: MusicEvent JSON-LD
-      under a Place's `event` key (real Chrome UA required). Umbrella source w/ venue-slug list
-      covers Zebulon/Gold Diggers/The Mint/Townhouse/The Virgil/2220/Permanent Records/Grand Star.
-- [x] ICS/Tockify fetcher (`fetch_ics.py`) + Squarespace fetcher (`fetch_squarespace.py`, ?format=json-pretty)
-- [ ] Standardize all fetchers on America/Los_Angeles for window math (RA/TM use UTC today())
-- [ ] SMS ingestion live: stand up the Twilio receiver → `data/inbox.jsonl`; digest run
-      consumes unprocessed lines (parse text / MMS flyer, dedupe, mark processed). Spec in
-      `sms-ingestion.md` — reuses flyer-capture logic, depends on nothing else.
-- [ ] Catalog hygiene: expire past events, track first-seen/last-seen, on-sale alerts
-- [ ] Source health checks: standalone sweep that pings every `active` source and marks
-      broken ones `flaky`/`dead` *before* a digest silently loses coverage. (Today health
-      is only a side effect of digest runs; worth it mainly if digests aren't daily.)
-- [ ] Scheduled Routine live: daily run maintains the rolling per-weekend digest set
-      (`digests/weekends/`, ~4 months out) + catalog on a long-lived `claude/digests` branch
-- [ ] Delivery: digest lands somewhere Ari actually looks (see Decision 3)
+## Phase A — Foundation (the unlock — almost everything stands on this)
+- [ ] **Shared scoring + dedupe module** — extract the ranking heuristic into one tested Python
+      module both `run_digest.py` and `build_dashboard.py` import; retire the duplicate logic in
+      `build_dashboard.py` + `SKILL.md` prose. Include the small known-duplicate test set.
+- [ ] **`profile.yaml` config lift** — move the code hardcodes (DMA, RA area, home coords,
+      near-home hoods, scoring weights/terms) out of Python. Fixes drift; seeds city portability.
+- [ ] **`scripts/run_digest.py` deterministic core** — fetch-all → normalize → dedupe → expire →
+      score, emitting catalog + candidate set. Claude stops doing this by hand; it only enriches +
+      synthesizes on top.
+- [ ] Catalog hygiene in the core: expire past events, maintain first-/last-seen (fields exist),
+      standardize all fetchers on `America/Los_Angeles` for window math (RA/TM use UTC `today()`).
 
-### Sources brought online (2026-06-16)
+## Phase B — Enrichment + beautified digest (the visible quality jump)
+- [ ] **`scene-researcher` subagent + enrichment cache** — Tier 1 fan-out over the top ~30–40;
+      cache by event-id + artist (the scene graph begins accumulating).
+- [ ] **Enriched per-event schema** — add `type/subgenre tags`, `relevance` (★, taste-graph-driven,
+      shown in the digest — today it's keyword-based and only in the dashboard feed), `curator_note`,
+      `artist_notes`, cleaned `description`, and `image` (top 10). Date/time/venue/ticket-links
+      already exist — keep all ticket links, labeled by source.
+- [ ] **Two renderers from one enriched dataset**: keep the canonical `.md` (diffable, commits,
+      GitHub renders) *and* generate a **rich HTML render** (type-colored tags, ★ relevance, card
+      layout, top-10 hero images) emailed via the Gmail connector. Cache the top-10 images into the
+      repo so emailed digests don't rot. (HTML-email-as-visual-home is a flagged decision — see below.)
+- [ ] Leveled-up `.md` per-event line, e.g.:
+      `[house] ★★★★☆ **Title** — artist gloss · Fri 6/19 9pm · El Cid, Silver Lake · $7 · [RA] [DICE] — curator's note.`
+
+## Phase C — Spotify taste superset (Spotify is the *music layer*, never the whole profile)
+- [ ] **Spotify sync** — top/followed/recently-played artists + genres → the artist/genre affinity
+      vectors, refreshed automatically. (Related-artists + audio-features endpoints were restricted
+      for new apps late 2024 — lean on top/followed/recent; confirm what's live when building.)
+      OAuth in a stateless repo: store a **refresh token** as a secret like `TM_API_KEY`/`POSH_TOKEN`,
+      exchange each run.
+- [ ] **Merge three layers into one scoring profile**: Spotify (music affinity, auto) +
+      `taste.yaml` (the durable human layer Spotify can't know — settings/format prefs, rep cinema,
+      daytime/lifestyle, comedy exception, walkability, north-star, penalties) + feedback
+      (went/skipped/loved nudges weights). Spotify *enriches*; it never overwrites `taste.yaml`.
+- [ ] **Close the feedback loop** — reactions + implicit signals (clicked ticket link? added to
+      calendar?) fold into the weights automatically instead of being hand-merged.
+
+## Phase D — Concierge + night-planner (the experience / hero feature)
+- [ ] **Conversational concierge as primary interface** — "free Friday, chill and walkable, no
+      techno" → tailored plan. ~80% already exists (it's a Claude skill); put it behind a chat surface.
+- [ ] **`night-planner` agent fusing la-events × la-dining** — night spec → dinner (reservation-aware)
+      → show (taste-ranked) → afters → sequenced with rough travel/timing → itinerary w/ booking links.
+- [ ] **Advance la-dining just enough to feed the planner** — get its first live **query** run
+      working (see dining section) so the planner has real restaurant picks to sequence. Not the full
+      dining build-out.
+
+## On-demand — `source-scout` discovery agent (your call, never scheduled)
+Runs explicit strategies, returns a proposal table (approve → append to `sources.yaml`):
+- [ ] **Gap-mine** the catalog — venues/promoters in event data with no registry entry.
+- [ ] **Linktree / link-in-bio crawl** — given an IG handle or its Linktree URL, harvest the
+      *public* ticketing/calendar links behind it (DICE/RA/EB/venue). The legit way into the
+      Instagram gap **without scraping IG** — the standout strategy.
+- [ ] **Venue-site probe** — auto-detect the best ingestion method (JSON-LD? ICS? Squarespace
+      `?format=json-pretty`? DICE slug? See Tickets? Filmbot/Nightjar?) and return fetcher + config.
+- [ ] **Directory sweep** — RA area pages, DICE city index, 19hz organizer column, EB organizer
+      pages → unregistered venues/promoters.
+- [ ] Subsumes the old "source health check" idea: a scout pass can also ping `active` sources and
+      flag broken ones before a digest silently loses coverage.
+
+## Tabled — deliberately deferred (Ari's call)
+- [ ] Explorer / dashboard-page further investment (save-to-calendar exists via ICS; richer PWA waits).
+      Dashboard stays alive only as the `build_dashboard.py` feed the daily run already rebuilds.
+- [ ] Flyer-forwarding bot + Twilio SMS/MMS intake (`sms-ingestion.md`). Capture-by-hand still works.
+- [ ] On-sale sniper / price tracking across ticket links (DICE vs TM fees). Nice-to-have.
+- [ ] SQLite instead of `catalog.json` if volume ever demands it.
+
+---
+
+## Sources — reference
+
+### Brought online (2026-06-16)
 - Live (structured fetchers): Ticketmaster, RA, 19hz, Goldenvoice (AEG blob feed), Vidiots
   (Filmbot API), Eventbrite (curated organizers + auto-harvest), Posh (authed tRPC explore),
-  DICE (venue pages), Squarespace (?format=json-pretty), ICS/Tockify. Catalog ~700 events.
-- Live-music bar/restaurant/listening lane (6/16 Discover, 25+ venues): structured where possible
-  (DICE: Zebulon/Gold Diggers/The Mint/Townhouse/The Virgil/2220/Permanent Records/Grand Star;
+  DICE (venue pages), Squarespace (`?format=json-pretty`), ICS/Tockify. Catalog ~700 events.
+- Live-music bar/restaurant/listening lane (25+ venues): structured where possible (DICE:
+  Zebulon/Gold Diggers/The Mint/Townhouse/The Virgil/2220/Permanent Records/Grand Star;
   Squarespace: Junior High/Vibrato/The Smell; ICS: Maui Sugar Mill). Heterogeneous own-site rooms
-  (McCabe's, Dresden, Harvelle's, Sam First, Alva's, Venice West, …) → `method: webfetch` (read
-  rendered page at digest time). IG-only (1642, Gold Line, General Lee's) → `method: manual`.
-- Posh auth: `POSH_TOKEN` env var = session JWT, ~30-day life. Re-capture when it 401s
-  (events.fetchMarketplaceEvents request → x-jwt-token). Durable refresh flow = future work.
-- Future source work:
-  - [ ] Twilio textblast intake (NEXT) — SMS promoter blasts → catalog + organizer harvest
-  - [ ] Wire `method: webfetch` venues into the digest run (read rendered calendars at digest time)
-  - [ ] Bar Franca / Somerville: find the right Squarespace events collection slug (json-pretty → 0)
-  - [ ] Silverlake Lounge: DICE slug valid but 0 upcoming — re-check (many indies book via See Tickets)
-  - [ ] See Tickets US (Troubadour/Largo/Catalina): MusicEvent JSON-LD behind a headless render
-  - [ ] Posh — durable token refresh (avoid 30-day manual re-capture)
-  - [ ] Eventbrite — retry open browse if the AWS WAF CAPTCHA lifts / via headless
-  - [ ] Rep cinema holdouts: New Bev (Veezi token), American Cinematheque (no public API)
-  - [ ] Eastside comedy (Largo / Dynasty Typewriter / UCB) via per-site APIs (Filmbot playbook)
+  (McCabe's, Dresden, Harvelle's, Sam First, Alva's, Venice West…) → `method: webfetch`. IG-only
+  (1642, Gold Line, General Lee's) → `method: manual`.
+- Posh auth: `POSH_TOKEN` = session JWT, ~30-day life; re-capture on 401. Durable refresh = future.
 
-## Phase 3 — Personalization + frontend
-- [ ] Feedback loop: reactions appended to taste.yaml `feedback`, periodically folded
-      into weights (eventually: simple learned scoring from thumbs history)
-- [ ] Active taste calibration: present small-set / A-B event choices and fold the
-      selections into taste.yaml weights. Distinct from the reactive feedback loop above
-      (which only learns from digest reactions) — this actively elicits preferences.
-- [x] Static dashboard (`dashboard/`): explore + filter the catalog by date, type,
-      location, and recommended rating; per-event score explanation ("why?"); installable
-      PWA-lite (manifest + offline SW). Feed built by `scripts/build_dashboard.py` from
-      catalog + taste.yaml. (Rebuild wired into the digest routine; save-to-calendar
-      still TODO.)
-- [ ] Artist tracking: cross-reference rekordbox/listening data → artists_tracked
-- [ ] On-sale sniper: alerts for tracked artists / New Bev calendar drops / fast sellouts
+### Open source work (route through `source-scout` / Discover)
+- [ ] Wire `method: webfetch` venues into the digest run (read rendered calendars at digest time)
+- [ ] Bar Franca / Somerville: find the right Squarespace events collection slug (json-pretty → 0)
+- [ ] Silverlake Lounge: DICE slug valid but 0 upcoming — re-check (many indies book via See Tickets)
+- [ ] See Tickets US (Troubadour/Largo/Catalina): MusicEvent JSON-LD behind a headless render
+- [ ] Zebulon JS-render gap (e.g. Mama's Gun midweek) — needs a real fetcher
+- [ ] Rep cinema holdouts: New Bev (Veezi token), American Cinematheque (no public API)
+- [ ] Eastside comedy (Largo / Dynasty Typewriter / UCB) via per-site APIs (Filmbot playbook)
+- [ ] Eventbrite — retry open browse if the AWS WAF CAPTCHA lifts / via headless
+- [ ] Posh — durable token refresh (avoid 30-day manual re-capture)
 
-## Phase 4 — Nice-to-haves (only if Phase 2–3 earn it)
-- [ ] SQLite instead of catalog.json if volume demands it
-- [ ] Price tracking across ticket links (DICE vs TM fees)
-- [ ] Weekend-planner mode: pick a night, get an itinerary (dinner → show → afters)
+---
 
-## Dining layer (la-dining sibling skill)  ✅ scaffolded / ⬜ validated
-- [x] la-dining SKILL.md (query / radar / discover / capture modes)
-- [x] dining-sources.yaml seeded (Resy, OpenTable, Michelin, Infatuation, Eater, LAT + candidates)
-- [x] dining-taste.yaml (minimal, learns from reactions) + data/dining.json + radar routine
-- [x] Harvest fetch test (6/16): Infatuation + Resy blog fetch clean; Eater, LA Times,
-      Michelin, OpenTable bot-block the fetcher → tagged `fetch: search_only`, harvested via
-      domain-scoped web search. Encoded in dining-sources.yaml + SKILL.md fallback rule.
-- [ ] First live query run end-to-end (rank + write a record to data/dining.json)
-- [ ] First weekly radar (validates digest format/length/tone — Decision D1)
-- [ ] Reservation availability: OpenTable/Resy booking widgets don't render via fetch — decide
-      whether per-candidate availability needs a headless fetch or stays "set a Notify" advice
-- [ ] Decide whether dining + events ever share a "weekend-planner" itinerary (dinner → show)
+## Dining layer (la-dining sibling) — NOT tabled; feeds the night-planner
+- [x] SKILL (query/radar/discover/capture), `dining-sources.yaml`, `dining-taste.yaml`,
+      `data/dining.json` (15 seed records), weekly radar routine
+- [x] Harvest fetch test (6/16): Infatuation + Resy blog fetch clean; Eater/LAT/Michelin/OpenTable
+      bot-block → `fetch: search_only` / `blocked`, harvested via domain-scoped web search
+- [ ] **First live query run end-to-end** (rank + write a record) — the bit the night-planner needs
+- [ ] First weekly radar (validates format/length/tone — Decision D1)
+- [ ] Reservation availability: booking widgets don't render via fetch — headless vs. "set a Notify"
 - [ ] Fold reservation hot-lists into a learned food-taste profile once reactions accumulate
 
 ---
 
 ## Decision points — Ari's input needed
-
-1. **First live run review** (Phase 1): does the digest format/length/tone land?
-   Cheapest moment to change anything.
-2. **Taste weights** (ongoing): taste.yaml is yours — edit directly or react in
-   sessions and let Claude fold it in.
-3. **Delivery channel** (Phase 2): committed markdown? Gmail to inbox? Both? Inbox
-   via connector is recommended — meets you where you already look.
-4. **Digest cadence** (Phase 2): resolved → **daily**, maintaining the rolling per-weekend
-   set (one file per weekend, ~4 months out). Revisit if daily commits prove noisy.
-5. **Discover-mode approvals** (weekly): the candidate-source table — approve/reject.
-6. **Dedupe spot checks** (Phase 2, early): eyeball merged records for false merges
-   (two different events collapsed) — tuning the fuzzy threshold needs human eyes.
-7. **PWA go/no-go** (Phase 3): a static dashboard now exists — decide whether it earns
-   further investment (save-to-calendar, richer PWA) or digest + dashboard is enough.
-   Decide after living with Phase 2 for a few weeks.
+1. **HTML-email as the visual digest home** (Phase B): recommended — keep `.md` canonical, email a
+   rich HTML render with the top-10 images, rather than reviving the tabled dashboard for visuals.
+   Sign off or push back; it's a real fork.
+2. **Delivery channels** (Phase B/D): committed `.md` + HTML email + the conversational concierge.
+   Resolved direction; confirm the concierge chat surface (text number? claude.ai? both?).
+3. **Digest cadence** (resolved): **daily** weekend-set, ~4 months out. Revisit if commits get noisy.
+4. **Taste weights** (ongoing): `taste.yaml` is yours — edit directly, or react and let the loop fold in.
+5. **Dedupe spot checks** (Phase A): eyeball merged records for false merges while tuning the threshold.
+6. **Spotify scope** (Phase C): confirm which Spotify data we sync once we see what's live post-2024 limits.
+7. **Discover/source-scout approvals** (on demand): the candidate-source table — approve/reject.
 
 ### Dining-layer decisions
-- **D1. Radar cadence + format**: weekly (recommended, Wed AM) vs. on-demand only; does the
-  radar format/length/tone land? Cheapest to change after the first run.
-- **D2. Food-taste seeding**: currently minimal and learns from reactions. Switch to an
-  explicit profile (cuisines, price, range, dietary) whenever you want sharper picks.
-- **D3. Reservation depth**: stay at "hot-list + availability check on shortlist," or invest
-  in deeper Resy/OpenTable/Tock integration (harder — no clean public APIs).
-- **D4. Cross-layer planner**: should la-dining and la-events combine into a night itinerary
-  (dinner → show → afters)? Listed as a Phase-4 events nice-to-have; dining makes it real.
+- **D1. Radar cadence + format**: weekly (Wed AM) vs. on-demand; does the format/length/tone land?
+- **D2. Food-taste seeding**: minimal + learns from reactions, vs. an explicit profile now.
+- **D3. Reservation depth**: "hot-list + availability check on shortlist" vs. deeper Resy/OpenTable/Tock.
+- **D4. Cross-layer planner** (Phase D): confirmed — la-dining + la-events combine into a night
+  itinerary (dinner → show → afters). This is why dining isn't tabled.
+</content>
+</invoke>
