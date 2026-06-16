@@ -31,9 +31,11 @@ REPO = Path(__file__).resolve().parent.parent
 # Category -> base weight. Mirrors taste.yaml's high/medium/low grouping.
 CATEGORY_WEIGHT = {
     "electronic": 3,
+    "party": 3,        # club / warehouse / afterhours party
     "film": 3,
     "comedy": 3,
     "live_music": 2,
+    "music": 2,        # live music (catalog's term)
     "theater": 2,
     "beer_food": 2,
     "art": 1,

@@ -3,7 +3,9 @@
 
 const CAT_LABELS = {
   electronic: "Electronic",
+  party: "Party",
   live_music: "Live Music",
+  music: "Live Music",
   comedy: "Comedy",
   film: "Film",
   theater: "Theater",
