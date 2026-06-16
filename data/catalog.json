@@ -134,7 +134,7 @@
     "date": "2026-06-16",
     "start": "2026-06-16T20:00:00.000",
     "venue": "El Rey Theatre",
-    "neighborhood": null,
+    "neighborhood": "Los Angeles",
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
@@ -142,7 +142,9 @@
     "price": "$34",
     "organizers": "Goldenvoice",
     "detail": null,
-    "lineup": [],
+    "lineup": [
+      "Los Thuthanaka"
+    ],
     "links": [
       {
         "source": "ra",
@@ -151,10 +153,15 @@
       {
         "source": "19hz",
         "url": "https://www.axs.com/events/1355611/los-thuthanaka-tickets"
+      },
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1355611/los-thuthanaka-tickets"
       }
     ],
     "sources": [
       "19hz",
+      "goldenvoice",
       "ra"
     ],
     "first_seen": "2026-06-16",
@@ -213,6 +220,34 @@
     "sources": [
       "19hz",
       "ra"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "Bella Kay",
+    "date": "2026-06-16",
+    "start": "20:00",
+    "venue": "The Roxy",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Bella Kay"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1354268/bella-kay-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -670,6 +705,35 @@
     "sources": [
       "19hz",
       "ra"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "Novulent",
+    "date": "2026-06-17",
+    "start": "20:00",
+    "venue": "The Roxy",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Novulent",
+      "Babyteeth, Cathedral Bells and V\u00e4mpp"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1396846/novulent-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -1462,6 +1526,63 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Choker",
+    "date": "2026-06-18",
+    "start": "20:00",
+    "venue": "El Rey Theatre",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Choker",
+      "nomi."
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1326857/choker-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "SHOUSE",
+    "date": "2026-06-18",
+    "start": "20:00",
+    "venue": "The Roxy",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "SHOUSE"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1439502/shouse-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "NOVULENT w/ BABYTEETH",
     "date": "2026-06-18",
     "start": "20:00:00",
@@ -1648,7 +1769,7 @@
     "date": "2026-06-18",
     "start": "9pm",
     "venue": "Fonda Theatre (Los Angeles) hyperpop, EDM, emo, shoegaze",
-    "neighborhood": null,
+    "neighborhood": "Los Angeles",
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
@@ -1656,15 +1777,23 @@
     "price": "All ages",
     "organizers": "Goldenvoice",
     "detail": null,
-    "lineup": [],
+    "lineup": [
+      "Jane Remover",
+      "Dazegxd"
+    ],
     "links": [
       {
         "source": "19hz",
         "url": "https://www.axs.com/events/1412252/jane-remover-tickets"
+      },
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1412252/jane-remover-tickets"
       }
     ],
     "sources": [
-      "19hz"
+      "19hz",
+      "goldenvoice"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -2413,7 +2542,7 @@
     "date": "2026-06-19",
     "start": "2026-06-19T17:00:00.000",
     "venue": "Los Angeles State Historic Park",
-    "neighborhood": null,
+    "neighborhood": "Los Angeles",
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
@@ -2432,10 +2561,15 @@
       {
         "source": "19hz",
         "url": "https://www.axs.com/events/1307898/chris-lake-friday-june-19th-2026-tickets"
+      },
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1307898/chris-lake-friday-june-19th-2026-tickets"
       }
     ],
     "sources": [
       "19hz",
+      "goldenvoice",
       "ra"
     ],
     "first_seen": "2026-06-16",
@@ -2790,6 +2924,32 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "OVERDRIVE: Hard Techno x Hardstyle x Hard Dance | Los Angeles",
+    "date": "2026-06-19",
+    "start": "2026-06-19T22:00:00-07:00",
+    "venue": "The Virgil",
+    "neighborhood": "Los Angeles",
+    "category": "electronic",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": "0.0",
+    "organizers": null,
+    "detail": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/overdrive-hard-techno-x-hardstyle-x-hard-dance-los-angeles-tickets-1989184338905"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Prideteenth 2026: To Freedom",
     "date": "2026-06-19",
     "start": "2026-06-19T22:00:00.000",
@@ -2932,7 +3092,7 @@
     "date": "2026-06-19",
     "start": "2026-06-19T22:00:00.000",
     "venue": "The Roxy",
-    "neighborhood": null,
+    "neighborhood": "Los Angeles",
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
@@ -2940,7 +3100,9 @@
     "price": "All ages",
     "organizers": "Goldenvoice",
     "detail": null,
-    "lineup": [],
+    "lineup": [
+      "Mr Tout le Monde"
+    ],
     "links": [
       {
         "source": "ra",
@@ -2949,10 +3111,15 @@
       {
         "source": "19hz",
         "url": "https://www.axs.com/events/1364333/mr-tout-le-monde-tickets"
+      },
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1364333/mr-tout-le-monde-tickets"
       }
     ],
     "sources": [
       "19hz",
+      "goldenvoice",
       "ra"
     ],
     "first_seen": "2026-06-16",
@@ -3114,6 +3281,35 @@
     "sources": [
       "19hz",
       "ra"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "Sadie Jean",
+    "date": "2026-06-19",
+    "start": "20:00",
+    "venue": "El Rey Theatre",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Sadie Jean",
+      "Gabriela Bee"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1392057/sadie-jean-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -3362,17 +3558,30 @@
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
-    "price": null,
-    "organizers": null,
+    "price": "$86-251",
+    "organizers": "Goldenvoice",
     "detail": null,
-    "lineup": [],
+    "lineup": [
+      "Jane Remover - 2nd Show Added!",
+      "Dazegxd"
+    ],
     "links": [
       {
         "source": "tm",
         "url": "https://www.ticketmaster.com/event/Z7r9jZ1A70v8K"
+      },
+      {
+        "source": "19hz",
+        "url": "https://www.axs.com/events/1418828/jane-remover-2nd-show-added-tickets"
+      },
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1418828/jane-remover-2nd-show-added-tickets"
       }
     ],
     "sources": [
+      "19hz",
+      "goldenvoice",
       "tm"
     ],
     "first_seen": "2026-06-16",
@@ -3608,32 +3817,6 @@
       {
         "source": "19hz",
         "url": "https://www.facebook.com/events/1694603385005047/"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "first_seen": "2026-06-16",
-    "last_seen": "2026-06-16"
-  },
-  {
-    "title": "Jane Remover, Dazegxd",
-    "date": "2026-06-19",
-    "start": "9pm",
-    "venue": "Fonda Theatre (Los Angeles) hyperpop, EDM, emo, shoegaze",
-    "neighborhood": null,
-    "category": "electronic",
-    "afterhours": false,
-    "ra_pick": false,
-    "attending": null,
-    "price": "$86-251",
-    "organizers": "Goldenvoice",
-    "detail": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://www.axs.com/events/1418828/jane-remover-2nd-show-added-tickets"
       }
     ],
     "sources": [
@@ -4266,32 +4449,6 @@
     ],
     "sources": [
       "filmbot"
-    ],
-    "first_seen": "2026-06-16",
-    "last_seen": "2026-06-16"
-  },
-  {
-    "title": "Chris Lake (18 and Over) - Friday",
-    "date": "2026-06-20",
-    "start": "17:00:00",
-    "venue": "Los Angeles State Historic Park",
-    "neighborhood": "Los Angeles",
-    "category": "music",
-    "afterhours": false,
-    "ra_pick": false,
-    "attending": null,
-    "price": null,
-    "organizers": null,
-    "detail": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "tm",
-        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7OyOE"
-      }
-    ],
-    "sources": [
-      "tm"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -5195,7 +5352,7 @@
     "date": "2026-06-20",
     "start": "2026-06-20T17:00:00.000",
     "venue": "Los Angeles State Historic Park",
-    "neighborhood": null,
+    "neighborhood": "Los Angeles",
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
@@ -5213,13 +5370,23 @@
         "url": "https://ra.co/events/2367331"
       },
       {
+        "source": "tm",
+        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7OyOE"
+      },
+      {
         "source": "19hz",
+        "url": "https://www.axs.com/events/1311419/chris-lake-saturday-june-20th-2026-tickets"
+      },
+      {
+        "source": "goldenvoice",
         "url": "https://www.axs.com/events/1311419/chris-lake-saturday-june-20th-2026-tickets"
       }
     ],
     "sources": [
       "19hz",
-      "ra"
+      "goldenvoice",
+      "ra",
+      "tm"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -5894,6 +6061,64 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Shordie Shordie",
+    "date": "2026-06-20",
+    "start": "20:00",
+    "venue": "El Rey Theatre",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Shordie Shordie",
+      "Poiison"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1378800/shordie-shordie-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "Chase Icon",
+    "date": "2026-06-20",
+    "start": "20:00",
+    "venue": "The Roxy",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Chase Icon",
+      "Memphy"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1418823/chase-icon-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Warren B Hall",
     "date": "2026-06-20",
     "start": "20:00:00",
@@ -6193,17 +6418,30 @@
     "afterhours": false,
     "ra_pick": false,
     "attending": null,
-    "price": null,
-    "organizers": null,
+    "price": "$139+",
+    "organizers": "Goldenvoice",
     "detail": null,
-    "lineup": [],
+    "lineup": [
+      "Jane Remover - 3rd Show Added!",
+      "Dazegxd"
+    ],
     "links": [
       {
         "source": "tm",
         "url": "https://www.ticketmaster.com/event/Z7r9jZ1A70v8f"
+      },
+      {
+        "source": "19hz",
+        "url": "https://www.axs.com/events/1423190/jane-remover-3rd-show-added-tickets"
+      },
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1423190/jane-remover-3rd-show-added-tickets"
       }
     ],
     "sources": [
+      "19hz",
+      "goldenvoice",
       "tm"
     ],
     "first_seen": "2026-06-16",
@@ -6704,32 +6942,6 @@
     "last_seen": "2026-06-16"
   },
   {
-    "title": "Jane Remover, Dazegxd",
-    "date": "2026-06-20",
-    "start": "9pm",
-    "venue": "Fonda Theatre (Los Angeles) hyperpop, EDM, emo, shoegaze",
-    "neighborhood": null,
-    "category": "electronic",
-    "afterhours": false,
-    "ra_pick": false,
-    "attending": null,
-    "price": "$139+",
-    "organizers": "Goldenvoice",
-    "detail": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://www.axs.com/events/1423190/jane-remover-3rd-show-added-tickets"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "first_seen": "2026-06-16",
-    "last_seen": "2026-06-16"
-  },
-  {
     "title": "Marques Wyatt",
     "date": "2026-06-20",
     "start": "9pm",
@@ -6760,7 +6972,7 @@
     "date": "2026-06-20",
     "start": "9pm",
     "venue": "The Novo (Los Angeles) disco, funk",
-    "neighborhood": null,
+    "neighborhood": "Los Angeles",
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
@@ -6768,15 +6980,22 @@
     "price": "$44-55",
     "organizers": "Goldenvoice",
     "detail": null,
-    "lineup": [],
+    "lineup": [
+      "Sad Foos"
+    ],
     "links": [
       {
         "source": "19hz",
         "url": "https://www.facebook.com/events/2709655819415710/"
+      },
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1457095/sad-foos-tickets"
       }
     ],
     "sources": [
-      "19hz"
+      "19hz",
+      "goldenvoice"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -8763,6 +8982,34 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "YG",
+    "date": "2026-06-22",
+    "start": "20:00",
+    "venue": "The Roxy",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "YG"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1471560/yg-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Kenny Wayne Shepherd",
     "date": "2026-06-22",
     "start": "20:00:00",
@@ -9264,37 +9511,11 @@
     "last_seen": "2026-06-16"
   },
   {
-    "title": "Mamma Mia! (Touring)",
-    "date": "2026-06-24",
-    "start": "19:30:00",
-    "venue": "Ahmanson Theatre",
-    "neighborhood": "Los Angeles",
-    "category": "theater",
-    "afterhours": false,
-    "ra_pick": false,
-    "attending": null,
-    "price": null,
-    "organizers": null,
-    "detail": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "tm",
-        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7bk4w"
-      }
-    ],
-    "sources": [
-      "tm"
-    ],
-    "first_seen": "2026-06-16",
-    "last_seen": "2026-06-16"
-  },
-  {
     "title": "Mamma Mia!",
     "date": "2026-06-24",
     "start": "2026-06-24T19:30:00.000",
     "venue": "Ahmanson Theatre",
-    "neighborhood": null,
+    "neighborhood": "Los Angeles",
     "category": "electronic",
     "afterhours": false,
     "ra_pick": false,
@@ -9307,10 +9528,15 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2320217"
+      },
+      {
+        "source": "tm",
+        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7bk4w"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "tm"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -9342,6 +9568,63 @@
     "sources": [
       "19hz",
       "ra"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "VINCINT",
+    "date": "2026-06-24",
+    "start": "20:00",
+    "venue": "The Roxy",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "VINCINT",
+      "Special Guest Bryce Xavier"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1431158/vincint-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "No Jumper",
+    "date": "2026-06-24",
+    "start": "20:00",
+    "venue": "El Rey Theatre",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "No Jumper"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1432435/no-jumper-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -9946,7 +10229,7 @@
     "date": "2026-06-25",
     "start": "2026-06-25T22:00:00.000",
     "venue": "Fonda Theatre",
-    "neighborhood": null,
+    "neighborhood": "Los Angeles",
     "category": "electronic",
     "afterhours": true,
     "ra_pick": false,
@@ -9965,11 +10248,44 @@
       {
         "source": "19hz",
         "url": "https://www.axs.com/events/1332014/aaron-hibell-tickets"
+      },
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1332014/aaron-hibell-tickets"
       }
     ],
     "sources": [
       "19hz",
+      "goldenvoice",
       "ra"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "DANNA",
+    "date": "2026-06-25",
+    "start": "20:00",
+    "venue": "The Roxy",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "DANNA"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1425594/danna-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"
@@ -11192,6 +11508,64 @@
     "last_seen": "2026-06-16"
   },
   {
+    "title": "Daniela Andrade",
+    "date": "2026-06-26",
+    "start": "20:00",
+    "venue": "El Rey Theatre",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Daniela Andrade",
+      "Brahny"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1330873/daniela-andrade-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "Bunii",
+    "date": "2026-06-26",
+    "start": "20:00",
+    "venue": "The Roxy",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "Bunii",
+      "Crayon"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1396847/bunii-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
     "title": "Metalachi",
     "date": "2026-06-26",
     "start": "20:00:00",
@@ -11291,6 +11665,34 @@
     ],
     "sources": [
       "tm"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-06-16"
+  },
+  {
+    "title": "R&B ONLY AND FRIENDS",
+    "date": "2026-06-26",
+    "start": "21:00",
+    "venue": "The Novo",
+    "neighborhood": "Los Angeles",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": null,
+    "organizers": null,
+    "detail": null,
+    "lineup": [
+      "R&B ONLY AND FRIENDS"
+    ],
+    "links": [
+      {
+        "source": "goldenvoice",
+        "url": "https://www.axs.com/events/1415366/rb-only-and-friends-tickets"
+      }
+    ],
+    "sources": [
+      "goldenvoice"
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16"

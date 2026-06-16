@@ -138,25 +138,33 @@ sources:
   # ── Tier 3: venues & promoters (JSON-LD / scrape) ────────────────────────
   - name: Goldenvoice
     category: live_music
-    method: scrape
-    url: https://www.goldenvoice.com/events/
+    method: api
+    url: https://aegwebprod.blob.core.windows.net/json/events/19/events.json
     priority: 1
     status: active
-    notes: AXS venues (Fonda, El Rey, Shrine, Novo...). AXS has no public API; scrape GV directly.
-
-  - name: Eventbrite (LA browse)
-    category: multi
-    method: jsonld
-    url: https://www.eventbrite.com/d/ca--los-angeles/events/
-    priority: 2
-    status: flaky
     notes: >
-      Browse page DOES embed clean schema.org/Event JSON-LD (venue, geo, date, price) — verified
-      2026-06-16 it surfaces on-profile events ("OVERDRIVE: Hard Techno", afrobeats, "Sunset
-      Sessions"). BUT an anti-bot wall blocks automated fetches after the first hit (urllib 405;
-      curl gets challenged after a couple requests). Reliable only via a real browser session or a
-      proper Eventbrite integration. High noise otherwise — filter hard. Don't sink time evading
-      the bot wall; revisit with an authed/headless path.
+      AEG/AXS venues (Fonda, El Rey, The Roxy, The Novo, Shrine, Greek, Belasco). The /shows page
+      is client-rendered, but events hydrate from a public Azure-blob JSON feed (site_id 19) — no
+      bot wall. scripts/fetch_goldenvoice.py. Feed is statewide (Bay Area / SD / SB included); the
+      fetcher filters to LA-metro venue cities. Rich fields: headliners/support, price low/high,
+      on-sale + presale dates, age, tz-aware datetimes. Verified 2026-06-16 (~30 LA shows/2wk).
+      Many LA shows also appear via TM API — dedupe expected.
+
+  - name: Eventbrite (curated organizers)
+    category: multi
+    method: eventbrite
+    url: https://www.eventbrite.com/
+    priority: 2
+    status: active
+    organizers:
+      - https://www.eventbrite.com/o/we-love-kandy-tour-11369190113   # hard techno / rave promoter
+    notes: >
+      Open browse (/d/...) is behind an AWS WAF CAPTCHA — not scrapeable; public search API is
+      retired. WORKAROUND (verified 2026-06-16): individual event + organizer pages are NOT walled
+      and embed schema.org Event JSON-LD. scripts/fetch_eventbrite.py crawls the curated `organizers`
+      list above (organizer page -> event links -> event JSON-LD) and also takes one-off --event URLs
+      for flyer/link capture. Grow `organizers` over time: any promoter's organizer id is shown on
+      their event pages. Seed organizer found via the "OVERDRIVE: Hard Techno" event.
 
   - name: Hollywood Pantages / Broadway in Hollywood
     category: theater
