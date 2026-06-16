@@ -24,6 +24,7 @@ working on digest/discover/flyer behavior. It is the contract; this file is orie
 sources.yaml                        # source registry — schema documented in file header
 taste.yaml                          # ranking config — user-editable, re-read every run
 festivals.yaml                      # "on the radar" curated festivals/big-shows + live lookups
+recurring.yaml                      # predictable recurring markets/fleas/farmers markets
 scripts/fetch_ticketmaster.py       # needs TM_API_KEY env var
 scripts/fetch_ra.py                 # unofficial GraphQL; verify AREA_ID once (see header)
 data/catalog.json                   # deduped event store (committed = the state)

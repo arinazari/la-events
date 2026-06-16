@@ -112,6 +112,28 @@ sources:
     status: active
     notes: Possible paywall friction; degrade gracefully.
 
+  - name: Eater LA
+    category: editorial
+    method: webfetch
+    url: https://la.eater.com/
+    priority: 1
+    status: active
+    notes: >
+      THE source for food & drink pop-ups, restaurant openings, and brand activations (e.g. a
+      Campari spritz block party). Read via WebFetch at digest time; extract the on-taste daytime/
+      lifestyle happenings (markets, spritz parties, pop-ups, openings worth knowing). Signal +
+      catalog when no structured source has it.
+
+  - name: UncoverLA
+    category: editorial
+    method: webfetch
+    url: https://uncoverla.com/los-angeles-news/openings/pop-ups/
+    priority: 2
+    status: active
+    notes: >
+      Retail/lifestyle pop-ups & brand activations across LA. WebFetch at digest time for the
+      special-promo / block-party / pop-up layer that ticketed sources miss.
+
   - name: 6AM Group — weekly LA picks
     category: electronic
     method: scrape

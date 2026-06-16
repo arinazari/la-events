@@ -118,6 +118,10 @@ the spine — it answers "what's on tonight / this weekend" at a glance). Struct
      (**Electronic**, **Film**, **Live**, etc.) — but keep the day as the top-level unit.
    - Lead each day with the electronic/house/techno (the priority lane); film/live/etc. follow.
    - Comedy appears inline on its day ONLY if a `comedians_loved` name is playing.
+   - **Daytime/lifestyle on its day too**: recurring markets (from `recurring.yaml` — compute
+     which fall on each day; Silver Lake Farmers Market = Tue/Sat is local + high priority) and
+     any one-off pop-ups / brand activations / block parties surfaced by the editorial sources
+     (Eater LA, UncoverLA). A weekend day might end with a **Daytime/markets** label.
    - Mark warehouse/TBA-location and "lineup TBA"; note 35mm/70mm for film.
 3. **Around town** — GENERAL LA context, not ticketed picks: what's in the air citywide
    (e.g. FIFA World Cup 26 matches at SoFi + watch parties, big sports, street fairs, museum
@@ -153,8 +157,10 @@ knowledge; web-check only genuinely unknown names. Don't annotate household name
   "fabric London"-style club nights / European-leaning lineups; rooftop / sunset / daytime
   open-air house, disco, Balearic, groove; vinyl-only / listening-bar sets; warehouse &
   afterhours parties; rep & arthouse cinema (Vidiots, Vista, Brain Dead, Cinematheque, New Bev)
-- **Medium**: live bands (post-punk, electronic-adjacent, experimental); record fairs /
-  listening bars; craft beer events; theater (Pantages-scale and black-box)
+- **Medium**: small rock/indie/garage/dream-pop club shows (Troubadour, Echo, Zebulon,
+  Moroccan, Lodge Room); live-electronic acts; daytime & lifestyle — flea/vintage/design
+  markets, farmers markets (esp. Silver Lake/eastside), food & drink pop-ups, brand activations
+  / block parties; record fairs / listening bars; craft beer; theater (Pantages + black-box)
 - **Low / usually skip**: standup comedy — NOT a general fan; surface only `comedians_loved`
   names (e.g. Stavros Halkias). Stadium pop, mainstream/big-room EDM, museum openings.
 - **Context boosts**: rooftop/open-air/sunset (+), vinyl-only or open-to-close set (+),
@@ -227,6 +233,10 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
   `comedians_loved` (the comedy exception list).
 - `festivals.yaml` — the "On the radar" curated list (festivals + big concerts months out);
   refresh status with a live web lookup each digest run.
+- `recurring.yaml` — predictable recurring markets/happenings (farmers markets, fleas,
+  Smorgasburg). At digest time, compute which occurrences fall in the window and drop them onto
+  the right day in the day-by-day. One-off pop-ups/activations are NOT here — those come from
+  the editorial webfetch sources (Eater LA, UncoverLA, Secret LA, DiscoverLA).
 - `scripts/fetch_ticketmaster.py` — Discovery API fetcher (needs `TM_API_KEY`)
 - `scripts/fetch_ra.py` — RA GraphQL fetcher (no key; verify `AREA_ID` on first run)
 - `scripts/fetch_19hz.py` — 19hz dance-calendar table scraper
