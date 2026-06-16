@@ -47,6 +47,20 @@ Current phase: **1 → 2 transition** (skill + specs built, repo scaffolded, not
 - [ ] Price tracking across ticket links (DICE vs TM fees)
 - [ ] Weekend-planner mode: pick a night, get an itinerary (dinner → show → afters)
 
+## Dining layer (la-dining sibling skill)  ✅ scaffolded / ⬜ validated
+- [x] la-dining SKILL.md (query / radar / discover / capture modes)
+- [x] dining-sources.yaml seeded (Resy, OpenTable, Michelin, Infatuation, Eater, LAT + candidates)
+- [x] dining-taste.yaml (minimal, learns from reactions) + data/dining.json + radar routine
+- [x] Harvest fetch test (6/16): Infatuation + Resy blog fetch clean; Eater, LA Times,
+      Michelin, OpenTable bot-block the fetcher → tagged `fetch: search_only`, harvested via
+      domain-scoped web search. Encoded in dining-sources.yaml + SKILL.md fallback rule.
+- [ ] First live query run end-to-end (rank + write a record to data/dining.json)
+- [ ] First weekly radar (validates digest format/length/tone — Decision D1)
+- [ ] Reservation availability: OpenTable/Resy booking widgets don't render via fetch — decide
+      whether per-candidate availability needs a headless fetch or stays "set a Notify" advice
+- [ ] Decide whether dining + events ever share a "weekend-planner" itinerary (dinner → show)
+- [ ] Fold reservation hot-lists into a learned food-taste profile once reactions accumulate
+
 ---
 
 ## Decision points — Ari's input needed
@@ -65,3 +79,13 @@ Current phase: **1 → 2 transition** (skill + specs built, repo scaffolded, not
 7. **PWA go/no-go** (Phase 3): a static dashboard now exists — decide whether it earns
    further investment (save-to-calendar, richer PWA) or digest + dashboard is enough.
    Decide after living with Phase 2 for a few weeks.
+
+### Dining-layer decisions
+- **D1. Radar cadence + format**: weekly (recommended, Wed AM) vs. on-demand only; does the
+  radar format/length/tone land? Cheapest to change after the first run.
+- **D2. Food-taste seeding**: currently minimal and learns from reactions. Switch to an
+  explicit profile (cuisines, price, range, dietary) whenever you want sharper picks.
+- **D3. Reservation depth**: stay at "hot-list + availability check on shortlist," or invest
+  in deeper Resy/OpenTable/Tock integration (harder — no clean public APIs).
+- **D4. Cross-layer planner**: should la-dining and la-events combine into a night itinerary
+  (dinner → show → afters)? Listed as a Phase-4 events nice-to-have; dining makes it real.
