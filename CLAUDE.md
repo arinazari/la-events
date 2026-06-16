@@ -17,17 +17,33 @@ phase and open decisions before starting any non-trivial task.
 The full operating spec lives in `.claude/skills/la-events/SKILL.md` — read it before
 working on digest/discover/flyer behavior. It is the contract; this file is orientation.
 
+## Dining layer (sibling skill)
+
+A parallel **la-dining** layer recommends *where to eat* — restaurants, eateries, popups,
+and food trucks — by day/occasion/neighborhood, and tracks what's trending. It mirrors the
+events conventions but is its own skill with its own registry/taste/catalog (restaurants are
+persistent entities, not dated rows; popups/trucks are the event-shaped exception). Sources:
+Resy + OpenTable (hot-lists + availability) and Michelin / The Infatuation / Eater / LA Times
+(editorial signals). Spec: `.claude/skills/la-dining/SKILL.md`. Modes: query (primary), radar
+(weekly digest), discover, capture.
+
 ## Layout
 
 ```
-.claude/skills/la-events/SKILL.md   # operating spec (digest/discover/flyer modes)
-sources.yaml                        # source registry — schema documented in file header
-taste.yaml                          # ranking config — user-editable, re-read every run
+.claude/skills/la-events/SKILL.md   # events operating spec (digest/discover/flyer modes)
+.claude/skills/la-dining/SKILL.md   # dining operating spec (query/radar/discover/capture)
+sources.yaml                        # events source registry — schema in file header
+dining-sources.yaml                 # dining source registry — schema in file header
+taste.yaml                          # events ranking config — user-editable, re-read each run
+dining-taste.yaml                   # food-taste config — minimal, learns from reactions
 scripts/fetch_ticketmaster.py       # needs TM_API_KEY env var
 scripts/fetch_ra.py                 # unofficial GraphQL; verify AREA_ID once (see header)
 data/catalog.json                   # deduped event store (committed = the state)
-digests/YYYY-MM-DD.md               # digest outputs
-routines/daily-digest-prompt.md     # prompt for the scheduled cloud routine
+data/dining.json                    # dining catalog: restaurants + popups/trucks
+digests/YYYY-MM-DD.md               # events digest outputs
+digests/dining-YYYY-MM-DD.md        # dining radar outputs
+routines/daily-digest-prompt.md     # scheduled events-digest routine prompt
+routines/dining-radar-prompt.md     # scheduled weekly dining-radar routine prompt
 ```
 
 ## Hard requirements & conventions

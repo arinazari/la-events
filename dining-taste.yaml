@@ -1,0 +1,62 @@
+# Food-taste profile — the dining ranking config. Edit freely; re-read every run.
+# Deliberately MINIMAL to start: we don't presume your palate. Ranking leans on
+# editorial "trending/best" signals + occasion/location fit, and this file learns
+# from your reactions over time (append to `feedback`, periodically fold into prefs).
+#
+# Scoring sketch: a candidate accrues points from signal strength (how many
+# independent critic/hot-list sources, how recent, how prestigious) PLUS the soft
+# preferences below. Sorts by total; ties broken by proximity to Silver Lake.
+
+# --- What we actually know (context, not yet palate) ---
+home_base: Silver Lake (Hyperion & Del Mar)
+geography:
+  eastside_bias: soft        # Los Feliz / Echo Park / Silver Lake / HLP / DTLA a plus,
+                             # not a requirement — a destination meal can win.
+  default_max_drive_min: 25  # for casual/weeknight asks; relax for special occasions
+
+# --- Soft preferences (all empty — fill in or let reactions populate) ---
+cuisines_love: []            # e.g. add as you react: "more like this"
+cuisines_avoid: []
+dietary: []                  # allergies / restrictions go here — these are hard filters
+price_comfort:
+  weeknight: null            # e.g. "$$" once known
+  special: null              # e.g. "$$$$" for occasions
+vibe_notes: []               # e.g. "counter seats", "no scene-y bottle-service rooms"
+
+# --- Occasion presets (how to weight a query by stated occasion) ---
+# Tune these as you learn what you actually reach for per occasion.
+occasions:
+  date_night:   { weight_vibe: high,  reservation_effort_ok: high }
+  group:        { weight_vibe: med,   reservation_effort_ok: med, prefers_big_tables: true }
+  solo_counter: { weight_vibe: high,  reservation_effort_ok: low, walk_in_ok: true }
+  late_night:   { weight_vibe: med,   reservation_effort_ok: low }
+  quick_lunch:  { weight_vibe: low,   reservation_effort_ok: low, prefers_close: true }
+  special:      { weight_vibe: high,  reservation_effort_ok: high, prestige_boost: true }
+
+# --- Signal weighting (how much each source/badge nudges rank) ---
+signal_weights:
+  new_opening: high          # you asked specifically about what's new/trending
+  michelin_star: high
+  michelin_bib: high         # great value — likely on-profile
+  lat_101: high
+  infatuation_hit_list: high
+  eater_heatmap: med
+  multiple_independent: high # mentioned by 2+ sources this cycle = real buzz
+  resy_hit_list: med
+
+# --- Reservation tolerance ---
+reservation:
+  willing_to_notify: true    # set Resy Notify for a place worth waiting on
+  walk_in_friendly: true     # bar/counter walk-ins are fine
+
+# --- Popups & trucks appetite ---
+popups:
+  interested: true           # surface date-relevant popups/trucks
+  location_tba_ok: true      # "address drops day-of" is fine
+
+restaurants_loved: []        # +boost; add names you'd happily return to
+restaurants_banned: []
+
+# Feedback log — append reactions ("more like X", "never again Y", "too far",
+# "perfect for date night"); periodically fold into the preferences above.
+feedback: []
