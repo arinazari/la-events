@@ -1,13 +1,16 @@
 # ROADMAP — la-events
 
-Current phase: **1 → 2 transition** (skill + specs built, repo scaffolded, nothing live-tested yet).
+Current phase: **Phase 2 — aggregator infrastructure.** Phase 1 done: 10 live fetchers, RA
+AREA_ID 23 confirmed, catalog ~700 events, 6/16 windowed + 6/19 weekend digests shipped,
+dashboard live. Next: `run_digest.py` orchestrator, dedupe module, catalog hygiene, scheduled routine.
 
-## Phase 1 — Skill + manual runs  ✅ built / ⬜ validated
+## Phase 1 — Skill + manual runs  ✅
 - [x] SKILL.md (digest / discover / flyer / sources modes)
-- [x] Source registry seeded (40 sources)
-- [x] Fetchers written: TM, RA, 19hz, Goldenvoice, Filmbot, Eventbrite, Posh, generic JSON-LD
-- [ ] First live digest run (validates fetchers, RA AREA_ID, output format)
-- [ ] TM_API_KEY obtained and set in cloud environment
+- [x] Source registry seeded (65 sources; live-music bar/restaurant lane added 6/16)
+- [x] Fetchers written: TM, RA, 19hz, Goldenvoice, Filmbot, Eventbrite, Posh, generic JSON-LD,
+      DICE (venue pages), Squarespace (json-pretty), ICS/Tockify
+- [x] First live digest run (RA AREA_ID 23 confirmed; 6/16 windowed + 6/19 weekend digests shipped)
+- [x] TM_API_KEY obtained and set in cloud environment
 - [ ] Gmail "Events" label created; first promoter lists joined (6AM, Dirty Epic first)
 
 ## Phase 2 — Aggregator infrastructure
@@ -19,7 +22,10 @@ Current phase: **1 → 2 transition** (skill + specs built, repo scaffolded, not
       (currently inline in the by-hand merge — extract + test it)
 - [x] Generic JSON-LD venue fetcher (`fetch_jsonld.py`) — built; few LA targets serve
       static JSON-LD (most are JS-rendered), so prefer per-source API fetchers.
-- [ ] DICE fetcher — needs crawl-then-parse of /event detail pages or headless render
+- [x] DICE fetcher (`fetch_dice.py`) — DONE via `dice.fm/venue/<slug>` pages: MusicEvent JSON-LD
+      under a Place's `event` key (real Chrome UA required). Umbrella source w/ venue-slug list
+      covers Zebulon/Gold Diggers/The Mint/Townhouse/The Virgil/2220/Permanent Records/Grand Star.
+- [x] ICS/Tockify fetcher (`fetch_ics.py`) + Squarespace fetcher (`fetch_squarespace.py`, ?format=json-pretty)
 - [ ] Standardize all fetchers on America/Los_Angeles for window math (RA/TM use UTC today())
 - [ ] SMS ingestion live: stand up the Twilio receiver → `data/inbox.jsonl`; digest run
       consumes unprocessed lines (parse text / MMS flyer, dedupe, mark processed). Spec in
@@ -33,12 +39,22 @@ Current phase: **1 → 2 transition** (skill + specs built, repo scaffolded, not
 - [ ] Delivery: digest lands somewhere Ari actually looks (see Decision 3)
 
 ### Sources brought online (2026-06-16)
-- Live: Ticketmaster, RA, 19hz, Goldenvoice (AEG blob feed), Vidiots (Filmbot API),
-  Eventbrite (curated organizers, with auto-harvest mechanism), Posh (authed tRPC explore).
+- Live (structured fetchers): Ticketmaster, RA, 19hz, Goldenvoice (AEG blob feed), Vidiots
+  (Filmbot API), Eventbrite (curated organizers + auto-harvest), Posh (authed tRPC explore),
+  DICE (venue pages), Squarespace (?format=json-pretty), ICS/Tockify. Catalog ~700 events.
+- Live-music bar/restaurant/listening lane (6/16 Discover, 25+ venues): structured where possible
+  (DICE: Zebulon/Gold Diggers/The Mint/Townhouse/The Virgil/2220/Permanent Records/Grand Star;
+  Squarespace: Junior High/Vibrato/The Smell; ICS: Maui Sugar Mill). Heterogeneous own-site rooms
+  (McCabe's, Dresden, Harvelle's, Sam First, Alva's, Venice West, …) → `method: webfetch` (read
+  rendered page at digest time). IG-only (1642, Gold Line, General Lee's) → `method: manual`.
 - Posh auth: `POSH_TOKEN` env var = session JWT, ~30-day life. Re-capture when it 401s
   (events.fetchMarketplaceEvents request → x-jwt-token). Durable refresh flow = future work.
 - Future source work:
   - [ ] Twilio textblast intake (NEXT) — SMS promoter blasts → catalog + organizer harvest
+  - [ ] Wire `method: webfetch` venues into the digest run (read rendered calendars at digest time)
+  - [ ] Bar Franca / Somerville: find the right Squarespace events collection slug (json-pretty → 0)
+  - [ ] Silverlake Lounge: DICE slug valid but 0 upcoming — re-check (many indies book via See Tickets)
+  - [ ] See Tickets US (Troubadour/Largo/Catalina): MusicEvent JSON-LD behind a headless render
   - [ ] Posh — durable token refresh (avoid 30-day manual re-capture)
   - [ ] Eventbrite — retry open browse if the AWS WAF CAPTCHA lifts / via headless
   - [ ] Rep cinema holdouts: New Bev (Veezi token), American Cinematheque (no public API)

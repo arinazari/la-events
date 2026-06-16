@@ -18,6 +18,19 @@ phase and open decisions before starting any non-trivial task.
 The full operating spec lives in `.claude/skills/la-events/SKILL.md` — read it before
 working on digest/discover/flyer behavior. It is the contract; this file is orientation.
 
+## How sources are fetched
+
+Three ingestion paths — each source's `method` in `sources.yaml` says which:
+- **Structured fetchers** (`scripts/fetch_*.py`) — APIs / JSON feeds / parseable pages: TM, RA,
+  19hz, Goldenvoice, Filmbot, Eventbrite, Posh, **DICE** (dice.fm/venue/<slug> — MusicEvent JSON-LD
+  under a Place's `event` key, real Chrome UA required), **Squarespace** (`?format=json-pretty`),
+  **ICS/Tockify**. They emit normalized event JSON; the run merges + dedupes into `data/catalog.json`.
+- **`webfetch`-at-digest** — venues with no JSON-LD/feed and heterogeneous CMSs (McCabe's, The
+  Dresden, Harvelle's, Sam First, Alva's, …) and editorial roundups: read the rendered page via the
+  WebFetch tool during the digest run rather than maintaining brittle per-CMS scrapers.
+- **`manual`** — IG-only / flyer / SMS (1642, Gold Line, General Lee's, promoter blasts). Never
+  scrape IG; capture via flyer mode or the Gmail "Events" label / Twilio inbox.
+
 ## Dining layer (sibling skill)
 
 A parallel **la-dining** layer recommends *where to eat* — restaurants, eateries, popups,
@@ -40,8 +53,10 @@ dining-taste.yaml                   # food-taste config — minimal, learns from
 festivals.yaml                      # "on the radar" curated festivals/big-shows + live lookups
 recurring.yaml                      # predictable recurring markets/fleas/farmers markets
 sms-ingestion.md                    # Twilio SMS/MMS → catalog spec (manual-capture automation)
-scripts/fetch_ticketmaster.py       # needs TM_API_KEY env var
-scripts/fetch_ra.py                 # unofficial GraphQL; verify AREA_ID once (see header)
+scripts/fetch_*.py                  # 11 source fetchers: ticketmaster (TM_API_KEY), ra, 19hz,
+                                    #   goldenvoice, filmbot, eventbrite, posh (POSH_TOKEN),
+                                    #   dice (venue pages), squarespace, ics, jsonld
+scripts/build_dashboard.py          # builds dashboard/data.json from catalog + taste.yaml
 data/catalog.json                   # deduped events store (committed = the state)
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)
 data/dining.json                    # dining catalog: restaurants + popups/trucks
@@ -57,8 +72,9 @@ dashboard/                          # static PWA-lite catalog view; feed via scr
 
 - **Stateless cloud runs**: all state lives in this repo. A run reads catalog + registry,
   fetches, merges, writes back, commits. Never assume anything outside the repo persists.
-- **Secrets**: env vars only (`TM_API_KEY`; Twilio auth token too if the SMS receiver is
-  live — the digest needs it to fetch MMS media). Never commit keys.
+- **Secrets**: env vars only — `TM_API_KEY` (Ticketmaster), `POSH_TOKEN` (Posh session JWT,
+  ~30-day life; re-capture when it 401s), and the Twilio auth token if the SMS receiver is live
+  (digest needs it to fetch MMS media). Never commit keys.
 - **Never scrape Instagram.** IG-only sources are `method: manual` (flyer-capture flow).
 - **Degrade gracefully**: one dead source never blocks a digest; list failures in the
   digest footer and mark repeat offenders `flaky` in sources.yaml.
