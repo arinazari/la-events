@@ -3,8 +3,8 @@
 
 Reads a catalog JSON (deduped event records) and taste.yaml, scores each event
 against the taste profile, and writes dashboard/data.json — the static feed the
-dashboard (dashboard/index.html) loads. Scoring here mirrors the digest's intent
-so the dashboard's "recommended for you" rating is consistent with the digest.
+dashboard (dashboard/index.html) loads. Scoring here MIRRORS the digest's ranking
+heuristic so the dashboard's "recommended for you" rating matches the digest.
 
 Usage:
     python scripts/build_dashboard.py                      # from data/catalog.json
@@ -28,16 +28,17 @@ except ImportError:  # degrade gracefully — taste lists just go empty
 
 REPO = Path(__file__).resolve().parent.parent
 
-# Category -> base weight. Mirrors taste.yaml's high/medium/low grouping.
+# Category -> base weight, mirroring taste.yaml high/medium/low. Comedy is LOW
+# (only loved comedians surface — handled in score_event), NOT a 3 like dance music.
 CATEGORY_WEIGHT = {
     "electronic": 3,
     "party": 3,        # club / warehouse / afterhours party
-    "film": 3,
-    "comedy": 3,
-    "live_music": 2,
+    "film": 3,         # rep & arthouse cinema
     "music": 2,        # live music (catalog's term)
+    "live_music": 2,
     "theater": 2,
     "beer_food": 2,
+    "comedy": 1,
     "art": 1,
     "pop": 1,
     "general": 1,
@@ -53,10 +54,30 @@ NEAR_SILVERLAKE = {
     "arts district",
 }
 
-# Substrings that trigger a penalty (Vegas-style clubs, 18+ EDM mega-raves).
+# +1 boosts (mirror the digest): rooftop/vinyl/groove setting, and European-label vibe.
+GROOVE_TERMS = (
+    "vinyl", "all night", "open to close", "open-to-close", "groove", "disco",
+    "soulful", "deep house", "balearic", "rooftop", "sunset", "golden hour",
+    "open-air", "open air", "daytime", "day party", "poolside", "pool party",
+)
+EU_TERMS = (
+    "fabric", "defected", "innervisions", "keinemusik", "hot creations", "rush hour",
+    "running back", "anjuna", "afterlife", "dirtybird", "hot since", "solid grooves",
+)
+
+# -2 penalties: the expanded non-priority list from taste.yaml (off-taste programming).
 PENALTY_TERMS = (
-    "bottle service", "vip table", "mega-rave", "mega rave", "edm festival",
-    "bottle-service",
+    "bottle service", "bottle-service", "vip table", "table service",
+    "top 40", "top-40", "open format", "open-format", "hip hop", "hip-hop",
+    "hardstyle", "gabber", "dubstep", "riddim", "brostep", "tribute", "cover band",
+    "watch party", "world cup", "fifa", "sports bar", "trivia", "bingo", "open mic",
+    "karaoke", "networking", "webinar", "workshop", "virtual", "zoom",
+    "mega-rave", "mega rave", "edm festival",
+)
+# -2: far-flung (not worth the trip by default).
+FAR_TERMS = (
+    "anaheim", "santa ana", "irvine", "san diego", "temecula", "ventura",
+    "riverside", "long beach", "costa mesa", "huntington beach",
 )
 
 
@@ -83,90 +104,118 @@ def parse_event_date(ev: dict):
 
 
 def score_event(ev: dict, taste: dict) -> dict:
-    """Return (score, reasons[]) for an event against the taste profile."""
+    """Return {score, reasons[]} for an event, mirroring the digest's ranking."""
     reasons = []
     score = 0
 
     cat = (ev.get("category") or "general").lower()
-    genre = (ev.get("genre") or "").lower()
+    title = ev.get("title") or ""
+    venue = (ev.get("venue") or "")
+    vlow = venue.lower()
+    hood = (ev.get("neighborhood") or "").lower().strip()
+    lineup = ev.get("lineup") or []
+    if not isinstance(lineup, list):
+        lineup = [str(lineup)]
+    hay = " ".join([title, venue, ev.get("detail") or "", str(lineup),
+                    str(ev.get("organizers") or "")]).lower()
+
+    tracked = [a for a in (taste.get("artists_tracked") or []) if a]
+    loved = [v.lower() for v in (taste.get("venues_loved") or [])]
+    pinned = [p.lower() for p in (taste.get("pinned_series") or [])]
+    comics = [c.lower() for c in (taste.get("comedians_loved") or [])]
+
+    # Base category weight (comedy is special — suppressed unless a loved name).
     base = CATEGORY_WEIGHT.get(cat, 1)
     score += base
-    label = {3: "high", 2: "medium", 1: "low"}[base]
-    reasons.append(f"+{base} {cat.replace('_', ' ')} ({label} interest)")
+    if cat == "comedy":
+        reasons.append("+1 comedy (low interest)")
+        if any(c in hay for c in comics):
+            score += 4
+            reasons.append("+4 favorite comedian")
+        else:
+            score -= 2
+            reasons.append("-2 comedy not generally wanted")
+    else:
+        lab = {3: "high", 2: "medium", 1: "low"}.get(base, "low")
+        reasons.append(f"+{base} {cat.replace('_', ' ')} ({lab} interest)")
 
-    # Friday / Saturday night
+    # Tracked artist — match title OR lineup (+2 each; also the "tracked" badge).
+    hits = sorted({a for a in tracked if a.lower() in hay})
+    if hits:
+        score += 2 * len(hits)
+        reasons.append(f"+{2 * len(hits)} tracked artist ({', '.join(hits)})")
+
+    # Pinned series (e.g. Sunset Sessions) — always surface.
+    if any(p in hay for p in pinned):
+        score += 5
+        reasons.append("+5 pinned series")
+
+    # Loved venue (substring match — "2220 Arts" ~ "2220 Arts + Archives").
+    if any(l in vlow for l in loved):
+        score += 1
+        reasons.append("+1 venue you love")
+
+    # Afterhours / warehouse / late start (catalog field is `afterhours`).
+    if ev.get("afterhours") or ev.get("afterhours_flag"):
+        score += 1
+        reasons.append("+1 afterhours / late start")
+
+    if ev.get("ra_pick"):
+        score += 1
+        reasons.append("+1 RA pick")
+
+    # Rooftop / vinyl / groove setting, and European-label vibe.
+    if any(g in hay for g in GROOVE_TERMS):
+        score += 1
+        reasons.append("+1 rooftop / vinyl / groove")
+    if any(e in hay for e in EU_TERMS):
+        score += 1
+        reasons.append("+1 European / label vibe")
+
+    # Friday / Saturday night.
     d = parse_event_date(ev)
     if d and d.weekday() in (4, 5):
         score += 1
         reasons.append("+1 Friday/Saturday night")
 
-    # Near Silver Lake
-    hood = (ev.get("neighborhood") or "").lower().strip()
+    # Near Silver Lake.
     if hood in NEAR_SILVERLAKE:
         score += 1
         reasons.append("+1 close to Silver Lake")
 
-    # RA pick
-    if ev.get("ra_pick"):
-        score += 1
-        reasons.append("+1 RA pick")
-
-    # Afterhours / warehouse
-    if ev.get("afterhours_flag"):
-        score += 1
-        reasons.append("+1 afterhours / late start")
-
-    # Editorial mentions (+1 each)
+    # Editorial mentions (+1 each) — present once editorial signals are wired in.
     mentions = ev.get("editorial_mentions") or []
     if mentions:
         score += len(mentions)
         reasons.append(f"+{len(mentions)} editorial mention ({', '.join(mentions)})")
 
-    # Loved venue
-    loved = {v.lower() for v in (taste.get("venues_loved") or [])}
-    venue = (ev.get("venue") or "").lower().strip()
-    if venue and venue in loved:
-        score += 1
-        reasons.append("+1 venue you love")
-
-    # Tracked artist (+2)
-    tracked = {a.lower() for a in (taste.get("artists_tracked") or [])}
-    lineup_lower = {a.lower() for a in (ev.get("lineup") or [])}
-    hits = tracked & lineup_lower
-    if hits:
-        score += 2 * len(hits)
-        reasons.append(f"+{2 * len(hits)} tracked artist ({', '.join(sorted(hits))})")
-
-    # Early-bird tier still available
-    if ev.get("early_bird"):
-        score += 1
-        reasons.append("+1 early-bird tier available")
-
-    # Banned venue (hard down-rank)
-    banned = {v.lower() for v in (taste.get("venues_banned") or [])}
-    if venue and venue in banned:
+    # Banned venue (hard down-rank).
+    banned = [v.lower() for v in (taste.get("venues_banned") or []) if v]
+    if any(b in vlow for b in banned):
         score -= 5
         reasons.append("-5 venue you've banned")
 
-    # Penalties
-    haystack = " ".join(str(ev.get(k, "")) for k in ("title", "genre", "description")).lower()
+    # Penalties (each distinct term once).
     for term in PENALTY_TERMS:
-        if term in haystack:
+        if term in hay:
             score -= 2
             reasons.append(f"-2 {term}")
+    if any(f in hay or f in hood for f in FAR_TERMS):
+        score -= 2
+        reasons.append("-2 far from LA")
 
     return {"score": score, "reasons": reasons}
 
 
 def score_to_rating(score: int) -> int:
     """Map a raw score to a 1-5 star 'recommended for you' rating."""
-    if score >= 7:
+    if score >= 8:
         return 5
-    if score >= 5:
+    if score >= 6:
         return 4
-    if score >= 3:
+    if score >= 4:
         return 3
-    if score >= 1:
+    if score >= 2:
         return 2
     return 1
 
