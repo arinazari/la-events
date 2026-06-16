@@ -40,6 +40,11 @@ around the corner.
 Default window: next 7 days (Thu–Sun weighted). If user specifies a window ("this
 weekend," "next two weeks"), use that.
 
+> The **scheduled routine** runs digest mode in *weekend-set* form: one file per weekend in
+> `digests/weekends/` for the next ~16 weekends (~4 months), refreshed daily — near weekends
+> full, far ones announcement-driven. See `routines/daily-digest-prompt.md`. Interactive
+> `/la-events digest [N days]` stays windowed as above.
+
 ### Step 1 — Pull structured sources
 
 Run in parallel where possible:
@@ -55,6 +60,11 @@ Run in parallel where possible:
    Restless Nites, venue newsletters, SMS-to-email forwards). Extract event name, date,
    venue/TBA status, lineup, ticket link. Promoter blasts often announce events *beyond*
    the digest window — include a "further out, just announced" section for these.
+4. **SMS inbox** (`data/inbox.jsonl`, when the Twilio receiver is live) — process entries
+   with `processed == false` per `sms-ingestion.md`: parse the text, or fetch and parse the
+   MMS flyer image with the flyer-capture rules; normalize, tag `source: sms`, dedupe, mark
+   processed. Idempotent on `sid`. (Twilio media URLs need Twilio auth and expire — fetch
+   during the run, don't store the URL.)
 
 ### Step 2 — Pull editorial/curation signals
 
