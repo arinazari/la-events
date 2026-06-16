@@ -373,19 +373,19 @@ sources:
 
   - name: Posh (posh.vip)
     category: multi
-    method: manual
-    url: https://posh.vip/explore/los-angeles
-    priority: 2
-    status: candidate
+    method: api
+    url: https://posh.vip/api/web/v2/trpc/events.fetchMarketplaceEvents
+    priority: 1
+    status: active
     notes: >
-      Nightlife/party ticketing platform with strong LA coverage — high potential, but no clean
-      public LA feed (investigated 2026-06-16). Findings: public API is api.posh.vip; the only
-      open endpoint found, /v1/landing-page/trending-events, is NATIONAL and ignores location
-      (returned Atlanta/NY/Houston, zero LA). City explore (/explore/:city), event-detail, and
-      organizer feeds are all served by authenticated client-side calls not present in the static
-      bundle; event pages are App-Router-streamed with no JSON-LD. CONCLUSION: integrate via an
-      authenticated Posh ACCOUNT (follow LA promoters → pull the followed feed) — pair this with
-      the credential/Twilio phase. Not scrapeable anonymously today.
+      Nightlife/party platform, strong LA afterhours + warehouse coverage (incl. TBA
+      "revealed after RSVP" locations) and the promoter on every event. Authenticated tRPC API:
+      scripts/fetch_posh.py replicates the logged-in explore search (sort=Trending,
+      when=Today|This Week|This Month|Right Now, location preset LA). AUTH: needs POSH_TOKEN
+      env var = a Posh session JWT (~30-day lifespan). Capture from a logged-in browser's
+      network tab (events.fetchMarketplaceEvents request → x-jwt-token header). When it 401s,
+      it's expired — re-capture and update POSH_TOKEN. Broad feed (some watch-party/webinar
+      noise) — lean on taste.yaml ranking. Overlaps RA/19hz on afterhours — dedupe expected.
 
   # ── Verified-this-session reality check (2026-06-16) ─────────────────────
   # Static JSON-LD scraping (scripts/fetch_jsonld.py) covers FAR fewer LA sources than the

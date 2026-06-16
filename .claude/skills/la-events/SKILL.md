@@ -56,16 +56,19 @@ Run in parallel where possible:
    feed behind goldenvoice.com (Fonda, El Rey, Roxy, Novo, Shrine, Greek). Filters to LA metro.
 5. **Vidiots (rep cinema)** — `scripts/fetch_filmbot.py`. Hits the Filmbot/Nightjar REST API
    (`nj/v1`) behind the JS calendar. `--site` flag works for any Nightjar cinema.
-6. **Eventbrite (curated organizers)** — `scripts/fetch_eventbrite.py`. The open browse is
+6. **Posh** — `scripts/fetch_posh.py`. Authenticated tRPC API (LA explore: Trending / This
+   Week|Month). Needs `POSH_TOKEN` env var (session JWT, ~30-day life; re-capture when it 401s).
+   Strong afterhours/warehouse + TBA-location coverage; broad, so lean on taste ranking.
+7. **Eventbrite (curated organizers)** — `scripts/fetch_eventbrite.py`. The open browse is
    behind an AWS WAF CAPTCHA (unscrapeable) and the search API is retired, SO coverage is via
    a curated list of promoter/organizer pages (in `sources.yaml` under the Eventbrite source's
    `organizers:`). Event + organizer pages are NOT walled. **This list must keep growing** — see
    the harvesting note under Mode 3 and Mode 2.
-7. **Generic JSON-LD** — `scripts/fetch_jsonld.py` for any source that serves server-side
+8. **Generic JSON-LD** — `scripts/fetch_jsonld.py` for any source that serves server-side
    `schema.org/Event` (has a curl HTTP/2 fallback). NOTE: most LA venue calendars are
    JS-rendered (DICE, Lodge Room, Pantages, Zebulon) and return nothing here — prefer a
    source-specific API fetcher (Filmbot pattern) when JSON-LD is absent.
-8. **Gmail "Events" label** (when Gmail connector is available) — search threads labeled
+9. **Gmail "Events" label** (when Gmail connector is available) — search threads labeled
    `Events` received in the last 14 days. These are promoter blasts (6AM, Dirty Epic,
    Restless Nites, venue newsletters, SMS-to-email forwards). Extract event name, date,
    venue/TBA status, lineup, ticket link. Promoter blasts often announce events *beyond*
@@ -197,6 +200,7 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
 - `scripts/fetch_19hz.py` — 19hz dance-calendar table scraper
 - `scripts/fetch_goldenvoice.py` — Goldenvoice/AEG Azure-blob feed (LA-metro filtered)
 - `scripts/fetch_filmbot.py` — Nightjar/Filmbot cinema REST API (`--site`; Vidiots default)
+- `scripts/fetch_posh.py` — Posh authenticated tRPC explore (needs `POSH_TOKEN`)
 - `scripts/fetch_eventbrite.py` — curated-organizer crawler + `--harvest` / `--scan-catalog`
 - `scripts/fetch_jsonld.py` — generic schema.org/Event scraper (curl fallback)
 

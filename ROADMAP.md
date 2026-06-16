@@ -27,10 +27,12 @@ Current phase: **1 → 2 transition** (skill built, repo scaffolded, nothing liv
 
 ### Sources brought online (2026-06-16)
 - Live: Ticketmaster, RA, 19hz, Goldenvoice (AEG blob feed), Vidiots (Filmbot API),
-  Eventbrite (curated organizers, with auto-harvest mechanism).
+  Eventbrite (curated organizers, with auto-harvest mechanism), Posh (authed tRPC explore).
+- Posh auth: `POSH_TOKEN` env var = session JWT, ~30-day life. Re-capture when it 401s
+  (events.fetchMarketplaceEvents request → x-jwt-token). Durable refresh flow = future work.
 - Future source work:
   - [ ] Twilio textblast intake (NEXT) — SMS promoter blasts → catalog + organizer harvest
-  - [ ] Posh — auth-based (account follows); no anonymous LA feed exists
+  - [ ] Posh — durable token refresh (avoid 30-day manual re-capture)
   - [ ] Eventbrite — retry open browse if the AWS WAF CAPTCHA lifts / via headless
   - [ ] Rep cinema holdouts: New Bev (Veezi token), American Cinematheque (no public API)
   - [ ] Eastside comedy (Largo / Dynasty Typewriter / UCB) via per-site APIs (Filmbot playbook)
