@@ -18,12 +18,18 @@ Current phase: **1 → 2 transition** (skill built, repo scaffolded, nothing liv
 - [ ] Dedupe module with fuzzy matching + a small test set of known-duplicate events
 - [ ] DICE fetcher (JSON-LD) and generic JSON-LD venue fetcher driven by sources.yaml
 - [ ] Catalog hygiene: expire past events, track first-seen/last-seen, on-sale alerts
+- [ ] Source health checks: standalone sweep that pings every `active` source and marks
+      broken ones `flaky`/`dead` *before* a digest silently loses coverage. (Today health
+      is only a side effect of digest runs; worth it mainly if digests aren't daily.)
 - [ ] Scheduled Routine live: daily digest committed to claude/ branch
 - [ ] Delivery: digest lands somewhere Ari actually looks (see Decision 3)
 
 ## Phase 3 — Personalization + frontend
 - [ ] Feedback loop: reactions appended to taste.yaml `feedback`, periodically folded
       into weights (eventually: simple learned scoring from thumbs history)
+- [ ] Active taste calibration: present small-set / A-B event choices and fold the
+      selections into taste.yaml weights. Distinct from the reactive feedback loop above
+      (which only learns from digest reactions) — this actively elicits preferences.
 - [ ] PWA frontend (NCCN Navigator playbook): feed UI, category/date/neighborhood
       filters, save-to-calendar, score-explanation per event
 - [ ] Artist tracking: cross-reference rekordbox/listening data → artists_tracked
