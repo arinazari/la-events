@@ -41,11 +41,13 @@ Current phase: **1 → 2 transition** (skill built, repo scaffolded, nothing liv
 - [x] la-dining SKILL.md (query / radar / discover / capture modes)
 - [x] dining-sources.yaml seeded (Resy, OpenTable, Michelin, Infatuation, Eater, LAT + candidates)
 - [x] dining-taste.yaml (minimal, learns from reactions) + data/dining.json + radar routine
-- [ ] First live query run (validates editorial web-fetch + reservation-page access)
+- [x] Harvest fetch test (6/16): Infatuation + Resy blog fetch clean; Eater, LA Times,
+      Michelin, OpenTable bot-block the fetcher → tagged `fetch: search_only`, harvested via
+      domain-scoped web search. Encoded in dining-sources.yaml + SKILL.md fallback rule.
+- [ ] First live query run end-to-end (rank + write a record to data/dining.json)
 - [ ] First weekly radar (validates digest format/length/tone — Decision D1)
-- [ ] Reservation availability: confirm Resy/OpenTable public pages are fetchable in the
-      cloud network policy; if blocked, fall back to editorial-only + note in footer
-- [ ] Confirm Eater LA RSS + Infatuation/LAT/Michelin pages parse cleanly; mark flaky if not
+- [ ] Reservation availability: OpenTable/Resy booking widgets don't render via fetch — decide
+      whether per-candidate availability needs a headless fetch or stays "set a Notify" advice
 - [ ] Decide whether dining + events ever share a "weekend-planner" itinerary (dinner → show)
 - [ ] Fold reservation hot-lists into a learned food-taste profile once reactions accumulate
 
