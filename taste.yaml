@@ -44,7 +44,9 @@ penalties: # -2 each
 
 artists_tracked: []   # add names; matches get +2 and a "tracked artist" badge
 comedians_loved: [Stavros Halkias]   # the comedy exception — these get surfaced; others don't
-venues_loved: [Zebulon, Vidiots, Vista, Lodge Room, 2220 Arts, El Cid]   # +1
+venues_loved: [Zebulon, Vidiots, Vista, Lodge Room, 2220 Arts, El Cid, Golden Hour at Level 8]   # +1
+# Named-favorite series to PIN in the digest whenever on (surface even if score is modest):
+pinned_series: ["Sunset Sessions"]   # the rooftop-vinyl-house north star @ Level 8 DTLA
 
 # Feedback log — append reactions here ("more like X", "never show Y");
 # periodically fold them into the weights above.
@@ -53,3 +55,5 @@ feedback:
   - "2026-06-16: techno + house both mainstream and underground (fabric-London energy)."
   - "2026-06-16: not a comedy fan generally; surface known names only (loves Stavros Halkias)."
   - "2026-06-16: curious about Vidiots (never been); add Vista to rep-cinema rotation."
+  - "2026-06-16: ALWAYS surface Sunset Sessions @ Level 8 (the named archetype) when it's on."
+  - "2026-06-16: festival radar should be compact + urgency-driven (buy now / low / sold out), not a curated list dump; don't over-index on festivals I happened to name."

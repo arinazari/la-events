@@ -121,14 +121,23 @@ markdown — NOT a wall of every event. Structure:
    waves, street fairs, museum free days). Pull from the DiscoverLA weekend roundup + LAist.
    2–5 short lines; this is the "what's going on in LA right now" texture.
 8. **On the radar** — big events months out, from `festivals.yaml` + a quick live web lookup
-   each run (dates, lineup drops, on-sale/presale). Festivals AND travel-worthy big concerts/
-   tours. Flag on-sale windows. Keep it taste-aligned (lead with the electronic/European ones).
+   each run. Keep it SHORT and plain (no bold/hype) and **relevance-driven, not list-driven**:
+   surface an item only when there's an actual ticket-timing reason — on-sale/presale opening
+   soon, prices climbing, low stock, selling out, sold out, or a lineup just dropped. Don't
+   pad it with festivals just because they're curated or were named; if nothing's time-sensitive,
+   a couple lines (or one) is plenty. Far-off/dormant entries stay in `festivals.yaml`, not the
+   digest. Lead with the most on-taste + most urgent.
 9. **Just announced, further out** — from promoter blasts; on-sale dates matter here
 10. Footer: sources that failed/were skipped this run
 
 Each line: `Day M/D — [Event](link) — Venue (neighborhood) — price if known`.
 **ALWAYS hyperlink the event** to its ticket/info URL when the catalog has one (it usually
 does — links live on each record). Keep editorial-mention badges inline, e.g. "(LAist pick)".
+
+**Pin named favorites.** When the user has called out a specific event/series/venue as an
+on-taste archetype (e.g. **Sunset Sessions @ Golden Hour / Level 8** — the rooftop-vinyl-house
+north star; tracked in `taste.yaml` venues_loved), surface it whenever it's on, even if its raw
+score is modest. Don't let the archetype get buried under higher-scoring one-offs.
 
 **Artist-annotation layer (required).** Many lineup names are unknown to the user — so for
 picks and notable lineups, add a short parenthetical or em-dash gloss explaining who the
