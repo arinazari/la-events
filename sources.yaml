@@ -4,7 +4,7 @@
 #   name:      display name
 #   category:  electronic | live_music | comedy | film | theater | editorial |
 #              general | beer_food | multi
-#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | rss | ics | gmail | manual
+#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | dice | seetickets | rss | ics | gmail | manual
 #              (webfetch = read at digest time via the WebFetch tool; for bot-walled/JS pages)
 #   url:       endpoint or calendar page (or IG handle for manual)
 #   priority:  1 (always fetch) .. 3 (only on category-specific requests)
@@ -51,17 +51,29 @@ sources:
       afterhours, with price tiers (incl. early-bird) and organizer/promoter names — the
       organizer column is a goldmine for Discover mode. Best single electronic source.
 
-  - name: DICE (LA)
-    category: electronic
-    method: jsonld
-    url: https://dice.fm/browse/los-angeles
+  - name: DICE (LA venues)
+    category: live_music
+    method: dice
+    url: https://dice.fm/venue/
     priority: 1
-    status: flaky
+    status: active
+    venues:   # DICE venue slugs — scripts/fetch_dice.py pulls each. Grow this in Discover.
+      - zebulon-y8bv                       # Zebulon (Frogtown)
+      - gold-diggers-n2mq                  # Gold Diggers (East Hollywood)
+      - the-mint-5ggd                      # The Mint (Mid-City)
+      - townhouse-venice-d8ve              # Del Monte Speakeasy / Townhouse (Venice)
+      - the-virgil-39bl                    # The Virgil (East Hollywood)
+      - 2220-arts--archives-bdyv           # 2220 Arts + Archives (Historic Filipinotown)
+      - permanent-records-roadhouse-olyg   # Permanent Records Roadhouse (Cypress Park)
+      - grand-star-jazz-club-6kx8          # Grand Star Jazz Club (Chinatown)
+      # - the-silverlake-lounge-wb2v       # Silverlake Lounge — slug returned 0, re-verify
     notes: >
-      Browse page is JS-rendered — no schema.org/Event in static HTML (verified 2026-06-16,
-      generic JSON-LD scraper returns 0). Event JSON-LD may live on individual /event/ detail
-      pages; needs a crawl-then-parse step or a headless render. Heavy eastside/indie overlap
-      with RA when it works.
+      THE unlock for the eastside/indie live-music lane. /browse is JS-rendered (0 events via
+      static JSON-LD), BUT each dice.fm/venue/<slug> page embeds the full schema.org MusicEvent
+      array under a Place's "event" key in static HTML (name, startDate, performers, price,
+      ticket URL). MANDATORY: a real Chrome User-Agent — DICE 403s the default urllib agent.
+      scripts/fetch_dice.py (verified 2026-06-16: 112 events across 9 venues, incl. Zebulon's
+      "Mama's Gun" 6/17). Some shows also hit RA/TM — dedupe expected.
 
   - name: Gmail "Events" label
     category: multi
@@ -319,18 +331,22 @@ sources:
 
   - name: Zebulon (Frogtown)
     category: live_music
-    method: scrape
-    url: https://zebulon.la/
+    method: dice
+    url: https://dice.fm/venue/zebulon-y8bv
     priority: 1
     status: active
-    notes: Experimental/electronic-adjacent bookings; very on-profile, close to home.
+    notes: >
+      Experimental/jazz/electronic-adjacent; very on-profile, close to home. Now CAPTURED via
+      the DICE source (scripts/fetch_dice.py, slug zebulon-y8bv) — the old zebulon.la scrape was
+      JS-rendered and returned 0. This is the venue that exposed the live-band coverage gap.
 
   - name: 2220 Arts + Archives
     category: live_music
-    method: scrape
-    url: https://2220arts.org/
+    method: dice
+    url: https://dice.fm/venue/2220-arts--archives-bdyv
     priority: 2
     status: active
+    notes: Experimental/improv/jazz. Captured via the DICE source (fetch_dice.py, slug 2220-arts--archives-bdyv); own Google-Sites page is JS-rendered.
 
   - name: The Echo / Echoplex
     category: live_music
@@ -368,13 +384,16 @@ sources:
     status: candidate
     notes: Resale — discovery value low; useful only for price checks on sold-out shows.
 
-  - name: Songkick / Bandsintown (LA)
+  - name: Songkick (LA metro)
     category: live_music
     method: scrape
     url: https://www.songkick.com/metro-areas/17835-us-los-angeles-la
     priority: 3
     status: candidate
-    notes: Good artist-tracking angle once personalization phase starts.
+    notes: >
+      Metro page is server-rendered scrapeable HTML (no JSON-LD; needs real UA; paginate) — viable
+      as a coverage cross-check but heavily overlaps TM. API (metro_areas/17835/calendar.json) exists
+      but issues no new keys. Bandsintown is NOT viable (per-artist only, 403s) — manual enrichment at most.
 
   # ── Discovered 2026-06-16 (user-proposed) ───────────────────────────────
   - name: Subtract Music
@@ -417,6 +436,197 @@ sources:
       network tab (events.fetchMarketplaceEvents request → x-jwt-token header). When it 401s,
       it's expired — re-capture and update POSH_TOKEN. Broad feed (some watch-party/webinar
       noise) — lean on taste.yaml ranking. Overlaps RA/19hz on afterhours — dedupe expected.
+
+  # ── Discovered 2026-06-16 — live-music bar/restaurant/listening lane ──────
+  # Vetted via Discover web research (4 parallel passes). The DICE-backed venues
+  # (Gold Diggers, The Mint, Townhouse, The Virgil, Permanent Records, Grand Star)
+  # live in the "DICE (LA venues)" source above — one fetcher. These are the rest.
+
+  # -- own-site scrape (structured HTML; no third-party ticketer unless noted) --
+  - name: McCabe's Guitar Shop
+    category: live_music
+    method: scrape
+    url: https://www.mccabes.com/concerts-landing/
+    priority: 2
+    status: active
+    notes: Santa Monica. Folk/acoustic/Americana listening room. Server-rendered HTML, WooCommerce tickets, no JSON-LD.
+  - name: Harvelle's (Santa Monica)
+    category: live_music
+    method: scrape
+    url: https://santamonica.harvelles.com/calendar
+    priority: 3
+    status: active
+    notes: Blues/soul/funk/burlesque since 1931. Seat Engine ticketing on own subdomain.
+  - name: Vibrato Grill Jazz (Bel Air)
+    category: live_music
+    method: scrape
+    url: https://www.vibratogrilljazz.com/music
+    priority: 3
+    status: active
+    notes: Herb Alpert's upscale jazz supper club. Squarespace; listings in raw HTML; Resy events. Unique coverage (no ticketer).
+  - name: The Dresden (Los Feliz)
+    category: live_music
+    method: scrape
+    url: https://www.thedresden.com/events/
+    priority: 2
+    status: active
+    notes: Lounge/jazz nightly, no cover (Marty & Elayne legacy). BentoBox CMS; recurring residencies; close to Silver Lake.
+  - name: Sam First (Westchester)
+    category: live_music
+    method: scrape
+    url: https://www.samfirstbar.com/upcoming-shows
+    priority: 3
+    status: active
+    notes: Tiny modern-jazz room by LAX; records live albums. Own-site static HTML, internal ticketing.
+  - name: Saint Rocke (Hermosa Beach)
+    category: live_music
+    method: scrape
+    url: https://www.saintrocke.com/calendar/
+    priority: 3
+    status: candidate
+    notes: South Bay; rock/tribute/reggae/blues. WordPress calendar; also AXS/TM — cross-check to dedupe.
+  - name: Alva's Showroom (San Pedro)
+    category: live_music
+    method: scrape
+    url: https://alvasshowroom.com/events/
+    priority: 3
+    status: active
+    notes: 99-cap seated jazz/acoustic/world listening room. Plain HTML, direct ticketing.
+  - name: The Venice West
+    category: live_music
+    method: scrape
+    url: https://thevenicewest.com/calendar
+    priority: 2
+    status: active
+    notes: Venice (former Witzend). Funk/soul/jam/Americana + comedy. Webflow, listings in static HTML; Tixr ticketing.
+  - name: TRiP (Santa Monica)
+    category: live_music
+    method: scrape
+    url: https://www.tripsantamonica.com/trip-santa-monica-events
+    priority: 3
+    status: candidate
+    notes: Free nightly jazz/Latin/blues/open-mic. Wix; shows page is recurring prose (not dated) — parse carefully.
+  - name: Harvard & Stone (East Hollywood)
+    category: live_music
+    method: scrape
+    url: https://harvardandstone.com/events/
+    priority: 2
+    status: active
+    notes: Free nightly local garage/punk/R&B + burlesque. WordPress + Events Manager plugin; close to Silver Lake.
+  - name: Junior High (Glendale)
+    category: live_music
+    method: scrape
+    url: https://juniorhighlosangeles.com/calendar
+    priority: 3
+    status: active
+    notes: DIY/queer arts space — showcases, DJ sets, screenings. Squarespace native ticketing (/tickets/p/<slug>).
+  - name: Highland Park Bowl
+    category: live_music
+    method: scrape
+    url: https://www.highlandparkbowl.com/calendar
+    priority: 2
+    status: candidate
+    notes: 1933 Group bowling alley + live music. Squarespace calendar is JS-rendered (may need rendered fetch); confirm ticket domain on first event.
+  - name: The Baked Potato (Studio City)
+    category: live_music
+    method: scrape
+    url: https://www.thebakedpotato.com/events-calendar/
+    priority: 3
+    status: candidate
+    notes: Jazz/fusion institution (since 1970), nightly. Index JS-loaded but per-event pages crawlable; no JSON-LD.
+  - name: Bar Franca (DTLA)
+    category: live_music
+    method: scrape
+    url: https://barfranca.com/events
+    priority: 2
+    status: active
+    notes: Historic Core Euro hi-fi "sound bar"; jazz/funk/disco DJ nights. Squarespace; RSVP scattered (EB/Posh/Partiful). Surfaced in the 6/19 digest (Eddie C).
+  - name: Somerville (View Park)
+    category: live_music
+    method: scrape
+    url: https://somervilleslauson.com/sessions-on-slauson
+    priority: 3
+    status: candidate
+    notes: Art Deco supper club nr Leimert; nightly jazz w/ grand piano. Squarespace + SevenRooms; lineup on IG.
+  - name: Vitello's / E Spot Lounge (Studio City)
+    category: live_music
+    method: scrape
+    url: https://www.vitellosrestaurant.com/events
+    priority: 3
+    status: candidate
+    notes: Italian supper club; nightly jazz + cabaret. Wix + SevenRooms.
+
+  # -- ICS feed (cleanest — a structured calendar export) --
+  - name: The Smell (DTLA)
+    category: live_music
+    method: ics
+    url: https://www.thesmell.org/events
+    priority: 2
+    status: active
+    notes: All-ages, alcohol-free DIY punk/noise/experimental; volunteer-run. Squarespace with per-event .ics export links.
+  - name: Maui Sugar Mill Saloon (Tarzana)
+    category: live_music
+    method: ics
+    url: https://tockify.com/api/feeds/ics/sugarmillsaloon
+    priority: 3
+    status: candidate
+    notes: Valley dive; blues/country/rock cover & original bands. Tockify widget exposes an ICS feed (slug sugarmillsaloon).
+
+  # -- Eventbrite-harvest series & See Tickets (need EB organizer add / headless) --
+  - name: The World Stage / Leimert Park Jazz
+    category: live_music
+    method: eventbrite
+    url: https://www.theworldstage.org/events.html
+    priority: 3
+    status: candidate
+    notes: Leimert Park jazz + Black-arts series. Flat static site (no feed); Sunday Jazz ticketed via Eventbrite/Zeffy (Leimert Park Jazz Festival org) — harvest that organizer.
+  - name: See Tickets US (Troubadour / Largo / Catalina)
+    category: live_music
+    method: seetickets
+    url: https://wl.seetickets.us/
+    priority: 3
+    status: candidate
+    notes: >
+      Backs Troubadour + Largo (+ Catalina via TicketWeb). Event pages wl.seetickets.us/event/<slug>/<id>
+      carry MusicEvent JSON-LD but 403 to plain fetch (needs headless). Enumerate IDs from each venue's
+      own un-walled See Tickets calendar mirror, then render. Troubadour/Largo/Catalina also surface via TM.
+
+  # -- manual / IG-only (never scrape IG — flyer-capture lane) --
+  - name: 1642 Beverly
+    category: live_music
+    method: manual
+    url: instagram.com/1642_bar
+    priority: 2
+    status: manual
+    notes: Historic Filipinotown; FREE folk/jazz/honky-tonk/blues. No ticketing; listings IG/FB only (1642bar.com says "check facebook and instagram"). Capture via flyer mode.
+  - name: Gold Line (Highland Park)
+    category: live_music
+    method: manual
+    url: instagram.com/goldline_la
+    priority: 3
+    status: manual
+    notes: Hi-fi vinyl bar (Stones Throw orbit); guest DJs. Squarespace landing page, no events module — programming is IG-only.
+  - name: General Lee's (Chinatown)
+    category: live_music
+    method: manual
+    url: instagram.com/generalleesla
+    priority: 3
+    status: manual
+    notes: Live jazz upstairs (frequent), DJs downstairs. No structured ticketing; IG/Linktree-driven.
+  - name: Industry Cafe & Jazz (Culver City)
+    category: live_music
+    method: manual
+    url: https://www.facebook.com/industrycafela
+    priority: 3
+    status: manual
+    notes: Ethiopian/Eritrean restaurant + live jazz Wed–Sat. Social-only, no structured calendar.
+  - name: The Stowaway (DTLA)
+    category: live_music
+    method: manual
+    url: https://www.bandsintown.com/v/10307548-the-stowaway
+    priority: 3
+    status: manual
+    notes: Historic Core jazz/piano lounge ($10 cover). Own site 403s; only on Bandsintown (per-artist, walled) — treat as manual lead.
 
   # ── Verified-this-session reality check (2026-06-16) ─────────────────────
   # Static JSON-LD scraping (scripts/fetch_jsonld.py) covers FAR fewer LA sources than the
