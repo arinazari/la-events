@@ -4,7 +4,8 @@
 #   name:      display name
 #   category:  electronic | live_music | comedy | film | theater | editorial |
 #              general | beer_food | multi
-#   method:    api | graphql | jsonld | scrape | rss | ics | gmail | manual
+#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | rss | ics | gmail | manual
+#              (webfetch = read at digest time via the WebFetch tool; for bot-walled/JS pages)
 #   url:       endpoint or calendar page (or IG handle for manual)
 #   priority:  1 (always fetch) .. 3 (only on category-specific requests)
 #   status:    active | candidate | manual | flaky | dead
@@ -236,12 +237,18 @@ sources:
       web-service API but it's per-cinema token-gated (not public). Needs that token or a
       headless render. 35mm always; monthly calendar drops sell fast — flag on-sale dates.
 
-  - name: Vista Theater
+  - name: Vista Theater (Hollywood)
     category: film
-    method: scrape
-    url: https://www.vintagecinemas.com/vista/
-    priority: 2
-    status: active
+    method: webfetch
+    url: https://www.vistatheaterhollywood.com/cinema-club/schedule/
+    priority: 1
+    status: flaky
+    notes: >
+      Tarantino's Vista — 70mm/35mm, film-only, first-run + classics. Site moved to
+      vistatheaterhollywood.com (old vintagecinemas.com URL is dead). WordPress but no showtime
+      post type and the schedule is JS/Veezi-rendered; plain curl + WebFetch both blocked/empty
+      (verified 2026-06-16). Until a feed is found, read the schedule page via WebFetch at digest
+      time (rendered), or capture manually. High taste category — worth revisiting.
 
   - name: Comedy Store
     category: comedy
@@ -360,16 +367,18 @@ sources:
       path is to treat as a promoter signal (boost RA/19hz events organized by them) and join
       their list → Gmail "Events" label. Not a standalone fetch target.
 
-  - name: Discover Los Angeles
+  - name: Discover Los Angeles — best things this weekend
     category: editorial
-    method: scrape
-    url: https://www.discoverlosangeles.com/events
-    priority: 3
-    status: candidate
+    method: webfetch
+    url: https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend
+    priority: 1
+    status: active
     notes: >
-      Official LA tourism board calendar — broad/touristy, useful as an editorial boost signal.
-      Bot-protected: all event paths 403 to plain curl (verified 2026-06-16). Needs a headless
-      render or their ICS/API if one exists. Low priority vs. taste-aligned sources.
+      Official LA tourism board's weekend roundup. Blocks plain curl (403 "old-browser"), but the
+      WebFetch tool reads it fine (verified 2026-06-16). Use it two ways at digest time: (1) editorial
+      boost signal on catalog events, and (2) source of GENERAL LA context for the "Around town"
+      section (World Cup fan zones, big sports, citywide/seasonal happenings). Don't dump its full
+      list — it's broad/touristy; extract what's on-taste + the citywide context.
 
   - name: Posh (posh.vip)
     category: multi

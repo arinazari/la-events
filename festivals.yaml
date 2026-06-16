@@ -1,0 +1,61 @@
+# Festival & big-event radar — the "coming up in the next few/several months" layer.
+# Curated list of major festivals + big concerts/tours worth planning ahead for (incl.
+# travel-worthy national/international ones). The digest's "On the radar" section reads this
+# AND does a quick live web lookup per run to refresh status (dates, lineup drops, on-sale).
+#
+# Fields:
+#   name, location, when (dates or typical window), status (announced|on_sale|lineup_pending|
+#   past|annual_watch), tickets (url), why (one-line, taste-relevant), refresh (what to web-check)
+# Keep it tight and taste-aligned (house/techno/European/groove lean + a few must-knows).
+# Last refreshed: 2026-06-16
+
+festivals:
+  - name: Outside Lands 2026
+    location: Golden Gate Park, San Francisco
+    when: 2026-08-07..09
+    status: on_sale
+    tickets: https://www.sfoutsidelands.com/
+    why: >
+      Rüfüs Du Sol + The xx headline the on-taste end; Charli xcx, The Strokes, Turnstile,
+      Empire of the Sun broaden it. ~2 months out, travel weekend. 3-day GA from ~$569.
+    refresh: confirm single-day availability + any electronic-stage adds
+
+  - name: Portola 2026
+    location: Pier 80, San Francisco
+    when: 2026-09-26..27
+    status: on_sale
+    tickets: https://www.portolamusicfestival.com/
+    why: >
+      THE one for you — electronic-forward with DESPACIO (James Murphy + 2ManyDJs sound system),
+      Four Tet, Soulwax, Groove Armada, DJ Shadow, Fatboy Slim, Skepta, plus Robyn, Tiësto,
+      Swedish House Mafia. European/house energy in a warehouse-pier setting. 2-day ~$380.
+    refresh: set times / DESPACIO schedule, single-day availability
+
+  - name: Coachella 2027
+    location: Empire Polo Club, Indio CA
+    when: 2027-04-09..11 and 2027-04-16..18
+    status: lineup_pending
+    tickets: https://www.coachella.com/
+    why: >
+      Advance GA already sold out (~$549–599); lineup typically drops Sept 2026–Jan 2027.
+      Worth tracking the lineup announce to decide if a resale is worth it.
+    refresh: lineup announcement date + any resale/waitlist
+
+  - name: GALA Festival (London) — 2027 edition
+    location: Peckham Rye Park, South London
+    when: ~2027-05 (annual, late May; 2026 was May 22–24)
+    status: annual_watch
+    tickets: https://ra.co/promoters  # watch RA / galafestival.co.uk for the 2027 drop
+    why: >
+      Quintessential European house/techno/disco day-fest — 2026 had Seth Troxler, Todd Terje,
+      Call Super, DJ Seinfeld, Saoirse, Logic1000. If a London trip lines up next May, this is it.
+    refresh: 2027 dates + lineup announce (usually Jan–Feb); presale registration
+
+big_concerts:
+  # seed sparingly with travel-worthy / must-know shows; the digest also pulls far-dated
+  # Goldenvoice/TM entries + does a live web check for on-taste tours hitting LA.
+  - name: (auto-populated each run)
+    note: >
+      During the radar refresh, web-check for on-taste artists announcing LA dates (e.g. Four Tet,
+      Bicep, Floating Points, Jamie xx, Bonobo, Caribou, Overmono, Peggy Gou, Bradley Zero/Rhythm
+      Section) and surface anything 1–6 months out with on-sale info.

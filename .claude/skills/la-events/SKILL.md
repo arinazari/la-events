@@ -109,32 +109,53 @@ markdown — NOT a wall of every event. Structure:
 
 1. **Top picks** (3–6 events, any category) — one line each on *why* it's flagged
 2. **Electronic / club / afterhours** — include start times; mark warehouse/TBA-location
-   events explicitly; note "lineup TBA" vs announced
+   events explicitly; note "lineup TBA" vs announced. This is the priority section — lead
+   with rooftop/vinyl/groove/European and proper house+techno (the taste north star).
 3. **Live music**
-4. **Comedy**
-5. **Film** (rep/arthouse screenings — note format if 35mm/70mm)
+4. **Film** (rep/arthouse screenings — note format if 35mm/70mm)
+5. **Comedy** — only if a `comedians_loved` name is playing; otherwise omit the section
+   entirely (user is not a general comedy fan).
 6. **Theater / arts**
-7. **Wildcard** — one or two things outside the profile worth knowing about (big festivals,
-   one-off spectacles, Liverpool FC watch-party-worthy fixtures)
-8. **Just announced, further out** — from promoter blasts; on-sale dates matter here
-9. Footer: sources that failed/were skipped this run
+7. **Around town** — GENERAL LA context, not ticketed picks: what's in the air citywide
+   (e.g. FIFA World Cup 26 matches at SoFi + watch parties everywhere, big sports, heat
+   waves, street fairs, museum free days). Pull from the DiscoverLA weekend roundup + LAist.
+   2–5 short lines; this is the "what's going on in LA right now" texture.
+8. **On the radar** — big events months out, from `festivals.yaml` + a quick live web lookup
+   each run (dates, lineup drops, on-sale/presale). Festivals AND travel-worthy big concerts/
+   tours. Flag on-sale windows. Keep it taste-aligned (lead with the electronic/European ones).
+9. **Just announced, further out** — from promoter blasts; on-sale dates matter here
+10. Footer: sources that failed/were skipped this run
 
-Each line: `Day M/D — Event — Venue (neighborhood) — price if known — [ticket link(s)]`.
-Keep editorial-mention badges inline, e.g. "(LAist pick)".
+Each line: `Day M/D — [Event](link) — Venue (neighborhood) — price if known`.
+**ALWAYS hyperlink the event** to its ticket/info URL when the catalog has one (it usually
+does — links live on each record). Keep editorial-mention badges inline, e.g. "(LAist pick)".
+
+**Artist-annotation layer (required).** Many lineup names are unknown to the user — so for
+picks and notable lineups, add a short parenthetical or em-dash gloss explaining who the
+artist/DJ is and WHY it's on-taste: genre, scene, label, or reference point
+(e.g. "DJ Minx — Detroit house pioneer, Women on Wax"; "Antal — Rush Hour boss, Dutch
+digger, deep/disco selector"; "Yaeji — NY/Korean house-pop, leftfield club"). Anchor to the
+taste north star (rooftop/vinyl/groove/European/fabric-style) where it fits. Use your own
+knowledge; web-check only genuinely unknown names. Don't annotate household names.
 
 ### Taste profile (ranking weights)
 
-- **High**: house / techno / acid / breakbeat / electro DJ events; warehouse and
-  afterhours parties; rep & arthouse cinema (Vidiots, Brain Dead, Cinematheque, New Bev,
-  Vista, Now Instants-type programming); standup comedy
-- **Medium**: live bands (post-punk, electronic-adjacent, experimental); theater
-  (Pantages-scale and small black-box both); craft beer events / brewery takeovers /
-  beer festivals; record fairs and listening bar events; food events with a music angle
-- **Low but include if exceptional**: stadium pop, mainstream EDM festival brands,
-  museums/galleries (include openings, skip ongoing exhibitions unless closing soon)
-- **Context boosts**: walkable/short drive from Silver Lake (+), Friday/Saturday night (+),
-  lineup includes artists in the user's rekordbox/listening orbit if known from
-  conversation (+), early-bird tier still available (+)
+- North star: "Sunset Sessions at Golden Hour DTLA" — chill rooftop, vinyl/grooves, house,
+  European feel. Optimize toward that energy.
+- **High**: house / techno / acid / electro DJ events (mainstream AND underground);
+  "fabric London"-style club nights / European-leaning lineups; rooftop / sunset / daytime
+  open-air house, disco, Balearic, groove; vinyl-only / listening-bar sets; warehouse &
+  afterhours parties; rep & arthouse cinema (Vidiots, Vista, Brain Dead, Cinematheque, New Bev)
+- **Medium**: live bands (post-punk, electronic-adjacent, experimental); record fairs /
+  listening bars; craft beer events; theater (Pantages-scale and black-box)
+- **Low / usually skip**: standup comedy — NOT a general fan; surface only `comedians_loved`
+  names (e.g. Stavros Halkias). Stadium pop, mainstream/big-room EDM, museum openings.
+- **Context boosts**: rooftop/open-air/sunset (+), vinyl-only or open-to-close set (+),
+  European DJs/labels (fabric, Rush Hour, Running Back) / Balearic-disco (+), groove/soulful/
+  deep/dub house (+), walkable from Silver Lake (+), Fri/Sat (+), editorial mention (+),
+  RA pick (+), early-bird tier left (+)
+- **Penalties**: bottle-service clubs (−), 18+ big-room/hardstyle mega-raves (−), far-flung
+  (Temecula/Anaheim/OC/SD/Ventura) unless worth the drive (−)
 - **Penalties**: Vegas-style bottle-service clubs (−), 18+ EDM mega-raves (−), anything
   requiring Coachella-tier logistics without Coachella-tier payoff (−)
 
@@ -195,6 +216,10 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
 
 - `sources.yaml` — the registry. Read at the start of every mode. Schema documented in
   the file header.
+- `taste.yaml` — ranking config (re-read every run). Has the north star, weights, and
+  `comedians_loved` (the comedy exception list).
+- `festivals.yaml` — the "On the radar" curated list (festivals + big concerts months out);
+  refresh status with a live web lookup each digest run.
 - `scripts/fetch_ticketmaster.py` — Discovery API fetcher (needs `TM_API_KEY`)
 - `scripts/fetch_ra.py` — RA GraphQL fetcher (no key; verify `AREA_ID` on first run)
 - `scripts/fetch_19hz.py` — 19hz dance-calendar table scraper

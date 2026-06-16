@@ -1,40 +1,55 @@
 # Taste profile — the ranking config. Edit freely; the digest re-reads this every run.
 # Weights: events accumulate points from category/genre/context matches; digest sorts by score.
 
+# North star (the archetype to optimize for): "Sunset Sessions at Golden Hour DTLA" —
+# chill rooftop, vinyl/grooves, house, European feel. When in doubt, lean toward that energy.
+
 categories:
   high:    # weight +3 each match
-    - house / techno / acid / breakbeat / electro DJ events
+    - house / techno / acid / breakbeat / electro DJ events (mainstream AND underground)
+    - "fabric London"-style proper club nights / European-leaning dance lineups
+    - rooftop / sunset / daytime open-air house, disco, Balearic, groove sets
+    - vinyl-only / all-vinyl / listening-bar DJ sets
     - warehouse and afterhours parties (incl. location-TBA)
-    - rep & arthouse cinema (Vidiots, Brain Dead, Cinematheque, New Bev, Vista)
-    - standup comedy
+    - rep & arthouse cinema (Vidiots, Vista, Brain Dead, Cinematheque, New Bev)
   medium:  # weight +2
     - live bands (post-punk, electronic-adjacent, experimental)
-    - theater (Pantages-scale and black-box)
+    - record fairs, listening bar events, food events with a music angle
     - craft beer events / brewery takeovers / festivals
-    - record fairs, listening bar events
-    - food events with a music angle
+    - theater (Pantages-scale and black-box)
   low:     # weight +1, include only if exceptional
+    - standup comedy — NOT generally wanted; include only known/favorite names
+      (see comedians_loved). Skip generic/touring/casino comedy entirely.
     - stadium pop
     - mainstream EDM festival brands
     - museum/gallery openings (skip ongoing exhibitions unless closing soon)
 
-boosts:    # +1 each
+boosts:    # +1 each (stack)
+  - rooftop / open-air / sunset / golden-hour setting
+  - vinyl-only or "all night long" / open-to-close single-DJ sets
+  - European vibe/feel — UK/EU DJs, labels (e.g. fabric, Rush Hour, Running Back), Balearic/disco
+  - groove / soulful / deep / dub / disco-leaning house
   - walkable or short drive from Silver Lake (Hyperion & Del Mar)
   - Friday or Saturday night
-  - independent editorial mention (LAist, Time Out, 6AM, Dirty Epic, etc.) — +1 per source
+  - independent editorial mention (LAist, Time Out, DiscoverLA, 6AM, Dirty Epic, etc.) — +1 per source
   - RA pick flag
   - early-bird ticket tier still available
   - lineup artist matches known listening orbit
 
 penalties: # -2 each
   - Vegas-style bottle-service clubs
-  - 18+ EDM mega-raves
+  - 18+ EDM mega-raves (generic big-room/hardstyle)
   - Coachella-tier logistics without Coachella-tier payoff
+  - far-flung (Temecula / Anaheim / OC / SD / Ventura) unless truly worth the drive
 
 artists_tracked: []   # add names; matches get +2 and a "tracked artist" badge
-venues_loved: [Zebulon, Vidiots, Lodge Room, 2220 Arts]   # +1
-venues_banned: []
+comedians_loved: [Stavros Halkias]   # the comedy exception — these get surfaced; others don't
+venues_loved: [Zebulon, Vidiots, Vista, Lodge Room, 2220 Arts, El Cid]   # +1
 
 # Feedback log — append reactions here ("more like X", "never show Y");
 # periodically fold them into the weights above.
-feedback: []
+feedback:
+  - "2026-06-16: north star = Sunset Sessions / rooftop vinyl house w/ European feel."
+  - "2026-06-16: techno + house both mainstream and underground (fabric-London energy)."
+  - "2026-06-16: not a comedy fan generally; surface known names only (loves Stavros Halkias)."
+  - "2026-06-16: curious about Vidiots (never been); add Vista to rep-cinema rotation."
