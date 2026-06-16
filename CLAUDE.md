@@ -7,8 +7,9 @@ phase and open decisions before starting any non-trivial task.
 ## What this project does
 
 1. **Aggregates** LA events from structured pipelines (Ticketmaster Discovery API, RA
-   GraphQL, DICE, Gmail "Events" label), JSON-LD/scrape venue sources, and editorial
-   roundups (used as ranking signals, NOT catalog rows).
+   GraphQL, DICE, Gmail "Events" label), JSON-LD/scrape venue sources, editorial roundups
+   (ranking signals, NOT catalog rows), and manual captures — pasted flyers and promoter
+   SMS/MMS blasts (see `sms-ingestion.md`).
 2. **Dedupes** into `data/catalog.json` (one record per real-world event, all ticket
    links preserved).
 3. **Ranks** against `taste.yaml` and emits a conversational digest to `digests/`.
@@ -20,13 +21,16 @@ working on digest/discover/flyer behavior. It is the contract; this file is orie
 ## Layout
 
 ```
-.claude/skills/la-events/SKILL.md   # operating spec (digest/discover/flyer modes)
+.claude/skills/la-events/SKILL.md   # operating spec (digest/discover/flyer/sources modes)
 sources.yaml                        # source registry — schema documented in file header
 taste.yaml                          # ranking config — user-editable, re-read every run
+sms-ingestion.md                    # Twilio SMS/MMS → catalog spec (manual-capture automation)
 scripts/fetch_ticketmaster.py       # needs TM_API_KEY env var
 scripts/fetch_ra.py                 # unofficial GraphQL; verify AREA_ID once (see header)
 data/catalog.json                   # deduped event store (committed = the state)
-digests/YYYY-MM-DD.md               # digest outputs
+data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)
+digests/weekends/YYYY-MM-DD.md      # per-weekend digests (scheduled routine, ~4 mo out) + index.md
+digests/YYYY-MM-DD.md               # ad-hoc windowed digests
 routines/daily-digest-prompt.md     # prompt for the scheduled cloud routine
 ```
 
@@ -34,7 +38,8 @@ routines/daily-digest-prompt.md     # prompt for the scheduled cloud routine
 
 - **Stateless cloud runs**: all state lives in this repo. A run reads catalog + registry,
   fetches, merges, writes back, commits. Never assume anything outside the repo persists.
-- **Secrets**: env vars only (`TM_API_KEY`). Never commit keys.
+- **Secrets**: env vars only (`TM_API_KEY`; Twilio auth token too if the SMS receiver is
+  live — the digest needs it to fetch MMS media). Never commit keys.
 - **Never scrape Instagram.** IG-only sources are `method: manual` (flyer-capture flow).
 - **Degrade gracefully**: one dead source never blocks a digest; list failures in the
   digest footer and mark repeat offenders `flaky` in sources.yaml.
@@ -64,5 +69,6 @@ he wants input at the decision points listed in ROADMAP.md.
 - Gmail access comes via the Gmail connector when available; the "Events" label holds
   promoter blasts. If the connector isn't available in a session, skip that source and
   note it in the digest footer.
-- Daily digest is intended to run as a scheduled Routine using
-  routines/daily-digest-prompt.md; commit digest + updated catalog to a claude/ branch.
+- Daily digest runs as a scheduled Routine using routines/daily-digest-prompt.md: it
+  maintains a rolling set of per-weekend digests (`digests/weekends/`, ~4 months out) and
+  commits them + the updated catalog to a long-lived `claude/digests` branch.
