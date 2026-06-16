@@ -20,6 +20,9 @@ updated catalog + digests back.
   ~4 months in `digests/weekends/` (one file per weekend + `index.md`), refreshed daily.
 - **Ad-hoc**: `/la-events` (or `/la-events digest [N days]`) for a windowed digest any time;
   `/la-events discover | flyer | sources` for the other modes.
+- **Dashboard** (`dashboard/`): static, filterable PWA-lite view of the catalog (by
+  date/type/location/rating, with a per-event "why?" score), built by
+  `scripts/build_dashboard.py` and deployable to GitHub Pages.
 
 ## Setup
 

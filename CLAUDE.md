@@ -32,6 +32,7 @@ data/inbox.jsonl                    # SMS receiver appends here; digest consumes
 digests/weekends/YYYY-MM-DD.md      # per-weekend digests (scheduled routine, ~4 mo out) + index.md
 digests/YYYY-MM-DD.md               # ad-hoc windowed digests
 routines/daily-digest-prompt.md     # prompt for the scheduled cloud routine
+dashboard/                          # static PWA-lite catalog view; feed via scripts/build_dashboard.py
 ```
 
 ## Hard requirements & conventions
