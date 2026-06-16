@@ -105,32 +105,30 @@ for fees). Keep the richest description.
 ### Step 5 — Rank and synthesize
 
 Score each event against `taste.yaml` (repo root) — the profile summary below is a fallback if taste.yaml is missing. Output the digest as conversational
-markdown — NOT a wall of every event. Structure:
+markdown — NOT a wall of every event. **Organize PRIMARILY BY DATE** (a day-by-day agenda is
+the spine — it answers "what's on tonight / this weekend" at a glance). Structure:
 
-1. **Top picks** (3–6 events, any category) — one line each on *why* it's flagged
-2. **Electronic / club / afterhours** — include start times; mark warehouse/TBA-location
-   events explicitly; note "lineup TBA" vs announced. This is the priority section — lead
-   with rooftop/vinyl/groove/European and proper house+techno (the taste north star).
-3. **Live music**
-4. **Film** (rep/arthouse screenings — note format if 35mm/70mm)
-5. **Comedy** — only if a `comedians_loved` name is playing; otherwise omit the section
-   entirely (user is not a general comedy fan).
-6. **Theater / arts**
-7. **Around town** — GENERAL LA context, not ticketed picks: what's in the air citywide
-   (e.g. FIFA World Cup 26 matches at SoFi + watch parties everywhere, big sports, heat
-   waves, street fairs, museum free days). Pull from the DiscoverLA weekend roundup + LAist.
-   2–5 short lines; this is the "what's going on in LA right now" texture.
-8. **On the radar** — big events months out, from `festivals.yaml` + a quick live web lookup
-   each run. Keep it SHORT and plain (no bold/hype) and **relevance-driven, not list-driven**:
-   surface an item only when there's an actual ticket-timing reason — on-sale/presale opening
-   soon, prices climbing, low stock, selling out, sold out, or a lineup just dropped. Don't
-   pad it with festivals just because they're curated or were named; if nothing's time-sensitive,
-   a couple lines (or one) is plenty. Far-off/dormant entries stay in `festivals.yaml`, not the
-   digest. Lead with the most on-taste + most urgent.
-9. **Just announced, further out** — from promoter blasts; on-sale dates matter here
-10. Footer: sources that failed/were skipped this run
+1. **Don't-miss** (3–6, cross-date) — the few worth building a week around; each with its date
+   and a one-line *why*. This is the only non-chronological section.
+2. **Day-by-day** — the body. One subsection per day in the window (`### Tonight — Tue 6/16`,
+   `### Fri 6/19`, …). Under each day, list that day's on-taste events, best first, each:
+   `[Event](link) — Venue (neighborhood) — time — price — short why/artist gloss`.
+   - Collapse quiet days and runs ("### Mon 6/22–Thu 6/25 — quieter midweek").
+   - On busy days (Pride weekend), lightly group within the day using **bold inline labels**
+     (**Electronic**, **Film**, **Live**, etc.) — but keep the day as the top-level unit.
+   - Lead each day with the electronic/house/techno (the priority lane); film/live/etc. follow.
+   - Comedy appears inline on its day ONLY if a `comedians_loved` name is playing.
+   - Mark warehouse/TBA-location and "lineup TBA"; note 35mm/70mm for film.
+3. **Around town** — GENERAL LA context, not ticketed picks: what's in the air citywide
+   (e.g. FIFA World Cup 26 matches at SoFi + watch parties, big sports, street fairs, museum
+   free days). From the DiscoverLA weekend roundup + LAist. 2–5 short lines.
+4. **On the radar** — big events months out, from `festivals.yaml` + a quick live web lookup
+   each run. SHORT and plain (no bold/hype), **relevance-driven, not list-driven**: surface an
+   item only when there's an actual ticket-timing reason (on-sale/presale opening, prices
+   climbing, low stock, selling out, sold out, lineup just dropped). If nothing's time-sensitive,
+   a line or two is plenty; dormant entries stay in `festivals.yaml`. Lead most on-taste + urgent.
+5. Footer: sources that failed/were skipped this run.
 
-Each line: `Day M/D — [Event](link) — Venue (neighborhood) — price if known`.
 **ALWAYS hyperlink the event** to its ticket/info URL when the catalog has one (it usually
 does — links live on each record). Keep editorial-mention badges inline, e.g. "(LAist pick)".
 
