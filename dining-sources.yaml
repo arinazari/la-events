@@ -10,6 +10,10 @@
 #   priority:  1 (always fetch) .. 3 (only on category/occasion-specific requests)
 #   status:    active | candidate | manual | flaky | dead
 #   notes:     anything operationally useful
+#   harvest:   (optional) front-page / index / roundup URLs to SCAN every run for
+#              current "hot / new / trending" listicles. Open the roundup articles
+#              and harvest every restaurant named as a signal — these curated lists
+#              are the primary signal, not just standalone deep reviews.
 #
 # last_discovery: updated whenever Discover mode runs
 #
@@ -31,9 +35,11 @@ sources:
     priority: 1
     status: active
     notes: >
-      RSS for new posts; also web-fetch the Heatmaps directly —
-      la.eater.com/maps (Hottest New Restaurants, Where to Eat Right Now) and
-      neighborhood/cuisine guides. Strongest signal for new openings + trending.
+      RSS catches new posts, but the real signal is the roundup articles — scan
+      the front page + Heatmap index every run. Strongest source for new openings.
+    harvest:
+      - https://la.eater.com/                # front page — current roundups/listicles
+      - https://la.eater.com/maps            # Heatmaps: Hottest New, Where to Eat Right Now
 
   - name: The Infatuation — Los Angeles
     category: editorial
@@ -44,6 +50,10 @@ sources:
     notes: >
       Best New Restaurants, the Hit List, and occasion/neighborhood guides
       (date night, dinner with parents, etc.). Great for occasion-based queries.
+      The guides index is the goldmine — scan it for current roundups every run.
+    harvest:
+      - https://www.theinfatuation.com/los-angeles          # front page
+      - https://www.theinfatuation.com/los-angeles/guides   # guides index: Hit List, Best New, occasion
 
   - name: LA Times — Food
     category: editorial
@@ -52,9 +62,12 @@ sources:
     priority: 1
     status: active
     notes: >
-      Bill Addison reviews + the 101 Best Restaurants list
-      (latimes.com/projects/best-restaurants-la-101). Possible paywall friction —
-      degrade gracefully. Badge entries as "(LAT 101)".
+      Bill Addison reviews, the 101 Best Restaurants list, and front-page "best
+      new / where to eat" roundups. Possible paywall friction — degrade gracefully.
+      Badge entries as "(LAT 101)".
+    harvest:
+      - https://www.latimes.com/food                              # front page — roundups + reviews
+      - https://www.latimes.com/projects/best-restaurants-la-101   # 101 Best Restaurants
 
   # ── Guide: prestige / special-occasion ───────────────────────────────────
   - name: Michelin Guide — Los Angeles
@@ -65,7 +78,11 @@ sources:
     status: active
     notes: >
       Stars, Bib Gourmand (great value), and Green stars (sustainability). Use
-      for "somewhere special" occasions. Badge as "(★)", "(Bib Gourmand)".
+      for "somewhere special" occasions. Badge as "(★)", "(Bib Gourmand)". Also
+      scan the editorial "Magazine" articles for new-addition / where-to-eat roundups.
+    harvest:
+      - https://guide.michelin.com/us/en/california/us-los_angeles/restaurants  # LA listing: stars/bib
+      - https://guide.michelin.com/us/en/article                                # Michelin editorial roundups
 
   # ── Reservations: hot-lists + availability ───────────────────────────────
   - name: Resy — Los Angeles
@@ -75,10 +92,14 @@ sources:
     priority: 1
     status: active
     notes: >
-      Hit List (curated buzzy spots) is a trending signal; Notify/availability
-      answers "can I get in." Skews harder-to-get eastside/independent — on-profile.
-      Check availability only for shortlisted candidates with a concrete date/time;
-      never bulk-scrape. No clean public API — web-fetch public pages politely.
+      Two roles. (1) EDITORIAL: the Hit List + Resy's "Right This Way" blog run
+      LA "where to eat now / best new" roundups — harvest these as trending signals
+      in Step 1. (2) AVAILABILITY: Notify/booking answers "can I get in" — checked
+      only for shortlisted candidates with a concrete date/time, never bulk-scraped.
+      No clean public API — web-fetch public pages politely.
+    harvest:
+      - https://resy.com/cities/la           # Resy Hit List (curated buzzy spots)
+      - https://blog.resy.com/category/los-angeles/   # "Right This Way" LA roundups/reviews
 
   - name: OpenTable — Los Angeles
     category: reservations
@@ -87,9 +108,13 @@ sources:
     priority: 2
     status: active
     notes: >
-      Trending lists, "available now," and broad availability (larger/older/
-      Westside rooms, last-minute tables). Public affiliate API effectively dead —
-      web-fetch browse/trending pages. Availability checks per-candidate only.
+      Two roles, like Resy. (1) EDITORIAL: OpenTable's curated "best of / trending /
+      hot" lists + blog — harvest in Step 1. (2) AVAILABILITY: broad coverage of
+      larger/older/Westside rooms + last-minute tables, checked per-candidate only.
+      Public affiliate API effectively dead — web-fetch browse/list pages.
+    harvest:
+      - https://www.opentable.com/los-angeles-restaurants   # trending / curated LA lists
+      - https://www.opentable.com/blog/                     # OpenTable editorial roundups
 
   # ── Manual-capture (IG / SMS — never scraped) ────────────────────────────
   - name: Popup & food-truck IG/SMS lists
@@ -114,13 +139,3 @@ sources:
     notes: >
       Reservation platform skewed toward tasting menus, ticketed dinners, and
       popups — useful for "special occasion" and popup booking. Vet on first run.
-
-  - name: Eater LA — Heatmap (direct)
-    category: editorial
-    method: scrape
-    url: https://la.eater.com/maps
-    priority: 2
-    status: candidate
-    notes: >
-      Direct heatmap index (the RSS feed may not foreground map updates). Vet
-      whether to fetch alongside the RSS entry or fold into it.

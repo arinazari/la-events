@@ -65,22 +65,32 @@ answer).
 
 ### Step 1 — Pull trending/editorial signals (the backbone)
 
-Web-fetch the relevant editorial sources from `dining-sources.yaml` (tier: editorial /
-guide). These are the core of "what should I consider" and "what's trending":
+**Harvest the roundup articles, not just deep reviews.** These sites lead with curated
+listicles — and that IS the signal. Every run, scan each source's front page + index/guide
+pages (the `harvest:` URLs in `dining-sources.yaml`), open the current "hot / new / trending /
+best" roundups, and **pull every restaurant named into the candidate set**, tagged with which
+list it came from and how recent. A standing restaurant earns its place in the digest by
+showing up on these lists — don't wait for a one-off dedicated review.
 
-- **Eater LA** — Heatmaps ("The Hottest New Restaurants," "Where to Eat Right Now") and
-  neighborhood/cuisine guides. RSS available for new posts.
-- **The Infatuation LA** — "Best New Restaurants," the **Hit List**, occasion and
-  neighborhood guides (great for "date night in Los Feliz," "dinner with parents").
-- **LA Times Food** — Bill Addison reviews and the **101 Best Restaurants** list. Possible
-  paywall friction — degrade gracefully.
-- **Michelin Guide (LA)** — Stars, Bib Gourmand, and Green stars. Use for "somewhere
-  special" / prestige occasions.
+Web-fetch the relevant editorial/guide sources from `dining-sources.yaml`:
+
+- **Eater LA** — front-page roundups + the **Heatmaps** ("The Hottest New Restaurants,"
+  "Where to Eat Right Now") and neighborhood/cuisine guides. RSS catches new posts.
+- **The Infatuation LA** — the **guides index** (Hit List, "Best New Restaurants," occasion
+  and neighborhood guides — great for "date night in Los Feliz," "dinner with parents").
+- **LA Times Food** — front-page "best new / where to eat" roundups, Bill Addison reviews,
+  and the **101 Best Restaurants** list. Possible paywall friction — degrade gracefully.
+- **Michelin Guide (LA)** — Stars, Bib Gourmand, Green stars, plus their editorial
+  articles. Use for "somewhere special" / prestige occasions.
+- **Resy & OpenTable (editorial side)** — also harvest their curated roundups here: the
+  Resy **Hit List** + "Right This Way" blog, and OpenTable's trending/"best of" lists. Save
+  their booking/availability for Step 2.
 
 Extract: restaurant name, neighborhood, cuisine, price band, the angle (new / best-of /
-critic pick / starred), and the source URL. Cross-reference against the catalog and **merge
-signals onto existing records** (see Dedupe). A place mentioned by several independent
-sources, or freshly opened, ranks higher.
+critic pick / starred / on a hot-list), the list it appeared on, and the source URL.
+Cross-reference against the catalog and **merge signals onto existing records** (see Dedupe).
+A place named on several independent lists, or freshly opened, ranks higher — that stacking
+of roundup mentions is the core ranking signal.
 
 ### Step 2 — Reservation availability + hot lists (only when it adds signal)
 
@@ -228,8 +238,11 @@ mini-chains with one name in multiple neighborhoods — those are *different* re
 
 - **Stateless cloud runs**: all state lives in this repo. Read catalog + registry + taste,
   fetch, merge, write back, commit.
-- **Editorial = signals.** Critics and hot-lists drive what surfaces and how it ranks; the
-  catalog is restaurants/popups with their provenance attached.
+- **Editorial = signals, and roundups are first-class.** Critics' lists and hot-lists drive
+  what surfaces and how it ranks — including the front-page "best / new / trending" roundup
+  articles on every source (the `harvest:` URLs), not just standalone deep reviews. Whenever
+  restaurants are requested or presented, those current lists must be considered. The catalog
+  is restaurants/popups with their provenance (which list, when) attached; mentions stack.
 - **Never scrape Instagram.** IG-only operators are `method: manual` (capture flow).
 - **Be polite**: real User-Agent, no bulk reservation scraping, respect rate limits. Check
   availability only for shortlisted candidates with a concrete date/time.
