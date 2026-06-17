@@ -91,23 +91,28 @@ hand-score**.
 it with the feedback log into one affinity that nudges the score — an on-rotation artist in a lineup,
 a high-affinity genre, or a "more like X" / "never show Y" reaction. It **enriches** `taste.yaml`,
 never overwrites it; absent (no creds, no feedback) scoring is byte-identical to the taste-only path.
-The reasons in `candidates.json` cite it ("Spotify core rotation (Antal)", "more like Chris Lake
+The reasons in `candidates.json` cite it ("Spotify core rotation (Antal)", "more like Four Tet
 (your pick)") — carry those into Step 5's *why*. To log a reaction, append a line to
 `data/feedback.jsonl` (schema in the file header); it folds in automatically next run.
 
-### Step 4 — Enrich the top candidates  *(Phase B — scene-researcher)*
+### Step 4 — Enrich the top candidates  *(scene-researcher)*
 
-Fan out the **`scene-researcher`** agent over `data/candidates.json` (parallel batches) → per-event
-sub-genre tags, artist notes, a curator's note, a clean description, and an image for the top 10.
-Until that layer is wired, synthesize directly and supply the artist annotations inline (the
-annotation layer in Step 5).
+Fan out the **`scene-researcher`** agent over the cache-miss candidates (`scripts/lib/enrich.py`
+`select_for_enrichment`) in parallel batches → per-event sub-genre tags, artist notes, a curator's
+note, a clean description, and an image for the `image_wanted` top picks. Fold results into the
+accumulating cache (`data/enrichment.json`) via `update_cache` — recurring artists are researched
+once, so the scene graph compounds. Verify-or-omit: no invented bios.
 
-### Step 5 — Rank and synthesize
+### Step 5 — Render + synthesize
 
-Scoring is **precomputed** — read `score` / `rating` / `reasons` from `data/candidates.json`
-(produced by Steps 1+3); don't re-score by hand. The taste profile below is orientation for *why*
-things rank as they do. Output the digest as conversational
-markdown — NOT a wall of every event. **Organize PRIMARILY BY DATE** (a day-by-day agenda is
+`python scripts/render_digest.py` turns the enriched candidates into the digest — canonical `.md`
+(committable) **and** a rich emailable `.html` (type chips, ★ relevance, curator notes, hero images
+for the `image_wanted` picks). The per-event **curator notes + artist glosses come from Step-4
+enrichment**, so the insider voice is baked in; scoring is **precomputed** (read `score`/`rating`/
+`reasons` — never hand-score; the taste profile below is just orientation for *why* things rank). On
+top of the renderer you add a short conversational intro and the sections it doesn't generate
+(**Around town**, **On the radar**) plus pinning/judgment. The full digest — NOT a wall of every event.
+**Organize PRIMARILY BY DATE** (a day-by-day agenda is
 the spine — it answers "what's on tonight / this weekend" at a glance). Structure:
 
 1. **Don't-miss** (3–6, cross-date) — the few worth building a week around; each with its date
@@ -243,8 +248,10 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
   `data/catalog.json` + `data/candidates.json`. `--no-fetch` re-scores after manual layering (Step 3).
   Run this instead of fetching/dedup/scoring by hand.
 - `scripts/lib/` — shared modules: `scoring.py` (taste ranking, driven by `profile.yaml` + `taste.yaml`),
-  `dedupe.py` (fuzzy merge), `pipeline.py` (transforms), `config.py` (YAML), `affinity.py` (Spotify
-  music layer), `feedback.py` (reactions → affinity). Tested in `scripts/tests/`.
+  `dedupe.py` (fuzzy merge), `pipeline.py` (transforms), `enrich.py` (enrichment cache), `config.py` (YAML),
+  `affinity.py` (Spotify music layer), `feedback.py` (reactions → affinity). Tested in `scripts/tests/`.
+- `scripts/render_digest.py` — enriched candidates → the digest: canonical `.md` + rich emailable `.html`.
+- `data/enrichment.json` — the accumulating scene-graph cache (event enrichment + artist notes); grows each run.
 - `profile.yaml` — place/person config (ids, geo, scoring weights/terms/thresholds, `scoring.spotify`
   + `scoring.feedback` knobs); the city-portable knob.
 - `scripts/fetch_spotify.py` — Spotify sync (Phase C): top/followed/recent → `data/spotify_affinity.json`

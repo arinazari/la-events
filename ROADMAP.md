@@ -6,10 +6,12 @@ The bar is "investor-quality" only in the sense of **polish, depth of curation, 
 City portability matters because friends live in other cities and Ari travels (Berlin next
 week → same magic), not for TAM.
 
-Current phase: **Phase A complete → Phase B next.** A.1 (shared scoring/dedupe lib + `profile.yaml`
-lift), A.2 (`run_digest.py` deterministic core), and the routine/`SKILL.md` wiring are shipped +
-tested — the by-hand fetch/dedupe/score loop is retired. Next: Phase B — `scene-researcher`
-enrichment + the beautified `.md`/HTML digest (parallelizable with Phase C).
+Current phase: **Phases A + B complete → Phase C (parallel) + the Hosted page next.** A (foundation /
+`run_digest.py` deterministic core / routine + `SKILL.md` wiring) and B (enrichment cache + scene
+graph, dual `.md`/`.html` renderer, image caching, routine wiring — *no email*) are shipped + tested,
+validated by live `scene-researcher` runs. Phase C (Spotify taste layer) is in flight on its own
+branch; the next major piece is the **Hosted page** (delivery + on-page actions — see below).
+Phase 1 done: 10 fetchers, catalog ~700, dashboard live.
 Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog ~700 events, weekend + windowed digests
 shipped, dashboard live. Read this file + `CLAUDE.md` + the two `SKILL.md` files before any
 non-trivial task.
@@ -60,7 +62,7 @@ SKILLs become orchestrators that call them. **Concierge** = the main conversatio
 
 | Layer | Cadence |
 |---|---|
-| Events digest pipeline (fetch → dedupe → score → enrich → synthesize → weekend set → dashboard feed → commit → email) | **Daily** routine (`routines/daily-digest-prompt.md`, commits to `claude/digests`) |
+| Events digest pipeline (fetch → dedupe → score → enrich → render per weekend → dashboard feed → commit) | **Daily** routine (`routines/daily-digest-prompt.md`, commits to `main`; no email) |
 | Dining radar | **Weekly** Wed AM routine (`routines/dining-radar-prompt.md`) |
 | Fetchers | within each digest run (daily) |
 | `build_dashboard.py` | end of each daily run |
@@ -114,18 +116,22 @@ portability.
       the by-hand fetch/dedupe/score loop is retired.
 
 ## Phase B — Enrichment + beautified digest (the visible quality jump)
-- [ ] **`scene-researcher` subagent + enrichment cache** — Tier 1 fan-out over the top ~30–40;
-      cache by event-id + artist (the scene graph begins accumulating).
-- [ ] **Enriched per-event schema** — add `type/subgenre tags`, `relevance` (★, taste-graph-driven,
-      shown in the digest — today it's keyword-based and only in the dashboard feed), `curator_note`,
-      `artist_notes`, cleaned `description`, and `image` (top 10). Date/time/venue/ticket-links
-      already exist — keep all ticket links, labeled by source.
-- [ ] **Two renderers from one enriched dataset**: keep the canonical `.md` (diffable, commits,
-      GitHub renders) *and* generate a **rich HTML render** (type-colored tags, ★ relevance, card
-      layout, top-10 hero images) emailed via the Gmail connector. Cache the top-10 images into the
-      repo so emailed digests don't rot. (Confirmed: HTML email is the visual home; text-only `.md` stays.)
-- [ ] Leveled-up `.md` per-event line, e.g.:
-      `[house] ★★★★☆ **Title** — artist gloss · Fri 6/19 9pm · El Cid, Silver Lake · $7 · [RA] [DICE] — curator's note.`
+- [x] **`scene-researcher` + enrichment cache** — `scripts/lib/enrich.py`: stable `event_key`, the
+      accumulating events/artists scene graph (`data/enrichment.json`), miss-detection + merge +
+      `update_cache` (artists researched once). Validated by a real agent run over 8 live candidates
+      (Bradley Zero→Rhythm Section, Eddie C→Endless Flight, Chris Lake→Black Book, DJ Minx/Casmalia placed).
+- [x] **Enriched per-event schema** — `type` + `subgenres`/`label_orbit`/`energy`/`setting`/`sounds_like`,
+      `artist_notes`, `curator_note`, `description`, `image` (image_wanted picks). ★ relevance reads the
+      precomputed candidate `rating`. All ticket links preserved on the candidate.
+- [x] **Two renderers from one enriched dataset** — `scripts/render_digest.py` → canonical `.md`
+      (Don't-miss + day-by-day, type tag, ★, linked title, curator note + gloss) **and** a rich
+      emailable `.html` (type chips, ★, curator notes, hero images, inline CSS). Tested; can't drift.
+- [x] **Image caching** — `scripts/cache_images.py` + `scripts/lib/images.py`: download hero images
+      to `data/images/`, set `image.cached`; the renderer prefers the cached copy (`--asset-prefix`
+      for hosted serving). Verified live (Goldenvoice posters cached; graceful on blocked CDNs).
+- [x] **Routine wiring (no email)** — `routines/daily-digest-prompt.md` now runs core → layer →
+      enrich → `cache_images` → `render_digest --from/--to` per weekend (.md + .html) → commit.
+      Email intentionally dropped in favor of the **Hosted page** (below). **Phase B complete.**
 
 ## Phase C — Spotify taste superset (Spotify is the *music layer*, never the whole profile)
 **Built + tested (fixtures); not yet validated against a live Spotify account — needs the
@@ -177,9 +183,22 @@ Runs explicit strategies, returns a proposal table (approve → append to `sourc
 - [ ] Subsumes the old "source health check" idea: a scout pass can also ping `active` sources and
       flag broken ones before a digest silently loses coverage.
 
+## Delivery — Hosted page (the new primary surface; supersedes email)
+Instead of emailing, serve a **hosted, bookmarkable page** Ari opens to see the current weekend(s)
+and act on them:
+- **Static core, mostly wired:** the committed weekend `.html` + `dashboard/data.json` can deploy to
+  GitHub Pages (`.github/workflows/deploy-dashboard.yml` exists). `render_digest --asset-prefix` points
+  cached images at the served base, so the page is self-contained.
+- **On-page actions (the interactive layer):** trigger a **source re-scan / discover** (`source-scout`)
+  and **request an ad-hoc digest from the LLM** ("something chill + walkable Friday") — the concierge
+  (Phase D) behind a button. Needs a way to kick an agent run from the page (GitHub Action
+  `workflow_dispatch`, a small backend, or a claude.ai/code trigger) that writes results back to the repo.
+- **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
+- Open decisions when we build it: hosting + auth (private to Ari + friends), and how page actions
+  trigger agent runs. Deferred for now; noted so the routine keeps committing the `.html` it will serve.
+
 ## Tabled — deliberately deferred (Ari's call)
-- [ ] Explorer / dashboard-page further investment (save-to-calendar exists via ICS; richer PWA waits).
-      Dashboard stays alive only as the `build_dashboard.py` feed the daily run already rebuilds.
+- → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
 - [ ] Flyer-forwarding bot + Twilio SMS/MMS intake (`sms-ingestion.md`). Capture-by-hand still works.
 - [ ] On-sale sniper / price tracking across ticket links (DICE vs TM fees). Nice-to-have.
 - [ ] SQLite instead of `catalog.json` if volume ever demands it.
@@ -238,10 +257,10 @@ were validated; these are per-fetcher *under-extraction*, not normalize bugs):
 ---
 
 ## Decision points — Ari's input needed
-1. **HTML-email as the visual digest home** (Phase B) — ✅ resolved: keep the text-only `.md`
-   canonical *and* email a rich HTML render with the top-10 images. Not reviving the dashboard for visuals.
-2. **Delivery channels** (Phase B/D) — ✅ resolved: committed `.md` + HTML email + a conversational
-   concierge surfaced via **claude.ai / web app** for now; dedicated text number deferred.
+1. **Visual digest home** (Phase B) — ✅ resolved + revised: text-only `.md` canonical + a rich `.html`.
+   Email is **dropped**; the `.html` now feeds the **Hosted page** (above) instead of an inbox.
+2. **Delivery channels** (Phase B/D) — revised: committed `.md`/`.html` → a **hosted bookmarkable page**
+   (not email) with an on-page concierge + re-scan actions. Dedicated text number still deferred.
 3. **Digest cadence** (resolved): **daily** weekend-set, ~4 months out. Revisit if commits get noisy.
 4. **Taste weights** (ongoing): `taste.yaml` is yours — edit directly, or react and let the loop fold in.
 5. **Dedupe spot checks** (Phase A): eyeball merged records for false merges while tuning the threshold.
