@@ -6,12 +6,12 @@ The bar is "investor-quality" only in the sense of **polish, depth of curation, 
 City portability matters because friends live in other cities and Ari travels (Berlin next
 week → same magic), not for TAM.
 
-Current phase: **Phase B core shipped → image-caching + routine wiring remain.** Phase A (foundation,
-`run_digest.py` deterministic core, routine/`SKILL.md` wiring) done. Phase B: the `scene-researcher`
-enrichment cache (`scripts/lib/enrich.py`) + the dual `.md`/`.html` renderer (`scripts/render_digest.py`)
-are shipped + tested, validated by a live agent run over 8 real candidates. Remaining B: cache top-N
-images into the repo, wire the renderer + fan-out into the daily routine. Phase C (Spotify) runs in
-parallel on its own branch.
+Current phase: **Phases A + B complete → Phase C (parallel) + the Hosted page next.** A (foundation /
+`run_digest.py` deterministic core / routine + `SKILL.md` wiring) and B (enrichment cache + scene
+graph, dual `.md`/`.html` renderer, image caching, routine wiring — *no email*) are shipped + tested,
+validated by live `scene-researcher` runs. Phase C (Spotify taste layer) is in flight on its own
+branch; the next major piece is the **Hosted page** (delivery + on-page actions — see below).
+Phase 1 done: 10 fetchers, catalog ~700, dashboard live.
 Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog ~700 events, weekend + windowed digests
 shipped, dashboard live. Read this file + `CLAUDE.md` + the two `SKILL.md` files before any
 non-trivial task.
@@ -126,9 +126,12 @@ portability.
 - [x] **Two renderers from one enriched dataset** — `scripts/render_digest.py` → canonical `.md`
       (Don't-miss + day-by-day, type tag, ★, linked title, curator note + gloss) **and** a rich
       emailable `.html` (type chips, ★, curator notes, hero images, inline CSS). Tested; can't drift.
-- [ ] **Remaining B:** cache the top-N images into the repo (avoid hotlink rot); wire
-      `render_digest.py` + the `scene-researcher` fan-out into the daily routine (replace the Step-4
-      placeholder); the short conversational intro + **Around town**/**On the radar** stay Claude's.
+- [x] **Image caching** — `scripts/cache_images.py` + `scripts/lib/images.py`: download hero images
+      to `data/images/`, set `image.cached`; the renderer prefers the cached copy (`--asset-prefix`
+      for hosted serving). Verified live (Goldenvoice posters cached; graceful on blocked CDNs).
+- [x] **Routine wiring (no email)** — `routines/daily-digest-prompt.md` now runs core → layer →
+      enrich → `cache_images` → `render_digest --from/--to` per weekend (.md + .html) → commit.
+      Email intentionally dropped in favor of the **Hosted page** (below). **Phase B complete.**
 
 ## Phase C — Spotify taste superset (Spotify is the *music layer*, never the whole profile)
 - [ ] **Spotify sync** — top/followed/recently-played artists + genres → the artist/genre affinity
@@ -166,9 +169,22 @@ Runs explicit strategies, returns a proposal table (approve → append to `sourc
 - [ ] Subsumes the old "source health check" idea: a scout pass can also ping `active` sources and
       flag broken ones before a digest silently loses coverage.
 
+## Delivery — Hosted page (the new primary surface; supersedes email)
+Instead of emailing, serve a **hosted, bookmarkable page** Ari opens to see the current weekend(s)
+and act on them:
+- **Static core, mostly wired:** the committed weekend `.html` + `dashboard/data.json` can deploy to
+  GitHub Pages (`.github/workflows/deploy-dashboard.yml` exists). `render_digest --asset-prefix` points
+  cached images at the served base, so the page is self-contained.
+- **On-page actions (the interactive layer):** trigger a **source re-scan / discover** (`source-scout`)
+  and **request an ad-hoc digest from the LLM** ("something chill + walkable Friday") — the concierge
+  (Phase D) behind a button. Needs a way to kick an agent run from the page (GitHub Action
+  `workflow_dispatch`, a small backend, or a claude.ai/code trigger) that writes results back to the repo.
+- **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
+- Open decisions when we build it: hosting + auth (private to Ari + friends), and how page actions
+  trigger agent runs. Deferred for now; noted so the routine keeps committing the `.html` it will serve.
+
 ## Tabled — deliberately deferred (Ari's call)
-- [ ] Explorer / dashboard-page further investment (save-to-calendar exists via ICS; richer PWA waits).
-      Dashboard stays alive only as the `build_dashboard.py` feed the daily run already rebuilds.
+- → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
 - [ ] Flyer-forwarding bot + Twilio SMS/MMS intake (`sms-ingestion.md`). Capture-by-hand still works.
 - [ ] On-sale sniper / price tracking across ticket links (DICE vs TM fees). Nice-to-have.
 - [ ] SQLite instead of `catalog.json` if volume ever demands it.
@@ -227,10 +243,10 @@ were validated; these are per-fetcher *under-extraction*, not normalize bugs):
 ---
 
 ## Decision points — Ari's input needed
-1. **HTML-email as the visual digest home** (Phase B) — ✅ resolved: keep the text-only `.md`
-   canonical *and* email a rich HTML render with the top-10 images. Not reviving the dashboard for visuals.
-2. **Delivery channels** (Phase B/D) — ✅ resolved: committed `.md` + HTML email + a conversational
-   concierge surfaced via **claude.ai / web app** for now; dedicated text number deferred.
+1. **Visual digest home** (Phase B) — ✅ resolved + revised: text-only `.md` canonical + a rich `.html`.
+   Email is **dropped**; the `.html` now feeds the **Hosted page** (above) instead of an inbox.
+2. **Delivery channels** (Phase B/D) — revised: committed `.md`/`.html` → a **hosted bookmarkable page**
+   (not email) with an on-page concierge + re-scan actions. Dedicated text number still deferred.
 3. **Digest cadence** (resolved): **daily** weekend-set, ~4 months out. Revisit if commits get noisy.
 4. **Taste weights** (ongoing): `taste.yaml` is yours — edit directly, or react and let the loop fold in.
 5. **Dedupe spot checks** (Phase A): eyeball merged records for false merges while tuning the threshold.

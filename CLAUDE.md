@@ -57,16 +57,20 @@ recurring.yaml                      # predictable recurring markets/fleas/farmer
 sms-ingestion.md                    # Twilio SMS/MMS → catalog spec (manual-capture automation)
 profile.yaml                        # place/person config (ids, geo, scoring weights/terms) — city-portable knob
 scripts/run_digest.py               # deterministic core: fetch→dedupe→expire→score→catalog+candidates.json
-scripts/lib/                        # shared modules: scoring, dedupe, pipeline, config (tested in scripts/tests/)
+scripts/lib/                        # shared modules: scoring, dedupe, pipeline, enrich, images, config (tested)
+scripts/render_digest.py            # enriched candidates → digest: day-grouped .md + rich emailable/hosted .html
+scripts/cache_images.py             # download enrichment hero images → data/images/ (no hotlink rot)
 scripts/fetch_*.py                  # 11 source fetchers (run BY run_digest, or in Step-2 layering):
                                     #   ticketmaster (TM_API_KEY), ra, 19hz, goldenvoice, filmbot,
                                     #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld
 scripts/build_dashboard.py          # builds dashboard/data.json from catalog + taste.yaml + profile.yaml
 data/catalog.json                   # deduped events store (committed = the state)
 data/candidates.json                # scored, ranked top-N for enrichment (runtime; gitignored)
+data/enrichment.json                # scene-graph cache: per-event enrichment + artist notes (committed; grows each run)
+data/images/                        # cached hero images for the digests (committed)
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)
 data/dining.json                    # dining catalog: restaurants + popups/trucks
-digests/weekends/YYYY-MM-DD.md      # per-weekend events digests (scheduled routine, ~4 mo out) + index.md
+digests/weekends/YYYY-MM-DD.{md,html} # per-weekend digests, day-grouped (scheduled routine, ~4 mo out) + index.md
 digests/YYYY-MM-DD.md               # ad-hoc windowed events digests
 digests/dining-YYYY-MM-DD.md        # dining radar outputs
 routines/daily-digest-prompt.md     # scheduled events-digest routine prompt

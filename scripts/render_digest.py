@@ -120,6 +120,17 @@ def _link(ev: dict):
     return ev.get("url")
 
 
+ASSET_PREFIX = ""   # prepended to cached image paths (set by main; for hosted serving)
+
+
+def _image_src(ev: dict):
+    """Prefer the repo-cached copy (hotlink-rot proof) over the remote URL."""
+    img = (ev.get("enrichment") or {}).get("image") or {}
+    if img.get("cached"):
+        return ASSET_PREFIX + img["cached"]
+    return img.get("url")
+
+
 def _gloss(ev: dict) -> str:
     e = ev.get("enrichment") or {}
     notes = e.get("artist_notes") or []
@@ -286,7 +297,7 @@ def event_html(ev: dict) -> str:
             nh += f' <span class="gloss">— {escape(gloss)}</span>'
         body.append(f'<div class="note">{nh}</div>')
     body.append(_tix(ev))
-    img = (e.get("image") or {}).get("url") if pick else None
+    img = _image_src(ev) if pick else None
     thumb = f'<img class="thumb" src="{escape(img)}" alt="">' if img else ""
     return (f'<div class="ev{" pick" if pick else ""}">'
             f'<div class="time">{escape(time)}{span}</div>'
@@ -316,16 +327,25 @@ def render_html(doc: dict, cands: list) -> str:
 
 
 def main() -> int:
+    global ASSET_PREFIX
     ap = argparse.ArgumentParser()
     ap.add_argument("--candidates", default="data/candidates.json")
     ap.add_argument("--enrichment", default="data/enrichment.json")
     ap.add_argument("--md", default="/tmp/digest.md")
     ap.add_argument("--html", default="/tmp/digest.html")
+    ap.add_argument("--from", dest="from_", default=None, help="ISO date lower bound (inclusive)")
+    ap.add_argument("--to", dest="to", default=None, help="ISO date upper bound (inclusive)")
+    ap.add_argument("--asset-prefix", default="", help="prepended to cached image paths (hosted serving)")
     args = ap.parse_args()
+    ASSET_PREFIX = args.asset_prefix
 
     cpath = REPO / args.candidates if not Path(args.candidates).is_absolute() else Path(args.candidates)
     doc = json.loads(cpath.read_text())
     cands = doc.get("candidates", doc) if isinstance(doc, dict) else doc
+    if args.from_ or args.to:
+        cands = [c for c in cands if c.get("iso_date")
+                 and (not args.from_ or c["iso_date"] >= args.from_)
+                 and (not args.to or c["iso_date"] <= args.to)]
     enriched = merge_enrichment(cands, load_cache(args.enrichment))
 
     Path(args.md).write_text(render_markdown(doc, enriched))
