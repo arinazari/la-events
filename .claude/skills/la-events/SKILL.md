@@ -86,19 +86,33 @@ now-complete catalog and refresh `data/candidates.json`. Dedupe + scoring live i
 (`dedupe.py` + `scoring.py`, driven by `profile.yaml` + `taste.yaml`) — one source of truth; **never
 hand-score**.
 
-### Step 4 — Enrich the top candidates  *(Phase B — scene-researcher)*
+**Music layer (Phase C).** Scoring also folds in a Spotify + feedback affinity layer when present:
+`run_digest.py` syncs Spotify (`fetch_spotify.py`, only if `SPOTIFY_REFRESH_TOKEN` is set) and merges
+it with the feedback log into one affinity that nudges the score — an on-rotation artist in a lineup,
+a high-affinity genre, or a "more like X" / "never show Y" reaction. It **enriches** `taste.yaml`,
+never overwrites it; absent (no creds, no feedback) scoring is byte-identical to the taste-only path.
+The reasons in `candidates.json` cite it ("Spotify core rotation (Antal)", "more like Four Tet
+(your pick)") — carry those into Step 5's *why*. To log a reaction, append a line to
+`data/feedback.jsonl` (schema in the file header); it folds in automatically next run.
 
-Fan out the **`scene-researcher`** agent over `data/candidates.json` (parallel batches) → per-event
-sub-genre tags, artist notes, a curator's note, a clean description, and an image for the top 10.
-Until that layer is wired, synthesize directly and supply the artist annotations inline (the
-annotation layer in Step 5).
+### Step 4 — Enrich the top candidates  *(scene-researcher)*
 
-### Step 5 — Rank and synthesize
+Fan out the **`scene-researcher`** agent over the cache-miss candidates (`scripts/lib/enrich.py`
+`select_for_enrichment`) in parallel batches → per-event sub-genre tags, artist notes, a curator's
+note, a clean description, and an image for the `image_wanted` top picks. Fold results into the
+accumulating cache (`data/enrichment.json`) via `update_cache` — recurring artists are researched
+once, so the scene graph compounds. Verify-or-omit: no invented bios.
 
-Scoring is **precomputed** — read `score` / `rating` / `reasons` from `data/candidates.json`
-(produced by Steps 1+3); don't re-score by hand. The taste profile below is orientation for *why*
-things rank as they do. Output the digest as conversational
-markdown — NOT a wall of every event. **Organize PRIMARILY BY DATE** (a day-by-day agenda is
+### Step 5 — Render + synthesize
+
+`python scripts/render_digest.py` turns the enriched candidates into the digest — canonical `.md`
+(committable) **and** a rich emailable `.html` (type chips, ★ relevance, curator notes, hero images
+for the `image_wanted` picks). The per-event **curator notes + artist glosses come from Step-4
+enrichment**, so the insider voice is baked in; scoring is **precomputed** (read `score`/`rating`/
+`reasons` — never hand-score; the taste profile below is just orientation for *why* things rank). On
+top of the renderer you add a short conversational intro and the sections it doesn't generate
+(**Around town**, **On the radar**) plus pinning/judgment. The full digest — NOT a wall of every event.
+**Organize PRIMARILY BY DATE** (a day-by-day agenda is
 the spine — it answers "what's on tonight / this weekend" at a glance). Structure:
 
 1. **Don't-miss** (3–6, cross-date) — the few worth building a week around; each with its date
@@ -129,23 +143,23 @@ the spine — it answers "what's on tonight / this weekend" at a glance). Struct
 **ALWAYS hyperlink the event** to its ticket/info URL when the catalog has one (it usually
 does — links live on each record). Keep editorial-mention badges inline, e.g. "(LAist pick)".
 
-**Pin named favorites.** When the user has called out a specific event/series/venue as an
-on-taste archetype (e.g. **Sunset Sessions @ Golden Hour / Level 8** — the rooftop-vinyl-house
-north star; tracked in `taste.yaml` venues_loved), surface it whenever it's on, even if its raw
-score is modest. Don't let the archetype get buried under higher-scoring one-offs.
+**Pin named favorites.** When the user has called out a specific event/series/venue as a
+recurring favorite (e.g. **Sunset Sessions @ Golden Hour / Level 8** — a rooftop-vinyl-house
+night he likes; tracked in `taste.yaml` pinned_series / venues_loved), surface it when it's on,
+even if its raw score is modest. It's one kind of event he's into — worth including, not the headline.
 
 **Artist-annotation layer (required).** Many lineup names are unknown to the user — so for
 picks and notable lineups, add a short parenthetical or em-dash gloss explaining who the
 artist/DJ is and WHY it's on-taste: genre, scene, label, or reference point
 (e.g. "DJ Minx — Detroit house pioneer, Women on Wax"; "Antal — Rush Hour boss, Dutch
 digger, deep/disco selector"; "Yaeji — NY/Korean house-pop, leftfield club"). Anchor to the
-taste north star (rooftop/vinyl/groove/European/fabric-style) where it fits. Use your own
+his core taste (rooftop/vinyl/groove/European/fabric-style) where it fits. Use your own
 knowledge; web-check only genuinely unknown names. Don't annotate household names.
 
 ### Taste profile (ranking weights)
 
-- North star: "Sunset Sessions at Golden Hour DTLA" — chill rooftop, vinyl/grooves, house,
-  European feel. Optimize toward that energy.
+- Core lane: rooftop / vinyl / groove / house with a European feel — e.g. Sunset Sessions at
+  Golden Hour DTLA is one example. Optimize toward that energy.
 - **High**: house / techno / acid / electro DJ events (mainstream AND underground);
   "fabric London"-style club nights / European-leaning lineups; rooftop / sunset / daytime
   open-air house, disco, Balearic, groove; vinyl-only / listening-bar sets; warehouse &
@@ -222,7 +236,7 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
 
 - `sources.yaml` — the registry. Read at the start of every mode. Schema documented in
   the file header.
-- `taste.yaml` — ranking config (re-read every run). Has the north star, weights, and
+- `taste.yaml` — ranking config (re-read every run). Has the core taste, weights, and
   `comedians_loved` (the comedy exception list).
 - `festivals.yaml` — the "On the radar" curated list (festivals + big concerts months out);
   refresh status with a live web lookup each digest run.
@@ -234,8 +248,15 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
   `data/catalog.json` + `data/candidates.json`. `--no-fetch` re-scores after manual layering (Step 3).
   Run this instead of fetching/dedup/scoring by hand.
 - `scripts/lib/` — shared modules: `scoring.py` (taste ranking, driven by `profile.yaml` + `taste.yaml`),
-  `dedupe.py` (fuzzy merge), `pipeline.py` (transforms), `config.py` (YAML). Tested in `scripts/tests/`.
-- `profile.yaml` — place/person config (ids, geo, scoring weights/terms/thresholds); the city-portable knob.
+  `dedupe.py` (fuzzy merge), `pipeline.py` (transforms), `enrich.py` (enrichment cache), `config.py` (YAML),
+  `affinity.py` (Spotify music layer), `feedback.py` (reactions → affinity). Tested in `scripts/tests/`.
+- `scripts/render_digest.py` — enriched candidates → the digest: canonical `.md` + rich emailable `.html`.
+- `data/enrichment.json` — the accumulating scene-graph cache (event enrichment + artist notes); grows each run.
+- `profile.yaml` — place/person config (ids, geo, scoring weights/terms/thresholds, `scoring.spotify`
+  + `scoring.feedback` knobs); the city-portable knob.
+- `scripts/fetch_spotify.py` — Spotify sync (Phase C): top/followed/recent → `data/spotify_affinity.json`
+  (gitignored). Needs `SPOTIFY_CLIENT_ID`/`SECRET`/`REFRESH_TOKEN`; `--authorize` mints the token once.
+- `data/feedback.jsonl` — append-only reaction log (loved/went/skipped/hide + implicit); folds into scoring.
 - The structured fetchers below are invoked BY `run_digest.py`; the rest you run during Step 2 layering:
 - `scripts/fetch_ticketmaster.py` — Discovery API fetcher (needs `TM_API_KEY`)
 - `scripts/fetch_ra.py` — RA GraphQL fetcher (no key; verify `AREA_ID` on first run)

@@ -24,8 +24,9 @@ for now (a dedicated text number is deferred) — so there's no app to build; *t
 is the concierge*. Your job is routing + voice + a little glue, not re-implementing the modes.
 
 ## First: read taste before you route
-Read `taste.yaml` (events) and `dining-taste.yaml` (food) at the start. They carry the north star
-(rooftop-vinyl-house; Sunset Sessions), the tracked artists/venues, and the food profile
+Read `taste.yaml` (events) and `dining-taste.yaml` (food) at the start. They carry his core taste
+(the rooftop/vinyl/house lane; Sunset Sessions is a recurring favorite, not a headline), the
+tracked artists/venues + pinned series, and the food profile
 (`dietary` hard filters, price comfort, affordability policy). On food, **favorites
 (`restaurants_loved`) are a read on his palate, not default picks** — per `favorites_policy`, lead
 with newer + well-recommended spots that fit that palate; favorites are a tiebreak/fallback or for
@@ -49,8 +50,8 @@ skill's mode directly rather than ceremony. The concierge earns its keep on the 
 ("sort out my Friday") and the **cross-domain** ("food + a show") asks — that's when you plan.
 
 ## Disambiguate sparingly
-Infer defaults before asking: home = Silver Lake, eastside lean, the taste north star, tonight/
-this-weekend if no date. Ask **one** clarifying question only when a true blocker is missing and it
+Infer defaults before asking: home = Silver Lake, eastside lean, his core taste (rooftop/vinyl/
+house), tonight/this-weekend if no date. Ask **one** clarifying question only when a true blocker is missing and it
 would flip the answer (e.g. "is this a date night or a group thing?" when the pick depends on it,
 or date vs. area). Otherwise make the call and say what you assumed.
 

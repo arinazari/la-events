@@ -26,6 +26,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.config import load_yaml  # noqa: E402
 from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: E402
+from lib.feedback import merged_affinity  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -53,12 +54,17 @@ def main() -> int:
     taste = load_yaml(taste_path)
     profile = load_yaml(profile_path)
 
+    # Spotify + feedback music layer (Phase C) — the same merged layer the digest scores
+    # against (Spotify affinity folded with data/feedback.jsonl), so the dashboard stars match.
+    # Graceful: absent/corrupt -> taste.yaml-only scoring.
+    affinity = merged_affinity(REPO, profile)
+
     is_sample = "sample" in catalog_path.name
     today = date.today()
 
     events = []
     for ev in catalog:
-        scored = score_event(ev, taste, profile)
+        scored = score_event(ev, taste, profile, affinity)
         d = parse_event_date(ev)
         out = dict(ev)
         out["score"] = scored["score"]

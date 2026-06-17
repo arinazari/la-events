@@ -36,6 +36,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # scripts/ on path
 from lib.config import load_taste, load_profile  # noqa: E402
 from lib import pipeline as P  # noqa: E402
+from lib import feedback as FB  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -89,6 +90,26 @@ def fetch_all(selected: set, days: int) -> tuple:
     return incoming, report
 
 
+def load_affinity_layer(no_fetch: bool, report: dict, profile: dict) -> dict:
+    """Sync Spotify (if creds present and we're fetching), then load the merged music layer.
+
+    Merged = Spotify affinity (data/spotify_affinity.json, gitignored runtime state) folded
+    with the feedback log (data/feedback.jsonl) — the one place this happens for both the
+    digest and the dashboard. Degrades gracefully: any failure leaves the scorer on the
+    taste.yaml-only path. The music layer only ever enriches. Returns the affinity dict or None.
+    """
+    if not no_fetch and os.environ.get("SPOTIFY_REFRESH_TOKEN"):
+        try:
+            proc = subprocess.run([sys.executable, str(REPO / "scripts" / "fetch_spotify.py"),
+                                   "-o", str(REPO / "data" / "spotify_affinity.json")],
+                                  capture_output=True, timeout=120, cwd=str(REPO), text=True)
+            note = (proc.stdout or proc.stderr or "").strip().splitlines()
+            report["spotify"] = note[-1][:140] if note else f"exit {proc.returncode}"
+        except Exception as ex:  # noqa: BLE001
+            report["spotify"] = f"sync failed: {str(ex).splitlines()[0][:100]}"
+    return FB.merged_affinity(REPO, profile)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--catalog", default="data/catalog.json")
@@ -121,14 +142,18 @@ def main() -> int:
     P.stamp_seen(catalog, today)
     cat_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
 
+    affinity = load_affinity_layer(args.no_fetch, report, profile)
     candidates = P.select_candidates(catalog, taste, profile, today,
-                                     window_days=args.window, top_n=args.top, image_n=args.images)
+                                     window_days=args.window, top_n=args.top, image_n=args.images,
+                                     affinity=affinity)
     cand_doc = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "today": today.isoformat(),
         "window_days": args.window,
         "count": len(candidates),
         "image_wanted": sum(1 for c in candidates if c.get("image_wanted")),
+        "affinity": ({"artists": len(affinity.get("artists", {})),
+                      "genres": len(affinity.get("genres", {}))} if affinity else None),
         "sources": report,
         "candidates": candidates,
     }
@@ -144,6 +169,11 @@ def main() -> int:
         print("  failed: ", ", ".join(f"{s} ({e})" for s, e in report["failed"]))
     if report["skipped"]:
         print("  skipped:", ", ".join(report["skipped"]))
+    if affinity:
+        print(f"  music layer ({affinity.get('source', 'spotify')}): "
+              f"{len(affinity.get('artists', {}))} artists, {len(affinity.get('genres', {}))} genres")
+    elif report.get("spotify"):
+        print("  spotify:", report["spotify"])
     return 0
 
 

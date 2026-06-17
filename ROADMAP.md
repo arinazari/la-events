@@ -6,13 +6,12 @@ The bar is "investor-quality" only in the sense of **polish, depth of curation, 
 City portability matters because friends live in other cities and Ari travels (Berlin next
 week → same magic), not for TAM.
 
-Current phase: **Phase A complete; B / C / D in parallel branches.** A.1 (shared scoring/dedupe lib
-+ `profile.yaml` lift), A.2 (`run_digest.py` deterministic core), and the routine/`SKILL.md` wiring
-are shipped + tested — the by-hand fetch/dedupe/score loop is retired. The remaining phases are
-parallel siblings off Phase A: **B** (`scene-researcher` enrichment + beautified `.md`/HTML digest),
-**C** (Spotify taste superset + feedback loop), **D** (concierge + night-planner — **shipped on
-branch `claude/confident-rubin-7rb7ox`**: travel engine, the planner wired, the concierge front
-door, and la-dining's first live query). Each merges to main independently.
+Current phase: **Phases A–D complete (all on `main`).** A (foundation / `run_digest.py` deterministic
+core / routine + `SKILL.md` wiring), B (enrichment cache + scene graph, dual `.md`/`.html` renderer,
+image caching — *no email*), C (Spotify taste superset + feedback loop), and D (concierge +
+night-planner: travel engine, the planner wired, the concierge front door, la-dining's first live
+query) are shipped + tested. Next: the **Hosted page** (delivery + on-page actions — see below), the
+Gmail "Events" label, and the Spotify go-live (set `SPOTIFY_*`).
 Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog ~700 events, weekend + windowed digests
 shipped, dashboard live. Read this file + `CLAUDE.md` + the two `SKILL.md` files before any
 non-trivial task.
@@ -63,7 +62,7 @@ SKILLs become orchestrators that call them. **Concierge** = the main conversatio
 
 | Layer | Cadence |
 |---|---|
-| Events digest pipeline (fetch → dedupe → score → enrich → synthesize → weekend set → dashboard feed → commit → email) | **Daily** routine (`routines/daily-digest-prompt.md`, commits to `claude/digests`) |
+| Events digest pipeline (fetch → dedupe → score → enrich → render per weekend → dashboard feed → commit) | **Daily** routine (`routines/daily-digest-prompt.md`, commits to `main`; no email) |
 | Dining radar | **Weekly** Wed AM routine (`routines/dining-radar-prompt.md`) |
 | Fetchers | within each digest run (daily) |
 | `build_dashboard.py` | end of each daily run |
@@ -117,31 +116,49 @@ portability.
       the by-hand fetch/dedupe/score loop is retired.
 
 ## Phase B — Enrichment + beautified digest (the visible quality jump)
-- [ ] **`scene-researcher` subagent + enrichment cache** — Tier 1 fan-out over the top ~30–40;
-      cache by event-id + artist (the scene graph begins accumulating).
-- [ ] **Enriched per-event schema** — add `type/subgenre tags`, `relevance` (★, taste-graph-driven,
-      shown in the digest — today it's keyword-based and only in the dashboard feed), `curator_note`,
-      `artist_notes`, cleaned `description`, and `image` (top 10). Date/time/venue/ticket-links
-      already exist — keep all ticket links, labeled by source.
-- [ ] **Two renderers from one enriched dataset**: keep the canonical `.md` (diffable, commits,
-      GitHub renders) *and* generate a **rich HTML render** (type-colored tags, ★ relevance, card
-      layout, top-10 hero images) emailed via the Gmail connector. Cache the top-10 images into the
-      repo so emailed digests don't rot. (Confirmed: HTML email is the visual home; text-only `.md` stays.)
-- [ ] Leveled-up `.md` per-event line, e.g.:
-      `[house] ★★★★☆ **Title** — artist gloss · Fri 6/19 9pm · El Cid, Silver Lake · $7 · [RA] [DICE] — curator's note.`
+- [x] **`scene-researcher` + enrichment cache** — `scripts/lib/enrich.py`: stable `event_key`, the
+      accumulating events/artists scene graph (`data/enrichment.json`), miss-detection + merge +
+      `update_cache` (artists researched once). Validated by a real agent run over 8 live candidates
+      (Bradley Zero→Rhythm Section, Eddie C→Endless Flight, Chris Lake→Black Book, DJ Minx/Casmalia placed).
+- [x] **Enriched per-event schema** — `type` + `subgenres`/`label_orbit`/`energy`/`setting`/`sounds_like`,
+      `artist_notes`, `curator_note`, `description`, `image` (image_wanted picks). ★ relevance reads the
+      precomputed candidate `rating`. All ticket links preserved on the candidate.
+- [x] **Two renderers from one enriched dataset** — `scripts/render_digest.py` → canonical `.md`
+      (Don't-miss + day-by-day, type tag, ★, linked title, curator note + gloss) **and** a rich
+      emailable `.html` (type chips, ★, curator notes, hero images, inline CSS). Tested; can't drift.
+- [x] **Image caching** — `scripts/cache_images.py` + `scripts/lib/images.py`: download hero images
+      to `data/images/`, set `image.cached`; the renderer prefers the cached copy (`--asset-prefix`
+      for hosted serving). Verified live (Goldenvoice posters cached; graceful on blocked CDNs).
+- [x] **Routine wiring (no email)** — `routines/daily-digest-prompt.md` now runs core → layer →
+      enrich → `cache_images` → `render_digest --from/--to` per weekend (.md + .html) → commit.
+      Email intentionally dropped in favor of the **Hosted page** (below). **Phase B complete.**
 
 ## Phase C — Spotify taste superset (Spotify is the *music layer*, never the whole profile)
-- [ ] **Spotify sync** — top/followed/recently-played artists + genres → the artist/genre affinity
-      vectors, refreshed automatically. (Related-artists + audio-features endpoints were restricted
-      for new apps late 2024 — lean on top/followed/recent; confirm what's live when building.)
-      OAuth in a stateless repo: store a **refresh token** as a secret like `TM_API_KEY`/`POSH_TOKEN`,
-      exchange each run.
-- [ ] **Merge three layers into one scoring profile**: Spotify (music affinity, auto) +
-      `taste.yaml` (the durable human layer Spotify can't know — settings/format prefs, rep cinema,
-      daytime/lifestyle, comedy exception, walkability, north-star, penalties) + feedback
-      (went/skipped/loved nudges weights). Spotify *enriches*; it never overwrites `taste.yaml`.
-- [ ] **Close the feedback loop** — reactions + implicit signals (clicked ticket link? added to
-      calendar?) fold into the weights automatically instead of being hand-merged.
+**Built + tested (fixtures); not yet validated against a live Spotify account — needs the
+`SPOTIFY_*` secrets set + accounts/api.spotify.com on the network allowlist + Decision 6 below.**
+- [x] **Spotify sync** — `scripts/fetch_spotify.py`: OAuth refresh-token flow (store
+      `SPOTIFY_REFRESH_TOKEN` like `TM_API_KEY`/`POSH_TOKEN`, exchange each run; `--authorize` mints it
+      once). Pulls top (long/medium/short) + followed + recently-played — the endpoints still open to
+      new apps post-2024 — and folds them via `lib/affinity.build_affinity` into a weighted, tiered
+      `data/spotify_affinity.json` (gitignored). Degrades gracefully (no creds → SKIP, never blocks).
+      **Live-validated (2026-06): 190 artists / 39 core from a real account.** Two realities recorded:
+      (a) Spotify now returns simplified artist objects (no `genres`/`popularity`) + 403s `/v1/artists`
+      for new apps → the Spotify *genre* layer is empty (genres come from feedback); (b) auto-pulled
+      artist lists need tighter matching than the hand-curated `artists_tracked` — done (title+lineup,
+      whole-token, `ambiguous_names` lineup-gate; 18→8 matches, all true).
+- [x] **Merge three layers into one scoring profile** — `lib/scoring.score_event` now takes an
+      `affinity` arg (threaded through `pipeline` + `run_digest` + `build_dashboard`); Spotify
+      (auto) + `taste.yaml` (human spine) + feedback combine in the one scorer. Spotify *enriches* —
+      with no affinity present, scoring is byte-identical to the taste-only path. Mechanism in
+      `profile.yaml` `scoring.spotify` + `scoring.feedback`.
+- [x] **Close the feedback loop** — `data/feedback.jsonl` (append-only reactions) + `lib/feedback.py`
+      aggregate loved/went/skipped/**hide** into the same affinity automatically (no hand-merge):
+      "more like X" clears a tier, "never show Y" forces a `hidden` down-rank. Implicit-signal *capture*
+      (clicked-ticket / added-calendar) — the schema's there, but emitting them depends on the Phase B
+      HTML-email / dashboard delivery surfaces, so wiring the emitters rides with B/D.
+- [ ] **Go-live (needs Ari)**: create the Spotify app, mint the refresh token (`--authorize`), set the
+      three secrets, allowlist the Spotify domains; then confirm Decision 6 (which signals to sync) and
+      eyeball the first run's `Spotify …` reasons to tune `scoring.spotify` weights.
 
 ## Phase D — Concierge + night-planner (the experience / hero feature)  ✅ (branch claude/confident-rubin-7rb7ox)
 - [x] **Conversational concierge as primary interface** — `.claude/skills/concierge/SKILL.md`: the
@@ -174,9 +191,22 @@ Runs explicit strategies, returns a proposal table (approve → append to `sourc
 - [ ] Subsumes the old "source health check" idea: a scout pass can also ping `active` sources and
       flag broken ones before a digest silently loses coverage.
 
+## Delivery — Hosted page (the new primary surface; supersedes email)
+Instead of emailing, serve a **hosted, bookmarkable page** Ari opens to see the current weekend(s)
+and act on them:
+- **Static core, mostly wired:** the committed weekend `.html` + `dashboard/data.json` can deploy to
+  GitHub Pages (`.github/workflows/deploy-dashboard.yml` exists). `render_digest --asset-prefix` points
+  cached images at the served base, so the page is self-contained.
+- **On-page actions (the interactive layer):** trigger a **source re-scan / discover** (`source-scout`)
+  and **request an ad-hoc digest from the LLM** ("something chill + walkable Friday") — the concierge
+  (Phase D) behind a button. Needs a way to kick an agent run from the page (GitHub Action
+  `workflow_dispatch`, a small backend, or a claude.ai/code trigger) that writes results back to the repo.
+- **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
+- Open decisions when we build it: hosting + auth (private to Ari + friends), and how page actions
+  trigger agent runs. Deferred for now; noted so the routine keeps committing the `.html` it will serve.
+
 ## Tabled — deliberately deferred (Ari's call)
-- [ ] Explorer / dashboard-page further investment (save-to-calendar exists via ICS; richer PWA waits).
-      Dashboard stays alive only as the `build_dashboard.py` feed the daily run already rebuilds.
+- → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
 - [ ] Flyer-forwarding bot + Twilio SMS/MMS intake (`sms-ingestion.md`). Capture-by-hand still works.
 - [ ] On-sale sniper / price tracking across ticket links (DICE vs TM fees). Nice-to-have.
 - [ ] SQLite instead of `catalog.json` if volume ever demands it.
@@ -238,14 +268,17 @@ were validated; these are per-fetcher *under-extraction*, not normalize bugs):
 ---
 
 ## Decision points — Ari's input needed
-1. **HTML-email as the visual digest home** (Phase B) — ✅ resolved: keep the text-only `.md`
-   canonical *and* email a rich HTML render with the top-10 images. Not reviving the dashboard for visuals.
-2. **Delivery channels** (Phase B/D) — ✅ resolved: committed `.md` + HTML email + a conversational
-   concierge surfaced via **claude.ai / web app** for now; dedicated text number deferred.
+1. **Visual digest home** (Phase B) — ✅ resolved + revised: text-only `.md` canonical + a rich `.html`.
+   Email is **dropped**; the `.html` now feeds the **Hosted page** (above) instead of an inbox.
+2. **Delivery channels** (Phase B/D) — revised: committed `.md`/`.html` → a **hosted bookmarkable page**
+   (not email) with an on-page concierge + re-scan actions. Dedicated text number still deferred.
 3. **Digest cadence** (resolved): **daily** weekend-set, ~4 months out. Revisit if commits get noisy.
 4. **Taste weights** (ongoing): `taste.yaml` is yours — edit directly, or react and let the loop fold in.
 5. **Dedupe spot checks** (Phase A): eyeball merged records for false merges while tuning the threshold.
-6. **Spotify scope** (Phase C): confirm which Spotify data we sync once we see what's live post-2024 limits.
+6. **Spotify scope** (Phase C): the sync is built on top-artists (long/medium/short) + followed +
+   recently-played (genres ride along on the artist objects). Confirm that's the right set once it
+   runs live, and how hard the music layer should weigh vs. the `taste.yaml` spine (`scoring.spotify`
+   tier points — currently a deliberately modest nudge: core +2, capped +4/event).
 7. **Discover/source-scout approvals** (on demand): the candidate-source table — approve/reject.
 
 ### Dining-layer decisions

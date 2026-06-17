@@ -1,0 +1,8 @@
+# Feedback log (append-only). One JSON reaction per line. Schema:
+#   {"ts":"YYYY-MM-DD","kind":"loved|went|skipped|hide|clicked_ticket|added_calendar",
+#    "artists":[...],"genres":[...],"note":"..."}
+# Folded into the affinity layer automatically each run (scripts/lib/feedback.py) — no
+# hand-merge into taste.yaml. Blank lines and #-comments are ignored.
+# Append real reactions as you react to digests, e.g.:
+#   {"ts":"2026-06-20","kind":"loved","artists":["Antal"]}
+#   {"ts":"2026-06-20","kind":"hide","artists":["Some Bro DJ"]}

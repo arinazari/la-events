@@ -23,8 +23,8 @@ gitignored `data/candidates.json`, is fine.)
 - A night spec: date, area / walkability, vibe, party size, budget, and any **anchor** ("the
   Antal show is the centerpiece," "somewhere special — it's a birthday"). Fields will be missing —
   infer sensible defaults from `profile.yaml` (home = Silver Lake / Hyperion & Del Mar, eastside
-  lean) and the taste north star (rooftop-vinyl-house). Ask **one** clarifying question only if a
-  true blocker is missing (e.g. date vs. area when both would flip the plan).
+  lean) and his core taste (the rooftop/vinyl/house lane). Ask **one** clarifying question only if
+  a true blocker is missing (e.g. date vs. area when both would flip the plan).
 
 ## Method
 
