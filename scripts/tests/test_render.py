@@ -55,6 +55,22 @@ def test_html_structure():
     assert "Fri 6/19" in html and "Sat 6/20" in html
 
 
+def test_collapse_multidate_runs():
+    # A two-night run (same title+venue, Fri+Sat) collapses to ONE entry with a date span,
+    # not one per day. Appears once in Don't-miss + once in day-by-day (= 2 mentions, not 4).
+    runs = [
+        {"title": "Chris Lake", "venue": "LA State Historic Park", "iso_date": "2026-06-19",
+         "score": 8, "rating": 5, "category": "electronic", "links": []},
+        {"title": "Chris Lake", "venue": "LA State Historic Park", "iso_date": "2026-06-20",
+         "score": 9, "rating": 5, "category": "electronic", "links": []},
+    ]
+    md = R.render_markdown({"generated_at": "x", "candidates": runs}, runs)
+    assert md.count("Chris Lake") == 2, md.count("Chris Lake")
+    assert "Fri 6/19 + Sat 6/20" in md
+    assert md.count("### Fri 6/19") == 1 and "### Sat 6/20" not in md   # placed once, earliest day
+    assert "1 on-taste picks" in md                                     # collapsed count
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

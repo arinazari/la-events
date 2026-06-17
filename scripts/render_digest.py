@@ -24,6 +24,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.enrich import load_cache, merge_enrichment  # noqa: E402
+from lib.dedupe import normalize  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -84,13 +85,47 @@ def _gloss(ev: dict) -> str:
     return f"sounds like {', '.join(sl[:2])}" if sl else ""
 
 
+def fmt_dates(isos: list) -> str:
+    """'Fri 6/19', 'Fri 6/19 + Sat 6/20', or 'Fri 6/19 +3 more' for a run/series."""
+    labels = [day_label(i) for i in isos if i]
+    if not labels:
+        return ""
+    if len(labels) <= 2:
+        return " + ".join(labels)
+    return f"{labels[0]} +{len(labels) - 1} more"
+
+
+def collapse_runs(cands: list) -> list:
+    """Collapse the same event across dates (same normalized title + venue) into one entry,
+    carrying all its dates. Fixes multi-night runs (Chris Lake Fri+Sat) and recurring series
+    (weekly Sunset Sessions) otherwise showing up once per date. Best-scored instance is the rep."""
+    groups, order = {}, []
+    for ev in cands:
+        k = (normalize(ev.get("title", "")), normalize(ev.get("venue", "")))
+        if k not in groups:
+            groups[k] = []
+            order.append(k)
+        groups[k].append(ev)
+    rows = []
+    for k in order:
+        evs = sorted(groups[k], key=lambda e: -(e.get("score") or 0))
+        rep = dict(evs[0])
+        rep["_dates"] = sorted({e.get("iso_date") for e in evs if e.get("iso_date")})
+        rep["_earliest"] = rep["_dates"][0] if rep["_dates"] else (rep.get("iso_date") or "")
+        rows.append(rep)
+    return rows
+
+
 # ── Markdown ────────────────────────────────────────────────────────────────
 def event_md(ev: dict) -> str:
     e = ev.get("enrichment") or {}
     label = TYPE_STYLE.get(_type_of(ev), ("", ""))[0]
     title, url = ev.get("title") or "Untitled", _link(ev)
     head = f"[**{title}**]({url})" if url else f"**{title}**"
+    dates = ev.get("_dates") or ([ev["iso_date"]] if ev.get("iso_date") else [])
+    span = fmt_dates(dates) if len(dates) > 1 else ""   # multi-date run/series only (day header covers single)
     meta = " · ".join(x for x in (
+        span,
         fmt_time(ev.get("start")),
         ev.get("venue") + (f" ({ev['neighborhood']})" if ev.get("neighborhood") else "") if ev.get("venue") else "",
         ev.get("price"),
@@ -106,28 +141,28 @@ def event_md(ev: dict) -> str:
 
 
 def render_markdown(doc: dict, cands: list) -> str:
-    today = doc.get("today", "")
-    out = [f"# LA Events — {len(cands)} on-taste picks",
+    uniq = sorted(collapse_runs(cands), key=lambda e: -(e.get("score") or 0))
+    out = [f"# LA Events — {len(uniq)} on-taste picks",
            f"*Generated {doc.get('generated_at','')[:16]} · scored against your taste profile*", ""]
 
-    # Don't-miss: top 6 by score, cross-date.
-    dm = cands[:6]
+    # Don't-miss: top 6 unique events, cross-date, each with its date(s).
+    dm = uniq[:6]
     if dm:
         out.append("## Don't-miss")
         for ev in dm:
             e = ev.get("enrichment") or {}
             why = e.get("curator_note") or _gloss(ev) or ""
-            d = day_label(ev["iso_date"]) if ev.get("iso_date") else ""
+            d = fmt_dates(ev.get("_dates") or [])
             url = _link(ev)
             head = f"[{ev.get('title')}]({url})" if url else ev.get("title")
             out.append(f"- {stars(ev.get('rating'))} **{head}** — {d}" + (f" — {why}" if why else ""))
         out.append("")
 
-    # Day-by-day.
+    # Day-by-day: each unique event once, on its earliest in-window date.
     out.append("## Day by day")
     cur = None
-    for ev in sorted(cands, key=lambda e: (e.get("iso_date") or "", -e.get("score", 0))):
-        iso = ev.get("iso_date")
+    for ev in sorted(uniq, key=lambda e: (e.get("_earliest") or "", -(e.get("score") or 0))):
+        iso = ev.get("_earliest")
         if not iso:
             continue
         if iso != cur:
@@ -181,12 +216,13 @@ def _tix_html(ev):
     return f'<div class="tix">{btns}</div>'
 
 
-def event_html(ev: dict, hero=False) -> str:
+def event_html(ev: dict, hero=False, date_label="") -> str:
     e = ev.get("enrichment") or {}
     title = escape(ev.get("title") or "Untitled")
     url = _link(ev)
     title_html = f'<a href="{escape(url)}">{title}</a>' if url else title
     meta = " · ".join(x for x in (
+        escape(date_label) if date_label else "",
         fmt_time(ev.get("start")),
         escape(ev["venue"]) + (f' ({escape(ev["neighborhood"])})' if ev.get("neighborhood") else "") if ev.get("venue") else "",
         escape(ev["price"]) if ev.get("price") else "",
@@ -210,28 +246,31 @@ def event_html(ev: dict, hero=False) -> str:
 
 
 def render_html(doc: dict, cands: list) -> str:
+    uniq = sorted(collapse_runs(cands), key=lambda e: -(e.get("score") or 0))
     parts = [f'<!doctype html><html><head><meta charset="utf-8">'
              f'<meta name="viewport" content="width=device-width,initial-scale=1">'
              f'<style>{CSS}</style></head><body><div class="wrap">',
-             f'<h1>LA Events — {len(cands)} on-taste picks</h1>',
+             f'<h1>LA Events — {len(uniq)} on-taste picks</h1>',
              f'<p class="sub">Generated {escape(doc.get("generated_at","")[:16])} · ranked for you</p>']
 
-    dm = cands[:6]
+    dm = uniq[:6]
     if dm:
         parts.append("<h2>Don't miss</h2>")
         for ev in dm:
-            parts.append(event_html(ev, hero=bool(ev.get("image_wanted"))))
+            parts.append(event_html(ev, hero=bool(ev.get("image_wanted")),
+                                    date_label=fmt_dates(ev.get("_dates") or [])))
 
     parts.append("<h2>Day by day</h2>")
     cur = None
-    for ev in sorted(cands, key=lambda e: (e.get("iso_date") or "", -e.get("score", 0))):
-        iso = ev.get("iso_date")
+    for ev in sorted(uniq, key=lambda e: (e.get("_earliest") or "", -(e.get("score") or 0))):
+        iso = ev.get("_earliest")
         if not iso:
             continue
         if iso != cur:
             cur = iso
             parts.append(f'<div class="day">{day_label(iso)}</div>')
-        parts.append(event_html(ev))
+        d = ev.get("_dates") or []
+        parts.append(event_html(ev, date_label=fmt_dates(d) if len(d) > 1 else ""))
 
     failed = (doc.get("sources") or {}).get("failed") or []
     if failed:
