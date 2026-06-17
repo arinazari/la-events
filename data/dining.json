@@ -3,15 +3,37 @@
     "id": "mirate",
     "name": "Mírate",
     "type": "restaurant",
-    "cuisine": ["modern mexican"],
+    "cuisine": [
+      "modern mexican"
+    ],
     "neighborhood": "Los Feliz",
     "address": "1712 N Vermont Ave",
     "price": "$$$",
-    "occasion": ["date_night", "special", "group"],
-    "reservations": { "platform": "resy", "url": "https://resy.com/cities/los-angeles-ca/venues/mirate", "difficulty": "books_up" },
+    "occasion": [
+      "date_night",
+      "special",
+      "group"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": "https://resy.com/cities/los-angeles-ca/venues/mirate",
+      "difficulty": "books_up"
+    },
     "signals": [
-      { "source": "infatuation", "type": "review", "label": "Infatuation review (Los Feliz)", "url": "https://www.theinfatuation.com/los-angeles/reviews/mirate", "date": "2026-06-16" },
-      { "source": "resy", "type": "hit_list", "label": "Resy — award-winning bar, rooftop", "url": "https://resy.com/cities/los-angeles-ca/venues/mirate", "date": "2026-06-16" }
+      {
+        "source": "infatuation",
+        "type": "review",
+        "label": "Infatuation review (Los Feliz)",
+        "url": "https://www.theinfatuation.com/los-angeles/reviews/mirate",
+        "date": "2026-06-16"
+      },
+      {
+        "source": "resy",
+        "type": "hit_list",
+        "label": "Resy — award-winning bar, rooftop",
+        "url": "https://resy.com/cities/los-angeles-ca/venues/mirate",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -21,14 +43,29 @@
     "id": "wildes",
     "name": "Wilde's",
     "type": "restaurant",
-    "cuisine": ["british", "wine bar"],
+    "cuisine": [
+      "british",
+      "wine bar"
+    ],
     "neighborhood": "Los Feliz",
     "address": "Hillhurst Ave",
     "price": "$$$",
-    "occasion": ["date_night"],
-    "reservations": { "platform": "resy", "url": "https://www.theinfatuation.com/los-angeles/reviews/wildes", "difficulty": "hard" },
+    "occasion": [
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": "https://www.theinfatuation.com/los-angeles/reviews/wildes",
+      "difficulty": "hard"
+    },
     "signals": [
-      { "source": "infatuation", "type": "review", "label": "Infatuation review — 'makes British food sexy'", "url": "https://www.theinfatuation.com/los-angeles/reviews/wildes", "date": "2026-06-16" }
+      {
+        "source": "infatuation",
+        "type": "review",
+        "label": "Infatuation review — 'makes British food sexy'",
+        "url": "https://www.theinfatuation.com/los-angeles/reviews/wildes",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -38,14 +75,28 @@
     "id": "cafe-stella",
     "name": "Cafe Stella",
     "type": "restaurant",
-    "cuisine": ["french bistro"],
+    "cuisine": [
+      "french bistro"
+    ],
     "neighborhood": "Silver Lake",
     "address": null,
     "price": "$$$",
-    "occasion": ["date_night"],
-    "reservations": { "platform": "resy", "url": null, "difficulty": "books_up" },
+    "occasion": [
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
     "signals": [
-      { "source": "infatuation", "type": "hit_list", "label": "Infatuation LA Hit List — reopened 2026", "url": "https://www.theinfatuation.com/los-angeles/guides/best-new-los-angeles-restaurants-hit-list", "date": "2026-06-16" }
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation LA Hit List — reopened 2026",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/best-new-los-angeles-restaurants-hit-list",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -55,31 +106,62 @@
     "id": "rasarumah",
     "name": "Rasarumah",
     "type": "restaurant",
-    "cuisine": ["malaysian"],
+    "cuisine": [
+      "malaysian"
+    ],
     "neighborhood": "Echo Park / Silver Lake (eastside)",
     "address": null,
     "price": "$$",
-    "occasion": ["group", "date_night"],
-    "reservations": { "platform": "resy", "url": null, "difficulty": "books_up" },
+    "occasion": [
+      "group",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
     "signals": [
-      { "source": "resy", "type": "review", "label": "Resy 'Right This Way' — Defining Malaysian Food on Its Own Terms", "url": "https://blog.resy.com/", "date": "2026-06-16" }
+      {
+        "source": "resy",
+        "type": "review",
+        "label": "Resy 'Right This Way' — Defining Malaysian Food on Its Own Terms",
+        "url": "https://blog.resy.com/",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
-    "last_seen": "2026-06-16",
+    "last_seen": "2026-06-17",
     "notes": "Eastside hotspot (Variety also flagged it). Confirm exact address/neighborhood next pass."
   },
   {
     "id": "dunsmoor",
     "name": "Dunsmoor",
     "type": "restaurant",
-    "cuisine": ["american", "wood-fired"],
+    "cuisine": [
+      "american",
+      "wood-fired"
+    ],
     "neighborhood": "Eagle Rock",
     "address": null,
     "price": "$$$",
-    "occasion": ["date_night", "special"],
-    "reservations": { "platform": "resy", "url": null, "difficulty": "books_up" },
+    "occasion": [
+      "date_night",
+      "special"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
     "signals": [
-      { "source": "opentable", "type": "best_of", "label": "OpenTable — Most Beautiful Restaurants in LA 2026", "url": "https://www.opentable.com/lists/most-beautiful-restaurants-los-angeles", "date": "2026-06-16" }
+      {
+        "source": "opentable",
+        "type": "best_of",
+        "label": "OpenTable — Most Beautiful Restaurants in LA 2026",
+        "url": "https://www.opentable.com/lists/most-beautiful-restaurants-los-angeles",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -89,48 +171,94 @@
     "id": "yess",
     "name": "Yess",
     "type": "restaurant",
-    "cuisine": ["japanese", "seafood"],
+    "cuisine": [
+      "japanese",
+      "seafood"
+    ],
     "neighborhood": "Arts District (DTLA)",
     "address": null,
     "price": "$$$$",
-    "occasion": ["special", "date_night"],
-    "reservations": { "platform": "resy", "url": null, "difficulty": "hard" },
+    "occasion": [
+      "special",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "hard"
+    },
     "signals": [
-      { "source": "resy", "type": "review", "label": "Resy 'Right This Way' — Long-Awaited Japanese Seafood Destination", "url": "https://blog.resy.com/", "date": "2026-06-16" }
+      {
+        "source": "resy",
+        "type": "review",
+        "label": "Resy 'Right This Way' — Long-Awaited Japanese Seafood Destination",
+        "url": "https://blog.resy.com/",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
-    "last_seen": "2026-06-16",
+    "last_seen": "2026-06-17",
     "notes": "Grew out of the Yess Aquatic seafood truck. Chef Junya Yamasaki — confirm details next pass."
   },
   {
     "id": "sushi-nakazawa-la",
     "name": "Sushi Nakazawa",
     "type": "restaurant",
-    "cuisine": ["sushi", "omakase"],
+    "cuisine": [
+      "sushi",
+      "omakase"
+    ],
     "neighborhood": null,
     "address": null,
     "price": "$$$$",
-    "occasion": ["special"],
-    "reservations": { "platform": "resy", "url": null, "difficulty": "hard" },
+    "occasion": [
+      "special"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "hard"
+    },
     "signals": [
-      { "source": "resy", "type": "new_opening", "label": "Resy 'Right This Way' — Long-Awaited L.A. Debut", "url": "https://blog.resy.com/", "date": "2026-06-16" }
+      {
+        "source": "resy",
+        "type": "new_opening",
+        "label": "Resy 'Right This Way' — Long-Awaited L.A. Debut",
+        "url": "https://blog.resy.com/",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
-    "last_seen": "2026-06-16",
+    "last_seen": "2026-06-17",
     "notes": "Omakase from a Jiro Ono protégé; NYC import's LA debut. Neighborhood unconfirmed."
   },
   {
     "id": "hermons",
     "name": "Hermon's",
     "type": "restaurant",
-    "cuisine": ["chophouse"],
+    "cuisine": [
+      "chophouse"
+    ],
     "neighborhood": null,
     "address": null,
     "price": "$$$",
-    "occasion": ["date_night", "group"],
-    "reservations": { "platform": "resy", "url": null, "difficulty": "books_up" },
+    "occasion": [
+      "date_night",
+      "group"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
     "signals": [
-      { "source": "infatuation", "type": "hit_list", "label": "Infatuation LA Hit List", "url": "https://www.theinfatuation.com/los-angeles/guides/best-new-los-angeles-restaurants-hit-list", "date": "2026-06-16" }
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation LA Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/best-new-los-angeles-restaurants-hit-list",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -140,14 +268,29 @@
     "id": "mish",
     "name": "Mish",
     "type": "restaurant",
-    "cuisine": ["jewish deli"],
+    "cuisine": [
+      "jewish deli"
+    ],
     "neighborhood": "La Brea (Mid-City)",
     "address": null,
     "price": "$$",
-    "occasion": ["quick_lunch", "group"],
-    "reservations": { "platform": "walk_in", "url": null, "difficulty": "easy" },
+    "occasion": [
+      "quick_lunch",
+      "group"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "easy"
+    },
     "signals": [
-      { "source": "infatuation", "type": "hit_list", "label": "Infatuation LA Hit List", "url": "https://www.theinfatuation.com/los-angeles/guides/best-new-los-angeles-restaurants-hit-list", "date": "2026-06-16" }
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation LA Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/best-new-los-angeles-restaurants-hit-list",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -157,14 +300,30 @@
     "id": "asadero",
     "name": "Asadero",
     "type": "restaurant",
-    "cuisine": ["mexican", "tacos"],
+    "cuisine": [
+      "mexican",
+      "tacos"
+    ],
     "neighborhood": null,
     "address": null,
     "price": "$",
-    "occasion": ["quick_lunch", "casual"],
-    "reservations": { "platform": "walk_in", "url": null, "difficulty": "easy" },
+    "occasion": [
+      "quick_lunch",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "easy"
+    },
     "signals": [
-      { "source": "infatuation", "type": "hit_list", "label": "Infatuation LA Hit List", "url": "https://www.theinfatuation.com/los-angeles/guides/best-new-los-angeles-restaurants-hit-list", "date": "2026-06-16" }
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation LA Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/best-new-los-angeles-restaurants-hit-list",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -179,9 +338,19 @@
     "address": null,
     "price": null,
     "occasion": [],
-    "reservations": { "platform": "resy", "url": null, "difficulty": "books_up" },
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
     "signals": [
-      { "source": "resy", "type": "hit_list", "label": "Resy Hit List — Where in L.A. You'll Want to Eat Right Now", "url": "https://blog.resy.com/", "date": "2026-06-16" }
+      {
+        "source": "resy",
+        "type": "hit_list",
+        "label": "Resy Hit List — Where in L.A. You'll Want to Eat Right Now",
+        "url": "https://blog.resy.com/",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -191,14 +360,29 @@
     "id": "pasjoli",
     "name": "Pasjoli",
     "type": "restaurant",
-    "cuisine": ["french"],
+    "cuisine": [
+      "french"
+    ],
     "neighborhood": "Santa Monica",
     "address": null,
     "price": "$$$$",
-    "occasion": ["special", "date_night"],
-    "reservations": { "platform": "opentable", "url": null, "difficulty": "books_up" },
+    "occasion": [
+      "special",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "opentable",
+      "url": null,
+      "difficulty": "books_up"
+    },
     "signals": [
-      { "source": "opentable", "type": "best_of", "label": "OpenTable — Best Restaurants in LA 2026", "url": "https://www.opentable.com/lists/best-restaurants-los-angeles", "date": "2026-06-16" }
+      {
+        "source": "opentable",
+        "type": "best_of",
+        "label": "OpenTable — Best Restaurants in LA 2026",
+        "url": "https://www.opentable.com/lists/best-restaurants-los-angeles",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -208,14 +392,30 @@
     "id": "kassi",
     "name": "Kassi",
     "type": "restaurant",
-    "cuisine": ["greek", "mediterranean"],
+    "cuisine": [
+      "greek",
+      "mediterranean"
+    ],
     "neighborhood": "Venice",
     "address": null,
     "price": "$$$",
-    "occasion": ["group", "date_night"],
-    "reservations": { "platform": "opentable", "url": null, "difficulty": "books_up" },
+    "occasion": [
+      "group",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "opentable",
+      "url": null,
+      "difficulty": "books_up"
+    },
     "signals": [
-      { "source": "opentable", "type": "best_of", "label": "OpenTable — Best Rooftop Restaurants LA, Summer 2026", "url": "https://www.opentable.com/lists/best-rooftop-restaurants-bars-los-angeles", "date": "2026-06-16" }
+      {
+        "source": "opentable",
+        "type": "best_of",
+        "label": "OpenTable — Best Rooftop Restaurants LA, Summer 2026",
+        "url": "https://www.opentable.com/lists/best-rooftop-restaurants-bars-los-angeles",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -225,14 +425,30 @@
     "id": "san-laurel",
     "name": "San Laurel",
     "type": "restaurant",
-    "cuisine": ["spanish", "mediterranean"],
+    "cuisine": [
+      "spanish",
+      "mediterranean"
+    ],
     "neighborhood": "Downtown LA",
     "address": "InterContinental Los Angeles Downtown",
     "price": "$$$$",
-    "occasion": ["special", "date_night"],
-    "reservations": { "platform": "opentable", "url": null, "difficulty": "books_up" },
+    "occasion": [
+      "special",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "opentable",
+      "url": null,
+      "difficulty": "books_up"
+    },
     "signals": [
-      { "source": "opentable", "type": "best_of", "label": "OpenTable — Best Rooftop Restaurants LA, Summer 2026", "url": "https://www.opentable.com/lists/best-rooftop-restaurants-bars-los-angeles", "date": "2026-06-16" }
+      {
+        "source": "opentable",
+        "type": "best_of",
+        "label": "OpenTable — Best Rooftop Restaurants LA, Summer 2026",
+        "url": "https://www.opentable.com/lists/best-rooftop-restaurants-bars-los-angeles",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
@@ -242,17 +458,911 @@
     "id": "calabra",
     "name": "Calabra",
     "type": "restaurant",
-    "cuisine": ["mediterranean"],
+    "cuisine": [
+      "mediterranean"
+    ],
     "neighborhood": "Santa Monica",
     "address": "Santa Monica Proper Hotel",
     "price": "$$$",
-    "occasion": ["date_night", "group"],
-    "reservations": { "platform": "opentable", "url": null, "difficulty": "books_up" },
+    "occasion": [
+      "date_night",
+      "group"
+    ],
+    "reservations": {
+      "platform": "opentable",
+      "url": null,
+      "difficulty": "books_up"
+    },
     "signals": [
-      { "source": "opentable", "type": "best_of", "label": "OpenTable — Best Rooftop Restaurants LA, Summer 2026", "url": "https://www.opentable.com/lists/best-rooftop-restaurants-bars-los-angeles", "date": "2026-06-16" }
+      {
+        "source": "opentable",
+        "type": "best_of",
+        "label": "OpenTable — Best Rooftop Restaurants LA, Summer 2026",
+        "url": "https://www.opentable.com/lists/best-rooftop-restaurants-bars-los-angeles",
+        "date": "2026-06-16"
+      }
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
     "notes": "Mediterranean rooftop atop the Santa Monica Proper — charred flatbreads, mezze, grilled fish."
+  },
+  {
+    "id": "found-oyster",
+    "name": "Found Oyster",
+    "type": "restaurant",
+    "cuisine": [
+      "seafood"
+    ],
+    "neighborhood": "East Hollywood",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "group",
+      "solo_counter"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation — The Eastside Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-eastside-hit-list-best-new-restaurants-eastside-los-angeles",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Tiny, buzzy seafood bar — clam cakes, chicken-fried oysters. Walk-in/bar; parent of Hermon's. Home turf."
+  },
+  {
+    "id": "bar-restaurant",
+    "name": "Bar Restaurant",
+    "type": "restaurant",
+    "cuisine": [
+      "french"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "hard"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation — The Eastside Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-eastside-hit-list-best-new-restaurants-eastside-los-angeles",
+        "date": "2026-06-17"
+      },
+      {
+        "source": "lamag",
+        "type": "best_of",
+        "label": "LA Mag — Best New (Jeremy Fox, Silver Lake)",
+        "url": "https://lamag.com/food/los-angeles-magazine-best-new-restaurants-january-2026-l/",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Pink-hued, 'strange and fantastic' modern French. Intimate date-night; books up. Sunset Junction, walkable."
+  },
+  {
+    "id": "sogo-roll-bar",
+    "name": "Sogo Roll Bar",
+    "type": "restaurant",
+    "cuisine": [
+      "sushi",
+      "handroll"
+    ],
+    "neighborhood": "Los Feliz",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "solo_counter"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation — The Eastside Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-eastside-hit-list-best-new-restaurants-eastside-los-angeles",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Handroll bar from the Sushi Note team — creative, high-quality fish. Counter seats. Eastside."
+  },
+  {
+    "id": "lolo-wine-bar",
+    "name": "Lolo Wine Bar",
+    "type": "restaurant",
+    "cuisine": [
+      "wine bar",
+      "italian"
+    ],
+    "neighborhood": "East Hollywood",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation — The Eastside Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-eastside-hit-list-best-new-restaurants-eastside-los-angeles",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Low-key neighborhood wine bar with a great patio + shareable pasta. Walkable from home."
+  },
+  {
+    "id": "marco-polo",
+    "name": "Marco Polo",
+    "type": "restaurant",
+    "cuisine": [
+      "italian",
+      "seafood"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "group"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation — The Eastside Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-eastside-hit-list-best-new-restaurants-eastside-los-angeles",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Outdoor-focused Italian — linguini vongole, gin-arugula cocktails. Patio date-night. Home turf."
+  },
+  {
+    "id": "clark-street-bakery-echo-park",
+    "name": "Clark Street Bakery",
+    "type": "bakery",
+    "cuisine": [
+      "bakery",
+      "cafe"
+    ],
+    "neighborhood": "Echo Park",
+    "address": null,
+    "price": "$",
+    "occasion": [
+      "quick_lunch",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "easy"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation — The Eastside Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-eastside-hit-list-best-new-restaurants-eastside-los-angeles",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Echo Park bakery — caramelized kouign-amann, Nordic breakfast platters. Daytime/casual."
+  },
+  {
+    "id": "kismet-rotisserie",
+    "name": "Kismet Rotisserie",
+    "type": "restaurant",
+    "cuisine": [
+      "mediterranean"
+    ],
+    "neighborhood": "Los Feliz",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "quick_lunch",
+      "casual",
+      "group"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "easy"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation — The Eastside Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-eastside-hit-list-best-new-restaurants-eastside-los-angeles",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Casual rotisserie next to Kismet — roast chicken on pita, veg sides. Easy weeknight. Eastside."
+  },
+  {
+    "id": "jeffs-table",
+    "name": "Jeff's Table",
+    "type": "restaurant",
+    "cuisine": [
+      "sandwiches",
+      "deli"
+    ],
+    "neighborhood": "Highland Park",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "quick_lunch",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation — The Eastside Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-eastside-hit-list-best-new-restaurants-eastside-los-angeles",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Cult deli hidden behind a liquor store — pastrami, specialty turkey. Lunch. Eastside."
+  },
+  {
+    "id": "yangs-kitchen",
+    "name": "Yang's Kitchen",
+    "type": "restaurant",
+    "cuisine": [
+      "chinese",
+      "taiwanese"
+    ],
+    "neighborhood": "Alhambra",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "quick_lunch",
+      "casual",
+      "group"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "easy"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "hit_list",
+        "label": "Infatuation — The Eastside Hit List",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-eastside-hit-list-best-new-restaurants-eastside-los-angeles",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Order-at-counter Taiwanese-Chinese — braised pork rice, beef scallion wraps. SGV-adjacent."
+  },
+  {
+    "id": "sonmari",
+    "name": "Sonmari",
+    "type": "restaurant",
+    "cuisine": [
+      "sushi",
+      "handroll"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "solo_counter"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "best_of",
+        "label": "Infatuation — Best Restaurants in Silver Lake",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-best-restaurants-in-silver-lake",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Silver Lake handroll spot — inventive DIY rolls (gochujang eel, 'banh mi' albacore). Walkable."
+  },
+  {
+    "id": "bar-di-bello",
+    "name": "Bar Di Bello",
+    "type": "restaurant",
+    "cuisine": [
+      "italian",
+      "aperitivo"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "group"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "infatuation",
+        "type": "best_of",
+        "label": "Infatuation — Best Restaurants in Silver Lake",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/the-best-restaurants-in-silver-lake",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Low-lit Milanese-style aperitivo bar — cutlets, branzino, antipasti. Date-night. Home turf."
+  },
+  {
+    "id": "holbox",
+    "name": "Holbox",
+    "type": "restaurant",
+    "cuisine": [
+      "mexican",
+      "seafood"
+    ],
+    "neighborhood": "University Park (Mercado La Paloma)",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "casual",
+      "solo_counter",
+      "special"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "hard"
+    },
+    "signals": [
+      {
+        "source": "resy",
+        "type": "review",
+        "label": "Resy 'Right This Way' — Six Essential Dishes at Holbox",
+        "url": "https://blog.resy.com/",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Game-changing Mexican seafood stall in Mercado La Paloma — aguachiles, tostadas. Michelin Bib-tier value (confirm). Walk-up."
+  },
+  {
+    "id": "quarter-sheets",
+    "name": "Quarter Sheets",
+    "type": "restaurant",
+    "cuisine": [
+      "pizza"
+    ],
+    "neighborhood": "Echo Park",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "casual",
+      "group",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "michelin",
+        "type": "bib",
+        "label": "Michelin Bib Gourmand (LA)",
+        "url": "https://guide.michelin.com/us/en/california/us-los-angeles/restaurants/bib-gourmand",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Thick pan-style pizza + great wine list. Bib Gourmand value. Echo Park — walkable from home."
+  },
+  {
+    "id": "pizzeria-bianco-la",
+    "name": "Pizzeria Bianco",
+    "type": "restaurant",
+    "cuisine": [
+      "pizza"
+    ],
+    "neighborhood": "Downtown LA",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "casual",
+      "group"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "michelin",
+        "type": "bib",
+        "label": "Michelin Bib Gourmand (LA)",
+        "url": "https://guide.michelin.com/us/en/california/us-los-angeles/restaurants/bib-gourmand",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Chris Bianco's LA outpost (Row DTLA) — among the country's best pizza. Bib Gourmand. Confirm exact address."
+  },
+  {
+    "id": "sushi-note",
+    "name": "Sushi Note",
+    "type": "restaurant",
+    "cuisine": [
+      "sushi",
+      "japanese"
+    ],
+    "neighborhood": "Sherman Oaks",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "special",
+      "solo_counter"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Sushi-and-wine bar (team behind Sogo Roll Bar). Valley — a destination, not walkable."
+  },
+  {
+    "id": "santo",
+    "name": "Santo",
+    "type": "restaurant",
+    "cuisine": [
+      "sushi",
+      "japanese",
+      "mexican"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "casual",
+      "solo_counter"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": "https://resy.com/cities/los-angeles-ca/venues/santo-nigiri-and-sake-bar",
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Japanese-Mexican nigiri/handrolls + sake & wine, Sunset Junction. Home turf; next to Bar Seco. (Santō)"
+  },
+  {
+    "id": "bar-seco",
+    "name": "Bar Seco",
+    "type": "bar",
+    "cuisine": [
+      "natural wine",
+      "small plates"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": "https://resy.com/cities/los-angeles-ca/venues/seco-silverlake",
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      },
+      {
+        "source": "lamag",
+        "type": "best_of",
+        "label": "LA Mag — drinking spots w/ great food (Santo team)",
+        "url": "https://lamag.com/food/6-los-angeles-bars-with-great-food/",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Natural wine bar + small plates (CDMX/Madrid/Japan), spills onto Sunset. Walk-in/sidewalk seats. Next to Santo. (aka Seco)"
+  },
+  {
+    "id": "superba",
+    "name": "Superba",
+    "type": "restaurant",
+    "cuisine": [
+      "california",
+      "bakery",
+      "new american"
+    ],
+    "neighborhood": "Venice",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "group",
+      "casual",
+      "special"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "ARI'S ABSOLUTE FAVORITE — food + ambiance, the patio especially (also great inside). Superba Food + Bread, Lincoln Blvd. Westside — worth the drive."
+  },
+  {
+    "id": "le-oyster-bar",
+    "name": "L&E Oyster Bar",
+    "type": "restaurant",
+    "cuisine": [
+      "oysters",
+      "seafood"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "casual",
+      "group"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Silver Lake oyster bar; the upstairs bar is the chill walk-in move. Home turf."
+  },
+  {
+    "id": "pijja-palace",
+    "name": "Pijja Palace",
+    "type": "restaurant",
+    "cuisine": [
+      "indian",
+      "italian",
+      "pizza"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "group",
+      "casual",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "hard"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Indian-Italian sports bar — pizza, pasta, cricket on the TVs. Very popular (hard rez / walk-in bar). Silver Lake, home turf."
+  },
+  {
+    "id": "night-market-song",
+    "name": "Night + Market Song",
+    "type": "restaurant",
+    "cuisine": [
+      "thai"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "date_night",
+      "group",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Kris Yenbamroong's fiery northern Thai on Sunset. Walk-in friendly. Home turf."
+  },
+  {
+    "id": "momed",
+    "name": "Momed",
+    "type": "restaurant",
+    "cuisine": [
+      "mediterranean"
+    ],
+    "neighborhood": "Atwater Village",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "casual",
+      "group",
+      "quick_lunch",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "easy"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Mediterranean — mezze, wraps, bowls. Atwater Village (also Beverly Hills). Eastside, easy."
+  },
+  {
+    "id": "bar-siesta",
+    "name": "Bar Siesta",
+    "type": "bar",
+    "cuisine": [
+      "spanish",
+      "natural wine"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "lamag",
+        "type": "new_opening",
+        "label": "LA Mag — Best New (Silver Lake): Spanish tapas + all-Spanish wine bar",
+        "url": "https://lamag.com/food/los-angeles-magazine-best-new-restaurants-january-2026-l/",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "New Spanish tapas + all-Spanish wine bar (Heather Sperling team). On-taste wine bar, home turf."
+  },
+  {
+    "id": "atrium-los-feliz",
+    "name": "Atrium",
+    "type": "restaurant",
+    "cuisine": [
+      "french",
+      "new american"
+    ],
+    "neighborhood": "Los Feliz",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "group"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "lamag",
+        "type": "new_opening",
+        "label": "LA Mag — new opening (Los Feliz), old Malo space",
+        "url": "https://lamag.com/food/los-angeles-magazine-best-new-restaurants-january-2026-l/",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Playful, vaguely-French cooking from Douglas Rankin in the old Malo space, Sunset Junction. New. Home turf."
+  },
+  {
+    "id": "bowery-bungalow",
+    "name": "Bowery Bungalow",
+    "type": "restaurant",
+    "cuisine": [
+      "mediterranean"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "casual",
+      "group",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "lamag",
+        "type": "new_opening",
+        "label": "LA Mag — Bowery Bungalow opens (former Sompun Thai)",
+        "url": "https://lamag.com/dining/bowery-bungalow-serves-modern-mediterranean-food-former-sompun-thai/",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Modern Mediterranean from George Abou-Daoud in the former Sompun Thai. New, home turf."
+  },
+  {
+    "id": "frank-n-franks",
+    "name": "Frank n Franks",
+    "type": "restaurant",
+    "cuisine": [
+      "sandwiches"
+    ],
+    "neighborhood": "Chinatown",
+    "address": null,
+    "price": "$",
+    "occasion": [
+      "quick_lunch",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "easy"
+    },
+    "signals": [
+      {
+        "source": "lataco",
+        "type": "new_opening",
+        "label": "L.A. TACO — new from a Howlin' Ray's vet (Chinatown)",
+        "url": "https://lataco.com/category/food",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Sandwich spot from a Howlin' Ray's vet. Casual lunch, Chinatown — eastside-adjacent."
   }
 ]

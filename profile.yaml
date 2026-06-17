@@ -11,10 +11,11 @@
 city: Los Angeles
 timezone: America/Los_Angeles
 
-# Home base — drives the "close to home" boost.
+# Home base — drives the "close to home" boost and the night-planner's travel times.
 home:
   neighborhood: Silver Lake
   cross_streets: Hyperion & Del Mar
+  coords: [34.0906, -118.2717]   # ~Hyperion & Del Mar; used by scripts/lib/geo.py
 
 # City-specific source ids (lifted from the fetchers; they fall back to these literals).
 sources:
@@ -188,3 +189,22 @@ scoring:
       added_calendar: 0.5  # implicit — ICS export / save-to-calendar
       skipped: -0.5        # soft down-nudge
       hide: -10.0          # "never show" — forces the `hidden` tier (hard down-rank)
+
+# Travel / geography for the night-planner (scripts/lib/geo.py). Used to sequence
+# dinner -> show -> afters with rough drive/walk times. The LA neighborhood-centroid
+# and venue->neighborhood gazetteers are code defaults in geo.py (same idiom as the
+# scoring term-lists); override or extend them here per city/person. Only the tunable
+# `travel` knobs live here by default — add `neighborhoods:` / `venues:` to override.
+geo:
+  travel:
+    walk_max_miles: 0.8        # at/under this straight-line distance, prefer walking
+    walk_min_per_mile: 20.0    # ~3 mph
+    drive_floor_min: 8         # any drive costs at least this (parking, getting going)
+    park_buffer_min: 6         # find parking + walk from the car
+    short_min_per_mile: 4.0    # surface streets w/ lights (~15 mph effective)
+    long_min_per_mile: 2.4     # some freeway on longer hops (~25 mph effective)
+    short_threshold_miles: 4   # beyond this, the tail is freeway-paced
+  # neighborhoods:             # uncomment to override geo.py's LA centroids
+  #   Silver Lake: [34.0869, -118.2702]
+  # venues:                    # uncomment to map venues -> neighborhood for blank/city-level records
+  #   Zebulon: Frogtown

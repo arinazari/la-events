@@ -6,12 +6,12 @@ The bar is "investor-quality" only in the sense of **polish, depth of curation, 
 City portability matters because friends live in other cities and Ari travels (Berlin next
 week → same magic), not for TAM.
 
-Current phase: **Phases A + B complete → Phase C (parallel) + the Hosted page next.** A (foundation /
-`run_digest.py` deterministic core / routine + `SKILL.md` wiring) and B (enrichment cache + scene
-graph, dual `.md`/`.html` renderer, image caching, routine wiring — *no email*) are shipped + tested,
-validated by live `scene-researcher` runs. Phase C (Spotify taste layer) is in flight on its own
-branch; the next major piece is the **Hosted page** (delivery + on-page actions — see below).
-Phase 1 done: 10 fetchers, catalog ~700, dashboard live.
+Current phase: **Phases A–D complete (all on `main`).** A (foundation / `run_digest.py` deterministic
+core / routine + `SKILL.md` wiring), B (enrichment cache + scene graph, dual `.md`/`.html` renderer,
+image caching — *no email*), C (Spotify taste superset + feedback loop), and D (concierge +
+night-planner: travel engine, the planner wired, the concierge front door, la-dining's first live
+query) are shipped + tested. Next: the **Hosted page** (delivery + on-page actions — see below), the
+Gmail "Events" label, and the Spotify go-live (set `SPOTIFY_*`).
 Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog ~700 events, weekend + windowed digests
 shipped, dashboard live. Read this file + `CLAUDE.md` + the two `SKILL.md` files before any
 non-trivial task.
@@ -160,15 +160,23 @@ portability.
       three secrets, allowlist the Spotify domains; then confirm Decision 6 (which signals to sync) and
       eyeball the first run's `Spotify …` reasons to tune `scoring.spotify` weights.
 
-## Phase D — Concierge + night-planner (the experience / hero feature)
-- [ ] **Conversational concierge as primary interface** — "free Friday, chill and walkable, no
-      techno" → tailored plan. ~80% already exists (it's a Claude skill); surface via **claude.ai / web
-      app** for now (dedicated text number later).
-- [ ] **`night-planner` agent fusing la-events × la-dining** — night spec → dinner (reservation-aware)
-      → show (taste-ranked) → afters → sequenced with rough travel/timing → itinerary w/ booking links.
-- [ ] **Advance la-dining just enough to feed the planner** — get its first live **query** run
-      working (see dining section) so the planner has real restaurant picks to sequence. Not the full
-      dining build-out.
+## Phase D — Concierge + night-planner (the experience / hero feature)  ✅ (branch claude/confident-rubin-7rb7ox)
+- [x] **Conversational concierge as primary interface** — `.claude/skills/concierge/SKILL.md`: the
+      NL front door that reads taste, routes an open-ended/cross-domain ask ("free Friday, chill,
+      walkable, no techno") to the right mode/agent (digest / dining query / night-planner / capture /
+      discover), and answers in one LA-insider voice. Surface = claude.ai / this conversation (resolved
+      delivery decision); dedicated text number still later.
+- [x] **`night-planner` agent fusing la-events × la-dining** — `.claude/agents/night-planner.md` made
+      operational (has `Bash`): rescore via `run_digest.py --no-fetch` → anchor; dinner from
+      `dining.json` (affordability-aware) → show (taste-ranked) → afters; sequenced with **real travel
+      times** via `scripts/travel.py`; reservation reality on the shortlist; itinerary w/ booking links.
+- [x] **Travel/timing engine** — `scripts/lib/geo.py` + `scripts/travel.py` (tested): offline rough LA
+      drive/walk times from an LA gazetteer (58 neighborhoods + 63 venues) + a congestion model,
+      overridable in `profile.yaml` (`home.coords`, `geo.travel`). Resolves neighborhoods, event
+      venues, AND dining restaurants (augmented from `dining.json`).
+- [x] **Advance la-dining just enough to feed the planner** — first live **query** run end-to-end
+      (harvest → merge → rank): see dining section. Explicit food-taste profile seeded (affordability
+      policy + signal weights); `restaurants_loved` pending Ari's list. Not the full dining build-out.
 
 ## On-demand — `source-scout` discovery agent (your call, never scheduled)
 Runs explicit strategies, returns a proposal table (approve → append to `sources.yaml`):
@@ -249,7 +257,10 @@ were validated; these are per-fetcher *under-extraction*, not normalize bugs):
       `data/dining.json` (15 seed records), weekly radar routine
 - [x] Harvest fetch test (6/16): Infatuation + Resy blog fetch clean; Eater/LAT/Michelin/OpenTable
       bot-block → `fetch: search_only` / `blocked`, harvested via domain-scoped web search
-- [ ] **First live query run end-to-end** (rank + write a record) — the bit the night-planner needs
+- [x] **First live query run end-to-end** (rank + write a record) — the bit the night-planner needs.
+      DONE (Phase D, 6/17): harvested Infatuation Eastside Hit List + Silver Lake, Resy blog, Michelin
+      Bib Gourmand → +14 restaurants to `data/dining.json` (15→29), home-turf-heavy + Bib value; all
+      new neighborhoods resolve in the travel engine. Eater LA + LA Times still blocked in-env (gap noted).
 - [ ] First weekly radar (validates format/length/tone — Decision D1)
 - [ ] Reservation availability: booking widgets don't render via fetch — headless vs. "set a Notify"
 - [ ] Fold reservation hot-lists into a learned food-taste profile once reactions accumulate
@@ -272,9 +283,11 @@ were validated; these are per-fetcher *under-extraction*, not normalize bugs):
 
 ### Dining-layer decisions
 - **D1. Radar cadence + format**: weekly (Wed AM) vs. on-demand; does the format/length/tone land?
-- **D2. Food-taste seeding**: minimal + learns from reactions, vs. an explicit profile now.
+- **D2. Food-taste seeding**: ✅ resolved (Phase D) → **explicit profile**. `dining-taste.yaml` now
+  carries an affordability policy + raised Michelin-Bib/Resy/food-blog signal weights; `restaurants_loved`
+  + cuisines/dietary/price still need Ari's list (marked TODO in the file).
 - **D3. Reservation depth**: "hot-list + availability check on shortlist" vs. deeper Resy/OpenTable/Tock.
-- **D4. Cross-layer planner** (Phase D): confirmed — la-dining + la-events combine into a night
-  itinerary (dinner → show → afters). This is why dining isn't tabled.
+- **D4. Cross-layer planner** (Phase D): ✅ built — `night-planner` combines la-dining + la-events into
+  a travel-timed night itinerary (dinner → show → afters). This is why dining isn't tabled.
 </content>
 </invoke>

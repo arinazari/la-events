@@ -14,14 +14,39 @@ geography:
                              # not a requirement — a destination meal can win.
   default_max_drive_min: 25  # for casual/weeknight asks; relax for special occasions
 
-# --- Soft preferences (all empty — fill in or let reactions populate) ---
-cuisines_love: []            # e.g. add as you react: "more like this"
+# --- Soft preferences (Phase D: explicit profile, per Ari's call) ---
+# NOTE: cuisines/dietary/price below are placeholders pending Ari's list — fill from
+# his reply (the restaurants_loved seed + cuisines he gravitates to, hard dietary
+# rules, weeknight vs. special price comfort, vibe notes). Until then the ranking
+# leans on the signal weights + affordability policy below.
+cuisines_love:               # inferred from restaurants_loved (6/17)
+  - sushi / japanese         # Sushi Note, Santo
+  - natural wine bars        # Bar Seco, Santo, L&E upstairs — "including wine bars here"
+  - oysters / seafood        # L&E Oyster Bar
+  - thai                     # Night + Market Song
+  - mediterranean            # Momed
+  - california / new american  # Superba
+  - indian-italian / casual-fun  # Pijja Palace
 cuisines_avoid: []
-dietary: []                  # allergies / restrictions go here — these are hard filters
+dietary: []                  # none stated — no hard filters yet
 price_comfort:
-  weeknight: null            # e.g. "$$" once known
-  special: null              # e.g. "$$$$" for occasions
-vibe_notes: []               # e.g. "counter seats", "no scene-y bottle-service rooms"
+  weeknight: "$$"            # everyday casual
+  date_two_max_usd: 150      # ~$150 for two on a date — "can stretch a little"
+  special: "$$$"             # dates top out ~$$$ (the $150/two cap); true $$$$ splurge is rare
+vibe_notes:
+  - great patios / al fresco a big plus — Superba especially (outside), but inside too
+  - wine bars / natural wine (Bar Seco, Santo)
+  - chill bar / counter seats (L&E Oyster Bar upstairs)
+  - neighborhood eastside spots — the Sunset Junction cluster is home turf
+
+# --- Affordability policy (Ari: "Michelin guide, keeping affordability in mind") ---
+# Prestige signals should NOT just push the most expensive rooms. Value-at-quality
+# wins: a Bib Gourmand or an affordable star outranks a $$$$ room for a normal night.
+affordability:
+  bias: true                 # prefer value-at-quality for everyday asks
+  bib_over_stars_weeknight: true   # a Bib Gourmand beats a $$$$ star for a casual night
+  splurge_only_when: ["special", "date_night_big", "birthday", "no budget"]  # when $$$$ is fair game
+  everyday_price_ceiling: "$$$"    # above this needs an occasion reason to surface
 
 # --- Occasion presets (how to weight a query by stated occasion) ---
 # Tune these as you learn what you actually reach for per occasion.
@@ -34,15 +59,20 @@ occasions:
   special:      { weight_vibe: high,  reservation_effort_ok: high, prestige_boost: true }
 
 # --- Signal weighting (how much each source/badge nudges rank) ---
+# Ari's stated priorities drive these: Michelin (affordability-weighted), Resy
+# homepage articles (Hit List + "Right This Way"), and food blogs/websites.
 signal_weights:
-  new_opening: high          # you asked specifically about what's new/trending
-  michelin_star: high
-  michelin_bib: high         # great value — likely on-profile
-  lat_101: high
+  new_opening: high          # asked specifically about what's new/trending
+  michelin_bib: highest      # great value at quality — the affordability sweet spot
+  michelin_star: high        # but see affordability policy: don't auto-surface $$$$
+  michelin_affordable_star: highest  # a star that isn't $$$$ — best of both
+  resy_hit_list: high        # Resy homepage Hit List — an Ari priority
+  resy_blog: high            # Resy "Right This Way" homepage articles — an Ari priority
   infatuation_hit_list: high
+  food_blog: high            # other trusted food blogs/sites (see dining-sources.yaml)
+  lat_101: high
   eater_heatmap: med
   multiple_independent: high # mentioned by 2+ sources this cycle = real buzz
-  resy_hit_list: med
 
 # --- Reservation tolerance ---
 reservation:
@@ -54,8 +84,33 @@ popups:
   interested: true           # surface date-relevant popups/trucks
   location_tba_ok: true      # "address drops day-of" is fine
 
-restaurants_loved: []        # +boost; add names you'd happily return to
-restaurants_banned: []
+restaurants_loved:           # Ari's go-tos (6/17). IMPORTANT — these are a READ ON HIS PALATE
+                             # (cuisines / vibe / price he gravitates to), NOT a list to default
+                             # to. See favorites_policy below: small nudge + tiebreak only; newer,
+                             # well-recommended spots that fit the palate should win. Mostly eastside.
+  - Superba                  # a favorite — food + ambiance, the patio especially (Venice)
+  - L&E Oyster Bar           # Silver Lake — oysters; upstairs bar is the chill move
+  - Pijja Palace             # Silver Lake — Indian-Italian sports bar, great value/fun
+  - Night + Market Song      # Silver Lake — Thai
+  - Santo                    # Silver Lake — Japanese-Mexican sushi + sake/wine (Sunset Junction)
+  - Bar Seco                 # Silver Lake — natural wine bar + small plates (next to Santo)
+  - Sushi Note               # Sherman Oaks — sushi + wine
+  - Momed                    # Atwater Village — Mediterranean
+restaurants_banned: []       # none stated
+
+# How to USE restaurants_loved (Ari, 6/17): "favorites are ideas of my taste, not
+# necessarily to be used or highly prioritized — especially if there are newer,
+# recommended restaurants." So:
+favorites_policy:
+  role: taste_signal         # infer palate (cuisine/vibe/price) FROM favorites; don't just re-serve them
+  boost: small               # a modest +nudge / tiebreak — NOT a strong override of the editorial signals
+  prefer_new_and_recommended: true   # newer + critic/hot-list spots that fit the palate should win
+  surface_favorites_when:    # when it's fine to actually pick a favorite
+    - explicitly asked for it ("take me to Superba")
+    - nothing fresh fits the occasion/area/budget
+    - an old-faithful / comfort ask
+    - a tiebreak between otherwise-equal options
+    - a favorite is ALSO currently recommended (e.g. it's on a hot-list this cycle)
 
 # Feedback log — append reactions ("more like X", "never again Y", "too far",
 # "perfect for date night"); periodically fold into the preferences above.
