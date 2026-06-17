@@ -24,17 +24,23 @@ main agent (Tier 2, one creative step) ← write the digest in the single "LA in
                                           render .md (canonical) + HTML (top-10 images) → email
 ```
 
-`source-scout` and `night-planner` sit **outside** that loop — invoked when Ari asks, not on a
-schedule.
+`source-scout` and `night-planner` sit **outside** that loop — invoked when Ari asks (typically
+via the **concierge**, the natural-language front door — see `.claude/skills/concierge/SKILL.md`),
+not on a schedule.
 
 ## Notes
-- **Least privilege:** `scene-researcher` can write (the cache); `source-scout` and
-  `night-planner` are read-only (scout proposes, it never edits the registry).
+- **Least privilege:** `scene-researcher` can write (the enrichment cache); `source-scout` is
+  read-only and proposes (never edits the registry). `night-planner` has `Bash` so it can run
+  `scripts/travel.py` (travel times) and `scripts/run_digest.py --no-fetch` (rescore) — both
+  compute-only; it never writes the durable state (`catalog.json`, `dining.json`, `sources.yaml`,
+  the taste files), only the gitignored `data/candidates.json` the rescore emits.
 - **The enrichment cache is the moat-lite:** keyed by event-id + normalized artist name, it turns
   the nightly fan-out into an accumulating LA scene knowledge base — recurring artists are
   researched once.
 - **Model:** unset → inherits the parent run's model. `scene-researcher` is the one candidate for
   a cheaper model if the nightly fan-out ever needs cost control; quality of its annotations is
   the brand, so keep it sharp until proven otherwise.
-- These are drafts of the execution shape (ROADMAP Phase B/D). Wiring them into `run_digest.py`
-  and the routines is the build step.
+- **Status:** `night-planner` is wired and operational (Phase D) — it runs the travel engine +
+  offline rescore and reads both catalogs. `scene-researcher` is still a draft of the Phase-B
+  enrichment shape (wiring it into `run_digest.py` + the daily routine is Phase B). `source-scout`
+  is invoked on demand by Discover mode.
