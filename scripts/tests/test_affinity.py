@@ -21,6 +21,13 @@ REPO = Path(__file__).resolve().parent.parent.parent
 SAMPLE = json.loads((REPO / "data" / "sample-spotify-affinity.json").read_text())
 TASTE, PROFILE = load_taste(), load_profile()
 
+# Fixed weights for the point-exact unit tests, so tuning profile.yaml's scoring.spotify
+# (a knob) never breaks them. Integration tests below use the live PROFILE on purpose.
+TP = {"scoring": {"spotify": {
+    "tier_points": {"core": 2, "strong": 1, "light": 1, "hidden": -3},
+    "artist_cap": 4, "genre_points": 1, "genre_threshold": 0.5, "genre_cap": 1,
+    "min_name_len": 3, "ambiguous_names": ["train"]}}}
+
 
 def test_build_affinity_weights_and_tiers():
     top = {
@@ -55,34 +62,34 @@ def test_build_affinity_drops_below_light():
 
 def test_artist_affinity_points_and_cap():
     name_text = "palms trax b2b antal at zebulon"
-    pts, reasons = artist_affinity(name_text, "", SAMPLE, PROFILE)
-    # Two core artists = +2 +2 = 4, exactly at artist_cap (4).
+    pts, reasons = artist_affinity(name_text, "", SAMPLE, TP)
+    # Two core artists = +2 +2 = 4, exactly at artist_cap (4) under the fixed test weights.
     assert pts == 4, (pts, reasons)
     assert any("Antal" in r for r in reasons)
 
 
 def test_artist_affinity_respects_min_name_len():
     aff = {"artists": {"dj": {"name": "DJ", "tier": "core"}}}   # 2 chars < min_name_len(3)
-    pts, _ = artist_affinity("a dj plays tonight", "", aff, PROFILE)
+    pts, _ = artist_affinity("a dj plays tonight", "", aff, TP)
     assert pts == 0
 
 
 def test_ambiguous_name_requires_lineup():
     """Common-word band names (Train, Future, …) only count in the structured lineup."""
     aff = {"artists": {"train": {"name": "Train", "tier": "strong", "sources": ["followed"]}}}
-    assert artist_affinity("train to tehran w/ namito", "", aff, PROFILE)[0] == 0   # party title, no lineup
-    assert artist_affinity("train to tehran", "train", aff, PROFILE)[0] == 1        # actually billed
+    assert artist_affinity("train to tehran w/ namito", "", aff, TP)[0] == 0   # party title, no lineup
+    assert artist_affinity("train to tehran", "train", aff, TP)[0] == 1        # billed (strong=1 in TP)
 
 
 def test_whole_token_match_not_substring():
     aff = {"artists": {"hanson": {"name": "Hanson", "tier": "light", "sources": ["top_short"]}}}
-    assert artist_affinity("paris chansons", "", aff, PROFILE)[0] == 0   # 'hanson' inside 'chansons'
-    assert artist_affinity("hanson live", "", aff, PROFILE)[0] == 1
+    assert artist_affinity("paris chansons", "", aff, TP)[0] == 0   # 'hanson' inside 'chansons'
+    assert artist_affinity("hanson live", "", aff, TP)[0] == 1
 
 
 def test_hidden_tier_downranks():
     aff = {"artists": {"someone": {"name": "Someone", "tier": "hidden"}}}
-    pts, reasons = artist_affinity("someone live tonight", "", aff, PROFILE)
+    pts, reasons = artist_affinity("someone live tonight", "", aff, TP)
     assert pts == -3, (pts, reasons)
     assert any("hidden" in r for r in reasons)
 
