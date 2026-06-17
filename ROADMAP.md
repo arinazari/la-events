@@ -192,18 +192,25 @@ Runs explicit strategies, returns a proposal table (approve → append to `sourc
       flag broken ones before a digest silently loses coverage.
 
 ## Delivery — Hosted page (the new primary surface; supersedes email)
-Instead of emailing, serve a **hosted, bookmarkable page** Ari opens to see the current weekend(s)
-and act on them:
-- **Static core, mostly wired:** the committed weekend `.html` + `dashboard/data.json` can deploy to
-  GitHub Pages (`.github/workflows/deploy-dashboard.yml` exists). `render_digest --asset-prefix` points
-  cached images at the served base, so the page is self-contained.
-- **On-page actions (the interactive layer):** trigger a **source re-scan / discover** (`source-scout`)
-  and **request an ad-hoc digest from the LLM** ("something chill + walkable Friday") — the concierge
-  (Phase D) behind a button. Needs a way to kick an agent run from the page (GitHub Action
-  `workflow_dispatch`, a small backend, or a claude.ai/code trigger) that writes results back to the repo.
+A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and tune taste.
+- **Static core, wired:** the committed weekend `.html` + `dashboard/data.json` deploy to GitHub
+  Pages (`.github/workflows/deploy-dashboard.yml`). `render_digest --asset-prefix` points cached
+  images at the served base, so the digests are self-contained.
+- [x] **Interactive home shipped (static + Claude Code hand-off)** — the dashboard is now a 3-view
+  app (`dashboard/`): **Explore** (search/filter/present every event — reworked to the real catalog
+  schema + enrichment + save-for-plan), **Plan** (a chatbox: a local no-LLM query engine over the
+  loaded catalog *plus* an agent hand-off that composes a concierge/night-planner prompt), and
+  **Settings** (edit taste/scoring/sources, preview a change-set, hand off to apply+commit; pipeline
+  actions for refresh/discover). `build_dashboard.py` now emits an enrichment-folded `events[]` + a
+  `config` snapshot for Settings.
+- **Decision resolved — how page actions trigger agent runs:** **static-first + claude.ai/code
+  hand-off** (Ari's call, 2026-06). The page never holds a key or writes YAML; it composes the exact
+  prompt and the existing agent commits results back (routine/Pages redeploy surfaces them). Isolated
+  to one seam (`js/handoff.js`, `BACKEND_URL`) so a backend can drop in later with no rewrite.
+- **Remaining (the upgrade, not blocking):** a small backend at `BACKEND_URL` for real in-page
+  streaming chat + auto-commit, and hosting **auth** (private to Ari + friends) — naturally co-located
+  with that backend. Public/unlisted Pages is fine until then (catalog = public events).
 - **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
-- Open decisions when we build it: hosting + auth (private to Ari + friends), and how page actions
-  trigger agent runs. Deferred for now; noted so the routine keeps committing the `.html` it will serve.
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
@@ -270,8 +277,10 @@ were validated; these are per-fetcher *under-extraction*, not normalize bugs):
 ## Decision points — Ari's input needed
 1. **Visual digest home** (Phase B) — ✅ resolved + revised: text-only `.md` canonical + a rich `.html`.
    Email is **dropped**; the `.html` now feeds the **Hosted page** (above) instead of an inbox.
-2. **Delivery channels** (Phase B/D) — revised: committed `.md`/`.html` → a **hosted bookmarkable page**
-   (not email) with an on-page concierge + re-scan actions. Dedicated text number still deferred.
+2. **Delivery channels** (Phase B/D) — ✅ built: committed `.md`/`.html` → a **hosted bookmarkable page**
+   (`dashboard/`, not email) with an on-page concierge (Plan view) + Settings + refresh/discover actions,
+   via static + claude.ai/code hand-off. Open upgrade: a `BACKEND_URL` service for in-page chat + auth.
+   Dedicated text number still deferred.
 3. **Digest cadence** (resolved): **daily** weekend-set, ~4 months out. Revisit if commits get noisy.
 4. **Taste weights** (ongoing): `taste.yaml` is yours — edit directly, or react and let the loop fold in.
 5. **Dedupe spot checks** (Phase A): eyeball merged records for false merges while tuning the threshold.

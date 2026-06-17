@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
 """Build the dashboard data feed from the catalog + taste profile.
 
-Reads a catalog JSON (deduped event records), taste.yaml, and profile.yaml, scores
-each event against the taste profile, and writes dashboard/data.json — the static
-feed the dashboard (dashboard/index.html) loads. Scoring is imported from
-scripts/lib/scoring.py — the SAME module the digest/run_digest.py use, so the
-dashboard's "recommended for you" rating can't drift from the digest's ranking.
+Reads a catalog JSON (deduped event records), taste.yaml, profile.yaml, and
+sources.yaml, scores each event against the taste profile, folds in any cached
+scene-researcher enrichment, and writes dashboard/data.json — the static feed the
+dashboard (dashboard/index.html) loads. Scoring is imported from scripts/lib/scoring.py
+— the SAME module the digest/run_digest.py use, so the dashboard's "recommended for
+you" rating can't drift from the digest's ranking.
+
+The feed has three parts:
+  - events[]   — every catalog event, scored (+ rating/reasons), with enrichment folded
+                 in when data/enrichment.json has a hit for it (curator note, type/
+                 subgenre tags, artist notes, image).
+  - config     — a structured snapshot of the editable knobs (taste.yaml content,
+                 profile.yaml scoring mechanics, sources.yaml registry) so the
+                 dashboard's Settings view can render current state and stage edits.
+  - metadata   — generated_at, counts, the neighborhood/category facets for filters.
 
 Usage:
     python scripts/build_dashboard.py                      # from data/catalog.json
@@ -27,8 +37,70 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.config import load_yaml  # noqa: E402
 from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
+from lib.enrich import load_cache, event_key  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
+
+# Enrichment fields worth surfacing on the dashboard (scene-researcher output). The
+# cache also stores id/enriched_at/confidence — internal plumbing the viewer ignores.
+ENRICH_FIELDS = (
+    "type", "subgenres", "label_orbit", "energy", "setting", "sounds_like",
+    "artist_notes", "curator_note", "description", "image",
+)
+
+
+def build_config(taste: dict, profile: dict, sources: dict) -> dict:
+    """A structured snapshot of the editable settings for the dashboard Settings view.
+
+    Mirrors the split of concerns the repo already enforces:
+      taste.yaml   = CONTENT  (what Ari likes)        -> config.taste
+      profile.yaml = MECHANISM (weights/terms/geo)    -> config.scoring + config.home
+      sources.yaml = REGISTRY                          -> config.sources
+    The view stages edits against this and hands a precise change-set to the agent,
+    which writes the real YAML — so the source of truth stays in the files, not here.
+    """
+    scoring = profile.get("scoring") or {}
+    cats = taste.get("categories") or {}
+    src_list = []
+    for s in (sources.get("sources") or []):
+        if not isinstance(s, dict):
+            continue
+        src_list.append({
+            "name": s.get("name"),
+            "category": s.get("category"),
+            "method": s.get("method"),
+            "priority": s.get("priority"),
+            "status": s.get("status"),
+        })
+    return {
+        "files": {"taste": "taste.yaml", "profile": "profile.yaml", "sources": "sources.yaml"},
+        "taste": {
+            "categories": {
+                "high": cats.get("high") or [],
+                "medium": cats.get("medium") or [],
+                "low": cats.get("low") or [],
+            },
+            "boosts": taste.get("boosts") or [],
+            "penalties": taste.get("penalties") or [],
+            "artists_tracked": taste.get("artists_tracked") or [],
+            "comedians_loved": taste.get("comedians_loved") or [],
+            "venues_loved": taste.get("venues_loved") or [],
+            "pinned_series": taste.get("pinned_series") or [],
+        },
+        "scoring": {
+            "category_weights": scoring.get("category_weights") or {},
+            "rating_thresholds": scoring.get("rating_thresholds") or [],
+            "near_home_neighborhoods": scoring.get("near_home_neighborhoods") or [],
+            "groove_terms": scoring.get("groove_terms") or [],
+            "eu_terms": scoring.get("eu_terms") or [],
+            "penalty_terms": scoring.get("penalty_terms") or [],
+            "far_terms": scoring.get("far_terms") or [],
+            "spotify": scoring.get("spotify") or {},
+            "feedback": scoring.get("feedback") or {},
+        },
+        "home": profile.get("home") or {},
+        "sources": src_list,
+    }
 
 
 def main() -> int:
@@ -38,12 +110,20 @@ def main() -> int:
     ap.add_argument("-o", "--out", default="dashboard/data.json")
     ap.add_argument("--taste", default="taste.yaml")
     ap.add_argument("--profile", default="profile.yaml")
+    ap.add_argument("--sources", default="sources.yaml")
+    ap.add_argument("--enrichment", default="data/enrichment.json",
+                    help="scene-graph cache to fold in (optional; skipped if absent)")
     args = ap.parse_args()
 
-    catalog_path = (REPO / args.input) if not Path(args.input).is_absolute() else Path(args.input)
-    out_path = (REPO / args.out) if not Path(args.out).is_absolute() else Path(args.out)
-    taste_path = (REPO / args.taste) if not Path(args.taste).is_absolute() else Path(args.taste)
-    profile_path = (REPO / args.profile) if not Path(args.profile).is_absolute() else Path(args.profile)
+    def resolve(p):
+        return (REPO / p) if not Path(p).is_absolute() else Path(p)
+
+    catalog_path = resolve(args.input)
+    out_path = resolve(args.out)
+    taste_path = resolve(args.taste)
+    profile_path = resolve(args.profile)
+    sources_path = resolve(args.sources)
+    enrichment_path = resolve(args.enrichment)
 
     if not catalog_path.exists():
         print(f"ERROR: catalog not found: {catalog_path}", file=sys.stderr)
@@ -53,16 +133,23 @@ def main() -> int:
         catalog = json.load(f)
     taste = load_yaml(taste_path)
     profile = load_yaml(profile_path)
+    sources = load_yaml(sources_path)
 
     # Spotify + feedback music layer (Phase C) — the same merged layer the digest scores
     # against (Spotify affinity folded with data/feedback.jsonl), so the dashboard stars match.
     # Graceful: absent/corrupt -> taste.yaml-only scoring.
     affinity = merged_affinity(REPO, profile)
 
+    # Scene-researcher enrichment cache (Phase B) — fold the accumulated curator notes /
+    # tags / artist notes / images onto matching events. Graceful: no file -> {} -> no-op.
+    cache = load_cache(enrichment_path)
+    enriched_events = cache.get("events") or {}
+
     is_sample = "sample" in catalog_path.name
     today = date.today()
 
     events = []
+    enriched_hits = 0
     for ev in catalog:
         scored = score_event(ev, taste, profile, affinity)
         d = parse_event_date(ev)
@@ -72,6 +159,12 @@ def main() -> int:
         out["reasons"] = scored["reasons"]
         out["iso_date"] = d.isoformat() if d else None
         out["is_past"] = bool(d and d < today)
+
+        hit = enriched_events.get(event_key(ev)) if enriched_events else None
+        if hit:
+            out["enrichment"] = {k: hit[k] for k in ENRICH_FIELDS if hit.get(k)}
+            enriched_hits += 1
+
         events.append(out)
 
     # Sort: upcoming first by date, then by rating desc within a date.
@@ -85,12 +178,14 @@ def main() -> int:
         "source_file": str(catalog_path.relative_to(REPO)) if catalog_path.is_relative_to(REPO) else str(catalog_path),
         "is_sample": is_sample,
         "count": len(events),
+        "enriched_count": enriched_hits,
         "neighborhoods": neighborhoods,
         "categories": categories,
         "taste": {
             "venues_loved": taste.get("venues_loved") or [],
             "artists_tracked": taste.get("artists_tracked") or [],
         },
+        "config": build_config(taste, profile, sources),
         "events": events,
     }
 
@@ -98,7 +193,7 @@ def main() -> int:
     with out_path.open("w") as f:
         json.dump(feed, f, indent=2)
     rel_out = out_path.relative_to(REPO) if out_path.is_relative_to(REPO) else out_path
-    print(f"Wrote {len(events)} events -> {rel_out}"
+    print(f"Wrote {len(events)} events ({enriched_hits} enriched) -> {rel_out}"
           f"{' (SAMPLE data)' if is_sample else ''}")
     return 0
 

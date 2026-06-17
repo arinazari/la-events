@@ -1,8 +1,9 @@
 {
-  "generated_at": "2026-06-16T21:57:17",
+  "generated_at": "2026-06-17T08:35:07",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "count": 697,
+  "enriched_count": 0,
   "neighborhoods": [
     "Anaheim",
     "Bel Air",
@@ -144,6 +145,820 @@
       "Robert Hood"
     ]
   },
+  "config": {
+    "files": {
+      "taste": "taste.yaml",
+      "profile": "profile.yaml",
+      "sources": "sources.yaml"
+    },
+    "taste": {
+      "categories": {
+        "high": [
+          "house / techno / tech-house / acid / electro / minimal / melodic \u2014 DJ sets of all sizes",
+          "mainstream & festival-scale house / tech-house headliners (Chris Lake, FISHER, John Summit, Dom Dolla, Gorgon City, etc.) \u2014 big-room fun counts, not just the underground",
+          "fabric-London-style proper club nights / European-leaning dance lineups",
+          "rooftop / sunset / daytime open-air house, disco, Balearic, groove sets",
+          "vinyl-only / all-vinyl / listening-bar DJ sets",
+          "warehouse and afterhours parties (incl. location-TBA)",
+          "melodic/organic/afro house + progressive (Anjuna/Innervisions/Keinemusik/Afterlife orbit)",
+          "rep & arthouse cinema (Vidiots, Vista, Brain Dead, Cinematheque, New Bev)"
+        ],
+        "medium": [
+          "live electronic / electronic-adjacent acts (R\u00fcf\u00fcs Du Sol, ODESZA, Bonobo, Jamie xx tier)",
+          "small rock / indie band shows at clubs (Troubadour, Echo, Zebulon, Moroccan, Lodge Room, Teragram) \u2014 post-punk, indie, garage, dream-pop, experimental, krautrock-y",
+          "daytime & lifestyle \u2014 flea / vintage / design markets (Rose Bowl Flea, Melrose Trading Post), farmers markets (esp. Silver Lake/eastside), food & drink pop-ups, brand activations / block parties / spritz-type parties, neighborhood street fairs",
+          "record fairs, listening bars, food events with a music angle",
+          "craft beer events / brewery takeovers / festivals",
+          "theater (Pantages-scale and black-box)"
+        ],
+        "low": [
+          "standup comedy \u2014 NOT generally wanted; only known/favorite names (see comedians_loved)",
+          "stadium pop, museum/gallery openings (skip ongoing exhibitions unless closing soon)"
+        ]
+      },
+      "boosts": [
+        "rooftop / open-air / sunset / golden-hour setting",
+        "vinyl-only or \"all night long\" / open-to-close single-DJ sets",
+        "European vibe/feel \u2014 UK/EU DJs, labels (fabric, Rush Hour, Running Back, Defected, Hot Creations, Innervisions, Keinemusik) / Balearic-disco",
+        "groove / soulful / deep / dub / disco-leaning house",
+        "lineup artist in artists_tracked (also gets a \"tracked\" badge; effectively +2 via the list)",
+        "walkable or short drive from Silver Lake (Hyperion & Del Mar)",
+        "Friday or Saturday night",
+        "independent editorial mention (LAist, Time Out, DiscoverLA, 6AM, Dirty Epic) \u2014 +1 per source",
+        "RA pick flag",
+        "early-bird ticket tier still available / on-sale or selling fast"
+      ],
+      "penalties": [
+        "Vegas-style bottle-service / table-service clubs (Hakkasan/Marquee energy)",
+        "generic Top-40 / open-format / hip-hop \"club night\" with no real DJ billing",
+        "hardstyle / gabber / happy-hardcore / hard-dance as the main draw (not the lane)",
+        "dubstep / riddim / bass-music mega-shows, brostep",
+        "18+ EDM mega-raves built on production over selection",
+        "tribute / cover bands, \"[decade] night\" nostalgia club nights",
+        "sports-bar watch parties, trivia, open-mics, networking mixers, webinars (World Cup etc. belongs in \"Around town,\" not the picks)",
+        "country, Christian, kids/family programming",
+        "far-flung (Temecula / Anaheim / OC / SD / Ventura / SF) unless genuinely worth the trip",
+        "Coachella-tier logistics without Coachella-tier payoff"
+      ],
+      "artists_tracked": [
+        "Bradley Zero",
+        "Antal",
+        "Hunee",
+        "Palms Trax",
+        "Young Marco",
+        "DJ Harvey",
+        "Gerd Janson",
+        "Motor City Drum Ensemble",
+        "Folamour",
+        "Moodymann",
+        "Theo Parrish",
+        "Kerri Chandler",
+        "Ron Trent",
+        "Honey Dijon",
+        "Jayda G",
+        "Peggy Gou",
+        "Eddie C",
+        "Todd Terje",
+        "Lindstrom",
+        "Prins Thomas",
+        "Call Super",
+        "DJ Seinfeld",
+        "Saoirse",
+        "Job Jobse",
+        "Folamour",
+        "DJ Python",
+        "Anthony Naples",
+        "Yaeji",
+        "Dixon",
+        "Ame",
+        "Tale of Us",
+        "Solomun",
+        "Black Coffee",
+        "Keinemusik",
+        "&ME",
+        "Adam Port",
+        "Rampa",
+        "Lane 8",
+        "Yotto",
+        "Bonobo",
+        "Four Tet",
+        "Floating Points",
+        "Bicep",
+        "Overmono",
+        "Caribou",
+        "Jamie xx",
+        "Chris Lake",
+        "FISHER",
+        "John Summit",
+        "Dom Dolla",
+        "Gorgon City",
+        "CamelPhat",
+        "Chris Lorenzo",
+        "Mau P",
+        "Cloonee",
+        "Vintage Culture",
+        "Hot Since 82",
+        "Jamie Jones",
+        "Patrick Topping",
+        "Michael Bibi",
+        "Seth Troxler",
+        "Disclosure",
+        "Rufus Du Sol",
+        "Charlotte de Witte",
+        "Amelie Lens",
+        "Adam Beyer",
+        "Richie Hawtin",
+        "Nina Kraviz",
+        "Marco Carola",
+        "DJ Minx",
+        "Stacey Pullen",
+        "Waajeed",
+        "Robert Hood"
+      ],
+      "comedians_loved": [
+        "Stavros Halkias"
+      ],
+      "venues_loved": [
+        "Zebulon",
+        "Vidiots",
+        "Vista",
+        "Lodge Room",
+        "2220 Arts",
+        "El Cid",
+        "Golden Hour at Level 8"
+      ],
+      "pinned_series": [
+        "Sunset Sessions"
+      ]
+    },
+    "scoring": {
+      "category_weights": {
+        "electronic": 3,
+        "party": 3,
+        "film": 3,
+        "music": 2,
+        "live_music": 2,
+        "theater": 2,
+        "beer_food": 2,
+        "comedy": 1,
+        "art": 1,
+        "pop": 1,
+        "general": 1
+      },
+      "rating_thresholds": [
+        [
+          8,
+          5
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "near_home_neighborhoods": [
+        "silver lake",
+        "silverlake",
+        "echo park",
+        "los feliz",
+        "east hollywood",
+        "atwater village",
+        "atwater",
+        "frogtown",
+        "elysian valley",
+        "highland park",
+        "eagle rock",
+        "glassell park",
+        "cypress park",
+        "lincoln heights",
+        "chinatown",
+        "virgil village",
+        "westlake",
+        "historic filipinotown",
+        "downtown",
+        "dtla",
+        "arts district"
+      ],
+      "groove_terms": [
+        "vinyl",
+        "all night",
+        "open to close",
+        "open-to-close",
+        "groove",
+        "disco",
+        "soulful",
+        "deep house",
+        "balearic",
+        "rooftop",
+        "sunset",
+        "golden hour",
+        "open-air",
+        "open air",
+        "daytime",
+        "day party",
+        "poolside",
+        "pool party"
+      ],
+      "eu_terms": [
+        "fabric",
+        "defected",
+        "innervisions",
+        "keinemusik",
+        "hot creations",
+        "rush hour",
+        "running back",
+        "anjuna",
+        "afterlife",
+        "dirtybird",
+        "hot since",
+        "solid grooves"
+      ],
+      "penalty_terms": [
+        "bottle service",
+        "bottle-service",
+        "vip table",
+        "table service",
+        "top 40",
+        "top-40",
+        "open format",
+        "open-format",
+        "hip hop",
+        "hip-hop",
+        "hardstyle",
+        "gabber",
+        "dubstep",
+        "riddim",
+        "brostep",
+        "tribute",
+        "cover band",
+        "watch party",
+        "world cup",
+        "fifa",
+        "sports bar",
+        "trivia",
+        "bingo",
+        "open mic",
+        "karaoke",
+        "networking",
+        "webinar",
+        "workshop",
+        "virtual",
+        "zoom",
+        "mega-rave",
+        "mega rave",
+        "edm festival"
+      ],
+      "far_terms": [
+        "anaheim",
+        "santa ana",
+        "irvine",
+        "san diego",
+        "temecula",
+        "ventura",
+        "riverside",
+        "long beach",
+        "costa mesa",
+        "huntington beach"
+      ],
+      "spotify": {
+        "tier_points": {
+          "core": 3,
+          "strong": 2,
+          "light": 1,
+          "hidden": -3
+        },
+        "artist_cap": 5,
+        "genre_points": 1,
+        "genre_threshold": 0.5,
+        "genre_cap": 1,
+        "min_name_len": 3,
+        "ambiguous_names": [
+          "train",
+          "future",
+          "juice",
+          "jungle",
+          "lights",
+          "justice",
+          "work",
+          "sanctuary",
+          "paradise",
+          "chance",
+          "hold",
+          "alive"
+        ]
+      },
+      "feedback": {
+        "weights": {
+          "loved": 2.0,
+          "went": 1.5,
+          "clicked_ticket": 0.5,
+          "added_calendar": 0.5,
+          "skipped": -0.5,
+          "hide": -10.0
+        }
+      }
+    },
+    "home": {
+      "neighborhood": "Silver Lake",
+      "cross_streets": "Hyperion & Del Mar",
+      "coords": [
+        34.0906,
+        -118.2717
+      ]
+    },
+    "sources": [
+      {
+        "name": "Ticketmaster Discovery API",
+        "category": "multi",
+        "method": "api",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "Resident Advisor (LA)",
+        "category": "electronic",
+        "method": "graphql",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "19hz (LA)",
+        "category": "electronic",
+        "method": "scrape",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "DICE (LA venues)",
+        "category": "live_music",
+        "method": "dice",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "Gmail \"Events\" label",
+        "category": "multi",
+        "method": "gmail",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "LAist \u2014 Best Things To Do",
+        "category": "editorial",
+        "method": "scrape",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "Time Out Los Angeles",
+        "category": "editorial",
+        "method": "scrape",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "We Like LA",
+        "category": "editorial",
+        "method": "rss",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Secret Los Angeles",
+        "category": "editorial",
+        "method": "scrape",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "LA Times \u2014 Things to Do",
+        "category": "editorial",
+        "method": "scrape",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Eater LA",
+        "category": "editorial",
+        "method": "webfetch",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "UncoverLA",
+        "category": "editorial",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "6AM Group \u2014 weekly LA picks",
+        "category": "electronic",
+        "method": "scrape",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "Dirty Epic \u2014 weekly picks",
+        "category": "electronic",
+        "method": "scrape",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Restless Nites",
+        "category": "electronic",
+        "method": "scrape",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Goldenvoice",
+        "category": "live_music",
+        "method": "api",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "Eventbrite (curated organizers)",
+        "category": "multi",
+        "method": "eventbrite",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Hollywood Pantages / Broadway in Hollywood",
+        "category": "theater",
+        "method": "jsonld",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Center Theatre Group (Ahmanson/Taper/Douglas)",
+        "category": "theater",
+        "method": "scrape",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "Vidiots (Eagle Rock)",
+        "category": "film",
+        "method": "api",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "Brain Dead Studios",
+        "category": "film",
+        "method": "scrape",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "American Cinematheque (Egyptian/Aero/Los Feliz 3)",
+        "category": "film",
+        "method": "scrape",
+        "priority": 1,
+        "status": "flaky"
+      },
+      {
+        "name": "New Beverly Cinema",
+        "category": "film",
+        "method": "scrape",
+        "priority": 2,
+        "status": "flaky"
+      },
+      {
+        "name": "Vista Theater (Hollywood)",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 1,
+        "status": "flaky"
+      },
+      {
+        "name": "Comedy Store",
+        "category": "comedy",
+        "method": "scrape",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Largo at the Coronet",
+        "category": "comedy",
+        "method": "scrape",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Dynasty Typewriter",
+        "category": "comedy",
+        "method": "scrape",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Elysian Theater (Frogtown)",
+        "category": "comedy",
+        "method": "scrape",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Hollywood Bowl / LA Phil",
+        "category": "live_music",
+        "method": "scrape",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Lodge Room (Highland Park)",
+        "category": "live_music",
+        "method": "scrape",
+        "priority": 2,
+        "status": "flaky"
+      },
+      {
+        "name": "Zebulon (Frogtown)",
+        "category": "live_music",
+        "method": "dice",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "2220 Arts + Archives",
+        "category": "live_music",
+        "method": "dice",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "The Echo / Echoplex",
+        "category": "live_music",
+        "method": "scrape",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "@secret.losangeles",
+        "category": "editorial",
+        "method": "manual",
+        "priority": 3,
+        "status": "manual"
+      },
+      {
+        "name": "Afterhours promoter IG/SMS lists",
+        "category": "electronic",
+        "method": "manual",
+        "priority": 1,
+        "status": "manual"
+      },
+      {
+        "name": "StubHub",
+        "category": "multi",
+        "method": "scrape",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "Songkick (LA metro)",
+        "category": "live_music",
+        "method": "scrape",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "JamBase (LA)",
+        "category": "live_music",
+        "method": "api",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "Oh My Rockness (LA)",
+        "category": "live_music",
+        "method": "scrape",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "The Scenestar (LA)",
+        "category": "editorial",
+        "method": "rss",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "Buzzbands.la",
+        "category": "editorial",
+        "method": "rss",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "Subtract Music",
+        "category": "electronic",
+        "method": "manual",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Discover Los Angeles \u2014 best things this weekend",
+        "category": "editorial",
+        "method": "webfetch",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "Posh (posh.vip)",
+        "category": "multi",
+        "method": "api",
+        "priority": 1,
+        "status": "active"
+      },
+      {
+        "name": "Vibrato Grill Jazz (Bel Air)",
+        "category": "live_music",
+        "method": "squarespace",
+        "priority": 3,
+        "status": "active"
+      },
+      {
+        "name": "Junior High (Glendale)",
+        "category": "live_music",
+        "method": "squarespace",
+        "priority": 3,
+        "status": "active"
+      },
+      {
+        "name": "Bar Franca (DTLA)",
+        "category": "live_music",
+        "method": "squarespace",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Somerville (View Park)",
+        "category": "live_music",
+        "method": "squarespace",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "McCabe's Guitar Shop",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Harvelle's (Santa Monica)",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "active"
+      },
+      {
+        "name": "The Dresden (Los Feliz)",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Sam First (Westchester)",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "active"
+      },
+      {
+        "name": "Saint Rocke (Hermosa Beach)",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "Alva's Showroom (San Pedro)",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "active"
+      },
+      {
+        "name": "The Venice West",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "TRiP (Santa Monica)",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "Harvard & Stone (East Hollywood)",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Highland Park Bowl",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "The Baked Potato (Studio City)",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "Vitello's / E Spot Lounge (Studio City)",
+        "category": "live_music",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "The Smell (DTLA)",
+        "category": "live_music",
+        "method": "squarespace",
+        "priority": 2,
+        "status": "active"
+      },
+      {
+        "name": "Maui Sugar Mill Saloon (Tarzana)",
+        "category": "live_music",
+        "method": "ics",
+        "priority": 3,
+        "status": "active"
+      },
+      {
+        "name": "The World Stage / Leimert Park Jazz",
+        "category": "live_music",
+        "method": "eventbrite",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "See Tickets US (Troubadour / Largo / Catalina)",
+        "category": "live_music",
+        "method": "seetickets",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "1642 Beverly",
+        "category": "live_music",
+        "method": "manual",
+        "priority": 2,
+        "status": "manual"
+      },
+      {
+        "name": "Gold Line (Highland Park)",
+        "category": "live_music",
+        "method": "manual",
+        "priority": 3,
+        "status": "manual"
+      },
+      {
+        "name": "General Lee's (Chinatown)",
+        "category": "live_music",
+        "method": "manual",
+        "priority": 3,
+        "status": "manual"
+      },
+      {
+        "name": "Industry Cafe & Jazz (Culver City)",
+        "category": "live_music",
+        "method": "manual",
+        "priority": 3,
+        "status": "manual"
+      },
+      {
+        "name": "The Stowaway (DTLA)",
+        "category": "live_music",
+        "method": "manual",
+        "priority": 3,
+        "status": "manual"
+      }
+    ]
+  },
   "events": [
     {
       "title": "The First Slam Dunk",
@@ -178,7 +993,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "I Love Boosters",
@@ -213,7 +1028,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "By Hook or by Crook",
@@ -248,7 +1063,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Good Luck Vinyl Club Presents: Purple Rain Listening Session",
@@ -282,7 +1097,7 @@
         "+1 rooftop / vinyl / groove"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "NIGHTSHIFT AFTER HOURS",
@@ -321,7 +1136,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Primitive Ring Residency, Shark Toys, Supreme Joy, DJ Justin",
@@ -356,7 +1171,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Kalia Vandever Mana Record Release w/ megiapa",
@@ -391,7 +1206,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "On A Tuesday - Every Tuesday",
@@ -425,7 +1240,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "AFTERS 6-16",
@@ -459,7 +1274,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "FRA VS SEN",
@@ -492,7 +1307,7 @@
         "+3 party (high interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "HER/wild - A live music series curated by Frankie Jordan",
@@ -525,7 +1340,7 @@
         "+2 live music (medium interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "IRQ  VS  NOR",
@@ -558,7 +1373,7 @@
         "+3 party (high interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "ARG VS DZA",
@@ -591,7 +1406,7 @@
         "+3 party (high interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "The GDR, Maybellene Ryder, Lakesnake, Velvet Penny (Solo)",
@@ -625,7 +1440,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Girls Like Girls Screening and Q+A",
@@ -658,7 +1473,7 @@
         "+2 live music (medium interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Los Thuthanaka",
@@ -703,7 +1518,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "The Redwood Comedy Night",
@@ -736,7 +1551,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Bella Kay",
@@ -771,7 +1586,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "MILK CRATE MIC",
@@ -804,7 +1619,7 @@
         "+2 live music (medium interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Free The Youth presents\u2026     [SALT]   (Colorado)    RKT   Slotcar     8:00 pm   ",
@@ -838,7 +1653,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Milken  After  Grad",
@@ -871,7 +1686,7 @@
         "+3 party (high interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Digital Drvgs, Cold Kiss, Midi Memory",
@@ -904,7 +1719,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Sylvan Esso Residency",
@@ -937,7 +1752,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Sanctuary Celestial Roots Takeover: Ghost MD, Ursa Major, Desi, Adrawn, Devinity Darko",
@@ -972,7 +1787,7 @@
         "-2 far from LA"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Ora Presents BushBar! World Cup Watch Party: France vs Senegal",
@@ -1007,7 +1822,7 @@
         "-2 world cup"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "How to Code with OpenAI: ChatGPT and Beyond",
@@ -1044,7 +1859,7 @@
         "-2 zoom"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Love Island Watch Party & Taco Tuesday Specials",
@@ -1078,7 +1893,7 @@
         "-2 watch party"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Take 10 Tuesday | JUNETEENTH Bingo Night  \u2728",
@@ -1112,7 +1927,7 @@
         "-2 bingo"
       ],
       "iso_date": "2026-06-16",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "PlayTime",
