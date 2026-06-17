@@ -37,7 +37,8 @@
 
 last_discovery: 2026-06-17   # Phase D first live query: harvested Infatuation (Eastside Hit
                              # List + Silver Lake), Resy blog, Michelin Bib Gourmand → +14 to
-                             # data/dining.json. Added food-blog candidates (vet fetch next run).
+                             # data/dining.json. Food blogs vetted + promoted: L.A. TACO (fetch
+                             # ok) + LA Mag (search_only) → active and harvested; Thrillist blocked.
 
 sources:
 
@@ -162,11 +163,12 @@ sources:
     method: scrape
     url: https://lataco.com/category/food
     priority: 2
-    status: candidate
+    status: active
     notes: >
       Local, street-level LA food coverage — tacos, eastside/working-class gems,
       neighborhood spots the glossier guides miss. Great for casual/walkable asks.
-    fetch: unknown
+      More culture/long-form than listicle, so harvest the named spots, not lists.
+    fetch: ok               # direct fetch works (verified 6/17) — promoted to active
     harvest:
       - https://lataco.com/category/food
   - name: Los Angeles Magazine — Food
@@ -174,21 +176,26 @@ sources:
     method: scrape
     url: https://lamag.com/food
     priority: 2
-    status: candidate
+    status: active
     notes: >
-      Best-of lists + new-opening roundups + restaurant features. Broad city coverage.
-    fetch: unknown
+      Best-of lists + new-opening roundups + restaurant features (10 Best New, Best
+      New Restaurants, "where to eat now" power rankings). Strong eastside coverage.
+    fetch: search_only      # direct fetch 403s; domain-scoped search works (verified 6/17)
     harvest:
       - https://lamag.com/food
+      - https://lamag.com/food/los-angeles-magazine-best-new-restaurants-january-2026-l/  # 10 Best New
   - name: Thrillist — Los Angeles
     category: editorial
     method: scrape
     url: https://www.thrillist.com/los-angeles
     priority: 3
-    status: candidate
+    status: flaky
     notes: >
-      Approachable best-of / where-to-eat-now roundups; good for trending + casual.
-    fetch: unknown
+      Approachable best-of / where-to-eat roundups, but UNREACHABLE in this env:
+      direct fetch AND the domain-scoped crawler are both denied thrillist.com
+      (verified 6/17) — like Eater LA / LA Times. Only surfaces secondhand via a
+      general search. Note the gap in the radar footer; re-test if policy changes.
+    fetch: blocked          # both fetch and search crawler denied (verified 6/17)
     harvest:
       - https://www.thrillist.com/los-angeles
 

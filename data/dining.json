@@ -544,6 +544,13 @@
         "label": "Infatuation — The Eastside Hit List",
         "url": "https://www.theinfatuation.com/los-angeles/guides/the-eastside-hit-list-best-new-restaurants-eastside-los-angeles",
         "date": "2026-06-17"
+      },
+      {
+        "source": "lamag",
+        "type": "best_of",
+        "label": "LA Mag — Best New (Jeremy Fox, Silver Lake)",
+        "url": "https://lamag.com/food/los-angeles-magazine-best-new-restaurants-january-2026-l/",
+        "date": "2026-06-17"
       }
     ],
     "first_seen": "2026-06-17",
@@ -1042,6 +1049,13 @@
         "label": "Ari favorite",
         "url": null,
         "date": "2026-06-17"
+      },
+      {
+        "source": "lamag",
+        "type": "best_of",
+        "label": "LA Mag — drinking spots w/ great food (Santo team)",
+        "url": "https://lamag.com/food/6-los-angeles-bars-with-great-food/",
+        "date": "2026-06-17"
       }
     ],
     "first_seen": "2026-06-17",
@@ -1219,5 +1233,136 @@
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
     "notes": "Mediterranean — mezze, wraps, bowls. Atwater Village (also Beverly Hills). Eastside, easy."
+  },
+  {
+    "id": "bar-siesta",
+    "name": "Bar Siesta",
+    "type": "bar",
+    "cuisine": [
+      "spanish",
+      "natural wine"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "lamag",
+        "type": "new_opening",
+        "label": "LA Mag — Best New (Silver Lake): Spanish tapas + all-Spanish wine bar",
+        "url": "https://lamag.com/food/los-angeles-magazine-best-new-restaurants-january-2026-l/",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "New Spanish tapas + all-Spanish wine bar (Heather Sperling team). On-taste wine bar, home turf."
+  },
+  {
+    "id": "atrium-los-feliz",
+    "name": "Atrium",
+    "type": "restaurant",
+    "cuisine": [
+      "french",
+      "new american"
+    ],
+    "neighborhood": "Los Feliz",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "group"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "lamag",
+        "type": "new_opening",
+        "label": "LA Mag — new opening (Los Feliz), old Malo space",
+        "url": "https://lamag.com/food/los-angeles-magazine-best-new-restaurants-january-2026-l/",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Playful, vaguely-French cooking from Douglas Rankin in the old Malo space, Sunset Junction. New. Home turf."
+  },
+  {
+    "id": "bowery-bungalow",
+    "name": "Bowery Bungalow",
+    "type": "restaurant",
+    "cuisine": [
+      "mediterranean"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "casual",
+      "group",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "lamag",
+        "type": "new_opening",
+        "label": "LA Mag — Bowery Bungalow opens (former Sompun Thai)",
+        "url": "https://lamag.com/dining/bowery-bungalow-serves-modern-mediterranean-food-former-sompun-thai/",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Modern Mediterranean from George Abou-Daoud in the former Sompun Thai. New, home turf."
+  },
+  {
+    "id": "frank-n-franks",
+    "name": "Frank n Franks",
+    "type": "restaurant",
+    "cuisine": [
+      "sandwiches"
+    ],
+    "neighborhood": "Chinatown",
+    "address": null,
+    "price": "$",
+    "occasion": [
+      "quick_lunch",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "walk_in",
+      "url": null,
+      "difficulty": "easy"
+    },
+    "signals": [
+      {
+        "source": "lataco",
+        "type": "new_opening",
+        "label": "L.A. TACO — new from a Howlin' Ray's vet (Chinatown)",
+        "url": "https://lataco.com/category/food",
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Sandwich spot from a Howlin' Ray's vet. Casual lunch, Chinatown — eastside-adjacent."
   }
 ]
