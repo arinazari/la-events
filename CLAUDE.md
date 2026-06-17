@@ -20,7 +20,9 @@ working on digest/discover/flyer behavior. It is the contract; this file is orie
 
 ## How sources are fetched
 
-Three ingestion paths — each source's `method` in `sources.yaml` says which:
+The structured path is orchestrated by `scripts/run_digest.py` (fetch → dedupe → expire → score →
+`data/catalog.json` + `data/candidates.json`); the other two paths Claude layers in at digest time
+(SKILL Step 2). Three ingestion paths — each source's `method` in `sources.yaml` says which:
 - **Structured fetchers** (`scripts/fetch_*.py`) — APIs / JSON feeds / parseable pages: TM, RA,
   19hz, Goldenvoice, Filmbot, Eventbrite, Posh, **DICE** (dice.fm/venue/<slug> — MusicEvent JSON-LD
   under a Place's `event` key, real Chrome UA required), **Squarespace** (`?format=json-pretty`),
@@ -53,11 +55,15 @@ dining-taste.yaml                   # food-taste config — minimal, learns from
 festivals.yaml                      # "on the radar" curated festivals/big-shows + live lookups
 recurring.yaml                      # predictable recurring markets/fleas/farmers markets
 sms-ingestion.md                    # Twilio SMS/MMS → catalog spec (manual-capture automation)
-scripts/fetch_*.py                  # 11 source fetchers: ticketmaster (TM_API_KEY), ra, 19hz,
-                                    #   goldenvoice, filmbot, eventbrite, posh (POSH_TOKEN),
-                                    #   dice (venue pages), squarespace, ics, jsonld
-scripts/build_dashboard.py          # builds dashboard/data.json from catalog + taste.yaml
+profile.yaml                        # place/person config (ids, geo, scoring weights/terms) — city-portable knob
+scripts/run_digest.py               # deterministic core: fetch→dedupe→expire→score→catalog+candidates.json
+scripts/lib/                        # shared modules: scoring, dedupe, pipeline, config (tested in scripts/tests/)
+scripts/fetch_*.py                  # 11 source fetchers (run BY run_digest, or in Step-2 layering):
+                                    #   ticketmaster (TM_API_KEY), ra, 19hz, goldenvoice, filmbot,
+                                    #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld
+scripts/build_dashboard.py          # builds dashboard/data.json from catalog + taste.yaml + profile.yaml
 data/catalog.json                   # deduped events store (committed = the state)
+data/candidates.json                # scored, ranked top-N for enrichment (runtime; gitignored)
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)
 data/dining.json                    # dining catalog: restaurants + popups/trucks
 digests/weekends/YYYY-MM-DD.md      # per-weekend events digests (scheduled routine, ~4 mo out) + index.md

@@ -17,19 +17,24 @@ sources.yaml), and `TM_API_KEY`.
 
 Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set** mode:
 
-1. Read sources.yaml, taste.yaml, and data/catalog.json.
-2. Fetch structured sources (scripts/fetch_ticketmaster.py, scripts/fetch_ra.py, DICE),
-   the Gmail "Events" label if the connector is available, and this week's editorial
-   roundups. Respect the per-run scrape budget in the skill. Degrade gracefully — one dead
-   source never blocks the run.
-3. Merge into the catalog with the skill's dedupe rules; expire events whose date is now
-   in the past; write data/catalog.json.
+1. **Run the deterministic core:** `python scripts/run_digest.py --days 21`. It fetches the
+   structured sources, dedupes, expires past events, scores against taste.yaml + profile.yaml, and
+   writes `data/catalog.json` + `data/candidates.json`. Capture its run report (failed/skipped
+   sources) for the footer. Degrades gracefully — one dead source never blocks the run.
+2. **Layer in + re-score:** add the sources the core doesn't cover (SKILL Step 2) — the Gmail
+   "Events" label if the connector is available, `webfetch`/`squarespace`/`ics` venues from
+   sources.yaml (respect the ~15-source budget), and this week's editorial roundups as
+   `editorial_mentions` boosts. Then re-run `python scripts/run_digest.py --no-fetch` to re-dedupe
+   and re-score the updated catalog and refresh `data/candidates.json`.
+3. **Enrich (Phase B):** fan out the `scene-researcher` agent over `data/candidates.json` for
+   per-event tags, artist notes, curator's notes, descriptions, and top-10 images. Until that layer
+   is wired, synthesize directly with inline artist annotations (SKILL Step 5).
 4. Compute the next 16 weekends (Fri–Sun, Thursday-night events fold in as a lead-in),
    starting with the current/upcoming weekend. For each, write/update
    `digests/weekends/YYYY-MM-DD.md`, keyed by that weekend's **Friday**, in the skill's
    digest format but scoped to that weekend:
-   - **Near weekends (next ~6):** full digest — top picks first, all categories, scored
-     against taste.yaml.
+   - **Near weekends (next ~6):** full digest — top picks first, all categories, ranked from the
+     scored `data/candidates.json`.
    - **Far weekends (7–16 out):** announcement-driven only — list just what's actually
      announced / on sale (festivals, tracked artists, fast-sellout on-sales). Leave them
      thin; do NOT pad. They fill in as they approach.

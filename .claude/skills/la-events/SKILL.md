@@ -45,76 +45,59 @@ weekend," "next two weeks"), use that.
 > full, far ones announcement-driven. See `routines/daily-digest-prompt.md`. Interactive
 > `/la-events digest [N days]` stays windowed as above.
 
-### Step 1 — Pull structured sources
+### Step 1 — Run the deterministic core (`run_digest.py`)
 
-Run in parallel where possible:
+`python scripts/run_digest.py --days 21` does the mechanical work — fetch → normalize → dedupe →
+expire → score — and writes `data/catalog.json` (durable, score-free) plus `data/candidates.json`
+(the scored, ranked, upcoming top-N; the top 10 flagged `image_wanted`). **Don't fetch / dedupe /
+score these by hand anymore.** It covers the single-endpoint structured fetchers: Ticketmaster
+(`TM_API_KEY`), Resident Advisor, 19hz, Goldenvoice, Vidiots (Filmbot), Posh (`POSH_TOKEN`),
+Eventbrite (curated organizers), DICE. It **degrades gracefully** — any fetcher that errors / times
+out / is missing its key is listed in the printed run report (carry that into the footer), never
+blocking the run.
 
-1. **Ticketmaster Discovery API** — `scripts/fetch_ticketmaster.py` (repo root). Requires `TM_API_KEY`
-   env var (free key from developer.ticketmaster.com). Covers TM, TicketWeb, Universe,
-   FrontGate. Query LA via `dmaId=324`. Pull `music`, `comedy`, `arts & theatre`
-   classifications.
-2. **Resident Advisor** — `scripts/fetch_ra.py`. Hits RA's GraphQL endpoint for the LA
-   area. Flag events with start times ≥ 10pm as potential afterhours/warehouse.
-3. **19hz** — `scripts/fetch_19hz.py`. The canonical grassroots LA dance calendar (HTML
-   tables). Best single electronic source; carries price tiers + organizer names.
-4. **Goldenvoice / AEG** — `scripts/fetch_goldenvoice.py`. Pulls the public Azure-blob JSON
-   feed behind goldenvoice.com (Fonda, El Rey, Roxy, Novo, Shrine, Greek). Filters to LA metro.
-5. **Vidiots (rep cinema)** — `scripts/fetch_filmbot.py`. Hits the Filmbot/Nightjar REST API
-   (`nj/v1`) behind the JS calendar. `--site` flag works for any Nightjar cinema.
-6. **Posh** — `scripts/fetch_posh.py`. Authenticated tRPC API (LA explore: Trending / This
-   Week|Month). Needs `POSH_TOKEN` env var (session JWT, ~30-day life; re-capture when it 401s).
-   Strong afterhours/warehouse + TBA-location coverage; broad, so lean on taste ranking.
-7. **Eventbrite (curated organizers)** — `scripts/fetch_eventbrite.py`. The open browse is
-   behind an AWS WAF CAPTCHA (unscrapeable) and the search API is retired, SO coverage is via
-   a curated list of promoter/organizer pages (in `sources.yaml` under the Eventbrite source's
-   `organizers:`). Event + organizer pages are NOT walled. **This list must keep growing** — see
-   the harvesting note under Mode 3 and Mode 2.
-8. **Generic JSON-LD** — `scripts/fetch_jsonld.py` for any source that serves server-side
-   `schema.org/Event` (has a curl HTTP/2 fallback). NOTE: most LA venue calendars are
-   JS-rendered (DICE, Lodge Room, Pantages, Zebulon) and return nothing here — prefer a
-   source-specific API fetcher (Filmbot pattern) when JSON-LD is absent.
-9. **Gmail "Events" label** (when Gmail connector is available) — search threads labeled
-   `Events` received in the last 14 days. These are promoter blasts (6AM, Dirty Epic,
-   Restless Nites, venue newsletters, SMS-to-email forwards). Extract event name, date,
-   venue/TBA status, lineup, ticket link. Promoter blasts often announce events *beyond*
-   the digest window — include a "further out, just announced" section for these.
-   **When a blast contains an Eventbrite link, also run the organizer-harvest (Mode 3).**
-10. **SMS inbox** (`data/inbox.jsonl`, when the Twilio receiver is live) — process entries
-   with `processed == false` per `sms-ingestion.md`: parse the text, or fetch and parse the
-   MMS flyer image with the flyer-capture rules; normalize, tag `source: sms`, dedupe, mark
-   processed. Idempotent on `sid`. (Twilio media URLs need Twilio auth and expire — fetch
-   during the run, don't store the URL.)
+### Step 2 — Layer in the sources the core doesn't cover yet
 
-### Step 2 — Pull editorial/curation signals
+Add these to `data/catalog.json` yourself, then re-score in Step 3:
 
-Web-fetch the current weekly roundups (URLs in `sources.yaml`, tier: editorial):
-LAist "Best Things To Do," Time Out LA this-weekend page, We Like LA, Secret LA recent
-posts, 6AM Group weekly LA picks, Dirty Epic weekly picks. Do NOT treat these as the
-catalog — extract event mentions and use them as **ranking boosts** (+1 per independent
-editorial mention) on events already in the catalog. If an editorial source mentions an
-event not captured by any structured source, add it to the catalog with `source: editorial`.
+1. **Gmail "Events" label** (when the connector is available) — threads labeled `Events` in the
+   last 14 days: promoter blasts (6AM, Dirty Epic, Restless Nites, venue newsletters, SMS-to-email
+   forwards). Extract name, date, venue/TBA, lineup, ticket link. Blasts often announce *beyond* the
+   window — fold those into "further out, just announced." **When a blast carries an Eventbrite link,
+   run the organizer-harvest (Mode 3).**
+2. **`webfetch` / `squarespace` / `ics` / JSON-LD venues** in `sources.yaml` not covered by the core
+   (McCabe's, Dresden, Harvelle's, Sam First, Junior High, The Smell, Maui Sugar Mill, …) — read the
+   rendered calendar at digest time (`scripts/fetch_squarespace.py` / `fetch_ics.py` / `fetch_jsonld.py`
+   where applicable, else the WebFetch tool). Budget ~15 sources/run; skip `dead`/`flaky` and note
+   them in the footer.
+3. **SMS inbox** (`data/inbox.jsonl`, when the Twilio receiver is live) — process `processed == false`
+   entries per `sms-ingestion.md`: parse text or the MMS flyer, normalize, tag `source: sms`, mark
+   processed. Idempotent on `sid`. (Twilio media URLs expire — fetch during the run.)
+4. **Editorial / curation signals as ranking boosts** — web-fetch the weekly roundups (URLs in
+   `sources.yaml`, tier: editorial): LAist "Best Things To Do," Time Out LA, We Like LA, Secret LA,
+   6AM, Dirty Epic. Do NOT treat them as a catalog — add an `editorial_mentions` entry to matching
+   records (the scorer gives +1 each). Only add a NEW event when no structured source has it
+   (`source: editorial`).
 
-### Step 3 — Scrape registry venues (JSON-LD first)
+### Step 3 — Re-score (`run_digest.py --no-fetch`)
 
-For each `active` source in `sources.yaml` with `method: jsonld` or `method: scrape`,
-fetch the calendar page and extract `schema.org/Event` JSON-LD blocks. Fall back to HTML
-parsing only if JSON-LD is absent. Skip sources marked `dead` or `flaky`; note them in the
-digest footer so the user knows coverage gaps.
+After layering Step 2 in, run `python scripts/run_digest.py --no-fetch` to re-dedupe and re-score the
+now-complete catalog and refresh `data/candidates.json`. Dedupe + scoring live in `scripts/lib/`
+(`dedupe.py` + `scoring.py`, driven by `profile.yaml` + `taste.yaml`) — one source of truth; **never
+hand-score**.
 
-Budget: don't fetch more than ~15 scrape sources per digest run. Prioritize by the
-`priority` field in the registry and by category relevance to the request (e.g., a "what
-raves this weekend" request prioritizes club/promoter sources over theater).
+### Step 4 — Enrich the top candidates  *(Phase B — scene-researcher)*
 
-### Step 4 — Dedupe
-
-Same event frequently appears on RA + DICE + venue site + Ticketmaster. Merge when:
-**same venue (fuzzy, normalize "The" / "LA" / abbreviations) + same date + title/headliner
-similarity high**. Keep ALL ticket links on the merged record (user may want DICE over TM
-for fees). Keep the richest description.
+Fan out the **`scene-researcher`** agent over `data/candidates.json` (parallel batches) → per-event
+sub-genre tags, artist notes, a curator's note, a clean description, and an image for the top 10.
+Until that layer is wired, synthesize directly and supply the artist annotations inline (the
+annotation layer in Step 5).
 
 ### Step 5 — Rank and synthesize
 
-Score each event against `taste.yaml` (repo root) — the profile summary below is a fallback if taste.yaml is missing. Output the digest as conversational
+Scoring is **precomputed** — read `score` / `rating` / `reasons` from `data/candidates.json`
+(produced by Steps 1+3); don't re-score by hand. The taste profile below is orientation for *why*
+things rank as they do. Output the digest as conversational
 markdown — NOT a wall of every event. **Organize PRIMARILY BY DATE** (a day-by-day agenda is
 the spine — it answers "what's on tonight / this weekend" at a glance). Structure:
 
@@ -247,6 +230,13 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
   Smorgasburg). At digest time, compute which occurrences fall in the window and drop them onto
   the right day in the day-by-day. One-off pop-ups/activations are NOT here — those come from
   the editorial webfetch sources (Eater LA, UncoverLA, Secret LA, DiscoverLA).
+- `scripts/run_digest.py` — **the deterministic core**: fetch → dedupe → expire → score → writes
+  `data/catalog.json` + `data/candidates.json`. `--no-fetch` re-scores after manual layering (Step 3).
+  Run this instead of fetching/dedup/scoring by hand.
+- `scripts/lib/` — shared modules: `scoring.py` (taste ranking, driven by `profile.yaml` + `taste.yaml`),
+  `dedupe.py` (fuzzy merge), `pipeline.py` (transforms), `config.py` (YAML). Tested in `scripts/tests/`.
+- `profile.yaml` — place/person config (ids, geo, scoring weights/terms/thresholds); the city-portable knob.
+- The structured fetchers below are invoked BY `run_digest.py`; the rest you run during Step 2 layering:
 - `scripts/fetch_ticketmaster.py` — Discovery API fetcher (needs `TM_API_KEY`)
 - `scripts/fetch_ra.py` — RA GraphQL fetcher (no key; verify `AREA_ID` on first run)
 - `scripts/fetch_19hz.py` — 19hz dance-calendar table scraper

@@ -6,10 +6,10 @@ The bar is "investor-quality" only in the sense of **polish, depth of curation, 
 City portability matters because friends live in other cities and Ari travels (Berlin next
 week → same magic), not for TAM.
 
-Current phase: **Phase A core shipped → wiring + Phase B next.** A.1 (shared scoring/dedupe lib +
-`profile.yaml` lift) and A.2 (`run_digest.py` deterministic core) are built + tested. Remaining A
-task: wire `run_digest.py` into the routine/`SKILL.md` (retire the by-hand loop). Then Phase B —
-`scene-researcher` enrichment + the beautified `.md`/HTML digest (parallelizable with Phase C).
+Current phase: **Phase A complete → Phase B next.** A.1 (shared scoring/dedupe lib + `profile.yaml`
+lift), A.2 (`run_digest.py` deterministic core), and the routine/`SKILL.md` wiring are shipped +
+tested — the by-hand fetch/dedupe/score loop is retired. Next: Phase B — `scene-researcher`
+enrichment + the beautified `.md`/HTML digest (parallelizable with Phase C).
 Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog ~700 events, weekend + windowed digests
 shipped, dashboard live. Read this file + `CLAUDE.md` + the two `SKILL.md` files before any
 non-trivial task.
@@ -108,9 +108,10 @@ portability.
       `image_wanted` — the scene-researcher contract). Verified: 697→686 (dupes collapsed), idempotent.
 - [x] Catalog hygiene in the core: expires past events, maintains first-/last-seen, window math
       standardized on `America/Los_Angeles` (zoneinfo) — all in `run_digest`/`pipeline`.
-- [ ] **Wire `run_digest.py` into the daily routine + `SKILL.md`** — replace the by-hand
-      fetch/dedupe/score instructions so the routine calls the core, then Claude enriches +
-      synthesizes on top. (Code is done + tested; the skill/routine don't call it yet. Last A item.)
+- [x] **Wire `run_digest.py` into the daily routine + `SKILL.md`** — done: SKILL Mode 1 is now
+      Step 1 (run core) → 2 (layer Gmail/webfetch/editorial) → 3 (`--no-fetch` re-score) → 4 (enrich)
+      → 5 (synthesize from the precomputed `candidates.json`). Routine + CLAUDE.md updated to match;
+      the by-hand fetch/dedupe/score loop is retired.
 
 ## Phase B — Enrichment + beautified digest (the visible quality jump)
 - [ ] **`scene-researcher` subagent + enrichment cache** — Tier 1 fan-out over the top ~30–40;
