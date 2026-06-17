@@ -57,13 +57,17 @@ recurring.yaml                      # predictable recurring markets/fleas/farmer
 sms-ingestion.md                    # Twilio SMS/MMS → catalog spec (manual-capture automation)
 profile.yaml                        # place/person config (ids, geo, scoring weights/terms) — city-portable knob
 scripts/run_digest.py               # deterministic core: fetch→dedupe→expire→score→catalog+candidates.json
-scripts/lib/                        # shared modules: scoring, dedupe, pipeline, config (tested in scripts/tests/)
+scripts/lib/                        # shared modules: scoring, dedupe, pipeline, config, affinity
+                                    #   (Spotify music layer), feedback (reactions→affinity) — tested
 scripts/fetch_*.py                  # 11 source fetchers (run BY run_digest, or in Step-2 layering):
                                     #   ticketmaster (TM_API_KEY), ra, 19hz, goldenvoice, filmbot,
                                     #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld
+scripts/fetch_spotify.py            # Phase C: Spotify sync (SPOTIFY_* creds) → data/spotify_affinity.json
 scripts/build_dashboard.py          # builds dashboard/data.json from catalog + taste.yaml + profile.yaml
 data/catalog.json                   # deduped events store (committed = the state)
 data/candidates.json                # scored, ranked top-N for enrichment (runtime; gitignored)
+data/spotify_affinity.json          # Spotify music-affinity artifact (runtime; gitignored)
+data/feedback.jsonl                 # append-only reaction log (committed); folds into scoring each run
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)
 data/dining.json                    # dining catalog: restaurants + popups/trucks
 digests/weekends/YYYY-MM-DD.md      # per-weekend events digests (scheduled routine, ~4 mo out) + index.md
@@ -79,8 +83,10 @@ dashboard/                          # static PWA-lite catalog view; feed via scr
 - **Stateless cloud runs**: all state lives in this repo. A run reads catalog + registry,
   fetches, merges, writes back, commits. Never assume anything outside the repo persists.
 - **Secrets**: env vars only — `TM_API_KEY` (Ticketmaster), `POSH_TOKEN` (Posh session JWT,
-  ~30-day life; re-capture when it 401s), and the Twilio auth token if the SMS receiver is live
-  (digest needs it to fetch MMS media). Never commit keys.
+  ~30-day life; re-capture when it 401s), the **Spotify** trio `SPOTIFY_CLIENT_ID` /
+  `SPOTIFY_CLIENT_SECRET` / `SPOTIFY_REFRESH_TOKEN` (Phase C music layer — the refresh token is
+  long-lived; mint it once via `fetch_spotify.py --authorize`), and the Twilio auth token if the
+  SMS receiver is live (digest needs it to fetch MMS media). Never commit keys.
 - **Never scrape Instagram.** IG-only sources are `method: manual` (flyer-capture flow).
 - **Degrade gracefully**: one dead source never blocks a digest; list failures in the
   digest footer and mark repeat offenders `flaky` in sources.yaml.
@@ -111,8 +117,9 @@ he wants input at the decision points listed in ROADMAP.md.
 ## Cloud session notes
 
 - Network: this project needs outbound access to app.ticketmaster.com, ra.co, dice.fm,
-  plus the domains in sources.yaml. Configure the environment accordingly (limited
-  networking blocks everything by default).
+  plus the domains in sources.yaml. The Phase C Spotify sync also needs accounts.spotify.com
+  (token exchange) + api.spotify.com (top/followed/recent). Configure the environment
+  accordingly (limited networking blocks everything by default).
 - Gmail access comes via the Gmail connector when available; the "Events" label holds
   promoter blasts. If the connector isn't available in a session, skip that source and
   note it in the digest footer.

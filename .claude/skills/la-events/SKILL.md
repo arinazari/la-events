@@ -86,6 +86,15 @@ now-complete catalog and refresh `data/candidates.json`. Dedupe + scoring live i
 (`dedupe.py` + `scoring.py`, driven by `profile.yaml` + `taste.yaml`) — one source of truth; **never
 hand-score**.
 
+**Music layer (Phase C).** Scoring also folds in a Spotify + feedback affinity layer when present:
+`run_digest.py` syncs Spotify (`fetch_spotify.py`, only if `SPOTIFY_REFRESH_TOKEN` is set) and merges
+it with the feedback log into one affinity that nudges the score — an on-rotation artist in a lineup,
+a high-affinity genre, or a "more like X" / "never show Y" reaction. It **enriches** `taste.yaml`,
+never overwrites it; absent (no creds, no feedback) scoring is byte-identical to the taste-only path.
+The reasons in `candidates.json` cite it ("Spotify core rotation (Antal)", "more like Chris Lake
+(your pick)") — carry those into Step 5's *why*. To log a reaction, append a line to
+`data/feedback.jsonl` (schema in the file header); it folds in automatically next run.
+
 ### Step 4 — Enrich the top candidates  *(Phase B — scene-researcher)*
 
 Fan out the **`scene-researcher`** agent over `data/candidates.json` (parallel batches) → per-event
@@ -234,8 +243,13 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
   `data/catalog.json` + `data/candidates.json`. `--no-fetch` re-scores after manual layering (Step 3).
   Run this instead of fetching/dedup/scoring by hand.
 - `scripts/lib/` — shared modules: `scoring.py` (taste ranking, driven by `profile.yaml` + `taste.yaml`),
-  `dedupe.py` (fuzzy merge), `pipeline.py` (transforms), `config.py` (YAML). Tested in `scripts/tests/`.
-- `profile.yaml` — place/person config (ids, geo, scoring weights/terms/thresholds); the city-portable knob.
+  `dedupe.py` (fuzzy merge), `pipeline.py` (transforms), `config.py` (YAML), `affinity.py` (Spotify
+  music layer), `feedback.py` (reactions → affinity). Tested in `scripts/tests/`.
+- `profile.yaml` — place/person config (ids, geo, scoring weights/terms/thresholds, `scoring.spotify`
+  + `scoring.feedback` knobs); the city-portable knob.
+- `scripts/fetch_spotify.py` — Spotify sync (Phase C): top/followed/recent → `data/spotify_affinity.json`
+  (gitignored). Needs `SPOTIFY_CLIENT_ID`/`SECRET`/`REFRESH_TOKEN`; `--authorize` mints the token once.
+- `data/feedback.jsonl` — append-only reaction log (loved/went/skipped/hide + implicit); folds into scoring.
 - The structured fetchers below are invoked BY `run_digest.py`; the rest you run during Step 2 layering:
 - `scripts/fetch_ticketmaster.py` — Discovery API fetcher (needs `TM_API_KEY`)
 - `scripts/fetch_ra.py` — RA GraphQL fetcher (no key; verify `AREA_ID` on first run)

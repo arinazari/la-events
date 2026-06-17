@@ -128,17 +128,26 @@ portability.
       `[house] ★★★★☆ **Title** — artist gloss · Fri 6/19 9pm · El Cid, Silver Lake · $7 · [RA] [DICE] — curator's note.`
 
 ## Phase C — Spotify taste superset (Spotify is the *music layer*, never the whole profile)
-- [ ] **Spotify sync** — top/followed/recently-played artists + genres → the artist/genre affinity
-      vectors, refreshed automatically. (Related-artists + audio-features endpoints were restricted
-      for new apps late 2024 — lean on top/followed/recent; confirm what's live when building.)
-      OAuth in a stateless repo: store a **refresh token** as a secret like `TM_API_KEY`/`POSH_TOKEN`,
-      exchange each run.
-- [ ] **Merge three layers into one scoring profile**: Spotify (music affinity, auto) +
-      `taste.yaml` (the durable human layer Spotify can't know — settings/format prefs, rep cinema,
-      daytime/lifestyle, comedy exception, walkability, north-star, penalties) + feedback
-      (went/skipped/loved nudges weights). Spotify *enriches*; it never overwrites `taste.yaml`.
-- [ ] **Close the feedback loop** — reactions + implicit signals (clicked ticket link? added to
-      calendar?) fold into the weights automatically instead of being hand-merged.
+**Built + tested (fixtures); not yet validated against a live Spotify account — needs the
+`SPOTIFY_*` secrets set + accounts/api.spotify.com on the network allowlist + Decision 6 below.**
+- [x] **Spotify sync** — `scripts/fetch_spotify.py`: OAuth refresh-token flow (store
+      `SPOTIFY_REFRESH_TOKEN` like `TM_API_KEY`/`POSH_TOKEN`, exchange each run; `--authorize` mints it
+      once). Pulls top (long/medium/short) + followed + recently-played — the endpoints still open to
+      new apps post-2024 — and folds them via `lib/affinity.build_affinity` into a weighted, tiered
+      `data/spotify_affinity.json` (gitignored). Degrades gracefully (no creds → SKIP, never blocks).
+- [x] **Merge three layers into one scoring profile** — `lib/scoring.score_event` now takes an
+      `affinity` arg (threaded through `pipeline` + `run_digest` + `build_dashboard`); Spotify
+      (auto) + `taste.yaml` (human spine) + feedback combine in the one scorer. Spotify *enriches* —
+      with no affinity present, scoring is byte-identical to the taste-only path. Mechanism in
+      `profile.yaml` `scoring.spotify` + `scoring.feedback`.
+- [x] **Close the feedback loop** — `data/feedback.jsonl` (append-only reactions) + `lib/feedback.py`
+      aggregate loved/went/skipped/**hide** into the same affinity automatically (no hand-merge):
+      "more like X" clears a tier, "never show Y" forces a `hidden` down-rank. Implicit-signal *capture*
+      (clicked-ticket / added-calendar) — the schema's there, but emitting them depends on the Phase B
+      HTML-email / dashboard delivery surfaces, so wiring the emitters rides with B/D.
+- [ ] **Go-live (needs Ari)**: create the Spotify app, mint the refresh token (`--authorize`), set the
+      three secrets, allowlist the Spotify domains; then confirm Decision 6 (which signals to sync) and
+      eyeball the first run's `Spotify …` reasons to tune `scoring.spotify` weights.
 
 ## Phase D — Concierge + night-planner (the experience / hero feature)
 - [ ] **Conversational concierge as primary interface** — "free Friday, chill and walkable, no
@@ -231,7 +240,10 @@ were validated; these are per-fetcher *under-extraction*, not normalize bugs):
 3. **Digest cadence** (resolved): **daily** weekend-set, ~4 months out. Revisit if commits get noisy.
 4. **Taste weights** (ongoing): `taste.yaml` is yours — edit directly, or react and let the loop fold in.
 5. **Dedupe spot checks** (Phase A): eyeball merged records for false merges while tuning the threshold.
-6. **Spotify scope** (Phase C): confirm which Spotify data we sync once we see what's live post-2024 limits.
+6. **Spotify scope** (Phase C): the sync is built on top-artists (long/medium/short) + followed +
+   recently-played (genres ride along on the artist objects). Confirm that's the right set once it
+   runs live, and how hard the music layer should weigh vs. the `taste.yaml` spine (`scoring.spotify`
+   tier points — currently a deliberately modest nudge: core +2, capped +4/event).
 7. **Discover/source-scout approvals** (on demand): the candidate-source table — approve/reject.
 
 ### Dining-layer decisions

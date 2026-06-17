@@ -20,7 +20,9 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
 1. **Run the deterministic core:** `python scripts/run_digest.py --days 21`. It fetches the
    structured sources, dedupes, expires past events, scores against taste.yaml + profile.yaml, and
    writes `data/catalog.json` + `data/candidates.json`. Capture its run report (failed/skipped
-   sources) for the footer. Degrades gracefully — one dead source never blocks the run.
+   sources) for the footer. Degrades gracefully — one dead source never blocks the run. The Phase C
+   music layer rides along automatically: if `SPOTIFY_REFRESH_TOKEN` is set it syncs Spotify, then
+   folds it with `data/feedback.jsonl` into the scoring (the report prints a `music layer …` line).
 2. **Layer in + re-score:** add the sources the core doesn't cover (SKILL Step 2) — the Gmail
    "Events" label if the connector is available, `webfetch`/`squarespace`/`ics` venues from
    sources.yaml (respect the ~15-source budget), and this week's editorial roundups as
