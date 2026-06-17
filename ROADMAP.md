@@ -62,7 +62,7 @@ SKILLs become orchestrators that call them. **Concierge** = the main conversatio
 
 | Layer | Cadence |
 |---|---|
-| Events digest pipeline (fetch → dedupe → score → enrich → synthesize → weekend set → dashboard feed → commit → email) | **Daily** routine (`routines/daily-digest-prompt.md`, commits to `claude/digests`) |
+| Events digest pipeline (fetch → dedupe → score → enrich → render per weekend → dashboard feed → commit) | **Daily** routine (`routines/daily-digest-prompt.md`, commits to `main`; no email) |
 | Dining radar | **Weekly** Wed AM routine (`routines/dining-radar-prompt.md`) |
 | Fetchers | within each digest run (daily) |
 | `build_dashboard.py` | end of each daily run |

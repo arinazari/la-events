@@ -122,4 +122,4 @@ he wants input at the decision points listed in ROADMAP.md.
   note it in the digest footer.
 - Daily digest runs as a scheduled Routine using routines/daily-digest-prompt.md: it
   maintains a rolling set of per-weekend digests (`digests/weekends/`, ~4 months out) and
-  commits them + the updated catalog to a long-lived `claude/digests` branch.
+  commits them + the updated catalog to `main` (the Pages workflow then redeploys the dashboard).
