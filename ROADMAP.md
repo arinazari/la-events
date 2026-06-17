@@ -6,11 +6,13 @@ The bar is "investor-quality" only in the sense of **polish, depth of curation, 
 City portability matters because friends live in other cities and Ari travels (Berlin next
 week → same magic), not for TAM.
 
-Current phase: **Phase A — Foundation.** A.1 done: shared scoring/dedupe lib + `profile.yaml`
-config lift (`build_dashboard.py` refactored onto it; output byte-identical; tests green). Next:
-`run_digest.py` deterministic core (A.2). Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog
-~700 events, weekend + windowed digests shipped, dashboard live. Read this file + `CLAUDE.md` +
-the two `SKILL.md` files before any non-trivial task.
+Current phase: **Phase A core shipped → wiring + Phase B next.** A.1 (shared scoring/dedupe lib +
+`profile.yaml` lift) and A.2 (`run_digest.py` deterministic core) are built + tested. Remaining A
+task: wire `run_digest.py` into the routine/`SKILL.md` (retire the by-hand loop). Then Phase B —
+`scene-researcher` enrichment + the beautified `.md`/HTML digest (parallelizable with Phase C).
+Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog ~700 events, weekend + windowed digests
+shipped, dashboard live. Read this file + `CLAUDE.md` + the two `SKILL.md` files before any
+non-trivial task.
 
 ---
 
@@ -98,11 +100,17 @@ portability.
 - [x] **`profile.yaml` config lift** — ids/geo/weights/terms/thresholds moved out of Python into
       `profile.yaml`; the scorer and the TM/RA fetchers read it (fallback to verbatim defaults).
       Fixes drift; seeds city portability. `taste.yaml` stays the human content layer.
-- [ ] **`scripts/run_digest.py` deterministic core** — fetch-all → normalize → dedupe → expire →
-      score, emitting catalog + candidate set. Claude stops doing this by hand; it only enriches +
-      synthesizes on top.
-- [ ] Catalog hygiene in the core: expire past events, maintain first-/last-seen (fields exist),
-      standardize all fetchers on `America/Los_Angeles` for window math (RA/TM use UTC `today()`).
+- [x] **`scripts/run_digest.py` deterministic core** — fetch-all → normalize → merge+dedupe →
+      expire → stamp seen → score → emit candidate set. Pure transforms in `scripts/lib/pipeline.py`
+      (tested); thin CLI orchestrator runs the fetchers as subprocesses and degrades gracefully
+      (missing key/error/timeout → run report, never blocks). Emits `data/catalog.json` (durable,
+      score-free) + `data/candidates.json` (runtime, gitignored; flags top `images` as
+      `image_wanted` — the scene-researcher contract). Verified: 697→686 (dupes collapsed), idempotent.
+- [x] Catalog hygiene in the core: expires past events, maintains first-/last-seen, window math
+      standardized on `America/Los_Angeles` (zoneinfo) — all in `run_digest`/`pipeline`.
+- [ ] **Wire `run_digest.py` into the daily routine + `SKILL.md`** — replace the by-hand
+      fetch/dedupe/score instructions so the routine calls the core, then Claude enriches +
+      synthesizes on top. (Code is done + tested; the skill/routine don't call it yet. Last A item.)
 
 ## Phase B — Enrichment + beautified digest (the visible quality jump)
 - [ ] **`scene-researcher` subagent + enrichment cache** — Tier 1 fan-out over the top ~30–40;
