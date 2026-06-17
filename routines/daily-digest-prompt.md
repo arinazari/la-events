@@ -6,9 +6,9 @@ as the routine prompt; repo = this one. Runs **daily** and maintains a rolling s
 every day as new events are announced and lineups firm up.
 
 Configure in the routine's environment (not here): the daily schedule, the target branch
-(recommended: a long-lived `claude/digests` branch the routine keeps committing to), the
-network policy (outbound to app.ticketmaster.com, ra.co, dice.fm + the domains in
-sources.yaml), and `TM_API_KEY`.
+(recommended: **`main`** — the Pages workflow then auto-redeploys the dashboard on each push; the
+tradeoff is daily digest commits on main, fine for a personal repo), the network policy (outbound to
+app.ticketmaster.com, ra.co, dice.fm + the domains in sources.yaml), and `TM_API_KEY` / `POSH_TOKEN`.
 
 > Prereq: validate one manual digest run first (ROADMAP Phase 1). A daily routine pointed
 > at an unvalidated pipeline with no `TM_API_KEY` just commits empty weekend files daily.
