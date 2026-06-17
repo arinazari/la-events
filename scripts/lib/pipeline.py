@@ -156,9 +156,9 @@ def expire_past(catalog: list, today: date = None) -> tuple:
     return kept, expired
 
 
-def score_view(ev: dict, taste: dict, profile: dict) -> dict:
+def score_view(ev: dict, taste: dict, profile: dict, affinity: dict = None) -> dict:
     """A scored copy of an event (catalog stays score-free; scores live in the candidate set)."""
-    s = score_event(ev, taste, profile)
+    s = score_event(ev, taste, profile, affinity)
     d = parse_event_date(ev)
     out = dict(ev)
     out["score"] = s["score"]
@@ -169,10 +169,11 @@ def score_view(ev: dict, taste: dict, profile: dict) -> dict:
 
 
 def select_candidates(catalog, taste, profile, today=None, window_days=None,
-                      top_n=40, image_n=10) -> list:
+                      top_n=40, image_n=10, affinity=None) -> list:
     """The enrichment candidate set: upcoming events, best-first, top N.
 
     Flags the first `image_n` with image_wanted=True (the scene-researcher images contract).
+    `affinity` (optional) layers the Spotify + feedback music profile into the scoring.
     """
     today = today or today_la()
     start = today.isoformat()
@@ -180,7 +181,7 @@ def select_candidates(catalog, taste, profile, today=None, window_days=None,
 
     scored = []
     for ev in catalog:
-        v = score_view(ev, taste, profile)
+        v = score_view(ev, taste, profile, affinity)
         if not v["iso_date"] or v["iso_date"] < start:
             continue
         if end and v["iso_date"] > end:

@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-06-17T09:00:00",
+  "source": "spotify",
+  "_note": "Schema reference + test fixture. The real artifact is data/spotify_affinity.json (gitignored, regenerated each run by scripts/fetch_spotify.py). Artists keyed by normalized (lowercased) name; genres max-normalized 0..1.",
+  "artists": {
+    "antal": {"name": "Antal", "weight": 4.8, "tier": "core", "sources": ["top_long", "followed"]},
+    "palms trax": {"name": "Palms Trax", "weight": 3.6, "tier": "core", "sources": ["top_long", "top_medium"]},
+    "moodymann": {"name": "Moodymann", "weight": 3.1, "tier": "core", "sources": ["top_long", "recent"]},
+    "peggy gou": {"name": "Peggy Gou", "weight": 2.4, "tier": "strong", "sources": ["top_medium", "followed"]},
+    "floating points": {"name": "Floating Points", "weight": 2.0, "tier": "strong", "sources": ["top_medium"]},
+    "four tet": {"name": "Four Tet", "weight": 1.9, "tier": "strong", "sources": ["followed"]},
+    "kaytranada": {"name": "KAYTRANADA", "weight": 1.1, "tier": "light", "sources": ["top_short"]},
+    "overmono": {"name": "Overmono", "weight": 0.9, "tier": "light", "sources": ["recent"]}
+  },
+  "genres": {
+    "deep house": 1.0,
+    "disco": 0.82,
+    "house": 0.74,
+    "detroit techno": 0.61,
+    "uk garage": 0.43,
+    "electronica": 0.38
+  }
+}

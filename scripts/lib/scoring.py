@@ -16,6 +16,8 @@ profile.yaml present.
 
 from datetime import date, datetime
 
+from .affinity import artist_affinity, genre_affinity
+
 # ── Defaults (verbatim from pre-refactor build_dashboard.py) ─────────────────
 DEFAULT_CATEGORY_WEIGHTS = {
     "electronic": 3,
@@ -97,8 +99,14 @@ def parse_event_date(ev: dict):
             return None
 
 
-def score_event(ev: dict, taste: dict = None, profile: dict = None) -> dict:
-    """Return {score, reasons[]} for an event. Mirrors the digest's ranking."""
+def score_event(ev: dict, taste: dict = None, profile: dict = None,
+                affinity: dict = None) -> dict:
+    """Return {score, reasons[]} for an event. Mirrors the digest's ranking.
+
+    `affinity` (optional) = the merged Spotify + feedback music layer (Phase C). When
+    absent, scoring is byte-identical to the taste.yaml/profile.yaml-only path — the
+    music layer only ever ENRICHES; it never replaces the human spine in taste.yaml.
+    """
     taste = taste or {}
     cfg = _scoring_cfg(profile)
     reasons = []
@@ -184,6 +192,14 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None) -> dict:
     if mentions:
         score += len(mentions)
         reasons.append(f"+{len(mentions)} editorial mention ({', '.join(mentions)})")
+
+    # Spotify + feedback music layer (Phase C) — graded artist/genre affinity, capped so
+    # it nudges rather than dominates. Enriches the taste.yaml signals above; no-op if absent.
+    if affinity:
+        a_pts, a_reasons = artist_affinity(hay, affinity, profile)
+        g_pts, g_reasons = genre_affinity(hay, affinity, profile)
+        score += a_pts + g_pts
+        reasons.extend(a_reasons + g_reasons)
 
     # Banned venue (hard down-rank).
     banned = [v.lower() for v in (taste.get("venues_banned") or []) if v]

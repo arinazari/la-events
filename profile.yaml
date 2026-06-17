@@ -152,3 +152,21 @@ scoring:
     - long beach
     - costa mesa
     - huntington beach
+
+  # Spotify + feedback music layer (Phase C). The affinity artifact
+  # (data/spotify_affinity.json) is built by scripts/fetch_spotify.py from top/followed/
+  # recently-played and folded with the feedback log; the scorer turns it into points here.
+  # Spotify ENRICHES taste.yaml — it never overwrites it. Tune freely; all optional.
+  spotify:
+    # Points an affinity artist contributes when it appears in a lineup/title, by tier.
+    # `hidden` = a feedback "never show" down-rank.
+    tier_points:
+      core: 2        # long-term top / followed / multi-signal — your spine
+      strong: 1      # heavy rotation
+      light: 1       # on rotation
+      hidden: -3     # feedback: never show this artist
+    artist_cap: 4    # max total artist-affinity points per event (so a stacked lineup can't run away)
+    genre_points: 1  # points when a high-affinity Spotify genre appears in the haystack
+    genre_threshold: 0.5  # min normalized (0..1) genre affinity to count
+    genre_cap: 1     # max genre points per event (kept conservative — genre match on free text is noisy)
+    min_name_len: 3  # skip ultra-short artist names (avoid false substring matches)
