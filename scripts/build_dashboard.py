@@ -53,12 +53,22 @@ def main() -> int:
     taste = load_yaml(taste_path)
     profile = load_yaml(profile_path)
 
+    # Spotify + feedback music layer (Phase C) — same artifact the digest scores against, so
+    # the dashboard stars match. Read-only + graceful: absent/corrupt -> taste.yaml-only scoring.
+    aff_path = REPO / "data" / "spotify_affinity.json"
+    affinity = None
+    if aff_path.exists():
+        try:
+            affinity = json.loads(aff_path.read_text())
+        except (ValueError, OSError):
+            affinity = None
+
     is_sample = "sample" in catalog_path.name
     today = date.today()
 
     events = []
     for ev in catalog:
-        scored = score_event(ev, taste, profile)
+        scored = score_event(ev, taste, profile, affinity)
         d = parse_event_date(ev)
         out = dict(ev)
         out["score"] = scored["score"]

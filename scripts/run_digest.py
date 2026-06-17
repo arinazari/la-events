@@ -89,6 +89,31 @@ def fetch_all(selected: set, days: int) -> tuple:
     return incoming, report
 
 
+def load_affinity_layer(no_fetch: bool, report: dict) -> dict:
+    """Sync Spotify (if creds present and we're fetching) and load the music-affinity layer.
+
+    The artifact is data/spotify_affinity.json (gitignored runtime state, like candidates.json).
+    Degrades gracefully: any failure leaves the scorer running the taste.yaml-only path — the
+    music layer only ever enriches. Returns the affinity dict or None.
+    """
+    aff_path = REPO / "data" / "spotify_affinity.json"
+    if not no_fetch and os.environ.get("SPOTIFY_REFRESH_TOKEN"):
+        try:
+            proc = subprocess.run([sys.executable, str(REPO / "scripts" / "fetch_spotify.py"),
+                                   "-o", str(aff_path)], capture_output=True, timeout=120,
+                                  cwd=str(REPO), text=True)
+            note = (proc.stdout or proc.stderr or "").strip().splitlines()
+            report["spotify"] = note[-1][:140] if note else f"exit {proc.returncode}"
+        except Exception as ex:  # noqa: BLE001
+            report["spotify"] = f"sync failed: {str(ex).splitlines()[0][:100]}"
+    if aff_path.exists():
+        try:
+            return json.loads(aff_path.read_text())
+        except Exception:  # noqa: BLE001 — a corrupt artifact must not block the run
+            report["spotify"] = "artifact unreadable; scored without music layer"
+    return None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--catalog", default="data/catalog.json")
@@ -121,14 +146,18 @@ def main() -> int:
     P.stamp_seen(catalog, today)
     cat_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
 
+    affinity = load_affinity_layer(args.no_fetch, report)
     candidates = P.select_candidates(catalog, taste, profile, today,
-                                     window_days=args.window, top_n=args.top, image_n=args.images)
+                                     window_days=args.window, top_n=args.top, image_n=args.images,
+                                     affinity=affinity)
     cand_doc = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "today": today.isoformat(),
         "window_days": args.window,
         "count": len(candidates),
         "image_wanted": sum(1 for c in candidates if c.get("image_wanted")),
+        "affinity": ({"artists": len(affinity.get("artists", {})),
+                      "genres": len(affinity.get("genres", {}))} if affinity else None),
         "sources": report,
         "candidates": candidates,
     }
@@ -144,6 +173,11 @@ def main() -> int:
         print("  failed: ", ", ".join(f"{s} ({e})" for s, e in report["failed"]))
     if report["skipped"]:
         print("  skipped:", ", ".join(report["skipped"]))
+    if affinity:
+        print(f"  music layer: {len(affinity.get('artists', {}))} artists, "
+              f"{len(affinity.get('genres', {}))} genres")
+    elif report.get("spotify"):
+        print("  spotify:", report["spotify"])
     return 0
 
 
