@@ -40,13 +40,16 @@ the **anchor**; otherwise the top on-taste candidate on that date is the anchor.
 (If `--no-fetch` errors, fall back to reading `data/catalog.json` directly and judging by taste.)
 
 ### 2. Build the arc — dinner → show → afters
-- **Dinner** — read `data/dining.json` + `dining-taste.yaml`. Pick for occasion + area fit + the
-  food-taste profile (`restaurants_loved` are strong; respect `dietary` as a hard filter and
-  `restaurants_banned`). Rank by signal strength (Michelin / Infatuation / Resy / Eater / multiple
-  independent mentions, recency) — but **honor affordability**: for a normal night prefer value
-  (Bib Gourmand, $$–$$$) over $$$$; only reach for $$$$ when the spec says "special / birthday /
-  no budget." Time dinner to land before the show's doors/set (≈90 min at table for a sit-down,
-  ~60 for counter/casual).
+- **Dinner** — read `data/dining.json` + `dining-taste.yaml`. **Lead with newer + well-recommended
+  spots that fit his palate**, ranked by signal strength (Michelin / Infatuation / Resy / LA Mag /
+  L.A. TACO / multiple independent mentions, recency). Use `restaurants_loved` per `favorites_policy`:
+  it's a **read on his palate** (cuisines/vibe/price to match), a small tiebreak, and a fallback —
+  **not** a default; don't just re-serve a favorite when a fresh recommended spot fits (surface a
+  favorite when he asks for it, nothing new fits, it's a comfort ask, or it's *also* on a current
+  hot-list). Respect `dietary` as a hard filter and `restaurants_banned`. **Honor affordability**:
+  for a normal night prefer value ($$–$$$, Bib Gourmand) over $$$$ and stay near his date budget
+  (~$150 for two); reach higher only when the spec says "special / birthday / no budget." Time
+  dinner to land before the show's doors/set (≈90 min at table for a sit-down, ~60 for counter/casual).
 - **Show** = the anchor, with its artist gloss (who they are, why on-taste) and ticket link(s)
   (keep every link the record carries — DICE vs TM fees differ).
 - **Afters** = a late / warehouse / listening-bar option after the show **only if** on-taste and

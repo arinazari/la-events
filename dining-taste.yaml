@@ -84,9 +84,11 @@ popups:
   interested: true           # surface date-relevant popups/trucks
   location_tba_ok: true      # "address drops day-of" is fine
 
-restaurants_loved:           # Ari's go-tos (6/17) — strong +boost; the night-planner leans
-                             # on these hard for dinner. Most are Silver Lake / eastside.
-  - Superba                  # ABSOLUTE FAVORITE — food + ambiance, the patio especially (Venice)
+restaurants_loved:           # Ari's go-tos (6/17). IMPORTANT — these are a READ ON HIS PALATE
+                             # (cuisines / vibe / price he gravitates to), NOT a list to default
+                             # to. See favorites_policy below: small nudge + tiebreak only; newer,
+                             # well-recommended spots that fit the palate should win. Mostly eastside.
+  - Superba                  # a favorite — food + ambiance, the patio especially (Venice)
   - L&E Oyster Bar           # Silver Lake — oysters; upstairs bar is the chill move
   - Pijja Palace             # Silver Lake — Indian-Italian sports bar, great value/fun
   - Night + Market Song      # Silver Lake — Thai
@@ -95,6 +97,20 @@ restaurants_loved:           # Ari's go-tos (6/17) — strong +boost; the night-
   - Sushi Note               # Sherman Oaks — sushi + wine
   - Momed                    # Atwater Village — Mediterranean
 restaurants_banned: []       # none stated
+
+# How to USE restaurants_loved (Ari, 6/17): "favorites are ideas of my taste, not
+# necessarily to be used or highly prioritized — especially if there are newer,
+# recommended restaurants." So:
+favorites_policy:
+  role: taste_signal         # infer palate (cuisine/vibe/price) FROM favorites; don't just re-serve them
+  boost: small               # a modest +nudge / tiebreak — NOT a strong override of the editorial signals
+  prefer_new_and_recommended: true   # newer + critic/hot-list spots that fit the palate should win
+  surface_favorites_when:    # when it's fine to actually pick a favorite
+    - explicitly asked for it ("take me to Superba")
+    - nothing fresh fits the occasion/area/budget
+    - an old-faithful / comfort ask
+    - a tiebreak between otherwise-equal options
+    - a favorite is ALSO currently recommended (e.g. it's on a hot-list this cycle)
 
 # Feedback log — append reactions ("more like X", "never again Y", "too far",
 # "perfect for date night"); periodically fold into the preferences above.

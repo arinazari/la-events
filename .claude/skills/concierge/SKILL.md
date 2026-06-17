@@ -26,8 +26,11 @@ is the concierge*. Your job is routing + voice + a little glue, not re-implement
 ## First: read taste before you route
 Read `taste.yaml` (events) and `dining-taste.yaml` (food) at the start. They carry the north star
 (rooftop-vinyl-house; Sunset Sessions), the tracked artists/venues, and the food profile
-(`restaurants_loved`, `dietary` hard filters, price comfort). Everything you surface is filtered
-through them. `profile.yaml` holds home (Silver Lake / Hyperion & Del Mar) + travel knobs.
+(`dietary` hard filters, price comfort, affordability policy). On food, **favorites
+(`restaurants_loved`) are a read on his palate, not default picks** — per `favorites_policy`, lead
+with newer + well-recommended spots that fit that palate; favorites are a tiebreak/fallback or for
+a "take me to my spot" ask. Everything you surface is filtered through these. `profile.yaml` holds
+home (Silver Lake / Hyperion & Del Mar) + travel knobs.
 
 ## Route the ask
 
