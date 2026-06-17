@@ -161,11 +161,12 @@ scoring:
     # Points an affinity artist contributes when it appears in a lineup/title, by tier.
     # `hidden` = a feedback "never show" down-rank.
     tier_points:
-      core: 2        # long-term top / followed / multi-signal — your spine
-      strong: 1      # heavy rotation
-      light: 1       # on rotation
+      core: 3        # long-term top / followed / multi-signal — your spine; reliably clears ★4
+      strong: 2      # heavy rotation — a real nudge above "on rotation"
+      light: 1       # on rotation — a gentle bump
       hidden: -3     # feedback: never show this artist
-    artist_cap: 4    # max total artist-affinity points per event (so a stacked lineup can't run away)
+    artist_cap: 5    # max total artist-affinity points per event (a core + a strong both register;
+                     # a stacked dream lineup still can't run away)
     genre_points: 1  # points when a high-affinity Spotify genre appears in the haystack
     genre_threshold: 0.5  # min normalized (0..1) genre affinity to count
     genre_cap: 1     # max genre points per event (kept conservative — genre match on free text is noisy)
