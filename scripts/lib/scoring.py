@@ -196,7 +196,9 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
     # Spotify + feedback music layer (Phase C) — graded artist/genre affinity, capped so
     # it nudges rather than dominates. Enriches the taste.yaml signals above; no-op if absent.
     if affinity:
-        a_pts, a_reasons = artist_affinity(hay, affinity, profile)
+        lineup_text = " ".join(str(a) for a in lineup).lower()
+        name_text = title.lower() + " " + lineup_text          # where artists are actually billed
+        a_pts, a_reasons = artist_affinity(name_text, lineup_text, affinity, profile)
         g_pts, g_reasons = genre_affinity(hay, affinity, profile)
         score += a_pts + g_pts
         reasons.extend(a_reasons + g_reasons)

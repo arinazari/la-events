@@ -170,6 +170,11 @@ scoring:
     genre_threshold: 0.5  # min normalized (0..1) genre affinity to count
     genre_cap: 1     # max genre points per event (kept conservative — genre match on free text is noisy)
     min_name_len: 3  # skip ultra-short artist names (avoid false substring matches)
+    # Single-word artist names that are also common English/party words (the band Train, the
+    # rapper Future). Auto-pulled from Spotify they false-match party titles, so they only count
+    # when they appear in the structured lineup, not loose title text. Grow this as you spot more.
+    ambiguous_names: [train, future, juice, jungle, lights, justice, work, sanctuary, paradise,
+                      chance, hold, alive]
 
   # Feedback loop (Phase C). Reactions in data/feedback.jsonl fold into the affinity layer
   # automatically (no hand-merge into taste.yaml). Each weight nudges an artist/genre; once

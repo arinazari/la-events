@@ -54,8 +54,8 @@ def test_build_affinity_drops_below_light():
 
 
 def test_artist_affinity_points_and_cap():
-    hay = "palms trax b2b antal at zebulon".lower()
-    pts, reasons = artist_affinity(hay, SAMPLE, PROFILE)
+    name_text = "palms trax b2b antal at zebulon"
+    pts, reasons = artist_affinity(name_text, "", SAMPLE, PROFILE)
     # Two core artists = +2 +2 = 4, exactly at artist_cap (4).
     assert pts == 4, (pts, reasons)
     assert any("Antal" in r for r in reasons)
@@ -63,13 +63,26 @@ def test_artist_affinity_points_and_cap():
 
 def test_artist_affinity_respects_min_name_len():
     aff = {"artists": {"dj": {"name": "DJ", "tier": "core"}}}   # 2 chars < min_name_len(3)
-    pts, _ = artist_affinity("a dj plays tonight", aff, PROFILE)
+    pts, _ = artist_affinity("a dj plays tonight", "", aff, PROFILE)
     assert pts == 0
+
+
+def test_ambiguous_name_requires_lineup():
+    """Common-word band names (Train, Future, …) only count in the structured lineup."""
+    aff = {"artists": {"train": {"name": "Train", "tier": "strong", "sources": ["followed"]}}}
+    assert artist_affinity("train to tehran w/ namito", "", aff, PROFILE)[0] == 0   # party title, no lineup
+    assert artist_affinity("train to tehran", "train", aff, PROFILE)[0] == 1        # actually billed
+
+
+def test_whole_token_match_not_substring():
+    aff = {"artists": {"hanson": {"name": "Hanson", "tier": "light", "sources": ["top_short"]}}}
+    assert artist_affinity("paris chansons", "", aff, PROFILE)[0] == 0   # 'hanson' inside 'chansons'
+    assert artist_affinity("hanson live", "", aff, PROFILE)[0] == 1
 
 
 def test_hidden_tier_downranks():
     aff = {"artists": {"someone": {"name": "Someone", "tier": "hidden"}}}
-    pts, reasons = artist_affinity("someone live tonight", aff, PROFILE)
+    pts, reasons = artist_affinity("someone live tonight", "", aff, PROFILE)
     assert pts == -3, (pts, reasons)
     assert any("hidden" in r for r in reasons)
 

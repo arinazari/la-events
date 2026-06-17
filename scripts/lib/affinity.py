@@ -23,6 +23,8 @@ Affinity artifact schema (data/spotify_affinity.json):
   }
 """
 
+import functools
+import re
 from datetime import datetime
 
 # ── Sync-side weighting (how raw Spotify signals become a per-artist weight) ──────────
@@ -50,7 +52,19 @@ DEFAULT_SCORING = {
     "genre_threshold": 0.5,  # min normalized genre affinity to count
     "genre_cap": 1,         # max genre points per event
     "min_name_len": 3,      # skip ultra-short names (avoid false substring matches)
+    # Single-word artist names that are also common English/party words (the band Train, the
+    # rapper Future, …). Auto-pulled from Spotify they false-match party titles, so they only
+    # count when they appear in the STRUCTURED lineup, not loose title text. Grow as needed.
+    "ambiguous_names": ["train", "future", "juice", "jungle", "lights", "justice", "work",
+                        "sanctuary", "paradise", "chance", "hold", "alive"],
 }
+
+
+@functools.lru_cache(maxsize=8192)
+def _token_pat(name: str):
+    """Compiled whole-token matcher: the name bounded by non-alphanumerics (so 'hanson' does
+    not match inside 'chansons', but 'antal' matches at a space/punct/edge). Cached per name."""
+    return re.compile(r"(?<![a-z0-9])" + re.escape(name) + r"(?![a-z0-9])")
 
 
 def normalize_name(name: str) -> str:
@@ -161,15 +175,18 @@ def _scoring_cfg(profile: dict) -> dict:
         tp = dict(DEFAULT_SCORING["tier_points"])
         tp.update(sp["tier_points"])
         cfg["tier_points"] = tp
+    cfg["ambiguous"] = {n.lower() for n in (cfg.get("ambiguous_names") or [])}
     return cfg
 
 
-def artist_affinity(hay: str, affinity: dict, profile: dict = None) -> tuple:
-    """(points, reasons) for Spotify/feedback artists that appear in the event haystack.
+def artist_affinity(name_text: str, lineup_text: str, affinity: dict, profile: dict = None) -> tuple:
+    """(points, reasons) for affinity artists billed in an event.
 
-    `hay` is the lowercased title+venue+detail+lineup blob the scorer already builds.
-    Points are graded by tier and capped (artist_cap) so the music layer nudges without
-    drowning the human spine. A "hidden" tier (from feedback "never show") down-ranks.
+    Matches against where artists actually appear — `name_text` (lowercased title + lineup),
+    NOT the venue/detail/promoter blob (which collides: a 'jungle' genre tag, a 'Future' night).
+    Whole-token match only (so 'hanson' != 'chansons'); ambiguous common-word names (Train,
+    Future, …) must land in `lineup_text` to count. Graded by tier, capped (artist_cap); a
+    'hidden' tier (feedback "never show") down-ranks.
     """
     artists = (affinity or {}).get("artists") or {}
     if not artists:
@@ -177,10 +194,14 @@ def artist_affinity(hay: str, affinity: dict, profile: dict = None) -> tuple:
     cfg = _scoring_cfg(profile)
     tier_points = cfg["tier_points"]
     minlen = cfg["min_name_len"]
+    ambiguous = cfg["ambiguous"]
 
     pts, reasons, suppress = 0, [], 0
     for key, info in artists.items():
-        if len(key) < minlen or key not in hay:
+        if len(key) < minlen:
+            continue
+        target = lineup_text if key in ambiguous else name_text
+        if not _token_pat(key).search(target):
             continue
         tier = info.get("tier", "light")
         p = tier_points.get(tier, 0)
