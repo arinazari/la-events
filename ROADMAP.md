@@ -6,10 +6,12 @@ The bar is "investor-quality" only in the sense of **polish, depth of curation, 
 City portability matters because friends live in other cities and Ari travels (Berlin next
 week → same magic), not for TAM.
 
-Current phase: **Phase A complete → Phase B next.** A.1 (shared scoring/dedupe lib + `profile.yaml`
-lift), A.2 (`run_digest.py` deterministic core), and the routine/`SKILL.md` wiring are shipped +
-tested — the by-hand fetch/dedupe/score loop is retired. Next: Phase B — `scene-researcher`
-enrichment + the beautified `.md`/HTML digest (parallelizable with Phase C).
+Current phase: **Phase B core shipped → image-caching + routine wiring remain.** Phase A (foundation,
+`run_digest.py` deterministic core, routine/`SKILL.md` wiring) done. Phase B: the `scene-researcher`
+enrichment cache (`scripts/lib/enrich.py`) + the dual `.md`/`.html` renderer (`scripts/render_digest.py`)
+are shipped + tested, validated by a live agent run over 8 real candidates. Remaining B: cache top-N
+images into the repo, wire the renderer + fan-out into the daily routine. Phase C (Spotify) runs in
+parallel on its own branch.
 Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog ~700 events, weekend + windowed digests
 shipped, dashboard live. Read this file + `CLAUDE.md` + the two `SKILL.md` files before any
 non-trivial task.
@@ -114,18 +116,19 @@ portability.
       the by-hand fetch/dedupe/score loop is retired.
 
 ## Phase B — Enrichment + beautified digest (the visible quality jump)
-- [ ] **`scene-researcher` subagent + enrichment cache** — Tier 1 fan-out over the top ~30–40;
-      cache by event-id + artist (the scene graph begins accumulating).
-- [ ] **Enriched per-event schema** — add `type/subgenre tags`, `relevance` (★, taste-graph-driven,
-      shown in the digest — today it's keyword-based and only in the dashboard feed), `curator_note`,
-      `artist_notes`, cleaned `description`, and `image` (top 10). Date/time/venue/ticket-links
-      already exist — keep all ticket links, labeled by source.
-- [ ] **Two renderers from one enriched dataset**: keep the canonical `.md` (diffable, commits,
-      GitHub renders) *and* generate a **rich HTML render** (type-colored tags, ★ relevance, card
-      layout, top-10 hero images) emailed via the Gmail connector. Cache the top-10 images into the
-      repo so emailed digests don't rot. (Confirmed: HTML email is the visual home; text-only `.md` stays.)
-- [ ] Leveled-up `.md` per-event line, e.g.:
-      `[house] ★★★★☆ **Title** — artist gloss · Fri 6/19 9pm · El Cid, Silver Lake · $7 · [RA] [DICE] — curator's note.`
+- [x] **`scene-researcher` + enrichment cache** — `scripts/lib/enrich.py`: stable `event_key`, the
+      accumulating events/artists scene graph (`data/enrichment.json`), miss-detection + merge +
+      `update_cache` (artists researched once). Validated by a real agent run over 8 live candidates
+      (Bradley Zero→Rhythm Section, Eddie C→Endless Flight, Chris Lake→Black Book, DJ Minx/Casmalia placed).
+- [x] **Enriched per-event schema** — `type` + `subgenres`/`label_orbit`/`energy`/`setting`/`sounds_like`,
+      `artist_notes`, `curator_note`, `description`, `image` (image_wanted picks). ★ relevance reads the
+      precomputed candidate `rating`. All ticket links preserved on the candidate.
+- [x] **Two renderers from one enriched dataset** — `scripts/render_digest.py` → canonical `.md`
+      (Don't-miss + day-by-day, type tag, ★, linked title, curator note + gloss) **and** a rich
+      emailable `.html` (type chips, ★, curator notes, hero images, inline CSS). Tested; can't drift.
+- [ ] **Remaining B:** cache the top-N images into the repo (avoid hotlink rot); wire
+      `render_digest.py` + the `scene-researcher` fan-out into the daily routine (replace the Step-4
+      placeholder); the short conversational intro + **Around town**/**On the radar** stay Claude's.
 
 ## Phase C — Spotify taste superset (Spotify is the *music layer*, never the whole profile)
 - [ ] **Spotify sync** — top/followed/recently-played artists + genres → the artist/genre affinity
