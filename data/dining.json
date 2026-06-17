@@ -945,5 +945,279 @@
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
     "notes": "Chris Bianco's LA outpost (Row DTLA) — among the country's best pizza. Bib Gourmand. Confirm exact address."
+  },
+  {
+    "id": "sushi-note",
+    "name": "Sushi Note",
+    "type": "restaurant",
+    "cuisine": [
+      "sushi",
+      "japanese"
+    ],
+    "neighborhood": "Sherman Oaks",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "special",
+      "solo_counter"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Sushi-and-wine bar (team behind Sogo Roll Bar). Valley — a destination, not walkable."
+  },
+  {
+    "id": "santo",
+    "name": "Santo",
+    "type": "restaurant",
+    "cuisine": [
+      "sushi",
+      "japanese",
+      "mexican"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "casual",
+      "solo_counter"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": "https://resy.com/cities/los-angeles-ca/venues/santo-nigiri-and-sake-bar",
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Japanese-Mexican nigiri/handrolls + sake & wine, Sunset Junction. Home turf; next to Bar Seco. (Santō)"
+  },
+  {
+    "id": "bar-seco",
+    "name": "Bar Seco",
+    "type": "bar",
+    "cuisine": [
+      "natural wine",
+      "small plates"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": "https://resy.com/cities/los-angeles-ca/venues/seco-silverlake",
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Natural wine bar + small plates (CDMX/Madrid/Japan), spills onto Sunset. Walk-in/sidewalk seats. Next to Santo. (aka Seco)"
+  },
+  {
+    "id": "superba",
+    "name": "Superba",
+    "type": "restaurant",
+    "cuisine": [
+      "california",
+      "bakery",
+      "new american"
+    ],
+    "neighborhood": "Venice",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "group",
+      "casual",
+      "special"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "ARI'S ABSOLUTE FAVORITE — food + ambiance, the patio especially (also great inside). Superba Food + Bread, Lincoln Blvd. Westside — worth the drive."
+  },
+  {
+    "id": "le-oyster-bar",
+    "name": "L&E Oyster Bar",
+    "type": "restaurant",
+    "cuisine": [
+      "oysters",
+      "seafood"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$$",
+    "occasion": [
+      "date_night",
+      "casual",
+      "group"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Silver Lake oyster bar; the upstairs bar is the chill walk-in move. Home turf."
+  },
+  {
+    "id": "pijja-palace",
+    "name": "Pijja Palace",
+    "type": "restaurant",
+    "cuisine": [
+      "indian",
+      "italian",
+      "pizza"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "group",
+      "casual",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "hard"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Indian-Italian sports bar — pizza, pasta, cricket on the TVs. Very popular (hard rez / walk-in bar). Silver Lake, home turf."
+  },
+  {
+    "id": "night-market-song",
+    "name": "Night + Market Song",
+    "type": "restaurant",
+    "cuisine": [
+      "thai"
+    ],
+    "neighborhood": "Silver Lake",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "date_night",
+      "group",
+      "casual"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "books_up"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Kris Yenbamroong's fiery northern Thai on Sunset. Walk-in friendly. Home turf."
+  },
+  {
+    "id": "momed",
+    "name": "Momed",
+    "type": "restaurant",
+    "cuisine": [
+      "mediterranean"
+    ],
+    "neighborhood": "Atwater Village",
+    "address": null,
+    "price": "$$",
+    "occasion": [
+      "casual",
+      "group",
+      "quick_lunch",
+      "date_night"
+    ],
+    "reservations": {
+      "platform": "resy",
+      "url": null,
+      "difficulty": "easy"
+    },
+    "signals": [
+      {
+        "source": "ari",
+        "type": "loved",
+        "label": "Ari favorite",
+        "url": null,
+        "date": "2026-06-17"
+      }
+    ],
+    "first_seen": "2026-06-17",
+    "last_seen": "2026-06-17",
+    "notes": "Mediterranean — mezze, wraps, bowls. Atwater Village (also Beverly Hills). Eastside, easy."
   }
 ]

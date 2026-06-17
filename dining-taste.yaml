@@ -19,13 +19,25 @@ geography:
 # his reply (the restaurants_loved seed + cuisines he gravitates to, hard dietary
 # rules, weeknight vs. special price comfort, vibe notes). Until then the ranking
 # leans on the signal weights + affordability policy below.
-cuisines_love: []            # FILL FROM ARI'S LIST (e.g. the cuisines his favorites cluster around)
+cuisines_love:               # inferred from restaurants_loved (6/17)
+  - sushi / japanese         # Sushi Note, Santo
+  - natural wine bars        # Bar Seco, Santo, L&E upstairs — "including wine bars here"
+  - oysters / seafood        # L&E Oyster Bar
+  - thai                     # Night + Market Song
+  - mediterranean            # Momed
+  - california / new american  # Superba
+  - indian-italian / casual-fun  # Pijja Palace
 cuisines_avoid: []
-dietary: []                  # allergies / restrictions — HARD filters (fill from Ari)
+dietary: []                  # none stated — no hard filters yet
 price_comfort:
-  weeknight: "$$"            # default casual ceiling until Ari confirms
-  special: "$$$$"            # occasions can go all the way
-vibe_notes: []               # e.g. "counter seats", "no scene-y bottle-service rooms" (fill from Ari)
+  weeknight: "$$"            # everyday casual
+  date_two_max_usd: 150      # ~$150 for two on a date — "can stretch a little"
+  special: "$$$"             # dates top out ~$$$ (the $150/two cap); true $$$$ splurge is rare
+vibe_notes:
+  - great patios / al fresco a big plus — Superba especially (outside), but inside too
+  - wine bars / natural wine (Bar Seco, Santo)
+  - chill bar / counter seats (L&E Oyster Bar upstairs)
+  - neighborhood eastside spots — the Sunset Junction cluster is home turf
 
 # --- Affordability policy (Ari: "Michelin guide, keeping affordability in mind") ---
 # Prestige signals should NOT just push the most expensive rooms. Value-at-quality
@@ -72,9 +84,17 @@ popups:
   interested: true           # surface date-relevant popups/trucks
   location_tba_ok: true      # "address drops day-of" is fine
 
-restaurants_loved: []        # FILL FROM ARI'S LIST — his go-to spots; strong +boost,
-                             # and the night-planner leans on these hard for dinner picks.
-restaurants_banned: []       # FILL FROM ARI'S LIST — places to never surface (hard filter)
+restaurants_loved:           # Ari's go-tos (6/17) — strong +boost; the night-planner leans
+                             # on these hard for dinner. Most are Silver Lake / eastside.
+  - Superba                  # ABSOLUTE FAVORITE — food + ambiance, the patio especially (Venice)
+  - L&E Oyster Bar           # Silver Lake — oysters; upstairs bar is the chill move
+  - Pijja Palace             # Silver Lake — Indian-Italian sports bar, great value/fun
+  - Night + Market Song      # Silver Lake — Thai
+  - Santo                    # Silver Lake — Japanese-Mexican sushi + sake/wine (Sunset Junction)
+  - Bar Seco                 # Silver Lake — natural wine bar + small plates (next to Santo)
+  - Sushi Note               # Sherman Oaks — sushi + wine
+  - Momed                    # Atwater Village — Mediterranean
+restaurants_banned: []       # none stated
 
 # Feedback log — append reactions ("more like X", "never again Y", "too far",
 # "perfect for date night"); periodically fold into the preferences above.
