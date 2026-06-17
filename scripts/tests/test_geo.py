@@ -73,6 +73,14 @@ def test_profile_overrides_gazetteer():
     assert geo.resolve("Silver Lake", custom) is None
 
 
+def test_venue_resolves_through_messy_neighborhood():
+    """A venue/restaurant whose neighborhood string carries wrapper text still places
+    (this is how travel.py resolves dining records like 'Echo Park / Silver Lake')."""
+    custom = {"geo": {"neighborhoods": {"Highland Park": [34.11, -118.19]},
+                      "venues": {"Jeffs Table": "Highland Park (NELA)"}}}
+    assert geo.resolve("Jeffs Table", custom) == (34.11, -118.19)
+
+
 def test_profile_travel_knobs_apply():
     fast = {"geo": {"travel": {"short_min_per_mile": 1.0, "park_buffer_min": 0, "drive_floor_min": 0}}}
     assert geo.drive_minutes(3, fast) < geo.drive_minutes(3, PROFILE)

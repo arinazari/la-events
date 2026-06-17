@@ -141,12 +141,28 @@ def _geo_cfg(profile: dict) -> dict:
     return {"home": tuple(home), "neighborhoods": hoods, "venues": venues, "travel": travel}
 
 
-def resolve(place, profile: dict = None):
-    """(lat, lon) for a neighborhood name OR known venue, else None.
+def _hood_coords(hood, cfg):
+    """Coords for a (possibly messy) neighborhood string: exact, then longest substring.
 
-    'home' resolves to the configured home coords. A venue resolves via its mapped
-    neighborhood. Matching is normalized and tolerant of substrings (venue strings
-    carry suffixes like 'Theatre', 'Lounge')."""
+    Handles values like 'Echo Park / Silver Lake (eastside)' or 'University Park
+    (Mercado La Paloma)' that carry extra text around a known neighborhood name."""
+    h = _norm(hood)
+    if not h:
+        return None
+    if h in cfg["neighborhoods"]:
+        return cfg["neighborhoods"][h]
+    hits = [n for n in cfg["neighborhoods"] if len(n) >= 4 and n in h]
+    return cfg["neighborhoods"][max(hits, key=len)] if hits else None
+
+
+def resolve(place, profile: dict = None):
+    """(lat, lon) for a neighborhood name, a known venue, or a dining restaurant, else None.
+
+    'home' → configured home coords. A venue/restaurant resolves via its mapped
+    neighborhood (which is itself resolved, so messy strings still place). Matching is
+    normalized and tolerant of suffixes ('Theatre', 'Lounge') and wrapper text.
+    (travel.py augments `geo.venues` with restaurant→neighborhood from data/dining.json,
+    so passing a restaurant name to the CLI works.)"""
     if place is None:
         return None
     if isinstance(place, (tuple, list)) and len(place) == 2:
@@ -160,14 +176,13 @@ def resolve(place, profile: dict = None):
     if key in cfg["neighborhoods"]:
         return cfg["neighborhoods"][key]
     if key in cfg["venues"]:
-        return cfg["neighborhoods"].get(cfg["venues"][key])
-    # substring fallback: longest known venue/neighborhood contained in the string
-    for table in (cfg["venues"], cfg["neighborhoods"]):
-        hits = [name for name in table if name and (name in key or key in name)]
-        if hits:
-            best = max(hits, key=len)
-            return cfg["neighborhoods"].get(table[best]) if table is cfg["venues"] else cfg["neighborhoods"][best]
-    return None
+        return _hood_coords(cfg["venues"][key], cfg)
+    # substring fallback: a known venue/restaurant name contained in the place string
+    venue_hits = [n for n in cfg["venues"] if len(n) >= 4 and n in key]
+    if venue_hits:
+        return _hood_coords(cfg["venues"][max(venue_hits, key=len)], cfg)
+    # last resort: a neighborhood name embedded in the string
+    return _hood_coords(key, cfg)
 
 
 def haversine_miles(a, b) -> float:
