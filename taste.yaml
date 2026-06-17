@@ -2,10 +2,11 @@
 # Weights: events accumulate points from category/genre/context matches; digest sorts by score.
 #
 # Curated as an electronic head: the spine is house / techno / tech-house across the spectrum —
-# from rooftop-vinyl-groove and proper European club nights (the north star) all the way to
+# from rooftop-vinyl-groove and proper European club nights all the way to
 # mainstream festival/big-room headliners (Chris Lake, FISHER, etc. ARE priority, not noise).
-# North star archetype: "Sunset Sessions at Golden Hour DTLA" — chill rooftop, vinyl, house,
-# European feel. But don't let "tasteful" exclude the big fun mainstream sets.
+# A recurring favorite — one kind of event he likes, not the be-all: "Sunset Sessions at Golden
+# Hour DTLA" — chill rooftop, vinyl, house, European feel. But don't let "tasteful" exclude the
+# big fun mainstream sets.
 
 categories:
   high:    # weight +3 each match
@@ -142,16 +143,16 @@ artists_tracked:
 comedians_loved: [Stavros Halkias]   # the comedy exception — these get surfaced; others don't
 venues_loved: [Zebulon, Vidiots, Vista, Lodge Room, 2220 Arts, El Cid, Golden Hour at Level 8]   # +1
 # Named-favorite series to PIN in the digest whenever on (surface even if score is modest):
-pinned_series: ["Sunset Sessions"]   # the rooftop-vinyl-house north star @ Level 8 DTLA
+pinned_series: ["Sunset Sessions"]   # a recurring rooftop-vinyl-house favorite @ Level 8 DTLA (one kind of event he likes)
 
 # Feedback log — append reactions here ("more like X", "never show Y");
 # periodically fold them into the weights above.
 feedback:
-  - "2026-06-16: north star = Sunset Sessions / rooftop vinyl house w/ European feel."
+  - "2026-06-16: rooftop vinyl house w/ European feel is a core lane; Sunset Sessions is one example (don't overstate it)."
   - "2026-06-16: techno + house both mainstream and underground (fabric-London energy)."
   - "2026-06-16: not a comedy fan generally; surface known names only (loves Stavros Halkias)."
   - "2026-06-16: curious about Vidiots (never been); add Vista to rep-cinema rotation."
-  - "2026-06-16: ALWAYS surface Sunset Sessions @ Level 8 (the named archetype) when it's on."
+  - "2026-06-16: surface Sunset Sessions @ Level 8 when it's on — a recurring favorite / one kind of event I like (not a headline)."
   - "2026-06-16: festival radar should be compact + urgency-driven, not a curated list dump."
   - "2026-06-16: mainstream big-room headliners (Chris Lake et al.) ARE priority too — don't
      down-rank them as 'mainstream EDM'. Curate like an electronic head; want MORE/additional recs."

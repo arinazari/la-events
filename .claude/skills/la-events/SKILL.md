@@ -143,23 +143,23 @@ the spine — it answers "what's on tonight / this weekend" at a glance). Struct
 **ALWAYS hyperlink the event** to its ticket/info URL when the catalog has one (it usually
 does — links live on each record). Keep editorial-mention badges inline, e.g. "(LAist pick)".
 
-**Pin named favorites.** When the user has called out a specific event/series/venue as an
-on-taste archetype (e.g. **Sunset Sessions @ Golden Hour / Level 8** — the rooftop-vinyl-house
-north star; tracked in `taste.yaml` venues_loved), surface it whenever it's on, even if its raw
-score is modest. Don't let the archetype get buried under higher-scoring one-offs.
+**Pin named favorites.** When the user has called out a specific event/series/venue as a
+recurring favorite (e.g. **Sunset Sessions @ Golden Hour / Level 8** — a rooftop-vinyl-house
+night he likes; tracked in `taste.yaml` pinned_series / venues_loved), surface it when it's on,
+even if its raw score is modest. It's one kind of event he's into — worth including, not the headline.
 
 **Artist-annotation layer (required).** Many lineup names are unknown to the user — so for
 picks and notable lineups, add a short parenthetical or em-dash gloss explaining who the
 artist/DJ is and WHY it's on-taste: genre, scene, label, or reference point
 (e.g. "DJ Minx — Detroit house pioneer, Women on Wax"; "Antal — Rush Hour boss, Dutch
 digger, deep/disco selector"; "Yaeji — NY/Korean house-pop, leftfield club"). Anchor to the
-taste north star (rooftop/vinyl/groove/European/fabric-style) where it fits. Use your own
+his core taste (rooftop/vinyl/groove/European/fabric-style) where it fits. Use your own
 knowledge; web-check only genuinely unknown names. Don't annotate household names.
 
 ### Taste profile (ranking weights)
 
-- North star: "Sunset Sessions at Golden Hour DTLA" — chill rooftop, vinyl/grooves, house,
-  European feel. Optimize toward that energy.
+- Core lane: rooftop / vinyl / groove / house with a European feel — e.g. Sunset Sessions at
+  Golden Hour DTLA is one example. Optimize toward that energy.
 - **High**: house / techno / acid / electro DJ events (mainstream AND underground);
   "fabric London"-style club nights / European-leaning lineups; rooftop / sunset / daytime
   open-air house, disco, Balearic, groove; vinyl-only / listening-bar sets; warehouse &
@@ -236,7 +236,7 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
 
 - `sources.yaml` — the registry. Read at the start of every mode. Schema documented in
   the file header.
-- `taste.yaml` — ranking config (re-read every run). Has the north star, weights, and
+- `taste.yaml` — ranking config (re-read every run). Has the core taste, weights, and
   `comedians_loved` (the comedy exception list).
 - `festivals.yaml` — the "On the radar" curated list (festivals + big concerts months out);
   refresh status with a live web lookup each digest run.

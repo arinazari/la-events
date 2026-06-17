@@ -16,6 +16,10 @@ lives outside git.
 - **Dedupes** into `data/catalog.json` — one record per real event, all ticket links kept.
 - **Scores** each event against `taste.yaml` (your preferences) + `profile.yaml` (place/scoring
   mechanics) — one shared module, so the digest and dashboard never disagree.
+- **Personalizes** that scoring with a **Spotify + feedback music layer**: your top / followed /
+  recently-played artists nudge shows you'd actually want, and thumbs reactions ("more like X" /
+  "never show Y") fold in automatically. It *enriches* `taste.yaml` — never overwrites it; with no
+  Spotify creds and no feedback, scoring is identical to the taste-only path.
 - **Enriches** the top picks via the `scene-researcher` agent: sub-genre tags, who each artist is
   and why they fit, a curator's note, a clean description, and a hero image. Artist research is
   cached in `data/enrichment.json` and reused — the "scene graph" compounds each run.
@@ -26,11 +30,17 @@ lives outside git.
 ## The pipeline
 
 ```
-run_digest.py        fetch → normalize → dedupe → expire → score   → data/catalog.json + data/candidates.json
+fetch_spotify.py     top / followed / recent → music affinity      → data/spotify_affinity.json
+run_digest.py        fetch → dedupe → expire → score (+ affinity   → data/catalog.json + data/candidates.json
+                       + data/feedback.jsonl)
 scene-researcher ×N  enrich the top candidates (parallel)          → data/enrichment.json  (scene graph, grows)
 cache_images.py      download hero images                           → data/images/
 render_digest.py     enriched candidates → the digest              → .md + .html
 ```
+
+`run_digest.py` runs the Spotify sync itself when `SPOTIFY_REFRESH_TOKEN` is set, then folds the
+affinity (Spotify artists + `data/feedback.jsonl` reactions) into the score — so the whole thing
+is still one command.
 
 ## Getting a digest — two ways, same pipeline
 
@@ -48,11 +58,12 @@ diffable text. **No email** — the `.html` is the artifact the planned hosted p
 ## What's live now vs. next
 
 - **Live:** the deterministic core, the worker agents, the enrichment scene-graph, the day-grouped
-  dual renderer, image caching, and the static **dashboard** (`dashboard/`) — a filterable catalog
-  view that **auto-deploys to GitHub Pages** on any push to `main` touching `dashboard/**`.
-- **Next:** a **taste layer from Spotify** + a reaction-driven feedback loop (taste learns over time),
-  and an **interactive hosted page** — the bookmarkable daily digest *with on-page actions* (trigger a
-  source re-scan, ask the LLM for an ad-hoc digest). It supersedes the basic dashboard. See `ROADMAP.md`.
+  dual renderer, image caching, the **Spotify + feedback taste layer**, and the static **dashboard**
+  (`dashboard/`) — a filterable catalog view that **auto-deploys to GitHub Pages** on any push to
+  `main` touching `dashboard/**`.
+- **Next:** an **interactive hosted page** — the bookmarkable daily digest *with on-page actions*
+  (trigger a source re-scan, ask the LLM for an ad-hoc digest). It supersedes the basic dashboard.
+  See `ROADMAP.md`.
 
 ## Setup
 
@@ -61,6 +72,11 @@ diffable text. **No email** — the `.html` is the artifact the planned hosted p
 - Allow network egress to app.ticketmaster.com, ra.co, dice.fm + the domains in `sources.yaml`.
 - Schedule the routine (`routines/daily-digest-prompt.md`) → commits to `main` → the Pages workflow
   redeploys the dashboard.
+- **Spotify taste layer (optional):** create an app at developer.spotify.com (redirect URI
+  `http://127.0.0.1:8888/callback`), set `SPOTIFY_CLIENT_ID` / `SPOTIFY_CLIENT_SECRET`, run
+  `python scripts/fetch_spotify.py --authorize` once to mint `SPOTIFY_REFRESH_TOKEN`, and allow egress
+  to accounts.spotify.com + api.spotify.com. It then syncs each run. (Spotify no longer exposes genres
+  to new apps, so the layer is artist-driven; genres come from feedback.)
 - Optional / future: Gmail "Events" label (promoter blasts), Twilio SMS receiver (`sms-ingestion.md`).
 
 ## Tuning it
@@ -69,10 +85,26 @@ diffable text. **No email** — the `.html` is the artifact the planned hosted p
   comedy exception). Edit directly anytime; re-read every run.
 - **`profile.yaml`** — place + scoring mechanics (DMA/area ids, home geo, weights, term matchers,
   thresholds). The city-portable knob — swap it to point the engine at another city.
+- **The music layer** lives in `profile.yaml` → `scoring.spotify` / `scoring.feedback`. It's a
+  deliberate nudge, not the spine. Knobs worth knowing:
+  - `scoring.spotify.tier_points.core` (default **3**) — points a core-rotation artist adds when
+    billed. **Bump to 4** if you want an artist you love to clear ★4 even on a bare weekday show;
+    drop to 2 to make Spotify quieter. `strong`/`light` are the lower tiers; `artist_cap` (default 5)
+    limits how much one stacked lineup can pile on.
+  - `scoring.spotify.ambiguous_names` — single common-word artist names (Train, Future, Juice…) that
+    only count when actually in the lineup, not loose title text. Add names here when you spot a false
+    match (the auto-pulled Spotify list hits these where a hand-curated list wouldn't).
+  - `scoring.feedback.weights` — how far a `loved` / `went` / `skipped` / **`hide`** reaction moves an
+    artist or genre.
+- **Give feedback** by appending a line to `data/feedback.jsonl`, e.g.
+  `{"ts":"2026-06-20","kind":"loved","artists":["Antal"]}` or `{"kind":"hide","artists":["…"]}`.
+  It folds into scoring automatically next run — no hand-editing weights. Spotify *enriches*
+  `taste.yaml`; it never overwrites your curated layer.
 
 ## Docs
 
 - **CLAUDE.md** — orientation + conventions (start here)
 - `.claude/skills/la-events/SKILL.md` — operating spec (the contract); `la-dining/` is the food sibling
-- **ROADMAP.md** — current phase (A + B complete), the hosted-page direction, open decisions
-- `scripts/lib/` + `scripts/tests/` — the tested core (scoring, dedupe, pipeline, enrich, images)
+- **ROADMAP.md** — current phase (A + B + C complete), the hosted-page direction, open decisions
+- `scripts/lib/` + `scripts/tests/` — the tested core (scoring, dedupe, pipeline, enrich, images,
+  affinity, feedback)

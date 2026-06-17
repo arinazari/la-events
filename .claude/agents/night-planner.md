@@ -17,8 +17,8 @@ booking links to make them happen. Opinionated and brief — an itinerary, not a
 ## Input
 - A night spec: date, area / walkability, vibe, party size, budget, and any **anchor** ("the
   Antal show is the centerpiece," "somewhere special — it's a birthday"). Some fields will be
-  missing — infer sensible defaults (home = Silver Lake / Hyperion & Del Mar, eastside lean, the
-  taste north star). Ask **one** clarifying question only if a true blocker is missing (e.g. date
+  missing — infer sensible defaults (home = Silver Lake / Hyperion & Del Mar, eastside lean, his
+  core taste). Ask **one** clarifying question only if a true blocker is missing (e.g. date
   vs. area when both would flip the plan).
 - Read `data/catalog.json`, `data/dining.json`, `taste.yaml`, `dining-taste.yaml`.
 

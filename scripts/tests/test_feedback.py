@@ -93,13 +93,13 @@ def test_load_feedback_skips_garbage(tmp_path=None):
     assert len(rx) == 2
 
 
-def test_real_seed_feedback_parses():
-    """The committed data/feedback.jsonl is valid and yields the expected nudges."""
+def test_committed_feedback_log_is_valid_jsonl():
+    """The committed data/feedback.jsonl parses cleanly (comments skipped; may be empty)."""
     repo = Path(__file__).resolve().parent.parent.parent
     rx = load_feedback(repo / "data" / "feedback.jsonl")
-    assert rx, "seed feedback should be present"
-    agg = aggregate(rx, PROFILE)
-    assert "chris lake" in agg["artist_delta"] and "deep house" in agg["genre_delta"]
+    assert isinstance(rx, list)                       # no crash on the real file
+    agg = aggregate(rx, PROFILE)                       # aggregate handles it (even when empty)
+    assert set(agg) == {"artist_delta", "genre_delta", "hide", "names"}
 
 
 if __name__ == "__main__":
