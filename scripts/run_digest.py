@@ -62,7 +62,10 @@ def run_fetcher(entry: dict, days: int, tmpdir: str) -> list:
     out = Path(tmpdir) / f"{entry['source']}.json"
     args = [a.format(days=days) for a in entry["args"]]
     cmd = [sys.executable, str(REPO / "scripts" / entry["script"]), *args, "-o", str(out)]
-    subprocess.run(cmd, check=True, capture_output=True, timeout=120, cwd=str(REPO))
+    proc = subprocess.run(cmd, capture_output=True, timeout=120, cwd=str(REPO), text=True)
+    if proc.returncode != 0:
+        tail = (proc.stderr or proc.stdout or "").strip().splitlines()
+        raise RuntimeError(tail[-1][:160] if tail else f"exit {proc.returncode}")
     raw = json.loads(out.read_text())
     records = raw.get("events", raw) if isinstance(raw, dict) else raw
     return [P.normalize_record(r, entry["source"]) for r in records]

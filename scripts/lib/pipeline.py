@@ -90,7 +90,7 @@ def normalize_record(raw: dict, source=None) -> dict:
         "detail": raw.get("detail") or raw.get("description") or raw.get("desc"),
         "price": raw.get("price"),
         "ra_pick": bool(raw.get("ra_pick")),
-        "afterhours": bool(raw.get("afterhours")),
+        "afterhours": bool(raw.get("afterhours") or raw.get("afterhours_flag")),
     }
 
 

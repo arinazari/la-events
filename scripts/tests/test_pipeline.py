@@ -35,6 +35,14 @@ def test_normalize_maps_common_shapes():
     assert rec["ra_pick"] is True
 
 
+def test_normalize_reads_afterhours_flag():
+    # Fetchers emit `afterhours_flag` (e.g. RA); normalize must carry it onto `afterhours`
+    # so the scorer's warehouse/afterhours boost fires. (Regression: was dropped -> 0%.)
+    assert P.normalize_record({"title": "W", "date": "2026-06-20", "afterhours_flag": True}, "ra")["afterhours"] is True
+    assert P.normalize_record({"title": "W", "date": "2026-06-20", "afterhours": True}, "ra")["afterhours"] is True
+    assert P.normalize_record({"title": "W", "date": "2026-06-20"}, "ra")["afterhours"] is False
+
+
 def test_normalize_passes_through_canonical_links():
     raw = {"title": "X", "date": "2026-06-20", "venue": "Y",
            "links": [{"source": "dice", "url": "https://dice.fm/e/1"}], "category": "live_music"}

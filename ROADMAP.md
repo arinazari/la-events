@@ -186,6 +186,16 @@ Runs explicit strategies, returns a proposal table (approve → append to `sourc
 - Posh auth: `POSH_TOKEN` = session JWT, ~30-day life; re-capture on 401. Durable refresh = future.
 
 ### Open source work (route through `source-scout` / Discover)
+**Fetcher field-extraction tightening** (from the live smoke test — `run_digest` wiring + normalize
+were validated; these are per-fetcher *under-extraction*, not normalize bugs):
+- [x] `normalize_record` now reads `afterhours_flag` (was dropped → RA afterhours 0%; now ~36%);
+      `fetch_ra.py` now emits the `venue.area` neighborhood it already queried (was discarded).
+- [ ] `fetch_ticketmaster.py`: extract `priceRanges` + `attractions` (lineup) — emits `genre` only,
+      so TM price/lineup land at ~0% in the catalog.
+- [ ] `fetch_dice.py`: `performers()` + `price()` return empty on the current DICE JSON-LD — re-check
+      the extraction (lineup/price 0% straight from the fetcher).
+- [ ] Venue→neighborhood map: RA area is city-level ("Los Angeles"); 19hz has none — derive a finer
+      neighborhood from the venue for the near-home boost + display.
 - [ ] Wire `method: webfetch` venues into the digest run (read rendered calendars at digest time)
 - [ ] Bar Franca / Somerville: find the right Squarespace events collection slug (json-pretty → 0)
 - [ ] Silverlake Lounge: DICE slug valid but 0 upcoming — re-check (many indies book via See Tickets)

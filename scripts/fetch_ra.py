@@ -97,6 +97,7 @@ def normalize(listing: dict) -> dict:
         "start": ev.get("startTime"),
         "end": ev.get("endTime"),
         "venue": venue.get("name"),
+        "neighborhood": (venue.get("area") or {}).get("name"),
         "lineup": [a.get("name") for a in (ev.get("artists") or [])],
         "attending": ev.get("attending"),
         "ra_pick": bool(ev.get("pick")),
