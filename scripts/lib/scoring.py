@@ -1,0 +1,212 @@
+"""Taste-ranking heuristic — the ONE place scoring lives.
+
+Was inline in build_dashboard.py; extracted so build_dashboard.py, the future
+run_digest.py orchestrator, and the digest all score identically (no drift).
+
+score_event(ev, taste, profile) -> {"score": int, "reasons": [str]}
+score_to_rating(score, profile) -> int  (1..5)
+
+`taste` = taste.yaml content (artists_tracked, venues_loved, pinned_series,
+comedians_loved, venues_banned). `profile` = profile.yaml mechanism (category
+weights, term matchers, geo, rating thresholds). Both optional — every config
+read falls back to the DEFAULT_* below, which are transcribed verbatim from the
+pre-refactor build_dashboard.py, so scoring is behavior-preserving even with no
+profile.yaml present.
+"""
+
+from datetime import date, datetime
+
+# ── Defaults (verbatim from pre-refactor build_dashboard.py) ─────────────────
+DEFAULT_CATEGORY_WEIGHTS = {
+    "electronic": 3,
+    "party": 3,
+    "film": 3,
+    "music": 2,
+    "live_music": 2,
+    "theater": 2,
+    "beer_food": 2,
+    "comedy": 1,
+    "art": 1,
+    "pop": 1,
+    "general": 1,
+}
+
+DEFAULT_NEAR_HOME = (
+    "silver lake", "silverlake", "echo park", "los feliz", "east hollywood",
+    "atwater village", "atwater", "frogtown", "elysian valley", "highland park",
+    "eagle rock", "glassell park", "cypress park", "lincoln heights", "chinatown",
+    "virgil village", "westlake", "historic filipinotown", "downtown", "dtla",
+    "arts district",
+)
+
+DEFAULT_GROOVE_TERMS = (
+    "vinyl", "all night", "open to close", "open-to-close", "groove", "disco",
+    "soulful", "deep house", "balearic", "rooftop", "sunset", "golden hour",
+    "open-air", "open air", "daytime", "day party", "poolside", "pool party",
+)
+
+DEFAULT_EU_TERMS = (
+    "fabric", "defected", "innervisions", "keinemusik", "hot creations", "rush hour",
+    "running back", "anjuna", "afterlife", "dirtybird", "hot since", "solid grooves",
+)
+
+DEFAULT_PENALTY_TERMS = (
+    "bottle service", "bottle-service", "vip table", "table service",
+    "top 40", "top-40", "open format", "open-format", "hip hop", "hip-hop",
+    "hardstyle", "gabber", "dubstep", "riddim", "brostep", "tribute", "cover band",
+    "watch party", "world cup", "fifa", "sports bar", "trivia", "bingo", "open mic",
+    "karaoke", "networking", "webinar", "workshop", "virtual", "zoom",
+    "mega-rave", "mega rave", "edm festival",
+)
+
+DEFAULT_FAR_TERMS = (
+    "anaheim", "santa ana", "irvine", "san diego", "temecula", "ventura",
+    "riverside", "long beach", "costa mesa", "huntington beach",
+)
+
+# [min_score, rating], checked high-to-low; below all -> 1.
+DEFAULT_RATING_THRESHOLDS = ((8, 5), (6, 4), (4, 3), (2, 2))
+
+
+def _scoring_cfg(profile: dict) -> dict:
+    """Resolve the scoring config from profile.yaml, falling back to DEFAULT_*."""
+    sc = (profile or {}).get("scoring") or {}
+    return {
+        "category_weights": sc.get("category_weights") or DEFAULT_CATEGORY_WEIGHTS,
+        "near_home": {h.lower() for h in (sc.get("near_home_neighborhoods") or DEFAULT_NEAR_HOME)},
+        "groove": tuple(sc.get("groove_terms") or DEFAULT_GROOVE_TERMS),
+        "eu": tuple(sc.get("eu_terms") or DEFAULT_EU_TERMS),
+        "penalty": tuple(sc.get("penalty_terms") or DEFAULT_PENALTY_TERMS),
+        "far": tuple(sc.get("far_terms") or DEFAULT_FAR_TERMS),
+        "rating_thresholds": [tuple(t) for t in (sc.get("rating_thresholds") or DEFAULT_RATING_THRESHOLDS)],
+    }
+
+
+def parse_event_date(ev: dict):
+    """Best-effort ISO date (datetime.date) for an event record."""
+    raw = ev.get("date") or ev.get("datetime") or ""
+    if not raw:
+        return None
+    raw = str(raw)
+    try:
+        return datetime.fromisoformat(raw.replace("Z", "+00:00")).date()
+    except ValueError:
+        try:
+            return date.fromisoformat(raw[:10])
+        except ValueError:
+            return None
+
+
+def score_event(ev: dict, taste: dict = None, profile: dict = None) -> dict:
+    """Return {score, reasons[]} for an event. Mirrors the digest's ranking."""
+    taste = taste or {}
+    cfg = _scoring_cfg(profile)
+    reasons = []
+    score = 0
+
+    cat = (ev.get("category") or "general").lower()
+    title = ev.get("title") or ""
+    venue = (ev.get("venue") or "")
+    vlow = venue.lower()
+    hood = (ev.get("neighborhood") or "").lower().strip()
+    lineup = ev.get("lineup") or []
+    if not isinstance(lineup, list):
+        lineup = [str(lineup)]
+    hay = " ".join([title, venue, ev.get("detail") or "", str(lineup),
+                    str(ev.get("organizers") or "")]).lower()
+
+    tracked = [a for a in (taste.get("artists_tracked") or []) if a]
+    loved = [v.lower() for v in (taste.get("venues_loved") or [])]
+    pinned = [p.lower() for p in (taste.get("pinned_series") or [])]
+    comics = [c.lower() for c in (taste.get("comedians_loved") or [])]
+
+    # Base category weight (comedy is special — suppressed unless a loved name).
+    base = cfg["category_weights"].get(cat, 1)
+    score += base
+    if cat == "comedy":
+        reasons.append("+1 comedy (low interest)")
+        if any(c in hay for c in comics):
+            score += 4
+            reasons.append("+4 favorite comedian")
+        else:
+            score -= 2
+            reasons.append("-2 comedy not generally wanted")
+    else:
+        lab = {3: "high", 2: "medium", 1: "low"}.get(base, "low")
+        reasons.append(f"+{base} {cat.replace('_', ' ')} ({lab} interest)")
+
+    # Tracked artist — match title OR lineup (+2 each; also the "tracked" badge).
+    hits = sorted({a for a in tracked if a.lower() in hay})
+    if hits:
+        score += 2 * len(hits)
+        reasons.append(f"+{2 * len(hits)} tracked artist ({', '.join(hits)})")
+
+    # Pinned series (e.g. Sunset Sessions) — always surface.
+    if any(p in hay for p in pinned):
+        score += 5
+        reasons.append("+5 pinned series")
+
+    # Loved venue (substring match — "2220 Arts" ~ "2220 Arts + Archives").
+    if any(l in vlow for l in loved):
+        score += 1
+        reasons.append("+1 venue you love")
+
+    # Afterhours / warehouse / late start (catalog field is `afterhours`).
+    if ev.get("afterhours") or ev.get("afterhours_flag"):
+        score += 1
+        reasons.append("+1 afterhours / late start")
+
+    if ev.get("ra_pick"):
+        score += 1
+        reasons.append("+1 RA pick")
+
+    # Rooftop / vinyl / groove setting, and European-label vibe.
+    if any(g in hay for g in cfg["groove"]):
+        score += 1
+        reasons.append("+1 rooftop / vinyl / groove")
+    if any(e in hay for e in cfg["eu"]):
+        score += 1
+        reasons.append("+1 European / label vibe")
+
+    # Friday / Saturday night.
+    d = parse_event_date(ev)
+    if d and d.weekday() in (4, 5):
+        score += 1
+        reasons.append("+1 Friday/Saturday night")
+
+    # Near home.
+    if hood in cfg["near_home"]:
+        score += 1
+        reasons.append("+1 close to Silver Lake")
+
+    # Editorial mentions (+1 each).
+    mentions = ev.get("editorial_mentions") or []
+    if mentions:
+        score += len(mentions)
+        reasons.append(f"+{len(mentions)} editorial mention ({', '.join(mentions)})")
+
+    # Banned venue (hard down-rank).
+    banned = [v.lower() for v in (taste.get("venues_banned") or []) if v]
+    if any(b in vlow for b in banned):
+        score -= 5
+        reasons.append("-5 venue you've banned")
+
+    # Penalties (each distinct term once).
+    for term in cfg["penalty"]:
+        if term in hay:
+            score -= 2
+            reasons.append(f"-2 {term}")
+    if any(f in hay or f in hood for f in cfg["far"]):
+        score -= 2
+        reasons.append("-2 far from LA")
+
+    return {"score": score, "reasons": reasons}
+
+
+def score_to_rating(score: int, profile: dict = None) -> int:
+    """Map a raw score to a 1-5 star 'recommended for you' rating."""
+    thresholds = _scoring_cfg(profile)["rating_thresholds"]
+    for min_score, rating in sorted(thresholds, key=lambda t: -t[0]):
+        if score >= min_score:
+            return rating
+    return 1

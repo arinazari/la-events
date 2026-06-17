@@ -19,7 +19,19 @@ from urllib.parse import urlencode
 from urllib.request import urlopen
 
 BASE = "https://app.ticketmaster.com/discovery/v2/events.json"
-LA_DMA = "324"
+
+
+def _profile_dma(default="324"):
+    """LA DMA id, lifted to profile.yaml (sources.ticketmaster_dma_id); falls back to 324."""
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from lib.config import load_profile
+        return str((load_profile().get("sources") or {}).get("ticketmaster_dma_id") or default)
+    except Exception:
+        return default
+
+
+LA_DMA = _profile_dma()
 PAGE_SIZE = 100
 
 
@@ -36,6 +48,7 @@ def normalize(ev: dict) -> dict:
     seg = classifications[0].get("segment", {}).get("name")
     genre = classifications[0].get("genre", {}).get("name")
     start = ev.get("dates", {}).get("start", {})
+    attractions = (ev.get("_embedded") or {}).get("attractions") or []
     return {
         "source": "ticketmaster",
         "id": ev.get("id"),
@@ -44,6 +57,7 @@ def normalize(ev: dict) -> dict:
         "local_time": start.get("localTime"),
         "venue": venue.get("name"),
         "neighborhood": (venue.get("city") or {}).get("name"),
+        "lineup": [a.get("name") for a in attractions if a.get("name")],
         "lat": (venue.get("location") or {}).get("latitude"),
         "lng": (venue.get("location") or {}).get("longitude"),
         "category": seg,

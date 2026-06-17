@@ -1,0 +1,154 @@
+# profile.yaml — place + person *infrastructure* config for the scoring engine and fetchers.
+# ---------------------------------------------------------------------------------------------
+# Lifted out of Python (the term lists + geo in build_dashboard.py, the dma/area ids in the
+# fetchers) so the engine is city/person-configurable and the scoring logic can live in ONE
+# place: scripts/lib/scoring.py. Split of concerns:
+#   taste.yaml  = CONTENT  — what Ari likes (artists_tracked, venues_loved, pinned_series, lanes)
+#   profile.yaml = MECHANISM — source ids, home/geo, scoring weights, term matchers, thresholds
+# Change city/person by swapping this file; the scoring code doesn't change.
+# Values below are transcribed verbatim from the pre-refactor build_dashboard.py (behavior-preserving).
+
+city: Los Angeles
+timezone: America/Los_Angeles
+
+# Home base — drives the "close to home" boost.
+home:
+  neighborhood: Silver Lake
+  cross_streets: Hyperion & Del Mar
+
+# City-specific source ids (lifted from the fetchers; they fall back to these literals).
+sources:
+  ticketmaster_dma_id: "324"   # LA DMA — fetch_ticketmaster.py
+  ra_area_id: 23               # RA's internal LA area number — fetch_ra.py
+
+scoring:
+  # Base category weight, mirroring taste.yaml high/medium/low. Comedy is special-cased in code
+  # (suppressed unless a loved comedian). Unknown categories default to 1.
+  category_weights:
+    electronic: 3
+    party: 3          # club / warehouse / afterhours
+    film: 3           # rep & arthouse cinema
+    music: 2          # live music (catalog's term)
+    live_music: 2
+    theater: 2
+    beer_food: 2
+    comedy: 1
+    art: 1
+    pop: 1
+    general: 1
+
+  # Raw-score -> 1..5 star rating. [min_score, rating], checked high-to-low; below all => 1.
+  rating_thresholds:
+    - [8, 5]
+    - [6, 4]
+    - [4, 3]
+    - [2, 2]
+
+  # Neighborhoods walkable / a short drive from home (+1). Matched case-insensitively.
+  near_home_neighborhoods:
+    - silver lake
+    - silverlake
+    - echo park
+    - los feliz
+    - east hollywood
+    - atwater village
+    - atwater
+    - frogtown
+    - elysian valley
+    - highland park
+    - eagle rock
+    - glassell park
+    - cypress park
+    - lincoln heights
+    - chinatown
+    - virgil village
+    - westlake
+    - historic filipinotown
+    - downtown
+    - dtla
+    - arts district
+
+  # +1: rooftop / vinyl / groove setting.
+  groove_terms:
+    - vinyl
+    - all night
+    - open to close
+    - open-to-close
+    - groove
+    - disco
+    - soulful
+    - deep house
+    - balearic
+    - rooftop
+    - sunset
+    - golden hour
+    - open-air
+    - open air
+    - daytime
+    - day party
+    - poolside
+    - pool party
+
+  # +1: European label / vibe.
+  eu_terms:
+    - fabric
+    - defected
+    - innervisions
+    - keinemusik
+    - hot creations
+    - rush hour
+    - running back
+    - anjuna
+    - afterlife
+    - dirtybird
+    - hot since
+    - solid grooves
+
+  # -2 each distinct term: the expanded non-priority list (off-taste programming).
+  penalty_terms:
+    - bottle service
+    - bottle-service
+    - vip table
+    - table service
+    - top 40
+    - top-40
+    - open format
+    - open-format
+    - hip hop
+    - hip-hop
+    - hardstyle
+    - gabber
+    - dubstep
+    - riddim
+    - brostep
+    - tribute
+    - cover band
+    - watch party
+    - world cup
+    - fifa
+    - sports bar
+    - trivia
+    - bingo
+    - open mic
+    - karaoke
+    - networking
+    - webinar
+    - workshop
+    - virtual
+    - zoom
+    - mega-rave
+    - mega rave
+    - edm festival
+
+  # -2: far-flung (not worth the trip by default).
+  far_terms:
+    - anaheim
+    - santa ana
+    - irvine
+    - san diego
+    - temecula
+    - ventura
+    - riverside
+    - long beach
+    - costa mesa
+    - huntington beach

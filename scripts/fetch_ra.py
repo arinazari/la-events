@@ -20,7 +20,21 @@ from datetime import date, timedelta
 from urllib.request import Request, urlopen
 
 ENDPOINT = "https://ra.co/graphql"
-DEFAULT_AREA = 23  # Los Angeles — verify on first run (see module docstring)
+
+
+def _profile_area(default=23):
+    """RA LA area id, lifted to profile.yaml (sources.ra_area_id); falls back to 23."""
+    try:
+        import os
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from lib.config import load_profile
+        v = (load_profile().get("sources") or {}).get("ra_area_id")
+        return int(v) if v is not None else default
+    except Exception:
+        return default
+
+
+DEFAULT_AREA = _profile_area()  # Los Angeles — overridable via profile.yaml / --area
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 
 QUERY = """
@@ -83,6 +97,7 @@ def normalize(listing: dict) -> dict:
         "start": ev.get("startTime"),
         "end": ev.get("endTime"),
         "venue": venue.get("name"),
+        "neighborhood": (venue.get("area") or {}).get("name"),
         "lineup": [a.get("name") for a in (ev.get("artists") or [])],
         "attending": ev.get("attending"),
         "ra_pick": bool(ev.get("pick")),
