@@ -6,10 +6,11 @@ The bar is "investor-quality" only in the sense of **polish, depth of curation, 
 City portability matters because friends live in other cities and Ari travels (Berlin next
 week → same magic), not for TAM.
 
-Current phase: **Phase A — Foundation** (scoring core, config lift, deterministic orchestrator).
-Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog ~700 events, weekend + windowed digests
-shipped, dashboard live. Read this file + `CLAUDE.md` + the two `SKILL.md` files before any
-non-trivial task.
+Current phase: **Phase A — Foundation.** A.1 done: shared scoring/dedupe lib + `profile.yaml`
+config lift (`build_dashboard.py` refactored onto it; output byte-identical; tests green). Next:
+`run_digest.py` deterministic core (A.2). Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog
+~700 events, weekend + windowed digests shipped, dashboard live. Read this file + `CLAUDE.md` +
+the two `SKILL.md` files before any non-trivial task.
 
 ---
 
@@ -91,11 +92,12 @@ portability.
 - [ ] Gmail "Events" label created; first promoter lists joined (6AM, Dirty Epic first)
 
 ## Phase A — Foundation (the unlock — almost everything stands on this)
-- [ ] **Shared scoring + dedupe module** — extract the ranking heuristic into one tested Python
-      module both `run_digest.py` and `build_dashboard.py` import; retire the duplicate logic in
-      `build_dashboard.py` + `SKILL.md` prose. Include the small known-duplicate test set.
-- [ ] **`profile.yaml` config lift** — move the code hardcodes (DMA, RA area, home coords,
-      near-home hoods, scoring weights/terms) out of Python. Fixes drift; seeds city portability.
+- [x] **Shared scoring + dedupe module** — `scripts/lib/{scoring,dedupe,config}.py`, both tested
+      (`scripts/tests/`); `build_dashboard.py` now imports it (output byte-identical to baseline).
+      The `SKILL.md` prose + `run_digest.py` retire onto this module next (A.2).
+- [x] **`profile.yaml` config lift** — ids/geo/weights/terms/thresholds moved out of Python into
+      `profile.yaml`; the scorer and the TM/RA fetchers read it (fallback to verbatim defaults).
+      Fixes drift; seeds city portability. `taste.yaml` stays the human content layer.
 - [ ] **`scripts/run_digest.py` deterministic core** — fetch-all → normalize → dedupe → expire →
       score, emitting catalog + candidate set. Claude stops doing this by hand; it only enriches +
       synthesizes on top.
