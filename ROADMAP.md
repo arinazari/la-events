@@ -132,6 +132,12 @@ portability.
 - [x] **Routine wiring (no email)** — `routines/daily-digest-prompt.md` now runs core → layer →
       enrich → `cache_images` → `render_digest --from/--to` per weekend (.md + .html) → commit.
       Email intentionally dropped in favor of the **Hosted page** (below). **Phase B complete.**
+- [ ] **Per-day floor in the weekend render (follow-up, surfaced 6/17)** — `render_digest` pulls
+      from the *global* top-N candidate set, so quiet days starve: the first live weekend run
+      surfaced only 2 of ~12 on-taste Sunday events (Hawtin's LACMA solstice set aside, the rest fell
+      below the global cut while Fri had 56). The synthesis had to hand-pull Sunday from the catalog.
+      Add a per-day floor (top-K within each in-window day, or a rating floor) so every day in a
+      weekend render is covered, not just the globally top-scored ones.
 
 ## Phase C — Spotify taste superset (Spotify is the *music layer*, never the whole profile)
 **Built + tested (fixtures); not yet validated against a live Spotify account — needs the
