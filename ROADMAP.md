@@ -112,7 +112,7 @@ portability.
 - [ ] **Two renderers from one enriched dataset**: keep the canonical `.md` (diffable, commits,
       GitHub renders) *and* generate a **rich HTML render** (type-colored tags, ★ relevance, card
       layout, top-10 hero images) emailed via the Gmail connector. Cache the top-10 images into the
-      repo so emailed digests don't rot. (HTML-email-as-visual-home is a flagged decision — see below.)
+      repo so emailed digests don't rot. (Confirmed: HTML email is the visual home; text-only `.md` stays.)
 - [ ] Leveled-up `.md` per-event line, e.g.:
       `[house] ★★★★☆ **Title** — artist gloss · Fri 6/19 9pm · El Cid, Silver Lake · $7 · [RA] [DICE] — curator's note.`
 
@@ -131,7 +131,8 @@ portability.
 
 ## Phase D — Concierge + night-planner (the experience / hero feature)
 - [ ] **Conversational concierge as primary interface** — "free Friday, chill and walkable, no
-      techno" → tailored plan. ~80% already exists (it's a Claude skill); put it behind a chat surface.
+      techno" → tailored plan. ~80% already exists (it's a Claude skill); surface via **claude.ai / web
+      app** for now (dedicated text number later).
 - [ ] **`night-planner` agent fusing la-events × la-dining** — night spec → dinner (reservation-aware)
       → show (taste-ranked) → afters → sequenced with rough travel/timing → itinerary w/ booking links.
 - [ ] **Advance la-dining just enough to feed the planner** — get its first live **query** run
@@ -199,11 +200,10 @@ Runs explicit strategies, returns a proposal table (approve → append to `sourc
 ---
 
 ## Decision points — Ari's input needed
-1. **HTML-email as the visual digest home** (Phase B): recommended — keep `.md` canonical, email a
-   rich HTML render with the top-10 images, rather than reviving the tabled dashboard for visuals.
-   Sign off or push back; it's a real fork.
-2. **Delivery channels** (Phase B/D): committed `.md` + HTML email + the conversational concierge.
-   Resolved direction; confirm the concierge chat surface (text number? claude.ai? both?).
+1. **HTML-email as the visual digest home** (Phase B) — ✅ resolved: keep the text-only `.md`
+   canonical *and* email a rich HTML render with the top-10 images. Not reviving the dashboard for visuals.
+2. **Delivery channels** (Phase B/D) — ✅ resolved: committed `.md` + HTML email + a conversational
+   concierge surfaced via **claude.ai / web app** for now; dedicated text number deferred.
 3. **Digest cadence** (resolved): **daily** weekend-set, ~4 months out. Revisit if commits get noisy.
 4. **Taste weights** (ongoing): `taste.yaml` is yours — edit directly, or react and let the loop fold in.
 5. **Dedupe spot checks** (Phase A): eyeball merged records for false merges while tuning the threshold.
