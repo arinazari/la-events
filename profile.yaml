@@ -170,3 +170,15 @@ scoring:
     genre_threshold: 0.5  # min normalized (0..1) genre affinity to count
     genre_cap: 1     # max genre points per event (kept conservative — genre match on free text is noisy)
     min_name_len: 3  # skip ultra-short artist names (avoid false substring matches)
+
+  # Feedback loop (Phase C). Reactions in data/feedback.jsonl fold into the affinity layer
+  # automatically (no hand-merge into taste.yaml). Each weight nudges an artist/genre; once
+  # the summed weight clears affinity's tier thresholds it scores like a Spotify artist.
+  feedback:
+    weights:
+      loved: 2.0           # "more like this"
+      went: 1.5            # you went
+      clicked_ticket: 0.5  # implicit — emitted by the digest/dashboard delivery surfaces (Phase B/D)
+      added_calendar: 0.5  # implicit — ICS export / save-to-calendar
+      skipped: -0.5        # soft down-nudge
+      hide: -10.0          # "never show" — forces the `hidden` tier (hard down-rank)

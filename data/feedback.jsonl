@@ -1,0 +1,7 @@
+# Feedback log (append-only). One JSON reaction per line. Schema:
+#   {"ts":"YYYY-MM-DD","kind":"loved|went|skipped|hide|clicked_ticket|added_calendar",
+#    "artists":[...],"genres":[...],"note":"..."}
+# Folded into the affinity layer automatically each run (scripts/lib/feedback.py) — no
+# hand-merge into taste.yaml. Blank lines and #-comments are ignored.
+{"ts": "2026-06-16", "kind": "loved", "genres": ["deep house", "disco"], "note": "north star = rooftop vinyl house with a European feel"}
+{"ts": "2026-06-16", "kind": "loved", "artists": ["Chris Lake"], "note": "mainstream big-room headliners ARE priority too — don't down-rank as 'mainstream EDM'"}

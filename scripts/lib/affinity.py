@@ -190,9 +190,13 @@ def artist_affinity(hay: str, affinity: dict, profile: dict = None) -> tuple:
             reasons.append(f"{p} you've hidden {name}")
         elif p:
             pts += p
-            label = {"core": "core rotation", "strong": "heavy rotation",
-                     "light": "on rotation"}.get(tier, "rotation")
-            reasons.append(f"+{p} Spotify {label} ({name})")
+            # Honest provenance: Spotify if any listening signal backs it, else a feedback pick.
+            if set(info.get("sources") or []) - {"feedback"}:
+                label = {"core": "core rotation", "strong": "heavy rotation",
+                         "light": "on rotation"}.get(tier, "rotation")
+                reasons.append(f"+{p} Spotify {label} ({name})")
+            else:
+                reasons.append(f"+{p} more like {name} (your pick)")
     capped = min(pts, cfg["artist_cap"]) + suppress
     # Re-derive reasons total if the cap bit (keep them honest about the net).
     if pts > cfg["artist_cap"]:
@@ -210,4 +214,4 @@ def genre_affinity(hay: str, affinity: dict, profile: dict = None) -> tuple:
     if not hits:
         return 0, []
     pts = min(cfg["genre_points"], cfg["genre_cap"])
-    return pts, [f"+{pts} Spotify genre ({hits[0]})"]
+    return pts, [f"+{pts} on-taste genre ({hits[0]})"]   # genre origin is mixed (Spotify+feedback)
