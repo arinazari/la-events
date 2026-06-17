@@ -135,6 +135,11 @@ portability.
       once). Pulls top (long/medium/short) + followed + recently-played — the endpoints still open to
       new apps post-2024 — and folds them via `lib/affinity.build_affinity` into a weighted, tiered
       `data/spotify_affinity.json` (gitignored). Degrades gracefully (no creds → SKIP, never blocks).
+      **Live-validated (2026-06): 190 artists / 39 core from a real account.** Two realities recorded:
+      (a) Spotify now returns simplified artist objects (no `genres`/`popularity`) + 403s `/v1/artists`
+      for new apps → the Spotify *genre* layer is empty (genres come from feedback); (b) auto-pulled
+      artist lists need tighter matching than the hand-curated `artists_tracked` — done (title+lineup,
+      whole-token, `ambiguous_names` lineup-gate; 18→8 matches, all true).
 - [x] **Merge three layers into one scoring profile** — `lib/scoring.score_event` now takes an
       `affinity` arg (threaded through `pipeline` + `run_digest` + `build_dashboard`); Spotify
       (auto) + `taste.yaml` (human spine) + feedback combine in the one scorer. Spotify *enriches* —

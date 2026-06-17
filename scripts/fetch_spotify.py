@@ -6,6 +6,12 @@ TM_API_KEY / POSH_TOKEN) and exchange it for a short-lived access token each run
 related-artists + audio-features endpoints were restricted for new apps in late 2024, so
 we lean only on top / followed / recently-played (which stay available).
 
+Live reality (verified 2026-06): for new apps Spotify now returns SIMPLIFIED artist objects
+(only id/name/uri/images — no `genres`/`popularity`) on /me/top + /me/following, and 403s the
+full /v1/artists batch. So the Spotify genre layer comes back empty — that's expected, not a
+bug; genres come from the feedback layer instead. Artist affinity (the primary signal) is
+unaffected.
+
 Secrets (env vars — never commit):
   SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET   from your app at developer.spotify.com
   SPOTIFY_REFRESH_TOKEN                       minted once via the `--authorize` flow below
