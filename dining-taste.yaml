@@ -14,14 +14,27 @@ geography:
                              # not a requirement — a destination meal can win.
   default_max_drive_min: 25  # for casual/weeknight asks; relax for special occasions
 
-# --- Soft preferences (all empty — fill in or let reactions populate) ---
-cuisines_love: []            # e.g. add as you react: "more like this"
+# --- Soft preferences (Phase D: explicit profile, per Ari's call) ---
+# NOTE: cuisines/dietary/price below are placeholders pending Ari's list — fill from
+# his reply (the restaurants_loved seed + cuisines he gravitates to, hard dietary
+# rules, weeknight vs. special price comfort, vibe notes). Until then the ranking
+# leans on the signal weights + affordability policy below.
+cuisines_love: []            # FILL FROM ARI'S LIST (e.g. the cuisines his favorites cluster around)
 cuisines_avoid: []
-dietary: []                  # allergies / restrictions go here — these are hard filters
+dietary: []                  # allergies / restrictions — HARD filters (fill from Ari)
 price_comfort:
-  weeknight: null            # e.g. "$$" once known
-  special: null              # e.g. "$$$$" for occasions
-vibe_notes: []               # e.g. "counter seats", "no scene-y bottle-service rooms"
+  weeknight: "$$"            # default casual ceiling until Ari confirms
+  special: "$$$$"            # occasions can go all the way
+vibe_notes: []               # e.g. "counter seats", "no scene-y bottle-service rooms" (fill from Ari)
+
+# --- Affordability policy (Ari: "Michelin guide, keeping affordability in mind") ---
+# Prestige signals should NOT just push the most expensive rooms. Value-at-quality
+# wins: a Bib Gourmand or an affordable star outranks a $$$$ room for a normal night.
+affordability:
+  bias: true                 # prefer value-at-quality for everyday asks
+  bib_over_stars_weeknight: true   # a Bib Gourmand beats a $$$$ star for a casual night
+  splurge_only_when: ["special", "date_night_big", "birthday", "no budget"]  # when $$$$ is fair game
+  everyday_price_ceiling: "$$$"    # above this needs an occasion reason to surface
 
 # --- Occasion presets (how to weight a query by stated occasion) ---
 # Tune these as you learn what you actually reach for per occasion.
@@ -34,15 +47,20 @@ occasions:
   special:      { weight_vibe: high,  reservation_effort_ok: high, prestige_boost: true }
 
 # --- Signal weighting (how much each source/badge nudges rank) ---
+# Ari's stated priorities drive these: Michelin (affordability-weighted), Resy
+# homepage articles (Hit List + "Right This Way"), and food blogs/websites.
 signal_weights:
-  new_opening: high          # you asked specifically about what's new/trending
-  michelin_star: high
-  michelin_bib: high         # great value — likely on-profile
-  lat_101: high
+  new_opening: high          # asked specifically about what's new/trending
+  michelin_bib: highest      # great value at quality — the affordability sweet spot
+  michelin_star: high        # but see affordability policy: don't auto-surface $$$$
+  michelin_affordable_star: highest  # a star that isn't $$$$ — best of both
+  resy_hit_list: high        # Resy homepage Hit List — an Ari priority
+  resy_blog: high            # Resy "Right This Way" homepage articles — an Ari priority
   infatuation_hit_list: high
+  food_blog: high            # other trusted food blogs/sites (see dining-sources.yaml)
+  lat_101: high
   eater_heatmap: med
   multiple_independent: high # mentioned by 2+ sources this cycle = real buzz
-  resy_hit_list: med
 
 # --- Reservation tolerance ---
 reservation:
@@ -54,8 +72,9 @@ popups:
   interested: true           # surface date-relevant popups/trucks
   location_tba_ok: true      # "address drops day-of" is fine
 
-restaurants_loved: []        # +boost; add names you'd happily return to
-restaurants_banned: []
+restaurants_loved: []        # FILL FROM ARI'S LIST — his go-to spots; strong +boost,
+                             # and the night-planner leans on these hard for dinner picks.
+restaurants_banned: []       # FILL FROM ARI'S LIST — places to never surface (hard filter)
 
 # Feedback log — append reactions ("more like X", "never again Y", "too far",
 # "perfect for date night"); periodically fold into the preferences above.

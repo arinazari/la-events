@@ -41,6 +41,10 @@ DEFAULT_NEIGHBORHOODS = {
     "cypress park": (34.0940, -118.2240), "mount washington": (34.1110, -118.2150),
     "lincoln heights": (34.0700, -118.2090), "chinatown": (34.0640, -118.2370),
     "boyle heights": (34.0337, -118.2100),
+    # SGV (major dining region just east)
+    "alhambra": (34.0953, -118.1270), "san gabriel": (34.0961, -118.1058),
+    "monterey park": (34.0625, -118.1228), "arcadia": (34.1397, -118.0353),
+    "rosemead": (34.0805, -118.0728), "rowland heights": (33.9762, -117.9053),
     # downtown core
     "dtla": (34.0440, -118.2510), "downtown": (34.0440, -118.2510),
     "downtown la": (34.0440, -118.2510), "arts district": (34.0410, -118.2330),

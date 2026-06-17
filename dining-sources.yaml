@@ -35,7 +35,9 @@
 # Never scrape Instagram; IG-only operators are method: manual.
 # ---------------------------------------------------------------------------
 
-last_discovery: null
+last_discovery: 2026-06-17   # Phase D first live query: harvested Infatuation (Eastside Hit
+                             # List + Silver Lake), Resy blog, Michelin Bib Gourmand → +14 to
+                             # data/dining.json. Added food-blog candidates (vet fetch next run).
 
 sources:
 
@@ -149,6 +151,46 @@ sources:
       screenshot flyer/story -> /la-dining capture, or join the operator's email/SMS
       list. Discover mode should keep proposing new operator handles. Preserve
       "location drops day-of" exactly.
+
+  # ── Food blogs / websites (Ari priority — "other food blogs/website") ─────
+  # Added Phase D per Ari's ask alongside the Resy homepage. Status: candidate —
+  # verify fetch reality (ok / search_only / blocked) on the next query/Discover run
+  # before promoting to active, then harvest their current "best/new/where-to-eat"
+  # roundups like the editorial backbone. Weight via signal_weights.food_blog.
+  - name: L.A. TACO
+    category: editorial
+    method: scrape
+    url: https://lataco.com/category/food
+    priority: 2
+    status: candidate
+    notes: >
+      Local, street-level LA food coverage — tacos, eastside/working-class gems,
+      neighborhood spots the glossier guides miss. Great for casual/walkable asks.
+    fetch: unknown
+    harvest:
+      - https://lataco.com/category/food
+  - name: Los Angeles Magazine — Food
+    category: editorial
+    method: scrape
+    url: https://lamag.com/food
+    priority: 2
+    status: candidate
+    notes: >
+      Best-of lists + new-opening roundups + restaurant features. Broad city coverage.
+    fetch: unknown
+    harvest:
+      - https://lamag.com/food
+  - name: Thrillist — Los Angeles
+    category: editorial
+    method: scrape
+    url: https://www.thrillist.com/los-angeles
+    priority: 3
+    status: candidate
+    notes: >
+      Approachable best-of / where-to-eat-now roundups; good for trending + casual.
+    fetch: unknown
+    harvest:
+      - https://www.thrillist.com/los-angeles
 
   # ── Candidates queue (vet in Discover mode) ──────────────────────────────
   - name: Tock (LA)
