@@ -14,6 +14,10 @@ phase and open decisions before starting any non-trivial task.
    links preserved).
 3. **Ranks** against `taste.yaml` and emits a conversational digest to `digests/`.
 4. **Discovers** new sources over time (propose → human approves → `sources.yaml`).
+5. **Converses + plans** — a natural-language **concierge** (`.claude/skills/concierge/SKILL.md`)
+   is the primary interface (route an open-ended ask to the right mode/agent), and a
+   **`night-planner`** agent fuses events × dining into a sequenced, travel-timed dinner → show →
+   afters itinerary. This is the experience layer (ROADMAP Phase D).
 
 The full operating spec lives in `.claude/skills/la-events/SKILL.md` — read it before
 working on digest/discover/flyer behavior. It is the contract; this file is orientation.
@@ -40,14 +44,19 @@ and food trucks — by day/occasion/neighborhood, and tracks what's trending. It
 events conventions but is its own skill with its own registry/taste/catalog (restaurants are
 persistent entities, not dated rows; popups/trucks are the event-shaped exception). Sources:
 Resy + OpenTable (hot-lists + availability) and Michelin / The Infatuation / Eater / LA Times
-(editorial signals). Spec: `.claude/skills/la-dining/SKILL.md`. Modes: query (primary), radar
-(weekly digest), discover, capture.
+(editorial signals) + food blogs (L.A. TACO, LA Mag, Thrillist — Phase D). Spec:
+`.claude/skills/la-dining/SKILL.md`. Modes: query (primary), radar (weekly digest), discover,
+capture. The query also **feeds the `night-planner`** with restaurant picks. Food-taste is now an
+explicit profile (`dining-taste.yaml`): an affordability policy (Michelin/Bib value over $$$$
+unless special) + `restaurants_loved`; ranking honors it.
 
 ## Layout
 
 ```
 .claude/skills/la-events/SKILL.md   # events operating spec (digest/discover/flyer/sources modes)
 .claude/skills/la-dining/SKILL.md   # dining operating spec (query/radar/discover/capture)
+.claude/skills/concierge/SKILL.md   # concierge — NL front door routing to the modes/agents (primary interface)
+.claude/agents/                     # worker agents: night-planner (events×dining itinerary), scene-researcher, source-scout
 sources.yaml                        # events source registry — schema in file header
 dining-sources.yaml                 # dining source registry — schema in file header
 taste.yaml                          # events ranking config — user-editable, re-read each run
@@ -57,7 +66,8 @@ recurring.yaml                      # predictable recurring markets/fleas/farmer
 sms-ingestion.md                    # Twilio SMS/MMS → catalog spec (manual-capture automation)
 profile.yaml                        # place/person config (ids, geo, scoring weights/terms) — city-portable knob
 scripts/run_digest.py               # deterministic core: fetch→dedupe→expire→score→catalog+candidates.json
-scripts/lib/                        # shared modules: scoring, dedupe, pipeline, config (tested in scripts/tests/)
+scripts/lib/                        # shared modules: scoring, dedupe, pipeline, config, geo (tested in scripts/tests/)
+scripts/travel.py                   # night-planner travel CLI: rough LA drive/walk times (lib/geo.py + dining.json)
 scripts/fetch_*.py                  # 11 source fetchers (run BY run_digest, or in Step-2 layering):
                                     #   ticketmaster (TM_API_KEY), ra, 19hz, goldenvoice, filmbot,
                                     #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld
