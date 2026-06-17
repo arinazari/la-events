@@ -7,11 +7,12 @@ profile.yaml is actually consumed (tweaking it changes the score).
 """
 
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # scripts/ on path
 from lib.config import load_taste, load_profile  # noqa: E402
-from lib.scoring import score_event, score_to_rating, _scoring_cfg  # noqa: E402
+from lib.scoring import score_event, score_to_rating, _scoring_cfg, parse_event_date  # noqa: E402
 
 TASTE = load_taste()
 PROFILE = load_profile()
@@ -81,6 +82,33 @@ def test_defaults_match_profile():
     assert tuple(cfg["penalty"]) == DEFAULT_PENALTY_TERMS
     assert tuple(cfg["far"]) == DEFAULT_FAR_TERMS
     assert cfg["category_weights"] == DEFAULT_CATEGORY_WEIGHTS
+
+
+def test_parse_event_date_tm_utc_evening_is_local_day():
+    # Ticketmaster emits a UTC `dateTime`: a 7pm PDT show is 02:00Z the NEXT day. The calendar
+    # date must be the LA-local day, not the UTC one. (Regression: TM events landed a day late.)
+    assert parse_event_date({"datetime": "2026-06-18T02:00:00Z"}) == date(2026, 6, 17)
+    assert parse_event_date({"datetime": "2026-06-18T02:00:00+00:00"}) == date(2026, 6, 17)
+    # A noon PDT show (19:00Z same day) is unambiguous either way — sanity.
+    assert parse_event_date({"datetime": "2026-06-17T19:00:00Z"}) == date(2026, 6, 17)
+
+
+def test_parse_event_date_naive_local_is_untouched():
+    # DICE/RA emit local wall-clock with no offset -> treated as already-local, never shifted.
+    assert parse_event_date({"datetime": "2026-06-20T17:00:00.000"}) == date(2026, 6, 20)
+    assert parse_event_date({"date": "2026-06-20"}) == date(2026, 6, 20)
+    assert parse_event_date({}) is None
+
+
+def test_tm_fetcher_normalize_prefers_local_date():
+    # The TM fetcher must store the venue-LOCAL date/time, so the pipeline date is the LA day.
+    import fetch_ticketmaster as tm  # scripts/ is on the path
+    ev = {"name": "Show", "_embedded": {"venues": [{"name": "Troubadour"}]},
+          "dates": {"start": {"localDate": "2026-06-17", "localTime": "19:00:00",
+                              "dateTime": "2026-06-18T02:00:00Z"}}}
+    rec = tm.normalize(ev)
+    assert rec["datetime"] == "2026-06-17T19:00:00", rec["datetime"]
+    assert parse_event_date(rec) == date(2026, 6, 17)
 
 
 if __name__ == "__main__":

@@ -53,7 +53,11 @@ def normalize(ev: dict) -> dict:
         "source": "ticketmaster",
         "id": ev.get("id"),
         "title": ev.get("name"),
-        "datetime": start.get("dateTime") or start.get("localDate"),
+        # Prefer venue-LOCAL date (+ time). TM's `dateTime` is UTC, which rolls an evening LA
+        # show past midnight into the next calendar day; `localDate`/`localTime` are venue-local.
+        "datetime": (f"{start['localDate']}T{start['localTime']}"
+                     if start.get("localDate") and start.get("localTime")
+                     else start.get("localDate") or start.get("dateTime")),
         "local_time": start.get("localTime"),
         "venue": venue.get("name"),
         "neighborhood": (venue.get("city") or {}).get("name"),

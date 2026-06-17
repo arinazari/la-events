@@ -16,6 +16,12 @@ profile.yaml present.
 
 from datetime import date, datetime
 
+try:
+    from zoneinfo import ZoneInfo
+    _LA = ZoneInfo("America/Los_Angeles")
+except Exception:  # pragma: no cover - zoneinfo always present on py3.9+
+    _LA = None
+
 from .affinity import artist_affinity, genre_affinity
 
 # ── Defaults (verbatim from pre-refactor build_dashboard.py) ─────────────────
@@ -85,13 +91,22 @@ def _scoring_cfg(profile: dict) -> dict:
 
 
 def parse_event_date(ev: dict):
-    """Best-effort ISO date (datetime.date) for an event record."""
+    """Best-effort ISO date (datetime.date) for an event record.
+
+    A timezone-aware datetime (e.g. Ticketmaster's UTC `dateTime`, ending "Z") is converted to
+    America/Los_Angeles BEFORE the calendar date is taken: an evening LA show is already past
+    midnight in UTC, so slicing the UTC date lands it a day late. Naive datetimes (DICE/RA emit
+    local wall-clock with no offset) are treated as already-local and left untouched.
+    """
     raw = ev.get("date") or ev.get("datetime") or ""
     if not raw:
         return None
     raw = str(raw)
     try:
-        return datetime.fromisoformat(raw.replace("Z", "+00:00")).date()
+        dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+        if dt.tzinfo is not None and _LA is not None:
+            dt = dt.astimezone(_LA)
+        return dt.date()
     except ValueError:
         try:
             return date.fromisoformat(raw[:10])
