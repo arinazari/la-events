@@ -19,7 +19,19 @@ from urllib.parse import urlencode
 from urllib.request import urlopen
 
 BASE = "https://app.ticketmaster.com/discovery/v2/events.json"
-LA_DMA = "324"
+
+
+def _profile_dma(default="324"):
+    """LA DMA id, lifted to profile.yaml (sources.ticketmaster_dma_id); falls back to 324."""
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from lib.config import load_profile
+        return str((load_profile().get("sources") or {}).get("ticketmaster_dma_id") or default)
+    except Exception:
+        return default
+
+
+LA_DMA = _profile_dma()
 PAGE_SIZE = 100
 
 
