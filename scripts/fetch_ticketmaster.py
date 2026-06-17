@@ -48,6 +48,7 @@ def normalize(ev: dict) -> dict:
     seg = classifications[0].get("segment", {}).get("name")
     genre = classifications[0].get("genre", {}).get("name")
     start = ev.get("dates", {}).get("start", {})
+    attractions = (ev.get("_embedded") or {}).get("attractions") or []
     return {
         "source": "ticketmaster",
         "id": ev.get("id"),
@@ -56,6 +57,7 @@ def normalize(ev: dict) -> dict:
         "local_time": start.get("localTime"),
         "venue": venue.get("name"),
         "neighborhood": (venue.get("city") or {}).get("name"),
+        "lineup": [a.get("name") for a in attractions if a.get("name")],
         "lat": (venue.get("location") or {}).get("latitude"),
         "lng": (venue.get("location") or {}).get("longitude"),
         "category": seg,

@@ -395,6 +395,51 @@ sources:
       as a coverage cross-check but heavily overlaps TM. API (metro_areas/17835/calendar.json) exists
       but issues no new keys. Bandsintown is NOT viable (per-artist only, 403s) — manual enrichment at most.
 
+  # ── Discovered 2026-06-17 (user-proposed; live-music aggregators) ────────
+  # Parked as candidates — vet via source-scout (API/feed? does it add coverage past TM/RA/DICE?)
+  # before activating. The venue *directories* below are scout SEEDS, not fetch targets.
+  - name: JamBase (LA)
+    category: live_music
+    method: api
+    url: https://www.jambase.com/
+    priority: 3
+    status: candidate
+    notes: >
+      National live-music calendar with a developer API (jambase.com/jambase-api). Jam/roots/jazz/
+      indie leaning. Vet: API key + LA filtering, and whether it surfaces shows past TM/RA/DICE.
+      Likely heavy TM overlap; the value is the roots/indie long tail.
+  - name: Oh My Rockness (LA)
+    category: live_music
+    method: scrape
+    url: https://www.ohmyrockness.com/shows?city=los-angeles
+    priority: 2
+    status: candidate
+    notes: >
+      Indie / rock / garage / punk LA show calendar — strong fit for the medium taste lane (Echo,
+      Zebulon, Teragram, Moroccan bookings). Historically exposed a `/shows.json`-style feed; vet for
+      a JSON endpoint. High taste relevance + likely adds coverage TM misses.
+  - name: The Scenestar (LA)
+    category: editorial
+    method: rss
+    url: https://thescenestar.typepad.com/ss/
+    priority: 3
+    status: candidate
+    notes: Long-running LA concert-listings blog (Typepad → RSS). Editorial/announcement signal, not a catalog.
+  - name: Buzzbands.la
+    category: editorial
+    method: rss
+    url: https://buzzbands.la/
+    priority: 3
+    status: candidate
+    notes: Local LA music blog + concert calendar (WordPress → RSS). Editorial signal + local/indie discovery; overlaps Oh My Rockness.
+  # source-scout SEEDS (venue DIRECTORIES — mine for venues to register, NOT event feeds):
+  #   - Wikipedia "List of music venues in Greater Los Angeles" (capacities/locations, notable rooms)
+  #     https://en.wikipedia.org/wiki/List_of_music_venues_in_Greater_Los_Angeles
+  #   - MyVenuePulse — searchable LA venue directory (by capacity/genre/location)
+  #     https://www.myvenuepulse.com/directory/california/los-angeles
+  #   - Explore LA — "Best Concert Venues in Los Angeles" curated guide
+  #     https://explorela.org/best-concert-venues-in-los-angeles
+
   # ── Discovered 2026-06-16 (user-proposed) ───────────────────────────────
   - name: Subtract Music
     category: electronic

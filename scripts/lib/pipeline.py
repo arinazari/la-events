@@ -67,6 +67,30 @@ def _links(raw: dict, source) -> list:
     return out
 
 
+def _price(raw: dict):
+    """A price string. Prefer an explicit `price`; else synthesize from price_min/price_max
+    (Ticketmaster emits the range, not a string). `$lo-hi`, `$lo`, "free", or None."""
+    p = raw.get("price")
+    if p not in (None, ""):
+        return p
+    lo, hi = raw.get("price_min"), raw.get("price_max")
+    if lo in (None, "") and hi in (None, ""):
+        return None
+    def num(v):
+        try:
+            return float(v)
+        except (TypeError, ValueError):
+            return None
+    nlo, nhi = num(lo), num(hi)
+    if (nlo in (0.0, None)) and (nhi in (0.0, None)):
+        return "free" if (nlo == 0.0 or nhi == 0.0) else None
+    fmt = lambda v: f"{v:g}"
+    if nlo and nhi and nlo != nhi:
+        return f"${fmt(nlo)}-{fmt(nhi)}"
+    v = nlo or nhi
+    return f"${fmt(v)}"
+
+
 def normalize_record(raw: dict, source=None) -> dict:
     """Best-effort map an arbitrary fetcher record onto the canonical catalog schema.
 
@@ -88,7 +112,7 @@ def normalize_record(raw: dict, source=None) -> dict:
         "sources": _as_list(raw.get("sources") or source),
         "organizers": raw.get("organizers") or raw.get("organizer") or raw.get("promoter"),
         "detail": raw.get("detail") or raw.get("description") or raw.get("desc"),
-        "price": raw.get("price"),
+        "price": _price(raw),
         "ra_pick": bool(raw.get("ra_pick")),
         "afterhours": bool(raw.get("afterhours") or raw.get("afterhours_flag")),
     }

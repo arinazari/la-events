@@ -77,6 +77,9 @@ def iter_events(obj):
                 yield from iter_events(obj[k])
 
 
+# NOTE (2026-06-17): DICE's venue JSON-LD now ships `offers: []` and NO `performer` field —
+# the lineup is embedded in the event `name` (comma-separated). So performers()/price() return
+# empty BY DESIGN now, not by bug; lineup is best parsed from the title at enrichment time.
 def performers(ev):
     p = ev.get("performer")
     if not p:

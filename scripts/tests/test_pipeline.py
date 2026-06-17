@@ -43,6 +43,16 @@ def test_normalize_reads_afterhours_flag():
     assert P.normalize_record({"title": "W", "date": "2026-06-20"}, "ra")["afterhours"] is False
 
 
+def test_normalize_synthesizes_price_from_range():
+    # Ticketmaster emits price_min/price_max, not a `price` string — synthesize one.
+    P_ = P.normalize_record
+    assert P_({"title": "X", "date": "2026-06-20", "price_min": 25.0, "price_max": 75.0}, "ticketmaster")["price"] == "$25-75"
+    assert P_({"title": "X", "date": "2026-06-20", "price_min": 30, "price_max": 30}, "ticketmaster")["price"] == "$30"
+    assert P_({"title": "X", "date": "2026-06-20", "price_min": 0, "price_max": 0}, "ticketmaster")["price"] == "free"
+    assert P_({"title": "X", "date": "2026-06-20", "price": "$10"}, "19hz")["price"] == "$10"  # explicit wins
+    assert P_({"title": "X", "date": "2026-06-20"}, "dice")["price"] is None
+
+
 def test_normalize_passes_through_canonical_links():
     raw = {"title": "X", "date": "2026-06-20", "venue": "Y",
            "links": [{"source": "dice", "url": "https://dice.fm/e/1"}], "category": "live_music"}
