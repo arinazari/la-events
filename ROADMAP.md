@@ -211,6 +211,26 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   streaming chat + auto-commit, and hosting **auth** (private to Ari + friends) — naturally co-located
   with that backend. Public/unlisted Pages is fine until then (catalog = public events).
 - **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
+- [x] **Front end swapped to the design-tool UI (2026-06-18, branch `claude/exciting-feynman-v6vqo6`)** —
+  the hand-written 3-view app was replaced by Ari's uploaded design (a single `dashboard/index.html` +
+  its `support.js` "dc-runtime"). **Backend unchanged**: `build_dashboard.py` + `lib/scoring.py` still
+  produce `dashboard/data.json` and the page stays a pure viewer. The design's two claude.ai-only
+  features were rewired to the repo's patterns — chat ("ASK THE DIGEST") → local no-LLM intent parser
+  (`localSpec`), Discover → copy-to-Claude-Code hand-off. React/ReactDOM/`@babel/standalone` vendored
+  locally (off unpkg); PWA + deploy workflow carried over (deploy stages `digests/latest.md`).
+
+### Dashboard follow-ups (TODO — from the front-end swap)
+- [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
+  `@babel/standalone` (~3 MB vendored). Add a build step that compiles `index.html` ahead of time and
+  ships plain JS, dropping Babel + the first-paint transpile cost from the client.
+- [ ] **Per-event ICS export** — re-port the one-click add-to-calendar (was `dashboard/js/ics.js`;
+  regressed in the swap).
+- [ ] **Save / bookmark events** — let Ari star events to a personal shortlist (localStorage; the seed
+  for "plan around these"). Was `save-for-plan` in the prior front end; not in the new design yet.
+- [ ] **Like → learn taste** — per-event 👍/👎 (or "more like this" / "never show") that feeds the
+  existing feedback loop (`data/feedback.jsonl` → `lib/feedback.py` → affinity, Phase C). Closes the
+  implicit-signal-capture gap noted in Phase C (emitting reactions waited on a dashboard surface); on
+  static Pages it rides the hand-off seam — compose the `feedback.jsonl` append for the agent to commit.
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
