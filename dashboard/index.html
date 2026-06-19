@@ -231,12 +231,19 @@
                   <sc-for list="{{ hoodMenu }}" as="o" hint-placeholder-count="8">
                     <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
                   </sc-for>
+                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
+                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">REGION</span>
+                    <span onClick="{{ clearRegion }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  </div>
+                  <sc-for list="{{ regionMenu }}" as="o" hint-placeholder-count="7">
+                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
+                  </sc-for>
                 </div>
               </sc-if>
             </th>
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:150px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
-                <span onClick="{{ sortCat }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">CATEGORY / GENRE <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
+                <span onClick="{{ sortCat }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">CATEGORY / TAGS <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
                 <span onClick="{{ openCat }}" title="Filter category / genre" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ catGenreIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
               </span>
               <sc-if value="{{ catOpen }}" hint-placeholder-val="{{ false }}">
@@ -254,6 +261,20 @@
                     <span onClick="{{ clearGenre }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
                   </div>
                   <sc-for list="{{ genreMenu }}" as="o" hint-placeholder-count="10">
+                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
+                  </sc-for>
+                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
+                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">VIBE</span>
+                    <span onClick="{{ clearVibe }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  </div>
+                  <sc-for list="{{ vibeMenu }}" as="o" hint-placeholder-count="10">
+                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
+                  </sc-for>
+                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
+                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">SETTING</span>
+                    <span onClick="{{ clearSetting }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  </div>
+                  <sc-for list="{{ settingMenu }}" as="o" hint-placeholder-count="8">
                     <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
                   </sc-for>
                 </div>
@@ -554,7 +575,7 @@ class Component extends DCLogic {
     expandedId: null,
     filtered: null,            // array of ids or null (=all)
     filterSummary: '', digestPicks: false,
-    colFilters: { hood: [], cat: [], genre: [], source: [] }, openFilter: null,
+    colFilters: { hood: [], cat: [], genre: [], vibe: [], setting: [], region: [], source: [] }, openFilter: null,
     search: '', digestPrevState: null,
     settingsOpen: false, confirmDiscover: false,
     refreshing: false, lastUpdated: 'Wed 6/17, 7:02 AM',
@@ -607,6 +628,8 @@ class Component extends DCLogic {
     if (t.includes('ra pick')) return { color:'#1f7a4d', bg:'rgba(31,122,77,0.10)' };
     if (t.includes('afterhours') || t.includes('tba')) return { color:'#8a3ffb'.replace('8a3ffb','6d3fb3'), bg:'rgba(109,63,179,0.10)' };
     if (t === 'free') return { color:'#1f7a4d', bg:'rgba(31,122,77,0.10)' };
+    if (t === 'queer') return { color:'#c0398a', bg:'rgba(192,57,138,0.10)' };
+    if (t === 'day party' || t === 'sunset' || t === 'all vinyl') return { color:'#b06a00', bg:'rgba(176,106,0,0.10)' };
     if (t.includes('pick') || t.includes('laist') || t.includes('epic')) return { color:'#b06a00', bg:'rgba(176,106,0,0.10)' };
     return { color:'#76746b', bg:'rgba(0,0,0,0.045)' };
   }
@@ -616,10 +639,14 @@ class Component extends DCLogic {
     if (e.ra) arr.push('RA pick');
     if (e.ah) arr.push('afterhours');
     for (const b of e.xb) arr.push(b);
-    // dedupe
+    // Multi-axis tags (lib/tagging.py): the vibe flags then a couple genre chips, so the
+    // card shows the same signals the column filters expose. Machine tags -> readable.
+    for (const v of (e.vibe || [])) arr.push(String(v).replace(/-/g, ' '));
+    for (const g of (e.genres || []).slice(0, 2)) arr.push(String(g).replace(/-/g, ' '));
+    // dedupe (case-insensitive; 'ra pick'/'afterhours' collapse with the booleans above)
     const seen = new Set(); const out = [];
     for (const b of arr) { const k = b.toLowerCase(); if (!seen.has(k)) { seen.add(k); out.push(b); } }
-    return out.map(text => ({ text, ...this.badgeStyle(text) }));
+    return out.slice(0, 7).map(text => ({ text, ...this.badgeStyle(text) }));
   }
 
   LINK_LABELS = { ra:'Resident Advisor', dice:'DICE', ticketmaster:'Ticketmaster', tm:'Ticketmaster', posh:'Posh', eventbrite:'Eventbrite', filmbot:'Showtimes', goldenvoice:'Goldenvoice', squarespace:'Venue site', jsonld:'Venue site', ics:'Add to calendar', '19hz':'19hz' };
@@ -750,11 +777,18 @@ class Component extends DCLogic {
   distinctVals() {
     if (this._distinct) return this._distinct;
     const uniq = (arr) => [...new Set(arr)];
+    // Prefer the feed's tag_facets for the tag axes — already deduped and ordered by
+    // frequency (build_dashboard.py). Fall back to deriving from the loaded events.
+    const facet = (ax) => (this.META && this.META.tag_facets && Array.isArray(this.META.tag_facets[ax]))
+      ? this.META.tag_facets[ax].map(f => f.value) : null;
     const hood = uniq(this.ALL.map(e => e.hood)).sort((a, b) => a.localeCompare(b));
     const cat = this.CATS.filter(c => this.ALL.some(e => e.cat === c));
-    const genre = uniq(this.ALL.map(e => e.genre)).sort((a, b) => a.localeCompare(b));
+    const genre = facet('genre') || uniq(this.ALL.flatMap(e => e.genres || [])).sort((a, b) => a.localeCompare(b));
+    const vibe = facet('vibe') || uniq(this.ALL.flatMap(e => e.vibe || [])).sort((a, b) => a.localeCompare(b));
+    const setting = facet('setting') || uniq(this.ALL.flatMap(e => e.setting || [])).sort((a, b) => a.localeCompare(b));
+    const region = facet('region') || uniq(this.ALL.map(e => e.region).filter(Boolean)).sort((a, b) => a.localeCompare(b));
     const source = uniq(this.ALL.map(e => e.source)).sort((a, b) => a.localeCompare(b));
-    this._distinct = { hood, cat, genre, source };
+    this._distinct = { hood, cat, genre, vibe, setting, region, source };
     return this._distinct;
   }
   openFilterMenu = (col) => this.setState(s => ({ openFilter: s.openFilter === col ? null : col }));
@@ -767,9 +801,13 @@ class Component extends DCLogic {
   clearFilterCol = (col) => this.setState(s => ({ colFilters: { ...s.colFilters, [col]: [] }, expandedId: null }));
   passesColFilters(e) {
     const f = this.state.colFilters;
+    const some = (sel, vals) => sel.some(v => (vals || []).includes(v));  // OR within an axis
     if (f.hood.length && !f.hood.includes(e.hood)) return false;
     if (f.cat.length && !f.cat.includes(e.cat)) return false;
-    if (f.genre.length && !f.genre.includes(e.genre)) return false;
+    if (f.genre.length && !some(f.genre, e.genres)) return false;
+    if (f.vibe.length && !some(f.vibe, e.vibe)) return false;
+    if (f.setting.length && !some(f.setting, e.setting)) return false;
+    if (f.region.length && !f.region.includes(e.region)) return false;
     if (f.source.length && !f.source.includes(e.source)) return false;
     return true;
   }
@@ -778,7 +816,7 @@ class Component extends DCLogic {
   toggle = (id) => this.setState(s => ({ expandedId: s.expandedId === id ? null : id }));
 
   // ---------- chat / filter ----------
-  EMPTY_COLS = { hood: [], cat: [], genre: [], source: [] };
+  EMPTY_COLS = { hood: [], cat: [], genre: [], vibe: [], setting: [], region: [], source: [] };
   reset = () => this.setState(s => ({
     filtered: null, filterSummary: '', digestPicks: false, digestPrevState: null,
     colFilters: this.EMPTY_COLS, search: '', expandedId: null,
@@ -1067,7 +1105,19 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     }
     if (has(spec.genres)) {
       const gs = spec.genres.map(low);
-      list = list.filter(e => gs.some(g => low(e.genre).includes(g)));
+      list = list.filter(e => gs.some(g => low(e.genre).includes(g) || (e.genres || []).some(x => low(x) === g)));
+    }
+    if (has(spec.vibes)) {       // tag vibe axis (afterhours/day-party/queer/...)
+      const vs = spec.vibes.map(low);
+      list = list.filter(e => (e.vibe || []).some(v => vs.includes(low(v))));
+    }
+    if (has(spec.settings)) {    // tag setting axis (rooftop/warehouse/cinema/...)
+      const ss = spec.settings.map(low);
+      list = list.filter(e => (e.setting || []).some(s => ss.includes(low(s))));
+    }
+    if (has(spec.regions)) {     // tag region axis (eastside/dtla/westside/...)
+      const rs = spec.regions.map(low);
+      list = list.filter(e => rs.includes(low(e.region)));
     }
     let hoods = has(spec.neighborhoods) ? spec.neighborhoods.slice() : [];
     if (spec.walkable) hoods = hoods.concat(this.EASTSIDE);
@@ -1136,8 +1186,23 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (/\blive music\b|\bband\b|\bconcert\b|\bgig\b|\bindie\b|\brock\b|\bjazz\b/.test(t)) cats.add('Live Music');
     if (/\bbeer\b|\bbrewery\b|\bfood\b|\bmarket\b|\bflea\b/.test(t)) cats.add('Food');
     if (cats.size) { spec.categories = [...cats]; bits.push([...cats].join('/')); }
-    const vibe = ['vinyl','rooftop','sunset','balearic','groove','listening bar','afters'].filter(w => t.includes(' ' + w));
-    if (vibe.length) spec.keywords = vibe;
+    // Structured tag routing (lib/tagging.py axes) — precise filters beat substring keywords.
+    const settings = ['rooftop','warehouse','cinema','listening bar','speakeasy','outdoor','pool']
+      .filter(w => t.includes(' ' + w)).map(s => s === 'listening bar' ? 'listening-bar' : s);
+    if (settings.length) { spec.settings = settings; bits.push(settings.join('/')); }
+    const vibes = [];
+    if (/\bday part(y|ies)\b|\bdaytime\b/.test(t)) vibes.push('day-party');
+    if (/\bsunset\b|\bgolden hour\b/.test(t)) vibes.push('sunset');
+    if (/\b(all[- ]?vinyl|vinyl)\b/.test(t)) vibes.push('all-vinyl');
+    if (/\bb2b\b|\bback to back\b/.test(t)) vibes.push('b2b');
+    if (/\bqueer\b|\bpride\b|\blgbtq\b|\bsapphic\b/.test(t)) vibes.push('queer');
+    if (/\bdrag\b/.test(t)) vibes.push('drag');
+    if (/\bburlesque\b/.test(t)) vibes.push('burlesque');
+    if (vibes.length) { spec.vibes = vibes; bits.push(vibes.map(v => v.replace(/-/g, ' ')).join('/')); }
+    const regions = ['westside','dtla','valley','hollywood','south-bay'].filter(w => t.includes(w));
+    if (regions.length) { spec.regions = regions; bits.push(regions.join('/')); }
+    const loose = ['balearic','groove'].filter(w => t.includes(' ' + w));
+    if (loose.length) spec.keywords = (spec.keywords || []).concat(loose);
     if (/\bfree\b|\bno cover\b/.test(t)) { spec.freeOnly = true; bits.push('free'); }
     if (/\bafterhours\b|\bafter-?hours\b/.test(t)) { spec.afterhoursOnly = true; bits.push('afterhours'); }
     if (/\bra pick\b|\bresident advisor\b/.test(t)) spec.raPickOnly = true;
@@ -1152,7 +1217,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (spec.intent === 'plan') bits.push('a night out');
     if (/date[ -]?night|\bdate\b/.test(t)) spec.occasion = 'date_night';
     else if (/\bgroup\b|\bfriends\b|\bcrew\b|\bbirthday\b/.test(t)) spec.occasion = 'group';
-    const got = ['tonight','weekend','days','walkable','neighborhoods','categories','keywords','freeOnly','afterhoursOnly','raPickOnly','priceMax','minScore']
+    const got = ['tonight','weekend','days','walkable','neighborhoods','categories','genres','vibes','settings','regions','keywords','freeOnly','afterhoursOnly','raPickOnly','priceMax','minScore']
       .some(k => spec[k] != null && spec[k] !== false && !(Array.isArray(spec[k]) && !spec[k].length));
     if (!got && spec.intent === 'filter') {
       const stop = new Set(['the','a','an','in','on','at','for','to','of','and','or','me','i','show','find','any','this','near','what','whats','events','event','la','something','want','wanna','go','out']);
@@ -1386,13 +1451,22 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     let h = d.getHours(); const mm = d.getMinutes();
     const ap = h >= 12 ? 'PM' : 'AM'; let hh = h % 12; if (hh === 0) hh = 12;
     const enr = r.enrichment || {};
+    const tags = r.tags || {};
     const cat = this.mapCategory(r.category != null ? r.category : r.cat);
     const ah = !!(r.afterhours != null ? r.afterhours : (r.afterhours_flag != null ? r.afterhours_flag : r.ah));
     const ra = !!(r.ra_pick != null ? r.ra_pick : r.ra);
     const score = typeof r.score === 'number' ? r.score : this.fallbackScore(cat, ah, ra);
     const pr = this.parsePrice(r.price != null ? r.price : (r.price_min != null ? '$' + r.price_min : null));
     const links = Array.isArray(r.links) ? r.links.filter(l => l && l.url) : [];
-    const genre = (Array.isArray(enr.subgenres) && enr.subgenres.length) ? enr.subgenres.join(', ') : (enr.type || r.genre || '');
+    // Multi-axis tags (scripts/lib/tagging.py): genre[]/setting[]/vibe[]/region drive the
+    // filters. The deterministic baseline and the scene-researcher overlay share one vocab,
+    // so we UNION them — enrichment sharpens (e.g. adds a subgenre) without replacing. `genre`
+    // (string) is the display/search value; `genres` (array) is what the column filter toggles.
+    const uniqLow = (arr) => { const s = new Set(), o = []; for (const x of arr) { const k = String(x).toLowerCase(); if (x && !s.has(k)) { s.add(k); o.push(x); } } return o; };
+    const genreArr = uniqLow([...(Array.isArray(enr.subgenres) ? enr.subgenres : []), ...(Array.isArray(tags.genre) ? tags.genre : [])]);
+    const settingArr = uniqLow([...(Array.isArray(tags.setting) ? tags.setting : []), ...(enr.setting ? [enr.setting] : [])]);
+    const vibeArr = uniqLow([...(Array.isArray(tags.vibe) ? tags.vibe : []), ...(Array.isArray(enr.vibe) ? enr.vibe : [])]);
+    const genre = genreArr.length ? genreArr.join(', ') : (enr.type || r.genre || '');
     const why = enr.curator_note || (Array.isArray(r.reasons) && r.reasons.length ? r.reasons.join(' · ') : (r.why || r.blurb || r.note || ''));
     return {
       id: (r.id != null ? String(r.id) : this.slugId(r, i)),
@@ -1406,6 +1480,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       venue: r.venue || 'TBA',
       hood: r.neighborhood || r.hood || r.area || 'LA',
       cat, genre,
+      genres: genreArr,
+      setting: settingArr,
+      vibe: vibeArr,
+      region: tags.region || '',
+      nearHome: !!tags.near_home,
       lineup: Array.isArray(r.lineup) ? r.lineup : [],
       pmin: pr.pmin, pmax: pr.pmax, price: pr.display,
       source: this.normSource((Array.isArray(r.sources) && r.sources[0]) || r.source || (links[0] && links[0].source)),
@@ -1505,14 +1584,15 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     const cf = this.state.colFilters;
     const dv = this.distinctVals();
-    const mkMenu = (col) => dv[col].map(v => ({
-      val: v, label: v, checked: cf[col].includes(v),
+    const prettyTag = (v) => String(v).replace(/-/g, ' ');  // machine tag -> readable label
+    const mkMenu = (col, label) => dv[col].map(v => ({
+      val: v, label: label ? label(v) : v, checked: cf[col].includes(v),
       box: cf[col].includes(v) ? '\u25a0' : '\u25a1',
       color: cf[col].includes(v) ? '#161512' : '#76746b',
       onClick: () => this.toggleFilterVal(col, v)
     }));
     const openF = this.state.openFilter;
-    const catGenreActive = cf.cat.length + cf.genre.length;
+    const catGenreActive = cf.cat.length + cf.genre.length + cf.vibe.length + cf.setting.length;
 
     const rows = sorted.map(e => ({
       id: e.id, wd: e.wd, md: e.md, t: e.t,
@@ -1582,7 +1662,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       weight: range === key ? '700' : '500',
       onClick: () => this.setRange(key)
     }));
-    const anyActive = !!filtered || cf.hood.length || cf.cat.length || cf.genre.length || cf.source.length || (this.state.search || '').trim() || digestPicks;
+    const anyActive = !!filtered || cf.hood.length || cf.cat.length || cf.genre.length || cf.vibe.length || cf.setting.length || cf.region.length || cf.source.length || (this.state.search || '').trim() || digestPicks;
 
     return {
       messages: msgs, suggestions, loading,
@@ -1630,13 +1710,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       digestBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } }),
       closeFilterMenu: this.closeFilterMenu,
       openHood: () => this.openFilterMenu('hood'), openCat: () => this.openFilterMenu('cat'), openSource: () => this.openFilterMenu('source'),
-      hoodMenu: mkMenu('hood'), catMenu: mkMenu('cat'), genreMenu: mkMenu('genre'), sourceMenu: mkMenu('source'),
+      hoodMenu: mkMenu('hood'), catMenu: mkMenu('cat'), genreMenu: mkMenu('genre', prettyTag), sourceMenu: mkMenu('source'),
+      vibeMenu: mkMenu('vibe', prettyTag), settingMenu: mkMenu('setting', prettyTag), regionMenu: mkMenu('region', prettyTag),
       hoodOpen: openF === 'hood', catOpen: openF === 'cat', sourceOpen: openF === 'source',
-      hoodActive: cf.hood.length > 0, sourceActive: cf.source.length > 0, catGenreActive: catGenreActive > 0,
-      hoodIcon: cf.hood.length ? '#2b5cd9' : '#bdbbb1', sourceIcon: cf.source.length ? '#2b5cd9' : '#bdbbb1',
+      hoodActive: (cf.hood.length + cf.region.length) > 0, sourceActive: cf.source.length > 0, catGenreActive: catGenreActive > 0,
+      hoodIcon: (cf.hood.length || cf.region.length) ? '#2b5cd9' : '#bdbbb1', sourceIcon: cf.source.length ? '#2b5cd9' : '#bdbbb1',
       catGenreIcon: catGenreActive ? '#2b5cd9' : '#bdbbb1',
       clearHood: () => this.clearFilterCol('hood'), clearSource: () => this.clearFilterCol('source'),
       clearCat: () => this.clearFilterCol('cat'), clearGenre: () => this.clearFilterCol('genre'),
+      clearVibe: () => this.clearFilterCol('vibe'), clearSetting: () => this.clearFilterCol('setting'),
+      clearRegion: () => this.clearFilterCol('region'),
       toggleDigestPicks: this.toggleDigestPicks, digestActive: digestPicks,
       digestTogColor: digestPicks ? '#161512' : '#a7a59b',
       digestTogBg: digestPicks ? '#fff' : 'transparent',
