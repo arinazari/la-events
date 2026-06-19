@@ -65,7 +65,7 @@ fetching `data.<hash>.json` — the per-profile feed built by `scripts/build_pro
 unknown stays on the default (Ari's) feed; "log out" returns to it. The active profile persists in
 localStorage.
 
-Profiles are **hand-authored** in the repo (a few friends, not open signup):
+You **create** a profile in the repo (a few friends, not open signup):
 
 ```bash
 mkdir -p profiles/<name> && cp profiles/demo/taste.yaml profiles/<name>/taste.yaml  # then edit
@@ -74,10 +74,18 @@ python scripts/build_profiles.py            # rebuilds data.json + every profile
 #  commit the new dashboard/data.<hash>.json (the whole dashboard/ folder is published)
 ```
 
-**This is obfuscation, not security:** the username is a public, guessable-if-known bearer key,
-and each feed file is publicly fetchable. Fine for a small group — pick non-obvious usernames.
-Not yet wired (deferred phases, see ROADMAP): per-profile *digest generation*, per-profile
-concierge key-choice, and per-profile Spotify.
+**Self-edit (no repo access needed):** once a friend is in their profile, they can tune their taste
+by *talking to the concierge* — "more techno, less comedy", "track Peggy Gou". The backend Worker
+commits the change to their `profiles/<name>/taste.yaml`; CI (`build-profiles.yml`) re-scores the
+feed with the same `build_profiles.py` scorer and redeploys (~1–2 min — the chat says "refresh
+shortly"). The popup also shows their taste YAML read-only. Requires the backend deployed with a
+`GITHUB_TOKEN` — see `backend/README.md`.
+
+**This is obfuscation, not security:** the username is a public, guessable-if-known bearer key, and
+each feed file is publicly fetchable. Taste *writes* are low-stakes too (every edit is a revertible
+commit) — the backend's `CONCIERGE_TOKEN` guards API spend + commit-spam, not the data. Pick
+non-obvious usernames. Still deferred (see ROADMAP): per-profile *digest generation* and per-profile
+Spotify.
 
 ## Use it
 

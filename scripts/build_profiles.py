@@ -81,12 +81,18 @@ def main() -> int:
         if not run_build(taste, profile, out):
             print(f"  ERROR: build failed for {u}", file=sys.stderr)
             continue
-        # Inject the self-describing profile block so the page needs only the hash.
+        # Inject the self-describing profile block so the page needs only the hash. Includes the
+        # raw taste.yaml text so the popup can show "your taste" read-only (no extra fetch).
         try:
             feed = json.loads(out.read_text())
-            feed["profile"] = {"name": p.get("name") or u, "hash": h}
+            block = {"name": p.get("name") or u, "hash": h}
             if p.get("digest"):
-                feed["profile"]["digest"] = p["digest"]
+                block["digest"] = p["digest"]
+            try:
+                block["taste_yaml"] = (REPO / taste).read_text()
+            except OSError:
+                pass
+            feed["profile"] = block
             out.write_text(json.dumps(feed, indent=2))
         except (OSError, json.JSONDecodeError) as e:
             print(f"  WARN: could not inject profile block for {u}: {e}", file=sys.stderr)

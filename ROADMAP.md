@@ -213,8 +213,9 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   `data.json` (events + dining + taste), and answers/recommends/plans. The page falls back to Fast
   filter if the backend is unset/down, so nothing breaks. **Needs Ari to deploy it** (wrangler +
   key) and set the URL/token via the chat's "connect" affordance — see `backend/README.md`.
-- **Remaining (the upgrade, not blocking):** stand up that backend + choose **auth** (shared token
-  vs Cloudflare Access — "private to Ari + friends"); optional streaming + auto-commit of plans.
+- **Remaining (not blocking):** the backend **code** is done (chat + taste self-edit, see below) —
+  what's left is for Ari to **deploy** it (wrangler + secrets). **Auth chosen: shared `CONCIERGE_TOKEN`**
+  (Cloudflare Access remains an option later); optional streaming + auto-commit of plans.
   Public/unlisted Pages + Fast-filter fallback is fine until then (catalog = public events).
 - [x] **Profiles — per-person taste switcher (2026-06-19)** — a "prof" link (footer) opens a popup;
   a friend types a username (acts as the key) → the page SHA-256s it (salt `la-events/v1:`, same as
@@ -223,12 +224,21 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   in `profiles.yaml`; `build_profiles.py` emits each feed reusing `build_dashboard.py`'s scorer (so a
   profile's ranking can't drift from the digest). Blank/unknown stays on the default (Ari's) feed.
   **Obfuscation, not security** — usernames are publicly-fetchable bearer keys (fine for a few friends).
-  Remaining phases (deferred, Ari's call): (a) **per-profile digest *generation*** (routine loop +
-  workflow staging `digests/<hash>/latest.md`; the page already switches to it, else shows a placeholder);
-  (b) **concierge per-profile** (gate the Worker on a valid profile + "use host key or your own");
-  (c) **per-profile Spotify** (web OAuth + Worker KV token storage + per-profile affinity sync). Profiles
-  re-rank the *same* catalog (sourced to Ari's taste), so full personalization eventually wants
-  per-profile source coverage too.
+  Still deferred (Ari's call): (a) **per-profile digest *generation*** (routine loop + workflow staging
+  `digests/<hash>/latest.md`; the page already switches to it, else shows a placeholder); (c) **per-profile
+  Spotify** (web OAuth + Worker KV token storage + per-profile affinity sync). (b) concierge-per-profile +
+  **friend self-edit** is now built — see next entry. Profiles re-rank the *same* catalog (sourced to
+  Ari's taste), so full personalization eventually wants per-profile source coverage too.
+- [x] **Friend taste self-edit via the concierge (2026-06-19)** — in a profile, the concierge chat now
+  *edits your taste by talking to it* ("more techno, less comedy", "track Peggy Gou"). The Worker
+  (`backend/`) grounds chat on the profile's feed and, when `GITHUB_TOKEN` is set, exposes a
+  `propose_taste_change` tool: it applies a **structured patch** to `profiles/<name>/taste.yaml`,
+  validates it re-parses, and commits. A new CI job (`.github/workflows/build-profiles.yml`) re-scores
+  that feed with the shared `build_profiles.py` scorer and redeploys — **commit + CI rebuild, ~1–2 min,
+  zero scorer drift, git = rollback** (chosen over edge re-scoring). The popup also shows your taste YAML
+  read-only. Security relaxed by design (taste writes are low-stakes/revertible): `CONCIERGE_TOKEN` guards
+  API spend + commit-spam, and the GitHub PAT is repo-scoped Contents-only. **Needs Ari to deploy the
+  Worker + set the 3 secrets** (`backend/README.md`).
 - **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
 - [x] **Front end swapped to the design-tool UI (2026-06-18, branch `claude/exciting-feynman-v6vqo6`)** —
   the hand-written 3-view app was replaced by Ari's uploaded design (a single `dashboard/index.html` +

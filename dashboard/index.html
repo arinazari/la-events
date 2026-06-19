@@ -364,11 +364,15 @@
 
     <sc-if value="{{ profileOpen }}" hint-placeholder-val="{{ false }}">
       <div onClick="{{ closeProfile }}" style="position:fixed; inset:0; z-index:80; background:rgba(20,21,18,0.34);"></div>
-      <div style="position:fixed; z-index:81; top:50%; left:50%; transform:translate(-50%,-50%); width:300px; background:#fff; border:1px solid #c9c7bd; border-radius:4px; box-shadow:0 18px 50px rgba(0,0,0,0.28); padding:18px;">
+      <div style="position:fixed; z-index:81; top:50%; left:50%; transform:translate(-50%,-50%); width:340px; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:4px; box-shadow:0 18px 50px rgba(0,0,0,0.28); padding:18px;">
         <div style="font:600 12px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.05em; color:#2b5cd9;">PROFILE</div>
         <div style="margin-top:8px; font-size:11.5px; line-height:1.5; color:#76746b;">Type your username to load your taste profile + digest. Blank or unknown stays on the default picks.</div>
         <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">
           <div style="margin-top:10px; font-size:11.5px; color:#3f3d36;">Signed in as <b>{{ profileName }}</b> · <span onClick="{{ logoutProfile }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">log out</span></div>
+          <sc-if value="{{ profileTasteYaml }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:12px; font:600 10px/1.4 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">YOUR TASTE — tune it by asking the concierge (e.g. &ldquo;more techno, less comedy&rdquo;)</div>
+            <pre style="margin:6px 0 0; max-height:230px; overflow:auto; background:#f7f6f2; border:1px solid #e2e0d8; border-radius:3px; padding:9px 10px; font:400 10.5px/1.5 ui-monospace,Menlo,monospace; color:#3f3d36; white-space:pre-wrap; word-break:break-word;">{{ profileTasteYaml }}</pre>
+          </sc-if>
         </sc-if>
         <input value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="username" style="margin-top:12px; width:100%; box-sizing:border-box; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; padding:9px 10px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none;" style-focus="border-color:#2b5cd9;" />
         <sc-if value="{{ profileError }}" hint-placeholder-val="{{ false }}">
@@ -995,10 +999,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .filter(m => m.content.trim());
     const headers = { 'content-type': 'application/json' };
     if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
-    const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify({ messages: history }) });
+    const body = { messages: history };
+    const p = this.state.profile;
+    if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
+    const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify(body) });
     if (res.status === 401) { const e = new Error('unauthorized'); e.code = 401; throw e; }
     if (!res.ok) throw new Error('backend ' + res.status);
     const data = await res.json();
+    this._lastTasteChanged = !!(data && data.taste_changed);   // worker committed a taste edit -> CI re-ranks
     const reply = data && (data.reply || (Array.isArray(data.content) && data.content.map(b => b && b.text).filter(Boolean).join('\n')));
     if (!reply) throw new Error('empty');
     return reply;
@@ -1168,6 +1176,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       try {
         const reply = await this.askBackend(text);
         this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: reply }] }));
+        if (this._lastTasteChanged) { this._lastTasteChanged = false; this.flashToast('Taste updated — re-ranking. Tap ↻ to refresh in ~a minute.'); }
         return;
       } catch (e) {
         const note = (e && e.code === 401)
@@ -1553,6 +1562,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     const profile = this.state.profile;
     const profileActive = !!(profile && profile.hash);
+    const profileTasteYaml = (profileActive && this.META && this.META.profile && this.META.profile.taste_yaml) || '';
     const profBorder = profileActive ? '#2b5cd9' : '#d2d0c7';
     const profBg = profileActive ? '#eaf0fe' : 'transparent';
     const profColor = profileActive ? '#2b5cd9' : '#76746b';
@@ -1581,7 +1591,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       profileActive, profileName: profileActive ? (profile.name || 'profile') : '',
       profileLabel: profileActive ? (profile.name || 'profile') : 'prof',
       profileBtnLabel: this.state.profileBusy ? '…' : 'Enter',
-      profBorder, profBg, profColor, profDot,
+      profBorder, profBg, profColor, profDot, profileTasteYaml,
       openProfile: this.openProfile, closeProfile: this.closeProfile, onProfileInput: this.onProfileInput,
       onProfileKey: this.onProfileKey, submitProfile: this.submitProfile, logoutProfile: this.logoutProfile,
       rangeStart, rangeEnd, rangeLabel, bubbleOpen, bubbleOpts,
