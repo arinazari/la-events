@@ -48,7 +48,15 @@
         <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE DIGEST</div>
         <button onClick="{{ toggleCollapse }}" title="Collapse" style="font:600 13px/1 ui-monospace,Menlo,monospace; width:26px; height:24px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">»</button>
       </div>
-      <div style="margin-top:6px; font-size:11.5px; line-height:1.45; color:#76746b;">Natural-language filter over the catalog, ranked to your taste profile. Try a request below or type your own.</div>
+      <div style="margin-top:6px; font-size:11.5px; line-height:1.45; color:#76746b;">Your taste-ranked LA concierge — ask, get recommendations, or plan a night (dinner → show → afters). Switch to Fast filter for instant offline filtering.</div>
+      <div style="margin-top:10px; display:flex; align-items:center; gap:6px;">
+        <sc-for list="{{ modeOpts }}" as="o">
+          <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px solid #d2d0c7; background: {{ o.bg }}; color: {{ o.color }}; border-radius:2px; cursor:pointer;">{{ o.label }}</button>
+        </sc-for>
+        <sc-if value="{{ showConnect }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ connectBackend }}" title="Point the concierge at your backend (URL + token)" style="margin-left:auto; font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px dashed #c9c7bd; background:transparent; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ backendLabel }} ↗</button>
+        </sc-if>
+      </div>
     </div>
 
     <div class="scry" style="flex:1; overflow-y:auto; padding:14px 16px; display:flex; flex-direction:column; gap:12px;">
@@ -59,7 +67,7 @@
         </div>
       </sc-for>
       <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
-        <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">FILTERING…</div>
+        <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">THINKING…</div>
       </sc-if>
     </div>
 
@@ -528,11 +536,18 @@ class Component extends DCLogic {
     refreshing: false, lastUpdated: 'Wed 6/17, 7:02 AM',
     discovering: false, discoverResults: null, toast: null,
     input: '',
+    chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
     loading: false,
     messages: [
       { role: 'assistant', text: "I'm your LA concierge — ranked to your taste profile. Ask for a vibe, a night, a price, or a neighborhood and I'll pull picks (the table filters too). Want a full night out? Say “plan my Saturday — dinner then a show” and I'll fuse the catalog with the restaurant list and hand a sequenced itinerary to your Claude Code session." }
     ]
   };
+
+  // LLM concierge backend (the BACKEND_URL seam). Empty = not wired -> the chat falls back to
+  // the local "Fast filter" engine. Set via the chat header "connect" affordance (localStorage),
+  // or hardcode the URL here. See backend/README.md.
+  BACKEND_URL = (typeof localStorage !== 'undefined' && localStorage.getItem('la-backend-url')) || '';
+  BACKEND_TOKEN = (typeof localStorage !== 'undefined' && localStorage.getItem('la-concierge-token')) || '';
 
   // ---- taste constants ----
   EASTSIDE = ['Silver Lake','Echo Park','Los Feliz','Atwater Village','Highland Park','Eagle Rock','East Hollywood','Historic Filipinotown','Cypress Park','Chinatown','Glendale'];
@@ -934,6 +949,36 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   onKey = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.runQuery(this.state.input); } };
   send = () => this.runQuery(this.state.input);
 
+  // ---------- concierge mode + backend wiring ----------
+  setChatMode = (m) => { try { localStorage.setItem('la-chat-mode', m); } catch (e) {} this.setState({ chatMode: m }); };
+  connectBackend = () => {
+    let url; try { url = window.prompt('Concierge backend URL (your deployed Worker). Leave blank to clear:', this.BACKEND_URL || ''); } catch (e) { return; }
+    if (url === null) return;
+    url = url.trim();
+    this.BACKEND_URL = url;
+    try { url ? localStorage.setItem('la-backend-url', url) : localStorage.removeItem('la-backend-url'); } catch (e) {}
+    if (url) {
+      let tok = null; try { tok = window.prompt('Access token (optional — blank if your backend has none):', this.BACKEND_TOKEN || ''); } catch (e) {}
+      if (tok !== null) { this.BACKEND_TOKEN = tok.trim(); try { this.BACKEND_TOKEN ? localStorage.setItem('la-concierge-token', this.BACKEND_TOKEN) : localStorage.removeItem('la-concierge-token'); } catch (e) {} }
+    }
+    this.flashToast(url ? 'Concierge backend connected' : 'Backend cleared — using Fast filter');
+    this.forceUpdate();
+  };
+  async askBackend(text) {
+    const history = (this.state.messages || []).slice(-7)
+      .map(m => ({ role: m.role === 'user' ? 'user' : 'assistant', content: String(m.text || '') }))
+      .filter(m => m.content.trim());
+    const headers = { 'content-type': 'application/json' };
+    if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+    const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify({ messages: history }) });
+    if (res.status === 401) { const e = new Error('unauthorized'); e.code = 401; throw e; }
+    if (!res.ok) throw new Error('backend ' + res.status);
+    const data = await res.json();
+    const reply = data && (data.reply || (Array.isArray(data.content) && data.content.map(b => b && b.text).filter(Boolean).join('\n')));
+    if (!reply) throw new Error('empty');
+    return reply;
+  }
+
   applySpec(spec) {
     let list = this.ALL.slice();
     const has = (a) => Array.isArray(a) && a.length > 0;
@@ -1053,10 +1098,34 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (!text || this.state.loading) return;
     this.setState(s => ({ messages: [...s.messages, { role: 'user', text }], input: '', loading: true, digestPicks: false, digestPrevState: null }));
 
-    // Local, no-LLM concierge (this page is static — no API key in the browser). It parses the
-    // ask into a filter spec AND, for plan/dining intents, fuses events × dining into a
-    // suggestion + a night-planner hand-off prompt. The full sequenced itinerary (real travel
-    // times, bookings) comes from pasting that prompt into a Claude Code session.
+    const mode = this.state.chatMode || 'llm';
+    // Concierge (LLM) mode: ask the backend. It can ANSWER questions, recommend, and plan —
+    // grounded on the live feed. Falls back to the local Fast-filter engine if it's unset/down,
+    // so the chat never dead-ends.
+    if (mode === 'llm' && this.BACKEND_URL) {
+      try {
+        const reply = await this.askBackend(text);
+        this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: reply }] }));
+        return;
+      } catch (e) {
+        const note = (e && e.code === 401)
+          ? '⚠︎ Concierge needs an access token — tap "connect" to set it. Falling back to fast filter:'
+          : '⚠︎ Concierge backend unreachable — falling back to fast filter:';
+        this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: note }] }));
+        // fall through to the local engine
+      }
+    } else if (mode === 'llm' && !this.BACKEND_URL && !this._backendHinted) {
+      this._backendHinted = true;
+      this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: 'Concierge backend isn’t connected yet — tap "connect" above (see backend/README.md) for full answers + planning. Using fast filter for now:' }] }));
+    }
+
+    this.runLocal(text);
+  }
+
+  // Local, no-LLM engine (Fast filter mode, and the fallback for Concierge mode). Parses the ask
+  // into a filter spec AND, for plan/dining intents, fuses events × dining into a suggestion + a
+  // night-planner hand-off prompt.
+  runLocal(text) {
     let spec;
     try { spec = this.localSpec(text); } catch (e) { spec = { intent: 'filter', sortBy: 'score', summary: text }; }
 
@@ -1382,6 +1451,19 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const chips = ['plan my saturday — dinner then a show','techno this weekend','date night in los feliz','where should I eat near silver lake','rep cinema in 35mm','afterhours warehouse','free shows','top picks'];
     const suggestions = chips.map(label => ({ label, onClick: () => this.runQuery(label) }));
 
+    const chatMode = this.state.chatMode || 'llm';
+    const modeOpts = [
+      { key: 'llm', label: 'Concierge', title: 'LLM concierge — answers, recommends, plans (needs a backend)' },
+      { key: 'fast', label: 'Fast filter', title: 'Instant offline taste-filter (no LLM)' },
+    ].map(o => ({
+      label: o.label, title: o.title,
+      bg: chatMode === o.key ? '#2b5cd9' : '#f7f6f2',
+      color: chatMode === o.key ? '#fff' : '#76746b',
+      onClick: () => this.setChatMode(o.key),
+    }));
+    const showConnect = chatMode === 'llm';
+    const backendLabel = this.BACKEND_URL ? 'connected' : 'connect';
+
     const LBL = {
       week: { num: '7', unit: 'days' }, month: { num: '30', unit: 'days' },
       twomo: { num: '2', unit: 'months' }, threemo: { num: '3', unit: 'months' },
@@ -1400,6 +1482,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     return {
       messages: msgs, suggestions, loading,
+      modeOpts, showConnect, backendLabel, connectBackend: this.connectBackend,
       rangeStart, rangeEnd, rangeLabel, bubbleOpen, bubbleOpts,
       startLabel: this.labelISO(rangeStart), endLabel: this.labelISO(rangeEnd),
       shownCount: rows.length, totalCount: this.ALL.length,

@@ -207,9 +207,15 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   hand-off** (Ari's call, 2026-06). The page never holds a key or writes YAML; it composes the exact
   prompt and the existing agent commits results back (routine/Pages redeploy surfaces them). Isolated
   to one seam (`js/handoff.js`, `BACKEND_URL`) so a backend can drop in later with no rewrite.
-- **Remaining (the upgrade, not blocking):** a small backend at `BACKEND_URL` for real in-page
-  streaming chat + auto-commit, and hosting **auth** (private to Ari + friends) — naturally co-located
-  with that backend. Public/unlisted Pages is fine until then (catalog = public events).
+- [x] **LLM concierge backend wired (2026-06-19)** — the chat now has a **Concierge (LLM)** mode
+  (default) ⇄ **Fast filter** (the no-LLM heuristic) toggle. Concierge mode POSTs to `BACKEND_URL`;
+  a reference Cloudflare Worker (`backend/`) holds `ANTHROPIC_API_KEY`, grounds on the live
+  `data.json` (events + dining + taste), and answers/recommends/plans. The page falls back to Fast
+  filter if the backend is unset/down, so nothing breaks. **Needs Ari to deploy it** (wrangler +
+  key) and set the URL/token via the chat's "connect" affordance — see `backend/README.md`.
+- **Remaining (the upgrade, not blocking):** stand up that backend + choose **auth** (shared token
+  vs Cloudflare Access — "private to Ari + friends"); optional streaming + auto-commit of plans.
+  Public/unlisted Pages + Fast-filter fallback is fine until then (catalog = public events).
 - **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
 - [x] **Front end swapped to the design-tool UI (2026-06-18, branch `claude/exciting-feynman-v6vqo6`)** —
   the hand-written 3-view app was replaced by Ari's uploaded design (a single `dashboard/index.html` +

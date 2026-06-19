@@ -39,19 +39,23 @@ sources.yaml ───────┘
 table, and renders. If `data.json` is unreachable (e.g. opened over `file://`) it falls back
 to its bundled sample data, so it never renders blank.
 
-## The two interactive features are static-safe
+## The chat: Concierge (LLM) ⇄ Fast filter
 
-GitHub Pages serves static files only — no backend, nowhere safe for an API key — so the page
-**never calls an LLM**. The design's two AI features were rewired to the repo's existing
-patterns (the same approach the previous dashboard used):
+The chat has two modes, toggled in its header (default **Concierge**):
 
-- **ASK THE DIGEST** (chat sidebar) → a **local, no-LLM intent parser** (`localSpec()` in
-  `index.html`, ported from the old `js/chat.js`). It turns "free house show this weekend near
-  me" into a filter over the loaded catalog, instantly and offline.
-- **Discover new sources** → a **copy-to-Claude-Code hand-off**. It composes a Discover-mode
-  prompt and copies it to the clipboard; you paste it into your Claude Code session, which
-  proposes sources. Approval still happens in the repo (the registry's propose → human-approves
-  rule). Nothing is auto-written to `sources.yaml`.
+- **Concierge (LLM)** — a real conversational concierge that **answers questions**, recommends,
+  and plans a night. Because the page is static (no API key in the browser), it POSTs to a
+  `BACKEND_URL` — a small Cloudflare Worker that holds the Anthropic key and grounds the model on
+  the live feed. **Deploy it + connect it** (see `backend/README.md`; tap "connect" in the chat
+  header to set the URL/token). Until then, Concierge mode transparently falls back to ↓.
+- **Fast filter** — a **local, no-LLM intent parser** (`localSpec()` in `index.html`). Turns
+  "free house show this weekend near me" into a filter over the loaded catalog, instantly and
+  offline; also fuses events × dining into a rough plan and a night-planner hand-off prompt. This
+  is the fallback whenever the backend is unset/unreachable, so the chat never dead-ends.
+
+**Discover new sources** → a **copy-to-Claude-Code hand-off** (composes a Discover-mode prompt,
+copies it; you paste it into Claude Code, which proposes sources — approval still happens in the
+repo). Nothing is auto-written to `sources.yaml`.
 
 ## Use it
 
@@ -99,9 +103,10 @@ class; the JS is standard, no JSX). If you'd rather keep iterating in the design
 there and re-export over `index.html` (keep `support.js` beside it). `support.js` is the
 generated runtime; the only hand-edit is the three `vendor/` paths (originally unpkg URLs).
 
-## Upgrade path (optional, later)
+## Upgrade path
 
-To enable real in-page chat / auto-commit, stand up a small service holding the Anthropic +
-GitHub keys and POST the composed prompts to it instead of the clipboard hand-off — that
-hand-off is the single seam to swap. Public/unlisted Pages is fine until then (the catalog is
-public LA events).
+The LLM **Concierge backend** is the realized version of this (see `backend/`): deploy the
+Worker, set the Anthropic key, connect the URL/token. Still open as future work: streaming
+responses, auto-committing generated plans back to the repo, and real auth (Cloudflare Access).
+Public/unlisted Pages + the Fast-filter fallback is fine until then (the catalog is public LA
+events).
