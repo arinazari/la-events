@@ -123,6 +123,7 @@ def merge(a: dict, b: dict) -> dict:
     out["organizers"] = _richest(a.get("organizers"), b.get("organizers"))
     out["price"] = a.get("price") or b.get("price")
     out["neighborhood"] = a.get("neighborhood") or b.get("neighborhood")
+    out["genre"] = a.get("genre") or b.get("genre")  # sparse (only some sources classify); don't lose it if the base lacks one
     out["ra_pick"] = bool(a.get("ra_pick") or b.get("ra_pick"))
     out["afterhours"] = bool(a.get("afterhours") or b.get("afterhours"))
     fs = [x for x in (a.get("first_seen"), b.get("first_seen")) if x]

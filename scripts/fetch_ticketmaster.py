@@ -47,6 +47,11 @@ def normalize(ev: dict) -> dict:
     classifications = ev.get("classifications") or [{}]
     seg = classifications[0].get("segment", {}).get("name")
     genre = classifications[0].get("genre", {}).get("name")
+    # TM uses "Undefined"/"Other" as placeholders when it has no real genre — treat them as
+    # no-genre so the dashboard's CATEGORY / GENRE line shows a real genre (Rock, Techno, …) or
+    # nothing, never the literal word "Undefined".
+    if genre and genre.strip().lower() in ("undefined", "other"):
+        genre = None
     start = ev.get("dates", {}).get("start", {})
     attractions = (ev.get("_embedded") or {}).get("attractions") or []
     return {
