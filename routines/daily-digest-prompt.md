@@ -40,12 +40,25 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    out; far ones stay thin (few candidates) — do NOT pad.
 6. Maintain `digests/weekends/index.md`: one row per weekend (date range, # events, top pick),
    soonest first; drop past weekends.
-7. Rebuild the dashboard feed: `python scripts/build_dashboard.py`.
-8. Commit catalog + `data/enrichment.json` + `data/images/` + the changed weekend `.md`/`.html` +
-   index + `dashboard/data.json`, message "weekend digests: YYYY-MM-DD (W weekends, N events, M new)".
-9. If a source failed twice in a row, mark it `flaky` in sources.yaml and note it in the nearest
+7. Rebuild the dashboard feeds: `python scripts/build_profiles.py` — builds the default
+   `dashboard/data.json` (root taste) AND every per-profile feed `dashboard/data.<hash>.json`
+   (one per entry in `profiles.yaml`) with the same scorer, so friends' feeds stay fresh as the
+   catalog changes (not just when they self-edit their taste).
+8. **Per-profile digests:** for each profile in `profiles.yaml`, read its feed
+   `dashboard/data.<hash>.json` (the `<hash>` is also in `feed.profile.hash`) and write a concise
+   personalized digest to `digests/<hash>/latest.md` (overwrite each run) — same conversational,
+   opinionated voice as the weekend digest, but ranked to THAT person's taste: their top picks
+   across the next ~2–3 weekends, grouped by day, a one-line *why* each. Keep it tight; if their
+   feed is thin, a couple of honest lines is fine (don't pad). The dashboard's profile popup reads
+   this file. (An `owner: true` profile shares the root taste.yaml, so its digest ≈ the default —
+   expected.) Friends' feeds re-rank within ~1–2 min of a self-edit via CI, but their *narrative*
+   digest refreshes here, daily.
+9. Commit catalog + `data/enrichment.json` + `data/images/` + the changed weekend `.md`/`.html` +
+   index + **all `dashboard/data*.json`** (default + profile feeds) + **`digests/<hash>/latest.md`**,
+   message "weekend digests: YYYY-MM-DD (W weekends, N events, M new)".
+10. If a source failed twice in a row, mark it `flaky` in sources.yaml and note it in the nearest
    weekend footer.
-10. Do NOT run discover mode here (separate / manual).
+11. Do NOT run discover mode here (separate / manual).
 
 > **Delivery — no email (deliberate).** The routine commits the `.md` + `.html` to the branch; do
 > NOT email. The planned delivery is a **hosted, bookmarkable page** served from these artifacts,

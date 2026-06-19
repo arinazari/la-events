@@ -41,6 +41,16 @@ jobs:
           else
             echo "No dated digest found; the popup falls back to its bundled sample."
           fi
+          # Per-profile digests: digests/<hash>/latest.md -> dashboard/digests/<hash>/latest.md
+          for d in digests/*/; do
+            h="$(basename "$d")"
+            case "$h" in *[!0-9a-f]*|"") continue ;; esac   # 16-hex profile hashes only (skips weekends/)
+            if [ -f "$d/latest.md" ]; then
+              mkdir -p "dashboard/digests/$h"
+              cp "$d/latest.md" "dashboard/digests/$h/latest.md"
+              echo "Staged $d""latest.md -> dashboard/digests/$h/latest.md"
+            fi
+          done
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dashboard
