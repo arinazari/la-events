@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T00:05:57",
+  "generated_at": "2026-06-19T04:08:30",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "count": 697,
@@ -58,6 +58,697 @@
     "music",
     "party",
     "theater"
+  ],
+  "dining": [
+    {
+      "name": "M\u00edrate",
+      "type": "restaurant",
+      "cuisine": [
+        "modern mexican"
+      ],
+      "neighborhood": "Los Feliz",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "special",
+        "group"
+      ],
+      "reservation_url": "https://resy.com/cities/los-angeles-ca/venues/mirate",
+      "reservation_platform": "resy",
+      "notes": "Multi-level rooftop, Tulum-jungle candlelight; bar voted Best in California. Strong chic/date-night + birthday pick. Eastside."
+    },
+    {
+      "name": "Wilde's",
+      "type": "restaurant",
+      "cuisine": [
+        "british",
+        "wine bar"
+      ],
+      "neighborhood": "Los Feliz",
+      "price": "$$$",
+      "occasion": [
+        "date_night"
+      ],
+      "reservation_url": "https://www.theinfatuation.com/los-angeles/reviews/wildes",
+      "reservation_platform": "resy",
+      "notes": "Tiny candlelit British bistro/wine bar; bakery-cafe by day. Intimate date-night; tables hard \u2014 Notify/bar seats. Eastside."
+    },
+    {
+      "name": "Cafe Stella",
+      "type": "restaurant",
+      "cuisine": [
+        "french bistro"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$$",
+      "occasion": [
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Reopened after 2024 closure; slimmed menu \u2014 steak au poivre, fris\u00e9e, frozen-lemon sorbet. Sunset Junction, home turf."
+    },
+    {
+      "name": "Rasarumah",
+      "type": "restaurant",
+      "cuisine": [
+        "malaysian"
+      ],
+      "neighborhood": "Echo Park / Silver Lake (eastside)",
+      "price": "$$",
+      "occasion": [
+        "group",
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Eastside hotspot (Variety also flagged it). Confirm exact address/neighborhood next pass."
+    },
+    {
+      "name": "Dunsmoor",
+      "type": "restaurant",
+      "cuisine": [
+        "american",
+        "wood-fired"
+      ],
+      "neighborhood": "Eagle Rock",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "special"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Restored 1920s building around a huge wood-burning hearth. Eastside, on-profile for a special night."
+    },
+    {
+      "name": "Yess",
+      "type": "restaurant",
+      "cuisine": [
+        "japanese",
+        "seafood"
+      ],
+      "neighborhood": "Arts District (DTLA)",
+      "price": "$$$$",
+      "occasion": [
+        "special",
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Grew out of the Yess Aquatic seafood truck. Chef Junya Yamasaki \u2014 confirm details next pass."
+    },
+    {
+      "name": "Sushi Nakazawa",
+      "type": "restaurant",
+      "cuisine": [
+        "sushi",
+        "omakase"
+      ],
+      "neighborhood": null,
+      "price": "$$$$",
+      "occasion": [
+        "special"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Omakase from a Jiro Ono prot\u00e9g\u00e9; NYC import's LA debut. Neighborhood unconfirmed."
+    },
+    {
+      "name": "Hermon's",
+      "type": "restaurant",
+      "cuisine": [
+        "chophouse"
+      ],
+      "neighborhood": null,
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "group"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Refreshed chophouse from the Found Oyster team \u2014 martinis, pull-apart garlic bread, pasta vongole. Confirm neighborhood."
+    },
+    {
+      "name": "Mish",
+      "type": "restaurant",
+      "cuisine": [
+        "jewish deli"
+      ],
+      "neighborhood": "La Brea (Mid-City)",
+      "price": "$$",
+      "occasion": [
+        "quick_lunch",
+        "group"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "New-wave deli on La Brea \u2014 wood-fired bagels, shakshuka with challah, pastrami reuben on schmaltz-griddled rye."
+    },
+    {
+      "name": "Asadero",
+      "type": "restaurant",
+      "cuisine": [
+        "mexican",
+        "tacos"
+      ],
+      "neighborhood": null,
+      "price": "$",
+      "occasion": [
+        "quick_lunch",
+        "casual"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Above-average taco stand \u2014 smoky asada from a chef who left corporate kitchens. Confirm neighborhood."
+    },
+    {
+      "name": "Amiguita",
+      "type": "restaurant",
+      "cuisine": [],
+      "neighborhood": null,
+      "price": null,
+      "occasion": [],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "On the Resy Hit List; details unconfirmed \u2014 fill in cuisine/neighborhood next pass."
+    },
+    {
+      "name": "Pasjoli",
+      "type": "restaurant",
+      "cuisine": [
+        "french"
+      ],
+      "neighborhood": "Santa Monica",
+      "price": "$$$$",
+      "occasion": [
+        "special",
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "opentable",
+      "notes": "Refined French bistro, Chef Dave Beran (ex-Alinea). Westside \u2014 special-occasion, not walkable."
+    },
+    {
+      "name": "Kassi",
+      "type": "restaurant",
+      "cuisine": [
+        "greek",
+        "mediterranean"
+      ],
+      "neighborhood": "Venice",
+      "price": "$$$",
+      "occasion": [
+        "group",
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "opentable",
+      "notes": "Greek-Med rooftop in Venice \u2014 mezze, lamb chops, grilled whole fish. Westside."
+    },
+    {
+      "name": "San Laurel",
+      "type": "restaurant",
+      "cuisine": [
+        "spanish",
+        "mediterranean"
+      ],
+      "neighborhood": "Downtown LA",
+      "price": "$$$$",
+      "occasion": [
+        "special",
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "opentable",
+      "notes": "Spanish-inflected dining high in the InterContinental DTLA (Jos\u00e9 Andr\u00e9s group)."
+    },
+    {
+      "name": "Calabra",
+      "type": "restaurant",
+      "cuisine": [
+        "mediterranean"
+      ],
+      "neighborhood": "Santa Monica",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "group"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "opentable",
+      "notes": "Mediterranean rooftop atop the Santa Monica Proper \u2014 charred flatbreads, mezze, grilled fish."
+    },
+    {
+      "name": "Found Oyster",
+      "type": "restaurant",
+      "cuisine": [
+        "seafood"
+      ],
+      "neighborhood": "East Hollywood",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "group",
+        "solo_counter"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Tiny, buzzy seafood bar \u2014 clam cakes, chicken-fried oysters. Walk-in/bar; parent of Hermon's. Home turf."
+    },
+    {
+      "name": "Bar Restaurant",
+      "type": "restaurant",
+      "cuisine": [
+        "french"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$$",
+      "occasion": [
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Pink-hued, 'strange and fantastic' modern French. Intimate date-night; books up. Sunset Junction, walkable."
+    },
+    {
+      "name": "Sogo Roll Bar",
+      "type": "restaurant",
+      "cuisine": [
+        "sushi",
+        "handroll"
+      ],
+      "neighborhood": "Los Feliz",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "solo_counter"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Handroll bar from the Sushi Note team \u2014 creative, high-quality fish. Counter seats. Eastside."
+    },
+    {
+      "name": "Lolo Wine Bar",
+      "type": "restaurant",
+      "cuisine": [
+        "wine bar",
+        "italian"
+      ],
+      "neighborhood": "East Hollywood",
+      "price": "$$$",
+      "occasion": [
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Low-key neighborhood wine bar with a great patio + shareable pasta. Walkable from home."
+    },
+    {
+      "name": "Marco Polo",
+      "type": "restaurant",
+      "cuisine": [
+        "italian",
+        "seafood"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "group"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Outdoor-focused Italian \u2014 linguini vongole, gin-arugula cocktails. Patio date-night. Home turf."
+    },
+    {
+      "name": "Clark Street Bakery",
+      "type": "bakery",
+      "cuisine": [
+        "bakery",
+        "cafe"
+      ],
+      "neighborhood": "Echo Park",
+      "price": "$",
+      "occasion": [
+        "quick_lunch",
+        "casual"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Echo Park bakery \u2014 caramelized kouign-amann, Nordic breakfast platters. Daytime/casual."
+    },
+    {
+      "name": "Kismet Rotisserie",
+      "type": "restaurant",
+      "cuisine": [
+        "mediterranean"
+      ],
+      "neighborhood": "Los Feliz",
+      "price": "$$",
+      "occasion": [
+        "quick_lunch",
+        "casual",
+        "group"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Casual rotisserie next to Kismet \u2014 roast chicken on pita, veg sides. Easy weeknight. Eastside."
+    },
+    {
+      "name": "Jeff's Table",
+      "type": "restaurant",
+      "cuisine": [
+        "sandwiches",
+        "deli"
+      ],
+      "neighborhood": "Highland Park",
+      "price": "$$",
+      "occasion": [
+        "quick_lunch",
+        "casual"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Cult deli hidden behind a liquor store \u2014 pastrami, specialty turkey. Lunch. Eastside."
+    },
+    {
+      "name": "Yang's Kitchen",
+      "type": "restaurant",
+      "cuisine": [
+        "chinese",
+        "taiwanese"
+      ],
+      "neighborhood": "Alhambra",
+      "price": "$$",
+      "occasion": [
+        "quick_lunch",
+        "casual",
+        "group"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Order-at-counter Taiwanese-Chinese \u2014 braised pork rice, beef scallion wraps. SGV-adjacent."
+    },
+    {
+      "name": "Sonmari",
+      "type": "restaurant",
+      "cuisine": [
+        "sushi",
+        "handroll"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "solo_counter"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Silver Lake handroll spot \u2014 inventive DIY rolls (gochujang eel, 'banh mi' albacore). Walkable."
+    },
+    {
+      "name": "Bar Di Bello",
+      "type": "restaurant",
+      "cuisine": [
+        "italian",
+        "aperitivo"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "group"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Low-lit Milanese-style aperitivo bar \u2014 cutlets, branzino, antipasti. Date-night. Home turf."
+    },
+    {
+      "name": "Holbox",
+      "type": "restaurant",
+      "cuisine": [
+        "mexican",
+        "seafood"
+      ],
+      "neighborhood": "University Park (Mercado La Paloma)",
+      "price": "$$",
+      "occasion": [
+        "casual",
+        "solo_counter",
+        "special"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Game-changing Mexican seafood stall in Mercado La Paloma \u2014 aguachiles, tostadas. Michelin Bib-tier value (confirm). Walk-up."
+    },
+    {
+      "name": "Quarter Sheets",
+      "type": "restaurant",
+      "cuisine": [
+        "pizza"
+      ],
+      "neighborhood": "Echo Park",
+      "price": "$$",
+      "occasion": [
+        "casual",
+        "group",
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Thick pan-style pizza + great wine list. Bib Gourmand value. Echo Park \u2014 walkable from home."
+    },
+    {
+      "name": "Pizzeria Bianco",
+      "type": "restaurant",
+      "cuisine": [
+        "pizza"
+      ],
+      "neighborhood": "Downtown LA",
+      "price": "$$$",
+      "occasion": [
+        "casual",
+        "group"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Chris Bianco's LA outpost (Row DTLA) \u2014 among the country's best pizza. Bib Gourmand. Confirm exact address."
+    },
+    {
+      "name": "Sushi Note",
+      "type": "restaurant",
+      "cuisine": [
+        "sushi",
+        "japanese"
+      ],
+      "neighborhood": "Sherman Oaks",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "special",
+        "solo_counter"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Sushi-and-wine bar (team behind Sogo Roll Bar). Valley \u2014 a destination, not walkable."
+    },
+    {
+      "name": "Santo",
+      "type": "restaurant",
+      "cuisine": [
+        "sushi",
+        "japanese",
+        "mexican"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "casual",
+        "solo_counter"
+      ],
+      "reservation_url": "https://resy.com/cities/los-angeles-ca/venues/santo-nigiri-and-sake-bar",
+      "reservation_platform": "resy",
+      "notes": "Japanese-Mexican nigiri/handrolls + sake & wine, Sunset Junction. Home turf; next to Bar Seco. (Sant\u014d)"
+    },
+    {
+      "name": "Bar Seco",
+      "type": "bar",
+      "cuisine": [
+        "natural wine",
+        "small plates"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "casual"
+      ],
+      "reservation_url": "https://resy.com/cities/los-angeles-ca/venues/seco-silverlake",
+      "reservation_platform": "resy",
+      "notes": "Natural wine bar + small plates (CDMX/Madrid/Japan), spills onto Sunset. Walk-in/sidewalk seats. Next to Santo. (aka Seco)"
+    },
+    {
+      "name": "Superba",
+      "type": "restaurant",
+      "cuisine": [
+        "california",
+        "bakery",
+        "new american"
+      ],
+      "neighborhood": "Venice",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "group",
+        "casual",
+        "special"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "ARI'S ABSOLUTE FAVORITE \u2014 food + ambiance, the patio especially (also great inside). Superba Food + Bread, Lincoln Blvd. Westside \u2014 worth the drive."
+    },
+    {
+      "name": "L&E Oyster Bar",
+      "type": "restaurant",
+      "cuisine": [
+        "oysters",
+        "seafood"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "casual",
+        "group"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Silver Lake oyster bar; the upstairs bar is the chill walk-in move. Home turf."
+    },
+    {
+      "name": "Pijja Palace",
+      "type": "restaurant",
+      "cuisine": [
+        "indian",
+        "italian",
+        "pizza"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$",
+      "occasion": [
+        "group",
+        "casual",
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Indian-Italian sports bar \u2014 pizza, pasta, cricket on the TVs. Very popular (hard rez / walk-in bar). Silver Lake, home turf."
+    },
+    {
+      "name": "Night + Market Song",
+      "type": "restaurant",
+      "cuisine": [
+        "thai"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$",
+      "occasion": [
+        "date_night",
+        "group",
+        "casual"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Kris Yenbamroong's fiery northern Thai on Sunset. Walk-in friendly. Home turf."
+    },
+    {
+      "name": "Momed",
+      "type": "restaurant",
+      "cuisine": [
+        "mediterranean"
+      ],
+      "neighborhood": "Atwater Village",
+      "price": "$$",
+      "occasion": [
+        "casual",
+        "group",
+        "quick_lunch",
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Mediterranean \u2014 mezze, wraps, bowls. Atwater Village (also Beverly Hills). Eastside, easy."
+    },
+    {
+      "name": "Bar Siesta",
+      "type": "bar",
+      "cuisine": [
+        "spanish",
+        "natural wine"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "casual"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "New Spanish tapas + all-Spanish wine bar (Heather Sperling team). On-taste wine bar, home turf."
+    },
+    {
+      "name": "Atrium",
+      "type": "restaurant",
+      "cuisine": [
+        "french",
+        "new american"
+      ],
+      "neighborhood": "Los Feliz",
+      "price": "$$$",
+      "occasion": [
+        "date_night",
+        "group"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Playful, vaguely-French cooking from Douglas Rankin in the old Malo space, Sunset Junction. New. Home turf."
+    },
+    {
+      "name": "Bowery Bungalow",
+      "type": "restaurant",
+      "cuisine": [
+        "mediterranean"
+      ],
+      "neighborhood": "Silver Lake",
+      "price": "$$",
+      "occasion": [
+        "casual",
+        "group",
+        "date_night"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "resy",
+      "notes": "Modern Mediterranean from George Abou-Daoud in the former Sompun Thai. New, home turf."
+    },
+    {
+      "name": "Frank n Franks",
+      "type": "restaurant",
+      "cuisine": [
+        "sandwiches"
+      ],
+      "neighborhood": "Chinatown",
+      "price": "$",
+      "occasion": [
+        "quick_lunch",
+        "casual"
+      ],
+      "reservation_url": null,
+      "reservation_platform": "walk_in",
+      "notes": "Sandwich spot from a Howlin' Ray's vet. Casual lunch, Chinatown \u2014 eastside-adjacent."
+    }
   ],
   "taste": {
     "venues_loved": [
@@ -3086,7 +3777,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Kids in the Hall: Brain Candy",
@@ -3121,7 +3812,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "BADECISION",
@@ -3155,7 +3846,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "RECOLLECT UNDERGROUND",
@@ -3189,7 +3880,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "NIGHTSHIFT AFTER HOURS",
@@ -3228,7 +3919,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "NEGRO JEOPARTY JUNETEENTH TOURNAMENT",
@@ -3262,7 +3953,7 @@
         "+2 tracked artist (Ame)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "TsuShiMaMiRe, Galecstasy",
@@ -3297,7 +3988,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Rumba Coste\u00f1a - A Cumbia Vinyl Night",
@@ -3331,7 +4022,7 @@
         "+1 rooftop / vinyl / groove"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Acropolis Cinema: Travis Wilkerson's An Injury to All (2026)",
@@ -3366,7 +4057,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Lean Party 3",
@@ -3400,7 +4091,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "SUMMER-WEEN",
@@ -3434,7 +4125,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "WILD CARD - House // Tech-House (18+)",
@@ -3468,7 +4159,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Do You Like House Music?",
@@ -3503,7 +4194,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "THIRSTY THURSDAYS \u201cAFTER HOURS\u201d",
@@ -3537,7 +4228,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Obscene: Industria Nova, Damascus Knives",
@@ -3571,7 +4262,7 @@
         "+1 afterhours / late start"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Paris Chansons",
@@ -3604,7 +4295,7 @@
         "+2 live music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Luna Sea Performing with the Soap Girls At the Signature Saloon In STR",
@@ -3641,7 +4332,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Studio Sessions | Shaina Rae",
@@ -3674,7 +4365,7 @@
         "+3 party (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Havaianas & Hypebeast Cup The Football Party",
@@ -3707,7 +4398,7 @@
         "+3 party (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Wockseason Exclusives",
@@ -3740,7 +4431,7 @@
         "+3 party (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Summer Madnes creator Mixer",
@@ -3773,7 +4464,7 @@
         "+3 party (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "San Minotauro, Paer, WARMLECHE",
@@ -3807,7 +4498,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Reel to Reel: The Palomino",
@@ -3840,7 +4531,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Bruce Hornsby & the Noisemakers - Wednesday",
@@ -3873,7 +4564,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "HONNE - 10 YEAR ANNIVERSARY TOUR",
@@ -3906,7 +4597,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Lee Lewis with Dani Offline",
@@ -3939,7 +4630,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Critical Breakdown & A Mind's Pursuit. Featuring Algee Smith, & More",
@@ -3972,7 +4663,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Tredici, Falcone, Gillis, & Shanahan, Th3y Live, Liquid Flowers",
@@ -4005,7 +4696,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "NICHOLAS RODRIGUEZ in SINCERELY, SONDHEIM: A Musical Love Letter",
@@ -4038,7 +4729,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Hell's Kitchen (Touring)",
@@ -4071,7 +4762,7 @@
         "+2 theater (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "WORK presents: Record Label Success & Best Practices Workshop with SHDW (Mutual Rytm)",
@@ -4113,7 +4804,7 @@
         "-2 workshop"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Passenger Princess 4",
@@ -4158,7 +4849,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Shouse",
@@ -4191,7 +4882,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "De Zimieren\u208b\u2086",
@@ -4231,7 +4922,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Obscene (Goth / Industrial / EBM / Darkwave)",
@@ -4267,7 +4958,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Choker",
@@ -4303,7 +4994,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "SHOUSE",
@@ -4338,7 +5029,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "NOVULENT w/ BABYTEETH",
@@ -4371,7 +5062,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Ariana Grande - The Eternal Sunshine Tour",
@@ -4404,7 +5095,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "SHAKIRA - LAS MUJERES YA NO LLORAN WORLD TOUR",
@@ -4437,7 +5128,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "LOE SHIMMY LIVE @ THE GLOBE THEATRE",
@@ -4470,7 +5161,7 @@
         "+3 party (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Chayce Beckham",
@@ -4503,7 +5194,7 @@
         "+2 music (medium interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "PURRRIDE",
@@ -4537,7 +5228,7 @@
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Sylvan Esso Residency",
@@ -4570,7 +5261,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Shouse",
@@ -4603,7 +5294,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Jane Remover, Dazegxd",
@@ -4644,7 +5335,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Afters Hour",
@@ -4677,7 +5368,7 @@
         "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Loud Gaze w/ Kanyon, Annika Wolfe & Suspiro",
@@ -4713,7 +5404,7 @@
         "-2 far from LA"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "COPA CALOR: World Cup Watch Party",
@@ -4748,7 +5439,7 @@
         "-2 world cup"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Clay Date! | Mask Making with Ollin Gonzalez",
@@ -4782,7 +5473,7 @@
         "-2 workshop"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Jeff Allen",
@@ -4816,7 +5507,7 @@
         "-2 far from LA"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Airplane! Live with Julie Hagerty and Robert Hays!",
@@ -4851,7 +5542,7 @@
         "-2 far from LA"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -4885,7 +5576,7 @@
         "-2 far from LA"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Tumbado Thursdays(World Cup After Party)",
@@ -4919,7 +5610,7 @@
         "-2 world cup"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Headroom Listening Sessions: San Diego",
@@ -4954,7 +5645,7 @@
         "-2 far from LA"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Bassland Returns",
@@ -4993,7 +5684,7 @@
         "-2 dubstep"
       ],
       "iso_date": "2026-06-18",
-      "is_past": false
+      "is_past": true
     },
     {
       "title": "Chris Lake",

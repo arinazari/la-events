@@ -135,6 +135,33 @@ def main() -> int:
     profile = load_yaml(profile_path)
     sources = load_yaml(sources_path)
 
+    # Dining layer (la-dining) — pass a trimmed restaurant list through to the feed so the
+    # dashboard's concierge chat can fuse food + events into plans. Pure passthrough (no
+    # scoring); graceful if data/dining.json is absent or malformed.
+    dining = []
+    dining_path = REPO / "data" / "dining.json"
+    if dining_path.exists():
+        try:
+            with dining_path.open() as f:
+                raw_dining = json.load(f)
+            for r in (raw_dining if isinstance(raw_dining, list) else []):
+                if not isinstance(r, dict) or not r.get("name"):
+                    continue
+                resv = r.get("reservations") or {}
+                dining.append({
+                    "name": r.get("name"),
+                    "type": r.get("type"),
+                    "cuisine": r.get("cuisine") or [],
+                    "neighborhood": r.get("neighborhood"),
+                    "price": r.get("price"),
+                    "occasion": r.get("occasion") or [],
+                    "reservation_url": resv.get("url"),
+                    "reservation_platform": resv.get("platform"),
+                    "notes": r.get("notes"),
+                })
+        except (json.JSONDecodeError, OSError):
+            dining = []
+
     # Spotify + feedback music layer (Phase C) — the same merged layer the digest scores
     # against (Spotify affinity folded with data/feedback.jsonl), so the dashboard stars match.
     # Graceful: absent/corrupt -> taste.yaml-only scoring.
@@ -181,6 +208,7 @@ def main() -> int:
         "enriched_count": enriched_hits,
         "neighborhoods": neighborhoods,
         "categories": categories,
+        "dining": dining,
         "taste": {
             "venues_loved": taste.get("venues_loved") or [],
             "artists_tracked": taste.get("artists_tracked") or [],

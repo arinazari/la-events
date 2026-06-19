@@ -55,7 +55,7 @@
       <sc-for list="{{ messages }}" as="m" hint-placeholder-count="2">
         <div style="display:flex; flex-direction:column; gap:3px;">
           <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; text-transform:uppercase; color: {{ m.tagColor }};">{{ m.tag }}</div>
-          <div style="font-size:12.5px; line-height:1.5; color: {{ m.color }};">{{ m.text }}</div>
+          <div style="font-size:12.5px; line-height:1.5; color: {{ m.color }}; white-space:pre-wrap;">{{ m.text }}</div>
         </div>
       </sc-for>
       <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
@@ -327,7 +327,7 @@
                       <div style="font:500 11.5px/1.9 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.priceLine }}</div>
                       <div style="display:flex; flex-wrap:wrap; gap:7px; margin-top:10px;">
                         <sc-for list="{{ ev.links }}" as="lk">
-                          <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:2px; text-decoration:none;" style-hover="background:#2b5cd9; color:#fff;">{{ lk.label }} ↗</a>
+                          <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:2px; text-decoration:none; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="background:#e9f0fd; border-color:#234bb3; color:#234bb3;">{{ lk.label }} ↗</a>
                         </sc-for>
                       </div>
                     </div>
@@ -530,7 +530,7 @@ class Component extends DCLogic {
     input: '',
     loading: false,
     messages: [
-      { role: 'assistant', text: "I'm filtering the catalog the way the digest does — by your taste profile. Ask for a vibe, a night, a price, a neighborhood, or a source." }
+      { role: 'assistant', text: "I'm your LA concierge — ranked to your taste profile. Ask for a vibe, a night, a price, or a neighborhood and I'll pull picks (the table filters too). Want a full night out? Say “plan my Saturday — dinner then a show” and I'll fuse the catalog with the restaurant list and hand a sequenced itinerary to your Claude Code session." }
     ]
   };
 
@@ -578,17 +578,25 @@ class Component extends DCLogic {
     return out.map(text => ({ text, ...this.badgeStyle(text) }));
   }
 
+  LINK_LABELS = { ra:'Resident Advisor', dice:'DICE', ticketmaster:'Ticketmaster', tm:'Ticketmaster', posh:'Posh', eventbrite:'Eventbrite', filmbot:'Showtimes', goldenvoice:'Goldenvoice', squarespace:'Venue site', jsonld:'Venue site', ics:'Add to calendar', '19hz':'19hz' };
+  linkLabel(l) {
+    if (!l) return 'Tickets';
+    const u = String(l.url || '');
+    const dom = [[/ra\.co/,'Resident Advisor'],[/dice\.fm/,'DICE'],[/eventbrite\./,'Eventbrite'],[/posh\.vip/,'Posh'],[/ticketmaster\./,'Ticketmaster'],[/seetickets/,'See Tickets'],[/ticketweb/,'TicketWeb'],[/goldenvoice/,'Goldenvoice'],[/vidiots/,'Vidiots']];
+    for (const [re,lab] of dom) if (re.test(u)) return lab;
+    return this.LINK_LABELS[String(l.source||'').toLowerCase()] || (l.source ? (l.source.charAt(0).toUpperCase()+l.source.slice(1)) : 'Tickets');
+  }
   linksFor(e) {
     const stop = (ev) => { ev.stopPropagation(); };
-    const mk = (label) => ({ label, url: '#', stop });
-    switch (e.source) {
-      case 'RA': return [mk('Resident Advisor'), mk('DICE')];
-      case 'Ticketmaster': return [mk('Ticketmaster')];
-      case 'DICE': return [mk('DICE')];
-      case 'Promoter': return [mk('RSVP / list')];
-      case 'Editorial': return [mk('Read-up'), mk('Find tickets')];
-      default: return [mk('Venue site')];
+    const list = Array.isArray(e.links) ? e.links : [];
+    const seen = new Set(); const out = [];
+    for (const l of list) {
+      if (!l || !l.url || seen.has(l.url)) continue;
+      seen.add(l.url);
+      out.push({ label: this.linkLabel(l), url: l.url, stop });
     }
+    if (!out.length && e.url) out.push({ label: 'Tickets', url: e.url, stop });
+    return out;
   }
 
   // ---------- sorting ----------
@@ -997,7 +1005,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       if (days.length) { spec.days = days; bits.push(days.join('/')); }
     }
     if (/\bnear me\b|\bnear home\b|\bwalkable\b|\bclose by\b|\bnearby\b|\bmy area\b|\beastside\b/.test(t)) { spec.walkable = true; bits.push('walkable'); }
-    const hoods = (this.META && this.META.neighborhoods) || [];
+    const hoods = Array.from(new Set([
+      ...((this.META && this.META.neighborhoods) || []),
+      ...((this.DINING || []).map(r => r.neighborhood).filter(Boolean)),
+      ...this.EASTSIDE,
+    ]));
     const hsel = [];
     for (const h of hoods) if (h && t.includes(' ' + String(h).toLowerCase())) hsel.push(h);
     if (hsel.length) { spec.neighborhoods = hsel; bits.push('in ' + hsel.join('/')); }
@@ -1017,14 +1029,22 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const pm = t.match(/\$\s?(\d{1,4})/); if (pm) { spec.priceMax = parseInt(pm[1], 10); bits.push('under $' + pm[1]); }
     if (/\bbest\b|\btop\b|\bgreat\b|\bmust\b|\bhighly\b|\brecommend/.test(t)) { spec.minScore = 7; bits.push('top-rated'); }
     spec.sortBy = /\bsoon|\bnext\b|\bearliest\b|by date|chronolog/.test(t) ? 'date' : 'score';
+    // Intent: a full-night plan, a dining-only ask, or a catalog filter. Plan wins over dining
+    // ("dinner then a show" is a plan, not just food).
+    const planRe = /\bplan\b|\bitinerary\b|night out|make (a|it a) night|dinner (then|and|&|before|first)|then (a|the) (show|set|gig|movie|party|dj)|\bafters?\b|sort me out|big night|whole night/;
+    const diningRe = /where (to|should|can).*(eat|dinner|lunch|brunch|food)|\b(dinner|lunch|brunch|restaurant|restaurants|eat|reservation|reservations|bite|somewhere to eat)\b/;
+    spec.intent = planRe.test(t) ? 'plan' : (diningRe.test(t) ? 'dining' : 'filter');
+    if (spec.intent === 'plan') bits.push('a night out');
+    if (/date[ -]?night|\bdate\b/.test(t)) spec.occasion = 'date_night';
+    else if (/\bgroup\b|\bfriends\b|\bcrew\b|\bbirthday\b/.test(t)) spec.occasion = 'group';
     const got = ['tonight','weekend','days','walkable','neighborhoods','categories','keywords','freeOnly','afterhoursOnly','raPickOnly','priceMax','minScore']
       .some(k => spec[k] != null && spec[k] !== false && !(Array.isArray(spec[k]) && !spec[k].length));
-    if (!got) {
+    if (!got && spec.intent === 'filter') {
       const stop = new Set(['the','a','an','in','on','at','for','to','of','and','or','me','i','show','find','any','this','near','what','whats','events','event','la','something','want','wanna','go','out']);
       spec.keywords = String(text).toLowerCase().replace(/[^a-z0-9$ ]/g, ' ').split(/\s+/).filter(w => w && !stop.has(w));
     }
+    spec.label = bits.length ? bits.join(', ') : '';
     spec.summary = (bits.length ? bits.join(', ') : String(text).trim()).toLowerCase().slice(0, 28);
-    spec.reply = bits.length ? ('Filtered to ' + bits.join(', ') + '.') : ('Searching the catalog for “' + String(text).trim() + '”.');
     return spec;
   }
 
@@ -1033,40 +1053,151 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (!text || this.state.loading) return;
     this.setState(s => ({ messages: [...s.messages, { role: 'user', text }], input: '', loading: true, digestPicks: false, digestPrevState: null }));
 
-    // Local, no-LLM intent parser (this page is static — there's no API key in the browser,
-    // per the repo's "no secrets in the browser" rule). Parses the ask into the same filter
-    // spec applySpec() consumes, instantly and offline. For a full sequenced plan, use the
-    // "send to Claude Code" hand-off (Discover-style) rather than an in-page model.
-    let spec = null, reply = null, summary = null;
-    try {
-      spec = this.localSpec(text);
-      reply = spec && spec.reply; summary = spec && spec.summary;
-    } catch (err) { spec = null; }
+    // Local, no-LLM concierge (this page is static — no API key in the browser). It parses the
+    // ask into a filter spec AND, for plan/dining intents, fuses events × dining into a
+    // suggestion + a night-planner hand-off prompt. The full sequenced itinerary (real travel
+    // times, bookings) comes from pasting that prompt into a Claude Code session.
+    let spec;
+    try { spec = this.localSpec(text); } catch (e) { spec = { intent: 'filter', sortBy: 'score', summary: text }; }
 
-    let list, sortBy = null;
-    if (spec) {
-      list = this.applySpec(spec);
-      sortBy = spec.sortBy;
-      if (!reply) reply = 'Filtered to ' + list.length + ' event' + (list.length === 1 ? '' : 's') + '.';
-      if (list.length === 0) reply = "Nothing in the next 7 days fits that — try loosening it (broader category, higher price, or 'this weekend').";
+    let reply, ids = null;
+    if (spec.intent === 'dining') {
+      reply = this.composeDiningReply(text, spec);            // chat-only; leave the table as-is
     } else {
-      const fb = this.keywordFallback(text);
-      list = fb.list; reply = fb.reply; summary = fb.summary;
+      // For a plan, the neighborhood pins the DINNER, not the show — don't hard-filter shows by it.
+      const searchSpec = spec.intent === 'plan' ? Object.assign({}, spec, { neighborhoods: undefined }) : spec;
+      const list = this.sortForChat(this.applySpec(searchSpec), spec);
+      ids = list.map(e => e.id);
+      reply = spec.intent === 'plan' ? this.composePlanReply(text, spec, list)
+                                     : this.composeFilterReply(text, spec, list);
     }
 
-    const ids = list.map(e => e.id);
     this.setState(s => {
       const next = {
-        filtered: ids,
-        filterSummary: (summary || text).toString().toLowerCase(),
+        filterSummary: (spec.summary || text).toString().toLowerCase(),
         expandedId: null,
         loading: false,
         messages: [...s.messages, { role: 'assistant', text: reply }]
       };
-      if (sortBy === 'date') { next.sortKey = 'date'; next.sortDir = 'asc'; }
-      if (sortBy === 'score') { next.sortKey = 'score'; next.sortDir = 'desc'; }
+      if (ids) {
+        next.filtered = ids;
+        if (spec.sortBy === 'date') { next.sortKey = 'date'; next.sortDir = 'asc'; }
+        else { next.sortKey = 'score'; next.sortDir = 'desc'; }
+      }
       return next;
     });
+  }
+
+  // ---------- concierge helpers (no LLM; events × dining) ----------
+  trim(s, n) { s = String(s || ''); return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s; }
+  whenLabel(e) { return e.wd + ' ' + e.md + (e.t ? ' · ' + e.t : ''); }
+  placeLabel(e) { return e.venue + (e.hood && e.hood !== 'LA' ? ', ' + e.hood : ''); }
+
+  sortForChat(list, spec) {
+    const today = this.TODAY;
+    const out = (list || []).filter(e => e.iso >= today);
+    out.sort((a, b) => (spec.sortBy === 'date')
+      ? (a.iso.localeCompare(b.iso) || b.score - a.score)
+      : (b.score - a.score || a.iso.localeCompare(b.iso)));
+    return out;
+  }
+
+  composeFilterReply(text, spec, list) {
+    if (!list.length) return "Nothing on-taste fits that yet — try loosening it (broader vibe, a bigger window, or drop the price cap). Or say “plan my night” and I’ll build around what’s there.";
+    const top = list.slice(0, 3);
+    const lines = top.map((e, i) => (i + 1) + '. ' + e.title + ' — ' + this.placeLabel(e) + ' · ' + this.whenLabel(e)
+      + (e.why ? '\n   ↳ ' + this.trim(e.why, 150) : ''));
+    const lead = list.length + ' on-taste ' + (list.length === 1 ? 'pick' : 'picks') + (spec.label ? ' · ' + spec.label : '') + '. Where I’d start:';
+    const tail = (list.length > top.length ? '\n\nThe rest are in the table.' : '')
+      + '\n\nWant me to build a night around one of these? Say “make it a night”.';
+    return lead + '\n\n' + lines.join('\n') + tail;
+  }
+
+  composeDiningReply(text, spec) {
+    const area = (spec.neighborhoods && spec.neighborhoods[0]) || (spec.walkable ? 'Silver Lake' : null);
+    const picks = this.pickRestaurants({ area, occasion: spec.occasion, text, n: 3 });
+    if (!picks.length) return "My restaurant list is still small and nothing matched. Try a neighborhood (Silver Lake, Los Feliz, DTLA, Highland Park) or “date night”.";
+    const lines = picks.map((r, i) => (i + 1) + '. ' + r.name + ' — ' + (r.neighborhood || 'LA')
+      + (r.price ? ' · ' + r.price : '') + (r.cuisine && r.cuisine.length ? ' · ' + r.cuisine.join('/') : '')
+      + (r.notes ? '\n   ↳ ' + this.trim(r.notes, 140) : '')
+      + (r.reservation_url ? '\n   ↳ book: ' + r.reservation_url : ''));
+    return 'Where I’d eat' + (area ? ' in ' + area : '') + ':\n\n' + lines.join('\n')
+      + '\n\nWant to pair one with a show? Say “' + picks[0].name + ' then a show”.';
+  }
+
+  composePlanReply(text, spec, list) {
+    const show = list[0] || null;
+    const area = (spec.neighborhoods && spec.neighborhoods[0])
+      || (show && show.hood && show.hood !== 'LA' ? show.hood : null)
+      || (spec.walkable ? 'Silver Lake' : null);
+    const dinner = this.pickRestaurant({ area, occasion: spec.occasion, text });
+    const after = this.pickAfters(show, list);
+    const prompt = this.buildPlanPrompt(text, spec, show, dinner, after);
+    let copied = false; try { navigator.clipboard.writeText(prompt); copied = true; } catch (e) {}
+
+    if (!show && !dinner) {
+      return "I don’t have a tight match for that night yet — but I " + (copied ? 'copied' : 'built') + " a night-planner prompt"
+        + (copied ? ' to your clipboard' : '') + ". Paste it into your Claude Code session and the planner will work from the full catalog + dining list (real travel times, bookings).";
+    }
+    let out = 'Here’s the shape of the night' + (spec.label ? ' (' + spec.label + ')' : '') + ':\n\n';
+    if (dinner) out += '🍽  Dinner — ' + dinner.name + ' (' + (dinner.neighborhood || 'LA') + (dinner.price ? ', ' + dinner.price : '') + ')'
+      + (dinner.notes ? '\n      ↳ ' + this.trim(dinner.notes, 120) : '') + '\n';
+    if (show) out += '🎟  Show — ' + show.title + ' @ ' + this.placeLabel(show) + ' · ' + this.whenLabel(show)
+      + (show.why ? '\n      ↳ ' + this.trim(show.why, 120) : '') + '\n';
+    if (after && after !== show) out += '🌙  Afters — ' + after.title + ' @ ' + this.placeLabel(after) + '\n';
+    out += '\n' + (copied
+      ? 'Copied a full night-planner prompt to your clipboard — paste it into Claude Code for the sequenced itinerary with real travel times + booking links.'
+      : 'Send this to your planner via the hand-off to get the sequenced itinerary.');
+    return out;
+  }
+
+  pickAfters(show, list) {
+    if (!show) return null;
+    const cands = (list || []).filter(e => e.id !== show.id && e.iso === show.iso && (e.ah || (e.time && e.time >= '23:00')));
+    cands.sort((a, b) => b.score - a.score);
+    return cands[0] || null;
+  }
+
+  pickRestaurants(opts) {
+    opts = opts || {};
+    const low = s => String(s || '').toLowerCase();
+    let list = (this.DINING || []).slice();
+    if (!list.length) return [];
+    if (opts.area) { const a = low(opts.area); const near = list.filter(r => r.neighborhood && (low(r.neighborhood).includes(a) || a.includes(low(r.neighborhood)))); if (near.length) list = near; }
+    if (opts.occasion) { const o = low(opts.occasion); const m = list.filter(r => (r.occasion || []).map(low).includes(o)); if (m.length) list = m; }
+    if (opts.text) { const c = low(opts.text); const byC = list.filter(r => (r.cuisine || []).some(x => c.includes(low(x)))); if (byC.length) list = byC; }
+    return list.slice(0, opts.n || 3);
+  }
+  pickRestaurant(opts) { return this.pickRestaurants(Object.assign({}, opts, { n: 1 }))[0] || null; }
+
+  buildPlanPrompt(text, spec, show, dinner, after) {
+    const area = (spec.neighborhoods && spec.neighborhoods.join('/')) || (spec.walkable ? 'near home (Silver Lake)' : 'open');
+    const lines = [
+      'Act as my LA concierge (la-events + la-dining / night-planner). Build a sequenced night from this ask:',
+      '"' + text + '"',
+      '',
+      'Constraints from the dashboard:',
+      '- When: ' + (spec.label || '(open)'),
+      '- Area: ' + area,
+      spec.occasion ? '- Occasion: ' + spec.occasion : null,
+      '',
+      'Starting points the page surfaced (use if they fit, else override from the full catalog/dining):',
+      show ? ('- Show: ' + show.title + ' @ ' + this.placeLabel(show) + ' (' + this.whenLabel(show) + ') ' + (show.url || '')) : '- Show: (none matched — pick from the catalog)',
+      dinner ? ('- Dinner: ' + dinner.name + ' (' + (dinner.neighborhood || 'LA') + ') ' + (dinner.reservation_url || '')) : '- Dinner: (pick from data/dining.json)',
+      after ? ('- Afters: ' + after.title + ' @ ' + this.placeLabel(after)) : null,
+      '',
+      'Sequence dinner → show → afters with real travel times (scripts/travel.py / the night-planner),',
+      'rank against taste.yaml + dining-taste.yaml, include booking links, keep it tight and opinionated.',
+      'Commit the itinerary so it shows up on the page.',
+      '',
+      this.repoLine(),
+    ].filter(l => l !== null);
+    return lines.join('\n');
+  }
+  repoLine() {
+    const n = (this.ALL && this.ALL.length) || '?';
+    const when = (this.META && this.META.generated_at) ? ' · feed ' + String(this.META.generated_at).replace('T', ' ') : '';
+    return 'Repo: arinazari/la-events. Catalog data/catalog.json (' + n + ' events' + when + '); dining data/dining.json.';
   }
 
   onSendRef = () => this.send();
@@ -1161,6 +1292,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       if (!mapped.length) return;
       this.ALL = mapped;
       this.META = (raw && !Array.isArray(raw)) ? raw : {};
+      this.DINING = (this.META && Array.isArray(this.META.dining)) ? this.META.dining : [];
       this._distinct = null;
       this.setState({ dataSource: 'live' });
     } catch (e) { /* keep bundled sample */ }
@@ -1247,7 +1379,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       text: m.text
     }));
 
-    const chips = ['techno this weekend','rep cinema in 35mm','comedy under $30','afterhours warehouse','walkable from Silver Lake','RA picks only','free shows','top picks'];
+    const chips = ['plan my saturday — dinner then a show','techno this weekend','date night in los feliz','where should I eat near silver lake','rep cinema in 35mm','afterhours warehouse','free shows','top picks'];
     const suggestions = chips.map(label => ({ label, onClick: () => this.runQuery(label) }));
 
     const LBL = {
