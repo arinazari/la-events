@@ -67,9 +67,10 @@ festivals.yaml                      # "on the radar" curated festivals/big-shows
 recurring.yaml                      # predictable recurring markets/fleas/farmers markets
 sms-ingestion.md                    # Twilio SMS/MMS → catalog spec (manual-capture automation)
 profile.yaml                        # place/person config (ids, geo, scoring weights/terms) — city-portable knob
-scripts/run_digest.py               # deterministic core: fetch→dedupe→expire→score→catalog+candidates.json
+scripts/run_digest.py               # deterministic core: fetch→dedupe→expire→tag→score→catalog+candidates.json
 scripts/lib/                        # shared modules: scoring, dedupe, pipeline, enrich, images, config,
-                                    #   affinity (Spotify), feedback (reactions→affinity), geo (travel) — tested
+                                    #   affinity (Spotify), feedback (reactions→affinity), geo (travel),
+                                    #   tagging (deterministic multi-axis tags: type/genre/setting/vibe/region) — tested
 scripts/render_digest.py            # enriched candidates → digest: day-grouped .md + rich emailable/hosted .html
 scripts/cache_images.py             # download enrichment hero images → data/images/ (no hotlink rot)
 scripts/travel.py                   # night-planner travel CLI: rough LA drive/walk times (lib/geo.py + dining.json)
