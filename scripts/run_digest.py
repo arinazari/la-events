@@ -140,6 +140,8 @@ def main() -> int:
     catalog, stats = P.merge_new(catalog, incoming, today)
     catalog, expired = P.expire_past(catalog, today)
     P.stamp_seen(catalog, today)
+    # Canonicalize the location column (venue-resolve city-level/blank neighborhoods).
+    P.normalize_locations(catalog, profile)
     cat_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
 
     affinity = load_affinity_layer(args.no_fetch, report, profile)

@@ -1231,7 +1231,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // ---------- concierge helpers (no LLM; events × dining) ----------
   trim(s, n) { s = String(s || ''); return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s; }
   whenLabel(e) { return e.wd + ' ' + e.md + (e.t ? ' · ' + e.t : ''); }
-  placeLabel(e) { return e.venue + (e.hood && e.hood !== 'LA' ? ', ' + e.hood : ''); }
+  placeLabel(e) { return e.venue + (e.hood && e.hood !== 'Los Angeles' ? ', ' + e.hood : ''); }
 
   sortForChat(list, spec) {
     const today = this.TODAY;
@@ -1257,7 +1257,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const area = (spec.neighborhoods && spec.neighborhoods[0]) || (spec.walkable ? 'Silver Lake' : null);
     const picks = this.pickRestaurants({ area, occasion: spec.occasion, text, n: 3 });
     if (!picks.length) return "My restaurant list is still small and nothing matched. Try a neighborhood (Silver Lake, Los Feliz, DTLA, Highland Park) or “date night”.";
-    const lines = picks.map((r, i) => (i + 1) + '. ' + r.name + ' — ' + (r.neighborhood || 'LA')
+    const lines = picks.map((r, i) => (i + 1) + '. ' + r.name + ' — ' + (r.neighborhood || 'Los Angeles')
       + (r.price ? ' · ' + r.price : '') + (r.cuisine && r.cuisine.length ? ' · ' + r.cuisine.join('/') : '')
       + (r.notes ? '\n   ↳ ' + this.trim(r.notes, 140) : '')
       + (r.reservation_url ? '\n   ↳ book: ' + r.reservation_url : ''));
@@ -1268,7 +1268,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   composePlanReply(text, spec, list) {
     const show = list[0] || null;
     const area = (spec.neighborhoods && spec.neighborhoods[0])
-      || (show && show.hood && show.hood !== 'LA' ? show.hood : null)
+      || (show && show.hood && show.hood !== 'Los Angeles' ? show.hood : null)
       || (spec.walkable ? 'Silver Lake' : null);
     const dinner = this.pickRestaurant({ area, occasion: spec.occasion, text });
     const after = this.pickAfters(show, list);
@@ -1280,7 +1280,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         + (copied ? ' to your clipboard' : '') + ". Paste it into your Claude Code session and the planner will work from the full catalog + dining list (real travel times, bookings).";
     }
     let out = 'Here’s the shape of the night' + (spec.label ? ' (' + spec.label + ')' : '') + ':\n\n';
-    if (dinner) out += '🍽  Dinner — ' + dinner.name + ' (' + (dinner.neighborhood || 'LA') + (dinner.price ? ', ' + dinner.price : '') + ')'
+    if (dinner) out += '🍽  Dinner — ' + dinner.name + ' (' + (dinner.neighborhood || 'Los Angeles') + (dinner.price ? ', ' + dinner.price : '') + ')'
       + (dinner.notes ? '\n      ↳ ' + this.trim(dinner.notes, 120) : '') + '\n';
     if (show) out += '🎟  Show — ' + show.title + ' @ ' + this.placeLabel(show) + ' · ' + this.whenLabel(show)
       + (show.why ? '\n      ↳ ' + this.trim(show.why, 120) : '') + '\n';
@@ -1323,7 +1323,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       '',
       'Starting points the page surfaced (use if they fit, else override from the full catalog/dining):',
       show ? ('- Show: ' + show.title + ' @ ' + this.placeLabel(show) + ' (' + this.whenLabel(show) + ') ' + (show.url || '')) : '- Show: (none matched — pick from the catalog)',
-      dinner ? ('- Dinner: ' + dinner.name + ' (' + (dinner.neighborhood || 'LA') + ') ' + (dinner.reservation_url || '')) : '- Dinner: (pick from data/dining.json)',
+      dinner ? ('- Dinner: ' + dinner.name + ' (' + (dinner.neighborhood || 'Los Angeles') + ') ' + (dinner.reservation_url || '')) : '- Dinner: (pick from data/dining.json)',
       after ? ('- Afters: ' + after.title + ' @ ' + this.placeLabel(after)) : null,
       '',
       'Sequence dinner → show → afters with real travel times (scripts/travel.py / the night-planner),',
@@ -1404,7 +1404,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       sortDate: d.getTime(),
       title: r.title || r.name || 'Untitled',
       venue: r.venue || 'TBA',
-      hood: r.neighborhood || r.hood || r.area || 'LA',
+      hood: r.neighborhood || r.hood || r.area || 'Los Angeles',
       cat, genre,
       lineup: Array.isArray(r.lineup) ? r.lineup : [],
       pmin: pr.pmin, pmax: pr.pmax, price: pr.display,

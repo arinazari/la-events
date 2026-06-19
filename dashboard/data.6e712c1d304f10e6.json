@@ -1,11 +1,12 @@
 {
-  "generated_at": "2026-06-19T08:13:17",
+  "generated_at": "2026-06-19T09:20:33",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "count": 697,
   "enriched_count": 0,
   "neighborhoods": [
     "Anaheim",
+    "Arts District",
     "Bel Air",
     "Beverly Hills",
     "Bolingbrook",
@@ -14,10 +15,12 @@
     "Cerritos",
     "Chinatown",
     "Costa Mesa",
+    "Culver City",
     "Cypress Park",
     "DTLA",
     "Eagle Rock",
     "East Hollywood",
+    "Echo Park",
     "Fontana",
     "Frogtown",
     "Glendale",
@@ -27,26 +30,36 @@
     "Huntington Beach",
     "Inglewood",
     "Irvine",
+    "Koreatown",
+    "Lincoln Heights",
     "Long Beach",
     "Los Angeles",
+    "Los Feliz",
     "Mid-City",
+    "Mid-Wilshire",
     "Newport Beach",
     "Ojai",
     "Ontario",
     "Oxnard",
     "Palm Desert",
+    "Pasadena",
     "Pico Rivera",
     "Pioneertown",
     "Riverside",
     "Rowland Heights",
+    "San Diego",
     "San Fernando",
     "Santa Ana",
+    "Santa Barbara",
+    "Silver Lake",
     "Tarzana",
     "Temecula",
     "Thousand Oaks",
     "Venice",
     "Ventura",
+    "Virgil Village",
     "West Hollywood",
+    "Westlake",
     "Yucaipa"
   ],
   "categories": [
@@ -1718,11 +1731,45 @@
       "is_past": true
     },
     {
+      "title": "The Redwood Comedy Night",
+      "date": "2026-06-16",
+      "start": "2026-06-16T20:00:00.000",
+      "venue": "The Redwood Bar And Grill",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 0,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2468050"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-16",
+      "is_past": true
+    },
+    {
       "title": "NIGHTSHIFT AFTER HOURS",
       "date": "2026-06-16",
       "start": "2026-06-16T23:00:00.000",
       "venue": "The Lexington",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -1747,11 +1794,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 afterhours / late start"
+        "+1 afterhours / late start",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-16",
       "is_past": true
@@ -1830,7 +1878,7 @@
       "date": "2026-06-16",
       "start": "23:00",
       "venue": "129 E 3rd St",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -1850,11 +1898,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 afterhours / late start"
+        "+1 afterhours / late start",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-16",
       "is_past": true
@@ -2063,7 +2112,7 @@
       "date": "2026-06-16",
       "start": "2026-06-16T20:00:00.000",
       "venue": "El Rey Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -2104,44 +2153,11 @@
       "is_past": true
     },
     {
-      "title": "The Redwood Comedy Night",
-      "date": "2026-06-16",
-      "start": "2026-06-16T20:00:00.000",
-      "venue": "The Redwood Bar And Grill",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 0,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2468050"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-16",
-      "is_past": true
-    },
-    {
       "title": "Bella Kay",
       "date": "2026-06-16",
       "start": "20:00",
       "venue": "The Roxy",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -2343,7 +2359,7 @@
       "date": "2026-06-16",
       "start": "7pm-11:45pm",
       "venue": "Sid The Cat Auditorium (Pasadena/Los Angeles) indie dance, electropop",
-      "neighborhood": null,
+      "neighborhood": "Pasadena",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -2376,7 +2392,7 @@
       "date": "2026-06-16",
       "start": "8pm-2am",
       "venue": "Eq (San Diego) drum and bass, jungle",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -2517,7 +2533,7 @@
       "date": "2026-06-16",
       "start": "19:00",
       "venue": "Blind Barber Culver City",
-      "neighborhood": null,
+      "neighborhood": "Culver City",
       "category": "party",
       "afterhours": false,
       "ra_pick": false,
@@ -2615,11 +2631,45 @@
       "is_past": true
     },
     {
+      "title": "The Palomino After Party",
+      "date": "2026-06-17",
+      "start": "2026-06-17T20:00:00.000",
+      "venue": "The Redwood Bar And Grill",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 1,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2468051"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-17",
+      "is_past": true
+    },
+    {
       "title": "Clinic feat. rshand (Monstercat)",
       "date": "2026-06-17",
       "start": "2026-06-17T22:00:00.000",
       "venue": "Jungle Hollywood",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -2658,7 +2708,7 @@
       "date": "2026-06-17",
       "start": "2026-06-17T23:00:00.000",
       "venue": "The Lexington",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -2683,11 +2733,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 afterhours / late start"
+        "+1 afterhours / late start",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-17",
       "is_past": true
@@ -2732,7 +2783,7 @@
       "date": "2026-06-17",
       "start": "23:00",
       "venue": "129 E 3rd St",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -2752,11 +2803,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 afterhours / late start"
+        "+1 afterhours / late start",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-17",
       "is_past": true
@@ -2967,7 +3019,7 @@
       "date": "2026-06-17",
       "start": "19:00:00",
       "venue": "The Peppermint Club",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -3000,7 +3052,7 @@
       "date": "2026-06-17",
       "start": "19:00:00",
       "venue": "Greek Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Los Feliz",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -3020,10 +3072,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-17",
       "is_past": true
@@ -3033,7 +3086,7 @@
       "date": "2026-06-17",
       "start": "19:00:00",
       "venue": "The Belasco",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -3053,10 +3106,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-17",
       "is_past": true
@@ -3066,7 +3120,7 @@
       "date": "2026-06-17",
       "start": "19:00:00",
       "venue": "Teragram Ballroom",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Westlake",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -3086,10 +3140,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-17",
       "is_past": true
@@ -3099,7 +3154,7 @@
       "date": "2026-06-17",
       "start": "19:30:00",
       "venue": "Hollywood Pantages Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "theater",
       "afterhours": false,
       "ra_pick": false,
@@ -3123,39 +3178,6 @@
       "rating": 2,
       "reasons": [
         "+2 theater (medium interest)"
-      ],
-      "iso_date": "2026-06-17",
-      "is_past": true
-    },
-    {
-      "title": "The Palomino After Party",
-      "date": "2026-06-17",
-      "start": "2026-06-17T20:00:00.000",
-      "venue": "The Redwood Bar And Grill",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 1,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2468051"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-17",
       "is_past": true
@@ -3203,7 +3225,7 @@
       "date": "2026-06-17",
       "start": "20:00",
       "venue": "The Roxy",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -3373,7 +3395,7 @@
       "date": "2026-06-17",
       "start": "20:00:00",
       "venue": "The Echo",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Echo Park",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -3393,10 +3415,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-17",
       "is_past": true
@@ -3439,7 +3462,7 @@
       "date": "2026-06-17",
       "start": "21:30:00",
       "venue": "Blue Note Los Angeles",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -3472,7 +3495,7 @@
       "date": "2026-06-17",
       "start": "21:30:00",
       "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Arts District",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -3492,10 +3515,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-17",
       "is_past": true
@@ -3505,7 +3529,7 @@
       "date": "2026-06-17",
       "start": "5pm-11:45pm",
       "venue": "Sid The Cat Auditorium (Pasadena/Los Angeles) indie dance, electropop",
-      "neighborhood": null,
+      "neighborhood": "Pasadena",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -3538,7 +3562,7 @@
       "date": "2026-06-17",
       "start": "6pm",
       "venue": "Whisky A Go Go (Los Angeles) electropop",
-      "neighborhood": null,
+      "neighborhood": "West Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -3571,7 +3595,7 @@
       "date": "2026-06-17",
       "start": "7pm",
       "venue": "The Wiltern (Los Angeles) downtempo, r&b",
-      "neighborhood": null,
+      "neighborhood": "Koreatown",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -3604,7 +3628,7 @@
       "date": "2026-06-17",
       "start": "10pm",
       "venue": "Rich's (San Diego) EDM, hip-hop, drag",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -3738,11 +3762,48 @@
       "is_past": true
     },
     {
+      "title": "Obscene (Goth / Industrial / EBM / Darkwave)",
+      "date": "2026-06-18",
+      "start": "2026-06-18T21:00:00.000",
+      "venue": "The Slipper Clutch",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 13,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "Industria Nova",
+        "Damascus Knives"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2348296"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-18",
+      "is_past": true
+    },
+    {
       "title": "BADECISION",
       "date": "2026-06-18",
       "start": "2026-06-18T22:00:00.000",
       "venue": "Warwick LA",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -3810,7 +3871,7 @@
       "date": "2026-06-18",
       "start": "2026-06-18T23:00:00.000",
       "venue": "The Lexington",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -3835,11 +3896,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 afterhours / late start"
+        "+1 afterhours / late start",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-18",
       "is_past": true
@@ -4089,7 +4151,7 @@
       "date": "2026-06-18",
       "start": "9pm-2am",
       "venue": "The Slipper Clutch (Los Angeles) goth, industrial, EBM, darkwave",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -4109,11 +4171,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 afterhours / late start"
+        "+1 afterhours / late start",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-18",
       "is_past": true
@@ -4156,7 +4219,7 @@
       "date": "2026-06-18",
       "start": "18:00:00",
       "venue": "Foxhole Hollywood",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -4359,7 +4422,7 @@
       "date": "2026-06-18",
       "start": "19:00:00",
       "venue": "The GRAMMY Museum",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -4379,10 +4442,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-18",
       "is_past": true
@@ -4426,7 +4490,7 @@
       "date": "2026-06-18",
       "start": "19:00:00",
       "venue": "The Wiltern",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -4459,7 +4523,7 @@
       "date": "2026-06-18",
       "start": "19:00:00",
       "venue": "The Echo",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Echo Park",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -4479,10 +4543,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-18",
       "is_past": true
@@ -4492,7 +4557,7 @@
       "date": "2026-06-18",
       "start": "19:00:00",
       "venue": "The Peppermint Club",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -4558,7 +4623,7 @@
       "date": "2026-06-18",
       "start": "19:30:00",
       "venue": "The Renberg Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -4591,7 +4656,7 @@
       "date": "2026-06-18",
       "start": "19:30:00",
       "venue": "Hollywood Pantages Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "theater",
       "afterhours": false,
       "ra_pick": false,
@@ -4711,7 +4776,7 @@
       "date": "2026-06-18",
       "start": "2026-06-18T20:00:00.000",
       "venue": "The Roxy",
-      "neighborhood": null,
+      "neighborhood": "West Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -4780,47 +4845,11 @@
       "is_past": true
     },
     {
-      "title": "Obscene (Goth / Industrial / EBM / Darkwave)",
-      "date": "2026-06-18",
-      "start": "2026-06-18T21:00:00.000",
-      "venue": "The Slipper Clutch",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 13,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "Industria Nova",
-        "Damascus Knives"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2348296"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-18",
-      "is_past": true
-    },
-    {
       "title": "Choker",
       "date": "2026-06-18",
       "start": "20:00",
       "venue": "El Rey Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -4856,7 +4885,7 @@
       "date": "2026-06-18",
       "start": "20:00",
       "venue": "The Roxy",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -5053,6 +5082,41 @@
       "is_past": true
     },
     {
+      "title": "Tumbado Thursdays(World Cup After Party)",
+      "date": "2026-06-18",
+      "start": "21:00",
+      "venue": "La Cita Bar",
+      "neighborhood": "DTLA",
+      "category": "party",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": "free",
+      "organizers": "Calle 8",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "posh",
+          "url": "https://posh.vip/e/tumbado-thursdaysworld-cup-after-party-1"
+        }
+      ],
+      "sources": [
+        "posh"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 2,
+      "rating": 2,
+      "reasons": [
+        "+3 party (high interest)",
+        "+1 close to Silver Lake",
+        "-2 world cup"
+      ],
+      "iso_date": "2026-06-18",
+      "is_past": true
+    },
+    {
       "title": "LOE SHIMMY LIVE @ THE GLOBE THEATRE",
       "date": "2026-06-18",
       "start": "21:00",
@@ -5157,7 +5221,7 @@
       "date": "2026-06-18",
       "start": "7pm-11:45pm",
       "venue": "Sid The Cat Auditorium (Pasadena/Los Angeles) indie dance, electropop",
-      "neighborhood": null,
+      "neighborhood": "Pasadena",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -5190,7 +5254,7 @@
       "date": "2026-06-18",
       "start": "8pm",
       "venue": "Roxy Theatre Hollywood (Los Angeles) house",
-      "neighborhood": null,
+      "neighborhood": "West Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -5223,7 +5287,7 @@
       "date": "2026-06-18",
       "start": "9pm",
       "venue": "Fonda Theatre (Los Angeles) hyperpop, EDM, emo, shoegaze",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -5297,7 +5361,7 @@
       "date": "2026-06-18",
       "start": "9pm-2am",
       "venue": "3Oz Dive Club (San Diego) tech house, deep house, techno",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -5501,45 +5565,11 @@
       "is_past": true
     },
     {
-      "title": "Tumbado Thursdays(World Cup After Party)",
-      "date": "2026-06-18",
-      "start": "21:00",
-      "venue": "La Cita Bar",
-      "neighborhood": null,
-      "category": "party",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": "free",
-      "organizers": "Calle 8",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "posh",
-          "url": "https://posh.vip/e/tumbado-thursdaysworld-cup-after-party-1"
-        }
-      ],
-      "sources": [
-        "posh"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 1,
-      "rating": 1,
-      "reasons": [
-        "+3 party (high interest)",
-        "-2 world cup"
-      ],
-      "iso_date": "2026-06-18",
-      "is_past": true
-    },
-    {
       "title": "Headroom Listening Sessions: San Diego",
       "date": "2026-06-18",
       "start": "7pm-9pm",
       "venue": "Spin (San Diego) producer workshop",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -5609,6 +5639,42 @@
       "is_past": true
     },
     {
+      "title": "Ryan Jewelz, DJC, Sizzle Hop x ZENBOYYE, ...weird x Will_kat, Big Rich x Ruben Medellin",
+      "date": "2026-06-19",
+      "start": "10pm",
+      "venue": "Los Globos (Los Angeles) tech house, EDM",
+      "neighborhood": "Silver Lake",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": null,
+      "price": "21+",
+      "organizers": "EMX",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "19hz",
+          "url": "https://www.facebook.com/events/2148609802602429/"
+        }
+      ],
+      "sources": [
+        "19hz"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
       "title": "Muzique Fridays @ Kiss Kiss",
       "date": "2026-06-19",
       "start": "10pm-2am",
@@ -5654,7 +5720,7 @@
       "date": "2026-06-19",
       "start": "2026-06-19T21:00:00.000",
       "venue": "Bar Franca",
-      "neighborhood": null,
+      "neighborhood": "Silver Lake",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -5681,13 +5747,58 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 6,
+      "score": 7,
       "rating": 4,
       "reasons": [
         "+3 electronic (high interest)",
         "+1 afterhours / late start",
         "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "title": "SET & Safra w/Ali Farahani b2b Shan Nash under the 6th Bridge in LA",
+      "date": "2026-06-19",
+      "start": "2026-06-19T22:00:00.000",
+      "venue": "The Bridge",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": 115,
+      "price": "$28.75-91.95",
+      "organizers": "Safra, SET Underground",
+      "detail": null,
+      "lineup": [
+        "Ali Farahani",
+        "Shan Nash"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2403163"
+        },
+        {
+          "source": "19hz",
+          "url": "https://www.eventbrite.com/e/set-safra-wali-farahani-b2b-shan-nash-under-the-6th-bridge-in-la-tickets-1985964218438?aff=ebdimtedmtrain"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-19",
       "is_past": false
@@ -5739,11 +5850,52 @@
       "is_past": false
     },
     {
+      "title": "Space Yacht: Tech My House",
+      "date": "2026-06-19",
+      "start": "2026-06-19T22:00:00.000",
+      "venue": "Exchange LA",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": 8,
+      "price": "free w/rsvp b4 11pm / $10",
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2447596"
+        },
+        {
+          "source": "19hz",
+          "url": "https://www.tixr.com/groups/exchangela/events/space-yacht-tech-my-house-191042"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
       "title": "DANG! - A Soulful Electronic Dance Night",
       "date": "2026-06-19",
       "start": "2026-06-19T22:00:00.000",
       "venue": "El Cid",
-      "neighborhood": null,
+      "neighborhood": "Silver Lake",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -5768,13 +5920,14 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 6,
+      "score": 7,
       "rating": 4,
       "reasons": [
         "+3 electronic (high interest)",
         "+1 afterhours / late start",
         "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-19",
       "is_past": false
@@ -5813,6 +5966,129 @@
         "+1 afterhours / late start",
         "+1 rooftop / vinyl / groove",
         "+1 Friday/Saturday night"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "title": "body wave: Jex Opolis, Francis Inferno Orchestra, Dirty Dave",
+      "date": "2026-06-19",
+      "start": "2026-06-19T23:00:00.000",
+      "venue": "TBA - Los Angeles (Downtown)",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": 71,
+      "price": "$17 b4 12 / $23-34.50",
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "Jex Opolis",
+        "Francis Inferno Orchestra",
+        "Dirty Dave",
+        "AIRS"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2449655"
+        },
+        {
+          "source": "19hz",
+          "url": "https://ra.co/events/2449655"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "title": "NIGHTSHIFT AFTER HOURS",
+      "date": "2026-06-19",
+      "start": "2026-06-19T23:00:00.000",
+      "venue": "The Lexington",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": 0,
+      "price": "free w/rsvp b4 1 / $23",
+      "organizers": "Blind Tiger",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2465913"
+        },
+        {
+          "source": "19hz",
+          "url": "https://blindtiger.la/"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "title": "18+ FRIDAY LA 2000'S EVERYONE FREE",
+      "date": "2026-06-19",
+      "start": "22:00",
+      "venue": "LOS GLOBOS",
+      "neighborhood": "Silver Lake",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": null,
+      "price": "free",
+      "organizers": "Shark Group",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "posh",
+          "url": "https://posh.vip/e/18-friday-la-2000s-everyone-free"
+        }
+      ],
+      "sources": [
+        "posh"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-19",
       "is_past": false
@@ -5928,23 +6204,59 @@
       "is_past": false
     },
     {
-      "title": "Ryan Jewelz, DJC, Sizzle Hop x ZENBOYYE, ...weird x Will_kat, Big Rich x Ruben Medellin",
+      "title": "AFTERS 6-19",
       "date": "2026-06-19",
-      "start": "10pm",
-      "venue": "Los Globos (Los Angeles) tech house, EDM",
-      "neighborhood": null,
+      "start": "23:00",
+      "venue": "129 E 3rd St",
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
       "attending": null,
-      "price": "21+",
-      "organizers": "EMX",
+      "price": "free",
+      "organizers": "NIGHTSHIFT",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "posh",
+          "url": "https://posh.vip/e/afters-619-3"
+        }
+      ],
+      "sources": [
+        "posh"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "title": "Sunset Sessions",
+      "date": "2026-06-19",
+      "start": "5pm-10pm",
+      "venue": "Golden Hour at Level 8 (Los Angeles) house",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": "free w/rsvp",
+      "organizers": null,
       "detail": null,
       "lineup": [],
       "links": [
         {
           "source": "19hz",
-          "url": "https://www.facebook.com/events/2148609802602429/"
+          "url": "https://www.eventbrite.com/e/sunset-sessions-at-golden-hour-dtla-a-weekly-series-tickets-1976818512385"
         }
       ],
       "sources": [
@@ -5952,12 +6264,58 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 rooftop / vinyl / groove",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "title": "Anoluxx, Ceejay & Orbenyx",
+      "date": "2026-06-19",
+      "start": "9pm",
+      "venue": "1720 (Los Angeles) big room hard techno",
+      "neighborhood": "Arts District",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": null,
+      "price": "$13.68-24.30",
+      "organizers": "Wasted",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "19hz",
+          "url": "https://www.facebook.com/events/2154126185384611/"
+        },
+        {
+          "source": "19hz",
+          "url": "https://posh.vip/e/trinity-presents-anoluxx-ceejay-rbenyx"
+        },
+        {
+          "source": "posh",
+          "url": "https://posh.vip/e/trinity-presents-anoluxx-ceejay-rbenyx"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "posh"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
       "reasons": [
         "+3 electronic (high interest)",
         "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-19",
       "is_past": false
@@ -5967,7 +6325,7 @@
       "date": "2026-06-19",
       "start": "10pm",
       "venue": "Academy (Los Angeles) big room, progressive house",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -6002,7 +6360,7 @@
       "date": "2026-06-19",
       "start": "10pm-2:30am",
       "venue": "Sound Nightclub (Los Angeles) tech house",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -6037,7 +6395,7 @@
       "date": "2026-06-19",
       "start": "10pm-2am",
       "venue": "Avalon Hollywood (Los Angeles) house",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -6063,6 +6421,43 @@
         "+3 electronic (high interest)",
         "+1 afterhours / late start",
         "+1 Friday/Saturday night"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "title": "Overdrive",
+      "date": "2026-06-19",
+      "start": "10pm-2am",
+      "venue": "The Virgil (Los Angeles) hard techno, hardstyle, hard dance",
+      "neighborhood": "Virgil Village",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": null,
+      "price": "free w/rsvp b4 11pm / $12-17",
+      "organizers": "We Love Kandy Tour",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "19hz",
+          "url": "https://www.eventbrite.com/e/overdrive-hard-techno-x-hardstyle-x-hard-dance-los-angeles-tickets-1989184338905"
+        }
+      ],
+      "sources": [
+        "19hz"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
+        "-2 hardstyle"
       ],
       "iso_date": "2026-06-19",
       "is_past": false
@@ -6597,6 +6992,76 @@
       "is_past": false
     },
     {
+      "title": "Born for Burning Presents: Anvil w/ Midnite Hellion, Persekutor & more",
+      "date": "2026-06-19",
+      "start": "19:00:00",
+      "venue": "The Moroccan Lounge",
+      "neighborhood": "Arts District",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/born-for-burning-presents-anvil-w-los-angeles-california-06-18-2026/event/09006470B4FA7DEB"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "title": "ZEP - No Enemies Tour - SOLD OUT",
+      "date": "2026-06-19",
+      "start": "19:00:00",
+      "venue": "The Echo",
+      "neighborhood": "Echo Park",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/zep-no-enemies-tour-sold-out-los-angeles-california-06-18-2026/event/090064741897A583"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
       "title": "Mochilla's Like No One is Watching",
       "date": "2026-06-19",
       "start": "19:30",
@@ -6618,6 +7083,41 @@
       ],
       "sources": [
         "dice"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "title": "An Evening With ARKAI",
+      "date": "2026-06-19",
+      "start": "19:30:00",
+      "venue": "The GRAMMY Museum",
+      "neighborhood": "DTLA",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.universe.com/events/an-evening-with-arkai-tickets-F3R20M?ref=ticketmaster"
+        }
+      ],
+      "sources": [
+        "tm"
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
@@ -6749,7 +7249,7 @@
       "date": "2026-06-19",
       "start": "2026-06-19T17:00:00.000",
       "venue": "Los Angeles State Historic Park",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Chinatown",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -6781,11 +7281,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-19",
       "is_past": false
@@ -6837,7 +7338,7 @@
       "date": "2026-06-19",
       "start": "2026-06-19T20:00:00.000",
       "venue": "The Redwood Bar And Grill",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -6857,11 +7358,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-19",
       "is_past": false
@@ -6871,7 +7373,7 @@
       "date": "2026-06-19",
       "start": "2026-06-19T20:00:00.000",
       "venue": "The Redwood Bar And Grill",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -6891,11 +7393,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-19",
       "is_past": false
@@ -6950,7 +7453,7 @@
       "date": "2026-06-19",
       "start": "2026-06-19T21:00:00.000",
       "venue": "The Airliner",
-      "neighborhood": null,
+      "neighborhood": "Lincoln Heights",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -6977,11 +7480,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-19",
       "is_past": false
@@ -7076,7 +7580,7 @@
       "date": "2026-06-19",
       "start": "2026-06-19T21:00:00.000",
       "venue": "Catch One",
-      "neighborhood": null,
+      "neighborhood": "Mid-City",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -7237,94 +7741,11 @@
       "is_past": false
     },
     {
-      "title": "SET & Safra w/Ali Farahani b2b Shan Nash under the 6th Bridge in LA",
-      "date": "2026-06-19",
-      "start": "2026-06-19T22:00:00.000",
-      "venue": "The Bridge",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": 115,
-      "price": "$28.75-91.95",
-      "organizers": "Safra, SET Underground",
-      "detail": null,
-      "lineup": [
-        "Ali Farahani",
-        "Shan Nash"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2403163"
-        },
-        {
-          "source": "19hz",
-          "url": "https://www.eventbrite.com/e/set-safra-wali-farahani-b2b-shan-nash-under-the-6th-bridge-in-la-tickets-1985964218438?aff=ebdimtedmtrain"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
-      "title": "Space Yacht: Tech My House",
-      "date": "2026-06-19",
-      "start": "2026-06-19T22:00:00.000",
-      "venue": "Exchange LA",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": 8,
-      "price": "free w/rsvp b4 11pm / $10",
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2447596"
-        },
-        {
-          "source": "19hz",
-          "url": "https://www.tixr.com/groups/exchangela/events/space-yacht-tech-my-house-191042"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
       "title": "Mr Tout Le Monde",
       "date": "2026-06-19",
       "start": "2026-06-19T22:00:00.000",
       "venue": "The Roxy",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -7410,91 +7831,6 @@
       "is_past": false
     },
     {
-      "title": "body wave: Jex Opolis, Francis Inferno Orchestra, Dirty Dave",
-      "date": "2026-06-19",
-      "start": "2026-06-19T23:00:00.000",
-      "venue": "TBA - Los Angeles (Downtown)",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": 71,
-      "price": "$17 b4 12 / $23-34.50",
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "Jex Opolis",
-        "Francis Inferno Orchestra",
-        "Dirty Dave",
-        "AIRS"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2449655"
-        },
-        {
-          "source": "19hz",
-          "url": "https://ra.co/events/2449655"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
-      "title": "NIGHTSHIFT AFTER HOURS",
-      "date": "2026-06-19",
-      "start": "2026-06-19T23:00:00.000",
-      "venue": "The Lexington",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": 0,
-      "price": "free w/rsvp b4 1 / $23",
-      "organizers": "Blind Tiger",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2465913"
-        },
-        {
-          "source": "19hz",
-          "url": "https://blindtiger.la/"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
       "title": "AFL presents\u2026      Road Trip    Kim Theory   The Deffades     8:00 pm    $10    ",
       "date": "2026-06-19",
       "start": "20:00",
@@ -7523,6 +7859,41 @@
       "rating": 3,
       "reasons": [
         "+2 live music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": false
+    },
+    {
+      "title": "Diljit Dosanjh - Aura World Tour 2026",
+      "date": "2026-06-19",
+      "start": "20:00:00",
+      "venue": "Crypto.com Arena",
+      "neighborhood": "DTLA",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/diljit-dosanjh-aura-world-tour-2026-los-angeles-california-06-18-2026/event/2C006442E51E0FA1"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
         "+1 Friday/Saturday night",
         "+1 close to Silver Lake"
       ],
@@ -7805,41 +8176,6 @@
       "is_past": false
     },
     {
-      "title": "18+ FRIDAY LA 2000'S EVERYONE FREE",
-      "date": "2026-06-19",
-      "start": "22:00",
-      "venue": "LOS GLOBOS",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": null,
-      "price": "free",
-      "organizers": "Shark Group",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "posh",
-          "url": "https://posh.vip/e/18-friday-la-2000s-everyone-free"
-        }
-      ],
-      "sources": [
-        "posh"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
       "title": "Kailyn Hype & Nneoma aka Pilot Jones",
       "date": "2026-06-19",
       "start": "22:00",
@@ -7927,41 +8263,6 @@
         {
           "source": "posh",
           "url": "https://posh.vip/e/xtndedhrz-1"
-        }
-      ],
-      "sources": [
-        "posh"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
-      "title": "AFTERS 6-19",
-      "date": "2026-06-19",
-      "start": "23:00",
-      "venue": "129 E 3rd St",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": null,
-      "price": "free",
-      "organizers": "NIGHTSHIFT",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "posh",
-          "url": "https://posh.vip/e/afters-619-3"
         }
       ],
       "sources": [
@@ -8085,46 +8386,11 @@
       "is_past": false
     },
     {
-      "title": "Sunset Sessions",
-      "date": "2026-06-19",
-      "start": "5pm-10pm",
-      "venue": "Golden Hour at Level 8 (Los Angeles) house",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": "free w/rsvp",
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "19hz",
-          "url": "https://www.eventbrite.com/e/sunset-sessions-at-golden-hour-dtla-a-weekly-series-tickets-1976818512385"
-        }
-      ],
-      "sources": [
-        "19hz"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
       "title": "Brian Cross: DJ Nuts, Waajeed, Cut Chemist, Francesca Harding, Carol Ueno",
       "date": "2026-06-19",
       "start": "7:30pm-11:45pm",
       "venue": "2220 Arts + Archives (Los Angeles) house, beats",
-      "neighborhood": null,
+      "neighborhood": "Historic Filipinotown",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -8144,11 +8410,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-19",
       "is_past": false
@@ -8158,7 +8425,7 @@
       "date": "2026-06-19",
       "start": "7pm-11:45pm",
       "venue": "Sid The Cat Auditorium (Pasadena/Los Angeles) indie dance, electropop",
-      "neighborhood": null,
+      "neighborhood": "Pasadena",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -8188,55 +8455,11 @@
       "is_past": false
     },
     {
-      "title": "Anoluxx, Ceejay & Orbenyx",
-      "date": "2026-06-19",
-      "start": "9pm",
-      "venue": "1720 (Los Angeles) big room hard techno",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": null,
-      "price": "$13.68-24.30",
-      "organizers": "Wasted",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "19hz",
-          "url": "https://www.facebook.com/events/2154126185384611/"
-        },
-        {
-          "source": "19hz",
-          "url": "https://posh.vip/e/trinity-presents-anoluxx-ceejay-rbenyx"
-        },
-        {
-          "source": "posh",
-          "url": "https://posh.vip/e/trinity-presents-anoluxx-ceejay-rbenyx"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "posh"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
       "title": "Will Clarke",
       "date": "2026-06-19",
       "start": "9pm-1am",
       "venue": "EOS Lounge (Santa Barbara) tech house, big room techno",
-      "neighborhood": null,
+      "neighborhood": "Santa Barbara",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -8270,7 +8493,7 @@
       "date": "2026-06-19",
       "start": "9pm-2am",
       "venue": "The Circle OC (Huntington Beach) afro house, deep house, house, tech house",
-      "neighborhood": null,
+      "neighborhood": "Huntington Beach",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -8412,47 +8635,11 @@
       "is_past": false
     },
     {
-      "title": "Overdrive",
-      "date": "2026-06-19",
-      "start": "10pm-2am",
-      "venue": "The Virgil (Los Angeles) hard techno, hardstyle, hard dance",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": null,
-      "price": "free w/rsvp b4 11pm / $12-17",
-      "organizers": "We Love Kandy Tour",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "19hz",
-          "url": "https://www.eventbrite.com/e/overdrive-hard-techno-x-hardstyle-x-hard-dance-los-angeles-tickets-1989184338905"
-        }
-      ],
-      "sources": [
-        "19hz"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night",
-        "-2 hardstyle"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
       "title": "Yotto",
       "date": "2026-06-19",
       "start": "10pm-2am",
       "venue": "Nova Sd (San Diego) progressive house",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -8488,7 +8675,7 @@
       "date": "2026-06-19",
       "start": "10pm-5am",
       "venue": "The Ba11room (San Diego) tech house",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -8524,7 +8711,7 @@
       "date": "2026-06-19",
       "start": "11pm-4am",
       "venue": "TBA (San Diego) hard techno",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -8665,7 +8852,7 @@
       "date": "2026-06-19",
       "start": "19:00:00",
       "venue": "The Peppermint Club",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -8678,74 +8865,6 @@
         {
           "source": "tm",
           "url": "https://www.ticketmaster.com/black-fortune-los-angeles-california-06-18-2026/event/0900649E03D38643"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
-      "title": "Born for Burning Presents: Anvil w/ Midnite Hellion, Persekutor & more",
-      "date": "2026-06-19",
-      "start": "19:00:00",
-      "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/born-for-burning-presents-anvil-w-los-angeles-california-06-18-2026/event/09006470B4FA7DEB"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
-      "title": "ZEP - No Enemies Tour - SOLD OUT",
-      "date": "2026-06-19",
-      "start": "19:00:00",
-      "venue": "The Echo",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/zep-no-enemies-tour-sold-out-los-angeles-california-06-18-2026/event/090064741897A583"
         }
       ],
       "sources": [
@@ -8797,45 +8916,11 @@
       "is_past": false
     },
     {
-      "title": "An Evening With ARKAI",
-      "date": "2026-06-19",
-      "start": "19:30:00",
-      "venue": "The GRAMMY Museum",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.universe.com/events/an-evening-with-arkai-tickets-F3R20M?ref=ticketmaster"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
       "title": "Hell's Kitchen (Touring)",
       "date": "2026-06-19",
       "start": "19:30:00",
       "venue": "Hollywood Pantages Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "theater",
       "afterhours": false,
       "ra_pick": false,
@@ -8903,7 +8988,7 @@
       "date": "2026-06-19",
       "start": "2026-06-19T22:00:00-07:00",
       "venue": "The Virgil",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Virgil Village",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -8923,11 +9008,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
         "+3 electronic (high interest)",
         "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
         "-2 hardstyle"
       ],
       "iso_date": "2026-06-19",
@@ -8938,7 +9024,7 @@
       "date": "2026-06-19",
       "start": "20:00",
       "venue": "El Rey Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -9005,40 +9091,6 @@
       "is_past": false
     },
     {
-      "title": "Diljit Dosanjh - Aura World Tour 2026",
-      "date": "2026-06-19",
-      "start": "20:00:00",
-      "venue": "Crypto.com Arena",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/diljit-dosanjh-aura-world-tour-2026-los-angeles-california-06-18-2026/event/2C006442E51E0FA1"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": false
-    },
-    {
       "title": "Bob Dylan - 21+",
       "date": "2026-06-19",
       "start": "20:00:00",
@@ -9077,7 +9129,7 @@
       "date": "2026-06-19",
       "start": "20:00:00",
       "venue": "El Rey Theatre - Los Angeles",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -9213,7 +9265,7 @@
       "date": "2026-06-19",
       "start": "21:00:00",
       "venue": "The Fonda Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -9260,7 +9312,7 @@
       "date": "2026-06-19",
       "start": "7:30pm",
       "venue": "Corona Grandstand Stage (San Diego) pop EDM",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -9295,7 +9347,7 @@
       "date": "2026-06-19",
       "start": "9:30pm",
       "venue": "Catch One Underground (Los Angeles) big room house, big room techno, dubstep, pop EDM",
-      "neighborhood": null,
+      "neighborhood": "Mid-City",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -9330,7 +9382,7 @@
       "date": "2026-06-19",
       "start": "9pm",
       "venue": "Eq (San Diego) techno",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -9365,7 +9417,7 @@
       "date": "2026-06-19",
       "start": "9pm",
       "venue": "The Regent (Los Angeles) hip-hop",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -9385,11 +9437,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
         "+3 electronic (high interest)",
         "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
         "-2 hip-hop"
       ],
       "iso_date": "2026-06-19",
@@ -9400,7 +9453,7 @@
       "date": "2026-06-19",
       "start": "9pm-4am",
       "venue": "Spin Nightclub (San Diego) tech house",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -9436,7 +9489,7 @@
       "date": "2026-06-19",
       "start": "10:30pm",
       "venue": "Time Nightclub (Costa Mesa) big room house, electro house, pop EDM",
-      "neighborhood": null,
+      "neighborhood": "Costa Mesa",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -9757,7 +9810,7 @@
       "date": "2026-06-20",
       "start": "10pm-2am",
       "venue": "The Vermont (Hollywood/Los Angeles) techno, deep house",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -9794,11 +9847,50 @@
       "is_past": false
     },
     {
+      "title": "Sunset Sessions 'Pool-Party'",
+      "date": "2026-06-20",
+      "start": "2026-06-20T16:00:00.000",
+      "venue": "Level 8 DTLA",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 0,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "Aplex",
+        "Electric Field"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2468953"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 rooftop / vinyl / groove",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "Midnight Lovers Summer Day Party with Bradley Zero, Masha Mar, Mez Monty, James Axon ",
       "date": "2026-06-20",
       "start": "2026-06-20T17:00:00.000",
       "venue": "The Bridge",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": true,
@@ -9827,13 +9919,111 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 6,
+      "score": 7,
       "rating": 4,
       "reasons": [
         "+3 electronic (high interest)",
         "+1 RA pick",
         "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "title": "Chris Lake",
+      "date": "2026-06-20",
+      "start": "2026-06-20T17:00:00.000",
+      "venue": "Los Angeles State Historic Park",
+      "neighborhood": "Chinatown",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 64,
+      "price": "$105+",
+      "organizers": "Goldenvoice, Framework",
+      "detail": null,
+      "lineup": [
+        "Chris Lake",
+        "Hot Since 82"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2367331"
+        },
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7OyOE"
+        },
+        {
+          "source": "19hz",
+          "url": "https://www.axs.com/events/1311419/chris-lake-saturday-june-20th-2026-tickets"
+        },
+        {
+          "source": "goldenvoice",
+          "url": "https://www.axs.com/events/1311419/chris-lake-saturday-june-20th-2026-tickets"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "goldenvoice",
+        "ra",
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 European / label vibe",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "title": "Lefto & Friends",
+      "date": "2026-06-20",
+      "start": "2026-06-20T20:00:00.000",
+      "venue": "The Airliner",
+      "neighborhood": "Lincoln Heights",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": 4,
+      "price": "$10",
+      "organizers": "The Airliner",
+      "detail": null,
+      "lineup": [
+        "Lefto Early Bird"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2455833"
+        },
+        {
+          "source": "19hz",
+          "url": "https://www.barairliner.com"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-20",
       "is_past": false
@@ -9941,6 +10131,44 @@
       "is_past": false
     },
     {
+      "title": "Ballet School Los Angeles: Pride",
+      "date": "2026-06-20",
+      "start": "2026-06-20T22:00:00.000",
+      "venue": "Los Globos",
+      "neighborhood": "Silver Lake",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": 8,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "baby.com"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2456726"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "Paradisco",
       "date": "2026-06-20",
       "start": "2026-06-20T22:00:00.000",
@@ -10020,6 +10248,119 @@
       "is_past": false
     },
     {
+      "title": "NIGHTSHIFT AFTER HOURS",
+      "date": "2026-06-20",
+      "start": "2026-06-20T23:00:00.000",
+      "venue": "The Lexington",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": 4,
+      "price": "free w/rsvp b4 1 / $23",
+      "organizers": "Blind Tiger",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2465915"
+        },
+        {
+          "source": "19hz",
+          "url": "https://blindtiger.la/"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "title": "The Redwood Comedy Night",
+      "date": "2026-06-20",
+      "start": "2026-06-20T23:00:00.000",
+      "venue": "The Redwood Bar And Grill",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": 0,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2468049"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "title": "CUMBIAS VS REGGAETON",
+      "date": "2026-06-20",
+      "start": "22:00",
+      "venue": "THE MAYAN",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": null,
+      "price": "$10",
+      "organizers": "LA SONIDERA PARTY",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "posh",
+          "url": "https://posh.vip/e/cumbias-vs-reggaeton"
+        }
+      ],
+      "sources": [
+        "posh"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "Reverberation Radio DJ Night",
       "date": "2026-06-20",
       "start": "22:00",
@@ -10094,6 +10435,42 @@
       "is_past": false
     },
     {
+      "title": "AFTERS 6-20",
+      "date": "2026-06-20",
+      "start": "23:00",
+      "venue": "129 E 3rd St",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": null,
+      "price": "free",
+      "organizers": "NIGHTSHIFT",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "posh",
+          "url": "https://posh.vip/e/afters-620-3"
+        }
+      ],
+      "sources": [
+        "posh"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "Groovers Inn (DTLA Afters)",
       "date": "2026-06-20",
       "start": "23:45",
@@ -10125,6 +10502,49 @@
         "+1 afterhours / late start",
         "+1 rooftop / vinyl / groove",
         "+1 Friday/Saturday night"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "title": "Sad Foos",
+      "date": "2026-06-20",
+      "start": "9pm",
+      "venue": "The Novo (Los Angeles) disco, funk",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": "$44-55",
+      "organizers": "Goldenvoice",
+      "detail": null,
+      "lineup": [
+        "Sad Foos"
+      ],
+      "links": [
+        {
+          "source": "19hz",
+          "url": "https://www.facebook.com/events/2709655819415710/"
+        },
+        {
+          "source": "goldenvoice",
+          "url": "https://www.axs.com/events/1457095/sad-foos-tickets"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "goldenvoice"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 rooftop / vinyl / groove",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-20",
       "is_past": false
@@ -10237,7 +10657,7 @@
       "date": "2026-06-20",
       "start": "10pm-2:30am",
       "venue": "Sound Nightclub (Los Angeles) progressive house, afro house",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -10866,6 +11286,41 @@
       "is_past": false
     },
     {
+      "title": "Pretty But Wicked Presents: Racecourse with Trinity Ace",
+      "date": "2026-06-20",
+      "start": "18:30:00",
+      "venue": "The Moroccan Lounge",
+      "neighborhood": "Arts District",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/pretty-but-wicked-presents-racecourse-with-los-angeles-california-06-19-2026/event/0900649DA559BECD"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "My Best Friend\u2019s Wedding",
       "date": "2026-06-20",
       "start": "19:00",
@@ -11041,6 +11496,76 @@
       "is_past": false
     },
     {
+      "title": "By Storm - My Ghost Go Ghost",
+      "date": "2026-06-20",
+      "start": "19:00:00",
+      "venue": "The Echo",
+      "neighborhood": "Echo Park",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/by-storm-my-ghost-go-ghost-los-angeles-california-06-19-2026/event/0900643BEDB3FC47"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "title": "Kings Kaleidoscope with Hollyn",
+      "date": "2026-06-20",
+      "start": "19:00:00",
+      "venue": "Teragram Ballroom",
+      "neighborhood": "Westlake",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/kings-kaleidoscope-with-hollyn-los-angeles-california-06-19-2026/event/090062ACB5972983"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "Backyard Party    presents\u2026     Crawlspacedotcom  Great Schism  Superior     7:3",
       "date": "2026-06-20",
       "start": "19:30",
@@ -11076,11 +11601,46 @@
       "is_past": false
     },
     {
+      "title": "Parker McCollum",
+      "date": "2026-06-20",
+      "start": "19:30:00",
+      "venue": "Greek Theatre",
+      "neighborhood": "Los Feliz",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/parker-mccollum-los-angeles-california-06-19-2026/event/09006361F751916F"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "KCRW x Copa Del Rave Residency: The Beautiful Game Remixed",
       "date": "2026-06-20",
       "start": "2026-06-20T11:00:00.000",
       "venue": "Academy LA",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -11193,7 +11753,7 @@
       "date": "2026-06-20",
       "start": "2026-06-20T15:00:00.000",
       "venue": "IO Music Academy LA",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -11351,7 +11911,7 @@
       "date": "2026-06-20",
       "start": "2026-06-20T16:00:00.000",
       "venue": "The Redwood Bar And Grill",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -11371,102 +11931,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "Sunset Sessions 'Pool-Party'",
-      "date": "2026-06-20",
-      "start": "2026-06-20T16:00:00.000",
-      "venue": "Level 8 DTLA",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 0,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "Aplex",
-        "Electric Field"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2468953"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
       "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "Chris Lake",
-      "date": "2026-06-20",
-      "start": "2026-06-20T17:00:00.000",
-      "venue": "Los Angeles State Historic Park",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 64,
-      "price": "$105+",
-      "organizers": "Goldenvoice, Framework",
-      "detail": null,
-      "lineup": [
-        "Chris Lake",
-        "Hot Since 82"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2367331"
-        },
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7OyOE"
-        },
-        {
-          "source": "19hz",
-          "url": "https://www.axs.com/events/1311419/chris-lake-saturday-june-20th-2026-tickets"
-        },
-        {
-          "source": "goldenvoice",
-          "url": "https://www.axs.com/events/1311419/chris-lake-saturday-june-20th-2026-tickets"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "goldenvoice",
-        "ra",
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 European / label vibe",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-20",
       "is_past": false
@@ -11625,48 +12095,6 @@
       "is_past": false
     },
     {
-      "title": "Lefto & Friends",
-      "date": "2026-06-20",
-      "start": "2026-06-20T20:00:00.000",
-      "venue": "The Airliner",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": 4,
-      "price": "$10",
-      "organizers": "The Airliner",
-      "detail": null,
-      "lineup": [
-        "Lefto Early Bird"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2455833"
-        },
-        {
-          "source": "19hz",
-          "url": "https://www.barairliner.com"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
       "title": "Blactina in hiphop",
       "date": "2026-06-20",
       "start": "2026-06-20T20:00:00.000",
@@ -11709,7 +12137,7 @@
       "date": "2026-06-20",
       "start": "2026-06-20T20:00:00.000",
       "venue": "The Redwood Bar And Grill",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -11729,11 +12157,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-20",
       "is_past": false
@@ -11878,7 +12307,7 @@
       "date": "2026-06-20",
       "start": "2026-06-20T22:00:00.000",
       "venue": "Academy LA",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -11956,48 +12385,11 @@
       "is_past": false
     },
     {
-      "title": "Ballet School Los Angeles: Pride",
-      "date": "2026-06-20",
-      "start": "2026-06-20T22:00:00.000",
-      "venue": "Los Globos",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": 8,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "baby.com"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2456726"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
       "title": "Aly & Fila",
       "date": "2026-06-20",
       "start": "2026-06-20T22:00:00.000",
       "venue": "Avalon Hollywood",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -12020,81 +12412,6 @@
       ],
       "sources": [
         "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "NIGHTSHIFT AFTER HOURS",
-      "date": "2026-06-20",
-      "start": "2026-06-20T23:00:00.000",
-      "venue": "The Lexington",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": 4,
-      "price": "free w/rsvp b4 1 / $23",
-      "organizers": "Blind Tiger",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2465915"
-        },
-        {
-          "source": "19hz",
-          "url": "https://blindtiger.la/"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "The Redwood Comedy Night",
-      "date": "2026-06-20",
-      "start": "2026-06-20T23:00:00.000",
-      "venue": "The Redwood Bar And Grill",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": 0,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2468049"
-        }
-      ],
-      "sources": [
         "ra"
       ],
       "first_seen": "2026-06-16",
@@ -12253,6 +12570,41 @@
       "is_past": false
     },
     {
+      "title": "Red NOT Chili Peppers",
+      "date": "2026-06-20",
+      "start": "20:00:00",
+      "venue": "The Bellwether",
+      "neighborhood": "DTLA",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/red-not-chili-peppers-los-angeles-california-06-19-2026/event/09006462F3AAF455"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "PATCHWORK PRESENTA\u2026UNA NOCHE DE PERREO",
       "date": "2026-06-20",
       "start": "21:00",
@@ -12390,6 +12742,41 @@
       "is_past": false
     },
     {
+      "title": "LACANN 250 Years Celebration feat. Dead Prez, Vic Mensa & more",
+      "date": "2026-06-20",
+      "start": "21:00:00",
+      "venue": "The Regent Theater",
+      "neighborhood": "DTLA",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/lacann-250-years-celebration-feat-dead-los-angeles-california-06-19-2026/event/090064BC14C4AE90"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "Crash",
       "date": "2026-06-20",
       "start": "21:30",
@@ -12496,6 +12883,41 @@
       "is_past": false
     },
     {
+      "title": "Noise Etc. Presents: cherry pick, Rotundos, Stereobliss & Grand Prix",
+      "date": "2026-06-20",
+      "start": "21:30:00",
+      "venue": "The Moroccan Lounge",
+      "neighborhood": "Arts District",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/noise-etc-presents-cherry-pick-rotundos-los-angeles-california-06-19-2026/event/090064ADBA65F930"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "I Love Boosters",
       "date": "2026-06-20",
       "start": "22:00",
@@ -12548,41 +12970,6 @@
         {
           "source": "posh",
           "url": "https://posh.vip/e/rage-summer-kick-off-"
-        }
-      ],
-      "sources": [
-        "posh"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "CUMBIAS VS REGGAETON",
-      "date": "2026-06-20",
-      "start": "22:00",
-      "venue": "THE MAYAN",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": null,
-      "price": "$10",
-      "organizers": "LA SONIDERA PARTY",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "posh",
-          "url": "https://posh.vip/e/cumbias-vs-reggaeton"
         }
       ],
       "sources": [
@@ -12723,41 +13110,6 @@
         {
           "source": "posh",
           "url": "https://posh.vip/e/malfunktion-saturdays-reunite-x-utopiasecret-guest-headliner-2026-6-21-10-0"
-        }
-      ],
-      "sources": [
-        "posh"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "AFTERS 6-20",
-      "date": "2026-06-20",
-      "start": "23:00",
-      "venue": "129 E 3rd St",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": null,
-      "price": "free",
-      "organizers": "NIGHTSHIFT",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "posh",
-          "url": "https://posh.vip/e/afters-620-3"
         }
       ],
       "sources": [
@@ -12955,7 +13307,7 @@
       "date": "2026-06-20",
       "start": "7pm-11:45pm",
       "venue": "Sid The Cat Auditorium (Pasadena/Los Angeles) indie dance, electropop",
-      "neighborhood": null,
+      "neighborhood": "Pasadena",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -13020,53 +13372,11 @@
       "is_past": false
     },
     {
-      "title": "Sad Foos",
-      "date": "2026-06-20",
-      "start": "9pm",
-      "venue": "The Novo (Los Angeles) disco, funk",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": "$44-55",
-      "organizers": "Goldenvoice",
-      "detail": null,
-      "lineup": [
-        "Sad Foos"
-      ],
-      "links": [
-        {
-          "source": "19hz",
-          "url": "https://www.facebook.com/events/2709655819415710/"
-        },
-        {
-          "source": "goldenvoice",
-          "url": "https://www.axs.com/events/1457095/sad-foos-tickets"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "goldenvoice"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
       "title": "Disco S!Ut: Mom & Dad, Ben Coco, and Kace Hurta",
       "date": "2026-06-20",
       "start": "9pm-2am",
       "venue": "Eq (San Diego) house, disco, funk",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -13388,40 +13698,6 @@
       "is_past": false
     },
     {
-      "title": "Pretty But Wicked Presents: Racecourse with Trinity Ace",
-      "date": "2026-06-20",
-      "start": "18:30:00",
-      "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/pretty-but-wicked-presents-racecourse-with-los-angeles-california-06-19-2026/event/0900649DA559BECD"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
       "title": "The Doctor Wu Band ~ Playing the Music of Steely Dan",
       "date": "2026-06-20",
       "start": "18:45",
@@ -13494,7 +13770,7 @@
       "date": "2026-06-20",
       "start": "19:00:00",
       "venue": "The Peppermint Club",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -13507,74 +13783,6 @@
         {
           "source": "tm",
           "url": "https://www.ticketmaster.com/jackie-venson-los-angeles-california-06-19-2026/event/0900648FFEE3D368"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "By Storm - My Ghost Go Ghost",
-      "date": "2026-06-20",
-      "start": "19:00:00",
-      "venue": "The Echo",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/by-storm-my-ghost-go-ghost-los-angeles-california-06-19-2026/event/0900643BEDB3FC47"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "Kings Kaleidoscope with Hollyn",
-      "date": "2026-06-20",
-      "start": "19:00:00",
-      "venue": "Teragram Ballroom",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/kings-kaleidoscope-with-hollyn-los-angeles-california-06-19-2026/event/090062ACB5972983"
         }
       ],
       "sources": [
@@ -13630,7 +13838,7 @@
       "date": "2026-06-20",
       "start": "19:30:00",
       "venue": "The Wiltern",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -13643,40 +13851,6 @@
         {
           "source": "tm",
           "url": "https://www.ticketmaster.com/ivy-queen-los-angeles-california-06-19-2026/event/0900647EF660EA40"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "Parker McCollum",
-      "date": "2026-06-20",
-      "start": "19:30:00",
-      "venue": "Greek Theatre",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/parker-mccollum-los-angeles-california-06-19-2026/event/09006361F751916F"
         }
       ],
       "sources": [
@@ -13736,7 +13910,7 @@
       "date": "2026-06-20",
       "start": "19:30:00",
       "venue": "Comedy Store - Los Angeles",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -13805,7 +13979,7 @@
       "date": "2026-06-20",
       "start": "20:00",
       "venue": "El Rey Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -13842,7 +14016,7 @@
       "date": "2026-06-20",
       "start": "20:00",
       "venue": "The Roxy",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -13879,7 +14053,7 @@
       "date": "2026-06-20",
       "start": "20:00:00",
       "venue": "Hollywood Bowl",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -13913,7 +14087,7 @@
       "date": "2026-06-20",
       "start": "20:00:00",
       "venue": "El Rey Theatre - Los Angeles",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -13926,40 +14100,6 @@
         {
           "source": "tm",
           "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7xAG9"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "Red NOT Chili Peppers",
-      "date": "2026-06-20",
-      "start": "20:00:00",
-      "venue": "The Bellwether",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/red-not-chili-peppers-los-angeles-california-06-19-2026/event/09006462F3AAF455"
         }
       ],
       "sources": [
@@ -14049,7 +14189,7 @@
       "date": "2026-06-20",
       "start": "20:00:00",
       "venue": "Hollywood Pantages Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "theater",
       "afterhours": false,
       "ra_pick": false,
@@ -14087,7 +14227,7 @@
       "date": "2026-06-20",
       "start": "21:00:00",
       "venue": "The Fonda Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -14232,40 +14372,6 @@
       "is_past": false
     },
     {
-      "title": "LACANN 250 Years Celebration feat. Dead Prez, Vic Mensa & more",
-      "date": "2026-06-20",
-      "start": "21:00:00",
-      "venue": "The Regent Theater",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/lacann-250-years-celebration-feat-dead-los-angeles-california-06-19-2026/event/090064BC14C4AE90"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
       "title": "Nikki Dani",
       "date": "2026-06-20",
       "start": "21:30",
@@ -14334,45 +14440,11 @@
       "is_past": false
     },
     {
-      "title": "Noise Etc. Presents: cherry pick, Rotundos, Stereobliss & Grand Prix",
-      "date": "2026-06-20",
-      "start": "21:30:00",
-      "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/noise-etc-presents-cherry-pick-rotundos-los-angeles-california-06-19-2026/event/090064ADBA65F930"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
       "title": "Creative Sound Design w/ Demotapes",
       "date": "2026-06-20",
       "start": "3pm-6pm",
       "venue": "Io Music Academy (Los Angeles) producer workshop",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -14407,7 +14479,7 @@
       "date": "2026-06-20",
       "start": "3pm-9pm",
       "venue": "Spin (San Diego) house",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -14477,7 +14549,7 @@
       "date": "2026-06-20",
       "start": "8pm-1am",
       "venue": "Majestic Theatre (Ventura) latin club, pop EDM",
-      "neighborhood": null,
+      "neighborhood": "Ventura",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -14548,7 +14620,7 @@
       "date": "2026-06-20",
       "start": "9pm-2am",
       "venue": "3Oz Dive Club (San Diego) house, electro",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -14584,7 +14656,7 @@
       "date": "2026-06-20",
       "start": "10pm-4am",
       "venue": "Rich's (San Diego) tech house, hip-hop",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -14621,7 +14693,7 @@
       "date": "2026-06-20",
       "start": "10pm-4am",
       "venue": "TBA (San Diego) techno, tech house, trap, dubstep",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -15239,7 +15311,7 @@
       "date": "2026-06-20",
       "start": "8pm-2am",
       "venue": "TBA (San Diego) dubstep, bass music",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -15276,7 +15348,7 @@
       "date": "2026-06-20",
       "start": "9:30pm-3am",
       "venue": "TBA (San Diego) house, techno, dubstep, bass music, breaks",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -15313,7 +15385,7 @@
       "date": "2026-06-20",
       "start": "9pm",
       "venue": "TBA (San Diego) hardcore, gabber, happy hardcore",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -15653,6 +15725,49 @@
       "is_past": false
     },
     {
+      "title": "Day Trip In The Park LA: Cassian, Kamino, Millero, LUMI",
+      "date": "2026-06-21",
+      "start": "2026-06-21T14:00:00.000",
+      "venue": "Los Angeles State Historic Park",
+      "neighborhood": "Chinatown",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 6,
+      "price": "$37 pre",
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "Cassian",
+        "Kamino",
+        "LUMI"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2436972"
+        },
+        {
+          "source": "19hz",
+          "url": "https://www.tixr.com/groups/daytrip/events/day-trip-feat-cassian-kamino-millero-lumi-188029"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-21",
+      "is_past": false
+    },
+    {
       "title": "Sunday Sessions LA (Vinyl Only) Open Air",
       "date": "2026-06-21",
       "start": "2026-06-21T18:00:00.000",
@@ -15741,11 +15856,45 @@
       "is_past": false
     },
     {
+      "title": "Queer Wax Records",
+      "date": "2026-06-21",
+      "start": "2026-06-21T20:00:00.000",
+      "venue": "The Redwood Bar And Grill",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 0,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2468056"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-21",
+      "is_past": false
+    },
+    {
       "title": "NIGHTSHIFT AFTER HOURS",
       "date": "2026-06-21",
       "start": "2026-06-21T23:00:00.000",
       "venue": "The Lexington",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -15770,11 +15919,12 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 afterhours / late start"
+        "+1 afterhours / late start",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-21",
       "is_past": false
@@ -16087,7 +16237,7 @@
       "date": "2026-06-21",
       "start": "17:00:00",
       "venue": "Los Angeles State Historic Park",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Chinatown",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -16107,10 +16257,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-21",
       "is_past": false
@@ -16120,7 +16271,7 @@
       "date": "2026-06-21",
       "start": "17:00:00",
       "venue": "The Belasco",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -16140,10 +16291,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-21",
       "is_past": false
@@ -16252,7 +16404,7 @@
       "date": "2026-06-21",
       "start": "18:30:00",
       "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Arts District",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -16272,10 +16424,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-21",
       "is_past": false
@@ -16418,7 +16571,7 @@
       "date": "2026-06-21",
       "start": "19:00:00",
       "venue": "The Wiltern",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -16451,7 +16604,7 @@
       "date": "2026-06-21",
       "start": "19:00:00",
       "venue": "The Echo",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Echo Park",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -16471,10 +16624,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-21",
       "is_past": false
@@ -16587,7 +16741,7 @@
       "date": "2026-06-21",
       "start": "19:00:00",
       "venue": "Comedy Store - Los Angeles",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -16682,48 +16836,6 @@
       "is_past": false
     },
     {
-      "title": "Day Trip In The Park LA: Cassian, Kamino, Millero, LUMI",
-      "date": "2026-06-21",
-      "start": "2026-06-21T14:00:00.000",
-      "venue": "Los Angeles State Historic Park",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 6,
-      "price": "$37 pre",
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "Cassian",
-        "Kamino",
-        "LUMI"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2436972"
-        },
-        {
-          "source": "19hz",
-          "url": "https://www.tixr.com/groups/daytrip/events/day-trip-feat-cassian-kamino-millero-lumi-188029"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-21",
-      "is_past": false
-    },
-    {
       "title": "LA Synth Club presents Electronic Music",
       "date": "2026-06-21",
       "start": "2026-06-21T19:00:00.000",
@@ -16752,39 +16864,6 @@
       ],
       "sources": [
         "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-21",
-      "is_past": false
-    },
-    {
-      "title": "Queer Wax Records",
-      "date": "2026-06-21",
-      "start": "2026-06-21T20:00:00.000",
-      "venue": "The Redwood Bar And Grill",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 0,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2468056"
-        }
-      ],
-      "sources": [
         "ra"
       ],
       "first_seen": "2026-06-16",
@@ -16868,7 +16947,7 @@
       "date": "2026-06-21",
       "start": "20:00:00",
       "venue": "El Rey Theatre - Los Angeles",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -16934,7 +17013,7 @@
       "date": "2026-06-21",
       "start": "20:00:00",
       "venue": "Hollywood Bowl",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -17066,7 +17145,7 @@
       "date": "2026-06-21",
       "start": "20:00:00",
       "venue": "Hollywood Pantages Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "theater",
       "afterhours": false,
       "ra_pick": false,
@@ -17137,7 +17216,7 @@
       "date": "2026-06-21",
       "start": "21:00:00",
       "venue": "The Fonda Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -17203,7 +17282,7 @@
       "date": "2026-06-21",
       "start": "21:30:00",
       "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Arts District",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -17223,10 +17302,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-21",
       "is_past": false
@@ -17269,7 +17349,7 @@
       "date": "2026-06-21",
       "start": "22:00:00",
       "venue": "The Regent Theater",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -17289,10 +17369,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-21",
       "is_past": false
@@ -17337,7 +17418,7 @@
       "date": "2026-06-21",
       "start": "8pm-2am",
       "venue": "Kiku Room (San Diego) dark disco, indie dance, house, techno",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -17894,7 +17975,7 @@
       "date": "2026-06-21",
       "start": "2pm-9pm",
       "venue": "The Bungalow (Huntington Beach) house",
-      "neighborhood": null,
+      "neighborhood": "Huntington Beach",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -17928,7 +18009,7 @@
       "date": "2026-06-21",
       "start": "3pm-9pm",
       "venue": "Spin (San Diego) progressive house",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -17962,7 +18043,7 @@
       "date": "2026-06-21",
       "start": "4pm-9pm",
       "venue": "Quartyard (San Diego) house",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -17996,7 +18077,7 @@
       "date": "2026-06-21",
       "start": "8pm-12am",
       "venue": "Ventura Music Hall (Ventura) breaks, electro house",
-      "neighborhood": null,
+      "neighborhood": "Ventura",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -18167,7 +18248,7 @@
       "date": "2026-06-22",
       "start": "17:30:00",
       "venue": "The Echo",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Echo Park",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -18187,10 +18268,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-22",
       "is_past": false
@@ -18200,7 +18282,7 @@
       "date": "2026-06-22",
       "start": "18:30:00",
       "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Arts District",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -18220,10 +18302,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-22",
       "is_past": false
@@ -18233,7 +18316,7 @@
       "date": "2026-06-22",
       "start": "18:30:00",
       "venue": "Hollywood Pantages Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "theater",
       "afterhours": false,
       "ra_pick": false,
@@ -18333,7 +18416,7 @@
       "date": "2026-06-22",
       "start": "20:00",
       "venue": "The Roxy",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -18569,7 +18652,7 @@
       "date": "2026-06-22",
       "start": "2026-06-22T13:00:00.000",
       "venue": "Academy LA",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -18781,7 +18864,7 @@
       "date": "2026-06-23",
       "start": "19:00:00",
       "venue": "The Peppermint Club",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -18914,7 +18997,7 @@
       "date": "2026-06-23",
       "start": "20:00:00",
       "venue": "Masonic Lodge at Hollywood Forever",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -18980,7 +19063,7 @@
       "date": "2026-06-23",
       "start": "20:00:00",
       "venue": "The Regent Theater",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -19000,10 +19083,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-23",
       "is_past": false
@@ -19047,7 +19131,7 @@
       "date": "2026-06-23",
       "start": "7pm",
       "venue": "Blue Note (Los Angeles) house",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -19182,7 +19266,7 @@
       "date": "2026-06-23",
       "start": "8pm",
       "venue": "Eq (San Diego) drum and bass, jungle",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -19314,6 +19398,84 @@
       "is_past": false
     },
     {
+      "title": "Mamma Mia!",
+      "date": "2026-06-24",
+      "start": "2026-06-24T19:30:00.000",
+      "venue": "Ahmanson Theatre",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 4,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2320217"
+        },
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7bk4w"
+        }
+      ],
+      "sources": [
+        "ra",
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-24",
+      "is_past": false
+    },
+    {
+      "title": "Car Culture, Leng Bian, Sam Buck",
+      "date": "2026-06-24",
+      "start": "2026-06-24T21:00:00.000",
+      "venue": "El Cid",
+      "neighborhood": "Silver Lake",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 0,
+      "price": "$26",
+      "organizers": "Pretty But Wicked",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2464528"
+        },
+        {
+          "source": "19hz",
+          "url": "https://dice.fm/event/bbooav-car-culture-24th-jun-el-cid-los-angeles-tickets"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-24",
+      "is_past": false
+    },
+    {
       "title": "Aaron MF Olson's Songs Group, Jeff Parker & Patrick Shiroishi, DJ Rockin' Rian Murphy",
       "date": "2026-06-24",
       "start": "20:00",
@@ -19353,7 +19515,7 @@
       "date": "2026-06-24",
       "start": "18:30:00",
       "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Arts District",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -19373,10 +19535,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-24",
       "is_past": false
@@ -19419,7 +19582,7 @@
       "date": "2026-06-24",
       "start": "19:00:00",
       "venue": "The Wiltern",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -19452,7 +19615,7 @@
       "date": "2026-06-24",
       "start": "19:00:00",
       "venue": "The Echo",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Echo Park",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -19472,10 +19635,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-24",
       "is_past": false
@@ -19485,7 +19649,7 @@
       "date": "2026-06-24",
       "start": "19:00:00",
       "venue": "The Peppermint Club",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -19581,87 +19745,11 @@
       "is_past": false
     },
     {
-      "title": "Mamma Mia!",
-      "date": "2026-06-24",
-      "start": "2026-06-24T19:30:00.000",
-      "venue": "Ahmanson Theatre",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 4,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2320217"
-        },
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7bk4w"
-        }
-      ],
-      "sources": [
-        "ra",
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-24",
-      "is_past": false
-    },
-    {
-      "title": "Car Culture, Leng Bian, Sam Buck",
-      "date": "2026-06-24",
-      "start": "2026-06-24T21:00:00.000",
-      "venue": "El Cid",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 0,
-      "price": "$26",
-      "organizers": "Pretty But Wicked",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2464528"
-        },
-        {
-          "source": "19hz",
-          "url": "https://dice.fm/event/bbooav-car-culture-24th-jun-el-cid-los-angeles-tickets"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-24",
-      "is_past": false
-    },
-    {
       "title": "VINCINT",
       "date": "2026-06-24",
       "start": "20:00",
       "venue": "The Roxy",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -19697,7 +19785,7 @@
       "date": "2026-06-24",
       "start": "20:00",
       "venue": "El Rey Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -19732,7 +19820,7 @@
       "date": "2026-06-24",
       "start": "20:00:00",
       "venue": "Masonic Lodge at Hollywood Forever",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -19798,7 +19886,7 @@
       "date": "2026-06-24",
       "start": "20:00:00",
       "venue": "Comedy Store - Los Angeles",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -19831,7 +19919,7 @@
       "date": "2026-06-24",
       "start": "7pm",
       "venue": "Blue Note (Los Angeles) house",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -19899,7 +19987,7 @@
       "date": "2026-06-24",
       "start": "7pm",
       "venue": "Music Box (San Diego) trance, techno, classical",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -19933,7 +20021,7 @@
       "date": "2026-06-25",
       "start": "10pm-2am",
       "venue": "Sound Nightclub (Los Angeles) progressive house, tech house",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -20032,11 +20120,89 @@
       "is_past": false
     },
     {
+      "title": "Shadow Play",
+      "date": "2026-06-25",
+      "start": "2026-06-25T11:00:00.000",
+      "venue": "Bar Franca",
+      "neighborhood": "Silver Lake",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 1,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "Jackson Englund",
+        "NEKTER"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2468031"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-25",
+      "is_past": false
+    },
+    {
+      "title": "Flora + Fauna ft. aka Vinnie & Modern Lover",
+      "date": "2026-06-25",
+      "start": "2026-06-25T21:00:00.000",
+      "venue": "The Virgil",
+      "neighborhood": "Virgil Village",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 21,
+      "price": "free w/rsvp b4 10:30pm / $10",
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "Modern Lover"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2453806"
+        },
+        {
+          "source": "19hz",
+          "url": "https://www.instagram.com/florafauna.la/"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-25",
+      "is_past": false
+    },
+    {
       "title": "Aaron Hibell",
       "date": "2026-06-25",
       "start": "2026-06-25T22:00:00.000",
       "venue": "Fonda Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -20217,7 +20383,7 @@
       "date": "2026-06-25",
       "start": "18:30:00",
       "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Arts District",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -20237,10 +20403,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-25",
       "is_past": false
@@ -20284,7 +20451,7 @@
       "date": "2026-06-25",
       "start": "19:00:00",
       "venue": "The Wiltern",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -20317,7 +20484,7 @@
       "date": "2026-06-25",
       "start": "19:00:00",
       "venue": "The Echo",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Echo Park",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -20337,10 +20504,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-25",
       "is_past": false
@@ -20379,11 +20547,47 @@
       "is_past": false
     },
     {
+      "title": "BUST A MOVE: Matt Dike, Delicious Vinyl, and the Hip-Hop Hits",
+      "date": "2026-06-25",
+      "start": "19:30:00",
+      "venue": "The GRAMMY Museum",
+      "neighborhood": "DTLA",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.universe.com/events/bust-a-move-matt-dike-delicious-vinyl-and-the-hip-hop-hits-tickets-WPS9DN?ref=ticketmaster"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 2,
+      "rating": 2,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 rooftop / vinyl / groove",
+        "+1 close to Silver Lake",
+        "-2 hip-hop"
+      ],
+      "iso_date": "2026-06-25",
+      "is_past": false
+    },
+    {
       "title": "Khalid: It's Always Summer Somewhere Tour",
       "date": "2026-06-25",
       "start": "19:30:00",
       "venue": "Greek Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Los Feliz",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -20403,10 +20607,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-25",
       "is_past": false
@@ -20449,7 +20654,7 @@
       "date": "2026-06-25",
       "start": "19:30:00",
       "venue": "Dorothy Chandler Pavilion",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -20469,10 +20674,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-25",
       "is_past": false
@@ -20482,7 +20688,7 @@
       "date": "2026-06-25",
       "start": "19:30:00",
       "venue": "Ahmanson Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "theater",
       "afterhours": false,
       "ra_pick": false,
@@ -20502,10 +20708,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 theater (medium interest)"
+        "+2 theater (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-25",
       "is_past": false
@@ -20515,7 +20722,7 @@
       "date": "2026-06-25",
       "start": "19:30:00",
       "venue": "Hollywood Pantages Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "theater",
       "afterhours": false,
       "ra_pick": false,
@@ -20543,42 +20750,6 @@
       "rating": 2,
       "reasons": [
         "+2 theater (medium interest)"
-      ],
-      "iso_date": "2026-06-25",
-      "is_past": false
-    },
-    {
-      "title": "Shadow Play",
-      "date": "2026-06-25",
-      "start": "2026-06-25T11:00:00.000",
-      "venue": "Bar Franca",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 1,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "Jackson Englund",
-        "NEKTER"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2468031"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
       ],
       "iso_date": "2026-06-25",
       "is_past": false
@@ -20655,51 +20826,11 @@
       "is_past": false
     },
     {
-      "title": "Flora + Fauna ft. aka Vinnie & Modern Lover",
-      "date": "2026-06-25",
-      "start": "2026-06-25T21:00:00.000",
-      "venue": "The Virgil",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 21,
-      "price": "free w/rsvp b4 10:30pm / $10",
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "Modern Lover"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2453806"
-        },
-        {
-          "source": "19hz",
-          "url": "https://www.instagram.com/florafauna.la/"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-25",
-      "is_past": false
-    },
-    {
       "title": "BET Awards Weekend Kick Off Celebration @ Warwick (top talent, media)",
       "date": "2026-06-25",
       "start": "2026-06-25T21:00:00.000",
       "venue": "Warwick LA",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -20732,7 +20863,7 @@
       "date": "2026-06-25",
       "start": "20:00",
       "venue": "The Roxy",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -20834,7 +20965,7 @@
       "date": "2026-06-25",
       "start": "20:00:00",
       "venue": "The Bellwether",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -20854,10 +20985,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-25",
       "is_past": false
@@ -20934,7 +21066,7 @@
       "date": "2026-06-25",
       "start": "20:00:00",
       "venue": "El Rey Theatre - Los Angeles",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -20967,7 +21099,7 @@
       "date": "2026-06-25",
       "start": "21:30:00",
       "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Arts District",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -20987,10 +21119,11 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-25",
       "is_past": false
@@ -21000,7 +21133,7 @@
       "date": "2026-06-25",
       "start": "9pm-12am",
       "venue": "Banana Bay Restaurant (Rowland Heights) tech house",
-      "neighborhood": null,
+      "neighborhood": "Rowland Heights",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -21033,7 +21166,7 @@
       "date": "2026-06-25",
       "start": "9pm-2am",
       "venue": "3Oz Dive Club (San Diego) house, electro",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -21200,41 +21333,6 @@
       "is_past": false
     },
     {
-      "title": "BUST A MOVE: Matt Dike, Delicious Vinyl, and the Hip-Hop Hits",
-      "date": "2026-06-25",
-      "start": "19:30:00",
-      "venue": "The GRAMMY Museum",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.universe.com/events/bust-a-move-matt-dike-delicious-vinyl-and-the-hip-hop-hits-tickets-WPS9DN?ref=ticketmaster"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 1,
-      "rating": 1,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 rooftop / vinyl / groove",
-        "-2 hip-hop"
-      ],
-      "iso_date": "2026-06-25",
-      "is_past": false
-    },
-    {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
       "date": "2026-06-25",
       "start": "19:30:00",
@@ -21345,7 +21443,7 @@
       "date": "2026-06-25",
       "start": "6pm-9pm",
       "venue": "3Oz Dive Club (San Diego) open decks, producer workshop",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -21373,6 +21471,128 @@
         "-2 far from LA"
       ],
       "iso_date": "2026-06-25",
+      "is_past": false
+    },
+    {
+      "title": "SUNSET SESSIONS presents: 'Unicorns-Only' Takeover",
+      "date": "2026-06-26",
+      "start": "2026-06-26T17:00:00.000",
+      "venue": "Level 8 DTLA",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 0,
+      "price": "free",
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "Casmalia"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2452837"
+        },
+        {
+          "source": "19hz",
+          "url": "https://www.eventbrite.com/e/sunset-sessions-at-golden-hour-dtla-a-weekly-series-tickets-1976818512385"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 rooftop / vinyl / groove",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": "Midnight Lovers with JKriv (Razor-N-Tape)",
+      "date": "2026-06-26",
+      "start": "2026-06-26T21:00:00.000",
+      "venue": "Bar Franca",
+      "neighborhood": "Silver Lake",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": 92,
+      "price": "free",
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "JKriv"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2396500"
+        },
+        {
+          "source": "19hz",
+          "url": "https://ra.co/events/2396500"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": "LA DISCOTECA",
+      "date": "2026-06-26",
+      "start": "2026-06-26T21:00:00.000",
+      "venue": "The Slipper Clutch",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 0,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2461545"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 rooftop / vinyl / groove",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
       "is_past": false
     },
     {
@@ -21463,6 +21683,47 @@
         "+1 afterhours / late start",
         "+1 rooftop / vinyl / groove",
         "+1 Friday/Saturday night"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": "Day Trip Festival SoCal Preparty with Green Velvet and Ugo Banchi",
+      "date": "2026-06-26",
+      "start": "2026-06-26T22:00:00.000",
+      "venue": "Exchange LA",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": 10,
+      "price": "$45-95",
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2455039"
+        },
+        {
+          "source": "19hz",
+          "url": "https://www.tixr.com/groups/exchangela/events/day-trip-festival-preparty-green-velvet-192192"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-26",
       "is_past": false
@@ -21590,7 +21851,7 @@
       "date": "2026-06-26",
       "start": "10pm-2:30am",
       "venue": "Sound Nightclub (Los Angeles) tech house",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -21935,43 +22196,211 @@
       "is_past": false
     },
     {
-      "title": "SUNSET SESSIONS presents: 'Unicorns-Only' Takeover",
+      "title": "Perry Maysun - A Very Pathetic Tour",
       "date": "2026-06-26",
-      "start": "2026-06-26T17:00:00.000",
-      "venue": "Level 8 DTLA",
-      "neighborhood": null,
-      "category": "electronic",
+      "start": "19:00:00",
+      "venue": "The Echo",
+      "neighborhood": "Echo Park",
+      "category": "music",
       "afterhours": false,
       "ra_pick": false,
-      "attending": 0,
-      "price": "free",
+      "attending": null,
+      "price": null,
       "organizers": null,
       "detail": null,
-      "lineup": [
-        "Casmalia"
-      ],
+      "lineup": [],
       "links": [
         {
-          "source": "ra",
-          "url": "https://ra.co/events/2452837"
-        },
-        {
-          "source": "19hz",
-          "url": "https://www.eventbrite.com/e/sunset-sessions-at-golden-hour-dtla-a-weekly-series-tickets-1976818512385"
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/perry-maysun-a-very-pathetic-tour-los-angeles-california-06-25-2026/event/090064580C319B38"
         }
       ],
       "sources": [
-        "19hz",
-        "ra"
+        "tm"
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 5,
+      "score": 4,
       "rating": 3,
       "reasons": [
-        "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": "Summer Walker: Still Finally Over It Tour",
+      "date": "2026-06-26",
+      "start": "19:30:00",
+      "venue": "Crypto.com Arena",
+      "neighborhood": "DTLA",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/summer-walker-still-finally-over-it-los-angeles-california-06-25-2026/event/2C0064358E7B0C6C"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": "The Drop: Giulia Be",
+      "date": "2026-06-26",
+      "start": "19:30:00",
+      "venue": "The GRAMMY Museum",
+      "neighborhood": "DTLA",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.universe.com/events/the-drop-giulia-be-tickets-F4H75N?ref=ticketmaster"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": "New York City Ballet",
+      "date": "2026-06-26",
+      "start": "19:30:00",
+      "venue": "Dorothy Chandler Pavilion",
+      "neighborhood": "DTLA",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7_P8Y"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": "Mamma Mia! (Touring)",
+      "date": "2026-06-26",
+      "start": "19:30:00",
+      "venue": "Ahmanson Theatre",
+      "neighborhood": "DTLA",
+      "category": "theater",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7bk4V"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 theater (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": " Grits & Eggs Podcast Live",
+      "date": "2026-06-26",
+      "start": "19:30:00",
+      "venue": "The Regent Theater",
+      "neighborhood": "DTLA",
+      "category": "theater",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/grits-eggs-podcast-live-los-angeles-california-06-25-2026/event/090064AC95D996FB"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 theater (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-26",
       "is_past": false
@@ -22173,48 +22602,6 @@
       "is_past": false
     },
     {
-      "title": "Midnight Lovers with JKriv (Razor-N-Tape)",
-      "date": "2026-06-26",
-      "start": "2026-06-26T21:00:00.000",
-      "venue": "Bar Franca",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": 92,
-      "price": "free",
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "JKriv"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2396500"
-        },
-        {
-          "source": "19hz",
-          "url": "https://ra.co/events/2396500"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
       "title": "SUBSTATION",
       "date": "2026-06-26",
       "start": "2026-06-26T21:00:00.000",
@@ -22256,7 +22643,7 @@
       "date": "2026-06-26",
       "start": "2026-06-26T21:00:00.000",
       "venue": "Catch One",
-      "neighborhood": null,
+      "neighborhood": "Mid-City",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -22286,41 +22673,6 @@
       "reasons": [
         "+3 electronic (high interest)",
         "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
-      "title": "LA DISCOTECA",
-      "date": "2026-06-26",
-      "start": "2026-06-26T21:00:00.000",
-      "venue": "The Slipper Clutch",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 0,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2461545"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove",
         "+1 Friday/Saturday night"
       ],
       "iso_date": "2026-06-26",
@@ -22384,46 +22736,6 @@
         {
           "source": "19hz",
           "url": "https://ra.co/events/2443844"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
-      "title": "Day Trip Festival SoCal Preparty with Green Velvet and Ugo Banchi",
-      "date": "2026-06-26",
-      "start": "2026-06-26T22:00:00.000",
-      "venue": "Exchange LA",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": 10,
-      "price": "$45-95",
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2455039"
-        },
-        {
-          "source": "19hz",
-          "url": "https://www.tixr.com/groups/exchangela/events/day-trip-festival-preparty-green-velvet-192192"
         }
       ],
       "sources": [
@@ -22524,6 +22836,43 @@
       "is_past": false
     },
     {
+      "title": "R&B ONLY AND FRIENDS",
+      "date": "2026-06-26",
+      "start": "21:00",
+      "venue": "The Novo",
+      "neighborhood": "DTLA",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "R&B ONLY AND FRIENDS"
+      ],
+      "links": [
+        {
+          "source": "goldenvoice",
+          "url": "https://www.axs.com/events/1415366/rb-only-and-friends-tickets"
+        }
+      ],
+      "sources": [
+        "goldenvoice"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
       "title": "THE ROOM 6.26",
       "date": "2026-06-26",
       "start": "21:00",
@@ -22553,6 +22902,41 @@
       "reasons": [
         "+3 party (high interest)",
         "+1 Friday/Saturday night"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": "Desert Daze Presents: Litronix and Chalk Teeth w/ Marc Baker",
+      "date": "2026-06-26",
+      "start": "21:30:00",
+      "venue": "The Moroccan Lounge",
+      "neighborhood": "Arts District",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/desert-daze-presents-litronix-and-chalk-los-angeles-california-06-25-2026/event/09006459B85A9C41"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-26",
       "is_past": false
@@ -22624,6 +23008,43 @@
         "+1 afterhours / late start",
         "+1 Friday/Saturday night",
         "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": "Friday Morning Afters",
+      "date": "2026-06-26",
+      "start": "4am-12pm",
+      "venue": "TBA (DTLA/Los Angeles) EDM, house, hip-hop",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": true,
+      "ra_pick": false,
+      "attending": null,
+      "price": "free w/rsvp b4 530 / $12-20",
+      "organizers": "Under_groundla, Kariwood",
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "19hz",
+          "url": "https://posh.vip/e/friday-morning-afters-undergroundla-x-kariwood-15"
+        }
+      ],
+      "sources": [
+        "19hz"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
+        "-2 hip-hop"
       ],
       "iso_date": "2026-06-26",
       "is_past": false
@@ -22702,7 +23123,7 @@
       "date": "2026-06-26",
       "start": "7pm",
       "venue": "11003 Sports Arena Dr (Pico Rivera) multigenre EDM",
-      "neighborhood": null,
+      "neighborhood": "Pico Rivera",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -22770,7 +23191,7 @@
       "date": "2026-06-26",
       "start": "9pm-2am",
       "venue": "The Slipper Clutch (Los Angeles) house, hip-hop, cumbia, rock",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -22790,13 +23211,14 @@
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-16",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
         "+1 afterhours / late start",
         "+1 rooftop / vinyl / groove",
         "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
         "-2 hip-hop"
       ],
       "iso_date": "2026-06-26",
@@ -22807,7 +23229,7 @@
       "date": "2026-06-26",
       "start": "10pm",
       "venue": "Academy (Los Angeles) dubstep, bass music",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -22843,7 +23265,7 @@
       "date": "2026-06-26",
       "start": "10pm-1:30am",
       "venue": "Nova Sd (San Diego) tech house, afro house",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -22879,7 +23301,7 @@
       "date": "2026-06-26",
       "start": "10pm-3am",
       "venue": "Eq (San Diego) house, pop EDM",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -23013,215 +23435,11 @@
       "is_past": false
     },
     {
-      "title": "Perry Maysun - A Very Pathetic Tour",
-      "date": "2026-06-26",
-      "start": "19:00:00",
-      "venue": "The Echo",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/perry-maysun-a-very-pathetic-tour-los-angeles-california-06-25-2026/event/090064580C319B38"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
-      "title": "Summer Walker: Still Finally Over It Tour",
-      "date": "2026-06-26",
-      "start": "19:30:00",
-      "venue": "Crypto.com Arena",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/summer-walker-still-finally-over-it-los-angeles-california-06-25-2026/event/2C0064358E7B0C6C"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
-      "title": "The Drop: Giulia Be",
-      "date": "2026-06-26",
-      "start": "19:30:00",
-      "venue": "The GRAMMY Museum",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.universe.com/events/the-drop-giulia-be-tickets-F4H75N?ref=ticketmaster"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
-      "title": "New York City Ballet",
-      "date": "2026-06-26",
-      "start": "19:30:00",
-      "venue": "Dorothy Chandler Pavilion",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7_P8Y"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
-      "title": "Mamma Mia! (Touring)",
-      "date": "2026-06-26",
-      "start": "19:30:00",
-      "venue": "Ahmanson Theatre",
-      "neighborhood": "Los Angeles",
-      "category": "theater",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7bk4V"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 theater (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
-      "title": " Grits & Eggs Podcast Live",
-      "date": "2026-06-26",
-      "start": "19:30:00",
-      "venue": "The Regent Theater",
-      "neighborhood": "Los Angeles",
-      "category": "theater",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/grits-eggs-podcast-live-los-angeles-california-06-25-2026/event/090064AC95D996FB"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 theater (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
       "title": "The Phantom of the Opera (Touring)",
       "date": "2026-06-26",
       "start": "19:30:00",
       "venue": "Hollywood Pantages Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "theater",
       "afterhours": false,
       "ra_pick": false,
@@ -23255,7 +23473,7 @@
       "date": "2026-06-26",
       "start": "20:00",
       "venue": "El Rey Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -23292,7 +23510,7 @@
       "date": "2026-06-26",
       "start": "20:00",
       "venue": "The Roxy",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -23363,7 +23581,7 @@
       "date": "2026-06-26",
       "start": "20:00:00",
       "venue": "The Peppermint Club",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -23427,47 +23645,11 @@
       "is_past": false
     },
     {
-      "title": "R&B ONLY AND FRIENDS",
-      "date": "2026-06-26",
-      "start": "21:00",
-      "venue": "The Novo",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "R&B ONLY AND FRIENDS"
-      ],
-      "links": [
-        {
-          "source": "goldenvoice",
-          "url": "https://www.axs.com/events/1415366/rb-only-and-friends-tickets"
-        }
-      ],
-      "sources": [
-        "goldenvoice"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
       "title": "Aaron Hibell",
       "date": "2026-06-26",
       "start": "21:00:00",
       "venue": "The Fonda Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -23497,81 +23679,11 @@
       "is_past": false
     },
     {
-      "title": "Desert Daze Presents: Litronix and Chalk Teeth w/ Marc Baker",
-      "date": "2026-06-26",
-      "start": "21:30:00",
-      "venue": "The Moroccan Lounge",
-      "neighborhood": "Los Angeles",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/desert-daze-presents-litronix-and-chalk-los-angeles-california-06-25-2026/event/09006459B85A9C41"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
-      "title": "Friday Morning Afters",
-      "date": "2026-06-26",
-      "start": "4am-12pm",
-      "venue": "TBA (DTLA/Los Angeles) EDM, house, hip-hop",
-      "neighborhood": null,
-      "category": "electronic",
-      "afterhours": true,
-      "ra_pick": false,
-      "attending": null,
-      "price": "free w/rsvp b4 530 / $12-20",
-      "organizers": "Under_groundla, Kariwood",
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "19hz",
-          "url": "https://posh.vip/e/friday-morning-afters-undergroundla-x-kariwood-15"
-        }
-      ],
-      "sources": [
-        "19hz"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night",
-        "-2 hip-hop"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
       "title": "Digital Souls 2 Year Anniversary - Ds006: +Friends",
       "date": "2026-06-26",
       "start": "6pm",
       "venue": "TBA (San Diego) indie dance, dark disco, house",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -23607,7 +23719,7 @@
       "date": "2026-06-26",
       "start": "8pm-2am",
       "venue": "Breakpoint Pb (San Diego) uk garage",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -23643,7 +23755,7 @@
       "date": "2026-06-26",
       "start": "9pm",
       "venue": "Spin Nightclub (San Diego) trance",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -23678,7 +23790,7 @@
       "date": "2026-06-26",
       "start": "10pm-1:30am",
       "venue": "Time Nightclub (Costa Mesa) trap, hip-hop",
-      "neighborhood": null,
+      "neighborhood": "Costa Mesa",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -23750,7 +23862,7 @@
       "date": "2026-06-26",
       "start": "19:00:00",
       "venue": "The Wiltern",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "comedy",
       "afterhours": false,
       "ra_pick": false,
@@ -23926,7 +24038,7 @@
       "date": "2026-06-26",
       "start": "7:30pm-12am",
       "venue": "The Observatory North Park (San Diego) house, hip-hop, leftfield, future beats",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -23962,7 +24074,7 @@
       "date": "2026-06-26",
       "start": "7pm-2am",
       "venue": "3Oz Dive Club (San Diego) hip-hop, electro",
-      "neighborhood": null,
+      "neighborhood": "San Diego",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
