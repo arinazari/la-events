@@ -223,60 +223,72 @@
               </span>
               <sc-if value="{{ hoodOpen }}" hint-placeholder-val="{{ false }}">
                 <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50;"></span>
-                <div style="position:absolute; top:30px; left:12px; z-index:51; width:200px; max-height:300px; overflow-y:auto; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 8px 22px rgba(0,0,0,0.16); padding:6px;">
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">NEIGHBORHOOD</span>
-                    <span onClick="{{ clearHood }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                <div style="position:absolute; top:30px; left:12px; z-index:51; display:flex; align-items:flex-start; flex-wrap:wrap; gap:10px; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 8px 22px rgba(0,0,0,0.16); padding:6px;">
+                  <div style="flex:0 0 auto; width:176px; max-height:300px; overflow-y:auto;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">NEIGHBORHOOD</span>
+                      <span onClick="{{ clearHood }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                    </div>
+                    <sc-for list="{{ hoodMenu }}" as="o" hint-placeholder-count="8">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ hoodMenu }}" as="o" hint-placeholder-count="8">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">REGION</span>
-                    <span onClick="{{ clearRegion }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  <div style="flex:0 0 auto; width:120px; max-height:300px; overflow-y:auto;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">REGION</span>
+                      <span onClick="{{ clearRegion }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                    </div>
+                    <sc-for list="{{ regionMenu }}" as="o" hint-placeholder-count="7">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ regionMenu }}" as="o" hint-placeholder-count="7">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
                 </div>
               </sc-if>
             </th>
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:150px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
-                <span onClick="{{ sortCat }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">CATEGORY / TAGS <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
-                <span onClick="{{ openCat }}" title="Filter category / genre" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ catGenreIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                <span onClick="{{ sortCat }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">CATEGORY / VIBE <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
+                <span onClick="{{ openCat }}" title="Filter category / genre / vibe / setting" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ catGenreIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
               </span>
               <sc-if value="{{ catOpen }}" hint-placeholder-val="{{ false }}">
                 <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50;"></span>
-                <div style="position:absolute; top:30px; left:12px; z-index:51; width:220px; max-height:340px; overflow-y:auto; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 8px 22px rgba(0,0,0,0.16); padding:6px;">
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">CATEGORY</span>
-                    <span onClick="{{ clearCat }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                <div style="position:absolute; top:30px; right:12px; z-index:51; display:flex; align-items:flex-start; flex-wrap:wrap; gap:10px; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 8px 22px rgba(0,0,0,0.16); padding:6px;">
+                  <div style="flex:0 0 auto; width:132px; max-height:340px; overflow-y:auto;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">CATEGORY</span>
+                      <span onClick="{{ clearCat }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                    </div>
+                    <sc-for list="{{ catMenu }}" as="o" hint-placeholder-count="7">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ catMenu }}" as="o" hint-placeholder-count="7">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">GENRE</span>
-                    <span onClick="{{ clearGenre }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  <div style="flex:0 0 auto; width:132px; max-height:340px; overflow-y:auto;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">GENRE</span>
+                      <span onClick="{{ clearGenre }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                    </div>
+                    <sc-for list="{{ genreMenu }}" as="o" hint-placeholder-count="10">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ genreMenu }}" as="o" hint-placeholder-count="10">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">VIBE</span>
-                    <span onClick="{{ clearVibe }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  <div style="flex:0 0 auto; width:132px; max-height:340px; overflow-y:auto;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">VIBE</span>
+                      <span onClick="{{ clearVibe }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                    </div>
+                    <sc-for list="{{ vibeMenu }}" as="o" hint-placeholder-count="10">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ vibeMenu }}" as="o" hint-placeholder-count="10">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">SETTING</span>
-                    <span onClick="{{ clearSetting }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  <div style="flex:0 0 auto; width:132px; max-height:340px; overflow-y:auto;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">SETTING</span>
+                      <span onClick="{{ clearSetting }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                    </div>
+                    <sc-for list="{{ settingMenu }}" as="o" hint-placeholder-count="8">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ settingMenu }}" as="o" hint-placeholder-count="8">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
                 </div>
               </sc-if>
             </th>
