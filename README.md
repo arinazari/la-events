@@ -81,7 +81,7 @@ diffable text. **No email** — the `.html` is the artifact the planned hosted p
 
 ## Tuning it
 
-- **`taste.yaml`** — what you like (genres, tracked artists, loved venues, the pinned series, the
+- **`taste.yaml`** — what you like (genres, tracked artists, loved venues, the
   comedy exception). Edit directly anytime; re-read every run.
 - **`profile.yaml`** — place + scoring mechanics (DMA/area ids, home geo, weights, term matchers,
   thresholds). The city-portable knob — swap it to point the engine at another city.
