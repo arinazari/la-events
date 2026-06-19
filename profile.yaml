@@ -3,7 +3,7 @@
 # Lifted out of Python (the term lists + geo in build_dashboard.py, the dma/area ids in the
 # fetchers) so the engine is city/person-configurable and the scoring logic can live in ONE
 # place: scripts/lib/scoring.py. Split of concerns:
-#   taste.yaml  = CONTENT  — what Ari likes (artists_tracked, venues_loved, pinned_series, lanes)
+#   taste.yaml  = CONTENT  — what Ari likes (artists_tracked, venues_loved, lanes)
 #   profile.yaml = MECHANISM — source ids, home/geo, scoring weights, term matchers, thresholds
 # Change city/person by swapping this file; the scoring code doesn't change.
 # Values below are transcribed verbatim from the pre-refactor build_dashboard.py (behavior-preserving).

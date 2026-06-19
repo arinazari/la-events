@@ -84,8 +84,11 @@ shortly"). The popup also shows their taste YAML read-only. Requires the backend
 **This is obfuscation, not security:** the username is a public, guessable-if-known bearer key, and
 each feed file is publicly fetchable. Taste *writes* are low-stakes too (every edit is a revertible
 commit) — the backend's `CONCIERGE_TOKEN` guards API spend + commit-spam, not the data. Pick
-non-obvious usernames. Still deferred (see ROADMAP): per-profile *digest generation* and per-profile
-Spotify.
+non-obvious usernames. Still deferred (see ROADMAP): per-profile Spotify affinity.
+
+Each profile also gets its own **personalized digest** (the daily routine writes `digests/<hash>/latest.md`
+from their feed; the popup's "digest ↗" shows it). Until the routine has run for a new profile, the page
+shows a "ranked picks are live in the table" placeholder.
 
 ## Use it
 

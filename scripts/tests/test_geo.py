@@ -127,6 +127,16 @@ def test_canonical_location_non_la_city_from_parenthetical():
     assert geo.canonical_location("Some Club (21+) techno", None, PROFILE) is None
 
 
+def test_canonical_location_neighborhood_embedded_in_venue():
+    # Many TBA/warehouse rows carry the neighborhood in the venue string itself.
+    assert geo.canonical_location("TBA - DTLA Warehouse", "Los Angeles", PROFILE) == "DTLA"
+    assert geo.canonical_location("TBA - Downtown LA", None, PROFILE) == "DTLA"
+    assert geo.canonical_location("Pacific Electric", "Los Angeles", PROFILE) == "DTLA"
+    # The >=4 token guard must NOT mistake "broadway" for the "broad"-less... (no such hood),
+    # nor map a generic Broadway venue — it stays city-level.
+    assert geo.canonical_location("Broadway Theater", "Los Angeles", PROFILE) == "Los Angeles"
+
+
 def test_canonical_location_collapses_or_keeps_blank():
     # Unplaceable city-level collapses to ONE label; a true blank stays blank (the view
     # owns that fallback) — so we never invent a neighborhood we don't know.

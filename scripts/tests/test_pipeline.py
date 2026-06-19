@@ -43,6 +43,16 @@ def test_normalize_reads_afterhours_flag():
     assert P.normalize_record({"title": "W", "date": "2026-06-20"}, "ra")["afterhours"] is False
 
 
+def test_normalize_carries_genre_through():
+    # Fetchers that classify (Ticketmaster: segment->category, genre->genre) emit a `genre`;
+    # normalize must carry it onto the canonical schema so the dashboard's CATEGORY / GENRE
+    # line has something to show. (Regression: was dropped -> the genre line was always blank.)
+    rec = P.normalize_record({"title": "X", "date": "2026-06-20", "category": "Music", "genre": "Techno"}, "ticketmaster")
+    assert rec["genre"] == "Techno"
+    # No genre supplied -> key present but None, so the schema stays consistent across sources.
+    assert P.normalize_record({"title": "Y", "date": "2026-06-20"}, "ra")["genre"] is None
+
+
 def test_normalize_synthesizes_price_from_range():
     # Ticketmaster emits price_min/price_max, not a `price` string — synthesize one.
     P_ = P.normalize_record

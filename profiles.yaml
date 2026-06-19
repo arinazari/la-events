@@ -7,8 +7,10 @@
 # in the browser, and used to fetch that feed. Anyone who knows a username can load that profile
 # (and the feed file is publicly served), so pick non-obvious usernames. See ROADMAP "Profiles".
 #
-# The DEFAULT profile is the repo-root taste.yaml / profile.yaml -> dashboard/data.json (Ari /
-# the public feed); it is NOT listed here. List only the additional people below.
+# The DEFAULT (logged-out) feed is the repo-root taste.yaml / profile.yaml -> dashboard/data.json.
+# An `owner: true` profile (Ari's own login) also points at the root taste.yaml: logging in just
+# unlocks the concierge/LLM + lets the owner self-edit the *canonical* taste (the digest + default
+# feed reflect it). Friends get their own profiles/<name>/taste.yaml and can only edit that.
 #
 # After editing, rebuild the feeds:   python scripts/build_profiles.py
 # (or just one:                        python scripts/build_profiles.py --only <username>)
@@ -21,3 +23,8 @@ profiles:
     taste: profiles/demo/taste.yaml
     # profile: profile.yaml    # optional; omit to inherit the root profile.yaml (geo + scoring mechanics)
     # digest: digests/<hash>   # optional; per-profile digest dir staged by the deploy workflow (follow-up)
+
+  - username: ari            # Ari's own login -> unlocks the concierge/LLM on the default feed.
+    name: Ari                #   RENAME this to something non-obvious: as owner it can self-edit the
+    taste: taste.yaml        #   canonical taste.yaml (which drives the digest + everyone's default feed).
+    owner: true              #   owner -> allowed to edit the root taste.yaml (friends can't).

@@ -52,13 +52,6 @@ def test_penalty_terms_and_far():
     assert any("far from LA" in x for x in r["reasons"])
 
 
-def test_pinned_series_surfaces():
-    ev = {"title": "Sunset Sessions at Golden Hour", "category": "electronic",
-          "venue": "Level 8", "date": "2026-06-17"}
-    r = score_event(ev, TASTE, PROFILE)
-    assert any("pinned series" in x for x in r["reasons"]), r["reasons"]
-
-
 def test_profile_is_actually_consumed():
     """Proof the config lift works: overriding the profile changes the score,
     so scoring reads profile.yaml rather than silently using code defaults."""

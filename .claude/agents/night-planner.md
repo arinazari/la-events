@@ -35,8 +35,8 @@ python scripts/run_digest.py --no-fetch --window <days-out+1>   # writes data/ca
 ```
 Read `data/candidates.json` — it's already scored/ranked best-first against `taste.yaml` +
 `profile.yaml`. Filter to the target date and (if given) area. If the spec names a show, that's
-the **anchor**; otherwise the top on-taste candidate on that date is the anchor. Pinned series
-(e.g. Sunset Sessions) and `tracked artist` reasons are strong anchor signals — trust them.
+the **anchor**; otherwise the top on-taste candidate on that date is the anchor. A
+`tracked artist` reason is a strong anchor signal — trust it.
 (If `--no-fetch` errors, fall back to reading `data/catalog.json` directly and judging by taste.)
 
 ### 2. Build the arc — dinner → show → afters

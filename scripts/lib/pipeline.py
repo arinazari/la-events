@@ -108,6 +108,7 @@ def normalize_record(raw: dict, source=None) -> dict:
         "venue": raw.get("venue") or raw.get("venue_name"),
         "neighborhood": raw.get("neighborhood"),
         "category": raw.get("category") or SOURCE_CATEGORY.get(source, "general"),
+        "genre": raw.get("genre"),  # finer classification (TM segment->category, genre->genre); dashboard's CATEGORY / GENRE line
         "lineup": lineup,
         "links": _links(raw, source),
         "sources": _as_list(raw.get("sources") or source),

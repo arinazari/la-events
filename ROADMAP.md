@@ -224,11 +224,10 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   in `profiles.yaml`; `build_profiles.py` emits each feed reusing `build_dashboard.py`'s scorer (so a
   profile's ranking can't drift from the digest). Blank/unknown stays on the default (Ari's) feed.
   **Obfuscation, not security** — usernames are publicly-fetchable bearer keys (fine for a few friends).
-  Still deferred (Ari's call): (a) **per-profile digest *generation*** (routine loop + workflow staging
-  `digests/<hash>/latest.md`; the page already switches to it, else shows a placeholder); (c) **per-profile
-  Spotify** (web OAuth + Worker KV token storage + per-profile affinity sync). (b) concierge-per-profile +
-  **friend self-edit** is now built — see next entry. Profiles re-rank the *same* catalog (sourced to
-  Ari's taste), so full personalization eventually wants per-profile source coverage too.
+  Still deferred: (c) **per-profile Spotify** (web OAuth + Worker KV token storage + per-profile affinity
+  sync). (a) per-profile **digest generation** and (b) concierge-per-profile + **friend self-edit** are now
+  built — see below. Profiles re-rank the *same* catalog (sourced to Ari's taste), so full personalization
+  eventually wants per-profile source coverage too.
 - [x] **Friend taste self-edit via the concierge (2026-06-19)** — in a profile, the concierge chat now
   *edits your taste by talking to it* ("more techno, less comedy", "track Peggy Gou"). The Worker
   (`backend/`) grounds chat on the profile's feed and, when `GITHUB_TOKEN` is set, exposes a
@@ -239,6 +238,11 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   read-only. Security relaxed by design (taste writes are low-stakes/revertible): `CONCIERGE_TOKEN` guards
   API spend + commit-spam, and the GitHub PAT is repo-scoped Contents-only. **Needs Ari to deploy the
   Worker + set the 3 secrets** (`backend/README.md`).
+- [x] **Per-profile digests (2026-06-19)** — the daily routine now (step 7) rebuilds *every* feed
+  with `build_profiles.py` (friends' feeds stay fresh as the catalog changes, not only on self-edit),
+  and (step 8) writes a personalized narrative digest per profile to `digests/<hash>/latest.md`.
+  Both deploy workflows stage `digests/<hash>/latest.md → dashboard/digests/<hash>/latest.md`; the
+  page already loads it (placeholder until the first routine run). Owner profiles ≈ the default digest.
 - **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
 - [x] **Front end swapped to the design-tool UI (2026-06-18, branch `claude/exciting-feynman-v6vqo6`)** —
   the hand-written 3-view app was replaced by Ari's uploaded design (a single `dashboard/index.html` +

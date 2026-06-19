@@ -125,7 +125,8 @@ DEFAULT_VENUES = {
     "the redwood bar and grill": "dtla", "redwood bar": "dtla",
     "the slipper clutch": "dtla", "slipper clutch": "dtla",
     "the airliner": "lincoln heights", "airliner": "lincoln heights",
-    "blind barber": "culver city",
+    "blind barber": "culver city", "pacific electric": "dtla",
+    "roosevelt hotel": "hollywood", "hollywood roosevelt": "hollywood",
 }
 
 # Generic, non-neighborhood location strings. These get UPGRADED to a real neighborhood
@@ -272,6 +273,24 @@ def venue_to_hood(venue, profile: dict = None):
     return cfg["venues"][max(hits, key=len)] if hits else None
 
 
+def _embedded_hood(venue, profile: dict = None):
+    """A neighborhood NAME embedded in a venue string ('TBA - DTLA Warehouse' -> DTLA,
+    'TBA - Downtown LA' -> DTLA), longest match wins. A single-word hood must appear as a
+    standalone token and multi-word hoods match as a substring, so short tokens (dtla, noho)
+    can't false-fire mid-word. Only consulted for blank/city-level records."""
+    key = _norm(str(venue or ""))
+    if not key:
+        return None
+    tokens = set(key.split())
+    hits = []
+    for n in _geo_cfg(profile)["neighborhoods"]:
+        if len(n) < 4:
+            continue
+        if (n in key) if " " in n else (n in tokens):
+            hits.append(n)
+    return display_neighborhood(max(hits, key=len)) if hits else None
+
+
 def _venue_city(venue, profile: dict = None):
     """A non-LA city named in a venue parenthetical ('Eq (San Diego)' -> 'San Diego',
     'Sid The Cat (Pasadena/Los Angeles)' -> 'Pasadena'), else None. Allowlist-guarded so
@@ -296,7 +315,8 @@ def canonical_location(venue, neighborhood=None, profile: dict = None):
       1. A real, specific neighborhood already on the record wins — just fix its display.
          (We never downgrade good data: Eagle Rock, Anaheim, Highland stay put.)
       2. Else (blank or city-level 'Los Angeles'/'LA') upgrade via the VENUE -> a real
-         neighborhood from the gazetteer (Fonda -> Hollywood, The Echo -> Echo Park, ...).
+         neighborhood: a known venue (Fonda -> Hollywood) or a neighborhood embedded in the
+         venue string ('TBA - DTLA Warehouse' -> DTLA).
       3. Else surface a non-LA city named in the venue string ('(San Diego)').
       4. Else collapse to ONE city label (city-level -> 'Los Angeles'); true blanks stay
          blank so the view, not the data, owns the fallback for genuinely-unknown spots."""
@@ -306,6 +326,9 @@ def canonical_location(venue, neighborhood=None, profile: dict = None):
     hood = venue_to_hood(venue, profile)
     if hood:
         return display_neighborhood(hood)
+    emb = _embedded_hood(venue, profile)
+    if emb:
+        return emb
     city = _venue_city(venue, profile)
     if city:
         return city

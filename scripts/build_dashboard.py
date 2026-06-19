@@ -85,7 +85,6 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
             "artists_tracked": taste.get("artists_tracked") or [],
             "comedians_loved": taste.get("comedians_loved") or [],
             "venues_loved": taste.get("venues_loved") or [],
-            "pinned_series": taste.get("pinned_series") or [],
         },
         "scoring": {
             "category_weights": scoring.get("category_weights") or {},
