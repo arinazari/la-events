@@ -26,7 +26,10 @@
  *   ANTHROPIC_API_KEY  (secret, required)
  *   CONCIERGE_TOKEN    (secret, optional — shared token gating the proxy)
  *   GITHUB_TOKEN       (secret, optional — repo-scoped contents:write PAT; enables taste self-edit)
- *   ANTHROPIC_MODEL    (var, optional — defaults to a current Claude model)
+ *   ANTHROPIC_MODEL    (var, optional — executor model that does the bulk of generation; default Sonnet)
+ *   ADVISOR_MODEL      (var, optional — stronger model the executor consults for planning; "" disables)
+ *   EFFORT             (var, optional — executor effort: low | medium | high | max; default max)
+ *   MAX_TOKENS         (var, optional — output cap; must leave room for adaptive thinking)
  *   DATA_URL           (var, optional — the published data.json to ground on)
  *   ALLOWED_ORIGIN     (var, optional — CORS origin; defaults to the Pages site)
  *   GITHUB_REPO        (var, optional — "owner/repo"; defaults to arinazari/la-events)
@@ -36,14 +39,16 @@
 import { parse as yamlParse, parseDocument } from "yaml";
 
 const DEFAULTS = {
-  ANTHROPIC_MODEL: "claude-sonnet-4-6",
+  ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
+  ADVISOR_MODEL: "claude-opus-4-8",        // advisor — consulted for multi-step planning (must be >= executor)
+  EFFORT: "max",                            // executor effort: low | medium | high | max
   DATA_URL: "https://arinazari.github.io/la-events/data.json",
   ALLOWED_ORIGIN: "https://arinazari.github.io",
   GITHUB_REPO: "arinazari/la-events",
   GITHUB_BRANCH: "main",
   PROFILE_SALT: "la-events/v1:",
   MAX_EVENTS: 220,     // cap grounding context (events are ~700; dining is small, sent whole)
-  MAX_TOKENS: 1200,
+  MAX_TOKENS: 8000,    // room for adaptive thinking + the reply (raise if complex plans get cut off)
 };
 
 export default {
@@ -85,22 +90,35 @@ export default {
     // Taste self-edit is available only to a logged-in profile, and only if commits are configured.
     const canEditTaste = !!(profileHash && env.GITHUB_TOKEN);
     const system = buildSystem(feed, { canEditTaste, profileName: feed && feed.profile && feed.profile.name });
-    const tools = canEditTaste ? [TASTE_TOOL] : undefined;
+    // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
+    // set ADVISOR_MODEL to "" to disable. Plus the taste tool when this profile can self-edit.
+    const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
+    const tools = [
+      ...(advisorModel ? [{ type: "advisor_20260301", name: "advisor", model: advisorModel }] : []),
+      ...(canEditTaste ? [TASTE_TOOL] : []),
+    ];
 
+    // The advisor is a SERVER-side tool; its sampling loop can return stop_reason "pause_turn" — when
+    // it does, re-send the conversation to let it continue (don't inject a user turn). Cap re-sends.
+    let convo = messages;
     let data;
     try {
-      data = await callAnthropic(env, { system, messages, tools });
+      for (let i = 0; i < 4; i++) {
+        data = await callAnthropic(env, { system, messages: convo, tools });
+        if (data.stop_reason !== "pause_turn") break;
+        convo = [...convo, { role: "assistant", content: data.content }];
+      }
     } catch (e) {
       return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors);
     }
 
-    // Tool-use round: the model wants to change this profile's taste.
+    // Tool-use round: the model wants to change this profile's taste (client-handled custom tool).
     if (data.stop_reason === "tool_use" && canEditTaste) {
       const use = (data.content || []).find((b) => b.type === "tool_use" && b.name === TASTE_TOOL.name);
       if (use) {
         const result = await applyTasteEdit(env, profileHash, use.input).catch((e) => ({ ok: false, error: String(e && e.message || e) }));
         const follow = [
-          ...messages,
+          ...convo,
           { role: "assistant", content: data.content },
           { role: "user", content: [{ type: "tool_result", tool_use_id: use.id, content: JSON.stringify(result) }] },
         ];
@@ -123,13 +141,17 @@ async function callAnthropic(env, { system, messages, tools }) {
       "content-type": "application/json",
       "x-api-key": env.ANTHROPIC_API_KEY,
       "anthropic-version": "2023-06-01",
+      "anthropic-beta": "advisor-tool-2026-03-01",   // enables the advisor tool
     },
     body: JSON.stringify({
       model: env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL,
-      max_tokens: DEFAULTS.MAX_TOKENS,
-      system,
+      max_tokens: Number(env.MAX_TOKENS) || DEFAULTS.MAX_TOKENS,
+      // Cache the (large, stable) persona + grounded feed: turns 2+ of a conversation read it at ~0.1x.
+      system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }],
+      thinking: { type: "adaptive" },                          // adaptive thinking for quality planning
+      output_config: { effort: env.EFFORT || DEFAULTS.EFFORT },
       messages,
-      ...(tools ? { tools } : {}),
+      ...(tools && tools.length ? { tools } : {}),
     }),
   });
   if (!resp.ok) throw new Error(resp.status + " " + (await resp.text().catch(() => "")).slice(0, 300));

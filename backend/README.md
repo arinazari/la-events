@@ -60,11 +60,31 @@ Worker URL + (if set) the token. Stored in your browser's localStorage — no re
 | `ANTHROPIC_API_KEY` | `wrangler secret put` | **required** — your Anthropic key |
 | `CONCIERGE_TOKEN`   | `wrangler secret put` | optional shared token gating the proxy (see Auth) |
 | `GITHUB_TOKEN`      | `wrangler secret put` | optional — a **fine-grained PAT scoped to this repo, Contents: read & write**. Set it to enable taste self-edit; leave it unset and the Worker is chat-only. |
-| `ANTHROPIC_MODEL`   | `wrangler.toml [vars]` | which Claude model (defaults to Sonnet; bump for richer planning) |
+| `ANTHROPIC_MODEL`   | `wrangler.toml [vars]` | **executor** model — does the bulk of generation (default `claude-sonnet-4-6`) |
+| `ADVISOR_MODEL`     | `wrangler.toml [vars]` | **advisor** the executor consults for multi-step planning (default `claude-opus-4-8`; `""` disables; must be ≥ the executor) |
+| `EFFORT`            | `wrangler.toml [vars]` | executor effort `low`/`medium`/`high`/`max` (default `max`) |
+| `MAX_TOKENS`        | `wrangler.toml [vars]` | output cap (default `8000`; raise if complex plans truncate — `stop_reason: max_tokens`) |
 | `DATA_URL`          | `wrangler.toml [vars]` | the published `data.json` to ground on (profile feeds are derived from it) |
 | `ALLOWED_ORIGIN`    | `wrangler.toml [vars]` | CORS origin (your Pages site) |
 | `GITHUB_REPO` / `GITHUB_BRANCH` | `wrangler.toml [vars]` | where to commit taste edits (defaults: `arinazari/la-events` / `main`) |
 | `PROFILE_SALT`      | `wrangler.toml [vars]` | **must match** the page + `build_profiles.py` (`la-events/v1:`) so hashes line up |
+
+## Quality & cost
+
+Tuned for **multi-step, high-quality planning**:
+
+- **Advisor mode** — the cheap **executor** (Sonnet 4.6) does the generation and consults a stronger
+  **advisor** (Opus 4.8) for planning (the `advisor_20260301` server tool). Opus-level plans at
+  Sonnet-level bulk cost. The advisor must be ≥ the executor — if you set `ANTHROPIC_MODEL` to Opus,
+  set `ADVISOR_MODEL` to the same Opus (or `""`), or the request 400s.
+- **Max effort + adaptive thinking** — `EFFORT=max` + `thinking: adaptive` for the deepest reasoning.
+- **Prompt caching** — the persona + grounded feed (the big, stable prefix) is sent as a cache block,
+  so turns 2+ of a conversation read it at ~0.1× input cost.
+
+**Tradeoff:** max effort + adaptive thinking + an Opus advisor is **slower and pricier per message**
+(a complex "plan my Saturday" can take tens of seconds — the page shows a spinner and a stop button).
+Dial it back anytime without code: set `EFFORT=high` (or `medium`), or `ADVISOR_MODEL=""` to drop the
+Opus consult. If long plans get cut off, raise `MAX_TOKENS`.
 
 ## Auth — read this
 
