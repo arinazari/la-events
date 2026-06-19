@@ -145,7 +145,7 @@ does — links live on each record). Keep editorial-mention badges inline, e.g. 
 
 **Pin named favorites.** When the user has called out a specific event/series/venue as a
 recurring favorite (e.g. **Sunset Sessions @ Golden Hour / Level 8** — a rooftop-vinyl-house
-night he likes; tracked in `taste.yaml` pinned_series / venues_loved), surface it when it's on,
+night he likes; noted in the `taste.yaml` feedback log), surface it when it's on,
 even if its raw score is modest. It's one kind of event he's into — worth including, not the headline.
 
 **Artist-annotation layer (required).** Many lineup names are unknown to the user — so for
