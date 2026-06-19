@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>la-events · filter popup preview</title>
+<style>
+  body { margin:0; background:#f9f8f4; color:#1b1a17; -webkit-font-smoothing:antialiased; }
+  .note { padding:14px 16px; font:500 12px/1.6 ui-monospace,Menlo,monospace; color:#76746b; max-width:920px; }
+  .note b { color:#1b1a17; }
+  .scry { overflow:auto; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; }
+  /* hover helpers — the real app uses style-hover="" which this static file emulates with CSS */
+  .it:hover    { background:#f1efe7 !important; }
+  .lnk:hover   { color:#161512 !important; }
+  .ico:hover, .srt:hover { color:#2b5cd9 !important; }
+  tbody tr:hover { background:#f1efe7; }
+</style>
+</head>
+<body>
+  <div class="note">
+    <b>Standalone preview — redesigned column-filter popups.</b><br>
+    Click the ☰ icon next to <b>NEIGHBORHOOD</b> or <b>CATEGORY / VIBE</b>. Sub-axes now sit
+    side-by-side as columns instead of stacking. Click rows to toggle, "clear" to reset, or
+    click outside to close. Resize the window narrow to see the columns wrap (max-width:92vw).
+    This mirrors the exact inline styles committed to <b>dashboard/index.html</b>.
+  </div>
+
+  <div class="scry">
+  <table>
+    <thead>
+      <tr style="position:sticky; top:0; z-index:2; background:#efeee9; box-shadow:0 1px 0 #d9d7cf;">
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:96px;">DATE</th>
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; user-select:none;">EVENT / LINEUP</th>
+
+        <!-- NEIGHBORHOOD: left-anchored, NEIGHBORHOOD | REGION -->
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:140px; position:relative;">
+          <span style="display:inline-flex; align-items:center; gap:6px;">
+            <span class="srt" style="cursor:pointer; color:#76746b;">NEIGHBORHOOD</span>
+            <span class="ico" data-pop="hood" title="Filter neighborhood" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color:#76746b;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+          </span>
+          <div id="pop-hood" data-anchor="left"></div>
+        </th>
+
+        <!-- CATEGORY / VIBE: right-anchored, CATEGORY | GENRE | VIBE | SETTING -->
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:150px; position:relative;">
+          <span style="display:inline-flex; align-items:center; gap:6px;">
+            <span class="srt" style="cursor:pointer; color:#76746b;">CATEGORY / VIBE</span>
+            <span class="ico" data-pop="cat" title="Filter category / genre / vibe / setting" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color:#76746b;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+          </span>
+          <div id="pop-cat" data-anchor="right"></div>
+        </th>
+
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:96px;">SCORE</th>
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:104px;">SOURCE</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  </div>
+
+<script>
+// ---- sample data (realistic values pulled from dashboard/data.json axes) ----
+var AXES = {
+  hood:   ['Historic Filipinotown','Downtown LA','Echo Park','Silver Lake','Highland Park','Hollywood','West Hollywood','Culver City','Santa Monica','San Juan Capistrano','Huntington Beach','Rancho Cucamonga'],
+  region: ['hollywood','eastside','westside','dtla','valley','south bay','orange county'],
+  cat:    ['Live Music','Electronic','Comedy','Film','Theater','Party'],
+  genre:  ['house','techno','deep house','tech house','rep/arthouse','experimental','progressive','electronic','jazz','hip hop','indie','disco','ambient'],
+  vibe:   ['afterhours','day party','album release','tba location','analog film','residency','listening','queer','immersive','warehouse rave'],
+  setting:['warehouse','listening bar','amphitheater','speakeasy','theater','outdoor','rooftop','club','gallery']
+};
+// machine tag -> readable label (mirrors prettyTag: dashes -> spaces)
+function pretty(v){ return String(v).replace(/-/g,' '); }
+var selected = {}; // axis -> Set of selected values
+Object.keys(AXES).forEach(function(a){ selected[a] = new Set(); });
+
+// pre-select a few so the checked state (filled box + dark text) is visible
+selected.hood.add('Echo Park');
+selected.genre.add('techno');
+selected.vibe.add('afterhours');
+
+// ---- popup config: which axes (columns) live in each popup, + widths ----
+var POPUPS = {
+  hood: { maxh:300, anchor:'left',  cols:[
+            {axis:'hood',   title:'NEIGHBORHOOD', width:176},
+            {axis:'region', title:'REGION',       width:120} ] },
+  cat:  { maxh:340, anchor:'right', cols:[
+            {axis:'cat',     title:'CATEGORY', width:132},
+            {axis:'genre',   title:'GENRE',    width:132},
+            {axis:'vibe',    title:'VIBE',     width:132},
+            {axis:'setting', title:'SETTING',  width:132} ] }
+};
+
+function renderPopup(key){
+  var cfg = POPUPS[key];
+  var anchorCss = cfg.anchor === 'right' ? 'right:12px;' : 'left:12px;';
+  var cols = cfg.cols.map(function(c){
+    var items = AXES[c.axis].map(function(v){
+      var on = selected[c.axis].has(v);
+      var box = on ? '■' : '□';
+      var color = on ? '#161512' : '#76746b';
+      return '<div class="it" data-axis="'+c.axis+'" data-val="'+v+'" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color:'+color+';"><span>'+box+'</span>'+pretty(v)+'</div>';
+    }).join('');
+    return ''+
+      '<div style="flex:0 0 auto; width:'+c.width+'px; max-height:'+cfg.maxh+'px; overflow-y:auto;">'+
+        '<div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">'+
+          '<span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">'+c.title+'</span>'+
+          '<span class="lnk" data-clear="'+c.axis+'" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;">clear</span>'+
+        '</div>'+ items +
+      '</div>';
+  }).join('');
+  return '<div style="position:absolute; top:30px; '+anchorCss+' z-index:51; display:flex; align-items:flex-start; flex-wrap:wrap; gap:10px; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 8px 22px rgba(0,0,0,0.16); padding:6px;">'+cols+'</div>';
+}
+
+var openKey = null;
+function paint(){
+  ['hood','cat'].forEach(function(k){
+    var host = document.getElementById('pop-'+k);
+    host.innerHTML = (openKey === k) ? renderPopup(k) : '';
+    // tint the icon when this popup has active selections
+    var active = POPUPS[k].cols.some(function(c){ return selected[c.axis].size > 0; });
+    var ico = document.querySelector('.ico[data-pop="'+k+'"]');
+    ico.style.color = (active || openKey === k) ? '#2b5cd9' : '#76746b';
+  });
+}
+
+document.addEventListener('click', function(e){
+  var ico = e.target.closest('.ico[data-pop]');
+  if (ico){ openKey = (openKey === ico.dataset.pop) ? null : ico.dataset.pop; paint(); e.stopPropagation(); return; }
+  var clear = e.target.closest('.lnk[data-clear]');
+  if (clear){ selected[clear.dataset.clear].clear(); paint(); e.stopPropagation(); return; }
+  var it = e.target.closest('.it[data-axis]');
+  if (it){ var s = selected[it.dataset.axis]; s.has(it.dataset.val) ? s.delete(it.dataset.val) : s.add(it.dataset.val); paint(); e.stopPropagation(); return; }
+  if (e.target.closest('[id^="pop-"]')) return; // click inside popup: keep open
+  if (openKey){ openKey = null; paint(); } // click outside: close
+});
+
+// ---- a few sample body rows for visual context ----
+var SAMPLE = [
+  ['Fri 6/19','Mulholland Dr. + Lost Highway','Echo Park','Film · rep cinema','7','Venue'],
+  ['Sat 6/20','Warehouse: techno all-nighter','Downtown LA','Electronic · afterhours','9','RA'],
+  ['Sat 6/20','Marc Maron','Historic Filipinotown','Comedy · standup','6','Promoter'],
+  ['Sun 6/21','Sunday listening session','Silver Lake','Live Music · listening bar','5','Ticketmaster']
+];
+document.getElementById('rows').innerHTML = SAMPLE.map(function(r){
+  return '<tr style="border-bottom:1px solid #e8e6de;">'+
+    '<td style="padding:11px 12px; vertical-align:top; white-space:nowrap; font:600 12px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17;">'+r[0]+'</td>'+
+    '<td style="padding:11px 12px; vertical-align:top; font:600 13px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">'+r[1]+'</td>'+
+    '<td style="padding:11px 12px; vertical-align:top; font:500 11.5px/1.3 ui-monospace,Menlo,monospace; color:#3f3d36;">'+r[2]+'</td>'+
+    '<td style="padding:11px 12px; vertical-align:top; font:500 11.5px/1.3 ui-monospace,Menlo,monospace; color:#3f3d36;">'+r[3]+'</td>'+
+    '<td style="padding:11px 12px; vertical-align:top; font:600 12px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17;">'+r[4]+'</td>'+
+    '<td style="padding:11px 12px; vertical-align:top; font:500 11px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">'+r[5]+'</td>'+
+  '</tr>';
+}).join('');
+
+paint();
+</script>
+</body>
+</html>
