@@ -145,7 +145,7 @@ does — links live on each record). Keep editorial-mention badges inline, e.g. 
 
 **Pin named favorites.** When the user has called out a specific event/series/venue as a
 recurring favorite (e.g. **Sunset Sessions @ Golden Hour / Level 8** — a rooftop-vinyl-house
-night he likes; tracked in `taste.yaml` pinned_series / venues_loved), surface it when it's on,
+night he likes; noted in the `taste.yaml` feedback log), surface it when it's on,
 even if its raw score is modest. It's one kind of event he's into — worth including, not the headline.
 
 **Artist-annotation layer (required).** Many lineup names are unknown to the user — so for
@@ -249,7 +249,9 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
   Run this instead of fetching/dedup/scoring by hand.
 - `scripts/lib/` — shared modules: `scoring.py` (taste ranking, driven by `profile.yaml` + `taste.yaml`),
   `dedupe.py` (fuzzy merge), `pipeline.py` (transforms), `enrich.py` (enrichment cache), `config.py` (YAML),
-  `affinity.py` (Spotify music layer), `feedback.py` (reactions → affinity). Tested in `scripts/tests/`.
+  `affinity.py` (Spotify music layer), `feedback.py` (reactions → affinity), `tagging.py` (deterministic
+  multi-axis tags — `type`/`genre`/`setting`/`vibe`/`region`, stamped onto every catalog record each run;
+  its `VOCAB` is the controlled vocabulary the scene-researcher should refine within). Tested in `scripts/tests/`.
 - `scripts/render_digest.py` — enriched candidates → the digest: canonical `.md` + rich emailable `.html`.
 - `data/enrichment.json` — the accumulating scene-graph cache (event enrichment + artist notes); grows each run.
 - `profile.yaml` — place/person config (ids, geo, scoring weights/terms/thresholds, `scoring.spotify`

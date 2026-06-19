@@ -14,7 +14,7 @@
 # last_discovery: updated whenever Discover mode runs
 # ---------------------------------------------------------------------------
 
-last_discovery: 2026-06-16
+last_discovery: 2026-06-19
 
 sources:
 
@@ -66,6 +66,9 @@ sources:
       - 2220-arts--archives-bdyv           # 2220 Arts + Archives (Historic Filipinotown)
       - permanent-records-roadhouse-olyg   # Permanent Records Roadhouse (Cypress Park)
       - grand-star-jazz-club-6kx8          # Grand Star Jazz Club (Chinatown)
+      - sid-the-cat-auditorium-2wr5m       # Sid The Cat Auditorium (South Pasadena) — indie dance/electropop (Discover 6/19; 18 ev/30d)
+      - catch-one-e582                     # Catch One (Mid-City) — house/techno + queer nightlife (Discover 6/19; 7 ev/30d)
+      - only-the-wild-ones-mxvwr           # Only The Wild Ones (Venice) — hi-fi/vinyl listening bar, occasional DJ nights (Discover 6/19)
       # - the-silverlake-lounge-wb2v       # Silverlake Lounge — slug returned 0, re-verify
     notes: >
       THE unlock for the eastside/indie live-music lane. /browse is JS-rendered (0 events via
@@ -262,27 +265,33 @@ sources:
   - name: New Beverly Cinema
     category: film
     method: scrape
-    url: https://thenewbev.com/schedule/
+    url: https://ticketing.uswest.veezi.com/sessions?siteToken=fmtswb0qqbym3de6c4bbsqj89m
     priority: 2
-    status: flaky
+    status: active
     notes: >
-      WordPress but schedule is powered by Veezi (Vista ticketing) and rendered client-side —
-      no showtime post type in wp/v2, no static listings (verified 2026-06-16). Veezi has a
-      web-service API but it's per-cinema token-gated (not public). Needs that token or a
-      headless render. 35mm always; monthly calendar drops sell fast — flag on-sale dates.
+      Tarantino's New Bev — 35mm always, double features + midnight movies; monthly calendar drops
+      sell fast (flag SOLD OUT). thenewbev.com/schedule is client-rendered, BUT the Veezi PUBLIC
+      sessions page renders the full schedule server-side in static HTML at
+      ticketing.uswest.veezi.com/sessions?siteToken=fmtswb0qqbym3de6c4bbsqj89m — verified 2026-06-19
+      (One Battle After Another, Inglourious Basterds midnights). The Veezi WEB-SERVICE API is
+      per-cinema token-gated, but this sessions HTML page is public. NO-trailing-slash form, real UA
+      (slash variant → Cloudflare __cf_bm → 0 bytes). Same pattern as Vista (siteToken is the key).
 
   - name: Vista Theater (Hollywood)
     category: film
-    method: webfetch
-    url: https://www.vistatheaterhollywood.com/cinema-club/schedule/
+    method: scrape
+    url: https://ticketing.uswest.veezi.com/sessions?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww
     priority: 1
-    status: flaky
+    status: active
     notes: >
-      Tarantino's Vista — 70mm/35mm, film-only, first-run + classics. Site moved to
-      vistatheaterhollywood.com (old vintagecinemas.com URL is dead). WordPress but no showtime
-      post type and the schedule is JS/Veezi-rendered; plain curl + WebFetch both blocked/empty
-      (verified 2026-06-16). Until a feed is found, read the schedule page via WebFetch at digest
-      time (rendered), or capture manually. High taste category — worth revisiting.
+      Tarantino's Vista — 70mm/35mm, film-only, first-run + classics. The venue site
+      (vistatheaterhollywood.com) is JS-rendered and returned empty (2026-06-16), BUT the underlying
+      Veezi PUBLIC schedule renders the FULL slate server-side in static HTML at
+      ticketing.uswest.veezi.com/sessions?siteToken=<token> — verified 2026-06-19 (216 showtimes via
+      plain curl: 70mm Disclosure Day, Odyssey 70mm 7/16–23, SOLD-OUT flags, run-of-engagement dates).
+      siteToken 20xhpa3yt2hhkwt4zjvfcwsaww is the durable key. Use the NO-trailing-slash form (the
+      /sessions/ slash variant hits a Cloudflare __cf_bm challenge → 0 bytes); real UA. Same Veezi
+      pattern as New Beverly — until a fetch_veezi.py exists, scrape/WebFetch this URL at digest time.
 
   - name: Comedy Store
     category: comedy
@@ -676,6 +685,107 @@ sources:
     priority: 3
     status: manual
     notes: Historic Core jazz/piano lounge ($10 cover). Own site 403s; only on Bandsintown (per-artist, walled) — treat as manual lead.
+
+  # ── Discovered 2026-06-19 (Discover run: gap-mine + KCRW/Vista/Landmark + web sweep) ──
+  # Group A (DICE slugs: Sid The Cat, Catch One, Only The Wild Ones) lives in the DICE source's
+  # `venues:` list above. Group B (Vista + New Beverly) was upgraded in place via the Veezi unlock.
+  # re:frame Studios (Atwater) sells via DICE — its dice.fm/venue/<slug> wasn't resolvable 6/19
+  #   (guesses 404'd); covered meanwhile via the Framework scrape below. Resolve the slug later.
+  # FEMME HOUSE / LP Giobbi — considered, NO row: books via TicketWeb (→ TM API) + Tixr, no
+  #   maintainable feed; already lands via TM/RA — treat as a taste/organizer signal only.
+
+  - name: Framework / re:frame (LA)
+    category: electronic
+    method: scrape
+    url: https://thisisframework.com/eventslist/
+    priority: 1
+    status: active
+    notes: >
+      Major LA underground house/techno promoter (Sound Nightclub residencies + the new re:frame
+      Studios, Atwater Village — close to Silver Lake). The eventslist page is SERVER-RENDERED with
+      dated LA events (verified 2026-06-19: Chris Lake, SG Lewis open-to-close, Carlita, Kettama,
+      Solomun, Jun–Nov 2026) — no JSON-LD, plain scrape w/ a real UA. Some shows also hit DICE/RA —
+      dedupe expected. NOTE: frameworkla.com is an unrelated agency; thisisframework.com is the one.
+
+  - name: The LA Raver
+    category: electronic
+    method: gmail
+    url: https://www.thelaraver.com/
+    priority: 1
+    status: candidate
+    notes: >
+      Beehiiv weekly "LA rave itinerary" — 23k+ subs, free signup (verified 2026-06-19, latest 6/17).
+      Named parties + venues + dates + genres, with a dedicated afters/sunrise section; catches
+      TBA/warehouse the APIs miss — the curated weekend-rave roundup beyond 6AM/Dirty Epic. User
+      action: subscribe, filter to the Gmail "Events" label (routes in like the other promoter blasts).
+
+  - name: Higher Grooves / Made to Move
+    category: electronic
+    method: eventbrite
+    url: https://ra.co/events/2162095
+    priority: 1
+    status: candidate
+    notes: >
+      Recurring ROOFTOP sunset House/Disco series at Broken Shaker (Freehand DTLA) — core taste
+      (verified 2026-06-19: Jan/Mar/May 2026 + NYE on EB + RA). Tickets via Eventbrite. WIRE BY:
+      fetch_eventbrite.py --harvest <a Made-To-Move event URL> to append the organizer to the
+      Eventbrite source's organizers list (JSON-LD extracts the org automatically) — then their
+      future events pull in via the eventbrite fetcher. No standalone fetcher needed.
+
+  - name: WORK (WORK Warehouse)
+    category: electronic
+    method: manual
+    url: instagram.com/work.la   # confirm exact handle on first capture
+    priority: 2
+    status: manual
+    notes: >
+      Active LA techno warehouse promoter + own space "WORK Warehouse" (verified 2026-06-19:
+      Pleasurekraft all-nighter 6/20/26 on RA, event 2417837). Events partly land via the RA fetcher;
+      register the promoter + join the list/IG → Gmail "Events" to lock in warehouse/afters + TBA
+      locations. Never scrape IG — capture via list/flyer.
+
+  - name: Blind Tiger (NIGHTSHIFT afterhours)
+    category: electronic
+    method: manual
+    url: https://blindtiger.la/
+    priority: 2
+    status: manual
+    notes: >
+      DTLA afterhours promoter (NIGHTSHIFT AFTER HOURS @ The Lexington; 7 catalog events as organizer).
+      blindtiger.la is static HTML but has NO JSON-LD/feed (verified 2026-06-19) — every event links
+      out to Posh.vip (incl. recurring "Nightshift Afters") or DICE, both already structured sources,
+      so coverage already lands via those. Treat as promoter-signal + join their list → Gmail "Events".
+
+  - name: KCRW Presents
+    category: editorial
+    method: webfetch
+    url: https://www.kcrw.com/events
+    priority: 2
+    status: candidate
+    notes: >
+      KCRW's curated events calendar (KCRW Music sessions/showcases, Summer Nights free outdoor series,
+      KCRW Festival @ Hollywood Bowl). On-taste live-music/DJ/cultural SIGNAL, not a catalog — most
+      ticketed shows ride partner venues already covered (Hollywood Bowl, Troubadour via TM, Permanent
+      Records Roadhouse, Sam First); unique value is the FREE cultural/museum-concert long tail (Summer
+      Nights @ CAAM/The Broad/Grand Performances) TM & Goldenvoice miss. UNLOCK CHECK: kcrw.com hard-429'd
+      every fetch 2026-06-19 — confirm https://www.kcrw.com/wp-json/tribe/events/v1/events (WordPress +
+      The Events Calendar) from a non-throttled IP; if present, promote to method:api/ics (active).
+      Harvest its free events; use ticketed listings only as a rank boost.
+
+  - name: Landmark Theatres Pasadena
+    category: film
+    method: webfetch
+    url: https://www.landmarktheatres.com/theaters/g01ch-landmark-theatres-pasadena/
+    priority: 2
+    status: candidate
+    notes: >
+      First-run foreign/indie/doc arthouse — ex-Laemmle Playhouse 7 (673 E Colorado Blvd, 7 screens),
+      Landmark since 2022. Adds a Pasadena arthouse carrying FIRST-RUN indies the rep houses
+      (Vidiots/Cinematheque/New Bev/Brain Dead) don't. Site is Webedia, fully client-rendered: NO
+      JSON-LD / no __NEXT_DATA__ / no feed (verified 2026-06-19); Fandango page also lazy-loads with no
+      JSON-LD. No clean structured path → WebFetch the rendered theater page at digest time. Landmark is
+      a first-run chain on TM rails, so much of its slate likely already arrives via the Ticketmaster
+      Discovery API — dedupe/cross-check; downgrade to candidate-only if fully covered.
 
   # ── Verified-this-session reality check (2026-06-16) ─────────────────────
   # Static JSON-LD scraping (scripts/fetch_jsonld.py) covers FAR fewer LA sources than the

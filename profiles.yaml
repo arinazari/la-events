@@ -1,0 +1,30 @@
+# profiles.yaml — per-person taste configs for the dashboard's profile switcher.
+#
+# This is a friends-tool convenience layer, NOT real security. Each profile gets its own
+# taste.yaml (+ optional profile.yaml) and its own scored feed at dashboard/data.<hash>.json,
+# where <hash> = first 16 hex of sha256("la-events/v1:" + lowercased(username)). The username
+# is the access key ("like a password"): it's typed into the dashboard's "prof" popup, hashed
+# in the browser, and used to fetch that feed. Anyone who knows a username can load that profile
+# (and the feed file is publicly served), so pick non-obvious usernames. See ROADMAP "Profiles".
+#
+# The DEFAULT (logged-out) feed is the repo-root taste.yaml / profile.yaml -> dashboard/data.json.
+# An `owner: true` profile (Ari's own login) also points at the root taste.yaml: logging in just
+# unlocks the concierge/LLM + lets the owner self-edit the *canonical* taste (the digest + default
+# feed reflect it). Friends get their own profiles/<name>/taste.yaml and can only edit that.
+#
+# After editing, rebuild the feeds:   python scripts/build_profiles.py
+# (or just one:                        python scripts/build_profiles.py --only <username>)
+
+salt: "la-events/v1:"        # mixed into the filename hash; shared verbatim with the page. Public by nature.
+
+profiles:
+  - username: demo           # EXAMPLE — replace or delete. (Guessable on purpose; real ones shouldn't be.)
+    name: Demo (indie + jazz)
+    taste: profiles/demo/taste.yaml
+    # profile: profile.yaml    # optional; omit to inherit the root profile.yaml (geo + scoring mechanics)
+    # digest: digests/<hash>   # optional; per-profile digest dir staged by the deploy workflow (follow-up)
+
+  - username: ari            # Ari's own login -> unlocks the concierge/LLM on the default feed.
+    name: Ari                #   RENAME this to something non-obvious: as owner it can self-edit the
+    taste: taste.yaml        #   canonical taste.yaml (which drives the digest + everyone's default feed).
+    owner: true              #   owner -> allowed to edit the root taste.yaml (friends can't).

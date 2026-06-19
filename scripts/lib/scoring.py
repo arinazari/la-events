@@ -6,8 +6,8 @@ run_digest.py orchestrator, and the digest all score identically (no drift).
 score_event(ev, taste, profile) -> {"score": int, "reasons": [str]}
 score_to_rating(score, profile) -> int  (1..5)
 
-`taste` = taste.yaml content (artists_tracked, venues_loved, pinned_series,
-comedians_loved, venues_banned). `profile` = profile.yaml mechanism (category
+`taste` = taste.yaml content (artists_tracked, venues_loved, comedians_loved,
+venues_banned). `profile` = profile.yaml mechanism (category
 weights, term matchers, geo, rating thresholds). Both optional — every config
 read falls back to the DEFAULT_* below, which are transcribed verbatim from the
 pre-refactor build_dashboard.py, so scoring is behavior-preserving even with no
@@ -140,7 +140,6 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
 
     tracked = [a for a in (taste.get("artists_tracked") or []) if a]
     loved = [v.lower() for v in (taste.get("venues_loved") or [])]
-    pinned = [p.lower() for p in (taste.get("pinned_series") or [])]
     comics = [c.lower() for c in (taste.get("comedians_loved") or [])]
 
     # Base category weight (comedy is special — suppressed unless a loved name).
@@ -163,11 +162,6 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
     if hits:
         score += 2 * len(hits)
         reasons.append(f"+{2 * len(hits)} tracked artist ({', '.join(hits)})")
-
-    # Pinned series (e.g. Sunset Sessions) — always surface.
-    if any(p in hay for p in pinned):
-        score += 5
-        reasons.append("+5 pinned series")
 
     # Loved venue (substring match — "2220 Arts" ~ "2220 Arts + Archives").
     if any(l in vlow for l in loved):

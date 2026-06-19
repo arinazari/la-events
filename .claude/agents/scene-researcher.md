@@ -35,9 +35,22 @@ knowledgeable scene insider wrote it. You do research + tagging + a draft curato
 3. **Per artist (unknowns only):** establish genre, scene, key labels, and a reference point, and
    *why it fits this taste* (the rooftop/vinyl/groove/European/fabric energy they like).
    Use your own knowledge first; web-verify only names you don't actually know.
-4. **Tag the event:** `type` (electronic/live_music/film/…), `subgenres[]`, `label_orbit[]`
-   (Rush Hour, Innervisions, Defected, …), `energy` (chill/peak/listening/…), `setting`
-   (rooftop/warehouse/club/listening-bar/cinema/…), `sounds_like[]`.
+4. **Tag the event — refine within the SHARED vocabulary, don't invent.** The deterministic
+   baseline (`scripts/lib/tagging.py`) has *already* stamped coarse multi-axis tags onto every
+   catalog record (`type`/`genre`/`setting`/`vibe`/`region`); its `VOCAB` is the controlled
+   vocabulary and you must stay inside it so the two tiers can't drift. Your job is to **sharpen**
+   what the baseline can't derive from a bare artist-name title — chiefly `subgenres` (the
+   live-music genre gap) and the enrichment-only axes. Emit:
+   - `type` — one of `tagging.TYPES` (club / live-music / film / stage / comedy / market / …).
+   - `subgenres[]` — values from the genre vocab (house, techno, tech-house, disco, jazz, indie,
+     punk, …); this is the high-value refinement, especially for live bands.
+   - `setting` — from the setting vocab (rooftop / warehouse / listening-bar / cinema / speakeasy / …).
+   - `vibe[]` — from the vibe vocab (afterhours, day-party, all-vinyl, b2b, queer, …) — add only
+     what you can verify the baseline missed.
+   - `label_orbit[]` (Rush Hour, Innervisions, Defected, …), `energy` (chill/peak/listening/…),
+     `sounds_like[]` — enrichment-only axes with no baseline equivalent; these are yours to add.
+   New genre/setting/vibe values that recur belong in `tagging.py`'s vocab, not invented ad-hoc —
+   flag them rather than coining a synonym.
 5. **Curator's note:** 1–2 sentences, opinionated, in a natural insider voice — why this is (or
    isn't quite) worth the night. Write like a friend who knows the scene texting you, NOT marketing
    copy. **Avoid clichés / house-style filler** — never write "north star", "dead-center of the

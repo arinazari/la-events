@@ -37,6 +37,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))  # scripts/ on path
 from lib.config import load_taste, load_profile  # noqa: E402
 from lib import pipeline as P  # noqa: E402
 from lib import feedback as FB  # noqa: E402
+from lib.tagging import tag_catalog  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -140,6 +141,12 @@ def main() -> int:
     catalog, stats = P.merge_new(catalog, incoming, today)
     catalog, expired = P.expire_past(catalog, today)
     P.stamp_seen(catalog, today)
+    # Canonicalize the location column (venue-resolve city-level/blank neighborhoods).
+    P.normalize_locations(catalog, profile)
+    # Stamp the deterministic multi-axis tags (type/genre/setting/vibe/region) onto every
+    # record — recomputed each run, so re-tagging only needs a --no-fetch pass (lib/tagging.py).
+    # Runs AFTER normalize_locations so the region tag reflects the canonicalized neighborhood.
+    tag_catalog(catalog, profile)
     cat_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
 
     affinity = load_affinity_layer(args.no_fetch, report, profile)

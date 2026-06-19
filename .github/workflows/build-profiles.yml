@@ -1,0 +1,73 @@
+name: Rebuild profile feeds
+
+# When a per-profile taste.yaml changes (a friend's self-edit committed by the concierge
+# Worker, or a hand-edit), re-score that profile's feed with the SAME deterministic scorer the
+# digest uses (scripts/build_profiles.py) and redeploy the dashboard. This is the "commit + CI
+# rebuild" half of the self-edit loop — the page shows "re-ranking, refresh shortly" and the
+# new feed lands here ~1–2 min later. The default data.json is left to the daily routine
+# (--skip-default) so we never clobber Ari's affinity-built feed.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "profiles/**/taste.yaml"
+      - "profiles.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: write      # to commit the rebuilt feeds
+  pages: write
+  id-token: write
+
+# Share the Pages concurrency group with deploy-dashboard.yml so deploys don't race.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+
+      - name: Rebuild profile feeds (not the default)
+        run: python scripts/build_profiles.py --skip-default
+
+      - name: Commit refreshed feeds
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -- 'dashboard/data.*.json' 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No feed changes to commit."
+          else
+            git commit -m "build: rebuild profile feeds [skip ci]"
+            git push
+          fi
+
+      # Deploy the refreshed dashboard/ to Pages (mirror of deploy-dashboard.yml; the [skip ci]
+      # commit above won't trigger that workflow, so we publish here).
+      - uses: actions/configure-pages@v5
+      - name: Stage latest digest for the dashboard
+        run: |
+          mkdir -p dashboard/digests
+          latest="$(ls -1 digests/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md 2>/dev/null | sort | tail -n1)"
+          if [ -n "$latest" ]; then cp "$latest" dashboard/digests/latest.md; fi
+          # Per-profile digests: digests/<hash>/latest.md -> dashboard/digests/<hash>/latest.md
+          for d in digests/*/; do
+            h="$(basename "$d")"
+            case "$h" in *[!0-9a-f]*|"") continue ;; esac
+            if [ -f "$d/latest.md" ]; then mkdir -p "dashboard/digests/$h"; cp "$d/latest.md" "dashboard/digests/$h/latest.md"; fi
+          done
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+      - id: deployment
+        uses: actions/deploy-pages@v4

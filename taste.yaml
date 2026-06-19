@@ -11,7 +11,7 @@
 categories:
   high:    # weight +3 each match
     - house / techno / tech-house / acid / electro / minimal / melodic — DJ sets of all sizes
-    - mainstream & festival-scale house / tech-house headliners (Chris Lake, FISHER, John Summit,
+    - mainstream & festival-scale house / tech-house headliners (John Summit,
       Dom Dolla, Gorgon City, etc.) — big-room fun counts, not just the underground
     - fabric-London-style proper club nights / European-leaning dance lineups
     - rooftop / sunset / daytime open-air house, disco, Balearic, groove sets
@@ -19,19 +19,20 @@ categories:
     - warehouse and afterhours parties (incl. location-TBA)
     - melodic/organic/afro house + progressive (Anjuna/Innervisions/Keinemusik/Afterlife orbit)
     - rep & arthouse cinema (Vidiots, Vista, Brain Dead, Cinematheque, New Bev)
-  medium:  # weight +2
-    - live electronic / electronic-adjacent acts (Rüfüs Du Sol, ODESZA, Bonobo, Jamie xx tier)
     - small rock / indie band shows at clubs (Troubadour, Echo, Zebulon, Moroccan, Lodge Room,
       Teragram) — post-punk, indie, garage, dream-pop, experimental, krautrock-y
+    - Goldenvoice events
+  medium:  # weight +2
+    - live electronic / electronic-adjacent acts (Rüfüs Du Sol, ODESZA, Bonobo, Jamie xx tier)
     - daytime & lifestyle — flea / vintage / design markets (Rose Bowl Flea, Melrose Trading
       Post), farmers markets (esp. Silver Lake/eastside), food & drink pop-ups, brand activations
       / block parties / spritz-type parties, neighborhood street fairs
     - record fairs, listening bars, food events with a music angle
     - craft beer events / brewery takeovers / festivals
     - theater (Pantages-scale and black-box)
+    - concerts of big name artists (Kendrick Lamar, Kacey Musgraves, Tame Impala) — mostly to stay informed
   low:     # weight +1, include only if exceptional
     - standup comedy — NOT generally wanted; only known/favorite names (see comedians_loved)
-    - stadium pop, museum/gallery openings (skip ongoing exhibitions unless closing soon)
 
 boosts:    # +1 each (stack)
   - rooftop / open-air / sunset / golden-hour setting
@@ -139,11 +140,10 @@ artists_tracked:
   - Stacey Pullen
   - Waajeed
   - Robert Hood
+  - Tini Gessler
 
-comedians_loved: [Stavros Halkias]   # the comedy exception — these get surfaced; others don't
-venues_loved: [Zebulon, Vidiots, Vista, Lodge Room, 2220 Arts, El Cid, Golden Hour at Level 8]   # +1
-# Named-favorite series to PIN in the digest whenever on (surface even if score is modest):
-pinned_series: ["Sunset Sessions"]   # a recurring rooftop-vinyl-house favorite @ Level 8 DTLA (one kind of event he likes)
+comedians_loved: [Stavros Halkias, Chris D'Elia, Larry David, Conan O'Bryan]   # the comedy exception — these get surfaced; others don't
+venues_loved: [Vista, Lodge Room, 2220 Arts, The Greek, Pantages, Hollywood Bowl, Landmark Pasadena, Old Sears, Sid the Cat]   # +1
 
 # Feedback log — append reactions here ("more like X", "never show Y");
 # periodically fold them into the weights above.
@@ -151,11 +151,10 @@ feedback:
   - "2026-06-16: rooftop vinyl house w/ European feel is a core lane; Sunset Sessions is one example (don't overstate it)."
   - "2026-06-16: techno + house both mainstream and underground (fabric-London energy)."
   - "2026-06-16: not a comedy fan generally; surface known names only (loves Stavros Halkias)."
-  - "2026-06-16: curious about Vidiots (never been); add Vista to rep-cinema rotation."
   - "2026-06-16: surface Sunset Sessions @ Level 8 when it's on — a recurring favorite / one kind of event I like (not a headline)."
   - "2026-06-16: festival radar should be compact + urgency-driven, not a curated list dump."
-  - "2026-06-16: mainstream big-room headliners (Chris Lake et al.) ARE priority too — don't
-     down-rank them as 'mainstream EDM'. Curate like an electronic head; want MORE/additional recs."
+  - "2026-06-16: mainstream big-room headliners (John Summit et al.) ARE priority too — don't
+     down-rank them as 'mainstream EDM'. Curate like an electronic head."
   - "2026-06-16: surface the live-band lane too (indie/rock/experimental — Zebulon, Troubadour,
      Echo, Moroccan, Lodge Room, Teragram); don't let electronic crowd it out of the digest.
      NOTE: Zebulon is JS-rendered and currently uncaptured (e.g. Mamas Gun) — needs a real fetcher."

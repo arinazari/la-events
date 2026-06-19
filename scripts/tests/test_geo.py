@@ -86,6 +86,69 @@ def test_profile_travel_knobs_apply():
     assert geo.drive_minutes(3, fast) < geo.drive_minutes(3, PROFILE)
 
 
+# ── Location canonicalization (the "location column" polish) ──────────────────────
+
+def test_display_neighborhood_acronyms_aliases_and_case():
+    assert geo.display_neighborhood("dtla") == "DTLA"
+    assert geo.display_neighborhood("downtown la") == "DTLA"      # alias consolidates
+    assert geo.display_neighborhood("weho") == "West Hollywood"
+    assert geo.display_neighborhood("mid-city") == "Mid-City"     # _norm drops the hyphen
+    assert geo.display_neighborhood("east hollywood") == "East Hollywood"
+    assert geo.display_neighborhood("HOLLYWOOD") == "Hollywood"   # repairs ALL-CAPS
+    assert geo.display_neighborhood("") is None
+
+
+def test_canonical_location_keeps_real_neighborhood():
+    # A specific neighborhood already on the record is preserved (just display-fixed) —
+    # never downgraded to a city bucket, even for far-flung cities.
+    assert geo.canonical_location("Vidiots", "Eagle Rock", PROFILE) == "Eagle Rock"
+    assert geo.canonical_location("Yaamava", "Highland", PROFILE) == "Highland"
+    assert geo.canonical_location("House of Blues", "Anaheim", PROFILE) == "Anaheim"
+
+
+def test_canonical_location_upgrades_city_level_via_venue():
+    # The core fix: TM/JSON-LD city-level "Los Angeles" -> the venue's real neighborhood.
+    assert geo.canonical_location("The Fonda Theatre", "Los Angeles", PROFILE) == "Hollywood"
+    assert geo.canonical_location("The Echo", "Los Angeles", PROFILE) == "Echo Park"
+    assert geo.canonical_location("Hollywood Pantages Theatre", "Los Angeles", PROFILE) == "Hollywood"
+
+
+def test_canonical_location_upgrades_blank_via_venue():
+    # Posh-style blank neighborhood, known venue -> resolved.
+    assert geo.canonical_location("The Redwood Bar and Grill", None, PROFILE) == "DTLA"
+    assert geo.canonical_location("129 E 3rd St", "", PROFILE) == "DTLA"
+
+
+def test_canonical_location_non_la_city_from_parenthetical():
+    # 19hz crams the city into the venue string; surface it instead of mislabeling LA.
+    assert geo.canonical_location("Eq (San Diego) drum and bass", None, PROFILE) == "San Diego"
+    assert geo.canonical_location("Sid The Cat (Pasadena/Los Angeles) indie", None, PROFILE) == "Pasadena"
+    # A junk parenthetical is NOT mistaken for a place (allowlist guard).
+    assert geo.canonical_location("Some Club (21+) techno", None, PROFILE) is None
+
+
+def test_canonical_location_neighborhood_embedded_in_venue():
+    # Many TBA/warehouse rows carry the neighborhood in the venue string itself.
+    assert geo.canonical_location("TBA - DTLA Warehouse", "Los Angeles", PROFILE) == "DTLA"
+    assert geo.canonical_location("TBA - Downtown LA", None, PROFILE) == "DTLA"
+    assert geo.canonical_location("Pacific Electric", "Los Angeles", PROFILE) == "DTLA"
+    # The single-word-hood token guard: a hood name embedded mid-word must NOT match.
+    assert geo.canonical_location("Veniceland Arcade", "Los Angeles", PROFILE) == "Los Angeles"
+
+
+def test_canonical_location_collapses_or_keeps_blank():
+    # Unplaceable city-level collapses to ONE label; a true blank stays blank (the view
+    # owns that fallback) — so we never invent a neighborhood we don't know.
+    assert geo.canonical_location("Some Unknown Venue", "Los Angeles", PROFILE) == "Los Angeles"
+    assert geo.canonical_location("TBA", None, PROFILE) is None
+
+
+def test_canonical_location_is_idempotent():
+    once = geo.canonical_location("The Wiltern", "Los Angeles", PROFILE)
+    twice = geo.canonical_location("The Wiltern", once, PROFILE)
+    assert once == twice == "Koreatown"
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

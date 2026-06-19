@@ -70,6 +70,16 @@ def test_merge_keeps_all_links_and_richest_fields():
     assert len(m["lineup"]) == 2                        # richest lineup
 
 
+def test_merge_preserves_genre_from_either_record():
+    # Genre is sparse (only some sources classify), so a merge must not lose it when the
+    # base record lacks one — otherwise backfilling an existing genre-less catalog row from
+    # a fresh TM fetch silently drops the genre. (Regression: dashboard genre line went blank.)
+    base = {"title": "Show", "venue": "Echo", "date": "2026-06-20", "lineup": []}
+    tm = {"title": "Show", "venue": "Echo", "date": "2026-06-20", "lineup": [], "genre": "Indie"}
+    assert merge(base, tm)["genre"] == "Indie"     # backfilled from the incoming record
+    assert merge(tm, base)["genre"] == "Indie"     # kept when the base already carries it
+
+
 def test_dedupe_collapses_cluster():
     merged, report = dedupe([RA, DICE, TM])
     assert len(merged) == 1, [e["title"] for e in merged]

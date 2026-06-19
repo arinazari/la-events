@@ -10,6 +10,7 @@ from datetime import date, datetime, timedelta
 
 from .scoring import score_event, score_to_rating, parse_event_date
 from .dedupe import dedupe
+from . import geo
 
 try:
     from zoneinfo import ZoneInfo
@@ -107,6 +108,7 @@ def normalize_record(raw: dict, source=None) -> dict:
         "venue": raw.get("venue") or raw.get("venue_name"),
         "neighborhood": raw.get("neighborhood"),
         "category": raw.get("category") or SOURCE_CATEGORY.get(source, "general"),
+        "genre": raw.get("genre"),  # finer classification (TM segment->category, genre->genre); dashboard's CATEGORY / GENRE line
         "lineup": lineup,
         "links": _links(raw, source),
         "sources": _as_list(raw.get("sources") or source),
@@ -154,6 +156,21 @@ def expire_past(catalog: list, today: date = None) -> tuple:
         else:
             kept.append(ev)
     return kept, expired
+
+
+def normalize_locations(catalog: list, profile: dict = None) -> list:
+    """Canonicalize each record's `neighborhood` in place (idempotent).
+
+    Fetchers leave the location messy — TM/JSON-LD/Goldenvoice emit city-level
+    "Los Angeles", Posh and others emit nothing — so the catalog's "location" reads as a
+    "LA" + "Los Angeles" + blank pile. geo.canonical_location() resolves a venue to its real
+    neighborhood where the gazetteer knows it (Fonda -> Hollywood), collapses the unplaceable
+    city-level rows to one label, and fixes casing/aliases. Runs over the WHOLE catalog each
+    pass so existing rows get cleaned too, not just incoming. True unknowns stay blank — the
+    digest/dashboard own that fallback."""
+    for ev in catalog:
+        ev["neighborhood"] = geo.canonical_location(ev.get("venue"), ev.get("neighborhood"), profile)
+    return catalog
 
 
 def score_view(ev: dict, taste: dict, profile: dict, affinity: dict = None) -> dict:

@@ -1,0 +1,62 @@
+# Taste profile — EXAMPLE friend profile for the dashboard profile-switcher (username: demo).
+# Deliberately different from the root taste.yaml so switching visibly re-ranks: this person is
+# an indie/rock + jazz + comedy head who's lukewarm on big-room electronic. Copy this file to
+# profiles/<name>/taste.yaml, edit it, add an entry to profiles.yaml, then run build_profiles.py.
+
+categories:
+  high:    # +3
+    - indie / rock / post-punk / garage / dream-pop / experimental band shows
+      (Troubadour, Echo, Zebulon, Lodge Room, Teragram, Moroccan)
+    - jazz, soul, funk, and live-band nights (listening rooms, small clubs)
+    - rep & arthouse cinema (Vidiots, Vista, New Beverly, Cinematheque, Brain Dead)
+    - singer-songwriter / folk / Americana in intimate rooms
+  medium:  # +2
+    - standup comedy at clubs and theaters (a genuine draw here, not the exception)
+    - theater (black-box + Pantages-scale)
+    - daytime & lifestyle — flea / vintage / design markets, farmers markets, food pop-ups
+    - melodic / organic / disco-leaning house in a chill setting (not the main thing)
+  low:     # +1, only if exceptional
+    - big-room / festival EDM and warehouse techno — occasional, only marquee names
+
+boosts:    # +1 each
+  - intimate / seated / listening-room setting
+  - walkable or short drive from Santa Monica / the Westside
+  - Friday or Saturday night
+  - independent editorial mention (LAist, Time Out, DiscoverLA)
+  - vinyl / all-analog presentation
+
+penalties: # -2 each
+  - big-room / festival-scale EDM as the main draw
+  - warehouse / afterhours raves
+  - bottle-service / table-service clubs
+  - hardstyle / dubstep / bass-music mega-shows
+  - far-flung (OC / SD / Temecula / Ventura) unless genuinely worth the trip
+
+# Match in a lineup => +2 and a "tracked" badge.
+artists_tracked:
+  - Phoebe Bridgers
+  - Big Thief
+  - Vampire Weekend
+  - Khruangbin
+  - Mac DeMarco
+  - Parquet Courts
+  - King Krule
+  - black midi
+  - BadBadNotGood
+  - Kamasi Washington
+  - Robert Glasper
+  - Thundercat
+  - Unknown Mortal Orchestra
+  - Beach House
+  - Father John Misty
+  - Andy Shauf
+  - Japanese Breakfast
+  - Alvvays
+  - The War on Drugs
+  - Bon Iver
+
+comedians_loved: [John Mulaney, Nate Bargatze, Tig Notaro, Maria Bamford, Hannibal Buress]
+venues_loved: [Troubadour, Lodge Room, Zebulon, The Greek, Vista, New Beverly, McCabe's, Largo]
+
+feedback:
+  - "Example profile. Indie/rock + jazz + comedy core; lukewarm on big-room electronic and raves."

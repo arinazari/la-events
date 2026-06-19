@@ -198,18 +198,78 @@ Runs explicit strategies, returns a proposal table (approve → append to `sourc
       flag broken ones before a digest silently loses coverage.
 
 ## Delivery — Hosted page (the new primary surface; supersedes email)
-Instead of emailing, serve a **hosted, bookmarkable page** Ari opens to see the current weekend(s)
-and act on them:
-- **Static core, mostly wired:** the committed weekend `.html` + `dashboard/data.json` can deploy to
-  GitHub Pages (`.github/workflows/deploy-dashboard.yml` exists). `render_digest --asset-prefix` points
-  cached images at the served base, so the page is self-contained.
-- **On-page actions (the interactive layer):** trigger a **source re-scan / discover** (`source-scout`)
-  and **request an ad-hoc digest from the LLM** ("something chill + walkable Friday") — the concierge
-  (Phase D) behind a button. Needs a way to kick an agent run from the page (GitHub Action
-  `workflow_dispatch`, a small backend, or a claude.ai/code trigger) that writes results back to the repo.
+A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and tune taste.
+- **Static core, wired:** the committed weekend `.html` + `dashboard/data.json` deploy to GitHub
+  Pages (`.github/workflows/deploy-dashboard.yml`). `render_digest --asset-prefix` points cached
+  images at the served base, so the digests are self-contained.
+- [x] **Interactive home shipped (static + Claude Code hand-off)** — the dashboard is now a 3-view
+  app (`dashboard/`): **Explore** (search/filter/present every event — reworked to the real catalog
+  schema + enrichment + save-for-plan), **Plan** (a chatbox: a local no-LLM query engine over the
+  loaded catalog *plus* an agent hand-off that composes a concierge/night-planner prompt), and
+  **Settings** (edit taste/scoring/sources, preview a change-set, hand off to apply+commit; pipeline
+  actions for refresh/discover). `build_dashboard.py` now emits an enrichment-folded `events[]` + a
+  `config` snapshot for Settings.
+- **Decision resolved — how page actions trigger agent runs:** **static-first + claude.ai/code
+  hand-off** (Ari's call, 2026-06). The page never holds a key or writes YAML; it composes the exact
+  prompt and the existing agent commits results back (routine/Pages redeploy surfaces them). Isolated
+  to one seam (`js/handoff.js`, `BACKEND_URL`) so a backend can drop in later with no rewrite.
+- [x] **LLM concierge backend wired (2026-06-19)** — the chat now has a **Concierge (LLM)** mode
+  (default) ⇄ **Fast filter** (the no-LLM heuristic) toggle. Concierge mode POSTs to `BACKEND_URL`;
+  a reference Cloudflare Worker (`backend/`) holds `ANTHROPIC_API_KEY`, grounds on the live
+  `data.json` (events + dining + taste), and answers/recommends/plans. The page falls back to Fast
+  filter if the backend is unset/down, so nothing breaks. **Needs Ari to deploy it** (wrangler +
+  key) and set the URL/token via the chat's "connect" affordance — see `backend/README.md`.
+- **Remaining (not blocking):** the backend **code** is done (chat + taste self-edit, see below) —
+  what's left is for Ari to **deploy** it (wrangler + secrets). **Auth chosen: shared `CONCIERGE_TOKEN`**
+  (Cloudflare Access remains an option later); optional streaming + auto-commit of plans.
+  Public/unlisted Pages + Fast-filter fallback is fine until then (catalog = public events).
+- [x] **Profiles — per-person taste switcher (2026-06-19)** — a "prof" link (footer) opens a popup;
+  a friend types a username (acts as the key) → the page SHA-256s it (salt `la-events/v1:`, same as
+  `scripts/build_profiles.py`) and loads that profile's feed `dashboard/data.<hash>.json` (its own
+  taste + digest). Profiles are **hand-authored** in the repo: `profiles/<name>/taste.yaml` + an entry
+  in `profiles.yaml`; `build_profiles.py` emits each feed reusing `build_dashboard.py`'s scorer (so a
+  profile's ranking can't drift from the digest). Blank/unknown stays on the default (Ari's) feed.
+  **Obfuscation, not security** — usernames are publicly-fetchable bearer keys (fine for a few friends).
+  Still deferred: (c) **per-profile Spotify** (web OAuth + Worker KV token storage + per-profile affinity
+  sync). (a) per-profile **digest generation** and (b) concierge-per-profile + **friend self-edit** are now
+  built — see below. Profiles re-rank the *same* catalog (sourced to Ari's taste), so full personalization
+  eventually wants per-profile source coverage too.
+- [x] **Friend taste self-edit via the concierge (2026-06-19)** — in a profile, the concierge chat now
+  *edits your taste by talking to it* ("more techno, less comedy", "track Peggy Gou"). The Worker
+  (`backend/`) grounds chat on the profile's feed and, when `GITHUB_TOKEN` is set, exposes a
+  `propose_taste_change` tool: it applies a **structured patch** to `profiles/<name>/taste.yaml`,
+  validates it re-parses, and commits. A new CI job (`.github/workflows/build-profiles.yml`) re-scores
+  that feed with the shared `build_profiles.py` scorer and redeploys — **commit + CI rebuild, ~1–2 min,
+  zero scorer drift, git = rollback** (chosen over edge re-scoring). The popup also shows your taste YAML
+  read-only. Security relaxed by design (taste writes are low-stakes/revertible): `CONCIERGE_TOKEN` guards
+  API spend + commit-spam, and the GitHub PAT is repo-scoped Contents-only. **Needs Ari to deploy the
+  Worker + set the 3 secrets** (`backend/README.md`).
+- [x] **Per-profile digests (2026-06-19)** — the daily routine now (step 7) rebuilds *every* feed
+  with `build_profiles.py` (friends' feeds stay fresh as the catalog changes, not only on self-edit),
+  and (step 8) writes a personalized narrative digest per profile to `digests/<hash>/latest.md`.
+  Both deploy workflows stage `digests/<hash>/latest.md → dashboard/digests/<hash>/latest.md`; the
+  page already loads it (placeholder until the first routine run). Owner profiles ≈ the default digest.
 - **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
-- Open decisions when we build it: hosting + auth (private to Ari + friends), and how page actions
-  trigger agent runs. Deferred for now; noted so the routine keeps committing the `.html` it will serve.
+- [x] **Front end swapped to the design-tool UI (2026-06-18, branch `claude/exciting-feynman-v6vqo6`)** —
+  the hand-written 3-view app was replaced by Ari's uploaded design (a single `dashboard/index.html` +
+  its `support.js` "dc-runtime"). **Backend unchanged**: `build_dashboard.py` + `lib/scoring.py` still
+  produce `dashboard/data.json` and the page stays a pure viewer. The design's two claude.ai-only
+  features were rewired to the repo's patterns — chat ("ASK THE DIGEST") → local no-LLM intent parser
+  (`localSpec`), Discover → copy-to-Claude-Code hand-off. React/ReactDOM/`@babel/standalone` vendored
+  locally (off unpkg); PWA + deploy workflow carried over (deploy stages `digests/latest.md`).
+
+### Dashboard follow-ups (TODO — from the front-end swap)
+- [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
+  `@babel/standalone` (~3 MB vendored). Add a build step that compiles `index.html` ahead of time and
+  ships plain JS, dropping Babel + the first-paint transpile cost from the client.
+- [ ] **Per-event ICS export** — re-port the one-click add-to-calendar (was `dashboard/js/ics.js`;
+  regressed in the swap).
+- [ ] **Save / bookmark events** — let Ari star events to a personal shortlist (localStorage; the seed
+  for "plan around these"). Was `save-for-plan` in the prior front end; not in the new design yet.
+- [ ] **Like → learn taste** — per-event 👍/👎 (or "more like this" / "never show") that feeds the
+  existing feedback loop (`data/feedback.jsonl` → `lib/feedback.py` → affinity, Phase C). Closes the
+  implicit-signal-capture gap noted in Phase C (emitting reactions waited on a dashboard surface); on
+  static Pages it rides the hand-off seam — compose the `feedback.jsonl` append for the agent to commit.
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
@@ -276,8 +336,10 @@ were validated; these are per-fetcher *under-extraction*, not normalize bugs):
 ## Decision points — Ari's input needed
 1. **Visual digest home** (Phase B) — ✅ resolved + revised: text-only `.md` canonical + a rich `.html`.
    Email is **dropped**; the `.html` now feeds the **Hosted page** (above) instead of an inbox.
-2. **Delivery channels** (Phase B/D) — revised: committed `.md`/`.html` → a **hosted bookmarkable page**
-   (not email) with an on-page concierge + re-scan actions. Dedicated text number still deferred.
+2. **Delivery channels** (Phase B/D) — ✅ built: committed `.md`/`.html` → a **hosted bookmarkable page**
+   (`dashboard/`, not email) with an on-page concierge (Plan view) + Settings + refresh/discover actions,
+   via static + claude.ai/code hand-off. Open upgrade: a `BACKEND_URL` service for in-page chat + auth.
+   Dedicated text number still deferred.
 3. **Digest cadence** (resolved): **daily** weekend-set, ~4 months out. Revisit if commits get noisy.
 4. **Taste weights** (ongoing): `taste.yaml` is yours — edit directly, or react and let the loop fold in.
 5. **Dedupe spot checks** (Phase A): eyeball merged records for false merges while tuning the threshold.

@@ -34,5 +34,5 @@ def load_profile(path="profile.yaml") -> dict:
 
 
 def load_taste(path="taste.yaml") -> dict:
-    """Taste content (artists_tracked, venues_loved, pinned_series, ...)."""
+    """Taste content (artists_tracked, venues_loved, comedians_loved, ...)."""
     return load_yaml(path)

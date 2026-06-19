@@ -22,6 +22,7 @@ Public API:
   plan_route(stops, profile=None)         -> dict   # ordered legs[] + totals
 """
 
+import re
 from math import asin, cos, radians, sin, sqrt
 
 # ── Defaults: an LA gazetteer + travel knobs (override in profile.yaml) ───────────
@@ -40,17 +41,19 @@ DEFAULT_NEIGHBORHOODS = {
     "eagle rock": (34.1397, -118.2120), "glassell park": (34.1110, -118.2270),
     "cypress park": (34.0940, -118.2240), "mount washington": (34.1110, -118.2150),
     "lincoln heights": (34.0700, -118.2090), "chinatown": (34.0640, -118.2370),
-    "boyle heights": (34.0337, -118.2100),
+    "boyle heights": (34.0337, -118.2100), "elysian park": (34.0782, -118.2480),
     # SGV (major dining region just east)
     "alhambra": (34.0953, -118.1270), "san gabriel": (34.0961, -118.1058),
     "monterey park": (34.0625, -118.1228), "arcadia": (34.1397, -118.0353),
     "rosemead": (34.0805, -118.0728), "rowland heights": (33.9762, -117.9053),
+    "commerce": (34.0006, -118.1597),
     # downtown core
     "dtla": (34.0440, -118.2510), "downtown": (34.0440, -118.2510),
     "downtown la": (34.0440, -118.2510), "arts district": (34.0410, -118.2330),
     "historic filipinotown": (34.0640, -118.2790), "westlake": (34.0590, -118.2790),
     "koreatown": (34.0580, -118.3000), "ktown": (34.0580, -118.3000),
-    "university park": (34.0250, -118.2840),
+    "university park": (34.0250, -118.2840), "exposition park": (34.0160, -118.2880),
+    "pico union": (34.0494, -118.2826),
     # central / mid-city / hollywood
     "hollywood": (34.1016, -118.3267), "west hollywood": (34.0900, -118.3850),
     "weho": (34.0900, -118.3850), "mid-city": (34.0480, -118.3500),
@@ -103,6 +106,82 @@ DEFAULT_VENUES = {
     "la cita": "dtla", "harvard stone": "east hollywood", "the lash": "dtla",
     "bar franca": "silver lake", "the bridge": "dtla",
     "level 8": "dtla", "golden hour at level 8": "dtla",
+    # Added in the location-column polish — high-frequency venues that fetchers leave
+    # city-level ("Los Angeles") or blank. Keys must be long/distinct enough that the
+    # substring match in resolve() can't false-fire (see _norm + the >=4-char guard).
+    "hollywood pantages theatre": "hollywood", "pantages": "hollywood",
+    "the peppermint club": "west hollywood", "peppermint club": "west hollywood",
+    "grammy museum": "dtla", "comedy store": "west hollywood",
+    "ahmanson theatre": "dtla", "ahmanson": "dtla",
+    "dorothy chandler pavilion": "dtla", "walt disney concert hall": "dtla",
+    "disney concert hall": "dtla", "crypto com arena": "dtla",
+    "peacock theater": "dtla", "microsoft theater": "dtla",
+    "orpheum theatre": "dtla", "orpheum": "dtla", "united theater on broadway": "dtla",
+    "theatre at ace hotel": "dtla", "ace hotel": "dtla",
+    "los angeles state historic park": "chinatown", "la state historic park": "chinatown",
+    "masonic lodge at hollywood forever": "hollywood", "hollywood forever": "hollywood",
+    "masonic lodge": "hollywood", "foxhole hollywood": "hollywood", "foxhole": "hollywood",
+    "renberg theatre": "hollywood", "jungle hollywood": "hollywood",
+    "blue note": "hollywood", "warwick": "hollywood",
+    "the lexington": "dtla", "lexington bar": "dtla", "129 e 3rd st": "dtla",
+    "the redwood bar and grill": "dtla", "redwood bar": "dtla",
+    "the slipper clutch": "dtla", "slipper clutch": "dtla",
+    "the airliner": "lincoln heights", "airliner": "lincoln heights",
+    "blind barber": "culver city", "pacific electric": "dtla",
+    "roosevelt hotel": "hollywood", "hollywood roosevelt": "hollywood",
+    # Round 2 — web-verified the uncertain ones (KKBB, Apotheke, Homage, ...).
+    "los angeles convention center": "dtla", "pershing square": "dtla",
+    "california plaza": "dtla", "grand park": "dtla", "palace theatre": "dtla",
+    "hotel figueroa": "dtla", "broken shaker": "dtla", "the broad": "dtla",
+    "coaxial": "dtla", "anderson st": "boyle heights",
+    "los angeles county museum of art": "miracle mile", "lacma": "miracle mile",
+    "wilshire ebell": "mid-wilshire", "akbar": "silver lake", "que sera": "long beach",
+    "the forum": "inglewood", "kia forum": "inglewood", "the glass house": "pomona",
+    "old towne pub": "pasadena", "old town pub": "pasadena", "townhouse": "venice",
+    "the bullet bar": "north hollywood", "hotel ziggy": "west hollywood",
+    "white rabbit sky lounge": "west hollywood", "the valorian": "west hollywood",
+    "harvard and stone": "east hollywood", "general lee": "chinatown",
+    "apotheke": "chinatown", "kiss kiss bang bang": "koreatown",
+    "homage brewing": "pomona", "dirt dog": "commerce", "dream rooftop": "hollywood",
+    "bmo stadium": "exposition park", "memorial coliseum": "exposition park",
+    "los angeles memorial coliseum": "exposition park",
+    "california african american museum": "exposition park",
+    "pico union project": "pico union", "dodger stadium": "elysian park",
+    "ford ca": "hollywood", "ford theatre": "hollywood", "ford theatres": "hollywood",
+    "naud st": "chinatown",
+}
+
+# Generic, non-neighborhood location strings. These get UPGRADED to a real neighborhood
+# via the venue when possible; if they can't be placed, they collapse to one canonical
+# label (CANONICAL_CITY) instead of the historical "LA" / "Los Angeles" / blank mix.
+CITY_LEVEL = {
+    "", "la", "l a", "los angeles", "los angeles ca", "city of los angeles",
+    "greater los angeles", "los angeles county", "southern california",
+    "socal", "california", "ca", "usa", "tba", "tbd",
+}
+CANONICAL_CITY = "Los Angeles"
+
+# Canonical DISPLAY form for a neighborhood, keyed by its _norm()'d name (so no hyphens —
+# _norm turns "mid-city" into "mid city"). Anything not listed Title-Cases. This is where
+# acronyms, hyphenation, and alias consolidation (weho -> West Hollywood) live.
+NEIGHBORHOOD_DISPLAY = {
+    "dtla": "DTLA", "downtown": "DTLA", "downtown la": "DTLA", "downtown los angeles": "DTLA",
+    "weho": "West Hollywood", "noho": "North Hollywood", "ktown": "Koreatown",
+    "silverlake": "Silver Lake", "atwater": "Atwater Village",
+    "mid city": "Mid-City", "mid wilshire": "Mid-Wilshire", "west la": "West LA",
+    "nela": "Northeast LA", "historic filipinotown": "Historic Filipinotown",
+    "pico union": "Pico-Union",
+}
+
+# Cities outside LA that may appear in a venue parenthetical ("Eq (San Diego)"). An
+# allowlist so _venue_city() can't mistake "(21+)" or "(B Side)" for a place name.
+NON_LA_CITIES = {
+    "san diego", "santa barbara", "ventura", "oxnard", "anaheim", "santa ana",
+    "irvine", "temecula", "riverside", "long beach", "costa mesa", "huntington beach",
+    "newport beach", "palm desert", "palm springs", "pioneertown", "cabazon", "ojai",
+    "brea", "ontario", "fontana", "cerritos", "pico rivera", "rowland heights",
+    "yucaipa", "thousand oaks", "san francisco", "oakland", "las vegas", "tijuana",
+    "redondo beach", "westminster", "murrieta",
 }
 
 DEFAULT_TRAVEL = {
@@ -183,6 +262,101 @@ def resolve(place, profile: dict = None):
         return _hood_coords(cfg["venues"][max(venue_hits, key=len)], cfg)
     # last resort: a neighborhood name embedded in the string
     return _hood_coords(key, cfg)
+
+
+# ── Location canonicalization (the catalog/dashboard "location column" polish) ─────
+# Catalog records are venue-rich but neighborhood-poor: TM/JSON-LD/Goldenvoice emit
+# city-level "Los Angeles", Posh and others emit nothing. canonical_location() turns
+# that into one clean neighborhood label per record — venue-resolved where we can,
+# one consistent city bucket where we can't — so the column reads as neighborhoods,
+# not a "LA" + "Los Angeles" + blank pile. Same gazetteer the night-planner resolves on.
+
+def display_neighborhood(name) -> str:
+    """Canonical display string for a neighborhood/hood-key: overrides, else Title-Case.
+
+    Repairs casing on the way in too ('DTLA', 'east hollywood', 'HOLLYWOOD' all land right)."""
+    key = _norm(name)
+    if not key:
+        return None
+    if key in NEIGHBORHOOD_DISPLAY:
+        return NEIGHBORHOOD_DISPLAY[key]
+    return " ".join(w.capitalize() for w in key.split())
+
+
+def venue_to_hood(venue, profile: dict = None):
+    """The neighborhood KEY a venue maps to (gazetteer exact, then longest substring), else None.
+
+    The name-returning sibling of resolve()'s venue path (which returns coords)."""
+    cfg = _geo_cfg(profile)
+    key = _norm(str(venue or ""))
+    if not key:
+        return None
+    if key in cfg["venues"]:
+        return cfg["venues"][key]
+    hits = [n for n in cfg["venues"] if len(n) >= 4 and n in key]
+    return cfg["venues"][max(hits, key=len)] if hits else None
+
+
+def _embedded_hood(venue, profile: dict = None):
+    """A neighborhood NAME embedded in a venue string ('TBA - DTLA Warehouse' -> DTLA,
+    'TBA - Downtown LA' -> DTLA), longest match wins. A single-word hood must appear as a
+    standalone token and multi-word hoods match as a substring, so short tokens (dtla, noho)
+    can't false-fire mid-word. Only consulted for blank/city-level records."""
+    key = _norm(str(venue or ""))
+    if not key:
+        return None
+    tokens = set(key.split())
+    hits = []
+    for n in _geo_cfg(profile)["neighborhoods"]:
+        if len(n) < 4:
+            continue
+        if (n in key) if " " in n else (n in tokens):
+            hits.append(n)
+    return display_neighborhood(max(hits, key=len)) if hits else None
+
+
+def _venue_city(venue, profile: dict = None):
+    """A non-LA city named in a venue parenthetical ('Eq (San Diego)' -> 'San Diego',
+    'Sid The Cat (Pasadena/Los Angeles)' -> 'Pasadena'), else None. Allowlist-guarded so
+    junk parentheticals ('(21+)', '(B Side)') aren't mistaken for places."""
+    m = re.search(r"\(([^)]+)\)", str(venue or ""))
+    if not m:
+        return None
+    raw = re.split(r"[/,]", m.group(1))[0].strip()
+    n = _norm(raw)
+    if not n or n in CITY_LEVEL:
+        return None
+    if n in _geo_cfg(profile)["neighborhoods"]:   # a known LA-area place (Pasadena, ...)
+        return display_neighborhood(n)
+    if n in NON_LA_CITIES:                          # a vetted out-of-area city
+        return display_neighborhood(raw)
+    return None
+
+
+def canonical_location(venue, neighborhood=None, profile: dict = None):
+    """Best canonical neighborhood label for a catalog record, or None if unplaceable.
+
+      1. A real, specific neighborhood already on the record wins — just fix its display.
+         (We never downgrade good data: Eagle Rock, Anaheim, Highland stay put.)
+      2. Else (blank or city-level 'Los Angeles'/'LA') upgrade via the VENUE -> a real
+         neighborhood: a known venue (Fonda -> Hollywood) or a neighborhood embedded in the
+         venue string ('TBA - DTLA Warehouse' -> DTLA).
+      3. Else surface a non-LA city named in the venue string ('(San Diego)').
+      4. Else collapse to ONE city label (city-level -> 'Los Angeles'); true blanks stay
+         blank so the view, not the data, owns the fallback for genuinely-unknown spots."""
+    cur = _norm(neighborhood)
+    if cur and cur not in CITY_LEVEL:
+        return display_neighborhood(neighborhood)
+    hood = venue_to_hood(venue, profile)
+    if hood:
+        return display_neighborhood(hood)
+    emb = _embedded_hood(venue, profile)
+    if emb:
+        return emb
+    city = _venue_city(venue, profile)
+    if city:
+        return city
+    return CANONICAL_CITY if cur else None
 
 
 def haversine_miles(a, b) -> float:

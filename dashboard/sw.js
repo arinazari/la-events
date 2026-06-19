@@ -1,14 +1,16 @@
 /* Minimal service worker: cache the app shell so the dashboard opens offline.
  * data.json is fetched network-first (fall back to cache) so it stays fresh. */
 
-const CACHE = "la-events-v1";
+const CACHE = "la-events-v3";
 const SHELL = [
   "./",
   "./index.html",
-  "./styles.css",
-  "./app.js",
   "./manifest.webmanifest",
   "./icon.svg",
+  "./support.js",
+  "./vendor/react.production.min.js",
+  "./vendor/react-dom.production.min.js",
+  "./vendor/babel.min.js",
 ];
 
 self.addEventListener("install", (e) => {

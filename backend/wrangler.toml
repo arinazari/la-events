@@ -1,0 +1,21 @@
+# Cloudflare Worker config for the la-events concierge backend.
+# Deploy:  cd backend && npm i && npx wrangler deploy
+# Secrets: npx wrangler secret put ANTHROPIC_API_KEY
+#          npx wrangler secret put CONCIERGE_TOKEN     (optional shared token — recommended)
+#          npx wrangler secret put GITHUB_TOKEN        (optional — enables friend taste self-edit)
+
+name = "la-events-concierge"
+main = "concierge-worker.js"
+compatibility_date = "2024-11-01"
+
+# Non-secret vars (override the in-code defaults). Secrets go via `wrangler secret put`.
+[vars]
+ANTHROPIC_MODEL = "claude-sonnet-4-6"   # executor (does the bulk of generation)
+ADVISOR_MODEL = "claude-opus-4-8"        # advisor the executor consults for planning ("" disables; must be >= executor)
+EFFORT = "max"                            # executor effort: low | medium | high | max
+MAX_TOKENS = "8000"                       # output cap (leave room for adaptive thinking; raise if plans truncate)
+DATA_URL = "https://arinazari.github.io/la-events/data.json"
+ALLOWED_ORIGIN = "https://arinazari.github.io"
+GITHUB_REPO = "arinazari/la-events"
+GITHUB_BRANCH = "main"
+PROFILE_SALT = "la-events/v1:"
