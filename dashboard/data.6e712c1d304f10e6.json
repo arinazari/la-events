@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T09:59:06",
+  "generated_at": "2026-06-19T10:06:46",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "count": 2428,
@@ -11,11 +11,13 @@
     "Bel Air",
     "Beverly Hills",
     "Bolingbrook",
+    "Boyle Heights",
     "Brea",
     "Cabazon",
     "Cerritos",
     "Chinatown",
     "Coachella",
+    "Commerce",
     "Corona",
     "Costa Mesa",
     "Cypress Park",
@@ -23,6 +25,8 @@
     "Eagle Rock",
     "East Hollywood",
     "Echo Park",
+    "Elysian Park",
+    "Exposition Park",
     "Fontana",
     "Frogtown",
     "Fullerton",
@@ -43,6 +47,8 @@
     "Los Feliz",
     "Mid-City",
     "Mid-Wilshire",
+    "Miracle Mile",
+    "Murrieta",
     "Newport Beach",
     "North Hollywood",
     "Ojai",
@@ -54,6 +60,7 @@
     "Pasadena",
     "Paso Robles",
     "Pico Rivera",
+    "Pico-Union",
     "Pioneertown",
     "Pomona",
     "Rancho Cucamonga",
@@ -81,6 +88,7 @@
     "West Hollywood",
     "West LA",
     "Westlake",
+    "Westminster",
     "Yucaipa"
   ],
   "categories": [
@@ -1661,7 +1669,7 @@
       "date": "2026-06-19",
       "start": "10pm-2am",
       "venue": "Kiss Kiss Bang Bang (Los Angeles) disco, house, nu-disco",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -3982,7 +3990,7 @@
       "date": "2026-06-19",
       "start": "2026-06-19T21:00:00.000",
       "venue": "The Bullet Bar",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "North Hollywood",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -4649,7 +4657,7 @@
       "date": "2026-06-19",
       "start": "4pm-9pm",
       "venue": "Dream Rooftop (Los Angeles) progressive house, tech house",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -4829,7 +4837,7 @@
       "date": "2026-06-19",
       "start": "9pm-3am",
       "venue": "Dirt Dog Compound (Los Angeles) psytrance",
-      "neighborhood": null,
+      "neighborhood": "Commerce",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -6800,7 +6808,7 @@
       "date": "2026-06-19",
       "start": "9pm-2am",
       "venue": "Bleu Nightclub (Westminster) dubstep, bass music, riddim",
-      "neighborhood": null,
+      "neighborhood": "Westminster",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -6910,7 +6918,7 @@
       "date": "2026-06-20",
       "start": "10pm-2am",
       "venue": "Kiss Kiss Bang Bang (Los Angeles) house, disco",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -7158,6 +7166,96 @@
       "reasons": [
         "+3 electronic (high interest)",
         "+1 European / label vibe",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "title": "Higher Grooves Rooftop Party",
+      "date": "2026-06-20",
+      "start": "2026-06-20T19:00:00.000",
+      "venue": "The Broken Shaker Los Angeles",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 33,
+      "price": "free",
+      "organizers": "Made To Move",
+      "detail": null,
+      "lineup": [
+        "No Pressure"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2465956"
+        },
+        {
+          "source": "19hz",
+          "url": "https://www.instagram.com/madetomovela/"
+        }
+      ],
+      "sources": [
+        "ra",
+        "19hz"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-19",
+      "genre": null,
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 rooftop / vinyl / groove",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
+      "title": "Disco Decadance: Benny Jets, Dirtie Blonde, E-Mood, Lillyanne, Michelle Leshem, Shaade",
+      "date": "2026-06-20",
+      "start": "2026-06-20T19:00:00.000",
+      "venue": "Apotheke",
+      "neighborhood": "Chinatown",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 8,
+      "price": "free",
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "Dirtie Blonde",
+        "E-Mood",
+        "Michelle Leshem"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2461362"
+        },
+        {
+          "source": "19hz",
+          "url": "https://resy.com/cities/los-angeles-ca/venues/apotheke-la?date=2026-06-20&seats=2"
+        }
+      ],
+      "sources": [
+        "19hz",
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-19",
+      "genre": null,
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 rooftop / vinyl / groove",
         "+1 Friday/Saturday night",
         "+1 close to Silver Lake"
       ],
@@ -8211,7 +8309,7 @@
       "date": "2026-06-20",
       "start": "09:00",
       "venue": "California African American Museum",
-      "neighborhood": null,
+      "neighborhood": "Exposition Park",
       "category": "party",
       "afterhours": false,
       "ra_pick": false,
@@ -9334,7 +9432,7 @@
       "date": "2026-06-20",
       "start": "2026-06-20T13:00:00.000",
       "venue": "The Broad",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -9355,11 +9453,12 @@
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-19",
       "genre": null,
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-20",
       "is_past": false
@@ -9517,99 +9616,11 @@
       "is_past": false
     },
     {
-      "title": "Higher Grooves Rooftop Party",
-      "date": "2026-06-20",
-      "start": "2026-06-20T19:00:00.000",
-      "venue": "The Broken Shaker Los Angeles",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 33,
-      "price": "free",
-      "organizers": "Made To Move",
-      "detail": null,
-      "lineup": [
-        "No Pressure"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2465956"
-        },
-        {
-          "source": "19hz",
-          "url": "https://www.instagram.com/madetomovela/"
-        }
-      ],
-      "sources": [
-        "ra",
-        "19hz"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-19",
-      "genre": null,
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "Disco Decadance: Benny Jets, Dirtie Blonde, E-Mood, Lillyanne, Michelle Leshem, Shaade",
-      "date": "2026-06-20",
-      "start": "2026-06-20T19:00:00.000",
-      "venue": "Apotheke",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 8,
-      "price": "free",
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "Dirtie Blonde",
-        "E-Mood",
-        "Michelle Leshem"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2461362"
-        },
-        {
-          "source": "19hz",
-          "url": "https://resy.com/cities/los-angeles-ca/venues/apotheke-la?date=2026-06-20&seats=2"
-        }
-      ],
-      "sources": [
-        "19hz",
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-19",
-      "genre": null,
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
       "title": "KCRW Summer Nights with CAAM",
       "date": "2026-06-20",
       "start": "2026-06-20T19:00:00.000",
       "venue": "California African American Museum",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Exposition Park",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -9880,7 +9891,7 @@
       "date": "2026-06-20",
       "start": "2026-06-20T22:00:00.000",
       "venue": "Homage Brewing",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Pomona",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -10763,7 +10774,7 @@
       "date": "2026-06-20",
       "start": "5pm-3am",
       "venue": "630 S Anderson St (Los Angeles) techno, electro",
-      "neighborhood": null,
+      "neighborhood": "Boyle Heights",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -10834,7 +10845,7 @@
       "date": "2026-06-20",
       "start": "9pm",
       "venue": "Deep End Live (Redondo Beach) deep house, tech house, progressive house",
-      "neighborhood": null,
+      "neighborhood": "Redondo Beach",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -11894,7 +11905,7 @@
       "date": "2026-06-20",
       "start": "1pm-5pm",
       "venue": "The Broad (Los Angeles) hip-hop, house",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -11915,11 +11926,12 @@
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-19",
       "genre": null,
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
         "+3 electronic (high interest)",
         "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
         "-2 hip-hop"
       ],
       "iso_date": "2026-06-20",
@@ -13746,7 +13758,7 @@
       "date": "2026-06-21",
       "start": "02:00",
       "venue": "Elysian park",
-      "neighborhood": null,
+      "neighborhood": "Elysian Park",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -14140,6 +14152,41 @@
       "is_past": false
     },
     {
+      "title": "KCRW & The Broad present Family Field Day: Come Play Multiform",
+      "date": "2026-06-21",
+      "start": "2026-06-21T13:00:00.000",
+      "venue": "The Broad",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 2,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2450031"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-19",
+      "genre": null,
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-21",
+      "is_past": false
+    },
+    {
       "title": "Day Trip In The Park LA: Cassian, Kamino, Millero, LUMI",
       "date": "2026-06-21",
       "start": "2026-06-21T14:00:00.000",
@@ -14235,7 +14282,7 @@
       "date": "2026-06-21",
       "start": "2026-06-21T18:30:00.000",
       "venue": "Los Angeles County Museum of Art",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Miracle Mile",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -14294,6 +14341,42 @@
       ],
       "sources": [
         "ra"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-19",
+      "genre": null,
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-21",
+      "is_past": false
+    },
+    {
+      "title": "Heaven Sent: 99% angel, Errol Bangz, Liano, DJ Sol Forreal",
+      "date": "2026-06-21",
+      "start": "2026-06-21T21:00:00.000",
+      "venue": "General Lee's Cocktail House",
+      "neighborhood": "Chinatown",
+      "category": "electronic",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": 5,
+      "price": "free",
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2468901"
+        }
+      ],
+      "sources": [
+        "ra",
+        "19hz"
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-19",
@@ -14392,7 +14475,7 @@
       "date": "2026-06-21",
       "start": "18:00",
       "venue": "Apotheke",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Chinatown",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -14415,11 +14498,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove"
+        "+1 rooftop / vinyl / groove",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-21",
       "is_past": false
@@ -14532,7 +14616,7 @@
       "date": "2026-06-21",
       "start": "4:30pm-9pm",
       "venue": "Dream Rooftop (Los Angeles) deep house, funky house",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -14592,6 +14676,40 @@
       "reasons": [
         "+3 electronic (high interest)",
         "+1 rooftop / vinyl / groove"
+      ],
+      "iso_date": "2026-06-21",
+      "is_past": false
+    },
+    {
+      "title": "Cascading Dissonance Send Off! Shin Chida, Joseph Hammer, Small Drone Orchestra, Sobbing Honey",
+      "date": "2026-06-21",
+      "start": "8pm",
+      "venue": "Coaxial (Los Angeles) drone, tape music, ambient",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "genre": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "19hz",
+          "url": "https://pools.events/t/ctlxe14n"
+        }
+      ],
+      "sources": [
+        "19hz"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": "$12",
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-21",
       "is_past": false
@@ -15435,45 +15553,11 @@
       "is_past": false
     },
     {
-      "title": "KCRW & The Broad present Family Field Day: Come Play Multiform",
-      "date": "2026-06-21",
-      "start": "2026-06-21T13:00:00.000",
-      "venue": "The Broad",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 2,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2450031"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-19",
-      "genre": null,
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-21",
-      "is_past": false
-    },
-    {
       "title": "Electronic Music: Pattern, The Phantom Train, CG Prod, Gustavisimo, Piera, Humongous Frog, Mort Solar",
       "date": "2026-06-21",
       "start": "2026-06-21T19:00:00.000",
       "venue": "Old Towne Pub",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Pasadena",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -15499,41 +15583,6 @@
       "sources": [
         "19hz",
         "ra"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-19",
-      "genre": null,
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-21",
-      "is_past": false
-    },
-    {
-      "title": "Heaven Sent: 99% angel, Errol Bangz, Liano, DJ Sol Forreal",
-      "date": "2026-06-21",
-      "start": "2026-06-21T21:00:00.000",
-      "venue": "General Lee's Cocktail House",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": 5,
-      "price": "free",
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2468901"
-        }
-      ],
-      "sources": [
-        "ra",
-        "19hz"
       ],
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-19",
@@ -16074,7 +16123,7 @@
       "date": "2026-06-21",
       "start": "3pm-10pm",
       "venue": "630 S Anderson Street (Los Angeles) hip-hop, r&b, house, disco, afrobeats",
-      "neighborhood": null,
+      "neighborhood": "Boyle Heights",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -16163,39 +16212,6 @@
       "organizers": "Night Access",
       "detail": null,
       "price": "$23.18+",
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-21",
-      "is_past": false
-    },
-    {
-      "title": "Cascading Dissonance Send Off! Shin Chida, Joseph Hammer, Small Drone Orchestra, Sobbing Honey",
-      "date": "2026-06-21",
-      "start": "8pm",
-      "venue": "Coaxial (Los Angeles) drone, tape music, ambient",
-      "neighborhood": null,
-      "category": "electronic",
-      "genre": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "19hz",
-          "url": "https://pools.events/t/ctlxe14n"
-        }
-      ],
-      "sources": [
-        "19hz"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": "$12",
       "ra_pick": false,
       "afterhours": false,
       "first_seen": "2026-06-19",
@@ -17356,7 +17372,7 @@
       "date": "2026-06-22",
       "start": "19:30:00",
       "venue": "The Ford - CA",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "music",
       "afterhours": false,
       "ra_pick": false,
@@ -21021,7 +21037,7 @@
       "date": "2026-06-25",
       "start": "2026-06-25T18:00:00.000",
       "venue": "Hotel Ziggy",
-      "neighborhood": null,
+      "neighborhood": "West Hollywood",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -21702,6 +21718,44 @@
       "reasons": [
         "+3 electronic (high interest)",
         "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-26",
+      "is_past": false
+    },
+    {
+      "title": "Amore Disco Pride Edition",
+      "date": "2026-06-26",
+      "start": "21:30",
+      "venue": "Apotheke",
+      "neighborhood": "Chinatown",
+      "category": "electronic",
+      "genre": null,
+      "lineup": [
+        "Aiden Ramos"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2471892"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 rooftop / vinyl / groove",
         "+1 Friday/Saturday night",
         "+1 close to Silver Lake"
       ],
@@ -22763,7 +22817,7 @@
       "date": "2026-06-26",
       "start": "2026-06-26T22:00:00-07:00",
       "venue": "Kiss Kiss Bang Bang",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -23059,7 +23113,7 @@
       "date": "2026-06-26",
       "start": "5pm-2am",
       "venue": "The Compound By Dirt Dog (Commerce) tech house, latin house, techno, EDM",
-      "neighborhood": null,
+      "neighborhood": "Commerce",
       "category": "electronic",
       "afterhours": true,
       "ra_pick": false,
@@ -23095,7 +23149,7 @@
       "date": "2026-06-26",
       "start": "7:30pm",
       "venue": "Coaxial (Los Angeles) live electronic, beats, noise",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "afterhours": false,
       "ra_pick": false,
@@ -23116,11 +23170,12 @@
       "first_seen": "2026-06-16",
       "last_seen": "2026-06-19",
       "genre": null,
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-26",
       "is_past": false
@@ -23230,43 +23285,6 @@
         "+2 music (medium interest)",
         "+1 Friday/Saturday night",
         "+1 close to Silver Lake"
-      ],
-      "iso_date": "2026-06-26",
-      "is_past": false
-    },
-    {
-      "title": "Amore Disco Pride Edition",
-      "date": "2026-06-26",
-      "start": "21:30",
-      "venue": "Apotheke",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "genre": null,
-      "lineup": [
-        "Aiden Ramos"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2471892"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
       ],
       "iso_date": "2026-06-26",
       "is_past": false
@@ -26331,7 +26349,7 @@
       "date": "2026-06-27",
       "start": "20:00",
       "venue": "Homage Brewing",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Pomona",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -26590,7 +26608,7 @@
       "date": "2026-06-27",
       "start": "13:00",
       "venue": "The Broad",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -26610,11 +26628,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-27",
       "is_past": false
@@ -26658,7 +26677,7 @@
       "date": "2026-06-27",
       "start": "21:00",
       "venue": "The Bullet Bar",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "North Hollywood",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -27573,7 +27592,7 @@
       "date": "2026-06-27",
       "start": "15:00",
       "venue": "GLORIA MOLINA GRAND PARK",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "party",
       "genre": null,
       "lineup": [],
@@ -27593,11 +27612,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 party (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-27",
       "is_past": false
@@ -28547,7 +28567,7 @@
       "date": "2026-06-27",
       "start": "21:00",
       "venue": "Pershing Square",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "Undefined",
       "genre": null,
       "lineup": [
@@ -28572,11 +28592,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
         "+1 undefined (low interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-27",
       "is_past": false
@@ -28693,7 +28714,7 @@
       "date": "2026-06-27",
       "start": "7pm",
       "venue": "Coaxial (Los Angeles) live electronic, leftfield, hip-hop, hyperpop, ambient, breaks, IDM",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -28713,11 +28734,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
         "+3 electronic (high interest)",
         "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
         "-2 hip-hop"
       ],
       "iso_date": "2026-06-27",
@@ -29575,7 +29597,7 @@
       "date": "2026-06-27",
       "start": "9pm-3am",
       "venue": "2909 Supply Ave (Commerce) dubstep, trap, hardstyle",
-      "neighborhood": null,
+      "neighborhood": "Commerce",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -29712,6 +29734,40 @@
       "reasons": [
         "+3 electronic (high interest)",
         "+1 rooftop / vinyl / groove",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-06-28",
+      "is_past": false
+    },
+    {
+      "title": "KCRW & The Broad present Family Field Day: Come Play Multiform",
+      "date": "2026-06-28",
+      "start": "13:00",
+      "venue": "The Broad",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "genre": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2450043"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
         "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-28",
@@ -29860,7 +29916,7 @@
       "date": "2026-06-28",
       "start": "6pm-12am",
       "venue": "630 South Anderson Street (Los Angeles) tech house, deep house, minimal",
-      "neighborhood": null,
+      "neighborhood": "Boyle Heights",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -30138,7 +30194,7 @@
       "date": "2026-06-28",
       "start": "19:30",
       "venue": "Dream Rooftop",
-      "neighborhood": null,
+      "neighborhood": "Hollywood",
       "category": "party",
       "genre": null,
       "lineup": [],
@@ -31360,39 +31416,6 @@
       "is_past": false
     },
     {
-      "title": "KCRW & The Broad present Family Field Day: Come Play Multiform",
-      "date": "2026-06-28",
-      "start": "13:00",
-      "venue": "The Broad",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "genre": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2450043"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)"
-      ],
-      "iso_date": "2026-06-28",
-      "is_past": false
-    },
-    {
       "title": "James Hype",
       "date": "2026-06-28",
       "start": "10pm-2am",
@@ -31534,7 +31557,7 @@
       "date": "2026-06-28",
       "start": "19:00",
       "venue": "Harvard and Stone",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "East Hollywood",
       "category": "general",
       "genre": null,
       "lineup": [],
@@ -31554,11 +31577,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
         "+1 general (low interest)",
-        "+1 rooftop / vinyl / groove"
+        "+1 rooftop / vinyl / groove",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-06-28",
       "is_past": false
@@ -35673,45 +35697,6 @@
       "is_past": false
     },
     {
-      "title": "INFIERNO: 4TH OF JULY with Robertitx + Pondi Map",
-      "date": "2026-07-03",
-      "start": "22:00",
-      "venue": "Que Sera",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "genre": null,
-      "lineup": [
-        "Robertitx",
-        "Pondi Map",
-        "Diablito"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2464765"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": true,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-07-03",
-      "is_past": false
-    },
-    {
       "title": "FLOAT: Road to Campout feat. Sacha Robotti & Ardalan",
       "date": "2026-07-03",
       "start": "14:00",
@@ -35759,7 +35744,7 @@
       "date": "2026-07-03",
       "start": "16:00",
       "venue": "TBA - 624 S Anderson St.",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Boyle Heights",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -35879,7 +35864,7 @@
       "date": "2026-07-03",
       "start": "15:00",
       "venue": "Hotel Ziggy",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -35916,7 +35901,7 @@
       "date": "2026-07-03",
       "start": "22:00",
       "venue": "Townhouse",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Venice",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -36056,7 +36041,7 @@
       "date": "2026-07-03",
       "start": "4pm-10pm",
       "venue": "624 S Anderson St (Los Angeles) tech house, techno",
-      "neighborhood": null,
+      "neighborhood": "Boyle Heights",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -36090,7 +36075,7 @@
       "date": "2026-07-03",
       "start": "7pm",
       "venue": "Coaxial (Los Angeles) ambient, live electronic, experimental, tape music",
-      "neighborhood": null,
+      "neighborhood": "DTLA",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -36110,11 +36095,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-07-03",
       "is_past": false
@@ -36264,7 +36250,7 @@
       "date": "2026-07-03",
       "start": "22:00",
       "venue": "Kiss Kiss Bang Bang",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -36589,6 +36575,46 @@
       "reasons": [
         "+1 arts & theatre (low interest)",
         "+1 Friday/Saturday night"
+      ],
+      "iso_date": "2026-07-03",
+      "is_past": false
+    },
+    {
+      "title": "INFIERNO: 4TH OF JULY with Robertitx + Pondi Map",
+      "date": "2026-07-03",
+      "start": "22:00",
+      "venue": "Que Sera",
+      "neighborhood": "Long Beach",
+      "category": "electronic",
+      "genre": null,
+      "lineup": [
+        "Robertitx",
+        "Pondi Map",
+        "Diablito"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2464765"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": true,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "score": 3,
+      "rating": 2,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "-2 far from LA"
       ],
       "iso_date": "2026-07-03",
       "is_past": false
@@ -37137,7 +37163,7 @@
       "date": "2026-07-03",
       "start": "7pm-2am",
       "venue": "The Champion 39400 Murrieta Hot Springs Rd STE 123A (Murrieta) dubstep, bass music, riddim, open decks",
-      "neighborhood": null,
+      "neighborhood": "Murrieta",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -37290,7 +37316,7 @@
       "date": "2026-07-04",
       "start": "22:00",
       "venue": "Kiss Kiss Bang Bang",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -37740,7 +37766,7 @@
       "date": "2026-07-04",
       "start": "13:00",
       "venue": "White Rabbit Sky Lounge at The Valorian (Formerly Skybar at Mondrian)",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -37771,11 +37797,48 @@
       "is_past": false
     },
     {
+      "title": "AREA CODES: 2000's Hip Hop POOL PARTY & BBQ [Independence Day]",
+      "date": "2026-07-04",
+      "start": "13:00",
+      "venue": "Hotel Figueroa",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "genre": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2467773"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 rooftop / vinyl / groove",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
+        "-2 hip hop"
+      ],
+      "iso_date": "2026-07-04",
+      "is_past": false
+    },
+    {
       "title": "July 4th Celebration: Fireworks & BBQ - West Hollywood",
       "date": "2026-07-04",
       "start": "20:00",
       "venue": "White Rabbit Sky Lounge at The Valorian (Formerly Skybar at Mondrian)",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "West Hollywood",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -38279,42 +38342,6 @@
       "is_past": false
     },
     {
-      "title": "AREA CODES: 2000's Hip Hop POOL PARTY & BBQ [Independence Day]",
-      "date": "2026-07-04",
-      "start": "13:00",
-      "venue": "Hotel Figueroa",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "genre": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2467773"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night",
-        "-2 hip hop"
-      ],
-      "iso_date": "2026-07-04",
-      "is_past": false
-    },
-    {
       "title": "Katalyst (Monthly Residency)",
       "date": "2026-07-04",
       "start": "20:00",
@@ -38656,7 +38683,7 @@
       "date": "2026-07-05",
       "start": "15:00",
       "venue": "The Broken Shaker Los Angeles",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -38678,11 +38705,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove"
+        "+1 rooftop / vinyl / groove",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-07-05",
       "is_past": false
@@ -38901,7 +38929,7 @@
       "date": "2026-07-05",
       "start": "01:00",
       "venue": "Los Angeles Memorial Coliseum",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Exposition Park",
       "category": "Music",
       "genre": "Country",
       "lineup": [
@@ -42308,7 +42336,7 @@
       "date": "2026-07-11",
       "start": "17:00",
       "venue": "1756 Naud St.",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Chinatown",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -42330,11 +42358,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-07-11",
       "is_past": false
@@ -43633,7 +43662,7 @@
       "date": "2026-07-12",
       "start": "15:00",
       "venue": "TBA - 624 S Anderson St Los Angeles CA 90023",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Boyle Heights",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -43669,7 +43698,7 @@
       "date": "2026-07-12",
       "start": "17:00",
       "venue": "1756 Naud St.",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Chinatown",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -43691,11 +43720,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove"
+        "+1 rooftop / vinyl / groove",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-07-12",
       "is_past": false
@@ -44358,7 +44388,7 @@
       "date": "2026-07-12",
       "start": "22:00",
       "venue": "BMO Stadium",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Exposition Park",
       "category": "Music",
       "genre": "Latin",
       "lineup": [
@@ -44437,7 +44467,7 @@
       "date": "2026-07-12",
       "start": "19:00",
       "venue": "Old Towne Pub",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Pasadena",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -47419,7 +47449,7 @@
       "date": "2026-07-17",
       "start": "21:00",
       "venue": "The Compound by Dirt Dog",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Commerce",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -48224,7 +48254,7 @@
       "date": "2026-07-18",
       "start": "22:00",
       "venue": "Kiss Kiss Bang Bang",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -48707,7 +48737,7 @@
       "date": "2026-07-18",
       "start": "17:30",
       "venue": "The Glass House",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Pomona",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -49184,7 +49214,7 @@
       "date": "2026-07-18",
       "start": "02:30",
       "venue": "Palace Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "Arts & Theatre",
       "genre": "Theatre",
       "lineup": [
@@ -49206,11 +49236,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
         "+1 arts & theatre (low interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-07-18",
       "is_past": false
@@ -49296,7 +49327,7 @@
       "date": "2026-07-18",
       "start": "03:00",
       "venue": "The Ford - CA",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "Arts & Theatre",
       "genre": "Miscellaneous",
       "lineup": [
@@ -50837,7 +50868,7 @@
       "date": "2026-07-19",
       "start": "03:00",
       "venue": "Dodger Stadium",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Elysian Park",
       "category": "Music",
       "genre": "Latin",
       "lineup": [
@@ -52050,7 +52081,7 @@
       "date": "2026-07-20",
       "start": "02:30",
       "venue": "The Ford - CA",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "Music",
       "genre": null,
       "lineup": [
@@ -53781,7 +53812,7 @@
       "date": "2026-07-24",
       "start": "21:00",
       "venue": "Homage Brewing",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Pomona",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -58559,6 +58590,45 @@
       "is_past": false
     },
     {
+      "title": "SEBASTIANE",
+      "date": "2026-07-31",
+      "start": "22:00",
+      "venue": "Akbar",
+      "neighborhood": "Silver Lake",
+      "category": "electronic",
+      "genre": null,
+      "lineup": [
+        "Sindri",
+        "Mondo Nexus"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2471583"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": true,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 afterhours / late start",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-07-31",
+      "is_past": false
+    },
+    {
       "title": "Mella: Or So We've Been Touring w/ support from Body Thief & Postdrome",
       "date": "2026-07-31",
       "start": "01:30",
@@ -58744,44 +58814,6 @@
         "+2 music (medium interest)",
         "+1 Friday/Saturday night",
         "+1 close to Silver Lake"
-      ],
-      "iso_date": "2026-07-31",
-      "is_past": false
-    },
-    {
-      "title": "SEBASTIANE",
-      "date": "2026-07-31",
-      "start": "22:00",
-      "venue": "Akbar",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "genre": null,
-      "lineup": [
-        "Sindri",
-        "Mondo Nexus"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2471583"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": true,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 afterhours / late start",
-        "+1 Friday/Saturday night"
       ],
       "iso_date": "2026-07-31",
       "is_past": false
@@ -59348,7 +59380,7 @@
       "date": "2026-08-01",
       "start": "22:00",
       "venue": "Kiss Kiss Bang Bang",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -65377,7 +65409,7 @@
       "date": "2026-08-08",
       "start": "03:00",
       "venue": "The Ford - CA",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "Music",
       "genre": "Country",
       "lineup": [
@@ -67409,7 +67441,7 @@
       "date": "2026-08-10",
       "start": "03:00",
       "venue": "The Pico Union Project",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Pico-Union",
       "category": "Music",
       "genre": "Classical",
       "lineup": [
@@ -68301,7 +68333,7 @@
       "date": "2026-08-13",
       "start": "03:00",
       "venue": "The Ford - CA",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Hollywood",
       "category": "Music",
       "genre": "Country",
       "lineup": [
@@ -68775,6 +68807,43 @@
       "is_past": false
     },
     {
+      "title": "KCON",
+      "date": "2026-08-14",
+      "start": "17:00",
+      "venue": "Los Angeles Convention Center",
+      "neighborhood": "DTLA",
+      "category": "Music",
+      "genre": null,
+      "lineup": [
+        "Kcon"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7x87e"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-08-14",
+      "is_past": false
+    },
+    {
       "title": "WORK x SKULLDUGGERY present: Alan Fitzpatrick, Anastasia Giovani, & Greg Downey",
       "date": "2026-08-14",
       "start": "23:00",
@@ -69147,42 +69216,6 @@
       "is_past": false
     },
     {
-      "title": "KCON",
-      "date": "2026-08-14",
-      "start": "17:00",
-      "venue": "Los Angeles Convention Center",
-      "neighborhood": "Los Angeles",
-      "category": "Music",
-      "genre": null,
-      "lineup": [
-        "Kcon"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7x87e"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-08-14",
-      "is_past": false
-    },
-    {
       "title": "Dwight Yoakam",
       "date": "2026-08-14",
       "start": "02:00",
@@ -69373,7 +69406,7 @@
       "date": "2026-08-15",
       "start": "22:00",
       "venue": "Kiss Kiss Bang Bang",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "electronic",
       "genre": null,
       "lineup": [],
@@ -69795,6 +69828,43 @@
         {
           "source": "ticketmaster",
           "url": "https://www.ticketmaster.com/xkylar-los-angeles-california-08-14-2026/event/090064C9C40E1A9D"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-08-15",
+      "is_past": false
+    },
+    {
+      "title": "KCON",
+      "date": "2026-08-15",
+      "start": "17:00",
+      "venue": "Los Angeles Convention Center",
+      "neighborhood": "DTLA",
+      "category": "Music",
+      "genre": null,
+      "lineup": [
+        "Kcon"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7xe_p"
         }
       ],
       "sources": [
@@ -70385,42 +70455,6 @@
         {
           "source": "ticketmaster",
           "url": "https://www.ticketmaster.com/flamingo-friday-cabazon-california-08-14-2026/event/090064A2F3B03ACD"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-08-15",
-      "is_past": false
-    },
-    {
-      "title": "KCON",
-      "date": "2026-08-15",
-      "start": "17:00",
-      "venue": "Los Angeles Convention Center",
-      "neighborhood": "Los Angeles",
-      "category": "Music",
-      "genre": null,
-      "lineup": [
-        "Kcon"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7xe_p"
         }
       ],
       "sources": [
@@ -71331,7 +71365,7 @@
       "date": "2026-08-16",
       "start": "17:00",
       "venue": "Los Angeles Convention Center",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "Music",
       "genre": null,
       "lineup": [
@@ -71353,10 +71387,11 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-08-16",
       "is_past": false
@@ -79478,7 +79513,7 @@
       "date": "2026-08-31",
       "start": "01:00",
       "venue": "BMO Stadium",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Exposition Park",
       "category": "Music",
       "genre": "Rock",
       "lineup": [
@@ -83861,7 +83896,7 @@
       "date": "2026-09-11",
       "start": "03:00",
       "venue": "The Pico Union Project",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Pico-Union",
       "category": "Music",
       "genre": "R&B",
       "lineup": [
@@ -84282,7 +84317,7 @@
       "date": "2026-09-12",
       "start": "17:00",
       "venue": "California Plaza",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -84306,11 +84341,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-09-12",
       "is_past": false
@@ -85624,7 +85660,7 @@
       "date": "2026-09-18",
       "start": "02:00",
       "venue": "Wilshire Ebell Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "Arts & Theatre",
       "genre": "Theatre",
       "lineup": [
@@ -85771,7 +85807,7 @@
       "date": "2026-09-19",
       "start": "22:00",
       "venue": "Kiss Kiss Bang Bang",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Koreatown",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -85882,7 +85918,7 @@
       "date": "2026-09-19",
       "start": "02:00",
       "venue": "Wilshire Ebell Theatre",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Mid-Wilshire",
       "category": "Arts & Theatre",
       "genre": "Theatre",
       "lineup": [
@@ -87305,6 +87341,44 @@
       "is_past": false
     },
     {
+      "title": "Factory 93 presents: Amelie Lens at Grand Park Block 2",
+      "date": "2026-09-26",
+      "start": "17:00",
+      "venue": "Grand Park",
+      "neighborhood": "DTLA",
+      "category": "electronic",
+      "genre": null,
+      "lineup": [
+        "Amelie Lens"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2400834"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": true,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 RA pick",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-09-26",
+      "is_past": false
+    },
+    {
       "title": "Rich Medina: HOME (All Night Set) House, Rare Groove, Garage Classics",
       "date": "2026-09-26",
       "start": "22:00",
@@ -87337,43 +87411,6 @@
         "+3 electronic (high interest)",
         "+1 afterhours / late start",
         "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-09-26",
-      "is_past": false
-    },
-    {
-      "title": "Factory 93 presents: Amelie Lens at Grand Park Block 2",
-      "date": "2026-09-26",
-      "start": "17:00",
-      "venue": "Grand Park",
-      "neighborhood": "Los Angeles",
-      "category": "electronic",
-      "genre": null,
-      "lineup": [
-        "Amelie Lens"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2400834"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": true,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 RA pick",
         "+1 Friday/Saturday night"
       ],
       "iso_date": "2026-09-26",
@@ -88496,7 +88533,7 @@
       "date": "2026-10-03",
       "start": "15:00",
       "venue": "Pershing Square",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -88518,11 +88555,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-10-03",
       "is_past": false
@@ -88532,7 +88570,7 @@
       "date": "2026-10-03",
       "start": "19:00",
       "venue": "The Forum",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "Inglewood",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -89703,7 +89741,7 @@
       "date": "2026-10-10",
       "start": "13:00",
       "venue": "California Plaza",
-      "neighborhood": "Los Angeles",
+      "neighborhood": "DTLA",
       "category": "electronic",
       "genre": null,
       "lineup": [
@@ -89729,11 +89767,12 @@
       "afterhours": false,
       "first_seen": "2026-06-19",
       "last_seen": "2026-06-19",
-      "score": 4,
+      "score": 5,
       "rating": 3,
       "reasons": [
         "+3 electronic (high interest)",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-10-10",
       "is_past": false

@@ -41,17 +41,19 @@ DEFAULT_NEIGHBORHOODS = {
     "eagle rock": (34.1397, -118.2120), "glassell park": (34.1110, -118.2270),
     "cypress park": (34.0940, -118.2240), "mount washington": (34.1110, -118.2150),
     "lincoln heights": (34.0700, -118.2090), "chinatown": (34.0640, -118.2370),
-    "boyle heights": (34.0337, -118.2100),
+    "boyle heights": (34.0337, -118.2100), "elysian park": (34.0782, -118.2480),
     # SGV (major dining region just east)
     "alhambra": (34.0953, -118.1270), "san gabriel": (34.0961, -118.1058),
     "monterey park": (34.0625, -118.1228), "arcadia": (34.1397, -118.0353),
     "rosemead": (34.0805, -118.0728), "rowland heights": (33.9762, -117.9053),
+    "commerce": (34.0006, -118.1597),
     # downtown core
     "dtla": (34.0440, -118.2510), "downtown": (34.0440, -118.2510),
     "downtown la": (34.0440, -118.2510), "arts district": (34.0410, -118.2330),
     "historic filipinotown": (34.0640, -118.2790), "westlake": (34.0590, -118.2790),
     "koreatown": (34.0580, -118.3000), "ktown": (34.0580, -118.3000),
-    "university park": (34.0250, -118.2840),
+    "university park": (34.0250, -118.2840), "exposition park": (34.0160, -118.2880),
+    "pico union": (34.0494, -118.2826),
     # central / mid-city / hollywood
     "hollywood": (34.1016, -118.3267), "west hollywood": (34.0900, -118.3850),
     "weho": (34.0900, -118.3850), "mid-city": (34.0480, -118.3500),
@@ -127,6 +129,26 @@ DEFAULT_VENUES = {
     "the airliner": "lincoln heights", "airliner": "lincoln heights",
     "blind barber": "culver city", "pacific electric": "dtla",
     "roosevelt hotel": "hollywood", "hollywood roosevelt": "hollywood",
+    # Round 2 — web-verified the uncertain ones (KKBB, Apotheke, Homage, ...).
+    "los angeles convention center": "dtla", "pershing square": "dtla",
+    "california plaza": "dtla", "grand park": "dtla", "palace theatre": "dtla",
+    "hotel figueroa": "dtla", "broken shaker": "dtla", "the broad": "dtla",
+    "coaxial": "dtla", "anderson st": "boyle heights",
+    "los angeles county museum of art": "miracle mile", "lacma": "miracle mile",
+    "wilshire ebell": "mid-wilshire", "akbar": "silver lake", "que sera": "long beach",
+    "the forum": "inglewood", "kia forum": "inglewood", "the glass house": "pomona",
+    "old towne pub": "pasadena", "old town pub": "pasadena", "townhouse": "venice",
+    "the bullet bar": "north hollywood", "hotel ziggy": "west hollywood",
+    "white rabbit sky lounge": "west hollywood", "the valorian": "west hollywood",
+    "harvard and stone": "east hollywood", "general lee": "chinatown",
+    "apotheke": "chinatown", "kiss kiss bang bang": "koreatown",
+    "homage brewing": "pomona", "dirt dog": "commerce", "dream rooftop": "hollywood",
+    "bmo stadium": "exposition park", "memorial coliseum": "exposition park",
+    "los angeles memorial coliseum": "exposition park",
+    "california african american museum": "exposition park",
+    "pico union project": "pico union", "dodger stadium": "elysian park",
+    "ford ca": "hollywood", "ford theatre": "hollywood", "ford theatres": "hollywood",
+    "naud st": "chinatown",
 }
 
 # Generic, non-neighborhood location strings. These get UPGRADED to a real neighborhood
@@ -148,6 +170,7 @@ NEIGHBORHOOD_DISPLAY = {
     "silverlake": "Silver Lake", "atwater": "Atwater Village",
     "mid city": "Mid-City", "mid wilshire": "Mid-Wilshire", "west la": "West LA",
     "nela": "Northeast LA", "historic filipinotown": "Historic Filipinotown",
+    "pico union": "Pico-Union",
 }
 
 # Cities outside LA that may appear in a venue parenthetical ("Eq (San Diego)"). An
@@ -158,6 +181,7 @@ NON_LA_CITIES = {
     "newport beach", "palm desert", "palm springs", "pioneertown", "cabazon", "ojai",
     "brea", "ontario", "fontana", "cerritos", "pico rivera", "rowland heights",
     "yucaipa", "thousand oaks", "san francisco", "oakland", "las vegas", "tijuana",
+    "redondo beach", "westminster", "murrieta",
 }
 
 DEFAULT_TRAVEL = {

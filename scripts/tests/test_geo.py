@@ -132,9 +132,8 @@ def test_canonical_location_neighborhood_embedded_in_venue():
     assert geo.canonical_location("TBA - DTLA Warehouse", "Los Angeles", PROFILE) == "DTLA"
     assert geo.canonical_location("TBA - Downtown LA", None, PROFILE) == "DTLA"
     assert geo.canonical_location("Pacific Electric", "Los Angeles", PROFILE) == "DTLA"
-    # The >=4 token guard must NOT mistake "broadway" for the "broad"-less... (no such hood),
-    # nor map a generic Broadway venue — it stays city-level.
-    assert geo.canonical_location("Broadway Theater", "Los Angeles", PROFILE) == "Los Angeles"
+    # The single-word-hood token guard: a hood name embedded mid-word must NOT match.
+    assert geo.canonical_location("Veniceland Arcade", "Los Angeles", PROFILE) == "Los Angeles"
 
 
 def test_canonical_location_collapses_or_keeps_blank():
