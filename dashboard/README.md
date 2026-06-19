@@ -57,6 +57,28 @@ The chat has two modes, toggled in its header (default **Concierge**):
 copies it; you paste it into Claude Code, which proposes sources — approval still happens in the
 repo). Nothing is auto-written to `sources.yaml`.
 
+## Profiles (per-person taste)
+
+The **"prof"** link in the footer opens a popup: type a username and the page loads that person's
+taste profile + digest. It works by hashing the username (SHA-256, salt `la-events/v1:`) and
+fetching `data.<hash>.json` — the per-profile feed built by `scripts/build_profiles.py`. Blank or
+unknown stays on the default (Ari's) feed; "log out" returns to it. The active profile persists in
+localStorage.
+
+Profiles are **hand-authored** in the repo (a few friends, not open signup):
+
+```bash
+mkdir -p profiles/<name> && cp profiles/demo/taste.yaml profiles/<name>/taste.yaml  # then edit
+#  add an entry to profiles.yaml (username = the key they type; name = display name)
+python scripts/build_profiles.py            # rebuilds data.json + every profile feed
+#  commit the new dashboard/data.<hash>.json (the whole dashboard/ folder is published)
+```
+
+**This is obfuscation, not security:** the username is a public, guessable-if-known bearer key,
+and each feed file is publicly fetchable. Fine for a small group — pick non-obvious usernames.
+Not yet wired (deferred phases, see ROADMAP): per-profile *digest generation*, per-profile
+concierge key-choice, and per-profile Spotify.
+
 ## Use it
 
 ```bash

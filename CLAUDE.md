@@ -60,6 +60,8 @@ unless special) + `restaurants_loved`; ranking honors it.
 sources.yaml                        # events source registry — schema in file header
 dining-sources.yaml                 # dining source registry — schema in file header
 taste.yaml                          # events ranking config — user-editable, re-read each run
+profiles.yaml                       # per-person taste registry for the dashboard profile-switcher (schema in header)
+profiles/<name>/taste.yaml          # a friend's hand-authored taste profile (build_profiles.py emits their feed)
 dining-taste.yaml                   # food-taste config — minimal, learns from reactions
 festivals.yaml                      # "on the radar" curated festivals/big-shows + live lookups
 recurring.yaml                      # predictable recurring markets/fleas/farmers markets
@@ -76,6 +78,7 @@ scripts/fetch_*.py                  # 11 source fetchers (run BY run_digest, or 
                                     #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld
 scripts/fetch_spotify.py            # Phase C: Spotify sync (SPOTIFY_* creds) → data/spotify_affinity.json
 scripts/build_dashboard.py          # builds dashboard/data.json from catalog + taste.yaml + profile.yaml
+scripts/build_profiles.py           # per-profile dashboard feeds (data.<hash>.json) — reuses build_dashboard's scorer
 data/catalog.json                   # deduped events store (committed = the state)
 data/candidates.json                # scored, ranked top-N for enrichment (runtime; gitignored)
 data/enrichment.json                # scene-graph cache: per-event enrichment + artist notes (committed; grows each run)

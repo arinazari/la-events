@@ -216,6 +216,19 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
 - **Remaining (the upgrade, not blocking):** stand up that backend + choose **auth** (shared token
   vs Cloudflare Access — "private to Ari + friends"); optional streaming + auto-commit of plans.
   Public/unlisted Pages + Fast-filter fallback is fine until then (catalog = public events).
+- [x] **Profiles — per-person taste switcher (2026-06-19)** — a "prof" link (footer) opens a popup;
+  a friend types a username (acts as the key) → the page SHA-256s it (salt `la-events/v1:`, same as
+  `scripts/build_profiles.py`) and loads that profile's feed `dashboard/data.<hash>.json` (its own
+  taste + digest). Profiles are **hand-authored** in the repo: `profiles/<name>/taste.yaml` + an entry
+  in `profiles.yaml`; `build_profiles.py` emits each feed reusing `build_dashboard.py`'s scorer (so a
+  profile's ranking can't drift from the digest). Blank/unknown stays on the default (Ari's) feed.
+  **Obfuscation, not security** — usernames are publicly-fetchable bearer keys (fine for a few friends).
+  Remaining phases (deferred, Ari's call): (a) **per-profile digest *generation*** (routine loop +
+  workflow staging `digests/<hash>/latest.md`; the page already switches to it, else shows a placeholder);
+  (b) **concierge per-profile** (gate the Worker on a valid profile + "use host key or your own");
+  (c) **per-profile Spotify** (web OAuth + Worker KV token storage + per-profile affinity sync). Profiles
+  re-rank the *same* catalog (sourced to Ari's taste), so full personalization eventually wants
+  per-profile source coverage too.
 - **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
 - [x] **Front end swapped to the design-tool UI (2026-06-18, branch `claude/exciting-feynman-v6vqo6`)** —
   the hand-written 3-view app was replaced by Ari's uploaded design (a single `dashboard/index.html` +

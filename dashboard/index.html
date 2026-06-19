@@ -354,12 +354,32 @@
     <footer style="flex:none; padding:9px 22px; border-top:1px solid #d9d7cf; background:#f4f3ef; display:flex; align-items:center; justify-content:space-between; gap:16px; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; letter-spacing:0.02em;">
       <span><span style="color:#3f3d36; font-weight:600;">{{ shownCount }}</span> shown · <span style="color:#3f3d36; font-weight:600;">{{ totalCount }}</span> entries in catalog</span>
       <span style="display:inline-flex; align-items:center; gap:14px;">
+        <span onClick="{{ openProfile }}" title="Switch taste profile" style="display:inline-flex; align-items:center; gap:5px; cursor:pointer; padding:4px 9px; border-radius:2px; border:1px solid {{ profBorder }}; background: {{ profBg }}; color: {{ profColor }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="color:#161512;"><span style="color: {{ profDot }};">◐</span> {{ profileLabel }}</span>
         <span onClick="{{ toggleDigestPicks }}" title="Show only the digest's highlighted picks" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:4px 9px; border-radius:2px; border:1px solid {{ digestTogBorder }}; background: {{ digestTogBg }}; color: {{ digestTogColor }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="color:#161512;"><span style="color: {{ digestTogStar }};">★</span> digest picks</span>
         <sc-if value="{{ anyActive }}" hint-placeholder-val="{{ false }}">
           <span onClick="{{ onReset }}" style="cursor:pointer; color:#76746b; text-decoration:underline; text-underline-offset:2px;" style-hover="color:#161512;">reset · show all</span>
         </sc-if>
       </span>
     </footer>
+
+    <sc-if value="{{ profileOpen }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ closeProfile }}" style="position:fixed; inset:0; z-index:80; background:rgba(20,21,18,0.34);"></div>
+      <div style="position:fixed; z-index:81; top:50%; left:50%; transform:translate(-50%,-50%); width:300px; background:#fff; border:1px solid #c9c7bd; border-radius:4px; box-shadow:0 18px 50px rgba(0,0,0,0.28); padding:18px;">
+        <div style="font:600 12px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.05em; color:#2b5cd9;">PROFILE</div>
+        <div style="margin-top:8px; font-size:11.5px; line-height:1.5; color:#76746b;">Type your username to load your taste profile + digest. Blank or unknown stays on the default picks.</div>
+        <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:10px; font-size:11.5px; color:#3f3d36;">Signed in as <b>{{ profileName }}</b> · <span onClick="{{ logoutProfile }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">log out</span></div>
+        </sc-if>
+        <input value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="username" style="margin-top:12px; width:100%; box-sizing:border-box; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; padding:9px 10px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none;" style-focus="border-color:#2b5cd9;" />
+        <sc-if value="{{ profileError }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:7px; font-size:11px; color:#b4453a;">{{ profileError }}</div>
+        </sc-if>
+        <div style="display:flex; gap:6px; margin-top:14px; justify-content:flex-end;">
+          <button onClick="{{ closeProfile }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;">Close</button>
+          <button onClick="{{ submitProfile }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 14px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; cursor:pointer;">{{ profileBtnLabel }}</button>
+        </div>
+      </div>
+    </sc-if>
   </main>
 
   <!-- ===================== DIGEST MODAL ===================== -->
@@ -537,6 +557,11 @@ class Component extends DCLogic {
     discovering: false, discoverResults: null, toast: null,
     input: '',
     chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
+    profileOpen: false,
+    profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
+    profileInput: '',
+    profileError: '',
+    profileBusy: false,
     loading: false,
     messages: [
       { role: 'assistant', text: "I'm your LA concierge — ranked to your taste profile. Ask for a vibe, a night, a price, or a neighborhood and I'll pull picks (the table filters too). Want a full night out? Say “plan my Saturday — dinner then a show” and I'll fuse the catalog with the restaurant list and hand a sequenced itinerary to your Claude Code session." }
@@ -979,6 +1004,43 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     return reply;
   }
 
+  // ---------- profile switcher (per-person taste) ----------
+  // The username is hashed (same salt as scripts/build_profiles.py) to locate that profile's
+  // feed file. Friends-tool convenience layer, NOT real auth — see profiles.yaml / ROADMAP.
+  PROFILE_SALT = 'la-events/v1:';
+  profileHash(u) {
+    const data = new TextEncoder().encode(this.PROFILE_SALT + String(u).trim().toLowerCase());
+    return crypto.subtle.digest('SHA-256', data).then(buf =>
+      [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 16));
+  }
+  openProfile = () => this.setState({ profileOpen: true, profileError: '' });
+  closeProfile = () => this.setState({ profileOpen: false });
+  onProfileInput = (e) => this.setState({ profileInput: e.target.value });
+  onProfileKey = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.submitProfile(); } };
+  submitProfile = async () => {
+    const u = (this.state.profileInput || '').trim();
+    if (!u || this.state.profileBusy) return;
+    this.setState({ profileBusy: true, profileError: '' });
+    try {
+      const hash = await this.profileHash(u);
+      const res = await fetch('./data.' + hash + '.json', { cache: 'no-store' });
+      if (!res.ok) { this.setState({ profileBusy: false, profileError: 'No profile found for that username.' }); return; }
+      const raw = await res.json();
+      const name = (raw && raw.profile && raw.profile.name) || u;
+      this.setState({ profileBusy: false, profileInput: '' });
+      this.flashToast('Signed in as ' + name);
+      await this.applyProfile({ hash, name }, raw);   // reuse the feed we just fetched
+    } catch (e) { this.setState({ profileBusy: false, profileError: 'Could not load that profile.' }); }
+  };
+  logoutProfile = () => { this.flashToast('Signed out — default picks'); this.applyProfile(null); };
+  // Switch the active profile: persist it, reset the view, load that feed (+ digest).
+  async applyProfile(profileObj, raw) {
+    try { profileObj ? localStorage.setItem('la-profile', JSON.stringify(profileObj)) : localStorage.removeItem('la-profile'); } catch (e) {}
+    this.setState({ profile: profileObj, profileOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null });
+    if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
+    await this.loadDigestFor(profileObj);
+  }
+
   applySpec(spec) {
     let list = this.ALL.slice();
     const has = (a) => Array.isArray(a) && a.length > 0;
@@ -1350,33 +1412,58 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // The deployed feed is dashboard/data.json (an object with .events[]) built by
   // scripts/build_dashboard.py — scored/enriched server-side (the SAME scoring the digest
   // uses). This page is a pure viewer; it never scores. Falls back to bundled sample on miss.
-  async loadCatalog() {
-    try {
-      const res = await fetch('./data.json', { cache: 'no-store' });
-      if (!res.ok) return;
-      const raw = await res.json();
-      const arr = Array.isArray(raw) ? raw : (raw && Array.isArray(raw.events) ? raw.events : null);
-      if (!arr || arr.length === 0) return;
-      const mapped = arr.map((r, i) => this.parseEvent(r, i)).filter(Boolean);
-      if (!mapped.length) return;
-      this.ALL = mapped;
-      this.META = (raw && !Array.isArray(raw)) ? raw : {};
-      this.DINING = (this.META && Array.isArray(this.META.dining)) ? this.META.dining : [];
-      this._distinct = null;
-      this.setState({ dataSource: 'live' });
-    } catch (e) { /* keep bundled sample */ }
+  // Apply a parsed feed object (data.json shape) into the viewer. Returns true on success.
+  _applyFeed(raw) {
+    const arr = Array.isArray(raw) ? raw : (raw && Array.isArray(raw.events) ? raw.events : null);
+    if (!arr || arr.length === 0) return false;
+    const mapped = arr.map((r, i) => this.parseEvent(r, i)).filter(Boolean);
+    if (!mapped.length) return false;
+    this.ALL = mapped;
+    this.META = (raw && !Array.isArray(raw)) ? raw : {};
+    this.DINING = (this.META && Array.isArray(this.META.dining)) ? this.META.dining : [];
+    this._distinct = null;
+    this.setState({ dataSource: 'live' });
+    return true;
   }
-  async loadDigest() {
-    try {
-      const res = await fetch('./digests/latest.md', { cache: 'no-store' });
-      if (!res.ok) return;
-      const md = await res.text();
-      if (!md || md.trim().length < 20) return;
-      this.DIGEST_MD = md;
-      this.DIGEST_FILE = 'latest.md';
-      this.forceUpdate();
-    } catch (e) { /* keep bundled digest */ }
+  _tryFeed(path) {
+    return fetch(path, { cache: 'no-store' })
+      .then(res => res.ok ? res.json().then(raw => this._applyFeed(raw)) : false)
+      .catch(() => false);
   }
+  _tryDigest(path) {
+    return fetch(path, { cache: 'no-store' })
+      .then(res => res.ok ? res.text().then(md => {
+        if (!md || md.trim().length < 20) return false;
+        this.DIGEST_MD = md; this.DIGEST_FILE = 'latest.md'; this.forceUpdate(); return true;
+      }) : false)
+      .catch(() => false);
+  }
+  // Load the feed for a profile (null = default). Falls back to the default feed if a profile's
+  // file is missing (e.g. it was removed), clearing the now-stale stored profile.
+  loadFeedFor(p) {
+    const primary = (p && p.hash) ? ('./data.' + p.hash + '.json') : './data.json';
+    return this._tryFeed(primary).then(ok => {
+      if (!ok && p) return this._tryFeed('./data.json').then(() => {
+        try { localStorage.removeItem('la-profile'); } catch (e) {}
+        this.setState({ profile: null });
+      });
+    });
+  }
+  loadDigestFor(p) {
+    if (p && p.hash) {
+      return this._tryDigest('./digests/' + p.hash + '/latest.md').then(ok => {
+        if (!ok) {
+          this.DIGEST_MD = '# ' + (p.name || 'Your') + ' digest\n\nNo personalized digest has been generated for this profile yet — your taste-ranked picks are live in the table. (Per-profile digests come from the scheduled run.)';
+          this.DIGEST_FILE = null; this.forceUpdate();
+        }
+      });
+    }
+    return this._tryDigest('./digests/latest.md');
+  }
+  // The deployed feed is dashboard/data.json (or data.<hash>.json for a logged-in profile),
+  // built by scripts/build_dashboard.py / build_profiles.py — scored server-side. Pure viewer.
+  loadCatalog() { return this.loadFeedFor(this.state.profile); }
+  loadDigest() { return this.loadDigestFor(this.state.profile); }
 
   componentDidMount() {
     this.SAMPLE = this.ALL;
@@ -1464,6 +1551,13 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const showConnect = chatMode === 'llm';
     const backendLabel = this.BACKEND_URL ? 'connected' : 'connect';
 
+    const profile = this.state.profile;
+    const profileActive = !!(profile && profile.hash);
+    const profBorder = profileActive ? '#2b5cd9' : '#d2d0c7';
+    const profBg = profileActive ? '#eaf0fe' : 'transparent';
+    const profColor = profileActive ? '#2b5cd9' : '#76746b';
+    const profDot = profileActive ? '#2b5cd9' : '#a7a59b';
+
     const LBL = {
       week: { num: '7', unit: 'days' }, month: { num: '30', unit: 'days' },
       twomo: { num: '2', unit: 'months' }, threemo: { num: '3', unit: 'months' },
@@ -1483,6 +1577,13 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     return {
       messages: msgs, suggestions, loading,
       modeOpts, showConnect, backendLabel, connectBackend: this.connectBackend,
+      profileOpen: this.state.profileOpen, profileInput: this.state.profileInput || '', profileError: this.state.profileError || '',
+      profileActive, profileName: profileActive ? (profile.name || 'profile') : '',
+      profileLabel: profileActive ? (profile.name || 'profile') : 'prof',
+      profileBtnLabel: this.state.profileBusy ? '…' : 'Enter',
+      profBorder, profBg, profColor, profDot,
+      openProfile: this.openProfile, closeProfile: this.closeProfile, onProfileInput: this.onProfileInput,
+      onProfileKey: this.onProfileKey, submitProfile: this.submitProfile, logoutProfile: this.logoutProfile,
       rangeStart, rangeEnd, rangeLabel, bubbleOpen, bubbleOpts,
       startLabel: this.labelISO(rangeStart), endLabel: this.labelISO(rangeEnd),
       shownCount: rows.length, totalCount: this.ALL.length,
