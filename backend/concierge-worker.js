@@ -33,7 +33,7 @@
  *   GITHUB_BRANCH      (var, optional — defaults to main)
  *   PROFILE_SALT       (var, optional — must match the page + build_profiles.py; defaults below)
  */
-import { parse as yamlParse, stringify as yamlStringify } from "yaml";
+import { parse as yamlParse, parseDocument } from "yaml";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",
@@ -67,6 +67,8 @@ export default {
 
     let body;
     try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
+    // Health ping (the page's connection indicator): validates reachability + the token, no LLM call.
+    if (body && body.ping) return json({ ok: true, taste: !!env.GITHUB_TOKEN }, 200, cors);
     const messages = sanitizeMessages(body && body.messages);
     if (!messages.length) return json({ error: "no messages" }, 400, cors);
     const profileHash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
@@ -305,64 +307,74 @@ async function resolveProfile(env, hash) {
   for (const p of manifest.profiles || []) {
     if (!p || !p.username) continue;
     if ((await profileHash(p.username, salt)) === hash) {
-      return { name: p.name || p.username, tastePath: p.taste || "taste.yaml" };
+      return { name: p.name || p.username, tastePath: p.taste || "taste.yaml", owner: !!p.owner };
     }
   }
   return null;
 }
 
-/* Pure: fold a structured patch into a parsed taste object. Exported for tests. */
-export function applyPatch(t, patch, today) {
-  t = t || {};
-  t.categories = t.categories || {};
-  const arr = (k, o) => { o[k] = Array.isArray(o[k]) ? o[k] : []; return o[k]; };
-  const norm = (s) => String(s).trim().toLowerCase();
-  const addUniq = (list, items) => {
-    for (const it of items || []) {
-      const v = String(it).trim();
-      if (v && !list.some((x) => norm(x) === norm(v))) list.push(v);
-    }
-  };
-  const removeFrom = (list, items) => {
-    const kill = new Set((items || []).map(norm));
-    for (let i = list.length - 1; i >= 0; i--) if (kill.has(norm(list[i]))) list.splice(i, 1);
-  };
-
-  addUniq(arr("artists_tracked", t), patch.add_artists);
-  if (patch.remove_artists) removeFrom(arr("artists_tracked", t), patch.remove_artists);
-  addUniq(arr("venues_loved", t), patch.add_venues);
-  addUniq(arr("comedians_loved", t), patch.add_comedians);
-  addUniq(arr("high", t.categories), patch.add_high_category);
-  addUniq(arr("boosts", t), patch.add_boost);
-  addUniq(arr("penalties", t), patch.add_penalty);
-
-  if (patch.remove_lines && patch.remove_lines.length) {
-    const lists = [t.categories.high, t.categories.medium, t.categories.low, t.boosts, t.penalties, t.artists_tracked, t.venues_loved, t.comedians_loved];
-    for (const l of lists) if (Array.isArray(l)) removeFrom(l, patch.remove_lines);
+/* Fold a structured patch into a parsed YAML *Document* (not a plain object) so existing comments
+ * + key order survive the round-trip — important for the curated root taste.yaml. Exported for tests. */
+function seqVals(seq) { return (seq && seq.items ? seq.items : []).map((it) => String(it && it.value !== undefined ? it.value : it)); }
+function ensureSeq(doc, path) {
+  let n = doc.getIn(path);
+  if (!n || !n.items) { doc.setIn(path, doc.createNode([])); n = doc.getIn(path); }
+  return n;
+}
+function addUniqDoc(doc, path, items) {
+  if (!items || !items.length) return;
+  const seq = ensureSeq(doc, path);
+  const have = new Set(seqVals(seq).map((s) => s.trim().toLowerCase()));
+  for (const v of items) {
+    const s = String(v).trim();
+    if (s && !have.has(s.toLowerCase())) { seq.add(s); have.add(s.toLowerCase()); }
   }
-
-  const note = (patch.summary || "taste updated").trim();
-  arr("feedback", t).push(`${today}: ${note} (self-edit via concierge)`);
-  return t;
+}
+function removeDoc(doc, path, items) {
+  const seq = doc.getIn(path);
+  if (!seq || !seq.items || !items) return;
+  const kill = new Set(items.map((x) => String(x).trim().toLowerCase()));
+  for (let i = seq.items.length - 1; i >= 0; i--) {
+    const it = seq.items[i];
+    const v = String(it && it.value !== undefined ? it.value : it).trim().toLowerCase();
+    if (kill.has(v)) seq.delete(i);
+  }
+}
+export function applyPatchDoc(doc, patch, today) {
+  addUniqDoc(doc, ["artists_tracked"], patch.add_artists);
+  if (patch.remove_artists) removeDoc(doc, ["artists_tracked"], patch.remove_artists);
+  addUniqDoc(doc, ["venues_loved"], patch.add_venues);
+  addUniqDoc(doc, ["comedians_loved"], patch.add_comedians);
+  addUniqDoc(doc, ["categories", "high"], patch.add_high_category);
+  addUniqDoc(doc, ["boosts"], patch.add_boost);
+  addUniqDoc(doc, ["penalties"], patch.add_penalty);
+  if (patch.remove_lines && patch.remove_lines.length) {
+    for (const path of [["categories", "high"], ["categories", "medium"], ["categories", "low"], ["boosts"], ["penalties"], ["artists_tracked"], ["venues_loved"], ["comedians_loved"]]) {
+      removeDoc(doc, path, patch.remove_lines);
+    }
+  }
+  addUniqDoc(doc, ["feedback"], [`${today}: ${(patch.summary || "taste updated").trim()} (self-edit via concierge)`]);
+  return doc;
 }
 
 async function applyTasteEdit(env, hash, patch) {
   const prof = await resolveProfile(env, hash);
   if (!prof) return { ok: false, error: "profile not found for that session" };
-  // Never let a friend edit the shared root taste.yaml — only their own profiles/<name>/ file.
-  if (!/^profiles\/.+\/taste\.ya?ml$/.test(prof.tastePath)) return { ok: false, error: "this profile has no editable taste file" };
+  // A friend edits only their own profiles/<name>/taste.yaml. The shared root taste.yaml is
+  // editable only by an `owner: true` profile (Ari's own login).
+  const isRoot = /(^|\/)taste\.ya?ml$/.test(prof.tastePath) && !prof.tastePath.startsWith("profiles/");
+  if (isRoot && !prof.owner) return { ok: false, error: "this profile has no editable taste file" };
+  if (!isRoot && !/^profiles\/.+\/taste\.ya?ml$/.test(prof.tastePath)) return { ok: false, error: "this profile has no editable taste file" };
 
   const file = await ghGetFile(env, prof.tastePath);
   if (!file) return { ok: false, error: "could not read taste file" };
 
-  let obj;
-  try { obj = yamlParse(file.text) || {}; } catch { return { ok: false, error: "taste file did not parse" }; }
-  const today = new Date().toISOString().slice(0, 10);
-  applyPatch(obj, patch || {}, today);
-
   let out;
   try {
-    out = yamlStringify(obj, { lineWidth: 0 });
+    const doc = parseDocument(file.text);
+    if (doc.errors && doc.errors.length) throw new Error("parse");
+    applyPatchDoc(doc, patch || {}, new Date().toISOString().slice(0, 10));
+    out = String(doc);
     const check = yamlParse(out);                       // never commit something that won't parse
     if (!check || typeof check !== "object" || !check.categories) throw new Error("invalid result");
   } catch { return { ok: false, error: "edit produced invalid YAML; nothing changed" }; }

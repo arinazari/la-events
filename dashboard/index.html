@@ -54,7 +54,7 @@
           <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px solid #d2d0c7; background: {{ o.bg }}; color: {{ o.color }}; border-radius:2px; cursor:pointer;">{{ o.label }}</button>
         </sc-for>
         <sc-if value="{{ showConnect }}" hint-placeholder-val="{{ true }}">
-          <button onClick="{{ connectBackend }}" title="Point the concierge at your backend (URL + token)" style="margin-left:auto; font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px dashed #c9c7bd; background:transparent; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ backendLabel }} ↗</button>
+          <button onClick="{{ connectBackend }}" title="Point the concierge at your backend (URL + token)" style="margin-left:auto; font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px dashed {{ backendColor }}; background:transparent; color: {{ backendColor }}; border-radius:2px; cursor:pointer;" style-hover="opacity:0.75;">● {{ backendLabel }} ↗</button>
         </sc-if>
       </div>
     </div>
@@ -63,7 +63,7 @@
       <sc-for list="{{ messages }}" as="m" hint-placeholder-count="2">
         <div style="display:flex; flex-direction:column; gap:3px;">
           <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; text-transform:uppercase; color: {{ m.tagColor }};">{{ m.tag }}</div>
-          <div style="font-size:12.5px; line-height:1.5; color: {{ m.color }}; white-space:pre-wrap;">{{ m.text }}</div>
+          {{ m.html }}
         </div>
       </sc-for>
       <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
@@ -79,7 +79,7 @@
       </div>
       <div style="display:flex; gap:6px; align-items:flex-end;">
         <textarea value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="e.g. techno this weekend under $30" style="flex:1; resize:none; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; padding:9px 10px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none; height:38px;" style-focus="border-color:#2b5cd9;"></textarea>
-        <button onClick="{{ onSend }}" style="flex:none; font:600 12px/1 -apple-system,system-ui,sans-serif; padding:0 14px; height:38px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; cursor:pointer;" style-hover="background:#234bb3;">go</button>
+        <button onClick="{{ onGoStop }}" title="{{ goLabel }}" style="flex:none; font:600 12px/1 -apple-system,system-ui,sans-serif; padding:0 14px; height:38px; border:1px solid {{ goBg }}; background: {{ goBg }}; color:#fff; border-radius:2px; cursor:pointer;" style-hover="opacity:0.9;">{{ goLabel }}</button>
       </div>
     </div>
   </aside>
@@ -561,6 +561,7 @@ class Component extends DCLogic {
     discovering: false, discoverResults: null, toast: null,
     input: '',
     chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
+    backendStatus: null,
     profileOpen: false,
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
@@ -884,6 +885,27 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     closeList();
     return html;
   }
+  // Chat messages render markdown (reuses inlineMd for bold/italic/links); the chat is conversational
+  // so the assistant's bullets/links/emphasis should render, not show as literal asterisks.
+  renderChatHtml(text) {
+    const lines = String(text || '').split('\n');
+    let html = '', inList = false;
+    const closeList = () => { if (inList) { html += '</ul>'; inList = false; } };
+    for (const raw of lines) {
+      const line = raw.trimEnd();
+      if (line === '') { closeList(); continue; }
+      if (/^#{1,6}\s/.test(line)) { closeList(); html += '<div style="font-weight:700; color:#161512; margin:5px 0 2px;">' + this.inlineMd(line.replace(/^#{1,6}\s/, '')) + '</div>'; continue; }
+      if (/^[-*]\s+/.test(line)) {
+        if (!inList) { html += '<ul style="list-style:none; margin:3px 0; padding:0; display:flex; flex-direction:column; gap:4px;">'; inList = true; }
+        html += '<li style="padding-left:12px; position:relative;"><span style="position:absolute; left:0; color:#b4b2a8;">·</span>' + this.inlineMd(line.replace(/^[-*]\s+/, '')) + '</li>';
+        continue;
+      }
+      closeList();
+      html += '<div style="margin:0 0 3px;">' + this.inlineMd(line) + '</div>';
+    }
+    closeList();
+    return html;
+  }
   openDigest = () => this.setState({ digestModalOpen: true });
   closeDigest = () => this.setState({ digestModalOpen: false });
 
@@ -991,6 +1013,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       if (tok !== null) { this.BACKEND_TOKEN = tok.trim(); try { this.BACKEND_TOKEN ? localStorage.setItem('la-concierge-token', this.BACKEND_TOKEN) : localStorage.removeItem('la-concierge-token'); } catch (e) {} }
     }
     this.flashToast(url ? 'Concierge backend connected' : 'Backend cleared — using Fast filter');
+    this.pingBackend();
     this.forceUpdate();
   };
   async askBackend(text) {
@@ -1002,15 +1025,33 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const body = { messages: history };
     const p = this.state.profile;
     if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
-    const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify(body) });
-    if (res.status === 401) { const e = new Error('unauthorized'); e.code = 401; throw e; }
-    if (!res.ok) throw new Error('backend ' + res.status);
+    this._abort = new AbortController();       // so the user can stop a slow reply
+    let res;
+    try {
+      res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify(body), signal: this._abort.signal });
+    } finally { this._abort = null; }
+    if (res.status === 401) { this.setState({ backendStatus: 'err' }); const e = new Error('unauthorized'); e.code = 401; throw e; }
+    if (!res.ok) { this.setState({ backendStatus: 'err' }); throw new Error('backend ' + res.status); }
+    this.setState({ backendStatus: 'ok' });
     const data = await res.json();
     this._lastTasteChanged = !!(data && data.taste_changed);   // worker committed a taste edit -> CI re-ranks
     const reply = data && (data.reply || (Array.isArray(data.content) && data.content.map(b => b && b.text).filter(Boolean).join('\n')));
     if (!reply) throw new Error('empty');
     return reply;
   }
+  // Health ping: validates the backend is reachable + the token works, no LLM call. Drives the
+  // connection indicator so "connected" reflects reality, not just "a URL is set".
+  async pingBackend() {
+    if (!this.BACKEND_URL) { this.setState({ backendStatus: null }); return; }
+    try {
+      const headers = { 'content-type': 'application/json' };
+      if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+      const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify({ ping: true }) });
+      this.setState({ backendStatus: res.ok ? 'ok' : 'err' });
+    } catch (e) { this.setState({ backendStatus: 'err' }); }
+  }
+  stopLLM = () => { if (this._abort) { try { this._abort.abort(); } catch (e) {} } this.setState({ loading: false }); };
+  onGoStop = () => { if (this.state.loading) this.stopLLM(); else this.send(); };
 
   // ---------- profile switcher (per-person taste) ----------
   // The username is hashed (same salt as scripts/build_profiles.py) to locate that profile's
@@ -1169,23 +1210,24 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.setState(s => ({ messages: [...s.messages, { role: 'user', text }], input: '', loading: true, digestPicks: false, digestPrevState: null }));
 
     const mode = this.state.chatMode || 'llm';
-    // Concierge (LLM) mode: ask the backend. It can ANSWER questions, recommend, and plan —
-    // grounded on the live feed. Falls back to the local Fast-filter engine if it's unset/down,
-    // so the chat never dead-ends.
-    if (mode === 'llm' && this.BACKEND_URL) {
+    const profileActive = !!(this.state.profile && this.state.profile.hash);
+    // Concierge (LLM) is gated on being logged into a profile (the "connect" affordance only shows
+    // then). Logged out, or in Fast-filter mode, we answer locally. Falls back to local on any error.
+    if (mode === 'llm' && profileActive && this.BACKEND_URL) {
       try {
         const reply = await this.askBackend(text);
         this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: reply }] }));
         if (this._lastTasteChanged) { this._lastTasteChanged = false; this.flashToast('Taste updated — re-ranking. Tap ↻ to refresh in ~a minute.'); }
         return;
       } catch (e) {
+        if (e && e.name === 'AbortError') { this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: '■ stopped.' }] })); return; }
         const note = (e && e.code === 401)
           ? '⚠︎ Concierge needs an access token — tap "connect" to set it. Falling back to fast filter:'
           : '⚠︎ Concierge backend unreachable — falling back to fast filter:';
         this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: note }] }));
         // fall through to the local engine
       }
-    } else if (mode === 'llm' && !this.BACKEND_URL && !this._backendHinted) {
+    } else if (mode === 'llm' && profileActive && !this.BACKEND_URL && !this._backendHinted) {
       this._backendHinted = true;
       this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: 'Concierge backend isn’t connected yet — tap "connect" above (see backend/README.md) for full answers + planning. Using fast filter for now:' }] }));
     }
@@ -1482,6 +1524,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     window.addEventListener('keydown', this._onKeyDown);
     this.loadCatalog();
     this.loadDigest();
+    if (this.BACKEND_URL) this.pingBackend();
   }
   componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); }
 
@@ -1538,10 +1581,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const arrow = (k) => sortKey === k ? (sortDir === 'asc' ? '\u2191' : '\u2193') : '';
 
     const msgs = messages.map(m => ({
-      tag: m.role === 'user' ? 'YOU' : 'DIGEST',
+      tag: m.role === 'user' ? 'YOU' : 'CONCIERGE',
       tagColor: m.role === 'user' ? '#1b1a17' : '#2b5cd9',
       color: m.role === 'user' ? '#161512' : '#3f3d36',
-      text: m.text
+      text: m.text,
+      html: React.createElement('div', { style: { fontSize: '12.5px', lineHeight: 1.5, color: m.role === 'user' ? '#161512' : '#3f3d36', wordBreak: 'break-word' }, dangerouslySetInnerHTML: { __html: this.renderChatHtml(m.text) } })
     }));
 
     const chips = ['plan my saturday — dinner then a show','techno this weekend','date night in los feliz','where should I eat near silver lake','rep cinema in 35mm','afterhours warehouse','free shows','top picks'];
@@ -1557,8 +1601,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       color: chatMode === o.key ? '#fff' : '#76746b',
       onClick: () => this.setChatMode(o.key),
     }));
-    const showConnect = chatMode === 'llm';
-    const backendLabel = this.BACKEND_URL ? 'connected' : 'connect';
+    const showConnect = chatMode === 'llm' && !!(this.state.profile && this.state.profile.hash);
+    const bstat = this.state.backendStatus;
+    const backendLabel = !this.BACKEND_URL ? 'connect' : (bstat === 'ok' ? 'connected' : bstat === 'err' ? 'reconnect' : 'connecting…');
+    const backendColor = !this.BACKEND_URL ? '#76746b' : (bstat === 'ok' ? '#1f9d57' : bstat === 'err' ? '#b4453a' : '#a7a59b');
 
     const profile = this.state.profile;
     const profileActive = !!(profile && profile.hash);
@@ -1586,7 +1632,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     return {
       messages: msgs, suggestions, loading,
-      modeOpts, showConnect, backendLabel, connectBackend: this.connectBackend,
+      modeOpts, showConnect, backendLabel, backendColor, connectBackend: this.connectBackend,
+      goLabel: loading ? 'stop' : 'go', goBg: loading ? '#b4453a' : '#2b5cd9', onGoStop: this.onGoStop,
       profileOpen: this.state.profileOpen, profileInput: this.state.profileInput || '', profileError: this.state.profileError || '',
       profileActive, profileName: profileActive ? (profile.name || 'profile') : '',
       profileLabel: profileActive ? (profile.name || 'profile') : 'prof',
