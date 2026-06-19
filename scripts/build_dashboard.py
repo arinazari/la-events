@@ -29,6 +29,7 @@ The dashboard is a pure viewer: it does NOT score. Re-run this after every diges
 import argparse
 import json
 import sys
+from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
 
@@ -38,6 +39,7 @@ from lib.config import load_yaml  # noqa: E402
 from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
 from lib.enrich import load_cache, event_key  # noqa: E402
+from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -200,6 +202,26 @@ def main() -> int:
     neighborhoods = sorted({e["neighborhood"] for e in events if e.get("neighborhood")})
     categories = sorted({e["category"] for e in events if e.get("category")})
 
+    # Multi-axis tag facets (scripts/lib/tagging.py) — only values actually present, each
+    # with its count, so a future filter UI can render chips without re-scanning every event.
+    def facet(axis, listish=False):
+        c = Counter()
+        for e in events:
+            tags = e.get("tags") or {}
+            v = tags.get(axis)
+            for item in (v or []) if listish else ([v] if v else []):
+                c[item] += 1
+        return [{"value": k, "count": n} for k, n in c.most_common()]
+
+    tag_facets = {
+        "type": facet("type"),
+        "genre": facet("genre", listish=True),
+        "setting": facet("setting", listish=True),
+        "vibe": facet("vibe", listish=True),
+        "region": facet("region"),
+        "vocab": TAG_VOCAB,
+    }
+
     feed = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "source_file": str(catalog_path.relative_to(REPO)) if catalog_path.is_relative_to(REPO) else str(catalog_path),
@@ -208,6 +230,7 @@ def main() -> int:
         "enriched_count": enriched_hits,
         "neighborhoods": neighborhoods,
         "categories": categories,
+        "tag_facets": tag_facets,
         "dining": dining,
         "taste": {
             "venues_loved": taste.get("venues_loved") or [],
