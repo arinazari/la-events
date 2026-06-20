@@ -177,7 +177,7 @@
           </sc-if>
         </span>
         <span style="position:relative;">
-          <span onClick="{{ toggleSettings }}" title="{{ settingsTitle }}" style="cursor:pointer; display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #d2d0c7; background:#fff; border-radius:2px; color:#76746b; font-size:15px; line-height:1;" style-hover="border-color:#161512; color:#161512;">{{ settingsIcon }}</span>
+          <span onClick="{{ toggleSettings }}" title="{{ settingsTitle }}" style="cursor:pointer; display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #d2d0c7; background:#fff; border-radius:2px; color:#76746b; font-size:15px; line-height:1;" style-hover="border-color:#161512; color:#161512;"><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}"><span style="display:inline-block; width:14px; height:14px; border:2px dotted currentColor; border-radius:50%;"></span></sc-if>{{ settingsIcon }}</span>
           <sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
             <span onClick="{{ closeSettings }}" style="position:fixed; inset:0; z-index:60;"></span>
             <div style="position:absolute; top:37px; right:0; z-index:61; width:256px; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:12px;">
@@ -2030,7 +2030,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       emailTogBg: this.state.digestEmailOpen ? '#eaf0fe' : '#fff',
       emailTogColor: this.state.digestEmailOpen ? '#161512' : '#3f3d36',
       settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, closeSettings: this.closeSettings,
-      settingsIcon: loggedOut ? '◌' : '⚙', settingsTitle: loggedOut ? 'Log in' : 'Settings',
+      settingsIcon: loggedOut ? '' : '⚙', settingsTitle: loggedOut ? 'Log in' : 'Settings',
       loginOpen: this.state.loginOpen, loginClosed: !this.state.loginOpen, cancelLogin: this.cancelLogin,
       loggedOut, lastDataPull, lastSiteUpdate, claudeKeyState,
       setClaudeKey: this.setClaudeKey,
