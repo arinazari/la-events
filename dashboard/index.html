@@ -94,7 +94,7 @@
     <header style="flex:none; padding:14px 22px 12px; border-bottom:1px solid #d9d7cf; display:flex; align-items:baseline; justify-content:space-between; gap:16px;">
       <div>
         <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
-          <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">curated digest for <span onClick="{{ openDigest }}" title="Open this curated digest" style="color:#76746b; cursor:pointer;" style-hover="color:#161512;">{{ digestUser }}</span></sc-if><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">curated digests for {{ digestUser }}</sc-if></span></span>
+          <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">curated digest for <span onClick="{{ openDigest }}" title="Open this curated digest" style="color:#76746b; cursor:pointer;" style-hover="color:#161512;">{{ digestUser }} <span style="font-size:0.72em;">↗</span></span></sc-if><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">curated digests for {{ digestUser }}</sc-if></span></span>
         </div>
         <div style="margin-top:5px; font:500 11px/1.6 ui-monospace,Menlo,monospace; color:#76746b; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
           <span style="display:inline-flex; align-items:center; gap:6px;">
