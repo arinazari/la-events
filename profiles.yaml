@@ -27,7 +27,8 @@ profiles:
   - username: ari            # Ari's own login -> unlocks the concierge/LLM on the default feed.
     name: Ari                #   RENAME this to something non-obvious: as owner it can self-edit the
     taste: taste.yaml        #   canonical taste.yaml (which drives the digest + everyone's default feed).
-    owner: true              #   owner -> allowed to edit the root taste.yaml (friends can't).
+    owner: true              #   owner -> edits the root taste.yaml (friends can't) + unlocks the
+                             #   dashboard's admin settings (Refresh events / Discover sources).
 
   - username: dr_ganesan     # friend profile. NOTE: username is the access key + is guessable here;
     name: Dr. Ganesan        #   swap it for something non-obvious before sharing the feed widely.

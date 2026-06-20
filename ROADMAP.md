@@ -281,6 +281,18 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   holds and there's no browser-side commit; the concierge chat stays the edit path. Pick this up if
   free-text editing is wanted (mind: it loosens "structured-patch-only" to arbitrary valid YAML, and
   needs a Worker redeploy).
+- [x] **Role-gated settings (2026-06-20)** — the gear menu branches by who's signed in. The **owner**
+  (ari; `owner: true` in `profiles.yaml`, propagated into the feed's `profile` block by
+  `build_profiles.py` and read on the page as `META.profile.owner`) keeps **Refresh events** +
+  **Discover new sources**. A signed-in **friend** instead gets: a **Claude API key** field (stub —
+  the concierge backend that consumes it is TBD), **Spotify connect** (placeholder; the real flow is
+  on another branch), **View taste profile** (the read-only modal), and **Log out**. **Logged-out**
+  shows only a **Log in** affordance plus a data-freshness readout — **last data pull** (feed
+  `generated_at`) and **last site update** (`document.lastModified`, i.e. the Pages deploy time).
+  Refresh/Discover are no longer exposed to non-owners.
+  - [ ] **Tabled (Ari's call, 2026-06-20):** also let a signed-in friend **view their profile
+    details** and **their reactions / feedback history** from settings. Deferred until the feedback
+    surface (👍/👎 → `data/feedback.jsonl`, the Like→learn item above) lands so there's a history to show.
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
