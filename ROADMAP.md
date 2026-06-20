@@ -262,8 +262,10 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
 - [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
   `@babel/standalone` (~3 MB vendored). Add a build step that compiles `index.html` ahead of time and
   ships plain JS, dropping Babel + the first-paint transpile cost from the client.
-- [ ] **Per-event ICS export** — re-port the one-click add-to-calendar (was `dashboard/js/ics.js`;
-  regressed in the swap).
+- [x] **Per-event ICS export** — re-ported the one-click add-to-calendar (was `dashboard/js/ics.js`;
+  regressed in the swap). Now an "Add to calendar ↓" button in each event's expanded detail row;
+  self-contained RFC 5545 builder on the `Component` class (floating LA-local times, 3-hr default,
+  all-day fallback, lineup/curator-note/price/rating/link in the description).
 - [ ] **Save / bookmark events** — let Ari star events to a personal shortlist (localStorage; the seed
   for "plan around these"). Was `save-for-plan` in the prior front end; not in the new design yet.
 - [ ] **Like → learn taste** — per-event 👍/👎 (or "more like this" / "never show") that feeds the
