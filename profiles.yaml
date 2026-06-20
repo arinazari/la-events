@@ -35,4 +35,5 @@ profiles:
 
   - username: lori           # friend profile. NOTE: username is the access key + is guessable here;
     name: Lori               #   swap it for something non-obvious before sharing the feed widely.
-    taste: profiles/lori/taste.yaml         # starter taste — edit it, then rebuild this profile.
+    taste: profiles/lori/taste.yaml         # band-forward, diverse ethnomusicologist taste.
+    profile: profiles/lori/profile.yaml     # her own MECHANISM: Glendale geo + live-music weighting.

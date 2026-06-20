@@ -1,0 +1,168 @@
+# profile.yaml — MECHANISM config for Lori's dashboard feed (username: lori).
+# Mirrors the root profile.yaml schema; only the lanes that actually differ from Ari's are
+# changed. Lori is band/live-music-forward (not an electronic head) with a knowledgeable,
+# diverse, ethnomusicologist's ear, and she's based in Glendale (East LA) — so the geo,
+# category weights, and penalties are retuned for her. taste.yaml = CONTENT; this = MECHANISM.
+
+city: Los Angeles
+timezone: America/Los_Angeles
+
+# Home base — Glendale (drives the "close to home" boost + night-planner travel times).
+home:
+  neighborhood: Glendale
+  cross_streets: Brand & Broadway
+  coords: [34.1469, -118.2554]   # central Glendale; used by scripts/lib/geo.py
+
+sources:
+  ticketmaster_dma_id: "324"   # LA DMA
+  ra_area_id: 23               # RA's LA area number
+
+scoring:
+  # Band/live-music-forward. Live music is the top lane; electronic is welcome but secondary
+  # (she's "more into bands than electronic", not anti-electronic). Pop is a real lane
+  # (Olivia Rodrigo); art bumped for the ethnomusicologist's cultural appetite.
+  category_weights:
+    music: 3          # live music (catalog's term) — her spine
+    live_music: 3
+    pop: 2            # craft pop (Olivia Rodrigo tier)
+    film: 2           # rep & arthouse cinema
+    theater: 2
+    beer_food: 2
+    art: 2            # cultural / heritage / museum programming
+    electronic: 2     # secondary, not unwelcome — a good DJ/live-electronic act still counts
+    party: 1          # club / warehouse / afterhours — not her scene
+    comedy: 1
+    general: 1
+
+  rating_thresholds:
+    - [8, 5]
+    - [6, 4]
+    - [4, 3]
+    - [2, 2]
+
+  # Walkable / short drive from Glendale (+1). Glendale-centric Eastside / NELA / valley radius.
+  near_home_neighborhoods:
+    - glendale
+    - atwater village
+    - atwater
+    - los feliz
+    - silver lake
+    - silverlake
+    - echo park
+    - eagle rock
+    - highland park
+    - glassell park
+    - mount washington
+    - cypress park
+    - lincoln heights
+    - east hollywood
+    - hollywood
+    - burbank
+    - toluca lake
+    - north hollywood
+    - noho arts district
+    - pasadena
+    - south pasadena
+    - downtown
+    - dtla
+    - chinatown
+
+  # +1: setting boost retuned for a band-head — rewards intimate / analog / outdoor rooms,
+  # NOT afterhours DJ parties. (Dropped "groove"/"disco"/"all night" etc., which were inflating
+  # electronic afters — "groove" even substring-matched "Groovers Inn".)
+  groove_terms:
+    - vinyl
+    - all-analog
+    - all analog
+    - listening
+    - record store
+    - in-store
+    - rooftop
+    - sunset
+    - golden hour
+    - open-air
+    - open air
+    - outdoor
+    - garden
+    - patio
+
+  # European house-label boost is electronic-scene specific and largely irrelevant to her;
+  # kept inert (a token that won't match) so the engine doesn't fall back to Ari's label list.
+  eu_terms:
+    - __no_eu_boost__
+
+  # -2 each. Pared down from Ari's list: NO hip-hop / dubstep / hardstyle / EDM-genre penalties
+  # (she's a diverse, knowledgeable music head — genre breadth is the point). Kept: the genuinely
+  # off-taste stuff (bottle-service clubs, generic no-billing Top-40 nights, tribute/cover/decade
+  # nostalgia) and the non-music junk.
+  penalty_terms:
+    - bottle service
+    - bottle-service
+    - vip table
+    - table service
+    - top 40
+    - top-40
+    - open format
+    - open-format
+    - tribute
+    - cover band
+    - watch party
+    - world cup
+    - fifa
+    - sports bar
+    - trivia
+    - bingo
+    - karaoke
+    - networking
+    - webinar
+    - virtual
+    - zoom
+
+  # -2: far-flung from Glendale (not worth the trip by default).
+  far_terms:
+    - anaheim
+    - santa ana
+    - irvine
+    - san diego
+    - temecula
+    - ventura
+    - riverside
+    - long beach
+    - costa mesa
+    - huntington beach
+
+  # Spotify + feedback music layer (Phase C) — same mechanics as root; inert until Lori has a
+  # Spotify artifact / feedback log of her own. Enriches taste.yaml, never overwrites it.
+  spotify:
+    tier_points:
+      core: 3
+      strong: 2
+      light: 1
+      hidden: -3
+    artist_cap: 5
+    genre_points: 1
+    genre_threshold: 0.5
+    genre_cap: 1
+    min_name_len: 3
+    ambiguous_names: [train, future, juice, jungle, lights, justice, work, sanctuary, paradise,
+                      chance, hold, alive]
+
+  feedback:
+    weights:
+      loved: 2.0
+      went: 1.5
+      clicked_ticket: 0.5
+      added_calendar: 0.5
+      skipped: -0.5
+      hide: -10.0
+
+# Travel / geography for the night-planner (scripts/lib/geo.py) — same tunables as root.
+geo:
+  travel:
+    walk_max_miles: 0.8
+    walk_min_per_mile: 20.0
+    drive_floor_min: 8
+    park_buffer_min: 6
+    short_min_per_mile: 4.0
+    long_min_per_mile: 2.4
+    short_threshold_miles: 4
