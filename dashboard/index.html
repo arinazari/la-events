@@ -153,7 +153,7 @@
             <sc-if value="{{ bubbleOpen }}" hint-placeholder-val="{{ false }}">
               <span onClick="{{ closeBubble }}" style="position:fixed; inset:0; z-index:40;"></span>
               <span style="position:absolute; top:24px; left:0; z-index:41; display:inline-flex; align-items:center; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 6px 18px rgba(0,0,0,0.14); padding:5px 4px; white-space:nowrap;">
-                <sc-for list="{{ bubbleOpts }}" as="o" hint-placeholder-count="5">
+                <sc-for list="{{ bubbleOpts }}" as="o" hint-placeholder-count="6">
                   <sc-if value="{{ o.sep }}" hint-placeholder-val="{{ false }}"><span style="color:#e2e0d8; padding:0 1px;">|</span></sc-if>
                   <span onClick="{{ o.onClick }}" style="cursor:pointer; padding:3px 7px; border-radius:2px; color: {{ o.color }}; font-weight: {{ o.weight }};" style-hover="color:#161512; background:#f1efe7;">{{ o.label }}</span>
                 </sc-for>
@@ -599,11 +599,12 @@ class Component extends DCLogic {
   SAMPLE = null;   // set in constructor to the bundled fallback
   TODAY = (() => { const d = new Date(); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()); })();
   WEEK_END = (() => { const d = new Date(); d.setDate(d.getDate() + 7); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()); })();
+  TEN_END = (() => { const d = new Date(); d.setDate(d.getDate() + 10); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()); })();
   MONTH1 = (() => { const d = new Date(); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-01'; })();
 
   state = {
     sortKey: 'score', sortDir: 'desc',
-    range: 'week', rangeStart: this.TODAY, rangeEnd: this.WEEK_END, bubbleOpen: false,
+    range: 'ten', rangeStart: this.TODAY, rangeEnd: this.TEN_END, bubbleOpen: false,
     pickerOpen: null, pickerMonth: this.MONTH1,
     dataSource: 'sample',
     sidebarWidth: 340, collapsed: false,
@@ -806,13 +807,24 @@ class Component extends DCLogic {
   }
 
   // ---------- range ----------
-  SPAN_DAYS = { week: 7, month: 30, twomo: 61, threemo: 92, all: null };
+  SPAN_DAYS = { today: 0, week: 7, ten: 10, month: 30, twomo: 61, all: null };  // week kept for the digest shortlist; weekend is computed (see weekendRange)
   toISO(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
   addDaysISO(iso, days) { const d = new Date(iso + 'T00:00:00'); d.setDate(d.getDate() + days); return this.toISO(d); }
   labelISO(iso) { const d = new Date(iso + 'T00:00:00'); return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()] + ' ' + (d.getMonth() + 1) + '/' + d.getDate(); }
   maxEventISO() { return this.ALL.reduce((m, e) => e.iso > m ? e.iso : m, '0000-00-00'); }
+  // "this weekend" = Fri–Sun; if we're already in it, the remainder of it.
+  weekendRange() {
+    const dow = new Date(this.TODAY + 'T00:00:00').getDay();  // 0 Sun .. 6 Sat
+    if (dow === 0) return { start: this.TODAY, end: this.TODAY };                                  // Sunday — tail of the weekend
+    if (dow >= 5) return { start: this.TODAY, end: this.addDaysISO(this.TODAY, 6 - dow + 1) };     // Fri/Sat — through Sunday
+    const start = this.addDaysISO(this.TODAY, 5 - dow);                                            // Mon–Thu — the coming Friday
+    return { start, end: this.addDaysISO(start, 2) };                                              // Fri → Sun
+  }
 
   setRange = (k) => this.setState(s => {
+    // today + weekend are absolute presets (anchored to the real date, not the current start)
+    if (k === 'today') return { range: k, rangeStart: this.TODAY, rangeEnd: this.TODAY, bubbleOpen: false, expandedId: null };
+    if (k === 'weekend') { const w = this.weekendRange(); return { range: k, rangeStart: w.start, rangeEnd: w.end, bubbleOpen: false, expandedId: null }; }
     const span = this.SPAN_DAYS[k];
     const end = span == null ? this.maxEventISO() : this.addDaysISO(s.rangeStart, span);
     return { range: k, rangeEnd: end, bubbleOpen: false, expandedId: null };
@@ -1945,14 +1957,15 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const claudeKeyState = claudeKey ? 'key saved · backend coming soon' : 'not set · backend coming soon';
 
     const LBL = {
-      week: { num: '7', unit: 'days' }, month: { num: '30', unit: 'days' },
-      twomo: { num: '2', unit: 'months' }, threemo: { num: '3', unit: 'months' },
+      today: { num: 'today', unit: '' }, weekend: { num: 'this weekend', unit: '' },
+      ten: { num: '10', unit: 'days' }, week: { num: '7', unit: 'days' }, month: { num: '30', unit: 'days' },
+      twomo: { num: '2', unit: 'months' },
       all: { num: 'all', unit: 'upcoming' }, custom: { num: 'custom', unit: 'range' }
     };
-    const lab = LBL[range] || LBL.week;
-    const rangePrefix = (range === 'all' || range === 'custom') ? '' : 'next ';
-    const rangeLabel = rangePrefix + lab.num + ' ' + lab.unit;
-    const bubbleOpts = [['week','7 d'],['month','30 d'],['twomo','2 mo'],['threemo','3 mo'],['all','all']].map(([key, label], i) => ({
+    const lab = LBL[range] || LBL.ten;
+    const rangePrefix = (range === 'all' || range === 'custom' || range === 'today' || range === 'weekend') ? '' : 'next ';
+    const rangeLabel = (rangePrefix + lab.num + (lab.unit ? ' ' + lab.unit : '')).trim();
+    const bubbleOpts = [['today','today'],['weekend','this weekend'],['ten','10 d'],['month','30 d'],['twomo','2 mo'],['all','all']].map(([key, label], i) => ({
       key, label, sep: i > 0,
       color: range === key ? '#161512' : '#76746b',
       weight: range === key ? '700' : '500',
