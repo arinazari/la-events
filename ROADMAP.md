@@ -344,12 +344,18 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   regressed in the swap). Now an "Add to calendar ↓" button in each event's expanded detail row;
   self-contained RFC 5545 builder on the `Component` class (floating LA-local times, 3-hr default,
   all-day fallback, lineup/curator-note/price/rating/link in the description).
-- [ ] **Save / bookmark events** — let Ari star events to a personal shortlist (localStorage; the seed
-  for "plan around these"). Was `save-for-plan` in the prior front end; not in the new design yet.
-- [ ] **Like → learn taste** — per-event 👍/👎 (or "more like this" / "never show") that feeds the
-  existing feedback loop (`data/feedback.jsonl` → `lib/feedback.py` → affinity, Phase C). Closes the
-  implicit-signal-capture gap noted in Phase C (emitting reactions waited on a dashboard surface); on
-  static Pages it rides the hand-off seam — compose the `feedback.jsonl` append for the agent to commit.
+- [ ] **Save / bookmark events + filter to saved** — let Ari star events to a personal shortlist
+  (localStorage; the seed for "plan around these"), then **filter the Explore view to just saved
+  events** (a "Saved" toggle/chip alongside the existing search/filters). Was `save-for-plan` in the
+  prior front end; not in the new design yet.
+- [ ] **Like → learn taste — "more / less like this" (logged-in only)** — per-event 👍/👎 (or "more
+  like this" / "less / never show this") that feeds the existing feedback loop (`data/feedback.jsonl` →
+  `lib/feedback.py` → affinity, Phase C). **Gate on being signed in**: a reaction writes the *active
+  profile's* feedback (`data/feedback.<hash>.jsonl` per friend, the owner's `data/feedback.jsonl` when
+  logged in as Ari) — logged-out visitors get no reaction affordance and never mutate anyone's taste.
+  Closes the implicit-signal-capture gap noted in Phase C (emitting reactions waited on a dashboard
+  surface); on static Pages it rides the hand-off seam — compose the `feedback.<hash>.jsonl` append for
+  the agent to commit.
 - [ ] **In-app taste editing (direct YAML)** — the profile popup is now slim (signed-in · log out +
   a "View your taste profile →" link) and opens a dedicated **read-only** taste modal (2026-06-20).
   Making it *editable in-page* means a Worker save path: POST the full YAML → validate (re-parses +
