@@ -179,7 +179,7 @@ def score_view(ev: dict, taste: dict, profile: dict, affinity: dict = None) -> d
     d = parse_event_date(ev)
     out = dict(ev)
     out["score"] = s["score"]
-    out["rating"] = score_to_rating(s["score"], profile)
+    out["rating"] = score_to_rating(s["score"], profile, taste)
     out["reasons"] = s["reasons"]
     out["iso_date"] = d.isoformat() if d else None
     return out

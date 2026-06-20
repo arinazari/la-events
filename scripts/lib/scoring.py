@@ -7,11 +7,15 @@ score_event(ev, taste, profile) -> {"score": int, "reasons": [str]}
 score_to_rating(score, profile) -> int  (1..5)
 
 `taste` = taste.yaml content (artists_tracked, venues_loved, comedians_loved,
-venues_banned). `profile` = profile.yaml mechanism (category
-weights, term matchers, geo, rating thresholds). Both optional — every config
-read falls back to the DEFAULT_* below, which are transcribed verbatim from the
-pre-refactor build_dashboard.py, so scoring is behavior-preserving even with no
-profile.yaml present.
+venues_banned). `profile` = profile.yaml mechanism (category weights, term
+matchers, geo, rating thresholds).
+
+The mechanism config (the `scoring:` block) may live in EITHER file, resolved
+per key: profile.yaml's `scoring` first, else taste.yaml's `scoring`, else the
+DEFAULT_* below (transcribed verbatim from the pre-refactor build_dashboard.py,
+so scoring is behavior-preserving with neither file). This means a profile with
+no profile.yaml is scored from its OWN taste.yaml — per-person tuning without a
+separate mechanism file.
 """
 
 from datetime import date, datetime
@@ -76,17 +80,27 @@ DEFAULT_FAR_TERMS = (
 DEFAULT_RATING_THRESHOLDS = ((8, 5), (6, 4), (4, 3), (2, 2))
 
 
-def _scoring_cfg(profile: dict) -> dict:
-    """Resolve the scoring config from profile.yaml, falling back to DEFAULT_*."""
+def _scoring_cfg(profile: dict, taste: dict = None) -> dict:
+    """Resolve the scoring config per key: profile.yaml's `scoring` block first, then
+    taste.yaml's `scoring` block (so a profile with no profile.yaml is scored from its own
+    taste.yaml), then the DEFAULT_*."""
     sc = (profile or {}).get("scoring") or {}
+    tc = (taste or {}).get("scoring") or {}
+
+    def pick(key, default):
+        v = sc.get(key)
+        if v is None:
+            v = tc.get(key)
+        return default if v is None else v
+
     return {
-        "category_weights": sc.get("category_weights") or DEFAULT_CATEGORY_WEIGHTS,
-        "near_home": {h.lower() for h in (sc.get("near_home_neighborhoods") or DEFAULT_NEAR_HOME)},
-        "groove": tuple(sc.get("groove_terms") or DEFAULT_GROOVE_TERMS),
-        "eu": tuple(sc.get("eu_terms") or DEFAULT_EU_TERMS),
-        "penalty": tuple(sc.get("penalty_terms") or DEFAULT_PENALTY_TERMS),
-        "far": tuple(sc.get("far_terms") or DEFAULT_FAR_TERMS),
-        "rating_thresholds": [tuple(t) for t in (sc.get("rating_thresholds") or DEFAULT_RATING_THRESHOLDS)],
+        "category_weights": pick("category_weights", DEFAULT_CATEGORY_WEIGHTS),
+        "near_home": {h.lower() for h in pick("near_home_neighborhoods", DEFAULT_NEAR_HOME)},
+        "groove": tuple(pick("groove_terms", DEFAULT_GROOVE_TERMS)),
+        "eu": tuple(pick("eu_terms", DEFAULT_EU_TERMS)),
+        "penalty": tuple(pick("penalty_terms", DEFAULT_PENALTY_TERMS)),
+        "far": tuple(pick("far_terms", DEFAULT_FAR_TERMS)),
+        "rating_thresholds": [tuple(t) for t in pick("rating_thresholds", DEFAULT_RATING_THRESHOLDS)],
     }
 
 
@@ -123,7 +137,7 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
     music layer only ever ENRICHES; it never replaces the human spine in taste.yaml.
     """
     taste = taste or {}
-    cfg = _scoring_cfg(profile)
+    cfg = _scoring_cfg(profile, taste)
     reasons = []
     score = 0
 
@@ -230,9 +244,9 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
     return {"score": score, "reasons": reasons}
 
 
-def score_to_rating(score: int, profile: dict = None) -> int:
+def score_to_rating(score: int, profile: dict = None, taste: dict = None) -> int:
     """Map a raw score to a 1-5 star 'recommended for you' rating."""
-    thresholds = _scoring_cfg(profile)["rating_thresholds"]
+    thresholds = _scoring_cfg(profile, taste)["rating_thresholds"]
     for min_score, rating in sorted(thresholds, key=lambda t: -t[0]):
         if score >= min_score:
             return rating
