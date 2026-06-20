@@ -524,6 +524,14 @@
             <button onClick="{{ toggleEmailDigest }}" title="Cancel" style="flex:none; width:30px; height:30px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 13px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
           </div>
         </sc-if>
+        <sc-if value="{{ hasDigestSections }}" hint-placeholder-val="{{ false }}">
+          <div style="flex:none; display:flex; align-items:center; gap:6px; padding:8px 20px; border-bottom:1px solid #e2e0d8; background:#fff; overflow-x:auto; white-space:nowrap;">
+            <span style="flex:none; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.09em; color:#bdbbb1;">JUMP</span>
+            <sc-for list="{{ digestSections }}" as="s" hint-placeholder-count="6">
+              <span onClick="{{ s.onClick }}" title="{{ s.title }}" style="flex:none; cursor:pointer; padding:4px 9px; border-radius:2px; border:1px solid #e2e0d8; background:#faf9f5; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#2b5cd9; color:#161512;">{{ s.label }}</span>
+            </sc-for>
+          </div>
+        </sc-if>
         <div class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 28px;">{{ digestBody }}</div>
       </div>
     </div>
@@ -1125,6 +1133,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   renderDigestHtml() {
     const lines = this.DIGEST_MD.split('\n');
     let html = '';
+    let hidx = 0;       // heading counter — keep in lock-step with digestSections() for ids
     let items = null;   // array of <li> inner-HTML while inside a bullet list (else null)
     const flush = () => {
       if (!items) return;
@@ -1141,8 +1150,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const hd = t.match(/^(#{1,6})\s+(.*)$/);    // headings (#..######)
       if (hd) {
         flush();
-        if (hd[1].length === 1) html += '<h1 style="font:700 21px/1.2 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em; color:#161512; margin:0 0 6px;">' + this.inlineMd(hd[2]) + '</h1>';
-        else html += '<h2 style="font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; text-transform:uppercase; color:#a7a59b; margin:22px 0 9px;">' + this.inlineMd(hd[2]) + '</h2>';
+        const id = 'dg-sec-' + (hidx++);          // stable id so the jump-bar can scroll here
+        if (hd[1].length === 1) html += '<h1 id="' + id + '" style="font:700 21px/1.2 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em; color:#161512; margin:0 0 6px;">' + this.inlineMd(hd[2]) + '</h1>';
+        else html += '<h2 id="' + id + '" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; text-transform:uppercase; color:#a7a59b; margin:22px 0 9px; scroll-margin-top:8px;">' + this.inlineMd(hd[2]) + '</h2>';
         continue;
       }
       if (/^[-*]\s+/.test(t)) {                   // new bullet
@@ -1163,6 +1173,27 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     flush();
     return html;
   }
+  // The digest's ## section headings, as jump-bar targets. Enumerated EXACTLY like the headings in
+  // renderDigestHtml (same regex, same per-heading counter) so the `dg-sec-N` ids line up. The `#`
+  // title is skipped; labels are trimmed to the lead phrase (before " — "/"(") so chips stay short.
+  digestSections() {
+    const out = []; let i = 0;
+    for (const raw of (this.DIGEST_MD || '').split('\n')) {
+      const m = raw.trim().match(/^(#{1,6})\s+(.*)$/);
+      if (!m) continue;
+      if (m[1].length >= 2) {
+        const full = m[2].replace(/[*`]/g, '').trim();
+        let label = full.replace(/\s+[—–-]\s+.*$/, '').replace(/\s*\(.*$/, '').trim() || full;
+        if (label.length > 24) label = label.slice(0, 23).trim() + '…';
+        out.push({ id: 'dg-sec-' + i, label, title: full });
+      }
+      i++;
+    }
+    return out;
+  }
+  scrollToSection = (id) => {
+    try { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e) {}
+  };
   // Chat messages render markdown (reuses inlineMd for bold/italic/links); the chat is conversational
   // so the assistant's bullets/links/emphasis should render, not show as literal asterisks.
   renderChatHtml(text) {
@@ -2172,6 +2203,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       emailTogBorder: this.state.digestEmailOpen ? '#2b5cd9' : '#d2d0c7',
       emailTogBg: this.state.digestEmailOpen ? '#eaf0fe' : '#fff',
       emailTogColor: this.state.digestEmailOpen ? '#161512' : '#3f3d36',
+      digestSections: this.digestSections().map(s => ({ label: s.label, title: s.title, onClick: () => this.scrollToSection(s.id) })),
+      hasDigestSections: this.digestSections().length >= 2,
       settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, closeSettings: this.closeSettings,
       lastUpdated: this.state.lastUpdated, refreshing: this.state.refreshing, notRefreshing: !this.state.refreshing,
       doRefresh: this.doRefresh,
