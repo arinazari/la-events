@@ -95,6 +95,15 @@ is set, trigger commits). Set `CONCIERGE_TOKEN`; it's entered once in the page a
 header. The *taste data* is low-stakes (every edit is a normal commit, revertible from git history),
 but the **token still protects your API spend + the repo from spam** — so set it.
 
+**Bring your own key (BYOK).** A caller can send their own Anthropic key in an `x-anthropic-key:
+sk-ant-…` header (the dashboard's *Settings → Claude API key* stores it in that browser and attaches
+it per request). When present, that key pays for the request — the Worker uses it in place of
+`ANTHROPIC_API_KEY` — and it doubles as the entry ticket: **a valid personal key satisfies the gate
+even when `CONCIERGE_TOKEN` is set**, so you can hand someone the concierge without sharing your
+token. What a BYOK caller still *can't* do is trigger a taste-edit commit: self-edit spends *your*
+`GITHUB_TOKEN`, so it stays gated on the shared `CONCIERGE_TOKEN` — own-key callers chat + plan, but
+can't write to the repo. (With `CONCIERGE_TOKEN` unset the proxy is fully open either way.)
+
 The `GITHUB_TOKEN` should be a **fine-grained PAT limited to this one repo with only Contents
 write** — nothing else. Worst case a friend rewrites their own taste file; you `git revert` it.
 

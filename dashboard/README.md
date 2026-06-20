@@ -48,6 +48,9 @@ The chat has two modes, toggled in its header (default **Concierge**):
   `BACKEND_URL` — a small Cloudflare Worker that holds the Anthropic key and grounds the model on
   the live feed. **Deploy it + connect it** (see `backend/README.md`; tap "connect" in the chat
   header to set the URL/token). Until then, Concierge mode transparently falls back to ↓.
+  Or **bring your own key**: *Settings (☰) → Claude API key* stores a personal `sk-ant-…` key in your
+  browser and sends it to the Worker per request — it pays for your messages and connects the
+  concierge without the shared access token (taste edits still need the token). See `backend/README.md`.
 - **Fast filter** — a **local, no-LLM intent parser** (`localSpec()` in `index.html`). Turns
   "free house show this weekend near me" into a filter over the loaded catalog, instantly and
   offline; also fuses events × dining into a rough plan and a night-planner hand-off prompt. This

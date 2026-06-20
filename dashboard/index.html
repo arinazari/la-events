@@ -500,7 +500,7 @@
       <div onClick="{{ closeConnectModal }}" style="position:absolute; inset:0;"></div>
       <div style="position:relative; z-index:1; width:360px; max-width:92vw; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:4px; box-shadow:0 24px 60px rgba(0,0,0,0.28); padding:18px;">
         <div style="font:600 12px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.05em; color:#161512;">CONCIERGE</div>
-        <div style="margin-top:9px; font-size:12px; line-height:1.55; color:#3f3d36;">Enter your access token to enable the LLM concierge. {{ tokenState }}</div>
+        <div style="margin-top:9px; font-size:12px; line-height:1.55; color:#3f3d36;">Enter your access token to enable the LLM concierge — or skip it and add your own Claude API key in settings (☰) to run it on your own key. {{ tokenState }}</div>
         <span style="margin-top:11px; display:flex; align-items:center; gap:6px; padding:8px 10px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
           <input id="la-token-input" value="{{ tokenInput }}" onChange="{{ onTokenInput }}" onKeyDown="{{ onTokenKey }}" type="password" placeholder="access token" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:400 12px/1.4 ui-monospace,Menlo,monospace; color:#1b1a17;" />
         </span>
@@ -1170,14 +1170,19 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     return wd + ' ' + (dt.getMonth() + 1) + '/' + dt.getDate() + ', ' + h + ':' + String(dt.getMinutes()).padStart(2, '0') + ' ' + ap;
   }
   // --- logged-in settings (Claude key, Spotify, taste profile, log out) — same for every profile ---
-  // Stub: stash a Claude API key in this browser. The concierge backend that will consume it is TBD.
+  // BYOK: stash a personal Anthropic key in THIS browser; askBackend/pingBackend send it to the
+  // Worker (header x-anthropic-key), which spends it instead of the owner's default key. A valid key
+  // also connects the concierge without the shared access token (see backend/concierge-worker.js).
+  byokKey = () => { try { return ((typeof localStorage !== 'undefined' && localStorage.getItem('la-claude-api-key')) || '').trim(); } catch (e) { return ''; } };
   setClaudeKey = () => {
-    let v; try { v = window.prompt('Anthropic API key for the concierge (stored in THIS browser only; backend coming soon). Leave blank to clear:', (typeof localStorage !== 'undefined' && localStorage.getItem('la-claude-api-key')) || ''); } catch (e) { return; }
+    let v; try { v = window.prompt('Your Anthropic API key (sk-ant-…). Stored in THIS browser only and sent to the concierge backend per request — it pays for your messages instead of the shared key, and lets you use the concierge without an access token. Leave blank to clear:', this.byokKey()); } catch (e) { return; }
     if (v === null) return;
     v = v.trim();
+    if (v && !/^sk-ant-/.test(v)) { this.flashToast('That doesn’t look like an Anthropic key (expected sk-ant-…) — not saved'); return; }
     try { v ? localStorage.setItem('la-claude-api-key', v) : localStorage.removeItem('la-claude-api-key'); } catch (e) {}
-    this.flashToast(v ? 'Claude API key saved in this browser — concierge backend coming soon' : 'Claude API key cleared');
+    this.flashToast(v ? 'Your Claude API key is saved in this browser — the concierge will use it' : 'Claude API key cleared — back to the shared key');
     this.forceUpdate();
+    this.pingBackend();   // re-check the connection with (or without) the new key
   };
   logoutFromSettings = () => this.logoutProfile();
   flashToast(msg) {
@@ -1238,6 +1243,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .filter(m => m.content.trim());
     const headers = { 'content-type': 'application/json' };
     if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+    const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // BYOK: your key pays for this request
     const body = { messages: history };
     const p = this.state.profile;
     if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
@@ -1262,6 +1268,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     try {
       const headers = { 'content-type': 'application/json' };
       if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+      const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // a personal key alone can connect
       const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify({ ping: true }) });
       this.setState({ backendStatus: res.ok ? 'ok' : 'err' });
     } catch (e) { this.setState({ backendStatus: 'err' }); }
@@ -1506,14 +1513,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       } catch (e) {
         if (e && e.name === 'AbortError') { this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: '■ stopped.' }] })); return; }
         const note = (e && e.code === 401)
-          ? '⚠︎ Concierge needs an access token — tap "connect" to set it. Falling back to fast filter:'
+          ? '⚠︎ Concierge needs an access token (tap "connect") or your own Claude API key (settings ☰). Falling back to fast filter:'
           : '⚠︎ Concierge backend unreachable — falling back to fast filter:';
         this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: note }] }));
         // fall through to the local engine
       }
     } else if (mode === 'llm' && profileActive && this.state.backendStatus !== 'ok' && !this._backendHinted) {
       this._backendHinted = true;
-      this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: 'Concierge isn’t connected — tap “connect” to add your access token. Using fast filter for now:' }] }));
+      this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: 'Concierge isn’t connected — tap “connect” to add an access token, or drop your own Claude API key in settings (☰). Using fast filter for now:' }] }));
     }
 
     this.runLocal(text);
@@ -1975,8 +1982,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const loggedOut = !profileActive;
     const lastDataPull = this.fmtStamp((this.META && this.META.generated_at) || null);   // feed/catalog build
     const lastSiteUpdate = (typeof document !== 'undefined' && document.lastModified) ? this.fmtStamp(new Date(document.lastModified)) : '—';   // HTML deploy time
-    let claudeKey = ''; try { claudeKey = (typeof localStorage !== 'undefined' && localStorage.getItem('la-claude-api-key')) || ''; } catch (e) {}
-    const claudeKeyState = claudeKey ? 'key saved · backend coming soon' : 'not set · backend coming soon';
+    const claudeKey = this.byokKey();
+    const claudeKeyState = claudeKey ? 'using your key · ' + claudeKey.slice(0, 11) + '…' : 'not set · uses the shared key';
 
     const LBL = {
       today: { num: 'today', unit: '' }, weekend: { num: 'this weekend', unit: '' },
