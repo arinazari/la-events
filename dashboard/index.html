@@ -25,6 +25,10 @@
   .scry::-webkit-scrollbar { width: 9px; height: 9px; }
   .scry::-webkit-scrollbar-thumb { background: #cdcbc3; border-radius: 0; }
   .scry::-webkit-scrollbar-track { background: transparent; }
+  .fcol::-webkit-scrollbar { width: 6px; }
+  .fcol::-webkit-scrollbar-thumb { background: #d7d5cc; border-radius: 3px; }
+  .fcol::-webkit-scrollbar-track { background: transparent; }
+  .fcol { scrollbar-width: thin; scrollbar-color: #d7d5cc transparent; }
   @keyframes om-blink { 0%,20%{opacity:0} 50%{opacity:1} 100%{opacity:0} }
   .om-dots::after { content:'…'; }
   @keyframes om-scan { 0%{transform:translateX(-100%)} 100%{transform:translateX(300%)} }
@@ -219,64 +223,76 @@
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:140px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
                 <span onClick="{{ sortHood }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">NEIGHBORHOOD <span style="color:#2b5cd9;">{{ arrowHood }}</span></span>
-                <span onClick="{{ openHood }}" title="Filter neighborhood" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ hoodIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                <span onClick="{{ openHood }}" title="Neighborhood — click to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ hoodIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
               </span>
               <sc-if value="{{ hoodOpen }}" hint-placeholder-val="{{ false }}">
                 <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50;"></span>
-                <div style="position:absolute; top:30px; left:12px; z-index:51; width:200px; max-height:300px; overflow-y:auto; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 8px 22px rgba(0,0,0,0.16); padding:6px;">
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">NEIGHBORHOOD</span>
-                    <span onClick="{{ clearHood }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                <div style="position:absolute; top:30px; left:12px; z-index:51; display:flex; align-items:stretch; flex-wrap:wrap; gap:0; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                  <div class="fcol" style="flex:0 0 auto; width:190px; max-height:300px; overflow-y:auto; padding:0 9px;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">NEIGHBORHOOD</span>
+                      <sc-if value="{{ hoodHasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearHood }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                    </div>
+                    <sc-for list="{{ hoodMenu }}" as="o" hint-placeholder-count="8">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ hoodMenu }}" as="o" hint-placeholder-count="8">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">REGION</span>
-                    <span onClick="{{ clearRegion }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  <div class="fcol" style="flex:0 0 auto; width:120px; max-height:300px; overflow-y:auto; padding:0 9px; border-left:1px solid #eceae2;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">REGION</span>
+                      <sc-if value="{{ regionHasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearRegion }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                    </div>
+                    <sc-for list="{{ regionMenu }}" as="o" hint-placeholder-count="7">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ regionMenu }}" as="o" hint-placeholder-count="7">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
                 </div>
               </sc-if>
             </th>
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:150px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
-                <span onClick="{{ sortCat }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">CATEGORY / TAGS <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
-                <span onClick="{{ openCat }}" title="Filter category / genre" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ catGenreIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                <span onClick="{{ sortCat }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">CATEGORY / VIBE <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
+                <span onClick="{{ openCat }}" title="Category / genre / vibe / setting — click to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ catGenreIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
               </span>
               <sc-if value="{{ catOpen }}" hint-placeholder-val="{{ false }}">
                 <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50;"></span>
-                <div style="position:absolute; top:30px; left:12px; z-index:51; width:220px; max-height:340px; overflow-y:auto; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 8px 22px rgba(0,0,0,0.16); padding:6px;">
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">CATEGORY</span>
-                    <span onClick="{{ clearCat }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                <div style="position:absolute; top:30px; right:12px; z-index:51; display:flex; align-items:stretch; flex-wrap:wrap; gap:0; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                  <div class="fcol" style="flex:0 0 auto; width:138px; max-height:340px; overflow-y:auto; padding:0 9px;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">CATEGORY</span>
+                      <sc-if value="{{ catHasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearCat }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                    </div>
+                    <sc-for list="{{ catMenu }}" as="o" hint-placeholder-count="7">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ catMenu }}" as="o" hint-placeholder-count="7">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">GENRE</span>
-                    <span onClick="{{ clearGenre }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  <div class="fcol" style="flex:0 0 auto; width:138px; max-height:340px; overflow-y:auto; padding:0 9px; border-left:1px solid #eceae2;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">GENRE</span>
+                      <sc-if value="{{ genreHasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearGenre }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                    </div>
+                    <sc-for list="{{ genreMenu }}" as="o" hint-placeholder-count="10">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ genreMenu }}" as="o" hint-placeholder-count="10">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">VIBE</span>
-                    <span onClick="{{ clearVibe }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  <div class="fcol" style="flex:0 0 auto; width:138px; max-height:340px; overflow-y:auto; padding:0 9px; border-left:1px solid #eceae2;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">VIBE</span>
+                      <sc-if value="{{ vibeHasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearVibe }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                    </div>
+                    <sc-for list="{{ vibeMenu }}" as="o" hint-placeholder-count="10">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ vibeMenu }}" as="o" hint-placeholder-count="10">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 6px 6px; border-top:1px solid #eceae2; border-bottom:1px solid #eceae2; margin:6px 0 4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">SETTING</span>
-                    <span onClick="{{ clearSetting }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                  <div class="fcol" style="flex:0 0 auto; width:138px; max-height:340px; overflow-y:auto; padding:0 9px; border-left:1px solid #eceae2;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">SETTING</span>
+                      <sc-if value="{{ settingHasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearSetting }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                    </div>
+                    <sc-for list="{{ settingMenu }}" as="o" hint-placeholder-count="8">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                    </sc-for>
                   </div>
-                  <sc-for list="{{ settingMenu }}" as="o" hint-placeholder-count="8">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
-                  </sc-for>
                 </div>
               </sc-if>
             </th>
@@ -284,17 +300,17 @@
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:104px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
                 <span onClick="{{ sortSource }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></span>
-                <span onClick="{{ openSource }}" title="Filter source" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ sourceIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                <span onClick="{{ openSource }}" title="Source — click to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ sourceIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
               </span>
               <sc-if value="{{ sourceOpen }}" hint-placeholder-val="{{ false }}">
                 <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50;"></span>
-                <div style="position:absolute; top:30px; right:12px; z-index:51; width:180px; max-height:300px; overflow-y:auto; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 8px 22px rgba(0,0,0,0.16); padding:6px;">
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">
-                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">SOURCE</span>
-                    <span onClick="{{ clearSource }}" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;" style-hover="color:#161512;">clear</span>
+                <div class="fcol" style="position:absolute; top:30px; right:12px; z-index:51; width:184px; max-height:300px; overflow-y:auto; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 10px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 2px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">SOURCE</span>
+                    <sc-if value="{{ sourceActive }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearSource }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
                   </div>
                   <sc-for list="{{ sourceMenu }}" as="o" hint-placeholder-count="6">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }};" style-hover="background:#f1efe7;"><span>{{ o.box }}</span>{{ o.label }}</div>
+                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
                   </sc-for>
                 </div>
               </sc-if>
@@ -575,7 +591,7 @@ class Component extends DCLogic {
     expandedId: null,
     filtered: null,            // array of ids or null (=all)
     filterSummary: '', digestPicks: false,
-    colFilters: { hood: [], cat: [], genre: [], vibe: [], setting: [], region: [], source: [] }, openFilter: null,
+    colFilters: { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} }, openFilter: null,
     search: '', digestPrevState: null,
     settingsOpen: false, confirmDiscover: false,
     refreshing: false, lastUpdated: 'Wed 6/17, 7:02 AM',
@@ -795,21 +811,29 @@ class Component extends DCLogic {
   openFilterMenu = (col) => this.setState(s => ({ openFilter: s.openFilter === col ? null : col }));
   closeFilterMenu = () => this.setState({ openFilter: null });
   toggleFilterVal = (col, val) => this.setState(s => {
-    const cur = s.colFilters[col] || [];
-    const next = cur.includes(val) ? cur.filter(v => v !== val) : [...cur, val];
+    const cur = s.colFilters[col] || { in: [], out: [] };
+    const inq = cur.in.includes(val), outq = cur.out.includes(val);
+    // cycle: neutral -> keep (in) -> hide (out) -> neutral
+    const next = inq  ? { in: cur.in.filter(v => v !== val), out: [...cur.out, val] }
+               : outq ? { in: cur.in, out: cur.out.filter(v => v !== val) }
+               :        { in: [...cur.in, val], out: cur.out };
     return { colFilters: { ...s.colFilters, [col]: next }, digestPicks: false, digestPrevState: null, expandedId: null };
   });
-  clearFilterCol = (col) => this.setState(s => ({ colFilters: { ...s.colFilters, [col]: [] }, expandedId: null }));
+  clearFilterCol = (col) => this.setState(s => ({ colFilters: { ...s.colFilters, [col]: { in: [], out: [] } }, expandedId: null }));
   passesColFilters(e) {
     const f = this.state.colFilters;
-    const some = (sel, vals) => sel.some(v => (vals || []).includes(v));  // OR within an axis
-    if (f.hood.length && !f.hood.includes(e.hood)) return false;
-    if (f.cat.length && !f.cat.includes(e.cat)) return false;
-    if (f.genre.length && !some(f.genre, e.genres)) return false;
-    if (f.vibe.length && !some(f.vibe, e.vibe)) return false;
-    if (f.setting.length && !some(f.setting, e.setting)) return false;
-    if (f.region.length && !f.region.includes(e.region)) return false;
-    if (f.source.length && !f.source.includes(e.source)) return false;
+    const some = (sel, vals) => sel.some(v => (vals || []).includes(v));
+    // Per axis: hide a row if it matches a HIDE (out) value; and if any KEEP (in) values are
+    // set, the row must match one of them. in = include-only, out = exclude.
+    const ok1 = (ff, val) => !ff.out.includes(val) && (!ff.in.length || ff.in.includes(val));
+    const okN = (ff, vals) => !some(ff.out, vals) && (!ff.in.length || some(ff.in, vals));
+    if (!ok1(f.hood, e.hood)) return false;
+    if (!ok1(f.cat, e.cat)) return false;
+    if (!okN(f.genre, e.genres)) return false;
+    if (!okN(f.vibe, e.vibe)) return false;
+    if (!okN(f.setting, e.setting)) return false;
+    if (!ok1(f.region, e.region)) return false;
+    if (!ok1(f.source, e.source)) return false;
     return true;
   }
 
@@ -817,7 +841,7 @@ class Component extends DCLogic {
   toggle = (id) => this.setState(s => ({ expandedId: s.expandedId === id ? null : id }));
 
   // ---------- chat / filter ----------
-  EMPTY_COLS = { hood: [], cat: [], genre: [], vibe: [], setting: [], region: [], source: [] };
+  EMPTY_COLS = { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} };
   reset = () => this.setState(s => ({
     filtered: null, filterSummary: '', digestPicks: false, digestPrevState: null,
     colFilters: this.EMPTY_COLS, search: '', expandedId: null,
@@ -1628,14 +1652,22 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const cf = this.state.colFilters;
     const dv = this.distinctVals();
     const prettyTag = (v) => String(v).replace(/-/g, ' ');  // machine tag -> readable label
-    const mkMenu = (col, label) => dv[col].map(v => ({
-      val: v, label: label ? label(v) : v, checked: cf[col].includes(v),
-      box: cf[col].includes(v) ? '\u25a0' : '\u25a1',
-      color: cf[col].includes(v) ? '#161512' : '#76746b',
-      onClick: () => this.toggleFilterVal(col, v)
-    }));
+    const nsel = (c) => cf[c].in.length + cf[c].out.length;  // active picks on an axis
+    const mkMenu = (col, label) => dv[col].map(v => {
+      const inq = cf[col].in.includes(v), outq = cf[col].out.includes(v);  // keep / hide / neutral
+      return {
+        val: v, label: label ? label(v) : v,
+        box: inq ? '\u2713' : (outq ? '\u2715' : '\u25a1'),
+        boxColor: inq ? '#1f7a4d' : (outq ? '#b4543f' : '#cbc9bf'),
+        color: outq ? '#a29a90' : (inq ? '#161512' : '#76746b'),
+        bg: inq ? '#e9efe9' : (outq ? '#f5ece8' : 'transparent'),
+        weight: inq ? '600' : '500',
+        deco: outq ? 'line-through' : 'none',
+        onClick: () => this.toggleFilterVal(col, v)
+      };
+    });
     const openF = this.state.openFilter;
-    const catGenreActive = cf.cat.length + cf.genre.length + cf.vibe.length + cf.setting.length;
+    const catGenreActive = nsel('cat') + nsel('genre') + nsel('vibe') + nsel('setting');
 
     const rows = sorted.map(e => ({
       id: e.id, wd: e.wd, md: e.md, t: e.t,
@@ -1708,7 +1740,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       weight: range === key ? '700' : '500',
       onClick: () => this.setRange(key)
     }));
-    const anyActive = !!filtered || cf.hood.length || cf.cat.length || cf.genre.length || cf.vibe.length || cf.setting.length || cf.region.length || cf.source.length || (this.state.search || '').trim() || digestPicks;
+    const anyActive = !!filtered || nsel('hood') || nsel('cat') || nsel('genre') || nsel('vibe') || nsel('setting') || nsel('region') || nsel('source') || (this.state.search || '').trim() || digestPicks;
 
     return {
       messages: msgs, suggestions, loading,
@@ -1759,9 +1791,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       openHood: () => this.openFilterMenu('hood'), openCat: () => this.openFilterMenu('cat'), openSource: () => this.openFilterMenu('source'),
       hoodMenu: mkMenu('hood'), catMenu: mkMenu('cat'), genreMenu: mkMenu('genre', prettyTag), sourceMenu: mkMenu('source'),
       vibeMenu: mkMenu('vibe', prettyTag), settingMenu: mkMenu('setting', prettyTag), regionMenu: mkMenu('region', prettyTag),
+      catHasSel: nsel('cat') > 0, genreHasSel: nsel('genre') > 0, vibeHasSel: nsel('vibe') > 0, settingHasSel: nsel('setting') > 0, hoodHasSel: nsel('hood') > 0, regionHasSel: nsel('region') > 0,
       hoodOpen: openF === 'hood', catOpen: openF === 'cat', sourceOpen: openF === 'source',
-      hoodActive: (cf.hood.length + cf.region.length) > 0, sourceActive: cf.source.length > 0, catGenreActive: catGenreActive > 0,
-      hoodIcon: (cf.hood.length || cf.region.length) ? '#2b5cd9' : '#bdbbb1', sourceIcon: cf.source.length ? '#2b5cd9' : '#bdbbb1',
+      hoodActive: (nsel('hood') + nsel('region')) > 0, sourceActive: nsel('source') > 0, catGenreActive: catGenreActive > 0,
+      hoodIcon: (nsel('hood') || nsel('region')) ? '#2b5cd9' : '#bdbbb1', sourceIcon: nsel('source') ? '#2b5cd9' : '#bdbbb1',
       catGenreIcon: catGenreActive ? '#2b5cd9' : '#bdbbb1',
       clearHood: () => this.clearFilterCol('hood'), clearSource: () => this.clearFilterCol('source'),
       clearCat: () => this.clearFilterCol('cat'), clearGenre: () => this.clearFilterCol('genre'),
