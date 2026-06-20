@@ -85,9 +85,18 @@ def main() -> int:
         out = DASH / f"data.{h}.json"
         taste = p.get("taste") or "taste.yaml"
         profile = p.get("profile") or "profile.yaml"
+        is_owner = bool(p.get("owner"))
         print(f"{u} ({p.get('name') or u}) -> dashboard/data.{h}.json")
-        if not run_build(taste, profile, out, profile_hash=h,
-                         editor_pool_out=str(REPO / "data" / f"editor_pool.{h}.json")):
+        # The owner shares the ROOT taste/music/verdicts, so build their feed exactly like the
+        # default (no per-hash verdict/Spotify lookup — those files don't exist for the owner) —
+        # just written to the owner's hash + tagged with the owner block below. Friends get their
+        # own per-hash music layer + verdict store + editor pool.
+        if is_owner:
+            ok = run_build(taste, profile, out)
+        else:
+            ok = run_build(taste, profile, out, profile_hash=h,
+                           editor_pool_out=str(REPO / "data" / f"editor_pool.{h}.json"))
+        if not ok:
             print(f"  ERROR: build failed for {u}", file=sys.stderr)
             continue
         # Inject the self-describing profile block so the page needs only the hash. Includes the
