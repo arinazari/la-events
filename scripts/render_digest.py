@@ -20,8 +20,13 @@ from html import escape
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from lib.enrich import load_cache, merge_enrichment  # noqa: E402
+from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
 from lib.dedupe import normalize  # noqa: E402
+from lib.config import load_taste, load_profile  # noqa: E402
+from lib.feedback import merged_affinity  # noqa: E402
+from lib.pipeline import score_pool, today_la  # noqa: E402
+from lib.assemble import assemble  # noqa: E402
+from lib import editor as ED  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -326,11 +331,48 @@ def render_html(doc: dict, cands: list) -> str:
     return "".join(parts)
 
 
+# Editor tier -> the 1-5 rating the renderer already keys picks/order off, so a verdict shows
+# through the existing rating-based render without touching the renderers.
+TIER_RATING = {"must-see": 5, "great": 4, "solid": 3, "skip": 1}
+DEFAULT_PER_DAY = {"weekday": 5, "weekend": 8}
+
+
+def build_slate_cands(catalog, taste, profile, today, verdicts, *, window=None,
+                      per_day=None, mute=None, from_=None, to=None, affinity=None) -> list:
+    """The digest's event list = the assemble() slate (verdict-ranked, lane-diverse, capped),
+    flattened best-first per day. Each pick gets the editor's tier mapped onto `rating` and its
+    `adjust` folded into `score`, so the existing rating-based renderer reflects the verdict."""
+    pool = [e for e in score_pool(catalog, taste, profile, today, window_days=window, affinity=affinity)
+            if (e.get("score") or 0) >= 0]                       # hard-negatives never make the digest
+    slate = assemble(pool, verdicts, per_day=per_day or DEFAULT_PER_DAY, mute=mute)
+    cands = []
+    for day in slate:
+        if (from_ and day["date"] < from_) or (to and day["date"] > to):
+            continue
+        for ev in day["picks"]:
+            v = verdicts.get(event_key(ev))
+            if v:
+                ev = dict(ev)
+                ev["rating"] = TIER_RATING.get(v.get("tier"), ev.get("rating"))
+                ev["score"] = (ev.get("score") or 0) + (v.get("adjust") or 0)
+                ev["verdict"] = v
+            cands.append(ev)
+    return cands
+
+
 def main() -> int:
     global ASSET_PREFIX
     ap = argparse.ArgumentParser()
-    ap.add_argument("--candidates", default="data/candidates.json")
+    ap.add_argument("--catalog", default="data/catalog.json")
+    ap.add_argument("--candidates", default="data/candidates.json",
+                    help="read only for the run report / sources footer (optional)")
     ap.add_argument("--enrichment", default="data/enrichment.json")
+    ap.add_argument("--verdicts", default=None, help="verdict store (default: data/verdicts/<hash>.json)")
+    ap.add_argument("--profile-hash", default=None, help="render a profile's slate (its taste/spotify/verdicts)")
+    ap.add_argument("--taste", default="taste.yaml")
+    ap.add_argument("--profile", default="profile.yaml")
+    ap.add_argument("--window", type=int, default=None, help="days from today to include (default: all upcoming)")
+    ap.add_argument("--per-day", type=int, default=None, help="cap per day (default: weekend-aware 8/5)")
     ap.add_argument("--md", default="/tmp/digest.md")
     ap.add_argument("--html", default="/tmp/digest.html")
     ap.add_argument("--from", dest="from_", default=None, help="ISO date lower bound (inclusive)")
@@ -339,19 +381,37 @@ def main() -> int:
     args = ap.parse_args()
     ASSET_PREFIX = args.asset_prefix
 
-    cpath = REPO / args.candidates if not Path(args.candidates).is_absolute() else Path(args.candidates)
-    doc = json.loads(cpath.read_text())
-    cands = doc.get("candidates", doc) if isinstance(doc, dict) else doc
-    if args.from_ or args.to:
-        cands = [c for c in cands if c.get("iso_date")
-                 and (not args.from_ or c["iso_date"] >= args.from_)
-                 and (not args.to or c["iso_date"] <= args.to)]
-    enriched = merge_enrichment(cands, load_cache(args.enrichment))
+    def resolve(p):
+        return REPO / p if not Path(p).is_absolute() else Path(p)
+
+    catalog = json.loads(resolve(args.catalog).read_text())
+    taste, profile = load_taste(args.taste), load_profile(args.profile)
+    today = today_la()
+    affinity = merged_affinity(REPO, profile, profile_hash=args.profile_hash)
+    vpath = resolve(args.verdicts) if args.verdicts else ED.verdict_path(args.profile_hash)
+    verdicts = ED.verdict_map(ED.load_verdicts(vpath))
+
+    cands = build_slate_cands(catalog, taste, profile, today, verdicts,
+                              window=args.window, per_day=args.per_day,
+                              from_=args.from_, to=args.to, affinity=affinity)
+    enriched = merge_enrichment(cands, load_cache(resolve(args.enrichment)))
+
+    # Run report / coverage footer: pull `sources` + `today` from candidates.json if present.
+    doc = {"today": today.isoformat()}
+    cpath = resolve(args.candidates)
+    if cpath.exists():
+        try:
+            cj = json.loads(cpath.read_text())
+            if isinstance(cj, dict) and cj.get("sources"):
+                doc["sources"] = cj["sources"]
+        except (json.JSONDecodeError, OSError):
+            pass
 
     Path(args.md).write_text(render_markdown(doc, enriched))
     Path(args.html).write_text(render_html(doc, enriched))
     n_enr = sum(1 for e in enriched if e.get("enrichment"))
-    print(f"rendered {len(enriched)} candidates ({n_enr} enriched) -> {args.md} + {args.html}")
+    n_v = sum(1 for e in enriched if e.get("verdict"))
+    print(f"rendered {len(enriched)} slate picks ({n_enr} enriched, {n_v} judged) -> {args.md} + {args.html}")
     return 0
 
 
