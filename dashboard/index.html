@@ -177,34 +177,12 @@
           </sc-if>
         </span>
         <span style="position:relative;">
-          <span onClick="{{ toggleSettings }}" title="Settings" style="cursor:pointer; display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #d2d0c7; background:#fff; border-radius:2px; color:#76746b; font-size:15px; line-height:1;" style-hover="border-color:#161512; color:#161512;">⚙</span>
+          <span onClick="{{ toggleSettings }}" title="{{ settingsTitle }}" style="cursor:pointer; display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #d2d0c7; background:#fff; border-radius:2px; color:#76746b; font-size:15px; line-height:1;" style-hover="border-color:#161512; color:#161512;">{{ settingsIcon }}</span>
           <sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
             <span onClick="{{ closeSettings }}" style="position:fixed; inset:0; z-index:60;"></span>
             <div style="position:absolute; top:37px; right:0; z-index:61; width:256px; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:12px;">
               <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:10px;">SETTINGS</div>
-              <sc-if value="{{ isAdmin }}" hint-placeholder-val="{{ false }}">
-                <div onClick="{{ doRefresh }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">↻</span>
-                  <span style="flex:1;">
-                    <sc-if value="{{ notRefreshing }}" hint-placeholder-val="{{ true }}">
-                      <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Refresh events</span>
-                      <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">updated {{ lastUpdated }}</span>
-                    </sc-if>
-                    <sc-if value="{{ refreshing }}" hint-placeholder-val="{{ false }}">
-                      <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Fetching sources<span class="om-dots"></span></span>
-                      <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">Ticketmaster · RA · DICE · Gmail</span>
-                    </sc-if>
-                  </span>
-                </div>
-                <div onClick="{{ askDiscover }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">⊕</span>
-                  <span style="flex:1;">
-                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Discover new sources</span>
-                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">scan the web for new feeds</span>
-                  </span>
-                </div>
-              </sc-if>
-              <sc-if value="{{ isUser }}" hint-placeholder-val="{{ false }}">
+              <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">
                 <div onClick="{{ setClaudeKey }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
                   <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">◈</span>
                   <span style="flex:1;">
@@ -212,11 +190,11 @@
                     <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ claudeKeyState }}</span>
                   </span>
                 </div>
-                <div onClick="{{ connectSpotify }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
+                <div onClick="{{ spotifyAction }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
                   <span style="flex:none; color:#1f9d57; font-size:13px; transform:translateY(1px);">◉</span>
                   <span style="flex:1;">
                     <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Spotify</span>
-                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ spotifyState }}</span>
+                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ spotifySettingsText }}</span>
                   </span>
                 </div>
                 <div onClick="{{ openTasteModal }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
@@ -235,13 +213,29 @@
                 </div>
               </sc-if>
               <sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">
-                <div onClick="{{ openLoginFromSettings }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">→</span>
-                  <span style="flex:1;">
-                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</span>
-                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">load your taste profile + digest</span>
-                  </span>
-                </div>
+                <sc-if value="{{ loginClosed }}" hint-placeholder-val="{{ true }}">
+                  <div onClick="{{ openLoginFromSettings }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
+                    <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">→</span>
+                    <span style="flex:1;">
+                      <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</span>
+                      <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">load your taste profile + digest</span>
+                    </span>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:1px 2px 2px;">
+                    <div style="font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</div>
+                    <div style="margin-top:3px; font:500 10px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">Type your username to load your taste profile + digest.</div>
+                    <input value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="username" style="margin-top:8px; width:100%; box-sizing:border-box; font:400 12px/1.4 -apple-system,system-ui,sans-serif; padding:8px 9px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none;" style-focus="border-color:#2b5cd9;" />
+                    <sc-if value="{{ profileError }}" hint-placeholder-val="{{ false }}">
+                      <div style="margin-top:6px; font-size:11px; color:#b4453a;">{{ profileError }}</div>
+                    </sc-if>
+                    <div style="display:flex; gap:6px; margin-top:9px; justify-content:flex-end;">
+                      <button onClick="{{ cancelLogin }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;">Cancel</button>
+                      <button onClick="{{ submitProfile }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 14px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; cursor:pointer;">{{ profileBtnLabel }}</button>
+                    </div>
+                  </div>
+                </sc-if>
               </sc-if>
               <div style="margin-top:10px; padding-top:9px; border-top:1px solid #eceae2; display:flex; align-items:center; justify-content:space-between; gap:8px;">
                 <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">DATA</span>
@@ -435,7 +429,6 @@
     <footer style="flex:none; padding:9px 22px; border-top:1px solid #d9d7cf; background:#f4f3ef; display:flex; align-items:center; justify-content:space-between; gap:16px; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; letter-spacing:0.02em;">
       <span><span style="color:#3f3d36; font-weight:600;">{{ shownCount }}</span> shown · <span style="color:#3f3d36; font-weight:600;">{{ totalCount }}</span> entries in catalog</span>
       <span style="display:inline-flex; align-items:center; gap:14px;">
-        <span onClick="{{ openProfile }}" title="Switch taste profile" style="display:inline-flex; align-items:center; gap:5px; cursor:pointer; padding:4px 9px; border-radius:2px; border:1px solid {{ profBorder }}; background: {{ profBg }}; color: {{ profColor }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="color:#161512;"><span style="color: {{ profDot }};">◐</span> {{ profileLabel }}</span>
         <sc-if value="{{ digestActive }}" hint-placeholder-val="{{ false }}">
           <span onClick="{{ openDigest }}" title="The table is filtered to the digest's highlighted picks — open the digest to clear it" style="display:inline-flex; align-items:center; gap:6px; padding:4px 9px; border-radius:2px; border:1px solid #c9c7bd; background:#fff; color:#161512; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; cursor:pointer;" style-hover="border-color:#2b5cd9;"><span style="color:#1b1a17;">★</span> digest picks ↗</span>
         </sc-if>
@@ -445,40 +438,6 @@
       </span>
     </footer>
 
-    <sc-if value="{{ profileOpen }}" hint-placeholder-val="{{ false }}">
-      <div onClick="{{ closeProfile }}" style="position:fixed; inset:0; z-index:80; background:rgba(20,21,18,0.34);"></div>
-      <div style="position:fixed; z-index:81; top:50%; left:50%; transform:translate(-50%,-50%); width:340px; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:4px; box-shadow:0 18px 50px rgba(0,0,0,0.28); padding:18px;">
-        <div style="font:600 12px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.05em; color:#2b5cd9;">PROFILE</div>
-        <div style="margin-top:8px; font-size:11.5px; line-height:1.5; color:#76746b;">Type your username to load your taste profile + digest. Blank or unknown stays on the default picks.</div>
-        <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">
-          <div style="margin-top:10px; font-size:11.5px; color:#3f3d36;">Signed in as <b>{{ profileName }}</b> · <span onClick="{{ logoutProfile }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">log out</span></div>
-          <sc-if value="{{ profileTasteYaml }}" hint-placeholder-val="{{ false }}">
-            <div style="margin-top:11px;"><span onClick="{{ openTasteModal }}" style="cursor:pointer; font:600 11px/1.3 ui-monospace,Menlo,monospace; color:#2b5cd9; border-bottom:1px dashed #9db4ee;" style-hover="border-color:#2b5cd9;">View your taste profile →</span></div>
-          </sc-if>
-          <div style="margin-top:14px; padding-top:12px; border-top:1px solid #eee8da;">
-            <div style="font:600 10px/1.4 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">SPOTIFY — tailor picks to your listening</div>
-            <sc-if value="{{ spotifyUnavailable }}" hint-placeholder-val="{{ false }}">
-              <div style="margin-top:6px; font-size:11px; color:#9a988e;">Connect the concierge backend first (the chat &ldquo;connect&rdquo; link) — Spotify links through it.</div>
-            </sc-if>
-            <sc-if value="{{ spotifyConnected }}" hint-placeholder-val="{{ false }}">
-              <div style="margin-top:7px; font-size:11.5px; color:#3f3d36;"><span style="color:#1db954;">♫</span> {{ spotifyStatusText }} · <span onClick="{{ disconnectSpotify }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">disconnect</span></div>
-            </sc-if>
-            <sc-if value="{{ spotifyNotConnected }}" hint-placeholder-val="{{ false }}">
-              <button onClick="{{ connectSpotify }}" style="margin-top:8px; display:inline-flex; align-items:center; gap:6px; font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #1db954; background:#1db954; color:#fff; border-radius:2px; cursor:pointer;" style-hover="opacity:0.85;">♫ Connect Spotify</button>
-              <div style="margin-top:6px; font-size:10.5px; color:#9a988e;">{{ spotifyStatusText }}</div>
-            </sc-if>
-          </div>
-        </sc-if>
-        <input value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="username" style="margin-top:12px; width:100%; box-sizing:border-box; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; padding:9px 10px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none;" style-focus="border-color:#2b5cd9;" />
-        <sc-if value="{{ profileError }}" hint-placeholder-val="{{ false }}">
-          <div style="margin-top:7px; font-size:11px; color:#b4453a;">{{ profileError }}</div>
-        </sc-if>
-        <div style="display:flex; gap:6px; margin-top:14px; justify-content:flex-end;">
-          <button onClick="{{ closeProfile }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;">Close</button>
-          <button onClick="{{ submitProfile }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 14px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; cursor:pointer;">{{ profileBtnLabel }}</button>
-        </div>
-      </div>
-    </sc-if>
   </main>
 
   <!-- ===================== DIGEST MODAL ===================== -->
@@ -548,58 +507,6 @@
           <span style="font:500 11px/1.45 -apple-system,system-ui,sans-serif; color:#76746b;">Read-only. To change it, ask the concierge — e.g. &ldquo;more techno, less comedy&rdquo; or &ldquo;track Peggy Gou.&rdquo;</span>
           <button onClick="{{ closeTasteModal }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:2px; cursor:pointer;" style-hover="background:#000;">Done</button>
         </div>
-      </div>
-    </div>
-  </sc-if>
-
-  <!-- ===================== DISCOVER CONFIRMATION ===================== -->
-  <sc-if value="{{ confirmDiscover }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed; inset:0; z-index:110; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
-      <div onClick="{{ cancelDiscover }}" style="position:absolute; inset:0;"></div>
-      <div style="position:relative; z-index:1; width:100%; max-width:400px; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28); padding:22px;">
-        <div style="font:700 15px/1.3 -apple-system,system-ui,sans-serif; color:#161512; margin-bottom:8px;">Discover new sources?</div>
-        <div style="font-size:12.5px; line-height:1.55; color:#76746b;">Copies a ready-to-run <span style="font:600 11.5px ui-monospace,Menlo,monospace; color:#3f3d36;">Discover</span> prompt to your clipboard. Paste it into your Claude Code session — it scans for LA event sources not yet in your registry and <em>proposes</em> additions to <span style="font:600 11.5px ui-monospace,Menlo,monospace; color:#3f3d36;">sources.yaml</span>. Nothing is added without your approval in the repo.</div>
-        <div style="display:flex; justify-content:flex-end; gap:9px; margin-top:18px;">
-          <button onClick="{{ cancelDiscover }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 13px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">Cancel</button>
-          <button onClick="{{ runDiscover }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 13px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:2px; cursor:pointer;" style-hover="background:#000;">Copy Discover prompt</button>
-        </div>
-      </div>
-    </div>
-  </sc-if>
-
-  <!-- ===================== DISCOVER RESULTS ===================== -->
-  <sc-if value="{{ discoverOverlay }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed; inset:0; z-index:110; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
-      <div onClick="{{ closeDiscover }}" style="position:absolute; inset:0;"></div>
-      <div style="position:relative; z-index:1; width:100%; max-width:480px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
-        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 18px; border-bottom:1px solid #e2e0d8;">
-          <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#a7a59b;">DISCOVER · PROPOSED SOURCES</span>
-          <button onClick="{{ closeDiscover }}" style="flex:none; width:26px; height:24px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 13px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#161512; color:#161512;">×</button>
-        </div>
-        <sc-if value="{{ discovering }}" hint-placeholder-val="{{ true }}">
-          <div style="padding:34px 22px; text-align:center;">
-            <div style="height:2px; width:120px; margin:0 auto 14px; background:#e2e0d8; border-radius:2px; overflow:hidden;"><div style="height:100%; width:33%; background:#1b1a17; animation:om-scan 1.1s ease-in-out infinite;"></div></div>
-            <div style="font:500 12px/1.5 ui-monospace,Menlo,monospace; color:#76746b;">Scanning the web for new LA event sources<span class="om-dots"></span></div>
-          </div>
-        </sc-if>
-        <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ false }}">
-          <div class="scry" style="flex:1; overflow-y:auto; padding:10px 14px;">
-            <sc-for list="{{ discoverResults }}" as="r" hint-placeholder-count="4">
-              <div style="display:flex; align-items:flex-start; gap:11px; padding:10px 6px; border-bottom:1px solid #eceae2;">
-                <span style="flex:none; margin-top:1px; font:600 9px/1 ui-monospace,Menlo,monospace; padding:3px 5px; border-radius:2px; color:#3f3d36; background:rgba(0,0,0,0.05);">{{ r.method }}</span>
-                <span style="flex:1;">
-                  <span style="display:block; font:600 13px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">{{ r.name }}</span>
-                  <span style="display:block; margin-top:2px; font-size:11.5px; line-height:1.4; color:#76746b;">{{ r.category }} · {{ r.note }}</span>
-                </span>
-              </div>
-            </sc-for>
-            <div style="padding:10px 6px 4px; font:500 10.5px/1.5 ui-monospace,Menlo,monospace; color:#bdbbb1;">Candidates only — approve in the repo to append to sources.yaml.</div>
-          </div>
-          <div style="flex:none; display:flex; justify-content:flex-end; gap:9px; padding:11px 16px; border-top:1px solid #e2e0d8;">
-            <button onClick="{{ closeDiscover }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 13px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">Close</button>
-            <button onClick="{{ acceptDiscover }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 13px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:2px; cursor:pointer;" style-hover="background:#000;">Queue {{ resultCount }} for sources.yaml</button>
-          </div>
-        </sc-if>
       </div>
     </div>
   </sc-if>
@@ -706,9 +613,7 @@ class Component extends DCLogic {
     digestMenuOpen: false, digestEmailOpen: false, digestEmail: '',
     colFilters: { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} }, openFilter: null,
     search: '', digestPrevState: null,
-    settingsOpen: false, confirmDiscover: false,
-    refreshing: false, lastUpdated: 'Wed 6/17, 7:02 AM',
-    discovering: false, discoverResults: null, toast: null,
+    settingsOpen: false, loginOpen: false, toast: null,
     input: '',
     chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
     backendStatus: null,
@@ -1240,8 +1145,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   closeTasteModal = () => this.setState({ tasteModalOpen: false });
 
   // ---------- settings ----------
-  toggleSettings = () => this.setState(s => ({ settingsOpen: !s.settingsOpen }));
-  closeSettings = () => this.setState({ settingsOpen: false });
+  toggleSettings = () => { const open = !this.state.settingsOpen; this.setState({ settingsOpen: open, loginOpen: false, profileError: '' }); if (open && this.state.profile && this.state.profile.hash) this.checkSpotify(); };
+  closeSettings = () => this.setState({ settingsOpen: false, loginOpen: false });
   // "2026-06-17T07:02:00" (or a Date / null) -> "Wed 6/17, 7:02 AM" — Ari's date convention.
   fmtStamp(d) {
     if (!d) return '—';
@@ -1252,7 +1157,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     h = h % 12; if (h === 0) h = 12;
     return wd + ' ' + (dt.getMonth() + 1) + '/' + dt.getDate() + ', ' + h + ':' + String(dt.getMinutes()).padStart(2, '0') + ' ' + ap;
   }
-  // --- non-admin settings (the owner gets refresh/discover instead; see renderVals roles) ---
+  // --- logged-in settings (Claude key, Spotify, taste profile, log out) — same for every profile ---
   // Stub: stash a Claude API key in this browser. The concierge backend that will consume it is TBD.
   setClaudeKey = () => {
     let v; try { v = window.prompt('Anthropic API key for the concierge (stored in THIS browser only; backend coming soon). Leave blank to clear:', (typeof localStorage !== 'undefined' && localStorage.getItem('la-claude-api-key')) || ''); } catch (e) { return; }
@@ -1262,66 +1167,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.flashToast(v ? 'Claude API key saved in this browser — concierge backend coming soon' : 'Claude API key cleared');
     this.forceUpdate();
   };
-  // Stub: real Spotify-connect flow is being built on another branch; this is the placeholder.
-  connectSpotify = () => { this.setState({ settingsOpen: false }); this.flashToast('Spotify connect is coming soon.'); };
-  logoutFromSettings = () => { this.setState({ settingsOpen: false }); this.logoutProfile(); };
-  openLoginFromSettings = () => { this.setState({ settingsOpen: false }); this.openProfile(); };
+  logoutFromSettings = () => this.logoutProfile();
+  openLoginFromSettings = () => this.setState({ loginOpen: true, profileInput: '', profileError: '' });
+  cancelLogin = () => this.setState({ loginOpen: false, profileError: '' });
   flashToast(msg) {
     this.setState({ toast: msg });
     clearTimeout(this._toastT);
     this._toastT = setTimeout(() => this.setState({ toast: null }), 4200);
   }
-  doRefresh = () => {
-    if (this.state.refreshing) return;
-    this.setState({ refreshing: true });
-    const prev = this.ALL.length;
-    Promise.resolve(this.loadCatalog()).then(() => this.loadDigest()).finally(() => {
-      clearTimeout(this._refreshT);
-      this._refreshT = setTimeout(() => {
-        this.setState({ refreshing: false, lastUpdated: 'just now' });
-        if (this.state.dataSource === 'live') {
-          const added = this.ALL.length - prev;
-          this.flashToast('Catalog reloaded · ' + this.ALL.length + ' events' + (added > 0 ? ' (+' + added + ' new)' : ', 0 new') + ' · data.json');
-        } else {
-          this.flashToast('Refreshed · showing ' + this.ALL.length + ' bundled sample events (no live catalog found)');
-        }
-      }, 900);
-    });
-  };
-  askDiscover = () => this.setState({ confirmDiscover: true });
-  cancelDiscover = () => this.setState({ confirmDiscover: false });
-  // Discover is a hand-off (no in-browser LLM, no API key in the page): compose a Discover-mode
-  // prompt, copy it, and let the user paste it into their Claude Code session. Sources are
-  // PROPOSED there, then approved in the repo — the repo's propose -> human-approves rule.
-  buildDiscoverPrompt() {
-    const n = (this.ALL && this.ALL.length) || '?';
-    const when = (this.META && this.META.generated_at) ? ' (feed generated ' + String(this.META.generated_at).replace('T', ' ') + ')' : '';
-    return [
-      "Run la-events Discover mode for the arinazari/la-events repo.",
-      "",
-      "Goal: propose NEW event sources to add to sources.yaml that aren't already covered,",
-      "favoring the taste profile — house / techno / warehouse / afterhours, rep & arthouse",
-      "cinema (35mm/70mm), standup, listening bars. Gap-mine data/catalog.json + sources.yaml",
-      "(and crawl any venue / promoter / Linktree I paste), then return a vetted PROPOSAL table:",
-      "name · category · method (api/jsonld/scrape/ics/newsletter/manual) · why · sample URL.",
-      "",
-      "Don't edit sources.yaml — propose only; I'll approve and you commit the approved rows.",
-      "Context: catalog has " + n + " events" + when + ".",
-    ].join("\n");
-  }
-  runDiscover = async () => {
-    const prompt = this.buildDiscoverPrompt();
-    let copied = false;
-    try { await navigator.clipboard.writeText(prompt); copied = true; } catch (e) {}
-    this.setState({ confirmDiscover: false, settingsOpen: false });
-    this.flashToast((copied ? 'Discover prompt copied' : 'Discover prompt ready') + ' — paste it into your Claude Code session. New sources are proposed there, then you approve them in the repo.');
-  };
-  closeDiscover = () => this.setState({ discoverResults: null, discovering: false });
-  acceptDiscover = () => {
-    const n = (this.state.discoverResults || []).length;
-    this.setState({ discoverResults: null, discovering: false });
-    this.flashToast(n + ' source' + (n === 1 ? '' : 's') + ' queued for sources.yaml (prototype — approve in the repo)');
-  };
 
   // ---------- digest picks (the highlighted shortlist) ----------
   DIGEST_MIN = 7;
@@ -1416,8 +1269,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     return crypto.subtle.digest('SHA-256', data).then(buf =>
       [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 16));
   }
-  openProfile = () => { this.setState({ profileOpen: true, profileError: '' }); this.checkSpotify(); };
-  closeProfile = () => this.setState({ profileOpen: false });
   onProfileInput = (e) => this.setState({ profileInput: e.target.value });
   onProfileKey = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.submitProfile(); } };
   submitProfile = async () => {
@@ -1439,7 +1290,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // Switch the active profile: persist it, reset the view, load that feed (+ digest).
   async applyProfile(profileObj, raw) {
     try { profileObj ? localStorage.setItem('la-profile', JSON.stringify(profileObj)) : localStorage.removeItem('la-profile'); } catch (e) {}
-    this.setState({ profile: profileObj, profileOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
+    this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, loginOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
       spotifyStatus: null, spotifyName: '' });
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
@@ -2073,29 +1924,25 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const profileActive = !!(profile && profile.hash);
     const profileTasteYaml = (profileActive && this.META && this.META.profile && this.META.profile.taste_yaml) || '';
     const sstat = this.state.spotifyStatus;
-    const spotifyConnected = profileActive && !!this.BACKEND_URL && sstat === true;
-    const spotifyNotConnected = profileActive && !!this.BACKEND_URL && sstat !== true;
-    const spotifyUnavailable = profileActive && !this.BACKEND_URL;
-    const spotifyStatusText = sstat === true
-      ? ('Connected' + (this.state.spotifyName ? ' as ' + this.state.spotifyName : '') + ' — your feed re-ranks to your listening')
-      : (sstat === null ? 'Checking…' : 'Link your account so picks re-rank to what you actually listen to.');
-    const profBorder = profileActive ? '#2b5cd9' : '#d2d0c7';
-    const profBg = profileActive ? '#eaf0fe' : 'transparent';
-    const profColor = profileActive ? '#2b5cd9' : '#76746b';
-    const profDot = profileActive ? '#2b5cd9' : '#a7a59b';
+    // Spotify, in the settings-row style: one line of live status + a single tap that connects,
+    // disconnects, or (no backend) explains. The OAuth flow itself is connectSpotify/disconnectSpotify.
+    const spotifySettingsText = !this.BACKEND_URL
+      ? 'backend not connected — link the concierge first'
+      : (sstat === true ? ('connected' + (this.state.spotifyName ? ' as ' + this.state.spotifyName : '') + ' · tap to disconnect')
+         : sstat === null ? 'checking…'
+         : 'connect — tailor picks to your listening');
+    const spotifyAction = !this.BACKEND_URL
+      ? () => this.flashToast('Connect the concierge backend first (the chat “connect” link) — Spotify links through it.')
+      : (sstat === true ? this.disconnectSpotify : this.connectSpotify);
     // Header / digest subject: the logged-in name, or everyone's shared default when logged out.
     const digestUser = profileActive ? (profile.name || 'profile') : 'me and my friends';
 
-    // Settings roles: admin = the owner profile (ari, owner:true injected into the feed by
-    // build_profiles.py); everyone else is a non-admin. Refresh/Discover are admin-only.
-    const isAdmin = profileActive && !!(this.META && this.META.profile && this.META.profile.owner);
-    const isUser = profileActive && !isAdmin;   // a logged-in friend
+    // Every logged-in profile (incl. the owner) gets the same settings; logged-out gets the login flow.
     const loggedOut = !profileActive;
     const lastDataPull = this.fmtStamp((this.META && this.META.generated_at) || null);   // feed/catalog build
     const lastSiteUpdate = (typeof document !== 'undefined' && document.lastModified) ? this.fmtStamp(new Date(document.lastModified)) : '—';   // HTML deploy time
     let claudeKey = ''; try { claudeKey = (typeof localStorage !== 'undefined' && localStorage.getItem('la-claude-api-key')) || ''; } catch (e) {}
     const claudeKeyState = claudeKey ? 'key saved · backend coming soon' : 'not set · backend coming soon';
-    const spotifyState = (this.META && this.META.profile && this.META.profile.spotify_connected) ? 'connected' : 'connect — coming soon';
 
     const LBL = {
       week: { num: '7', unit: 'days' }, month: { num: '30', unit: 'days' },
@@ -2117,15 +1964,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       messages: msgs, suggestions, loading,
       modeOpts, showConnect, backendLabel, backendColor, connectBackend: this.connectBackend,
       goLabel: loading ? 'stop' : 'go', goBg: loading ? '#b4453a' : '#2b5cd9', onGoStop: this.onGoStop,
-      profileOpen: this.state.profileOpen, profileInput: this.state.profileInput || '', profileError: this.state.profileError || '',
-      profileActive, profileName: profileActive ? (profile.name || 'profile') : '',
-      profileLabel: profileActive ? (profile.name || 'profile') : 'prof',
+      profileInput: this.state.profileInput || '', profileError: this.state.profileError || '',
+      profileActive, profileName: profileActive ? (profile.name || 'profile') : '', profileTasteYaml,
       profileBtnLabel: this.state.profileBusy ? '…' : 'Enter',
-      profBorder, profBg, profColor, profDot, profileTasteYaml,
-      openProfile: this.openProfile, closeProfile: this.closeProfile, onProfileInput: this.onProfileInput,
-      onProfileKey: this.onProfileKey, submitProfile: this.submitProfile, logoutProfile: this.logoutProfile,
-      spotifyConnected, spotifyNotConnected, spotifyUnavailable, spotifyStatusText,
-      connectSpotify: this.connectSpotify, disconnectSpotify: this.disconnectSpotify,
+      onProfileInput: this.onProfileInput, onProfileKey: this.onProfileKey,
+      submitProfile: this.submitProfile, logoutProfile: this.logoutProfile,
+      spotifySettingsText, spotifyAction,
       rangeStart, rangeEnd, rangeLabel, bubbleOpen, bubbleOpts,
       startLabel: this.labelISO(rangeStart), endLabel: this.labelISO(rangeEnd),
       shownCount: rows.length, totalCount: this.ALL.length,
@@ -2173,18 +2017,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       emailTogBg: this.state.digestEmailOpen ? '#eaf0fe' : '#fff',
       emailTogColor: this.state.digestEmailOpen ? '#161512' : '#3f3d36',
       settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, closeSettings: this.closeSettings,
-      lastUpdated: this.state.lastUpdated, refreshing: this.state.refreshing, notRefreshing: !this.state.refreshing,
-      doRefresh: this.doRefresh,
-      isAdmin, isUser, loggedOut, lastDataPull, lastSiteUpdate, claudeKeyState, spotifyState,
-      setClaudeKey: this.setClaudeKey, connectSpotify: this.connectSpotify,
+      settingsIcon: loggedOut ? '◌' : '⚙', settingsTitle: loggedOut ? 'Log in' : 'Settings',
+      loginOpen: this.state.loginOpen, loginClosed: !this.state.loginOpen, cancelLogin: this.cancelLogin,
+      loggedOut, lastDataPull, lastSiteUpdate, claudeKeyState,
+      setClaudeKey: this.setClaudeKey,
       logoutFromSettings: this.logoutFromSettings, openLoginFromSettings: this.openLoginFromSettings,
       dataSourceLabel: this.state.dataSource === 'live' ? 'live · data.json' : 'bundled sample',
-      confirmDiscover: this.state.confirmDiscover, askDiscover: this.askDiscover, cancelDiscover: this.cancelDiscover, runDiscover: this.runDiscover,
-      discovering: this.state.discovering, discoverResults: this.state.discoverResults,
-      discoverOverlay: this.state.discovering || !!this.state.discoverResults,
-      hasResults: !!this.state.discoverResults,
-      closeDiscover: this.closeDiscover, acceptDiscover: this.acceptDiscover,
-      resultCount: (this.state.discoverResults || []).length,
       toast: this.state.toast, hasToast: !!this.state.toast,
       digestBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } }),
       closeFilterMenu: this.closeFilterMenu,
