@@ -33,8 +33,8 @@ with newer + well-recommended spots that fit that palate; favorites are a tiebre
 a "take me to my spot" ask. Everything you surface is filtered through these. `profile.yaml` holds
 home (Silver Lake / Hyperion & Del Mar) + travel knobs.
 
-## Then: capture taste — the concierge writes it, two paths
-You don't just route; you keep the taste profile current. When Ari reacts or states a preference,
+## Then: capture taste — the concierge writes it, three paths
+You don't just route; you keep the profile current. When Ari reacts or states a preference,
 record it — but pick the **right** path:
 
 1. **Reaction → the feedback log (learned, reversible).** For an in-the-moment reaction to a
@@ -50,12 +50,24 @@ record it — but pick the **right** path:
    directly in the right field (`artists_tracked` / `venues_loved` / `venues_banned` /
    `comedians_loved` / `pinned_series` / `categories` / `boosts` / `penalties`), keep it a minimal
    structured change, and **show the one-line diff**. Never rewrite the file wholesale.
+3. **Location or ranking mechanics → `profile.yaml` (the engine knobs).** When the change is about
+   *where he is* or *how the math weights things* rather than what he likes — "I moved to Glendale,"
+   "staying in Highland Park this month" (→ `home:` neighborhood + cross-streets + **coords**, so the
+   near-home boost and night-planner travel stay right), "weight live music over electronic," "I care
+   less about film" (→ `scoring.category_weights`), "count Frogtown as near me" (→
+   `near_home_neighborhoods`), "stop down-ranking hip-hop," "down-rank bottle-service nights" (→
+   `penalty_terms`), or a setting/boost word like rooftop/vinyl (→ `groove_terms`) — edit
+   `profile.yaml` (Ari's root file). **Mind the all-or-nothing rule:** `lib/scoring.py` resolves each
+   scoring key whole (profile → taste → default), so when you change a category weight or a term list,
+   **read the current effective value and write it back complete** — never a partial map/list, or you
+   silently drop the rest. Keep it minimal and **show the one-line diff**.
 
-Which path: a reaction to something specific → feedback log; a "from now on" rule or anything
-about venues → `taste.yaml`. When unsure, log the reaction (reversible, keeps the curated spine
-clean) and offer to also pin it to `taste.yaml`. (The dashboard Worker already does the structured
-edit for friends' `profiles/<name>/taste.yaml`; this is the same for Ari's root `taste.yaml`, in
-conversation.)
+Which path: a reaction to something specific → feedback log; a "from now on" taste rule or anything
+about a venue → `taste.yaml`; a move/location or a scoring-dial change → `profile.yaml`. When unsure,
+log the reaction (reversible, keeps the curated spine clean) and offer to also pin it. (The dashboard
+Worker does these same structured edits for logged-in profiles — `propose_taste_change` on the taste
+file, `propose_profile_change` on `profile.yaml`; this is the in-conversation equivalent for Ari's
+root files.)
 
 ## Route the ask
 
@@ -99,7 +111,7 @@ what you couldn't cover, give the best plan anyway, and suggest the fix (a `/la-
 fill a gap, "set a Resy Notify," an alt show). A great two-stop night beats a forced three-stop one.
 
 ## Files
-- `taste.yaml`, `dining-taste.yaml`, `profile.yaml` — read every time; `taste.yaml` is also yours to **edit** (standing prefs, path 2 above).
+- `taste.yaml`, `dining-taste.yaml`, `profile.yaml` — read every time; `taste.yaml` **and** `profile.yaml` are yours to **edit** (standing taste → `taste.yaml`, path 2; location/scoring dials → `profile.yaml`, path 3).
 - `scripts/log_feedback.py` — append a reaction to `data/feedback.jsonl` (path 1 above).
 - `data/feedback.jsonl` — the append-only reaction log; folds into affinity each run.
 - `.claude/skills/la-events/SKILL.md`, `.claude/skills/la-dining/SKILL.md` — the modes you route to.
