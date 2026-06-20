@@ -95,7 +95,7 @@
       <div>
         <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
           <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ taste-ranked digest</span></span>
-          <span onClick="{{ openDigest }}" style="cursor:pointer; font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.02em; color:#76746b; border-bottom:1px dashed #c2c0b6;" style-hover="color:#161512; border-color:#a7a59b;">{{ digestFile }} ↗</span>
+          <span onClick="{{ openDigest }}" title="Open your taste-ranked digest" style="cursor:pointer; font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.02em; color:{{ digestLinkColor }}; border-bottom:1px dashed #c2c0b6;" style-hover="color:#161512; border-color:#a7a59b;">{{ digestLink }} ↗</span>
         </div>
         <div style="margin-top:5px; font:500 11px/1.6 ui-monospace,Menlo,monospace; color:#76746b; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
           <span style="display:inline-flex; align-items:center; gap:6px;">
@@ -2161,6 +2161,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       tasteModalOpen: !!this.state.tasteModalOpen,
       openTasteModal: this.openTasteModal, closeTasteModal: this.closeTasteModal,
       digestFile: this.DIGEST_FILE,
+      // Header affordance: the signed-in username opens *their* personalized digest (loadDigestFor
+      // already fetches digests/<hash>/latest.md per profile, digests/latest.md for the default).
+      digestLink: profileActive ? ((profile.name || 'your') + '’s digest') : 'digest',
+      digestLinkColor: profileActive ? '#2b5cd9' : '#76746b',
       filterToDigestPicks: this.filterToDigestPicks,
       digestFilterLabel: digestPicks ? 'table filtered · clear' : 'filter table to picks',
       hasDigestIndex: (this.DIGEST_INDEX || []).length > 0,

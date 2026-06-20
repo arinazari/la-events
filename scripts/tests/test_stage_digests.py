@@ -69,6 +69,23 @@ def test_default_index_and_dated_files():
         assert idx[0]["title"] == "LA Events — Fri 6/19 → Fri 6/26"        # parsed H1
 
 
+def test_consolidated_latest_wins_over_dated():
+    # When a consolidated digests/latest.md exists (render_digest --consolidated), it is the
+    # default/logged-out digest AND the owner's — not the newest dated ad-hoc file. Dated files
+    # still feed the "past digests" dropdown index.
+    with tempfile.TemporaryDirectory() as td:
+        root = Path(td)
+        digests = _scaffold(root)
+        (digests / "latest.md").write_text("# LA Events — 2026-06-20\n\nConsolidated daily.\n")
+        dest = _run(root)
+
+        assert (dest / "latest.md").read_text().startswith("# LA Events — 2026-06-20")  # consolidated
+        h = S.profile_hash("ari", SALT)
+        assert (dest / h / "latest.md").read_text().startswith("# LA Events — 2026-06-20")  # owner too
+        idx = json.loads((dest / "index.json").read_text())                # dropdown = dated files
+        assert [e["date"] for e in idx] == ["2026-06-19", "2026-06-12"]
+
+
 def test_owner_shares_root_index():
     with tempfile.TemporaryDirectory() as td:
         root = Path(td)

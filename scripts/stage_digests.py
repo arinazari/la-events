@@ -119,18 +119,22 @@ def main(argv=None) -> int:
     repo = Path(args.repo)
 
     dated = sorted(digests.glob(DATED_GLOB))
-    latest = dated[-1] if dated else None
-    if latest:
-        shutil.copy(latest, dest / "latest.md")
-        print(f"staged {latest.name} -> {dest.name}/latest.md")
-        for d in dated:                # every dated digest, so the modal can show past ones
-            shutil.copy(d, dest / d.name)
-        default_index = build_index(dated)        # root-relative paths ("<date>.md")
+    # The default / logged-out digest: prefer the consolidated daily digest
+    # (render_digest --consolidated -> digests/latest.md); fall back to the newest dated
+    # ad-hoc digest for older setups that don't produce a consolidated one.
+    consolidated = digests / "latest.md"
+    default_src = consolidated if consolidated.is_file() else (dated[-1] if dated else None)
+    if default_src:
+        shutil.copy(default_src, dest / "latest.md")
+        print(f"staged {default_src.name} -> {dest.name}/latest.md")
+    for d in dated:                    # every dated digest, so the modal can show past ones
+        shutil.copy(d, dest / d.name)
+    default_index = build_index(dated)        # root-relative paths ("<date>.md") for the dropdown
+    if dated:
         write_json(dest / "index.json", default_index)
-        print(f"staged {len(dated)} digest(s) + index.json -> {dest.name}/")
-    else:
-        default_index = []
-        print("no dated digest found; the dashboard falls back to its bundled sample")
+        print(f"staged {len(dated)} dated digest(s) + index.json -> {dest.name}/")
+    if not default_src:
+        print("no digest found; the dashboard falls back to its bundled sample")
 
     manifest_path = Path(args.manifest)
     if not manifest_path.is_file():
@@ -144,11 +148,11 @@ def main(argv=None) -> int:
         h = profile_hash(u, salt)
         is_owner = str(p.get("owner", "")).strip().lower() == "true"
 
-        if is_owner and latest:
+        if is_owner and default_src:
             # Owner shares the canonical digests: copy latest.md for the logged-in view, and point
             # the per-hash index back at the root-relative <date>.md files (already staged above).
             (dest / h).mkdir(parents=True, exist_ok=True)
-            shutil.copy(latest, dest / h / "latest.md")
+            shutil.copy(default_src, dest / h / "latest.md")
             write_json(dest / h / "index.json", default_index)
             print(f"staged owner digests -> {dest.name}/{h}/ (latest.md + index.json) ({u})")
             continue
