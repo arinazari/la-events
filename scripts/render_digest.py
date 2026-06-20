@@ -15,7 +15,7 @@ import argparse
 import json
 import re
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from html import escape
 from pathlib import Path
 
@@ -360,6 +360,103 @@ def build_slate_cands(catalog, taste, profile, today, verdicts, *, window=None,
     return cands
 
 
+# ── Consolidated digest (one doc: next 2 weeks · weekends ahead · on the radar) ─────────
+def _radar_md(rows: list, limit: int = 18) -> list:
+    if not rows:
+        return ["*Nothing flagged on the radar yet.*"]
+    out, cur = [], None
+    for r in rows[:limit]:
+        d = date.fromisoformat(r["iso_date"])
+        ym = f"{MONTHS[d.month - 1]} {d.year}"
+        if ym != cur:
+            cur = ym
+            out.append(f"\n**{ym}**")
+        sig = ", ".join(s.replace("tracked:", "") for s in (r.get("signals") or []))
+        head = f"[{r['title']}]({r['link']})" if r.get("link") else (r.get("title") or "Untitled")
+        loc = " · ".join(x for x in (r.get("venue"), r.get("neighborhood")) if x)
+        out.append(f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}**"
+                   + (f" — {loc}" if loc else "") + (f"  ·  *{sig}*" if sig else ""))
+    return out
+
+
+def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dict) -> str:
+    out = [f"# LA Events — {today_iso[:10]}",
+           "*Your week ahead, the weekends after, and what's on the radar — "
+           "ranked for your taste · ⭐ = top pick*", ""]
+    for title, cands in sections:
+        days = _by_day(cands)
+        if not days:
+            continue
+        out.append(f"## {title}\n")
+        for iso in sorted(days):
+            out.append(f"### {day_header(iso)}")
+            for label, evs in _day_groups(days[iso]):
+                out.append(f"\n**{label}**")
+                out.extend(event_md(ev) for ev in evs)
+            out.append("")
+    out.append("## On the radar\n")
+    out.extend(_radar_md(radar))
+    out.append("")
+    failed = (doc.get("sources") or {}).get("failed") or []
+    if failed:
+        out.append("---")
+        out.append("*Coverage gaps: " + ", ".join(f"{s} ({why})" for s, why in failed) + "*")
+    return "\n".join(out) + "\n"
+
+
+_SEC_H = ('<h2 style="font-size:19px;margin:34px 0 2px;padding-bottom:6px;'
+          'border-bottom:2px solid #2a2f3b;color:#fff">{}</h2>')
+
+
+def _radar_html(rows: list, limit: int = 18) -> str:
+    if not rows:
+        return '<p class="meta">Nothing flagged on the radar yet.</p>'
+    items, cur = [], None
+    for r in rows[:limit]:
+        d = date.fromisoformat(r["iso_date"])
+        ym = f"{MONTHS[d.month - 1]} {d.year}"
+        if ym != cur:
+            cur = ym
+            items.append(f'<div class="grp">{escape(ym)}</div>')
+        sig = escape(", ".join(s.replace("tracked:", "") for s in (r.get("signals") or [])))
+        head = escape(r.get("title") or "Untitled")
+        head_html = f'<a href="{escape(r["link"])}">{head}</a>' if r.get("link") else head
+        loc = escape(" · ".join(x for x in (r.get("venue"), r.get("neighborhood")) if x))
+        items.append(f'<div class="ev"><div class="time">{escape(DOW[d.weekday()])} {d.month}/{d.day}</div>'
+                     f'<div class="body"><div class="ti">{head_html}</div>'
+                     + (f'<div class="meta">{loc}</div>' if loc else "")
+                     + (f'<div class="note gloss">{sig}</div>' if sig else "")
+                     + "</div></div>")
+    return "".join(items)
+
+
+def render_consolidated_html(today_iso: str, sections: list, radar: list, doc: dict) -> str:
+    parts = [f'<!doctype html><html><head><meta charset="utf-8">'
+             f'<meta name="viewport" content="width=device-width,initial-scale=1">'
+             f'<style>{CSS}</style></head><body><div class="wrap">',
+             '<h1>LA Events</h1>',
+             f'<p class="sub">{escape(today_iso[:10])} · your week ahead, the weekends after, and '
+             f'what\'s on the radar · <span style="color:#ffd166">⭐</span> top pick</p>']
+    for title, cands in sections:
+        days = _by_day(cands)
+        if not days:
+            continue
+        parts.append(_SEC_H.format(escape(title)))
+        for iso in sorted(days):
+            parts.append(f'<div class="day"><div class="dh">{escape(day_header(iso))}</div></div>')
+            for label, evs in _day_groups(days[iso]):
+                parts.append(f'<div class="grp">{escape(label)}</div>')
+                parts.extend(event_html(ev) for ev in evs)
+    parts.append(_SEC_H.format("On the radar"))
+    parts.append(_radar_html(radar))
+    failed = (doc.get("sources") or {}).get("failed") or []
+    if failed:
+        parts.append('<div class="foot">Coverage gaps: '
+                     + escape(", ".join(f"{s} ({why})" for s, why in failed)) + "</div>")
+    parts.append("</div></body></html>")
+    return "".join(parts)
+
+
 def main() -> int:
     global ASSET_PREFIX
     ap = argparse.ArgumentParser()
@@ -371,12 +468,15 @@ def main() -> int:
     ap.add_argument("--profile-hash", default=None, help="render a profile's slate (its taste/spotify/verdicts)")
     ap.add_argument("--taste", default="taste.yaml")
     ap.add_argument("--profile", default="profile.yaml")
-    ap.add_argument("--window", type=int, default=None, help="days from today to include (default: all upcoming)")
+    ap.add_argument("--consolidated", action="store_true",
+                    help="one digest: next 2 weeks (day-by-day) + weekends ahead + on the radar")
+    ap.add_argument("--radar", default="data/radar.json", help="radar set for the consolidated digest")
+    ap.add_argument("--window", type=int, default=None, help="windowed mode: days from today (default: all upcoming)")
     ap.add_argument("--per-day", type=int, default=None, help="cap per day (default: weekend-aware 8/5)")
     ap.add_argument("--md", default="/tmp/digest.md")
     ap.add_argument("--html", default="/tmp/digest.html")
-    ap.add_argument("--from", dest="from_", default=None, help="ISO date lower bound (inclusive)")
-    ap.add_argument("--to", dest="to", default=None, help="ISO date upper bound (inclusive)")
+    ap.add_argument("--from", dest="from_", default=None, help="windowed mode: ISO lower bound (inclusive)")
+    ap.add_argument("--to", dest="to", default=None, help="windowed mode: ISO upper bound (inclusive)")
     ap.add_argument("--asset-prefix", default="", help="prepended to cached image paths (hosted serving)")
     args = ap.parse_args()
     ASSET_PREFIX = args.asset_prefix
@@ -390,13 +490,9 @@ def main() -> int:
     affinity = merged_affinity(REPO, profile, profile_hash=args.profile_hash)
     vpath = resolve(args.verdicts) if args.verdicts else ED.verdict_path(args.profile_hash)
     verdicts = ED.verdict_map(ED.load_verdicts(vpath))
+    cache = load_cache(resolve(args.enrichment))
 
-    cands = build_slate_cands(catalog, taste, profile, today, verdicts,
-                              window=args.window, per_day=args.per_day,
-                              from_=args.from_, to=args.to, affinity=affinity)
-    enriched = merge_enrichment(cands, load_cache(resolve(args.enrichment)))
-
-    # Run report / coverage footer: pull `sources` + `today` from candidates.json if present.
+    # Coverage footer: pull `sources` from candidates.json if present.
     doc = {"today": today.isoformat()}
     cpath = resolve(args.candidates)
     if cpath.exists():
@@ -407,6 +503,36 @@ def main() -> int:
         except (json.JSONDecodeError, OSError):
             pass
 
+    if args.consolidated:
+        # Tier 1: next 14 days, day-by-day. Tier 2: the weekends in days 15–35 (Thu–Sun), lighter.
+        # Tier 3: the radar set (festivals/big shows beyond), from build_radar.
+        sec1 = build_slate_cands(catalog, taste, profile, today, verdicts, window=14,
+                                 to=(today + timedelta(days=13)).isoformat(), affinity=affinity)
+        sec2 = build_slate_cands(catalog, taste, profile, today, verdicts, window=36, per_day=6,
+                                 from_=(today + timedelta(days=14)).isoformat(),
+                                 to=(today + timedelta(days=35)).isoformat(), affinity=affinity)
+        sec2 = [c for c in sec2 if date.fromisoformat(c["iso_date"]).weekday() in (3, 4, 5, 6)]
+        radar = []
+        rpath = resolve(args.radar)
+        if rpath.exists():
+            try:
+                radar = json.loads(rpath.read_text()).get("events", [])
+            except (json.JSONDecodeError, OSError):
+                pass
+        sections = [("Next two weeks", merge_enrichment(sec1, cache)),
+                    ("Weekends ahead", merge_enrichment(sec2, cache))]
+        Path(args.md).write_text(render_consolidated_md(doc["today"], sections, radar, doc))
+        Path(args.html).write_text(render_consolidated_html(doc["today"], sections, radar, doc))
+        print(f"rendered consolidated digest: {len(sec1)} + {len(sec2)} picks + "
+              f"{min(len(radar), 18)} on the radar -> {args.md} + {args.html}")
+        return 0
+
+    # Windowed mode — kept for the per-weekend look-ahead (e.g. next weekend, plugged into the
+    # dashboard username click). A single date-bounded slate digest.
+    cands = build_slate_cands(catalog, taste, profile, today, verdicts,
+                              window=args.window, per_day=args.per_day,
+                              from_=args.from_, to=args.to, affinity=affinity)
+    enriched = merge_enrichment(cands, cache)
     Path(args.md).write_text(render_markdown(doc, enriched))
     Path(args.html).write_text(render_html(doc, enriched))
     n_enr = sum(1 for e in enriched if e.get("enrichment"))
