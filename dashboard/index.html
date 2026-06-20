@@ -429,9 +429,6 @@
     <footer style="flex:none; padding:9px 22px; border-top:1px solid #d9d7cf; background:#f4f3ef; display:flex; align-items:center; justify-content:space-between; gap:16px; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; letter-spacing:0.02em;">
       <span><span style="color:#3f3d36; font-weight:600;">{{ shownCount }}</span> shown · <span style="color:#3f3d36; font-weight:600;">{{ totalCount }}</span> entries in catalog</span>
       <span style="display:inline-flex; align-items:center; gap:14px;">
-        <sc-if value="{{ digestActive }}" hint-placeholder-val="{{ false }}">
-          <span onClick="{{ openDigest }}" title="The table is filtered to the digest's highlighted picks — open the digest to clear it" style="display:inline-flex; align-items:center; gap:6px; padding:4px 9px; border-radius:2px; border:1px solid #c9c7bd; background:#fff; color:#161512; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; cursor:pointer;" style-hover="border-color:#2b5cd9;"><span style="color:#1b1a17;">★</span> digest picks ↗</span>
-        </sc-if>
         <sc-if value="{{ anyActive }}" hint-placeholder-val="{{ false }}">
           <span onClick="{{ onReset }}" style="cursor:pointer; color:#76746b; text-decoration:underline; text-underline-offset:2px;" style-hover="color:#161512;">reset · show all</span>
         </sc-if>
@@ -445,34 +442,10 @@
     <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
       <div onClick="{{ closeDigest }}" style="position:absolute; inset:0;"></div>
       <div style="position:relative; z-index:1; width:100%; max-width:680px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
-        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px; border-bottom:1px solid #e2e0d8;">
-          <div style="display:flex; align-items:baseline; gap:9px; min-width:0;">
-            <span style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#a7a59b;">DIGEST</span>
-            <span style="font:600 11.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">curated for {{ digestUser }}</span>
-          </div>
-          <button onClick="{{ closeDigest }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
-        </div>
-        <!-- toolbar: relocated table-filter + past-digest picker + download/email -->
-        <div style="flex:none; position:relative; display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:9px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5;">
-          <span onClick="{{ filterToDigestPicks }}" title="Filter the main table to just the digest's highlighted picks" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid {{ digestTogBorder }}; background: {{ digestTogBg }}; color: {{ digestTogColor }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;"><span style="color: {{ digestTogStar }};">★</span> {{ digestFilterLabel }}</span>
-          <sc-if value="{{ hasDigestIndex }}" hint-placeholder-val="{{ false }}">
-            <span style="position:relative; display:inline-flex;">
-              <span onClick="{{ toggleDigestMenu }}" title="View a past digest" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">↺ past digests <span style="color:#a7a59b;">▾</span></span>
-              <sc-if value="{{ digestMenuOpen }}" hint-placeholder-val="{{ false }}">
-                <span onClick="{{ toggleDigestMenu }}" style="position:fixed; inset:0; z-index:40;"></span>
-                <div style="position:absolute; z-index:41; top:calc(100% + 5px); left:0; min-width:240px; max-width:340px; max-height:260px; overflow-y:auto; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:4px;">
-                  <sc-for list="{{ digestIndexOpts }}" as="o" hint-placeholder-count="6">
-                    <div onClick="{{ o.onClick }}" style="display:flex; align-items:baseline; gap:8px; padding:7px 9px; border-radius:2px; cursor:pointer; background: {{ o.bg }};" style-hover="background:#f1efe8;">
-                      <span style="flex:none; width:8px; color:#2b5cd9;">{{ o.dot }}</span>
-                      <span style="font:{{ o.weight }} 12px/1.35 -apple-system,system-ui,sans-serif; color:#161512;">{{ o.label }}</span>
-                      <span style="margin-left:auto; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ o.sub }}</span>
-                    </div>
-                  </sc-for>
-                </div>
-              </sc-if>
-            </span>
-          </sc-if>
-          <span style="flex:1 1 auto;"></span>
+        <!-- no title bar (maximizes the reading area): the close button floats in the top-right corner -->
+        <button onClick="{{ closeDigest }}" title="Close" style="position:absolute; z-index:3; top:8px; right:8px; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+        <!-- toolbar: download / email -->
+        <div style="flex:none; position:relative; display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:9px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:3px 3px 0 0;">
           <span onClick="{{ downloadDigest }}" title="Download this digest as a Markdown file" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">↓ download</span>
           <span onClick="{{ toggleEmailDigest }}" title="Email this digest — your address is typed each time and never stored" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid {{ emailTogBorder }}; background: {{ emailTogBg }}; color: {{ emailTogColor }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">✉ email</span>
         </div>
@@ -1104,21 +1077,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   openDigest = () => this.setState({ digestModalOpen: true, digestMenuOpen: false, digestEmailOpen: false });
   closeDigest = () => this.setState({ digestModalOpen: false, digestMenuOpen: false, digestEmailOpen: false });
 
-  // ---------- digest modal toolbar (filter / past digests / download / email) ----------
-  // The "digest picks" table filter used to live in the footer; it's relocated here. Toggle the
-  // filter and drop the modal so the (now filtered) table is visible behind it.
-  filterToDigestPicks = () => { this.setState({ digestModalOpen: false, digestMenuOpen: false, digestEmailOpen: false }); this.toggleDigestPicks(); };
-
-  toggleDigestMenu = () => this.setState(s => ({ digestMenuOpen: !s.digestMenuOpen, digestEmailOpen: false }));
-  // Swap the modal to a past digest (fetched from the deploy-staged index). No-op off a static
-  // host (no index) — the dropdown just isn't shown then.
-  selectDigest = (entry) => {
-    this.setState({ digestMenuOpen: false });
-    this._tryDigest('./digests/' + entry.path, entry.file).then(ok => {
-      if (ok) { this.DIGEST_CURRENT = entry.path; this.forceUpdate(); }
-    });
-  };
-
+  // ---------- digest modal toolbar (download / email) ----------
   downloadDigest = () => {
     try {
       const md = this.DIGEST_MD || '';
@@ -1791,8 +1750,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .catch(() => false);
   }
   // The deploy step (scripts/stage_digests.py) writes ./digests/index.json (and ./digests/<hash>/
-  // index.json per profile) listing the selectable past digests, newest first. Missing off a
-  // static host -> empty index -> the modal's "past digests" dropdown is simply hidden.
+  // index.json per profile), newest first. We only read it to resolve the current digest's path
+  // (DIGEST_CURRENT), which names the download file. Missing off a static host -> empty index -> the
+  // download just falls back to DIGEST_FILE.
   loadDigestIndex(p) {
     const idx = (p && p.hash) ? ('./digests/' + p.hash + '/index.json') : './digests/index.json';
     return fetch(idx, { cache: 'no-store' })
@@ -2007,21 +1967,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       tasteModalOpen: !!this.state.tasteModalOpen,
       openTasteModal: this.openTasteModal, closeTasteModal: this.closeTasteModal,
       digestFile: this.DIGEST_FILE, digestUser,
-      filterToDigestPicks: this.filterToDigestPicks,
-      digestFilterLabel: digestPicks ? 'table filtered · clear' : 'filter table to picks',
-      hasDigestIndex: (this.DIGEST_INDEX || []).length > 0,
-      digestMenuOpen: !!this.state.digestMenuOpen, toggleDigestMenu: this.toggleDigestMenu,
-      digestIndexOpts: (this.DIGEST_INDEX || []).map(e => {
-        const isCur = e.path === this.DIGEST_CURRENT;
-        const ymd = /^(\d{4})-(\d{2})-(\d{2})$/.exec(e.date || '');
-        const short = ymd ? (+ymd[2]) + '/' + (+ymd[3]) : (e.date || '');
-        return {
-          onClick: () => this.selectDigest(e),
-          label: String(e.title || '').replace(/^\s*LA Events\s*[—–-]\s*/i, '').trim() || e.date || e.file,
-          sub: e.latest ? 'latest' : short, dot: isCur ? '●' : '',
-          bg: isCur ? '#eef3ff' : 'transparent', weight: isCur ? '700' : '500'
-        };
-      }),
       downloadDigest: this.downloadDigest,
       digestEmailOpen: !!this.state.digestEmailOpen, toggleEmailDigest: this.toggleEmailDigest,
       digestEmail: this.state.digestEmail || '', onDigestEmailInput: this.onDigestEmailInput,
@@ -2051,11 +1996,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       clearCat: () => this.clearFilterCol('cat'), clearGenre: () => this.clearFilterCol('genre'),
       clearVibe: () => this.clearFilterCol('vibe'), clearSetting: () => this.clearFilterCol('setting'),
       clearRegion: () => this.clearFilterCol('region'),
-      digestActive: digestPicks,
-      digestTogColor: digestPicks ? '#161512' : '#3f3d36',
-      digestTogBg: digestPicks ? '#eaf0fe' : '#fff',
-      digestTogBorder: digestPicks ? '#2b5cd9' : '#d2d0c7',
-      digestTogStar: digestPicks ? '#2b5cd9' : '#bdbbb1',
       search: this.state.search, onSearch: this.onSearch, clearSearch: this.clearSearch,
       hasSearch: !!(this.state.search || '').trim(),
       anyActive: !!anyActive,
