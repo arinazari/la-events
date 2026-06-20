@@ -12,7 +12,9 @@ phase and open decisions before starting any non-trivial task.
    SMS/MMS blasts (see `sms-ingestion.md`).
 2. **Dedupes** into `data/catalog.json` (one record per real-world event, all ticket
    links preserved).
-3. **Ranks** against `taste.yaml` and emits a conversational digest to `digests/`.
+3. **Ranks** with a deterministic score against `taste.yaml`, refined by a thin **`event-editor`**
+   LLM verdict layer (per-event tier + optional lane + small bounded `adjust`, cached per profile in
+   `data/verdicts/`), then emits a consolidated conversational digest to `digests/`.
 4. **Discovers** new sources over time (propose → human approves → `sources.yaml`).
 5. **Converses + plans** — a natural-language **concierge** (`.claude/skills/concierge/SKILL.md`)
    is the primary interface (route an open-ended ask to the right mode/agent), and a
@@ -56,7 +58,8 @@ unless special) + `restaurants_loved`; ranking honors it.
 .claude/skills/la-events/SKILL.md   # events operating spec (digest/discover/flyer/sources modes)
 .claude/skills/la-dining/SKILL.md   # dining operating spec (query/radar/discover/capture)
 .claude/skills/concierge/SKILL.md   # concierge — NL front door routing to the modes/agents (primary interface)
-.claude/agents/                     # worker agents: night-planner (events×dining itinerary), scene-researcher, source-scout
+.claude/agents/                     # worker agents: event-editor (ranking verdicts), scene-researcher (enrichment),
+                                    #   night-planner (events×dining itinerary), source-scout (discovery)
 sources.yaml                        # events source registry — schema in file header
 dining-sources.yaml                 # dining source registry — schema in file header
 taste.yaml                          # events ranking config — user-editable, re-read each run
@@ -64,14 +67,20 @@ profiles.yaml                       # per-person taste registry for the dashboar
 profiles/<name>/taste.yaml          # a friend's hand-authored taste profile (build_profiles.py emits their feed)
 dining-taste.yaml                   # food-taste config — minimal, learns from reactions
 festivals.yaml                      # "on the radar" curated festivals/big-shows + live lookups
+radar-candidates.md                 # build_radar.py output: reviewable far-out candidates → curate into festivals.yaml
 recurring.yaml                      # predictable recurring markets/fleas/farmers markets
 sms-ingestion.md                    # Twilio SMS/MMS → catalog spec (manual-capture automation)
 profile.yaml                        # place/person config (ids, geo, scoring weights/terms) — city-portable knob
-scripts/run_digest.py               # deterministic core: fetch→dedupe→expire→tag→score→catalog+candidates.json
+scripts/run_digest.py               # deterministic core: fetch→dedupe→expire→tag→score→catalog+candidates+editor_pool.json
 scripts/lib/                        # shared modules: scoring, dedupe, pipeline, enrich, images, config,
                                     #   affinity (Spotify), feedback (reactions→affinity), geo (travel),
-                                    #   tagging (deterministic multi-axis tags: type/genre/setting/vibe/region) — tested
-scripts/render_digest.py            # enriched candidates → digest: day-grouped .md + rich emailable/hosted .html
+                                    #   tagging (deterministic multi-axis tags: type/genre/setting/vibe/region),
+                                    #   editor (event-editor verdict store + judging pool + Spotify affinity hints),
+                                    #   assemble (the digest slate: lanes + elastic fill/cliff/diversity-floor) — tested
+scripts/merge_verdicts.py           # fold event-editor results JSON → per-profile data/verdicts/<hash>.json
+scripts/build_radar.py              # deterministic "on the radar" set (festival/big-venue/tracked/editorial) → data/radar.json
+scripts/render_digest.py            # scored pool + verdicts → digest slate. `--consolidated` = one daily doc (next 2 wks
+                                    #   + weekends ahead + radar); `--from/--to` = per-weekend look-ahead. .md + hosted .html
 scripts/cache_images.py             # download enrichment hero images → data/images/ (no hotlink rot)
 scripts/travel.py                   # night-planner travel CLI: rough LA drive/walk times (lib/geo.py + dining.json)
 scripts/make_ics.py                 # turn a night-planner itinerary into a calendar .ics (lib/ics.py)
@@ -87,13 +96,18 @@ scripts/build_dashboard.py          # builds dashboard/data.json from catalog + 
 scripts/build_profiles.py           # per-profile dashboard feeds (data.<hash>.json) — reuses build_dashboard's scorer
 data/catalog.json                   # deduped events store (committed = the state)
 data/candidates.json                # scored, ranked top-N for enrichment (runtime; gitignored)
+data/editor_pool*.json              # event-editor judging pool, per profile (runtime; gitignored)
+data/radar.json                     # "on the radar" set for the consolidated digest (runtime; gitignored)
+data/verdicts/<hash>.json           # event-editor verdicts, per profile (committed; only the delta is judged each run)
 data/enrichment.json                # scene-graph cache: per-event enrichment + artist notes (committed; grows each run)
 data/images/                        # cached hero images for the digests (committed)
 data/spotify_affinity.json          # Spotify music-affinity artifact (runtime; gitignored)
 data/feedback.jsonl                 # append-only reaction log (committed); folds into scoring each run
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)
 data/dining.json                    # dining catalog: restaurants + popups/trucks
-digests/weekends/YYYY-MM-DD.{md,html} # per-weekend digests, day-grouped (scheduled routine, ~4 mo out) + index.md
+digests/latest.{md,html}            # PRIMARY consolidated daily digest (next 2 wks + weekends ahead + on the radar)
+digests/<hash>/latest.md            # per-profile personalized digest (the dashboard profile popup reads this)
+digests/weekends/YYYY-MM-DD.{md,html} # per-weekend look-ahead digests, day-grouped (~4 mo out) + index.md
 digests/YYYY-MM-DD.md               # ad-hoc windowed events digests
 digests/dining-YYYY-MM-DD.md        # dining radar outputs
 routines/daily-digest-prompt.md     # scheduled events-digest routine prompt
@@ -146,6 +160,8 @@ he wants input at the decision points listed in ROADMAP.md.
 - Gmail access comes via the Gmail connector when available; the "Events" label holds
   promoter blasts. If the connector isn't available in a session, skip that source and
   note it in the digest footer.
-- Daily digest runs as a scheduled Routine using routines/daily-digest-prompt.md: it
-  maintains a rolling set of per-weekend digests (`digests/weekends/`, ~4 months out) and
-  commits them + the updated catalog to `main` (the Pages workflow then redeploys the dashboard).
+- Daily digest runs as a scheduled Routine using routines/daily-digest-prompt.md: it builds the
+  consolidated daily digest (`digests/latest.{md,html}` — next 2 weeks + weekends ahead + on the
+  radar) plus a rolling set of per-weekend look-ahead digests (`digests/weekends/`, ~4 months out),
+  and commits them + the updated catalog + per-profile verdicts (`data/verdicts/`) to `main` (the
+  Pages workflow then redeploys the dashboard).
