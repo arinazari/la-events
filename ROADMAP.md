@@ -272,6 +272,15 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   existing feedback loop (`data/feedback.jsonl` → `lib/feedback.py` → affinity, Phase C). Closes the
   implicit-signal-capture gap noted in Phase C (emitting reactions waited on a dashboard surface); on
   static Pages it rides the hand-off seam — compose the `feedback.jsonl` append for the agent to commit.
+- [ ] **In-app taste editing (direct YAML)** — the profile popup is now slim (signed-in · log out +
+  a "View your taste profile →" link) and opens a dedicated **read-only** taste modal (2026-06-20).
+  Making it *editable in-page* means a Worker save path: POST the full YAML → validate (re-parses +
+  required keys like `categories`) → commit to the profile's taste file (owner → root `taste.yaml`,
+  friend → own `profiles/<name>/taste.yaml`), gated exactly like `propose_taste_change` and
+  git-revertible. **Deferred by choice (2026-06-20)** — kept read-only so the structured-patch safety
+  holds and there's no browser-side commit; the concierge chat stays the edit path. Pick this up if
+  free-text editing is wanted (mind: it loosens "structured-patch-only" to arbitrary valid YAML, and
+  needs a Worker redeploy).
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).

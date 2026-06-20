@@ -35,8 +35,9 @@ Auth: optional  Authorization: Bearer <CONCIERGE_TOKEN>
 ```
 
 `profile` is the feed hash the page already computes from the username (it's what `data.<hash>.json`
-is named after). The Worker resolves it back to the profile via `profiles.yaml` and edits only that
-person's `profiles/<name>/taste.yaml` — never the shared root `taste.yaml`.
+is named after). The Worker resolves it back to the profile via `profiles.yaml` and edits that
+person's taste file: a friend's own `profiles/<name>/taste.yaml`, or — for the `owner: true`
+profile (Ari's login) — the shared root `taste.yaml`. A friend can never edit the root file.
 
 ## Deploy (Cloudflare Workers — free tier)
 
