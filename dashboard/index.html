@@ -261,7 +261,7 @@
                 </div>
               </sc-if>
             </th>
-            <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:120px;"><span onClick="{{ sortScore }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SCORE <span style="color:#2b5cd9;">{{ arrowScore }}</span></span><span style="color:#d2d0c7;"> · </span><span onClick="{{ sortRank }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span></th>
+            <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:140px;"><span onClick="{{ sortRank }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span><span style="color:#d2d0c7;"> · </span><span onClick="{{ sortScore }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SCORE <span style="color:#2b5cd9;">{{ arrowScore }}</span></span></th>
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:104px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
                 <span onClick="{{ sortSource }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></span>
@@ -308,14 +308,24 @@
                 <div style="font:600 11px/1.2 -apple-system,system-ui,sans-serif; color: {{ ev.catColor }};">{{ ev.cat }}</div>
                 <div style="margin-top:3px; font-size:11px; color:#a7a59b;">{{ ev.genre }}</div>
               </td>
-              <td style="padding: {{ rowPad }}; vertical-align:top;">
-                <div style="font:700 13px/1 ui-monospace,Menlo,monospace; color: {{ ev.scoreColor }};">{{ ev.scoreLabel }}</div>
-                <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
-                  <div style="margin-top:5px; height:3px; width:64px; background:#e2e0d8; border-radius:2px; overflow:hidden;">
-                    <div style="height:100%; width: {{ ev.scorePct }}; background: {{ ev.scoreColor }};"></div>
+              <td style="padding: {{ rowPad }}; vertical-align:top; white-space:nowrap;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <span title="{{ ev.rankTitle }}" style="display:inline-flex; align-items:baseline; justify-content:flex-end; gap:1px; min-width:26px;">
+                    <sc-if value="{{ ev.hasRank }}" hint-placeholder-val="{{ true }}"><span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#c2c0b6;">#</span></sc-if>
+                    <span style="font: {{ ev.rankWeight }} 16px/1 ui-monospace,Menlo,monospace; letter-spacing:-0.02em; color: {{ ev.rankColor }};">{{ ev.rankNum }}</span>
+                  </span>
+                  <span style="width:1px; height:16px; background:#e2e0d8;"></span>
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <span style="font:500 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.01em; color: {{ ev.scoreColor }};">{{ ev.scoreLabel }}</span>
+                    <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
+                      <span style="display:inline-flex; align-items:flex-end; gap:1.5px; height:8px;">
+                        <sc-for list="{{ ev.scoreSegs }}" as="s" hint-placeholder-count="9">
+                          <span style="width:1.5px; height:8px; border-radius:1px; background: {{ s.bg }};"></span>
+                        </sc-for>
+                      </span>
+                    </sc-if>
                   </div>
-                </sc-if>
-                <div title="{{ ev.rankTitle }}" style="margin-top:6px; font: {{ ev.rankWeight }} 10px/1 ui-monospace,Menlo,monospace; color: {{ ev.rankColor }};">{{ ev.rankLabel }}</div>
+                </div>
               </td>
               <td style="padding: {{ rowPad }}; vertical-align:top;">
                 <span style="font:500 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ ev.source }}</span>
@@ -655,9 +665,13 @@ class Component extends DCLogic {
   }
 
   scoreColorFor(s) {
-    if (s >= 7) return '#2b5cd9';
-    if (s >= 5) return '#5a6b8c';
-    return '#a7a59b';
+    // perceptual ramp: low scores cool/blue -> high scores warm, one tint per row
+    if (!(s >= 1)) return '#a7a59b';
+    const i = Math.round(((Math.min(9, s) - 1) / 8) / 0.2);
+    const H = [262, 252, 192, 182, 104, 92][i];
+    const L = [0.560, 0.573, 0.586, 0.599, 0.612, 0.625][i];
+    const C = [0.122, 0.118, 0.113, 0.112, 0.114, 0.116][i];
+    return 'oklch(' + L.toFixed(3) + ' ' + C.toFixed(3) + ' ' + H + ')';
   }
 
   badgeStyle(text) {
@@ -1880,14 +1894,15 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       hood: e.hood,
       cat: e.cat, genre: e.genre, catColor: this.CAT_COLOR[e.cat] || '#3f3d36',
       score: e.score, scoreLabel: '+' + e.score, scoreColor: this.scoreColorFor(e.score),
-      scorePct: Math.round((e.score / 9) * 100) + '%',
-      rankLabel: (e.final_rank ? '#' + e.final_rank : '—'),
+      scoreSegs: Array.from({ length: 9 }, (_, k) => ({ bg: k < e.score ? this.scoreColorFor(e.score) : '#dedcd4' })),
+      hasRank: !!e.final_rank,
+      rankNum: (e.final_rank ? String(e.final_rank) : '—'),
       rankColor: (!e.final_rank ? '#cfcdc4'
         : (e.verdict && e.verdict.tier === 'must-see') ? '#b4453a'
         : (e.verdict && e.verdict.tier === 'great') ? '#2b5cd9'
         : (e.verdict && e.verdict.tier === 'skip') ? '#cfcdc4'
-        : '#a7a59b'),
-      rankWeight: (e.verdict && e.verdict.tier === 'must-see') ? 700 : 600,
+        : '#161512'),
+      rankWeight: (e.verdict && e.verdict.tier === 'must-see') ? 600 : 500,
       rankTitle: (e.verdict ? (String(e.verdict.tier || '').toUpperCase() + (e.verdict.why ? ' — ' + e.verdict.why : '')) : 'deterministic rank'),
       source: e.source,
       badges: this.computedBadges(e),
