@@ -5,6 +5,7 @@ Run: python scripts/tests/test_enrich.py
 """
 
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -78,6 +79,29 @@ def test_cached_artist_notes_no_false_match():
     cache = {"events": {}, "artists": {"ame": {"note": "Innervisions"}}}  # short name
     ev = {"title": "Some Game Night", "date": "2026-07-06", "venue": "X", "lineup": ["DJ Someone"]}
     assert E.cached_artist_notes(ev, cache) == []   # 'ame' must not match 'game'/'someone'
+
+
+def test_prune_cache_drops_orphans_keeps_artists():
+    """Hygiene: event entries for events gone from the catalog are dropped; artist bios stay."""
+    live = {"title": "Live Show", "date": "2026-07-07", "venue": "Zebulon"}
+    gone = {"title": "Old Show", "date": "2026-05-01", "venue": "El Rey"}
+    cache = {"events": {E.event_key(live): {"id": "x"}, E.event_key(gone): {"id": "y"}},
+             "artists": {"antal": {"note": "Rush Hour boss"}}}
+    cache, pruned = E.prune_cache(cache, [live])   # only `live` is in the catalog now
+    assert pruned == 1
+    assert E.event_key(live) in cache["events"] and E.event_key(gone) not in cache["events"]
+    assert cache["artists"]["antal"]["note"] == "Rush Hour boss"   # durable, kept
+
+
+def test_select_refresh_days_reselects_stale():
+    ev = {"title": "Recur", "date": "2026-07-08", "venue": "El Cid"}
+    k = E.event_key(ev)
+    cache = {"events": {k: {"id": k, "enriched_at": "2026-06-01T00:00:00"}}, "artists": {}}
+    today = date(2026, 6, 19)
+    assert E.select_for_enrichment([ev], cache) == []                       # write-once: skip
+    assert E.select_for_enrichment([ev], cache, refresh_days=90, today=today) == []   # 18d < 90
+    stale = E.select_for_enrichment([ev], cache, refresh_days=7, today=today)         # 18d >= 7
+    assert [s["id"] for s in stale] == [k]
 
 
 if __name__ == "__main__":

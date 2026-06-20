@@ -6,9 +6,12 @@ does that; THIS module is the side-effect-free glue around it:
 
   event_key(ev)                    -> stable cache key (title+date+venue), no schema mutation
   load_cache / save_cache          -> the accumulating scene graph (data/enrichment.json)
-  select_for_enrichment(cands,c)   -> candidates not yet cached (the batch to research)
-  merge_enrichment(cands, cache)   -> attach cached enrichment onto candidates (for rendering)
+  select_for_enrichment(cands,c)   -> candidates not yet cached (or stale, via refresh_days)
+  merge_enrichment(cands, cache)   -> attach cached enrichment + fold cached artist bios onto any
+                                      event that lists them (coverage compounds across runs)
   update_cache(cache, results)     -> fold a scene-researcher batch back in (events + artists)
+  prune_cache(cache, catalog)      -> drop entries for events gone from the catalog (hygiene;
+                                      keeps artist bios). Run by the daily routine, not the planner.
 
 Cache (data/enrichment.json) — the moat-lite, accumulates across runs:
   { "events":  { "<key>": { ...enrichment..., "enriched_at": ISO } },
@@ -22,7 +25,7 @@ Enrichment record (scene-researcher output, per event):
 
 import hashlib
 import json
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 
 from .dedupe import normalize  # same normalizer used for dedupe keys
@@ -55,17 +58,44 @@ def save_cache(cache: dict, path=DEFAULT_CACHE) -> None:
     p.write_text(json.dumps(cache, indent=2, ensure_ascii=False) + "\n")
 
 
-def select_for_enrichment(candidates: list, cache: dict) -> list:
-    """Candidates whose key isn't cached yet — the batch to hand the scene-researcher.
-    Each carries an `id` (= event_key) so the agent echoes it back for merging."""
+def _is_stale(hit: dict, refresh_days, today: date = None) -> bool:
+    """True if a cached entry is older than refresh_days (or has no/garbled timestamp)."""
+    if refresh_days is None:
+        return False
+    ea = str(hit.get("enriched_at") or "")[:10]
+    try:
+        d = date.fromisoformat(ea)
+    except ValueError:
+        return True
+    return ((today or date.today()) - d).days >= refresh_days
+
+
+def select_for_enrichment(candidates: list, cache: dict, refresh_days=None, today: date = None) -> list:
+    """Candidates to (re)research: not cached yet, OR — when refresh_days is set — cached but
+    stale (enriched_at older than refresh_days, the freshness knob). Each carries an `id`
+    (= event_key) so the agent echoes it back for merging. Default (refresh_days=None) is
+    write-once: only genuine misses, no re-research cost."""
     out = []
     for c in candidates:
         k = event_key(c)
-        if k not in cache["events"]:
+        hit = cache["events"].get(k)
+        if hit is None or _is_stale(hit, refresh_days, today):
             cc = dict(c)
             cc["id"] = k
             out.append(cc)
     return out
+
+
+def prune_cache(cache: dict, catalog: list) -> tuple:
+    """Drop event-enrichment entries whose event is no longer in the catalog (expired/removed) —
+    cache hygiene so it tracks the live catalog instead of growing unbounded. Artist bios are
+    KEPT: they're the durable scene knowledge, reused across events. Returns (cache, n_pruned)."""
+    live = {event_key(ev) for ev in catalog}
+    events = cache.get("events") or {}
+    kept = {k: v for k, v in events.items() if k in live}
+    pruned = len(events) - len(kept)
+    cache["events"] = kept
+    return cache, pruned
 
 
 def cached_artist_notes(ev: dict, cache: dict) -> list:
