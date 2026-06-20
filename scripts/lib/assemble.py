@@ -8,8 +8,9 @@ dashboard depends on it; never mutated here). Three jobs raw `sort by -score` ca
      on a finer LANE derived from the existing multi-axis tags (tags.type/vibe/setting): club
      splits into mainstream / afters / day / underground. Mood knob falls out for free: `mute`
      a lane (e.g. "no mainstream this weekend") and it drops without touching anything else.
-  2. Diversity by construction (slate-fill) — per-lane caps + guaranteed slots so afters, day
-     parties, live music, film, stage surface instead of being buried under whichever lane floods.
+  2. Diversity by construction (slate-fill) — counts per lane emerge from merit (no firm
+     numbers): fill to a per-day ceiling, cut at score-gap cliffs, with a diversity FLOOR that
+     guarantees a taste of afters/day/live-music/film/stage without capping the strong lanes.
   3. Stability — deterministic ordering key (score [+ optional verdict], then event_key), so a
      fixed event keeps its slot run-to-run instead of thrashing.
 
@@ -36,17 +37,19 @@ BIG_VENUE = ("hollywood bowl", "kia forum", "the forum", "crypto.com arena", "bm
              "peacock theater", "honda center", "youtube theater", "toyota arena", "acrisure",
              "yaamava", "shrine", "dodger stadium", "rose bowl", "banc of california")
 
-# Per-day diversity policy, keyed by LANE. `caps` bounds one lane's share so it can't flood;
-# `guarantee` ensures at least one of each (priority order) if a decent one exists. The taste
-# knob — edit freely. `club:mainstream` is capped at 1 and guaranteed, so Chris-Lake-scale shows
-# stay visible in general without obfuscating the afters/day/underground lanes beside them.
+# Per-day slate policy. NO firm per-lane numbers — how many afters vs. day vs. live-music
+# emerges from the events' effective scores (which the editor's tier/adjust shape). Knobs:
+#   gap        score-gap cliff that ends the merit run, so the slate isn't padded past a
+#              quality drop-off (e.g. 3 standouts then junk -> 3 picks, not a forced 10).
+#   guarantee  a diversity FLOOR (priority order): ensure at least one of each if a decent
+#              pick exists — variety without capping the strong lanes.
+#   caps       optional hard ceilings; empty by default (the firm-number knob, off).
+# `club:mainstream` is intentionally NOT capped — a stacked-mainstream night can take several;
+# the `mute` arg drops the lane when you're not feeling it.
 DEFAULT_SLATE = {
-    "caps": {
-        "club:mainstream": 1, "club:day": 1, "club:afters": 2, "club:underground": 2,
-        "comedy": 1,
-    },
-    "guarantee": ["club:afters", "club:day", "club:mainstream",
-                  "live-music", "film", "stage", "art"],
+    "gap": 3,
+    "guarantee": ["club:afters", "club:day", "live-music", "film", "stage", "art"],
+    "caps": {},
 }
 
 _TIER_RANK = {"must-see": 3, "great": 2, "solid": 1, None: 0, "skip": -2}
@@ -108,32 +111,49 @@ def _eff_key(ev: dict, verdicts: dict):
     )
 
 
+def _eff_score(ev: dict, verdicts: dict):
+    """The score+adjust component (the gap rule and merit fill compare on this)."""
+    return (ev.get("score") or 0) + ((verdicts.get(event_key(ev)) or {}).get("adjust") or 0)
+
+
 def slate_fill(day_evs: list, per_day: int, slate: dict, verdicts: dict,
                min_guarantee_score: int = 2) -> list:
-    """One day's slate: merit-fill under per-lane caps, then guarantee diversity slots.
+    """One day's slate: merit-fill to per_day, cut at a score-gap cliff, then a diversity FLOOR.
 
-    Pass A fills best-first up to per_day honoring `caps`. Pass B ensures each `guarantee` lane
-    appears (if a pick scoring >= min_guarantee_score exists) by swapping out the weakest pick
-    from an over-represented lane — never below per_day, never junk for variety's sake."""
+    No firm per-lane numbers — the count per lane emerges from effective score (which the
+    editor's tier/adjust shape, so the LLM effectively decides how many of each). A `gap` drop
+    from the last pick ends the run early so the slate isn't padded with filler past a quality
+    cliff. `caps` (optional, default none) can still impose a hard ceiling. Pass B guarantees
+    each `guarantee` lane appears if a decent pick exists — appending when there's room, else
+    swapping out the weakest pick from an over-represented lane."""
     ranked = sorted(day_evs, key=lambda e: _eff_key(e, verdicts), reverse=True)
-    caps = slate.get("caps", {})
+    if not ranked:
+        return []
+    caps = slate.get("caps") or {}
+    gap = slate.get("gap")
 
-    picks, used, lane_n = [], set(), Counter()
-    for e in ranked:                                   # Pass A — merit under caps
+    picks, used, lane_n, prev = [], set(), Counter(), None
+    for e in ranked:                                   # merit fill, cut at a score cliff
         if len(picks) >= per_day:
+            break
+        eff = _eff_score(e, verdicts)
+        if gap is not None and prev is not None and prev - eff > gap:
             break
         ln = event_lane(e, verdicts)
         if caps.get(ln) is not None and lane_n[ln] >= caps[ln]:
             continue
-        picks.append(e); used.add(event_key(e)); lane_n[ln] += 1
+        picks.append(e); used.add(event_key(e)); lane_n[ln] += 1; prev = eff
 
-    for gl in slate.get("guarantee", []):              # Pass B — guarantee diversity
+    for gl in slate.get("guarantee", []):              # diversity FLOOR — append if room, else swap
         if any(event_lane(p, verdicts) == gl for p in picks):
             continue
         best = next((e for e in ranked
                      if event_lane(e, verdicts) == gl and event_key(e) not in used
                      and (e.get("score") or 0) >= min_guarantee_score), None)
         if not best:
+            continue
+        if len(picks) < per_day:
+            picks.append(best); used.add(event_key(best)); lane_n[gl] += 1
             continue
         removable = sorted([p for p in picks if lane_n[event_lane(p, verdicts)] > 1],
                            key=lambda e: _eff_key(e, verdicts))
