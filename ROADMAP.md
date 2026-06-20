@@ -317,6 +317,18 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   read-only. Security relaxed by design (taste writes are low-stakes/revertible): `CONCIERGE_TOKEN` guards
   API spend + commit-spam, and the GitHub PAT is repo-scoped Contents-only. **Needs Ari to deploy the
   Worker + set the 3 secrets** (`backend/README.md`).
+- [x] **Profile / MECHANISM self-edit via the concierge (2026-06-20)** — the concierge can now also edit
+  `profile.yaml` (location + scoring dials), not just `taste.yaml` (content). Both surfaces: the Worker
+  gained a second structured tool `propose_profile_change` (home/coords, `category_weights`, and the
+  near-home / penalty / boost / far term lists — source ids, rating thresholds, and the numeric
+  Spotify/feedback/travel knobs deliberately left to hand-editing), and the conversational concierge
+  (`SKILL.md` path 3) does the same for Ari's root file. Owner → root `profile.yaml`; friend → their own
+  `profiles/<name>/profile.yaml` (created on first edit). The one non-obvious bit: `lib/scoring.py`
+  resolves each scoring key **all-or-nothing** (profile → taste → default), so a first edit
+  **materializes the full effective list/map** (seeded from root `profile.yaml` = the defaults verbatim,
+  so no duplicated constants in JS) before applying the delta — otherwise a partial write silently drops
+  the rest. Worker-only change + docs (no scorer/build touch); same CI rebuild + `git = rollback`
+  safety as taste. Node-tested (`applyProfilePatchDoc`). Rides the same Worker deploy.
 - [x] **Per-profile digests (2026-06-19)** — the daily routine now (step 7) rebuilds *every* feed
   with `build_profiles.py` (friends' feeds stay fresh as the catalog changes, not only on self-edit),
   and (step 8) writes a personalized narrative digest per profile to `digests/<hash>/latest.md`.
