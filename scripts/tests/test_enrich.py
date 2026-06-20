@@ -52,6 +52,34 @@ def test_update_cache_folds_events_and_artists():
     assert cache["artists"]["antal"]["note"] == "Rush Hour boss"   # keyed by normalized name
 
 
+def test_merge_folds_cached_artist_notes_on_uncached_event():
+    """The coverage win: an event with no event-cache entry still gets artist glosses
+    for any lineup name the artist cache knows (free, compounding scene-graph reuse)."""
+    cache = {"events": {}, "artists": {"peggy gou": {"note": "Korean-Berlin house, Gudu boss"}}}
+    ev = {"title": "Club Night", "date": "2026-07-04", "venue": "Sound", "lineup": ["Peggy Gou", "Local Opener"]}
+    [m] = E.merge_enrichment([ev], cache)
+    assert m["enrichment"]["from_cache"] is True
+    assert m["enrichment"]["artist_notes"] == [{"name": "Peggy Gou", "note": "Korean-Berlin house, Gudu boss"}]
+
+
+def test_merge_supplements_event_hit_with_cache_artists():
+    """A researched event keeps its record but gains cache notes for lineup names it missed."""
+    ev = {"title": "B2B Night", "date": "2026-07-05", "venue": "The Lash", "lineup": ["Antal", "Hunee"]}
+    k = E.event_key(ev)
+    cache = {"events": {k: {"id": k, "artist_notes": [{"name": "Antal", "note": "Rush Hour boss"}]}},
+             "artists": {"hunee": {"note": "Rush Hour digger, joyful selector"}}}
+    [m] = E.merge_enrichment([ev], cache)
+    names = [n["name"] for n in m["enrichment"]["artist_notes"]]
+    assert "Antal" in names and "Hunee" in names   # original + supplemented, no dupes
+    assert len(names) == 2
+
+
+def test_cached_artist_notes_no_false_match():
+    cache = {"events": {}, "artists": {"ame": {"note": "Innervisions"}}}  # short name
+    ev = {"title": "Some Game Night", "date": "2026-07-06", "venue": "X", "lineup": ["DJ Someone"]}
+    assert E.cached_artist_notes(ev, cache) == []   # 'ame' must not match 'game'/'someone'
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

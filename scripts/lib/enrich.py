@@ -68,8 +68,40 @@ def select_for_enrichment(candidates: list, cache: dict) -> list:
     return out
 
 
+def cached_artist_notes(ev: dict, cache: dict) -> list:
+    """Artist bios from the cache for any tracked name in this event's lineup/title.
+
+    The scene graph's value compounds here: the ~N accumulated artist bios apply to EVERY
+    event featuring those artists, not just the events individually researched. Conservative
+    matching — exact normalized lineup entries, plus a length-guarded title substring for an
+    artist not in the lineup — to avoid false hits on short names. Display name comes from the
+    event's own lineup text (the cache key is lowercased/normalized)."""
+    arts = cache.get("artists") or {}
+    if not arts:
+        return []
+    out, seen = [], set()
+    lineup = ev.get("lineup") or []
+    if not isinstance(lineup, list):
+        lineup = [str(lineup)]
+    for a in lineup:
+        k = normalize(a)
+        if k and k in arts and k not in seen:
+            out.append({"name": a.strip(), "note": arts[k].get("note")})
+            seen.add(k)
+    title_norm = normalize(ev.get("title", ""))
+    for k, info in arts.items():
+        if k and k not in seen and len(k) >= 5 and k in title_norm:
+            out.append({"name": k.title(), "note": info.get("note")})
+            seen.add(k)
+    return out
+
+
 def merge_enrichment(candidates: list, cache: dict) -> list:
-    """Return candidates with cached enrichment attached under `enrichment` (+ stable `id`)."""
+    """Return candidates with cached enrichment attached under `enrichment` (+ stable `id`).
+
+    A fully-researched event gets its whole cached record; ANY event whose lineup/title hits
+    the artist cache also gets those artist notes folded in (free coverage from the scene graph),
+    supplementing a partial event record or standing in as a lightweight `from_cache` enrichment."""
     out = []
     for c in candidates:
         cc = dict(c)
@@ -78,6 +110,17 @@ def merge_enrichment(candidates: list, cache: dict) -> list:
         hit = cache["events"].get(k)
         if hit:
             cc["enrichment"] = hit
+        notes = cached_artist_notes(c, cache)
+        if notes:
+            if hit:
+                have = {normalize(n.get("name", "")) for n in (hit.get("artist_notes") or [])}
+                extra = [n for n in notes if normalize(n["name"]) not in have]
+                if extra:
+                    merged = dict(hit)
+                    merged["artist_notes"] = (hit.get("artist_notes") or []) + extra
+                    cc["enrichment"] = merged
+            else:
+                cc["enrichment"] = {"artist_notes": notes, "from_cache": True}
         out.append(cc)
     return out
 
