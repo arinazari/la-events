@@ -383,7 +383,8 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   Both buttons POST to the concierge Worker (`/refresh-events`, `/rebuild-profile`), which fires
   `repository_dispatch` → new workflows (`refresh-events.yml`, `rebuild-profile.yml`) rebuild +
   redeploy — same seam as `spotify-sync`. Needs the Worker deployed with `GITHUB_TOKEN`
-  (Actions: read & write); degrades to a clear "connect the backend" toast otherwise. `build_profiles
+  (Contents: write — same token taste self-edit / spotify-sync already use, no extra scope);
+  degrades to a clear "connect the backend" toast otherwise. `build_profiles
   --only-hash` lets the rebuild target a profile by its public feed hash (the page never knows the username).
   - **refresh-events** is deterministic (fetch → catalog → default feed → version), so it's cheap and
     needs only the source secrets. **rebuild-profile** runs the **full LLM pass** for that one profile —

@@ -64,7 +64,8 @@ after an admin refresh. The workflows commit the rebuilt artifacts and redeploy 
   needs the source secrets (`TM_API_KEY`, …) but no Anthropic key.
 - `rebuild-profile.yml` runs **Claude Code** (`anthropics/claude-code-action`) over
   `routines/profile-digest-prompt.md`, so it needs **`ANTHROPIC_API_KEY` as a repo Actions secret**
-  (the agent), and the `GITHUB_TOKEN` PAT here needs **Actions: read & write** to dispatch it. A
+  (the agent). The `GITHUB_TOKEN` PAT needs only **Contents: write** to fire `repository_dispatch`
+  (the same scope taste self-edit / spotify-sync already use — no extra permission). A
   per-click LLM run costs tokens and takes a few minutes; the nightly routine still covers everyone.
 
 ## Deploy (Cloudflare Workers — free tier)
@@ -88,7 +89,7 @@ Worker URL + (if set) the token. Stored in your browser's localStorage — no re
 |---|---|---|
 | `ANTHROPIC_API_KEY` | `wrangler secret put` | **required** — your Anthropic key |
 | `CONCIERGE_TOKEN`   | `wrangler secret put` | optional shared token gating the proxy (see Auth) |
-| `GITHUB_TOKEN`      | `wrangler secret put` | optional — a **fine-grained PAT scoped to this repo, Contents: read & write** (+ **Actions: read & write** for the refresh/update buttons, which fire `repository_dispatch`). Set it to enable taste self-edit + the dashboard's pipeline actions; leave it unset and the Worker is chat-only. |
+| `GITHUB_TOKEN`      | `wrangler secret put` | optional — a **fine-grained PAT scoped to this repo, Contents: read & write**. That one scope covers taste self-edit AND the refresh/update buttons (the `repository_dispatch` endpoint requires Contents: write — *not* Actions). Set it to enable those; leave it unset and the Worker is chat-only. |
 | `ANTHROPIC_MODEL`   | `wrangler.toml [vars]` | **executor** model — does the bulk of generation (default `claude-sonnet-4-6`) |
 | `ADVISOR_MODEL`     | `wrangler.toml [vars]` | **advisor** the executor consults for multi-step planning (default `claude-opus-4-8`; `""` disables; must be ≥ the executor) |
 | `EFFORT`            | `wrangler.toml [vars]` | executor effort `low`/`medium`/`high`/`max` (default `max`) |
