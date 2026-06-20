@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>la-events · filter popup preview</title>
+<style>
+  body { margin:0; background:#f9f8f4; color:#1b1a17; -webkit-font-smoothing:antialiased; }
+  .note { padding:14px 16px; font:500 12px/1.6 ui-monospace,Menlo,monospace; color:#76746b; max-width:920px; }
+  .note b { color:#1b1a17; }
+  .scry { overflow:auto; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; }
+  /* thin scrollbar for the filter columns */
+  .fcol::-webkit-scrollbar { width:6px; }
+  .fcol::-webkit-scrollbar-thumb { background:#d7d5cc; border-radius:3px; }
+  .fcol::-webkit-scrollbar-track { background:transparent; }
+  .fcol { scrollbar-width:thin; scrollbar-color:#d7d5cc transparent; }
+  /* hover helpers — the real app uses style-hover="" which this static file emulates with CSS */
+  .it:hover    { background:#f1efe7 !important; }
+  .lnk:hover   { text-decoration:underline !important; }
+  .ico:hover, .srt:hover { color:#2b5cd9 !important; }
+  tbody tr:hover { background:#f1efe7; }
+</style>
+</head>
+<body>
+  <div class="note">
+    <b>Standalone preview — redesigned column-filter popups.</b><br>
+    Click the ☰ icon next to <b>NEIGHBORHOOD</b> or <b>CATEGORY / VIBE</b>. Sub-axes sit
+    side-by-side as columns. <b>Click a value to cycle: keep (✓) → hide (✕) → off.</b> Keep =
+    show only these; hide = filter them out. "clear" resets, click outside to close. Resize
+    narrow to see the columns wrap. Mirrors the inline styles in <b>dashboard/index.html</b>.
+  </div>
+
+  <div class="scry">
+  <table>
+    <thead>
+      <tr style="position:sticky; top:0; z-index:2; background:#efeee9; box-shadow:0 1px 0 #d9d7cf;">
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:96px;">DATE</th>
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; user-select:none;">EVENT / LINEUP</th>
+
+        <!-- NEIGHBORHOOD: left-anchored, NEIGHBORHOOD | REGION -->
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:140px; position:relative;">
+          <span style="display:inline-flex; align-items:center; gap:6px;">
+            <span class="srt" style="cursor:pointer; color:#76746b;">NEIGHBORHOOD</span>
+            <span class="ico" data-pop="hood" title="Filter neighborhood" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color:#76746b;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+          </span>
+          <div id="pop-hood" data-anchor="left"></div>
+        </th>
+
+        <!-- CATEGORY / VIBE: right-anchored, CATEGORY | GENRE | VIBE | SETTING -->
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:150px; position:relative;">
+          <span style="display:inline-flex; align-items:center; gap:6px;">
+            <span class="srt" style="cursor:pointer; color:#76746b;">CATEGORY / VIBE</span>
+            <span class="ico" data-pop="cat" title="Filter category / genre / vibe / setting" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color:#76746b;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+          </span>
+          <div id="pop-cat" data-anchor="right"></div>
+        </th>
+
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:96px;">SCORE</th>
+        <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:104px;">SOURCE</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  </div>
+
+<script>
+// ---- sample data (realistic values pulled from dashboard/data.json axes) ----
+var AXES = {
+  hood:   ['Historic Filipinotown','Downtown LA','Echo Park','Silver Lake','Highland Park','Hollywood','West Hollywood','Culver City','Santa Monica','San Juan Capistrano','Huntington Beach','Rancho Cucamonga'],
+  region: ['hollywood','eastside','westside','dtla','valley','south bay','orange county'],
+  cat:    ['Live Music','Electronic','Comedy','Film','Theater','Party'],
+  genre:  ['house','techno','deep house','tech house','rep/arthouse','experimental','progressive','electronic','jazz','hip hop','indie','disco','ambient'],
+  vibe:   ['afterhours','day party','album release','tba location','analog film','residency','listening','queer','immersive','warehouse rave'],
+  setting:['warehouse','listening bar','amphitheater','speakeasy','theater','outdoor','rooftop','club','gallery']
+};
+// machine tag -> readable label (mirrors prettyTag: dashes -> spaces)
+function pretty(v){ return String(v).replace(/-/g,' '); }
+var picks = {}; // axis -> { in:Set, out:Set }  (keep / hide)
+Object.keys(AXES).forEach(function(a){ picks[a] = { in:new Set(), out:new Set() }; });
+function pickState(axis, v){ return picks[axis].in.has(v) ? 'in' : (picks[axis].out.has(v) ? 'out' : 'off'); }
+function cycle(axis, v){ var p = picks[axis];
+  if (p.in.has(v)) { p.in.delete(v); p.out.add(v); }   // keep -> hide
+  else if (p.out.has(v)) { p.out.delete(v); }          // hide -> neutral
+  else { p.in.add(v); }                                // neutral -> keep
+}
+function axisCount(axis){ return picks[axis].in.size + picks[axis].out.size; }
+
+// pre-set a few so both states are visible
+picks.genre.in.add('techno');      // keep (show only)
+picks.vibe.out.add('afterhours');  // hide (filter out)
+picks.hood.out.add('Echo Park');   // hide
+
+// ---- popup config: which axes (columns) live in each popup, + widths ----
+var POPUPS = {
+  hood: { maxh:300, anchor:'left',  cols:[
+            {axis:'hood',   title:'NEIGHBORHOOD', width:190},
+            {axis:'region', title:'REGION',       width:120} ] },
+  cat:  { maxh:340, anchor:'right', cols:[
+            {axis:'cat',     title:'CATEGORY', width:138},
+            {axis:'genre',   title:'GENRE',    width:138},
+            {axis:'vibe',    title:'VIBE',     width:138},
+            {axis:'setting', title:'SETTING',  width:138} ] }
+};
+
+function renderPopup(key){
+  var cfg = POPUPS[key];
+  var anchorCss = cfg.anchor === 'right' ? 'right:12px;' : 'left:12px;';
+  var cols = cfg.cols.map(function(c, ci){
+    var items = AXES[c.axis].map(function(v){
+      var st = pickState(c.axis, v);
+      var box = st==='in' ? '✓' : (st==='out' ? '✕' : '□');
+      var boxColor = st==='in' ? '#1f7a4d' : (st==='out' ? '#b4543f' : '#cbc9bf');
+      var color = st==='out' ? '#a29a90' : (st==='in' ? '#161512' : '#76746b');
+      var bg = st==='in' ? '#e9efe9' : (st==='out' ? '#f5ece8' : 'transparent');
+      var weight = st==='in' ? '600' : '500';
+      var deco = st==='out' ? 'line-through' : 'none';
+      return '<div class="it" data-axis="'+c.axis+'" data-val="'+v+'" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font:'+weight+' 11px/1.3 ui-monospace,Menlo,monospace; color:'+color+'; background:'+bg+';"><span style="font-size:10px; color:'+boxColor+';">'+box+'</span><span style="text-decoration:'+deco+';">'+pretty(v)+'</span></div>';
+    }).join('');
+    var clear = axisCount(c.axis) ? '<span class="lnk" data-clear="'+c.axis+'" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;">clear</span>' : '';
+    var border = ci ? ' border-left:1px solid #eceae2;' : '';
+    return ''+
+      '<div class="fcol" style="flex:0 0 auto; width:'+c.width+'px; max-height:'+cfg.maxh+'px; overflow-y:auto; padding:0 9px;'+border+'">'+
+        '<div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">'+
+          '<span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">'+c.title+'</span>'+ clear +
+        '</div>'+ items +
+      '</div>';
+  }).join('');
+  return '<div style="position:absolute; top:30px; '+anchorCss+' z-index:51; display:flex; align-items:stretch; flex-wrap:wrap; gap:0; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">'+cols+'</div>';
+}
+
+var openKey = null;
+function paint(){
+  ['hood','cat'].forEach(function(k){
+    var host = document.getElementById('pop-'+k);
+    host.innerHTML = (openKey === k) ? renderPopup(k) : '';
+    // tint the icon when this popup has active selections
+    var active = POPUPS[k].cols.some(function(c){ return axisCount(c.axis) > 0; });
+    var ico = document.querySelector('.ico[data-pop="'+k+'"]');
+    ico.style.color = (active || openKey === k) ? '#2b5cd9' : '#76746b';
+  });
+}
+
+document.addEventListener('click', function(e){
+  var ico = e.target.closest('.ico[data-pop]');
+  if (ico){ openKey = (openKey === ico.dataset.pop) ? null : ico.dataset.pop; paint(); e.stopPropagation(); return; }
+  var clear = e.target.closest('.lnk[data-clear]');
+  if (clear){ var pc = picks[clear.dataset.clear]; pc.in.clear(); pc.out.clear(); paint(); e.stopPropagation(); return; }
+  var it = e.target.closest('.it[data-axis]');
+  if (it){ cycle(it.dataset.axis, it.dataset.val); paint(); e.stopPropagation(); return; }
+  if (e.target.closest('[id^="pop-"]')) return; // click inside popup: keep open
+  if (openKey){ openKey = null; paint(); } // click outside: close
+});
+
+// ---- a few sample body rows for visual context ----
+var SAMPLE = [
+  ['Fri 6/19','Mulholland Dr. + Lost Highway','Echo Park','Film · rep cinema','7','Venue'],
+  ['Sat 6/20','Warehouse: techno all-nighter','Downtown LA','Electronic · afterhours','9','RA'],
+  ['Sat 6/20','Marc Maron','Historic Filipinotown','Comedy · standup','6','Promoter'],
+  ['Sun 6/21','Sunday listening session','Silver Lake','Live Music · listening bar','5','Ticketmaster']
+];
+document.getElementById('rows').innerHTML = SAMPLE.map(function(r){
+  return '<tr style="border-bottom:1px solid #e8e6de;">'+
+    '<td style="padding:11px 12px; vertical-align:top; white-space:nowrap; font:600 12px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17;">'+r[0]+'</td>'+
+    '<td style="padding:11px 12px; vertical-align:top; font:600 13px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">'+r[1]+'</td>'+
+    '<td style="padding:11px 12px; vertical-align:top; font:500 11.5px/1.3 ui-monospace,Menlo,monospace; color:#3f3d36;">'+r[2]+'</td>'+
+    '<td style="padding:11px 12px; vertical-align:top; font:500 11.5px/1.3 ui-monospace,Menlo,monospace; color:#3f3d36;">'+r[3]+'</td>'+
+    '<td style="padding:11px 12px; vertical-align:top; font:600 12px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17;">'+r[4]+'</td>'+
+    '<td style="padding:11px 12px; vertical-align:top; font:500 11px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">'+r[5]+'</td>'+
+  '</tr>';
+}).join('');
+
+paint();
+</script>
+</body>
+</html>
