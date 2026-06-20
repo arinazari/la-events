@@ -29,28 +29,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      # The dashboard's "digest ↗" popup reads ./digests/latest.md. Stage the newest dated
-      # digest into the published artifact (keeps build_dashboard.py / the repo untouched).
-      - name: Stage latest digest for the dashboard
-        run: |
-          mkdir -p dashboard/digests
-          latest="$(ls -1 digests/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md 2>/dev/null | sort | tail -n1)"
-          if [ -n "$latest" ]; then
-            cp "$latest" dashboard/digests/latest.md
-            echo "Staged $latest -> dashboard/digests/latest.md"
-          else
-            echo "No dated digest found; the popup falls back to its bundled sample."
-          fi
-          # Per-profile digests: digests/<hash>/latest.md -> dashboard/digests/<hash>/latest.md
-          for d in digests/*/; do
-            h="$(basename "$d")"
-            case "$h" in *[!0-9a-f]*|"") continue ;; esac   # 16-hex profile hashes only (skips weekends/)
-            if [ -f "$d/latest.md" ]; then
-              mkdir -p "dashboard/digests/$h"
-              cp "$d/latest.md" "dashboard/digests/$h/latest.md"
-              echo "Staged $d""latest.md -> dashboard/digests/$h/latest.md"
-            fi
-          done
+      # The dashboard reads ./digests/latest.md (default) and ./digests/<hash>/latest.md (per
+      # logged-in profile). stage_digests.py copies the newest dated digest to latest.md AND, for
+      # owner:true profiles, into their hash dir — so the owner's login shows the canonical digest
+      # instead of "regenerate" (friends with their own digest: dir are staged too). The repo's
+      # digests/ stays untouched; stdlib-only, no extra deps.
+      - name: Stage digests for the dashboard
+        run: python3 scripts/stage_digests.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dashboard
