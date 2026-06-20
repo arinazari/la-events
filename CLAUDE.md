@@ -74,6 +74,8 @@ scripts/lib/                        # shared modules: scoring, dedupe, pipeline,
 scripts/render_digest.py            # enriched candidates → digest: day-grouped .md + rich emailable/hosted .html
 scripts/cache_images.py             # download enrichment hero images → data/images/ (no hotlink rot)
 scripts/travel.py                   # night-planner travel CLI: rough LA drive/walk times (lib/geo.py + dining.json)
+scripts/make_ics.py                 # turn a night-planner itinerary into a calendar .ics (lib/ics.py)
+scripts/log_feedback.py             # concierge: append a reaction to data/feedback.jsonl (the learned loop)
 scripts/fetch_*.py                  # 11 source fetchers (run BY run_digest, or in Step-2 layering):
                                     #   ticketmaster (TM_API_KEY), ra, 19hz, goldenvoice, filmbot,
                                     #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld
