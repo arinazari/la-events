@@ -223,11 +223,12 @@
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:140px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
                 <span onClick="{{ sortHood }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">NEIGHBORHOOD <span style="color:#2b5cd9;">{{ arrowHood }}</span></span>
-                <span onClick="{{ openHood }}" title="Filter neighborhood" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ hoodIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                <span onClick="{{ openHood }}" title="Neighborhood — click to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ hoodIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
               </span>
               <sc-if value="{{ hoodOpen }}" hint-placeholder-val="{{ false }}">
                 <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50;"></span>
                 <div style="position:absolute; top:30px; left:12px; z-index:51; display:flex; align-items:stretch; flex-wrap:wrap; gap:0; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                  <div style="flex:0 0 100%; display:flex; align-items:center; gap:14px; padding:1px 9px 7px; margin-bottom:3px; border-bottom:1px solid #f0eee7; font:600 8.5px/1.3 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#a7a59b;"><span><span style="color:#1f7a4d;">✓</span> keep</span><span><span style="color:#b4543f;">✕</span> hide</span><span style="color:#bdbbb1; font-weight:500;">click cycles</span></div>
                   <div class="fcol" style="flex:0 0 auto; width:190px; max-height:300px; overflow-y:auto; padding:0 9px;">
                     <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
                       <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">NEIGHBORHOOD</span>
@@ -252,11 +253,12 @@
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:150px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
                 <span onClick="{{ sortCat }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">CATEGORY / VIBE <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
-                <span onClick="{{ openCat }}" title="Filter category / genre / vibe / setting" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ catGenreIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                <span onClick="{{ openCat }}" title="Category / genre / vibe / setting — click to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ catGenreIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
               </span>
               <sc-if value="{{ catOpen }}" hint-placeholder-val="{{ false }}">
                 <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50;"></span>
                 <div style="position:absolute; top:30px; right:12px; z-index:51; display:flex; align-items:stretch; flex-wrap:wrap; gap:0; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                  <div style="flex:0 0 100%; display:flex; align-items:center; gap:14px; padding:1px 9px 7px; margin-bottom:3px; border-bottom:1px solid #f0eee7; font:600 8.5px/1.3 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#a7a59b;"><span><span style="color:#1f7a4d;">✓</span> keep</span><span><span style="color:#b4543f;">✕</span> hide</span><span style="color:#bdbbb1; font-weight:500;">click cycles</span></div>
                   <div class="fcol" style="flex:0 0 auto; width:138px; max-height:340px; overflow-y:auto; padding:0 9px;">
                     <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
                       <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">CATEGORY</span>
@@ -300,7 +302,7 @@
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:104px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
                 <span onClick="{{ sortSource }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></span>
-                <span onClick="{{ openSource }}" title="Filter source" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ sourceIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                <span onClick="{{ openSource }}" title="Source — click to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ sourceIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
               </span>
               <sc-if value="{{ sourceOpen }}" hint-placeholder-val="{{ false }}">
                 <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50;"></span>
@@ -591,7 +593,7 @@ class Component extends DCLogic {
     expandedId: null,
     filtered: null,            // array of ids or null (=all)
     filterSummary: '', digestPicks: false,
-    colFilters: { hood: [], cat: [], genre: [], vibe: [], setting: [], region: [], source: [] }, openFilter: null,
+    colFilters: { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} }, openFilter: null,
     search: '', digestPrevState: null,
     settingsOpen: false, confirmDiscover: false,
     refreshing: false, lastUpdated: 'Wed 6/17, 7:02 AM',
@@ -811,22 +813,29 @@ class Component extends DCLogic {
   openFilterMenu = (col) => this.setState(s => ({ openFilter: s.openFilter === col ? null : col }));
   closeFilterMenu = () => this.setState({ openFilter: null });
   toggleFilterVal = (col, val) => this.setState(s => {
-    const cur = s.colFilters[col] || [];
-    const next = cur.includes(val) ? cur.filter(v => v !== val) : [...cur, val];
+    const cur = s.colFilters[col] || { in: [], out: [] };
+    const inq = cur.in.includes(val), outq = cur.out.includes(val);
+    // cycle: neutral -> keep (in) -> hide (out) -> neutral
+    const next = inq  ? { in: cur.in.filter(v => v !== val), out: [...cur.out, val] }
+               : outq ? { in: cur.in, out: cur.out.filter(v => v !== val) }
+               :        { in: [...cur.in, val], out: cur.out };
     return { colFilters: { ...s.colFilters, [col]: next }, digestPicks: false, digestPrevState: null, expandedId: null };
   });
-  clearFilterCol = (col) => this.setState(s => ({ colFilters: { ...s.colFilters, [col]: [] }, expandedId: null }));
+  clearFilterCol = (col) => this.setState(s => ({ colFilters: { ...s.colFilters, [col]: { in: [], out: [] } }, expandedId: null }));
   passesColFilters(e) {
     const f = this.state.colFilters;
-    const some = (sel, vals) => sel.some(v => (vals || []).includes(v));  // matches any selected value on the axis
-    // Selected values are EXCLUDED — hide a row if it matches any selected value.
-    if (f.hood.length && f.hood.includes(e.hood)) return false;
-    if (f.cat.length && f.cat.includes(e.cat)) return false;
-    if (f.genre.length && some(f.genre, e.genres)) return false;
-    if (f.vibe.length && some(f.vibe, e.vibe)) return false;
-    if (f.setting.length && some(f.setting, e.setting)) return false;
-    if (f.region.length && f.region.includes(e.region)) return false;
-    if (f.source.length && f.source.includes(e.source)) return false;
+    const some = (sel, vals) => sel.some(v => (vals || []).includes(v));
+    // Per axis: hide a row if it matches a HIDE (out) value; and if any KEEP (in) values are
+    // set, the row must match one of them. in = include-only, out = exclude.
+    const ok1 = (ff, val) => !ff.out.includes(val) && (!ff.in.length || ff.in.includes(val));
+    const okN = (ff, vals) => !some(ff.out, vals) && (!ff.in.length || some(ff.in, vals));
+    if (!ok1(f.hood, e.hood)) return false;
+    if (!ok1(f.cat, e.cat)) return false;
+    if (!okN(f.genre, e.genres)) return false;
+    if (!okN(f.vibe, e.vibe)) return false;
+    if (!okN(f.setting, e.setting)) return false;
+    if (!ok1(f.region, e.region)) return false;
+    if (!ok1(f.source, e.source)) return false;
     return true;
   }
 
@@ -834,7 +843,7 @@ class Component extends DCLogic {
   toggle = (id) => this.setState(s => ({ expandedId: s.expandedId === id ? null : id }));
 
   // ---------- chat / filter ----------
-  EMPTY_COLS = { hood: [], cat: [], genre: [], vibe: [], setting: [], region: [], source: [] };
+  EMPTY_COLS = { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} };
   reset = () => this.setState(s => ({
     filtered: null, filterSummary: '', digestPicks: false, digestPrevState: null,
     colFilters: this.EMPTY_COLS, search: '', expandedId: null,
@@ -1645,21 +1654,22 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const cf = this.state.colFilters;
     const dv = this.distinctVals();
     const prettyTag = (v) => String(v).replace(/-/g, ' ');  // machine tag -> readable label
+    const nsel = (c) => cf[c].in.length + cf[c].out.length;  // active picks on an axis
     const mkMenu = (col, label) => dv[col].map(v => {
-      const on = cf[col].includes(v);  // selected = excluded (hidden from results)
+      const inq = cf[col].in.includes(v), outq = cf[col].out.includes(v);  // keep / hide / neutral
       return {
-        val: v, label: label ? label(v) : v, checked: on,
-        box: on ? '\u25a0' : '\u25a1',
-        boxColor: on ? '#b4543f' : '#cbc9bf',
-        color: on ? '#a29a90' : '#76746b',
-        bg: on ? '#f5ece8' : 'transparent',
-        weight: '500',
-        deco: on ? 'line-through' : 'none',
+        val: v, label: label ? label(v) : v,
+        box: inq ? '\u2713' : (outq ? '\u2715' : '\u25a1'),
+        boxColor: inq ? '#1f7a4d' : (outq ? '#b4543f' : '#cbc9bf'),
+        color: outq ? '#a29a90' : (inq ? '#161512' : '#76746b'),
+        bg: inq ? '#e9efe9' : (outq ? '#f5ece8' : 'transparent'),
+        weight: inq ? '600' : '500',
+        deco: outq ? 'line-through' : 'none',
         onClick: () => this.toggleFilterVal(col, v)
       };
     });
     const openF = this.state.openFilter;
-    const catGenreActive = cf.cat.length + cf.genre.length + cf.vibe.length + cf.setting.length;
+    const catGenreActive = nsel('cat') + nsel('genre') + nsel('vibe') + nsel('setting');
 
     const rows = sorted.map(e => ({
       id: e.id, wd: e.wd, md: e.md, t: e.t,
@@ -1732,7 +1742,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       weight: range === key ? '700' : '500',
       onClick: () => this.setRange(key)
     }));
-    const anyActive = !!filtered || cf.hood.length || cf.cat.length || cf.genre.length || cf.vibe.length || cf.setting.length || cf.region.length || cf.source.length || (this.state.search || '').trim() || digestPicks;
+    const anyActive = !!filtered || nsel('hood') || nsel('cat') || nsel('genre') || nsel('vibe') || nsel('setting') || nsel('region') || nsel('source') || (this.state.search || '').trim() || digestPicks;
 
     return {
       messages: msgs, suggestions, loading,
@@ -1783,10 +1793,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       openHood: () => this.openFilterMenu('hood'), openCat: () => this.openFilterMenu('cat'), openSource: () => this.openFilterMenu('source'),
       hoodMenu: mkMenu('hood'), catMenu: mkMenu('cat'), genreMenu: mkMenu('genre', prettyTag), sourceMenu: mkMenu('source'),
       vibeMenu: mkMenu('vibe', prettyTag), settingMenu: mkMenu('setting', prettyTag), regionMenu: mkMenu('region', prettyTag),
-      catHasSel: cf.cat.length > 0, genreHasSel: cf.genre.length > 0, vibeHasSel: cf.vibe.length > 0, settingHasSel: cf.setting.length > 0, hoodHasSel: cf.hood.length > 0, regionHasSel: cf.region.length > 0,
+      catHasSel: nsel('cat') > 0, genreHasSel: nsel('genre') > 0, vibeHasSel: nsel('vibe') > 0, settingHasSel: nsel('setting') > 0, hoodHasSel: nsel('hood') > 0, regionHasSel: nsel('region') > 0,
       hoodOpen: openF === 'hood', catOpen: openF === 'cat', sourceOpen: openF === 'source',
-      hoodActive: (cf.hood.length + cf.region.length) > 0, sourceActive: cf.source.length > 0, catGenreActive: catGenreActive > 0,
-      hoodIcon: (cf.hood.length || cf.region.length) ? '#2b5cd9' : '#bdbbb1', sourceIcon: cf.source.length ? '#2b5cd9' : '#bdbbb1',
+      hoodActive: (nsel('hood') + nsel('region')) > 0, sourceActive: nsel('source') > 0, catGenreActive: catGenreActive > 0,
+      hoodIcon: (nsel('hood') || nsel('region')) ? '#2b5cd9' : '#bdbbb1', sourceIcon: nsel('source') ? '#2b5cd9' : '#bdbbb1',
       catGenreIcon: catGenreActive ? '#2b5cd9' : '#bdbbb1',
       clearHood: () => this.clearFilterCol('hood'), clearSource: () => this.clearFilterCol('source'),
       clearCat: () => this.clearFilterCol('cat'), clearGenre: () => this.clearFilterCol('genre'),
