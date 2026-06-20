@@ -474,6 +474,10 @@ async function handleSpotify(url, request, env, cors) {
       client_id: env.SPOTIFY_CLIENT_ID, response_type: "code",
       redirect_uri: spotifyRedirect(env, url), scope: DEFAULTS.SPOTIFY_SCOPES,
       state: await signState(env, hash),
+      // Force Spotify's account/consent screen every time so a returning visitor isn't silently
+      // re-connected to whatever Spotify session is cached in this browser (e.g. the owner's from
+      // testing). Lets the user log in as / switch to their own account.
+      show_dialog: "true",
     });
     return Response.redirect(`${DEFAULTS.SPOTIFY_AUTH}/authorize?${params}`, 302);
   }
