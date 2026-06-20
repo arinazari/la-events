@@ -18,7 +18,7 @@ compatibility_date = "2024-11-01"
 # paste the returned id. Leave this block out and the /spotify/* routes return 501 (chat still works).
 [[kv_namespaces]]
 binding = "SPOTIFY_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "b42b9da0f2d54d63b753ed4e12864d85"
 
 # Non-secret vars (override the in-code defaults). Secrets go via `wrangler secret put`.
 [vars]
@@ -33,5 +33,5 @@ GITHUB_BRANCH = "main"
 PROFILE_SALT = "la-events/v1:"
 # Spotify (per-profile music layer). The redirect URI must EXACTLY match one registered in your
 # Spotify app at developer.spotify.com. Replace <you> with your workers.dev subdomain.
-SPOTIFY_REDIRECT_URI = "https://la-events-concierge.REPLACE_ME.workers.dev/spotify/callback"
+SPOTIFY_REDIRECT_URI = "https://la-events-concierge.arinazari.workers.dev/spotify/callback"
 PAGE_URL = "https://arinazari.github.io/la-events/"   # where the "back to la-events" link points
