@@ -97,6 +97,59 @@ but the **token still protects your API spend + the repo from spam** — so set 
 The `GITHUB_TOKEN` should be a **fine-grained PAT limited to this one repo with only Contents
 write** — nothing else. Worst case a friend rewrites their own taste file; you `git revert` it.
 
+## Per-profile Spotify (the music layer)
+
+The same Worker also lets each **friend connect their own Spotify** so their feed re-ranks to
+*their* listening — not Ari's. The refresh token never leaves Cloudflare; only the *derived* feed
+is ever committed (the affinity artifact is gitignored — it's a friend's listening).
+
+```
+1. CONNECT (browser)
+   page "Connect Spotify" ─► worker /spotify/login ─► Spotify consent ─► /spotify/callback
+       ─► stores the refresh token in KV (keyed by feed hash) ─► repository_dispatch "spotify-sync"
+
+2. SYNC (the routine / the spotify-sync CI job — holds SPOTIFY_SYNC_TOKEN)
+   sync_profiles_spotify.py ─► worker /spotify/connected + /spotify/fetch  (raw payloads only)
+       ─► lib/affinity.build_affinity ─► data/spotify/<hash>.json (gitignored)
+       ─► build_profiles.py re-scores ─► dashboard/data.<hash>.json ─► Pages
+```
+
+Routes (all under `/spotify/`): `login`, `callback`, `status`, `disconnect` (browser-facing) and
+`connected`, `fetch` (sync-facing, `Bearer SPOTIFY_SYNC_TOKEN`). The affinity is built by the one
+tested **Python** builder (`lib/affinity.py`) — the Worker never computes taste, so a friend's
+music layer can't drift from Ari's.
+
+### Enable it
+
+1. **Spotify app** at developer.spotify.com → add redirect URI
+   `https://<your-worker>.workers.dev/spotify/callback` (must match `SPOTIFY_REDIRECT_URI` in
+   `wrangler.toml`). Copy the Client ID + Secret.
+2. **KV namespace**: `npx wrangler kv namespace create SPOTIFY_KV` → paste the `id` into
+   `wrangler.toml`'s `[[kv_namespaces]]` block.
+3. **Worker secrets**: `npx wrangler secret put` each of `SPOTIFY_CLIENT_ID`,
+   `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_SYNC_TOKEN` (a strong random string), `STATE_SECRET` (any
+   long random string — signs the OAuth state). Keep `GITHUB_TOKEN` set so the on-connect rebuild
+   fires. Then `npx wrangler deploy`.
+4. **Repo secrets** (GitHub → Settings → Secrets → Actions), so the daily routine + the
+   `spotify-sync` workflow can sync: `SPOTIFY_SYNC_URL` = the Worker base URL, `SPOTIFY_SYNC_TOKEN`
+   = the same value you set on the Worker.
+
+| Env (Worker) | Where | Purpose |
+|---|---|---|
+| `SPOTIFY_CLIENT_ID` / `SPOTIFY_CLIENT_SECRET` | `wrangler secret put` | Spotify app creds (token exchange) |
+| `SPOTIFY_SYNC_TOKEN` | `wrangler secret put` | Bearer that gates `/spotify/connected` + `/spotify/fetch` (listening data) |
+| `STATE_SECRET` | `wrangler secret put` | signs the short-lived OAuth `state` (CSRF) |
+| `SPOTIFY_KV` | `wrangler.toml [[kv_namespaces]]` | per-profile refresh-token store |
+| `SPOTIFY_REDIRECT_URI` | `wrangler.toml [vars]` | must equal the URI registered in the Spotify app |
+| `PAGE_URL` | `wrangler.toml [vars]` | where the callback page's "back" link points |
+
+**Privacy / threat model** — same "obfuscation, not security" as profiles: feed hashes are public
+(they're the feed filenames), so a friend who has the shared `CONCIERGE_TOKEN` could attach a
+Spotify to another known hash. Blast radius is small (they'd shape that feed's *music* nudge;
+they can't read anyone's listening — `/spotify/fetch` needs `SPOTIFY_SYNC_TOKEN`), and it's
+revertible (disconnect/reconnect). The derived feed does surface Spotify-matched artist names in
+its "why" lines; if that's too much for a given friend, that's a future per-feed toggle.
+
 ## Porting to another host
 
 The logic is host-agnostic — only the wrapper differs. For Vercel/Netlify functions or a Node

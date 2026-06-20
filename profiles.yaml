@@ -14,6 +14,11 @@
 #
 # After editing, rebuild the feeds:   python scripts/build_profiles.py
 # (or just one:                        python scripts/build_profiles.py --only <username>)
+#
+# Per-profile Spotify (the music layer): each profile scores against ITS OWN Spotify + reactions
+# (data/spotify/<hash>.json + data/feedback.<hash>.jsonl), not Ari's. Friends connect Spotify in the
+# dashboard (the profile popup) via the concierge Worker; build_profiles.py passes each profile's hash
+# so the feed re-ranks to their listening. Nothing to add here — see backend/README.md "Per-profile Spotify".
 
 salt: "la-events/v1:"        # mixed into the filename hash; shared verbatim with the page. Public by nature.
 
