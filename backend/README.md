@@ -39,6 +39,28 @@ is named after). The Worker resolves it back to the profile via `profiles.yaml` 
 person's taste file: a friend's own `profiles/<name>/taste.yaml`, or — for the `owner: true`
 profile (Ari's login) — the shared root `taste.yaml`. A friend can never edit the root file.
 
+### Pipeline actions (the dashboard's refresh / update buttons)
+
+Two extra POST routes let the dashboard trigger a GitHub Action (via `repository_dispatch`, the
+same mechanism as `spotify-sync`) — they need `GITHUB_TOKEN` set, and are gated by the same
+`CONCIERGE_TOKEN`:
+
+```
+POST /refresh-events            -> 202 { ok, dispatched:"refresh-events" }
+     (admin "Refresh events database": re-fetch all sources, rebuild the catalog + default feed,
+      republish the catalog version stamp — applies to everyone. event_type "refresh-events")
+POST /rebuild-profile { profile: "<feed-hash>" } -> 202 { ok, dispatched:"rebuild-profile" }
+     (per-user "Update my ranking & digest": re-score + re-render that ONE profile against the
+      latest catalog. event_type "rebuild-profile", client_payload.profile = the hash)
+```
+
+The page shows the **Refresh** button to the `owner:true` profile only; owner-enforcement is on the
+page (consistent with this app's obfuscation model — the token gates spend/dispatch-spam). The
+per-user **Update** button auto-disables when the loaded feed's `catalog_version` matches the live
+`dashboard/catalog_meta.json` (i.e. the customization is already on the latest DB), and lights up
+after an admin refresh. The workflows (`.github/workflows/refresh-events.yml`,
+`rebuild-profile.yml`) commit the rebuilt artifacts and redeploy Pages.
+
 ## Deploy (Cloudflare Workers — free tier)
 
 ```bash
@@ -47,7 +69,7 @@ npm i                                      # installs the `yaml` dep the Worker 
 npx wrangler login
 npx wrangler secret put ANTHROPIC_API_KEY  # paste your Anthropic key
 npx wrangler secret put CONCIERGE_TOKEN    # optional but recommended (see Auth)
-npx wrangler secret put GITHUB_TOKEN       # optional — enables friend taste self-edit (see below)
+npx wrangler secret put GITHUB_TOKEN       # optional — enables taste self-edit + refresh/update buttons
 npx wrangler deploy                        # prints https://la-events-concierge.<you>.workers.dev
 ```
 
@@ -60,7 +82,7 @@ Worker URL + (if set) the token. Stored in your browser's localStorage — no re
 |---|---|---|
 | `ANTHROPIC_API_KEY` | `wrangler secret put` | **required** — your Anthropic key |
 | `CONCIERGE_TOKEN`   | `wrangler secret put` | optional shared token gating the proxy (see Auth) |
-| `GITHUB_TOKEN`      | `wrangler secret put` | optional — a **fine-grained PAT scoped to this repo, Contents: read & write**. Set it to enable taste self-edit; leave it unset and the Worker is chat-only. |
+| `GITHUB_TOKEN`      | `wrangler secret put` | optional — a **fine-grained PAT scoped to this repo, Contents: read & write** (+ **Actions: read & write** for the refresh/update buttons, which fire `repository_dispatch`). Set it to enable taste self-edit + the dashboard's pipeline actions; leave it unset and the Worker is chat-only. |
 | `ANTHROPIC_MODEL`   | `wrangler.toml [vars]` | **executor** model — does the bulk of generation (default `claude-sonnet-4-6`) |
 | `ADVISOR_MODEL`     | `wrangler.toml [vars]` | **advisor** the executor consults for multi-step planning (default `claude-opus-4-8`; `""` disables; must be ≥ the executor) |
 | `EFFORT`            | `wrangler.toml [vars]` | executor effort `low`/`medium`/`high`/`max` (default `max`) |

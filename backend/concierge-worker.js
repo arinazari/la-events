@@ -71,6 +71,8 @@ export default {
     // is path-routed here; every other request is the chat proxy below. One Worker, one deploy.
     const url = new URL(request.url);
     if (url.pathname.startsWith("/spotify/")) return handleSpotify(url, request, env, cors);
+    if (url.pathname === "/refresh-events" || url.pathname === "/rebuild-profile")
+      return handlePipeline(url, request, env, cors);
 
     if (request.method !== "POST") return json({ error: "POST only" }, 405, cors);
 
@@ -612,6 +614,52 @@ async function verifyState(env, state) {
   if ((await hmacHex(env, `${hash}.${ts}`)).slice(0, 32) !== sig) return null;
   if (Date.now() - parseInt(ts, 36) > DEFAULTS.STATE_TTL_MS) return null;
   return hash;
+}
+
+/* Pipeline actions from the dashboard's settings panel — they fire a repository_dispatch that a
+ * GitHub Action picks up (same mechanism as spotify-sync), then rebuilds + redeploys:
+ *   POST /refresh-events            -> event_type "refresh-events"  (admin: re-fetch all sources,
+ *                                      rebuild the catalog + default feed, republish catalog_meta)
+ *   POST /rebuild-profile {profile} -> event_type "rebuild-profile" (re-rank + re-render ONE
+ *                                      profile's feed/digest against the latest catalog)
+ * Gated by the same shared CONCIERGE_TOKEN the chat uses. Owner-only enforcement for refresh is on
+ * the page (it only shows the button to owner:true) — consistent with this app's obfuscation model.
+ */
+async function handlePipeline(url, request, env, cors) {
+  if (request.method !== "POST") return json({ error: "POST only" }, 405, cors);
+  if (env.CONCIERGE_TOKEN) {
+    const auth = request.headers.get("authorization") || "";
+    if (auth !== "Bearer " + env.CONCIERGE_TOKEN) return json({ error: "unauthorized" }, 401, cors);
+  }
+  if (!env.GITHUB_TOKEN) return json({ error: "server missing GITHUB_TOKEN" }, 501, cors);
+
+  let body = {};
+  try { body = await request.json(); } catch { /* empty body is fine for /refresh-events */ }
+  const repo = env.GITHUB_REPO || DEFAULTS.GITHUB_REPO;
+
+  let event_type, client_payload = {};
+  if (url.pathname === "/refresh-events") {
+    event_type = "refresh-events";
+  } else {
+    const hash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
+    if (!hash) return json({ error: "missing or invalid profile hash" }, 400, cors);
+    event_type = "rebuild-profile";
+    client_payload = { profile: hash };
+  }
+
+  try {
+    const r = await fetch(`https://api.github.com/repos/${repo}/dispatches`, {
+      method: "POST", headers: ghHeaders(env),
+      body: JSON.stringify({ event_type, client_payload }),
+    });
+    if (!r.ok) {
+      const detail = await r.text().catch(() => "");
+      return json({ error: "dispatch failed", status: r.status, detail: detail.slice(0, 200) }, 502, cors);
+    }
+  } catch (e) {
+    return json({ error: "dispatch error" }, 502, cors);
+  }
+  return json({ ok: true, dispatched: event_type }, 202, cors);
 }
 
 /* Best-effort: nudge a rebuild of this one profile's feed (the spotify-sync workflow). */

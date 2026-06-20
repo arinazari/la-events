@@ -371,6 +371,20 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   - [ ] **Tabled (Ari's call, 2026-06-20):** also let a signed-in friend **view their profile
     details** and **their reactions / feedback history** from settings. Deferred until the feedback
     surface (👍/👎 → `data/feedback.jsonl`, the Like→learn item above) lands so there's a history to show.
+- [x] **Live refresh / per-user re-rank with staleness indicator (2026-06-20)** — the catalog is now
+  *versioned* (`scripts/lib/catalog_meta.py`): `run_digest` writes `data/catalog_meta.json`
+  (a stable hash over each event's venue|date|title — ignores volatile seen-stamps), `build_dashboard`
+  stamps every feed with the `catalog_version` it was scored against AND republishes
+  `dashboard/catalog_meta.json`. The dashboard fetches that live file each load and compares: when a
+  profile's feed is behind, the settings panel's **"Update my ranking & digest"** button lights up
+  (and shows the new DB pull time); when in sync it's disabled ("up to date"). The **owner** also gets
+  **"Refresh events database"** (re-fetch all sources → rebuild catalog + default feed → republish the
+  version — applies to everyone; per-user feeds are intentionally left stale so each person self-regens).
+  Both buttons POST to the concierge Worker (`/refresh-events`, `/rebuild-profile`), which fires
+  `repository_dispatch` → new workflows (`refresh-events.yml`, `rebuild-profile.yml`) rebuild +
+  redeploy — same seam as `spotify-sync`. Needs the Worker deployed with `GITHUB_TOKEN`
+  (Actions: read & write); degrades to a clear "connect the backend" toast otherwise. `build_profiles
+  --only-hash` lets the rebuild target a profile by its public feed hash (the page never knows the username).
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).

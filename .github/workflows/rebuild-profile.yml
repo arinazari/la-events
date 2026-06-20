@@ -1,0 +1,108 @@
+name: Rebuild one profile feed
+
+# PER-USER action (the settings "Update my ranking & digest" button -> concierge Worker ->
+# repository_dispatch "rebuild-profile" with the profile's public feed hash). Re-scores THIS
+# profile's feed against the current catalog (so it picks up events from the latest admin refresh)
+# and re-renders its consolidated digest, then redeploys. Keyed by hash because the dashboard only
+# knows the hash, not the username. Deterministic only (no LLM) — the nightly routine still gives
+# every profile the full editor/enrichment pass.
+on:
+  repository_dispatch:
+    types: [rebuild-profile]
+  workflow_dispatch:
+    inputs:
+      hash:
+        description: "Profile feed hash to rebuild"
+        required: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+
+      - name: Resolve the target hash
+        id: target
+        env:
+          HASH: ${{ github.event.client_payload.profile || github.event.inputs.hash }}
+        run: |
+          if ! echo "$HASH" | grep -Eq '^[0-9a-f]{8,32}$'; then
+            echo "Invalid or missing profile hash: '$HASH'" >&2
+            exit 1
+          fi
+          echo "hash=$HASH" >> "$GITHUB_OUTPUT"
+
+      - name: Re-score this profile's feed against the latest catalog
+        run: python scripts/build_profiles.py --only-hash "${{ steps.target.outputs.hash }}"
+
+      - name: Re-render this profile's consolidated digest (best-effort)
+        continue-on-error: true
+        env:
+          HASH: ${{ steps.target.outputs.hash }}
+        run: |
+          python scripts/build_radar.py || true
+          python - "$HASH" <<'PY'
+          import sys, os, hashlib, subprocess, yaml
+          h = sys.argv[1]
+          m = yaml.safe_load(open("profiles.yaml")) or {}
+          salt = m.get("salt") or "la-events/v1:"
+          sel = u = None
+          for p in (m.get("profiles") or []):
+              u = p.get("username")
+              if not u:
+                  continue
+              if hashlib.sha256((salt + u.strip().lower()).encode()).hexdigest()[:16] == h:
+                  sel = p
+                  break
+          if not sel:
+              print("no profile matches hash", h)
+              sys.exit(0)
+          owner = bool(sel.get("owner"))
+          taste = "taste.yaml" if owner else (sel.get("taste") or f"profiles/{u}/taste.yaml")
+          profile = "profile.yaml" if owner else (sel.get("profile") or f"profiles/{u}/profile.yaml")
+          os.makedirs(f"digests/{h}", exist_ok=True)
+          subprocess.run([sys.executable, "scripts/render_digest.py", "--consolidated",
+                          "--profile-hash", h, "--taste", taste, "--profile", profile,
+                          "--md", f"digests/{h}/latest.md", "--html", f"digests/{h}/latest.html"],
+                         check=False)
+          PY
+
+      - name: Commit the rebuilt feed + digest
+        env:
+          HASH: ${{ steps.target.outputs.hash }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -- "dashboard/data.$HASH.json" dashboard/catalog_meta.json \
+            "digests/$HASH/latest.md" "digests/$HASH/latest.html" 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes for $HASH."
+          else
+            git commit -m "rebuild: re-rank profile $HASH against latest catalog [skip ci]"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - name: Stage digests for the dashboard
+        run: python3 scripts/stage_digests.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+      - id: deployment
+        uses: actions/deploy-pages@v4
