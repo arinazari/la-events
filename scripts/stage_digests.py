@@ -2,18 +2,24 @@
 """Stage digests into the *published* dashboard tree (dashboard/digests/) at deploy time.
 
 The dashboard fetches its digest relative to the page:
-    ./digests/latest.md            -> the default / logged-out digest
+    ./digests/latest.md             -> the default / logged-out digest (newest)
+    ./digests/index.json            -> the list of selectable past digests (newest first)
+    ./digests/<date>.md             -> a specific past digest, picked from the modal's dropdown
     ./digests/<feed-hash>/latest.md -> the logged-in profile's digest
+    ./digests/<feed-hash>/index.json + <feed-hash>/<date>.md -> that profile's past digests
 
 This script populates those paths in `dashboard/` WITHOUT committing anything to the repo's
 canonical `digests/` (the Pages deploy workflow runs it after build, before upload):
 
-  dashboard/digests/latest.md        = the newest dated digest (digests/YYYY-MM-DD.md)
-  dashboard/digests/<hash>/latest.md = per-profile:
-        owner:true profiles   -> the canonical latest digest (their taste IS the root taste,
-                                  so their digest is the default one — this is what makes the
-                                  owner's logged-in view show a digest instead of "regenerate")
-        friends with `digest:` -> their own <digest-dir>/latest.md, if present
+  dashboard/digests/latest.md         = the newest dated digest (digests/YYYY-MM-DD.md)
+  dashboard/digests/<date>.md         = every dated digest (so the modal can show past ones)
+  dashboard/digests/index.json        = [{path, file, date, title, latest}], newest first
+  dashboard/digests/<hash>/...        = per-profile:
+        owner:true profiles   -> the canonical digests (their taste IS the root taste, so their
+                                  digest is the default one). The owner's index.json points back
+                                  at the root-relative <date>.md files (no per-hash copies needed).
+        friends with `digest:` -> their own <digest-dir>/*.md staged under the hash, plus an
+                                  index.json with hash-prefixed paths.
 
 Stdlib only (no pyyaml) so the deploy job needs no extra deps — profiles.yaml is a simple,
 repo-controlled file, parsed line-by-line below.
@@ -24,12 +30,14 @@ Usage:
 """
 import argparse
 import hashlib
+import json
 import re
 import shutil
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 DEFAULT_SALT = "la-events/v1:"
+DATED_GLOB = "[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md"
 
 
 def profile_hash(username: str, salt: str) -> str:
@@ -65,23 +73,63 @@ def parse_profiles(text: str):
     return salt, profiles
 
 
-def main() -> int:
+def digest_title(path: Path) -> str:
+    """First ATX H1 (`# ...`) in the file, used as the dropdown label. Empty if none."""
+    try:
+        for line in path.read_text(encoding="utf-8").splitlines():
+            m = re.match(r"\s*#\s+(.*\S)\s*$", line)
+            if m:
+                return m.group(1).strip()
+            if line.strip():           # bail at the first non-blank, non-heading line
+                break
+    except OSError:
+        pass
+    return ""
+
+
+def build_index(dated, prefix: str = ""):
+    """[{path, file, date, title, latest}] for `dated` (ascending paths), newest first.
+    `prefix` is prepended to each path so the page can fetch it relative to ./digests/."""
+    entries = [
+        {"path": prefix + p.name, "file": p.name, "date": p.stem, "title": digest_title(p)}
+        for p in sorted(dated)
+    ]
+    entries.reverse()                  # newest first (the page shows it as "latest")
+    if entries:
+        entries[0]["latest"] = True
+    return entries
+
+
+def write_json(path: Path, data) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dest", default=str(REPO / "dashboard" / "digests"))
     ap.add_argument("--digests", default=str(REPO / "digests"))
     ap.add_argument("--manifest", default=str(REPO / "profiles.yaml"))
-    args = ap.parse_args()
+    ap.add_argument("--repo", default=str(REPO))
+    args = ap.parse_args(argv)
 
     dest = Path(args.dest)
     dest.mkdir(parents=True, exist_ok=True)
     digests = Path(args.digests)
+    repo = Path(args.repo)
 
-    dated = sorted(digests.glob("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md"))
+    dated = sorted(digests.glob(DATED_GLOB))
     latest = dated[-1] if dated else None
     if latest:
         shutil.copy(latest, dest / "latest.md")
         print(f"staged {latest.name} -> {dest.name}/latest.md")
+        for d in dated:                # every dated digest, so the modal can show past ones
+            shutil.copy(d, dest / d.name)
+        default_index = build_index(dated)        # root-relative paths ("<date>.md")
+        write_json(dest / "index.json", default_index)
+        print(f"staged {len(dated)} digest(s) + index.json -> {dest.name}/")
     else:
+        default_index = []
         print("no dated digest found; the dashboard falls back to its bundled sample")
 
     manifest_path = Path(args.manifest)
@@ -93,19 +141,32 @@ def main() -> int:
         u = p.get("username")
         if not u:
             continue
-        src = None
-        if str(p.get("owner", "")).strip().lower() == "true" and latest:
-            src = latest                                   # owner shares the canonical digest
-        elif p.get("digest"):
-            cand = REPO / str(p["digest"]).strip("/") / "latest.md"
-            if cand.is_file():
-                src = cand
-        if not src:
-            continue
         h = profile_hash(u, salt)
-        (dest / h).mkdir(parents=True, exist_ok=True)
-        shutil.copy(src, dest / h / "latest.md")
-        print(f"staged {Path(src).name} -> {dest.name}/{h}/latest.md ({u})")
+        is_owner = str(p.get("owner", "")).strip().lower() == "true"
+
+        if is_owner and latest:
+            # Owner shares the canonical digests: copy latest.md for the logged-in view, and point
+            # the per-hash index back at the root-relative <date>.md files (already staged above).
+            (dest / h).mkdir(parents=True, exist_ok=True)
+            shutil.copy(latest, dest / h / "latest.md")
+            write_json(dest / h / "index.json", default_index)
+            print(f"staged owner digests -> {dest.name}/{h}/ (latest.md + index.json) ({u})")
+            continue
+
+        if p.get("digest"):
+            digest_dir = repo / str(p["digest"]).strip("/")
+            d_latest = digest_dir / "latest.md"
+            d_dated = sorted(digest_dir.glob(DATED_GLOB))
+            src_latest = d_latest if d_latest.is_file() else (d_dated[-1] if d_dated else None)
+            if not src_latest:
+                continue
+            (dest / h).mkdir(parents=True, exist_ok=True)
+            shutil.copy(src_latest, dest / h / "latest.md")
+            for d in d_dated:                          # stage this profile's past digests
+                shutil.copy(d, dest / h / d.name)
+            if d_dated:
+                write_json(dest / h / "index.json", build_index(d_dated, prefix=h + "/"))
+            print(f"staged {p['digest']} -> {dest.name}/{h}/ ({u})")
     return 0
 
 
