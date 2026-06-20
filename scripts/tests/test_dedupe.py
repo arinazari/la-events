@@ -86,6 +86,40 @@ def test_dedupe_collapses_cluster():
     assert len(report) == 2  # two absorbs into the kept record
 
 
+# Same festival across sources: titles AND venue strings vary, so the venue+title path misses it.
+HARD_FG = {"title": "HARD Summer Music Festival", "venue": "Hollywood Park Grounds",
+           "date": "2026-08-01", "lineup": ["Charlotte de Witte", "Chris Lorenzo", "John Summit", "Dom Dolla"],
+           "links": [{"source": "fgtix", "url": "https://on.fgtix.com/trk/5oHm"}], "sources": ["fgtix"]}
+HARD_RA = {"title": "HARD Summer 2026", "venue": "TBA - Hollywood Park adjacent to SoFi Stadium",
+           "date": "2026-08-01", "lineup": ["Amelie Lens", "Charlotte de Witte"],
+           "links": [{"source": "ra", "url": "https://ra.co/events/2378909"}], "sources": ["ra"]}
+
+
+def test_cross_source_festival_is_duplicate():
+    assert is_duplicate(HARD_FG, HARD_RA)              # same date + same core name + shared venue token
+    m = merge(HARD_FG, HARD_RA)
+    assert {l["url"] for l in m["links"]} == {"https://on.fgtix.com/trk/5oHm", "https://ra.co/events/2378909"}
+    assert len(m["lineup"]) == 4                        # richest bill kept
+
+
+def test_festival_different_days_not_duplicate():
+    day2 = dict(HARD_FG, date="2026-08-02")             # multi-day fest: each day stays its own row
+    assert not is_duplicate(HARD_FG, day2)
+
+
+def test_different_festivals_same_day_not_duplicate():
+    sway = {"title": "Hypnotique Presents: Sway Festival", "venue": "Teragram Ballroom",
+            "date": "2026-08-01", "lineup": ["A", "B", "C", "D"]}
+    assert not is_duplicate(HARD_FG, sway)              # different core names
+
+
+def test_same_core_unrelated_venues_not_duplicate():
+    # Generic core name + unrelated venues + no TBA -> conservative: don't merge (avoid false merge).
+    a = {"title": "Summer Festival", "venue": "The Echo", "date": "2026-08-01", "lineup": ["A", "B", "C", "D"]}
+    b = {"title": "Summer Festival", "venue": "Greek Theatre", "date": "2026-08-01", "lineup": ["E", "F", "G", "H"]}
+    assert not is_duplicate(a, b)
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

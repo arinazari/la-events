@@ -261,7 +261,7 @@
                 </div>
               </sc-if>
             </th>
-            <th onClick="{{ sortScore }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:96px;" style-hover="color:#2b5cd9;">SCORE <span style="color:#2b5cd9;">{{ arrowScore }}</span></th>
+            <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:120px;"><span onClick="{{ sortScore }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SCORE <span style="color:#2b5cd9;">{{ arrowScore }}</span></span><span style="color:#d2d0c7;"> · </span><span onClick="{{ sortRank }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span></th>
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:104px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
                 <span onClick="{{ sortSource }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></span>
@@ -315,6 +315,7 @@
                     <div style="height:100%; width: {{ ev.scorePct }}; background: {{ ev.scoreColor }};"></div>
                   </div>
                 </sc-if>
+                <div title="{{ ev.rankTitle }}" style="margin-top:6px; font: {{ ev.rankWeight }} 10px/1 ui-monospace,Menlo,monospace; color: {{ ev.rankColor }};">{{ ev.rankLabel }}</div>
               </td>
               <td style="padding: {{ rowPad }}; vertical-align:top;">
                 <span style="font:500 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ ev.source }}</span>
@@ -798,7 +799,8 @@ class Component extends DCLogic {
       title: (a, b) => a.title.localeCompare(b.title),
       hood: (a, b) => a.hood.localeCompare(b.hood),
       cat: (a, b) => a.cat.localeCompare(b.cat) || a.genre.localeCompare(b.genre),
-      source: (a, b) => a.source.localeCompare(b.source)
+      source: (a, b) => a.source.localeCompare(b.source),
+      rank: (a, b) => ((a.final_rank == null ? 1e9 : a.final_rank) - (b.final_rank == null ? 1e9 : b.final_rank)) || (a.sortDate - b.sortDate)
     }[sortKey] || ((a, b) => a.sortDate - b.sortDate);
     return [...list].sort((a, b) => cmp(a, b) * dir);
   }
@@ -1739,6 +1741,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       pmin: pr.pmin, pmax: pr.pmax, price: pr.display,
       source: this.normSource((Array.isArray(r.sources) && r.sources[0]) || r.source || (links[0] && links[0].source)),
       ra, ah, score, rating: (typeof r.rating === 'number' ? r.rating : null),
+      final_rank: (typeof r.final_rank === 'number' ? r.final_rank : null),
+      verdict: r.verdict || null,
       why,
       detail: r.detail || '',
       image: enr.image || null,
@@ -1877,6 +1881,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       cat: e.cat, genre: e.genre, catColor: this.CAT_COLOR[e.cat] || '#3f3d36',
       score: e.score, scoreLabel: '+' + e.score, scoreColor: this.scoreColorFor(e.score),
       scorePct: Math.round((e.score / 9) * 100) + '%',
+      rankLabel: (e.final_rank ? '#' + e.final_rank : '—'),
+      rankColor: (!e.final_rank ? '#cfcdc4'
+        : (e.verdict && e.verdict.tier === 'must-see') ? '#b4453a'
+        : (e.verdict && e.verdict.tier === 'great') ? '#2b5cd9'
+        : (e.verdict && e.verdict.tier === 'skip') ? '#cfcdc4'
+        : '#a7a59b'),
+      rankWeight: (e.verdict && e.verdict.tier === 'must-see') ? 700 : 600,
+      rankTitle: (e.verdict ? (String(e.verdict.tier || '').toUpperCase() + (e.verdict.why ? ' — ' + e.verdict.why : '')) : 'deterministic rank'),
       source: e.source,
       badges: this.computedBadges(e),
       why: e.why,
@@ -2035,9 +2047,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       anyActive: !!anyActive,
       sortDate: () => this.setSort('date'), sortTitle: () => this.setSort('title'),
       sortHood: () => this.setSort('hood'), sortCat: () => this.setSort('cat'),
-      sortScore: () => this.setSort('score'), sortSource: () => this.setSort('source'),
+      sortScore: () => this.setSort('score'), sortRank: () => this.setSort('rank'), sortSource: () => this.setSort('source'),
       arrowDate: arrow('date'), arrowTitle: arrow('title'), arrowHood: arrow('hood'),
-      arrowCat: arrow('cat'), arrowScore: arrow('score'), arrowSource: arrow('source')
+      arrowCat: arrow('cat'), arrowScore: arrow('score'), arrowRank: arrow('rank'), arrowSource: arrow('source')
     };
   }
 }

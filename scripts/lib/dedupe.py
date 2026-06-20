@@ -77,12 +77,72 @@ def _title_or_headliner_match(a: dict, b: dict) -> bool:
     return False
 
 
+# ── Festival cross-source dedupe ───────────────────────────────────────────────
+# Festivals list under varying names ("HARD Summer 2026" vs "HARD Summer Music Festival")
+# AND varying venue strings ("Hollywood Park Grounds" vs "TBA - Hollywood Park adjacent to
+# SoFi Stadium") across sources, so the standard venue+title path misses them. A same-date pair
+# whose festival "core name" agrees and whose venues are at least loosely related is one festival.
+_FEST_SIGNAL = re.compile(r"\b(festival|fest|weekender|block party)\b")
+# Edition / format / ticket-tier / year filler, stripped to get the festival's core name.
+_FEST_FILLER = re.compile(
+    r"\b(festival|fest|music|edition|presents|day|days|one|two|three|[123]|"
+    r"pass|passes|weekend|weekender|ga|vip|19\d\d|20\d\d)\b")
+
+
+def _is_festivalish(ev: dict) -> bool:
+    """Looks like a festival: festival words in the title/detail, or a deep (≥4) bill."""
+    hay = normalize(ev.get("title", "")) + " " + normalize(str(ev.get("detail") or ""))
+    if _FEST_SIGNAL.search(hay):
+        return True
+    lineup = ev.get("lineup") or []
+    return isinstance(lineup, list) and len(lineup) >= 4
+
+
+def _fest_core(title: str) -> str:
+    """The festival's distinctive name: drop an organizer 'X presents:' prefix, then edition/
+    format/year filler. 'Hypnotique Presents: Sway Festival - 2 DAY PASS' -> 'sway'."""
+    s = normalize(title)
+    s = re.sub(r"^.*?\bpresents\b[:\s]*", "", s)   # organizer prefix
+    return _WS.sub(" ", _FEST_FILLER.sub(" ", s)).strip()
+
+
+def _venue_related(a: dict, b: dict) -> bool:
+    """Looser than _venue_match: same venue, a shared meaningful token, or one side TBA/unknown
+    (festivals get vague/placeholder venue strings that vary across sources)."""
+    va, vb = _venue_key(a.get("venue", "")), _venue_key(b.get("venue", ""))
+    if not va or not vb or "tba" in va or "tba" in vb:
+        return True
+    if _venue_match(a, b):
+        return True
+    return bool({t for t in (set(va.split()) & set(vb.split())) if len(t) >= 4})
+
+
+def _festival_match(a: dict, b: dict) -> bool:
+    """Same festival from two sources: at least one side reads as a festival, the core names
+    agree, and the venues are related. Festival-ness is a property of the *pair* — one source
+    labels it 'HARD Summer Music Festival', the other 'HARD Summer 2026' with a short bill.
+    Deliberately does NOT require lineup agreement (sources bill different headliners)."""
+    fa, fb = _is_festivalish(a), _is_festivalish(b)
+    if not (fa or fb):
+        return False
+    ca, cb = _fest_core(a.get("title", "")), _fest_core(b.get("title", ""))
+    if len(ca) < 4 or len(cb) < 4:
+        return False  # too generic to trust without a stronger signal
+    if not _venue_related(a, b):
+        return False
+    if fa and fb:                                   # both look like festivals: allow fuzzy core
+        return ca == cb or _contains(ca, cb) or _ratio(ca, cb) >= 0.9
+    return ca == cb                                 # one-sided: demand an identical core name
+
+
 def is_duplicate(a: dict, b: dict) -> bool:
     """Two records describe the same real-world event."""
     da, db = parse_event_date(a), parse_event_date(b)
     if da is None or db is None or da != db:
         return False  # conservative: no date match, no merge
-    return _venue_match(a, b) and _title_or_headliner_match(a, b)
+    if _venue_match(a, b) and _title_or_headliner_match(a, b):
+        return True
+    return _festival_match(a, b)  # cross-source festival (venue + title vary by source)
 
 
 def _merge_links(a, b):

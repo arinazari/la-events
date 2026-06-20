@@ -10,7 +10,9 @@ Current phase: **Phases A–D complete (all on `main`).** A (foundation / `run_d
 core / routine + `SKILL.md` wiring), B (enrichment cache + scene graph, dual `.md`/`.html` renderer,
 image caching — *no email*), C (Spotify taste superset + feedback loop), and D (concierge +
 night-planner: travel engine, the planner wired, the concierge front door, la-dining's first live
-query) are shipped + tested. Next: the **Hosted page** (delivery + on-page actions — see below), the
+query) are shipped + tested. **Phase E — the thin-editor ranking layer + the consolidated daily
+digest — is built on branch `claude/laughing-ramanujan-vdxv38` (see Phase E below), pending merge.**
+Next: the **Hosted page** (delivery + on-page actions — see below), the
 Gmail "Events" label, and the Spotify go-live (set `SPOTIFY_*`).
 Phase 1 done: 10 live fetchers, RA AREA_ID 23, catalog ~700 events, weekend + windowed digests
 shipped, dashboard live. Read this file + `CLAUDE.md` + the two `SKILL.md` files before any
@@ -35,14 +37,23 @@ possible at all; that's the "why now."
 Organizing principle: **mechanical work in Python (cheap, deterministic, testable); taste /
 curation / prose in Claude; fan the parallelizable Claude work out to subagents** so daily runs
 stay fast and the main context doesn't bloat. Today Claude does fetch + dedupe + score "by hand"
-each run — non-deterministic, slow, token-heavy. The three tiers fix that.
+each run — non-deterministic, slow, token-heavy. The tiers below fix that.
 
 - **Tier 0 — Deterministic core (`scripts/run_digest.py`, no LLM).** Fetch all sources in
   parallel → normalize → dedupe → expire → score against the profile. **One shared, tested
   scoring/dedupe module** (today the ranking logic is duplicated in `SKILL.md` prose *and*
   `build_dashboard.py` — they will drift). Emits a ranked, deduped catalog + a candidate set.
   Burns ~no tokens; safe to run daily.
-- **Tier 1 — Enrichment fan-out (`scene-researcher` subagents, top ~30–40 only).** Orchestrator
+- **Tier 1 — Ranking judgment (`event-editor` subagents).** A thin LLM editor judges the
+  already-scored candidates and returns a per-event **verdict** — a tier (must-see/great/solid/skip),
+  an optional lane override, a small bounded score `adjust`, a one-line *why*, a confidence. It is a
+  *delta on top of* the deterministic score, never a re-sort from scratch: the heuristic sets the
+  spine, the editor catches what the heuristic can't (de-clustering a five-deep lineup, a
+  mainstream-vs-afters lane call, a Spotify-affinity nudge). Verdicts are **cached + committed per
+  profile** (`data/verdicts/<hash>.json`), so a daily run only judges the *delta* (new/changed
+  events). They drive two surfaces: the digest **slate** (`lib/assemble.py` — merit fill + score-gap
+  cliff + per-lane diversity floor, no firm caps) and the dashboard's **final rank** beside the score.
+- **Tier 2 — Enrichment fan-out (`scene-researcher` subagents, top ~30–40 only).** Orchestrator
   spawns several in parallel, each taking a batch and returning per event: type/sub-genre tags,
   **artist notes** (who each name is, why on-taste), a **curator's note** (the opinionated take),
   a cleaned **description**, and for the **top 10 an image**. Subagents because: parallel, and
@@ -50,12 +61,12 @@ each run — non-deterministic, slow, token-heavy. The three tiers fix that.
   **Cache enrichment on event-id + artist** — artists recur nightly, so the *scene graph
   accumulates* instead of re-researching Antal every day. That cache *is* the growing LA-insider
   knowledge base.
-- **Tier 2 — Synthesis (main agent, one creative step).** Takes the enriched, scored, annotated
+- **Tier 3 — Synthesis (main agent, one creative step).** Takes the enriched, scored, annotated
   set and writes the digest in the single "LA insider" voice. The only place the prose persona lives.
 
-**Agent types** (`.claude/agents/`): `scene-researcher` (Tier 1 enrichment), `source-scout`
-(on-demand discovery), `night-planner` (events × dining itinerary). The `la-events` / `la-dining`
-SKILLs become orchestrators that call them. **Concierge** = the main conversational interface
+**Agent types** (`.claude/agents/`): `event-editor` (Tier 1 ranking judgment), `scene-researcher`
+(Tier 2 enrichment), `source-scout` (on-demand discovery), `night-planner` (events × dining
+itinerary). The `la-events` / `la-dining` SKILLs become orchestrators that call them. **Concierge** = the main conversational interface
 (natural-language ask → right mode/agent); the primary way Ari interacts.
 
 ### Run cadence
@@ -132,12 +143,13 @@ portability.
 - [x] **Routine wiring (no email)** — `routines/daily-digest-prompt.md` now runs core → layer →
       enrich → `cache_images` → `render_digest --from/--to` per weekend (.md + .html) → commit.
       Email intentionally dropped in favor of the **Hosted page** (below). **Phase B complete.**
-- [ ] **Per-day floor in the weekend render (follow-up, surfaced 6/17)** — `render_digest` pulls
-      from the *global* top-N candidate set, so quiet days starve: the first live weekend run
+- [x] **Per-day floor in the weekend render (follow-up, surfaced 6/17)** — `render_digest` used to
+      pull from the *global* top-N candidate set, so quiet days starved: the first live weekend run
       surfaced only 2 of ~12 on-taste Sunday events (Hawtin's LACMA solstice set aside, the rest fell
-      below the global cut while Fri had 56). The synthesis had to hand-pull Sunday from the catalog.
-      Add a per-day floor (top-K within each in-window day, or a rating floor) so every day in a
-      weekend render is covered, not just the globally top-scored ones.
+      below the global cut while Fri had 56). **Addressed (Phase E):** `render_digest.build_slate_cands`
+      now runs `lib/assemble.py` over the scored pool — it fills each in-window day toward a per-day
+      target and guarantees a per-lane diversity floor, so every day is covered, not just the globally
+      top-scored ones (no more hand-pulling quiet days from the catalog).
 
 ## Phase C — Spotify taste superset (Spotify is the *music layer*, never the whole profile)
 **Built + tested (fixtures); not yet validated against a live Spotify account — needs the
@@ -183,6 +195,54 @@ portability.
 - [x] **Advance la-dining just enough to feed the planner** — first live **query** run end-to-end
       (harvest → merge → rank): see dining section. Explicit food-taste profile seeded (affordability
       policy + signal weights); `restaurants_loved` pending Ari's list. Not the full dining build-out.
+
+## Phase E — Thin-editor ranking + consolidated digest  (branch `claude/laughing-ramanujan-vdxv38`)
+The ranking-judgment tier (above) made real, plus one daily digest replacing the per-weekend-only output.
+- [x] **`event-editor` agent + per-profile verdict store** — `.claude/agents/event-editor.md` (Tier-1
+      judgment, sibling of `scene-researcher`); `scripts/lib/editor.py` plumbs the judging pool
+      (`editor_pool`, non-slate lanes skipped), the per-profile verdict cache (`data/verdicts/<hash>.json`,
+      committed), delta/staleness selection (`select_for_verdict` — only new or score-drifted events cost
+      a call), and validation (clamps `adjust`, defaults confidence). `scripts/merge_verdicts.py` folds an
+      agent's results back into the store. Validated by a real 28-event agent run (caught a substring
+      false-match, duplicate feed pairs, a Chris-Lake mis-lane — proof the editor adds what the heuristic misses).
+- [x] **Slate assembler** — `scripts/lib/assemble.py`: lanes (club → mainstream/afters/day/underground
+      via tags + an arena gazetteer + a price proxy; non-club = `tags.type`), an **elastic slate** (merit
+      fill to a per-day target, a score-gap *cliff* cut, a per-lane diversity *floor* — no firm caps; a
+      `mute` mood knob), and two ranking keys: a tier-primary `effective_key` for the slate vs. an additive
+      `rank_score` (score + adjust + bounded tier bonus) for the dashboard's global `final_rank`. Tested.
+- [x] **Spotify surfaced to the editor** — each judging record carries an `affinity_hint` (matched
+      artists + tier/weight, high-affinity genres) and the batch a `profile_affinity` summary, so the
+      editor treats listening history as a first-class signal — per profile (the music layer the LLM can use).
+- [x] **Consolidated daily digest** — `scripts/build_radar.py` (deterministic "on the radar" set:
+      editorial / festival / tracked-artist / arena signals, ranked) + `render_digest.py --consolidated`
+      → ONE doc (`digests/latest.{md,html}`): next 14 days day-by-day · weekends ahead (days 15–35,
+      Thu–Sun) · on the radar. The windowed `--from/--to` mode is **retained** as the per-weekend
+      look-ahead (a future dashboard view). Live end-to-end dry run
+      (2026-06-20): fresh fetch (3421 catalog) → radar (336) → consolidated (82 + 78 + 18), both renderers
+      well-formed; the run caught + fixed a radar month-grouping bug (rank-sorted items now date-sorted before grouping).
+- [x] **Dashboard score ⇄ rank column** — `build_dashboard.py` attaches each event's verdict + lane and a
+      `final_rank` (over upcoming, via `rank_score`); `dashboard/index.html` shows the deterministic score
+      (number + colored bar gauge) AND the verdict-adjusted final rank in one column, sortable by either
+      (tier-colored rank label). The score stays the transparent spine; rank shows the editor's overlay.
+- [x] **Consolidated digest reaches the dashboard (staging wiring)** — the header affordance that opens
+      "curated digest for <name> ↗" already shipped on `main`, and `loadDigestFor` already fetched
+      `digests/<hash>/latest.md` per profile / `digests/latest.md` for the default. The missing link was
+      *staging*: the deploy published the newest **dated** digest as `dashboard/digests/latest.md`, so the
+      new consolidated digest never reached the page. `stage_digests.py` (+ the two inline-staging
+      workflows, build-profiles / spotify-sync) now publish the **consolidated** `digests/latest.md` as the
+      default + owner digest, falling back to newest dated; dated files still feed the "past digests" dropdown.
+- [x] **Cross-source festival dedupe** — `lib/dedupe.py` festival path: same date + matching festival core
+      name (organizer "X presents:" prefix + year/edition/format/ticket-tier filler stripped) + loosely-
+      related venues (shared token, or one side TBA) merges festivals that list under different names AND
+      venue strings across sources (e.g. "HARD Summer 2026"@ra vs "HARD Summer Music Festival"@fgtix).
+      Festival-ness is a property of the pair; one-sided cases demand an identical core. Validated on the
+      live catalog: 6 new merges, all genuinely the same event, zero false merges.
+- [ ] **Land on `main`** — merge the branch; the first scheduled routine run then judges the live delta,
+      commits `digests/latest.{md,html}` + the per-profile verdicts, and the Pages workflow redeploys.
+- [ ] **Per-profile editor pass** — `build_profiles.py` already emits each profile's own judging pool
+      (`data/editor_pool.<hash>.json`); run the editor + `merge_verdicts.py --profile-hash <hash>` per
+      friend to give them the full editor treatment (else their feeds rank deterministically against their
+      own music and pick up verdicts next run).
 
 ## On-demand — `source-scout` discovery agent (your call, never scheduled)
 Runs explicit strategies, returns a proposal table (approve → append to `sources.yaml`):
@@ -398,5 +458,3 @@ were validated; these are per-fetcher *under-extraction*, not normalize bugs):
 - **D3. Reservation depth**: "hot-list + availability check on shortlist" vs. deeper Resy/OpenTable/Tock.
 - **D4. Cross-layer planner** (Phase D): ✅ built — `night-planner` combines la-dining + la-events into
   a travel-timed night itinerary (dinner → show → afters). This is why dining isn't tabled.
-</content>
-</invoke>

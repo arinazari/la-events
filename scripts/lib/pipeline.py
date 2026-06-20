@@ -185,13 +185,12 @@ def score_view(ev: dict, taste: dict, profile: dict, affinity: dict = None) -> d
     return out
 
 
-def select_candidates(catalog, taste, profile, today=None, window_days=None,
-                      top_n=40, image_n=10, affinity=None) -> list:
-    """The enrichment candidate set: upcoming events, best-first, top N.
+def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=None) -> list:
+    """All upcoming events in the window, scored and sorted best-first (no top-N cut).
 
-    Flags the first `image_n` with image_wanted=True (the scene-researcher images contract).
-    `affinity` (optional) layers the Spotify + feedback music profile into the scoring.
-    """
+    The shared scored set: select_candidates slices the enrichment top-N off it, and the editor
+    pass (lib/editor.editor_pool) draws its per-lane judging set from the same list — one scoring
+    path, no drift. `window_days=None` = all upcoming."""
     today = today or today_la()
     start = today.isoformat()
     end = (today + timedelta(days=window_days)).isoformat() if window_days is not None else None
@@ -206,7 +205,17 @@ def select_candidates(catalog, taste, profile, today=None, window_days=None,
         scored.append(v)
 
     scored.sort(key=lambda e: (-e["score"], e["iso_date"]))
-    top = scored[:top_n]
+    return scored
+
+
+def select_candidates(catalog, taste, profile, today=None, window_days=None,
+                      top_n=40, image_n=10, affinity=None) -> list:
+    """The enrichment candidate set: upcoming events, best-first, top N.
+
+    Flags the first `image_n` with image_wanted=True (the scene-researcher images contract).
+    `affinity` (optional) layers the Spotify + feedback music profile into the scoring.
+    """
+    top = score_pool(catalog, taste, profile, today, window_days, affinity)[:top_n]
     for i, e in enumerate(top):
         e["image_wanted"] = i < image_n
     return top

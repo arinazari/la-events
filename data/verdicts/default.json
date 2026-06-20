@@ -1,0 +1,256 @@
+{
+  "verdicts": {
+    "7d3eee612155": {
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Chris Lake builds a two-night Goldenvoice stand at the park with Hot Since 82 under him — the big-room weekend anchor, 15 min from home. Lead with it.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 12,
+      "model": "claude-opus-4-8"
+    },
+    "0f24a39aa490": {
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Bradley Zero open-air under the 6th St bridge with the full local crew — the rooftop-vinyl-groove energy you'd build a Saturday around. (Ignore the phantom 'Ame' credit; he's not on it.)",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 11,
+      "model": "claude-opus-4-8"
+    },
+    "ec2ca5e297c2": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Antal open-to-close at a warehouse, 10pm-6am, RA-flagged — top-of-lane selector doing exactly the long afters set you want.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 9,
+      "model": "claude-opus-4-8"
+    },
+    "0e2ea3dba52e": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Duplicate capture of the same Antal We Own The Night — thinner record, no RA flag. Bury so the night only surfaces once.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 9,
+      "model": "claude-opus-4-8"
+    },
+    "367d5cd8ea2a": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "KCRW free party stacked with Claude VonStroke, Todd Edwards and DJ Minx — the soccer framing is just dressing, it's a real selector lineup at no cost.",
+      "confidence": "med",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 8,
+      "model": "claude-opus-4-8"
+    },
+    "9ea5376be5a4": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Yaeji is a tracked draw and this is the cleaner copy (priced, dated, full support) — leftfield-house afters worth the trek next Friday.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 10,
+      "model": "claude-opus-4-8"
+    },
+    "2c70776e4d59": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Same Yaeji Lights Down Low from a second feed, no lineup detail — duplicate, bury it.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 8,
+      "model": "claude-opus-4-8"
+    },
+    "58579f941eb8": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Stacey Pullen is Detroit techno royalty and this copy carries the RA pick + full bill — a legit afters draw, not filler.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 8,
+      "model": "claude-opus-4-8"
+    },
+    "039b68263b20": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Duplicate of the Stacey Pullen night from another source, location TBA and barer — drop it.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "82f9690b2933": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same Bradley Zero Midnight Lovers as the keeper copy, just the Boyle Heights address dump — bury the dup.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "404a1190c380": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "The Chris Lake Saturday filed as 'live-music' is the same park show as the lead pick, mis-laned and under-scored — already surfaced, don't double it.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 8,
+      "model": "claude-opus-4-8"
+    },
+    "9dca7cc7cf27": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Hot Since 82 doing a deep/funky-house rooftop sunset set is its own thing from the park gig — golden-hour groove that's right in the pocket.",
+      "confidence": "med",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "5d39cca0d4fb": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Unofficial Chris Lake warehouse afters — no confirmed bill, but if the park show lands you, this is the natural after-midnight chaser.",
+      "confidence": "low",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "da4e3fe70e19": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Discostan at El Cid — global-disco crate-digging in walking distance; small but squarely the kind of eastside groove night to keep in reach.",
+      "confidence": "med",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "f44b5d9fe86c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Recurring all-disco party at Gold Diggers — reliable vinyl-leaning fun, nothing marquee but an easy walkable fallback.",
+      "confidence": "med",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "fd9f6e2edd10": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Flying Mojito Bros bring desert-disco/Balearic edits with Brainstory live — a warmer, leftfield groove night that fits the crate-digger side.",
+      "confidence": "med",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "4b5718ac6609": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "MARBLE in the Arts District — house/techno afters with a deep local bill; fine if you're out late next Friday, not a destination.",
+      "confidence": "low",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "e667ba3ea44d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free disco night at Slipper Clutch, no billing — low-stakes walkable filler, take it or leave it.",
+      "confidence": "med",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "147537dcc1d5": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Dark-disco/indie-dance TBA afters with no names you track — decent texture for the night but back of the pack.",
+      "confidence": "low",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "4d5f11e375f5": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Butterground house/disco afters, local bill, location TBA — fine genre fit but nothing pulling it up.",
+      "confidence": "low",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "a2ec0d8dd081": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "All-night live/DJ set from names off your radar — the 'all night' format is your thing, the lineup isn't a draw yet.",
+      "confidence": "low",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "0d49a20ea4d1": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Open-air Pride garden party, no lineup posted — right setting, but blind on selection so it sits mid-pack.",
+      "confidence": "low",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 6,
+      "model": "claude-opus-4-8"
+    },
+    "6238b5364c66": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Faceless DTLA afters, no billing — only here as a late-night option; rank it low.",
+      "confidence": "med",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "bd0742656536": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Second copy of Groovers Inn from another feed — duplicate, bury.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "a686cbd059dc": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Generic 'groove after hours' with zero lineup and a TBD location — no signal it's worth a verdict above the floor.",
+      "confidence": "med",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "7d0bd069c0e5": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "$10 afternoon Pride day party, no DJs listed — the 'Ame' credit is a false match; nothing here clears the bar.",
+      "confidence": "med",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 7,
+      "model": "claude-opus-4-8"
+    },
+    "cbf00da01c90": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "A 9am photography meetup tagged 'party' — not a music night at all; the tracked-artist flag is a bad substring hit. Bury.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 6,
+      "model": "claude-opus-4-8"
+    },
+    "96c73b45a50b": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "9am culture/run event at the African American Museum mis-categorized as a club party off a phantom 'Ame' match — off-lane, drop it.",
+      "confidence": "high",
+      "judged_at": "2026-06-20T12:22:34",
+      "score_at_judge": 6,
+      "model": "claude-opus-4-8"
+    }
+  }
+}

@@ -95,7 +95,24 @@ The reasons in `candidates.json` cite it ("Spotify core rotation (Antal)", "more
 (your pick)") — carry those into Step 5's *why*. To log a reaction, append a line to
 `data/feedback.jsonl` (schema in the file header); it folds in automatically next run.
 
-### Step 4 — Enrich the top candidates  *(scene-researcher)*
+### Step 4 — Judge the ranking  *(event-editor)*
+
+Step 1/3 also emitted `data/editor_pool.json` — the per-lane set worth LLM ranking-judgment
+(`scripts/lib/editor.py` `editor_pool`: top-K per surfaceable lane ∪ a score floor, over the next
+~4 weeks). Fan out the **`event-editor`** agent over the not-yet-judged events (`select_for_verdict`,
+so only new/changed ones cost a call) in parallel batches, passing `taste.yaml`; each pool record
+carries the deterministic score + reasons + tags + lane and — when Spotify is connected — an
+`affinity` hint plus the profile's listening lane. The agent returns a per-event **verdict**
+(`{tier, lane?, adjust, why, confidence}`) — the judgment the heuristic can't make: headliner draw,
+tired formats, sleepers, lane fixes. Merge with `python scripts/merge_verdicts.py <results.json>`
+(writes the per-profile store `data/verdicts/default.json`). `assemble()` folds verdicts onto the
+slate in Step 6 (tier orders, `adjust` de-clusters, `lane` overrides, `skip` buries); the dashboard
+shows the verdict-adjusted **final rank** beside the deterministic score. Verdicts are cached +
+committed, so a daily run only judges the delta. *Per-profile:* `build_profiles.py` emits each
+profile's own pool (`data/editor_pool.<hash>.json`); run the editor per profile and merge with
+`merge_verdicts.py --profile-hash <hash>`.
+
+### Step 5 — Enrich the top candidates  *(scene-researcher)*
 
 Fan out the **`scene-researcher`** agent over the cache-miss candidates (`scripts/lib/enrich.py`
 `select_for_enrichment`) in parallel batches → per-event sub-genre tags, artist notes, a curator's
@@ -103,12 +120,21 @@ note, a clean description, and an image for the `image_wanted` top picks. Fold r
 accumulating cache (`data/enrichment.json`) via `update_cache` — recurring artists are researched
 once, so the scene graph compounds. Verify-or-omit: no invented bios.
 
-### Step 5 — Render + synthesize
+### Step 6 — Render + synthesize
 
-`python scripts/render_digest.py` turns the enriched candidates into the digest — canonical `.md`
-(committable) **and** a rich emailable `.html` (type chips, ★ relevance, curator notes, hero images
-for the `image_wanted` picks). The per-event **curator notes + artist glosses come from Step-4
-enrichment**, so the insider voice is baked in; scoring is **precomputed** (read `score`/`rating`/
+`python scripts/render_digest.py --consolidated` is the **primary** invocation: ONE daily digest
+(`digests/latest.{md,html}`) with three sections — **Next two weeks** (days 0–13, day-by-day),
+**Weekends ahead** (days 14–35, Thu–Sun only), and **On the radar** (festivals / big shows /
+tracked far-out). Run `python scripts/build_radar.py --md radar-candidates.md` first; it writes
+`data/radar.json` (a deterministic signal heuristic — editorial / festival / tracked-artist /
+arena), which `--consolidated` reads for the radar tier. The first two sections are the editor
+**slate** — `assemble()` over the scored pool + verdicts (day-grouped, lane-diverse,
+verdict-ranked). The **windowed `--from <date> --to <date>`** mode is retained as the per-weekend
+look-ahead (one file per upcoming weekend, keyed by the Friday — the dashboard's per-weekend view
+plugs into it). Either mode emits canonical `.md` (committable) **and** a rich emailable `.html`
+(type chips, ★ relevance, curator notes, hero images for the `image_wanted` picks). The per-event
+**curator notes + artist glosses come from Step-4 enrichment**, so the insider voice is baked in;
+scoring is **precomputed** (read `score`/`rating`/
 `reasons` — never hand-score; the taste profile below is just orientation for *why* things rank). On
 top of the renderer you add a short conversational intro and the sections it doesn't generate
 (**Around town**, **On the radar**) plus pinning/judgment. The full digest — NOT a wall of every event.

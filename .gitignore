@@ -2,9 +2,11 @@ scripts/__pycache__/
 __pycache__/
 *.pyc
 data/candidates.json
+data/editor_pool*.json
 data/spotify_affinity.json
 data/spotify/
 dashboard/digests/
 
 # Worker deps (installed locally for deploy; not committed)
 backend/node_modules/
+data/radar.json
