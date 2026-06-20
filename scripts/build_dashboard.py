@@ -38,7 +38,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.config import load_yaml  # noqa: E402
 from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
-from lib.enrich import load_cache, merge_enrichment  # noqa: E402
+from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
+from lib import editor as ED  # noqa: E402
+from lib.assemble import rank_score, event_lane  # noqa: E402
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
@@ -118,6 +120,9 @@ def main() -> int:
                     help="feed hash of the profile being built — loads its OWN per-person music "
                          "layer (data/spotify/<hash>.json + data/feedback.<hash>.jsonl) instead of "
                          "the default/owner one. Omit for the canonical (Ari's) feed.")
+    ap.add_argument("--verdicts", default=None,
+                    help="editor verdict store to fold in (default: data/verdicts/<hash>.json for "
+                         "this profile). Adds each event's verdict + final_rank to the feed.")
     args = ap.parse_args()
 
     def resolve(p):
@@ -178,6 +183,12 @@ def main() -> int:
     # those artists (parity with the digest's merge_enrichment). Graceful: no file -> no-op.
     cache = load_cache(enrichment_path)
 
+    # Editor verdicts (per-profile) — the thin-editor's ranking judgment, folded onto each event so
+    # the dashboard can show the final (verdict-adjusted) rank beside the deterministic score and
+    # sort by either. Same verdict the digest slate uses; absent -> deterministic order only.
+    vpath = resolve(args.verdicts) if args.verdicts else ED.verdict_path(args.profile_hash)
+    verdicts = ED.verdict_map(ED.load_verdicts(vpath))
+
     is_sample = "sample" in catalog_path.name
     today = date.today()
 
@@ -199,7 +210,22 @@ def main() -> int:
             out["enrichment"] = {k: enr[k] for k in ENRICH_FIELDS if enr.get(k)}
             enriched_hits += 1
 
+        v = verdicts.get(event_key(ev))
+        if v:
+            out["verdict"] = v                       # {tier, lane?, adjust, why, confidence}
+        out["lane"] = event_lane(out, verdicts)      # verdict lane override else tag-derived
+
         events.append(out)
+
+    # Final rank — each UPCOMING event's position by rank_score (score + adjust + bounded tier
+    # bonus), 1 = best. Additive (not tier-primary) so judged and unjudged events compare sensibly:
+    # a must-see lifts hard but an unjudged score-12 still beats a judged score-4 must-see. Unjudged
+    # events fall in by raw score, so every upcoming row carries both numbers; the dashboard shows
+    # final_rank beside the deterministic score and sorts by either. Past events stay unranked.
+    upcoming = [e for e in events if not e["is_past"]]
+    for rank, e in enumerate(
+            sorted(upcoming, key=lambda e: (rank_score(e, verdicts), event_key(e)), reverse=True), 1):
+        e["final_rank"] = rank
 
     # Sort: upcoming first by date, then by rating desc within a date.
     events.sort(key=lambda e: (e["iso_date"] or "9999-12-31", -e["rating"]))

@@ -100,7 +100,7 @@ def _resolve_per_day(per_day, iso_date: str) -> int:
     return per_day
 
 
-def _eff_key(ev: dict, verdicts: dict):
+def effective_key(ev: dict, verdicts: dict):
     """Deterministic ranking key: (tier, score+adjust, stable event_key tiebreak).
     The event_key tiebreak kills run-to-run thrash — equal-ranked events hold a fixed order."""
     v = verdicts.get(event_key(ev)) or {}
@@ -116,6 +116,20 @@ def _eff_score(ev: dict, verdicts: dict):
     return (ev.get("score") or 0) + ((verdicts.get(event_key(ev)) or {}).get("adjust") or 0)
 
 
+# Additive tier weight for the GLOBAL rank (dashboard's final_rank), distinct from effective_key's
+# tier-PRIMARY ordering. Within the slate a must-see leads its day outright (tier-primary, fine —
+# the window is fully judged). Globally, mixing judged and unjudged events, an unjudged high score
+# must not sink below a judged "solid" — so here tier is a bounded bonus on top of score+adjust.
+RANK_TIER_BONUS = {"must-see": 6, "great": 3, "solid": 1, None: 0, "skip": -6}
+
+
+def rank_score(ev: dict, verdicts: dict):
+    """Scalar for the dashboard's final_rank: score + adjust + a bounded tier bonus, so a must-see
+    is strongly lifted but an unjudged score-12 still outranks a judged score-4 must-see (10)."""
+    v = verdicts.get(event_key(ev)) or {}
+    return (ev.get("score") or 0) + (v.get("adjust") or 0) + RANK_TIER_BONUS.get(v.get("tier"), 0)
+
+
 def slate_fill(day_evs: list, per_day: int, slate: dict, verdicts: dict,
                min_guarantee_score: int = 2) -> list:
     """One day's slate: merit-fill to per_day, cut at a score-gap cliff, then a diversity FLOOR.
@@ -126,7 +140,7 @@ def slate_fill(day_evs: list, per_day: int, slate: dict, verdicts: dict,
     cliff. `caps` (optional, default none) can still impose a hard ceiling. Pass B guarantees
     each `guarantee` lane appears if a decent pick exists — appending when there's room, else
     swapping out the weakest pick from an over-represented lane."""
-    ranked = sorted(day_evs, key=lambda e: _eff_key(e, verdicts), reverse=True)
+    ranked = sorted(day_evs, key=lambda e: effective_key(e, verdicts), reverse=True)
     if not ranked:
         return []
     caps = slate.get("caps") or {}
@@ -156,14 +170,14 @@ def slate_fill(day_evs: list, per_day: int, slate: dict, verdicts: dict,
             picks.append(best); used.add(event_key(best)); lane_n[gl] += 1
             continue
         removable = sorted([p for p in picks if lane_n[event_lane(p, verdicts)] > 1],
-                           key=lambda e: _eff_key(e, verdicts))
+                           key=lambda e: effective_key(e, verdicts))
         if not removable:
             continue
         drop = removable[0]
         picks.remove(drop); used.discard(event_key(drop)); lane_n[event_lane(drop, verdicts)] -= 1
         picks.append(best); used.add(event_key(best)); lane_n[gl] += 1
 
-    return sorted(picks, key=lambda e: _eff_key(e, verdicts), reverse=True)
+    return sorted(picks, key=lambda e: effective_key(e, verdicts), reverse=True)
 
 
 def assemble(pool: list, verdicts: dict = None, per_day=8, slate: dict = None,
