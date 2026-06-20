@@ -217,13 +217,26 @@ The ranking-judgment tier (above) made real, plus one daily digest replacing the
       editorial / festival / tracked-artist / arena signals, ranked) + `render_digest.py --consolidated`
       → ONE doc (`digests/latest.{md,html}`): next 14 days day-by-day · weekends ahead (days 15–35,
       Thu–Sun) · on the radar. The windowed `--from/--to` mode is **retained** as the per-weekend
-      look-ahead the dashboard's username-click view will plug into (next PR). Live end-to-end dry run
+      look-ahead (a future dashboard view). Live end-to-end dry run
       (2026-06-20): fresh fetch (3421 catalog) → radar (336) → consolidated (82 + 78 + 18), both renderers
       well-formed; the run caught + fixed a radar month-grouping bug (rank-sorted items now date-sorted before grouping).
 - [x] **Dashboard score ⇄ rank column** — `build_dashboard.py` attaches each event's verdict + lane and a
       `final_rank` (over upcoming, via `rank_score`); `dashboard/index.html` shows the deterministic score
       (number + colored bar gauge) AND the verdict-adjusted final rank in one column, sortable by either
       (tier-colored rank label). The score stays the transparent spine; rank shows the editor's overlay.
+- [x] **Header digest = your digest (dashboard wiring)** — the header link now reads "<name>'s digest ↗"
+      (profile-blue) when signed in, "digest ↗" when not, and opens that profile's digest. `loadDigestFor`
+      already fetched `digests/<hash>/latest.md` per profile / `digests/latest.md` default; the gap was
+      staging — the deploy published the newest *dated* digest as `dashboard/digests/latest.md`, so the
+      consolidated one never reached the page. `stage_digests.py` (+ the two inline-staging workflows,
+      build-profiles / spotify-sync) now publish the **consolidated** `digests/latest.md` as the default +
+      owner digest, falling back to newest dated; dated files still feed the "past digests" dropdown.
+- [x] **Cross-source festival dedupe** — `lib/dedupe.py` festival path: same date + matching festival core
+      name (organizer "X presents:" prefix + year/edition/format/ticket-tier filler stripped) + loosely-
+      related venues (shared token, or one side TBA) merges festivals that list under different names AND
+      venue strings across sources (e.g. "HARD Summer 2026"@ra vs "HARD Summer Music Festival"@fgtix).
+      Festival-ness is a property of the pair; one-sided cases demand an identical core. Validated on the
+      live catalog: 6 new merges, all genuinely the same event, zero false merges.
 - [ ] **Land on `main`** — merge the branch; the first scheduled routine run then judges the live delta,
       commits `digests/latest.{md,html}` + the per-profile verdicts, and the Pages workflow redeploys.
 - [ ] **Per-profile editor pass** — `build_profiles.py` already emits each profile's own judging pool
