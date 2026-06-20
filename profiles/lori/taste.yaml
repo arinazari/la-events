@@ -1,0 +1,97 @@
+# Taste profile — Lori (dashboard profile-switcher, username: lori).
+#
+# Lori is a young ethnomusicologist with a deep, knowledgeable, genuinely diverse ear: her
+# range runs from the Stooges to Olivia Rodrigo — proto-punk / garage / post-punk through craft
+# pop, and a real appetite for global / diaspora / traditional music (desert blues, Latin alt,
+# cumbia, Afro-funk, jazz, folk). She's a LIVE-MUSIC head first — bands over DJs — and she's based
+# in Glendale (East LA). Electronic is welcome but secondary. Mechanism (geo + weights) lives in
+# profiles/lori/profile.yaml. Edit this, then: python scripts/build_profiles.py --only lori
+
+categories:
+  high:    # +3
+    - live bands across the spectrum — garage / proto-punk / post-punk / indie / art-rock /
+      experimental in intimate clubs (Zebulon, The Echo, Lodge Room, Teragram, Gold Diggers)
+    - global / diaspora / traditional & roots music — desert blues, Latin alternative, cumbia,
+      Afro-funk, highlife, Anatolian/psych, world & folk traditions (the ethnomusicologist core)
+    - jazz, soul, funk & live-band nights in listening rooms and small clubs (ETA, Gold Line)
+    - craft / songwriter pop with a point of view (Olivia Rodrigo, Mitski, Caroline Polachek tier)
+  medium:  # +2
+    - rep & arthouse cinema (Vidiots, Vista, New Beverly, Cinematheque, Aero, Alex Theatre)
+    - record fairs, listening bars, vinyl nights, in-stores & album-listening events
+    - cultural / heritage programming — museum nights, music-doc screenings, talks & performances
+    - daytime & lifestyle — flea / vintage / record / design markets, farmers markets, street fairs
+    - theater & performing arts (black-box through Pantages / Ahmanson scale)
+  low:     # +1, only if exceptional
+    - DJ sets / electronic in a chill, musical, listening-forward setting (not the main thing)
+    - big-room / festival EDM and warehouse techno — only a marquee, genuinely special name
+
+boosts:    # +1 each (stack)
+  - intimate / seated / listening-room setting
+  - vinyl / all-analog presentation, record-store & in-store shows
+  - walkable or short drive from Glendale / the Eastside (NELA, Atwater, Los Feliz, Pasadena)
+  - Friday or Saturday night
+  - independent editorial mention (LAist, Time Out, DiscoverLA, KCRW)
+  - outdoor / garden / sunset setting
+
+penalties: # -2 each
+  - bottle-service / table-service nightclubs
+  - generic Top-40 / open-format club nights with no real billing
+  - tribute / cover bands and "[decade] night" nostalgia nights
+  - far-flung (OC / SD / Temecula / Ventura / Long Beach) unless genuinely worth the trip
+
+# Match in a lineup => +2 and a "tracked" badge. Curated across her range — proto-punk & garage,
+# indie / art-rock, craft pop, and the global / diaspora / jazz spine an ethnomusicologist lives in.
+artists_tracked:
+  # proto-punk / garage / punk (the Stooges end)
+  - Iggy Pop
+  - The Stooges
+  - Osees
+  - Ty Segall
+  - King Gizzard & the Lizard Wizard
+  - Parquet Courts
+  - Viagra Boys
+  - Fontaines D.C.
+  - Idles
+  # indie / art-rock / post-punk
+  - black midi
+  - Black Country, New Road
+  - Big Thief
+  - Cate Le Bon
+  - Weyes Blood
+  - Angel Olsen
+  - Sharon Van Etten
+  - Dry Cleaning
+  # craft / songwriter pop (the Olivia Rodrigo end)
+  - Olivia Rodrigo
+  - Mitski
+  - Caroline Polachek
+  - Japanese Breakfast
+  - Faye Webster
+  - boygenius
+  # global / diaspora / Latin alt / desert blues (the ethnomusicologist spine)
+  - Chicano Batman
+  - Hermanos Gutiérrez
+  - Khruangbin
+  - Mdou Moctar
+  - Tinariwen
+  - Bombino
+  - Altın Gün
+  - Combo Chimbita
+  - Meridian Brothers
+  - Helado Negro
+  - Y La Bamba
+  - Hurray for the Riff Raff
+  # jazz / soul / funk (LA scene)
+  - Kamasi Washington
+  - Thundercat
+  - BadBadNotGood
+  - Adrian Younge
+
+comedians_loved: []
+venues_loved: [Alex Theatre, Zebulon, Lodge Room, ETA, Permanent Records Roadhouse, The Echo,
+               Teragram Ballroom, The Greek, Gold Line, Masonic Lodge at Hollywood Forever]
+
+feedback:
+  - "2026-06-20: ethnomusicologist; diverse, knowledgeable taste — Stooges to Olivia Rodrigo.
+     Bands & live music over electronic. Based in Glendale (Eastside geo). Don't penalize genre
+     breadth (hip-hop, bass, etc. are fine); penalize only bottle-service clubs / cover bands / junk."
