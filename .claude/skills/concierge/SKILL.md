@@ -33,6 +33,30 @@ with newer + well-recommended spots that fit that palate; favorites are a tiebre
 a "take me to my spot" ask. Everything you surface is filtered through these. `profile.yaml` holds
 home (Silver Lake / Hyperion & Del Mar) + travel knobs.
 
+## Then: capture taste — the concierge writes it, two paths
+You don't just route; you keep the taste profile current. When Ari reacts or states a preference,
+record it — but pick the **right** path:
+
+1. **Reaction → the feedback log (learned, reversible).** For an in-the-moment reaction to a
+   *specific* artist/genre/event — "that Antal set was perfect," "more deep house," "eh, skip,"
+   "never show this one" — append it:
+   `python scripts/log_feedback.py --kind <loved|went|skipped|hide> --artists "Name, Name"`
+   (or `--genres "deep house, disco"`, plus `--note "..."`). It folds into the Spotify+feedback
+   **affinity** layer automatically on the next run and **does not edit `taste.yaml`**. The loop
+   consumes **artists + genres only**. Prefer this for reactions — it's the low-stakes nudge.
+2. **Standing preference → `taste.yaml` (the human spine).** For a *durable, structural* rule the
+   loop can't express — "always track Floating Points," "I don't do comedy," "ban The Echoplex,"
+   "pin [series]," or anything about a **venue** (the loop ignores venues) — edit `taste.yaml`
+   directly in the right field (`artists_tracked` / `venues_loved` / `venues_banned` /
+   `comedians_loved` / `pinned_series` / `categories` / `boosts` / `penalties`), keep it a minimal
+   structured change, and **show the one-line diff**. Never rewrite the file wholesale.
+
+Which path: a reaction to something specific → feedback log; a "from now on" rule or anything
+about venues → `taste.yaml`. When unsure, log the reaction (reversible, keeps the curated spine
+clean) and offer to also pin it to `taste.yaml`. (The dashboard Worker already does the structured
+edit for friends' `profiles/<name>/taste.yaml`; this is the same for Ari's root `taste.yaml`, in
+conversation.)
+
 ## Route the ask
 
 | Ari's ask | Route to | How |
@@ -75,7 +99,9 @@ what you couldn't cover, give the best plan anyway, and suggest the fix (a `/la-
 fill a gap, "set a Resy Notify," an alt show). A great two-stop night beats a forced three-stop one.
 
 ## Files
-- `taste.yaml`, `dining-taste.yaml`, `profile.yaml` — read every time.
+- `taste.yaml`, `dining-taste.yaml`, `profile.yaml` — read every time; `taste.yaml` is also yours to **edit** (standing prefs, path 2 above).
+- `scripts/log_feedback.py` — append a reaction to `data/feedback.jsonl` (path 1 above).
+- `data/feedback.jsonl` — the append-only reaction log; folds into affinity each run.
 - `.claude/skills/la-events/SKILL.md`, `.claude/skills/la-dining/SKILL.md` — the modes you route to.
 - `.claude/agents/night-planner.md` — the cross-domain itinerary agent (spawn for plan asks).
 - `.claude/agents/source-scout.md` — discovery agent (spawn for "find sources").
