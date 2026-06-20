@@ -20,6 +20,7 @@ def _ev(title, tags, score, d="2026-07-04"):
 
 CLUB_U = {"type": "club", "vibe": [], "setting": [], "genre": []}      # club:underground
 STAGE = {"type": "stage", "vibe": [], "setting": [], "genre": []}      # stage
+OTHER = {"type": "other", "vibe": [], "setting": [], "genre": []}      # non-slate lane
 
 
 def test_validate_verdict_coerces_and_rejects():
@@ -37,11 +38,12 @@ def test_editor_pool_per_lane_includes_thin_lane_below_floor():
     """The per-lane floor: a lane's best gets judged even when it scores below the global floor;
     sub-floor events in a flooded lane are dropped."""
     pool = [_ev("U7", CLUB_U, 7), _ev("U6", CLUB_U, 6), _ev("U5", CLUB_U, 5),
-            _ev("U3", CLUB_U, 3), _ev("Stage2", STAGE, 2)]
+            _ev("U3", CLUB_U, 3), _ev("Stage2", STAGE, 2), _ev("Other3", OTHER, 3)]
     keys = {ED.event_key(e) for e in ED.editor_pool(pool, per_lane=3, floor=4)}
     assert ED.event_key(_ev("Stage2", STAGE, 2)) in keys     # thin lane's best, despite score 2
     assert ED.event_key(_ev("U3", CLUB_U, 3)) not in keys    # below floor AND outside lane top-3
     assert ED.event_key(_ev("U7", CLUB_U, 7)) in keys        # high-absolute via floor
+    assert ED.event_key(_ev("Other3", OTHER, 3)) not in keys  # non-slate lane, below floor -> skipped
 
 
 def test_select_for_verdict_finds_misses_and_carries_id():

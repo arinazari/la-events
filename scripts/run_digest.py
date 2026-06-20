@@ -14,6 +14,8 @@ skipped and listed in the run report — it never blocks the run (SKILL.md contr
 Outputs:
   data/catalog.json     — the durable, score-free store (merged/deduped/expired/seen-stamped)
   data/candidates.json  — scored, ranked, upcoming top-N for enrichment (runtime artifact)
+  data/editor_pool.json — the per-lane set worth LLM ranking-judgment (runtime artifact; the
+                          event-editor agent judges it and writes verdicts into enrichment.json)
 
 Usage:
   python scripts/run_digest.py                     # fetch all, update catalog, emit candidates
@@ -37,7 +39,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))  # scripts/ on path
 from lib.config import load_taste, load_profile  # noqa: E402
 from lib import pipeline as P  # noqa: E402
 from lib import feedback as FB  # noqa: E402
+from lib import editor as ED  # noqa: E402
 from lib.tagging import tag_catalog  # noqa: E402
+from lib.enrich import event_key  # noqa: E402
+from lib.assemble import event_lane  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -54,6 +59,19 @@ FETCHERS = [
     {"name": "Eventbrite", "source": "eventbrite", "script": "fetch_eventbrite.py", "args": []},
     {"name": "DICE", "source": "dice", "script": "fetch_dice.py", "args": []},
 ]
+
+
+def _editor_record(e: dict) -> dict:
+    """Compact event record for the event-editor agent — the deterministic score, reasons, tags,
+    and derived lane go IN so the editor judges with that context (and can override the lane)."""
+    return {
+        "id": event_key(e),
+        "title": e.get("title"), "venue": e.get("venue"), "neighborhood": e.get("neighborhood"),
+        "date": e.get("date"), "start": e.get("start"), "lineup": e.get("lineup") or [],
+        "category": e.get("category"), "price": e.get("price"),
+        "score": e.get("score"), "reasons": e.get("reasons"),
+        "lane": event_lane(e), "tags": e.get("tags"),
+    }
 
 
 def run_fetcher(entry: dict, days: int, tmpdir: str) -> list:
@@ -121,6 +139,10 @@ def main() -> int:
     ap.add_argument("--window", type=int, default=None, help="candidate window in days (default: all upcoming)")
     ap.add_argument("--top", type=int, default=40, help="candidate set size for enrichment")
     ap.add_argument("--images", type=int, default=10, help="how many top candidates are flagged image_wanted")
+    ap.add_argument("--editor-pool", default="data/editor_pool.json", help="editor judging-set output")
+    ap.add_argument("--editor-window", type=int, default=28, help="days the editor pool spans")
+    ap.add_argument("--editor-per-lane", type=int, default=4, help="top-K per lane judged")
+    ap.add_argument("--editor-floor", type=int, default=4, help="also judge everything scoring >= this")
     args = ap.parse_args()
 
     cat_path = REPO / args.catalog if not Path(args.catalog).is_absolute() else Path(args.catalog)
@@ -166,10 +188,29 @@ def main() -> int:
     }
     cand_path.write_text(json.dumps(cand_doc, indent=2, ensure_ascii=False) + "\n")
 
+    # Editor pool — the per-lane set worth LLM ranking-judgment (lib/editor). Deterministic
+    # selection over the same scored set; the event-editor agent judges this at digest time and
+    # writes verdicts into enrichment.json, which assemble() then folds onto the slate.
+    ep_path = REPO / args.editor_pool if not Path(args.editor_pool).is_absolute() else Path(args.editor_pool)
+    pool = P.score_pool(catalog, taste, profile, today, window_days=args.editor_window, affinity=affinity)
+    pool = [e for e in pool if (e.get("score") or 0) >= 0]          # negatives auto-skip; don't judge
+    judge = ED.editor_pool(pool, per_lane=args.editor_per_lane, floor=args.editor_floor)
+    ep_doc = {
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "today": today.isoformat(),
+        "window_days": args.editor_window,
+        "per_lane": args.editor_per_lane,
+        "floor": args.editor_floor,
+        "count": len(judge),
+        "events": [_editor_record(e) for e in judge],
+    }
+    ep_path.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")
+
     # Run report.
     print(f"run_digest {today}: catalog {len(catalog)} "
           f"(+{stats['added']} new, {stats['merged']} merged, {expired} expired) "
-          f"-> {len(candidates)} candidates ({cand_doc['image_wanted']} need images)")
+          f"-> {len(candidates)} candidates ({cand_doc['image_wanted']} need images), "
+          f"{len(judge)} to judge")
     if report["ok"]:
         print("  fetched:", ", ".join(f"{s}:{n}" for s, n in report["ok"]))
     if report["failed"]:

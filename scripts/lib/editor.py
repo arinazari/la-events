@@ -43,16 +43,27 @@ def load_cache(path=DEFAULT_CACHE) -> dict:
     return c
 
 
-def editor_pool(scored: list, per_lane: int = 4, floor: int = 4) -> list:
+# Lanes that never surface in the going-out slate — judged only if they clear the floor, never
+# via per-lane inclusion (keeps the judging set focused on surfaceable events, not market stalls).
+NON_SLATE_LANES = ("other", "workshop", "community", "market")
+
+
+def editor_pool(scored: list, per_lane: int = 4, floor: int = 4,
+                skip_lanes=NON_SLATE_LANES) -> list:
     """The set worth spending LLM judgment on — PER-LANE, not a flat score cutoff.
 
     Union of (a) the top `per_lane` events of each lane *per day* and (b) everything scoring
-    >= `floor`. (a) guarantees every lane's best gets judged even when its absolute scores sit
-    below the electronic flood (the "theater never clears a flat 4" problem); (b) covers the
-    high-absolute set. De-duped by event_key. Lane is the deterministic one (no verdicts yet)."""
+    >= `floor`. (a) guarantees every surfaceable lane's best gets judged even when its absolute
+    scores sit below the electronic flood (the "theater never clears a flat 4" problem); (b)
+    covers the high-absolute set. Non-slate lanes (skip_lanes) are excluded from (a) — they only
+    enter via the floor. De-duped by event_key; lane is the deterministic one (no verdicts yet)."""
+    skip = set(skip_lanes)
     groups = defaultdict(list)
     for e in scored:
-        groups[(e.get("iso_date"), event_lane(e))].append(e)
+        ln = event_lane(e)
+        if ln in skip:
+            continue
+        groups[(e.get("iso_date"), ln)].append(e)
 
     picked = {}
     for evs in groups.values():
