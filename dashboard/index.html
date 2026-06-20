@@ -364,35 +364,35 @@
           <span onClick="{{ onReset }}" style="cursor:pointer; color:#76746b; text-decoration:underline; text-underline-offset:2px;" style-hover="color:#161512;">reset · show all</span>
         </sc-if>
         <span style="position:relative; display:inline-flex;">
-          <span onClick="{{ toggleSettings }}" title="{{ settingsTitle }}" style="cursor:pointer; display:inline-flex; align-items:center; justify-content:center; width:27px; height:23px; border:1px solid #d2d0c7; background:#fff; border-radius:2px; color:#76746b;" style-hover="border-color:#161512; color:#161512;"><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2376746b'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M21%202l-2%202m-7.61%207.61a5.5%205.5%200%201%201-7.778%207.778%205.5%205.5%200%200%201%207.778-7.778zm0%200L15.5%207.5m0%200l3%203L22%207l-3-3m-3.5%203.5L19%204'/%3E%3C/svg%3E" width="14" height="14" alt="" style="display:block;" style-hover="filter:brightness(0.4);" /></sc-if><sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px; line-height:1;">☰</span></sc-if></span>
+          <span onClick="{{ toggleSettings }}" title="{{ settingsTitle }}" style="cursor:pointer; display:inline-flex; align-items:center; color:#a7a59b; padding:2px;" style-hover="color:#161512;"><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23a7a59b'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M21%202l-2%202m-7.61%207.61a5.5%205.5%200%201%201-7.778%207.778%205.5%205.5%200%200%201%207.778-7.778zm0%200L15.5%207.5m0%200l3%203L22%207l-3-3m-3.5%203.5L19%204'/%3E%3C/svg%3E" width="15" height="15" alt="" style="display:block;" style-hover="filter:brightness(0.2);" /></sc-if><sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px; line-height:1;">☰</span></sc-if></span>
           <sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
             <span onClick="{{ closeSettings }}" style="position:fixed; inset:0; z-index:60;"></span>
             <div style="position:absolute; bottom:calc(100% + 7px); right:0; z-index:61; width:256px; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:12px;">
               <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:10px;">SETTINGS</div>
               <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">
                 <div onClick="{{ setClaudeKey }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">◈</span>
+                  <span style="flex:none; color:#3f3d36; font-size:14px; transform:translateY(1px);">◈</span>
                   <span style="flex:1;">
                     <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Claude API key</span>
                     <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ claudeKeyState }}</span>
                   </span>
                 </div>
-                <div onClick="{{ spotifyAction }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#1f9d57; font-size:13px; transform:translateY(1px);">◉</span>
+                <div onClick="{{ openSpotifyModal }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
+                  <span style="flex:none; color:#1f9d57; font-size:14px; transform:translateY(1px);">◉</span>
                   <span style="flex:1;">
                     <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Spotify</span>
                     <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ spotifySettingsText }}</span>
                   </span>
                 </div>
                 <div onClick="{{ openTasteModal }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">▦</span>
+                  <span style="flex:none; color:#3f3d36; font-size:14px; transform:translateY(1px);">❏</span>
                   <span style="flex:1;">
                     <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">View taste profile</span>
                     <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">your ranking config (read-only)</span>
                   </span>
                 </div>
                 <div onClick="{{ logoutFromSettings }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">⊖</span>
+                  <span style="flex:none; color:#3f3d36; font-size:14px; transform:translateY(1px);">⊖</span>
                   <span style="flex:1;">
                     <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log out</span>
                     <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">signed in as {{ profileName }}</span>
@@ -402,7 +402,7 @@
               <sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">
                 <sc-if value="{{ loginClosed }}" hint-placeholder-val="{{ true }}">
                   <div onClick="{{ openLoginFromSettings }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
-                    <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">→</span>
+                    <span style="flex:none; color:#3f3d36; font-size:14px; transform:translateY(1px);">→</span>
                     <span style="flex:1;">
                       <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</span>
                       <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">load your taste profile + digest</span>
@@ -506,6 +506,29 @@
         <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 20px; border-top:1px solid #e2e0d8;">
           <span style="font:500 11px/1.45 -apple-system,system-ui,sans-serif; color:#76746b;">Read-only. To change it, ask the concierge — e.g. &ldquo;more techno, less comedy&rdquo; or &ldquo;track Peggy Gou.&rdquo;</span>
           <button onClick="{{ closeTasteModal }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:2px; cursor:pointer;" style-hover="background:#000;">Done</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===================== SPOTIFY STATUS ===================== -->
+  <sc-if value="{{ spotifyModalOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
+      <div onClick="{{ closeSpotifyModal }}" style="position:absolute; inset:0;"></div>
+      <div style="position:relative; z-index:1; width:340px; max-width:92vw; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:4px; box-shadow:0 24px 60px rgba(0,0,0,0.28); padding:18px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#1f9d57; font-size:15px;">◉</span>
+          <span style="font:600 12px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.05em; color:#161512;">SPOTIFY</span>
+        </div>
+        <div style="margin-top:11px; font-size:12px; line-height:1.55; color:#3f3d36;">{{ spotifyModalStatus }}</div>
+        <div style="display:flex; gap:6px; margin-top:16px; justify-content:flex-end;">
+          <button onClick="{{ closeSpotifyModal }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512; color:#161512;">Close</button>
+          <sc-if value="{{ spotifyCanConnect }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ connectSpotify }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 14px; border:1px solid #1db954; background:#1db954; color:#fff; border-radius:2px; cursor:pointer;" style-hover="opacity:0.85;">♫ Connect</button>
+          </sc-if>
+          <sc-if value="{{ spotifyIsConnected }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ disconnectSpotify }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 14px; border:1px solid #c75146; background:#fff; color:#b4453a; border-radius:2px; cursor:pointer;" style-hover="background:#fbeae8;">Disconnect</button>
+          </sc-if>
         </div>
       </div>
     </div>
@@ -620,6 +643,7 @@ class Component extends DCLogic {
     backendStatus: null,
     profileOpen: false,
     tasteModalOpen: false,
+    spotifyModalOpen: false,
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
     profileError: '',
@@ -1155,6 +1179,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // Read-only taste viewer (opened from the profile popup; closes the popup behind it).
   openTasteModal = () => this.setState({ tasteModalOpen: true, profileOpen: false, settingsOpen: false });
   closeTasteModal = () => this.setState({ tasteModalOpen: false });
+  // Tap the Spotify row -> a status modal (re-checks live), so disconnect is explicit (no accidental tap-to-disconnect).
+  openSpotifyModal = () => { this.setState({ spotifyModalOpen: true, settingsOpen: false, loginOpen: false }); this.checkSpotify(); };
+  closeSpotifyModal = () => this.setState({ spotifyModalOpen: false });
 
   // ---------- settings ----------
   toggleSettings = () => { const open = !this.state.settingsOpen; this.setState({ settingsOpen: open, loginOpen: false, profileError: '' }); if (open && this.state.profile && this.state.profile.hash) this.checkSpotify(); };
@@ -1836,7 +1863,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.SAMPLE = this.ALL;
     const ds = this.props.defaultSort;
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
-    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); } };
+    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); } };
     window.addEventListener('keydown', this._onKeyDown);
     this.loadCatalog();
     this.loadDigest();
@@ -1943,9 +1970,13 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       : (sstat === true ? ('connected' + (this.state.spotifyName ? ' as ' + this.state.spotifyName : '') + ' · tap to disconnect')
          : sstat === null ? 'checking…'
          : 'connect — tailor picks to your listening');
-    const spotifyAction = !this.BACKEND_URL
-      ? () => this.flashToast('Connect the concierge backend first (the chat “connect” link) — Spotify links through it.')
-      : (sstat === true ? this.disconnectSpotify : this.connectSpotify);
+    const spotifyIsConnected = !!this.BACKEND_URL && sstat === true;
+    const spotifyCanConnect = !!this.BACKEND_URL && sstat !== true;
+    const spotifyModalStatus = !this.BACKEND_URL
+      ? 'The concierge backend isn’t connected yet — Spotify links through it. Use the chat’s “connect” link first.'
+      : (sstat === true ? ('Connected' + (this.state.spotifyName ? ' as ' + this.state.spotifyName : '') + ' — your feed re-ranks to what you actually listen to.')
+         : sstat === null ? 'Checking your Spotify connection…'
+         : 'Not connected. Link your Spotify so your picks re-rank to what you actually listen to.');
     // Header / digest subject: the logged-in name, or everyone's shared default when logged out.
     const digestUser = profileActive ? (profile.name || 'profile') : 'friends';
 
@@ -1982,7 +2013,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       profileBtnLabel: this.state.profileBusy ? '…' : 'Enter',
       onProfileInput: this.onProfileInput, onProfileKey: this.onProfileKey,
       submitProfile: this.submitProfile, logoutProfile: this.logoutProfile,
-      spotifySettingsText, spotifyAction,
+      spotifySettingsText,
+      spotifyModalOpen: this.state.spotifyModalOpen, openSpotifyModal: this.openSpotifyModal, closeSpotifyModal: this.closeSpotifyModal,
+      spotifyModalStatus, spotifyIsConnected, spotifyCanConnect,
+      connectSpotify: this.connectSpotify, disconnectSpotify: this.disconnectSpotify,
       rangeStart, rangeEnd, rangeLabel, bubbleOpen, bubbleOpts,
       startLabel: this.labelISO(rangeStart), endLabel: this.labelISO(rangeEnd),
       shownCount: rows.length, totalCount: this.ALL.length,
