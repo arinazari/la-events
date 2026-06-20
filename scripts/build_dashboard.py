@@ -30,7 +30,7 @@ import argparse
 import json
 import sys
 from collections import Counter
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 # Make `lib` importable regardless of cwd (scripts/ on sys.path).
@@ -123,6 +123,11 @@ def main() -> int:
     ap.add_argument("--verdicts", default=None,
                     help="editor verdict store to fold in (default: data/verdicts/<hash>.json for "
                          "this profile). Adds each event's verdict + final_rank to the feed.")
+    ap.add_argument("--editor-pool-out", default=None,
+                    help="also emit this profile's editor judging pool here (for the event-editor pass)")
+    ap.add_argument("--editor-window", type=int, default=28)
+    ap.add_argument("--editor-per-lane", type=int, default=4)
+    ap.add_argument("--editor-floor", type=int, default=4)
     args = ap.parse_args()
 
     def resolve(p):
@@ -277,6 +282,23 @@ def main() -> int:
     rel_out = out_path.relative_to(REPO) if out_path.is_relative_to(REPO) else out_path
     print(f"Wrote {len(events)} events ({enriched_hits} enriched) -> {rel_out}"
           f"{' (SAMPLE data)' if is_sample else ''}")
+
+    # Optionally emit this profile's editor judging pool (the per-lane set worth LLM judgment),
+    # so the event-editor pass can judge it and write per-profile verdicts. Reuses the per-profile
+    # scoring just done — no second scoring path. The default-profile pool is also emitted by
+    # run_digest; here it's per-profile, driven by build_profiles.
+    if args.editor_pool_out:
+        end_iso = (today + timedelta(days=args.editor_window)).isoformat()
+        epool = [e for e in events if not e.get("is_past") and e.get("iso_date")
+                 and e["iso_date"] <= end_iso and (e.get("score") or 0) >= 0]
+        judge = ED.editor_pool(epool, per_lane=args.editor_per_lane, floor=args.editor_floor)
+        ep_doc = ED.pool_doc(judge, today=today, window_days=args.editor_window,
+                             per_lane=args.editor_per_lane, floor=args.editor_floor, affinity=affinity)
+        epath = resolve(args.editor_pool_out)
+        epath.parent.mkdir(parents=True, exist_ok=True)
+        epath.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")
+        rel_ep = epath.relative_to(REPO) if epath.is_relative_to(REPO) else epath
+        print(f"  + editor pool: {len(judge)} to judge -> {rel_ep}")
     return 0
 
 
