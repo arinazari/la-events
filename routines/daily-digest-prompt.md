@@ -44,11 +44,16 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    `select_for_enrichment` to re-research entries older than N days (default: write-once, no cost).
 5. **Cache images:** `python scripts/cache_images.py` — downloads the hero images into
    `data/images/` so committed/hosted digests don't hotlink-rot. Idempotent.
-6. **Render per weekend:** for each of the next ~16 weekends (Fri–Sun; Thursday-night events fold
-   in), keyed by the **Friday**, run `python scripts/render_digest.py --from <Fri> --to <Sun>
-   --md digests/weekends/<Fri>.md --html digests/weekends/<Fri>.html`. The renderer is day-by-day,
-   lane-diverse, time-first — building the editor **slate** (assemble over the scored pool + verdicts) — with ⭐ picks (the editor's must-sees) + curator notes from enrichment. Near weekends fill
-   out; far ones stay thin (few candidates) — do NOT pad.
+6. **Render.** First the radar tier: `python scripts/build_radar.py --md radar-candidates.md` →
+   `data/radar.json` (festivals/big shows/tracked far-out). Then the **primary consolidated daily
+   digest**: `python scripts/render_digest.py --consolidated --md digests/latest.md --html
+   digests/latest.html` — ONE doc with three sections: the next 14 days day-by-day, the weekends in
+   days 15–35 (Thu–Sun), and **on the radar**. All of it is the editor **slate** (assemble over the
+   scored pool + verdicts); ⭐ = the editor's must-sees, curator notes from enrichment. Also keep the
+   **per-weekend look-ahead** (backend option for the dashboard's per-weekend view): for each of the
+   next ~16 weekends keyed by the **Friday**, `python scripts/render_digest.py --from <Fri> --to <Sun>
+   --md digests/weekends/<Fri>.md --html digests/weekends/<Fri>.html`. Near weekends fill out; far
+   ones stay thin — do NOT pad.
 7. Maintain `digests/weekends/index.md`: one row per weekend (date range, # events, top pick),
    soonest first; drop past weekends.
 8. **Sync per-profile Spotify, then rebuild the dashboard feeds.** First, if the per-profile
@@ -68,9 +73,10 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    this file. (An `owner: true` profile shares the root taste.yaml, so its digest ≈ the default —
    expected.) Friends' feeds re-rank within ~1–2 min of a self-edit via CI, but their *narrative*
    digest refreshes here, daily.
-10. Commit catalog + `data/enrichment.json` + `data/verdicts/` + `data/images/` + the changed weekend `.md`/`.html` +
-   index + **all `dashboard/data*.json`** (default + profile feeds) + **`digests/<hash>/latest.md`**,
-   message "weekend digests: YYYY-MM-DD (W weekends, N events, M new)".
+10. Commit catalog + `data/enrichment.json` + `data/verdicts/` + `data/images/` +
+   **`digests/latest.{md,html}`** (the consolidated digest) + `radar-candidates.md` + the changed
+   weekend `.md`/`.html` + index + **all `dashboard/data*.json`** (default + profile feeds) +
+   **`digests/<hash>/latest.md`**, message "digest: YYYY-MM-DD (N events, M new)".
 11. If a source failed twice in a row, mark it `flaky` in sources.yaml and note it in the nearest
    weekend footer.
 12. Do NOT run discover mode here (separate / manual).

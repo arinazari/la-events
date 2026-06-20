@@ -122,11 +122,19 @@ once, so the scene graph compounds. Verify-or-omit: no invented bios.
 
 ### Step 6 — Render + synthesize
 
-`python scripts/render_digest.py` turns the editor slate into the digest — `assemble()` over the
-scored pool + verdicts (day-grouped, lane-diverse, verdict-ranked) — canonical `.md`
-(committable) **and** a rich emailable `.html` (type chips, ★ relevance, curator notes, hero images
-for the `image_wanted` picks). The per-event **curator notes + artist glosses come from Step-4
-enrichment**, so the insider voice is baked in; scoring is **precomputed** (read `score`/`rating`/
+`python scripts/render_digest.py --consolidated` is the **primary** invocation: ONE daily digest
+(`digests/latest.{md,html}`) with three sections — **Next two weeks** (days 0–13, day-by-day),
+**Weekends ahead** (days 14–35, Thu–Sun only), and **On the radar** (festivals / big shows /
+tracked far-out). Run `python scripts/build_radar.py --md radar-candidates.md` first; it writes
+`data/radar.json` (a deterministic signal heuristic — editorial / festival / tracked-artist /
+arena), which `--consolidated` reads for the radar tier. The first two sections are the editor
+**slate** — `assemble()` over the scored pool + verdicts (day-grouped, lane-diverse,
+verdict-ranked). The **windowed `--from <date> --to <date>`** mode is retained as the per-weekend
+look-ahead (one file per upcoming weekend, keyed by the Friday — the dashboard's per-weekend view
+plugs into it). Either mode emits canonical `.md` (committable) **and** a rich emailable `.html`
+(type chips, ★ relevance, curator notes, hero images for the `image_wanted` picks). The per-event
+**curator notes + artist glosses come from Step-4 enrichment**, so the insider voice is baked in;
+scoring is **precomputed** (read `score`/`rating`/
 `reasons` — never hand-score; the taste profile below is just orientation for *why* things rank). On
 top of the renderer you add a short conversational intro and the sections it doesn't generate
 (**Around town**, **On the radar**) plus pinning/judgment. The full digest — NOT a wall of every event.
