@@ -94,7 +94,7 @@
     <header style="flex:none; padding:14px 22px 12px; border-bottom:1px solid #d9d7cf; display:flex; align-items:baseline; justify-content:space-between; gap:16px;">
       <div>
         <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
-          <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ curated digest for </span><span onClick="{{ openDigest }}" title="Open this curated digest" style="cursor:pointer; color:#2b5cd9; border-bottom:1px dashed #9db4ee;" style-hover="color:#161512; border-color:#2b5cd9;">{{ digestUser }} <span style="font-size:0.72em; font-weight:600;">↗</span></span></span>
+          <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">curated digest for <span onClick="{{ openDigest }}" title="Open this curated digest" style="color:#76746b; cursor:pointer;" style-hover="color:#161512;">{{ digestUser }}</span></sc-if><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">curated digests for {{ digestUser }}</sc-if></span></span>
         </div>
         <div style="margin-top:5px; font:500 11px/1.6 ui-monospace,Menlo,monospace; color:#76746b; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
           <span style="display:inline-flex; align-items:center; gap:6px;">
@@ -1935,7 +1935,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       ? () => this.flashToast('Connect the concierge backend first (the chat “connect” link) — Spotify links through it.')
       : (sstat === true ? this.disconnectSpotify : this.connectSpotify);
     // Header / digest subject: the logged-in name, or everyone's shared default when logged out.
-    const digestUser = profileActive ? (profile.name || 'profile') : 'me and my friends';
+    const digestUser = profileActive ? (profile.name || 'profile') : 'friends';
 
     // Every logged-in profile (incl. the owner) gets the same settings; logged-out gets the login flow.
     const loggedOut = !profileActive;
