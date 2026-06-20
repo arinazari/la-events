@@ -6,7 +6,7 @@
  * grounds the model on the live catalog + dining feed, and answers in the LA-insider concierge
  * voice. The page's "Concierge" mode POSTs here; "Fast filter" mode never touches it.
  *
- * Two things it does, by what the body carries:
+ * Three things it does, by what the body carries:
  *   1. CHAT (always): answer / recommend / plan, grounded on the feed. If `profile` (a feed
  *      hash) is sent, it grounds on THAT profile's feed (data.<hash>.json) — the friend's taste.
  *   2. TASTE SELF-EDIT (only when a profile is attached AND GITHUB_TOKEN is configured): when the
@@ -16,17 +16,26 @@
  *      taste.yaml for the `owner: true` profile) and COMMITS it. CI then
  *      rebuilds the feed (scripts/build_profiles.py — the same deterministic scorer the digest
  *      uses, so the ranking can't drift) and redeploys. The reply tells them to refresh shortly.
+ *   3. PROFILE / MECHANISM SELF-EDIT (same gate): taste.yaml is CONTENT (what they like); profile.yaml
+ *      is MECHANISM (where home is + how the scoring math weights things). When the person changes
+ *      their LOCATION ("I moved to Glendale") or a ranking knob ("weight live music higher", "stop
+ *      down-ranking hip-hop", "count Frogtown as near me"), the model calls `propose_profile_change`;
+ *      the Worker patches that profile's profile.yaml (the friend's profiles/<name>/profile.yaml —
+ *      created on first edit — or the root profile.yaml for the owner) and COMMITS. Same CI rebuild.
+ *      Because lib/scoring.py resolves each scoring key all-or-nothing (profile → taste → default),
+ *      a first-time edit MATERIALIZES the full effective list/map first (seeded from the root
+ *      profile.yaml, which is the defaults verbatim) so it never silently drops the rest.
  *
  * Contract:
  *   POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<feed-hash>" }
- *   ->    { reply: string, taste_changed?: boolean }
+ *   ->    { reply: string, taste_changed?: boolean, profile_changed?: boolean }
  *   Auth: optional `Authorization: Bearer <CONCIERGE_TOKEN>` (set CONCIERGE_TOKEN to require it;
  *         leave it unset and the proxy is OPEN to anyone who finds the URL — see README).
  *
  * Env (wrangler secrets / vars):
  *   ANTHROPIC_API_KEY  (secret, required)
  *   CONCIERGE_TOKEN    (secret, optional — shared token gating the proxy)
- *   GITHUB_TOKEN       (secret, optional — repo-scoped contents:write PAT; enables taste self-edit)
+ *   GITHUB_TOKEN       (secret, optional — repo-scoped contents:write PAT; enables taste + profile self-edit)
  *   ANTHROPIC_MODEL    (var, optional — executor model that does the bulk of generation; default Sonnet)
  *   ADVISOR_MODEL      (var, optional — stronger model the executor consults for planning; "" disables)
  *   EFFORT             (var, optional — executor effort: low | medium | high | max; default max)
@@ -98,15 +107,16 @@ export default {
       if (r.ok) feed = await r.json();
     } catch { /* degrade gracefully */ }
 
-    // Taste self-edit is available only to a logged-in profile, and only if commits are configured.
-    const canEditTaste = !!(profileHash && env.GITHUB_TOKEN);
-    const system = buildSystem(feed, { canEditTaste, profileName: feed && feed.profile && feed.profile.name });
+    // Self-edit (taste CONTENT + profile MECHANISM) is available only to a logged-in profile, and
+    // only if commits are configured.
+    const canEdit = !!(profileHash && env.GITHUB_TOKEN);
+    const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name });
     // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
-    // set ADVISOR_MODEL to "" to disable. Plus the taste tool when this profile can self-edit.
+    // set ADVISOR_MODEL to "" to disable. Plus the two self-edit tools when this profile can edit.
     const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
     const tools = [
       ...(advisorModel ? [{ type: "advisor_20260301", name: "advisor", model: advisorModel }] : []),
-      ...(canEditTaste ? [TASTE_TOOL] : []),
+      ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL] : []),
     ];
 
     // The advisor is a SERVER-side tool; its sampling loop can return stop_reason "pause_turn" — when
@@ -123,20 +133,35 @@ export default {
       return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors);
     }
 
-    // Tool-use round: the model wants to change this profile's taste (client-handled custom tool).
-    if (data.stop_reason === "tool_use" && canEditTaste) {
-      const use = (data.content || []).find((b) => b.type === "tool_use" && b.name === TASTE_TOOL.name);
-      if (use) {
-        const result = await applyTasteEdit(env, profileHash, use.input).catch((e) => ({ ok: false, error: String(e && e.message || e) }));
+    // Tool-use round: the model wants to change this profile's taste (CONTENT) and/or profile
+    // (MECHANISM) — both are client-handled custom tools that commit a YAML file.
+    if (data.stop_reason === "tool_use" && canEdit) {
+      const uses = (data.content || []).filter(
+        (b) => b.type === "tool_use" && (b.name === TASTE_TOOL.name || b.name === PROFILE_TOOL.name)
+      );
+      if (uses.length) {
+        let tasteChanged = false, profileChanged = false;
+        const results = [];
+        for (const use of uses) {
+          const isProfile = use.name === PROFILE_TOOL.name;
+          const apply = isProfile ? applyProfileEdit : applyTasteEdit;
+          const result = await apply(env, profileHash, use.input).catch((e) => ({ ok: false, error: String(e && e.message || e) }));
+          if (result.ok) { if (isProfile) profileChanged = true; else tasteChanged = true; }
+          results.push({ type: "tool_result", tool_use_id: use.id, content: JSON.stringify(result) });
+        }
         const follow = [
           ...convo,
           { role: "assistant", content: data.content },
-          { role: "user", content: [{ type: "tool_result", tool_use_id: use.id, content: JSON.stringify(result) }] },
+          { role: "user", content: results },
         ];
         let data2;
         try { data2 = await callAnthropic(env, { system, messages: follow, tools }); }
         catch (e) { return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors); }
-        return json({ reply: textOf(data2) || (result.ok ? "Updated — re-ranking, refresh in ~a minute." : "Couldn't apply that change."), taste_changed: !!result.ok }, 200, cors);
+        const changed = tasteChanged || profileChanged;
+        return json({
+          reply: textOf(data2) || (changed ? "Updated — re-ranking, refresh in ~a minute." : "Couldn't apply that change."),
+          taste_changed: tasteChanged, profile_changed: profileChanged,
+        }, 200, cors);
       }
     }
 
@@ -217,6 +242,61 @@ const TASTE_TOOL = {
   },
 };
 
+/* The second self-edit tool — a constrained patch to the MECHANISM profile (profile.yaml):
+ * location + how the ranking math weights things. Distinct from taste (artists/genres/venues).
+ * Like the taste tool it touches only the safe high-value knobs — home, category weights, and the
+ * near-home / penalty / boost / far term lists — never source ids, rating thresholds, or the
+ * numeric Spotify/feedback/travel tuning (hand-edit those). Every term-list / weight edit writes
+ * the COMPLETE effective value (see applyProfilePatchDoc) so a first edit can't drop the defaults. */
+const PROFILE_TOOL = {
+  name: "propose_profile_change",
+  description:
+    "Update the logged-in person's MECHANISM profile (profile.yaml) — their LOCATION or how the " +
+    "ranking math weights things. This is DISTINCT from propose_taste_change (artists/genres/venues " +
+    "they like). Call this for: 'I moved to Glendale' / 'I'm near Sunset & Vermont' (home — always " +
+    "include approx coords so travel times stay right); 'weight live music higher', 'I care less " +
+    "about film' (category importance); 'count Highland Park as near me' (near-home neighborhoods); " +
+    "'stop down-ranking hip-hop', 'down-rank bottle-service nights' (penalty words); a setting/vibe " +
+    "boost word like 'rooftop' or 'vinyl' (boost words). Do NOT call this for one-off questions, or " +
+    "for taste/artist changes (use propose_taste_change). Only include the fields that change.",
+  input_schema: {
+    type: "object",
+    properties: {
+      home: {
+        type: "object",
+        description: "Where they live — drives the near-home boost + night-planner travel times. When you set this, ALWAYS include `coords` (your best approx [lat, lng] for the neighborhood/cross-streets) so travel times stay correct.",
+        properties: {
+          neighborhood: { type: "string", description: "Neighborhood name, e.g. 'Glendale'." },
+          cross_streets: { type: "string", description: "Nearest cross-streets, e.g. 'Brand & Broadway'." },
+          coords: { type: "array", items: { type: "number" }, description: "[latitude, longitude] in decimal degrees, your best approximation for the place above." },
+        },
+      },
+      set_category_weights: {
+        type: "array",
+        description: "Set how many points an event category is worth (higher ranks higher; typical 1–3). Known categories: electronic, party, film, music, live_music, theater, beer_food, comedy, art, pop, general.",
+        items: {
+          type: "object",
+          properties: {
+            category: { type: "string", description: "One of the known category tokens above." },
+            weight: { type: "number", description: "Points (0–5)." },
+          },
+          required: ["category", "weight"],
+        },
+      },
+      add_near_home: { type: "array", items: { type: "string" }, description: "Neighborhoods to start counting as near home (+boost)." },
+      remove_near_home: { type: "array", items: { type: "string" }, description: "Neighborhoods to stop counting as near home." },
+      add_penalty_terms: { type: "array", items: { type: "string" }, description: "Words/phrases that should DOWN-rank an event (e.g. 'bottle service', 'top 40')." },
+      remove_penalty_terms: { type: "array", items: { type: "string" }, description: "Penalty words to stop down-ranking (e.g. 'hip hop')." },
+      add_boost_terms: { type: "array", items: { type: "string" }, description: "Setting/vibe words that should BOOST an event (e.g. 'rooftop', 'vinyl', 'sunset', 'open-air')." },
+      remove_boost_terms: { type: "array", items: { type: "string" }, description: "Boost words to remove." },
+      add_far_terms: { type: "array", items: { type: "string" }, description: "Far-away places to down-rank as not-worth-the-trip (e.g. 'Anaheim')." },
+      remove_far_terms: { type: "array", items: { type: "string" }, description: "Far-place words to remove (e.g. they now want Long Beach)." },
+      summary: { type: "string", description: "One short human sentence describing the change." },
+    },
+    required: ["summary"],
+  },
+};
+
 /* Build the system prompt: the concierge persona + a compact, grounded snapshot of the feed. */
 export function buildSystem(feed, opts = {}) {
   const today = new Date().toISOString().slice(0, 10);
@@ -235,7 +315,7 @@ export function buildSystem(feed, opts = {}) {
     "inventing it (e.g. don't fabricate a venue or a showtime). Prefer higher-rated, on-taste picks.",
     "Lead with the answer/pick, keep it tight, surface ticket/booking links when relevant.",
   ];
-  if (opts.canEditTaste) {
+  if (opts.canEdit) {
     persona.push(
       "",
       "TASTE EDITING: this person can tune their own taste. Their full saved taste profile is shown",
@@ -243,7 +323,16 @@ export function buildSystem(feed, opts = {}) {
       "when removing an entry. When they express a lasting preference change (not a one-off query),",
       "call propose_taste_change with just the fields that change. After it succeeds, confirm in one",
       "line and tell them their feed re-ranks in about a minute — they should refresh (the ↻ button)",
-      "to see it. If it fails, say so plainly; don't pretend."
+      "to see it. If it fails, say so plainly; don't pretend.",
+      "",
+      "MECHANISM EDITING: they can also tune HOW their feed ranks — via propose_profile_change, which",
+      "is SEPARATE from taste. Their current mechanism is shown below (MECHANISM). Use this tool when",
+      "they change their LOCATION ('I moved to Glendale' → set home, and include your best approx",
+      "coords so travel times stay right) or a scoring dial: how categories are weighted ('weight live",
+      "music higher', 'I care less about film'), the near-home neighborhoods, the down-rank/penalty",
+      "words, or the setting/boost words. Decide by what the request is ABOUT: an artist/genre/venue →",
+      "propose_taste_change; a place they live or a ranking knob → propose_profile_change. Same",
+      "after-success line (re-ranks in ~a minute, refresh)."
     );
   }
   const personaText = persona.filter((l) => l !== null && l !== undefined).join("\n");
@@ -269,6 +358,26 @@ export function buildSystem(feed, opts = {}) {
     taste.venues_loved && taste.venues_loved.length ? "Loved venues: " + clean(taste.venues_loved).join(", ") : null,
   ].filter(Boolean).join("\n");
 
+  // MECHANISM snapshot (profile.yaml) — home + the scoring dials. Lets the concierge answer
+  // "where's home / what are my weights?" and, when editing, target propose_profile_change
+  // precisely. Knobs the page didn't set fall back to the repo defaults (say so if asked).
+  const cfg = feed.config || {};
+  const home = cfg.home || {};
+  const sc = cfg.scoring || {};
+  const cw = sc.category_weights && Object.keys(sc.category_weights).length ? sc.category_weights : null;
+  const mechBlock = [
+    home.neighborhood || (Array.isArray(home.coords) && home.coords.length === 2)
+      ? "Home: " + (home.neighborhood || "(coords only)") +
+        (home.cross_streets ? " (" + home.cross_streets + ")" : "") +
+        (Array.isArray(home.coords) && home.coords.length === 2 ? " [" + home.coords.join(", ") + "]" : "")
+      : null,
+    cw ? "Category weights: " + Object.entries(cw).map(([k, v]) => `${k}=${v}`).join(", ") : null,
+    Array.isArray(sc.near_home_neighborhoods) && sc.near_home_neighborhoods.length ? "Near-home: " + clean(sc.near_home_neighborhoods, 60).join(", ") : null,
+    Array.isArray(sc.penalty_terms) && sc.penalty_terms.length ? "Down-rank words: " + clean(sc.penalty_terms, 60).join(", ") : null,
+    Array.isArray(sc.groove_terms) && sc.groove_terms.length ? "Boost words: " + clean(sc.groove_terms, 60).join(", ") : null,
+    Array.isArray(sc.far_terms) && sc.far_terms.length ? "Far (down-ranked) places: " + clean(sc.far_terms, 60).join(", ") : null,
+  ].filter(Boolean).join("\n");
+
   const dining = (feed.dining || []).map((r) =>
     `- ${r.name} — ${r.neighborhood || "LA"}${r.price ? " · " + r.price : ""}` +
     `${r.cuisine && r.cuisine.length ? " · " + r.cuisine.join("/") : ""}` +
@@ -292,8 +401,14 @@ export function buildSystem(feed, opts = {}) {
     "",
     tasteBlock
       ? "TASTE PROFILE (the saved profile — rank everything against this" +
-        (opts.canEditTaste ? "; it's also what propose_taste_change edits, so quote its exact wording when removing an entry" : "") +
+        (opts.canEdit ? "; it's also what propose_taste_change edits, so quote its exact wording when removing an entry" : "") +
         "):\n" + tasteBlock
+      : "",
+    "",
+    mechBlock
+      ? "MECHANISM (profile.yaml — location + scoring dials" +
+        (opts.canEdit ? "; propose_profile_change edits these" : "") +
+        "; unlisted knobs use the defaults):\n" + mechBlock
       : "",
     "",
     `RESTAURANTS (la-dining, ${(feed.dining || []).length}):`,
@@ -350,7 +465,10 @@ async function ghPutFile(env, path, text, sha, message) {
   return r.ok;
 }
 
-/* Resolve a feed hash to its profile (name + taste-file path) via profiles.yaml. */
+/* Resolve a feed hash to its profile (name + taste/profile file paths) via profiles.yaml.
+ * profilePath mirrors build_profiles.py: the owner edits the root profile.yaml; a friend edits
+ * their own profiles/<name>/profile.yaml (explicit `profile:` in the manifest, else the path that
+ * sits beside their taste file, else the conventional one — created on first edit if absent). */
 async function resolveProfile(env, hash) {
   const f = await ghGetFile(env, "profiles.yaml");
   if (!f) return null;
@@ -359,7 +477,14 @@ async function resolveProfile(env, hash) {
   for (const p of manifest.profiles || []) {
     if (!p || !p.username) continue;
     if ((await profileHash(p.username, salt)) === hash) {
-      return { name: p.name || p.username, tastePath: p.taste || "taste.yaml", owner: !!p.owner };
+      const tastePath = p.taste || "taste.yaml";
+      const owner = !!p.owner;
+      let profilePath;
+      if (owner) profilePath = "profile.yaml";
+      else if (p.profile) profilePath = p.profile;
+      else if (/^profiles\/.+\/taste\.ya?ml$/.test(tastePath)) profilePath = tastePath.replace(/taste\.ya?ml$/, "profile.yaml");
+      else profilePath = `profiles/${String(p.username).trim().toLowerCase()}/profile.yaml`;
+      return { name: p.name || p.username, tastePath, profilePath, owner };
     }
   }
   return null;
@@ -433,6 +558,157 @@ async function applyTasteEdit(env, hash, patch) {
 
   const msg = `taste(${prof.name}): ${(patch.summary || "self-edit").slice(0, 72)}\n\nSelf-edit via the dashboard concierge.`;
   const ok = await ghPutFile(env, prof.tastePath, out, file.sha, msg);
+  return ok ? { ok: true, summary: patch.summary || "updated", note: "committed; the feed rebuilds via CI in ~1–2 min" } : { ok: false, error: "commit failed" };
+}
+
+/* ----- profile self-edit (commit profiles/<name>/profile.yaml; CI rebuilds the feed) -----
+ *
+ * profile.yaml = MECHANISM (home + the scoring dials) — the sibling of the taste (CONTENT) edit
+ * above. The subtlety that makes this NOT a copy-paste of the taste edit: lib/scoring.py resolves
+ * each scoring key ALL-OR-NOTHING (profile.yaml's value, else taste.yaml's, else the in-code
+ * DEFAULT_*), so a present-but-partial list/map shadows the rest. A first-time edit therefore must
+ * write the COMPLETE effective value. We get that base by reading the repo's own files (the friend's
+ * taste.yaml, then the root profile.yaml — which IS DEFAULT_* verbatim), mirroring the scorer's
+ * fallback chain without duplicating the default constants in JS. */
+function safeYaml(text) { try { const o = yamlParse(text); return o && typeof o === "object" ? o : null; } catch { return null; } }
+function nodeJSON(node) { return node && typeof node.toJSON === "function" ? node.toJSON() : undefined; }
+
+/* The scorer's per-key fallback for a key absent from the file being edited: the friend's
+ * taste.yaml `scoring`, then the root profile.yaml `scoring` (the defaults). undefined => neither
+ * has it, so the caller refuses that key rather than risk writing a partial. */
+function effectiveScoringVal(key, tasteObj, rootObj) {
+  const t = tasteObj && tasteObj.scoring && tasteObj.scoring[key];
+  if (t !== undefined && t !== null) return t;
+  const r = rootObj && rootObj.scoring && rootObj.scoring[key];
+  return (r === undefined || r === null) ? undefined : r;
+}
+
+/* Materialize a fallback-defaulted LIST to its full effective value (unless the file already has a
+ * non-empty one) before add/remove, so a first edit never shadows the default list with a 1-item one. */
+function ensureFullSeq(doc, path, effectiveList) {
+  const n = doc.getIn(path);
+  if (n && n.items && n.items.length) return true;                          // already complete in the file
+  if (!Array.isArray(effectiveList) || !effectiveList.length) return false; // no base → caller skips this list
+  doc.setIn(path, doc.createNode(effectiveList.slice()));
+  return true;
+}
+
+/* Apply the structured MECHANISM patch to a parsed YAML Document (comments/key-order preserved).
+ * `effective` carries the full fallback values for the defaulted keys. Returns the list of knobs
+ * actually touched (empty => nothing actionable). Exported for tests. */
+export function applyProfilePatchDoc(doc, patch, effective) {
+  const touched = [];
+  effective = effective || {};
+
+  // Home (location) — each subfield set independently; safe (no all-or-nothing fallback).
+  if (patch.home && typeof patch.home === "object") {
+    const h = patch.home;
+    if (h.neighborhood) { doc.setIn(["home", "neighborhood"], String(h.neighborhood).trim()); touched.push("home"); }
+    if (h.cross_streets) { doc.setIn(["home", "cross_streets"], String(h.cross_streets).trim()); touched.push("home"); }
+    if (Array.isArray(h.coords) && h.coords.length === 2 &&
+        h.coords.every((x) => typeof x === "number" && isFinite(x)) &&
+        h.coords[0] >= -90 && h.coords[0] <= 90 && h.coords[1] >= -180 && h.coords[1] <= 180) {
+      const c = doc.createNode([h.coords[0], h.coords[1]]); c.flow = true;   // match the repo's `coords: [lat, lng]` style
+      doc.setIn(["home", "coords"], c);
+      if (!touched.includes("home")) touched.push("home");
+    }
+  }
+
+  // Category weights — write a COMPLETE map: effective base ∪ what's already in the file ∪ overrides.
+  // Refuse if there's no complete base to build on (would otherwise drop unlisted categories to 1).
+  if (Array.isArray(patch.set_category_weights) && patch.set_category_weights.length) {
+    const fileMap = nodeJSON(doc.getIn(["scoring", "category_weights"]));
+    const haveBase = (effective.category_weights && Object.keys(effective.category_weights).length) ||
+                     (fileMap && Object.keys(fileMap).length);
+    if (haveBase) {
+      const base = { ...(effective.category_weights || {}), ...(fileMap || {}) };
+      let any = false;
+      for (const it of patch.set_category_weights) {
+        if (!it || !it.category || typeof it.weight !== "number" || !isFinite(it.weight)) continue;
+        const cat = String(it.category).trim().toLowerCase().replace(/\s+/g, "_");
+        if (!cat) continue;
+        base[cat] = Math.max(0, Math.min(5, Math.round(it.weight)));
+        any = true;
+      }
+      if (any) { doc.setIn(["scoring", "category_weights"], doc.createNode(base)); touched.push("category_weights"); }
+    }
+  }
+
+  // Term lists — materialize to the full effective list, then add/remove. A list with no base is skipped.
+  const lists = [
+    ["near_home_neighborhoods", effective.near_home, patch.add_near_home, patch.remove_near_home],
+    ["penalty_terms", effective.penalty, patch.add_penalty_terms, patch.remove_penalty_terms],
+    ["groove_terms", effective.groove, patch.add_boost_terms, patch.remove_boost_terms],
+    ["far_terms", effective.far, patch.add_far_terms, patch.remove_far_terms],
+  ];
+  for (const [key, effList, add, rem] of lists) {
+    const hasAdd = Array.isArray(add) && add.length;
+    const hasRem = Array.isArray(rem) && rem.length;
+    if (!hasAdd && !hasRem) continue;
+    const path = ["scoring", key];
+    if (!ensureFullSeq(doc, path, effList)) continue;   // no base to materialize from → leave it on the default
+    if (hasAdd) addUniqDoc(doc, path, add);
+    if (hasRem) removeDoc(doc, path, rem);
+    touched.push(key);
+  }
+  return touched;
+}
+
+/* A fresh profile.yaml for a friend who didn't have one (block style + a short header comment). */
+export function newProfileDoc(name) {
+  const doc = parseDocument("{}");
+  if (doc.contents) doc.contents.flow = false;   // block YAML, not inline {}
+  doc.commentBefore =
+    ` profile.yaml — MECHANISM overrides for ${name}'s feed, created by the dashboard concierge.\n` +
+    ` taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs\n` +
+    ` that differ need to live here — anything absent falls back to the repo defaults.`;
+  return doc;
+}
+
+async function applyProfileEdit(env, hash, patch) {
+  const prof = await resolveProfile(env, hash);
+  if (!prof) return { ok: false, error: "profile not found for that session" };
+  const path = prof.profilePath;
+  // The owner edits the shared root profile.yaml; a friend edits only their own profiles/<name>/profile.yaml.
+  const isRoot = /(^|\/)profile\.ya?ml$/.test(path) && !path.startsWith("profiles/");
+  if (isRoot && !prof.owner) return { ok: false, error: "this profile can't edit the shared mechanism file" };
+  if (!isRoot && !/^profiles\/.+\/profile\.ya?ml$/.test(path)) return { ok: false, error: "this profile has no editable mechanism file" };
+
+  // Effective fallback base for materializing a first-time partial edit (see the block comment):
+  // the friend's taste.yaml `scoring`, then the root profile.yaml (= DEFAULT_* verbatim). For the
+  // owner, the file IS the root, so its own complete values cover everything and this goes unused.
+  let tasteObj = null, rootObj = null;
+  if (!isRoot) {
+    const rootFile = await ghGetFile(env, "profile.yaml");
+    rootObj = rootFile ? safeYaml(rootFile.text) : null;
+    if (prof.tastePath) { const tf = await ghGetFile(env, prof.tastePath); tasteObj = tf ? safeYaml(tf.text) : null; }
+  }
+  const effective = {
+    category_weights: effectiveScoringVal("category_weights", tasteObj, rootObj),
+    near_home: effectiveScoringVal("near_home_neighborhoods", tasteObj, rootObj),
+    penalty: effectiveScoringVal("penalty_terms", tasteObj, rootObj),
+    groove: effectiveScoringVal("groove_terms", tasteObj, rootObj),
+    far: effectiveScoringVal("far_terms", tasteObj, rootObj),
+  };
+
+  const existing = await ghGetFile(env, path);   // null => create a fresh friend profile.yaml
+  let out;
+  try {
+    const doc = existing ? parseDocument(existing.text) : newProfileDoc(prof.name);
+    if (existing && doc.errors && doc.errors.length) throw new Error("parse");
+    const touched = applyProfilePatchDoc(doc, patch || {}, effective);
+    if (!touched.length) return { ok: false, error: "nothing actionable in that change (or no default base to seed from yet — try again in a minute)" };
+    out = String(doc);
+    const check = yamlParse(out);                 // never commit something that won't parse
+    if (!check || typeof check !== "object") throw new Error("invalid");
+    const cw = check.scoring && check.scoring.category_weights;
+    if (cw && (typeof cw !== "object" || Object.values(cw).some((v) => typeof v !== "number" || !isFinite(v)))) throw new Error("bad weights");
+    const co = check.home && check.home.coords;
+    if (co && (!Array.isArray(co) || co.length !== 2 || co.some((v) => typeof v !== "number" || !isFinite(v)))) throw new Error("bad coords");
+  } catch { return { ok: false, error: "edit produced invalid YAML; nothing changed" }; }
+
+  const msg = `profile(${prof.name}): ${(patch.summary || "self-edit").slice(0, 72)}\n\nMechanism self-edit via the dashboard concierge.`;
+  const ok = await ghPutFile(env, path, out, existing ? existing.sha : undefined, msg);
   return ok ? { ok: true, summary: patch.summary || "updated", note: "committed; the feed rebuilds via CI in ~1–2 min" } : { ok: false, error: "commit failed" };
 }
 

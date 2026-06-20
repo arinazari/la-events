@@ -1264,7 +1264,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (!res.ok) { this.setState({ backendStatus: 'err' }); throw new Error('backend ' + res.status); }
     this.setState({ backendStatus: 'ok' });
     const data = await res.json();
-    this._lastTasteChanged = !!(data && data.taste_changed);   // worker committed a taste edit -> CI re-ranks
+    this._lastTasteChanged = !!(data && (data.taste_changed || data.profile_changed));   // worker committed a taste/profile edit -> CI re-ranks
     const reply = data && (data.reply || (Array.isArray(data.content) && data.content.map(b => b && b.text).filter(Boolean).join('\n')));
     if (!reply) throw new Error('empty');
     return reply;
