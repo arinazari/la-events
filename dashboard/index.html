@@ -261,7 +261,7 @@
                 </div>
               </sc-if>
             </th>
-            <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:140px;"><span onClick="{{ sortRank }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span><span style="color:#d2d0c7;"> · </span><span onClick="{{ sortScore }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SCORE <span style="color:#2b5cd9;">{{ arrowScore }}</span></span></th>
+            <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:140px;"><span onClick="{{ sortRank }}" style="cursor:pointer; color: {{ rankHeadColor }};" style-hover="color:#2b5cd9;">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span><span style="color:#d2d0c7;"> · </span><span onClick="{{ sortScore }}" style="cursor:pointer; color: {{ scoreHeadColor }};" style-hover="color:#2b5cd9;">SCORE <span style="color:#2b5cd9;">{{ arrowScore }}</span></span></th>
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:104px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
                 <span onClick="{{ sortSource }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></span>
@@ -312,7 +312,7 @@
                 <div style="display:flex; align-items:center; gap:10px;">
                   <span title="{{ ev.rankTitle }}" style="display:inline-flex; align-items:baseline; justify-content:flex-end; gap:1px; min-width:26px;">
                     <sc-if value="{{ ev.hasRank }}" hint-placeholder-val="{{ true }}"><span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#c2c0b6;">#</span></sc-if>
-                    <span style="font: 500 16px/1 ui-monospace,Menlo,monospace; letter-spacing:-0.02em; color: {{ ev.rankColor }};">{{ ev.rankNum }}</span>
+                    <span style="font: 500 15px/1 ui-monospace,Menlo,monospace; letter-spacing:-0.02em; color: {{ ev.rankColor }};">{{ ev.rankNum }}</span>
                   </span>
                   <span style="width:1px; height:16px; background:#e2e0d8;"></span>
                   <div style="display:flex; align-items:center; gap:6px;">
@@ -2059,7 +2059,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       sortHood: () => this.setSort('hood'), sortCat: () => this.setSort('cat'),
       sortScore: () => this.setSort('score'), sortRank: () => this.setSort('rank'), sortSource: () => this.setSort('source'),
       arrowDate: arrow('date'), arrowTitle: arrow('title'), arrowHood: arrow('hood'),
-      arrowCat: arrow('cat'), arrowScore: arrow('score'), arrowRank: arrow('rank'), arrowSource: arrow('source')
+      arrowCat: arrow('cat'), arrowScore: arrow('score'), arrowRank: arrow('rank'), arrowSource: arrow('source'),
+      rankHeadColor: sortKey === 'rank' ? '#2b5cd9' : '#76746b', scoreHeadColor: sortKey === 'score' ? '#2b5cd9' : '#76746b'
     };
   }
 }
