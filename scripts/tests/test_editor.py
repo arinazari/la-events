@@ -111,6 +111,60 @@ def test_prune_verdicts_drops_orphans():
     assert ED.event_key(live) in cache["verdicts"] and ED.event_key(gone) not in cache["verdicts"]
 
 
+AFF = {"source": "spotify+feedback",
+       "artists": {"antal": {"name": "Antal", "weight": 3.4, "tier": "core", "sources": ["top_long"]},
+                   "hunee": {"name": "Hunee", "weight": 2.0, "tier": "strong", "sources": ["followed"]}},
+       "genres": {"deep house": 1.0, "disco": 0.72, "techno": 0.3}}
+
+
+def test_affinity_hint_matches_lineup_and_genre():
+    ev = {"title": "Deep House Rooftop", "lineup": ["Antal", "DJ Nobody"],
+          "tags": {"genre": ["deep-house"]}}
+    h = ED.affinity_hint(ev, AFF)
+    assert [a["name"] for a in h["artists"]] == ["Antal"]      # Antal billed, Hunee not
+    assert h["artists"][0]["tier"] == "core"
+    assert "deep house" in h["genres"]                         # high-affinity genre in the title
+    assert ED.affinity_hint({"title": "Generic Night", "lineup": []}, AFF) is None
+    assert ED.affinity_hint(ev, None) is None                  # no affinity -> no hint
+
+
+def test_affinity_summary_ranks_by_weight():
+    s = ED.affinity_summary(AFF)
+    assert s["source"] == "spotify+feedback"
+    assert [a["name"] for a in s["top_artists"]] == ["Antal", "Hunee"]   # weight desc
+    assert s["top_genres"][0] == "deep house"                            # artifact pre-sorted
+    assert ED.affinity_summary(None) is None
+
+
+def test_pool_doc_carries_affinity_and_summary():
+    ev = {"title": "Antal All Night", "date": "2026-07-04", "venue": "Warehouse",
+          "lineup": ["Antal"], "score": 9, "iso_date": "2026-07-04",
+          "tags": {"type": "club", "vibe": ["afterhours"], "genre": []}}
+    doc = ED.pool_doc([ev], today=date(2026, 7, 4), window_days=28, per_lane=4, floor=4, affinity=AFF)
+    assert doc["profile_affinity"]["top_artists"][0]["name"] == "Antal"
+    rec = doc["events"][0]
+    assert rec["id"] == ED.event_key(ev) and rec["lane"] == "club:afters"
+    assert rec["affinity"]["artists"][0]["name"] == "Antal"
+
+
+def test_verdict_store_round_trip(tmp=None):
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        p = Path(d) / "p.json"
+        cache = {"verdicts": {}}
+        ED.update_verdicts(cache, [{"id": "k1", "tier": "great", "adjust": 2}], scores={"k1": 6})
+        ED.save_verdicts(cache, p)
+        back = ED.load_verdicts(p)
+        assert back["verdicts"]["k1"]["tier"] == "great"
+        assert ED.load_verdicts(Path(d) / "missing.json") == {"verdicts": {}}   # absent -> empty
+
+
+def test_verdict_path_per_profile():
+    assert ED.verdict_path("abc123").name == "abc123.json"
+    assert ED.verdict_path().name == "default.json"
+    assert ED.verdict_path("abc123").parent.name == "verdicts"
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

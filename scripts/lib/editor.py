@@ -6,17 +6,18 @@ ranked pool and emits a per-event VERDICT layered on top of the deterministic sc
     {tier: must-see|great|solid|skip, lane?: str, adjust: -3..3, why: str, confidence: low|med|high}
 
 assemble.py folds verdicts onto the slate — `tier` orders, `adjust` de-clusters the lumpy integer
-scores (so the gap-cliff bites) and nudges within a tier, `lane` overrides the deterministic lane
-(the editor catches headliner-draw the tags can't). THIS module is the side-effect-free plumbing:
-which events to judge, the accumulating cache (a daily run judges only the delta), the {key:verdict}
-map the assembler consumes, and contract validation for the LLM output.
+scores (so the gap-cliff bites) and nudges within a tier, `lane` overrides the deterministic lane.
+THIS module is the side-effect-free plumbing: which events to judge, the per-event editor record
+(with the Spotify/feedback affinity surfaced so the LLM can use it), the accumulating cache, the
+{key:verdict} map the assembler consumes, and contract validation for the LLM output.
 
-Shares data/enrichment.json with enrich.py — verdicts under a third top-level key, same event_key:
-
-    { "events": {...}, "artists": {...},
-      "verdicts": { "<key>": { ...verdict, "score_at_judge": int, "judged_at": ISO, "model": str } } }
+PER-PROFILE. A verdict is taste-dependent (Ari's must-see is a friend's skip), so verdicts live in
+their OWN per-profile file — data/verdicts/<profile_hash>.json (default profile: data/verdicts/
+default.json) — NOT in the shared enrichment.json (that's scene facts, which are cross-profile).
 
   editor_pool(scored, per_lane, floor)    -> ranked subset worth judging (PER-LANE, not a flat cut)
+  pool_doc(judge, ..., affinity, profile) -> the editor-pool doc (records + the profile's Spotify lane)
+  verdict_path / load_verdicts / save_verdicts  -> per-profile verdict store I/O
   select_for_verdict(pool, cache, ...)    -> pool minus already-judged (misses / stale / score-drift)
   verdict_map(cache)                      -> {event_key: verdict} for assemble()
   update_verdicts(cache, results, scores) -> fold a judging batch back in (validated)
@@ -24,29 +25,55 @@ Shares data/enrichment.json with enrich.py — verdicts under a third top-level 
   prune_verdicts(cache, catalog)          -> drop verdicts for events gone from the catalog
 """
 
+import json
 from collections import defaultdict
 from datetime import date, datetime
+from pathlib import Path
 
-from .enrich import DEFAULT_CACHE, event_key, load_cache as _load_enrich, save_cache  # noqa: F401
+from .enrich import event_key
 from .assemble import event_lane
+from .affinity import _token_pat
+
+REPO = Path(__file__).resolve().parent.parent.parent
+VERDICTS_DIR = REPO / "data" / "verdicts"
 
 TIERS = ("must-see", "great", "solid", "skip")
 CONFIDENCE = ("low", "med", "high")
 ADJUST_MIN, ADJUST_MAX = -3, 3
 _VERDICT_FIELDS = ("tier", "lane", "adjust", "why", "confidence")
 
-
-def load_cache(path=DEFAULT_CACHE) -> dict:
-    """enrich.load_cache + ensure the `verdicts` key exists (shared cache file)."""
-    c = _load_enrich(path)
-    c.setdefault("verdicts", {})
-    return c
-
-
 # Lanes that never surface in the going-out slate — judged only if they clear the floor, never
 # via per-lane inclusion (keeps the judging set focused on surfaceable events, not market stalls).
 NON_SLATE_LANES = ("other", "workshop", "community", "market")
 
+_RECORD_FIELDS = ("title", "venue", "neighborhood", "date", "start", "category",
+                  "price", "score", "reasons", "tags")
+
+
+# ── Per-profile verdict store ─────────────────────────────────────────────────────────
+
+def verdict_path(profile_hash: str = None) -> Path:
+    """data/verdicts/<hash>.json — the default profile is `default.json`."""
+    return VERDICTS_DIR / f"{profile_hash or 'default'}.json"
+
+
+def load_verdicts(path=None, profile_hash: str = None) -> dict:
+    """Load a profile's verdict cache: {"verdicts": {key: verdict}} (empty if absent)."""
+    p = Path(path) if path else verdict_path(profile_hash)
+    if p.exists():
+        c = json.loads(p.read_text())
+        c.setdefault("verdicts", {})
+        return c
+    return {"verdicts": {}}
+
+
+def save_verdicts(cache: dict, path=None, profile_hash: str = None) -> None:
+    p = Path(path) if path else verdict_path(profile_hash)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(cache, indent=2, ensure_ascii=False) + "\n")
+
+
+# ── Selection: who to judge ───────────────────────────────────────────────────────────
 
 def editor_pool(scored: list, per_lane: int = 4, floor: int = 4,
                 skip_lanes=NON_SLATE_LANES) -> list:
@@ -74,6 +101,87 @@ def editor_pool(scored: list, per_lane: int = 4, floor: int = 4,
             picked[event_key(e)] = e
     return list(picked.values())
 
+
+# ── The editor record: deterministic context + Spotify affinity, surfaced for the LLM ──
+
+def affinity_hint(ev: dict, affinity: dict) -> dict:
+    """Per-event Spotify/feedback signal for the editor — which billed artists are in the user's
+    affinity (name + tier + weight) and which high-affinity genres appear. Richer than the capped
+    score reason: lets the editor reason about rotation depth and judge unfamiliar lineups."""
+    if not affinity:
+        return None
+    artists = affinity.get("artists") or {}
+    genres = affinity.get("genres") or {}
+    title = ev.get("title") or ""
+    lineup = ev.get("lineup") or []
+    if not isinstance(lineup, list):
+        lineup = [str(lineup)]
+    name_text = (title + " " + " ".join(str(a) for a in lineup)).lower()
+
+    hit_a = [{"name": info.get("name", key), "tier": info.get("tier"), "weight": info.get("weight")}
+             for key, info in artists.items()
+             if len(key) >= 3 and _token_pat(key).search(name_text)]
+    hit_a.sort(key=lambda a: -(a.get("weight") or 0))
+
+    hay = name_text + " " + " ".join((ev.get("tags") or {}).get("genre") or [])
+    hit_g = [g for g, v in genres.items() if v >= 0.5 and g in hay]
+
+    if not hit_a and not hit_g:
+        return None
+    hint = {}
+    if hit_a:
+        hint["artists"] = hit_a[:6]
+    if hit_g:
+        hint["genres"] = hit_g[:4]
+    return hint
+
+
+def affinity_summary(affinity: dict, n_artists: int = 20, n_genres: int = 12) -> dict:
+    """Profile-level Spotify lane for the editor prompt — the user's top artists/genres, so the
+    editor can weigh an unfamiliar lineup against what they actually listen to."""
+    if not affinity:
+        return None
+    artists = sorted((affinity.get("artists") or {}).values(), key=lambda a: -(a.get("weight") or 0))
+    return {
+        "source": affinity.get("source"),
+        "top_artists": [{"name": a.get("name"), "tier": a.get("tier")} for a in artists[:n_artists]],
+        "top_genres": list((affinity.get("genres") or {}).keys())[:n_genres],  # artifact is pre-sorted
+    }
+
+
+def _record(ev: dict, affinity: dict) -> dict:
+    """Compact event record for the event-editor agent — deterministic score/reasons/tags, the
+    derived lane (overridable by the verdict), and the per-event affinity hint."""
+    rec = {"id": event_key(ev)}
+    for f in _RECORD_FIELDS:
+        rec[f] = ev.get(f)
+    rec["lineup"] = ev.get("lineup") or []
+    rec["lane"] = event_lane(ev)
+    hint = affinity_hint(ev, affinity)
+    if hint:
+        rec["affinity"] = hint
+    return rec
+
+
+def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict = None) -> dict:
+    """Build the editor-pool document run_digest/build_dashboard write for the agent to judge.
+    Includes the profile's Spotify lane (`profile_affinity`) so the editor judges with it."""
+    doc = {
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "today": today.isoformat() if hasattr(today, "isoformat") else today,
+        "window_days": window_days,
+        "per_lane": per_lane,
+        "floor": floor,
+        "count": len(judge),
+        "events": [_record(e, affinity) for e in judge],
+    }
+    summary = affinity_summary(affinity)
+    if summary:
+        doc["profile_affinity"] = summary
+    return doc
+
+
+# ── Verdict cache ─────────────────────────────────────────────────────────────────────
 
 def _stale(hit: dict, ev: dict, refresh_days, today: date) -> bool:
     """Re-judge if the deterministic score moved since the verdict (new lineup, or feedback/

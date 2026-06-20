@@ -41,8 +41,6 @@ from lib import pipeline as P  # noqa: E402
 from lib import feedback as FB  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib.tagging import tag_catalog  # noqa: E402
-from lib.enrich import event_key  # noqa: E402
-from lib.assemble import event_lane  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -59,19 +57,6 @@ FETCHERS = [
     {"name": "Eventbrite", "source": "eventbrite", "script": "fetch_eventbrite.py", "args": []},
     {"name": "DICE", "source": "dice", "script": "fetch_dice.py", "args": []},
 ]
-
-
-def _editor_record(e: dict) -> dict:
-    """Compact event record for the event-editor agent — the deterministic score, reasons, tags,
-    and derived lane go IN so the editor judges with that context (and can override the lane)."""
-    return {
-        "id": event_key(e),
-        "title": e.get("title"), "venue": e.get("venue"), "neighborhood": e.get("neighborhood"),
-        "date": e.get("date"), "start": e.get("start"), "lineup": e.get("lineup") or [],
-        "category": e.get("category"), "price": e.get("price"),
-        "score": e.get("score"), "reasons": e.get("reasons"),
-        "lane": event_lane(e), "tags": e.get("tags"),
-    }
 
 
 def run_fetcher(entry: dict, days: int, tmpdir: str) -> list:
@@ -195,15 +180,8 @@ def main() -> int:
     pool = P.score_pool(catalog, taste, profile, today, window_days=args.editor_window, affinity=affinity)
     pool = [e for e in pool if (e.get("score") or 0) >= 0]          # negatives auto-skip; don't judge
     judge = ED.editor_pool(pool, per_lane=args.editor_per_lane, floor=args.editor_floor)
-    ep_doc = {
-        "generated_at": datetime.now().isoformat(timespec="seconds"),
-        "today": today.isoformat(),
-        "window_days": args.editor_window,
-        "per_lane": args.editor_per_lane,
-        "floor": args.editor_floor,
-        "count": len(judge),
-        "events": [_editor_record(e) for e in judge],
-    }
+    ep_doc = ED.pool_doc(judge, today=today, window_days=args.editor_window,
+                         per_lane=args.editor_per_lane, floor=args.editor_floor, affinity=affinity)
     ep_path.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")
 
     # Run report.

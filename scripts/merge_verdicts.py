@@ -52,26 +52,34 @@ def _score_map(editor_pool_path: Path) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("results", nargs="+", help="event-editor results JSON file(s), or - for stdin")
-    ap.add_argument("--cache", default="data/enrichment.json", help="shared enrichment/verdict cache")
-    ap.add_argument("--editor-pool", default="data/editor_pool.json", help="source of score_at_judge")
+    ap.add_argument("--profile-hash", default=None,
+                    help="profile to write verdicts for (default profile if omitted)")
+    ap.add_argument("--verdicts", default=None,
+                    help="explicit verdict-store path (overrides --profile-hash default)")
+    ap.add_argument("--editor-pool", default=None,
+                    help="source of score_at_judge (default: data/editor_pool[.<hash>].json)")
     ap.add_argument("--model", default=None, help="stamp which model produced the verdicts")
     args = ap.parse_args()
 
-    results = _load_results(args.results)
-    scores = _score_map(_resolve(args.editor_pool))
-    cache_path = _resolve(args.cache)
+    h = args.profile_hash
+    verdicts_path = _resolve(args.verdicts) if args.verdicts else ED.verdict_path(h)
+    pool_path = _resolve(args.editor_pool) if args.editor_pool else \
+        _resolve(f"data/editor_pool.{h}.json" if h else "data/editor_pool.json")
 
-    cache = ED.load_cache(cache_path)
+    results = _load_results(args.results)
+    scores = _score_map(pool_path)
+
+    cache = ED.load_verdicts(verdicts_path)
     before = len(cache.get("verdicts") or {})
     ED.update_verdicts(cache, results, scores=scores, model=args.model)
-    ED.save_cache(cache, cache_path)
+    ED.save_verdicts(cache, verdicts_path)
     after = len(cache.get("verdicts") or {})
 
     kept = sum(1 for r in results if ED.validate_verdict(r) is not None and r.get("id"))
     try:
-        shown = cache_path.relative_to(REPO)
+        shown = verdicts_path.relative_to(REPO)
     except ValueError:
-        shown = cache_path
+        shown = verdicts_path
     print(f"merge_verdicts: {len(results)} results ({kept} valid) -> "
           f"verdicts {before} -> {after} ({shown})")
     return 0
