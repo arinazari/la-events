@@ -176,78 +176,6 @@
             <span onClick="{{ clearSearch }}" title="Clear" style="flex:none; cursor:pointer; color:#a7a59b; font-weight:700; font-size:12px;" style-hover="color:#161512;">×</span>
           </sc-if>
         </span>
-        <span style="position:relative;">
-          <span onClick="{{ toggleSettings }}" title="{{ settingsTitle }}" style="cursor:pointer; display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #d2d0c7; background:#fff; border-radius:2px; color:#76746b; font-size:15px; line-height:1;" style-hover="border-color:#161512; color:#161512;"><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}"><span style="display:inline-block; width:14px; height:14px; border:2px dotted currentColor; border-radius:50%;"></span></sc-if>{{ settingsIcon }}</span>
-          <sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
-            <span onClick="{{ closeSettings }}" style="position:fixed; inset:0; z-index:60;"></span>
-            <div style="position:absolute; top:37px; right:0; z-index:61; width:256px; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:12px;">
-              <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:10px;">SETTINGS</div>
-              <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">
-                <div onClick="{{ setClaudeKey }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">◈</span>
-                  <span style="flex:1;">
-                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Claude API key</span>
-                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ claudeKeyState }}</span>
-                  </span>
-                </div>
-                <div onClick="{{ spotifyAction }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#1f9d57; font-size:13px; transform:translateY(1px);">◉</span>
-                  <span style="flex:1;">
-                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Spotify</span>
-                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ spotifySettingsText }}</span>
-                  </span>
-                </div>
-                <div onClick="{{ openTasteModal }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">☰</span>
-                  <span style="flex:1;">
-                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">View taste profile</span>
-                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">your ranking config (read-only)</span>
-                  </span>
-                </div>
-                <div onClick="{{ logoutFromSettings }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">⊖</span>
-                  <span style="flex:1;">
-                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log out</span>
-                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">signed in as {{ profileName }}</span>
-                  </span>
-                </div>
-              </sc-if>
-              <sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">
-                <sc-if value="{{ loginClosed }}" hint-placeholder-val="{{ true }}">
-                  <div onClick="{{ openLoginFromSettings }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
-                    <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">→</span>
-                    <span style="flex:1;">
-                      <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</span>
-                      <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">load your taste profile + digest</span>
-                    </span>
-                  </div>
-                </sc-if>
-                <sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}">
-                  <div style="padding:1px 2px 2px;">
-                    <div style="font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</div>
-                    <div style="margin-top:3px; font:500 10px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">Type your username to load your taste profile + digest.</div>
-                    <input value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="username" style="margin-top:8px; width:100%; box-sizing:border-box; font:400 12px/1.4 -apple-system,system-ui,sans-serif; padding:8px 9px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none;" style-focus="border-color:#2b5cd9;" />
-                    <sc-if value="{{ profileError }}" hint-placeholder-val="{{ false }}">
-                      <div style="margin-top:6px; font-size:11px; color:#b4453a;">{{ profileError }}</div>
-                    </sc-if>
-                    <div style="display:flex; gap:6px; margin-top:9px; justify-content:flex-end;">
-                      <button onClick="{{ cancelLogin }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;">Cancel</button>
-                      <button onClick="{{ submitProfile }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 14px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; cursor:pointer;">{{ profileBtnLabel }}</button>
-                    </div>
-                  </div>
-                </sc-if>
-              </sc-if>
-              <div style="margin-top:10px; padding-top:9px; border-top:1px solid #eceae2; display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">DATA</span>
-                <span style="font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ dataSourceLabel }}</span>
-              </div>
-              <div style="margin-top:7px; display:flex; flex-direction:column; gap:3px;">
-                <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last data pull</span><span style="color:#76746b;">{{ lastDataPull }}</span></div>
-                <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last site update</span><span style="color:#76746b;">{{ lastSiteUpdate }}</span></div>
-              </div>
-            </div>
-          </sc-if>
-        </span>
       </div>
     </header>
 
@@ -435,6 +363,78 @@
         <sc-if value="{{ anyActive }}" hint-placeholder-val="{{ false }}">
           <span onClick="{{ onReset }}" style="cursor:pointer; color:#76746b; text-decoration:underline; text-underline-offset:2px;" style-hover="color:#161512;">reset · show all</span>
         </sc-if>
+        <span style="position:relative; display:inline-flex;">
+          <span onClick="{{ toggleSettings }}" title="{{ settingsTitle }}" style="cursor:pointer; display:inline-flex; align-items:center; justify-content:center; width:27px; height:23px; border:1px solid #d2d0c7; background:#fff; border-radius:2px; color:#76746b;" style-hover="border-color:#161512; color:#161512;"><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2376746b'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M21%202l-2%202m-7.61%207.61a5.5%205.5%200%201%201-7.778%207.778%205.5%205.5%200%200%201%207.778-7.778zm0%200L15.5%207.5m0%200l3%203L22%207l-3-3m-3.5%203.5L19%204'/%3E%3C/svg%3E" width="14" height="14" alt="" style="display:block;" style-hover="filter:brightness(0.4);" /></sc-if><sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px; line-height:1;">☰</span></sc-if></span>
+          <sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ closeSettings }}" style="position:fixed; inset:0; z-index:60;"></span>
+            <div style="position:absolute; bottom:calc(100% + 7px); right:0; z-index:61; width:256px; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:12px;">
+              <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:10px;">SETTINGS</div>
+              <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">
+                <div onClick="{{ setClaudeKey }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
+                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">◈</span>
+                  <span style="flex:1;">
+                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Claude API key</span>
+                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ claudeKeyState }}</span>
+                  </span>
+                </div>
+                <div onClick="{{ spotifyAction }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
+                  <span style="flex:none; color:#1f9d57; font-size:13px; transform:translateY(1px);">◉</span>
+                  <span style="flex:1;">
+                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Spotify</span>
+                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ spotifySettingsText }}</span>
+                  </span>
+                </div>
+                <div onClick="{{ openTasteModal }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
+                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">▦</span>
+                  <span style="flex:1;">
+                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">View taste profile</span>
+                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">your ranking config (read-only)</span>
+                  </span>
+                </div>
+                <div onClick="{{ logoutFromSettings }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
+                  <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">⊖</span>
+                  <span style="flex:1;">
+                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log out</span>
+                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">signed in as {{ profileName }}</span>
+                  </span>
+                </div>
+              </sc-if>
+              <sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">
+                <sc-if value="{{ loginClosed }}" hint-placeholder-val="{{ true }}">
+                  <div onClick="{{ openLoginFromSettings }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
+                    <span style="flex:none; color:#3f3d36; font-size:13px; transform:translateY(1px);">→</span>
+                    <span style="flex:1;">
+                      <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</span>
+                      <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">load your taste profile + digest</span>
+                    </span>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:1px 2px 2px;">
+                    <div style="font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</div>
+                    <div style="margin-top:3px; font:500 10px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">Type your username to load your taste profile + digest.</div>
+                    <input value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="username" style="margin-top:8px; width:100%; box-sizing:border-box; font:400 12px/1.4 -apple-system,system-ui,sans-serif; padding:8px 9px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none;" style-focus="border-color:#2b5cd9;" />
+                    <sc-if value="{{ profileError }}" hint-placeholder-val="{{ false }}">
+                      <div style="margin-top:6px; font-size:11px; color:#b4453a;">{{ profileError }}</div>
+                    </sc-if>
+                    <div style="display:flex; gap:6px; margin-top:9px; justify-content:flex-end;">
+                      <button onClick="{{ cancelLogin }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;">Cancel</button>
+                      <button onClick="{{ submitProfile }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 14px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; cursor:pointer;">{{ profileBtnLabel }}</button>
+                    </div>
+                  </div>
+                </sc-if>
+              </sc-if>
+              <div style="margin-top:10px; padding-top:9px; border-top:1px solid #eceae2; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">DATA</span>
+                <span style="font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ dataSourceLabel }}</span>
+              </div>
+              <div style="margin-top:7px; display:flex; flex-direction:column; gap:3px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last data pull</span><span style="color:#76746b;">{{ lastDataPull }}</span></div>
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last site update</span><span style="color:#76746b;">{{ lastSiteUpdate }}</span></div>
+              </div>
+            </div>
+          </sc-if>
+        </span>
       </span>
     </footer>
 
@@ -2030,7 +2030,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       emailTogBg: this.state.digestEmailOpen ? '#eaf0fe' : '#fff',
       emailTogColor: this.state.digestEmailOpen ? '#161512' : '#3f3d36',
       settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, closeSettings: this.closeSettings,
-      settingsIcon: loggedOut ? '' : '⚙', settingsTitle: loggedOut ? 'Log in' : 'Settings',
+      settingsTitle: loggedOut ? 'Log in' : 'Settings',
       loginOpen: this.state.loginOpen, loginClosed: !this.state.loginOpen, cancelLogin: this.cancelLogin,
       loggedOut, lastDataPull, lastSiteUpdate, claudeKeyState,
       setClaudeKey: this.setClaudeKey,
