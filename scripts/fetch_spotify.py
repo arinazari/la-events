@@ -132,6 +132,9 @@ def main() -> int:
                     help="one-time OAuth helper to mint a refresh token")
     ap.add_argument("--code", help="authorization code from the redirect (use with --authorize)")
     ap.add_argument("--redirect", help=f"OAuth redirect URI (default {DEFAULT_REDIRECT})")
+    ap.add_argument("--refresh-token",
+                    help="use THIS refresh token instead of $SPOTIFY_REFRESH_TOKEN (e.g. syncing a "
+                         "friend's per-profile affinity to a data/spotify/<hash>.json path).")
     args = ap.parse_args()
 
     cid, secret = os.environ.get("SPOTIFY_CLIENT_ID"), os.environ.get("SPOTIFY_CLIENT_SECRET")
@@ -148,7 +151,7 @@ def main() -> int:
             print(f"ERROR: token exchange failed: {e.code} {body}", file=sys.stderr)
             return 1
 
-    refresh_token = os.environ.get("SPOTIFY_REFRESH_TOKEN")
+    refresh_token = args.refresh_token or os.environ.get("SPOTIFY_REFRESH_TOKEN")
     if not refresh_token:
         print("SKIP: set SPOTIFY_REFRESH_TOKEN (run `--authorize` once to mint it).", file=sys.stderr)
         return 0
