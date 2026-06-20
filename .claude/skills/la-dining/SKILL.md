@@ -224,6 +224,13 @@ Array of records. Restaurants are persistent; popups/trucks carry a `popup` bloc
     { "source": "eater", "type": "heatmap | review | best_of | hit_list | star | bib | new_opening",
       "label": "Eater Heatmap — Hottest New Restaurants", "url": "https://…", "date": "2026-06-01" }
   ],
+  "enrichment": {
+    "why_fits": "one-line insider gloss anchored to Ari's palate (the 'why' you'd say to a friend)",
+    "vibe": ["patio", "intimate", "counter", "lively", "date-night"],
+    "signature": ["known-for dish(es) — only if you're confident; omit otherwise"],
+    "pairs_with": "the kind of night/show it sets up (the night-planner's cross-domain hook)",
+    "by": "claude", "confidence": "high | med | low", "enriched_at": "2026-06-19"
+  },
   "popup": {
     "date": "2026-06-20", "start": "18:00", "end": null,
     "location_tba": false, "host_venue": "…", "rsvp_url": "https://…"
@@ -236,6 +243,13 @@ Array of records. Restaurants are persistent; popups/trucks carry a `popup` bloc
 
 Omit `popup` for standing restaurants. Score = signal strength (count × recency × prestige)
 + taste/occasion/location fit from `dining-taste.yaml`.
+
+**`enrichment`** is the dining analog of the events scene-graph: a short, taste-anchored insider
+gloss so the query *and* the night-planner present a pick with real context, not just a signal
+badge. Write it when you research a restaurant (query/radar/capture) — `verify-or-omit` on
+specifics (chef, dishes): a `signature` you're unsure of stays out (better silent than wrong).
+`pairs_with` is what the night-planner reads to slot dinner into the night. Restaurants are
+persistent, so the gloss lives **inline** on the record (no separate cache) and is reused every run.
 
 ## Dedupe
 
