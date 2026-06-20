@@ -10,9 +10,10 @@
  *   1. CHAT (always): answer / recommend / plan, grounded on the feed. If `profile` (a feed
  *      hash) is sent, it grounds on THAT profile's feed (data.<hash>.json) — the friend's taste.
  *   2. TASTE SELF-EDIT (only when a profile is attached AND GITHUB_TOKEN is configured): when the
- *      logged-in friend expresses a lasting preference change ("more techno, less comedy", "track
- *      Peggy Gou"), the model calls the `propose_taste_change` tool; the Worker applies a
- *      structured patch to that profile's profiles/<name>/taste.yaml and COMMITS it. CI then
+ *      logged-in person expresses a lasting preference change ("more techno, less comedy", "track
+ *      Peggy Gou"), the model calls the `propose_taste_change` tool; the Worker applies a structured
+ *      patch to that profile's taste file (a friend's profiles/<name>/taste.yaml, or the root
+ *      taste.yaml for the `owner: true` profile) and COMMITS it. CI then
  *      rebuilds the feed (scripts/build_profiles.py — the same deterministic scorer the digest
  *      uses, so the ranking can't drift) and redeploys. The reply tells them to refresh shortly.
  *
@@ -207,7 +208,7 @@ const TASTE_TOOL = {
 };
 
 /* Build the system prompt: the concierge persona + a compact, grounded snapshot of the feed. */
-function buildSystem(feed, opts = {}) {
+export function buildSystem(feed, opts = {}) {
   const today = new Date().toISOString().slice(0, 10);
   const persona = [
     "You are Ari's personal LA going-out concierge — a knowledgeable insider with strong taste,",
@@ -227,21 +228,36 @@ function buildSystem(feed, opts = {}) {
   if (opts.canEditTaste) {
     persona.push(
       "",
-      "TASTE EDITING: this person can tune their own taste. When they express a lasting preference",
-      "change (not a one-off query), call propose_taste_change with just the fields that change.",
-      "After it succeeds, confirm in one line and tell them their feed re-ranks in about a minute —",
-      "they should refresh (the ↻ button) to see it. If it fails, say so plainly; don't pretend."
+      "TASTE EDITING: this person can tune their own taste. Their full saved taste profile is shown",
+      "below (TASTE PROFILE) — read it to answer 'what's in my taste?' and quote its exact wording",
+      "when removing an entry. When they express a lasting preference change (not a one-off query),",
+      "call propose_taste_change with just the fields that change. After it succeeds, confirm in one",
+      "line and tell them their feed re-ranks in about a minute — they should refresh (the ↻ button)",
+      "to see it. If it fails, say so plainly; don't pretend."
     );
   }
   const personaText = persona.filter((l) => l !== null && l !== undefined).join("\n");
 
   if (!feed) return personaText + "\n\n(DATA unavailable this request — answer from the conversation, and say your catalog access is temporarily down.)";
 
-  const taste = feed.taste || (feed.config && feed.config.taste) || {};
-  const tasteLine = [
-    taste.venues_loved && taste.venues_loved.length ? "Loved venues: " + taste.venues_loved.join(", ") : null,
-    taste.artists_tracked && taste.artists_tracked.length ? "Tracked artists: " + taste.artists_tracked.slice(0, 30).join(", ") : null,
-  ].filter(Boolean).join(" | ");
+  // Ground on the FULL taste profile, preferring the complete structured snapshot (config.taste)
+  // over the thin feed.taste (which is only venues + artists). Without the whole profile the
+  // concierge can neither answer "what's in my taste?" nor edit existing entries precisely
+  // (remove_lines needs the exact wording, which it can only know by seeing it here).
+  const taste = (feed.config && feed.config.taste) || feed.taste || {};
+  const cats = taste.categories || {};
+  const clean = (xs, n = 50) =>
+    (Array.isArray(xs) ? xs : []).slice(0, n).map((s) => String(s).replace(/\s+/g, " ").trim()).filter(Boolean);
+  const tasteBlock = [
+    cats.high && cats.high.length ? "Loves (rank high): " + clean(cats.high).join("; ") : null,
+    cats.medium && cats.medium.length ? "Likes: " + clean(cats.medium).join("; ") : null,
+    cats.low && cats.low.length ? "Only if exceptional: " + clean(cats.low).join("; ") : null,
+    taste.boosts && taste.boosts.length ? "Boosts: " + clean(taste.boosts).join("; ") : null,
+    taste.penalties && taste.penalties.length ? "Down-ranks: " + clean(taste.penalties).join("; ") : null,
+    taste.artists_tracked && taste.artists_tracked.length ? "Tracked artists: " + clean(taste.artists_tracked, 80).join(", ") : null,
+    taste.comedians_loved && taste.comedians_loved.length ? "Comedians to surface: " + clean(taste.comedians_loved).join(", ") : null,
+    taste.venues_loved && taste.venues_loved.length ? "Loved venues: " + clean(taste.venues_loved).join(", ") : null,
+  ].filter(Boolean).join("\n");
 
   const dining = (feed.dining || []).map((r) =>
     `- ${r.name} — ${r.neighborhood || "LA"}${r.price ? " · " + r.price : ""}` +
@@ -264,7 +280,11 @@ function buildSystem(feed, opts = {}) {
   return [
     personaText,
     "",
-    tasteLine ? "TASTE: " + tasteLine : "",
+    tasteBlock
+      ? "TASTE PROFILE (the saved profile — rank everything against this" +
+        (opts.canEditTaste ? "; it's also what propose_taste_change edits, so quote its exact wording when removing an entry" : "") +
+        "):\n" + tasteBlock
+      : "",
     "",
     `RESTAURANTS (la-dining, ${(feed.dining || []).length}):`,
     dining || "(none)",
