@@ -50,6 +50,10 @@ the **anchor**; otherwise the top on-taste candidate on that date is the anchor.
   for a normal night prefer value ($$–$$$, Bib Gourmand) over $$$$ and stay near his date budget
   (~$150 for two); reach higher only when the spec says "special / birthday / no budget." Time
   dinner to land before the show's doors/set (≈90 min at table for a sit-down, ~60 for counter/casual).
+  When a candidate carries an `enrichment` block, lean on it: `why_fits` is the dinner gloss to
+  write, `signature` a concrete dish to name, and `pairs_with` a sanity-check that it suits *this*
+  night (e.g. a "Westside afternoon" spot is wrong before an eastside 10pm show). No enrichment →
+  gloss from the signals/notes yourself.
 - **Show** = the anchor, with its artist gloss (who they are, why on-taste) and ticket link(s)
   (keep every link the record carries — DICE vs TM fees differ).
 - **Afters** = a late / warehouse / listening-bar option after the show **only if** on-taste and

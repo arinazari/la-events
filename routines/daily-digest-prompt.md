@@ -30,7 +30,10 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
 3. **Enrich:** fan out the `scene-researcher` agent over the cache-miss candidates
    (`enrich.select_for_enrichment`) → per-event tags, artist notes, curator's notes, descriptions,
    and images for the `image_wanted` picks → folded into `data/enrichment.json` (recurring artists
-   reuse the cache; verify-or-omit).
+   reuse the cache; verify-or-omit). Then **prune**: `python scripts/prune_enrichment.py` drops
+   enrichment entries for events that have since expired (cache hygiene — artist bios are kept,
+   they're the durable scene knowledge). Optional periodic refresh: pass `refresh_days` to
+   `select_for_enrichment` to re-research entries older than N days (default: write-once, no cost).
 4. **Cache images:** `python scripts/cache_images.py` — downloads the hero images into
    `data/images/` so committed/hosted digests don't hotlink-rot. Idempotent.
 5. **Render per weekend:** for each of the next ~16 weekends (Fri–Sun; Thursday-night events fold

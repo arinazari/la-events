@@ -38,7 +38,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.config import load_yaml  # noqa: E402
 from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
-from lib.enrich import load_cache, event_key  # noqa: E402
+from lib.enrich import load_cache, merge_enrichment  # noqa: E402
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
@@ -168,10 +168,10 @@ def main() -> int:
     # Graceful: absent/corrupt -> taste.yaml-only scoring.
     affinity = merged_affinity(REPO, profile)
 
-    # Scene-researcher enrichment cache (Phase B) — fold the accumulated curator notes /
-    # tags / artist notes / images onto matching events. Graceful: no file -> {} -> no-op.
+    # Scene-researcher enrichment cache (Phase B) — fold the accumulated curator notes / tags /
+    # artist notes / images onto matching events, AND cached artist bios onto ANY event that lists
+    # those artists (parity with the digest's merge_enrichment). Graceful: no file -> no-op.
     cache = load_cache(enrichment_path)
-    enriched_events = cache.get("events") or {}
 
     is_sample = "sample" in catalog_path.name
     today = date.today()
@@ -188,9 +188,10 @@ def main() -> int:
         out["iso_date"] = d.isoformat() if d else None
         out["is_past"] = bool(d and d < today)
 
-        hit = enriched_events.get(event_key(ev)) if enriched_events else None
-        if hit:
-            out["enrichment"] = {k: hit[k] for k in ENRICH_FIELDS if hit.get(k)}
+        [merged] = merge_enrichment([ev], cache)
+        enr = merged.get("enrichment")
+        if enr:
+            out["enrichment"] = {k: enr[k] for k in ENRICH_FIELDS if enr.get(k)}
             enriched_hits += 1
 
         events.append(out)
