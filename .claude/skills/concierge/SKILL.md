@@ -61,7 +61,7 @@ conversation.)
 
 | Ari's ask | Route to | How |
 |---|---|---|
-| "plan my Saturday night," "dinner then the [show]," "make a night of it," any **food + event + timing** ask | **`night-planner` agent** | Spawn it with the night spec (date, area, vibe, party size, budget, anchor). It fuses both catalogs + travel. The hero path. |
+| "plan my Saturday night," "dinner then the [show]," "make a night of it," any **food + event + timing** ask | **`night-planner` agent** | Spawn it with the night spec (date, area, vibe, party size, budget, anchor). It fuses both catalogs + travel. The hero path. Then **offer a calendar `.ics`** (`scripts/make_ics.py`) and deliver the file. |
 | "what's on this weekend," "any good shows/raves/film," "events digest," `/la-events` | **la-events — Digest** | Hand off the window + any constraints (genre, area, "no techno"). |
 | "where should I eat," "dinner spot Friday," "best new restaurant," `/la-dining` | **la-dining — Query** | Hand off occasion / area / party size / price. |
 | "what's trending in dining," "new openings" | **la-dining — Radar** | Trending digest, not occasion-specific. |
@@ -104,5 +104,6 @@ fill a gap, "set a Resy Notify," an alt show). A great two-stop night beats a fo
 - `data/feedback.jsonl` — the append-only reaction log; folds into affinity each run.
 - `.claude/skills/la-events/SKILL.md`, `.claude/skills/la-dining/SKILL.md` — the modes you route to.
 - `.claude/agents/night-planner.md` — the cross-domain itinerary agent (spawn for plan asks).
+- `scripts/make_ics.py` — turn a plan into a calendar `.ics` (offer after an itinerary; deliver the file).
 - `.claude/agents/source-scout.md` — discovery agent (spawn for "find sources").
 - `data/catalog.json`, `data/dining.json` — the stores the modes/agents read.

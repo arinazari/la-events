@@ -83,6 +83,16 @@ the restaurant. Show the hop between stops briefly ("→ 12 min drive"). End wit
 **backup** (an easier table or an alt show). Conversational, opinionated, brief. Dates `Day M/D`,
 no leading zeros. Preserve "location TBA — drops day-of" exactly.
 
+### Calendar export (offer it)
+After the itinerary, offer to put the night on the calendar — write an `.ics` (one VEVENT per
+stop, LA-local, contiguous times inferred so dinner runs until doors):
+```
+python scripts/make_ics.py --date <YYYY-MM-DD> --calname "<night>" --out <path>.ics \
+  --stops-json '[{"summary":"Dinner — <name>","start":"19:30","location":"<venue, hood>","url":"<booking>","description":"<gloss>"}, …]'
+```
+Name the file path in your reply so the concierge can hand the `.ics` to Ari (the agent writes it;
+the concierge delivers it).
+
 ## Conventions
 - Taste-first — don't pad the night with mediocre stops to fill time; a great two-stop night beats
   a forced three-stop one.
