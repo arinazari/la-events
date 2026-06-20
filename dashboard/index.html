@@ -374,6 +374,7 @@
                         <sc-for list="{{ ev.links }}" as="lk">
                           <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:2px; text-decoration:none; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="background:#e9f0fd; border-color:#234bb3; color:#234bb3;">{{ lk.label }} ↗</a>
                         </sc-for>
+                        <span onClick="{{ ev.icsClick }}" title="Download .ics — add to your calendar" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#2b5cd9; background:#f4f7fe; color:#2b5cd9;">Add to calendar ↓</span>
                       </div>
                     </div>
                   </div>
@@ -686,6 +687,80 @@ class Component extends DCLogic {
     if (!out.length && e.url) out.push({ label: 'Tickets', url: e.url, stop });
     return out;
   }
+
+  // ---------- ICS export (RFC 5545) ----------
+  // One-click "add to calendar" for a single event. Times are written as floating local
+  // time (no Z) so calendar apps read them as LA-local. Self-contained re-port of the prior
+  // dashboard/js/ics.js (regressed in the front-end swap), adapted to the current event schema.
+  icsEscape(s) {
+    return String(s == null ? '' : s).replace(/\\/g, '\\\\').replace(/;/g, '\\;')
+      .replace(/,/g, '\\,').replace(/\r?\n/g, '\\n');
+  }
+  icsFold(line) {  // RFC 5545 §3.1: fold lines longer than 75 octets
+    if (line.length <= 75) return line;
+    let out = line.slice(0, 75), rest = line.slice(75);
+    while (rest.length > 74) { out += '\r\n ' + rest.slice(0, 74); rest = rest.slice(74); }
+    return out + '\r\n ' + rest;
+  }
+  icsStamp(iso, time, addHours) {  // local floating timestamp, +addHours
+    const p = n => String(n).padStart(2, '0');
+    const [y, m, d] = iso.split('-').map(Number);
+    let hh = 19, mm = 0;  // default to 7pm if the event has no usable time
+    if (time && /^\d{1,2}:\d{2}/.test(time)) { const [h, mn] = time.split(':').map(Number); hh = h; mm = mn; }
+    const dt = new Date(y, m - 1, d, hh + (addHours || 0), mm);
+    return dt.getFullYear() + p(dt.getMonth() + 1) + p(dt.getDate()) + 'T' + p(dt.getHours()) + p(dt.getMinutes()) + '00';
+  }
+  buildICS(e) {
+    const p = n => String(n).padStart(2, '0');
+    const now = new Date();
+    const stamp = now.getUTCFullYear() + p(now.getUTCMonth() + 1) + p(now.getUTCDate())
+      + 'T' + p(now.getUTCHours()) + p(now.getUTCMinutes()) + p(now.getUTCSeconds()) + 'Z';
+    const uid = (e.title || 'event').replace(/\W+/g, '-').slice(0, 40) + '-' + (e.iso || '') + '@la-events';
+    const loc = [e.venue, e.hood].filter(Boolean).join(', ');
+    const url = (Array.isArray(e.links) && e.links[0] && e.links[0].url) || e.url || '';
+    const hasTime = !!(e.time && /^\d{1,2}:\d{2}/.test(e.time));
+
+    const desc = [];
+    if (Array.isArray(e.lineup) && e.lineup.length) desc.push('Lineup: ' + e.lineup.join(', '));
+    const blurb = e.why || e.detail;
+    if (blurb) desc.push(blurb);
+    const price = this.priceLabel(e);
+    if (price && price !== '—') desc.push(price);
+    if (typeof e.rating === 'number') desc.push('Recommended for you: ' + e.rating + '/5');
+    if (url) desc.push(url);
+
+    const lines = [
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//la-events//dashboard//EN',
+      'CALSCALE:GREGORIAN', 'BEGIN:VEVENT', 'UID:' + uid, 'DTSTAMP:' + stamp,
+    ];
+    if (e.iso && hasTime) {
+      lines.push('DTSTART:' + this.icsStamp(e.iso, e.time, 0));
+      lines.push('DTEND:' + this.icsStamp(e.iso, e.time, 3));  // assume a 3-hour event
+    } else if (e.iso) {
+      const [y, m, d] = e.iso.split('-').map(Number);
+      const nd = new Date(y, m - 1, d + 1);
+      lines.push('DTSTART;VALUE=DATE:' + e.iso.replace(/-/g, ''));
+      lines.push('DTEND;VALUE=DATE:' + nd.getFullYear() + p(nd.getMonth() + 1) + p(nd.getDate()));
+    }
+    lines.push('SUMMARY:' + this.icsEscape(e.title || 'Event'));
+    if (loc) lines.push('LOCATION:' + this.icsEscape(loc));
+    if (desc.length) lines.push('DESCRIPTION:' + this.icsEscape(desc.join('\n')));
+    if (url) lines.push('URL:' + this.icsEscape(url));
+    lines.push('END:VEVENT', 'END:VCALENDAR');
+    return lines.map(l => this.icsFold(l)).join('\r\n');
+  }
+  downloadICS = (e, domEv) => {
+    if (domEv && domEv.stopPropagation) domEv.stopPropagation();
+    try {
+      const blob = new Blob([this.buildICS(e)], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const name = (e.title || 'event').replace(/[^\w\- ]+/g, '').trim().slice(0, 60) || 'event';
+      const a = document.createElement('a');
+      a.href = url; a.download = name + '.ics';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (err) { /* download blocked — no-op, the ticket links still work */ }
+  };
 
   // ---------- sorting ----------
   setSort = (key) => {
@@ -1687,7 +1762,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       expanded: e.id === expandedId,
       caret: e.id === expandedId ? '\u25be' : '\u25b8',
       rowBg: e.id === expandedId ? '#f3f1ea' : 'transparent',
-      onClick: () => this.toggle(e.id)
+      onClick: () => this.toggle(e.id),
+      icsClick: (domEv) => this.downloadICS(e, domEv)
     }));
 
     const arrow = (k) => sortKey === k ? (sortDir === 'asc' ? '\u2191' : '\u2193') : '';
