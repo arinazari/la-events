@@ -94,8 +94,7 @@
     <header style="flex:none; padding:14px 22px 12px; border-bottom:1px solid #d9d7cf; display:flex; align-items:baseline; justify-content:space-between; gap:16px;">
       <div>
         <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
-          <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ taste-ranked digest</span></span>
-          <span onClick="{{ openDigest }}" style="cursor:pointer; font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.02em; color:#76746b; border-bottom:1px dashed #c2c0b6;" style-hover="color:#161512; border-color:#a7a59b;">{{ digestFile }} ↗</span>
+          <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ curated digest for </span><span onClick="{{ openDigest }}" title="Open this curated digest" style="cursor:pointer; color:#2b5cd9; border-bottom:1px dashed #9db4ee;" style-hover="color:#161512; border-color:#2b5cd9;">{{ digestUser }} <span style="font-size:0.72em; font-weight:600;">↗</span></span></span>
         </div>
         <div style="margin-top:5px; font:500 11px/1.6 ui-monospace,Menlo,monospace; color:#76746b; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
           <span style="display:inline-flex; align-items:center; gap:6px;">
@@ -490,7 +489,7 @@
         <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px; border-bottom:1px solid #e2e0d8;">
           <div style="display:flex; align-items:baseline; gap:9px; min-width:0;">
             <span style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#a7a59b;">DIGEST</span>
-            <span style="font:600 11.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">digests/{{ digestFile }}</span>
+            <span style="font:600 11.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">curated for {{ digestUser }}</span>
           </div>
           <button onClick="{{ closeDigest }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
         </div>
@@ -2084,6 +2083,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const profBg = profileActive ? '#eaf0fe' : 'transparent';
     const profColor = profileActive ? '#2b5cd9' : '#76746b';
     const profDot = profileActive ? '#2b5cd9' : '#a7a59b';
+    // Header / digest subject: the logged-in name, or everyone's shared default when logged out.
+    const digestUser = profileActive ? (profile.name || 'profile') : 'me and my friends';
 
     // Settings roles: admin = the owner profile (ari, owner:true injected into the feed by
     // build_profiles.py); everyone else is a non-admin. Refresh/Discover are admin-only.
@@ -2148,7 +2149,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       openDigest: this.openDigest, closeDigest: this.closeDigest,
       tasteModalOpen: !!this.state.tasteModalOpen,
       openTasteModal: this.openTasteModal, closeTasteModal: this.closeTasteModal,
-      digestFile: this.DIGEST_FILE,
+      digestFile: this.DIGEST_FILE, digestUser,
       filterToDigestPicks: this.filterToDigestPicks,
       digestFilterLabel: digestPicks ? 'table filtered · clear' : 'filter table to picks',
       hasDigestIndex: (this.DIGEST_INDEX || []).length > 0,
