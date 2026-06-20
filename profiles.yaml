@@ -32,3 +32,7 @@ profiles:
   - username: dr_ganesan     # friend profile. NOTE: username is the access key + is guessable here;
     name: Dr. Ganesan        #   swap it for something non-obvious before sharing the feed widely.
     taste: profiles/dr_ganesan/taste.yaml   # starter taste — edit it, then rebuild this profile.
+
+  - username: lori           # friend profile. NOTE: username is the access key + is guessable here;
+    name: Lori               #   swap it for something non-obvious before sharing the feed widely.
+    taste: profiles/lori/taste.yaml         # starter taste — edit it, then rebuild this profile.

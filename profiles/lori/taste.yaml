@@ -1,0 +1,43 @@
+# Taste profile — STARTER for the dashboard profile-switcher (username: lori).
+#
+# This is a neutral, broad LA going-out baseline, NOT a tailored profile yet. It's meant to
+# be edited down to Lori's actual taste — tell Ari/Claude what she's into, or edit this file
+# directly, then rerun:  python scripts/build_profiles.py --only lori
+# Schema mirrors taste.yaml: events accumulate points from category/genre/context matches;
+# the feed sorts by score. Weights noted per block.
+
+categories:
+  high:    # +3
+    - live music in intimate clubs & theaters — indie / rock / soul / funk / jazz
+      (Troubadour, Echo, Lodge Room, Teragram, Zebulon, The Greek)
+    - rep & arthouse cinema (Vidiots, Vista, New Beverly, Cinematheque, Aero)
+    - food & drink — pop-ups, tastings, night markets, notable restaurant events
+  medium:  # +2
+    - standup comedy at clubs and theaters (Largo, Comedy Store, Dynasty Typewriter)
+    - theater & performing arts (black-box through Pantages / Ahmanson scale)
+    - daytime & lifestyle — flea / vintage / design markets, farmers markets, street fairs
+    - melodic / disco / groove house & DJ sets in a relaxed setting (rooftop, listening bar)
+  low:     # +1, only if exceptional
+    - big-room / festival EDM and warehouse techno — only marquee names
+
+boosts:    # +1 each (stack)
+  - intimate / seated / listening-room setting
+  - walkable or short drive (set the home neighborhood in a profile.yaml later)
+  - Friday or Saturday night
+  - independent editorial mention (LAist, Time Out, DiscoverLA)
+  - outdoor / rooftop / sunset setting
+
+penalties: # -2 each
+  - bottle-service / table-service nightclubs
+  - hardstyle / dubstep / bass-music mega-shows
+  - tribute / cover bands and "[decade] night" nostalgia nights
+  - far-flung (OC / SD / Temecula / Ventura) unless genuinely worth the trip
+
+# Match in a lineup => +2 and a "tracked" badge. Empty for now — add Lori's favorites.
+artists_tracked: []
+
+comedians_loved: []
+venues_loved: [Largo, Vista, New Beverly, Troubadour, The Greek, Walt Disney Concert Hall]
+
+feedback:
+  - "STARTER profile (neutral LA generalist). Replace with Lori's real taste, then rebuild."
