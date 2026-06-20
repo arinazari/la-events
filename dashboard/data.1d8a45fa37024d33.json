@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T06:37:14",
+  "generated_at": "2026-06-20T07:21:12",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "count": 2428,
@@ -3392,6 +3392,49 @@
       "is_past": true
     },
     {
+      "title": "Bruce Hornsby & The Noisemakers: Indigo Park Tour",
+      "date": "2026-06-19",
+      "start": "20:00:00",
+      "venue": "Libbey Bowl",
+      "neighborhood": "Ojai",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/bruce-hornsby-the-noisemakers-indigo-park-ojai-california-06-18-2026/event/09006429FCCBEB0D"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "tags": {
+        "type": "live-music",
+        "genre": [],
+        "setting": [],
+        "vibe": [],
+        "region": "far",
+        "near_home": false
+      },
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+3 Spotify core rotation (Bruce Hornsby & The Noisemakers)"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": true
+    },
+    {
       "title": "18+ FRIDAY LA 2000'S EVERYONE FREE",
       "date": "2026-06-19",
       "start": "22:00",
@@ -6204,6 +6247,51 @@
       "is_past": true
     },
     {
+      "title": "Bob Dylan - 21+",
+      "date": "2026-06-19",
+      "start": "20:00:00",
+      "venue": "Yaamava Resort & Casino at San Manuel",
+      "neighborhood": "Highland",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7-Mq7"
+        }
+      ],
+      "sources": [
+        "tm"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-16",
+      "tags": {
+        "type": "live-music",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "21+"
+        ],
+        "region": null,
+        "near_home": false
+      },
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 Spotify on rotation (Bob Dylan)"
+      ],
+      "iso_date": "2026-06-19",
+      "is_past": true
+    },
+    {
       "title": "1ST GEN: W.i.P. Los Angeles",
       "date": "2026-06-19",
       "start": "21:00",
@@ -8335,50 +8423,6 @@
       "is_past": true
     },
     {
-      "title": "Bob Dylan - 21+",
-      "date": "2026-06-19",
-      "start": "20:00:00",
-      "venue": "Yaamava Resort & Casino at San Manuel",
-      "neighborhood": "Highland",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7-Mq7"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "tags": {
-        "type": "live-music",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "21+"
-        ],
-        "region": null,
-        "near_home": false
-      },
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": true
-    },
-    {
       "title": "Choker",
       "date": "2026-06-19",
       "start": "20:00:00",
@@ -8453,48 +8497,6 @@
         "setting": [],
         "vibe": [],
         "region": "hollywood",
-        "near_home": false
-      },
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-19",
-      "is_past": true
-    },
-    {
-      "title": "Bruce Hornsby & The Noisemakers: Indigo Park Tour",
-      "date": "2026-06-19",
-      "start": "20:00:00",
-      "venue": "Libbey Bowl",
-      "neighborhood": "Ojai",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/bruce-hornsby-the-noisemakers-indigo-park-ojai-california-06-18-2026/event/09006429FCCBEB0D"
-        }
-      ],
-      "sources": [
-        "tm"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-16",
-      "tags": {
-        "type": "live-music",
-        "genre": [],
-        "setting": [],
-        "vibe": [],
-        "region": "far",
         "near_home": false
       },
       "score": 3,
@@ -11138,6 +11140,56 @@
       "is_past": false
     },
     {
+      "title": "Chance The Rapper",
+      "date": "2026-06-20",
+      "start": "20:00:00",
+      "venue": "Hollywood Bowl",
+      "neighborhood": "Hollywood",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "Chance The Rapper"
+      ],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7-o38"
+        }
+      ],
+      "sources": [
+        "tm",
+        "ticketmaster"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-19",
+      "genre": "Hip-Hop/Rap",
+      "tags": {
+        "type": "live-music",
+        "genre": [],
+        "setting": [
+          "amphitheater"
+        ],
+        "vibe": [],
+        "region": "hollywood",
+        "near_home": false
+      },
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 venue you love",
+        "+1 Friday/Saturday night",
+        "+2 Spotify heavy rotation (Chance the Rapper)"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "CUMBIAS VS REGGAETON",
       "date": "2026-06-20",
       "start": "22:00",
@@ -13058,6 +13110,53 @@
       "is_past": false
     },
     {
+      "title": "The Doctor Wu Band ~ Playing the Music of Steely Dan",
+      "date": "2026-06-20",
+      "start": "18:45",
+      "venue": "The Mint",
+      "neighborhood": "Mid-City",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "dice",
+          "url": "https://dice.fm/event/7dkqq9-the-doctor-wu-band-playing-the-music-of-steely-dan-20th-jun-the-mint-los-angeles-tickets"
+        }
+      ],
+      "sources": [
+        "dice"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-19",
+      "genre": null,
+      "tags": {
+        "type": "live-music",
+        "genre": [
+          "jazz",
+          "blues"
+        ],
+        "setting": [],
+        "vibe": [],
+        "region": null,
+        "near_home": false
+      },
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 Spotify on rotation (Steely Dan)"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "My Best Friend\u2019s Wedding",
       "date": "2026-06-20",
       "start": "19:00",
@@ -14188,55 +14287,6 @@
         "+1 venue you love",
         "+1 Friday/Saturday night",
         "+1 close to Silver Lake"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "Chance The Rapper",
-      "date": "2026-06-20",
-      "start": "20:00:00",
-      "venue": "Hollywood Bowl",
-      "neighborhood": "Hollywood",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "Chance The Rapper"
-      ],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7-o38"
-        }
-      ],
-      "sources": [
-        "tm",
-        "ticketmaster"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-19",
-      "genre": "Hip-Hop/Rap",
-      "tags": {
-        "type": "live-music",
-        "genre": [],
-        "setting": [
-          "amphitheater"
-        ],
-        "vibe": [],
-        "region": "hollywood",
-        "near_home": false
-      },
-      "score": 4,
-      "rating": 3,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 venue you love",
-        "+1 Friday/Saturday night"
       ],
       "iso_date": "2026-06-20",
       "is_past": false
@@ -16128,6 +16178,59 @@
       "is_past": false
     },
     {
+      "title": "Your Renaissance",
+      "date": "2026-06-20",
+      "start": "15:00:00",
+      "venue": "The Observatory",
+      "neighborhood": "Santa Ana",
+      "category": "music",
+      "afterhours": false,
+      "ra_pick": false,
+      "attending": null,
+      "price": null,
+      "organizers": null,
+      "detail": null,
+      "lineup": [
+        "Jejune",
+        "The Sea the Sea",
+        "Train Breaks Down",
+        "Clay Birds",
+        "Love Letter",
+        "Stella"
+      ],
+      "links": [
+        {
+          "source": "tm",
+          "url": "https://www.ticketmaster.com/your-renaissance-santa-ana-california-06-20-2026/event/09006470A64A68DA"
+        }
+      ],
+      "sources": [
+        "tm",
+        "ticketmaster"
+      ],
+      "first_seen": "2026-06-16",
+      "last_seen": "2026-06-19",
+      "genre": "Rock",
+      "tags": {
+        "type": "live-music",
+        "genre": [],
+        "setting": [],
+        "vibe": [],
+        "region": "far",
+        "near_home": false
+      },
+      "score": 3,
+      "rating": 2,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+2 Spotify heavy rotation (Train)",
+        "-2 far from LA"
+      ],
+      "iso_date": "2026-06-20",
+      "is_past": false
+    },
+    {
       "title": "Method of Doubt, Slow Fire Pistol, Watch You Fall, About Face, Youth D",
       "date": "2026-06-20",
       "start": "18:00:00",
@@ -16270,52 +16373,6 @@
       "rating": 2,
       "reasons": [
         "+2 theater (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "The Doctor Wu Band ~ Playing the Music of Steely Dan",
-      "date": "2026-06-20",
-      "start": "18:45",
-      "venue": "The Mint",
-      "neighborhood": "Mid-City",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "dice",
-          "url": "https://dice.fm/event/7dkqq9-the-doctor-wu-band-playing-the-music-of-steely-dan-20th-jun-the-mint-los-angeles-tickets"
-        }
-      ],
-      "sources": [
-        "dice"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-19",
-      "genre": null,
-      "tags": {
-        "type": "live-music",
-        "genre": [
-          "jazz",
-          "blues"
-        ],
-        "setting": [],
-        "vibe": [],
-        "region": null,
-        "near_home": false
-      },
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
         "+1 Friday/Saturday night"
       ],
       "iso_date": "2026-06-20",
@@ -17854,58 +17911,6 @@
         "+2 live music (medium interest)",
         "+1 Friday/Saturday night",
         "-2 workshop"
-      ],
-      "iso_date": "2026-06-20",
-      "is_past": false
-    },
-    {
-      "title": "Your Renaissance",
-      "date": "2026-06-20",
-      "start": "15:00:00",
-      "venue": "The Observatory",
-      "neighborhood": "Santa Ana",
-      "category": "music",
-      "afterhours": false,
-      "ra_pick": false,
-      "attending": null,
-      "price": null,
-      "organizers": null,
-      "detail": null,
-      "lineup": [
-        "Jejune",
-        "The Sea the Sea",
-        "Train Breaks Down",
-        "Clay Birds",
-        "Love Letter",
-        "Stella"
-      ],
-      "links": [
-        {
-          "source": "tm",
-          "url": "https://www.ticketmaster.com/your-renaissance-santa-ana-california-06-20-2026/event/09006470A64A68DA"
-        }
-      ],
-      "sources": [
-        "tm",
-        "ticketmaster"
-      ],
-      "first_seen": "2026-06-16",
-      "last_seen": "2026-06-19",
-      "genre": "Rock",
-      "tags": {
-        "type": "live-music",
-        "genre": [],
-        "setting": [],
-        "vibe": [],
-        "region": "far",
-        "near_home": false
-      },
-      "score": 1,
-      "rating": 1,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night",
-        "-2 far from LA"
       ],
       "iso_date": "2026-06-20",
       "is_past": false
@@ -21296,10 +21301,11 @@
         "region": "far",
         "near_home": false
       },
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 Spotify on rotation (Bob Dylan)"
       ],
       "iso_date": "2026-06-21",
       "is_past": false
@@ -39699,11 +39705,13 @@
         "region": "south-bay",
         "near_home": false
       },
-      "score": 6,
-      "rating": 4,
+      "score": 11,
+      "rating": 5,
       "reasons": [
         "+2 music (medium interest)",
         "+6 tracked artist (Adam Beyer, Ame, Cloonee)",
+        "+3 Spotify core rotation (Riordan)",
+        "+2 Spotify heavy rotation (SIDEPIECE)",
         "-2 far from LA"
       ],
       "iso_date": "2026-06-28",
@@ -44431,6 +44439,52 @@
       "is_past": false
     },
     {
+      "title": "ROSAL\u00cdA: LUX TOUR 2026",
+      "date": "2026-06-30",
+      "start": "03:30",
+      "venue": "Kia Forum",
+      "neighborhood": "Inglewood",
+      "category": "Music",
+      "genre": "Latin",
+      "lineup": [
+        "ROSAL\u00cdA"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/rosalia-lux-tour-2026-inglewood-california-06-29-2026/event/0900636ED03255F4"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "south-bay",
+        "near_home": false
+      },
+      "score": 5,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+3 Spotify core rotation (ROSAL\u00cdA)"
+      ],
+      "iso_date": "2026-06-30",
+      "is_past": false
+    },
+    {
       "title": "Stand by Me (1986)",
       "date": "2026-06-30",
       "start": "13:00",
@@ -44925,51 +44979,6 @@
           "afterhours"
         ],
         "region": "hollywood",
-        "near_home": false
-      },
-      "score": 2,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)"
-      ],
-      "iso_date": "2026-06-30",
-      "is_past": false
-    },
-    {
-      "title": "ROSAL\u00cdA: LUX TOUR 2026",
-      "date": "2026-06-30",
-      "start": "03:30",
-      "venue": "Kia Forum",
-      "neighborhood": "Inglewood",
-      "category": "Music",
-      "genre": "Latin",
-      "lineup": [
-        "ROSAL\u00cdA"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/rosalia-lux-tour-2026-inglewood-california-06-29-2026/event/0900636ED03255F4"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "south-bay",
         "near_home": false
       },
       "score": 2,
@@ -46132,6 +46141,52 @@
       "is_past": false
     },
     {
+      "title": "ROSAL\u00cdA: LUX TOUR 2026",
+      "date": "2026-07-02",
+      "start": "03:30",
+      "venue": "Kia Forum",
+      "neighborhood": "Inglewood",
+      "category": "Music",
+      "genre": "Latin",
+      "lineup": [
+        "ROSAL\u00cdA"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/rosalia-lux-tour-2026-inglewood-california-07-01-2026/event/0900638500FF6ACE"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "south-bay",
+        "near_home": false
+      },
+      "score": 5,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+3 Spotify core rotation (ROSAL\u00cdA)"
+      ],
+      "iso_date": "2026-07-02",
+      "is_past": false
+    },
+    {
       "title": "Pre-Fourth of July: House + Techno",
       "date": "2026-07-02",
       "start": "9pm-3am",
@@ -46686,51 +46741,6 @@
           "21+"
         ],
         "region": null,
-        "near_home": false
-      },
-      "score": 2,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)"
-      ],
-      "iso_date": "2026-07-02",
-      "is_past": false
-    },
-    {
-      "title": "ROSAL\u00cdA: LUX TOUR 2026",
-      "date": "2026-07-02",
-      "start": "03:30",
-      "venue": "Kia Forum",
-      "neighborhood": "Inglewood",
-      "category": "Music",
-      "genre": "Latin",
-      "lineup": [
-        "ROSAL\u00cdA"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/rosalia-lux-tour-2026-inglewood-california-07-01-2026/event/0900638500FF6ACE"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "south-bay",
         "near_home": false
       },
       "score": 2,
@@ -55560,6 +55570,107 @@
       "is_past": false
     },
     {
+      "title": "Lost in Dreams Los Angeles",
+      "date": "2026-07-11",
+      "start": "18:00",
+      "venue": "Los Angeles State Historic Park",
+      "neighborhood": "Chinatown",
+      "category": "Music",
+      "genre": null,
+      "lineup": [
+        "Lost in Dreams Los Angeles",
+        "Porter Robinson",
+        "Dabin",
+        "Louis the Child",
+        "Audien",
+        "William Black",
+        "ARMNHMR",
+        "What So Not"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://on.fgtix.com/trk/aALP"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [],
+        "region": "dtla",
+        "near_home": true
+      },
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
+        "+2 Spotify heavy rotation (Porter Robinson)"
+      ],
+      "iso_date": "2026-07-11",
+      "is_past": false
+    },
+    {
+      "title": "Factory 93 presents: Beltran at Naud St",
+      "date": "2026-07-11",
+      "start": "17:00",
+      "venue": "1756 Naud St.",
+      "neighborhood": "Chinatown",
+      "category": "electronic",
+      "genre": null,
+      "lineup": [
+        "Beltran"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2396469"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "club",
+        "genre": [
+          "electronic"
+        ],
+        "setting": [],
+        "vibe": [],
+        "region": "dtla",
+        "near_home": true
+      },
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
+        "+1 Spotify on rotation (Beltran)"
+      ],
+      "iso_date": "2026-07-11",
+      "is_past": false
+    },
+    {
       "title": "Divine LA x Apt4B Radio present: The Groove Lab",
       "date": "2026-07-11",
       "start": "20:00",
@@ -55995,58 +56106,6 @@
       "is_past": false
     },
     {
-      "title": "Lost in Dreams Los Angeles",
-      "date": "2026-07-11",
-      "start": "18:00",
-      "venue": "Los Angeles State Historic Park",
-      "neighborhood": "Chinatown",
-      "category": "Music",
-      "genre": null,
-      "lineup": [
-        "Lost in Dreams Los Angeles",
-        "Porter Robinson",
-        "Dabin",
-        "Louis the Child",
-        "Audien",
-        "William Black",
-        "ARMNHMR",
-        "What So Not"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://on.fgtix.com/trk/aALP"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [],
-        "region": "dtla",
-        "near_home": true
-      },
-      "score": 4,
-      "rating": 3,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night",
-        "+1 close to Silver Lake"
-      ],
-      "iso_date": "2026-07-11",
-      "is_past": false
-    },
-    {
       "title": "Grease (Film)",
       "date": "2026-07-11",
       "start": "22:00",
@@ -56200,53 +56259,6 @@
         "+3 electronic (high interest)",
         "+1 afterhours / late start",
         "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-07-11",
-      "is_past": false
-    },
-    {
-      "title": "Factory 93 presents: Beltran at Naud St",
-      "date": "2026-07-11",
-      "start": "17:00",
-      "venue": "1756 Naud St.",
-      "neighborhood": "Chinatown",
-      "category": "electronic",
-      "genre": null,
-      "lineup": [
-        "Beltran"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2396469"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "club",
-        "genre": [
-          "electronic"
-        ],
-        "setting": [],
-        "vibe": [],
-        "region": "dtla",
-        "near_home": true
-      },
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 Friday/Saturday night",
-        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-07-11",
       "is_past": false
@@ -57909,6 +57921,54 @@
       "is_past": false
     },
     {
+      "title": "Factory 93 presents: Beltran Open to Close at Naud St",
+      "date": "2026-07-12",
+      "start": "17:00",
+      "venue": "1756 Naud St.",
+      "neighborhood": "Chinatown",
+      "category": "electronic",
+      "genre": null,
+      "lineup": [
+        "Beltran"
+      ],
+      "links": [
+        {
+          "source": "ra",
+          "url": "https://ra.co/events/2399254"
+        }
+      ],
+      "sources": [
+        "ra"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "club",
+        "genre": [
+          "electronic"
+        ],
+        "setting": [],
+        "vibe": [],
+        "region": "dtla",
+        "near_home": true
+      },
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+3 electronic (high interest)",
+        "+1 rooftop / vinyl / groove",
+        "+1 close to Silver Lake",
+        "+1 Spotify on rotation (Beltran)"
+      ],
+      "iso_date": "2026-07-12",
+      "is_past": false
+    },
+    {
       "title": "Claude VonStroke presents WRONG#NUMBER - Open Air",
       "date": "2026-07-12",
       "start": "15:00",
@@ -57966,53 +58026,6 @@
           }
         ]
       }
-    },
-    {
-      "title": "Factory 93 presents: Beltran Open to Close at Naud St",
-      "date": "2026-07-12",
-      "start": "17:00",
-      "venue": "1756 Naud St.",
-      "neighborhood": "Chinatown",
-      "category": "electronic",
-      "genre": null,
-      "lineup": [
-        "Beltran"
-      ],
-      "links": [
-        {
-          "source": "ra",
-          "url": "https://ra.co/events/2399254"
-        }
-      ],
-      "sources": [
-        "ra"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "club",
-        "genre": [
-          "electronic"
-        ],
-        "setting": [],
-        "vibe": [],
-        "region": "dtla",
-        "near_home": true
-      },
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 electronic (high interest)",
-        "+1 rooftop / vinyl / groove",
-        "+1 close to Silver Lake"
-      ],
-      "iso_date": "2026-07-12",
-      "is_past": false
     },
     {
       "title": "Day Trip In The Park LA: Omnom, Marco Strous, SLAMM",
@@ -63764,6 +63777,53 @@
       "is_past": false
     },
     {
+      "title": "Zepparella the Led Zeppelin Powerhouse",
+      "date": "2026-07-18",
+      "start": "04:00",
+      "venue": "Roxy Theatre-CA",
+      "neighborhood": "West Hollywood",
+      "category": "Music",
+      "genre": "Rock",
+      "lineup": [
+        "Zepparella"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7xa18"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "hollywood",
+        "near_home": false
+      },
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+3 Spotify core rotation (Led Zeppelin)"
+      ],
+      "iso_date": "2026-07-18",
+      "is_past": false
+    },
+    {
       "title": "Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHO\u00edCE",
       "date": "2026-07-18",
       "start": "22:00",
@@ -65611,52 +65671,6 @@
       "rating": 2,
       "reasons": [
         "+1 arts & theatre (low interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-07-18",
-      "is_past": false
-    },
-    {
-      "title": "Zepparella the Led Zeppelin Powerhouse",
-      "date": "2026-07-18",
-      "start": "04:00",
-      "venue": "Roxy Theatre-CA",
-      "neighborhood": "West Hollywood",
-      "category": "Music",
-      "genre": "Rock",
-      "lineup": [
-        "Zepparella"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7xa18"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "hollywood",
-        "near_home": false
-      },
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
         "+1 Friday/Saturday night"
       ],
       "iso_date": "2026-07-18",
@@ -70083,6 +70097,53 @@
       "is_past": false
     },
     {
+      "title": "ARTDONTSLEEP Presents: Jazz Is Dead feat. Sparklmami",
+      "date": "2026-07-23",
+      "start": "01:30",
+      "venue": "The Moroccan Lounge",
+      "neighborhood": "Arts District",
+      "category": "Music",
+      "genre": "Pop",
+      "lineup": [
+        "Sparklmami"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/artdontsleep-presents-jazz-is-dead-feat-los-angeles-california-07-22-2026/event/0900649DCC0B202C"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "dtla",
+        "near_home": true
+      },
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake",
+        "+1 Spotify on rotation (Sparklmami)"
+      ],
+      "iso_date": "2026-07-23",
+      "is_past": false
+    },
+    {
       "title": "Hawthorne Heights w/ Hawthorne Heights",
       "date": "2026-07-23",
       "start": null,
@@ -70160,52 +70221,6 @@
           "theater"
         ],
         "vibe": [],
-        "region": "dtla",
-        "near_home": true
-      },
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 close to Silver Lake"
-      ],
-      "iso_date": "2026-07-23",
-      "is_past": false
-    },
-    {
-      "title": "ARTDONTSLEEP Presents: Jazz Is Dead feat. Sparklmami",
-      "date": "2026-07-23",
-      "start": "01:30",
-      "venue": "The Moroccan Lounge",
-      "neighborhood": "Arts District",
-      "category": "Music",
-      "genre": "Pop",
-      "lineup": [
-        "Sparklmami"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/artdontsleep-presents-jazz-is-dead-feat-los-angeles-california-07-22-2026/event/0900649DCC0B202C"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
         "region": "dtla",
         "near_home": true
       },
@@ -72078,6 +72093,54 @@
       "is_past": false
     },
     {
+      "title": "Snoop Dogg 21+",
+      "date": "2026-07-25",
+      "start": "03:00",
+      "venue": "Yaamava Resort & Casino at San Manuel",
+      "neighborhood": "Highland",
+      "category": "Music",
+      "genre": "Hip-Hop/Rap",
+      "lineup": [
+        "Snoop Dogg"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7x4u8"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours",
+          "21+"
+        ],
+        "region": null,
+        "near_home": false
+      },
+      "score": 5,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+2 Spotify heavy rotation (Snoop Dogg)"
+      ],
+      "iso_date": "2026-07-25",
+      "is_past": false
+    },
+    {
       "title": "Smokey Robinson w/ Gladys Knight",
       "date": "2026-07-25",
       "start": "03:00",
@@ -72659,6 +72722,57 @@
       "is_past": false
     },
     {
+      "title": "Tina & The Stones - Tribute to Tina Turner & The Rolling Stones",
+      "date": "2026-07-25",
+      "start": "02:00",
+      "venue": "Fox Performing Arts Center",
+      "neighborhood": "Riverside",
+      "category": "Music",
+      "genre": null,
+      "lineup": [
+        "Start Me Up",
+        "Always Tina"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/tina-the-stones-tribute-to-tina-riverside-california-07-24-2026/event/0B00649BD4016E34"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours",
+          "tribute"
+        ],
+        "region": "far",
+        "near_home": false
+      },
+      "score": 2,
+      "rating": 2,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+3 Spotify core rotation (The Rolling Stones)",
+        "-2 tribute",
+        "-2 far from LA"
+      ],
+      "iso_date": "2026-07-25",
+      "is_past": false
+    },
+    {
       "title": "Three Dog Night / Ambrosia",
       "date": "2026-07-25",
       "start": "02:30",
@@ -72692,53 +72806,6 @@
         "setting": [],
         "vibe": [
           "afterhours"
-        ],
-        "region": null,
-        "near_home": false
-      },
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-07-25",
-      "is_past": false
-    },
-    {
-      "title": "Snoop Dogg 21+",
-      "date": "2026-07-25",
-      "start": "03:00",
-      "venue": "Yaamava Resort & Casino at San Manuel",
-      "neighborhood": "Highland",
-      "category": "Music",
-      "genre": "Hip-Hop/Rap",
-      "lineup": [
-        "Snoop Dogg"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7x4u8"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours",
-          "21+"
         ],
         "region": null,
         "near_home": false
@@ -73552,56 +73619,6 @@
       "reasons": [
         "+2 music (medium interest)",
         "+1 Friday/Saturday night",
-        "-2 far from LA"
-      ],
-      "iso_date": "2026-07-25",
-      "is_past": false
-    },
-    {
-      "title": "Tina & The Stones - Tribute to Tina Turner & The Rolling Stones",
-      "date": "2026-07-25",
-      "start": "02:00",
-      "venue": "Fox Performing Arts Center",
-      "neighborhood": "Riverside",
-      "category": "Music",
-      "genre": null,
-      "lineup": [
-        "Start Me Up",
-        "Always Tina"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/tina-the-stones-tribute-to-tina-riverside-california-07-24-2026/event/0B00649BD4016E34"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours",
-          "tribute"
-        ],
-        "region": "far",
-        "near_home": false
-      },
-      "score": -1,
-      "rating": 1,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night",
-        "-2 tribute",
         "-2 far from LA"
       ],
       "iso_date": "2026-07-25",
@@ -89704,10 +89721,11 @@
         "region": "far",
         "near_home": false
       },
-      "score": 2,
+      "score": 3,
       "rating": 2,
       "reasons": [
-        "+2 music (medium interest)"
+        "+2 music (medium interest)",
+        "+1 Spotify on rotation (Pink Floyd)"
       ],
       "iso_date": "2026-08-13",
       "is_past": false
@@ -91094,6 +91112,53 @@
       "is_past": false
     },
     {
+      "title": "KAROL G - VIAJANDO POR EL MUNDO TROPITOUR",
+      "date": "2026-08-15",
+      "start": "02:00",
+      "venue": "SoFi Stadium",
+      "neighborhood": "Inglewood",
+      "category": "Music",
+      "genre": "Latin",
+      "lineup": [
+        "Karol G"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-14-2026/event/0A0064904B5EEA09"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "south-bay",
+        "near_home": false
+      },
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+3 Spotify core rotation (KAROL G)"
+      ],
+      "iso_date": "2026-08-15",
+      "is_past": false
+    },
+    {
       "title": "Moodymann and DJ Rashida Play Prince",
       "date": "2026-08-15",
       "start": "04:00",
@@ -91991,52 +92056,6 @@
           "afterhours"
         ],
         "region": "hollywood",
-        "near_home": false
-      },
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
-      ],
-      "iso_date": "2026-08-15",
-      "is_past": false
-    },
-    {
-      "title": "KAROL G - VIAJANDO POR EL MUNDO TROPITOUR",
-      "date": "2026-08-15",
-      "start": "02:00",
-      "venue": "SoFi Stadium",
-      "neighborhood": "Inglewood",
-      "category": "Music",
-      "genre": "Latin",
-      "lineup": [
-        "Karol G"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-14-2026/event/0A0064904B5EEA09"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "south-bay",
         "near_home": false
       },
       "score": 3,
@@ -92957,6 +92976,52 @@
       "is_past": false
     },
     {
+      "title": "KAROL G - VIAJANDO POR EL MUNDO TROPITOUR",
+      "date": "2026-08-16",
+      "start": "02:00",
+      "venue": "SoFi Stadium",
+      "neighborhood": "Inglewood",
+      "category": "Music",
+      "genre": "Latin",
+      "lineup": [
+        "Karol G"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-15-2026/event/0A0064904B63EA0D"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "south-bay",
+        "near_home": false
+      },
+      "score": 5,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+3 Spotify core rotation (KAROL G)"
+      ],
+      "iso_date": "2026-08-16",
+      "is_past": false
+    },
+    {
       "title": "Day Trip In The Park LA: CID, TOBEHONEST, Juos, Cat & Maomi",
       "date": "2026-08-16",
       "start": "14:00",
@@ -93371,51 +93436,6 @@
       "reasons": [
         "+2 music (medium interest)",
         "+1 close to Silver Lake"
-      ],
-      "iso_date": "2026-08-16",
-      "is_past": false
-    },
-    {
-      "title": "KAROL G - VIAJANDO POR EL MUNDO TROPITOUR",
-      "date": "2026-08-16",
-      "start": "02:00",
-      "venue": "SoFi Stadium",
-      "neighborhood": "Inglewood",
-      "category": "Music",
-      "genre": "Latin",
-      "lineup": [
-        "Karol G"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-15-2026/event/0A0064904B63EA0D"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "south-bay",
-        "near_home": false
-      },
-      "score": 2,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)"
       ],
       "iso_date": "2026-08-16",
       "is_past": false
@@ -94261,6 +94281,52 @@
       "is_past": false
     },
     {
+      "title": "KAROL G - VIAJANDO POR EL MUNDO TROPITOUR",
+      "date": "2026-08-17",
+      "start": "02:00",
+      "venue": "SoFi Stadium",
+      "neighborhood": "Inglewood",
+      "category": "Music",
+      "genre": "Latin",
+      "lineup": [
+        "Karol G"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-16-2026/event/0A0064904B67EA10"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "south-bay",
+        "near_home": false
+      },
+      "score": 5,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+3 Spotify core rotation (KAROL G)"
+      ],
+      "iso_date": "2026-08-17",
+      "is_past": false
+    },
+    {
       "title": "Man Man (A valid government-issued photo ID is required for entry, Under 18 must be accompanied by adult at all times)",
       "date": "2026-08-17",
       "start": "04:00",
@@ -94396,6 +94462,55 @@
       "rating": 2,
       "reasons": [
         "+2 music (medium interest)"
+      ],
+      "iso_date": "2026-08-17",
+      "is_past": false
+    },
+    {
+      "title": "The Sword",
+      "date": "2026-08-17",
+      "start": "01:30",
+      "venue": "The Observatory",
+      "neighborhood": "Santa Ana",
+      "category": "Music",
+      "genre": "Metal",
+      "lineup": [
+        "The Sword",
+        "Red Fang",
+        "Spoon Benders"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/the-sword-santa-ana-california-08-16-2026/event/09006494BAAAA695"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "far",
+        "near_home": false
+      },
+      "score": 2,
+      "rating": 2,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+2 Spotify heavy rotation (Spoon)",
+        "-2 far from LA"
       ],
       "iso_date": "2026-08-17",
       "is_past": false
@@ -94538,51 +94653,6 @@
       "reasons": [
         "+2 music (medium interest)",
         "+1 close to Silver Lake"
-      ],
-      "iso_date": "2026-08-17",
-      "is_past": false
-    },
-    {
-      "title": "KAROL G - VIAJANDO POR EL MUNDO TROPITOUR",
-      "date": "2026-08-17",
-      "start": "02:00",
-      "venue": "SoFi Stadium",
-      "neighborhood": "Inglewood",
-      "category": "Music",
-      "genre": "Latin",
-      "lineup": [
-        "Karol G"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-16-2026/event/0A0064904B67EA10"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "south-bay",
-        "near_home": false
-      },
-      "score": 2,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)"
       ],
       "iso_date": "2026-08-17",
       "is_past": false
@@ -94815,54 +94885,6 @@
       "rating": 1,
       "reasons": [
         "+1 arts & theatre (low interest)"
-      ],
-      "iso_date": "2026-08-17",
-      "is_past": false
-    },
-    {
-      "title": "The Sword",
-      "date": "2026-08-17",
-      "start": "01:30",
-      "venue": "The Observatory",
-      "neighborhood": "Santa Ana",
-      "category": "Music",
-      "genre": "Metal",
-      "lineup": [
-        "The Sword",
-        "Red Fang",
-        "Spoon Benders"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/the-sword-santa-ana-california-08-16-2026/event/09006494BAAAA695"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "far",
-        "near_home": false
-      },
-      "score": 0,
-      "rating": 1,
-      "reasons": [
-        "+2 music (medium interest)",
-        "-2 far from LA"
       ],
       "iso_date": "2026-08-17",
       "is_past": false
@@ -95240,6 +95262,56 @@
       "is_past": false
     },
     {
+      "title": "The Sword w/ Spoon Benders",
+      "date": "2026-08-19",
+      "start": "03:00",
+      "venue": "The Fonda Theatre",
+      "neighborhood": "Hollywood",
+      "category": "Music",
+      "genre": null,
+      "lineup": [
+        "The Sword",
+        "Spoon Benders",
+        "Red Fang"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7073f"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [
+          "theater"
+        ],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "hollywood",
+        "near_home": false
+      },
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+2 Spotify heavy rotation (Spoon)"
+      ],
+      "iso_date": "2026-08-19",
+      "is_past": false
+    },
+    {
       "title": "NEEDTOBREATHE: The Long Surrender Tour",
       "date": "2026-08-19",
       "start": "02:00",
@@ -95378,55 +95450,6 @@
       "reasons": [
         "+1 arts & theatre (low interest)",
         "+1 venue you love"
-      ],
-      "iso_date": "2026-08-19",
-      "is_past": false
-    },
-    {
-      "title": "The Sword w/ Spoon Benders",
-      "date": "2026-08-19",
-      "start": "03:00",
-      "venue": "The Fonda Theatre",
-      "neighborhood": "Hollywood",
-      "category": "Music",
-      "genre": null,
-      "lineup": [
-        "The Sword",
-        "Spoon Benders",
-        "Red Fang"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7073f"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [
-          "theater"
-        ],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "hollywood",
-        "near_home": false
-      },
-      "score": 2,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)"
       ],
       "iso_date": "2026-08-19",
       "is_past": false
@@ -96989,6 +97012,53 @@
       "is_past": false
     },
     {
+      "title": "Jason Bonham's Led Zeppelin Evening",
+      "date": "2026-08-22",
+      "start": "02:30",
+      "venue": "Vina Robles Amphitheatre",
+      "neighborhood": "Paso Robles",
+      "category": "Music",
+      "genre": null,
+      "lineup": [
+        "Jason Bonham's Led Zeppelin Evening"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/jason-bonhams-led-zeppelin-evening-paso-robles-california-08-21-2026/event/090064AEE4D3A96C"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": null,
+        "near_home": false
+      },
+      "score": 6,
+      "rating": 4,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+3 Spotify core rotation (Led Zeppelin)"
+      ],
+      "iso_date": "2026-08-22",
+      "is_past": false
+    },
+    {
       "title": "Mutate: Oguz",
       "date": "2026-08-22",
       "start": "22:00",
@@ -97506,52 +97576,6 @@
         "+3 electronic (high interest)",
         "+1 Friday/Saturday night",
         "+1 close to Silver Lake"
-      ],
-      "iso_date": "2026-08-22",
-      "is_past": false
-    },
-    {
-      "title": "Jason Bonham's Led Zeppelin Evening",
-      "date": "2026-08-22",
-      "start": "02:30",
-      "venue": "Vina Robles Amphitheatre",
-      "neighborhood": "Paso Robles",
-      "category": "Music",
-      "genre": null,
-      "lineup": [
-        "Jason Bonham's Led Zeppelin Evening"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/jason-bonhams-led-zeppelin-evening-paso-robles-california-08-21-2026/event/090064AEE4D3A96C"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": null,
-        "near_home": false
-      },
-      "score": 3,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night"
       ],
       "iso_date": "2026-08-22",
       "is_past": false
@@ -98406,6 +98430,100 @@
       "is_past": false
     },
     {
+      "title": "Tucker Wetmore: The Brunette World Tour ",
+      "date": "2026-08-23",
+      "start": "01:30",
+      "venue": "Vina Robles Amphitheatre",
+      "neighborhood": "Paso Robles",
+      "category": "Music",
+      "genre": "Country",
+      "lineup": [
+        "Tucker Wetmore",
+        "William Beckmann",
+        "Stella Lefty"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/tucker-wetmore-the-brunette-world-tour-paso-robles-california-08-22-2026/event/0900645AC18AFC8C"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": null,
+        "near_home": false
+      },
+      "score": 5,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+3 Spotify core rotation (Brunette)"
+      ],
+      "iso_date": "2026-08-23",
+      "is_past": false
+    },
+    {
+      "title": "Noizu",
+      "date": "2026-08-23",
+      "start": "04:00",
+      "venue": "Shrine Expo Hall",
+      "neighborhood": "University Park",
+      "category": "Music",
+      "genre": null,
+      "lineup": [
+        "Noizu"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7xA3a"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": null,
+        "near_home": false
+      },
+      "score": 5,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+3 Spotify core rotation (Noizu)"
+      ],
+      "iso_date": "2026-08-23",
+      "is_past": false
+    },
+    {
       "title": "Day Trip In The Park LA: Discip, Adam Sellouk, Gabss, Welker",
       "date": "2026-08-23",
       "start": "14:00",
@@ -98492,53 +98610,6 @@
           "afterhours"
         ],
         "region": "hollywood",
-        "near_home": false
-      },
-      "score": 2,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)"
-      ],
-      "iso_date": "2026-08-23",
-      "is_past": false
-    },
-    {
-      "title": "Tucker Wetmore: The Brunette World Tour ",
-      "date": "2026-08-23",
-      "start": "01:30",
-      "venue": "Vina Robles Amphitheatre",
-      "neighborhood": "Paso Robles",
-      "category": "Music",
-      "genre": "Country",
-      "lineup": [
-        "Tucker Wetmore",
-        "William Beckmann",
-        "Stella Lefty"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/tucker-wetmore-the-brunette-world-tour-paso-robles-california-08-22-2026/event/0900645AC18AFC8C"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": null,
         "near_home": false
       },
       "score": 2,
@@ -98643,6 +98714,55 @@
       "is_past": false
     },
     {
+      "title": "Three Pianos: Something Corporate, Jack's Mannequin, Andrew McMahon",
+      "date": "2026-08-23",
+      "start": "02:30",
+      "venue": "F&M Bank Amphitheater of Long Beach",
+      "neighborhood": "Long Beach",
+      "category": "Music",
+      "genre": "Rock",
+      "lineup": [
+        "Something Corporate",
+        "Jack's Mannequin",
+        "Andrew McMahon in the Wilderness"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/three-pianos-something-corporate-jacks-mannequin-long-beach-california-08-22-2026/event/0B00644DDBF67463"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "south-bay",
+        "near_home": false
+      },
+      "score": 2,
+      "rating": 2,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+2 Spotify heavy rotation (Andrew McMahon in the Wilderness)",
+        "-2 far from LA"
+      ],
+      "iso_date": "2026-08-23",
+      "is_past": false
+    },
+    {
       "title": "90s Corridos Tour (Lineup Subject to Change)",
       "date": "2026-08-23",
       "start": "03:00",
@@ -98685,6 +98805,53 @@
       "reasons": [
         "+2 music (medium interest)",
         "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-08-23",
+      "is_past": false
+    },
+    {
+      "title": "Jason Bonham's Led Zeppelin Evening",
+      "date": "2026-08-23",
+      "start": "03:00",
+      "venue": "Pacific Amphitheatre",
+      "neighborhood": "Costa Mesa",
+      "category": "Music",
+      "genre": null,
+      "lineup": [
+        "Jason Bonham's Led Zeppelin Evening"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A70sGU"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "far",
+        "near_home": false
+      },
+      "score": 3,
+      "rating": 2,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+3 Spotify core rotation (Led Zeppelin)",
+        "-2 far from LA"
       ],
       "iso_date": "2026-08-23",
       "is_past": false
@@ -98737,51 +98904,6 @@
       "reasons": [
         "+1 arts & theatre (low interest)",
         "+1 venue you love"
-      ],
-      "iso_date": "2026-08-23",
-      "is_past": false
-    },
-    {
-      "title": "Noizu",
-      "date": "2026-08-23",
-      "start": "04:00",
-      "venue": "Shrine Expo Hall",
-      "neighborhood": "University Park",
-      "category": "Music",
-      "genre": null,
-      "lineup": [
-        "Noizu"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7xA3a"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": null,
-        "near_home": false
-      },
-      "score": 2,
-      "rating": 2,
-      "reasons": [
-        "+2 music (medium interest)"
       ],
       "iso_date": "2026-08-23",
       "is_past": false
@@ -99163,54 +99285,6 @@
       "is_past": false
     },
     {
-      "title": "Three Pianos: Something Corporate, Jack's Mannequin, Andrew McMahon",
-      "date": "2026-08-23",
-      "start": "02:30",
-      "venue": "F&M Bank Amphitheater of Long Beach",
-      "neighborhood": "Long Beach",
-      "category": "Music",
-      "genre": "Rock",
-      "lineup": [
-        "Something Corporate",
-        "Jack's Mannequin",
-        "Andrew McMahon in the Wilderness"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/three-pianos-something-corporate-jacks-mannequin-long-beach-california-08-22-2026/event/0B00644DDBF67463"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "south-bay",
-        "near_home": false
-      },
-      "score": 0,
-      "rating": 1,
-      "reasons": [
-        "+2 music (medium interest)",
-        "-2 far from LA"
-      ],
-      "iso_date": "2026-08-23",
-      "is_past": false
-    },
-    {
       "title": "Phantom Of The Opera (Touring)",
       "date": "2026-08-23",
       "start": "02:30",
@@ -99255,52 +99329,6 @@
       "rating": 1,
       "reasons": [
         "+1 arts & theatre (low interest)",
-        "-2 far from LA"
-      ],
-      "iso_date": "2026-08-23",
-      "is_past": false
-    },
-    {
-      "title": "Jason Bonham's Led Zeppelin Evening",
-      "date": "2026-08-23",
-      "start": "03:00",
-      "venue": "Pacific Amphitheatre",
-      "neighborhood": "Costa Mesa",
-      "category": "Music",
-      "genre": null,
-      "lineup": [
-        "Jason Bonham's Led Zeppelin Evening"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A70sGU"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "far",
-        "near_home": false
-      },
-      "score": 0,
-      "rating": 1,
-      "reasons": [
-        "+2 music (medium interest)",
         "-2 far from LA"
       ],
       "iso_date": "2026-08-23",
@@ -100335,11 +100363,12 @@
         "region": "eastside",
         "near_home": true
       },
-      "score": 3,
-      "rating": 2,
+      "score": 5,
+      "rating": 3,
       "reasons": [
         "+2 music (medium interest)",
-        "+1 close to Silver Lake"
+        "+1 close to Silver Lake",
+        "+2 Spotify heavy rotation (Train)"
       ],
       "iso_date": "2026-08-25",
       "is_past": false
@@ -104690,11 +104719,12 @@
         "region": "hollywood",
         "near_home": false
       },
-      "score": 4,
-      "rating": 3,
+      "score": 6,
+      "rating": 4,
       "reasons": [
         "+2 music (medium interest)",
-        "+2 tracked artist (Ame)"
+        "+2 tracked artist (Ame)",
+        "+2 Spotify heavy rotation (Noname)"
       ],
       "iso_date": "2026-09-02",
       "is_past": false
@@ -110231,6 +110261,54 @@
       "is_past": false
     },
     {
+      "title": "Led Zeppelin 2",
+      "date": "2026-09-12",
+      "start": "02:00",
+      "venue": "Riverside Municipal Auditorium",
+      "neighborhood": "Riverside",
+      "category": "Music",
+      "genre": null,
+      "lineup": [
+        "Led Zeppelin 2"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/led-zeppelin-2-riverside-california-09-11-2026/event/0B00649C0C59931E"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-06-19",
+      "tags": {
+        "type": "other",
+        "genre": [],
+        "setting": [],
+        "vibe": [
+          "afterhours"
+        ],
+        "region": "far",
+        "near_home": false
+      },
+      "score": 4,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+3 Spotify core rotation (Led Zeppelin)",
+        "-2 far from LA"
+      ],
+      "iso_date": "2026-09-12",
+      "is_past": false
+    },
+    {
       "title": "OneRepublic",
       "date": "2026-09-12",
       "start": "03:00",
@@ -111076,53 +111154,6 @@
           "afterhours"
         ],
         "region": "south-bay",
-        "near_home": false
-      },
-      "score": 1,
-      "rating": 1,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night",
-        "-2 far from LA"
-      ],
-      "iso_date": "2026-09-12",
-      "is_past": false
-    },
-    {
-      "title": "Led Zeppelin 2",
-      "date": "2026-09-12",
-      "start": "02:00",
-      "venue": "Riverside Municipal Auditorium",
-      "neighborhood": "Riverside",
-      "category": "Music",
-      "genre": null,
-      "lineup": [
-        "Led Zeppelin 2"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/led-zeppelin-2-riverside-california-09-11-2026/event/0B00649C0C59931E"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-06-19",
-      "tags": {
-        "type": "other",
-        "genre": [],
-        "setting": [],
-        "vibe": [
-          "afterhours"
-        ],
-        "region": "far",
         "near_home": false
       },
       "score": 1,
