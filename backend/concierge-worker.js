@@ -49,6 +49,10 @@ const DEFAULTS = {
   PROFILE_SALT: "la-events/v1:",
   MAX_EVENTS: 220,     // cap grounding context (events are ~700; dining is small, sent whole)
   MAX_TOKENS: 8000,    // room for adaptive thinking + the reply (raise if complex plans get cut off)
+  SPOTIFY_AUTH: "https://accounts.spotify.com",
+  SPOTIFY_API: "https://api.spotify.com/v1",
+  SPOTIFY_SCOPES: "user-top-read user-follow-read user-read-recently-played",
+  STATE_TTL_MS: 15 * 60 * 1000,   // how long a /spotify/login state token stays valid
 };
 
 export default {
@@ -61,6 +65,12 @@ export default {
       "Access-Control-Max-Age": "86400",
     };
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
+
+    // Per-profile Spotify (browser OAuth + KV token store + an authed sync the routine/CI calls)
+    // is path-routed here; every other request is the chat proxy below. One Worker, one deploy.
+    const url = new URL(request.url);
+    if (url.pathname.startsWith("/spotify/")) return handleSpotify(url, request, env, cors);
+
     if (request.method !== "POST") return json({ error: "POST only" }, 405, cors);
 
     // Optional shared-token gate.
@@ -404,4 +414,202 @@ async function applyTasteEdit(env, hash, patch) {
   const msg = `taste(${prof.name}): ${(patch.summary || "self-edit").slice(0, 72)}\n\nSelf-edit via the dashboard concierge.`;
   const ok = await ghPutFile(env, prof.tastePath, out, file.sha, msg);
   return ok ? { ok: true, summary: patch.summary || "updated", note: "committed; the feed rebuilds via CI in ~1–2 min" } : { ok: false, error: "commit failed" };
+}
+
+/* ===== Per-profile Spotify — browser OAuth → KV refresh-token store → authed raw-payload sync =====
+ *
+ * The refresh token NEVER leaves Cloudflare. The browser does the OAuth dance; the Worker keeps the
+ * token in KV keyed by the profile's feed hash; an authed sync (the daily routine / a CI job that
+ * holds SPOTIFY_SYNC_TOKEN) pulls only the RAW top/followed/recently-played payloads — Python's
+ * lib/affinity.build_affinity (the one tested builder) turns those into data/spotify/<hash>.json.
+ * Nothing here computes taste, and nothing here is committed. See backend/README.md.
+ *
+ * Routes:
+ *   GET  /spotify/login?profile=<hash>[&t=<token>]  -> 302 to Spotify consent
+ *   GET  /spotify/callback?code=&state=             -> store token in KV, show a "connected" page
+ *   GET  /spotify/status?profile=<hash>             -> { connected, name? }
+ *   POST /spotify/disconnect { profile }            -> forget that token
+ *   GET  /spotify/connected   (Bearer SPOTIFY_SYNC_TOKEN) -> { connected: [hash,...] }
+ *   GET  /spotify/fetch?profile=<hash> (Bearer SPOTIFY_SYNC_TOKEN) -> { top, followed, recent } raw
+ *
+ * Extra env: KV binding SPOTIFY_KV; secrets SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET,
+ * SPOTIFY_SYNC_TOKEN, STATE_SECRET; vars SPOTIFY_REDIRECT_URI, PAGE_URL.
+ */
+async function handleSpotify(url, request, env, cors) {
+  const path = url.pathname;
+  if (!env.SPOTIFY_KV) return json({ error: "spotify not configured (no SPOTIFY_KV binding)" }, 501, cors);
+  const hashOf = (s) => { const h = String(s || "").toLowerCase(); return /^[0-9a-f]{8,32}$/.test(h) ? h : null; };
+
+  // --- browser: start the OAuth dance ---
+  if (path === "/spotify/login" && request.method === "GET") {
+    if (!env.SPOTIFY_CLIENT_ID) return htmlPage("Spotify isn't configured on this backend yet.");
+    const hash = hashOf(url.searchParams.get("profile"));
+    if (!hash) return htmlPage("Log into your profile first, then Connect Spotify.");
+    // Optional shared-token gate (the same CONCIERGE_TOKEN the page already holds) so a random
+    // visitor can't attach a Spotify to someone's hash. Passed as ?t= since a top-level browser
+    // redirect can't carry an Authorization header. Within Ari's circle everyone has this token.
+    if (env.CONCIERGE_TOKEN && url.searchParams.get("t") !== env.CONCIERGE_TOKEN)
+      return htmlPage("This link needs your concierge access token. Open Connect Spotify from the page.");
+    const params = new URLSearchParams({
+      client_id: env.SPOTIFY_CLIENT_ID, response_type: "code",
+      redirect_uri: spotifyRedirect(env, url), scope: DEFAULTS.SPOTIFY_SCOPES,
+      state: await signState(env, hash),
+    });
+    return Response.redirect(`${DEFAULTS.SPOTIFY_AUTH}/authorize?${params}`, 302);
+  }
+
+  // --- browser: Spotify redirects back here with code + state ---
+  if (path === "/spotify/callback" && request.method === "GET") {
+    const back = env.PAGE_URL || env.ALLOWED_ORIGIN || DEFAULTS.ALLOWED_ORIGIN;
+    if (url.searchParams.get("error")) return htmlPage("Spotify connection was cancelled.", back);
+    const hash = await verifyState(env, url.searchParams.get("state"));
+    const code = url.searchParams.get("code");
+    if (!hash || !code) return htmlPage("That link expired or was invalid — try Connect Spotify again.", back);
+    let tok;
+    try { tok = await spotifyToken(env, { grant_type: "authorization_code", code, redirect_uri: spotifyRedirect(env, url) }); }
+    catch { return htmlPage("Couldn't complete the Spotify handshake. Try again in a minute.", back); }
+    if (!tok.refresh_token) return htmlPage("Spotify didn't return a refresh token. Try Connect again.", back);
+    let name = null;
+    try { name = (await spotifyApiGet(`${DEFAULTS.SPOTIFY_API}/me`, tok.access_token)).display_name || null; } catch { /* optional */ }
+    await env.SPOTIFY_KV.put("rt:" + hash, JSON.stringify({ rt: tok.refresh_token, name, ts: Date.now() }));
+    dispatchSync(env, hash);   // best-effort: kick the rebuild so the feed re-ranks in ~1–2 min
+    return htmlPage(`Spotify connected${name ? " — hey " + name : ""}! Your picks re-rank to your listening in a minute or two.`, back);
+  }
+
+  // --- browser: is this profile connected? (no token leaked) ---
+  if (path === "/spotify/status" && request.method === "GET") {
+    const hash = hashOf(url.searchParams.get("profile"));
+    if (!hash) return json({ connected: false }, 200, cors);
+    const rec = await kvJson(env, "rt:" + hash);
+    return json({ connected: !!(rec && rec.rt), name: (rec && rec.name) || null }, 200, cors);
+  }
+
+  // --- browser: forget my token ---
+  if (path === "/spotify/disconnect" && request.method === "POST") {
+    let body = {}; try { body = await request.json(); } catch { /* tolerate */ }
+    const hash = hashOf(body.profile);
+    if (!hash) return json({ ok: false }, 400, cors);
+    await env.SPOTIFY_KV.delete("rt:" + hash);
+    return json({ ok: true }, 200, cors);
+  }
+
+  // --- sync (authed): who's connected ---
+  if (path === "/spotify/connected" && request.method === "GET") {
+    if (!syncAuthed(env, request)) return json({ error: "unauthorized" }, 401, cors);
+    const out = [];
+    let cursor;
+    do {
+      const list = await env.SPOTIFY_KV.list({ prefix: "rt:", cursor });
+      for (const k of list.keys) out.push(k.name.slice(3));
+      cursor = list.list_complete ? null : list.cursor;
+    } while (cursor);
+    return json({ connected: out }, 200, cors);
+  }
+
+  // --- sync (authed): raw payloads for one profile (token stays in KV) ---
+  if (path === "/spotify/fetch" && request.method === "GET") {
+    if (!syncAuthed(env, request)) return json({ error: "unauthorized" }, 401, cors);
+    const hash = hashOf(url.searchParams.get("profile"));
+    const rec = hash && await kvJson(env, "rt:" + hash);
+    if (!rec || !rec.rt) return json({ error: "not connected" }, 404, cors);
+    let access;
+    try { access = (await spotifyToken(env, { grant_type: "refresh_token", refresh_token: rec.rt })).access_token; }
+    catch (e) { return json({ error: "refresh failed", detail: String((e && e.message) || e).slice(0, 200) }, 502, cors); }
+    if (!access) return json({ error: "no access token" }, 502, cors);
+    try { return json(await spotifyPull(access), 200, cors); }
+    catch (e) { return json({ error: "spotify fetch failed", detail: String((e && e.message) || e).slice(0, 200) }, 502, cors); }
+  }
+
+  return json({ error: "not found" }, 404, cors);
+}
+
+function spotifyRedirect(env, url) {
+  return env.SPOTIFY_REDIRECT_URI || `${url.origin}/spotify/callback`;
+}
+function syncAuthed(env, request) {
+  if (!env.SPOTIFY_SYNC_TOKEN) return false;   // closed by default — no token set, no sync access
+  return (request.headers.get("authorization") || "") === "Bearer " + env.SPOTIFY_SYNC_TOKEN;
+}
+async function kvJson(env, key) {
+  try { const v = await env.SPOTIFY_KV.get(key); return v ? JSON.parse(v) : null; } catch { return null; }
+}
+async function spotifyToken(env, form) {
+  const basic = btoa(`${env.SPOTIFY_CLIENT_ID}:${env.SPOTIFY_CLIENT_SECRET}`);
+  const r = await fetch(`${DEFAULTS.SPOTIFY_AUTH}/api/token`, {
+    method: "POST",
+    headers: { authorization: "Basic " + basic, "content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(form),
+  });
+  if (!r.ok) throw new Error(r.status + " " + (await r.text().catch(() => "")).slice(0, 200));
+  return r.json();
+}
+async function spotifyApiGet(urlStr, access) {
+  const r = await fetch(urlStr, { headers: { authorization: "Bearer " + access, "user-agent": "la-events-concierge" } });
+  if (!r.ok) throw new Error(r.status + " " + urlStr);
+  return r.json();
+}
+/* Pull the three open-to-new-apps signals (top / followed / recently-played) — the same set
+ * fetch_spotify.py pulls. Raw artist objects only; build_affinity does the weighting in Python. */
+async function spotifyPull(access) {
+  const A = DEFAULTS.SPOTIFY_API;
+  const top = {};
+  for (const tr of ["long_term", "medium_term", "short_term"]) {
+    top[tr] = (await spotifyApiGet(`${A}/me/top/artists?time_range=${tr}&limit=50`, access)).items || [];
+  }
+  let followed = [], after = null;
+  for (let i = 0; i < 10; i++) {
+    const q = new URLSearchParams({ type: "artist", limit: "50" });
+    if (after) q.set("after", after);
+    const d = (await spotifyApiGet(`${A}/me/following?${q}`, access)).artists || {};
+    followed = followed.concat(d.items || []);
+    after = (d.cursors || {}).after;
+    if (!after || !(d.items || []).length) break;
+  }
+  const recent = (await spotifyApiGet(`${A}/me/player/recently-played?limit=50`, access)).items || [];
+  return { top, followed, recent };
+}
+
+/* Signed, short-lived OAuth `state` — binds the login to the callback (CSRF) and carries the hash. */
+async function hmacHex(env, msg) {
+  const secret = env.STATE_SECRET || env.CONCIERGE_TOKEN || env.SPOTIFY_CLIENT_SECRET || "la-events/state";
+  const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(msg));
+  return [...new Uint8Array(sig)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+async function signState(env, hash) {
+  const body = `${hash}.${Date.now().toString(36)}`;
+  return `${body}.${(await hmacHex(env, body)).slice(0, 32)}`;
+}
+async function verifyState(env, state) {
+  const parts = String(state || "").split(".");
+  if (parts.length !== 3) return null;
+  const [hash, ts, sig] = parts;
+  if (!/^[0-9a-f]{8,32}$/.test(hash)) return null;
+  if ((await hmacHex(env, `${hash}.${ts}`)).slice(0, 32) !== sig) return null;
+  if (Date.now() - parseInt(ts, 36) > DEFAULTS.STATE_TTL_MS) return null;
+  return hash;
+}
+
+/* Best-effort: nudge a rebuild of this one profile's feed (the spotify-sync workflow). */
+async function dispatchSync(env, hash) {
+  if (!env.GITHUB_TOKEN) return;
+  const repo = env.GITHUB_REPO || DEFAULTS.GITHUB_REPO;
+  try {
+    await fetch(`https://api.github.com/repos/${repo}/dispatches`, {
+      method: "POST", headers: ghHeaders(env),
+      body: JSON.stringify({ event_type: "spotify-sync", client_payload: { profile: hash } }),
+    });
+  } catch { /* best-effort; the daily routine will catch it otherwise */ }
+}
+
+function esc(s) { return String(s).replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c])); }
+function htmlPage(message, back) {
+  const home = back ? `<p style="margin-top:1.4rem"><a href="${esc(back)}" style="color:#1db954;font-weight:600">← back to la-events</a></p>` : "";
+  const body = `<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">` +
+    `<title>la-events × Spotify</title>` +
+    `<body style="font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:32rem;margin:16vh auto;padding:0 1.2rem;color:#1b1a17;background:#f7f6f2">` +
+    `<div style="font:600 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.07em;color:#1db954">SPOTIFY × LA-EVENTS</div>` +
+    `<p style="font-size:18px;margin:.7rem 0 0">${esc(message)}</p>${home}` +
+    `<p style="color:#76746b;font-size:13px;margin-top:1.6rem">You can close this tab.</p></body>`;
+  return new Response(body, { status: 200, headers: { "content-type": "text/html; charset=utf-8" } });
 }
