@@ -86,6 +86,8 @@ def main() -> int:
         try:
             feed = json.loads(out.read_text())
             block = {"name": p.get("name") or u, "hash": h}
+            if p.get("owner"):
+                block["owner"] = True   # the dashboard reads this to unlock admin-only settings
             if p.get("digest"):
                 block["digest"] = p["digest"]
             try:
