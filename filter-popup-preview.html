@@ -12,7 +12,7 @@
   table { width:100%; border-collapse:collapse; font-size:12.5px; }
   /* hover helpers — the real app uses style-hover="" which this static file emulates with CSS */
   .it:hover    { background:#f1efe7 !important; }
-  .lnk:hover   { color:#161512 !important; }
+  .lnk:hover   { text-decoration:underline !important; }
   .ico:hover, .srt:hover { color:#2b5cd9 !important; }
   tbody tr:hover { background:#f1efe7; }
 </style>
@@ -82,34 +82,38 @@ selected.vibe.add('afterhours');
 // ---- popup config: which axes (columns) live in each popup, + widths ----
 var POPUPS = {
   hood: { maxh:300, anchor:'left',  cols:[
-            {axis:'hood',   title:'NEIGHBORHOOD', width:176},
+            {axis:'hood',   title:'NEIGHBORHOOD', width:190},
             {axis:'region', title:'REGION',       width:120} ] },
   cat:  { maxh:340, anchor:'right', cols:[
-            {axis:'cat',     title:'CATEGORY', width:132},
-            {axis:'genre',   title:'GENRE',    width:132},
-            {axis:'vibe',    title:'VIBE',     width:132},
-            {axis:'setting', title:'SETTING',  width:132} ] }
+            {axis:'cat',     title:'CATEGORY', width:138},
+            {axis:'genre',   title:'GENRE',    width:138},
+            {axis:'vibe',    title:'VIBE',     width:138},
+            {axis:'setting', title:'SETTING',  width:138} ] }
 };
 
 function renderPopup(key){
   var cfg = POPUPS[key];
   var anchorCss = cfg.anchor === 'right' ? 'right:12px;' : 'left:12px;';
-  var cols = cfg.cols.map(function(c){
+  var cols = cfg.cols.map(function(c, ci){
     var items = AXES[c.axis].map(function(v){
       var on = selected[c.axis].has(v);
       var box = on ? '■' : '□';
+      var boxColor = on ? '#2b5cd9' : '#cbc9bf';
       var color = on ? '#161512' : '#76746b';
-      return '<div class="it" data-axis="'+c.axis+'" data-val="'+v+'" style="display:flex; align-items:center; gap:7px; padding:4px 6px; border-radius:2px; cursor:pointer; font:500 11px/1.3 ui-monospace,Menlo,monospace; color:'+color+';"><span>'+box+'</span>'+pretty(v)+'</div>';
+      var bg = on ? '#efece2' : 'transparent';
+      var weight = on ? '600' : '500';
+      return '<div class="it" data-axis="'+c.axis+'" data-val="'+v+'" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font:'+weight+' 11px/1.3 ui-monospace,Menlo,monospace; color:'+color+'; background:'+bg+';"><span style="font-size:10px; color:'+boxColor+';">'+box+'</span>'+pretty(v)+'</div>';
     }).join('');
+    var clear = selected[c.axis].size ? '<span class="lnk" data-clear="'+c.axis+'" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;">clear</span>' : '';
+    var border = ci ? ' border-left:1px solid #eceae2;' : '';
     return ''+
-      '<div style="flex:0 0 auto; width:'+c.width+'px; max-height:'+cfg.maxh+'px; overflow-y:auto;">'+
-        '<div style="display:flex; align-items:center; justify-content:space-between; padding:3px 6px 6px; border-bottom:1px solid #eceae2; margin-bottom:4px;">'+
-          '<span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">'+c.title+'</span>'+
-          '<span class="lnk" data-clear="'+c.axis+'" style="cursor:pointer; font:500 9px/1 ui-monospace,Menlo,monospace; color:#76746b; text-decoration:underline;">clear</span>'+
+      '<div style="flex:0 0 auto; width:'+c.width+'px; max-height:'+cfg.maxh+'px; overflow-y:auto; padding:0 9px;'+border+'">'+
+        '<div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">'+
+          '<span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">'+c.title+'</span>'+ clear +
         '</div>'+ items +
       '</div>';
   }).join('');
-  return '<div style="position:absolute; top:30px; '+anchorCss+' z-index:51; display:flex; align-items:flex-start; flex-wrap:wrap; gap:10px; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 8px 22px rgba(0,0,0,0.16); padding:6px;">'+cols+'</div>';
+  return '<div style="position:absolute; top:30px; '+anchorCss+' z-index:51; display:flex; align-items:stretch; flex-wrap:wrap; gap:0; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">'+cols+'</div>';
 }
 
 var openKey = null;
