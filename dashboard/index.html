@@ -55,7 +55,7 @@
       <div style="margin-top:6px; font-size:11.5px; line-height:1.45; color:#76746b;">Your taste-ranked LA concierge — ask, get recommendations, or plan a night (dinner → show → afters). Switch to Fast filter for instant offline filtering.</div>
       <div style="margin-top:10px; display:flex; align-items:center; gap:6px;">
         <sc-for list="{{ modeOpts }}" as="o">
-          <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px solid #d2d0c7; background: {{ o.bg }}; color: {{ o.color }}; border-radius:2px; cursor:pointer;">{{ o.label }}</button>
+          <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px solid #d2d0c7; background: {{ o.bg }}; color: {{ o.color }}; opacity: {{ o.opacity }}; border-radius:2px; cursor:pointer;">{{ o.label }}</button>
         </sc-for>
         <sc-if value="{{ showConnect }}" hint-placeholder-val="{{ true }}">
           <button onClick="{{ connectBackend }}" title="Point the concierge at your backend (URL + token)" style="margin-left:auto; font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px dashed {{ backendColor }}; background:transparent; color: {{ backendColor }}; border-radius:2px; cursor:pointer;" style-hover="opacity:0.75;">● {{ backendLabel }} ↗</button>
@@ -170,7 +170,7 @@
           </span>
         </sc-if>
         <span style="display:inline-flex; align-items:center; gap:6px; width:188px; padding:6px 9px; border:1px solid #d2d0c7; background:#fff; border-radius:2px;" style-focus-within="border-color:#a7a59b;">
-          <span style="flex:none; color:#bdbbb1; font-size:11px;">⌕</span>
+          <span style="flex:none; color:#bdbbb1; font-size:12px;">⌕</span>
           <input value="{{ search }}" onChange="{{ onSearch }}" placeholder="search events" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 11.5px/1 ui-monospace,Menlo,monospace; color:#1b1a17;" />
           <sc-if value="{{ hasSearch }}" hint-placeholder-val="{{ false }}">
             <span onClick="{{ clearSearch }}" title="Clear" style="flex:none; cursor:pointer; color:#a7a59b; font-weight:700; font-size:12px;" style-hover="color:#161512;">×</span>
@@ -398,28 +398,14 @@
                 </div>
               </sc-if>
               <sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">
-                <sc-if value="{{ loginClosed }}" hint-placeholder-val="{{ true }}">
-                  <div onClick="{{ openLoginFromSettings }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
-                    <span style="flex:none; color:#3f3d36; font-size:14px; transform:translateY(1px);">→</span>
-                    <span style="flex:1;">
-                      <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</span>
-                      <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">load your taste profile + digest</span>
-                    </span>
-                  </div>
-                </sc-if>
-                <sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}">
-                  <div style="padding:1px 2px 2px;">
-                    <div style="font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</div>
-                    <div style="margin-top:3px; font:500 10px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">Type your username to load your taste profile + digest.</div>
-                    <input value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="username" style="margin-top:8px; width:100%; box-sizing:border-box; font:400 12px/1.4 -apple-system,system-ui,sans-serif; padding:8px 9px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none;" style-focus="border-color:#2b5cd9;" />
-                    <sc-if value="{{ profileError }}" hint-placeholder-val="{{ false }}">
-                      <div style="margin-top:6px; font-size:11px; color:#b4453a;">{{ profileError }}</div>
-                    </sc-if>
-                    <div style="display:flex; gap:6px; margin-top:9px; justify-content:flex-end;">
-                      <button onClick="{{ cancelLogin }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;">Cancel</button>
-                      <button onClick="{{ submitProfile }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 14px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; cursor:pointer;">{{ profileBtnLabel }}</button>
-                    </div>
-                  </div>
+                <div style="font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</div>
+                <div style="margin-top:3px; font:500 10px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">Type your username to load your taste profile + digest.</div>
+                <span style="margin-top:8px; display:flex; align-items:center; gap:6px; padding:7px 9px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
+                  <input id="la-login-input" value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="username" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:400 12px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
+                  <span onClick="{{ submitProfile }}" title="Log in" style="flex:none; cursor:pointer; color:#2b5cd9; font-size:15px; line-height:1; padding:0 2px;" style-hover="color:#161512;">{{ profileBtnLabel }}</span>
+                </span>
+                <sc-if value="{{ profileError }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:6px; font-size:11px; color:#b4453a;">{{ profileError }}</div>
                 </sc-if>
               </sc-if>
               <div style="margin-top:10px; padding-top:9px; border-top:1px solid #eceae2; display:flex; align-items:center; justify-content:space-between; gap:8px;">
@@ -503,6 +489,25 @@
           <sc-if value="{{ spotifyIsConnected }}" hint-placeholder-val="{{ false }}">
             <button onClick="{{ disconnectSpotify }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 14px; border:1px solid #c75146; background:#fff; color:#b4453a; border-radius:2px; cursor:pointer;" style-hover="background:#fbeae8;">Disconnect</button>
           </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===================== CONCIERGE CONNECT ===================== -->
+  <sc-if value="{{ connectModalOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
+      <div onClick="{{ closeConnectModal }}" style="position:absolute; inset:0;"></div>
+      <div style="position:relative; z-index:1; width:360px; max-width:92vw; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:4px; box-shadow:0 24px 60px rgba(0,0,0,0.28); padding:18px;">
+        <div style="font:600 12px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.05em; color:#161512;">CONCIERGE</div>
+        <div style="margin-top:9px; font-size:12px; line-height:1.55; color:#3f3d36;">Enter your access token to enable the LLM concierge. {{ tokenState }}</div>
+        <span style="margin-top:11px; display:flex; align-items:center; gap:6px; padding:8px 10px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
+          <input id="la-token-input" value="{{ tokenInput }}" onChange="{{ onTokenInput }}" onKeyDown="{{ onTokenKey }}" type="password" placeholder="access token" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:400 12px/1.4 ui-monospace,Menlo,monospace; color:#1b1a17;" />
+        </span>
+        <div style="margin-top:7px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">backend · {{ backendHost }}</div>
+        <div style="display:flex; gap:6px; margin-top:14px; justify-content:flex-end;">
+          <button onClick="{{ closeConnectModal }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512; color:#161512;">Close</button>
+          <button onClick="{{ saveConciergeToken }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 14px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; cursor:pointer;" style-hover="opacity:0.9;">Save</button>
         </div>
       </div>
     </div>
@@ -611,7 +616,7 @@ class Component extends DCLogic {
     digestMenuOpen: false, digestEmailOpen: false, digestEmail: '',
     colFilters: { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} }, openFilter: null,
     search: '', digestPrevState: null,
-    settingsOpen: false, loginOpen: false, toast: null,
+    settingsOpen: false, toast: null, connectModalOpen: false, tokenInput: '',
     input: '',
     chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
     backendStatus: null,
@@ -633,7 +638,7 @@ class Component extends DCLogic {
   // LLM concierge backend (the BACKEND_URL seam). Empty = not wired -> the chat falls back to
   // the local "Fast filter" engine. Set via the chat header "connect" affordance (localStorage),
   // or hardcode the URL here. See backend/README.md.
-  BACKEND_URL = (typeof localStorage !== 'undefined' && localStorage.getItem('la-backend-url')) || '';
+  BACKEND_URL = (typeof localStorage !== 'undefined' && localStorage.getItem('la-backend-url')) || 'https://la-events-concierge.arinazari.workers.dev';
   BACKEND_TOKEN = (typeof localStorage !== 'undefined' && localStorage.getItem('la-concierge-token')) || '';
 
   // ---- taste constants ----
@@ -1141,12 +1146,19 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   openTasteModal = () => this.setState({ tasteModalOpen: true, profileOpen: false, settingsOpen: false });
   closeTasteModal = () => this.setState({ tasteModalOpen: false });
   // Tap the Spotify row -> a status modal (re-checks live), so disconnect is explicit (no accidental tap-to-disconnect).
-  openSpotifyModal = () => { this.setState({ spotifyModalOpen: true, settingsOpen: false, loginOpen: false }); this.checkSpotify(); };
+  openSpotifyModal = () => { this.setState({ spotifyModalOpen: true, settingsOpen: false }); this.checkSpotify(); };
   closeSpotifyModal = () => this.setState({ spotifyModalOpen: false });
 
   // ---------- settings ----------
-  toggleSettings = () => { const open = !this.state.settingsOpen; this.setState({ settingsOpen: open, loginOpen: false, profileError: '' }); if (open && this.state.profile && this.state.profile.hash) this.checkSpotify(); };
-  closeSettings = () => this.setState({ settingsOpen: false, loginOpen: false });
+  toggleSettings = () => {
+    const open = !this.state.settingsOpen;
+    const loggedOut = !(this.state.profile && this.state.profile.hash);
+    this.setState({ settingsOpen: open, profileError: '' });
+    if (open && !loggedOut) this.checkSpotify();
+    // Logged out: jump straight to the username box and focus it (one click to type).
+    if (open && loggedOut) setTimeout(() => { const el = document.getElementById('la-login-input'); if (el) el.focus(); }, 30);
+  };
+  closeSettings = () => this.setState({ settingsOpen: false });
   // "2026-06-17T07:02:00" (or a Date / null) -> "Wed 6/17, 7:02 AM" — Ari's date convention.
   fmtStamp(d) {
     if (!d) return '—';
@@ -1168,8 +1180,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.forceUpdate();
   };
   logoutFromSettings = () => this.logoutProfile();
-  openLoginFromSettings = () => this.setState({ loginOpen: true, profileInput: '', profileError: '' });
-  cancelLogin = () => this.setState({ loginOpen: false, profileError: '' });
   flashToast(msg) {
     this.setState({ toast: msg });
     clearTimeout(this._toastT);
@@ -1209,19 +1219,18 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
   // ---------- concierge mode + backend wiring ----------
   setChatMode = (m) => { try { localStorage.setItem('la-chat-mode', m); } catch (e) {} this.setState({ chatMode: m }); };
-  connectBackend = () => {
-    let url; try { url = window.prompt('Concierge backend URL (your deployed Worker). Leave blank to clear:', this.BACKEND_URL || ''); } catch (e) { return; }
-    if (url === null) return;
-    url = url.trim();
-    this.BACKEND_URL = url;
-    try { url ? localStorage.setItem('la-backend-url', url) : localStorage.removeItem('la-backend-url'); } catch (e) {}
-    if (url) {
-      let tok = null; try { tok = window.prompt('Access token (optional — blank if your backend has none):', this.BACKEND_TOKEN || ''); } catch (e) {}
-      if (tok !== null) { this.BACKEND_TOKEN = tok.trim(); try { this.BACKEND_TOKEN ? localStorage.setItem('la-concierge-token', this.BACKEND_TOKEN) : localStorage.removeItem('la-concierge-token'); } catch (e) {} }
-    }
-    this.flashToast(url ? 'Concierge backend connected' : 'Backend cleared — using Fast filter');
+  // Connect = enter the concierge access token (the backend URL is the known Worker; see BACKEND_URL).
+  connectBackend = () => { this.setState({ connectModalOpen: true, tokenInput: this.BACKEND_TOKEN || '' }); setTimeout(() => { const el = document.getElementById('la-token-input'); if (el) el.focus(); }, 30); };
+  closeConnectModal = () => this.setState({ connectModalOpen: false });
+  onTokenInput = (e) => this.setState({ tokenInput: e.target.value });
+  onTokenKey = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.saveConciergeToken(); } };
+  saveConciergeToken = () => {
+    const tok = (this.state.tokenInput || '').trim();
+    this.BACKEND_TOKEN = tok;
+    try { tok ? localStorage.setItem('la-concierge-token', tok) : localStorage.removeItem('la-concierge-token'); } catch (e) {}
+    this.setState({ connectModalOpen: false });
+    this.flashToast(tok ? 'Concierge token saved — checking…' : 'Token cleared');
     this.pingBackend();
-    this.forceUpdate();
   };
   async askBackend(text) {
     const history = (this.state.messages || []).slice(-7)
@@ -1290,7 +1299,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // Switch the active profile: persist it, reset the view, load that feed (+ digest).
   async applyProfile(profileObj, raw) {
     try { profileObj ? localStorage.setItem('la-profile', JSON.stringify(profileObj)) : localStorage.removeItem('la-profile'); } catch (e) {}
-    this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, loginOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
+    this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
       spotifyStatus: null, spotifyName: '' });
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
@@ -1488,7 +1497,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const profileActive = !!(this.state.profile && this.state.profile.hash);
     // Concierge (LLM) is gated on being logged into a profile (the "connect" affordance only shows
     // then). Logged out, or in Fast-filter mode, we answer locally. Falls back to local on any error.
-    if (mode === 'llm' && profileActive && this.BACKEND_URL) {
+    if (mode === 'llm' && profileActive && this.state.backendStatus === 'ok') {
       try {
         const reply = await this.askBackend(text);
         this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: reply }] }));
@@ -1502,9 +1511,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: note }] }));
         // fall through to the local engine
       }
-    } else if (mode === 'llm' && profileActive && !this.BACKEND_URL && !this._backendHinted) {
+    } else if (mode === 'llm' && profileActive && this.state.backendStatus !== 'ok' && !this._backendHinted) {
       this._backendHinted = true;
-      this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: 'Concierge backend isn’t connected yet — tap "connect" above (see backend/README.md) for full answers + planning. Using fast filter for now:' }] }));
+      this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: 'Concierge isn’t connected — tap “connect” to add your access token. Using fast filter for now:' }] }));
     }
 
     this.runLocal(text);
@@ -1827,7 +1836,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.SAMPLE = this.ALL;
     const ds = this.props.defaultSort;
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
-    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); } };
+    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); } };
     window.addEventListener('keydown', this._onKeyDown);
     this.loadCatalog();
     this.loadDigest();
@@ -1917,19 +1926,29 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const suggestions = chips.map(label => ({ label, onClick: () => this.runQuery(label) }));
 
     const chatMode = this.state.chatMode || 'llm';
-    const modeOpts = [
-      { key: 'llm', label: 'Concierge', title: 'LLM concierge — answers, recommends, plans (needs a backend)' },
-      { key: 'fast', label: 'Fast filter', title: 'Instant offline taste-filter (no LLM)' },
-    ].map(o => ({
-      label: o.label, title: o.title,
-      bg: chatMode === o.key ? '#2b5cd9' : '#f7f6f2',
-      color: chatMode === o.key ? '#fff' : '#76746b',
-      onClick: () => this.setChatMode(o.key),
-    }));
-    const showConnect = chatMode === 'llm' && !!(this.state.profile && this.state.profile.hash);
     const bstat = this.state.backendStatus;
-    const backendLabel = !this.BACKEND_URL ? 'connect' : (bstat === 'ok' ? 'connected' : bstat === 'err' ? 'reconnect' : 'connecting…');
-    const backendColor = !this.BACKEND_URL ? '#76746b' : (bstat === 'ok' ? '#1f9d57' : bstat === 'err' ? '#b4453a' : '#a7a59b');
+    const backendReady = bstat === 'ok';   // concierge only works once the token pings through
+    const modeOpts = [
+      { key: 'llm', label: 'Concierge' },
+      { key: 'fast', label: 'Fast filter' },
+    ].map(o => {
+      const isLlm = o.key === 'llm';
+      const unavailable = isLlm && !backendReady;          // disconnected -> concierge is off
+      const selected = unavailable ? false : (isLlm ? chatMode === 'llm' : (chatMode === 'fast' || !backendReady));
+      return {
+        label: o.label,
+        title: isLlm ? (backendReady ? 'LLM concierge — answers, recommends, plans' : 'Concierge needs a backend — tap to connect') : 'Instant offline taste-filter (no LLM)',
+        bg: selected ? '#2b5cd9' : '#f7f6f2',
+        color: selected ? '#fff' : (unavailable ? '#bdbbb1' : '#76746b'),
+        opacity: unavailable ? '0.55' : '1',
+        onClick: unavailable ? this.connectBackend : (() => this.setChatMode(o.key)),
+      };
+    });
+    const showConnect = !!(this.state.profile && this.state.profile.hash);
+    const backendLabel = backendReady ? 'connected' : (bstat === 'err' ? 'reconnect' : 'connect');
+    const backendColor = backendReady ? '#1f9d57' : (bstat === 'err' ? '#b4453a' : '#76746b');
+    let backendHost = ''; try { backendHost = new URL(this.BACKEND_URL).host; } catch (e) { backendHost = this.BACKEND_URL || '—'; }
+    const tokenState = backendReady ? 'Connected.' : (bstat === 'err' ? 'Last attempt failed — check the token.' : '');
 
     const profile = this.state.profile;
     const profileActive = !!(profile && profile.hash);
@@ -1982,7 +2001,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       goLabel: loading ? 'stop' : 'go', goBg: loading ? '#b4453a' : '#2b5cd9', onGoStop: this.onGoStop,
       profileInput: this.state.profileInput || '', profileError: this.state.profileError || '',
       profileActive, profileName: profileActive ? (profile.name || 'profile') : '', profileTasteYaml,
-      profileBtnLabel: this.state.profileBusy ? '…' : 'Enter',
+      profileBtnLabel: this.state.profileBusy ? '…' : '→',
       onProfileInput: this.onProfileInput, onProfileKey: this.onProfileKey,
       submitProfile: this.submitProfile, logoutProfile: this.logoutProfile,
       spotifySettingsText,
@@ -2022,10 +2041,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       emailTogColor: this.state.digestEmailOpen ? '#161512' : '#3f3d36',
       settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, closeSettings: this.closeSettings,
       settingsTitle: loggedOut ? 'Log in' : 'Settings',
-      loginOpen: this.state.loginOpen, loginClosed: !this.state.loginOpen, cancelLogin: this.cancelLogin,
       loggedOut, lastDataPull, lastSiteUpdate, claudeKeyState,
-      setClaudeKey: this.setClaudeKey,
-      logoutFromSettings: this.logoutFromSettings, openLoginFromSettings: this.openLoginFromSettings,
+      setClaudeKey: this.setClaudeKey, logoutFromSettings: this.logoutFromSettings,
+      connectModalOpen: this.state.connectModalOpen, closeConnectModal: this.closeConnectModal,
+      tokenInput: this.state.tokenInput || '', onTokenInput: this.onTokenInput, onTokenKey: this.onTokenKey,
+      saveConciergeToken: this.saveConciergeToken, tokenState, backendHost,
       dataSourceLabel: this.state.dataSource === 'live' ? 'live · data.json' : 'bundled sample',
       toast: this.state.toast, hasToast: !!this.state.toast,
       digestBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } }),
