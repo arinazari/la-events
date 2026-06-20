@@ -365,7 +365,8 @@ def _radar_md(rows: list, limit: int = 18) -> list:
     if not rows:
         return ["*Nothing flagged on the radar yet.*"]
     out, cur = [], None
-    for r in rows[:limit]:
+    # Select the top N by rank (relevance), then present chronologically so each month heads once.
+    for r in sorted(rows[:limit], key=lambda r: r["iso_date"]):
         d = date.fromisoformat(r["iso_date"])
         ym = f"{MONTHS[d.month - 1]} {d.year}"
         if ym != cur:
@@ -412,7 +413,8 @@ def _radar_html(rows: list, limit: int = 18) -> str:
     if not rows:
         return '<p class="meta">Nothing flagged on the radar yet.</p>'
     items, cur = [], None
-    for r in rows[:limit]:
+    # Select the top N by rank (relevance), then present chronologically so each month heads once.
+    for r in sorted(rows[:limit], key=lambda r: r["iso_date"]):
         d = date.fromisoformat(r["iso_date"])
         ym = f"{MONTHS[d.month - 1]} {d.year}"
         if ym != cur:
