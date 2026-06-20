@@ -10,3 +10,5 @@ dashboard/digests/
 # Worker deps (installed locally for deploy; not committed)
 backend/node_modules/
 data/radar.json
+data/editor_batch*.json
+data/editor_results*.json
