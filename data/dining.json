@@ -86,7 +86,24 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
-    "notes": "Tiny candlelit British bistro/wine bar; bakery-cafe by day. Intimate date-night; tables hard — Notify/bar seats. Eastside."
+    "notes": "Tiny candlelit British bistro/wine bar; bakery-cafe by day. Intimate date-night; tables hard — Notify/bar seats. Eastside.",
+    "enrichment": {
+      "why_fits": "Tiny candlelit British wine-bistro in Los Feliz — 'makes British food sexy'; intimate date, tables hard (Notify/bar).",
+      "vibe": [
+        "intimate",
+        "candlelit",
+        "wine-bar",
+        "date-night"
+      ],
+      "pairs_with": "an intimate eastside date — reserve/Notify",
+      "by": "claude",
+      "confidence": "high",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "British small plates",
+        "wine"
+      ]
+    }
   },
   {
     "id": "cafe-stella",
@@ -165,7 +182,23 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-17",
-    "notes": "Eastside hotspot (Variety also flagged it). Confirm exact address/neighborhood next pass."
+    "notes": "Eastside hotspot (Variety also flagged it). Confirm exact address/neighborhood next pass.",
+    "enrichment": {
+      "why_fits": "Eastside Malaysian on its own terms — bold, shareable; a fun group or date on home turf.",
+      "vibe": [
+        "bold",
+        "shareable",
+        "casual",
+        "eastside"
+      ],
+      "pairs_with": "a flavorful eastside dinner before a show",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "Malaysian"
+      ]
+    }
   },
   {
     "id": "dunsmoor",
@@ -198,7 +231,24 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
-    "notes": "Restored 1920s building around a huge wood-burning hearth. Eastside, on-profile for a special night."
+    "notes": "Restored 1920s building around a huge wood-burning hearth. Eastside, on-profile for a special night.",
+    "enrichment": {
+      "why_fits": "Wood-hearth American in a restored 1920s room — a special-feeling eastside dinner; books up.",
+      "vibe": [
+        "wood-fired",
+        "handsome",
+        "special",
+        "date-night"
+      ],
+      "pairs_with": "a special Eagle Rock dinner — earlier, not pre-club",
+      "by": "claude",
+      "confidence": "high",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "hearth-cooked meats",
+        "biscuits"
+      ]
+    }
   },
   {
     "id": "yess",
@@ -231,7 +281,22 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-17",
-    "notes": "Grew out of the Yess Aquatic seafood truck. Chef Junya Yamasaki — confirm details next pass."
+    "notes": "Grew out of the Yess Aquatic seafood truck. Chef Junya Yamasaki — confirm details next pass.",
+    "enrichment": {
+      "why_fits": "Chef Junya Yamasaki's refined Japanese seafood — a destination splurge, its own event, not a pre-show stop.",
+      "vibe": [
+        "refined",
+        "special",
+        "splurge"
+      ],
+      "pairs_with": "a special-occasion DTLA dinner (the whole night)",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "Japanese seafood"
+      ]
+    }
   },
   {
     "id": "sushi-nakazawa-la",
@@ -263,7 +328,23 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-17",
-    "notes": "Omakase from a Jiro Ono protégé; NYC import's LA debut. Neighborhood unconfirmed."
+    "notes": "Omakase from a Jiro Ono protégé; NYC import's LA debut. Neighborhood unconfirmed.",
+    "enrichment": {
+      "why_fits": "NYC omakase import (a Jiro protégé) — high-end sushi as the whole evening; a splurge.",
+      "vibe": [
+        "omakase",
+        "high-end",
+        "special",
+        "splurge"
+      ],
+      "pairs_with": "sushi as the event (a splurge), not a warm-up",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "omakase"
+      ]
+    }
   },
   {
     "id": "hermons",
@@ -295,7 +376,24 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
-    "notes": "Refreshed chophouse from the Found Oyster team — martinis, pull-apart garlic bread, pasta vongole. Confirm neighborhood."
+    "notes": "Refreshed chophouse from the Found Oyster team — martinis, pull-apart garlic bread, pasta vongole. Confirm neighborhood.",
+    "enrichment": {
+      "why_fits": "Refreshed chophouse from the Found Oyster team — martinis, pull-apart garlic bread, pasta vongole; a fun date.",
+      "vibe": [
+        "chophouse",
+        "martinis",
+        "lively",
+        "date-night"
+      ],
+      "pairs_with": "a martini-and-steak date before a show",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "pull-apart garlic bread",
+        "pasta vongole"
+      ]
+    }
   },
   {
     "id": "mish",
@@ -327,7 +425,23 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
-    "notes": "New-wave deli on La Brea — wood-fired bagels, shakshuka with challah, pastrami reuben on schmaltz-griddled rye."
+    "notes": "New-wave deli on La Brea — wood-fired bagels, shakshuka with challah, pastrami reuben on schmaltz-griddled rye.",
+    "enrichment": {
+      "why_fits": "New-wave deli on La Brea — wood-fired bagels, pastrami reuben on schmaltz-griddled rye; easy lunch/casual.",
+      "vibe": [
+        "deli",
+        "casual",
+        "daytime"
+      ],
+      "pairs_with": "a daytime/lunch stop, not a pre-show dinner",
+      "by": "claude",
+      "confidence": "high",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "wood-fired bagels",
+        "pastrami reuben"
+      ]
+    }
   },
   {
     "id": "asadero",
@@ -360,7 +474,23 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
-    "notes": "Above-average taco stand — smoky asada from a chef who left corporate kitchens. Confirm neighborhood."
+    "notes": "Above-average taco stand — smoky asada from a chef who left corporate kitchens. Confirm neighborhood.",
+    "enrichment": {
+      "why_fits": "Above-average taco stand — smoky asada from a chef who left corporate kitchens; cheap and casual.",
+      "vibe": [
+        "tacos",
+        "casual",
+        "cheap",
+        "walk-up"
+      ],
+      "pairs_with": "a cheap casual bite",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "asada tacos"
+      ]
+    }
   },
   {
     "id": "amiguita",
@@ -419,7 +549,23 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
-    "notes": "Refined French bistro, Chef Dave Beran (ex-Alinea). Westside — special-occasion, not walkable."
+    "notes": "Refined French bistro, Chef Dave Beran (ex-Alinea). Westside — special-occasion, not walkable.",
+    "enrichment": {
+      "why_fits": "Dave Beran's refined French (ex-Alinea) — a Westside special-occasion splurge, its own night.",
+      "vibe": [
+        "refined",
+        "french",
+        "special",
+        "splurge"
+      ],
+      "pairs_with": "a Westside special-occasion dinner",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "pressed duck"
+      ]
+    }
   },
   {
     "id": "kassi",
@@ -452,7 +598,24 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
-    "notes": "Greek-Med rooftop in Venice — mezze, lamb chops, grilled whole fish. Westside."
+    "notes": "Greek-Med rooftop in Venice — mezze, lamb chops, grilled whole fish. Westside.",
+    "enrichment": {
+      "why_fits": "Greek-Med rooftop in Venice — mezze, grilled whole fish, a view; group or date, but Westside.",
+      "vibe": [
+        "rooftop",
+        "mediterranean",
+        "group",
+        "view"
+      ],
+      "pairs_with": "a Westside group dinner/sunset",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "mezze",
+        "grilled whole fish"
+      ]
+    }
   },
   {
     "id": "san-laurel",
@@ -485,7 +648,23 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
-    "notes": "Spanish-inflected dining high in the InterContinental DTLA (José Andrés group)."
+    "notes": "Spanish-inflected dining high in the InterContinental DTLA (José Andrés group).",
+    "enrichment": {
+      "why_fits": "Jose Andres Spanish-Med high in the InterContinental DTLA — a polished splurge with a view.",
+      "vibe": [
+        "hotel",
+        "view",
+        "polished",
+        "special"
+      ],
+      "pairs_with": "a special DTLA dinner before a downtown show",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "Spanish-Med"
+      ]
+    }
   },
   {
     "id": "calabra",
@@ -517,7 +696,24 @@
     ],
     "first_seen": "2026-06-16",
     "last_seen": "2026-06-16",
-    "notes": "Mediterranean rooftop atop the Santa Monica Proper — charred flatbreads, mezze, grilled fish."
+    "notes": "Mediterranean rooftop atop the Santa Monica Proper — charred flatbreads, mezze, grilled fish.",
+    "enrichment": {
+      "why_fits": "Med rooftop atop the Santa Monica Proper — charred flatbreads, mezze; a Westside date/sunset.",
+      "vibe": [
+        "rooftop",
+        "mediterranean",
+        "date-night",
+        "view"
+      ],
+      "pairs_with": "a Westside sunset date",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "charred flatbreads",
+        "mezze"
+      ]
+    }
   },
   {
     "id": "found-oyster",
@@ -651,7 +847,22 @@
     ],
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
-    "notes": "Handroll bar from the Sushi Note team — creative, high-quality fish. Counter seats. Eastside."
+    "notes": "Handroll bar from the Sushi Note team — creative, high-quality fish. Counter seats. Eastside.",
+    "enrichment": {
+      "why_fits": "Handroll bar from the Sushi Note team — creative, high-quality fish at the counter; eastside, on your sushi lane.",
+      "vibe": [
+        "counter",
+        "handroll",
+        "walkable"
+      ],
+      "pairs_with": "a counter-sushi warm-up before a show",
+      "by": "claude",
+      "confidence": "high",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "handrolls"
+      ]
+    }
   },
   {
     "id": "lolo-wine-bar",
@@ -782,7 +993,22 @@
     ],
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
-    "notes": "Echo Park bakery — caramelized kouign-amann, Nordic breakfast platters. Daytime/casual."
+    "notes": "Echo Park bakery — caramelized kouign-amann, Nordic breakfast platters. Daytime/casual.",
+    "enrichment": {
+      "why_fits": "Echo Park bakery — caramelized kouign-amann, Nordic breakfast; a daytime/coffee stop, not dinner.",
+      "vibe": [
+        "bakery",
+        "daytime",
+        "casual"
+      ],
+      "pairs_with": "a daytime/coffee stop",
+      "by": "claude",
+      "confidence": "high",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "kouign-amann"
+      ]
+    }
   },
   {
     "id": "kismet-rotisserie",
@@ -863,7 +1089,24 @@
     ],
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
-    "notes": "Cult deli hidden behind a liquor store — pastrami, specialty turkey. Lunch. Eastside."
+    "notes": "Cult deli hidden behind a liquor store — pastrami, specialty turkey. Lunch. Eastside.",
+    "enrichment": {
+      "why_fits": "Cult deli hidden behind a liquor store — pastrami + specialty turkey; a Highland Park lunch pilgrimage.",
+      "vibe": [
+        "deli",
+        "cult",
+        "lunch",
+        "walk-up"
+      ],
+      "pairs_with": "a lunch run, not a pre-show dinner",
+      "by": "claude",
+      "confidence": "high",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "pastrami",
+        "turkey sandwich"
+      ]
+    }
   },
   {
     "id": "yangs-kitchen",
@@ -897,7 +1140,23 @@
     ],
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
-    "notes": "Order-at-counter Taiwanese-Chinese — braised pork rice, beef scallion wraps. SGV-adjacent."
+    "notes": "Order-at-counter Taiwanese-Chinese — braised pork rice, beef scallion wraps. SGV-adjacent.",
+    "enrichment": {
+      "why_fits": "Counter Taiwanese-Chinese in the SGV — braised pork rice, beef scallion wraps; thoughtful, casual.",
+      "vibe": [
+        "counter",
+        "casual",
+        "sgv"
+      ],
+      "pairs_with": "an SGV casual dinner (a drive east)",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "braised pork rice",
+        "beef scallion wrap"
+      ]
+    }
   },
   {
     "id": "sonmari",
@@ -1127,7 +1386,23 @@
     ],
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
-    "notes": "Chris Bianco's LA outpost (Row DTLA) — among the country's best pizza. Bib Gourmand. Confirm exact address."
+    "notes": "Chris Bianco's LA outpost (Row DTLA) — among the country's best pizza. Bib Gourmand. Confirm exact address.",
+    "enrichment": {
+      "why_fits": "Chris Bianco's LA pizza at Row DTLA — among the country's best; Bib Gourmand, a destination pie.",
+      "vibe": [
+        "pizza",
+        "acclaimed",
+        "casual"
+      ],
+      "pairs_with": "a DTLA dinner before a downtown show",
+      "by": "claude",
+      "confidence": "high",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "Margherita",
+        "Rosa"
+      ]
+    }
   },
   {
     "id": "sushi-note",
@@ -1578,7 +1853,23 @@
     ],
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
-    "notes": "New Spanish tapas + all-Spanish wine bar (Heather Sperling team). On-taste wine bar, home turf."
+    "notes": "New Spanish tapas + all-Spanish wine bar (Heather Sperling team). On-taste wine bar, home turf.",
+    "enrichment": {
+      "why_fits": "New Silver Lake Spanish tapas + all-Spanish wine bar — squarely your wine-bar lane, walkable, date-friendly.",
+      "vibe": [
+        "natural-wine",
+        "tapas",
+        "date-night",
+        "walkable"
+      ],
+      "pairs_with": "a wine-bar date before a show",
+      "by": "claude",
+      "confidence": "high",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "Spanish tapas"
+      ]
+    }
   },
   {
     "id": "atrium-los-feliz",
@@ -1611,7 +1902,20 @@
     ],
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
-    "notes": "Playful, vaguely-French cooking from Douglas Rankin in the old Malo space, Sunset Junction. New. Home turf."
+    "notes": "Playful, vaguely-French cooking from Douglas Rankin in the old Malo space, Sunset Junction. New. Home turf.",
+    "enrichment": {
+      "why_fits": "Playful, vaguely-French cooking in the old Malo space (Sunset Junction) — new, fun, eastside date.",
+      "vibe": [
+        "playful",
+        "date-night",
+        "eastside",
+        "new"
+      ],
+      "pairs_with": "an eastside date before a show",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19"
+    }
   },
   {
     "id": "bowery-bungalow",
@@ -1644,7 +1948,24 @@
     ],
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
-    "notes": "Modern Mediterranean from George Abou-Daoud in the former Sompun Thai. New, home turf."
+    "notes": "Modern Mediterranean from George Abou-Daoud in the former Sompun Thai. New, home turf.",
+    "enrichment": {
+      "why_fits": "George Abou-Daoud's modern Mediterranean in the former Sompun Thai — easy, value, home turf.",
+      "vibe": [
+        "mediterranean",
+        "casual",
+        "value",
+        "walkable"
+      ],
+      "pairs_with": "a casual eastside dinner before a show",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "mezze",
+        "wraps"
+      ]
+    }
   },
   {
     "id": "frank-n-franks",
@@ -1676,6 +1997,22 @@
     ],
     "first_seen": "2026-06-17",
     "last_seen": "2026-06-17",
-    "notes": "Sandwich spot from a Howlin' Ray's vet. Casual lunch, Chinatown — eastside-adjacent."
+    "notes": "Sandwich spot from a Howlin' Ray's vet. Casual lunch, Chinatown — eastside-adjacent.",
+    "enrichment": {
+      "why_fits": "Sandwich spot from a Howlin' Ray's vet — a casual Chinatown lunch, cheap and good.",
+      "vibe": [
+        "sandwiches",
+        "casual",
+        "cheap",
+        "lunch"
+      ],
+      "pairs_with": "a cheap lunch/early bite (Chinatown)",
+      "by": "claude",
+      "confidence": "med",
+      "enriched_at": "2026-06-19",
+      "signature": [
+        "sandwiches"
+      ]
+    }
   }
 ]
