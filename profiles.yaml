@@ -28,3 +28,7 @@ profiles:
     name: Ari                #   RENAME this to something non-obvious: as owner it can self-edit the
     taste: taste.yaml        #   canonical taste.yaml (which drives the digest + everyone's default feed).
     owner: true              #   owner -> allowed to edit the root taste.yaml (friends can't).
+
+  - username: dr_ganesan     # friend profile. NOTE: username is the access key + is guessable here;
+    name: Dr. Ganesan        #   swap it for something non-obvious before sharing the feed widely.
+    taste: profiles/dr_ganesan/taste.yaml   # starter taste — edit it, then rebuild this profile.
