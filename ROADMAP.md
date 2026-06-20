@@ -262,6 +262,11 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   and (step 8) writes a personalized narrative digest per profile to `digests/<hash>/latest.md`.
   Both deploy workflows stage `digests/<hash>/latest.md → dashboard/digests/<hash>/latest.md`; the
   page already loads it (placeholder until the first routine run). Owner profiles ≈ the default digest.
+- [x] **Header = "curated digest for &lt;name&gt;" (2026-06-20)** — the dashboard header now reads
+  *curated digest for me and my friends* (logged out) / *…for &lt;name&gt;* (logged in), and the name
+  is the click-target that opens that person's digest (the deterministic, pre-built `latest.md`).
+  Aesthetic + wiring only; on-demand generation of a missing digest is deferred until the
+  digest-rebuild work lands (it changes whether generation should be edge/Worker vs client-side).
 - **Subsumes the tabled dashboard** — this *is* the explorer, evolved into the interactive home.
 - [x] **Front end swapped to the design-tool UI (2026-06-18, branch `claude/exciting-feynman-v6vqo6`)** —
   the hand-written 3-view app was replaced by Ari's uploaded design (a single `dashboard/index.html` +
