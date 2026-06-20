@@ -312,7 +312,7 @@
                 <div style="display:flex; align-items:center; gap:10px;">
                   <span title="{{ ev.rankTitle }}" style="display:inline-flex; align-items:baseline; justify-content:flex-end; gap:1px; min-width:26px;">
                     <sc-if value="{{ ev.hasRank }}" hint-placeholder-val="{{ true }}"><span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#c2c0b6;">#</span></sc-if>
-                    <span style="font: {{ ev.rankWeight }} 16px/1 ui-monospace,Menlo,monospace; letter-spacing:-0.02em; color: {{ ev.rankColor }};">{{ ev.rankNum }}</span>
+                    <span style="font: 500 16px/1 ui-monospace,Menlo,monospace; letter-spacing:-0.02em; color: {{ ev.rankColor }};">{{ ev.rankNum }}</span>
                   </span>
                   <span style="width:1px; height:16px; background:#e2e0d8;"></span>
                   <div style="display:flex; align-items:center; gap:6px;">
@@ -1893,16 +1893,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       sub: e.venue + '  \u00b7  ' + (e.lineup.slice(0, 3).join(', ')),
       hood: e.hood,
       cat: e.cat, genre: e.genre, catColor: this.CAT_COLOR[e.cat] || '#3f3d36',
-      score: e.score, scoreLabel: '+' + e.score, scoreColor: this.scoreColorFor(e.score),
+      score: e.score, scoreLabel: String(e.score), scoreColor: this.scoreColorFor(e.score),
       scoreSegs: Array.from({ length: 9 }, (_, k) => ({ bg: k < e.score ? this.scoreColorFor(e.score) : '#dedcd4' })),
       hasRank: !!e.final_rank,
       rankNum: (e.final_rank ? String(e.final_rank) : '—'),
-      rankColor: (!e.final_rank ? '#cfcdc4'
-        : (e.verdict && e.verdict.tier === 'must-see') ? '#b4453a'
-        : (e.verdict && e.verdict.tier === 'great') ? '#2b5cd9'
-        : (e.verdict && e.verdict.tier === 'skip') ? '#cfcdc4'
-        : '#161512'),
-      rankWeight: (e.verdict && e.verdict.tier === 'must-see') ? 600 : 500,
+      rankColor: (e.final_rank ? '#161512' : '#cfcdc4'),
       rankTitle: (e.verdict ? (String(e.verdict.tier || '').toUpperCase() + (e.verdict.why ? ' — ' + e.verdict.why : '')) : 'deterministic rank'),
       source: e.source,
       badges: this.computedBadges(e),
