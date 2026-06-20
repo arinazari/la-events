@@ -1,0 +1,83 @@
+name: Refresh events database
+
+# ADMIN action (owner's "Refresh events database" button -> concierge Worker -> repository_dispatch).
+# Re-fetches every source, rebuilds the deduped catalog, and republishes the catalog version stamp
+# + the default/logged-out feed. This is the deterministic core of the daily routine, on demand —
+# it does NOT run the LLM enrichment/editor passes and does NOT rebuild per-profile feeds: each
+# logged-in user then sees their ranking flagged stale and clicks their own "Update" button
+# (the rebuild-profile workflow). The nightly routine still does the full LLM pass for everyone.
+#
+# Source secrets are optional — run_digest degrades gracefully when one is missing (that source is
+# just skipped), so the refresh works with whatever is configured:
+#   TM_API_KEY  POSH_TOKEN  SPOTIFY_CLIENT_ID  SPOTIFY_CLIENT_SECRET  SPOTIFY_REFRESH_TOKEN
+on:
+  repository_dispatch:
+    types: [refresh-events]
+  workflow_dispatch:
+
+permissions:
+  contents: write      # commit the refreshed catalog + feed
+  pages: write
+  id-token: write
+
+# Share the Pages concurrency group with the other feed workflows so deploys don't race.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+
+      - name: Fetch all sources -> rebuild catalog + catalog_meta
+        env:
+          TM_API_KEY: ${{ secrets.TM_API_KEY }}
+          POSH_TOKEN: ${{ secrets.POSH_TOKEN }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+        run: python scripts/run_digest.py
+
+      - name: Rebuild the default (logged-out) feed + publish catalog_meta
+        run: python scripts/build_dashboard.py
+
+      - name: Re-render the default consolidated digest (best-effort)
+        continue-on-error: true
+        run: |
+          python scripts/build_radar.py || true
+          python scripts/render_digest.py --consolidated \
+            --md digests/latest.md --html digests/latest.html \
+            --asset-prefix "./" || true
+
+      - name: Commit the refreshed catalog + feed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -- data/catalog.json data/catalog_meta.json \
+            dashboard/data.json dashboard/catalog_meta.json \
+            digests/latest.md digests/latest.html 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes after refresh."
+          else
+            git commit -m "refresh: rebuild events catalog from sources [skip ci]"
+            git push
+          fi
+
+      # Deploy the refreshed dashboard/ to Pages (the [skip ci] commit won't trigger deploy-dashboard).
+      - uses: actions/configure-pages@v5
+      - name: Stage digests for the dashboard
+        run: python3 scripts/stage_digests.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+      - id: deployment
+        uses: actions/deploy-pages@v4

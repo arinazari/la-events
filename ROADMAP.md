@@ -383,6 +383,29 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   - [ ] **Tabled (Ari's call, 2026-06-20):** also let a signed-in friend **view their profile
     details** and **their reactions / feedback history** from settings. Deferred until the feedback
     surface (👍/👎 → `data/feedback.jsonl`, the Like→learn item above) lands so there's a history to show.
+- [x] **Live refresh / per-user re-rank with staleness indicator (2026-06-20)** — the catalog is now
+  *versioned* (`scripts/lib/catalog_meta.py`): `run_digest` writes `data/catalog_meta.json`
+  (a stable hash over each event's venue|date|title — ignores volatile seen-stamps), `build_dashboard`
+  stamps every feed with the `catalog_version` it was scored against AND republishes
+  `dashboard/catalog_meta.json`. The dashboard fetches that live file each load and compares: when a
+  profile's feed is behind, the settings panel's **"Update my ranking & digest"** button lights up
+  (and shows the new DB pull time); when in sync it's disabled ("up to date"). The **owner** also gets
+  **"Refresh events database"** (re-fetch all sources → rebuild catalog + default feed → republish the
+  version — applies to everyone; per-user feeds are intentionally left stale so each person self-regens).
+  Both buttons POST to the concierge Worker (`/refresh-events`, `/rebuild-profile`), which fires
+  `repository_dispatch` → new workflows (`refresh-events.yml`, `rebuild-profile.yml`) rebuild +
+  redeploy — same seam as `spotify-sync`. Needs the Worker deployed with `GITHUB_TOKEN`
+  (Contents: write — same token taste self-edit / spotify-sync already use, no extra scope);
+  degrades to a clear "connect the backend" toast otherwise. `build_profiles
+  --only-hash` lets the rebuild target a profile by its public feed hash (the page never knows the username).
+  - **refresh-events** is deterministic (fetch → catalog → default feed → version), so it's cheap and
+    needs only the source secrets. **rebuild-profile** runs the **full LLM pass** for that one profile —
+    `anthropics/claude-code-action` executes `routines/profile-digest-prompt.md` (event-editor verdicts +
+    scene-researcher enrichment + the personalized narrative digest), so the per-user button gives the
+    same quality as the nightly routine, on demand. It needs `ANTHROPIC_API_KEY` as a repo Actions secret
+    and costs tokens / a few minutes per click; it syncs that profile's Spotify first so a single-profile
+    build keeps its music layer. (Owner nuance: the owner's *displayed* digest is the shared consolidated
+    one — refreshed nightly / on a full refresh — while their feed ranking updates on click like everyone.)
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).

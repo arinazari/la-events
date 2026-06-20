@@ -61,6 +61,10 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--manifest", default="profiles.yaml")
     ap.add_argument("--only", nargs="*", help="only build these usernames (skips the default feed)")
+    ap.add_argument("--only-hash", nargs="*",
+                    help="only build profiles whose feed hash matches (skips the default feed). "
+                         "Lets the rebuild-profile workflow target a profile by its public hash, "
+                         "since the dashboard only knows the hash, not the username.")
     ap.add_argument("--skip-default", action="store_true", help="don't rebuild dashboard/data.json")
     args = ap.parse_args()
 
@@ -68,10 +72,12 @@ def main() -> int:
     salt = manifest.get("salt") or DEFAULT_SALT
     profiles = [p for p in (manifest.get("profiles") or []) if isinstance(p, dict) and p.get("username")]
     only = {u.strip().lower() for u in (args.only or [])}
+    only_hash = {h.strip().lower() for h in (args.only_hash or [])}
+    restricted = bool(only or only_hash)
     built = 0
 
-    # Default feed (root taste/profile -> data.json), unless restricted to --only / --skip-default.
-    if not args.skip_default and not only:
+    # Default feed (root taste/profile -> data.json), unless restricted to --only(-hash)/--skip-default.
+    if not args.skip_default and not restricted:
         print("default -> dashboard/data.json")
         if run_build("taste.yaml", "profile.yaml", DASH / "data.json",
                      editor_pool_out=str(REPO / "data" / "editor_pool.json")):
@@ -79,9 +85,11 @@ def main() -> int:
 
     for p in profiles:
         u = p["username"]
+        h = profile_hash(u, salt)
         if only and u.strip().lower() not in only:
             continue
-        h = profile_hash(u, salt)
+        if only_hash and h.lower() not in only_hash:
+            continue
         out = DASH / f"data.{h}.json"
         taste = p.get("taste") or "taste.yaml"
         is_owner = bool(p.get("owner"))
