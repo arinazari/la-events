@@ -24,8 +24,8 @@
  *         leave it unset and the proxy is OPEN to anyone who finds the URL — see README).
  *   BYOK: optional `x-anthropic-key: sk-ant-...` — the caller's OWN Anthropic key. It pays for that
  *         request (used in place of ANTHROPIC_API_KEY) and is its own entry ticket: a valid personal
- *         key satisfies the gate even without CONCIERGE_TOKEN. Taste self-edit stays gated on the
- *         shared token (it spends the owner's GITHUB_TOKEN, not the caller's key).
+ *         key satisfies the gate even without CONCIERGE_TOKEN. (Taste self-edit still commits with the
+ *         owner's GITHUB_TOKEN; by config that's open to own-key callers too — see canEditTaste.)
  *
  * Env (wrangler secrets / vars):
  *   ANTHROPIC_API_KEY  (secret, required unless every caller brings their own key via x-anthropic-key)
@@ -92,7 +92,7 @@ export default {
     let body;
     try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
     // Health ping (the page's connection indicator): validates reachability + the token, no LLM call.
-    if (body && body.ping) return json({ ok: true, taste: !!(env.GITHUB_TOKEN && tokenOk), byok: !!userKey }, 200, cors);
+    if (body && body.ping) return json({ ok: true, taste: !!env.GITHUB_TOKEN, byok: !!userKey }, 200, cors);
     const messages = sanitizeMessages(body && body.messages);
     if (!messages.length) return json({ error: "no messages" }, 400, cors);
     const profileHash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
@@ -106,10 +106,12 @@ export default {
       if (r.ok) feed = await r.json();
     } catch { /* degrade gracefully */ }
 
-    // Taste self-edit is available only to a logged-in profile, and only if commits are configured.
-    // It commits to the owner's repo (via GITHUB_TOKEN), so it stays gated on the SHARED token — a
-    // bring-your-own-key caller can chat + plan, but can't trigger commits on someone else's behalf.
-    const canEditTaste = !!(profileHash && env.GITHUB_TOKEN && tokenOk);
+    // Taste self-edit is available to any logged-in profile, as long as commits are configured. It
+    // commits to the owner's repo using the owner's GITHUB_TOKEN — by Ari's call, a bring-your-own-key
+    // caller can self-edit too (the GitHub write is the owner's setup, not something the caller needs a
+    // shared token for). Accepted tradeoff: any valid key reaching the Worker can trigger a (revertible)
+    // commit to a profile's taste file; keep GITHUB_TOKEN a single-repo, Contents-only PAT.
+    const canEditTaste = !!(profileHash && env.GITHUB_TOKEN);
     const system = buildSystem(feed, { canEditTaste, profileName: feed && feed.profile && feed.profile.name });
     // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
     // set ADVISOR_MODEL to "" to disable. Plus the taste tool when this profile can self-edit.
