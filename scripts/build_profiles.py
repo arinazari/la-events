@@ -84,16 +84,18 @@ def main() -> int:
         h = profile_hash(u, salt)
         out = DASH / f"data.{h}.json"
         taste = p.get("taste") or "taste.yaml"
-        profile = p.get("profile") or "profile.yaml"
         is_owner = bool(p.get("owner"))
         print(f"{u} ({p.get('name') or u}) -> dashboard/data.{h}.json")
-        # The owner shares the ROOT taste/music/verdicts, so build their feed exactly like the
+        # The owner shares the ROOT taste/profile/verdicts, so build their feed exactly like the
         # default (no per-hash verdict/Spotify lookup — those files don't exist for the owner) —
-        # just written to the owner's hash + tagged with the owner block below. Friends get their
-        # own per-hash music layer + verdict store + editor pool.
+        # just written to the owner's hash + tagged with the owner block below.
         if is_owner:
-            ok = run_build(taste, profile, out)
+            ok = run_build("taste.yaml", "profile.yaml", out)
         else:
+            # Friend: their OWN profiles/<name>/profile.yaml if present, else ABSENT — the scorer
+            # then falls back to their taste.yaml's `scoring` block (then DEFAULT_*). Friends do NOT
+            # inherit the root (Ari's) profile.yaml, so a friend's taste.yaml fully drives their feed.
+            profile = p.get("profile") or f"profiles/{u}/profile.yaml"
             ok = run_build(taste, profile, out, profile_hash=h,
                            editor_pool_out=str(REPO / "data" / f"editor_pool.{h}.json"))
         if not ok:

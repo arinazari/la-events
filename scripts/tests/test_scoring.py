@@ -65,6 +65,23 @@ def test_profile_is_actually_consumed():
     assert _scoring_cfg(bumped_profile)["category_weights"]["electronic"] == 99
 
 
+def test_taste_yaml_scoring_fallback():
+    """A profile with no profile.yaml is scored from its OWN taste.yaml `scoring` block;
+    profile.yaml takes precedence per key when both set it."""
+    ev = {"title": "Some DJ", "category": "electronic", "venue": "X", "date": "2026-06-15"}
+    taste_only = {"scoring": {"category_weights": {"electronic": 7}}}
+    # taste.yaml's scoring block drives the weight when profile.yaml is empty.
+    assert _scoring_cfg({}, taste_only)["category_weights"]["electronic"] == 7
+    base_default = score_event(ev, {}, {})["score"]            # electronic default 3
+    from_taste = score_event(ev, taste_only, {})["score"]      # 7 via taste fallback
+    assert from_taste - base_default == 7 - 3, (base_default, from_taste)
+    # profile.yaml wins over taste.yaml for a key both set.
+    prof = {"scoring": {"category_weights": {"electronic": 5}}}
+    assert _scoring_cfg(prof, taste_only)["category_weights"]["electronic"] == 5
+    # taste fills a key the profile omits.
+    assert "zzztest" in _scoring_cfg({}, {"scoring": {"groove_terms": ["zzztest"]}})["groove"]
+
+
 def test_defaults_match_profile():
     """profile.yaml must transcribe the code defaults verbatim (behavior-preserving)."""
     from lib.scoring import (DEFAULT_GROOVE_TERMS, DEFAULT_EU_TERMS,

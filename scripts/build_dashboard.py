@@ -204,7 +204,7 @@ def main() -> int:
         d = parse_event_date(ev)
         out = dict(ev)
         out["score"] = scored["score"]
-        out["rating"] = score_to_rating(scored["score"], profile)
+        out["rating"] = score_to_rating(scored["score"], profile, taste)
         out["reasons"] = scored["reasons"]
         out["iso_date"] = d.isoformat() if d else None
         out["is_past"] = bool(d and d < today)
