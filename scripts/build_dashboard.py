@@ -114,6 +114,10 @@ def main() -> int:
     ap.add_argument("--sources", default="sources.yaml")
     ap.add_argument("--enrichment", default="data/enrichment.json",
                     help="scene-graph cache to fold in (optional; skipped if absent)")
+    ap.add_argument("--profile-hash", default=None,
+                    help="feed hash of the profile being built — loads its OWN per-person music "
+                         "layer (data/spotify/<hash>.json + data/feedback.<hash>.jsonl) instead of "
+                         "the default/owner one. Omit for the canonical (Ari's) feed.")
     args = ap.parse_args()
 
     def resolve(p):
@@ -164,9 +168,10 @@ def main() -> int:
             dining = []
 
     # Spotify + feedback music layer (Phase C) — the same merged layer the digest scores
-    # against (Spotify affinity folded with data/feedback.jsonl), so the dashboard stars match.
-    # Graceful: absent/corrupt -> taste.yaml-only scoring.
-    affinity = merged_affinity(REPO, profile)
+    # against (Spotify affinity folded with feedback), so the dashboard stars match. With a
+    # --profile-hash this loads THAT profile's own per-person layer (per-profile Spotify), so a
+    # friend's feed ranks to their music, not Ari's. Graceful: absent/corrupt -> taste-only.
+    affinity = merged_affinity(REPO, profile, profile_hash=args.profile_hash)
 
     # Scene-researcher enrichment cache (Phase B) — fold the accumulated curator notes / tags /
     # artist notes / images onto matching events, AND cached artist bios onto ANY event that lists

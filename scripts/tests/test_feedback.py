@@ -12,8 +12,8 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # scripts/ on path
-from lib.feedback import (aggregate, apply_feedback, load_feedback,  # noqa: E402
-                          merged_affinity)
+from lib.feedback import (affinity_paths, aggregate, apply_feedback,  # noqa: E402
+                          load_feedback, merged_affinity)
 from lib.scoring import score_event  # noqa: E402
 from lib.config import load_profile  # noqa: E402
 
@@ -83,6 +83,44 @@ def test_loved_artist_scores_via_music_layer():
     assert boosted["score"] > base["score"]
     # Feedback-origin -> the reason credits the pick, not Spotify (honest provenance).
     assert any("more like" in r and "Chris Lake" in r for r in boosted["reasons"])
+
+
+def test_affinity_paths_default_vs_profile():
+    """No hash -> the canonical (owner) layer; a hash -> that profile's own per-person layer."""
+    sp, fb = affinity_paths("/repo")
+    assert sp == Path("/repo/data/spotify_affinity.json") and fb == Path("/repo/data/feedback.jsonl")
+    psp, pfb = affinity_paths("/repo", "deadbeefdeadbeef")
+    assert psp == Path("/repo/data/spotify/deadbeefdeadbeef.json")
+    assert pfb == Path("/repo/data/feedback.deadbeefdeadbeef.jsonl")
+
+
+def test_merged_affinity_per_profile_layer(tmp_path=None):
+    """A per-profile hash loads data/spotify/<hash>.json + data/feedback.<hash>.jsonl — and the
+    owner's data/feedback.jsonl / spotify_affinity.json never bleed into a friend's feed."""
+    d = Path(tmp_path or tempfile.mkdtemp())
+    (d / "data" / "spotify").mkdir(parents=True, exist_ok=True)
+    h = "0123456789abcdef"
+    # Owner layer says "love Owner DJ"; the friend's layer says "love Friend DJ".
+    (d / "data" / "feedback.jsonl").write_text('{"kind":"loved","artists":["Owner DJ"]}\n')
+    (d / "data" / f"feedback.{h}.jsonl").write_text('{"kind":"loved","artists":["Friend DJ"]}\n')
+    (d / "data" / "spotify" / f"{h}.json").write_text(json.dumps(
+        {"source": "spotify", "genres": {},
+         "artists": {"peggy gou": {"name": "Peggy Gou", "weight": 3.0, "tier": "core",
+                                   "sources": ["top_long"]}}}))
+    aff = merged_affinity(d, PROFILE, profile_hash=h)
+    assert "peggy gou" in aff["artists"]          # friend's Spotify artist present
+    assert "friend dj" in aff["artists"]          # friend's own feedback folded in
+    assert "owner dj" not in aff["artists"]       # the owner's feedback did NOT leak in
+    assert aff["source"] == "spotify+feedback"
+
+
+def test_merged_affinity_profile_none_when_no_layer(tmp_path=None):
+    """A profile with no per-person Spotify/feedback falls through to taste-only (None) — it does
+    NOT silently inherit the owner's layer."""
+    d = Path(tmp_path or tempfile.mkdtemp())
+    (d / "data").mkdir(parents=True, exist_ok=True)
+    (d / "data" / "feedback.jsonl").write_text('{"kind":"loved","artists":["Owner DJ"]}\n')
+    assert merged_affinity(d, PROFILE, profile_hash="ffffffffffffffff") is None
 
 
 def test_load_feedback_skips_garbage(tmp_path=None):

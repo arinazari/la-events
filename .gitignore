@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 data/candidates.json
 data/spotify_affinity.json
+data/spotify/
 dashboard/digests/
 
 # Worker deps (installed locally for deploy; not committed)

@@ -80,7 +80,10 @@ scripts/fetch_*.py                  # 11 source fetchers (run BY run_digest, or 
                                     #   ticketmaster (TM_API_KEY), ra, 19hz, goldenvoice, filmbot,
                                     #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld
 scripts/fetch_spotify.py            # Phase C: Spotify sync (SPOTIFY_* creds) → data/spotify_affinity.json
+scripts/sync_profiles_spotify.py    # per-profile Spotify: pull friends' connected accounts (via the concierge
+                                    #   Worker) → data/spotify/<hash>.json (gitignored); routine + spotify-sync CI
 scripts/build_dashboard.py          # builds dashboard/data.json from catalog + taste.yaml + profile.yaml
+                                    #   (--profile-hash loads that profile's own Spotify/feedback music layer)
 scripts/build_profiles.py           # per-profile dashboard feeds (data.<hash>.json) — reuses build_dashboard's scorer
 data/catalog.json                   # deduped events store (committed = the state)
 data/candidates.json                # scored, ranked top-N for enrichment (runtime; gitignored)

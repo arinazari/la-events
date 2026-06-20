@@ -44,9 +44,12 @@ def profile_hash(username: str, salt: str) -> str:
     return hashlib.sha256((salt + username.strip().lower()).encode("utf-8")).hexdigest()[:16]
 
 
-def run_build(taste: str, profile: str, out: Path) -> bool:
+def run_build(taste: str, profile: str, out: Path, profile_hash: str = None) -> bool:
     cmd = [sys.executable, str(BUILD), "--taste", taste, "--profile", profile, "-o", str(out)]
-    print("  $ build_dashboard.py", "--taste", taste, "--profile", profile, "-o", out.name)
+    if profile_hash:                       # load this profile's OWN music layer (per-profile Spotify)
+        cmd += ["--profile-hash", profile_hash]
+    print("  $ build_dashboard.py", "--taste", taste, "--profile", profile, "-o", out.name,
+          *(["--profile-hash", profile_hash] if profile_hash else []))
     return subprocess.run(cmd, cwd=str(REPO)).returncode == 0
 
 
@@ -78,7 +81,7 @@ def main() -> int:
         taste = p.get("taste") or "taste.yaml"
         profile = p.get("profile") or "profile.yaml"
         print(f"{u} ({p.get('name') or u}) -> dashboard/data.{h}.json")
-        if not run_build(taste, profile, out):
+        if not run_build(taste, profile, out, profile_hash=h):
             print(f"  ERROR: build failed for {u}", file=sys.stderr)
             continue
         # Inject the self-describing profile block so the page needs only the hash. Includes the

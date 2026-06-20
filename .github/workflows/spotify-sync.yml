@@ -1,0 +1,84 @@
+name: Sync per-profile Spotify
+
+# Pull friends' connected-Spotify into their per-profile music layer and re-score their feeds.
+# Triggered by the concierge Worker (repository_dispatch "spotify-sync") right after someone
+# connects Spotify in the dashboard — so their picks re-rank to their listening in ~1–2 min, the
+# same "commit + CI rebuild" loop as a taste self-edit. The daily routine also runs this sync, so
+# listening drift is picked up even without a fresh connect.
+#
+# We sync EVERY connected profile (not just the one in the payload) before rebuilding all profile
+# feeds: the affinity artifacts are gitignored (a friend's listening, never committed), so they
+# only exist transiently in this runner — rebuilding a feed without its artifact present would
+# clobber its Spotify layer back to taste-only. Sync-all keeps every feed consistent.
+#
+# Needs two repo secrets (Settings → Secrets → Actions); without them the sync SKIPs and feeds
+# rebuild taste-only (exactly today's behavior):
+#   SPOTIFY_SYNC_URL    - the deployed Worker base URL
+#   SPOTIFY_SYNC_TOKEN  - the Worker's SPOTIFY_SYNC_TOKEN secret
+on:
+  repository_dispatch:
+    types: [spotify-sync]
+  workflow_dispatch:
+
+permissions:
+  contents: write      # to commit the rebuilt feeds
+  pages: write
+  id-token: write
+
+# Share the Pages concurrency group with the other feed workflows so deploys don't race.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+
+      - name: Sync connected profiles' Spotify -> data/spotify/<hash>.json (gitignored)
+        env:
+          SPOTIFY_SYNC_URL: ${{ secrets.SPOTIFY_SYNC_URL }}
+          SPOTIFY_SYNC_TOKEN: ${{ secrets.SPOTIFY_SYNC_TOKEN }}
+        run: python scripts/sync_profiles_spotify.py
+
+      - name: Rebuild profile feeds (not the default) with each profile's music layer
+        run: python scripts/build_profiles.py --skip-default
+
+      - name: Commit refreshed feeds
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -- 'dashboard/data.*.json' 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No feed changes to commit."
+          else
+            git commit -m "build: re-rank profile feeds from Spotify [skip ci]"
+            git push
+          fi
+
+      # Deploy the refreshed dashboard/ to Pages (mirror of deploy-dashboard.yml; the [skip ci]
+      # commit above won't trigger that workflow, so we publish here).
+      - uses: actions/configure-pages@v5
+      - name: Stage latest digest(s) for the dashboard
+        run: |
+          mkdir -p dashboard/digests
+          latest="$(ls -1 digests/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md 2>/dev/null | sort | tail -n1)"
+          if [ -n "$latest" ]; then cp "$latest" dashboard/digests/latest.md; fi
+          for d in digests/*/; do
+            h="$(basename "$d")"
+            case "$h" in *[!0-9a-f]*|"") continue ;; esac
+            if [ -f "$d/latest.md" ]; then mkdir -p "dashboard/digests/$h"; cp "$d/latest.md" "dashboard/digests/$h/latest.md"; fi
+          done
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+      - id: deployment
+        uses: actions/deploy-pages@v4

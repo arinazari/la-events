@@ -122,22 +122,42 @@ def apply_feedback(affinity: dict, agg: dict) -> dict:
     return out
 
 
-def merged_affinity(repo, profile: dict = None) -> dict:
-    """The shared loader: data/spotify_affinity.json + data/feedback.jsonl -> one affinity dict.
+def affinity_paths(repo, profile_hash: str = None) -> tuple:
+    """(spotify_affinity_path, feedback_path) for a profile — or the default/owner layer.
+
+    Default/owner (no hash): the canonical data/spotify_affinity.json + data/feedback.jsonl
+    (Ari's music layer, the one the digest scores against). A per-profile hash points at that
+    profile's OWN layer instead — data/spotify/<hash>.json + data/feedback.<hash>.jsonl — so a
+    friend's feed folds in THEIR Spotify + reactions, never Ari's. Hash is the same 16-hex feed
+    key the dashboard and build_profiles.py use (sha256(salt + username)).
+    """
+    repo = Path(repo)
+    if profile_hash:
+        return (repo / "data" / "spotify" / f"{profile_hash}.json",
+                repo / "data" / f"feedback.{profile_hash}.jsonl")
+    return (repo / "data" / "spotify_affinity.json", repo / "data" / "feedback.jsonl")
+
+
+def merged_affinity(repo, profile: dict = None, *, profile_hash: str = None) -> dict:
+    """The shared loader: a Spotify affinity artifact + a feedback log -> one affinity dict.
+
+    With no `profile_hash` this is the default/owner layer (data/spotify_affinity.json +
+    data/feedback.jsonl) — what the digest and the logged-out dashboard score against. Pass a
+    profile's feed hash to load THAT profile's own per-person layer instead (see affinity_paths),
+    so a friend's ranking reflects their music + reactions, not Ari's.
 
     Returns None when neither layer has anything (scorer then runs the taste.yaml-only path).
     Graceful: a corrupt Spotify artifact is ignored. Used by run_digest.py + build_dashboard.py
     so the digest and the dashboard always score against the exact same merged profile.
     """
-    repo = Path(repo)
+    sp_path, fb_path = affinity_paths(repo, profile_hash)
     spotify = None
-    sp = repo / "data" / "spotify_affinity.json"
-    if sp.exists():
+    if sp_path.exists():
         try:
-            spotify = json.loads(sp.read_text())
+            spotify = json.loads(sp_path.read_text())
         except (ValueError, OSError):
             spotify = None
-    reactions = load_feedback(repo / "data" / "feedback.jsonl")
+    reactions = load_feedback(fb_path)
     if not spotify and not reactions:
         return None
     return apply_feedback(spotify, aggregate(reactions, profile))

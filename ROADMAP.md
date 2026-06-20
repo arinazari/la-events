@@ -230,10 +230,23 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   in `profiles.yaml`; `build_profiles.py` emits each feed reusing `build_dashboard.py`'s scorer (so a
   profile's ranking can't drift from the digest). Blank/unknown stays on the default (Ari's) feed.
   **Obfuscation, not security** — usernames are publicly-fetchable bearer keys (fine for a few friends).
-  Still deferred: (c) **per-profile Spotify** (web OAuth + Worker KV token storage + per-profile affinity
-  sync). (a) per-profile **digest generation** and (b) concierge-per-profile + **friend self-edit** are now
-  built — see below. Profiles re-rank the *same* catalog (sourced to Ari's taste), so full personalization
-  eventually wants per-profile source coverage too.
+  (a) per-profile **digest generation**, (b) concierge-per-profile + **friend self-edit**, and (c)
+  **per-profile Spotify** are now built — see below. Profiles re-rank the *same* catalog (sourced to Ari's
+  taste), so full personalization eventually wants per-profile source coverage too.
+- [x] **Per-profile Spotify — the music layer per friend (2026-06-20)** — closes deferred (c). Each
+  profile now scores against ITS OWN music layer: the scorer threads a feed-hash through
+  `lib/feedback.merged_affinity` → `data/spotify/<hash>.json` + `data/feedback.<hash>.jsonl` (no hash =
+  the canonical owner layer; byte-identical when absent). Onboarding is **full web-OAuth + Worker KV**
+  (Ari's call): a "Connect Spotify" button in the profile popup → the concierge Worker's `/spotify/login`
+  → token stored in Cloudflare KV keyed by hash → an authed sync (`sync_profiles_spotify.py`, called by
+  the daily routine + a `spotify-sync` CI job on the Worker's `repository_dispatch`) pulls only RAW
+  payloads (token never leaves CF) and folds them via the one tested `lib/affinity.build_affinity` →
+  per-profile feed. The affinity artifact is **gitignored** (a friend's listening; only the derived feed
+  ships). **Needs Ari to deploy**: Spotify app + redirect URI, `wrangler kv namespace create SPOTIFY_KV`,
+  Worker secrets (`SPOTIFY_CLIENT_ID/SECRET`, `SPOTIFY_SYNC_TOKEN`, `STATE_SECRET`), and repo secrets
+  (`SPOTIFY_SYNC_URL` + `SPOTIFY_SYNC_TOKEN`) — see `backend/README.md`. Known privacy tradeoff: feed
+  hashes are public, so connect-gating is the shared `CONCIERGE_TOKEN` (obfuscation, not security); a
+  per-feed "hide Spotify reasons" toggle is a future nicety.
 - [x] **Friend taste self-edit via the concierge (2026-06-19)** — in a profile, the concierge chat now
   *edits your taste by talking to it* ("more techno, less comedy", "track Peggy Gou"). The Worker
   (`backend/`) grounds chat on the profile's feed and, when `GITHUB_TOKEN` is set, exposes a

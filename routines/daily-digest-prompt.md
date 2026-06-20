@@ -43,10 +43,14 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    out; far ones stay thin (few candidates) — do NOT pad.
 6. Maintain `digests/weekends/index.md`: one row per weekend (date range, # events, top pick),
    soonest first; drop past weekends.
-7. Rebuild the dashboard feeds: `python scripts/build_profiles.py` — builds the default
-   `dashboard/data.json` (root taste) AND every per-profile feed `dashboard/data.<hash>.json`
-   (one per entry in `profiles.yaml`) with the same scorer, so friends' feeds stay fresh as the
-   catalog changes (not just when they self-edit their taste).
+7. **Sync per-profile Spotify, then rebuild the dashboard feeds.** First, if the per-profile
+   music layer is configured (env `SPOTIFY_SYNC_URL` + `SPOTIFY_SYNC_TOKEN` — the concierge
+   Worker), `python scripts/sync_profiles_spotify.py`: pulls each friend who connected Spotify
+   into `data/spotify/<hash>.json` (gitignored; the token stays in the Worker). SKIPs cleanly if
+   unset. Then `python scripts/build_profiles.py` — builds the default `dashboard/data.json` (root
+   taste + Ari's Spotify/feedback) AND every per-profile feed `dashboard/data.<hash>.json` (one per
+   entry in `profiles.yaml`), each scored against **its own** music layer, so friends' feeds stay
+   fresh as the catalog changes (not just when they self-edit their taste or reconnect Spotify).
 8. **Per-profile digests:** for each profile in `profiles.yaml`, read its feed
    `dashboard/data.<hash>.json` (the `<hash>` is also in `feed.profile.hash`) and write a concise
    personalized digest to `digests/<hash>/latest.md` (overwrite each run) — same conversational,

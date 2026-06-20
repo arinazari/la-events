@@ -2,11 +2,23 @@
 # Deploy:  cd backend && npm i && npx wrangler deploy
 # Secrets: npx wrangler secret put ANTHROPIC_API_KEY
 #          npx wrangler secret put CONCIERGE_TOKEN     (optional shared token — recommended)
-#          npx wrangler secret put GITHUB_TOKEN        (optional — enables friend taste self-edit)
+#          npx wrangler secret put GITHUB_TOKEN        (optional — taste self-edit + Spotify rebuild kick)
+# Per-profile Spotify (optional — adds the music layer per friend):
+#          npx wrangler kv namespace create SPOTIFY_KV   # paste the id below
+#          npx wrangler secret put SPOTIFY_CLIENT_ID     # from developer.spotify.com
+#          npx wrangler secret put SPOTIFY_CLIENT_SECRET
+#          npx wrangler secret put SPOTIFY_SYNC_TOKEN    # strong; the routine/CI present it to /spotify/fetch
+#          npx wrangler secret put STATE_SECRET          # any long random string (signs the OAuth state)
 
 name = "la-events-concierge"
 main = "concierge-worker.js"
 compatibility_date = "2024-11-01"
+
+# Per-profile Spotify refresh-token store (keyed by feed hash). Create it once (command above) and
+# paste the returned id. Leave this block out and the /spotify/* routes return 501 (chat still works).
+[[kv_namespaces]]
+binding = "SPOTIFY_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
 
 # Non-secret vars (override the in-code defaults). Secrets go via `wrangler secret put`.
 [vars]
@@ -19,3 +31,7 @@ ALLOWED_ORIGIN = "https://arinazari.github.io"
 GITHUB_REPO = "arinazari/la-events"
 GITHUB_BRANCH = "main"
 PROFILE_SALT = "la-events/v1:"
+# Spotify (per-profile music layer). The redirect URI must EXACTLY match one registered in your
+# Spotify app at developer.spotify.com. Replace <you> with your workers.dev subdomain.
+SPOTIFY_REDIRECT_URI = "https://la-events-concierge.REPLACE_ME.workers.dev/spotify/callback"
+PAGE_URL = "https://arinazari.github.io/la-events/"   # where the "back to la-events" link points

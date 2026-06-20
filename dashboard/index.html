@@ -456,6 +456,19 @@
           <sc-if value="{{ profileTasteYaml }}" hint-placeholder-val="{{ false }}">
             <div style="margin-top:11px;"><span onClick="{{ openTasteModal }}" style="cursor:pointer; font:600 11px/1.3 ui-monospace,Menlo,monospace; color:#2b5cd9; border-bottom:1px dashed #9db4ee;" style-hover="border-color:#2b5cd9;">View your taste profile →</span></div>
           </sc-if>
+          <div style="margin-top:14px; padding-top:12px; border-top:1px solid #eee8da;">
+            <div style="font:600 10px/1.4 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">SPOTIFY — tailor picks to your listening</div>
+            <sc-if value="{{ spotifyUnavailable }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:6px; font-size:11px; color:#9a988e;">Connect the concierge backend first (the chat &ldquo;connect&rdquo; link) — Spotify links through it.</div>
+            </sc-if>
+            <sc-if value="{{ spotifyConnected }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:7px; font-size:11.5px; color:#3f3d36;"><span style="color:#1db954;">♫</span> {{ spotifyStatusText }} · <span onClick="{{ disconnectSpotify }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">disconnect</span></div>
+            </sc-if>
+            <sc-if value="{{ spotifyNotConnected }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ connectSpotify }}" style="margin-top:8px; display:inline-flex; align-items:center; gap:6px; font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #1db954; background:#1db954; color:#fff; border-radius:2px; cursor:pointer;" style-hover="opacity:0.85;">♫ Connect Spotify</button>
+              <div style="margin-top:6px; font-size:10.5px; color:#9a988e;">{{ spotifyStatusText }}</div>
+            </sc-if>
+          </div>
         </sc-if>
         <input value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="username" style="margin-top:12px; width:100%; box-sizing:border-box; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; padding:9px 10px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none;" style-focus="border-color:#2b5cd9;" />
         <sc-if value="{{ profileError }}" hint-placeholder-val="{{ false }}">
@@ -706,6 +719,8 @@ class Component extends DCLogic {
     profileInput: '',
     profileError: '',
     profileBusy: false,
+    spotifyStatus: null,   // per-profile Spotify: null=unknown/checking, true=connected, false=not
+    spotifyName: '',
     loading: false,
     messages: [
       { role: 'assistant', text: "I'm your LA concierge — ranked to your taste profile. Ask for a vibe, a night, a price, or a neighborhood and I'll pull picks (the table filters too). Want a full night out? Say “plan my Saturday — dinner then a show” and I'll fuse the catalog with the restaurant list and hand a sequenced itinerary to your Claude Code session." }
@@ -1402,7 +1417,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     return crypto.subtle.digest('SHA-256', data).then(buf =>
       [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 16));
   }
-  openProfile = () => this.setState({ profileOpen: true, profileError: '' });
+  openProfile = () => { this.setState({ profileOpen: true, profileError: '' }); this.checkSpotify(); };
   closeProfile = () => this.setState({ profileOpen: false });
   onProfileInput = (e) => this.setState({ profileInput: e.target.value });
   onProfileKey = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.submitProfile(); } };
@@ -1425,11 +1440,53 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // Switch the active profile: persist it, reset the view, load that feed (+ digest).
   async applyProfile(profileObj, raw) {
     try { profileObj ? localStorage.setItem('la-profile', JSON.stringify(profileObj)) : localStorage.removeItem('la-profile'); } catch (e) {}
-    this.setState({ profile: profileObj, profileOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null });
+    this.setState({ profile: profileObj, profileOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
+      spotifyStatus: null, spotifyName: '' });
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
   }
+
+  // ---------- per-profile Spotify (the music layer) ----------
+  // Linked through the concierge Worker (BACKEND_URL): /spotify/login starts the OAuth dance,
+  // /spotify/status reports whether this profile is connected. The refresh token lives in the
+  // Worker's KV — this page only kicks off the dance and polls status. See backend/README.md.
+  spotifyUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
+  checkSpotify = async () => {
+    const p = this.state.profile;
+    if (!this.BACKEND_URL || !(p && p.hash)) { this.setState({ spotifyStatus: null }); return; }
+    try {
+      const res = await fetch(this.spotifyUrl('/spotify/status?profile=' + p.hash), { cache: 'no-store' });
+      if (!res.ok) { this.setState({ spotifyStatus: null }); return; }
+      const j = await res.json();
+      this.setState({ spotifyStatus: !!j.connected, spotifyName: j.name || '' });
+    } catch (e) { this.setState({ spotifyStatus: null }); }
+  };
+  connectSpotify = () => {
+    const p = this.state.profile;
+    if (!this.BACKEND_URL || !(p && p.hash)) return;
+    let url = this.spotifyUrl('/spotify/login?profile=' + p.hash);
+    if (this.BACKEND_TOKEN) url += '&t=' + encodeURIComponent(this.BACKEND_TOKEN);
+    try { window.open(url, '_blank', 'noopener'); } catch (e) { location.href = url; }
+    this.flashToast('Opening Spotify…');
+    // Poll status (~40s) so the popup flips to "connected" once they approve in the other tab.
+    let n = 0; clearInterval(this._spotifyPoll);
+    this._spotifyPoll = setInterval(() => {
+      if (++n > 20 || this.state.spotifyStatus === true) clearInterval(this._spotifyPoll);
+      else this.checkSpotify();
+    }, 2000);
+  };
+  disconnectSpotify = async () => {
+    const p = this.state.profile;
+    if (!this.BACKEND_URL || !(p && p.hash)) return;
+    try {
+      const headers = { 'content-type': 'application/json' };
+      if (this.BACKEND_TOKEN) headers['authorization'] = 'Bearer ' + this.BACKEND_TOKEN;
+      await fetch(this.spotifyUrl('/spotify/disconnect'), { method: 'POST', headers, body: JSON.stringify({ profile: p.hash }) });
+    } catch (e) {}
+    this.setState({ spotifyStatus: false, spotifyName: '' });
+    this.flashToast('Spotify disconnected');
+  };
 
   applySpec(spec) {
     let list = this.ALL.slice();
@@ -2016,6 +2073,13 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const profile = this.state.profile;
     const profileActive = !!(profile && profile.hash);
     const profileTasteYaml = (profileActive && this.META && this.META.profile && this.META.profile.taste_yaml) || '';
+    const sstat = this.state.spotifyStatus;
+    const spotifyConnected = profileActive && !!this.BACKEND_URL && sstat === true;
+    const spotifyNotConnected = profileActive && !!this.BACKEND_URL && sstat !== true;
+    const spotifyUnavailable = profileActive && !this.BACKEND_URL;
+    const spotifyStatusText = sstat === true
+      ? ('Connected' + (this.state.spotifyName ? ' as ' + this.state.spotifyName : '') + ' — your feed re-ranks to your listening')
+      : (sstat === null ? 'Checking…' : 'Link your account so picks re-rank to what you actually listen to.');
     const profBorder = profileActive ? '#2b5cd9' : '#d2d0c7';
     const profBg = profileActive ? '#eaf0fe' : 'transparent';
     const profColor = profileActive ? '#2b5cd9' : '#76746b';
@@ -2059,6 +2123,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       profBorder, profBg, profColor, profDot, profileTasteYaml,
       openProfile: this.openProfile, closeProfile: this.closeProfile, onProfileInput: this.onProfileInput,
       onProfileKey: this.onProfileKey, submitProfile: this.submitProfile, logoutProfile: this.logoutProfile,
+      spotifyConnected, spotifyNotConnected, spotifyUnavailable, spotifyStatusText,
+      connectSpotify: this.connectSpotify, disconnectSpotify: this.disconnectSpotify,
       rangeStart, rangeEnd, rangeLabel, bubbleOpen, bubbleOpts,
       startLabel: this.labelISO(rangeStart), endLabel: this.labelISO(rangeEnd),
       shownCount: rows.length, totalCount: this.ALL.length,
