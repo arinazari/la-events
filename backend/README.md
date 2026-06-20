@@ -50,16 +50,22 @@ POST /refresh-events            -> 202 { ok, dispatched:"refresh-events" }
      (admin "Refresh events database": re-fetch all sources, rebuild the catalog + default feed,
       republish the catalog version stamp — applies to everyone. event_type "refresh-events")
 POST /rebuild-profile { profile: "<feed-hash>" } -> 202 { ok, dispatched:"rebuild-profile" }
-     (per-user "Update my ranking & digest": re-score + re-render that ONE profile against the
-      latest catalog. event_type "rebuild-profile", client_payload.profile = the hash)
+     (per-user "Update my ranking & digest": full LLM pass for that ONE profile against the latest
+      catalog — editor verdicts + scene enrichment + narrative digest. client_payload.profile = hash)
 ```
 
 The page shows the **Refresh** button to the `owner:true` profile only; owner-enforcement is on the
 page (consistent with this app's obfuscation model — the token gates spend/dispatch-spam). The
 per-user **Update** button auto-disables when the loaded feed's `catalog_version` matches the live
 `dashboard/catalog_meta.json` (i.e. the customization is already on the latest DB), and lights up
-after an admin refresh. The workflows (`.github/workflows/refresh-events.yml`,
-`rebuild-profile.yml`) commit the rebuilt artifacts and redeploy Pages.
+after an admin refresh. The workflows commit the rebuilt artifacts and redeploy Pages:
+
+- `refresh-events.yml` is **deterministic** (fetch → catalog → default feed → version stamp); it
+  needs the source secrets (`TM_API_KEY`, …) but no Anthropic key.
+- `rebuild-profile.yml` runs **Claude Code** (`anthropics/claude-code-action`) over
+  `routines/profile-digest-prompt.md`, so it needs **`ANTHROPIC_API_KEY` as a repo Actions secret**
+  (the agent), and the `GITHUB_TOKEN` PAT here needs **Actions: read & write** to dispatch it. A
+  per-click LLM run costs tokens and takes a few minutes; the nightly routine still covers everyone.
 
 ## Deploy (Cloudflare Workers — free tier)
 

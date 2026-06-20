@@ -385,6 +385,14 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   redeploy — same seam as `spotify-sync`. Needs the Worker deployed with `GITHUB_TOKEN`
   (Actions: read & write); degrades to a clear "connect the backend" toast otherwise. `build_profiles
   --only-hash` lets the rebuild target a profile by its public feed hash (the page never knows the username).
+  - **refresh-events** is deterministic (fetch → catalog → default feed → version), so it's cheap and
+    needs only the source secrets. **rebuild-profile** runs the **full LLM pass** for that one profile —
+    `anthropics/claude-code-action` executes `routines/profile-digest-prompt.md` (event-editor verdicts +
+    scene-researcher enrichment + the personalized narrative digest), so the per-user button gives the
+    same quality as the nightly routine, on demand. It needs `ANTHROPIC_API_KEY` as a repo Actions secret
+    and costs tokens / a few minutes per click; it syncs that profile's Spotify first so a single-profile
+    build keeps its music layer. (Owner nuance: the owner's *displayed* digest is the shared consolidated
+    one — refreshed nightly / on a full refresh — while their feed ranking updates on click like everyone.)
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).

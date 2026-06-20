@@ -620,8 +620,8 @@ async function verifyState(env, state) {
  * GitHub Action picks up (same mechanism as spotify-sync), then rebuilds + redeploys:
  *   POST /refresh-events            -> event_type "refresh-events"  (admin: re-fetch all sources,
  *                                      rebuild the catalog + default feed, republish catalog_meta)
- *   POST /rebuild-profile {profile} -> event_type "rebuild-profile" (re-rank + re-render ONE
- *                                      profile's feed/digest against the latest catalog)
+ *   POST /rebuild-profile {profile} -> event_type "rebuild-profile" (full LLM pass for ONE profile:
+ *                                      editor verdicts + scene enrichment + narrative digest)
  * Gated by the same shared CONCIERGE_TOKEN the chat uses. Owner-only enforcement for refresh is on
  * the page (it only shows the button to owner:true) — consistent with this app's obfuscation model.
  */

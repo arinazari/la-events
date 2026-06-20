@@ -1411,7 +1411,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const res = await fetch(this.workerUrl('/rebuild-profile'), { method: 'POST', headers, body: JSON.stringify({ profile: p.hash }) });
       if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setState({ updateBusy: false }); return; }
       if (!res.ok) { this.flashToast('Update failed (' + res.status + ') — is the workflow deployed?'); this.setState({ updateBusy: false }); return; }
-      this.flashToast('Re-ranking your picks against the latest events — refresh in ~1–2 min.');
+      this.flashToast('Re-running your editor + digest against the latest events — this takes a few minutes.');
       // Poll the live version + reload our feed; when catalog_version catches up, updateBusy clears.
       let n = 0; clearInterval(this._freshPoll);
       this._freshPoll = setInterval(async () => {
@@ -2066,7 +2066,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const liveDataPull = this.fmtStamp((liveCatalog && liveCatalog.fetched_at) || null);
     // The per-user "Update my ranking & digest" affordance: enabled only when stale.
     const updateStatus = updateBusy
-      ? 'updating — your feed re-ranks in ~1–2 min'
+      ? 'updating — LLM re-rank + digest, a few minutes'
       : (feedStale ? ('new events available · DB pulled ' + liveDataPull)
          : ('up to date · synced ' + lastDataPull));
     const updateActive = feedStale && !updateBusy;

@@ -1,11 +1,15 @@
 name: Rebuild one profile feed
 
 # PER-USER action (the settings "Update my ranking & digest" button -> concierge Worker ->
-# repository_dispatch "rebuild-profile" with the profile's public feed hash). Re-scores THIS
-# profile's feed against the current catalog (so it picks up events from the latest admin refresh)
-# and re-renders its consolidated digest, then redeploys. Keyed by hash because the dashboard only
-# knows the hash, not the username. Deterministic only (no LLM) — the nightly routine still gives
-# every profile the full editor/enrichment pass.
+# repository_dispatch "rebuild-profile" with the profile's public feed hash). Re-runs the FULL LLM
+# pass for THIS profile against the current catalog: event-editor verdicts + scene enrichment +
+# the personalized narrative digest (routines/profile-digest-prompt.md, run by Claude Code), then
+# commits + redeploys. Keyed by hash because the dashboard only knows the hash, not the username.
+#
+# Needs ANTHROPIC_API_KEY (the agent) in repo secrets. Optional SPOTIFY_SYNC_* keep the music layer
+# intact (synced before the rebuild so a single-profile build doesn't clobber it back to taste-only).
+# If ANTHROPIC_API_KEY is unset the agent step fails loudly — set it, or fall back to the nightly
+# routine for the LLM pass.
 on:
   repository_dispatch:
     types: [rebuild-profile]
@@ -35,6 +39,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
       - run: pip install pyyaml
 
       - name: Resolve the target hash
@@ -48,53 +55,44 @@ jobs:
           fi
           echo "hash=$HASH" >> "$GITHUB_OUTPUT"
 
-      - name: Re-score this profile's feed against the latest catalog
-        run: python scripts/build_profiles.py --only-hash "${{ steps.target.outputs.hash }}"
-
-      - name: Re-render this profile's consolidated digest (best-effort)
+      # Keep the per-profile music layer intact: sync connected Spotify into data/spotify/<hash>.json
+      # (gitignored) BEFORE the rebuild, so a single-profile build doesn't drop it to taste-only.
+      # SKIPs cleanly if the Worker sync isn't configured.
+      - name: Sync this profile's Spotify (best-effort)
         continue-on-error: true
         env:
-          HASH: ${{ steps.target.outputs.hash }}
-        run: |
-          python scripts/build_radar.py || true
-          python - "$HASH" <<'PY'
-          import sys, os, hashlib, subprocess, yaml
-          h = sys.argv[1]
-          m = yaml.safe_load(open("profiles.yaml")) or {}
-          salt = m.get("salt") or "la-events/v1:"
-          sel = u = None
-          for p in (m.get("profiles") or []):
-              u = p.get("username")
-              if not u:
-                  continue
-              if hashlib.sha256((salt + u.strip().lower()).encode()).hexdigest()[:16] == h:
-                  sel = p
-                  break
-          if not sel:
-              print("no profile matches hash", h)
-              sys.exit(0)
-          owner = bool(sel.get("owner"))
-          taste = "taste.yaml" if owner else (sel.get("taste") or f"profiles/{u}/taste.yaml")
-          profile = "profile.yaml" if owner else (sel.get("profile") or f"profiles/{u}/profile.yaml")
-          os.makedirs(f"digests/{h}", exist_ok=True)
-          subprocess.run([sys.executable, "scripts/render_digest.py", "--consolidated",
-                          "--profile-hash", h, "--taste", taste, "--profile", profile,
-                          "--md", f"digests/{h}/latest.md", "--html", f"digests/{h}/latest.html"],
-                         check=False)
-          PY
+          SPOTIFY_SYNC_URL: ${{ secrets.SPOTIFY_SYNC_URL }}
+          SPOTIFY_SYNC_TOKEN: ${{ secrets.SPOTIFY_SYNC_TOKEN }}
+        run: python scripts/sync_profiles_spotify.py
 
-      - name: Commit the rebuilt feed + digest
+      # The LLM pass: event-editor verdicts + scene enrichment + the personalized narrative digest.
+      # The action auto-discovers .claude/agents/ (event-editor, scene-researcher) for the Task tool.
+      - name: Re-rank + re-render this profile (Claude Code)
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Execute routines/profile-digest-prompt.md exactly, for the single profile whose dashboard
+            feed hash is ${{ steps.target.outputs.hash }}. Wherever the file says <HASH>, use that hash.
+            Do NOT git commit or push — leave every changed file in the working tree; the workflow
+            commits and deploys after you finish.
+          claude_args: |
+            --max-turns 40
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash,Task,WebSearch,WebFetch"
+
+      - name: Commit the rebuilt feed + verdicts + digest
         env:
           HASH: ${{ steps.target.outputs.hash }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -- "dashboard/data.$HASH.json" dashboard/catalog_meta.json \
+            "data/verdicts/$HASH.json" data/enrichment.json data/images \
             "digests/$HASH/latest.md" "digests/$HASH/latest.html" 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes for $HASH."
           else
-            git commit -m "rebuild: re-rank profile $HASH against latest catalog [skip ci]"
+            git commit -m "rebuild: LLM re-rank + digest for profile $HASH against latest catalog [skip ci]"
             git push
           fi
 
