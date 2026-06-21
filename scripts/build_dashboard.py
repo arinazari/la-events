@@ -43,6 +43,7 @@ from lib import editor as ED  # noqa: E402
 from lib.assemble import rank_score, event_lane  # noqa: E402
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
+from lib.pipeline import today_la  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -196,7 +197,9 @@ def main() -> int:
     verdicts = ED.verdict_map(ED.load_verdicts(vpath))
 
     is_sample = "sample" in catalog_path.name
-    today = date.today()
+    # LA-local today (NOT the runner's UTC date) — otherwise, in CI (UTC) past midnight UTC, events
+    # still happening tonight in LA get marked is_past and lose their final_rank / highlight.
+    today = today_la()
 
     events = []
     enriched_hits = 0
