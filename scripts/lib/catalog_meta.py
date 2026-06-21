@@ -14,7 +14,7 @@ move it. Kept tiny + stdlib-only so the CI deploy jobs need no extra deps.
 """
 import hashlib
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -32,7 +32,10 @@ def build_meta(catalog) -> dict:
     return {
         "version": version(catalog),
         "count": len(catalog or []),
-        "fetched_at": datetime.now().isoformat(timespec="seconds"),
+        # Timezone-AWARE (UTC) so the browser parses the right instant and renders it in the
+        # viewer's local zone. A naive datetime.now() has no offset → JS reads it as local → the
+        # CI runner's UTC clock shows ~hours in the "future" for a PT viewer.
+        "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
 
 

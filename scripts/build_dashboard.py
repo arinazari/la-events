@@ -30,7 +30,7 @@ import argparse
 import json
 import sys
 from collections import Counter
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 # Make `lib` importable regardless of cwd (scripts/ on sys.path).
@@ -265,7 +265,9 @@ def main() -> int:
     cat_meta = CM.read_meta(catalog_path.parent / "catalog_meta.json") or CM.build_meta(catalog)
 
     feed = {
-        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        # Timezone-aware (UTC) — the dashboard's "last data pull" parses this; a naive stamp is
+        # read by the browser as local time and shows ~hours in the future for a PT viewer.
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source_file": str(catalog_path.relative_to(REPO)) if catalog_path.is_relative_to(REPO) else str(catalog_path),
         "is_sample": is_sample,
         "catalog_version": cat_meta.get("version"),
