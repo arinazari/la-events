@@ -545,7 +545,7 @@
   </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:860},&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;compact&quot;,&quot;comfortable&quot;],&quot;default&quot;:&quot;compact&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;defaultSort&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;score&quot;,&quot;date&quot;],&quot;default&quot;:&quot;score&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showScoreBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:860},&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;compact&quot;,&quot;comfortable&quot;],&quot;default&quot;:&quot;compact&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;defaultSort&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;rank&quot;,&quot;score&quot;,&quot;date&quot;],&quot;default&quot;:&quot;rank&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showScoreBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   ALL = (() => {
     const fmt = (iso, time) => {
@@ -631,7 +631,7 @@ class Component extends DCLogic {
   MONTH1 = (() => { const d = new Date(); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-01'; })();
 
   state = {
-    sortKey: 'score', sortDir: 'desc',
+    sortKey: 'rank', sortDir: 'asc',
     range: 'ten', rangeStart: this.TODAY, rangeEnd: this.TEN_END, bubbleOpen: false,
     pickerOpen: null, pickerMonth: this.MONTH1,
     dataSource: 'sample',
@@ -1240,7 +1240,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       filtered: null, filterSummary: '', colFilters: this.EMPTY_COLS, search: '',
       bubbleOpen: false, pickerOpen: null, openFilter: null,
       range: 'week', rangeStart: this.TODAY, rangeEnd: this.WEEK_END,
-      sortKey: 'score', sortDir: 'desc', expandedId: null
+      sortKey: 'rank', sortDir: 'asc', expandedId: null
     };
   });
 
@@ -1931,6 +1931,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.SAMPLE = this.ALL;
     const ds = this.props.defaultSort;
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
+    else if (ds === 'score') this.setState({ sortKey: 'score', sortDir: 'desc' });
+    else if (ds === 'rank') this.setState({ sortKey: 'rank', sortDir: 'asc' });
     this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); } };
     window.addEventListener('keydown', this._onKeyDown);
     this.loadCatalog();
