@@ -93,9 +93,18 @@ jobs:
       - name: Commit the rebuilt feed + verdicts + digest
         env:
           HASH: ${{ steps.target.outputs.hash }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # The claude-code-action runs as claude[bot], rewrites origin's URL with its own (non-
+          # pushing) token, and makes a LOCAL commit of the working-tree changes — so by here the
+          # tree looks "clean" and nothing reaches main. Reclaim control: restore origin with the
+          # workflow token, undo any local commits the action made (keeping their file changes), then
+          # stage only our paths and push to main ourselves.
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git reset --soft "${{ github.sha }}" 2>/dev/null || true   # drop the action's local commit(s)
+          git reset -q 2>/dev/null || true                            # unstage; keep worktree changes
           git add -- "dashboard/data.$HASH.json" dashboard/catalog_meta.json \
             "data/verdicts/$HASH.json" data/enrichment.json data/images \
             "digests/$HASH/latest.md" "digests/$HASH/latest.html" 2>/dev/null || true
@@ -103,7 +112,7 @@ jobs:
             echo "No changes for $HASH."
           else
             git commit -m "rebuild: LLM re-rank + digest for profile $HASH against latest catalog [skip ci]"
-            git push
+            git push origin HEAD:main
           fi
 
       - uses: actions/configure-pages@v5
