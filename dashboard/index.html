@@ -2089,11 +2089,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const sstat = this.state.spotifyStatus;
     // Spotify, in the settings-row style: one line of live status + a single tap that connects,
     // disconnects, or (no backend) explains. The OAuth flow itself is connectSpotify/disconnectSpotify.
-    const spotifySettingsText = !this.BACKEND_URL
-      ? 'backend not connected — link the concierge first'
-      : (sstat === true ? ('connected' + (this.state.spotifyName ? ' as ' + this.state.spotifyName : '') + ' · tap to disconnect')
-         : sstat === null ? 'checking…'
-         : 'connect — tailor picks to your listening');
+    // Short one-line status only (connected / not connected / checking…) — the full explanation
+    // lives in the Spotify modal that opens on tap.
+    const spotifySettingsText = (this.BACKEND_URL && sstat === null) ? 'checking…'
+      : (this.BACKEND_URL && sstat === true) ? 'connected'
+      : 'not connected';
     const spotifyIsConnected = !!this.BACKEND_URL && sstat === true;
     const spotifyCanConnect = !!this.BACKEND_URL && sstat !== true;
     const spotifyModalStatus = !this.BACKEND_URL
