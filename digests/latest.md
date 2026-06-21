@@ -191,13 +191,13 @@
 **Electronic & dance**
 - `8pm-2am` **[Ginger Root](https://www.instagram.com/p/DZnMuYqjFAC/?img_index=1)** — Camille's at The Bellwether (Los Angeles) j-pop, disco, DTLA · free
 - `11pm` **[WORK presents: Pan-Pot [4 Hour Set], DOOSTAH, & Kitty Logic](https://ra.co/events/2414397)** — TBA - Los Angeles, Los Angeles
-- `10pm` **[Mutate: Kayzo](https://ra.co/events/2453933)** — Exchange LA, DTLA · $40 pre
 - `10pm` **[GOOD GAME](https://ra.co/events/2467780)** — Townhouse, Venice
 - `10:30pm` **[Groove Room: A House and Hits Dance Party](https://dice.fm/event/3o7k2g-groove-room-a-house-and-hits-dance-party-3rd-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
 - `4pm` **[AMORE Rooftop Party + Afterparty](https://ra.co/events/2468925)** — TBA - JADE BEVERLY HILLS 467 N. Canon Drive, Beverly Hills
 
 **Live music**
 - `8pm` **[Mezzanine: Shunji Iwai's Love Letter](https://dice.fm/event/3o79n8-mezzanine-shunji-iwais-love-letter-3rd-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
+- `2:30am` **[Beach Boys](https://www.ticketmaster.com/event/Z7r9jZ1A7rkOx)** — Hollywood Bowl, Hollywood
 
 ## Weekends ahead
 
@@ -218,24 +218,24 @@
 **Electronic & dance**
 - `2pm` **[Day Trip In The Park LA: Hayden James, Gudfella, Local Singles](https://ra.co/events/2436973)** — Los Angeles State Historic Park, Chinatown · $37 pre
 - `3pm` **[CASUAL ~ A Queer Pool Party](https://ra.co/events/2471575)** — The Broken Shaker Los Angeles, DTLA
-- `6pm` **[CLOSER x TYF x DFP present SUNDANCE with Egyptian Lover](https://ra.co/events/2463453)** — The Bridge, DTLA
+- `12pm` **[Sirens del Sol: Poolside Residency](https://ra.co/events/2446603)** — Palihotel Hollywood, Hollywood · $10-20
 
 **Live music**
 - `1pm` **[Filmforum 50: Ken Jacobs – Star Spangled to Death](https://dice.fm/event/bb7mlk-filmforum-50-ken-jacobs-star-spangled-to-death-5th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
-- `1am` **[America250](https://www.ticketmaster.com/america250-los-angeles-california-07-04-2026/event/0A0064A1D1740B82)** — Los Angeles Memorial Coliseum, Exposition Park
+- `2:30am` **[Beach Boys](https://www.ticketmaster.com/event/Z7r9jZ1A7rkO0)** — Hollywood Bowl, Hollywood
 - `4am` **[Waku Waku: An Anime Rave](https://www.ticketmaster.com/waku-waku-an-anime-rave-los-angeles-california-07-04-2026/event/09006486A7B6918A)** — The Moroccan Lounge, Arts District
 
 ### Thursday · July 9
 
 **Electronic & dance**
 - `9pm` **[Obscene (Goth / Industrial / EBM / Darkwave)](https://ra.co/events/2348299)** — The Slipper Clutch, DTLA
+- `9pm` **[Big Fat Gay Rave Vol. 3](https://ra.co/events/2471051)** — Beaches Tropicana, Los Angeles
 - `10pm` **[Surface DIY with Jane Margarette, pollensource & Capes](https://ra.co/events/2468442)** — Better Tomorrow, Los Angeles
 - `10:30pm` **[Black Silk Stocking / DJ ValleyGhoul, Gina Kuhn, & Inhalt](https://dice.fm/event/oe7kba-black-silk-stocking-dj-valleyghoul-gina-kuhn-inhalt-9th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
 
 **Live music**
 - `8pm` **[Lightstruck: Jordan Belson – Knowledge Beyond Words (II)](https://dice.fm/event/nv6er8-lightstruck-jordan-belson-knowledge-beyond-words-ii-9th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
 - `2am` **[Rabit presented by VLSF & KCRW](https://www.ticketmaster.com/rabit-presented-by-vlsf-kcrw-los-angeles-california-07-08-2026/event/090064BB0DF7BC3F)** — The Echo, Echo Park
-- `3am` **[Kurt Vile & The Violators w/ Ryan Davis & the Roadhouse Band](https://www.ticketmaster.com/event/Z7r9jZ1A7x8vU)** — The Novo by Microsoft, DTLA
 
 ### Friday · July 10
 
