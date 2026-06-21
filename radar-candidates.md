@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 6/20/2026 deterministically (no API). 336 candidates. Signals: big-venue 275, festival 59, tracked 7._
+_Generated 6/21/2026 deterministically (no API). 333 candidates. Signals: big-venue 275, festival 56, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -9,8 +9,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 8/1 | 9 | HARD Summer Music Festival | Hollywood Park Grounds | festival, tracked:Charlotte de Witte,Chris Lorenzo | [link](https://on.fgtix.com/trk/5oHm) |
-| Sat 8/1 | 19 | HARD Summer 2026 | TBA - Hollywood Park adjacent to S | tracked:Amelie Lens,Charlotte de Witte, big-venue | [link](https://ra.co/events/2378909) |
+| Sat 8/1 | 18 | HARD Summer Music Festival | Hollywood Park Grounds | festival, tracked:Amelie Lens,Charlotte de Witte | [link](https://on.fgtix.com/trk/5oHm) |
 | Sun 8/2 | 8 | HARD Summer Music Festival | Hollywood Park Grounds | festival, tracked:Amelie Lens,Vintage Culture | [link](https://on.fgtix.com/trk/5oHm) |
 | Thu 8/20 | 3 | Mt. Joy 2026: 2 Day Ticket (08/20 - 08/21) Valid Both Days | Greek Theatre | festival, big-venue | [link](https://www.ticketmaster.com/mt-joy-2026-2-day-ticket-los-angeles-california-08-20-2026/event/0900637A9E4A8605) |
 | Sat 8/22 | 3 | Just Like Heaven Festival | Brookside at the Rose Bowl | festival, big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-Ujy) |
@@ -36,13 +35,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 9/5 | 4 | Hypnotique Presents: Sway Festival - 2 DAY PASS | Teragram Ballroom | festival | [link](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE) |
 | Fri 9/11 | 4 | Cold Waves 2-Day (9/11/26-9/12/26) | Pacific Electric | festival | [link](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76) |
 
-## July 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 7/25 | 3 | TOTALLY TUBULAR FESTIVAL | Hollywood Palladium | festival | [link](https://www.ticketmaster.com/totally-tubular-festival-hollywood-california-07-24-2026/event/0900648EBB53A004) |
-| Sat 7/25 | 3 | BeeHive Block Party | The Beehive | festival | [link](https://www.universe.com/Beehiveblockparty2026) |
-
 ## August 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -61,7 +53,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 7/25 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPP) |
 | Sun 7/26 | 2 | El Festival Colombiano | Pico Rivera Sports Arena | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7PbFg) |
 | Fri 7/31 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPs) |
 
@@ -165,8 +156,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 7/25 | 4 | Treaty Oak Revival | Greek Theatre-Los Angeles | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A70f4E) |
-| Sat 7/25 | 4 | Smokey Robinson w/ Gladys Knight | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xZGM) |
 | Sun 7/26 | 4 | Boris Brejcha with the Hollywood Bowl Orchestra | Hollywood Bowl | big-venue | [link](https://ra.co/events/2375675) |
 | Fri 7/31 | 4 | Los Angeles Philharmonic | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7r4bU) |
 | Fri 7/31 | 4 | Tchaikovsky Spectacular | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-EbY) |
@@ -221,16 +210,13 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 7/25 | 3 | The Fray - Summer of Light Tour with Dashboard Confessiona | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/the-fray-summer-of-light-tour-inglewood-california-07-24-2026/event/0A006437A98AB69C) |
-| Sat 7/25 | 3 | Snoop Dogg 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7x4u8) |
-| Sat 7/25 | 3 | Hermanos Espinoza - LINAJE Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/hermanos-espinoza-linaje-tour-inglewood-california-07-25-2026/event/0A00647EDCFECE3F) |
 | Sun 7/26 | 3 | Smokey Robinson w/ Gladys Knight | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-o3a) |
 | Mon 7/27 | 3 | Boris Brejcha | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7x7ap) |
 | Tue 7/28 | 3 | Ella Mai w/ AMA | Greek Theatre-Los Angeles | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-YO7) |
 | Wed 7/29 | 3 | Tower of Power w/ Preservation Hall Jazz Band | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xZZV) |
 | Thu 7/30 | 3 | Tower of Power w/ Preservation Hall Jazz Band | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xZZV) |
 | Thu 7/30 | 3 | Los Angeles Philharmonic | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7r4bU) |
-| Fri 7/31 | 3 | Dancing With The Stars Con 2026 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/dancing-with-the-stars-con-2026-palm-desert-california-07-31-2026/event/0A006445BF9D8BBC) |
+| Fri 7/31 | 3 | Dancing With The Stars Con 2026 - Three Day Ticket | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/dancing-with-the-stars-con-2026-palm-desert-california-07-31-2026/event/0A006445BF9D8BBC) |
 | Fri 7/31 | 3 | Motionless In White: The Sweat and Blood Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/motionless-in-white-the-sweat-and-inglewood-california-07-31-2026/event/0900643C03501EC8) |
 
 ## August 2026
@@ -357,6 +343,10 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 9/12 | 3 | Soda Stereo - ECOS Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/soda-stereo-ecos-tour-inglewood-california-09-12-2026/event/090064A1F4CCBBC7) |
 | Sat 9/12 | 3 | Alejandro Fernández: de Rey a Rey | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alejandro-fernandez-de-rey-a-rey-inglewood-california-09-12-2026/event/0A00644AC88392E1) |
 | Sun 9/13 | 3 | Lucy Dacus | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7x7ax) |
+| Tue 9/15 | 3 | ANDREA BOCELLI "Romanza - 30th Anniversary World Tour" | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/andrea-bocelli-romanza-30th-anniversary-world-hollywood-california-09-15-2026/event/0B00643AAF963918) |
+| Wed 9/16 | 3 | LE SSERAFIM | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A70OvA) |
+| Wed 9/16 | 3 | Masego: Fix Your Face Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/masego-fix-your-face-tour-los-angeles-california-09-16-2026/event/090064C4FE427889) |
+| Wed 9/16 | 3 | ANDREA BOCELLI "Romanza - 30th Anniversary World Tour" | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/andrea-bocelli-romanza-30th-anniversary-world-hollywood-california-09-16-2026/event/0B00643CD21961B4) |
 | Fri 9/18 | 3 | Morgan Jay: The Goofy Guy Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/morgan-jay-the-goofy-guy-tour-los-angeles-california-09-17-2026/event/0900644C0AB37D8C) |
 | Sat 9/26 | 3 | BERT KREISCHER: PERMISSION TO PARTY | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/bert-kreischer-permission-to-party-los-angeles-california-09-26-2026/event/0900647FE404EF24) |
 
@@ -450,6 +440,8 @@ _Review → fold keepers into `festivals.yaml`._
 | Sun 9/13 | 2 | Morgan Jay: The Goofy Guy Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/morgan-jay-the-goofy-guy-tour-los-angeles-california-09-12-2026/event/09006445D5ADACD0) |
 | Sun 9/13 | 2 | Los Angeles Azules (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-z40) |
 | Thu 9/17 | 2 | Morgan Jay: The Goofy Guy Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/morgan-jay-the-goofy-guy-tour-los-angeles-california-09-17-2026/event/0900644C0AB37D8C) |
+| Thu 9/17 | 2 | Matute - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-z8b) |
+| Thu 9/17 | 2 | Kany Garcia: Puerta Abierta Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/kany-garcia-puerta-abierta-tour-inglewood-california-09-17-2026/event/0A00647EDA97CAA0) |
 | Fri 9/18 | 2 | Ralph Barbosa | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A70vbw) |
 | Sat 9/19 | 2 | Ralph Barbosa | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A70vbw) |
 | Sat 9/19 | 2 | Mentiras All Stars | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/mentiras-all-stars-inglewood-california-09-19-2026/event/0A006489CA1CA33B) |
@@ -463,12 +455,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 10/3 | 2 | Ron White | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A70taU) |
 | Thu 10/15 | 2 | Cynthia Erivo: Let Me Sing To You | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/cynthia-erivo-let-me-sing-to-hollywood-california-10-15-2026/event/0B0064A783483613) |
-
-## July 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 7/25 | 1 | El Coyote & Chuy Lizarraga - Capibaras Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/el-coyote-chuy-lizarraga-capibaras-tour-anaheim-california-07-25-2026/event/090064B0CF5D3B88) |
 
 ## August 2026
 
@@ -513,5 +499,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Tue 9/1 | 0 | ZAYN: The Konnakol Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/zayn-the-konnakol-tour-anaheim-california-09-01-2026/event/0900643E930C7F41) |
 | Wed 9/2 | 0 | ZAYN: The Konnakol Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/zayn-the-konnakol-tour-anaheim-california-09-01-2026/event/0900643E930C7F41) |
+| Thu 9/17 | 0 | GODSMACK - The Rise of Rock World Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/godsmack-the-rise-of-rock-world-anaheim-california-09-17-2026/event/09006435A321E22F) |
 | Sat 9/19 | 0 | "Weird Al" Yankovic: Bigger & Weirder 2026 Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/weird-al-yankovic-bigger-weirder-2026-anaheim-california-09-19-2026/event/09006366923698BD) |
 | Sun 9/20 | -1 | "Weird Al" Yankovic: Bigger & Weirder 2026 Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/weird-al-yankovic-bigger-weirder-2026-anaheim-california-09-19-2026/event/09006366923698BD) |
