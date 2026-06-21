@@ -32,6 +32,8 @@
   @keyframes om-blink { 0%,20%{opacity:0} 50%{opacity:1} 100%{opacity:0} }
   .om-dots::after { content:'…'; }
   @keyframes om-scan { 0%{transform:translateX(-100%)} 100%{transform:translateX(300%)} }
+  .la-prog { position:relative; height:3px; margin-top:8px; background:#dcdad1; border-radius:2px; overflow:hidden; }
+  .la-prog > i { position:absolute; top:0; left:0; height:100%; width:40%; background:#2b5cd9; border-radius:2px; animation: om-scan 1.15s ease-in-out infinite; }
 </style>
 </helmet>
 
@@ -261,7 +263,7 @@
                 </div>
               </sc-if>
             </th>
-            <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:120px;"><span onClick="{{ sortScore }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SCORE <span style="color:#2b5cd9;">{{ arrowScore }}</span></span><span style="color:#d2d0c7;"> · </span><span onClick="{{ sortRank }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span></th>
+            <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:140px;"><span onClick="{{ sortRank }}" style="cursor:pointer; color: {{ rankHeadColor }};" style-hover="color:#2b5cd9;">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span><span style="color:#d2d0c7;"> · </span><span onClick="{{ sortScore }}" style="cursor:pointer; color: {{ scoreHeadColor }};" style-hover="color:#2b5cd9;">SCORE <span style="color:#2b5cd9;">{{ arrowScore }}</span></span></th>
             <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:104px; position:relative;">
               <span style="display:inline-flex; align-items:center; gap:6px;">
                 <span onClick="{{ sortSource }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></span>
@@ -308,14 +310,24 @@
                 <div style="font:600 11px/1.2 -apple-system,system-ui,sans-serif; color: {{ ev.catColor }};">{{ ev.cat }}</div>
                 <div style="margin-top:3px; font-size:11px; color:#a7a59b;">{{ ev.genre }}</div>
               </td>
-              <td style="padding: {{ rowPad }}; vertical-align:top;">
-                <div style="font:700 13px/1 ui-monospace,Menlo,monospace; color: {{ ev.scoreColor }};">{{ ev.scoreLabel }}</div>
-                <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
-                  <div style="margin-top:5px; height:3px; width:64px; background:#e2e0d8; border-radius:2px; overflow:hidden;">
-                    <div style="height:100%; width: {{ ev.scorePct }}; background: {{ ev.scoreColor }};"></div>
+              <td style="padding: {{ rowPad }}; vertical-align:top; white-space:nowrap;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <span title="{{ ev.rankTitle }}" style="display:inline-flex; align-items:baseline; justify-content:flex-end; gap:1px; min-width:26px;">
+                    <sc-if value="{{ ev.hasRank }}" hint-placeholder-val="{{ true }}"><span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#c2c0b6;">#</span></sc-if>
+                    <span style="font: 500 15px/1 ui-monospace,Menlo,monospace; letter-spacing:-0.02em; color: {{ ev.rankColor }};">{{ ev.rankNum }}</span>
+                  </span>
+                  <span style="width:1px; height:16px; background:#e2e0d8;"></span>
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <span style="font:500 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.01em; color: {{ ev.scoreColor }};">{{ ev.scoreLabel }}</span>
+                    <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
+                      <span style="display:inline-flex; align-items:flex-end; gap:1.5px; height:8px;">
+                        <sc-for list="{{ ev.scoreSegs }}" as="s" hint-placeholder-count="9">
+                          <span style="width:1.5px; height:8px; border-radius:1px; background: {{ s.bg }};"></span>
+                        </sc-for>
+                      </span>
+                    </sc-if>
                   </div>
-                </sc-if>
-                <div title="{{ ev.rankTitle }}" style="margin-top:6px; font: {{ ev.rankWeight }} 10px/1 ui-monospace,Menlo,monospace; color: {{ ev.rankColor }};">{{ ev.rankLabel }}</div>
+                </div>
               </td>
               <td style="padding: {{ rowPad }}; vertical-align:top;">
                 <span style="font:500 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ ev.source }}</span>
@@ -368,6 +380,24 @@
             <div style="position:absolute; bottom:calc(100% + 7px); right:0; z-index:61; width:256px; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:12px;">
               <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:10px;">SETTINGS</div>
               <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">
+                <div onClick="{{ onUpdateClick }}" title="Re-rank your picks + re-render your digest against the latest events database" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid {{ updateBorder }}; background:{{ updateBg }}; border-radius:2px; cursor:{{ updateCursor }}; opacity:{{ updateOpacity }}; margin-bottom:7px;">
+                  <span style="flex:none; color:{{ updateColor }}; font-size:14px; transform:translateY(1px);">{{ updateIcon }}</span>
+                  <span style="flex:1;">
+                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:{{ updateColor }};">Update my ranking &amp; digest</span>
+                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ updateStatus }}</span>
+                    <sc-if value="{{ showUpdateBar }}" hint-placeholder-val="{{ false }}"><span class="la-prog"><i></i></span></sc-if>
+                  </span>
+                </div>
+                <sc-if value="{{ isOwner }}" hint-placeholder-val="{{ false }}">
+                  <div onClick="{{ onRefreshClick }}" title="Admin: fetch all sources and rebuild the shared events database (applies to everyone)" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:{{ refreshCursor }}; opacity:{{ refreshOpacity }}; margin-bottom:7px;" style-hover="border-color:#161512;">
+                    <span style="flex:none; color:#b4453a; font-size:14px; transform:translateY(1px);">{{ refreshIcon }}</span>
+                    <span style="flex:1;">
+                      <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Refresh events database</span>
+                      <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ refreshLabel }}</span>
+                      <sc-if value="{{ showRefreshBar }}" hint-placeholder-val="{{ false }}"><span class="la-prog"><i></i></span></sc-if>
+                    </span>
+                  </div>
+                </sc-if>
                 <div onClick="{{ openApiModal }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
                   <span style="flex:none; color:#3f3d36; font-size:14px; transform:translateY(1px);">◈</span>
                   <span style="flex:1;">
@@ -682,9 +712,13 @@ class Component extends DCLogic {
   }
 
   scoreColorFor(s) {
-    if (s >= 7) return '#2b5cd9';
-    if (s >= 5) return '#5a6b8c';
-    return '#a7a59b';
+    // perceptual ramp: low scores cool/blue -> high scores warm, one tint per row
+    if (!(s >= 1)) return '#a7a59b';
+    const i = Math.round(((Math.min(9, s) - 1) / 8) / 0.2);
+    const H = [262, 252, 192, 182, 104, 92][i];
+    const L = [0.560, 0.573, 0.586, 0.599, 0.612, 0.625][i];
+    const C = [0.122, 0.118, 0.113, 0.112, 0.114, 0.116][i];
+    return 'oklch(' + L.toFixed(3) + ' ' + C.toFixed(3) + ' ' + H + ')';
   }
 
   badgeStyle(text) {
@@ -1176,6 +1210,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const open = !this.state.settingsOpen;
     const loggedOut = !(this.state.profile && this.state.profile.hash);
     this.setState({ settingsOpen: open, profileError: '' });
+    if (open) this.checkCatalogFreshness();   // so the "Update" button reflects the live DB on open
     if (open && !loggedOut) this.checkSpotify();
     // Logged out: jump straight to the username box and focus it (one click to type).
     if (open && loggedOut) setTimeout(() => { const el = document.getElementById('la-login-input'); if (el) el.focus(); }, 30);
@@ -1184,6 +1219,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // "2026-06-17T07:02:00" (or a Date / null) -> "Wed 6/17, 7:02 AM" — Ari's date convention.
   fmtStamp(d) {
     if (!d) return '—';
+    // A zone-less ISO datetime ("2026-06-21T00:30:00") is parsed by JS as LOCAL time, so a stamp
+    // written in UTC by CI shows hours in the "future" for a PT viewer. Coerce it to UTC ('Z') so
+    // it renders correctly even for older feeds written before the writers emitted an offset.
+    if (typeof d === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/.test(d)) d = d + 'Z';
     const dt = (d instanceof Date) ? d : new Date(d);
     if (isNaN(dt.getTime())) return '—';
     const wd = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dt.getDay()];
@@ -1289,7 +1328,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (!res.ok) { this.setState({ backendStatus: 'err' }); throw new Error('backend ' + res.status); }
     this.setState({ backendStatus: 'ok' });
     const data = await res.json();
-    this._lastTasteChanged = !!(data && data.taste_changed);   // worker committed a taste edit -> CI re-ranks
+    this._lastTasteChanged = !!(data && (data.taste_changed || data.profile_changed));   // worker committed a taste/profile edit -> CI re-ranks
     const reply = data && (data.reply || (Array.isArray(data.content) && data.content.map(b => b && b.text).filter(Boolean).join('\n')));
     if (!reply) throw new Error('empty');
     return reply;
@@ -1344,6 +1383,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
+    this.checkCatalogFreshness();
   }
 
   // ---------- per-profile Spotify (the music layer) ----------
@@ -1386,6 +1426,102 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.setState({ spotifyStatus: false, spotifyName: '' });
     this.flashToast('Spotify disconnected');
   };
+
+  // ---------- catalog freshness + pipeline actions (refresh / update-my-digest) ----------
+  // The live events DB is versioned (scripts/lib/catalog_meta.py): run_digest stamps
+  // data/catalog_meta.json, build_dashboard publishes dashboard/catalog_meta.json AND tags each
+  // feed with the version it was scored against. We fetch the live version fresh on every load;
+  // when it differs from the loaded feed's catalog_version, this profile's ranking/digest is
+  // stale (the admin refreshed sources since it was built) and the "Update" button lights up.
+  workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
+  checkCatalogFreshness = () => {
+    return fetch('./catalog_meta.json', { cache: 'no-store' })
+      .then(res => res.ok ? res.json() : null)
+      .then(j => { this.LIVE_CATALOG = (j && j.version) ? j : null; this.forceUpdate(); })
+      .catch(() => { this.LIVE_CATALOG = null; this.forceUpdate(); });
+  };
+  // mm:ss since a job started, for the in-button progress readout.
+  fmtElapsed(since) {
+    if (!since) return '';
+    const s = Math.max(0, Math.floor((Date.now() - since) / 1000));
+    return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+  }
+  // A 1s ticker that re-renders while a job runs (so the elapsed timer counts up); self-stops.
+  startJobTick() {
+    if (this._jobTick) return;
+    this._jobTick = setInterval(() => {
+      if (this.state.refreshBusy || this.state.updateBusy) this.forceUpdate();
+      else { clearInterval(this._jobTick); this._jobTick = null; }
+    }, 1000);
+  }
+  // OWNER ONLY: refresh the shared events DB from sources (the daily fetch, on demand). Fires the
+  // refresh-events workflow via the concierge Worker; that run rebuilds the catalog + the default
+  // feed and republishes catalog_meta.json, so everyone's feed then reads as stale until each
+  // person updates their own. Per-profile feeds are intentionally NOT rebuilt here. The button stays
+  // "working" (dimmed, progress bar) until the published catalog version changes = the run deployed.
+  refreshEvents = async () => {
+    if (this.state.refreshBusy) return;
+    if (!this.BACKEND_URL) { this.flashToast('Connect the concierge backend first (chat → connect).'); return; }
+    let base = (this.LIVE_CATALOG && this.LIVE_CATALOG.version) || null;
+    this.setState({ refreshBusy: true, refreshStartedAt: Date.now() });
+    this.startJobTick();
+    try {
+      const headers = { 'content-type': 'application/json' };
+      if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+      const res = await fetch(this.workerUrl('/refresh-events'), { method: 'POST', headers, body: JSON.stringify({}) });
+      if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setState({ refreshBusy: false }); return; }
+      if (!res.ok) { this.flashToast('Refresh failed (' + res.status + ') — is the Worker redeployed with GITHUB_TOKEN?'); this.setState({ refreshBusy: false }); return; }
+      this.flashToast('Refreshing events from sources — rebuilding the database (~2–3 min).');
+    } catch (e) { this.flashToast('Could not reach the backend to refresh.'); this.setState({ refreshBusy: false }); return; }
+    // Poll the published catalog version; when it changes, the run finished + deployed.
+    let n = 0; clearInterval(this._refreshPoll);
+    this._refreshPoll = setInterval(async () => {
+      await this.checkCatalogFreshness();
+      const v = this.LIVE_CATALOG && this.LIVE_CATALOG.version;
+      if (base == null && v) base = v;                      // establish baseline if we lacked one
+      const done = v && base && v !== base;
+      if (done || ++n > 40) {                                // ~10 min cap
+        clearInterval(this._refreshPoll);
+        this.setState({ refreshBusy: false });
+        if (done) this.flashToast('Events database updated — tap “Update my ranking & digest” to refresh your picks.');
+      }
+    }, 15000);
+  };
+  // ANY logged-in profile: re-rank + re-render THIS profile's feed/digest against the latest DB.
+  // Fires the rebuild-profile workflow (keyed by the public feed hash) via the Worker. Disabled
+  // unless the feed is stale. The button stays "working" (dimmed, progress bar) until the next
+  // deploy lands the fresh feed (which flips catalog_version back in sync and disables it).
+  updateMyDigest = async () => {
+    const p = this.state.profile;
+    if (this.state.updateBusy || !(p && p.hash)) return;
+    if (!this.BACKEND_URL) { this.flashToast('Connect the concierge backend first (chat → connect).'); return; }
+    this.setState({ updateBusy: true, updateStartedAt: Date.now() });
+    this.startJobTick();
+    try {
+      const headers = { 'content-type': 'application/json' };
+      if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+      const res = await fetch(this.workerUrl('/rebuild-profile'), { method: 'POST', headers, body: JSON.stringify({ profile: p.hash }) });
+      if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setState({ updateBusy: false }); return; }
+      if (!res.ok) { this.flashToast('Update failed (' + res.status + ') — is the workflow deployed?'); this.setState({ updateBusy: false }); return; }
+      this.flashToast('Re-running your editor + digest against the latest events — this takes a few minutes.');
+      // Poll the live version + reload our feed; when catalog_version catches up, updateBusy clears.
+      let n = 0; clearInterval(this._freshPoll);
+      this._freshPoll = setInterval(async () => {
+        await this.loadFeedFor(this.state.profile);
+        await this.checkCatalogFreshness();
+        if (++n > 60 || !this.isFeedStale()) {
+          clearInterval(this._freshPoll); this.setState({ updateBusy: false });
+          if (!this.isFeedStale()) this.flashToast('Your picks are up to date with the latest events.');
+        }
+      }, 15000);
+    } catch (e) { this.flashToast('Could not reach the backend to update.'); this.setState({ updateBusy: false }); }
+  };
+  // True when the loaded feed was scored against an older catalog than the live one.
+  isFeedStale() {
+    const live = this.LIVE_CATALOG && this.LIVE_CATALOG.version;
+    const feed = this.META && this.META.catalog_version;
+    return !!(live && feed && live !== feed);
+  }
 
   applySpec(spec) {
     let list = this.ALL.slice();
@@ -1882,9 +2018,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     window.addEventListener('keydown', this._onKeyDown);
     this.loadCatalog();
     this.loadDigest();
+    this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
   }
-  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); }
+  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); }
 
   // ---------- render ----------
   renderVals() {
@@ -1930,15 +2067,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       sub: e.venue + '  \u00b7  ' + (e.lineup.slice(0, 3).join(', ')),
       hood: e.hood,
       cat: e.cat, genre: e.genre, catColor: this.CAT_COLOR[e.cat] || '#3f3d36',
-      score: e.score, scoreLabel: '+' + e.score, scoreColor: this.scoreColorFor(e.score),
-      scorePct: Math.round((e.score / 9) * 100) + '%',
-      rankLabel: (e.final_rank ? '#' + e.final_rank : '—'),
-      rankColor: (!e.final_rank ? '#cfcdc4'
-        : (e.verdict && e.verdict.tier === 'must-see') ? '#b4453a'
-        : (e.verdict && e.verdict.tier === 'great') ? '#2b5cd9'
-        : (e.verdict && e.verdict.tier === 'skip') ? '#cfcdc4'
-        : '#a7a59b'),
-      rankWeight: (e.verdict && e.verdict.tier === 'must-see') ? 700 : 600,
+      score: e.score, scoreLabel: String(e.score), scoreColor: this.scoreColorFor(e.score),
+      scoreSegs: Array.from({ length: 9 }, (_, k) => ({ bg: k < e.score ? this.scoreColorFor(e.score) : '#dedcd4' })),
+      hasRank: !!e.final_rank,
+      rankNum: (e.final_rank ? String(e.final_rank) : '—'),
+      rankColor: (e.final_rank ? '#161512' : '#cfcdc4'),
       rankTitle: (e.verdict ? (String(e.verdict.tier || '').toUpperCase() + (e.verdict.why ? ' — ' + e.verdict.why : '')) : 'deterministic rank'),
       source: e.source,
       badges: this.computedBadges(e),
@@ -2039,6 +2172,21 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const lastSiteUpdate = (typeof document !== 'undefined' && document.lastModified) ? this.fmtStamp(new Date(document.lastModified)) : '—';   // HTML deploy time
     const claudeKeyState = !rawKey ? 'not set · uses the shared token'
       : (keyOn ? ('on · ' + rawKey.slice(0, 11) + '…') : 'saved · switched off');
+    // Catalog freshness: is this profile's ranking/digest behind the live events DB?
+    const isOwner = !!(this.META && this.META.profile && this.META.profile.owner);
+    const liveCatalog = this.LIVE_CATALOG || null;
+    const feedStale = this.isFeedStale();
+    const updateBusy = !!this.state.updateBusy;
+    const refreshBusy = !!this.state.refreshBusy;
+    const liveDataPull = this.fmtStamp((liveCatalog && liveCatalog.fetched_at) || null);
+    const updateElapsed = this.fmtElapsed(this.state.updateStartedAt);
+    const refreshElapsed = this.fmtElapsed(this.state.refreshStartedAt);
+    // The per-user "Update my ranking & digest" affordance: enabled only when stale.
+    const updateStatus = updateBusy
+      ? ('working — LLM re-rank + digest · ' + updateElapsed + ' · a few min')
+      : (feedStale ? ('new events available · DB pulled ' + liveDataPull)
+         : ('up to date · synced ' + lastDataPull));
+    const updateActive = feedStale && !updateBusy;
 
     const LBL = {
       today: { num: 'today', unit: '' }, weekend: { num: 'this weekend', unit: '' },
@@ -2104,6 +2252,21 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, closeSettings: this.closeSettings,
       settingsTitle: loggedOut ? 'Log in' : 'Settings',
       loggedOut, lastDataPull, lastSiteUpdate, claudeKeyState,
+      isOwner, feedStale, updateBusy, refreshBusy, updateStatus, updateActive, liveDataPull,
+      showUpdateBar: updateBusy, showRefreshBar: refreshBusy,
+      refreshEvents: this.refreshEvents, updateMyDigest: this.updateMyDigest,
+      refreshLabel: refreshBusy ? ('rebuilding the database · ' + refreshElapsed + ' · ~2–3 min') : 'pull the latest from all sources (everyone)',
+      onRefreshClick: refreshBusy ? (() => {}) : this.refreshEvents,
+      refreshOpacity: refreshBusy ? '0.6' : '1',
+      refreshCursor: refreshBusy ? 'default' : 'pointer',
+      refreshIcon: refreshBusy ? '◌' : '⟳',
+      updateBg: updateActive ? '#2b5cd9' : '#f0efe9',
+      updateColor: updateActive ? '#fff' : '#a7a59b',
+      updateBorder: updateActive ? '#2b5cd9' : (updateBusy ? '#c9c7bd' : '#e2e0d8'),
+      updateOpacity: updateBusy ? '0.7' : '1',
+      updateCursor: updateActive ? 'pointer' : 'default',
+      updateIcon: updateBusy ? '◌' : (feedStale ? '↻' : '✓'),
+      onUpdateClick: updateActive ? this.updateMyDigest : (() => {}),
       logoutFromSettings: this.logoutFromSettings,
       connectModalOpen: this.state.connectModalOpen, closeConnectModal: this.closeConnectModal,
       tokenInput: this.state.tokenInput || '', onTokenInput: this.onTokenInput, onTokenKey: this.onTokenKey,
@@ -2134,7 +2297,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       sortHood: () => this.setSort('hood'), sortCat: () => this.setSort('cat'),
       sortScore: () => this.setSort('score'), sortRank: () => this.setSort('rank'), sortSource: () => this.setSort('source'),
       arrowDate: arrow('date'), arrowTitle: arrow('title'), arrowHood: arrow('hood'),
-      arrowCat: arrow('cat'), arrowScore: arrow('score'), arrowRank: arrow('rank'), arrowSource: arrow('source')
+      arrowCat: arrow('cat'), arrowScore: arrow('score'), arrowRank: arrow('rank'), arrowSource: arrow('source'),
+      rankHeadColor: sortKey === 'rank' ? '#2b5cd9' : '#76746b', scoreHeadColor: sortKey === 'score' ? '#2b5cd9' : '#76746b'
     };
   }
 }

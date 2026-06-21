@@ -1,0 +1,106 @@
+name: Rebuild one profile feed
+
+# PER-USER action (the settings "Update my ranking & digest" button -> concierge Worker ->
+# repository_dispatch "rebuild-profile" with the profile's public feed hash). Re-runs the FULL LLM
+# pass for THIS profile against the current catalog: event-editor verdicts + scene enrichment +
+# the personalized narrative digest (routines/profile-digest-prompt.md, run by Claude Code), then
+# commits + redeploys. Keyed by hash because the dashboard only knows the hash, not the username.
+#
+# Needs ANTHROPIC_API_KEY (the agent) in repo secrets. Optional SPOTIFY_SYNC_* keep the music layer
+# intact (synced before the rebuild so a single-profile build doesn't clobber it back to taste-only).
+# If ANTHROPIC_API_KEY is unset the agent step fails loudly — set it, or fall back to the nightly
+# routine for the LLM pass.
+on:
+  repository_dispatch:
+    types: [rebuild-profile]
+  workflow_dispatch:
+    inputs:
+      hash:
+        description: "Profile feed hash to rebuild"
+        required: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: pip install pyyaml
+
+      - name: Resolve the target hash
+        id: target
+        env:
+          HASH: ${{ github.event.client_payload.profile || github.event.inputs.hash }}
+        run: |
+          if ! echo "$HASH" | grep -Eq '^[0-9a-f]{8,32}$'; then
+            echo "Invalid or missing profile hash: '$HASH'" >&2
+            exit 1
+          fi
+          echo "hash=$HASH" >> "$GITHUB_OUTPUT"
+
+      # Keep the per-profile music layer intact: sync connected Spotify into data/spotify/<hash>.json
+      # (gitignored) BEFORE the rebuild, so a single-profile build doesn't drop it to taste-only.
+      # SKIPs cleanly if the Worker sync isn't configured.
+      - name: Sync this profile's Spotify (best-effort)
+        continue-on-error: true
+        env:
+          SPOTIFY_SYNC_URL: ${{ secrets.SPOTIFY_SYNC_URL }}
+          SPOTIFY_SYNC_TOKEN: ${{ secrets.SPOTIFY_SYNC_TOKEN }}
+        run: python scripts/sync_profiles_spotify.py
+
+      # The LLM pass: event-editor verdicts + scene enrichment + the personalized narrative digest.
+      # The action auto-discovers .claude/agents/ (event-editor, scene-researcher) for the Task tool.
+      - name: Re-rank + re-render this profile (Claude Code)
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Execute routines/profile-digest-prompt.md exactly, for the single profile whose dashboard
+            feed hash is ${{ steps.target.outputs.hash }}. Wherever the file says <HASH>, use that hash.
+            Do NOT git commit or push — leave every changed file in the working tree; the workflow
+            commits and deploys after you finish.
+          claude_args: |
+            --max-turns 40
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash,Task,WebSearch,WebFetch"
+
+      - name: Commit the rebuilt feed + verdicts + digest
+        env:
+          HASH: ${{ steps.target.outputs.hash }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -- "dashboard/data.$HASH.json" dashboard/catalog_meta.json \
+            "data/verdicts/$HASH.json" data/enrichment.json data/images \
+            "digests/$HASH/latest.md" "digests/$HASH/latest.html" 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes for $HASH."
+          else
+            git commit -m "rebuild: LLM re-rank + digest for profile $HASH against latest catalog [skip ci]"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - name: Stage digests for the dashboard
+        run: python3 scripts/stage_digests.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+      - id: deployment
+        uses: actions/deploy-pages@v4

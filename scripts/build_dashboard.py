@@ -30,7 +30,7 @@ import argparse
 import json
 import sys
 from collections import Counter
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 # Make `lib` importable regardless of cwd (scripts/ on sys.path).
@@ -42,6 +42,7 @@ from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib.assemble import rank_score, event_lane  # noqa: E402
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
+from lib import catalog_meta as CM  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -258,10 +259,19 @@ def main() -> int:
         "vocab": TAG_VOCAB,
     }
 
+    # The catalog version this feed was scored against — the dashboard compares it to the live
+    # dashboard/catalog_meta.json to decide if this profile's ranking/digest is stale. Prefer the
+    # stamp written by run_digest; fall back to recomputing from the catalog we just read.
+    cat_meta = CM.read_meta(catalog_path.parent / "catalog_meta.json") or CM.build_meta(catalog)
+
     feed = {
-        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        # Timezone-aware (UTC) — the dashboard's "last data pull" parses this; a naive stamp is
+        # read by the browser as local time and shows ~hours in the future for a PT viewer.
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source_file": str(catalog_path.relative_to(REPO)) if catalog_path.is_relative_to(REPO) else str(catalog_path),
         "is_sample": is_sample,
+        "catalog_version": cat_meta.get("version"),
+        "catalog_fetched_at": cat_meta.get("fetched_at"),
         "count": len(events),
         "enriched_count": enriched_hits,
         "neighborhoods": neighborhoods,
@@ -282,6 +292,17 @@ def main() -> int:
     rel_out = out_path.relative_to(REPO) if out_path.is_relative_to(REPO) else out_path
     print(f"Wrote {len(events)} events ({enriched_hits} enriched) -> {rel_out}"
           f"{' (SAMPLE data)' if is_sample else ''}")
+
+    # Publish the live catalog version next to the feeds (any non-sample build refreshes it; the
+    # content is identical regardless of which profile is built). The dashboard fetches this fresh
+    # on every load to compare against each feed's `catalog_version`.
+    if not is_sample and out_path.parent.is_dir():
+        try:
+            (out_path.parent / "catalog_meta.json").write_text(
+                json.dumps({k: cat_meta.get(k) for k in ("version", "count", "fetched_at")},
+                           indent=2) + "\n", encoding="utf-8")
+        except OSError as e:
+            print(f"  WARN: could not publish catalog_meta.json: {e}", file=sys.stderr)
 
     # Optionally emit this profile's editor judging pool (the per-lane set worth LLM judgment),
     # so the event-editor pass can judge it and write per-profile verdicts. Reuses the per-profile

@@ -41,6 +41,7 @@ from lib import pipeline as P  # noqa: E402
 from lib import feedback as FB  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib.tagging import tag_catalog  # noqa: E402
+from lib import catalog_meta as CM  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -156,6 +157,11 @@ def main() -> int:
     tag_catalog(catalog, profile)
     cat_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
 
+    # Stamp the catalog version (the dashboard staleness check keys off this). Lives beside the
+    # catalog; build_dashboard reads it to tag each feed with the version it was built against.
+    meta_path = cat_path.parent / "catalog_meta.json"
+    cat_meta = CM.write_meta(meta_path, catalog)
+
     affinity = load_affinity_layer(args.no_fetch, report, profile)
     candidates = P.select_candidates(catalog, taste, profile, today,
                                      window_days=args.window, top_n=args.top, image_n=args.images,
@@ -185,7 +191,7 @@ def main() -> int:
     ep_path.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")
 
     # Run report.
-    print(f"run_digest {today}: catalog {len(catalog)} "
+    print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}) "
           f"(+{stats['added']} new, {stats['merged']} merged, {expired} expired) "
           f"-> {len(candidates)} candidates ({cand_doc['image_wanted']} need images), "
           f"{len(judge)} to judge")

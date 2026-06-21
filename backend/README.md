@@ -6,7 +6,7 @@ the live `data.json` (events + dining + taste), and answers in the concierge voi
 **Concierge** mode POSTs here; **Fast filter** mode never touches it (and the page falls back to
 Fast filter automatically if this backend is unset or down).
 
-It does **two** things, depending on what the POST body carries:
+It does **three** things, depending on what the POST body carries:
 
 ```
 1. CHAT (always)
@@ -17,27 +17,71 @@ It does **two** things, depending on what the POST body carries:
    "more techno, less comedy" ─► worker ─► Claude calls propose_taste_change
        ─► worker commits profiles/<name>/taste.yaml ─► CI rebuilds the feed ─► Pages redeploys
              ◄──── { reply, taste_changed:true } ────   "re-ranking, refresh in ~a minute"
+
+3. PROFILE / MECHANISM SELF-EDIT (same gate) — taste.yaml is CONTENT; profile.yaml is MECHANISM
+   "I moved to Glendale" / "weight live music higher" ─► worker ─► Claude calls propose_profile_change
+       ─► worker commits profiles/<name>/profile.yaml ─► CI rebuilds the feed ─► Pages redeploys
+             ◄──── { reply, profile_changed:true } ───   "re-ranking, refresh in ~a minute"
 ```
 
-The self-edit keeps the **single deterministic scorer**: the Worker only edits the taste file;
+Both self-edits keep the **single deterministic scorer**: the Worker only edits the YAML;
 `scripts/build_profiles.py` (the same `lib/scoring.py` the digest uses) does the actual
 re-scoring in CI — see `.github/workflows/build-profiles.yml` — so a profile's ranking can't
-drift from the digest. The Worker applies a **structured patch** (add/remove tracked artists,
-venues, comedians; add a high-category / boost / penalty line; append a feedback note), never a
-freeform rewrite, and refuses to commit anything that doesn't re-parse as valid YAML.
+drift from the digest. Each is a **structured patch**, never a freeform rewrite, and the Worker
+refuses to commit anything that doesn't re-parse as valid YAML:
+
+- **`propose_taste_change`** (CONTENT) — add/remove tracked artists, venues, comedians; add a
+  high-category / boost / penalty line; append a feedback note.
+- **`propose_profile_change`** (MECHANISM) — set `home` (location + coords), `category_weights`,
+  and the `near_home` / `penalty` / boost / `far` term lists. Because `lib/scoring.py` resolves
+  each scoring key **all-or-nothing** (profile → taste → default), a first-time edit **materializes
+  the full effective value first** — seeded from the root `profile.yaml`, which is the defaults
+  verbatim — so it can never silently drop the rest of a list/map. A friend who has no
+  `profiles/<name>/profile.yaml` yet gets one created on first edit. Source ids, rating thresholds,
+  and the numeric Spotify/feedback/travel knobs are intentionally **not** exposed (hand-edit those).
 
 ## Contract
 
 ```
 POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<feed-hash>" }
-->    { reply: string, taste_changed?: boolean }
+->    { reply: string, taste_changed?: boolean, profile_changed?: boolean }
 Auth: optional  Authorization: Bearer <CONCIERGE_TOKEN>
 ```
 
 `profile` is the feed hash the page already computes from the username (it's what `data.<hash>.json`
 is named after). The Worker resolves it back to the profile via `profiles.yaml` and edits that
-person's taste file: a friend's own `profiles/<name>/taste.yaml`, or — for the `owner: true`
-profile (Ari's login) — the shared root `taste.yaml`. A friend can never edit the root file.
+person's files: a friend's own `profiles/<name>/{taste,profile}.yaml`, or — for the `owner: true`
+profile (Ari's login) — the shared root `taste.yaml` / `profile.yaml`. A friend can never edit the
+root files.
+
+### Pipeline actions (the dashboard's refresh / update buttons)
+
+Two extra POST routes let the dashboard trigger a GitHub Action (via `repository_dispatch`, the
+same mechanism as `spotify-sync`) — they need `GITHUB_TOKEN` set, and are gated by the same
+`CONCIERGE_TOKEN`:
+
+```
+POST /refresh-events            -> 202 { ok, dispatched:"refresh-events" }
+     (admin "Refresh events database": re-fetch all sources, rebuild the catalog + default feed,
+      republish the catalog version stamp — applies to everyone. event_type "refresh-events")
+POST /rebuild-profile { profile: "<feed-hash>" } -> 202 { ok, dispatched:"rebuild-profile" }
+     (per-user "Update my ranking & digest": full LLM pass for that ONE profile against the latest
+      catalog — editor verdicts + scene enrichment + narrative digest. client_payload.profile = hash)
+```
+
+The page shows the **Refresh** button to the `owner:true` profile only; owner-enforcement is on the
+page (consistent with this app's obfuscation model — the token gates spend/dispatch-spam). The
+per-user **Update** button auto-disables when the loaded feed's `catalog_version` matches the live
+`dashboard/catalog_meta.json` (i.e. the customization is already on the latest DB), and lights up
+after an admin refresh. The workflows commit the rebuilt artifacts and redeploy Pages:
+
+- `refresh-events.yml` is **deterministic** (fetch → catalog → default feed → version stamp); it
+  needs the source secrets (`TM_API_KEY`, …) but no Anthropic key.
+- `rebuild-profile.yml` runs **Claude Code** (`anthropics/claude-code-action`) over
+  `routines/profile-digest-prompt.md`, so it needs **`ANTHROPIC_API_KEY` as a repo Actions secret**
+  (the agent). The `GITHUB_TOKEN` PAT needs only **Contents: write** to fire `repository_dispatch`
+  (the same scope taste self-edit / spotify-sync already use — no extra permission). A
+  per-click LLM run costs tokens and takes a few minutes; the nightly routine still covers everyone.
 
 ## Deploy (Cloudflare Workers — free tier)
 
@@ -47,7 +91,7 @@ npm i                                      # installs the `yaml` dep the Worker 
 npx wrangler login
 npx wrangler secret put ANTHROPIC_API_KEY  # paste your Anthropic key
 npx wrangler secret put CONCIERGE_TOKEN    # optional but recommended (see Auth)
-npx wrangler secret put GITHUB_TOKEN       # optional — enables friend taste self-edit (see below)
+npx wrangler secret put GITHUB_TOKEN       # optional — enables taste self-edit + refresh/update buttons
 npx wrangler deploy                        # prints https://la-events-concierge.<you>.workers.dev
 ```
 
@@ -60,7 +104,7 @@ Worker URL + (if set) the token. Stored in your browser's localStorage — no re
 |---|---|---|
 | `ANTHROPIC_API_KEY` | `wrangler secret put` | **required** — your Anthropic key |
 | `CONCIERGE_TOKEN`   | `wrangler secret put` | optional shared token gating the proxy (see Auth) |
-| `GITHUB_TOKEN`      | `wrangler secret put` | optional — a **fine-grained PAT scoped to this repo, Contents: read & write**. Set it to enable taste self-edit; leave it unset and the Worker is chat-only. |
+| `GITHUB_TOKEN`      | `wrangler secret put` | optional — a **fine-grained PAT scoped to this repo, Contents: read & write**. That one scope covers taste **and** profile self-edit AND the refresh/update buttons (the `repository_dispatch` endpoint requires Contents: write — *not* Actions). Set it to enable those; leave it unset and the Worker is chat-only. |
 | `ANTHROPIC_MODEL`   | `wrangler.toml [vars]` | **executor** model — does the bulk of generation (default `claude-sonnet-4-6`) |
 | `ADVISOR_MODEL`     | `wrangler.toml [vars]` | **advisor** the executor consults for multi-step planning (default `claude-opus-4-8`; `""` disables; must be ≥ the executor) |
 | `EFFORT`            | `wrangler.toml [vars]` | executor effort `low`/`medium`/`high`/`max` (default `max`) |
@@ -102,15 +146,16 @@ the Worker uses it in place of `ANTHROPIC_API_KEY` — and it doubles as the ent
 personal key satisfies the gate even when `CONCIERGE_TOKEN` is set**, so you can hand someone the
 concierge without sharing your token. There's **no silent failover**: if a live key errors or hits a
 limit the Worker surfaces that error (it does *not* fall back to your key); the user flips the switch
-off and the shared token takes over. Taste self-edit is **also** open to own-key callers (Ari's call):
-the commit still uses *your* `GITHUB_TOKEN`, so a friend on their own key can teach their taste without
-the shared token. **Accepted tradeoff:** anyone who reaches the Worker with any valid Anthropic key can
-trigger a (revertible) commit to a profile's taste file — keep `GITHUB_TOKEN` a fine-grained,
+off and the shared token takes over. Self-edit (taste **and** profile) is **also** open to own-key
+callers (Ari's call): the commit still uses *your* `GITHUB_TOKEN`, so a friend on their own key can
+tune their taste/profile without the shared token. **Accepted tradeoff:** anyone who reaches the Worker
+with any valid Anthropic key can trigger a (revertible) commit to a profile's file — keep `GITHUB_TOKEN` a fine-grained,
 single-repo, Contents-only PAT so that's the worst they can do. (With `CONCIERGE_TOKEN` unset the proxy
 is fully open either way.)
 
 The `GITHUB_TOKEN` should be a **fine-grained PAT limited to this one repo with only Contents
-write** — nothing else. Worst case a friend rewrites their own taste file; you `git revert` it.
+write** — nothing else. Worst case a friend rewrites their own taste/profile file; you `git revert`
+it. A friend can only ever touch files under their own `profiles/<name>/` — never the root.
 
 ## Per-profile Spotify (the music layer)
 
@@ -168,6 +213,7 @@ its "why" lines; if that's too much for a given friend, that's a future per-feed
 ## Porting to another host
 
 The logic is host-agnostic — only the wrapper differs. For Vercel/Netlify functions or a Node
-server, reuse `buildSystem()` + `sanitizeMessages()` + `callAnthropic()` + the taste helpers
-(`applyPatch`, `applyTasteEdit`, the `gh*` functions) and swap `export default { fetch }` for that
+server, reuse `buildSystem()` + `sanitizeMessages()` + `callAnthropic()` + the self-edit helpers
+(`applyPatchDoc` / `applyTasteEdit` for taste, `applyProfilePatchDoc` / `applyProfileEdit` /
+`newProfileDoc` for profile, the `gh*` functions) and swap `export default { fetch }` for that
 platform's handler signature.
