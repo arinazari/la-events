@@ -65,15 +65,27 @@ jobs:
           SPOTIFY_SYNC_TOKEN: ${{ secrets.SPOTIFY_SYNC_TOKEN }}
         run: python scripts/sync_profiles_spotify.py
 
-      # Deterministic feed FIRST — always runs, so the ranking (taste + Spotify + any existing
-      # verdicts) updates against the latest catalog and gets a catalog_version stamp even if the
-      # LLM step below times out. This is the guaranteed half of the per-user update.
-      - name: Re-score this profile's feed (deterministic — always runs)
-        run: python scripts/build_profiles.py --only-hash "${{ steps.target.outputs.hash }}"
+      # Deterministic feed FIRST, and COMMIT IT IMMEDIATELY — while git is still clean (before the
+      # claude-code-action rewrites the remote / makes its own local commits). This durably lands the
+      # ranking (taste + Spotify + existing verdicts) + the catalog_version stamp on main, so the
+      # dashboard's "Update" button syncs even if the LLM step below times out or its git is hijacked.
+      - name: Re-score this profile's feed (deterministic) + commit
+        env:
+          HASH: ${{ steps.target.outputs.hash }}
+        run: |
+          python scripts/build_profiles.py --only-hash "$HASH"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -- "dashboard/data.$HASH.json" dashboard/catalog_meta.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No feed change for $HASH."
+          else
+            git commit -m "rebuild: re-rank profile $HASH feed against latest catalog [skip ci]"
+            git push origin HEAD:main
+          fi
 
       # LLM pass: fresh event-editor verdicts + scene enrichment + the narrative digest. Bounded by
-      # the prompt (top-N only) so it finishes within turns; best-effort, so a timeout never blocks
-      # the deterministic feed above from shipping. Auto-discovers .claude/agents/ for the Task tool.
+      # the prompt (top-N only) so it finishes within turns; best-effort. Auto-discovers .claude/agents/.
       - name: LLM editor + enrichment + digest (best-effort)
         continue-on-error: true
         uses: anthropics/claude-code-action@v1
@@ -82,37 +94,43 @@ jobs:
           prompt: |
             Execute routines/profile-digest-prompt.md exactly, for the single profile whose dashboard
             feed hash is ${{ steps.target.outputs.hash }}. Wherever the file says <HASH>, use that hash.
-            The deterministic feed has already been built — focus on the LLM layer + digest, and stay
-            within the per-step caps in that file so you finish. Do NOT git commit or push — leave every
-            changed file in the working tree; the workflow commits and deploys after you finish.
+            The deterministic feed has already been built + committed — focus on the LLM layer + digest,
+            and stay within the per-step caps in that file so you finish. Do NOT git commit or push —
+            leave every changed file in the working tree; the workflow commits and deploys after you finish.
           claude_args: |
             --max-turns 80
             --model claude-sonnet-4-6
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash,Task,WebSearch,WebFetch"
 
-      - name: Commit the rebuilt feed + verdicts + digest
+      # Best-effort: durably commit the LLM digest + verdicts too (warm cache => cheaper next click).
+      # The action hijacks git (claude[bot], rewrites origin, its own local commit), so don't fight it
+      # in place — copy the artifacts aside, hard-reset to the feed commit we already pushed (clean,
+      # conflict-proof), drop them back, and push. If this can't land, the digest still deployed live
+      # below and the nightly routine persists it — the feed is already durably on main regardless.
+      - name: Commit the LLM digest + verdicts (best-effort)
+        continue-on-error: true
         env:
           HASH: ${{ steps.target.outputs.hash }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # The claude-code-action runs as claude[bot], rewrites origin's URL with its own (non-
-          # pushing) token, and makes a LOCAL commit of the working-tree changes — so by here the
-          # tree looks "clean" and nothing reaches main. Reclaim control: restore origin with the
-          # workflow token, undo any local commits the action made (keeping their file changes), then
-          # stage only our paths and push to main ourselves.
+          tmp="$(mktemp -d)"
+          [ -f "digests/$HASH/latest.md" ] && cp "digests/$HASH/latest.md" "$tmp/digest.md" || true
+          [ -f "data/verdicts/$HASH.json" ] && cp "data/verdicts/$HASH.json" "$tmp/verdicts.json" || true
+          [ -f data/enrichment.json ] && cp data/enrichment.json "$tmp/enrichment.json" || true
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git reset --soft "${{ github.sha }}" 2>/dev/null || true   # drop the action's local commit(s)
-          git reset -q 2>/dev/null || true                            # unstage; keep worktree changes
-          git add -- "dashboard/data.$HASH.json" dashboard/catalog_meta.json \
-            "data/verdicts/$HASH.json" data/enrichment.json data/images \
-            "digests/$HASH/latest.md" "digests/$HASH/latest.html" 2>/dev/null || true
+          git fetch origin main -q || true
+          git reset --hard origin/main -q || true     # clean tree on the feed commit pushed above
+          [ -f "$tmp/digest.md" ] && mkdir -p "digests/$HASH" && cp "$tmp/digest.md" "digests/$HASH/latest.md" || true
+          [ -f "$tmp/verdicts.json" ] && mkdir -p data/verdicts && cp "$tmp/verdicts.json" "data/verdicts/$HASH.json" || true
+          [ -f "$tmp/enrichment.json" ] && cp "$tmp/enrichment.json" data/enrichment.json || true
+          git add -- "data/verdicts/$HASH.json" data/enrichment.json "digests/$HASH/latest.md" 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "No changes for $HASH."
+            echo "No LLM artifacts to commit for $HASH."
           else
-            git commit -m "rebuild: LLM re-rank + digest for profile $HASH against latest catalog [skip ci]"
-            git push origin HEAD:main
+            git commit -m "rebuild: LLM digest + verdicts for profile $HASH [skip ci]"
+            git push origin HEAD:main || echo "digest push skipped (nightly routine will persist it)"
           fi
 
       - uses: actions/configure-pages@v5
