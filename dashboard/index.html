@@ -1563,7 +1563,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (/\bra pick\b|\bresident advisor\b/.test(t)) spec.raPickOnly = true;
     const pm = t.match(/\$\s?(\d{1,4})/); if (pm) { spec.priceMax = parseInt(pm[1], 10); bits.push('under $' + pm[1]); }
     if (/\bbest\b|\btop\b|\bgreat\b|\bmust\b|\bhighly\b|\brecommend/.test(t)) { spec.minScore = 7; bits.push('top-rated'); }
-    spec.sortBy = /\bsoon|\bnext\b|\bearliest\b|by date|chronolog/.test(t) ? 'date' : 'score';
+    spec.sortBy = /\bsoon|\bnext\b|\bearliest\b|by date|chronolog/.test(t) ? 'date' : 'rank';
     // Intent: a full-night plan, a dining-only ask, or a catalog filter. Plan wins over dining
     // ("dinner then a show" is a plan, not just food).
     const planRe = /\bplan\b|\bitinerary\b|night out|make (a|it a) night|dinner (then|and|&|before|first)|then (a|the) (show|set|gig|movie|party|dj)|\bafters?\b|sort me out|big night|whole night/;
@@ -1619,7 +1619,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // night-planner hand-off prompt.
   runLocal(text) {
     let spec;
-    try { spec = this.localSpec(text); } catch (e) { spec = { intent: 'filter', sortBy: 'score', summary: text }; }
+    try { spec = this.localSpec(text); } catch (e) { spec = { intent: 'filter', sortBy: 'rank', summary: text }; }
 
     let reply, ids = null;
     if (spec.intent === 'dining') {
@@ -1643,7 +1643,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       if (ids) {
         next.filtered = ids;
         if (spec.sortBy === 'date') { next.sortKey = 'date'; next.sortDir = 'asc'; }
-        else { next.sortKey = 'score'; next.sortDir = 'desc'; }
+        else { next.sortKey = 'rank'; next.sortDir = 'asc'; }
       }
       return next;
     });
@@ -1657,9 +1657,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   sortForChat(list, spec) {
     const today = this.TODAY;
     const out = (list || []).filter(e => e.iso >= today);
+    const rk = e => (e.final_rank == null ? 1e9 : e.final_rank);   // global rank; unranked sink, mirrors the table
     out.sort((a, b) => (spec.sortBy === 'date')
-      ? (a.iso.localeCompare(b.iso) || b.score - a.score)
-      : (b.score - a.score || a.iso.localeCompare(b.iso)));
+      ? (a.iso.localeCompare(b.iso) || rk(a) - rk(b))
+      : (rk(a) - rk(b) || a.iso.localeCompare(b.iso)));
     return out;
   }
 
