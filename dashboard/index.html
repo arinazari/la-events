@@ -29,8 +29,11 @@
   .fcol::-webkit-scrollbar-thumb { background: #d7d5cc; border-radius: 3px; }
   .fcol::-webkit-scrollbar-track { background: transparent; }
   .fcol { scrollbar-width: thin; scrollbar-color: #d7d5cc transparent; }
-  @keyframes om-blink { 0%,20%{opacity:0} 50%{opacity:1} 100%{opacity:0} }
-  .om-dots::after { content:'…'; }
+  @keyframes om-blink { 0%,80%,100% { opacity:0.3; transform:translateY(0); } 40% { opacity:1; transform:translateY(-1px); } }
+  .om-dots { display:inline-flex; align-items:center; gap:3px; }
+  .om-dots > i { width:3px; height:3px; border-radius:50%; background:currentColor; animation: om-blink 1.4s ease-in-out infinite both; }
+  .om-dots > i:nth-child(2) { animation-delay:0.2s; }
+  .om-dots > i:nth-child(3) { animation-delay:0.4s; }
   @keyframes om-scan { 0%{transform:translateX(-100%)} 100%{transform:translateX(300%)} }
   .la-prog { position:relative; height:3px; margin-top:8px; background:#dcdad1; border-radius:2px; overflow:hidden; }
   .la-prog > i { position:absolute; top:0; left:0; height:100%; width:40%; background:#2b5cd9; border-radius:2px; animation: om-scan 1.15s ease-in-out infinite; }
@@ -73,7 +76,7 @@
         </div>
       </sc-for>
       <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
-        <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">THINKING…</div>
+        <div style="display:flex; align-items:center; gap:5px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">THINKING<span class="om-dots"><i></i><i></i><i></i></span></div>
       </sc-if>
     </div>
 
