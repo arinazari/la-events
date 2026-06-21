@@ -171,6 +171,24 @@ def main(argv=None) -> int:
             if d_dated:
                 write_json(dest / h / "index.json", build_index(d_dated, prefix=h + "/"))
             print(f"staged {p['digest']} -> {dest.name}/{h}/ ({u})")
+
+    # Generic sweep: publish any per-profile digest written directly as digests/<hash>/latest.md
+    # (the daily routine and the rebuild-profile workflow write there for friends that have no
+    # explicit `digest:` field in profiles.yaml). Skip dirs already staged above.
+    for d in sorted(digests.glob("*")):
+        if not d.is_dir() or not re.fullmatch(r"[0-9a-f]{8,32}", d.name):
+            continue
+        latest = d / "latest.md"
+        if not latest.is_file() or (dest / d.name / "latest.md").exists():
+            continue
+        (dest / d.name).mkdir(parents=True, exist_ok=True)
+        shutil.copy(latest, dest / d.name / "latest.md")
+        d_dated = sorted(d.glob(DATED_GLOB))
+        for dd in d_dated:
+            shutil.copy(dd, dest / d.name / dd.name)
+        if d_dated:
+            write_json(dest / d.name / "index.json", build_index(d_dated, prefix=d.name + "/"))
+        print(f"swept digests/{d.name} -> {dest.name}/{d.name}/")
     return 0
 
 
