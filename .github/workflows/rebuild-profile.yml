@@ -65,19 +65,28 @@ jobs:
           SPOTIFY_SYNC_TOKEN: ${{ secrets.SPOTIFY_SYNC_TOKEN }}
         run: python scripts/sync_profiles_spotify.py
 
-      # The LLM pass: event-editor verdicts + scene enrichment + the personalized narrative digest.
-      # The action auto-discovers .claude/agents/ (event-editor, scene-researcher) for the Task tool.
-      - name: Re-rank + re-render this profile (Claude Code)
+      # Deterministic feed FIRST — always runs, so the ranking (taste + Spotify + any existing
+      # verdicts) updates against the latest catalog and gets a catalog_version stamp even if the
+      # LLM step below times out. This is the guaranteed half of the per-user update.
+      - name: Re-score this profile's feed (deterministic — always runs)
+        run: python scripts/build_profiles.py --only-hash "${{ steps.target.outputs.hash }}"
+
+      # LLM pass: fresh event-editor verdicts + scene enrichment + the narrative digest. Bounded by
+      # the prompt (top-N only) so it finishes within turns; best-effort, so a timeout never blocks
+      # the deterministic feed above from shipping. Auto-discovers .claude/agents/ for the Task tool.
+      - name: LLM editor + enrichment + digest (best-effort)
+        continue-on-error: true
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
             Execute routines/profile-digest-prompt.md exactly, for the single profile whose dashboard
             feed hash is ${{ steps.target.outputs.hash }}. Wherever the file says <HASH>, use that hash.
-            Do NOT git commit or push — leave every changed file in the working tree; the workflow
-            commits and deploys after you finish.
+            The deterministic feed has already been built — focus on the LLM layer + digest, and stay
+            within the per-step caps in that file so you finish. Do NOT git commit or push — leave every
+            changed file in the working tree; the workflow commits and deploys after you finish.
           claude_args: |
-            --max-turns 40
+            --max-turns 80
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash,Task,WebSearch,WebFetch"
 
       - name: Commit the rebuilt feed + verdicts + digest
