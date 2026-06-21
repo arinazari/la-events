@@ -87,6 +87,7 @@ jobs:
             changed file in the working tree; the workflow commits and deploys after you finish.
           claude_args: |
             --max-turns 80
+            --model claude-sonnet-4-6
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash,Task,WebSearch,WebFetch"
 
       - name: Commit the rebuilt feed + verdicts + digest
