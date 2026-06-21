@@ -443,7 +443,9 @@
                 <span style="font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ dataSourceLabel }}</span>
               </div>
               <div style="margin-top:7px; display:flex; flex-direction:column; gap:3px;">
-                <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last data pull</span><span style="color:#76746b;">{{ lastDataPull }}</span></div>
+                <sc-if value="{{ showBottomPull }}" hint-placeholder-val="{{ true }}">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last data pull</span><span style="color:#76746b;">{{ lastDataPull }}</span></div>
+                </sc-if>
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last site update</span><span style="color:#76746b;">{{ lastSiteUpdate }}</span></div>
               </div>
             </div>
@@ -1435,7 +1437,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // stale (the admin refreshed sources since it was built) and the "Update" button lights up.
   workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
   checkCatalogFreshness = () => {
-    return fetch('./catalog_meta.json', { cache: 'no-store' })
+    return fetch('./catalog_meta.json?t=' + Date.now(), { cache: 'no-store' })
       .then(res => res.ok ? res.json() : null)
       .then(j => { this.LIVE_CATALOG = (j && j.version) ? j : null; this.forceUpdate(); })
       .catch(() => { this.LIVE_CATALOG = null; this.forceUpdate(); });
@@ -1516,11 +1518,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       }, 15000);
     } catch (e) { this.flashToast('Could not reach the backend to update.'); this.setState({ updateBusy: false }); }
   };
-  // True when the loaded feed was scored against an older catalog than the live one.
+  // True when the loaded feed was scored against an older catalog than the live one. A feed with
+  // no catalog_version predates versioning (or was never rebuilt since) — treat it as behind so the
+  // user can rebuild and get a stamped feed (otherwise the button could never enable).
   isFeedStale() {
     const live = this.LIVE_CATALOG && this.LIVE_CATALOG.version;
+    if (!live) return false;                       // no live info → don't nag
     const feed = this.META && this.META.catalog_version;
-    return !!(live && feed && live !== feed);
+    return feed !== live;                           // missing or different → stale
   }
 
   applySpec(spec) {
@@ -2171,13 +2176,15 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     // Every logged-in profile (incl. the owner) gets the same settings; logged-out gets the login flow.
     const loggedOut = !profileActive;
-    const lastDataPull = this.fmtStamp((this.META && this.META.generated_at) || null);   // feed/catalog build
+    // "last data pull" = when the SHARED events DB was last fetched (catalog_meta), so it updates
+    // right after a Refresh — not the per-profile feed's build time. Fall back to the feed stamp.
+    const liveCatalog = this.LIVE_CATALOG || null;
+    const lastDataPull = this.fmtStamp((liveCatalog && liveCatalog.fetched_at) || (this.META && this.META.generated_at) || null);
     const lastSiteUpdate = (typeof document !== 'undefined' && document.lastModified) ? this.fmtStamp(new Date(document.lastModified)) : '—';   // HTML deploy time
     const claudeKeyState = !rawKey ? 'not set · uses the shared token'
       : (keyOn ? ('on · ' + rawKey.slice(0, 11) + '…') : 'saved · switched off');
     // Catalog freshness: is this profile's ranking/digest behind the live events DB?
     const isOwner = !!(this.META && this.META.profile && this.META.profile.owner);
-    const liveCatalog = this.LIVE_CATALOG || null;
     const feedStale = this.isFeedStale();
     const updateBusy = !!this.state.updateBusy;
     const refreshBusy = !!this.state.refreshBusy;
@@ -2258,7 +2265,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       isOwner, feedStale, updateBusy, refreshBusy, updateStatus, updateActive, liveDataPull,
       showUpdateBar: updateBusy, showRefreshBar: refreshBusy,
       refreshEvents: this.refreshEvents, updateMyDigest: this.updateMyDigest,
-      refreshLabel: refreshBusy ? ('rebuilding the database · ' + refreshElapsed + ' · ~2–3 min') : 'pull the latest from all sources (everyone)',
+      refreshLabel: refreshBusy ? ('rebuilding the database · ' + refreshElapsed + ' · ~2–3 min') : ('last pull ' + lastDataPull),
+      showBottomPull: !isOwner,
       onRefreshClick: refreshBusy ? (() => {}) : this.refreshEvents,
       refreshOpacity: refreshBusy ? '0.6' : '1',
       refreshCursor: refreshBusy ? 'default' : 'pointer',
