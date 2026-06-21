@@ -54,6 +54,11 @@ jobs:
             exit 1
           fi
           echo "hash=$HASH" >> "$GITHUB_OUTPUT"
+          # Is this the owner? The owner's displayed digest is the consolidated digests/latest.md
+          # (stage_digests publishes that for owner), so the owner's Update must re-render THAT.
+          # ($HASH is validated hex above, so it's safe to interpolate into the one-liner.)
+          owner="$(python -c "import hashlib,yaml; m=yaml.safe_load(open('profiles.yaml')) or {}; s=m.get('salt') or 'la-events/v1:'; print('true' if any(p.get('owner') and hashlib.sha256((s+p['username'].strip().lower()).encode()).hexdigest()[:16]=='$HASH' for p in (m.get('profiles') or []) if p.get('username')) else 'false')")"
+          echo "is_owner=${owner:-false}" >> "$GITHUB_OUTPUT"
 
       # Keep the per-profile music layer intact: sync connected Spotify into data/spotify/<hash>.json
       # (gitignored) BEFORE the rebuild, so a single-profile build doesn't drop it to taste-only.
@@ -72,15 +77,26 @@ jobs:
       - name: Re-score this profile's feed (deterministic) + commit
         env:
           HASH: ${{ steps.target.outputs.hash }}
+          IS_OWNER: ${{ steps.target.outputs.is_owner }}
         run: |
           python scripts/build_profiles.py --only-hash "$HASH"
+          paths="dashboard/data.$HASH.json dashboard/catalog_meta.json"
+          # Owner = the canonical/default feed, and their displayed digest IS the consolidated one.
+          # Re-render it deterministically (same path refresh-events/nightly use) so the owner's
+          # Update visibly refreshes the digest, not just the feed. Best-effort.
+          if [ "$IS_OWNER" = "true" ]; then
+            python scripts/build_radar.py || true
+            python scripts/render_digest.py --consolidated \
+              --md digests/latest.md --html digests/latest.html --asset-prefix "./" || true
+            paths="$paths digests/latest.md digests/latest.html"
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -- "dashboard/data.$HASH.json" dashboard/catalog_meta.json 2>/dev/null || true
+          git add -- $paths 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "No feed change for $HASH."
+            echo "No feed/digest change for $HASH."
           else
-            git commit -m "rebuild: re-rank profile $HASH feed against latest catalog [skip ci]"
+            git commit -m "rebuild: re-rank profile $HASH against latest catalog [skip ci]"
             git push origin HEAD:main
           fi
 
