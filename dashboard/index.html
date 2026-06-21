@@ -1197,6 +1197,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // "2026-06-17T07:02:00" (or a Date / null) -> "Wed 6/17, 7:02 AM" — Ari's date convention.
   fmtStamp(d) {
     if (!d) return '—';
+    // A zone-less ISO datetime ("2026-06-21T00:30:00") is parsed by JS as LOCAL time, so a stamp
+    // written in UTC by CI shows hours in the "future" for a PT viewer. Coerce it to UTC ('Z') so
+    // it renders correctly even for older feeds written before the writers emitted an offset.
+    if (typeof d === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/.test(d)) d = d + 'Z';
     const dt = (d instanceof Date) ? d : new Date(d);
     if (isNaN(dt.getTime())) return '—';
     const wd = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dt.getDay()];
