@@ -15,21 +15,21 @@ timezone: America/Los_Angeles
 home:
   neighborhood: Silver Lake
   cross_streets: Hyperion & Del Mar
-  coords: [34.0906, -118.2717]   # ~Hyperion & Del Mar; used by scripts/lib/geo.py
+  coords: [ 34.0906, -118.2717 ] # ~Hyperion & Del Mar; used by scripts/lib/geo.py
 
 # City-specific source ids (lifted from the fetchers; they fall back to these literals).
 sources:
-  ticketmaster_dma_id: "324"   # LA DMA — fetch_ticketmaster.py
-  ra_area_id: 23               # RA's internal LA area number — fetch_ra.py
+  ticketmaster_dma_id: "324" # LA DMA — fetch_ticketmaster.py
+  ra_area_id: 23 # RA's internal LA area number — fetch_ra.py
 
 scoring:
   # Base category weight, mirroring taste.yaml high/medium/low. Comedy is special-cased in code
   # (suppressed unless a loved comedian). Unknown categories default to 1.
   category_weights:
     electronic: 3
-    party: 3          # club / warehouse / afterhours
-    film: 3           # rep & arthouse cinema
-    music: 2          # live music (catalog's term)
+    party: 3 # club / warehouse / afterhours
+    film: 3 # rep & arthouse cinema
+    music: 2 # live music (catalog's term)
     live_music: 2
     theater: 2
     beer_food: 2
@@ -40,10 +40,10 @@ scoring:
 
   # Raw-score -> 1..5 star rating. [min_score, rating], checked high-to-low; below all => 1.
   rating_thresholds:
-    - [8, 5]
-    - [6, 4]
-    - [4, 3]
-    - [2, 2]
+    - [ 8, 5 ]
+    - [ 6, 4 ]
+    - [ 4, 3 ]
+    - [ 2, 2 ]
 
   # Neighborhoods walkable / a short drive from home (+1). Matched case-insensitively.
   near_home_neighborhoods:
@@ -89,6 +89,7 @@ scoring:
     - day party
     - poolside
     - pool party
+    - beach
 
   # +1: European label / vibe.
   eu_terms:
@@ -162,33 +163,47 @@ scoring:
     # Points an affinity artist contributes when it appears in a lineup/title, by tier.
     # `hidden` = a feedback "never show" down-rank.
     tier_points:
-      core: 3        # long-term top / followed / multi-signal — your spine; reliably clears ★4
-      strong: 2      # heavy rotation — a real nudge above "on rotation"
-      light: 1       # on rotation — a gentle bump
-      hidden: -3     # feedback: never show this artist
-    artist_cap: 5    # max total artist-affinity points per event (a core + a strong both register;
-                     # a stacked dream lineup still can't run away)
-    genre_points: 1  # points when a high-affinity Spotify genre appears in the haystack
-    genre_threshold: 0.5  # min normalized (0..1) genre affinity to count
-    genre_cap: 1     # max genre points per event (kept conservative — genre match on free text is noisy)
-    min_name_len: 3  # skip ultra-short artist names (avoid false substring matches)
+      core: 3 # long-term top / followed / multi-signal — your spine; reliably clears ★4
+      strong: 2 # heavy rotation — a real nudge above "on rotation"
+      light: 1 # on rotation — a gentle bump
+      hidden: -3 # feedback: never show this artist
+    artist_cap: 5
+      # max total artist-affinity points per event (a core + a strong both register;
+      # a stacked dream lineup still can't run away)
+    genre_points: 1 # points when a high-affinity Spotify genre appears in the haystack
+    genre_threshold: 0.5 # min normalized (0..1) genre affinity to count
+    genre_cap: 1 # max genre points per event (kept conservative — genre match on free text is noisy)
+    min_name_len: 3 # skip ultra-short artist names (avoid false substring matches)
     # Single-word artist names that are also common English/party words (the band Train, the
     # rapper Future). Auto-pulled from Spotify they false-match party titles, so they only count
     # when they appear in the structured lineup, not loose title text. Grow this as you spot more.
-    ambiguous_names: [train, future, juice, jungle, lights, justice, work, sanctuary, paradise,
-                      chance, hold, alive]
+    ambiguous_names:
+      [
+        train,
+        future,
+        juice,
+        jungle,
+        lights,
+        justice,
+        work,
+        sanctuary,
+        paradise,
+        chance,
+        hold,
+        alive
+      ]
 
   # Feedback loop (Phase C). Reactions in data/feedback.jsonl fold into the affinity layer
   # automatically (no hand-merge into taste.yaml). Each weight nudges an artist/genre; once
   # the summed weight clears affinity's tier thresholds it scores like a Spotify artist.
   feedback:
     weights:
-      loved: 2.0           # "more like this"
-      went: 1.5            # you went
-      clicked_ticket: 0.5  # implicit — emitted by the digest/dashboard delivery surfaces (Phase B/D)
-      added_calendar: 0.5  # implicit — ICS export / save-to-calendar
-      skipped: -0.5        # soft down-nudge
-      hide: -10.0          # "never show" — forces the `hidden` tier (hard down-rank)
+      loved: 2.0 # "more like this"
+      went: 1.5 # you went
+      clicked_ticket: 0.5 # implicit — emitted by the digest/dashboard delivery surfaces (Phase B/D)
+      added_calendar: 0.5 # implicit — ICS export / save-to-calendar
+      skipped: -0.5 # soft down-nudge
+      hide: -10.0 # "never show" — forces the `hidden` tier (hard down-rank)
 
 # Travel / geography for the night-planner (scripts/lib/geo.py). Used to sequence
 # dinner -> show -> afters with rough drive/walk times. The LA neighborhood-centroid
@@ -197,13 +212,13 @@ scoring:
 # `travel` knobs live here by default — add `neighborhoods:` / `venues:` to override.
 geo:
   travel:
-    walk_max_miles: 0.8        # at/under this straight-line distance, prefer walking
-    walk_min_per_mile: 20.0    # ~3 mph
-    drive_floor_min: 8         # any drive costs at least this (parking, getting going)
-    park_buffer_min: 6         # find parking + walk from the car
-    short_min_per_mile: 4.0    # surface streets w/ lights (~15 mph effective)
-    long_min_per_mile: 2.4     # some freeway on longer hops (~25 mph effective)
-    short_threshold_miles: 4   # beyond this, the tail is freeway-paced
+    walk_max_miles: 0.8 # at/under this straight-line distance, prefer walking
+    walk_min_per_mile: 20.0 # ~3 mph
+    drive_floor_min: 8 # any drive costs at least this (parking, getting going)
+    park_buffer_min: 6 # find parking + walk from the car
+    short_min_per_mile: 4.0 # surface streets w/ lights (~15 mph effective)
+    long_min_per_mile: 2.4 # some freeway on longer hops (~25 mph effective)
+    short_threshold_miles: 4 # beyond this, the tail is freeway-paced
   # neighborhoods:             # uncomment to override geo.py's LA centroids
   #   Silver Lake: [34.0869, -118.2702]
   # venues:                    # uncomment to map venues -> neighborhood for blank/city-level records
