@@ -1509,14 +1509,18 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setState({ updateBusy: false }); return; }
       if (!res.ok) { this.flashToast('Update failed (' + res.status + ') — is the workflow deployed?'); this.setState({ updateBusy: false }); return; }
       this.flashToast('Re-running your editor + digest against the latest events — this takes a few minutes.');
-      // Poll the live version + reload our feed; when catalog_version catches up, updateBusy clears.
+      // Completion = the rebuilt feed deploys (its generated_at advances). Works for both the
+      // catalog-stale and taste-dirty cases (catalog_version may be unchanged on a taste edit).
+      const baseGen = (this.META && this.META.generated_at) || '';
       let n = 0; clearInterval(this._freshPoll);
       this._freshPoll = setInterval(async () => {
         await this.loadFeedFor(this.state.profile);
         await this.checkCatalogFreshness();
-        if (++n > 60 || !this.isFeedStale()) {
-          clearInterval(this._freshPoll); this.setState({ updateBusy: false });
-          if (!this.isFeedStale()) this.flashToast('Your picks are up to date with the latest events.');
+        const landed = ((this.META && this.META.generated_at) || '') !== baseGen;
+        if (++n > 60 || landed) {
+          clearInterval(this._freshPoll);
+          this.setState({ updateBusy: false });
+          if (landed) { this.setTasteDirty(false); this.flashToast('Your picks + digest are up to date.'); }
         }
       }, 15000);
     } catch (e) { this.flashToast('Could not reach the backend to update.'); this.setState({ updateBusy: false }); }
@@ -1530,6 +1534,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const feed = this.META && this.META.catalog_version;
     return feed !== live;                           // missing or different → stale
   }
+  // A concierge taste/profile edit re-ranks the feed (build-profiles CI) but does NOT regenerate the
+  // LLM digest — so we flag the profile "dirty" until an Update (which re-runs editor + digest with
+  // the new taste). Persisted per-hash so it survives reloads; cleared when an Update completes.
+  dirtyKey() { const p = this.state.profile; return 'la-dirty-' + ((p && p.hash) || 'default'); }
+  isTasteDirty() { try { return !!(this.state.profile && this.state.profile.hash) && localStorage.getItem(this.dirtyKey()) === '1'; } catch (e) { return false; } }
+  setTasteDirty(v) { try { v ? localStorage.setItem(this.dirtyKey(), '1') : localStorage.removeItem(this.dirtyKey()); } catch (e) {} this.forceUpdate(); }
+  // The "Update" button lights up when the feed is behind the catalog OR a taste edit needs a digest.
+  needsUpdate() { return this.isFeedStale() || this.isTasteDirty(); }
 
   applySpec(spec) {
     let list = this.ALL.slice();
@@ -1685,7 +1697,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       try {
         const reply = await this.askBackend(text);
         this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: reply }] }));
-        if (this._lastTasteChanged) { this._lastTasteChanged = false; this.flashToast('Taste updated — re-ranking. Tap ↻ to refresh in ~a minute.'); }
+        if (this._lastTasteChanged) { this._lastTasteChanged = false; this.setTasteDirty(true); this.flashToast('Taste updated — re-ranking. Open Settings → “Update my ranking & digest” to regenerate your digest.'); }
         return;
       } catch (e) {
         if (e && e.name === 'AbortError') { this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: '■ stopped.' }] })); return; }
@@ -2189,17 +2201,20 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // Catalog freshness: is this profile's ranking/digest behind the live events DB?
     const isOwner = !!(this.META && this.META.profile && this.META.profile.owner);
     const feedStale = this.isFeedStale();
+    const tasteDirty = this.isTasteDirty();
     const updateBusy = !!this.state.updateBusy;
     const refreshBusy = !!this.state.refreshBusy;
     const liveDataPull = this.fmtStamp((liveCatalog && liveCatalog.fetched_at) || null);
     const updateElapsed = this.fmtElapsed(this.state.updateStartedAt);
     const refreshElapsed = this.fmtElapsed(this.state.refreshStartedAt);
-    // The per-user "Update my ranking & digest" affordance: enabled only when stale.
+    // The per-user "Update my ranking & digest" affordance: enabled when the catalog is newer than
+    // the feed OR a concierge taste edit needs a fresh digest.
     const updateStatus = updateBusy
       ? ('working — LLM re-rank + digest · ' + updateElapsed + ' · a few min')
       : (feedStale ? ('new events available · DB pulled ' + liveDataPull)
+         : tasteDirty ? 'taste changed — regenerate your digest'
          : ('up to date · synced ' + lastDataPull));
-    const updateActive = feedStale && !updateBusy;
+    const updateActive = (feedStale || tasteDirty) && !updateBusy;
 
     const LBL = {
       today: { num: 'today', unit: '' }, weekend: { num: 'this weekend', unit: '' },
