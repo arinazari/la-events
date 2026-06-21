@@ -31,9 +31,13 @@
  *   ->    { reply: string, taste_changed?: boolean, profile_changed?: boolean }
  *   Auth: optional `Authorization: Bearer <CONCIERGE_TOKEN>` (set CONCIERGE_TOKEN to require it;
  *         leave it unset and the proxy is OPEN to anyone who finds the URL — see README).
+ *   BYOK: optional `x-anthropic-key: sk-ant-...` — the caller's OWN Anthropic key. It pays for that
+ *         request (used in place of ANTHROPIC_API_KEY) and is its own entry ticket: a valid personal
+ *         key satisfies the gate even without CONCIERGE_TOKEN. (Taste self-edit still commits with the
+ *         owner's GITHUB_TOKEN; by config that's open to own-key callers too — see canEditTaste.)
  *
  * Env (wrangler secrets / vars):
- *   ANTHROPIC_API_KEY  (secret, required)
+ *   ANTHROPIC_API_KEY  (secret, required unless every caller brings their own key via x-anthropic-key)
  *   CONCIERGE_TOKEN    (secret, optional — shared token gating the proxy)
  *   GITHUB_TOKEN       (secret, optional — repo-scoped contents:write PAT; enables taste + profile self-edit)
  *   ANTHROPIC_MODEL    (var, optional — executor model that does the bulk of generation; default Sonnet)
@@ -71,7 +75,7 @@ export default {
     const cors = {
       "Access-Control-Allow-Origin": origin,
       "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "content-type, authorization",
+      "Access-Control-Allow-Headers": "content-type, authorization, x-anthropic-key",
       "Access-Control-Max-Age": "86400",
     };
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
@@ -85,17 +89,21 @@ export default {
 
     if (request.method !== "POST") return json({ error: "POST only" }, 405, cors);
 
-    // Optional shared-token gate.
-    if (env.CONCIERGE_TOKEN) {
-      const auth = request.headers.get("authorization") || "";
-      if (auth !== "Bearer " + env.CONCIERGE_TOKEN) return json({ error: "unauthorized" }, 401, cors);
-    }
-    if (!env.ANTHROPIC_API_KEY) return json({ error: "server missing ANTHROPIC_API_KEY" }, 500, cors);
+    // Auth + bring-your-own-key. The shared CONCIERGE_TOKEN normally gates the proxy (it guards the
+    // owner's Anthropic spend). But a caller may instead bring their OWN Anthropic key via the
+    // x-anthropic-key header — that key pays for the request, so it's its own entry ticket: a valid
+    // personal key satisfies the gate even without the shared token. (Self-edit commits still use the
+    // owner's GitHub token; by Ari's call those are open to own-key callers too — see canEdit below.)
+    const userKey = parseUserKey(request.headers.get("x-anthropic-key"));
+    const tokenOk = !env.CONCIERGE_TOKEN || (request.headers.get("authorization") || "") === "Bearer " + env.CONCIERGE_TOKEN;
+    if (!tokenOk && !userKey) return json({ error: "unauthorized" }, 401, cors);
+    const apiKey = userKey || env.ANTHROPIC_API_KEY;
+    if (!apiKey) return json({ error: "server missing ANTHROPIC_API_KEY" }, 500, cors);
 
     let body;
     try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
     // Health ping (the page's connection indicator): validates reachability + the token, no LLM call.
-    if (body && body.ping) return json({ ok: true, taste: !!env.GITHUB_TOKEN }, 200, cors);
+    if (body && body.ping) return json({ ok: true, taste: !!env.GITHUB_TOKEN, byok: !!userKey }, 200, cors);
     const messages = sanitizeMessages(body && body.messages);
     if (!messages.length) return json({ error: "no messages" }, 400, cors);
     const profileHash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
@@ -109,8 +117,12 @@ export default {
       if (r.ok) feed = await r.json();
     } catch { /* degrade gracefully */ }
 
-    // Self-edit (taste CONTENT + profile MECHANISM) is available only to a logged-in profile, and
-    // only if commits are configured.
+    // Self-edit (taste CONTENT + profile MECHANISM) is available to any logged-in profile, as long as
+    // commits are configured. It commits to the owner's repo using the owner's GITHUB_TOKEN — by Ari's
+    // call a bring-your-own-key caller can self-edit too (the GitHub write is the owner's setup, not
+    // something the caller needs a shared token for). Accepted tradeoff: any valid key reaching the
+    // Worker can trigger a (revertible) commit to a profile's file; keep GITHUB_TOKEN a single-repo,
+    // Contents-only PAT.
     const canEdit = !!(profileHash && env.GITHUB_TOKEN);
     const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name });
     // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
@@ -127,7 +139,7 @@ export default {
     let data;
     try {
       for (let i = 0; i < 4; i++) {
-        data = await callAnthropic(env, { system, messages: convo, tools });
+        data = await callAnthropic(env, { system, messages: convo, tools, apiKey });
         if (data.stop_reason !== "pause_turn") break;
         convo = [...convo, { role: "assistant", content: data.content }];
       }
@@ -157,7 +169,7 @@ export default {
           { role: "user", content: results },
         ];
         let data2;
-        try { data2 = await callAnthropic(env, { system, messages: follow, tools }); }
+        try { data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey }); }
         catch (e) { return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors); }
         const changed = tasteChanged || profileChanged;
         return json({
@@ -172,12 +184,12 @@ export default {
 };
 
 /* ----- Anthropic ----- */
-async function callAnthropic(env, { system, messages, tools }) {
+async function callAnthropic(env, { system, messages, tools, apiKey }) {
   const resp = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "x-api-key": env.ANTHROPIC_API_KEY,
+      "x-api-key": apiKey || env.ANTHROPIC_API_KEY,
       "anthropic-version": "2023-06-01",
       "anthropic-beta": "advisor-tool-2026-03-01",   // enables the advisor tool
     },
@@ -197,6 +209,13 @@ async function callAnthropic(env, { system, messages, tools }) {
 }
 function textOf(data) {
   return (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
+}
+
+/* A caller-supplied Anthropic key (BYOK), validated to the documented shape so we never forward
+ * junk — or a mis-pasted concierge token — to Anthropic as a key. Empty / malformed -> null. */
+function parseUserKey(h) {
+  const k = (h || "").trim();
+  return /^sk-ant-[A-Za-z0-9_-]{20,}$/.test(k) ? k : null;
 }
 
 function json(obj, status, cors) {

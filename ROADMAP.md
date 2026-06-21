@@ -374,12 +374,21 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
 - [x] **Role-gated settings (2026-06-20)** — the gear menu branches by who's signed in. The **owner**
   (ari; `owner: true` in `profiles.yaml`, propagated into the feed's `profile` block by
   `build_profiles.py` and read on the page as `META.profile.owner`) keeps **Refresh events** +
-  **Discover new sources**. A signed-in **friend** instead gets: a **Claude API key** field (stub —
-  the concierge backend that consumes it is TBD), **Spotify connect** (placeholder; the real flow is
+  **Discover new sources**. A signed-in **friend** instead gets: a **Claude API key** field (BYOK —
+  now wired, see below), **Spotify connect** (placeholder; the real flow is
   on another branch), **View taste profile** (the read-only modal), and **Log out**. **Logged-out**
   shows only a **Log in** affordance plus a data-freshness readout — **last data pull** (feed
   `generated_at`) and **last site update** (`document.lastModified`, i.e. the Pages deploy time).
   Refresh/Discover are no longer exposed to non-owners.
+  - [x] **Bring-your-own-key (BYOK), 2026-06-20** — the Claude API key field is now live (was a stub).
+    The key is stored in-browser and sent to the concierge Worker per request (`x-anthropic-key`);
+    the Worker spends it instead of the owner's `ANTHROPIC_API_KEY`. A valid personal key also
+    satisfies the Worker's access gate, so a friend can run the concierge on their own key without the
+    shared `CONCIERGE_TOKEN`. A managed on/off switch picks key vs. shared token (no silent failover —
+    if a live key errors, the user flips it off and the token takes over). Taste self-edit is open to
+    own-key callers too (Ari's call) — the commit uses the owner's `GITHUB_TOKEN`, so a friend can teach
+    their taste on their own key; accepted tradeoff is that any valid key can trigger a revertible commit.
+    Needs the Worker redeployed (`npx wrangler deploy`) to take effect; see `backend/README.md` → Auth.
   - [ ] **Tabled (Ari's call, 2026-06-20):** also let a signed-in friend **view their profile
     details** and **their reactions / feedback history** from settings. Deferred until the feedback
     surface (👍/👎 → `data/feedback.jsonl`, the Like→learn item above) lands so there's a history to show.

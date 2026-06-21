@@ -139,6 +139,20 @@ is set, trigger commits). Set `CONCIERGE_TOKEN`; it's entered once in the page a
 header. The *taste data* is low-stakes (every edit is a normal commit, revertible from git history),
 but the **token still protects your API spend + the repo from spam** — so set it.
 
+**Bring your own key (BYOK).** A caller can send their own Anthropic key in an `x-anthropic-key:
+sk-ant-…` header (the dashboard's *Settings → Claude API key* stores it in that browser, behind an
+on/off switch, and attaches it per request). When the switch is on, that key pays for the request —
+the Worker uses it in place of `ANTHROPIC_API_KEY` — and it doubles as the entry ticket: **a valid
+personal key satisfies the gate even when `CONCIERGE_TOKEN` is set**, so you can hand someone the
+concierge without sharing your token. There's **no silent failover**: if a live key errors or hits a
+limit the Worker surfaces that error (it does *not* fall back to your key); the user flips the switch
+off and the shared token takes over. Self-edit (taste **and** profile) is **also** open to own-key
+callers (Ari's call): the commit still uses *your* `GITHUB_TOKEN`, so a friend on their own key can
+tune their taste/profile without the shared token. **Accepted tradeoff:** anyone who reaches the Worker
+with any valid Anthropic key can trigger a (revertible) commit to a profile's file — keep `GITHUB_TOKEN` a fine-grained,
+single-repo, Contents-only PAT so that's the worst they can do. (With `CONCIERGE_TOKEN` unset the proxy
+is fully open either way.)
+
 The `GITHUB_TOKEN` should be a **fine-grained PAT limited to this one repo with only Contents
 write** — nothing else. Worst case a friend rewrites their own taste/profile file; you `git revert`
 it. A friend can only ever touch files under their own `profiles/<name>/` — never the root.
