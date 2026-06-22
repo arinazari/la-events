@@ -154,12 +154,12 @@
       "score_at_judge": 6
     },
     "0f729582faa3": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "Robert Hood is in your tracked artists — Detroit techno legend, Underground Resistance founder, Floorplan — at a WORK warehouse on July 4th; the deterministic score of 6 missed the tracked-artist sign",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Robert Hood is respected but minimal techno at a TBA warehouse on July 4 is firmly off-taste for this profile.",
       "confidence": "high",
-      "judged_at": "2026-06-21T02:53:42",
-      "score_at_judge": 6
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 8
     },
     "d742996f6291": {
       "tier": "solid",
@@ -234,12 +234,12 @@
       "score_at_judge": 6
     },
     "9ea5376be5a4": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "Yaeji is in artists_tracked and is a genuine draw — her hybrid of house and left-field pop is core to this taste, and Lights Down Low is the right promoter to frame it; this is the headliner event of ",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Yaeji has genuine critical credibility but a late-night TBA-location afters is the wrong format — not the relaxed-setting groove house the profile allows for electronic.",
       "confidence": "high",
-      "judged_at": "2026-06-21T02:53:42",
-      "score_at_judge": 6
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 10
     },
     "7c349f4a2cfe": {
       "tier": "great",
@@ -258,12 +258,12 @@
       "score_at_judge": 6
     },
     "58579f941eb8": {
-      "tier": "must-see",
-      "adjust": 2,
-      "why": "Stacey Pullen is Detroit techno royalty and tracked; Dirty Epic is one of the named editorial boosters in taste.yaml; RA pick on top — this is the underground anchor of the 6/26 night and the rare cas",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Stacey Pullen is a Detroit techno legend but deep underground, not a marquee-crossover name — TBA afters format seals it.",
       "confidence": "high",
-      "judged_at": "2026-06-21T02:53:42",
-      "score_at_judge": 6
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 8
     },
     "0716b886d8b1": {
       "tier": "skip",
@@ -320,6 +320,468 @@
       "confidence": "med",
       "judged_at": "2026-06-21T02:53:42",
       "score_at_judge": 6
+    },
+    "bb4f346b7a87": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Adam Beyer and Loco Dice are real names but this is a full EDM festival in Long Beach — big-room format plus the far-flung penalty make it a non-starter for this profile.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 12
+    },
+    "7e00f46a7221": {
+      "tier": "solid",
+      "lane": "club:underground",
+      "adjust": 1,
+      "why": "Jayda G's deep house and disco sound is the closest thing in this batch to the profile's 'melodic/groove house in a relaxed setting' allowance — Sound is a proper room and she has real crossover draw.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 8
+    },
+    "241179720c5f": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Duplicate booking of the same Robert Hood / Ønyx lineup on July 4 — same off-taste verdict as 0f729582faa3, and this listing is the TBA warehouse version.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 8
+    },
+    "00bfe8a0d235": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "No lineup beyond 'GG (5)', generic electronic at Townhouse — nothing here to signal it's worth Dr. Ganesan's time.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 7
+    },
+    "9fd90f37b8e7": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Tagged electronic but Redwood Bar is a rock-dive room and 'The Roamers' with no lineup info is too thin to recommend — could be a band, could be a DJ night, no way to tell.",
+      "confidence": "low",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 7
+    },
+    "039b68263b20": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Second listing for the same Stacey Pullen TBA afters — duplicate, same skip.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 7
+    },
+    "61cf97428297": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "No artist, no context, generic 'The Groove' party label — zero signal for this profile.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 7
+    },
+    "5b8636a94da3": {
+      "tier": "solid",
+      "lane": "live-music",
+      "adjust": 0,
+      "why": "Porter Robinson is a genuine marquee name — the one festival-EDM exception the profile allows — and this is an outdoor show at State Historic Park, which is a decent format; score is fair as-is.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 7
+    },
+    "50e6547bec06": {
+      "tier": "great",
+      "adjust": 3,
+      "why": "An American in Paris at Vidiots is exactly this profile's lane — a rep cinema jewel at a loved venue, scored well below its actual appeal because the heuristic misattributed the +2 to a DJ named 'Ame'",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "c0b91fb54504": {
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Stavros Halkias is one of the hottest comedians touring right now — he's headlining the Wiltern on merit, not just hype — and the heuristic severely underscored comedy for this profile.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "5f0cd6635f8e": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "The Smell is a beloved institution but punk/experimental is outside this profile's taste lane — indie/rock/soul/jazz is the ask, not DIY noise punk.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "2e5710a4c036": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Unknown selectors at a TBA DTLA location — no marquee draw, no format upside.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "469750d25f5c": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Hayden James is a melodic house name with mainstream crossover and the day-party format at State Historic Park is relaxed enough — but he's a mild draw, not a headline event for this profile.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "5992d7ab4dcc": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Beltran is a local underground act, not a marquee name — Factory 93 industrial venue on a Saturday doesn't change the calculus.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "3f495ac3b11f": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same Beltran open-to-close on Sunday — the open-to-close format doesn't elevate an underground act that doesn't fit this profile to begin with.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "d633ee466bf6": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Reggaeton/perreo club night — not in Dr. Ganesan's taste at any tier.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "518094f534b7": {
+      "tier": "solid",
+      "lane": "live-music",
+      "adjust": 1,
+      "why": "Sophia James is a genuine indie artist at The Echo on a Friday — the right room, the right format, the right lane for this profile.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "2b9fd6bfef3b": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "No lineup, TBA location, generic afterhours title — nothing to evaluate.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "b30d1c16bcc4": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Bare-bones afters listing with no artists and a street-address venue — not worth surfacing.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "3dc545db9b07": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Hard techno explicitly — this hits the profile's hardstyle/bass-music penalty directly.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "0e035242f88f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Same Sophia James at The Echo but the 2am Saturday start is afterhours format — the 7pm Friday show (518094f534b7) is the one worth flagging; this is the one to drop.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "2874e906e214": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "'Top secret headliner from London' is a gimmick and the revealed supporting cast (Heidi Lawden, Dick Ensalada) are local unknowns — nothing here clears the marquee bar.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "f70433d950df": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "All-vinyl outdoor gathering is a nice format but Shakolin and Slip are unknown selectors with no draw signal — not enough to recommend.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "447a35ad1a99": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Renato Cohen is a credible Brazilian techno veteran but his draw is deep underground, not marquee — this is still an afterhours techno night outside the profile's lane.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "a92fbe353474": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Vendex is unknown to me and Exchange LA is a proper big room — not the intimate or groove-forward format this profile wants.",
+      "confidence": "low",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "8a89a90e7ad7": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Single local DJ at a TBA DTLA location — no marquee signal, no format upside.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "8213b45c6582": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Free local electronic night at The Airliner with unknown DJs — all three acts are below the threshold this profile requires for electronic.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "8a0fa62e3787": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Unnamed DIY warehouse afters with no recognizable acts — the exact format Dr. Ganesan has no use for.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "cc7c2b4b40d5": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "No lineup, no venue identity beyond a name — generic late-night club entry with nothing to recommend it.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "45eefe8f3cb7": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Tech-house night at Los Globos with no disclosed lineup — routine club fare, not the relaxed-setting groove that earns a pass.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "84807f06fa2d": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Satin Jackets plays slick nu-disco that sits in the medium-interest 'relaxed groove' pocket — worth knowing about if the venue is a proper room rather than a bottle-service setup, though The Spotlight",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "412002ec10b1": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "TBA outdoor trance/techno all-nighter — neither the genre nor the format fits; all-vinyl doesn't rescue it here.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "95e6fc86f917": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "A foam party with no music or act of note — the furthest thing from this profile's interests.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "005067882e99": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "No title beyond 'AFTERS', no lineup, address-only venue — nothing here.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "f7ba57f98f38": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Kayzo is a big-room hard-dance/bass act — the exact style that carries an explicit taste penalty even when the venue name sounds respectable.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "be4939188e8d": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Afro house rooftop in Beverly Hills — pleasant enough format but unknown selectors and no reason to surface it over the better fits in this batch.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "5797c554d79b": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Unnamed DJ at Kiss Kiss Bang Bang on the 4th — no lineup information to evaluate, and generic late-night club is a low-value default for this profile.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "61428e90f126": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "TBA warehouse at midnight with an act (OKAYVAL) who has no discernible profile — anonymous underground techno is not the marquee exception this profile requires.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "1295df3f5990": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Generic 'Club Cielo' electronic night at El Cid with local-circuit DJs — no hook for a profile oriented around live music and recognized names.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "a76dd3a5f155": {
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Monkey Safari are a respected Berlin deep/tech-house act with a real discography, but they're niche within a genre that only earns a pass for marquee names — not quite there for this profile.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "fcbd25dfcf43": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "TBA acid techno/house all-nighter until 6am — wrong genre, wrong format, TBA location on top of it.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "adc9a5c6a146": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hard techno at 1720 — hardstyle-adjacent genre carries an explicit penalty in this profile.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "30bcdb30b6a3": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Chinese American Bear is an ambient/experimental project — 2am Echoplex start and a genre that doesn't map to any of Dr. Ganesan's interest tiers.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "ed38a0b094ea": {
+      "tier": "skip",
+      "lane": "live-music",
+      "adjust": -2,
+      "why": "Zepparella is a Led Zeppelin tribute band — the Spotify affinity is for the original, and tribute acts carry an explicit profile penalty regardless of how strong the source artist signal is.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 6
+    },
+    "ed9bf8169bd8": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Ken Ishii is a genuine marquee name in techno — Japanese techno pioneer with a 30-year career on major labels; this is the rare electronic booking that clears the 'only marquee names' bar for this pro",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "21e0bb25dc6e": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Late-night Silver Lake electronic night with local selectors — nothing in the lineup elevates it above the generic afterhours floor.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "db594fa4efa1": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "House night at Gold Diggers with no lineup disclosed — the room has character but there's nothing to evaluate here.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "d5e3c88fbc0c": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Second instance of NIGHTSHIFT AFTER HOURS in the same batch — same no-lineup problem, same verdict.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "b9ac6dd81215": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "BET Awards mixer at Hotel Ziggy — hip-hop/R&B party format with local acts; not a format or lineup that maps to this profile's interests.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "7ffd1a9ec136": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Noise/live-electronic experimental night at Coaxial — interesting venue but the genre (noise, industrial electronics) is outside every interest tier in this profile.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "b26d7b4ea3b5": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Unnamed free electronic night at Crane's Bar — no lineup, no angle, nothing to recommend it.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "cdfceb45e999": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Free early-evening electronic set at an unnamed Virgil Village location — the format is neighborhood-bar ambient at best; Chris Powe is a local selector with no profile that would change that.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "4eea8f28c93f": {
+      "tier": "solid",
+      "lane": "market",
+      "adjust": 2,
+      "why": "Analog media fair — records, cassettes, zines at 2220 Arts — fits the daytime/lifestyle category and the broader vinyl/music-culture curiosity this profile carries; a genuine daytime option for a musi",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "b7c17242d2fa": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Dance party at Zebulon is a good room but no lineup is disclosed — can't elevate it without knowing who's playing.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "8c09f691f4b6": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "irL word at The Virgil — title and no genre info suggest a DJ/party night rather than the live-music booking this profile favors; can't confirm without more detail.",
+      "confidence": "med",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "708cefbd4c20": {
+      "tier": "great",
+      "lane": "live-music",
+      "adjust": 2,
+      "why": "Alice Bag is LA punk royalty — co-founder of The Bags, a genuine Eastside rock institution; a real band show at Zebulon is exactly the intimate live-music format this profile is built around, and the ",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
+    },
+    "ee4071370ca2": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Pride Plastique is a queer electronic/drag club night — fine event but outside the live-music and comedy lanes this profile gravitates toward.",
+      "confidence": "high",
+      "judged_at": "2026-06-22T12:22:02",
+      "score_at_judge": 5
     }
   }
 }
