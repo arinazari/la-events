@@ -9,6 +9,7 @@ description: >
   Not for writing the digest prose itself (that's the main agent) and not for ranking
   (that's the deterministic core). Enrichment only.
 tools: Read, Write, Glob, Grep, WebSearch, WebFetch
+model: sonnet
 ---
 
 # scene-researcher
