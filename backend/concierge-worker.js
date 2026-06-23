@@ -950,11 +950,22 @@ async function handlePipeline(url, request, env, cors) {
   let event_type, client_payload = {};
   if (url.pathname === "/refresh-events") {
     event_type = "refresh-events";
+    // Debounce: a refresh re-fetches every source + commits + deploys, so a duplicate/rapid click
+    // (or two admins) shouldn't trigger a second full sweep. Skip if the catalog was pulled within
+    // REFRESH_MIN_MINUTES (default 15). 429 → the page shows "already current". Best-effort.
+    const windowMin = env.REFRESH_MIN_MINUTES !== undefined ? Number(env.REFRESH_MIN_MINUTES) : 15;
+    if (windowMin > 0) {
+      const ageMin = await lastFetchAgeMinutes(env);
+      if (ageMin !== null && ageMin < windowMin)
+        return json({ error: "debounced", reason: "recently_refreshed", age_minutes: Math.round(ageMin) }, 429, cors);
+    }
   } else {
     const hash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
     if (!hash) return json({ error: "missing or invalid profile hash" }, 400, cors);
     event_type = "rebuild-profile";
-    client_payload = { profile: hash };
+    // Pass an optional model through to the workflow (owner "Opus when it matters" — the workflow
+    // defaults to Sonnet when absent). Only a simple alias / claude-* id; the workflow re-validates.
+    client_payload = { profile: hash, ...(body.model ? { model: String(body.model).slice(0, 40) } : {}) };
   }
 
   try {
@@ -970,6 +981,20 @@ async function handlePipeline(url, request, env, cors) {
     return json({ error: "dispatch error" }, 502, cors);
   }
   return json({ ok: true, dispatched: event_type }, 202, cors);
+}
+
+/* Minutes since the catalog was last pulled, from the published catalog_meta.json (sits beside
+ * data.json). null if unreadable — the caller then doesn't debounce (fail open). */
+async function lastFetchAgeMinutes(env) {
+  try {
+    const dataUrl = env.DATA_URL || DEFAULTS.DATA_URL;
+    const metaUrl = dataUrl.replace(/data\.json(\?.*)?$/, "catalog_meta.json");
+    const r = await fetch(metaUrl, { cf: { cacheTtl: 0 } });
+    if (!r.ok) return null;
+    const j = await r.json();
+    const t = j && j.fetched_at ? Date.parse(j.fetched_at) : NaN;
+    return Number.isFinite(t) ? (Date.now() - t) / 60000 : null;
+  } catch { return null; }
 }
 
 /* Best-effort: nudge a rebuild of this one profile's feed (the spotify-sync workflow). */

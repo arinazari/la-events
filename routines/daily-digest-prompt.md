@@ -64,21 +64,30 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    taste + Ari's Spotify/feedback) AND every per-profile feed `dashboard/data.<hash>.json` (one per
    entry in `profiles.yaml`), each scored against **its own** music layer, so friends' feeds stay
    fresh as the catalog changes. Each feed folds in that profile's verdicts (`data/verdicts/<hash>.json`) → each event's verdict + **final rank** beside its score, and emits the profile's editor pool `data/editor_pool.<hash>.json`. To give friends the full editor treatment, judge those per profile (`event-editor` → `merge_verdicts.py --profile-hash <hash>`) and re-run build_profiles; otherwise their feeds rank deterministically against their own music and pick up verdicts next run.
-9. **Per-profile digests:** for each profile in `profiles.yaml`, read its feed
-   `dashboard/data.<hash>.json` (the `<hash>` is also in `feed.profile.hash`) and write a concise
-   personalized digest to `digests/<hash>/latest.md` (overwrite each run) — same conversational,
-   opinionated voice as the weekend digest, but ranked to THAT person's taste: their top picks
-   across the next ~2–3 weekends, grouped by day, a one-line *why* each. Keep it tight; if their
-   feed is thin, a couple of honest lines is fine (don't pad). The dashboard's profile popup reads
-   this file. (An `owner: true` profile shares the root taste.yaml, so its digest ≈ the default —
-   expected.) Friends' feeds re-rank within ~1–2 min of a self-edit via CI, but their *narrative*
-   digest refreshes here, daily.
+9. **Per-profile digests (regenerate only when picks moved — saves tokens, but always honest):**
+   for each profile in `profiles.yaml`, first GATE on whether its picks actually changed:
+   `python scripts/digest_gate.py decide --feed dashboard/data.<hash>.json --md digests/<hash>/latest.md`
+   - Prints **SKIP** → the profile's top picks haven't moved since the last regeneration, so the
+     prose would say the same thing. **Do NOT call the LLM.** The gate has already refreshed the
+     digest's one-line freshness stamp to "regenerated <when> · checked <today> · no new picks since",
+     so the reader still sees clearly that it was checked and nothing changed.
+   - Prints **REGENERATE** (picks changed, or no prior digest) → read the feed `dashboard/data.<hash>.json`
+     (the `<hash>` is also in `feed.profile.hash`) and write a concise personalized digest to
+     `digests/<hash>/latest.md` — same conversational, opinionated voice as the consolidated digest,
+     ranked to THAT person's taste: their top picks across the next ~2–3 weekends, grouped by day, a
+     one-line *why* each. Keep it tight; if their feed is thin, a couple of honest lines is fine
+     (don't pad). Then STAMP so the gate records the new signature + writes the freshness line:
+     `python scripts/digest_gate.py stamp --feed dashboard/data.<hash>.json --md digests/<hash>/latest.md`
+   The dashboard's profile popup reads `digests/<hash>/latest.md`. (An `owner: true` profile shares the
+   root taste.yaml, so its digest ≈ the default — expected.) Friends' feeds re-rank within ~1–2 min of a
+   self-edit via CI; their *narrative* digest refreshes here only when their picks actually move.
 10. Commit catalog + **`data/catalog_meta.json`** (the version stamp the dashboard's staleness
    check keys off — written by `run_digest`) + `data/enrichment.json` + `data/verdicts/` +
    `data/images/` + **`digests/latest.{md,html}`** (the consolidated digest) + `radar-candidates.md`
    + the changed weekend `.md`/`.html` + index + **all `dashboard/data*.json`** (default + profile
    feeds) + **`dashboard/catalog_meta.json`** (published by `build_dashboard`) +
-   **`digests/<hash>/latest.md`**, message "digest: YYYY-MM-DD (N events, M new)".
+   **`digests/<hash>/latest.md`** + the digest-gate sidecars **`digests/<hash>/latest.md.meta.json`**
+   (signature/regenerated/checked stamps), message "digest: YYYY-MM-DD (N events, M new, K updated)".
 11. If a source failed twice in a row, mark it `flaky` in sources.yaml and note it in the nearest
    weekend footer.
 12. Do NOT run discover mode here (separate / manual).
