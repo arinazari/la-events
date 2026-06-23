@@ -266,6 +266,10 @@ def main() -> int:
     # dashboard/catalog_meta.json to decide if this profile's ranking/digest is stale. Prefer the
     # stamp written by run_digest; fall back to recomputing from the catalog we just read.
     cat_meta = CM.read_meta(catalog_path.parent / "catalog_meta.json") or CM.build_meta(catalog)
+    # Backfill content_version if the on-disk meta predates it, so a build-only path (build-profiles)
+    # still stamps/publishes it — the dashboard staleness check keys off content_version now.
+    if not cat_meta.get("content_version"):
+        cat_meta["content_version"] = CM.content_version(catalog)
 
     feed = {
         # Timezone-aware (UTC) — the dashboard's "last data pull" parses this; a naive stamp is
