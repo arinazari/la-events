@@ -1,47 +1,92 @@
-"""Catalog version stamp — the spine of the dashboard's "your customization is stale" check.
+"""Catalog version stamps — the spine of the dashboard's "your customization is stale" check
+AND the digest's "what changed, and when" line.
 
-A single, deterministic *version* string identifies the current state of the events database
-(`data/catalog.json`). `run_digest.py` writes `data/catalog_meta.json` after every fetch, and
-`build_dashboard.py` stamps each feed with the version it was BUILT AGAINST. The dashboard then
-compares its feed's `catalog_version` to the live `dashboard/catalog_meta.json`: if they differ,
-the catalog has been refreshed since that feed was scored, so the user's ranking/digest is stale
-and the "Update my ranking & digest" button lights up. When they match, it's disabled.
+Two deterministic *version* strings identify the state of the events database (`data/catalog.json`):
 
-The version hashes only each event's STABLE identity (venue|date|title), not the volatile
-first/last-seen stamps — so a refresh that pulls no genuinely new/changed events leaves the
-version (and everyone's "in sync" state) untouched. Adds, drops, reschedules and retitles all
-move it. Kept tiny + stdlib-only so the CI deploy jobs need no extra deps.
+  version          — hashes each event's STABLE IDENTITY (venue|date|title). Moves on adds,
+                     drops, reschedules and retitles ONLY. The "is this a different set of
+                     events" key (kept for back-compat with feeds stamped before content_version).
+  content_version  — hashes identity PLUS the volatile fields (price | start time | lineup |
+                     status). Moves on all of the above AND when a known event's lineup firms up,
+                     its price changes, its door time shifts, or it sells out / is cancelled.
+
+`run_digest.py` writes `data/catalog_meta.json` after every fetch; `build_dashboard.py` stamps each
+feed with the versions it was BUILT AGAINST and republishes the meta. The dashboard compares its
+feed's `catalog_content_version` to the live meta: if they differ, the catalog moved since that feed
+was scored, so the ranking/digest is stale and the "Update" button lights (Q1: by default any real
+change — incl. price/lineup/time — counts; the identity `version` is kept so we can still tell a
+brand-new event from a detail change). When they match, it's disabled.
+
+The meta also carries this run's DELTA (`added` / `updated` counts + a bounded `changes` list of what
+moved) so the digest can state "N new, M updated since <when>" and the dashboard can show what changed.
+Kept tiny + stdlib-only so the CI deploy jobs need no extra deps.
 """
 import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+# The mutable fields whose change should register as "the catalog updated" even when the event's
+# identity (venue/date/title) is unchanged — the "lineups firm up / prices move" freshness gap.
+VOLATILE_FIELDS = ("price", "start", "status", "lineup")
+
 
 def _identity(event: dict) -> str:
     return f"{event.get('venue') or ''}|{event.get('date') or ''}|{event.get('title') or ''}"
 
 
+def _lineup_sig(event: dict) -> str:
+    """Order-insensitive lineup signature — a reorder isn't a change; a swap/add/drop is."""
+    lineup = event.get("lineup") or []
+    if not isinstance(lineup, list):
+        lineup = [str(lineup)]
+    return ",".join(sorted(str(a).strip().lower() for a in lineup if str(a).strip()))
+
+
+def _content_identity(event: dict) -> str:
+    parts = [_identity(event)]
+    for f in VOLATILE_FIELDS:
+        parts.append(_lineup_sig(event) if f == "lineup" else str(event.get(f) or ""))
+    return "|".join(parts)
+
+
+def _digest_of(items) -> str:
+    return hashlib.sha256("\n".join(sorted(items)).encode("utf-8")).hexdigest()[:12]
+
+
 def version(catalog) -> str:
-    """A stable 12-hex digest of the catalog's event set (order-independent)."""
-    ids = sorted(_identity(e) for e in (catalog or []))
-    return hashlib.sha256("\n".join(ids).encode("utf-8")).hexdigest()[:12]
+    """A stable 12-hex digest of the catalog's event IDENTITIES (order-independent)."""
+    return _digest_of(_identity(e) for e in (catalog or []))
 
 
-def build_meta(catalog) -> dict:
-    return {
+def content_version(catalog) -> str:
+    """A stable 12-hex digest over identity + the volatile fields (price/time/lineup/status)."""
+    return _digest_of(_content_identity(e) for e in (catalog or []))
+
+
+def build_meta(catalog, delta: dict = None) -> dict:
+    meta = {
         "version": version(catalog),
+        "content_version": content_version(catalog),
         "count": len(catalog or []),
         # Timezone-AWARE (UTC) so the browser parses the right instant and renders it in the
         # viewer's local zone. A naive datetime.now() has no offset → JS reads it as local → the
         # CI runner's UTC clock shows ~hours in the "future" for a PT viewer.
         "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
+    if delta:
+        # This run's change summary (since the previous catalog) — drives the digest freshness line
+        # and the dashboard "what changed" readout. Counts always; a bounded sample of what moved.
+        meta["added"] = int(delta.get("added") or 0)
+        meta["updated"] = int(delta.get("updated") or 0)
+        if delta.get("changes"):
+            meta["changes"] = delta["changes"][:25]
+    return meta
 
 
-def write_meta(path, catalog) -> dict:
-    """Write {version, count, fetched_at} for `catalog` to `path`; return it."""
-    meta = build_meta(catalog)
+def write_meta(path, catalog, delta: dict = None) -> dict:
+    """Write {version, content_version, count, fetched_at, [added/updated/changes]}; return it."""
+    meta = build_meta(catalog, delta)
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")

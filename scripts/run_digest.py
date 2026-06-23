@@ -137,6 +137,9 @@ def main() -> int:
     catalog = json.loads(cat_path.read_text()) if cat_path.exists() else []
     taste, profile = load_taste(), load_profile()
     today = P.today_la()
+    # Snapshot the volatile-field state BEFORE the fetch so we can report exactly what this run
+    # added vs. updated (price/time/lineup/status moves) — the "what changed, and when" signal.
+    old_index = P.content_index(catalog)
 
     report = {"ok": [], "failed": [], "skipped": []}
     incoming = []
@@ -155,12 +158,17 @@ def main() -> int:
     # record — recomputed each run, so re-tagging only needs a --no-fetch pass (lib/tagging.py).
     # Runs AFTER normalize_locations so the region tag reflects the canonicalized neighborhood.
     tag_catalog(catalog, profile)
+    # What moved since last run: stamps updated_at/changed_fields on changed records, returns the
+    # {added, updated, changes} summary (must run AFTER tagging so the persisted record is final).
+    delta = P.diff_catalog(old_index, catalog, today)
     cat_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
 
     # Stamp the catalog version (the dashboard staleness check keys off this). Lives beside the
     # catalog; build_dashboard reads it to tag each feed with the version it was built against.
+    # `content_version` moves on price/time/lineup changes too (not just adds/drops); `delta`
+    # carries this run's added/updated counts + a sample of what changed for the digest line.
     meta_path = cat_path.parent / "catalog_meta.json"
-    cat_meta = CM.write_meta(meta_path, catalog)
+    cat_meta = CM.write_meta(meta_path, catalog, delta)
 
     affinity = load_affinity_layer(args.no_fetch, report, profile)
     candidates = P.select_candidates(catalog, taste, profile, today,
@@ -191,8 +199,8 @@ def main() -> int:
     ep_path.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")
 
     # Run report.
-    print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}) "
-          f"(+{stats['added']} new, {stats['merged']} merged, {expired} expired) "
+    print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}/c{cat_meta['content_version']}) "
+          f"(+{delta['added']} new, {delta['updated']} updated, {stats['merged']} merged, {expired} expired) "
           f"-> {len(candidates)} candidates ({cand_doc['image_wanted']} need images), "
           f"{len(judge)} to judge")
     if report["ok"]:

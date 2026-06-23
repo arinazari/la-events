@@ -10,6 +10,8 @@ from datetime import date, datetime, timedelta
 
 from .scoring import score_event, score_to_rating, parse_event_date
 from .dedupe import dedupe
+from .enrich import event_key
+from .catalog_meta import VOLATILE_FIELDS, _lineup_sig
 from . import geo
 
 try:
@@ -156,6 +158,44 @@ def expire_past(catalog: list, today: date = None) -> tuple:
         else:
             kept.append(ev)
     return kept, expired
+
+
+def _volatile_snapshot(ev: dict) -> dict:
+    """A compact view of the fields whose change means 'this event was updated' (not just re-seen).
+    Shares `_lineup_sig` with catalog_meta so the per-field diff can't drift from content_version."""
+    snap = {f: ("" if ev.get(f) is None else str(ev.get(f))) for f in VOLATILE_FIELDS if f != "lineup"}
+    snap["lineup"] = _lineup_sig(ev)
+    return snap
+
+
+def content_index(catalog: list) -> dict:
+    """Map event_key -> its volatile snapshot. Taken BEFORE a fetch/merge so the next diff_catalog
+    can tell genuinely-new and genuinely-changed events apart from merely re-seen ones."""
+    return {event_key(e): _volatile_snapshot(e) for e in (catalog or [])}
+
+
+def diff_catalog(old_index: dict, new_catalog: list, today: date = None) -> dict:
+    """Compare the merged catalog against the pre-fetch `content_index`. Stamps `updated_at` +
+    `changed_fields` on each record whose volatile fields moved, and returns the run's change
+    summary {added, updated, changes:[{title,date,venue,fields}]} — the data behind the digest's
+    "N new, M updated since <when>" line and the dashboard's "what changed" readout."""
+    t = (today or today_la()).isoformat()
+    added = updated = 0
+    changes = []
+    for ev in new_catalog:
+        prev = old_index.get(event_key(ev))
+        if prev is None:
+            added += 1
+            continue
+        snap = _volatile_snapshot(ev)
+        moved = [f for f in snap if snap[f] != prev.get(f, "")]
+        if moved:
+            updated += 1
+            ev["updated_at"] = t
+            ev["changed_fields"] = moved
+            changes.append({"title": ev.get("title"), "date": ev.get("date"),
+                            "venue": ev.get("venue"), "fields": moved})
+    return {"added": added, "updated": updated, "changes": changes}
 
 
 def normalize_locations(catalog: list, profile: dict = None) -> list:
