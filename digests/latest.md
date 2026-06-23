@@ -366,5 +366,3 @@
 - `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono*
 - `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park · DTLA  ·  *Amelie Lens*
 
----
-*Coverage gaps: ticketmaster (missing $TM_API_KEY), posh (missing $POSH_TOKEN)*
