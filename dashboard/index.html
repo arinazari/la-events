@@ -100,6 +100,7 @@
       <div>
         <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
           <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">curated digest for <span onClick="{{ openDigest }}" title="Open this curated digest" style="color:#76746b; cursor:pointer;" style-hover="color:#161512;">{{ digestUser }} <span style="font-size:0.72em;">↗</span></span></sc-if><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">curated digests for {{ digestUser }}</sc-if></span></span>
+          <span onClick="{{ openGuide }}" title="How the site works + what's new" style="align-self:center; cursor:pointer; display:inline-flex; align-items:center; gap:5px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em; color:#a7a59b; border:1px solid #d9d7cf; border-radius:2px; padding:5px 8px;" style-hover="color:#161512; border-color:#a7a59b;"><span style="font-size:11px; line-height:1;">?</span> how it works</span>
         </div>
         <div style="margin-top:5px; font:500 11px/1.6 ui-monospace,Menlo,monospace; color:#76746b; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
           <span style="display:inline-flex; align-items:center; gap:6px;">
@@ -507,6 +508,23 @@
     </div>
   </sc-if>
 
+  <!-- ===================== GUIDE / WHAT'S NEW ===================== -->
+  <sc-if value="{{ guideOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
+      <div onClick="{{ closeGuide }}" style="position:absolute; inset:0;"></div>
+      <div style="position:relative; z-index:1; width:100%; max-width:680px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:11px 14px 11px 18px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:3px 3px 0 0;">
+          <div style="display:inline-flex; gap:6px;">
+            <span onClick="{{ guideTabHow }}" style="cursor:pointer; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:7px 12px; border:1px solid {{ guideHowBorder }}; background: {{ guideHowBg }}; color: {{ guideHowColor }}; border-radius:2px;">HOW IT WORKS</span>
+            <span onClick="{{ guideTabNew }}" style="cursor:pointer; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:7px 12px; border:1px solid {{ guideNewBorder }}; background: {{ guideNewBg }}; color: {{ guideNewColor }}; border-radius:2px;">WHAT'S NEW</span>
+          </div>
+          <button onClick="{{ closeGuide }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+        </div>
+        <div class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 28px;">{{ guideBody }}</div>
+      </div>
+    </div>
+  </sc-if>
+
   <!-- ===================== SPOTIFY STATUS ===================== -->
   <sc-if value="{{ spotifyModalOpen }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
@@ -692,6 +710,7 @@ class Component extends DCLogic {
     profileOpen: false,
     tasteModalOpen: false,
     spotifyModalOpen: false,
+    guideOpen: false, guideTab: 'how',
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
     profileError: '',
@@ -1116,8 +1135,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .replace(/\*(.+?)\*/g, '<em style="color:#76746b; font-style:normal; font:600 11px ui-monospace,Menlo,monospace; letter-spacing:0.02em;">$1</em>')
       .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:#1b1a17; text-decoration:underline; text-underline-offset:2px;">$1</a>');
   }
-  renderDigestHtml() {
-    const lines = this.DIGEST_MD.split('\n');
+  renderDigestHtml() { return this.renderMarkdown(this.DIGEST_MD || ''); }
+  // Shared Markdown → styled HTML — used by the digest modal AND the guide / what's-new modal.
+  // Supports #/## headings, "- " bullets (with indented wrapped continuations), `---` rules, and
+  // the inlineMd spans (bold / code / links). Keeps both surfaces visually identical.
+  renderMarkdown(md) {
+    const lines = String(md || '').split('\n');
     let html = '';
     let items = null;   // array of <li> inner-HTML while inside a bullet list (else null)
     const flush = () => {
@@ -1180,6 +1203,80 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   }
   openDigest = () => this.setState({ digestModalOpen: true, digestMenuOpen: false, digestEmailOpen: false });
   closeDigest = () => this.setState({ digestModalOpen: false, digestMenuOpen: false, digestEmailOpen: false });
+
+  // ---------- Guide / What's-new modal ----------
+  // Bump GUIDE_VERSION whenever the content below changes to re-surface "What's new" to everyone
+  // (it auto-opens once per device per version — see componentDidMount).
+  GUIDE_VERSION = '2026-06-23';
+  GUIDE_HOW = [
+    "# How it works",
+    "",
+    "This is a **taste-ranked digest of what's happening in LA** — electronic, live music, comedy, film, theater, food and arts. Every event is scored against a taste profile, so the best ones float to the top with a one-line reason. It's a curated read, not a full calendar dump.",
+    "",
+    "## Find something to do",
+    "",
+    "- **Click any row** in the table to expand it — you'll see why it's ranked, the full lineup, ticket links, and an **Add to calendar** button.",
+    "- **Sort** by tapping the `DATE`, `EVENT` or `NEIGHBORHOOD` column headers.",
+    "- **Filter** with the small filter icon (the stacked bars) in a column header: click a value to keep it, click again to hide it, once more to clear. Works for neighborhood, category, genre and source.",
+    "- **Search** the whole catalog from the box at the top right, and set a **date range** by clicking the dates in the header — or pick a preset like `this weekend`.",
+    "",
+    "## Rank vs. score",
+    "",
+    "The right-hand column shows two things. The **score** (with the little bar) is the transparent taste-match — pure, deterministic, the same math behind the digest. The **rank** (the `#`) is the final running order after a light editorial pass nudges a few picks up or down. Sort by either.",
+    "",
+    "## Ask the concierge",
+    "",
+    "The panel on the left is your **concierge**. Talk to it like a friend who knows the city:",
+    "",
+    "- `free shows this weekend`",
+    "- `something chill and walkable tonight, no techno`",
+    "- `plan my Saturday — dinner then a show`",
+    "",
+    "It replies in plain language and **filters the table** to match. Two modes toggle in its header: **Concierge** is the full conversational AI; **Fast filter** is an instant, offline keyword search that always works, even with no connection.",
+    "",
+    "## Open your digest",
+    "",
+    "Click your name in the header — **curated digest for <you> ↗** — for a written rundown: the top picks with a sentence each, grouped by day. It refreshes as new events come in.",
+    "",
+    "## Sign in — make it yours",
+    "",
+    "Tap the **⚷** key icon in the bottom-right corner and type your **username** to load your own taste profile, your ranking, and your personal digest. It's remembered on this device; **log out** returns to the default view. No username yet? Ask Ari.",
+    "",
+    "Once you're signed in, the same icon becomes your **☰ settings** menu:",
+    "",
+    "- **Update my ranking & digest** — re-rank against the newest events (it lights up when there's fresh data to fold in).",
+    "- **Connect Spotify** — let your listening history shape the picks.",
+    "- **Claude API key** — optionally run the concierge on your own key.",
+    "- **View taste profile** — see the config behind your ranking.",
+    "",
+    "## Tune your taste",
+    "",
+    "You never edit settings by hand — just tell the concierge: `more techno, less comedy`, `track Peggy Gou`, or `I'm in Echo Park now`. It rewrites your profile and re-ranks you within a minute or two.",
+    "",
+    "## Install it",
+    "",
+    "It's an installable app. Choose **Add to Home Screen** in your browser and it opens full-screen, works offline, and stays one tap away."
+  ].join('\n');
+  GUIDE_NEW = [
+    "# What's new",
+    "",
+    "Recent upgrades to the site. Hit **how it works** up top any time for the full tour.",
+    "",
+    "## June 2026",
+    "",
+    "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you — open it from your name in the header.",
+    "- **A real concierge.** The left panel now holds a conversational concierge: ask for a vibe, a price, a neighborhood, or a whole night (`dinner then a show`) and it answers and filters the table. It falls back to an instant offline filter when it needs to.",
+    "- **Tune your taste by chatting.** Tell the concierge `more techno, less comedy` or `track Peggy Gou` and it rewrites your profile and re-ranks you — no config files to touch.",
+    "- **Connect Spotify.** Fold your listening history into your ranking so picks lean toward the artists and sounds you already play. (Settings → Spotify.)",
+    "- **Bring your own Claude key.** Optionally run the concierge on your own API key, with an on/off switch and an Opus toggle. (Settings → Claude API key.)",
+    "- **Rank ⇄ score.** Every event now shows both its transparent taste **score** and its final **rank** after the editorial pass — sortable by either.",
+    "- **Fresh-data nudge.** When new events land, **Update my ranking & digest** lights up, and a `what changed` readout tells you what moved — lineups, prices, set times — on the last pull.",
+    "- **Add to calendar.** Every event's detail row has a one-click **Add to calendar** (.ics) export."
+  ].join('\n');
+  _markGuideSeen = () => { try { localStorage.setItem('la-guide-seen', this.GUIDE_VERSION); } catch (e) {} };
+  openGuide = (tab) => { this._markGuideSeen(); this.setState({ guideOpen: true, guideTab: tab || 'how', settingsOpen: false }); };
+  closeGuide = () => this.setState({ guideOpen: false });
+  setGuideTab = (t) => this.setState({ guideTab: t });
 
   // ---------- digest modal toolbar (download / email) ----------
   downloadDigest = () => {
@@ -2085,14 +2182,27 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
     else if (ds === 'score') this.setState({ sortKey: 'score', sortDir: 'desc' });
     else if (ds === 'rank') this.setState({ sortKey: 'rank', sortDir: 'asc' });
-    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); } };
+    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); } };
     window.addEventListener('keydown', this._onKeyDown);
     this.loadCatalog();
     this.loadDigest();
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
+    // First visit → show the guide; a returning visitor whose last-seen version is stale → open
+    // straight to What's new. Once per device per GUIDE_VERSION; dismissable. Delayed so the page
+    // paints first.
+    try {
+      const seen = localStorage.getItem('la-guide-seen');
+      if (seen !== this.GUIDE_VERSION) {
+        this._guideTimer = setTimeout(() => {
+          if (this.state.guideOpen) return;   // user opened it manually in the meantime
+          this._markGuideSeen();
+          this.setState({ guideOpen: true, guideTab: seen ? 'new' : 'how' });
+        }, 700);
+      }
+    } catch (e) {}
   }
-  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); }
+  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); clearTimeout(this._guideTimer); }
 
   // ---------- render ----------
   renderVals() {
@@ -2332,6 +2442,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       openDigest: this.openDigest, closeDigest: this.closeDigest,
       tasteModalOpen: !!this.state.tasteModalOpen,
       openTasteModal: this.openTasteModal, closeTasteModal: this.closeTasteModal,
+      guideOpen: !!this.state.guideOpen,
+      openGuide: () => this.openGuide('how'), closeGuide: this.closeGuide,
+      guideTabHow: () => this.setGuideTab('how'), guideTabNew: () => this.setGuideTab('new'),
+      guideHowBg: this.state.guideTab !== 'new' ? '#1b1a17' : '#fff',
+      guideHowColor: this.state.guideTab !== 'new' ? '#fff' : '#76746b',
+      guideHowBorder: this.state.guideTab !== 'new' ? '#1b1a17' : '#d2d0c7',
+      guideNewBg: this.state.guideTab === 'new' ? '#1b1a17' : '#fff',
+      guideNewColor: this.state.guideTab === 'new' ? '#fff' : '#76746b',
+      guideNewBorder: this.state.guideTab === 'new' ? '#1b1a17' : '#d2d0c7',
+      guideBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.state.guideTab === 'new' ? this.GUIDE_NEW : this.GUIDE_HOW) } }),
       digestFile: this.DIGEST_FILE, digestUser,
       downloadDigest: this.downloadDigest,
       digestEmailOpen: !!this.state.digestEmailOpen, toggleEmailDigest: this.toggleEmailDigest,
