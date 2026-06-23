@@ -53,6 +53,25 @@ def test_penalty_terms_and_far():
     assert any("far from LA" in x for x in r["reasons"])
 
 
+def test_festival_waives_far_penalty():
+    """A far-flung club night keeps the -2 geo penalty, but a festival-scale event in the same
+    far city is judged on taste (penalty waived): a marquee festival is a worth-the-trip radar
+    item, not a far club night. Detection is the explicit `festival: true` flag OR the word
+    'festival' in the haystack (mirrors build_radar's festival signal)."""
+    far_club = {"title": "Late night warehouse", "category": "party", "venue": "A Club",
+                "neighborhood": "Irvine", "date": "2026-08-29"}
+    r_club = score_event(far_club, TASTE, PROFILE)
+    assert any("far from LA" in x for x in r_club["reasons"]), r_club
+    # Same record flagged as a festival -> geo penalty waived (worth exactly +2), with a reason.
+    r_flag = score_event({**far_club, "festival": True}, TASTE, PROFILE)
+    assert not any("far from LA" in x for x in r_flag["reasons"]), r_flag
+    assert any("waived (festival)" in x for x in r_flag["reasons"]), r_flag
+    assert r_flag["score"] - r_club["score"] == 2, (r_club["score"], r_flag["score"])
+    # Detection also fires off the word "festival" in the title (no explicit flag needed).
+    r_word = score_event({**far_club, "title": "Some Music Festival"}, TASTE, PROFILE)
+    assert not any("far from LA" in x for x in r_word["reasons"]), r_word
+
+
 def test_profile_is_actually_consumed():
     """Proof the config lift works: overriding the profile changes the score,
     so scoring reads profile.yaml rather than silently using code defaults."""
