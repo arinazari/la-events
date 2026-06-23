@@ -5,7 +5,7 @@ Run: python scripts/tests/test_freshness.py   (also pytest-compatible)
 """
 
 import sys
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # scripts/ on path
@@ -75,6 +75,50 @@ def test_diff_catalog_noop_when_unchanged():
     cat = [_ev(price="$20", lineup=["Antal"])]
     delta = P.diff_catalog(P.content_index(cat), cat, today=date(2026, 6, 23))
     assert delta["added"] == 0 and delta["updated"] == 0 and not delta["changes"]
+
+
+# ── flag_stale: the ghost sweep ───────────────────────────────────────────────
+def _future(days, **kw):
+    base = {"title": "Show", "venue": "Zebulon", "sources": ["ra"]}
+    base["date"] = (date(2026, 6, 23) + timedelta(days=days)).isoformat()
+    base.update(kw)
+    return base
+
+
+def test_flag_stale_flags_a_dropped_event():
+    today = date(2026, 6, 23)
+    ghost = _future(5, last_seen=(today - timedelta(days=3)).isoformat())
+    assert P.flag_stale([ghost], {"ra"}, today, horizon_days=120) == 1
+    assert ghost["status"] == "unlisted"
+
+
+def test_flag_stale_respects_guards():
+    today = date(2026, 6, 23)
+    seen = _future(5, last_seen=today.isoformat())                       # seen today → fine
+    unfetched = _future(5, sources=["dice"], last_seen=(today - timedelta(days=5)).isoformat())
+    far = _future(200, last_seen=(today - timedelta(days=5)).isoformat())  # beyond horizon
+    assert P.flag_stale([seen, unfetched, far], {"ra"}, today, horizon_days=120) == 0
+    assert "status" not in seen and "status" not in unfetched and "status" not in far
+    # No successful structured fetch → judge nothing.
+    ghost = _future(5, last_seen=(today - timedelta(days=9)).isoformat())
+    assert P.flag_stale([ghost], set(), today, horizon_days=120) == 0
+
+
+def test_flag_stale_clears_when_relisted():
+    today = date(2026, 6, 23)
+    back = _future(5, last_seen=today.isoformat(), status="unlisted")    # was flagged, seen again today
+    P.flag_stale([back], {"ra"}, today, horizon_days=120)
+    assert "status" not in back
+
+
+def test_score_pool_drops_unlisted():
+    from lib.config import load_taste, load_profile
+    taste, profile = load_taste(), load_profile()
+    today = date(2026, 6, 23)
+    live = _future(3)
+    dead = _future(3, title="Dead", venue="1642", status="unlisted")
+    titles = {e["title"] for e in P.score_pool([live, dead], taste, profile, today=today)}
+    assert "Show" in titles and "Dead" not in titles
 
 
 if __name__ == "__main__":

@@ -158,8 +158,13 @@ def main() -> int:
     # record — recomputed each run, so re-tagging only needs a --no-fetch pass (lib/tagging.py).
     # Runs AFTER normalize_locations so the region tag reflects the canonicalized neighborhood.
     tag_catalog(catalog, profile)
+    # Ghost sweep: events still future-dated but dropped from ALL their (successfully re-fetched)
+    # sources get status:"unlisted" so they stop being recommended (score_pool drops them). Skipped
+    # on --no-fetch (no fetched sources → no-op), so a pipeline-only re-run never ghosts anything.
+    fetched_ok = {s for s, _ in report.get("ok", [])}
+    stale_n = P.flag_stale(catalog, fetched_ok, today, horizon_days=args.days)
     # What moved since last run: stamps updated_at/changed_fields on changed records, returns the
-    # {added, updated, changes} summary (must run AFTER tagging so the persisted record is final).
+    # {added, updated, changes} summary (must run AFTER tagging + flag_stale so the record is final).
     delta = P.diff_catalog(old_index, catalog, today)
     cat_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
 
@@ -200,7 +205,7 @@ def main() -> int:
 
     # Run report.
     print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}/c{cat_meta['content_version']}) "
-          f"(+{delta['added']} new, {delta['updated']} updated, {stats['merged']} merged, {expired} expired) "
+          f"(+{delta['added']} new, {delta['updated']} updated, {stale_n} unlisted, {stats['merged']} merged, {expired} expired) "
           f"-> {len(candidates)} candidates ({cand_doc['image_wanted']} need images), "
           f"{len(judge)} to judge")
     if report["ok"]:

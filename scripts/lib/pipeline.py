@@ -198,6 +198,45 @@ def diff_catalog(old_index: dict, new_catalog: list, today: date = None) -> dict
     return {"added": added, "updated": updated, "changes": changes}
 
 
+def flag_stale(catalog: list, fetched_sources, today: date = None, *,
+               horizon_days: int, grace_days: int = 2) -> int:
+    """Ghost detection: an event still future-dated but no longer listed by ANY of its sources is
+    probably cancelled / postponed / sold-through / pulled — stamp `status: "unlisted"` so it stops
+    being recommended (score_pool drops it) while staying in the catalog (it un-flags if it returns).
+
+    Conservative on purpose — only judges an event when we can: every one of its sources was fetched
+    OK this run (a source that failed/wasn't fetched tells us nothing), the event is inside the fetch
+    horizon (beyond it, absence is expected), and it's been unseen for `grace_days` (last_seen lag),
+    so a single source hiccup doesn't ghost the catalog. Returns the number newly flagged."""
+    today = today or today_la()
+    fetched = set(fetched_sources or [])
+    if not fetched:
+        return 0                              # no successful structured fetch → can't judge anything
+    horizon = today + timedelta(days=horizon_days)
+    flagged = 0
+    for ev in catalog:
+        d = parse_event_date(ev)
+        if d is None or d < today or d > horizon:
+            continue
+        srcs = set(ev.get("sources") or [])
+        if not srcs or not srcs.issubset(fetched):     # some source wasn't refreshed → don't judge
+            continue
+        ls = str(ev.get("last_seen") or "")[:10]
+        try:
+            seen = date.fromisoformat(ls) if ls else None
+        except ValueError:
+            seen = None
+        if seen is None:
+            continue
+        if (today - seen).days >= grace_days:
+            if ev.get("status") != "unlisted":
+                ev["status"] = "unlisted"
+                flagged += 1
+        elif ev.get("status") == "unlisted":           # re-listed since → clear the flag
+            ev.pop("status", None)
+    return flagged
+
+
 def normalize_locations(catalog: list, profile: dict = None) -> list:
     """Canonicalize each record's `neighborhood` in place (idempotent).
 
@@ -237,6 +276,8 @@ def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=N
 
     scored = []
     for ev in catalog:
+        if ev.get("status") == "unlisted":          # ghost (dropped from all its sources) — don't surface
+            continue
         v = score_view(ev, taste, profile, affinity)
         if not v["iso_date"] or v["iso_date"] < start:
             continue
