@@ -283,6 +283,216 @@
       "why": "September 13 — last of the Level 8 cluster; identical to the previous seven entries, 84 days out with no distinct lineup.",
       "confidence": "high",
       "judged_at": "2026-06-21T05:41:33"
+    },
+    "4b5718ac6609": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Halo Varga is a real draw in the LA underground tech-house circuit — this is a proper TBA Arts District night, not a generic multi-DJ stacker.",
+      "confidence": "med",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "fd9f6e2edd10": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Flying Mojito Bros are a legitimate desert-house/Balearic duo — exactly the groove-and-sunset lane — and Brainstory adds an interesting live-soul undercurrent to the bill.",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "039b68263b20": {
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Stacey Pullen is Detroit techno royalty — Motor City original, deep in the fabric/European lineage — and an 11pm-5am TBA afterhours is the exact format this profile is built around. The tracked-artist",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "bb4f346b7a87": {
+      "tier": "great",
+      "lane": "club:mainstream",
+      "adjust": 2,
+      "why": "Adam Beyer, Cloonee, and Loco Dice on one bill is a legitimate festival-electronic lineup, not a generic outdoor party — the distance is real friction but this is the kind of stacked card worth the Lo",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "d26b1c2aec3d": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Gold Diggers recurring disco night is a fine fallback on July 4th but no lineup posted means no headliner to evaluate — the format alone does not elevate this above the weekly rotation.",
+      "confidence": "med",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "9412d5b2209e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Eli Escobar is a respected NYC house selector with a solid disco-funk sensibility, and the early start suits a holiday Friday — but he is not a marquee draw for this profile, so the score is right.",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "9fd90f37b8e7": {
+      "tier": "skip",
+      "lane": "live-music",
+      "adjust": -3,
+      "why": "Redwood Bar is a DTLA dive rock venue; The Roamers is almost certainly a live band, not an electronic act — the Ame tracked-artist credit in the score is a categorization error that inflated this to a",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "9a0fd9893571": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "The Information all-vinyl series runs proper underground sets in LA — Taylor Shockley and Luke Mele are real selectors, and a TBA all-vinyl DTLA night at 10pm is exactly the listening-bar lane the pro",
+      "confidence": "med",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "0eb89ce23c2b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Demuir is a credible deep-house name (Defected orbit) and Certified Groovers has curation pedigree, but he is not a headline draw — the score is correctly placed.",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "8a862e604d08": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Massimiliano Pagliara is a Berlin-based Permanent Vacation artist — analogue electro-disco, Balearic house, exactly the European-orbit selector this taste lane is built for, and the score undersells h",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "3061917831bd": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Gene On Earth (California-born, Berlin-based, Limousine Dream label) is exactly the European-underground selector this profile wants — lush house/techno hybrids with real RA credibility, and Certified",
+      "confidence": "med",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "50e6547bec06": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Vidiots rep cinema is the right lane and An American in Paris holds up, but the +2 tracked artist (Ame) in the score reasons looks like a misfired match — this is a 1951 Gershwin musical, not an Ame s",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "1e27960536ad": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "TBA warehouse, tech-house/minimal/deep house, b2b stacking, accessible price — the format and genre are exactly right. Unknown local lineup caps it, but the bones are good for a Thursday afterhours.",
+      "confidence": "med",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "c0b91fb54504": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Stavros is the one comedian on the explicit exception list — this is the named carve-out, not a generic comedy night. The Wiltern on a Friday is the right size room for him right now.",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "31d6a23bb826": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Taste feedback literally says surface Sunset Sessions at Level 8 whenever it is on. Free rooftop, sunset house, the format is the recommendation — Casmalia draw is secondary.",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "437b015f697a": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "JKriv is Razor-N-Tape co-founder — deep disco, groove, soulful house, exactly the Balearic/groove lane. Free, walking distance from Silver Lake, neighborhood venue. The score at 6 significantly unders",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "aacf17a0f1c8": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "2010-2015 Pop and EDM All Night Long is a decade nostalgia night — the exact format taste.yaml penalizes. The +3 electronic tag is a mismatch; LMFAO-era EDM anthems are not the electronic that matters",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "7c349f4a2cfe": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Green Velvet is a Chicago house/techno institution — Relief Records, 30+ years deep. Exchange LA is big-room but the headliner is the real deal and taste.yaml is explicit that big-room fun counts. The",
+      "confidence": "high",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "221fd89985fd": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Bambii and Jubilee are credible underground DJ names but the genre is baile/global bass — deliberate and interesting, just not house or techno. Worth knowing about for Pride weekend but a clear detour",
+      "confidence": "med",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "0716b886d8b1": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "BUCK/OFF and masato are unknown quantities with no genre descriptor — could be a serious underground queer techno night or a generic Pride party; genuinely cannot tell. TBA location suggests legit und",
+      "confidence": "low",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "8f92356359e6": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Disco is in the right orbit but Apotheke is a cocktail bar, not a dance room — the ceiling here is bar-night-with-good-music, not a proper club set. Aiden Ramos is unknown.",
+      "confidence": "low",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "db8e20051782": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Afterhours format fits but there is no lineup at all — impossible to differentiate from any other Friday night with the lights down. Hard pass unless names surface closer in.",
+      "confidence": "low",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "185fb5832f6e": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Dub techno is a precise, serious subgenre tag — this is almost certainly a thoughtful underground night, not a generic rave. TBA warehouse, right price range, right hours. Enayet and K Wata are unknow",
+      "confidence": "low",
+      "judged_at": "2026-06-23T05:44:00",
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     }
   }
 }
