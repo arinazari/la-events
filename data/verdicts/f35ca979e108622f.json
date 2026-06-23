@@ -307,10 +307,10 @@
     },
     "fd4c210ad261": {
       "tier": "skip",
-      "adjust": -3,
-      "why": "Duplicate of 82bec5239ec2 — same neo perreo night at The Regent, off-lane regardless of which listing survives deduplication.",
+      "adjust": -1,
+      "why": "Duplicate No Boys Just Perreo listing — off-profile reggaeton/perreo night.",
       "confidence": "high",
-      "judged_at": "2026-06-21T02:53:42",
+      "judged_at": "2026-06-23T12:23:52",
       "score_at_judge": 6
     },
     "d10660bfcf11": {
@@ -319,6 +319,87 @@
       "why": "Silver Lake TBA at midnight Saturday with Banoffee on the bill is a curated, neighbourhood-right afters — she's an art-pop/electronic act with an interesting angle, and Panic Room tends to book with t",
       "confidence": "med",
       "judged_at": "2026-06-21T02:53:42",
+      "score_at_judge": 6
+    },
+    "4eea8f28c93f": {
+      "tier": "great",
+      "lane": "market",
+      "adjust": 1,
+      "why": "Analog media fair at 2220 Arts on a Saturday — record fair energy in a DTLA arts space checks the daytime lifestyle box, and the venue itself is a draw; the 'live-music' lane tag is wrong.",
+      "confidence": "high",
+      "judged_at": "2026-06-23T12:23:52",
+      "score_at_judge": 6
+    },
+    "e27fde913981": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Discostan has been one of LA's most culturally distinct dance nights for 15 years — world/diaspora disco at a relaxed Silver Lake room is exactly the kind of non-generic groove event that fits the mel",
+      "confidence": "high",
+      "judged_at": "2026-06-23T12:23:52",
+      "score_at_judge": 7
+    },
+    "cdd7d1b4035e": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Day Trip's Night Trip afterparties carry real names (Adam Beyer, Cloonee, Purple Disco Machine) and Long Beach is home base — the marquee draw lifts this above a generic afterparty, even if the festiv",
+      "confidence": "high",
+      "judged_at": "2026-06-23T12:23:52",
+      "score_at_judge": 7
+    },
+    "cee524c2c9b1": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Same Night Trip afterparties but Sunday — tail-end energy, same caveat about the festival-rave format, and the score already reflects the step down from Saturday.",
+      "confidence": "high",
+      "judged_at": "2026-06-23T12:23:52",
+      "score_at_judge": 6
+    },
+    "2e5710a4c036": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Deep-house all-nighter at a TBA DTLA warehouse is fine on format, but Collin Reeve and MXM are local names — not the marquee draw that would justify a late warehouse night for someone whose primary la",
+      "confidence": "med",
+      "judged_at": "2026-06-23T12:23:52",
+      "score_at_judge": 6
+    },
+    "0cdc26a22374": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "House/disco groove night at a Long Beach room with a named local selector — fits the medium tier on genre and location, but Lord Izac is a local DJ without a notable draw that would push this to great",
+      "confidence": "med",
+      "judged_at": "2026-06-23T12:23:52",
+      "score_at_judge": 7
+    },
+    "06579ee38299": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Almost certainly the same Büff Long Beach event as 0cdc26a22374 (Buff Long Beach: Lord Izac) without the artist name — weaker duplicate listing that should rank well below the primary entry.",
+      "confidence": "high",
+      "judged_at": "2026-06-23T12:23:52",
+      "score_at_judge": 6
+    },
+    "e701ca090c88": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Daytime boat party on Long Beach waterfront checks the outdoor/daytime lifestyle box, but 'Geo' is an unknown local DJ and boat parties can skew toward party-crowd energy over the relaxed groove setti",
+      "confidence": "low",
+      "judged_at": "2026-06-23T12:23:52",
+      "score_at_judge": 6
+    },
+    "5797c554d79b": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Paradisco is a solid recurring disco/house night but Kiss Kiss Bang Bang is a small Koreatown bar, Nica is a local unknown, and it competes with stronger options the same weekend — fine filler, not a ",
+      "confidence": "med",
+      "judged_at": "2026-06-23T12:23:52",
+      "score_at_judge": 6
+    },
+    "d633ee466bf6": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Reggaeton/perreo night at the Regent — none of Dr. Ganesan's core, medium, or low interest tiers cover reggaeton or latin dance nights, and the 21+ dance-floor format is off-profile.",
+      "confidence": "high",
+      "judged_at": "2026-06-23T12:23:52",
       "score_at_judge": 6
     }
   }

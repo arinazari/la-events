@@ -18,6 +18,7 @@ no profile.yaml is scored from its OWN taste.yaml — per-person tuning without 
 separate mechanism file.
 """
 
+import re
 from datetime import date, datetime
 
 try:
@@ -25,6 +26,11 @@ try:
     _LA = ZoneInfo("America/Los_Angeles")
 except Exception:  # pragma: no cover - zoneinfo always present on py3.9+
     _LA = None
+
+
+def _artist_in_hay(artist_lower: str, hay: str) -> bool:
+    """Word-boundary match — prevents short names (e.g. 'Ame') from hitting 'game', 'America', etc."""
+    return bool(re.search(r'(?<![a-z0-9])' + re.escape(artist_lower) + r'(?![a-z0-9])', hay))
 
 from .affinity import artist_affinity, genre_affinity
 
@@ -173,7 +179,7 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         reasons.append(f"+{base} {cat.replace('_', ' ')} ({lab} interest)")
 
     # Tracked artist — match title OR lineup (+2 each; also the "tracked" badge).
-    hits = sorted({a for a in tracked if a.lower() in hay})
+    hits = sorted({a for a in tracked if _artist_in_hay(a.lower(), hay)})
     if hits:
         score += 2 * len(hits)
         reasons.append(f"+{2 * len(hits)} tracked artist ({', '.join(hits)})")

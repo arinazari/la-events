@@ -2,7 +2,7 @@
   "events": {
     "ca395d166036": {
       "id": "ca395d166036",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "house",
         "deep house",
@@ -28,7 +28,7 @@
     },
     "a1aee8bcdfae": {
       "id": "a1aee8bcdfae",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "soulful house",
         "deep house",
@@ -49,12 +49,11 @@
     },
     "918a63422186": {
       "id": "918a63422186",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "global beats",
-        "Brazilian / Latin",
-        "funk",
-        "hip-hop / turntablism"
+        "funk-soul",
+        "hip-hop"
       ],
       "label_orbit": [
         "Mochilla"
@@ -107,7 +106,7 @@
     },
     "2d20ff8e0c2b": {
       "id": "2d20ff8e0c2b",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "techno",
         "hypnotic techno"
@@ -135,7 +134,7 @@
     },
     "0f24a39aa490": {
       "id": "0f24a39aa490",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "disco",
         "deep house",
@@ -146,7 +145,7 @@
         "Rhythm Section International"
       ],
       "energy": "groove / daytime",
-      "setting": "open-air day party",
+      "setting": "outdoor",
       "sounds_like": [
         "Bradley Zero",
         "Rhythm Section",
@@ -175,14 +174,14 @@
     },
     "7d0bd069c0e5": {
       "id": "7d0bd069c0e5",
-      "type": "party",
+      "type": "club",
       "subgenres": [
-        "open-format",
-        "pop / dance"
+        "pop",
+        "disco"
       ],
       "label_orbit": [],
       "energy": "social / daytime",
-      "setting": "day party",
+      "setting": "outdoor",
       "sounds_like": [
         "Pride day party"
       ],
@@ -194,11 +193,10 @@
     },
     "f44b5d9fe86c": {
       "id": "f44b5d9fe86c",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "disco",
-        "nu-disco",
-        "classic house"
+        "house"
       ],
       "label_orbit": [],
       "energy": "groove / late-night",
@@ -219,7 +217,7 @@
       "subgenres": [],
       "label_orbit": [],
       "energy": "daytime / wellness",
-      "setting": "museum / outdoor",
+      "setting": "outdoor",
       "sounds_like": [],
       "artist_notes": [],
       "curator_note": "A Juneteenth-weekend morning run/wellness gathering at CAAM in Exposition Park — a culture-and-community event, not a music one. Mentioning it for the weekend context, not the lane.",
@@ -229,7 +227,7 @@
     },
     "cc5a11b4ddb8": {
       "id": "cc5a11b4ddb8",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "house",
         "deep house",
@@ -237,7 +235,7 @@
       ],
       "label_orbit": [],
       "energy": "groove / golden-hour",
-      "setting": "open-air vinyl",
+      "setting": "outdoor",
       "sounds_like": [
         "Sunday Sessions LA",
         "open-air vinyl house"
@@ -261,15 +259,14 @@
       "id": "5dcdfc5a574d",
       "type": "film",
       "subgenres": [
-        "action",
-        "sci-fi"
+        "rep/arthouse"
       ],
       "label_orbit": [],
       "energy": "listening / rep-cinema",
       "setting": "cinema",
       "sounds_like": [
         "Predator",
-        "'80s action"
+        "80s action"
       ],
       "artist_notes": [],
       "curator_note": "Bill Duke was in the cast, which is why Vidiots slots 'Predator' into his weekend — and a 35mm print of the 1987 jungle classic is the right way to see it. Already sold out, so it's a 'if you have a ticket' note.",
@@ -279,9 +276,9 @@
     },
     "6af20e062172": {
       "id": "6af20e062172",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
-        "tech house",
+        "tech-house",
         "house"
       ],
       "label_orbit": [
@@ -289,7 +286,7 @@
         "Goldenvoice / Framework"
       ],
       "energy": "peak / festival",
-      "setting": "open-air park",
+      "setting": "outdoor",
       "sounds_like": [
         "FISHER",
         "John Summit",
@@ -318,18 +315,18 @@
     },
     "750cc2565824": {
       "id": "750cc2565824",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "house",
         "deep house",
-        "vocal house"
+        "disco"
       ],
       "label_orbit": [
         "Women on Wax",
         "Crosstown Rebels"
       ],
       "energy": "peak / late-night",
-      "setting": "warehouse (TBA)",
+      "setting": "warehouse",
       "sounds_like": [
         "Honey Dijon",
         "Robert Owens",
@@ -352,10 +349,9 @@
     },
     "35bde3a221a0": {
       "id": "35bde3a221a0",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "disco",
-        "nu-disco",
         "house"
       ],
       "label_orbit": [],
@@ -378,7 +374,7 @@
     },
     "60356bc699f9": {
       "id": "60356bc699f9",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "techno",
         "house"
@@ -388,7 +384,7 @@
         "Black Techno Matters"
       ],
       "energy": "peak / late-night",
-      "setting": "warehouse (TBA)",
+      "setting": "warehouse",
       "sounds_like": [
         "Underground Resistance",
         "Robert Hood",
@@ -419,9 +415,9 @@
     },
     "7d3eee612155": {
       "id": "7d3eee612155",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
-        "tech house",
+        "tech-house",
         "house",
         "techno"
       ],
@@ -430,7 +426,7 @@
         "Knee Deep In Sound"
       ],
       "energy": "peak / festival",
-      "setting": "open-air park",
+      "setting": "outdoor",
       "sounds_like": [
         "FISHER",
         "Patrick Topping",
@@ -455,17 +451,17 @@
     },
     "367d5cd8ea2a": {
       "id": "367d5cd8ea2a",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
+        "tech-house",
         "house",
-        "tech house",
-        "bass house"
+        "disco"
       ],
       "label_orbit": [
         "Dirtybird"
       ],
       "energy": "daytime / peak",
-      "setting": "indoor-outdoor club",
+      "setting": "club",
       "sounds_like": [
         "Justin Martin",
         "Walker & Royce",
@@ -509,11 +505,11 @@
     },
     "d0dd0d0bf550": {
       "id": "d0dd0d0bf550",
-      "type": "live_music",
+      "type": "live-music",
       "subgenres": [
         "experimental",
-        "psych-folk",
-        "drone"
+        "folk",
+        "rock"
       ],
       "label_orbit": [
         "Akuphone",
@@ -543,12 +539,11 @@
     },
     "82f9690b2933": {
       "id": "82f9690b2933",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "disco",
         "house",
-        "Balearic",
-        "broken beat"
+        "deep house"
       ],
       "label_orbit": [
         "Rhythm Section International"
@@ -587,9 +582,9 @@
     },
     "404a1190c380": {
       "id": "404a1190c380",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
-        "tech house",
+        "tech-house",
         "house",
         "techno"
       ],
@@ -598,7 +593,7 @@
         "Knee Deep In Sound"
       ],
       "energy": "peak / festival",
-      "setting": "open-air park",
+      "setting": "outdoor",
       "sounds_like": [
         "FISHER",
         "Patrick Topping",
@@ -623,18 +618,18 @@
     },
     "2f0dfdae90af": {
       "id": "2f0dfdae90af",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
-        "melodic house",
-        "progressive house",
-        "afterhours"
+        "melodic",
+        "progressive",
+        "house"
       ],
       "label_orbit": [
         "Anjunadeep",
         "Afterlife"
       ],
       "energy": "daytime / melodic",
-      "setting": "open-air park",
+      "setting": "outdoor",
       "sounds_like": [
         "RÜFÜS DU SOL",
         "Yotto",
@@ -657,10 +652,9 @@
     },
     "78348cab1d1a": {
       "id": "78348cab1d1a",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "disco",
-        "slo-mo / edits",
         "deep house"
       ],
       "label_orbit": [
@@ -669,7 +663,7 @@
         "Wolf Music"
       ],
       "energy": "groove / late-night",
-      "setting": "club / bar",
+      "setting": "bar",
       "sounds_like": [
         "The Mole",
         "Young Marco",
@@ -694,14 +688,14 @@
     },
     "4fedbed9168f": {
       "id": "4fedbed9168f",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
-        "soulful house",
+        "house",
         "deep house"
       ],
       "label_orbit": [],
       "energy": "groove / late-night",
-      "setting": "club / bar (boutique-hotel)",
+      "setting": "bar",
       "sounds_like": [
         "Glenn Underground",
         "Kerri Chandler",
@@ -722,9 +716,7 @@
       "id": "bb41161eefe6",
       "type": "film",
       "subgenres": [
-        "action",
-        "post-apocalyptic",
-        "repertory"
+        "rep/arthouse"
       ],
       "label_orbit": [],
       "energy": "listening / repertory",
@@ -741,15 +733,14 @@
     },
     "7aecfa91d404": {
       "id": "7aecfa91d404",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "techno",
-        "trance-techno",
-        "hard house"
+        "house"
       ],
       "label_orbit": [],
       "energy": "peak / hard",
-      "setting": "warehouse (location-TBA)",
+      "setting": "warehouse",
       "sounds_like": [
         "LYDO",
         "Frankie Teardrop",
@@ -772,16 +763,16 @@
     },
     "2353e1ad635b": {
       "id": "2353e1ad635b",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "house",
-        "disco house",
+        "disco",
         "deep house",
-        "tech house"
+        "tech-house"
       ],
       "label_orbit": [],
       "energy": "groove / daytime",
-      "setting": "rooftop (pool)",
+      "setting": "rooftop",
       "sounds_like": [
         "Sunset Sessions residents",
         "Golden Hour rooftop house"
@@ -805,7 +796,7 @@
     },
     "ec2ca5e297c2": {
       "id": "ec2ca5e297c2",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "house",
         "disco",
@@ -816,7 +807,7 @@
         "Rush Hour"
       ],
       "energy": "groove / late-night",
-      "setting": "warehouse (location-TBA)",
+      "setting": "warehouse",
       "sounds_like": [
         "Antal",
         "Hunee",
@@ -835,19 +826,18 @@
     },
     "169931f6acf3": {
       "id": "169931f6acf3",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
-        "psych",
-        "surf",
-        "global / library",
-        "vintage soul"
+        "rock",
+        "folk",
+        "experimental"
       ],
       "label_orbit": [
         "Calico Discos",
         "Innovative Leisure"
       ],
       "energy": "groove / listening",
-      "setting": "club (all-vinyl)",
+      "setting": "club",
       "sounds_like": [
         "Allah-Las",
         "Reverberation Radio",
@@ -866,17 +856,12 @@
     },
     "cbf00da01c90": {
       "id": "cbf00da01c90",
-      "type": "social",
-      "subgenres": [
-        "photography meetup",
-        "creative community"
-      ],
+      "type": "community",
+      "subgenres": [],
       "label_orbit": [],
       "energy": "daytime / social",
-      "setting": "creative meetup (location drops after RSVP)",
-      "sounds_like": [
-        "Cameras & Coffee creative meetups"
-      ],
+      "setting": "outdoor",
+      "sounds_like": [],
       "artist_notes": [],
       "curator_note": "A morning camera-and-coffee meetup for the photo/video crowd — gear talk, coffee and shooting, not a music thing. Off the main lane unless Ari's specifically into the photography-community side.",
       "description": "Free morning photography/videographer community meetup (gear + coffee) hosted by Dangycam; address drops after RSVP approval.",
@@ -885,7 +870,7 @@
     },
     "deede894fa33": {
       "id": "deede894fa33",
-      "type": "electronic",
+      "type": "club",
       "subgenres": [
         "techno",
         "minimal",
@@ -896,7 +881,7 @@
         "M_nus"
       ],
       "energy": "listening / hypnotic",
-      "setting": "museum (open-air plaza)",
+      "setting": "gallery",
       "sounds_like": [
         "Richie Hawtin",
         "Plastikman",
@@ -919,19 +904,18 @@
     },
     "e00ad8085b0c": {
       "id": "e00ad8085b0c",
-      "type": "live_music",
+      "type": "live-music",
       "subgenres": [
-        "improv / experimental",
-        "psych",
-        "jazz-fusion",
-        "krautrock-y"
+        "experimental",
+        "rock",
+        "jazz"
       ],
       "label_orbit": [
         "Yeggs Records",
         "Castle Face"
       ],
       "energy": "listening / live",
-      "setting": "club (listening room)",
+      "setting": "club",
       "sounds_like": [
         "Dave Harrington Group",
         "Oh Sees",
@@ -963,6 +947,1143 @@
       "description": "One-night improvising quintet — Dave Harrington (Darkside), John Dwyer (Oh Sees), Aaron Steele, Spencer Zahn and Tom Dolas — at Zebulon in Frogtown.",
       "confidence": "high",
       "enriched_at": "2026-06-17T06:04:50"
+    },
+    "a686cbd059dc": {
+      "id": "a686cbd059dc",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "tech-house",
+        "techno"
+      ],
+      "label_orbit": [],
+      "energy": "peak / afterhours",
+      "setting": "warehouse",
+      "sounds_like": [
+        "LA underground afterhours",
+        "warehouse house / tech-house"
+      ],
+      "artist_notes": [],
+      "curator_note": "Inland Groove is a SoCal collective rooted in the Inland Empire that's been throwing location-TBA afterhours in DTLA since 2022 — the crowd is loyal and local, and the free-with-RSVP entry makes it a no-risk 11pm-5am add to a Friday. No marquee names announced, but that's the point.",
+      "description": "Inland Groove collective's afterhours party (11pm–5am) at a TBA DTLA location; free with RSVP before 1am, $10 door after.",
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "f4fe507771f1": {
+      "id": "f4fe507771f1",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "disco"
+      ],
+      "label_orbit": [],
+      "energy": "groove / late-night",
+      "setting": "bar",
+      "sounds_like": [
+        "Gold Diggers resident nights",
+        "nu-disco / classic house"
+      ],
+      "artist_notes": [],
+      "curator_note": "Gold Diggers is reliably one of the best small rooms in East Hollywood for this sound — 'House and Hits' is the format, not a billing, so expect crowd-friendly disco and house from the residents in an intimate back-bar you can actually hear. Good pre-Fourth-of-July Friday add for the eastside.",
+      "description": "Groove Room's recurring house-and-hits late-night dance party at Gold Diggers in East Hollywood, doors 10:30pm.",
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "00bfe8a0d235": {
+      "id": "00bfe8a0d235",
+      "type": "club",
+      "subgenres": [
+        "electronic",
+        "house"
+      ],
+      "label_orbit": [],
+      "energy": "late-night / social",
+      "setting": "bar",
+      "sounds_like": [
+        "Venice late-night bar DJ"
+      ],
+      "artist_notes": [
+        {
+          "name": "GG (5)",
+          "note": "Listed DJ at Townhouse Venice; couldn't verify a public profile — local resident DJ, low footprint."
+        }
+      ],
+      "curator_note": "Townhouse is a Venice institution for late-night drinks, not a destination DJ room — this is a bar with music rather than a proper club night. Worth it if you're already in Venice and want to keep the night going, not a reason to go to the westside.",
+      "description": "Late-night bar DJ set at Townhouse in Venice, 10pm.",
+      "confidence": "low",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "089c71f526eb": {
+      "id": "089c71f526eb",
+      "type": "club",
+      "subgenres": [
+        "electronic"
+      ],
+      "label_orbit": [],
+      "energy": "social / novelty",
+      "setting": "club",
+      "sounds_like": [
+        "anime convention dance floor"
+      ],
+      "artist_notes": [],
+      "curator_note": "An anime-cosplay rave at Dave and Busters — the premise is genuinely fun if that's your crowd, but the venue and format are nowhere near the lane. Hard skip unless you're going ironically.",
+      "description": "Cosplay-themed rave event at Dave and Busters, 10pm; free.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "9fd90f37b8e7": {
+      "id": "9fd90f37b8e7",
+      "type": "live-music",
+      "subgenres": [
+        "rock",
+        "indie"
+      ],
+      "label_orbit": [],
+      "energy": "listening / live",
+      "setting": "bar",
+      "sounds_like": [
+        "classic rock / country rock crossover"
+      ],
+      "artist_notes": [],
+      "curator_note": "The Redwood Bar is a dive with a pirate ship theme in DTLA — it's a local band room, not a destination. The Roamers appear to be a local act without a significant public footprint; very little to go on here, confidence is low.",
+      "description": "The Roamers perform live at The Redwood Bar and Grill in DTLA, 8pm.",
+      "confidence": "low",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "5b8636a94da3": {
+      "id": "5b8636a94da3",
+      "type": "club",
+      "subgenres": [
+        "melodic",
+        "progressive",
+        "electronic"
+      ],
+      "label_orbit": [],
+      "energy": "peak / festival",
+      "setting": "outdoor",
+      "vibe": [
+        "festival",
+        "18+"
+      ],
+      "sounds_like": [
+        "Porter Robinson",
+        "Anjunadeep / Monstercat aesthetic"
+      ],
+      "artist_notes": [
+        {
+          "name": "Porter Robinson",
+          "note": "Spotify heavy-rotation for Ari — electronic producer known for emotionally-driven melodic / anime-inflected dance music ('Nurture', 'Worlds'); headlining this festival."
+        },
+        {
+          "name": "Dabin",
+          "note": "Canadian producer in the melodic-bass / future-bass crossover space; Spotify on-rotation pick for Ari."
+        },
+        {
+          "name": "Louis the Child",
+          "note": "Chicago indie-electronic duo known for feel-good melodic house-pop; festival-circuit staple."
+        }
+      ],
+      "curator_note": "Lost in Dreams is a Porter Robinson-curated festival pulling from the melodic/emotional-electronic world he's built — more Nurture than fabric, but if you're a fan of the record it's the right context. Spotify says Porter is in heavy rotation for Ari, so the headliner alone justifies checking the lineup.",
+      "description": "Lost in Dreams LA daytime festival at LA State Historic Park headlined by Porter Robinson, with Dabin, Louis the Child, Audien, What So Not and more.",
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "8a862e604d08": {
+      "id": "8a862e604d08",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "disco",
+        "electro",
+        "deep house"
+      ],
+      "label_orbit": [
+        "Live at Robert Johnson",
+        "Ostgut Ton",
+        "Permanent Vacation"
+      ],
+      "energy": "groove / late-night",
+      "setting": "club",
+      "sounds_like": [
+        "Berghain Kantine",
+        "Permanent Vacation",
+        "Midnight Lovers warmth"
+      ],
+      "artist_notes": [
+        {
+          "name": "Massimiliano Pagliara",
+          "note": "Italian-born Berlin DJ (since 2001), Berghain/Basement resident — eclectic house, techno and electro-disco, releases on Live at Robert Johnson, Ostgut Ton and Permanent Vacation. One of the more musically-serious selectors the Midnight Lovers series has booked."
+        },
+        {
+          "name": "Masha Mar",
+          "note": "Serbian-born, LA-based DJ/curator (the Midnight Lovers crew) with NTS and Dublab residencies — Italo disco, house and dancefloor edits."
+        },
+        {
+          "name": "James Axon",
+          "note": "LA-based lifelong pianist turned DJ — Dublab resident (Hearing Color show), founder of the Planet Love queer underground party; warm, record-collector approach with deep house and techno fluency."
+        }
+      ],
+      "curator_note": "Massimiliano Pagliara is a proper Berghain regular with Ostgut Ton records behind him — when Midnight Lovers books at this level it's a late-night worth making the trip to The Bridge for. Masha Mar and James Axon opening means the room will be in good shape before he goes on.",
+      "description": "Midnight Lovers at The Bridge DTLA with Italian-born Berlin DJ Massimiliano Pagliara (Berghain/Ostgut Ton), plus Masha Mar and James Axon.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "50e6547bec06": {
+      "id": "50e6547bec06",
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "label_orbit": [],
+      "energy": "listening / rep-cinema",
+      "setting": "cinema",
+      "sounds_like": [
+        "classic Hollywood musical",
+        "Vidiots repertory programming"
+      ],
+      "artist_notes": [],
+      "curator_note": "Vincente Minnelli's 1951 Technicolor Gershwin musical — Gene Kelly dancing through Paris, the 17-minute ballet finale, all of it. Vidiots is the right room to see this properly. Afternoon matinee at 1pm, easy to pair with a Silver Lake lunch.",
+      "description": "Repertory screening of 'An American in Paris' (1951, Minnelli/Kelly) at Vidiots in Eagle Rock, 1pm.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "c0b91fb54504": {
+      "id": "c0b91fb54504",
+      "type": "comedy",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "social / comedy",
+      "setting": "theater",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Stavros is on the comedians-loved list and the Wiltern is a great room for stand-up — the Dreamboat Tour has been getting strong notices. A Friday night comedy show that doesn't require much justification if you're a fan.",
+      "description": "Stavros Halkias performs his 'Dreamboat Tour' stand-up at The Wiltern in Koreatown, 7pm.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "c56c321b3412": {
+      "id": "c56c321b3412",
+      "type": "club",
+      "subgenres": [
+        "disco",
+        "pop",
+        "funk-soul"
+      ],
+      "label_orbit": [],
+      "energy": "groove / late-night",
+      "setting": "club",
+      "sounds_like": [
+        "city pop DJ sets",
+        "boogie / alt-disco",
+        "Chromeo DJ set"
+      ],
+      "artist_notes": [
+        {
+          "name": "Ginger Root",
+          "note": "Cameron Lew, OC-born multi-instrumentalist/producer — synth-pop, alt-disco, boogie and soul inflected by Japanese city pop and its '70s–'80s Western counterparts. This is a DJ set, not a live show."
+        }
+      ],
+      "curator_note": "Ginger Root's records are exactly the kind of lovingly-crafted boogie-and-city-pop that fits the vinyl-groove lane, and the Bellwether is a good-sounding room — this is a DJ set rather than the band, but his taste behind the decks tracks with the source material. Free and 21+, easy way to spend the pre-Fourth Friday.",
+      "description": "Ginger Root (Cameron Lew) performs a DJ set at Camille's at The Bellwether in DTLA, 8pm–2am; free, 21+.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "d26b1c2aec3d": {
+      "id": "d26b1c2aec3d",
+      "type": "club",
+      "subgenres": [
+        "disco",
+        "house"
+      ],
+      "label_orbit": [],
+      "energy": "groove / late-night",
+      "setting": "bar",
+      "sounds_like": [
+        "boogie",
+        "nu-disco",
+        "classic house edits"
+      ],
+      "artist_notes": [],
+      "curator_note": "The Hustle is one of Gold Diggers' most consistent recurring nights — twice-monthly disco and boogie in the intimate back room, no headliner needed. A solid Fourth-of-July-Saturday late option if you want to dance and not deal with a big production.",
+      "description": "The Hustle's first-and-third-Saturday disco party at Gold Diggers in East Hollywood, 10:30pm.",
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "9412d5b2209e": {
+      "id": "9412d5b2209e",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "disco",
+        "deep house"
+      ],
+      "label_orbit": [],
+      "energy": "groove / late-night",
+      "setting": "warehouse",
+      "sounds_like": [
+        "Midnight Lovers",
+        "Larry Levan-adjacent NYC house",
+        "slo-mo disco edits"
+      ],
+      "artist_notes": [
+        {
+          "name": "Eli Escobar",
+          "note": "NYC DJ/producer with 20+ years in house and disco — deeply rooted in New York's club lineage, known for open-to-close sets that build from soulful warmth into peak-time tools. A perfect Midnight Lovers fit."
+        }
+      ],
+      "curator_note": "Eli Escobar open-to-close for Midnight Lovers on the Fourth of July is a genuinely excellent late-night option — a NYC house lifer playing all night is better than most of what else is on that Saturday. TBA location drops close to the event per the series' usual format.",
+      "description": "Midnight Lovers presents NYC's Eli Escobar in an open-to-close house-and-disco set at a TBA DTLA location, 7pm–2am; $22 advance.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "9a0fd9893571": {
+      "id": "9a0fd9893571",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "techno",
+        "disco"
+      ],
+      "label_orbit": [],
+      "energy": "groove / late-night",
+      "setting": "warehouse",
+      "sounds_like": [
+        "all-vinyl underground club night",
+        "We Own The Night",
+        "Midnight Lovers format"
+      ],
+      "artist_notes": [
+        {
+          "name": "Taylor Shockley",
+          "note": "LA-based rising selector — club-minded pacing and modern instincts; part of the local underground network feeding nights like Information."
+        },
+        {
+          "name": "Luke Mele",
+          "note": "LA-based (Pittsburgh origin), NTS Radio host — his show spans Balearic house, ambient, dub, jazz and guitar tones; home-listening and club crossover sensibility."
+        },
+        {
+          "name": "CHOÍCE",
+          "note": "Part of the Information all-vinyl night lineup; couldn't verify a public profile beyond this billing."
+        }
+      ],
+      "curator_note": "An all-vinyl night in a TBA downtown space from the Information crew — the format is the pitch, and Taylor Shockley and Luke Mele are local selectors worth watching if you haven't caught them yet. The July date gives plenty of lead time; this is one to pencil in if the TBA address sounds right.",
+      "description": "Information's all-vinyl club night at a TBA Downtown LA location with Taylor Shockley, Luke Mele and CHOÍCE; 10pm.",
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "0eb89ce23c2b": {
+      "id": "0eb89ce23c2b",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "tech-house",
+        "deep house"
+      ],
+      "label_orbit": [
+        "Hot Creations",
+        "Purveyor Underground",
+        "Desolat"
+      ],
+      "energy": "peak / late-night",
+      "setting": "warehouse",
+      "sounds_like": [
+        "Hot Creations nights",
+        "Jamie Jones",
+        "Lee Foss"
+      ],
+      "artist_notes": [
+        {
+          "name": "Demuir",
+          "note": "Toronto-born, Chicago-based jackin' house veteran — 20+ years, releases on Hot Creations, Fool's Gold, Desolat, and his own Purveyor Underground label. Driving, dancefloor-first, soulful groove."
+        }
+      ],
+      "curator_note": "Demuir is a legit house head — Hot Creations-affiliated, Chicago-rooted, and very much the kind of selector who holds a late-night DTLA room without needing a festival billing. Certified Groovers has a track record of booking well; this is a Friday-night keeper.",
+      "description": "Certified Groovers presents Chicago house veteran Demuir at a TBA Downtown Los Angeles location, 10pm.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "3061917831bd": {
+      "id": "3061917831bd",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "deep house",
+        "minimal"
+      ],
+      "label_orbit": [
+        "Limousine Dream"
+      ],
+      "energy": "groove / late-night",
+      "setting": "warehouse",
+      "sounds_like": [
+        "lush minimal house",
+        "DJ Sprinkles",
+        "Honey Soundsystem"
+      ],
+      "artist_notes": [
+        {
+          "name": "Gene On Earth",
+          "note": "SF-born Eugene Albert, now Berlin-based — runs the Limousine Dream label and produces lush, syrupy minimal-adjacent house with ambient tinges. NTS presence, cult following in both US and European underground circles."
+        }
+      ],
+      "curator_note": "Gene On Earth is a California native who did his formative years in Berlin and built a small but devoted following with the Limousine Dream label's syrupy, unhurried house — this is an afterhours in the Certified Groovers series, so expect the TBA location and a room full of people who know exactly who they came for.",
+      "description": "Certified Groovers presents Berlin-based Californian Gene On Earth (Limousine Dream) at a TBA Downtown Los Angeles location, 10pm.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "1e27960536ad": {
+      "id": "1e27960536ad",
+      "type": "club",
+      "subgenres": [
+        "tech-house",
+        "deep-house",
+        "minimal"
+      ],
+      "label_orbit": [],
+      "energy": "peak / afterhours",
+      "setting": "warehouse",
+      "sounds_like": [
+        "LA underground afterhours",
+        "tech-house / minimal crossover"
+      ],
+      "artist_notes": [
+        {
+          "name": "JTJ",
+          "note": "Part of the Recollect Underground lineup; couldn't verify a public profile beyond this billing."
+        },
+        {
+          "name": "Kenny Cordeiro",
+          "note": "Listed on the Recollect Underground bill; limited public footprint."
+        },
+        {
+          "name": "Matt Marauder",
+          "note": "Listed on the Recollect Underground bill; limited public footprint."
+        },
+        {
+          "name": "Lavenge",
+          "note": "Part of the b2b pairing at Recollect Underground; limited public footprint."
+        },
+        {
+          "name": "Mama J",
+          "note": "LA underground DJ, part of the b2b closing set; local network figure."
+        },
+        {
+          "name": "Max Rush",
+          "note": "Part of the b2b closing set at Recollect Underground; limited public footprint."
+        }
+      ],
+      "curator_note": "Recollect Underground runs the proper TBA-location DTLA afterhours format — tech-house and minimal, b2b closers, 11pm–5am, an IG-posted address. The price is reasonable ($11.50–23) and the format is solid if you want to dance through sunrise without a marquee booking.",
+      "description": "Recollect Underground's afterhours at a TBA DTLA location (11pm–5am) with JTJ, Kenny Cordeiro, Matt Marauder, Lavenge b2b Xuliet, and Mama J b2b Max Rush; $11.50–23.",
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "31d6a23bb826": {
+      "id": "31d6a23bb826",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "tech-house",
+        "techno"
+      ],
+      "label_orbit": [
+        "Insomniac Records",
+        "mau5trap",
+        "Night Bass"
+      ],
+      "energy": "groove / golden-hour",
+      "setting": "rooftop",
+      "sounds_like": [
+        "Honey Dijon",
+        "Joris Voorn",
+        "West Coast bass-house crossover"
+      ],
+      "artist_notes": [
+        {
+          "name": "Casmalia",
+          "note": "LA-based DJ, producer, and live vocalist — classically trained with a degree in audio engineering; releases on Insomniac, mau5trap, Night Bass and CUFF. Her 'Unicorns Only' series is exactly what she's running here: house, tech-house and techno from the rare/underground end. 'Don't Tell Me How To Rave' hit #1 trending on SoundCloud US in 2025."
+        }
+      ],
+      "curator_note": "Casmalia's 'Unicorns Only' takeover of the Sunset Sessions rooftop is a good pairing — she's a West Coast house figure with real production chops, not just a selector, and the Level 8 setting (free, 5–10pm, golden hour over DTLA) is the exact format that keeps working. Worth going even if the name isn't immediately familiar.",
+      "description": "Sunset Sessions presents Casmalia's 'Unicorns Only' takeover at Level 8 DTLA rooftop, 5–10pm; free.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "aacf17a0f1c8": {
+      "id": "aacf17a0f1c8",
+      "type": "club",
+      "subgenres": [
+        "pop",
+        "electronic"
+      ],
+      "label_orbit": [],
+      "energy": "social / nostalgia",
+      "setting": "club",
+      "sounds_like": [
+        "2010s EDM / pop nostalgia",
+        "LMFAO era"
+      ],
+      "artist_notes": [],
+      "curator_note": "A 2010–2015 pop-and-EDM nostalgia night at Catch One — 'Sorry For Party Rocking' is the title, and that tells you exactly what you're getting. Not remotely the lane, but there's something kind of charming about committing this hard to the LMFAO era. Easy skip.",
+      "description": "2010–2015 pop and EDM nostalgia party at Catch One in Mid-City, 9pm–2am; free with RSVP before 10:30pm.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "221fd89985fd": {
+      "id": "221fd89985fd",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "experimental",
+        "electronic"
+      ],
+      "label_orbit": [
+        "Mixpak"
+      ],
+      "energy": "peak / afterhours",
+      "setting": "warehouse",
+      "sounds_like": [
+        "Honey Dijon",
+        "Jubilee Mixpak",
+        "JERK (Bambii's Toronto night)"
+      ],
+      "artist_notes": [
+        {
+          "name": "Bambii",
+          "note": "Jamaican-Canadian DJ/producer (Kirsten Azan), Toronto — runs the JERK club night celebrating the Caribbean diaspora; Juno Award winner (Electronic Album of the Year 2024). Lush, exuberant club music that bridges Caribbean sound and experimental electronic."
+        },
+        {
+          "name": "Jubilee",
+          "note": "NYC producer/DJ (Mixpak), Miami roots — high-energy sets spanning grime, dancehall, techno and R&B; one of the more interesting cross-genre selectors in the queer/club world."
+        },
+        {
+          "name": "Introspekt",
+          "note": "Leimert Park-born, now NY-based DJ/producer — releases on Locked On, T4T LUV NRG, EC2A; bass-heavy club music rooted in UK garage and dubstep, NTS resident. Mixmag 2023 breakthrough DJ."
+        }
+      ],
+      "curator_note": "Baile World is pulling a genuinely impressive Pride lineup here — Bambii and Jubilee together is a proper double bill, and Introspekt adds the underground credibility. This is the kind of queer club night where the music is the whole point, not just the backdrop. 188 attending on RA already means the room will have energy.",
+      "description": "Baile World Pride afterhours at a TBA DTLA location (11pm–5am) with Bambii, Jubilee, Introspekt, Spiñorita and Cquestt; $11–33.",
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "4dd13aaa260f": {
+      "id": "4dd13aaa260f",
+      "type": "festival",
+      "subgenres": [
+        "techno",
+        "house",
+        "bass",
+        "electro"
+      ],
+      "label_orbit": [
+        "HARD Events",
+        "Insomniac"
+      ],
+      "energy": "peak / festival",
+      "setting": "outdoor",
+      "sounds_like": [
+        "EDC",
+        "Crssd",
+        "HARD Summer"
+      ],
+      "artist_notes": [
+        {
+          "name": "Amelie Lens",
+          "note": "Belgian techno DJ/producer (Exhale, Lenske) — driving, industrial-tinged techno with enormous festival draw; anchors Day 1's techno stage here."
+        },
+        {
+          "name": "Charlotte de Witte",
+          "note": "Belgian minimal techno icon (KNTXT label founder) — stripped, hypnotic, no-frills sets; co-headlines Day 1 with Amelie Lens."
+        },
+        {
+          "name": "Maceo Plex",
+          "note": "Eric Estornel, Cuban-American techno/house producer (Ellum Audio) — deep, hypnotic club music with broad festival appeal."
+        },
+        {
+          "name": "Boys Noize",
+          "note": "Alexander Ridha — Berlin electro/techno producer and label boss (Boys Noize Records); hard-edged, precise sets."
+        },
+        {
+          "name": "Tiga",
+          "note": "Montreal electro-house pioneer (Turbo Recordings) — dry, witty, body-music with a deep record-nerd foundation."
+        },
+        {
+          "name": "Vintage Culture",
+          "note": "Brazilian producer, one of the biggest names in the Latin/global house scene — melodic and groove-forward."
+        },
+        {
+          "name": "DJ Seinfeld",
+          "note": "Swedish lo-fi house producer (Lobster Fury) — hazy, bedroom-house textures translating to festival crowds; recent crossover."
+        }
+      ],
+      "curator_note": "HARD Summer is a big-format fest, but Day 1's techno stage — Amelie Lens and Charlotte de Witte back-to-back over Hollywood Park — is a genuine headline booking at any scale. Day 2 goes broader (Vintage Culture, Peggy Gou). Go for Day 1 if techno is the priority, Day 2 if you want the full spectrum. Tickets on sale.",
+      "description": "HARD Summer Music Festival at Hollywood Park in Inglewood, 8/1–8/2. Two-day multi-stage electronic festival headlined by Amelie Lens, Charlotte de Witte (Day 1), Vintage Culture and Peggy Gou (Day 2), plus 60+ acts.",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "bb4f346b7a87": {
+      "id": "bb4f346b7a87",
+      "type": "festival",
+      "subgenres": [
+        "techno",
+        "house",
+        "tech-house"
+      ],
+      "label_orbit": [
+        "Drumcode",
+        "Desolat"
+      ],
+      "energy": "peak / festival",
+      "setting": "outdoor",
+      "sounds_like": [
+        "CRSSD Festival",
+        "LA's boutique electronic fests"
+      ],
+      "artist_notes": [
+        {
+          "name": "Adam Beyer",
+          "note": "Swedish techno heavyweight, Drumcode boss — precise, driving, industrial-adjacent sets; probably the most consistent headliner in techno right now."
+        },
+        {
+          "name": "Loco Dice",
+          "note": "Tunisian-born, Düsseldorf-raised DJ/producer (Desolat) — hypnotic, mesmerizing long sets; one of techno's great selector-storytellers."
+        },
+        {
+          "name": "Hi-Lo",
+          "note": "Alias of Dutch DJ Oliver Heldens — bridges commercial house and tech-house; high energy crowd-mover."
+        },
+        {
+          "name": "Cloonee",
+          "note": "UK tech-house producer, one of the buzzier names on the underground-to-festival conveyor belt right now."
+        }
+      ],
+      "curator_note": "Day Trip is LA's own boutique electronic festival — Queens Mary waterfront in Long Beach, a genuinely scenic site. Adam Beyer and Loco Dice on the same bill is strong for techno; Metro A Line makes it car-free. The Long Beach distance is worth it for this lineup.",
+      "description": "Day Trip Festival at The Queen Mary waterfront, Long Beach, 6/27–6/28. Outdoor electronic festival with Adam Beyer, Loco Dice, Hi-Lo, Cloonee and more.",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "9ea5376be5a4": {
+      "id": "9ea5376be5a4",
+      "type": "club",
+      "subgenres": [
+        "house-pop",
+        "leftfield club",
+        "deep house"
+      ],
+      "label_orbit": [
+        "XL Recordings",
+        "Ninja Tune"
+      ],
+      "energy": "groove / peak",
+      "setting": "warehouse",
+      "sounds_like": [
+        "Honey Dijon",
+        "Special Request",
+        "Peggy Gou"
+      ],
+      "artist_notes": [
+        {
+          "name": "Yaeji",
+          "note": "Kathy Yaeji Lee — NY/Korean DJ/producer (XL/Ninja Tune) whose sound sits between lo-fi house, leftfield electronics and indie-pop; her 2023 album 'With a Hammer' crossed over while keeping its underground roots. One of the week's top bookings."
+        },
+        {
+          "name": "Alima Lee",
+          "note": "LA-based DJ and co-founder of the FREQ collective — deep, dancefloor-focused selections from the LA underground."
+        },
+        {
+          "name": "Hu Dat",
+          "note": "LA DJ, Lights Down Low regular — deep house and club-leaning selections."
+        }
+      ],
+      "curator_note": "Yaeji's crossover between house-pop and leftfield club is a rare combination — she's one of the only artists who can genuinely hold a late-night DTLA warehouse *and* pull listeners from outside the scene. Lights Down Low keeps the format right: TBA venue, afterhours, proper sound. Week's top booking.",
+      "description": "Lights Down Low presents Yaeji at a TBA Downtown LA location, 6/26 (afterhours); $22–46.",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "58579f941eb8": {
+      "id": "58579f941eb8",
+      "type": "club",
+      "subgenres": [
+        "techno",
+        "deep house",
+        "minimal"
+      ],
+      "label_orbit": [
+        "Planet E Communications",
+        "Mixmaster Morris",
+        "Dirty Epic"
+      ],
+      "energy": "peak / late-night",
+      "setting": "warehouse",
+      "sounds_like": [
+        "Classic Detroit techno",
+        "fabric London deep-end"
+      ],
+      "artist_notes": [
+        {
+          "name": "Stacey Pullen",
+          "note": "Detroit second-generation techno (Planet E Communications, Peacefrog) — melodic, hypnotic, soulful sets with a direct lineage to Juan Atkins and Kevin Saunderson. A tracked name and one of Detroit's great unsung selectors."
+        },
+        {
+          "name": "BAE BAE",
+          "note": "LA-based DJ, INCOGNITO regular — deep, dancefloor-focused selections from the LA underground."
+        },
+        {
+          "name": "nish.",
+          "note": "LA underground selector, Dirty Epic affiliate — minimal and deep house, club-precise."
+        }
+      ],
+      "curator_note": "Stacey Pullen is a proper Detroit selector who rarely plays LA — Dirty Epic and INCOGNITO booking him for an afterhours TBA is the right format. RA pick. $27-32 before midnight is fair for this level of headliner.",
+      "description": "Dirty Epic and INCOGNITO present Stacey Pullen, BAE BAE and nish. at a TBA Los Angeles location, 6/26 (afterhours); $27–32.",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "0f729582faa3": {
+      "id": "0f729582faa3",
+      "type": "club",
+      "subgenres": [
+        "minimal techno",
+        "Detroit techno"
+      ],
+      "label_orbit": [
+        "M-Plant",
+        "Hardwax"
+      ],
+      "energy": "peak / afterhours",
+      "setting": "warehouse",
+      "sounds_like": [
+        "Robert Hood solo sets",
+        "Detroit minimal",
+        "Basic Channel lineage"
+      ],
+      "artist_notes": [
+        {
+          "name": "Robert Hood",
+          "note": "Detroit minimal techno patriarch — co-founded Underground Resistance with Jeff Mills, then launched M-Plant for his solo minimal work. His stripped, hypnotic 4/4 is one of the most influential sounds in electronic music. Open-to-close on the Fourth is the statement booking of this week."
+        },
+        {
+          "name": "Ønyx",
+          "note": "LA-based DJ, WORK regular — minimal and techno, fits the Robert Hood context."
+        },
+        {
+          "name": "Rubbermiro",
+          "note": "LA underground DJ (WORK series) — minimal/techno selections."
+        },
+        {
+          "name": "Disco Zombie",
+          "note": "LA underground DJ regular on the WORK and afterhours circuit."
+        }
+      ],
+      "curator_note": "Robert Hood open-to-close on the Fourth of July in a TBA DTLA warehouse — this is the strongest booking of the 7/4 weekend and probably one of the top 3 shows of the month. WORK has a track record of getting the format right; the TBA address drops close to date via IG.",
+      "description": "WORK presents Robert Hood (open to close), Disco Zombie, Ønyx, and Rubbermiro at a TBA Los Angeles location, 7/4 (afterhours).",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "7e00f46a7221": {
+      "id": "7e00f46a7221",
+      "type": "club",
+      "subgenres": [
+        "deep house",
+        "disco",
+        "afro-house"
+      ],
+      "label_orbit": [
+        "Ninja Tune",
+        "Turbo Recordings"
+      ],
+      "energy": "groove / late-night",
+      "setting": "club",
+      "sounds_like": [
+        "Jayda G",
+        "Call Super",
+        "Honey Dijon"
+      ],
+      "artist_notes": [
+        {
+          "name": "Jayda G",
+          "note": "Jayda G (Jayda Guy) — BC-born, Berlin-based DJ/producer (Ninja Tune, Turbo); known for sets that weave deep house, Afrobeat and funk roots into late-night peak-time; her 'Both of Us' is an instant classic. One of the best selectors working right now."
+        }
+      ],
+      "curator_note": "Jayda G at Sound Nightclub on the Fourth is a proper booking — she's one of the sharpest selectors crossing over from the Berlin underground to LA club nights. $31, Hollywood, Sound's layout and sound system are well-suited for this kind of set.",
+      "description": "Jayda G at Sound Nightclub in Hollywood, 7/4 (afterhours); $31.",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "241179720c5f": {
+      "id": "241179720c5f",
+      "type": "club",
+      "subgenres": [
+        "minimal techno",
+        "Detroit techno"
+      ],
+      "label_orbit": [
+        "M-Plant",
+        "Hardwax"
+      ],
+      "energy": "peak / afterhours",
+      "setting": "warehouse",
+      "sounds_like": [
+        "Robert Hood solo sets",
+        "Detroit minimal"
+      ],
+      "artist_notes": [],
+      "curator_note": "Same WORK booking as 0f729582faa3 — Robert Hood at a TBA DTLA location, 7/4. This record is a duplicate from a second source; see the WORK entry for full details.",
+      "description": "Robert Hood, Disco Zombie, Onyx and Rubbermiro at a TBA Los Angeles location, 7/4 (afterhours). WORK series.",
+      "image": null,
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "d535a0dbfe40": {
+      "id": "d535a0dbfe40",
+      "type": "club",
+      "subgenres": [
+        "techno"
+      ],
+      "label_orbit": [
+        "Exhale",
+        "Factory 93"
+      ],
+      "energy": "peak / outdoor",
+      "setting": "outdoor",
+      "sounds_like": [
+        "Amelie Lens at Tomorrowland",
+        "Factory 93 outdoor shows"
+      ],
+      "artist_notes": [
+        {
+          "name": "Amelie Lens",
+          "note": "Belgian techno DJ/producer (Exhale label, Lenske) — driving, peak-time techno with massive festival draw. One of the few European techno headliners who reliably sells outdoor shows at this scale."
+        }
+      ],
+      "curator_note": "Factory 93 outdoor block party at Grand Park — free, all-ages, and one of the year's best open-access bookings. Amelie Lens normally plays $50+ ticketed events; this is a rare free outdoor show in downtown LA. RA pick. Mark 9/26.",
+      "description": "Factory 93 presents Amelie Lens at Grand Park Block 2 in DTLA, 9/26 (daytime/afternoon); free.",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "437b015f697a": {
+      "id": "437b015f697a",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "disco",
+        "edits"
+      ],
+      "label_orbit": [
+        "Razor-N-Tape"
+      ],
+      "energy": "groove / late-night",
+      "setting": "club",
+      "sounds_like": [
+        "Razor-N-Tape",
+        "Midnight Lovers format",
+        "soulful edit-heavy house"
+      ],
+      "artist_notes": [
+        {
+          "name": "JKriv",
+          "note": "JKriv (Josh Krivit) — NYC house/disco DJ and Razor-N-Tape label co-founder; known for deep crate-digging, soul-inflected edits and long late-night sets. Bar Franca in Silver Lake is exactly the right room for this."
+        }
+      ],
+      "curator_note": "JKriv at Bar Franca is a walkable Silver Lake score — Razor-N-Tape's house/disco sound fits the venue perfectly, and it's free. The Midnight Lovers format at smaller Silver Lake spots is among the week's best casual picks if you're eastside.",
+      "description": "Midnight Lovers with JKriv (Razor-N-Tape) at Bar Franca in Silver Lake, 6/26 (afterhours); free.",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "e667ba3ea44d": {
+      "id": "e667ba3ea44d",
+      "type": "club",
+      "subgenres": [
+        "disco",
+        "latin",
+        "house"
+      ],
+      "label_orbit": [],
+      "energy": "groove / late-night",
+      "setting": "club",
+      "sounds_like": [
+        "Latin disco",
+        "DTLA underground club nights"
+      ],
+      "artist_notes": [],
+      "curator_note": "LA DISCOTECA at The Slipper Clutch — a recurring DTLA latin disco and house night in a compact venue. Free entry, afterhours, good for a late-night stop if you're already downtown.",
+      "description": "LA DISCOTECA at The Slipper Clutch in DTLA, 6/26 (afterhours); free.",
+      "image": null,
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "a2ec0d8dd081": {
+      "id": "a2ec0d8dd081",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "electronic",
+        "live electronic"
+      ],
+      "label_orbit": [],
+      "energy": "peak / late-night",
+      "setting": "warehouse",
+      "sounds_like": [
+        "live/DJ hybrid all-night sets",
+        "TBA Downtown format"
+      ],
+      "artist_notes": [
+        {
+          "name": "Enayet",
+          "note": "LA-based producer/DJ (CSW/Crown Sound Works) — electronic and house, live/DJ hybrid sets; part of the DTLA underground circuit."
+        },
+        {
+          "name": "K Wata",
+          "note": "Co-headliner on the CSW/SLINK all-night bill; LA underground."
+        }
+      ],
+      "curator_note": "An all-night live/DJ hybrid set from Enayet and K Wata in a TBA Downtown space — CSW (Crown Sound Works) and SLINK run quality afterhours. The format (all night, two selectors, $16-33) is the right price for the risk on a TBA booking.",
+      "description": "CSW and SLINK present Enayet and K Wata [All Night] [Live/DJ] at a TBA Downtown LA location, 6/26; $16–33.",
+      "image": null,
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "4b5718ac6609": {
+      "id": "4b5718ac6609",
+      "type": "club",
+      "subgenres": [
+        "tech-house",
+        "house",
+        "deep house"
+      ],
+      "label_orbit": [],
+      "energy": "peak / afterhours",
+      "setting": "warehouse",
+      "sounds_like": [
+        "Arts District TBA afterhours",
+        "LA underground house"
+      ],
+      "artist_notes": [
+        {
+          "name": "Halo Varga",
+          "note": "Hungarian-born LA-based DJ/producer — deep house and tech-house, festival circuit (CRSSD, Lightning in a Bottle). MARBLE series regular."
+        },
+        {
+          "name": "Dylan Payne",
+          "note": "NYC DJ, known for long club sets in the house/tech-house zone; MARBLE booking regular."
+        },
+        {
+          "name": "PabloDiscobar",
+          "note": "LA DJ on the underground circuit; disco-inflected house."
+        }
+      ],
+      "curator_note": "MARBLE runs a solid Arts District afterhours — Halo Varga and Dylan Payne are both reliable deep-house selectors, and Krane (Sunday Sessions regular) filling out the lineup adds local credibility. $20-37 for a TBA Arts District night is standard.",
+      "description": "MARBLE presents Halo Varga, Dylan Payne, Hazy, PabloDiscobar, Krane and Highkin' at a TBA Arts District location, 6/26 (afterhours); $20–37.",
+      "image": null,
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "7c349f4a2cfe": {
+      "id": "7c349f4a2cfe",
+      "type": "club",
+      "subgenres": [
+        "techno",
+        "house",
+        "tech-house"
+      ],
+      "label_orbit": [
+        "Relief Records"
+      ],
+      "energy": "peak / late-night",
+      "setting": "club",
+      "sounds_like": [
+        "Green Velvet b2b sets",
+        "Chicago acid/techno"
+      ],
+      "artist_notes": [
+        {
+          "name": "Green Velvet",
+          "note": "Curtis Jones — Chicago techno/house legend (Relief Records, Cajmere persona); acid-house and rave-era energy with modern DJ precision. Genuinely important figure."
+        },
+        {
+          "name": "Ugo Banchi",
+          "note": "Italian-born DJ, tech-house circuit; modern European-influenced selections."
+        }
+      ],
+      "curator_note": "Day Trip's SoCal preparty at Exchange LA the night before the Long Beach festival — Green Velvet is a genuine Chicago techno legend, and Exchange has proper infrastructure. $45-95 is steep for a prep party but earns it with the headliner. If you're going to Day Trip on 6/28, this is a worthy pre-game.",
+      "description": "Day Trip Festival SoCal Preparty with Green Velvet and Ugo Banchi at Exchange LA in DTLA, 6/26 (afterhours); $45–95.",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "fd9f6e2edd10": {
+      "id": "fd9f6e2edd10",
+      "type": "live",
+      "subgenres": [
+        "desert house",
+        "psych-disco",
+        "soul"
+      ],
+      "label_orbit": [],
+      "energy": "groove / live",
+      "setting": "club",
+      "sounds_like": [
+        "Khruangbin",
+        "Allah-Las",
+        "desert psychedelia meets dancefloor"
+      ],
+      "artist_notes": [
+        {
+          "name": "Flying Mojito Bros",
+          "note": "LA duo — sun-bleached desert house and psychedelic disco, crate-digger sensibility with a live element. Bellwether regulars."
+        },
+        {
+          "name": "Brainstory",
+          "note": "LA band blending soul, R&B and garage rock — lush, groove-oriented live sets; getting wider notice."
+        }
+      ],
+      "curator_note": "Camille's at The Bellwether has been quietly building a great run of late-night live events — Flying Mojito Bros and Brainstory on the same bill is a strong pairing of the psych-desert and modern-soul scenes. $24, afterhours, DTLA.",
+      "description": "Flying Mojito Bros and Brainstory at Camille's at The Bellwether in DTLA, 6/26 (afterhours); $24.",
+      "image": null,
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "039b68263b20": {
+      "id": "039b68263b20",
+      "type": "club",
+      "subgenres": [
+        "techno",
+        "deep house",
+        "minimal"
+      ],
+      "label_orbit": [
+        "Planet E Communications"
+      ],
+      "energy": "peak / late-night",
+      "setting": "warehouse",
+      "sounds_like": [
+        "Classic Detroit techno",
+        "underground TBA format"
+      ],
+      "artist_notes": [],
+      "curator_note": "Second Stacey Pullen listing for 6/26 — likely the same Dirty Epic/INCOGNITO night (see the Dirty Epic entry at 58579f941eb8 for the fuller details). If this is a separate booking it's worth investigating, but treat as duplicate of that entry.",
+      "description": "Stacey Pullen, Bae Bae and Nish at a TBA Los Angeles location, 6/26 (afterhours).",
+      "image": null,
+      "confidence": "low",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "61cf97428297": {
+      "id": "61cf97428297",
+      "type": "party",
+      "subgenres": [
+        "house",
+        "funk",
+        "soul"
+      ],
+      "label_orbit": [],
+      "energy": "groove / late-night",
+      "setting": "club",
+      "sounds_like": [
+        "DTLA social nights",
+        "groove-focused afterhours"
+      ],
+      "artist_notes": [],
+      "curator_note": "The Groove at 330 S Broadway — a recurring free DTLA afterhours with house, funk and soul. Free entry makes it a low-commitment late-night option in a central downtown spot.",
+      "description": "The Groove at 330 S Broadway in DTLA, 6/26 (afterhours); free.",
+      "image": null,
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "4eea8f28c93f": {
+      "id": "4eea8f28c93f",
+      "type": "music",
+      "subgenres": [
+        "vinyl",
+        "physical media",
+        "analog"
+      ],
+      "label_orbit": [],
+      "energy": "listening / browsing",
+      "setting": "arts venue",
+      "sounds_like": [
+        "Record fairs",
+        "Amoeba",
+        "vinyl swap meets"
+      ],
+      "artist_notes": [],
+      "curator_note": "Analog Outlaw's media fair at 2220 Arts + Archives — vinyl, VHS, books, collectibles in one of HiFi's best mid-size arts spaces. Daytime on Saturday, great pre-game for a Saturday night. The Analog Outlaw format (physical media + local sellers) is well-curated.",
+      "description": "Analog Outlaw — Analog Media Fair (vinyl, books, VHS, collectibles) at 2220 Arts + Archives in Historic Filipinotown, 6/27 (daytime).",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "e27fde913981": {
+      "id": "e27fde913981",
+      "type": "club",
+      "subgenres": [
+        "bollywood disco",
+        "dabke",
+        "diaspora dance",
+        "world"
+      ],
+      "label_orbit": [],
+      "energy": "groove / festive",
+      "setting": "club",
+      "sounds_like": [
+        "world-music nightlife",
+        "LA's diaspora club scene"
+      ],
+      "artist_notes": [
+        {
+          "name": "discostan",
+          "note": "The Discostan party (LA) — 15 years of celebrating the South Asian, Middle Eastern and broader diaspora through dance music: Bollywood disco, Bhangra, Baile Funk, dabke and eclectic world selections. One of LA's most culturally distinct and durable club nights."
+        },
+        {
+          "name": "Kohinoorgasm",
+          "note": "LA DJ collective/DJ (also affiliated with Discostan) — South Asian-rooted dance music and edits; a key part of the night's identity."
+        }
+      ],
+      "curator_note": "Fifteen years at El Cid in Silver Lake — Discostan is one of LA's most culturally distinct club nights, and their 15th anniversary is worth going. $11-17, walkable Silver Lake, Bollywood disco and dabke in a venue that fits the format. Easy yes.",
+      "description": "Discostan 15th Anniversary at El Cid in Silver Lake, 6/27 (afterhours); $11–17.",
+      "image": null,
+      "confidence": "high",
+      "enriched_at": "2026-06-23T00:00:00"
+    },
+    "4d5f11e375f5": {
+      "id": "4d5f11e375f5",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "deep house",
+        "tech-house"
+      ],
+      "label_orbit": [],
+      "energy": "peak / afterhours",
+      "setting": "warehouse",
+      "sounds_like": [
+        "DTLA warehouse afterhours",
+        "underground house"
+      ],
+      "artist_notes": [
+        {
+          "name": "Pocari G",
+          "note": "LA-based DJ, Butterground series regular — deep and tech-house selections."
+        },
+        {
+          "name": "Ashtre",
+          "note": "LA underground DJ, Butterground regular — house-forward selections."
+        },
+        {
+          "name": "Oso Disco",
+          "note": "LA DJ, disco-house selector on the local underground circuit."
+        }
+      ],
+      "curator_note": "Butterground runs a solid TBA-address DTLA house night — $25 for an afterhours with a well-curated local lineup is fair. Not a marquee booking but a reliable underground format for a Saturday night.",
+      "description": "Butterground presents Pocari G, Ashtre, Costa, Oso Disco, Blaze Claze at a TBA DTLA/Los Angeles location, 6/27 (afterhours); $25.",
+      "image": null,
+      "confidence": "medium",
+      "enriched_at": "2026-06-23T00:00:00"
     }
   },
   "artists": {
@@ -983,7 +2104,7 @@
       "seen": "2026-06-17T06:04:50"
     },
     "bradley zero": {
-      "note": "Founder of Peckham's Rhythm Section International and the long-running NTS show — a genuine tastemaker selector spanning disco, broken beat, deep house and global grooves. One of the better daytime sets you can catch in LA this weekend.",
+      "note": "Founder of Peckham's Rhythm Section International and the long-running NTS show — a genuine tastemaker selector spanning disco, broken beat, deep house and global grooves.",
       "seen": "2026-06-17T06:04:50"
     },
     "masha mar": {
@@ -1010,7 +2131,7 @@
       "note": "Detroit house matriarch, Women on Wax founder — tracked artist; deep, soulful, dancefloor-first selection.",
       "seen": "2026-06-17T06:04:50"
     },
-    "josh caffé": {
+    "josh caffe": {
       "note": "London house vocalist/DJ and Paranoid London frontman; Black queer club energy with records on Crosstown Rebels and Classic — proper fabric-lineage stuff.",
       "seen": "2026-06-17T06:04:50"
     },
@@ -1095,7 +2216,7 @@
       "seen": "2026-06-17T06:04:50"
     },
     "antal": {
-      "note": "Rush Hour co-founder, Amsterdam — one of the deepest diggers alive; obscure disco, raw house, broken beat and beyond. Flying in for this. A tracked name.",
+      "note": "Rush Hour co-founder, Amsterdam — one of the deepest diggers alive; obscure disco, raw house, broken beat and beyond. A tracked name.",
       "seen": "2026-06-17T06:04:50"
     },
     "reverberation radio": {
@@ -1129,6 +2250,122 @@
     "tom dolas": {
       "note": "Keyboardist in Oh Sees and Mr. Elevator — psych and jazz-fusion-flavored synth and keys.",
       "seen": "2026-06-17T06:04:50"
+    },
+    "casmalia": {
+      "note": "LA-based DJ, producer, and live vocalist — classically trained, releases on Insomniac, mau5trap, Night Bass and CUFF; runs the 'Unicorns Only' series. Her 'Don't Tell Me How To Rave' hit #1 trending on SoundCloud US in 2025.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "ginger root": {
+      "note": "Cameron Lew, OC-born multi-instrumentalist/producer — synth-pop, alt-disco, boogie and soul inflected by Japanese city pop and its '70s–'80s Western counterparts. DJ set at Bellwether 7/3.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "eli escobar": {
+      "note": "NYC DJ/producer with 20+ years in house and disco — deeply rooted in New York's club lineage, known for open-to-close sets that build from soulful warmth into peak-time tools.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "massimiliano pagliara": {
+      "note": "Italian-born Berlin DJ (since 2001), Berghain/Basement resident — eclectic house, techno and electro-disco, releases on Live at Robert Johnson, Ostgut Ton and Permanent Vacation.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "gene on earth": {
+      "note": "SF-born Eugene Albert, Berlin-based — runs the Limousine Dream label; lush, syrupy minimal-adjacent house with ambient tinges. NTS presence, cult following in US and European underground circles.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "demuir": {
+      "note": "Toronto-born, Chicago-based jackin' house veteran — 20+ years, releases on Hot Creations, Fool's Gold, Desolat, and his own Purveyor Underground label. Driving, dancefloor-first, soulful groove.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "james axon": {
+      "note": "LA-based lifelong pianist turned DJ — Dublab resident (Hearing Color show), founder of the Planet Love queer underground party; warm, record-collector approach with deep house and techno fluency.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "taylor shockley": {
+      "note": "LA-based rising selector — club-minded pacing and modern instincts; part of the local underground network feeding nights like Information.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "luke mele": {
+      "note": "LA-based (Pittsburgh origin), NTS Radio host — his show spans Balearic house, ambient, dub, jazz and guitar tones; home-listening and club crossover sensibility.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "bambii": {
+      "note": "Jamaican-Canadian DJ/producer (Kirsten Azan), Toronto — runs the JERK club night celebrating the Caribbean diaspora; Juno Award winner (Electronic Album of the Year 2024). Bridges Caribbean sound and experimental club music.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "jubilee": {
+      "note": "NYC producer/DJ (Mixpak), Miami roots — high-energy sets spanning grime, dancehall, techno and R&B; one of the more interesting cross-genre selectors in the queer/club world.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "introspekt": {
+      "note": "Leimert Park-born, now NY-based DJ/producer — releases on Locked On, T4T LUV NRG, EC2A; bass-heavy club music rooted in UK garage and dubstep, NTS resident. Mixmag 2023 breakthrough DJ.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "porter robinson": {
+      "note": "Electronic producer known for emotionally-driven melodic/anime-inflected dance music ('Nurture', 'Worlds') — Spotify heavy rotation for Ari. Headlining Lost in Dreams LA.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "dabin": {
+      "note": "Canadian producer in the melodic-bass / future-bass crossover space; Spotify on-rotation pick for Ari.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "yaeji": {
+      "note": "Kathy Yaeji Lee — NY/Korean DJ/producer (XL Recordings, Ninja Tune) whose sound bridges lo-fi house, leftfield electronics and indie-pop; 2023 album 'With a Hammer' crossed over without losing underground credibility.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "stacey pullen": {
+      "note": "Detroit techno second generation (Planet E Communications, Peacefrog) — melodic, hypnotic, soulful sets with a direct lineage to Juan Atkins and Kevin Saunderson. One of Detroit's great unsung selectors.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "robert hood": {
+      "note": "Detroit minimal techno patriarch — co-founded Underground Resistance, then launched M-Plant for his stripped, hypnotic solo minimal work. One of the most influential figures in electronic music.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "jayda g": {
+      "note": "Jayda Guy — BC-born, Berlin-based DJ/producer (Ninja Tune, Turbo); sets weave deep house, Afrobeat and funk roots into late-night peak-time. 'Both of Us' is a classic. One of the best selectors working.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "amelie lens": {
+      "note": "Belgian techno DJ/producer (Exhale label, Lenske) — driving, industrial-tinged peak-time techno with enormous festival draw; one of the biggest names in European techno.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "jkriv": {
+      "note": "Josh Krivit — NYC house/disco DJ and Razor-N-Tape label co-founder; deep crate-digging, soul-inflected edits and long late-night sets.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "green velvet": {
+      "note": "Curtis Jones — Chicago techno/house legend (Relief Records, Cajmere persona); acid-house and rave-era energy with modern DJ precision. Genuinely foundational figure.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "adam beyer": {
+      "note": "Swedish techno heavyweight, Drumcode label boss — precise, driving, industrial-adjacent sets; probably the most consistent headliner in techno.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "loco dice": {
+      "note": "Tunisian-born, Düsseldorf-raised DJ/producer (Desolat label) — hypnotic, mesmerizing long sets; one of techno's great selector-storytellers.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "charlotte de witte": {
+      "note": "Belgian minimal techno icon, KNTXT label founder — stripped, hypnotic, no-frills sets; co-headlines with Amelie Lens at HARD Summer Day 1.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "maceo plex": {
+      "note": "Eric Estornel — Cuban-American techno/house producer (Ellum Audio); deep, hypnotic club music with broad festival appeal.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "flying mojito bros": {
+      "note": "LA duo — sun-bleached desert house and psychedelic disco, crate-digger sensibility with a live element. Bellwether regulars.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "discostan": {
+      "note": "LA's premier South Asian, Middle Eastern and diaspora dance night — 15 years of Bollywood disco, dabke, Bhangra and eclectic world selections. One of the most culturally distinct club nights in the city.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "halo varga": {
+      "note": "Hungarian-born, LA-based DJ/producer — deep house and tech-house, festival circuit (CRSSD, Lightning in a Bottle). MARBLE series regular.",
+      "seen": "2026-06-23T00:00:00"
+    },
+    "cloonee": {
+      "note": "UK tech-house producer, one of the buzzier names on the underground-to-festival pipeline; driving, groove-forward sets.",
+      "seen": "2026-06-23T00:00:00"
     }
   }
 }
