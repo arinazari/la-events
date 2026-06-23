@@ -83560,5 +83560,71 @@
       "region": null,
       "near_home": false
     }
+  },
+  {
+    "title": "Daisy Chain Fields Music Festival",
+    "date": "2026-08-29",
+    "start": null,
+    "venue": "Great Park Live",
+    "neighborhood": "Irvine",
+    "category": "music",
+    "afterhours": false,
+    "ra_pick": false,
+    "attending": null,
+    "price": "From $250",
+    "organizers": "Olivia Rodrigo / PSQ Productions",
+    "detail": "FESTIVAL | From $250 | All ages | Olivia Rodrigo's first festival — an all-women lineup at Great Park (Irvine), 100% of net proceeds to nonprofits supporting women & girls. With Chappell Roan, Doechii, KATSEYE, Mitski, The Breeders, Bikini Kill, Garbage, Santigold, Die Spitz, Rachel Chinouriri, Quiet Light, Eli, Not For Radio + special guests Stevie Nicks, Karen O, Sarah McLachlan. On sale Wed 6/24 10am PT via Front Gate.",
+    "lineup": [
+      "Olivia Rodrigo",
+      "Chappell Roan",
+      "Doechii",
+      "KATSEYE",
+      "Mitski",
+      "The Breeders",
+      "Bikini Kill",
+      "Garbage",
+      "Santigold",
+      "Die Spitz",
+      "Rachel Chinouriri",
+      "Quiet Light",
+      "Eli",
+      "Not For Radio",
+      "Stevie Nicks",
+      "Karen O",
+      "Sarah McLachlan"
+    ],
+    "festival": true,
+    "links": [
+      {
+        "source": "manual",
+        "url": "https://www.daisychainfields.com/tickets"
+      },
+      {
+        "source": "manual",
+        "url": "https://www.greatparklive.com/event/daisy-chain-fields/"
+      }
+    ],
+    "sources": [
+      "manual"
+    ],
+    "first_seen": "2026-06-23",
+    "last_seen": "2026-06-23",
+    "onsale": "2026-06-24T10:00:00",
+    "genre": "Pop",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "pop",
+        "rock"
+      ],
+      "setting": [
+        "outdoor"
+      ],
+      "vibe": [
+        "festival"
+      ],
+      "region": "far",
+      "near_home": false
+    }
   }
 ]
