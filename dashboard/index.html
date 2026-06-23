@@ -449,6 +449,7 @@
                 <sc-if value="{{ showBottomPull }}" hint-placeholder-val="{{ true }}">
                   <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last data pull</span><span style="color:#76746b;">{{ lastDataPull }}</span></div>
                 </sc-if>
+                <div onClick="{{ showChanges }}" title="What moved on the last pull — lineups, prices, times (tap to see)" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:{{ changeCursor }};"><span>what changed</span><span style="color:{{ lastChangeColor }};">{{ lastChangeLabel }}</span></div>
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last site update</span><span style="color:#76746b;">{{ lastSiteUpdate }}</span></div>
               </div>
             </div>
@@ -1445,6 +1446,21 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .then(j => { this.LIVE_CATALOG = (j && j.version) ? j : null; this.forceUpdate(); })
       .catch(() => { this.LIVE_CATALOG = null; this.forceUpdate(); });
   };
+  // Itemize what moved on the last pull — the tap target on the "what changed" readout. Reads the
+  // bounded `changes` list catalog_meta publishes ({title, fields}); keeps it to one short toast.
+  showChanges = () => {
+    const lc = this.LIVE_CATALOG || {};
+    const ch = lc.changes || [];
+    const added = +lc.added || 0;
+    if (!ch.length) {
+      this.flashToast(added
+        ? (added + ' new event' + (added > 1 ? 's' : '') + ' on the last pull; no itemized detail recorded.')
+        : 'No event details changed on the last pull.');
+      return;
+    }
+    const lines = ch.slice(0, 6).map(c => (c.title || 'an event') + (c.fields && c.fields.length ? ' (' + c.fields.join(', ') + ')' : ''));
+    this.flashToast('Updated since last pull — ' + lines.join('; ') + (ch.length > 6 ? ' +' + (ch.length - 6) + ' more' : ''));
+  };
   // mm:ss since a job started, for the in-button progress readout.
   fmtElapsed(since) {
     if (!since) return '';
@@ -1467,7 +1483,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   refreshEvents = async () => {
     if (this.state.refreshBusy) return;
     if (!this.BACKEND_URL) { this.flashToast('Connect the concierge backend first (chat → connect).'); return; }
-    let base = (this.LIVE_CATALOG && this.LIVE_CATALOG.version) || null;
+    let baseFetched = (this.LIVE_CATALOG && this.LIVE_CATALOG.fetched_at) || null;
+    let baseV = (this.LIVE_CATALOG && (this.LIVE_CATALOG.content_version || this.LIVE_CATALOG.version)) || null;
     this.setState({ refreshBusy: true, refreshStartedAt: Date.now() });
     this.startJobTick();
     try {
@@ -1475,20 +1492,31 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
       const res = await fetch(this.workerUrl('/refresh-events'), { method: 'POST', headers, body: JSON.stringify({}) });
       if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setState({ refreshBusy: false }); return; }
+      if (res.status === 429) { this.flashToast('Just refreshed a moment ago — the database is already current.'); this.setState({ refreshBusy: false }); return; }
       if (!res.ok) { this.flashToast('Refresh failed (' + res.status + ') — is the Worker redeployed with GITHUB_TOKEN?'); this.setState({ refreshBusy: false }); return; }
       this.flashToast('Refreshing events from sources — rebuilding the database (~2–3 min).');
     } catch (e) { this.flashToast('Could not reach the backend to refresh.'); this.setState({ refreshBusy: false }); return; }
-    // Poll the published catalog version; when it changes, the run finished + deployed.
+    // Completion keys off `fetched_at`, not the version: a refresh ALWAYS republishes catalog_meta
+    // with a newer fetched_at (even when nothing changed), whereas content_version only moves when
+    // something actually did — keying on the version was the old "button spins to the cap on a
+    // no-change refresh" bug. Once it lands, the version tells us whether to say "updated" or not.
     let n = 0; clearInterval(this._refreshPoll);
     this._refreshPoll = setInterval(async () => {
       await this.checkCatalogFreshness();
-      const v = this.LIVE_CATALOG && this.LIVE_CATALOG.version;
-      if (base == null && v) base = v;                      // establish baseline if we lacked one
-      const done = v && base && v !== base;
-      if (done || ++n > 40) {                                // ~10 min cap
+      const lc = this.LIVE_CATALOG || {};
+      const fetched = lc.fetched_at || null;
+      if (baseFetched == null && fetched) baseFetched = fetched;   // establish baseline if we lacked one
+      const done = fetched && baseFetched && fetched !== baseFetched;
+      if (done || ++n > 40) {                                       // ~10 min cap
         clearInterval(this._refreshPoll);
         this.setState({ refreshBusy: false });
-        if (done) this.flashToast('Events database updated — tap “Update my ranking & digest” to refresh your picks.');
+        if (done) {
+          const v = lc.content_version || lc.version || null;
+          const changed = v && baseV && v !== baseV;
+          this.flashToast(changed
+            ? 'Events database updated — tap “Update my ranking & digest” to refresh your picks.'
+            : 'Refreshed — no new or changed events right now.');
+        }
       }
     }, 15000);
   };
@@ -1529,10 +1557,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // no catalog_version predates versioning (or was never rebuilt since) — treat it as behind so the
   // user can rebuild and get a stamped feed (otherwise the button could never enable).
   isFeedStale() {
-    const live = this.LIVE_CATALOG && this.LIVE_CATALOG.version;
-    if (!live) return false;                       // no live info → don't nag
-    const feed = this.META && this.META.catalog_version;
-    return feed !== live;                           // missing or different → stale
+    const live = this.LIVE_CATALOG;
+    if (!live || !(live.content_version || live.version)) return false;   // no live info → don't nag
+    // Prefer content_version so a price/lineup/time move counts as stale too (Q1 default); fall
+    // back to the identity version for a feed built before content_version existed — it reads stale
+    // once, prompting a single rebuild that stamps the content version and brings it back in sync.
+    const liveV = live.content_version || live.version;
+    const feedV = this.META && (this.META.catalog_content_version || this.META.catalog_version);
+    return feedV !== liveV;                          // missing or different → stale
   }
   // A concierge taste/profile edit re-ranks the feed (build-profiles CI) but does NOT regenerate the
   // LLM digest — so we flag the profile "dirty" until an Update (which re-runs editor + digest with
@@ -2196,6 +2228,17 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const liveCatalog = this.LIVE_CATALOG || null;
     const lastDataPull = this.fmtStamp((liveCatalog && liveCatalog.fetched_at) || (this.META && this.META.generated_at) || null);
     const lastSiteUpdate = (typeof document !== 'undefined' && document.lastModified) ? this.fmtStamp(new Date(document.lastModified)) : '—';   // HTML deploy time
+    // What moved on the last pull (Q1: an at-a-glance way to know/check if lineups/prices/times
+    // changed). From catalog_meta's run delta; tap the row for the itemized list (showChanges).
+    const liveAdded = (liveCatalog && +liveCatalog.added) || 0;
+    const liveUpdated = (liveCatalog && +liveCatalog.updated) || 0;
+    const hasChangeInfo = !!(liveCatalog && (liveCatalog.added !== undefined || liveCatalog.updated !== undefined));
+    const lastChangeLabel = !hasChangeInfo ? '—'
+      : (liveAdded || liveUpdated)
+        ? [liveAdded ? liveAdded + ' new' : '', liveUpdated ? liveUpdated + ' updated' : ''].filter(Boolean).join(' · ')
+        : 'no changes';
+    const lastChangeColor = (liveAdded || liveUpdated) ? '#1f7a4d' : '#76746b';
+    const changeCursor = (liveCatalog && (liveCatalog.changes || []).length) ? 'pointer' : 'default';
     const claudeKeyState = !rawKey ? 'not set · uses the shared token'
       : (keyOn ? ('on · ' + rawKey.slice(0, 11) + '…') : 'saved · switched off');
     // Catalog freshness: is this profile's ranking/digest behind the live events DB?
@@ -2280,6 +2323,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, closeSettings: this.closeSettings,
       settingsTitle: loggedOut ? 'Log in' : 'Settings',
       loggedOut, lastDataPull, lastSiteUpdate, claudeKeyState,
+      lastChangeLabel, lastChangeColor, changeCursor, showChanges: this.showChanges,
       isOwner, feedStale, updateBusy, refreshBusy, updateStatus, updateActive, liveDataPull,
       showUpdateBar: updateBusy, showRefreshBar: refreshBusy,
       refreshEvents: this.refreshEvents, updateMyDigest: this.updateMyDigest,
