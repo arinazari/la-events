@@ -55,6 +55,7 @@ DEFAULT_GROOVE_TERMS = (
     "vinyl", "all night", "open to close", "open-to-close", "groove", "disco",
     "soulful", "deep house", "balearic", "rooftop", "sunset", "golden hour",
     "open-air", "open air", "daytime", "day party", "poolside", "pool party",
+    "beach",
 )
 
 DEFAULT_EU_TERMS = (

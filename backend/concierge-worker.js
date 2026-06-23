@@ -132,6 +132,10 @@ export default {
       ...(advisorModel ? [{ type: "advisor_20260301", name: "advisor", model: advisorModel }] : []),
       ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL] : []),
     ];
+    // BYOK callers may upgrade the executor on their OWN spend (Q3: "Opus if they bring a key"):
+    // `model: "opus"` in the body is honored only when a personal key is present — shared-token spend
+    // (the owner's key) always stays on the default, so a friend can't run up Ari's bill on Opus.
+    const execModel = (userKey && body && body.model) ? resolveModel(env, body.model) : null;
 
     // The advisor is a SERVER-side tool; its sampling loop can return stop_reason "pause_turn" — when
     // it does, re-send the conversation to let it continue (don't inject a user turn). Cap re-sends.
@@ -139,7 +143,7 @@ export default {
     let data;
     try {
       for (let i = 0; i < 4; i++) {
-        data = await callAnthropic(env, { system, messages: convo, tools, apiKey });
+        data = await callAnthropic(env, { system, messages: convo, tools, apiKey, model: execModel });
         if (data.stop_reason !== "pause_turn") break;
         convo = [...convo, { role: "assistant", content: data.content }];
       }
@@ -169,7 +173,7 @@ export default {
           { role: "user", content: results },
         ];
         let data2;
-        try { data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey }); }
+        try { data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey, model: execModel }); }
         catch (e) { return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors); }
         const changed = tasteChanged || profileChanged;
         return json({
@@ -184,7 +188,18 @@ export default {
 };
 
 /* ----- Anthropic ----- */
-async function callAnthropic(env, { system, messages, tools, apiKey }) {
+/* Map a friendly model choice to a configured id — reuses the existing executor/advisor constants
+ * (no new hardcoded ids), and passes through an explicit, well-formed `claude-*` id. Used only for a
+ * BYOK caller's optional upgrade (Q3: "Opus if they bring a key"); shared-token spend stays default. */
+function resolveModel(env, m) {
+  const k = String(m || "").trim().toLowerCase();
+  if (k === "opus") return env.ADVISOR_MODEL || DEFAULTS.ADVISOR_MODEL;
+  if (k === "sonnet") return env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL;
+  if (/^claude-[a-z0-9.\-]+$/.test(k)) return k;
+  return env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL;
+}
+
+async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
   const resp = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
@@ -194,7 +209,7 @@ async function callAnthropic(env, { system, messages, tools, apiKey }) {
       "anthropic-beta": "advisor-tool-2026-03-01",   // enables the advisor tool
     },
     body: JSON.stringify({
-      model: env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL,
+      model: model || env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL,
       max_tokens: Number(env.MAX_TOKENS) || DEFAULTS.MAX_TOKENS,
       // Cache the (large, stable) persona + grounded feed: turns 2+ of a conversation read it at ~0.1x.
       system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }],
@@ -935,11 +950,22 @@ async function handlePipeline(url, request, env, cors) {
   let event_type, client_payload = {};
   if (url.pathname === "/refresh-events") {
     event_type = "refresh-events";
+    // Debounce: a refresh re-fetches every source + commits + deploys, so a duplicate/rapid click
+    // (or two admins) shouldn't trigger a second full sweep. Skip if the catalog was pulled within
+    // REFRESH_MIN_MINUTES (default 15). 429 → the page shows "already current". Best-effort.
+    const windowMin = env.REFRESH_MIN_MINUTES !== undefined ? Number(env.REFRESH_MIN_MINUTES) : 15;
+    if (windowMin > 0) {
+      const ageMin = await lastFetchAgeMinutes(env);
+      if (ageMin !== null && ageMin < windowMin)
+        return json({ error: "debounced", reason: "recently_refreshed", age_minutes: Math.round(ageMin) }, 429, cors);
+    }
   } else {
     const hash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
     if (!hash) return json({ error: "missing or invalid profile hash" }, 400, cors);
     event_type = "rebuild-profile";
-    client_payload = { profile: hash };
+    // Pass an optional model through to the workflow (owner "Opus when it matters" — the workflow
+    // defaults to Sonnet when absent). Only a simple alias / claude-* id; the workflow re-validates.
+    client_payload = { profile: hash, ...(body.model ? { model: String(body.model).slice(0, 40) } : {}) };
   }
 
   try {
@@ -955,6 +981,20 @@ async function handlePipeline(url, request, env, cors) {
     return json({ error: "dispatch error" }, 502, cors);
   }
   return json({ ok: true, dispatched: event_type }, 202, cors);
+}
+
+/* Minutes since the catalog was last pulled, from the published catalog_meta.json (sits beside
+ * data.json). null if unreadable — the caller then doesn't debounce (fail open). */
+async function lastFetchAgeMinutes(env) {
+  try {
+    const dataUrl = env.DATA_URL || DEFAULTS.DATA_URL;
+    const metaUrl = dataUrl.replace(/data\.json(\?.*)?$/, "catalog_meta.json");
+    const r = await fetch(metaUrl, { cf: { cacheTtl: 0 } });
+    if (!r.ok) return null;
+    const j = await r.json();
+    const t = j && j.fetched_at ? Date.parse(j.fetched_at) : NaN;
+    return Number.isFinite(t) ? (Date.now() - t) / 60000 : null;
+  } catch { return null; }
 }
 
 /* Best-effort: nudge a rebuild of this one profile's feed (the spotify-sync workflow). */

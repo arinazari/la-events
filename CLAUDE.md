@@ -113,6 +113,8 @@ digests/dining-YYYY-MM-DD.md        # dining radar outputs
 routines/daily-digest-prompt.md     # scheduled events-digest routine prompt
 routines/dining-radar-prompt.md     # scheduled weekly dining-radar routine prompt
 dashboard/                          # static PWA-lite catalog view; feed via scripts/build_dashboard.py
+docs/PIPELINE.md                    # orchestration map: when each component runs (auto vs on-demand) +
+                                    #   the content_version "clock" + cost gates (read for freshness/cost work)
 ```
 
 ## Hard requirements & conventions
