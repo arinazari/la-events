@@ -555,6 +555,17 @@
         </span>
         <div style="margin-top:6px; font:500 9.5px/1.45 ui-monospace,Menlo,monospace; color:#a7a59b;">When ON, your key pays for every message. Stored only in this browser. If it errors or hits a limit, switch it OFF to fall back to the token.</div>
 
+        <div style="margin-top:11px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
+          <span style="font:600 11px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Use Opus <span style="font-weight:500; color:#a7a59b;">(sharper, slower)</span></span>
+          <span style="display:inline-flex; align-items:center; gap:7px;">
+            <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">{{ opusTogLabel }}</span>
+            <span onClick="{{ toggleUseOpusDraft }}" title="On = run the concierge on Opus — only applies when your own key is ON (Opus runs on your key)" style="position:relative; flex:none; width:32px; height:18px; border-radius:9px; background:{{ opusTogTrackBg }}; cursor:pointer; transition:background .15s;">
+              <span style="position:absolute; top:1px; left:1px; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.3); transform:translateX({{ opusTogKnobX }}); transition:transform .15s;"></span>
+            </span>
+          </span>
+        </div>
+        <div style="margin-top:6px; font:500 9.5px/1.45 ui-monospace,Menlo,monospace; color:#a7a59b;">Only applies when your own key is ON — Opus runs on your key. Otherwise the concierge uses the default model.</div>
+
         <div style="margin-top:14px; font:600 11px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Shared access token <span style="font-weight:500; color:#a7a59b;">(from Ari)</span></div>
         <span style="margin-top:7px; display:flex; align-items:center; gap:6px; padding:8px 10px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
           <input id="la-token-input" value="{{ tokenInput }}" onChange="{{ onTokenInput }}" onKeyDown="{{ onTokenKey }}" type="password" placeholder="access token" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:400 12px/1.4 ui-monospace,Menlo,monospace; color:#1b1a17;" />
@@ -674,7 +685,7 @@ class Component extends DCLogic {
     colFilters: { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} }, openFilter: null,
     search: '', digestPrevState: null,
     settingsOpen: false, toast: null, connectModalOpen: false, tokenInput: '',
-    apiKeyInput: '', apiEnabledDraft: false,   // drafts for the connection modal (key + on/off switch)
+    apiKeyInput: '', apiEnabledDraft: false, useOpusDraft: false,   // drafts for the connection modal (key + on/off switch + Opus)
     input: '',
     chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
     backendStatus: null,
@@ -1243,6 +1254,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // live key errors/limits, the user flips it OFF and the token takes over. See backend/concierge-worker.js.
   rawClaudeKey = () => { try { return ((typeof localStorage !== 'undefined' && localStorage.getItem('la-claude-api-key')) || '').trim(); } catch (e) { return ''; } };
   apiEnabled = () => { try { return (typeof localStorage !== 'undefined') && localStorage.getItem('la-claude-api-enabled') === '1'; } catch (e) { return false; } };
+  // Opus upgrade for the concierge chat — only honored by the Worker for a BYOK caller (their spend).
+  useOpus = () => { try { return (typeof localStorage !== 'undefined') && localStorage.getItem('la-claude-use-opus') === '1'; } catch (e) { return false; } };
   // The key actually sent on a request: only when switched ON *and* present. Empty -> the token is used.
   byokKey = () => { const k = this.rawClaudeKey(); return (this.apiEnabled() && k) ? k : ''; };
   logoutFromSettings = () => this.logoutProfile();
@@ -1290,13 +1303,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // it's both the editor and the "which API am I on / how do I connect" surface.
   connectBackend = () => {
     this.setState({ connectModalOpen: true, settingsOpen: false,
-      apiKeyInput: this.rawClaudeKey(), apiEnabledDraft: this.apiEnabled(), tokenInput: this.BACKEND_TOKEN || '' });
+      apiKeyInput: this.rawClaudeKey(), apiEnabledDraft: this.apiEnabled(), useOpusDraft: this.useOpus(), tokenInput: this.BACKEND_TOKEN || '' });
     setTimeout(() => { const el = document.getElementById('la-api-key-input'); if (el) el.focus(); }, 30);
   };
   closeConnectModal = () => this.setState({ connectModalOpen: false });
   onApiKeyInput = (e) => this.setState({ apiKeyInput: e.target.value });
   onTokenInput = (e) => this.setState({ tokenInput: e.target.value });
   toggleApiEnabledDraft = () => this.setState({ apiEnabledDraft: !this.state.apiEnabledDraft });
+  toggleUseOpusDraft = () => this.setState({ useOpusDraft: !this.state.useOpusDraft });
   onTokenKey = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.saveApiSettings(); } };
   // Save all three at once (key, switch, token); persist to this browser; re-check the connection.
   saveApiSettings = () => {
@@ -1307,6 +1321,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     try {
       key ? localStorage.setItem('la-claude-api-key', key) : localStorage.removeItem('la-claude-api-key');
       enabled ? localStorage.setItem('la-claude-api-enabled', '1') : localStorage.removeItem('la-claude-api-enabled');
+      this.state.useOpusDraft ? localStorage.setItem('la-claude-use-opus', '1') : localStorage.removeItem('la-claude-use-opus');
       tok ? localStorage.setItem('la-concierge-token', tok) : localStorage.removeItem('la-concierge-token');
     } catch (e) {}
     this.BACKEND_TOKEN = tok;
@@ -1323,6 +1338,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
     const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // BYOK: your key pays for this request
     const body = { messages: history };
+    if (key && this.useOpus()) body.model = 'opus';   // BYOK only: upgrade the executor to Opus on your spend
     const p = this.state.profile;
     if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
     this._abort = new AbortController();       // so the user can stop a slow reply
@@ -2199,6 +2215,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const apiTogTrackBg = apiTogOn ? '#1f9d57' : '#d2d0c7';
     const apiTogKnobX = apiTogOn ? '15px' : '1px';
     const apiTogLabel = apiTogOn ? 'ON' : 'OFF';
+    const opusTogOn = !!this.state.useOpusDraft;
+    const opusTogTrackBg = opusTogOn ? '#7c5cff' : '#d2d0c7';
+    const opusTogKnobX = opusTogOn ? '15px' : '1px';
+    const opusTogLabel = opusTogOn ? 'ON' : 'OFF';
 
     const profile = this.state.profile;
     const profileActive = !!(profile && profile.hash);
@@ -2346,6 +2366,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       apiKeyInput: this.state.apiKeyInput || '', onApiKeyInput: this.onApiKeyInput,
       toggleApiEnabledDraft: this.toggleApiEnabledDraft, openApiModal: this.connectBackend,
       apiTogTrackBg, apiTogKnobX, apiTogLabel, apiStatusLine, apiStatusColor,
+      opusTogTrackBg, opusTogKnobX, opusTogLabel, toggleUseOpusDraft: this.toggleUseOpusDraft,
       saveApiSettings: this.saveApiSettings, backendHost,
       dataSourceLabel: this.state.dataSource === 'live' ? 'live · data.json' : 'bundled sample',
       toast: this.state.toast, hasToast: !!this.state.toast,
