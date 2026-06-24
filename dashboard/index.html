@@ -386,7 +386,7 @@
                 <div onClick="{{ onUpdateClick }}" title="Re-rank your picks + re-render your digest against the latest events database" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid {{ updateBorder }}; background:{{ updateBg }}; border-radius:2px; cursor:{{ updateCursor }}; opacity:{{ updateOpacity }}; margin-bottom:7px;">
                   <span style="flex:none; color:{{ updateColor }}; font-size:14px; transform:translateY(1px);">{{ updateIcon }}</span>
                   <span style="flex:1;">
-                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:{{ updateColor }};">Update my ranking &amp; digest</span>
+                    <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:{{ updateColor }};">{{ updateTitle }}</span>
                     <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ updateStatus }}</span>
                     <sc-if value="{{ showUpdateBar }}" hint-placeholder-val="{{ false }}"><span class="la-prog"><i></i></span></sc-if>
                   </span>
@@ -395,7 +395,7 @@
                   <div onClick="{{ onRefreshClick }}" title="Admin: fetch all sources and rebuild the shared events database (applies to everyone)" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:{{ refreshCursor }}; opacity:{{ refreshOpacity }}; margin-bottom:7px;" style-hover="border-color:#161512;">
                     <span style="flex:none; color:#b4453a; font-size:14px; transform:translateY(1px);">{{ refreshIcon }}</span>
                     <span style="flex:1;">
-                      <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Refresh events database</span>
+                      <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">{{ refreshTitle }}</span>
                       <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ refreshLabel }}</span>
                       <sc-if value="{{ showRefreshBar }}" hint-placeholder-val="{{ false }}"><span class="la-prog"><i></i></span></sc-if>
                     </span>
@@ -1282,7 +1282,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "Once you're signed in, the same icon becomes your **☰ settings** menu:",
     "",
-    "- **Update my ranking & digest** — re-rank against the newest events (it lights up when there's fresh data to fold in).",
+    "- **Ranks & Digest** — re-rank against the newest events; its title shows the state and reads **Update available** when there's fresh data (or a concierge taste/profile edit) to fold in.",
     "- **Connect Spotify** — let your listening history shape the picks.",
     "- **Claude API key** — optionally run the concierge on your own key.",
     "- **View taste & profile** — see the config behind your ranking, including any edits the concierge made and whether they're live yet.",
@@ -1310,7 +1310,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "- **Connect Spotify.** Fold your listening history into your ranking so picks lean toward the artists and sounds you already play. (Settings → Spotify.)",
     "- **Bring your own Claude key.** Optionally run the concierge on your own API key, with an on/off switch and an Opus toggle. (Settings → Claude API key.)",
     "- **Rank ⇄ score.** Every event now shows both its transparent taste **score** and its final **rank** after the editorial pass — sortable by either.",
-    "- **Fresh-data nudge.** When new events land, **Update my ranking & digest** lights up, and a `what changed` readout tells you what moved — lineups, prices, set times — on the last pull.",
+    "- **Fresh-data nudge.** When new events land, **Ranks & Digest** flips to **Update available**, and a `what changed` readout tells you what moved — lineups, prices, set times — on the last pull.",
     "- **Add to calendar.** Every event's detail row has a one-click **Add to calendar** (.ics) export."
   ].join('\n');
   openWhatsNew = () => this.openGuide('new');
@@ -1681,7 +1681,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           const v = lc.content_version || lc.version || null;
           const changed = v && baseV && v !== baseV;
           this.flashToast(changed
-            ? 'Events database updated — tap “Update my ranking & digest” to refresh your picks.'
+            ? 'Events database updated — open Settings → “Ranks & Digest” to refresh your picks.'
             : 'Refreshed — no new or changed events right now.');
         }
       }
@@ -1908,7 +1908,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       try {
         const reply = await this.askBackend(text);
         this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: reply }] }));
-        if (this._lastTasteChanged) { this._lastTasteChanged = false; this.setTasteDirty(true); this.flashToast('Taste updated — re-ranking. Open Settings → “Update my ranking & digest” to regenerate your digest.'); }
+        if (this._lastTasteChanged) { this._lastTasteChanged = false; this.setTasteDirty(true); this.flashToast('Taste updated — re-ranking. Open Settings → “Ranks & Digest” to regenerate your digest.'); }
         return;
       } catch (e) {
         if (e && e.name === 'AbortError') { this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: '■ stopped.' }] })); return; }
@@ -2470,14 +2470,17 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const liveDataPull = this.fmtStamp((liveCatalog && liveCatalog.fetched_at) || null);
     const updateElapsed = this.fmtElapsed(this.state.updateStartedAt);
     const refreshElapsed = this.fmtElapsed(this.state.refreshStartedAt);
-    // The per-user "Update my ranking & digest" affordance: enabled when the catalog is newer than
-    // the feed OR a concierge taste edit needs a fresh digest.
-    const updateStatus = updateBusy
-      ? ('working — LLM re-rank + digest · ' + updateElapsed + ' · a few min')
-      : (feedStale ? ('new events available · DB pulled ' + liveDataPull)
-         : tasteDirty ? 'taste changed — regenerate your digest'
-         : ('up to date · synced ' + lastDataPull));
+    // The per-profile "Ranks & Digest" item. It's actionable when the catalog is newer than the feed
+    // OR a concierge taste edit needs a fresh digest; the TITLE carries that state and the subtitle is
+    // a single date/time line. "Last synced with database" = when THIS profile's feed was last built
+    // (META.generated_at), so a stale feed shows the older, truthful sync time rather than the newer
+    // DB pull it hasn't caught up to yet.
+    const feedSynced = this.fmtStamp((this.META && this.META.generated_at) || null);
     const updateActive = (feedStale || tasteDirty) && !updateBusy;
+    const updateTitle = 'Ranks & Digest: ' + (updateBusy ? 'Updating…' : updateActive ? 'Update available' : 'Up to date');
+    const updateStatus = updateBusy
+      ? (updateElapsed + ' elapsed · a few min')
+      : ('Last synced with database: ' + feedSynced);
 
     const LBL = {
       today: { num: 'today', unit: '' }, weekend: { num: 'this weekend', unit: '' },
@@ -2555,10 +2558,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       settingsTitle: loggedOut ? 'Log in' : 'Settings',
       loggedOut, lastDataPull, lastSiteUpdate, claudeKeyState,
       lastChangeLabel, lastChangeColor, changeCursor, showChanges: this.showChanges,
-      isOwner, feedStale, updateBusy, refreshBusy, updateStatus, updateActive, liveDataPull,
+      isOwner, feedStale, updateBusy, refreshBusy, updateStatus, updateTitle, updateActive, liveDataPull,
       showUpdateBar: updateBusy, showRefreshBar: refreshBusy,
       refreshEvents: this.refreshEvents, updateMyDigest: this.updateMyDigest,
-      refreshLabel: refreshBusy ? ('rebuilding the database · ' + refreshElapsed + ' · ~2–3 min') : ('last pull ' + lastDataPull),
+      refreshLabel: refreshBusy ? (refreshElapsed + ' elapsed · ~2–3 min') : ('Last pulled from sources: ' + lastDataPull),
+      refreshTitle: 'Events database: ' + (refreshBusy ? 'Refreshing…' : 'Current'),
       showBottomPull: !isOwner,
       onRefreshClick: refreshBusy ? (() => {}) : this.refreshEvents,
       refreshOpacity: refreshBusy ? '0.6' : '1',
@@ -2569,7 +2573,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       updateBorder: updateActive ? '#2b5cd9' : (updateBusy ? '#c9c7bd' : '#e2e0d8'),
       updateOpacity: updateBusy ? '0.7' : '1',
       updateCursor: updateActive ? 'pointer' : 'default',
-      updateIcon: updateBusy ? '◌' : (feedStale ? '↻' : '✓'),
+      updateIcon: updateBusy ? '◌' : (updateActive ? '↻' : '✓'),
       onUpdateClick: updateActive ? this.updateMyDigest : (() => {}),
       logoutFromSettings: this.logoutFromSettings,
       connectModalOpen: this.state.connectModalOpen, closeConnectModal: this.closeConnectModal,
