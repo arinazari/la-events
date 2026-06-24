@@ -6,7 +6,7 @@ the live `data.json` (events + dining + taste), and answers in the concierge voi
 **Concierge** mode POSTs here; **Fast filter** mode never touches it (and the page falls back to
 Fast filter automatically if this backend is unset or down).
 
-It does **three** things, depending on what the POST body carries:
+It does **a few** things, depending on what the POST body carries:
 
 ```
 1. CHAT (always)
@@ -22,6 +22,16 @@ It does **three** things, depending on what the POST body carries:
    "I moved to Glendale" / "weight live music higher" ─► worker ─► Claude calls propose_profile_change
        ─► worker commits profiles/<name>/profile.yaml ─► CI rebuilds the feed ─► Pages redeploys
              ◄──── { reply, profile_changed:true } ───   "re-ranking, refresh in ~a minute"
+
+4. DIGEST FORMAT SELF-EDIT (same gate) — digest.yaml is FORMAT (how the digest READS, not what ranks)
+   "make my digest shorter" / "drop the radar" ─► worker ─► Claude calls propose_digest_change
+       ─► worker commits digest.yaml (root for owner; profiles/<name>/digest.yaml for a friend)
+             ◄──── { reply, digest_changed:true } ───   "your digest reflects it on the next build"
+
+5. PLAN WITH FRIENDS (read-only — any authed caller, no commit, no key)
+   "what would me + Lori be into" ─► worker ─► Claude calls plan_with_friends(["lori"])
+       ─► worker fetches each named PUBLIC feed + the caller's, returns a per-person rating matrix
+             ◄──────────── { reply } ────────────   profiles aren't private; a username is permission
 ```
 
 Both self-edits keep the **single deterministic scorer**: the Worker only edits the YAML;
@@ -39,12 +49,28 @@ refuses to commit anything that doesn't re-parse as valid YAML:
   verbatim — so it can never silently drop the rest of a list/map. A friend who has no
   `profiles/<name>/profile.yaml` yet gets one created on first edit. Source ids, rating thresholds,
   and the numeric Spotify/feedback/travel knobs are intentionally **not** exposed (hand-edit those).
+- **`propose_digest_change`** (FORMAT) — how the digest *reads*, separate from what ranks: `length`,
+  `group_by`, `sections`, `max_picks_per_day`, and the `emphasis`/`tone`/`notes` free-text lists in
+  `digest.yaml` (owner → root; friend → `profiles/<name>/digest.yaml`, created on first edit). The
+  model runs a **token-cost self-check** first: a change that materially raises generation cost
+  (`length: detailed`, every-event, lifting a per-day cap) gets flagged with a bounded alternative
+  before it's proposed; small/structural changes (reorder/toggle a section, `group_by`, tone) just
+  apply. `build_profiles.py` injects the prefs into the feed and the digest gate signs over them, so
+  a format change regenerates the narrative digest exactly once.
+
+And one **read-only** tool (no commit, no GitHub token, available to any authed caller):
+
+- **`plan_with_friends`** (GROUP) — "find events for me + Lori + Dr. Ganesan." Given the friends'
+  usernames, the Worker fetches each one's **public** feed (`data.<hash>.json`) plus the caller's,
+  joins upcoming events, and returns a per-person rating matrix the model reasons over with judgment
+  (no fixed group rules — Ari's call). **Profiles aren't private**: knowing a username is permission
+  enough, there's no opt-out flag. A username with no feed comes back under `unknown`.
 
 ## Contract
 
 ```
 POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<feed-hash>" }
-->    { reply: string, taste_changed?: boolean, profile_changed?: boolean }
+->    { reply: string, taste_changed?: boolean, profile_changed?: boolean, digest_changed?: boolean }
 Auth: optional  Authorization: Bearer <CONCIERGE_TOKEN>
 ```
 

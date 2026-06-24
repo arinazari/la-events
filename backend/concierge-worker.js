@@ -130,7 +130,8 @@ export default {
     const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
     const tools = [
       ...(advisorModel ? [{ type: "advisor_20260301", name: "advisor", model: advisorModel }] : []),
-      ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL] : []),
+      PLAN_TOOL,                                  // read-only group planning — available to any authed caller
+      ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL, DIGEST_TOOL] : []),
     ];
     // BYOK callers may upgrade the executor on their OWN spend (Q3: "Opus if they bring a key"):
     // `model: "opus"` in the body is honored only when a personal key is present — shared-token spend
@@ -151,20 +152,33 @@ export default {
       return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors);
     }
 
-    // Tool-use round: the model wants to change this profile's taste (CONTENT) and/or profile
-    // (MECHANISM) — both are client-handled custom tools that commit a YAML file.
-    if (data.stop_reason === "tool_use" && canEdit) {
-      const uses = (data.content || []).filter(
-        (b) => b.type === "tool_use" && (b.name === TASTE_TOOL.name || b.name === PROFILE_TOOL.name)
-      );
+    // Tool-use round: the model may PLAN WITH FRIENDS (read-only, any authed caller) and/or change
+    // this profile's taste (CONTENT) / profile (MECHANISM) / digest (FORMAT) — the edit tools commit a
+    // YAML file and need canEdit. All are client-handled here in one round-trip.
+    if (data.stop_reason === "tool_use") {
+      const known = [PLAN_TOOL.name, TASTE_TOOL.name, PROFILE_TOOL.name, DIGEST_TOOL.name];
+      const uses = (data.content || []).filter((b) => b.type === "tool_use" && known.includes(b.name));
       if (uses.length) {
-        let tasteChanged = false, profileChanged = false;
+        let tasteChanged = false, profileChanged = false, digestChanged = false;
         const results = [];
         for (const use of uses) {
-          const isProfile = use.name === PROFILE_TOOL.name;
-          const apply = isProfile ? applyProfileEdit : applyTasteEdit;
+          if (use.name === PLAN_TOOL.name) {
+            const result = await groupFeedMatrix(env, use.input || {}, profileHash).catch((e) => ({ ok: false, error: String(e && e.message || e) }));
+            results.push({ type: "tool_result", tool_use_id: use.id, content: JSON.stringify(result) });
+            continue;
+          }
+          if (!canEdit) {                          // the edit tools need a profile + GITHUB_TOKEN
+            results.push({ type: "tool_result", tool_use_id: use.id, content: JSON.stringify({ ok: false, error: "editing isn't enabled for this session" }) });
+            continue;
+          }
+          const apply = use.name === PROFILE_TOOL.name ? applyProfileEdit
+            : use.name === DIGEST_TOOL.name ? applyDigestEdit : applyTasteEdit;
           const result = await apply(env, profileHash, use.input).catch((e) => ({ ok: false, error: String(e && e.message || e) }));
-          if (result.ok) { if (isProfile) profileChanged = true; else tasteChanged = true; }
+          if (result.ok) {
+            if (use.name === PROFILE_TOOL.name) profileChanged = true;
+            else if (use.name === DIGEST_TOOL.name) digestChanged = true;
+            else tasteChanged = true;
+          }
           results.push({ type: "tool_result", tool_use_id: use.id, content: JSON.stringify(result) });
         }
         const follow = [
@@ -175,10 +189,10 @@ export default {
         let data2;
         try { data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey, model: execModel }); }
         catch (e) { return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors); }
-        const changed = tasteChanged || profileChanged;
+        const changed = tasteChanged || profileChanged || digestChanged;
         return json({
-          reply: textOf(data2) || (changed ? "Updated — re-ranking, refresh in ~a minute." : "Couldn't apply that change."),
-          taste_changed: tasteChanged, profile_changed: profileChanged,
+          reply: textOf(data2) || (changed ? "Updated — re-ranking, refresh in ~a minute." : textOf(data) || "Done."),
+          taste_changed: tasteChanged, profile_changed: profileChanged, digest_changed: digestChanged,
         }, 200, cors);
       }
     }
@@ -333,6 +347,63 @@ const PROFILE_TOOL = {
   },
 };
 
+/* The third self-edit tool — a constrained patch to the DIGEST FORMAT (digest.yaml): how the
+ * person's digest READS (length/sections/group_by/tone), NOT what ranks. Presentation only; like the
+ * taste/profile tools it commits a YAML file and CI rebuilds. The model is told to run the token-cost
+ * self-check before proposing a change that materially raises generation cost. */
+const DIGEST_TOOL = {
+  name: "propose_digest_change",
+  description:
+    "Update how the logged-in person's DIGEST READS — its FORMAT and voice, NOT what ranks (that's " +
+    "propose_taste_change / propose_profile_change). Call this for 'make my digest shorter/longer', " +
+    "'more detail per pick', 'drop the radar section', 'group by neighborhood', 'lead with live music', " +
+    "'drier tone'. Presentation only; ranking is untouched. TOKEN-COST CHECK (do this first): some " +
+    "changes cost materially more to GENERATE — length=detailed, 'a paragraph per pick', 'show every " +
+    "event', lifting a per-day cap. Reordering/toggling sections, group_by, and tone tweaks cost ~nothing. " +
+    "If a change is large (roughly doubles the digest or scales with the whole catalog), say so in one " +
+    "line and offer a bounded version BEFORE calling this; apply small/structural changes directly. Only " +
+    "include the fields that change.",
+  input_schema: {
+    type: "object",
+    properties: {
+      length: { type: "string", enum: ["brief", "standard", "detailed"], description: "prose verbosity per pick (the main cost lever)." },
+      group_by: { type: "string", enum: ["day", "neighborhood", "category"], description: "how the digest body is grouped (day = the default spine)." },
+      max_picks_per_day: { type: "integer", description: "cap events listed per day; use 0 to clear the cap (back to the default)." },
+      set_sections: { type: "array", items: { type: "string", enum: ["dont_miss", "day_by_day", "around_town", "radar"] }, description: "which sections to include, in order (replaces the current set; keep day_by_day)." },
+      add_emphasis: { type: "array", items: { type: "string" }, description: "format nudges to add, e.g. 'lead with live music', 'more on afterhours'." },
+      add_tone: { type: "array", items: { type: "string" }, description: "voice notes to add, e.g. 'drier, less hype', 'more opinionated'." },
+      add_notes: { type: "array", items: { type: "string" }, description: "other formatting instructions to add, e.g. 'always show ticket prices'." },
+      remove_lines: { type: "array", items: { type: "string" }, description: "best-effort: remove an existing emphasis/tone/notes entry (exact-ish text)." },
+      summary: { type: "string", description: "one short human sentence describing the change." },
+    },
+    required: ["summary"],
+  },
+};
+
+/* A READ-ONLY tool (no commit) — plan with friends. Given other people's usernames, the Worker
+ * fetches each one's PUBLIC feed, joins upcoming events, and returns a per-person rating matrix the
+ * model reasons over with discretion. Profiles aren't private (Ari's call): a username is permission
+ * enough. The caller's own feed is auto-included by the Worker (from their session hash). */
+const PLAN_TOOL = {
+  name: "plan_with_friends",
+  description:
+    "Find events that work for a GROUP — call this when the ask names other people (e.g. 'what would " +
+    "me + Lori be into', 'plan something the three of us would like'). Pass the friends' usernames; the " +
+    "tool returns each person's rating + a one-line why per shared upcoming event, plus the caller's own. " +
+    "There are NO fixed group rules — you decide: lead with what's strong for everyone, but it's fine to " +
+    "surface a pick one person merely tolerates if it's great for the others — just say so. Profiles " +
+    "aren't private; knowing a username is permission enough. If a username has no profile, the result " +
+    "lists it under unknown — tell the user and plan without them.",
+  input_schema: {
+    type: "object",
+    properties: {
+      usernames: { type: "array", items: { type: "string" }, description: "the friends' profile usernames to include (the caller is added automatically)." },
+      days: { type: "integer", description: "how many days ahead to consider (default 21)." },
+    },
+    required: ["usernames"],
+  },
+};
+
 /* Build the system prompt: the concierge persona + a compact, grounded snapshot of the feed. */
 export function buildSystem(feed, opts = {}) {
   const today = new Date().toISOString().slice(0, 10);
@@ -342,10 +413,14 @@ export function buildSystem(feed, opts = {}) {
     `Today is ${today} (America/Los_Angeles).`,
     opts.profileName ? `You're talking to ${opts.profileName}; the picks below are ranked to THEIR taste.` : "",
     "",
-    "You can do three things with the data below: (1) ANSWER questions about events, venues,",
+    "You can do four things with the data below: (1) ANSWER questions about events, venues,",
     "restaurants, artists, neighborhoods; (2) RECOMMEND with a one-line 'why' per pick; (3) PLAN a",
     "night — sequence dinner → show → afters, pairing the dining list with on-taste events, and",
-    "noting rough proximity (you don't have exact travel times — approximate and say so).",
+    "noting rough proximity (you don't have exact travel times — approximate and say so); (4) PLAN",
+    "WITH FRIENDS — when the ask names other people who have profiles, call plan_with_friends with",
+    "their usernames; you get each person's rating per shared event and combine them with judgment",
+    "(lead with what's strong for everyone; surface a pick one person only tolerates if it's great for",
+    "the others — and say so). Profiles aren't private: knowing a username is permission enough.",
     "",
     "Rules: ground every claim in the DATA — if something isn't in it, say so plainly rather than",
     "inventing it (e.g. don't fabricate a venue or a showtime). Prefer higher-rated, on-taste picks.",
@@ -368,7 +443,17 @@ export function buildSystem(feed, opts = {}) {
       "music higher', 'I care less about film'), the near-home neighborhoods, the down-rank/penalty",
       "words, or the setting/boost words. Decide by what the request is ABOUT: an artist/genre/venue →",
       "propose_taste_change; a place they live or a ranking knob → propose_profile_change. Same",
-      "after-success line (re-ranks in ~a minute, refresh)."
+      "after-success line (re-ranks in ~a minute, refresh).",
+      "",
+      "DIGEST FORMAT EDITING: they can also tune HOW their digest READS (not what ranks) — via",
+      "propose_digest_change (digest.yaml: length, group_by, sections, max_picks_per_day, emphasis,",
+      "tone). 'Make it shorter', 'drop the radar', 'group by neighborhood', 'more detail per pick',",
+      "'lead with live music', 'drier tone'. This is PRESENTATION only. Run the TOKEN-COST self-check",
+      "first: a change that materially raises generation cost (length=detailed, a paragraph per pick,",
+      "every event, lifting a per-day cap) — say the rough impact in one line and offer a bounded",
+      "version BEFORE proposing it ('detailed + every event roughly doubles your digest — cap at 15/day",
+      "instead?'); small/structural changes (reorder/toggle a section, group_by, tone) just apply. The",
+      "digest reflects it on the next build, not in ~a minute like a re-rank."
     );
   }
   const personaText = persona.filter((l) => l !== null && l !== undefined).join("\n");
@@ -515,12 +600,20 @@ async function resolveProfile(env, hash) {
     if ((await profileHash(p.username, salt)) === hash) {
       const tastePath = p.taste || "taste.yaml";
       const owner = !!p.owner;
+      const u = String(p.username).trim().toLowerCase();
       let profilePath;
       if (owner) profilePath = "profile.yaml";
       else if (p.profile) profilePath = p.profile;
       else if (/^profiles\/.+\/taste\.ya?ml$/.test(tastePath)) profilePath = tastePath.replace(/taste\.ya?ml$/, "profile.yaml");
-      else profilePath = `profiles/${String(p.username).trim().toLowerCase()}/profile.yaml`;
-      return { name: p.name || p.username, tastePath, profilePath, owner };
+      else profilePath = `profiles/${u}/profile.yaml`;
+      // Digest FORMAT file (how the digest reads): owner shares root digest.yaml; a friend gets an
+      // explicit `digest_prefs:` path, else the one beside their taste file, else the conventional one.
+      let digestPath;
+      if (owner) digestPath = "digest.yaml";
+      else if (p.digest_prefs) digestPath = p.digest_prefs;
+      else if (/^profiles\/.+\/taste\.ya?ml$/.test(tastePath)) digestPath = tastePath.replace(/taste\.ya?ml$/, "digest.yaml");
+      else digestPath = `profiles/${u}/digest.yaml`;
+      return { name: p.name || p.username, tastePath, profilePath, digestPath, owner };
     }
   }
   return null;
@@ -746,6 +839,154 @@ async function applyProfileEdit(env, hash, patch) {
   const msg = `profile(${prof.name}): ${(patch.summary || "self-edit").slice(0, 72)}\n\nMechanism self-edit via the dashboard concierge.`;
   const ok = await ghPutFile(env, path, out, existing ? existing.sha : undefined, msg);
   return ok ? { ok: true, summary: patch.summary || "updated", note: "committed; the feed rebuilds via CI in ~1–2 min" } : { ok: false, error: "commit failed" };
+}
+
+/* ----- digest-format self-edit (commit digest.yaml; the digest reflects it on the next build) -----
+ *
+ * digest.yaml = FORMAT (how the digest reads) — the sibling of the taste (CONTENT) + profile
+ * (MECHANISM) edits above. Presentation only: it never touches the scorer, so there's no
+ * all-or-nothing materialization to worry about — each key is set independently. Exported for tests. */
+export function applyDigestPatchDoc(doc, patch) {
+  const touched = [];
+  if (patch.length && ["brief", "standard", "detailed"].includes(String(patch.length))) {
+    doc.setIn(["length"], String(patch.length)); touched.push("length");
+  }
+  if (patch.group_by && ["day", "neighborhood", "category"].includes(String(patch.group_by))) {
+    doc.setIn(["group_by"], String(patch.group_by)); touched.push("group_by");
+  }
+  if (patch.max_picks_per_day !== undefined && patch.max_picks_per_day !== null) {
+    const n = Number(patch.max_picks_per_day);
+    if (isFinite(n)) { doc.setIn(["max_picks_per_day"], n > 0 ? Math.round(n) : null); touched.push("max_picks_per_day"); }
+  }
+  if (Array.isArray(patch.set_sections) && patch.set_sections.length) {
+    const valid = ["dont_miss", "day_by_day", "around_town", "radar"];
+    const secs = patch.set_sections.map((s) => String(s).trim()).filter((s) => valid.includes(s));
+    if (secs.length) { doc.setIn(["sections"], doc.createNode(secs)); touched.push("sections"); }
+  }
+  for (const [key, items] of [["emphasis", patch.add_emphasis], ["tone", patch.add_tone], ["notes", patch.add_notes]]) {
+    if (Array.isArray(items) && items.length) { addUniqDoc(doc, [key], items); touched.push(key); }
+  }
+  if (patch.remove_lines && patch.remove_lines.length) {
+    for (const key of ["emphasis", "tone", "notes"]) removeDoc(doc, [key], patch.remove_lines);
+    touched.push("remove");
+  }
+  return touched;
+}
+
+/* A fresh digest.yaml for a friend who didn't have one (block style + a short header comment). */
+export function newDigestDoc(name) {
+  const doc = parseDocument("{}");
+  if (doc.contents) doc.contents.flow = false;
+  doc.commentBefore =
+    ` digest.yaml — HOW ${name}'s digest READS (format/voice), not what ranks (that's taste.yaml +\n` +
+    ` profile.yaml). Created by the dashboard concierge. Keys: length · group_by · max_picks_per_day ·\n` +
+    ` sections · emphasis · tone · notes. Presentation only; ranking is untouched.`;
+  return doc;
+}
+
+async function applyDigestEdit(env, hash, patch) {
+  const prof = await resolveProfile(env, hash);
+  if (!prof) return { ok: false, error: "profile not found for that session" };
+  const path = prof.digestPath;
+  // The owner edits the shared root digest.yaml; a friend edits only their own profiles/<name>/digest.yaml.
+  const isRoot = /(^|\/)digest\.ya?ml$/.test(path) && !path.startsWith("profiles/");
+  if (isRoot && !prof.owner) return { ok: false, error: "this profile can't edit the shared digest format" };
+  if (!isRoot && !/^profiles\/.+\/digest\.ya?ml$/.test(path)) return { ok: false, error: "this profile has no editable digest file" };
+
+  const existing = await ghGetFile(env, path);   // null => create a fresh friend digest.yaml
+  let out;
+  try {
+    const doc = existing ? parseDocument(existing.text) : newDigestDoc(prof.name);
+    if (existing && doc.errors && doc.errors.length) throw new Error("parse");
+    const touched = applyDigestPatchDoc(doc, patch || {});
+    if (!touched.length) return { ok: false, error: "nothing actionable in that change" };
+    out = String(doc);
+    const check = yamlParse(out);                 // never commit something that won't parse
+    if (!check || typeof check !== "object") throw new Error("invalid");
+    if (check.length && !["brief", "standard", "detailed"].includes(check.length)) throw new Error("bad length");
+    if (check.max_picks_per_day != null && (typeof check.max_picks_per_day !== "number" || !isFinite(check.max_picks_per_day))) throw new Error("bad cap");
+  } catch { return { ok: false, error: "edit produced invalid YAML; nothing changed" }; }
+
+  const msg = `digest(${prof.name}): ${(patch.summary || "format self-edit").slice(0, 72)}\n\nDigest-format self-edit via the dashboard concierge.`;
+  const ok = await ghPutFile(env, path, out, existing ? existing.sha : undefined, msg);
+  return ok ? { ok: true, summary: patch.summary || "updated", note: "committed; your digest reflects it on the next build" } : { ok: false, error: "commit failed" };
+}
+
+/* ----- plan with friends (READ-ONLY): fetch each named profile's PUBLIC feed + the caller's, join
+ * upcoming events, return a per-person rating matrix the model reasons over. No commit, no key. ----- */
+function _normTok(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim(); }
+function _evId(e) { return `${_normTok(e.title)}|${String(e.iso_date || "").slice(0, 10)}|${_normTok(e.venue)}`; }
+
+async function fetchFeedByHash(env, hash) {
+  const dataUrl = env.DATA_URL || DEFAULTS.DATA_URL;
+  const url = dataUrl.replace(/data\.json(\?.*)?$/, `data.${hash}.json$1`);
+  try {
+    const r = await fetch(url, { cf: { cacheTtl: 120 } });
+    if (r.ok) return await r.json();
+  } catch { /* degrade gracefully */ }
+  return null;
+}
+
+async function groupFeedMatrix(env, input, callerHash) {
+  const salt = env.PROFILE_SALT || DEFAULTS.PROFILE_SALT;
+  const days = Number.isFinite(input && input.days) ? Math.max(1, Math.min(120, input.days)) : 21;
+  const today = new Date().toISOString().slice(0, 10);
+  const horizon = new Date(Date.now() + days * 864e5).toISOString().slice(0, 10);
+
+  // People = the caller (by session hash, label from their own feed) + each named username.
+  const people = [], unknown = [];
+  if (callerHash) {
+    const f = await fetchFeedByHash(env, callerHash);
+    if (f) people.push({ id: callerHash, name: (f.profile && f.profile.name) || "You", feed: f });
+  }
+  for (const raw of (input && input.usernames) || []) {
+    const u = String(raw || "").trim().toLowerCase();
+    if (!u) continue;
+    const h = await profileHash(u, salt);
+    if (people.some((p) => p.id === h)) continue;            // dedupe (caller may name themselves)
+    const f = await fetchFeedByHash(env, h);
+    if (!f) { unknown.push(raw); continue; }
+    people.push({ id: h, name: (f.profile && f.profile.name) || u, feed: f });
+  }
+  if (!people.length) return { ok: false, error: "couldn't load any of those profiles", unknown };
+
+  // Index each person's upcoming events by identity, union into a matrix (same catalog across feeds).
+  const byPerson = people.map((p) => {
+    const m = {};
+    for (const e of (p.feed.events || [])) {
+      if (e.is_past || (e.iso_date || "") < today || (e.iso_date || "") > horizon) continue;
+      m[_evId(e)] = e;
+    }
+    return { ...p, m };
+  });
+  const keys = new Set();
+  for (const p of byPerson) for (const k of Object.keys(p.m)) keys.add(k);
+
+  const rows = [];
+  for (const k of keys) {
+    const rep = byPerson.map((p) => p.m[k]).find(Boolean);
+    const per = {}, ratings = [];
+    for (const p of byPerson) {
+      const e = p.m[k];
+      if (!e) { per[p.name] = null; continue; }
+      const why = Array.isArray(e.reasons) ? e.reasons.slice(0, 2).join("; ") : "";
+      per[p.name] = { rating: e.rating || 0, score: e.score, why };
+      ratings.push(e.rating || 0);
+    }
+    if (!ratings.length) continue;
+    const link = (rep.links && rep.links[0] && rep.links[0].url) || rep.url || "";
+    rows.push({
+      title: rep.title, iso_date: rep.iso_date, venue: rep.venue, neighborhood: rep.neighborhood,
+      price: rep.price, link, people: per,
+      mean_rating: Math.round((ratings.reduce((a, b) => a + b, 0) / ratings.length) * 10) / 10,
+      min_rating: Math.min(...ratings), n_strong: ratings.filter((r) => r >= 4).length,
+    });
+  }
+  rows.sort((a, b) => b.mean_rating - a.mean_rating || (a.iso_date || "").localeCompare(b.iso_date || ""));
+  return {
+    ok: true, generated_for: people.map((p) => p.name), unknown,
+    window: { from: today, to: horizon }, count: rows.length, events: rows.slice(0, 40),
+  };
 }
 
 /* ===== Per-profile Spotify — browser OAuth → KV refresh-token store → authed raw-payload sync =====
