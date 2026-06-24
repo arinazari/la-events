@@ -32,6 +32,19 @@ def test_fetch_all_degrades_gracefully():
     assert "ra" not in report["skipped"]
 
 
+def test_fetch_window_two_speed():
+    """Far-capable sources (TM) widen to --far-days; near sources keep --days; no far_days => near."""
+    tm = next(e for e in R.FETCHERS if e["source"] == "ticketmaster")
+    dice = next(e for e in R.FETCHERS if e["source"] == "dice")
+    assert tm.get("far") is True and not dice.get("far")
+    # two-speed: TM reaches the far horizon, DICE stays near
+    assert R.fetch_window(tm, days=21, far_days=180) == 180
+    assert R.fetch_window(dice, days=21, far_days=180) == 21
+    # single-speed (far_days unset): everyone near — behaviour-preserving
+    assert R.fetch_window(tm, days=21) == 21
+    assert R.fetch_window(dice, days=21, far_days=None) == 21
+
+
 def test_missing_api_key_is_a_clean_skip_reason():
     """run_fetcher refuses (raises) when a required env var is absent — caught upstream."""
     import os

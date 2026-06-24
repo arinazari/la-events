@@ -140,6 +140,22 @@ def test_tm_fetcher_normalize_prefers_local_date():
     assert parse_event_date(rec) == date(2026, 6, 17)
 
 
+def test_tm_date_windows_defeat_the_1000_cap():
+    # The far-horizon sweep windows the TM query so no single slice hits the 1000-result cap.
+    import fetch_ticketmaster as tm
+    from datetime import datetime, timezone
+    start = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    end = datetime(2026, 7, 1, tzinfo=timezone.utc)            # 181 days
+    wins = tm.date_windows(start, end, chunk_days=30)
+    assert wins[0][0] == start and wins[-1][1] == end          # fully covers [start, end]
+    for (a, b), (c, d) in zip(wins, wins[1:]):
+        assert a < b == c < d                                  # contiguous, forward, no gaps/overlap
+    assert all((b - a).days <= 30 for a, b in wins)            # every slice under the chunk size
+    assert len(wins) == 7                                      # 181 / 30 -> 7 slices
+    # The default 21-day horizon collapses to ONE window — behaviour-preserving at the near default.
+    assert len(tm.date_windows(start, datetime(2026, 1, 22, tzinfo=timezone.utc), 30)) == 1
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
