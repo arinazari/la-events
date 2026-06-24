@@ -244,6 +244,51 @@ The ranking-judgment tier (above) made real, plus one daily digest replacing the
       friend to give them the full editor treatment (else their feeds rank deterministically against their
       own music and pick up verdicts next run).
 
+## Phase F — Horizon expansion (the 6-month plan-ahead tier)
+**Why now (the canonical miss):** Lori saw on *Bandsintown* that Alanis Morissette plays LA in
+November and bought tickets — a tracked-artist-worthy show ~5 months out that a per-artist app
+caught while we were blind past 3 weeks. The daily run fetches a flat 21-day window, so festivals,
+big tours, and theater seasons never enter the catalog until they're nearly here. (Same root cause
+as the Daisy Chain Fields miss; the festival geo-waiver shipped 2026-06-23 is brick #1 of this tier.)
+
+**The key insight — extending the horizon is cheap.** The expensive (LLM) tiers are already
+windowed and independent of catalog size: the editor judges `--editor-window 28`, enrichment is
+top ~30–40 only. So going to 6 months is mostly a *deterministic* fetch/catalog change, **not** an
+LLM-cost explosion — as long as the editor/enrich windows stay near-horizon and the far tail is
+deterministic-only (radar). The digest already *renders* "weekends ahead (~4 mo)"; this feeds it.
+
+**The shape — two-speed, not uniform.** Most sources (DICE/19hz/Squarespace/venue-webfetch) only
+publish ~2–6 weeks out, so a uniform 180-day fetch buys nothing from them. The far tail is inherently
+TM (date-windowed) + Goldenvoice (full feed already) + RA + theater seasons + festival ticketers.
+  - **Near (~21–35d): full fidelity** — all sources, full editor + enrichment, day-by-day. (today)
+  - **Far (35d–6mo): deterministic plan-ahead** — only far-publishing sources, gated to radar-worthy
+    scale (festival / big-venue / tracked-artist / on-sale), **no per-event LLM**, feeds catalog →
+    radar + weekend look-aheads. Can run **weekly** (far events don't move nightly; `content_version`
+    gate makes no-ops cheap).
+
+- [x] **Phase 1 — two-speed fetch + the TM truncation fix (2026-06-23).** `run_digest.py`
+      `--far-days N` reaches the wide horizon for `far: True` sources (Ticketmaster); near sources keep
+      `--days`. `fetch_ticketmaster.py` now **date-windows** the query (`--chunk-days`, default 30) so a
+      wide range doesn't silently hit the API's <1000-results/query cap (the 21-day default stays one
+      window). Ghost-detection (`flag_stale`) deliberately stays on the near window so far events aren't
+      flagged unlisted before their feeds list them. Off by default (behaviour-preserving); tested.
+- [ ] **Turn it on in the routine** — add `--far-days ~180` to the daily run (or a separate **weekly**
+      far-sweep routine, the cheaper option). Confirm the first live run's TM volume + windowing.
+- [ ] **Per-artist "tour radar" (the Bandsintown lesson)** — for tracked / high-affinity artists,
+      surface ANY announced LA-area date at any horizon. Mostly free already: the far TM sweep +
+      `build_radar`'s `tracked` signal does this once the artist is in `artists_tracked`/Spotify. The
+      Alanis case also wants her in Lori's tracked list (a taste-content nudge, not architecture).
+- [ ] **Widen RA to the far window** — mark `far: True` once its pagination/rate-limits are vetted past
+      ~2 months (RA caps at ≤10 small pages); far RA coverage is thin, so low priority.
+- [ ] **Dashboard far-tail UX** — default the grid to near-term with a "plan ahead / on the radar"
+      section; cap each per-profile feed's far tail to radar-worthy so feeds don't balloon × N profiles.
+- [ ] **Volume watch** — a 6-month catalog may finally trip the tabled **SQLite** swap (below); revisit
+      `catalog.json` diff size + feed weight after the first wide run.
+
+**Decisions — Ari's input:** (1) **two-speed vs uniform** (recommend two-speed); (2) **far-tail filter**
+— radar-signal-gated vs keep-everything; (3) **cadence** — far sweep weekly (lean) vs daily; (4) **far
+horizon** — 6 mo, or further for festivals/theater seasons.
+
 ## On-demand — `source-scout` discovery agent (your call, never scheduled)
 Runs explicit strategies, returns a proposal table (approve → append to `sources.yaml`):
 - [ ] **Gap-mine** the catalog — venues/promoters in event data with no registry entry.
