@@ -12,7 +12,7 @@
 - `7:30pm` **[Mamma Mia! (Touring)](https://ra.co/events/2320217)** — Ahmanson Theatre, DTLA
 
 **Live music**
-- `7pm` **[Domani](https://www.ticketmaster.com/domani-los-angeles-california-06-23-2026/event/0900647100ABDBAF)** — The Echo, Echo Park
+- `7:30pm` **[A Night of Films by Julius-Amédée Laou](https://dice.fm/event/bb7mkx-a-night-of-films-by-julius-amde-laou-24th-jun-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
 
 **Film**
 - `2pm` **[Donnie Darko](https://vidiotsfoundation.org/showtimes/donnie-darko-6-24-26-100-pm/)** — Vidiots, Eagle Rock
@@ -25,7 +25,7 @@
 - `11am` **[heard. by Scene & Heard](https://posh.vip/e/heard-by-scene-heard)** — Sincerely Yours · free
 
 **Live music**
-- `7pm` **[Lamb with Never Goodbye](https://www.ticketmaster.com/lamb-with-never-goodbye-los-angeles-california-06-24-2026/event/090064A1DDBE82C0)** — The Echo, Echo Park
+- `8pm` **[Lightstruck: Jordan Belson – Knowledge Beyond Words (I)](https://dice.fm/event/7dbr97-lightstruck-jordan-belson-knowledge-beyond-words-i-25th-jun-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
 
 **Film**
 - `7pm` **[Sweet 16mm: Revolutionary Queer Cinema](https://vidiotsfoundation.org/showtimes/sweet-16mm-revolutionary-queer-cinema-6-25-26-700-pm/)** — Vidiots, Eagle Rock
@@ -34,13 +34,13 @@
 
 **Electronic & dance**
 - `10pm-4am` ⭐ **[Lights Down Low feat Yaeji](https://ra.co/events/2443844)** — TBA - Downtown LA, DTLA · $22.20-46.50
-- `9pm-2am` **[Midnight Lovers with JKriv (Razor-N-Tape)](https://ra.co/events/2396500)** — Bar Franca, Silver Lake · free
-- `10pm-2:30am` **[Mark Knight](https://dice.fm/event/dk29aq-mark-knight-26th-jun-sound-nightclub-los-angeles-tickets)** — Sound Nightclub (Los Angeles) tech house, Hollywood · $31
-- `5pm-10pm` **[SUNSET SESSIONS presents: 'Unicorns-Only' Takeover](https://ra.co/events/2452837)** — Level 8 DTLA, DTLA · free
+- `11pm` ⭐ **[Dirty Epic and INCOGNITO present: Stacey Pullen, BAE BAE and Nish](https://ra.co/events/2415209)** — TBA, Los Angeles · $27 b4 12 / $32
+- `9pm-2am` **[Flying Mojito Bros, Brainstory](https://www.instagram.com/p/DXPmtFPj3pL/)** — Camille's at The Bellwether (Los Angeles) desert house, disco, psychedelic, DTLA · $24
 - `9pm-2am` **[LA DISCOTECA](https://ra.co/events/2461545)** — The Slipper Clutch, DTLA · free
+- `5pm-10pm` **[SUNSET SESSIONS presents: 'Unicorns-Only' Takeover](https://ra.co/events/2452837)** — Level 8 DTLA, DTLA · free
 
 **Live music**
-- `7pm` **[Perry Maysun - A Very Pathetic Tour](https://www.ticketmaster.com/perry-maysun-a-very-pathetic-tour-los-angeles-california-06-25-2026/event/090064580C319B38)** — The Echo, Echo Park
+- `10:30pm` **[Not In Love: Crystal Castles & The Cure Night](https://dice.fm/event/ryk9xr-not-in-love-crystal-castles-the-cure-night-26th-jun-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
 
 **Film**
 - `10pm` **[Koyaanisqatsi](https://vidiotsfoundation.org/showtimes/koyaanisqatsi-6-26-26-1000-pm/)** — Vidiots, Eagle Rock
@@ -51,15 +51,15 @@
 ### Saturday · June 27
 
 **Electronic & dance**
-- `10pm` **[Extra Sensory x VICE Collab with TOP SECRET HEADLINER FROM LONDON](https://ra.co/events/2458992)** — TBA - Rave DEN, Los Angeles
-- `11:59pm-5am` **[Panic Room feat. Shane Thomas, Rob Aquino, chloe404 & Banoffee](https://ra.co/events/2458069)** — TBA - Silverlake, Silver Lake · $20-40
-- `10pm` **[Information - All Vinyl Night w/ Shakolin + Slip](https://ra.co/events/2456580)** — TBA - Outdoor Gathering, Los Angeles
 - `9:30pm-2am` **[discostan](https://ra.co/events/2438916)** — El Cid, Silver Lake · $11.50-17.25
+- `11pm-5am` **[Inland Groove After Hours](https://posh.vip/e/inland-groove-after-hours-1?t=ig)** — TBA (DTLA/Los Angeles) house, DTLA · free w/rsvp b4 1 / $10
+- `11pm` **[INLAND GROOVE AFTER HOURS](https://posh.vip/e/inland-groove-after-hours-1)** — DTLA LOCATION, DTLA · free
+- `10pm-4am` **[Butterground: Pocari G, Ashtre, Costa, Oso Disco, Blaze Claze](https://ra.co/events/2441912)** — TBA (DTLA/Los Angeles) house, DTLA · $25
+- `10pm` **[Information - All Vinyl Night w/ Shakolin + Slip](https://ra.co/events/2456580)** — TBA - Outdoor Gathering, Los Angeles
 - `11:30am` 🆕 **[Tradition Share & Medicine Making: Haitian Vodou](https://posh.vip/e/tradition-share-medicine-making-haitian-vodou)** — Bruce's Beach · free
 
 **Live music**
-- `10:30pm` **[Rentboy Presents Megachurch](https://dice.fm/event/mx93kw-rentboy-presents-megachurch-27th-jun-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-- `2pm` **[Ancient Artifax Pop Up + Memo PST](https://dice.fm/event/53bq9l-ancient-artifax-pop-up-memo-pst-27th-jun-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
+- `8pm` **[Llévame De Gira presents…      these severed hands    Madison Violet   Black Cat](https://www.thesmell.org/events/saturday-june-27-2026)** — The Smell, DTLA
 
 **Film**
 - `4:30pm` **[ASCO: Without Permission](https://vidiotsfoundation.org/showtimes/asco-without-permission-6-27-26-115-pm/)** — Vidiots, Eagle Rock
@@ -128,14 +128,15 @@
 ### Friday · July 3
 
 **Electronic & dance**
-- `11pm` ⭐ **[WORK presents: Pan-Pot [4 Hour Set], DOOSTAH, & Kitty Logic](https://ra.co/events/2414397)** — TBA - Los Angeles, Los Angeles
-- `10pm-2am` **[Agents Of Time, Henri Bergmann](https://ra.co/events/2409770)** — Avalon Hollywood, Hollywood · $20 pre
 - `10:30pm` **[Groove Room: A House and Hits Dance Party](https://dice.fm/event/3o7k2g-groove-room-a-house-and-hits-dance-party-3rd-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
+- `8pm-2am` **[Ginger Root](https://www.instagram.com/p/DZnMuYqjFAC/?img_index=1)** — Camille's at The Bellwether (Los Angeles) j-pop, disco, DTLA · free
+- `10pm` 🆕 **[The Anirave Gamer Cosplay Rave At Dave And Busters!](https://posh.vip/e/the-anirave-gamer-cosplay-rave-at-dave-and-busters)** — Dave and Busters · free
+- `10pm` **[GOOD GAME](https://ra.co/events/2467780)** — Townhouse, Venice
+- `10pm-3am` **[Mutate: Kayzo](https://ra.co/events/2453933)** — Exchange LA, DTLA · $40 pre
 - `3pm` 🆕 **[FENIX FLEXIN Day Party Fri, July 3rd @ Perry's Beach](https://posh.vip/e/fenix-flexin-day-party-fri-july-3rd-perrys-beach)** — Perry’s Beach · $30
 
 **Live music**
-- `10pm` **[Free Dance Party with Levitation Room DJs](https://dice.fm/event/v3n7yl-free-dance-party-with-levitation-room-djs-3rd-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
-- `7pm` **[Levitation Room, Sol Societe, Hector Waluyo, Walkin' Love](https://dice.fm/event/g5qe76-levitation-room-sol-societe-hector-waluyo-walkin-love-3rd-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
+- `8pm` **[Mezzanine: Shunji Iwai's Love Letter](https://dice.fm/event/3o79n8-mezzanine-shunji-iwais-love-letter-3rd-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
 
 **Film**
 - `4pm` **[Underland](https://vidiotsfoundation.org/showtimes/underland-7-3-26-100-pm/)** — Vidiots, Eagle Rock
@@ -210,10 +211,10 @@
 - `10pm` 🆕 **[Great Quality Entertainment presents Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District
 - `10pm` 🆕 **[Cirra presents: Day Thief, Faited, and sosoftly](https://ra.co/events/2472986)** — TBA - Downtown Los Angeles, DTLA
 - `11pm` **[RECOLLECT UNDERGROUND](https://ra.co/events/2469039)** — TBA - Location Link in Bio on Instagram @recollectunderground, Los Angeles
+- `10pm` **[Free Dance Party with DJ Travis Holcombe](https://dice.fm/event/bbr5pm-free-dance-party-with-dj-travis-holcombe-10th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
 
 **Live music**
 - `7:30pm` **[Slim Freaky, Evan Dexter Big Band, Jame Minogue, Liquid Circus, Kasuyama](https://dice.fm/event/g5x8pp-slim-freaky-evan-dexter-big-band-jame-minogue-liquid-circus-kasuyama-10th-jul-the-mint-los-angeles-tickets)** — The Mint, Mid-City
-- `6pm` **[Loose Album Release Show](https://dice.fm/event/3oxplx-loose-album-release-show-10th-jul-permanent-records-roadhouse-los-angeles-tickets)** — Permanent Records Roadhouse, Cypress Park
 
 ### Saturday · July 11
 
@@ -266,15 +267,13 @@
 ### Saturday · July 18
 
 **Electronic & dance**
+- `10pm` **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA - Downtown LA, DTLA
 - `10pm` **[Markus Schulz (Open To Close)](https://ra.co/events/2429659)** — Avalon Hollywood, Hollywood
 - `10pm` **[Paradisco](https://ra.co/events/2464518)** — Kiss Kiss Bang Bang, Koreatown
-- `10pm` **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA - Downtown LA, DTLA
+- `11pm` **[WORK presents: Ken Ishii, Phara, & yNOTi](https://ra.co/events/2458130)** — TBA - Los Angeles, Los Angeles
 - `6pm` **[Ann the Raven Birthday Blues Bash](https://ra.co/events/2468068)** — The Redwood Bar And Grill, DTLA
 - `2pm` **[Love Long Beach Festival 2026](https://ra.co/events/2386257)** — Shoreline Aquatic Park, Los Angeles  
   DJ Minx — Detroit house matriarch, Women on Wax founder — tracked artist; deep, soulful, dancefloor-first selection.
-
-**Live music**
-- `2am` **[8RO8](https://www.ticketmaster.com/8ro8-los-angeles-california-07-17-2026/event/090064C5DC4B7126)** — The Echo, Echo Park
 
 ### Sunday · July 19
 

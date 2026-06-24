@@ -253,12 +253,13 @@
       "model": "claude-opus-4-8"
     },
     "bb4f346b7a87": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Loco Dice + Adam Beyer + Cloonee with Riordan (your core rotation) on the undercard — the Queen Mary is a 25-min drive, not a 'far from LA' write-off; that penalty undersells it.",
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Adam Beyer + Ame + Cloonee + Riordan at an open-air waterfront festival — four tracked artists in one ticket; the Long Beach trip is earned.",
       "confidence": "high",
-      "judged_at": "2026-06-20T18:21:11",
-      "score_at_judge": 11
+      "judged_at": "2026-06-24T12:17:26",
+      "score_at_judge": 12,
+      "model": "claude-sonnet-4-6"
     },
     "0f729582faa3": {
       "tier": "great",
@@ -491,6 +492,163 @@
       "confidence": "med",
       "judged_at": "2026-06-20T18:21:11",
       "score_at_judge": 6
+    },
+    "7e00f46a7221": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Jayda G is a core-tracked artist and a genuine draw; July 4th Saturday at Sound is exactly the afterhours format she excels in.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "score_at_judge": 8,
+      "model": "claude-sonnet-4-6"
+    },
+    "241179720c5f": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Robert Hood is Detroit techno royalty — one of the deepest names on the tracked list; TBA-location only adds to the warehouse-night energy.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "score_at_judge": 8,
+      "model": "claude-sonnet-4-6"
+    },
+    "c272d34d687c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Inland Groove has a solid rep in the LA afterhours circuit; no named headliner to lift it above the pack, but a reliable format pick.",
+      "confidence": "med",
+      "judged_at": "2026-06-24T12:17:26",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "089c71f526eb": {
+      "tier": "skip",
+      "lane": "other",
+      "adjust": -3,
+      "why": "Cosplay rave at Dave & Busters — the Ame match is a false positive on a totally unrelated event; wrong venue, wrong vibe.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "0db7f5da5dfa": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Discostan at El Cid is a reliable Afro/diasporic-groove night in Silver Lake — fits the soulful/groove flank of the lane.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "03a30de7af32": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "LA Discoteca at Slipper Clutch is a known underground night; no marquee name but solid format for a Friday.",
+      "confidence": "med",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "e91e4a61b4ac": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Enayet and K Wata are local names with no regional draw signal; solid local underground pick but not a standout Friday option.",
+      "confidence": "low",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "faa13fbe4b4a": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "MARBLE with Halo Varga and Dylan Payne is a decent Arts District underground bill, none crack the tracked list or have obvious draw weight.",
+      "confidence": "med",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "c3d8ffc9ca4d": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Flying Mojito Bros bring a desert-psych-disco hybrid that fits the Balearic flank; Brainstory adds live-band energy — an eclectic Bellwether bill.",
+      "confidence": "med",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "7ad0f9d65862": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Stacey Pullen is a genuine Detroit techno elder statesman — rare LA appearance from a deep tracked name; prioritize over the generic Friday pile.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "e0e2e0e60c28": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Likely duplicate of the Dirty Epic/Stacey Pullen event — same date, same artists; bury to avoid surfacing same night twice.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "24f4c38c3ab6": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Yaeji DJ set via Lights Down Low confirmed on RA, part of her North American tour — tracked artist, trusted promoter, TBA-location adds legitimacy.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "f7e11e50d1ba": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Duplicate of Robert Hood/Disco Zombie/Onyx/Rubbermiro 7/4 bill — WORK presents branding; dedupe, surface only one.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "2af9e30f23ad": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Gold Diggers Disco Brunch is low-key Sunday daytime — good groove format at Silver Lake-adjacent spot, filler when Friday/Sat slate is stacked.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "7c70e24f32cd": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "The Hustle at Gold Diggers is a consistent Silver Lake disco night — pleasant but recurring and not a standout.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "a8d26c9b29e0": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Sunset Sessions at Level 8 is explicitly a recurring favorite in taste feedback — rooftop house/vinyl/European feel on a Friday evening.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "b8c7f1e23d45": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Same Golden Hour/Level 8 rooftop format on a Sunday — the vibe is right but Sunday cuts the urgency vs the Friday edition.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "4a3c8b1e7f52": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Amelie Lens at Grand Park open-air — Factory 93 credibility plus outdoor format make this a September anchor. Tracked artist.",
+      "confidence": "high",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
+    },
+    "991e3ba2f845": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "HARD Summer leans heavy on bass/dubstep-adjacent bookings that draw taste penalties; worth radar awareness, not a priority.",
+      "confidence": "med",
+      "judged_at": "2026-06-24T12:17:26",
+      "model": "claude-sonnet-4-6"
     }
   }
 }
