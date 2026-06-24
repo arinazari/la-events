@@ -100,7 +100,7 @@
       <div>
         <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
           <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">curated digest for <span onClick="{{ openDigest }}" title="Open this curated digest" style="color:#76746b; cursor:pointer;" style-hover="color:#161512;">{{ digestUser }} <span style="font-size:0.72em;">↗</span></span></sc-if><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">curated digests for {{ digestUser }}</sc-if></span></span>
-          <span onClick="{{ openGuide }}" title="How the site works + what's new" style="align-self:center; cursor:pointer; display:inline-flex; align-items:center; gap:5px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em; color:#a7a59b; border:1px solid #d9d7cf; border-radius:2px; padding:5px 8px;" style-hover="color:#161512; border-color:#a7a59b;"><span style="font-size:11px; line-height:1;">?</span> how it works</span>
+          <span onClick="{{ openGuide }}" title="How the site works + what's new" style="align-self:center; cursor:pointer; display:inline-flex; align-items:center; gap:5px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em; color:#a7a59b; border:1px solid #d9d7cf; border-radius:2px; padding:5px 8px;" style-hover="color:#161512; border-color:#a7a59b;"><span style="font-size:11px; line-height:1;">?</span> how it works<sc-if value="{{ guideUnseen }}" hint-placeholder-val="{{ false }}"><span title="New since your last visit" style="flex:none; width:5px; height:5px; border-radius:50%; background:#2b5cd9;"></span></sc-if></span>
         </div>
         <div style="margin-top:5px; font:500 11px/1.6 ui-monospace,Menlo,monospace; color:#76746b; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
           <span style="display:inline-flex; align-items:center; gap:6px;">
@@ -451,7 +451,7 @@
                   <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last data pull</span><span style="color:#76746b;">{{ lastDataPull }}</span></div>
                 </sc-if>
                 <div onClick="{{ showChanges }}" title="What moved on the last pull — lineups, prices, times (tap to see)" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:{{ changeCursor }};"><span>what changed</span><span style="color:{{ lastChangeColor }};">{{ lastChangeLabel }}</span></div>
-                <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last site update</span><span style="color:#76746b;">{{ lastSiteUpdate }}</span></div>
+                <div onClick="{{ openWhatsNew }}" title="See what's new on the site" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>last site update</span><span style="color:#2b5cd9;">{{ lastSiteUpdate }} ↗</span></div>
               </div>
             </div>
           </sc-if>
@@ -710,7 +710,7 @@ class Component extends DCLogic {
     profileOpen: false,
     tasteModalOpen: false,
     spotifyModalOpen: false,
-    guideOpen: false, guideTab: 'how',
+    guideOpen: false, guideTab: 'how', guideUnseen: false,
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
     profileError: '',
@@ -1273,7 +1273,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "- **Fresh-data nudge.** When new events land, **Update my ranking & digest** lights up, and a `what changed` readout tells you what moved — lineups, prices, set times — on the last pull.",
     "- **Add to calendar.** Every event's detail row has a one-click **Add to calendar** (.ics) export."
   ].join('\n');
-  _markGuideSeen = () => { try { localStorage.setItem('la-guide-seen', this.GUIDE_VERSION); } catch (e) {} };
+  _markGuideSeen = () => { try { localStorage.setItem('la-guide-seen', this.GUIDE_VERSION); } catch (e) {} this.setState({ guideUnseen: false }); };
+  openWhatsNew = () => this.openGuide('new');
   openGuide = (tab) => { this._markGuideSeen(); this.setState({ guideOpen: true, guideTab: tab || 'how', settingsOpen: false }); };
   closeGuide = () => this.setState({ guideOpen: false });
   setGuideTab = (t) => this.setState({ guideTab: t });
@@ -2188,16 +2189,17 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.loadDigest();
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
-    // First visit → show the guide; a returning visitor whose last-seen version is stale → open
-    // straight to What's new. Once per device per GUIDE_VERSION; dismissable. Delayed so the page
-    // paints first.
+    // Onboarding vs. the subtle dot: a true first-timer (no stored version) gets the guide opened
+    // once to "How it works". A returning visitor with a stale version is NOT interrupted — the
+    // unseen dot on the header chip + the "last site update" link carry them to What's new instead.
     try {
       const seen = localStorage.getItem('la-guide-seen');
-      if (seen !== this.GUIDE_VERSION) {
+      this.setState({ guideUnseen: seen !== this.GUIDE_VERSION });
+      if (!seen) {
         this._guideTimer = setTimeout(() => {
           if (this.state.guideOpen) return;   // user opened it manually in the meantime
           this._markGuideSeen();
-          this.setState({ guideOpen: true, guideTab: seen ? 'new' : 'how' });
+          this.setState({ guideOpen: true, guideTab: 'how' });
         }, 700);
       }
     } catch (e) {}
@@ -2443,7 +2445,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       tasteModalOpen: !!this.state.tasteModalOpen,
       openTasteModal: this.openTasteModal, closeTasteModal: this.closeTasteModal,
       guideOpen: !!this.state.guideOpen,
-      openGuide: () => this.openGuide('how'), closeGuide: this.closeGuide,
+      openGuide: () => this.openGuide('how'), openWhatsNew: this.openWhatsNew, closeGuide: this.closeGuide,
+      guideUnseen: !!this.state.guideUnseen,
       guideTabHow: () => this.setGuideTab('how'), guideTabNew: () => this.setGuideTab('new'),
       guideHowBg: this.state.guideTab !== 'new' ? '#1b1a17' : '#fff',
       guideHowColor: this.state.guideTab !== 'new' ? '#fff' : '#76746b',
