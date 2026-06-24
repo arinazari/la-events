@@ -22,7 +22,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
 from lib.dedupe import normalize  # noqa: E402
-from lib.config import load_taste, load_profile  # noqa: E402
+from lib.config import load_taste, load_profile, load_digest_prefs  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
 from lib.pipeline import score_pool, today_la  # noqa: E402
 from lib.assemble import assemble  # noqa: E402
@@ -515,6 +515,8 @@ def main() -> int:
     ap.add_argument("--profile-hash", default=None, help="render a profile's slate (its taste/spotify/verdicts)")
     ap.add_argument("--taste", default="taste.yaml")
     ap.add_argument("--profile", default="profile.yaml")
+    ap.add_argument("--digest-prefs", default="digest.yaml",
+                    help="format prefs (max_picks_per_day caps per-day density; null = default)")
     ap.add_argument("--consolidated", action="store_true",
                     help="one digest: next 2 weeks (day-by-day) + weekends ahead + on the radar")
     ap.add_argument("--radar", default="data/radar.json", help="radar set for the consolidated digest")
@@ -534,6 +536,11 @@ def main() -> int:
     catalog = json.loads(resolve(args.catalog).read_text())
     meta = CM.read_meta(resolve(args.catalog).parent / "catalog_meta.json")
     taste, profile = load_taste(args.taste), load_profile(args.profile)
+    # Format prefs: the one structural knob the deterministic renderer honors is the per-day cap
+    # (the rest — sections/tone/length/emphasis — shape the LLM digest layer, not this scaffold).
+    prefs = load_digest_prefs(args.digest_prefs)
+    cap = prefs.get("max_picks_per_day")
+    cap = cap if isinstance(cap, int) and cap > 0 else None
     today = today_la()
     # Events first_seen / updated on or after the latest fetch are flagged 🆕 / ↻ in the digest.
     FETCH_REF = (meta.get("fetched_at") or "")[:10] or today.isoformat()
@@ -556,7 +563,7 @@ def main() -> int:
     if args.consolidated:
         # Tier 1: next 14 days, day-by-day. Tier 2: the weekends in days 15–35 (Thu–Sun), lighter.
         # Tier 3: the radar set (festivals/big shows beyond), from build_radar.
-        sec1 = build_slate_cands(catalog, taste, profile, today, verdicts, window=14,
+        sec1 = build_slate_cands(catalog, taste, profile, today, verdicts, window=14, per_day=cap,
                                  to=(today + timedelta(days=13)).isoformat(), affinity=affinity)
         sec2 = build_slate_cands(catalog, taste, profile, today, verdicts, window=36, per_day=6,
                                  from_=(today + timedelta(days=14)).isoformat(),
@@ -580,7 +587,7 @@ def main() -> int:
     # Windowed mode — kept for the per-weekend look-ahead (e.g. next weekend, plugged into the
     # dashboard username click). A single date-bounded slate digest.
     cands = build_slate_cands(catalog, taste, profile, today, verdicts,
-                              window=args.window, per_day=args.per_day,
+                              window=args.window, per_day=args.per_day or cap,
                               from_=args.from_, to=args.to, affinity=affinity)
     enriched = merge_enrichment(cands, cache)
     Path(args.md).write_text(render_markdown(doc, enriched))

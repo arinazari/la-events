@@ -49,7 +49,10 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    digest**: `python scripts/render_digest.py --consolidated --md digests/latest.md --html
    digests/latest.html` — ONE doc with three sections: the next 14 days day-by-day, the weekends in
    days 15–35 (Thu–Sun), and **on the radar**. All of it is the editor **slate** (assemble over the
-   scored pool + verdicts); ⭐ = the editor's must-sees, curator notes from enrichment. Also keep the
+   scored pool + verdicts); ⭐ = the editor's must-sees, curator notes from enrichment. `render_digest`
+   auto-reads the root **`digest.yaml`** format prefs (only the structural `max_picks_per_day` cap
+   applies to this deterministic scaffold; sections/tone/length shape the LLM digest layer in step 9 +
+   interactive synthesis). Also keep the
    **per-weekend look-ahead** (backend option for the dashboard's per-weekend view): for each of the
    next ~16 weekends keyed by the **Friday**, `python scripts/render_digest.py --from <Fri> --to <Sun>
    --md digests/weekends/<Fri>.md --html digests/weekends/<Fri>.html`. Near weekends fill out; far
@@ -76,7 +79,10 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
      `digests/<hash>/latest.md` — same conversational, opinionated voice as the consolidated digest,
      ranked to THAT person's taste: their top picks across the next ~2–3 weekends, grouped by day, a
      one-line *why* each. Keep it tight; if their feed is thin, a couple of honest lines is fine
-     (don't pad). Then STAMP so the gate records the new signature + writes the freshness line:
+     (don't pad). **Honor `feed.profile.digest_prefs`** if present (`length` · `group_by` · `sections`
+     · `max_picks_per_day` · `emphasis` · `tone` · `notes`) — HOW this person wants it to read
+     (presentation only). The gate already folds these prefs into its signature, so a format change
+     triggers exactly one REGENERATE here. Then STAMP so the gate records the new signature + writes the freshness line:
      `python scripts/digest_gate.py stamp --feed dashboard/data.<hash>.json --md digests/<hash>/latest.md`
    The dashboard's profile popup reads `digests/<hash>/latest.md`. (An `owner: true` profile shares the
    root taste.yaml, so its digest ≈ the default — expected.) Friends' feeds re-rank within ~1–2 min of a
