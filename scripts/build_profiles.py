@@ -122,6 +122,14 @@ def main() -> int:
                 block["taste_yaml"] = (REPO / taste).read_text()
             except OSError:
                 pass
+            # Per-person digest FORMAT prefs (HOW their digest reads). Owner shares the root
+            # digest.yaml; a friend gets profiles/<u>/digest.yaml (or an explicit `digest_prefs:`
+            # path). Injected so the hash-keyed digest routines + the freshness gate (which only see
+            # the feed, never the username) can honor + sign over it. Omitted when there's no file.
+            dpath = "digest.yaml" if p.get("owner") else (p.get("digest_prefs") or f"profiles/{u}/digest.yaml")
+            prefs = load_yaml(dpath)
+            if prefs:
+                block["digest_prefs"] = prefs
             feed["profile"] = block
             out.write_text(json.dumps(feed, indent=2))
         except (OSError, json.JSONDecodeError) as e:

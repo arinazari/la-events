@@ -54,6 +54,11 @@ def feed_signature(feed: dict, top_n: int = DEFAULT_TOP_N) -> str:
         ident = f"{normalize(e.get('title',''))}|{(e.get('iso_date') or '')[:10]}|{normalize(e.get('venue',''))}"
         tier = ((e.get("verdict") or {}).get("tier")) or ""
         rows.append(f"{ident}|{e.get('final_rank')}|{tier}")
+    # Fold in the profile's digest FORMAT prefs so a pure format change (no pick movement) still
+    # forces exactly ONE regeneration — otherwise the gate would SKIP and the new format never lands.
+    prefs = (feed.get("profile") or {}).get("digest_prefs") if isinstance(feed, dict) else None
+    if prefs:
+        rows.append("prefs:" + json.dumps(prefs, sort_keys=True, separators=(",", ":")))
     return hashlib.sha256("\n".join(rows).encode("utf-8")).hexdigest()[:16]
 
 
