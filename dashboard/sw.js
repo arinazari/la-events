@@ -1,7 +1,12 @@
 /* Minimal service worker: cache the app shell so the dashboard opens offline.
- * data.json is fetched network-first (fall back to cache) so it stays fresh. */
+ * The HTML and data.json are fetched network-first (fall back to cache) so the
+ * app updates as soon as a new version ships; the heavy static assets
+ * (support.js, vendored React/Babel) stay cache-first for fast offline loads.
+ *
+ * Bump CACHE whenever a cache-first asset below changes — that byte change is
+ * what makes the browser re-install this worker and re-fetch the shell. */
 
-const CACHE = "la-events-v3";
+const CACHE = "la-events-v4";
 const SHELL = [
   "./",
   "./index.html",
@@ -29,8 +34,12 @@ self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== "GET" || url.origin !== self.location.origin) return;
 
-  // Network-first for the data feed; cache-first for everything else.
-  if (url.pathname.endsWith("/data.json")) {
+  // Network-first for the HTML and the data feed so the app updates the moment a
+  // new version ships (fall back to cache offline); cache-first for everything else.
+  const netFirst = e.request.mode === "navigate" ||
+    url.pathname.endsWith("/index.html") || url.pathname.endsWith("/") ||
+    url.pathname.endsWith("/data.json");
+  if (netFirst) {
     e.respondWith(
       fetch(e.request)
         .then((res) => {
