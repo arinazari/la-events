@@ -4,7 +4,7 @@
 #   name:      display name
 #   category:  electronic | live_music | comedy | film | theater | editorial |
 #              general | beer_food | multi
-#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | dice | seetickets | squarespace | rss | ics | gmail | manual
+#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | dice | veezi | seetickets | squarespace | rss | ics | gmail | manual
 #              (webfetch = read at digest time via the WebFetch tool; for bot-walled/JS pages)
 #   url:       endpoint or calendar page (or IG handle for manual)
 #   priority:  1 (always fetch) .. 3 (only on category-specific requests)
@@ -264,34 +264,32 @@ sources:
 
   - name: New Beverly Cinema
     category: film
-    method: scrape
+    method: veezi
     url: https://ticketing.uswest.veezi.com/sessions?siteToken=fmtswb0qqbym3de6c4bbsqj89m
     priority: 2
     status: active
     notes: >
       Tarantino's New Bev — 35mm always, double features + midnight movies; monthly calendar drops
-      sell fast (flag SOLD OUT). thenewbev.com/schedule is client-rendered, BUT the Veezi PUBLIC
-      sessions page renders the full schedule server-side in static HTML at
-      ticketing.uswest.veezi.com/sessions?siteToken=fmtswb0qqbym3de6c4bbsqj89m — verified 2026-06-19
-      (One Battle After Another, Inglourious Basterds midnights). The Veezi WEB-SERVICE API is
-      per-cinema token-gated, but this sessions HTML page is public. NO-trailing-slash form, real UA
-      (slash variant → Cloudflare __cf_bm → 0 bytes). Same pattern as Vista (siteToken is the key).
+      sell fast (flag SOLD OUT). thenewbev.com/schedule is client-rendered, but the Veezi PUBLIC
+      sessions page renders the full schedule server-side as static HTML. scripts/fetch_veezi.py
+      --token fmtswb0qqbym3de6c4bbsqj89m (run by run_digest as source "newbev"). Verified 2026-06-25:
+      35 showtimes/3wk with SOLD-OUT flags. NO-trailing-slash form + real UA (the /sessions/ slash
+      variant trips Cloudflare __cf_bm → 0 bytes). Same Veezi template as Vista — siteToken is the key.
 
   - name: Vista Theater (Hollywood)
     category: film
-    method: scrape
+    method: veezi
     url: https://ticketing.uswest.veezi.com/sessions?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww
     priority: 1
     status: active
     notes: >
       Tarantino's Vista — 70mm/35mm, film-only, first-run + classics. The venue site
-      (vistatheaterhollywood.com) is JS-rendered and returned empty (2026-06-16), BUT the underlying
-      Veezi PUBLIC schedule renders the FULL slate server-side in static HTML at
-      ticketing.uswest.veezi.com/sessions?siteToken=<token> — verified 2026-06-19 (216 showtimes via
-      plain curl: 70mm Disclosure Day, Odyssey 70mm 7/16–23, SOLD-OUT flags, run-of-engagement dates).
-      siteToken 20xhpa3yt2hhkwt4zjvfcwsaww is the durable key. Use the NO-trailing-slash form (the
-      /sessions/ slash variant hits a Cloudflare __cf_bm challenge → 0 bytes); real UA. Same Veezi
-      pattern as New Beverly — until a fetch_veezi.py exists, scrape/WebFetch this URL at digest time.
+      (vistatheaterhollywood.com) is JS-rendered, but the underlying Veezi PUBLIC schedule renders the
+      FULL slate server-side as static HTML. scripts/fetch_veezi.py --token 20xhpa3yt2hhkwt4zjvfcwsaww
+      (run by run_digest as source "vista"; folds 70mm/35mm + SOLD-OUT into the record). Verified
+      2026-06-25: 60 showtimes/3wk (70mm Disclosure Day, Odyssey 70mm 7/16). Use the NO-trailing-slash
+      form (the /sessions/ slash variant hits Cloudflare __cf_bm → 0 bytes); real UA. siteToken is the
+      durable key; same Veezi template as New Beverly (one fetcher, two tokens).
 
   - name: Comedy Store
     category: comedy
