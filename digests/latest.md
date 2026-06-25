@@ -1,6 +1,6 @@
 # LA Events — 2026-06-25
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Updated Thu 6/25 · 82 new · 23 updated since the last pull · 🆕 new · ↻ updated*
+*Updated Thu 6/25 · 68 new since the last pull · 🆕 new · ↻ updated*
 
 ## Next two weeks
 
@@ -8,20 +8,24 @@
 
 **Electronic & dance**
 - `11pm-5am` **[Recollect Underground: JTJ, Kenny Cordeiro, Matt Marauder, Lavenge B2B Xuliet, Mama J B2B Max Rush](https://www.instagram.com/recollectunderground)** — TBA (DTLA/Los Angeles) tech house, minimal, deep house, DTLA · $11.50-23
-- `8:30pm-12am` **[OROLINK: Ms. Ed + Andy Oro](https://ra.co/events/2472566)** — Apotheke, Chinatown · free · ↻ updated (price, start)
 - `11am` **[heard. by Scene & Heard](https://posh.vip/e/heard-by-scene-heard)** — Sincerely Yours · free
 
 **Live music**
 - `8pm` **[Lightstruck: Jordan Belson – Knowledge Beyond Words (I)](https://dice.fm/event/7dbr97-lightstruck-jordan-belson-knowledge-beyond-words-i-25th-jun-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
 
 **Film**
-- `7pm` **[Sweet 16mm: Revolutionary Queer Cinema](https://vidiotsfoundation.org/showtimes/sweet-16mm-revolutionary-queer-cinema-6-25-26-700-pm/)** — Vidiots, Eagle Rock
+- `7:30pm` 🆕 **[Disclosure Day (70mm)](https://ticketing.uswest.veezi.com/purchase/3710?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
+
+**Theater**
+- `7:30pm` **[The Phantom of the Opera (Touring)](https://www.ticketmaster.com/the-phantom-of-the-opera-touring-los-angeles-california-06-24-2026/event/0B006383A5294766)** — Hollywood Pantages Theatre, Hollywood
 
 ### Friday · June 26
 
 **Electronic & dance**
-- `10pm-4am` **[Lights Down Low feat Yaeji](https://ra.co/events/2443844)** — TBA - Downtown LA, DTLA · $22.20-46.50
-- `11pm` **[Dirty Epic and INCOGNITO present: Stacey Pullen, BAE BAE and Nish](https://ra.co/events/2415209)** — TBA, Los Angeles · $27 b4 12 / $32
+- `10pm-4am` **[Lights Down Low feat Yaeji](https://ra.co/events/2443844)** — TBA - Downtown LA, DTLA · $22.20-46.50  
+  Lights Down Low doing what it does best: TBA location drops day-of, and they've booked Yaeji on a dedicated DJ-set summer tour — whispered-bilingual-house in a warehouse rather than a festival tent is the right format for her. Worth the address chase.
+- `11pm` **[Dirty Epic and INCOGNITO present: Stacey Pullen, BAE BAE and Nish](https://ra.co/events/2415209)** — TBA, Los Angeles · $27 b4 12 / $32  
+  Dirty Epic and INCOGNITO have been landing Berghain-calibre bookings for years, and Stacey Pullen for a TBA late night is exactly that — second-wave Detroit in an intimate warehouse rather than a stage. BAE BAE warming up keeps the energy genuinely interesting rather than just competent.
 - `5pm-10pm` **[SUNSET SESSIONS presents: 'Unicorns-Only' Takeover](https://ra.co/events/2452837)** — Level 8 DTLA, DTLA · free
 - `9pm-2am` **[Flying Mojito Bros, Brainstory](https://www.instagram.com/p/DXPmtFPj3pL/)** — Camille's at The Bellwether (Los Angeles) desert house, disco, psychedelic, DTLA · $24 · ↻ updated (lineup)
 
@@ -29,7 +33,7 @@
 - `10:30pm` **[Not In Love: Crystal Castles & The Cure Night](https://dice.fm/event/ryk9xr-not-in-love-crystal-castles-the-cure-night-26th-jun-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
 
 **Film**
-- `10pm` **[Koyaanisqatsi](https://vidiotsfoundation.org/showtimes/koyaanisqatsi-6-26-26-1000-pm/)** — Vidiots, Eagle Rock
+- `11pm` (Fri 6/26 +10 more) 🆕 **[The Invite](https://ticketing.uswest.veezi.com/purchase/3768?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
 
 **Theater**
 - `7:30pm` **[ Grits & Eggs Podcast Live](https://www.ticketmaster.com/grits-eggs-podcast-live-los-angeles-california-06-25-2026/event/090064AC95D996FB)** — The Regent Theater, DTLA
@@ -40,37 +44,34 @@
 ### Saturday · June 27
 
 **Electronic & dance**
-- `6pm` ⭐ 🆕 **[Sudamericana, DJ Toka](https://www.ticketweb.com/event/jordan-vs-argentina-academy-la-tickets/14860003)** — Exchange LA (Los Angeles) house, disco, DTLA · free w/rsvp
+- `6pm` ⭐ 🆕 **[Sudamericana, DJ Toka](https://www.ticketweb.com/event/jordan-vs-argentina-academy-la-tickets/14860003)** — Exchange LA (Los Angeles) house, disco, DTLA · free w/rsvp  
+  Sudamericana has been one of LA's most freewheeling Latin dance parties for over a decade — early 6pm start at Exchange LA, free with RSVP, and DJ Toka knows exactly how to move the room between cumbia, disco, and house without losing the floor.
 - `11pm-5am` **[Inland Groove After Hours](https://posh.vip/e/inland-groove-after-hours-1?t=ig)** — TBA (DTLA/Los Angeles) house, DTLA · free w/rsvp b4 1 / $10
-- `9:30pm-2am` **[discostan](https://ra.co/events/2438916)** — El Cid, Silver Lake · $11.50-17.25
+- `9:30pm-2am` **[discostan](https://ra.co/events/2438916)** — El Cid, Silver Lake · $11.50-17.25  
+  Discostan at El Cid is one of LA's genuinely singular recurring nights — Arshia Haq and crew weave SWANA folkloric music, '80s diaspora disco and re-edits into something no other promoter is doing in the city. Different enough from the house/techno lane to feel like a real discovery rather than a lateral move.
 - `11:59pm-5am` **[Panic Room feat. Shane Thomas, Rob Aquino, chloe404 & Banoffee](https://ra.co/events/2458069)** — TBA - Silverlake, Silver Lake · $20-40
-- `10pm-4am` **[Butterground: Pocari G, Ashtre, Costa, Oso Disco, Blaze Claze](https://ra.co/events/2441912)** — TBA (DTLA/Los Angeles) house, DTLA · $25
+- `10pm-4am` **[Butterground: Pocari G, Ashtre, Costa, Oso Disco, Blaze Claze](https://ra.co/events/2441912)** — TBA (DTLA/Los Angeles) house, DTLA · $25  
+  Butterground is a local DTLA house collective running TBA-location parties — all local selectors, no marquee name, but that format at 9pm on July 4th usually means an early crowd that's actually there to dance rather than pose. Worth watching if you're already out that night.
 - `1pm` **[Hotties Pool Party DJ P-Nasty Bday Celebration](https://posh.vip/e/hotties-pool-party-dj-pnasty-bday-celebration-1)** — Hotel Indigo · free
 
 **Live music**
 - `10pm` **[CUTE DANCE PARTY 4 PRIDE](https://dice.fm/event/7db8e7-cute-dance-party-4-pride-27th-jun-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
 
-**Film**
-- `4:30pm` **[ASCO: Without Permission](https://vidiotsfoundation.org/showtimes/asco-without-permission-6-27-26-115-pm/)** — Vidiots, Eagle Rock
-
 ### Sunday · June 28
 
 **Electronic & dance**
+- `7pm` **[Day Trip Festival Long Beach](https://on.fgtix.com/trk/R4TZ)** — The Queen Mary, Long Beach  
+  Day Trip's sixth Long Beach edition at the new Queen Mary Amphitheater is the tech-house festival LA actually needs — the Adam Beyer / Loco Dice / Hi-Lo block gives it real techno weight, and Cloonee headlining keeps it from disappearing up its own prog-house backside. Saturday is the day to go.
 - `6pm` **[Sunday Sessions LA (Vinyl Only) Open Air](https://ra.co/events/2456395)** — The Bridge, DTLA · ↻ updated (lineup)
 - `11:59pm-5am` **[Bass Recovery Day 2 (Unofficial Apocalypse Recovery Party) ft APx1, Novella, Catnap, Phayla, Kaali](https://posh.vip/e/bass-recovery-unofficial-apocalypse-recovery-party-1?t=infohz)** — TBA (DTLA/Los Angeles) drum and bass, DTLA · free w/rsvp b4 2 / $5-10
 
 **Live music**
-- `7pm` **[Day Trip Festival Long Beach](https://on.fgtix.com/trk/R4TZ)** — The Queen Mary, Long Beach
 - `7:30pm` **[Dirty Looks: Gregg Araki's Three Bewildered People in the Night](https://dice.fm/event/eo876d-dirty-looks-gregg-arakis-three-bewildered-people-in-the-night-28th-jun-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
-
-**Film**
-- `3:30pm` **[Harakiri](https://vidiotsfoundation.org/showtimes/harakiri-6-28-26-330-pm/)** — Vidiots, Eagle Rock
 
 ### Monday · June 29
 
 **Live music**
 - `8pm` **[Panic Shack, AKA BK](https://dice.fm/event/53b7y8-panic-shack-29th-jun-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
-- `2:30am` (Mon 6/29 + Tue 6/30) **[Don Toliver: Octane Tour](https://www.ticketmaster.com/don-toliver-octane-tour-los-angeles-california-06-28-2026/event/2C0064459C3814E5)** — Crypto.com Arena, DTLA
 
 **Film**
 - `1pm` **[Sunset Boulevard](https://vidiotsfoundation.org/showtimes/sunset-boulevard-6-29-26-100-pm/)** — Vidiots, Eagle Rock
@@ -91,7 +92,6 @@
 
 **Electronic & dance**
 - `9pm-2am` **[Local Frequencies: Rckslvr, Tempo, Noyze Komplaint, Novacane, Reico, Two Uncs](https://ra.co/events/2467555)** — Jungle Hollywood, Hollywood · free w/rsvp b4 11pm / $11-23 · ↻ updated (lineup)
-- `8pm` **[The Blue Ribbon Boys](https://ra.co/events/2468060)** — The Redwood Bar And Grill, DTLA
 - `12pm` **[WORK Q3 2026 SEASON PASS](https://ra.co/events/2440750)** — TBA - Los Angeles, Los Angeles
 
 **Live music**
@@ -110,9 +110,6 @@
 **Live music**
 - `8pm` **[Escape-ism, Gary Wilson, Jack Name](https://dice.fm/event/yowmea-escape-ism-gary-wilson-jack-name-2nd-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
 
-**Film**
-- `7:30pm` **[Band of Outsiders](https://vidiotsfoundation.org/showtimes/band-of-outsiders-7-2-26-730-pm/)** — Vidiots, Eagle Rock
-
 ### Friday · July 3
 
 **Electronic & dance**
@@ -127,14 +124,17 @@
 - `8pm` **[Mezzanine: Shunji Iwai's Love Letter](https://dice.fm/event/3o79n8-mezzanine-shunji-iwais-love-letter-3rd-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
 
 **Film**
-- `4pm` **[Underland](https://vidiotsfoundation.org/showtimes/underland-7-3-26-100-pm/)** — Vidiots, Eagle Rock
+- `11:30pm` (Fri 7/3 + Sun 7/5) 🆕 **[Jaws](https://ticketing.uswest.veezi.com/purchase/3667?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
 
 ### Saturday · July 4
 
 **Electronic & dance**
-- `10pm-3am` ⭐ **[Jayda G](https://dice.fm/event/k6dyll-jayda-g-4th-jul-sound-nightclub-los-angeles-tickets)** — Sound Nightclub (Los Angeles) deep house, disco, Hollywood · $31
-- `11pm-6am` ⭐ **[Robert Hood, Disco Zombie, Onyx, & Rubbermiro](https://ra.co/events/2434712)** — TBA (Los Angeles) techno, minimal, acid · $24 b4 12 / $35+
-- `11pm` **[WORK presents: Robert Hood, Disco Zombie, Ønyx, & Rubbermiro](https://ra.co/events/2434712)** — TBA - Los Angeles, Los Angeles
+- `10pm-3am` ⭐ **[Jayda G](https://dice.fm/event/k6dyll-jayda-g-4th-jul-sound-nightclub-los-angeles-tickets)** — Sound Nightclub (Los Angeles) deep house, disco, Hollywood · $31  
+  Sound is a proper room for Jayda G — she thrives in longer, sweatier sets where she can pull the floor through disco into gospel-house without hitting a hard stop. This is the July 4th pick if warehouse TBAs feel like too much admin.
+- `11pm-6am` ⭐ **[Robert Hood, Disco Zombie, Onyx, & Rubbermiro](https://ra.co/events/2434712)** — TBA (Los Angeles) techno, minimal, acid · $24 b4 12 / $35+  
+  Same Robert Hood / Disco Zombie / Ønyx / Rubbermiro lineup as the WORK event — likely a duplicate listing. Confirm before buying tickets; the WORK-branded version (0f729582faa3) is the canonical one to trust.
+- `11pm` **[WORK presents: Robert Hood, Disco Zombie, Ønyx, & Rubbermiro](https://ra.co/events/2434712)** — TBA - Los Angeles, Los Angeles  
+  Robert Hood in a TBA warehouse on July 4th is the anti-fireworks plan — stripped, relentless M-Plant minimal with a crew of actual LA heads supporting. WORK's format (address drops day-of) means the room stays self-selecting, which is exactly right for this.
 - `10:30pm` **[The Hustle ~ First and Third Saturday Disco Party!](https://dice.fm/event/bb7p6g-the-hustle-first-and-third-saturday-disco-party-4th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
 - `2pm-8pm` **[Young Franco POOL PARTY at Level 8 [4th of July]](https://ra.co/events/2401723)** — Level 8 DTLA, DTLA · $25.67-1701.35
 - `11:59pm` **[OKAYVAL (LA HEADLINE SHOW)](https://ra.co/events/2456988)** — TBA - DTLA Warehouse, DTLA
@@ -142,41 +142,36 @@
 **Live music**
 - `10pm` **[Closed](https://www.vibratogrilljazz.com/music/czawalfr3jy9albzbdhkcre93ckfdd)** — Vibrato Grill Jazz, Bel Air
 
-**Film**
-- `4pm` (Sat 7/4 + Mon 7/6) **[Rose of Nevada](https://vidiotsfoundation.org/showtimes/rose-of-nevada-7-4-26-400-pm/)** — Vidiots, Eagle Rock
-
 ### Sunday · July 5
 
 **Electronic & dance**
-- `2pm-8:30pm` **[Day Trip In The Park LA: Hayden James, Gudfella, Local Singles](https://ra.co/events/2436973)** — Los Angeles State Historic Park, Chinatown · $37 pre
+- `2pm-8:30pm` **[Day Trip In The Park LA: Hayden James, Gudfella, Local Singles](https://ra.co/events/2436973)** — Los Angeles State Historic Park, Chinatown · $37 pre  
+  Hayden James — Sydney producer — polished, melodic house (multi-Platinum 'Something About You'); worked with Gorgon City and Katy Perry; RUFUS Du Sol-adjacent but slightly more radio-pop.
 - `3pm` **[CASUAL ~ A Queer Pool Party](https://ra.co/events/2471575)** — The Broken Shaker Los Angeles, DTLA
 - `6pm-2am` **[CLOSER x TYF x DFP present SUNDANCE with Egyptian Lover](https://ra.co/events/2463453)** — The Bridge, DTLA · $50+
 
 **Live music**
 - `1pm` **[Filmforum 50: Ken Jacobs – Star Spangled to Death](https://dice.fm/event/bb7mlk-filmforum-50-ken-jacobs-star-spangled-to-death-5th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
 
-**Film**
-- `4:30pm` (Sun 7/5 +2 more) **[The Furious](https://vidiotsfoundation.org/showtimes/the-furious-7-5-26-130-pm/)** — Vidiots, Eagle Rock
-
 ### Monday · July 6
 
 **Live music**
 - `7pm` 🆕 **[very good mondays - 250th show!](https://dice.fm/event/mxg26r-very-good-mondays-250th-show-6th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-- `2:30am` **[Herb Alpert](https://www.ticketmaster.com/event/Z7r9jZ1A7xA-a)** — Hollywood Bowl, Hollywood
-- `12:30am` **[Grand Ole Echo](https://www.ticketmaster.com/grand-ole-echo-los-angeles-california-07-05-2026/event/0900646425ABA864)** — The Echo, Echo Park
 
 **Film**
+- `7pm` **[Rose of Nevada](https://vidiotsfoundation.org/showtimes/rose-of-nevada-7-6-26-700-pm/)** — Vidiots, Eagle Rock
 - `7:30pm` **[Top Gun](https://vidiotsfoundation.org/showtimes/top-gun-7-6-26-730-pm/)** — Vidiots, Eagle Rock
+- `7:30pm` 🆕 **[Heat (1995)](https://ticketing.uswest.veezi.com/purchase/4781?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax
 
 ### Tuesday · July 7
 
 **Live music**
 - `8pm` **[Jared Mattson & Ruban Nielson, Joshua Crumbley](https://dice.fm/event/eo8b7o-jared-mattson-ruban-nielson-joshua-crumbley-7th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
-- `7:30pm` **[Chris Patrick](https://www.axs.com/events/1328100/chris-patrick-tickets)** — El Cid, Silver Lake
 
 **Film**
 - `1pm` 🆕 **[Band of Outsiders (1964)](https://vidiotsfoundation.org/showtimes/band-of-outsiders-1964-7-7-26-100-pm/)** — Vidiots, Eagle Rock
 - `7:30pm` 🆕 **[Picnic at Hanging Rock](https://vidiotsfoundation.org/showtimes/picnic-at-hanging-rock-7-7-26-730-pm/)** — Vidiots, Eagle Rock
+- `7pm` 🆕 **[The Furious](https://vidiotsfoundation.org/showtimes/the-furious-7-7-26-700-pm/)** — Vidiots, Eagle Rock
 
 ### Wednesday · July 8
 
@@ -199,10 +194,12 @@
 - `10pm` 🆕 **[PinPonPanPon + ilyKimchi](https://ra.co/events/2474767)** — Catch One, Mid-City
 - `10pm-3am` 🆕 **[Emmit Fenn](https://www.facebook.com/events/2569391076810710/)** — Sound Nightclub (Los Angeles) synthpop, pop EDM, Hollywood · $31 pre
 - `10:30pm` **[Black Silk Stocking / DJ ValleyGhoul, Gina Kuhn, & GüeroGraves](https://dice.fm/event/oe7kba-black-silk-stocking-dj-valleyghoul-gina-kuhn-inhalt-9th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-- `9pm` **[Big Fat Gay Rave Vol. 3](https://ra.co/events/2471051)** — Beaches Tropicana, Los Angeles
 
 **Live music**
 - `8pm` **[Lightstruck: Jordan Belson – Knowledge Beyond Words (II)](https://dice.fm/event/nv6er8-lightstruck-jordan-belson-knowledge-beyond-words-ii-9th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
+
+**Film**
+- `7:30pm` 🆕 **[The Invite](https://ticketing.uswest.veezi.com/purchase/3821?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
 
 ### Friday · July 10
 
@@ -210,11 +207,13 @@
 - `8pm` **[The Roamers](https://ra.co/events/2468064)** — The Redwood Bar And Grill, DTLA
 - `10pm` 🆕 **[Great Quality Entertainment presents Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District
 - `10pm` 🆕 **[Cirra presents: Day Thief, Faited, and sosoftly](https://ra.co/events/2472986)** — TBA - Downtown Los Angeles, DTLA
-- `11pm` **[RECOLLECT UNDERGROUND](https://ra.co/events/2469039)** — TBA - Location Link in Bio on Instagram @recollectunderground, Los Angeles
-- `8pm` 🆕 **[Adam Lambert](https://ra.co/events/2475630)** — The Bellwether, DTLA
 
 **Live music**
 - `7:30pm` **[Slim Freaky, Evan Dexter Big Band, Jame Minogue, Liquid Circus, Kasuyama](https://dice.fm/event/g5x8pp-slim-freaky-evan-dexter-big-band-jame-minogue-liquid-circus-kasuyama-10th-jul-the-mint-los-angeles-tickets)** — The Mint, Mid-City
+
+**Film**
+- `11:59pm` (Fri 7/10 + Sat 7/11) 🆕 **[Hollywood 90028](https://ticketing.uswest.veezi.com/purchase/3815?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
+- `7:30pm` (Fri 7/10 +2 more) 🆕 **[Dances With Wolves](https://ticketing.uswest.veezi.com/purchase/3807?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
 
 ### Saturday · July 11
 
@@ -222,10 +221,8 @@
 - `8pm` **[Divine LA x Apt4B Radio present: The Groove Lab](https://ra.co/events/2472030)** — TBA - DTLA, DTLA
 - `10pm` **[VECTOR TECHNO CLUB: Developer, Aztekan, & Tensic by Kenopsic](https://ra.co/events/2455254)** — TBA - Inland Empire (45min from LA), Los Angeles
 - `3pm` **[Hypersleep - a deep progressive rooftop day party](https://ra.co/events/2468903)** — Somewhere Special, Los Angeles
-- `10pm` **[R3HAB](https://ra.co/events/2473673)** — Academy LA, Hollywood
 
 **Live music**
-- `1pm` **[Acropolis Cinema: The Plagiarists](https://dice.fm/event/dko5no-acropolis-cinema-the-plagiarists-11th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
 - `8pm` **[Foodman + Sun Araw](https://dice.fm/event/6d832q-foodman-sun-araw-11th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
 
 ### Sunday · July 12
@@ -233,13 +230,13 @@
 **Electronic & dance**
 - `5pm` **[Factory 93 presents: Beltran Open to Close at Naud St](https://ra.co/events/2399254)** — 1756 Naud St., Chinatown
 - `2pm` **[Day Trip In The Park LA: Omnom, Marco Strous, SLAMM](https://ra.co/events/2436976)** — Los Angeles State Historic Park, Chinatown
-- `8pm` **[Band of Coyotes](https://ra.co/events/2468065)** — The Redwood Bar And Grill, DTLA
 - `12am` **[Tropicana Pool at The Hollywood Roosevelt (top young talent/media)](https://ra.co/events/2454110)** — Roosevelt Hotel, Hollywood
-- `3pm` **[Claude VonStroke presents WRONG#NUMBER - Open Air](https://ra.co/events/2457756)** — TBA - 624 S Anderson St Los Angeles CA 90023, Boyle Heights  
-  Claude VonStroke — Dirtybird founder (aka Barclay Crenshaw) — playful, bass-heavy West Coast house; he's billed leading the 'Team USA' set here.
 
 **Live music**
 - `7:30pm` **[LA Filmforum: Yoko Ono's "RAPE"](https://dice.fm/event/eoxqqw-la-filmforum-yoko-onos-rape-12th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
+
+**Film**
+- `10am` 🆕 **[Snoopy Come Home](https://ticketing.uswest.veezi.com/purchase/3814?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
 
 ### Thursday · July 16
 
@@ -250,8 +247,10 @@
 **Live music**
 - `2am` **[Breaking Sound @ the Peppermint Club](https://www.ticketmaster.com/breaking-sound-the-peppermint-club-los-angeles-california-07-15-2026/event/090064AEAF4EEC2E)** — The Peppermint Club, West Hollywood
 - `7pm` 🆕 **[Mr. Dinkles, Edging, Derek Day](https://dice.fm/event/536vaw-mr-dinkles-edging-derek-day-16th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-- `3am` **[Olivia Dean](https://www.ticketmaster.com/event/Z7r9jZ1A7raGK)** — Crypto.com Arena, DTLA
-- `2am` **[44phantom](https://www.ticketmaster.com/44phantom-los-angeles-california-07-15-2026/event/09006498FAD5CA27)** — The Echo, Echo Park
+
+**Film**
+- `7:30pm` 🆕 **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3743?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
+- `7:30pm` 🆕 **[A Clockwork Orange](https://ticketing.uswest.veezi.com/purchase/4804?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax
 
 ### Friday · July 17
 
@@ -373,3 +372,5 @@
 - `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono*
 - `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park · DTLA  ·  *Amelie Lens*
 
+---
+*Coverage gaps: ticketmaster (missing $TM_API_KEY), posh (missing $POSH_TOKEN)*
