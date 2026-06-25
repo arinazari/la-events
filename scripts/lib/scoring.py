@@ -238,9 +238,20 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         if term in hay:
             score -= 2
             reasons.append(f"-2 {term}")
+    # Far-flung penalty — WAIVED for festival-scale events. A marquee festival in the OC/SD/
+    # Ventura orbit (Coachella, CRSSD, Daisy Chain Fields) is a worth-the-trip radar item, not a
+    # far-flung club night, so it's judged on taste rather than auto-killed by geography. An
+    # off-taste far festival still scores low on its own merits (no tracked artists / low category),
+    # so waiving the geo penalty doesn't wrongly surface junk. Festival detection mirrors
+    # build_radar's festival signal + tagging's "festival" vibe (whole word in the haystack, or an
+    # explicit `festival: true` on a manual/curated capture).
+    is_festival = bool(ev.get("festival")) or ("festival" in hay)
     if any(f in hay or f in hood for f in cfg["far"]):
-        score -= 2
-        reasons.append("-2 far from LA")
+        if is_festival:
+            reasons.append("far-flung penalty waived (festival)")
+        else:
+            score -= 2
+            reasons.append("-2 far from LA")
 
     return {"score": score, "reasons": reasons}
 

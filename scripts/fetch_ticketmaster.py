@@ -79,9 +79,27 @@ def normalize(ev: dict) -> dict:
     }
 
 
+def date_windows(start_dt, end_dt, chunk_days=30):
+    """Split [start, end] into consecutive <=chunk_days sub-windows.
+
+    The Discovery API caps deep paging at size*page < 1000 per query (10 pages of 100), so a
+    single wide date range silently drops the far tail once LA has >1000 events in it. Windowing
+    keeps each slice under the cap, so a 6-month horizon returns its full set. With the default
+    21-day horizon and 30-day chunks this yields exactly one window (behaviour-preserving)."""
+    chunk_days = max(1, chunk_days)
+    out, cur, step = [], start_dt, timedelta(days=chunk_days)
+    while cur < end_dt:
+        nxt = min(cur + step, end_dt)
+        out.append((cur, nxt))
+        cur = nxt
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--days", type=int, default=7)
+    ap.add_argument("--chunk-days", type=int, default=30,
+                    help="split the fetch window into <=N-day slices (defeats the 1000-result/query cap)")
     ap.add_argument("--classification", default="music,comedy,arts & theatre",
                     help="comma-separated Discovery API segments")
     ap.add_argument("-o", "--out", default="events_tm.json")
@@ -93,36 +111,39 @@ def main() -> int:
         return 1
 
     now = datetime.now(timezone.utc)
-    start = now.strftime("%Y-%m-%dT%H:%M:%SZ")
-    end = (now + timedelta(days=args.days)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    end = now + timedelta(days=args.days)
 
     events: dict[str, dict] = {}
     for cls in [c.strip() for c in args.classification.split(",") if c.strip()]:
-        page = 0
-        while True:
-            params = {
-                "apikey": key,
-                "dmaId": LA_DMA,
-                "classificationName": cls,
-                "startDateTime": start,
-                "endDateTime": end,
-                "size": PAGE_SIZE,
-                "page": page,
-                "sort": "date,asc",
-            }
-            try:
-                data = fetch_page(params)
-            except Exception as e:  # noqa: BLE001
-                print(f"WARN: {cls} page {page} failed: {e}", file=sys.stderr)
-                break
-            for ev in data.get("_embedded", {}).get("events", []):
-                events[ev["id"]] = normalize(ev)
-            pg = data.get("page", {})
-            page += 1
-            # Discovery API caps deep paging at size*page < 1000
-            if page >= min(pg.get("totalPages", 0), 1000 // PAGE_SIZE):
-                break
-            time.sleep(0.25)  # stay under 5 req/sec
+        # Date-window each classification so no single query hits the API's 1000-result cap
+        # (one window at the 21-day default; many for a 6-month horizon).
+        for w_start, w_end in date_windows(now, end, args.chunk_days):
+            page = 0
+            while True:
+                params = {
+                    "apikey": key,
+                    "dmaId": LA_DMA,
+                    "classificationName": cls,
+                    "startDateTime": w_start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    "endDateTime": w_end.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    "size": PAGE_SIZE,
+                    "page": page,
+                    "sort": "date,asc",
+                }
+                try:
+                    data = fetch_page(params)
+                except Exception as e:  # noqa: BLE001
+                    print(f"WARN: {cls} {w_start:%m/%d}-{w_end:%m/%d} page {page} failed: {e}",
+                          file=sys.stderr)
+                    break
+                for ev in data.get("_embedded", {}).get("events", []):
+                    events[ev["id"]] = normalize(ev)
+                pg = data.get("page", {})
+                page += 1
+                # Discovery API caps deep paging at size*page < 1000
+                if page >= min(pg.get("totalPages", 0), 1000 // PAGE_SIZE):
+                    break
+                time.sleep(0.25)  # stay under 5 req/sec
 
     out = sorted(events.values(), key=lambda e: e.get("datetime") or "")
     with open(args.out, "w") as f:
