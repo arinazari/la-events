@@ -929,7 +929,9 @@ class Component extends DCLogic {
   // the local "Fast filter" engine. Set via the chat header "connect" affordance (localStorage),
   // or hardcode the URL here. See backend/README.md.
   BACKEND_URL = (typeof localStorage !== 'undefined' && localStorage.getItem('la-backend-url')) || 'https://la-events-concierge.arinazari.workers.dev';
-  BACKEND_TOKEN = (typeof localStorage !== 'undefined' && localStorage.getItem('la-concierge-token')) || '';
+  // Per-profile connection (token/key/Opus) — see the CONN store below. This prefill is the active
+  // profile's saved token; componentDidMount re-reads it authoritatively (after migration + TTL check).
+  BACKEND_TOKEN = (() => { try { return this.readConn().token || ''; } catch (e) { return ''; } })();
 
   // ---- taste constants ----
   EASTSIDE = ['Silver Lake','Echo Park','Los Feliz','Atwater Village','Highland Park','Eagle Rock','East Hollywood','Historic Filipinotown','Cypress Park','Chinatown','Glendale'];
@@ -1569,10 +1571,57 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // sends it to the Worker (header x-anthropic-key) and that key pays for every message; when OFF, the
   // concierge falls back to the shared access token (if one's been entered). No silent failover — if a
   // live key errors/limits, the user flips it OFF and the token takes over. See backend/concierge-worker.js.
-  rawClaudeKey = () => { try { return ((typeof localStorage !== 'undefined' && localStorage.getItem('la-claude-api-key')) || '').trim(); } catch (e) { return ''; } };
-  apiEnabled = () => { try { return (typeof localStorage !== 'undefined') && localStorage.getItem('la-claude-api-enabled') === '1'; } catch (e) { return false; } };
+
+  // ---------- per-profile connection store (token + Claude key + on/off + Opus) ----------
+  // The whole concierge connection is scoped to the signed-in profile (keyed by feed hash; 'default'
+  // when logged out) and kept in THIS browser. Scoping per profile is the fix for the connection
+  // leaking when you switch profiles; persisting it means you enter it only once per profile. A
+  // freshness TTL ages out a connection you haven't used in a while (re-entry), and a different
+  // browser always starts blank (localStorage is per-browser). Shape: {token,key,enabled,opus,ts}.
+  CONN_TTL_MS = 45 * 24 * 60 * 60 * 1000;   // 45 days since last successful use -> ask again
+  connKey(p) { p = (p === undefined) ? this.state.profile : p; return 'la-conn:' + ((p && p.hash) || 'default'); }
+  readConn(p) {
+    try {
+      const raw = (typeof localStorage !== 'undefined') && localStorage.getItem(this.connKey(p));
+      if (!raw) return {};
+      const c = JSON.parse(raw);
+      if (!c || typeof c !== 'object') return {};
+      if (c.ts && (Date.now() - c.ts) > this.CONN_TTL_MS) { try { localStorage.removeItem(this.connKey(p)); } catch (e) {} return {}; }
+      return c;
+    } catch (e) { return {}; }
+  }
+  writeConn(patch, p) {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      const next = { ...this.readConn(p), ...patch, ts: Date.now() };
+      const empty = !next.token && !next.key && !next.enabled && !next.opus;
+      empty ? localStorage.removeItem(this.connKey(p)) : localStorage.setItem(this.connKey(p), JSON.stringify(next));
+    } catch (e) {}
+  }
+  // Keep an actively-used connection fresh: bump its stamp on every successful ping, so only a dormant
+  // connection ages past CONN_TTL_MS.
+  touchConn() { try { const c = this.readConn(); if (c.token || c.key) this.writeConn({}); } catch (e) {} }
+  // One-time migration off the OLD global keys (the source of the cross-profile leak): fold any legacy
+  // globals into the currently-active profile, then delete them so they can't bleed across profiles again.
+  migrateLegacyConn() {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      const legacy = ['la-concierge-token', 'la-claude-api-key', 'la-claude-api-enabled', 'la-claude-use-opus'];
+      if (legacy.every(k => localStorage.getItem(k) == null)) return;
+      const patch = {};
+      const tok = localStorage.getItem('la-concierge-token'); if (tok) patch.token = tok;
+      const key = localStorage.getItem('la-claude-api-key'); if (key) patch.key = key;
+      if (localStorage.getItem('la-claude-api-enabled') === '1') patch.enabled = true;
+      if (localStorage.getItem('la-claude-use-opus') === '1') patch.opus = true;
+      if (Object.keys(patch).length) this.writeConn(patch);
+      legacy.forEach(k => { try { localStorage.removeItem(k); } catch (e) {} });
+    } catch (e) {}
+  }
+
+  rawClaudeKey = () => { try { return (this.readConn().key || '').trim(); } catch (e) { return ''; } };
+  apiEnabled = () => { try { return !!this.readConn().enabled; } catch (e) { return false; } };
   // Opus upgrade for the concierge chat — only honored by the Worker for a BYOK caller (their spend).
-  useOpus = () => { try { return (typeof localStorage !== 'undefined') && localStorage.getItem('la-claude-use-opus') === '1'; } catch (e) { return false; } };
+  useOpus = () => { try { return !!this.readConn().opus; } catch (e) { return false; } };
   // The key actually sent on a request: only when switched ON *and* present. Empty -> the token is used.
   byokKey = () => { const k = this.rawClaudeKey(); return (this.apiEnabled() && k) ? k : ''; };
   logoutFromSettings = () => this.logoutProfile();
@@ -1635,12 +1684,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (key && !/^sk-ant-/.test(key)) { this.flashToast('That doesn’t look like an Anthropic key (expected sk-ant-…) — not saved'); return; }
     const enabled = !!this.state.apiEnabledDraft;
     const tok = (this.state.tokenInput || '').trim();
-    try {
-      key ? localStorage.setItem('la-claude-api-key', key) : localStorage.removeItem('la-claude-api-key');
-      enabled ? localStorage.setItem('la-claude-api-enabled', '1') : localStorage.removeItem('la-claude-api-enabled');
-      this.state.useOpusDraft ? localStorage.setItem('la-claude-use-opus', '1') : localStorage.removeItem('la-claude-use-opus');
-      tok ? localStorage.setItem('la-concierge-token', tok) : localStorage.removeItem('la-concierge-token');
-    } catch (e) {}
+    // Save the whole connection under THIS profile only (never the old global keys) so it can't leak
+    // into another profile; writeConn stamps it fresh and clears the slot if everything's blank.
+    this.writeConn({ token: tok, key: key, enabled: enabled, opus: !!this.state.useOpusDraft });
     this.BACKEND_TOKEN = tok;
     this.setState({ connectModalOpen: false });
     const via = (enabled && key) ? 'your Claude API key' : (tok ? 'the shared access token' : null);
@@ -1682,6 +1728,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // a personal key alone can connect
       const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify({ ping: true }) });
       this.setState({ backendStatus: res.ok ? 'ok' : 'err' });
+      if (res.ok) this.touchConn();   // keep an actively-used connection from aging out
     } catch (e) { this.setState({ backendStatus: 'err' }); }
   }
   stopLLM = () => { if (this._abort) { try { this._abort.abort(); } catch (e) {} } this.setState({ loading: false }); };
@@ -1717,8 +1764,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // Switch the active profile: persist it, reset the view, load that feed (+ digest).
   async applyProfile(profileObj, raw) {
     try { profileObj ? localStorage.setItem('la-profile', JSON.stringify(profileObj)) : localStorage.removeItem('la-profile'); } catch (e) {}
+    // Connection is per-profile: drop the profile we're leaving and load the target's saved token (if
+    // still fresh), then re-check it so the indicator reflects THIS profile, not the one we just left.
+    this.BACKEND_TOKEN = this.readConn(profileObj).token || '';
     this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
-      spotifyStatus: null, spotifyName: '' });
+      spotifyStatus: null, spotifyName: '', backendStatus: null },
+      () => { if (this.BACKEND_URL) this.pingBackend(); });
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
@@ -2425,6 +2476,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       });
     };
     window.addEventListener('resize', this._onResize);
+    this.migrateLegacyConn();                          // fold any legacy global connection into this profile
+    this.BACKEND_TOKEN = this.readConn().token || '';  // authoritative load: post-migration, TTL-checked
     this.loadCatalog();
     this.loadDigest();
     this.checkCatalogFreshness();
