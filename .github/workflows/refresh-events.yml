@@ -16,10 +16,12 @@ name: Refresh events database
 #   TM_API_KEY  POSH_TOKEN  SPOTIFY_CLIENT_ID  SPOTIFY_CLIENT_SECRET  SPOTIFY_REFRESH_TOKEN
 on:
   schedule:
-    # 10:00 UTC ≈ 3am PT. Deterministic nightly refresh — the reliable floor under the LLM Routine.
-    # NB: GitHub only runs scheduled workflows from the DEFAULT branch, so this activates once merged
-    # to main. If the Routine also runs nightly and you want its short LLM intro on digests/latest to
-    # win, schedule the Routine after this time (this run re-renders the consolidated digest plainly).
+    # 10:00 UTC ≈ 3am PT. A FALLBACK for the nightly LLM Routine, not a second nightly: the gate
+    # job below skips this run if the catalog was already refreshed today (Routine or manual), so
+    # the deterministic render never clobbers the Routine's richer LLM digest. It only does work
+    # when the Routine didn't land — keeping the catalog (and the "last data pull" stamp) fresh.
+    # NB: GitHub only runs scheduled workflows from the DEFAULT branch, so this activates once
+    # merged to main. Set the cron a couple hours after the Routine's slot for the cleanest handoff.
     - cron: "0 10 * * *"
   repository_dispatch:
     types: [refresh-events]
@@ -36,7 +38,32 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # A scheduled run is a fallback for the nightly LLM Routine: gate it on catalog freshness so it
+  # only does work (and only re-renders digests/latest) when the Routine didn't land. Manual and
+  # button runs (workflow_dispatch / repository_dispatch) always proceed.
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.decide.outputs.run }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decide whether to run (scheduled run skips if the catalog is already fresh)
+        id: decide
+        env:
+          STALE_AFTER_HOURS: "20"   # skip a scheduled run if the catalog was refreshed within this window
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "Manual/dispatch trigger → always run."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          elif python3 scripts/catalog_age.py --stale-after "$STALE_AFTER_HOURS"; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
   refresh:
+    needs: gate
+    if: needs.gate.outputs.run == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
