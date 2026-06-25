@@ -55,8 +55,9 @@ DEFAULT_GROOVE_TERMS = (
     "vinyl", "all night", "open to close", "open-to-close", "groove", "disco",
     "soulful", "deep house", "balearic", "rooftop", "sunset", "golden hour",
     "open-air", "open air", "daytime", "day party", "poolside", "pool party",
-    "beach",
 )
+# Person/city-specific groove terms (e.g. "beach") live in profile.yaml, not here — it replaces
+# this generic baseline when present (see test_profile_preserves_code_defaults).
 
 DEFAULT_EU_TERMS = (
     "fabric", "defected", "innervisions", "keinemusik", "hot creations", "rush hour",
