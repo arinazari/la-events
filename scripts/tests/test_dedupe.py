@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # scripts/ on path
-from lib.dedupe import is_duplicate, merge, dedupe, normalize, _venue_key  # noqa: E402
+from lib.dedupe import is_duplicate, merge, dedupe, normalize, _venue_key, _link_ids  # noqa: E402
 
 # Same real event across three sources (RA / DICE / TM), venue + title variants.
 RA = {"title": "Midnight Lovers Day Party w/ Bradley Zero", "venue": "The Bridge",
@@ -118,6 +118,71 @@ def test_same_core_unrelated_venues_not_duplicate():
     a = {"title": "Summer Festival", "venue": "The Echo", "date": "2026-08-01", "lineup": ["A", "B", "C", "D"]}
     b = {"title": "Summer Festival", "venue": "Greek Theatre", "date": "2026-08-01", "lineup": ["E", "F", "G", "H"]}
     assert not is_duplicate(a, b)
+
+
+# ── Ticket-link identity ───────────────────────────────────────────────────────
+
+def test_link_ids_extracts_per_event_ids_case_preserved():
+    ev = {"links": [
+        {"source": "tm", "url": "https://www.ticketmaster.com/dillstradamus-hollywood-06-27-2026/event/09006437C99A49D6"},
+        {"source": "19hz", "url": "https://www.ticketmaster.com/event/09006437C99A49D6"},  # bare form, same id
+        {"source": "ra", "url": "https://ra.co/events/2471045"},
+        {"source": "posh", "url": "https://posh.vip/e/bass-recovery-party?t=infohz"},       # query stripped
+    ]}
+    assert _link_ids(ev) == {"tm:09006437C99A49D6", "ra:2471045", "posh:bass-recovery-party"}
+
+
+def test_link_ids_ignores_tracking_and_generic_links():
+    # Promoter tracking links + venue homepages are shared by many events -> never identity.
+    ev = {"links": [{"source": "fgtix", "url": "https://on.fgtix.com/trk/R4TZ"},
+                    {"source": "site", "url": "https://exchangela.com/"}]}
+    assert _link_ids(ev) == set()
+
+
+def test_link_ids_case_sensitive_for_tm():
+    # Real catalog pair: two DIFFERENT shows whose TM ids differ only in the final char's case.
+    a = {"links": [{"url": "https://www.ticketmaster.com/event/Z7r9jZ1A7x71F"}]}  # Blues Traveler
+    b = {"links": [{"url": "https://www.ticketmaster.com/event/Z7r9jZ1A7x71f"}]}  # Tchaikovsky
+    assert not (_link_ids(a) & _link_ids(b))                # must NOT collide
+
+
+def test_shared_link_merges_despite_divergent_venue_strings():
+    # Bass Recovery shape: same posh page, venue strings too different for the fuzzy path.
+    posh = {"title": "BASS RECOVERY DAY 1", "venue": "Secret DTLA Warehouse", "date": "2026-06-27",
+            "lineup": [], "links": [{"source": "posh", "url": "https://posh.vip/e/bass-recovery"}], "sources": ["posh"]}
+    nh = {"title": "Bass Recovery Day 1 (Unofficial Apocalypse Recovery Party)", "venue": "TBA (DTLA/Los Angeles)",
+          "date": "2026-06-27", "lineup": [],
+          "links": [{"source": "19hz", "url": "https://posh.vip/e/bass-recovery?t=infohz"}], "sources": ["19hz"]}
+    assert is_duplicate(posh, nh)
+    merged, report = dedupe([posh, nh])
+    assert len(merged) == 1, [e["title"] for e in merged]
+    assert set(merged[0]["sources"]) == {"posh", "19hz"}
+
+
+def test_shared_tm_id_across_dates_collapses_to_nightof():
+    # Dillstradamus shape: TM filed the post-midnight set on 6/28; 19hz has the night-of 6/27.
+    nh = {"title": "Dillon Francis, Flosstradamus", "venue": "Hollywood Palladium", "date": "2026-06-27",
+          "lineup": [], "links": [{"source": "19hz", "url": "https://www.ticketmaster.com/event/09006437C99A49D6"}],
+          "sources": ["19hz"]}
+    tm = {"title": "DILLSTRADAMUS (Dillon Francis B2B Flosstradamus)", "venue": "Hollywood Palladium",
+          "date": "2026-06-28", "lineup": ["Dillstradamus"],
+          "links": [{"source": "tm", "url": "https://www.ticketmaster.com/dillstradamus-06-27-2026/event/09006437C99A49D6"}],
+          "sources": ["ticketmaster"]}
+    merged, report = dedupe([nh, tm])
+    assert len(merged) == 1, [(e["title"], e["date"]) for e in merged]
+    assert merged[0]["date"] == "2026-06-27"            # earliest = night-of date wins
+    assert {l["url"] for l in merged[0]["links"]} == {
+        "https://www.ticketmaster.com/event/09006437C99A49D6",
+        "https://www.ticketmaster.com/dillstradamus-06-27-2026/event/09006437C99A49D6"}
+
+
+def test_tracking_link_does_not_collapse_multiday_festival():
+    # Two-day festival sharing ONE Frontgate tracking link across both nights must stay two rows.
+    day1 = {"title": "Day Trip Festival", "venue": "The Queen Mary", "date": "2026-06-27", "lineup": [],
+            "links": [{"source": "fgtix", "url": "https://on.fgtix.com/trk/R4TZ"}], "sources": ["ticketmaster"]}
+    day2 = dict(day1, date="2026-06-28")
+    merged, report = dedupe([day1, day2])
+    assert len(merged) == 2, [(e["title"], e["date"]) for e in merged]
 
 
 if __name__ == "__main__":
