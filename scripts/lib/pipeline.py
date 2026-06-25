@@ -24,7 +24,8 @@ except Exception:  # pragma: no cover - tzdata missing
 SOURCE_CATEGORY = {
     "ra": "electronic", "19hz": "electronic", "posh": "party",
     "ticketmaster": "music", "goldenvoice": "music", "dice": "live_music",
-    "filmbot": "film", "vidiots": "film", "eventbrite": "general",
+    "filmbot": "film", "vidiots": "film", "veezi": "film", "vista": "film", "newbev": "film",
+    "eventbrite": "general",
     "squarespace": "live_music", "ics": "general", "jsonld": "general",
 }
 
