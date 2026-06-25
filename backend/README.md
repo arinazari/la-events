@@ -45,6 +45,11 @@ refuses to commit anything that doesn't re-parse as valid YAML:
 ```
 POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<feed-hash>" }
 ->    { reply: string, taste_changed?: boolean, profile_changed?: boolean }
+
+POST  { history: true, profile: "<feed-hash>" }          # read this profile's saved chat (4-day window)
+->    { messages: [{role, text, ts}, ...] }
+
+POST  { ping: true }  ->  { ok, taste, byok, chat }       # chat:true = a KV store is bound (history on)
 Auth: optional  Authorization: Bearer <CONCIERGE_TOKEN>
 ```
 
@@ -53,6 +58,27 @@ is named after). The Worker resolves it back to the profile via `profiles.yaml` 
 person's files: a friend's own `profiles/<name>/{taste,profile}.yaml`, or — for the `owner: true`
 profile (Ari's login) — the shared root `taste.yaml` / `profile.yaml`. A friend can never edit the
 root files.
+
+### Server-side chat history (cross-device, optional)
+
+So a profile's concierge conversation follows them between devices, the Worker keeps a **per-profile
+transcript in KV**, keyed by feed hash (`chat:<hash>`), trimmed to the **past 4 days**. It's additive
+and degrades gracefully:
+
+- On each chat turn the Worker appends the user message + its reply to KV (via `ctx.waitUntil`, so it
+  never delays the response), with a 4-day per-key TTL; a per-message prune keeps an *active* thread
+  inside the window even as new turns refresh the key. A `{ history: true, profile }` POST returns the
+  stored transcript; the page merges it with its local copy on load (so nothing on screen is lost) and
+  also keeps a **per-browser `localStorage`** copy as the offline / logged-out / backend-down fallback.
+- **Storage:** prefers a dedicated **`CHAT_KV`** binding; if that's absent it falls back to the
+  **`SPOTIFY_KV`** namespace (already provisioned), so it works the moment you redeploy — no new setup.
+  With neither bound, server history is simply off and the page keeps only its `localStorage` copy.
+  To keep the two stores separate, create a dedicated namespace and bind it (see `wrangler.toml`):
+  `npx wrangler kv namespace create CHAT_KV`.
+- **Privacy / threat model** — same "obfuscation, not security" as the rest: feed hashes are public,
+  so anyone past the gate (`CONCIERGE_TOKEN` or a valid BYOK key) who knows a hash could read that
+  profile's transcript. Blast radius is one person's going-out chat; it auto-expires in 4 days. Don't
+  put anything in the concierge you wouldn't put in a public events app.
 
 ### Pipeline actions (the dashboard's refresh / update buttons)
 
@@ -113,6 +139,7 @@ Worker URL + (if set) the token. Stored in your browser's localStorage — no re
 | `ALLOWED_ORIGIN`    | `wrangler.toml [vars]` | CORS origin (your Pages site) |
 | `GITHUB_REPO` / `GITHUB_BRANCH` | `wrangler.toml [vars]` | where to commit taste edits (defaults: `arinazari/la-events` / `main`) |
 | `PROFILE_SALT`      | `wrangler.toml [vars]` | **must match** the page + `build_profiles.py` (`la-events/v1:`) so hashes line up |
+| `CHAT_KV`           | `wrangler.toml [[kv_namespaces]]` | optional — dedicated store for server-side chat history (per profile, 4-day TTL). Falls back to `SPOTIFY_KV` if unset; with neither, history is `localStorage`-only. |
 
 ## Quality & cost
 

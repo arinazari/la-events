@@ -70,7 +70,7 @@ const DEFAULTS = {
 };
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const origin = env.ALLOWED_ORIGIN || DEFAULTS.ALLOWED_ORIGIN;
     const cors = {
       "Access-Control-Allow-Origin": origin,
@@ -102,11 +102,14 @@ export default {
 
     let body;
     try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
+    const profileHash = body && typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
     // Health ping (the page's connection indicator): validates reachability + the token, no LLM call.
-    if (body && body.ping) return json({ ok: true, taste: !!env.GITHUB_TOKEN, byok: !!userKey }, 200, cors);
+    // `chat` tells the page whether server-side history is available (a KV store is bound).
+    if (body && body.ping) return json({ ok: true, taste: !!env.GITHUB_TOKEN, byok: !!userKey, chat: !!chatKV(env) }, 200, cors);
+    // Server-side chat history (cross-device): return this profile's stored transcript (past 4 days).
+    if (body && body.history) return json({ messages: await loadChat(env, profileHash) }, 200, cors);
     const messages = sanitizeMessages(body && body.messages);
     if (!messages.length) return json({ error: "no messages" }, 400, cors);
-    const profileHash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
 
     // Ground on the live feed — the profile's feed when one is attached (best-effort).
     const dataUrl = env.DATA_URL || DEFAULTS.DATA_URL;
@@ -176,16 +179,63 @@ export default {
         try { data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey, model: execModel }); }
         catch (e) { return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors); }
         const changed = tasteChanged || profileChanged;
+        const editReply = textOf(data2) || (changed ? "Updated — re-ranking, refresh in ~a minute." : "Couldn't apply that change.");
+        if (ctx && profileHash) ctx.waitUntil(appendChat(env, profileHash, lastUserText(messages), editReply));
         return json({
-          reply: textOf(data2) || (changed ? "Updated — re-ranking, refresh in ~a minute." : "Couldn't apply that change."),
+          reply: editReply,
           taste_changed: tasteChanged, profile_changed: profileChanged,
         }, 200, cors);
       }
     }
 
-    return json({ reply: textOf(data) || "(no answer)" }, 200, cors);
+    const reply = textOf(data) || "(no answer)";
+    if (ctx && profileHash) ctx.waitUntil(appendChat(env, profileHash, lastUserText(messages), reply));
+    return json({ reply }, 200, cors);
   },
 };
+
+/* ---- server-side chat history (cross-device) ----
+ * Per-profile concierge transcript in KV, keyed by feed hash, kept to the past 4 days. Prefers a
+ * dedicated CHAT_KV binding; falls back to SPOTIFY_KV (already provisioned) so it works without extra
+ * setup. With neither bound, server persistence is simply off and the page keeps its localStorage copy.
+ * The KV per-key TTL evaporates abandoned threads; the per-message prune keeps an ACTIVE thread inside
+ * the 4-day window even as new turns refresh the key. */
+const CHAT_TTL_S = 4 * 24 * 60 * 60;   // 4 days
+const CHAT_MAX = 300;                   // cap stored turns (quota safety)
+function chatKV(env) { return env.CHAT_KV || env.SPOTIFY_KV || null; }
+function lastUserText(messages) {
+  for (let i = messages.length - 1; i >= 0; i--) if (messages[i].role === "user") return messages[i].content;
+  return "";
+}
+function pruneChat(arr, now) {
+  return (Array.isArray(arr) ? arr : [])
+    .filter((m) => m && m.text && (now - (m.ts || 0)) <= CHAT_TTL_S * 1000)
+    .slice(-CHAT_MAX);
+}
+async function loadChat(env, hash) {
+  const kv = chatKV(env);
+  if (!kv || !hash) return [];
+  try {
+    const raw = await kv.get("chat:" + hash);
+    return raw ? pruneChat(JSON.parse(raw), Date.now()) : [];
+  } catch { return []; }
+}
+async function appendChat(env, hash, userText, replyText) {
+  const kv = chatKV(env);
+  if (!kv || !hash) return;
+  try {
+    const now = Date.now();
+    const prev = await loadChat(env, hash);
+    const add = [];
+    if (userText && userText.trim()) add.push({ role: "user", text: String(userText).slice(0, 2000), ts: now });
+    if (replyText && replyText.trim()) add.push({ role: "assistant", text: String(replyText).slice(0, 8000), ts: now });
+    // Retry safety: if the last stored turn already equals the incoming one, don't double-append it.
+    if (prev.length && add.length && prev[prev.length - 1].role === add[0].role && prev[prev.length - 1].text === add[0].text) add.shift();
+    if (!add.length) return;
+    const next = pruneChat([...prev, ...add], now);
+    await kv.put("chat:" + hash, JSON.stringify(next), { expirationTtl: CHAT_TTL_S });
+  } catch { /* never block a reply on persistence */ }
+}
 
 /* ----- Anthropic ----- */
 /* Map a friendly model choice to a configured id — reuses the existing executor/advisor constants

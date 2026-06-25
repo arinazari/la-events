@@ -20,6 +20,14 @@ compatibility_date = "2024-11-01"
 binding = "SPOTIFY_KV"
 id = "b42b9da0f2d54d63b753ed4e12864d85"
 
+# Optional: dedicated store for server-side concierge chat history (per profile, 4-day TTL — lets the
+# chat sync across devices). Skip this block and history falls back to the SPOTIFY_KV namespace above
+# (works as-is); with neither bound it's the page's localStorage only. To keep the two separate:
+#   npx wrangler kv namespace create CHAT_KV   # then uncomment + paste the id below
+# [[kv_namespaces]]
+# binding = "CHAT_KV"
+# id = "<paste-the-id-here>"
+
 # Non-secret vars (override the in-code defaults). Secrets go via `wrangler secret put`.
 [vars]
 ANTHROPIC_MODEL = "claude-sonnet-4-6"   # executor (does the bulk of generation)

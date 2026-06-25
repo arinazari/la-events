@@ -733,10 +733,12 @@ class Component extends DCLogic {
   TEN_END = (() => { const d = new Date(); d.setDate(d.getDate() + 10); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()); })();
   MONTH1 = (() => { const d = new Date(); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-01'; })();
 
-  // ---- concierge chat persistence (keep the last 4 days of conversation across reloads) ----
-  // Client-side only (localStorage, per browser) — matches every other bit of page state here
-  // (chat mode, profile, tokens). The seed welcome line is never stored; the 4-day prune runs on load.
-  CHAT_KEY = 'la-chat-history';
+  // ---- concierge chat persistence (keep the last 4 days of conversation) ----
+  // Two layers: a per-browser localStorage cache (always on — covers logged-out / Fast-filter /
+  // backend-down), and, when logged into a profile with the backend connected, a per-profile
+  // server-side store (Cloudflare KV via the Worker) that syncs the thread ACROSS devices and is
+  // authoritative on load. Both keyed per profile; the seed welcome line is never stored; 4-day prune.
+  CHAT_KEY_BASE = 'la-chat-history';
   CHAT_TTL_MS = 4 * 24 * 60 * 60 * 1000;   // 4 days
   CHAT_MAX = 300;                          // quota safety: hard cap on stored messages
   WELCOME = { role: 'assistant', seed: true, text: "I'm your LA concierge — ranked to your taste profile. Ask for a vibe, a night, a price, or a neighborhood and I'll pull picks (the table filters too). Want a full night out? Say “plan my Saturday — dinner then a show” and I'll fuse the catalog with the restaurant list and hand a sequenced itinerary to your Claude Code session." };
@@ -1526,6 +1528,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // a personal key alone can connect
       const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify({ ping: true }) });
       this.setState({ backendStatus: res.ok ? 'ok' : 'err' });
+      if (res.ok) this.maybeLoadServerChat();   // pull this profile's cross-device thread once connected
     } catch (e) { this.setState({ backendStatus: 'err' }); }
   }
   stopLLM = () => { if (this._abort) { try { this._abort.abort(); } catch (e) {} } this.setState({ loading: false }); };
@@ -1563,6 +1566,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     try { profileObj ? localStorage.setItem('la-profile', JSON.stringify(profileObj)) : localStorage.removeItem('la-profile'); } catch (e) {}
     this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
       spotifyStatus: null, spotifyName: '' });
+    // Swap the concierge thread to this profile's own history: clear, restore its local cache, then
+    // overlay (merge) the cross-device server copy once connected. Fresh load context -> reset the guard.
+    this._serverChatFor = null;
+    this.applyMessages([this.WELCOME], false);
+    this.hydrateChat();
+    this.maybeLoadServerChat();
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
@@ -2253,34 +2262,86 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   loadDigest() { this.loadDigestIndex(this.state.profile); return this.loadDigestFor(this.state.profile); }
 
   // ---------- concierge chat persistence ----------
-  // Restore the saved conversation (pruned to the last 4 days) on load, after the welcome seed.
+  // localStorage key is per-profile so each person's thread is separate (matches the server store);
+  // logged-out falls back to ':default'.
+  chatStoreKey() { return this.CHAT_KEY_BASE + ':' + ((this.state.profile && this.state.profile.hash) || 'default'); }
+
+  // Replace the transcript programmatically (hydrate / server overlay / profile switch) WITHOUT the
+  // componentDidUpdate echo re-persisting it. Pass save=true to also write it through to the local cache.
+  applyMessages(arr, save) {
+    this.setState({ messages: arr });
+    this._persistedMsgsRef = arr;   // suppress the echo persist in componentDidUpdate
+    if (save) this.persistChat();
+  }
+
+  // Restore the local cache (pruned to the last 4 days) on load, after the welcome seed.
   hydrateChat() {
     try {
       if (typeof localStorage === 'undefined') return;
-      const raw = localStorage.getItem(this.CHAT_KEY);
+      const key = this.chatStoreKey();
+      const raw = localStorage.getItem(key);
       if (!raw) return;
       const now = Date.now();
       const stored = (JSON.parse(raw) || [])
         .filter(m => m && m.text && (now - (m.ts || 0)) <= this.CHAT_TTL_MS)
         .slice(-this.CHAT_MAX);
-      if (stored.length) this.setState({ messages: [this.WELCOME, ...stored] });
-      else localStorage.removeItem(this.CHAT_KEY);
+      if (stored.length) this.applyMessages([this.WELCOME, ...stored], false);
+      else localStorage.removeItem(key);
     } catch (e) {}
   }
-  // Save the conversation to localStorage. Drops the welcome seed, stamps a ts on first save
-  // (≈ creation time — this runs right after the append commits), prunes past 4 days, caps the size.
+  // Save the conversation to the local cache. Drops the welcome seed, stamps a ts on first save
+  // (≈ creation time — runs right after the append commits), prunes past 4 days, caps the size.
   persistChat() {
     try {
       if (typeof localStorage === 'undefined') return;
+      const key = this.chatStoreKey();
       const now = Date.now();
       const keep = (this.state.messages || [])
         .filter(m => m && !m.seed && m.text)
         .map(m => { if (!m.ts) m.ts = now; return { role: m.role, text: m.text, ts: m.ts }; })
         .filter(m => (now - m.ts) <= this.CHAT_TTL_MS)
         .slice(-this.CHAT_MAX);
-      if (keep.length) localStorage.setItem(this.CHAT_KEY, JSON.stringify(keep));
-      else localStorage.removeItem(this.CHAT_KEY);
+      if (keep.length) localStorage.setItem(key, JSON.stringify(keep));
+      else localStorage.removeItem(key);
     } catch (e) {}
+  }
+
+  // Union two transcripts by timestamp, deduping the overlap (turns that round-tripped through the
+  // server appear in both stores with near-equal ts). Preserves offline/local-only turns AND another
+  // device's turns — no visible history is lost when the server copy is merged in.
+  mergeChat(a, b) {
+    const all = [...(a || []), ...(b || [])]
+      .filter(m => m && !m.seed && m.text)
+      .map(m => ({ role: m.role, text: m.text, ts: m.ts || 0 }))
+      .sort((x, y) => x.ts - y.ts);
+    const out = [];
+    for (const m of all) {
+      if (!out.some(p => p.role === m.role && p.text === m.text && Math.abs(p.ts - m.ts) < 5 * 60 * 1000)) out.push(m);
+    }
+    return out.slice(-this.CHAT_MAX);
+  }
+  // Server-side history (cross-device): when logged into a profile with the backend connected, pull
+  // that profile's stored transcript and MERGE it with the local cache (then write the union back, so
+  // local mirrors the synced thread). Idempotent per profile; a no-op when logged out or offline.
+  async maybeLoadServerChat() {
+    try {
+      const p = this.state.profile;
+      if (!p || !p.hash || !this.BACKEND_URL || this.state.backendStatus !== 'ok') return;
+      if (this._serverChatFor === p.hash) return;   // already loaded this profile's thread this session
+      this._serverChatFor = p.hash;
+      const headers = { 'content-type': 'application/json' };
+      if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+      const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;
+      const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify({ history: true, profile: p.hash }) });
+      if (!res.ok) { this._serverChatFor = null; return; }   // let a later ping retry
+      const data = await res.json();
+      const now = Date.now();
+      const server = ((data && data.messages) || []).filter(m => m && m.text && (now - (m.ts || 0)) <= this.CHAT_TTL_MS);
+      // Still on the same profile after the await? (Don't apply a stale fetch over a since-switched one.)
+      if (!server.length || p.hash !== (this.state.profile && this.state.profile.hash)) return;
+      const merged = this.mergeChat((this.state.messages || []), server);
+      this.applyMessages([this.WELCOME, ...merged], true);
+    } catch (e) { this._serverChatFor = null; }
   }
 
   componentDidMount() {
