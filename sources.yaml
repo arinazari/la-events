@@ -541,6 +541,20 @@ sources:
   # -- webfetch at digest time (no feed, no Event JSON-LD; heterogeneous CMS — verified 2026-06-16) --
   # Probed JSON-LD + Squarespace ical/json on all of these: none expose structured events. Read the
   # rendered calendar via the WebFetch tool at digest time rather than maintaining brittle per-CMS scrapers.
+  - name: Avalon Hollywood
+    category: multi
+    method: webfetch
+    url: https://avalonhollywood.com/events
+    priority: 2
+    status: active
+    notes: >
+      Major Hollywood club (1735 Vine). The EDM/house nights already land via RA + 19hz; the GAP is
+      its non-electronic in-house programming — K-pop (ATEEZ 6/25), Latin (Gasolina reggaeton, Fri),
+      throwback/emo/tribute nights — which is NOT on the TM Discovery API (verified 2026-06-25:
+      keyword ATEEZ/Gasolina/"Avalon Hollywood" all return 0 in dmaId 324; Avalon ticketing is
+      TicketWeb/Tixr and doesn't propagate). Site is WordPress, no JSON-LD, but the /events page reads
+      cleanly via WebFetch (verified 2026-06-25: full calendar w/ names+dates+ticket links). Cross-check
+      RA/19hz to dedupe the electronic nights (Agents of Time, House + Techno already in catalog).
   - name: McCabe's Guitar Shop
     category: live_music
     method: webfetch
