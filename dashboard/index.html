@@ -225,6 +225,7 @@
           </span>
         </div>
       </div>
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
       <div style="display:flex; align-items:center; gap:12px;">
         <sc-if value="{{ hasFilter }}" hint-placeholder-val="{{ false }}">
           <span style="display:inline-flex; align-items:center; gap:7px; font:500 11px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; color:#3f3d36; background:#f1efe7; border-radius:2px;">
@@ -240,14 +241,22 @@
           </sc-if>
         </span>
       </div>
+      </sc-if>
     </header>
 
     <div class="scry" style="flex:1; overflow:auto;">
       <!-- ===== mobile sort / filter toolbar ===== -->
       <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-        <div style="position:sticky; top:0; z-index:6; display:flex; gap:8px; padding:9px 16px; background:#f4f3ef; border-bottom:1px solid #e0ded5;">
-          <span onClick="{{ toggleMobileSort }}" style="flex:1; display:inline-flex; align-items:center; justify-content:center; gap:5px; padding:9px 10px; border:1px solid #d2d0c7; background:#fff; border-radius:3px; font:600 11px/1 ui-monospace,Menlo,monospace; color:#3f3d36; cursor:pointer;">Sort · <span style="color:#2b5cd9;">{{ sortLabel }}</span></span>
-          <span onClick="{{ toggleMobileFilter }}" style="flex:1; display:inline-flex; align-items:center; justify-content:center; gap:5px; padding:9px 10px; border:1px solid {{ mFilterBorder }}; background: {{ mFilterBg }}; border-radius:3px; font:600 11px/1 ui-monospace,Menlo,monospace; color: {{ mFilterColor }}; cursor:pointer;">Filters {{ mFilterBadge }}</span>
+        <div style="position:sticky; top:0; z-index:6; display:flex; align-items:center; gap:7px; padding:7px 12px; background:#f4f3ef; border-bottom:1px solid #e0ded5;">
+          <span style="flex:1; min-width:0; display:inline-flex; align-items:center; gap:6px; padding:6px 9px; border:1px solid #d2d0c7; background:#fff; border-radius:3px;" style-focus-within="border-color:#a7a59b;">
+            <span style="flex:none; color:#bdbbb1; font-size:13px;">⌕</span>
+            <input value="{{ search }}" onChange="{{ onSearch }}" placeholder="search" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 16px/1.1 ui-monospace,Menlo,monospace; color:#1b1a17;" />
+            <sc-if value="{{ hasSearch }}" hint-placeholder-val="{{ false }}">
+              <span onClick="{{ clearSearch }}" title="Clear" style="flex:none; cursor:pointer; color:#a7a59b; font-weight:700; font-size:14px;">×</span>
+            </sc-if>
+          </span>
+          <span onClick="{{ toggleMobileSort }}" title="Sort" style="flex:none; display:inline-flex; align-items:center; gap:4px; padding:7px 9px; border:1px solid #d2d0c7; background:#fff; border-radius:3px; font:600 11px/1 ui-monospace,Menlo,monospace; color:#3f3d36; cursor:pointer; white-space:nowrap;">↕ <span style="color:#2b5cd9;">{{ sortLabel }}</span></span>
+          <span onClick="{{ toggleMobileFilter }}" title="Filters" style="flex:none; display:inline-flex; align-items:center; gap:4px; padding:7px 9px; border:1px solid {{ mFilterBorder }}; background: {{ mFilterBg }}; border-radius:3px; font:600 11px/1 ui-monospace,Menlo,monospace; color: {{ mFilterColor }}; cursor:pointer; white-space:nowrap;">≣ Filters {{ mFilterBadge }}</span>
         </div>
         <!-- sort bottom sheet -->
         <sc-if value="{{ mobileSortOpen }}" hint-placeholder-val="{{ false }}">
