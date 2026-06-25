@@ -133,6 +133,10 @@ ASSET_PREFIX = ""   # prepended to cached image paths (set by main; for hosted s
 FETCH_REF = ""      # the latest catalog fetch date (YYYY-MM-DD); events first_seen/updated on or
                     # after it are flagged 🆕 new / ↻ updated in the digest (set by main from meta)
 
+# Catalog is "stale" if its last successful fetch is older than this. A healthy daily refresh lands
+# every ~24h, so >36h means a full cycle was missed — the nightly pull likely didn't complete.
+STALE_HOURS = 36
+
 
 def freshness_line(meta: dict, today_iso: str) -> str:
     """One human line stating WHEN the catalog was last pulled and WHAT moved — shown in every
@@ -467,11 +471,50 @@ def _posh_banner_html(notice: dict) -> str:
             'posh.vip request).</div>')
 
 
+# ── Catalog-staleness banner (a tripwire for a failed nightly pull) ──────────────────────
+# run_digest stamps fetched_at on EVERY completed run (even a no-change one), so a stale stamp
+# means run_digest didn't complete — not merely "no new events". When that happens the digest
+# self-reports it instead of quietly showing days-old data while the routine reports "ran".
+def staleness_notice(meta: dict, now=None):
+    fetched = (meta or {}).get("fetched_at")
+    if not fetched:
+        return None
+    try:
+        ts = datetime.fromisoformat(fetched)
+    except ValueError:
+        return None
+    if ts.tzinfo is None:
+        ts = ts.replace(tzinfo=timezone.utc)
+    now = now or datetime.now(timezone.utc)
+    hours = (now - ts).total_seconds() / 3600
+    if hours < STALE_HOURS:
+        return None
+    return {"days": max(1, round(hours / 24)), "when": fetched[:10]}
+
+
+def _stale_banner_md(notice: dict) -> str:
+    d = notice["days"]
+    return (f"> ⚠️ **Catalog is ~{d} day{'s' if d != 1 else ''} stale** — last successful source pull "
+            f"was {day_label(notice['when'])}. The nightly refresh likely didn't complete; click "
+            "**Refresh events DB** or check the daily routine.")
+
+
+def _stale_banner_html(notice: dict) -> str:
+    d = notice["days"]
+    return (f'<div class="banner">⚠️ <b>Catalog is ~{d} day{"s" if d != 1 else ""} stale</b> — last '
+            f'successful source pull was {escape(day_label(notice["when"]))}. The nightly refresh '
+            'likely didn\'t complete; click <b>Refresh events DB</b> or check the daily routine.</div>')
+
+
 def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dict, notice=None) -> str:
+    meta = doc.get("meta") or {}
     out = [f"# LA Events — {today_iso[:10]}",
            "*Your week ahead, the weekends after, and what's on the radar — "
            "ranked for your taste · ⭐ = top pick*",
-           f"*{freshness_line(doc.get('meta') or {}, today_iso)}*", ""]
+           f"*{freshness_line(meta, today_iso)}*", ""]
+    stale = staleness_notice(meta)
+    if stale:
+        out += [_stale_banner_md(stale), ""]
     if notice:
         out += [_posh_banner_md(notice), ""]
     for title, cands in sections:
@@ -523,13 +566,17 @@ def _radar_html(rows: list, limit: int = 18) -> str:
 
 
 def render_consolidated_html(today_iso: str, sections: list, radar: list, doc: dict, notice=None) -> str:
+    meta = doc.get("meta") or {}
     parts = [f'<!doctype html><html><head><meta charset="utf-8">'
              f'<meta name="viewport" content="width=device-width,initial-scale=1">'
              f'<style>{CSS}</style></head><body><div class="wrap">',
              '<h1>LA Events</h1>',
              f'<p class="sub">{escape(today_iso[:10])} · your week ahead, the weekends after, and '
              f'what\'s on the radar · <span style="color:#ffd166">⭐</span> top pick</p>',
-             f'<p class="fresh">{escape(freshness_line(doc.get("meta") or {}, today_iso))}</p>']
+             f'<p class="fresh">{escape(freshness_line(meta, today_iso))}</p>']
+    stale = staleness_notice(meta)
+    if stale:
+        parts.append(_stale_banner_html(stale))
     if notice:
         parts.append(_posh_banner_html(notice))
     for title, cands in sections:

@@ -72,6 +72,24 @@ def test_collapse_multidate_runs():
     assert "Saturday" not in md                                    # placed once, earliest day
 
 
+def test_staleness_notice_fires_only_when_a_cycle_is_missed():
+    from datetime import datetime, timezone
+    now = datetime(2026, 6, 25, 12, 0, tzinfo=timezone.utc)
+    # Fresh pull earlier today → no alarm; missing stamp → no alarm (ad-hoc/local renders stay quiet)
+    assert R.staleness_notice({"fetched_at": "2026-06-25T08:00:00+00:00"}, now=now) is None
+    assert R.staleness_notice({}, now=now) is None
+    # A late-but-present refresh (<36h) does NOT false-alarm
+    assert R.staleness_notice({"fetched_at": "2026-06-24T08:00:00+00:00"}, now=now) is None
+    # ~2 days stale → fires with the day count + the last-pull date
+    n = R.staleness_notice({"fetched_at": "2026-06-23T07:59:17+00:00"}, now=now)
+    assert n and n["days"] == 2 and n["when"] == "2026-06-23"
+    # Naive stamp is treated as UTC (CI writes tz-aware, but don't crash on a naive one)
+    assert R.staleness_notice({"fetched_at": "2026-06-23T07:59:17"}, now=now)["days"] == 2
+    # The banners carry the alarm, the date (Tue 6/23), and the one-click remedy
+    assert "stale" in R._stale_banner_md(n) and "Tue 6/23" in R._stale_banner_md(n)
+    assert 'class="banner"' in R._stale_banner_html(n) and "Refresh events DB" in R._stale_banner_html(n)
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
