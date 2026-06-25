@@ -1551,8 +1551,15 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // Switch the active profile: persist it, reset the view, load that feed (+ digest).
   async applyProfile(profileObj, raw) {
     try { profileObj ? localStorage.setItem('la-profile', JSON.stringify(profileObj)) : localStorage.removeItem('la-profile'); } catch (e) {}
+    // A profile switch (log in / out / swap) must NOT inherit the previous profile's in-flight job.
+    // Stop its pollers + elapsed ticker and clear the per-session job state — otherwise the incoming
+    // profile's Settings shows the old one's "Updating…" with a carried-over elapsed timer, and a
+    // still-running poll lands its "synced / up to date" result (and dirty-flag clear) on the wrong
+    // profile. Backend jobs keep running server-side; their completion is re-derived on the next load.
+    clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll);
+    this._freshPoll = this._refreshPoll = this._jobTick = this._spotifyPoll = null;
     this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
-      spotifyStatus: null, spotifyName: '' });
+      spotifyStatus: null, spotifyName: '', updateBusy: false, updateStartedAt: null, refreshBusy: false, refreshStartedAt: null });
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
@@ -1707,17 +1714,23 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // Completion = the rebuilt feed deploys (its generated_at advances). Works for both the
       // catalog-stale and taste-dirty cases (catalog_version may be unchanged on a taste edit).
       const baseGen = (this.META && this.META.generated_at) || '';
+      const startedHash = p.hash;   // this job belongs to the profile that launched it
+      const mine = () => this.state.profile && this.state.profile.hash === startedHash;
       let n = 0; clearInterval(this._freshPoll);
-      this._freshPoll = setInterval(async () => {
+      // Capture the handle locally so a stale tick clears only its OWN interval, never a successor's.
+      const poll = setInterval(async () => {
+        if (!mine()) { clearInterval(poll); return; }   // user switched profiles — don't touch the new one
         await this.loadFeedFor(this.state.profile);
         await this.checkCatalogFreshness();
+        if (!mine()) { clearInterval(poll); return; }   // switched during the await — bail before mutating
         const landed = ((this.META && this.META.generated_at) || '') !== baseGen;
         if (++n > 60 || landed) {
-          clearInterval(this._freshPoll);
+          clearInterval(poll);
           this.setState({ updateBusy: false });
           if (landed) { this.setTasteDirty(false); this.flashToast('Your picks + digest are up to date.'); }
         }
       }, 15000);
+      this._freshPoll = poll;
     } catch (e) { this.flashToast('Could not reach the backend to update.'); this.setState({ updateBusy: false }); }
   };
   // True when the loaded feed was scored against an older catalog than the live one. A feed with
