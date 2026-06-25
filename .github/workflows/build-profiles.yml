@@ -1,17 +1,23 @@
 name: Rebuild profile feeds
 
-# When a per-profile taste.yaml changes (a friend's self-edit committed by the concierge
-# Worker, or a hand-edit), re-score that profile's feed with the SAME deterministic scorer the
-# digest uses (scripts/build_profiles.py) and redeploy the dashboard. This is the "commit + CI
-# rebuild" half of the self-edit loop — the page shows "re-ranking, refresh shortly" and the
-# new feed lands here ~1–2 min later. The default data.json is left to the daily routine
-# (--skip-default) so we never clobber Ari's affinity-built feed.
+# When a taste.yaml OR profile.yaml changes (a concierge self-edit committed by the Worker, or a
+# hand-edit — the owner's root files or a friend's profiles/<name>/*), re-score the affected feeds
+# with the SAME deterministic scorer the digest uses (scripts/build_profiles.py) and redeploy. This
+# is the "commit + CI rebuild" half of the self-edit loop: the page shows "re-ranking, refresh
+# shortly" and the new feed lands ~1–2 min later, flipping Ranks & Digest to "Update available"
+# (build_profiles bakes self_edit.{taste,profile}.reflected into each feed; the dashboard reads it).
+# Both taste AND profile, owner AND friend — so any-source edits surface, not just friend-taste ones.
+# The default data.json is left to the daily routine (--skip-default) so we never clobber Ari's
+# affinity-built feed; the owner still sees their edits via their logged-in per-hash feed.
 on:
   push:
     branches: [main]
     paths:
-      - "profiles/**/taste.yaml"
-      - "profiles.yaml"
+      - "taste.yaml"               # owner (root) taste self-edit
+      - "profile.yaml"             # owner (root) profile self-edit
+      - "profiles/**/taste.yaml"   # friend taste self-edit
+      - "profiles/**/profile.yaml" # friend profile self-edit
+      - "profiles.yaml"            # registry change (names/hashes)
   workflow_dispatch:
 
 permissions:
