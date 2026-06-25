@@ -49,7 +49,9 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
 5. **Cache images:** `python scripts/cache_images.py` — downloads the hero images into
    `data/images/` so committed/hosted digests don't hotlink-rot. Idempotent.
 6. **Render.** First the radar tier: `python scripts/build_radar.py --md radar-candidates.md` →
-   `data/radar.json` (festivals/big shows/tracked far-out). Then the **primary consolidated daily
+   `data/radar.json` (catalog signals — festivals/big shows/tracked far-out — PLUS the curated
+   `festivals.yaml` watch-list, auto-folded: the out-of-market festivals like Outside Lands /
+   Portola / Coachella the LA catalog never fetches, gated by their `status`). Then the **primary consolidated daily
    digest**: `python scripts/render_digest.py --consolidated --md digests/latest.md --html
    digests/latest.html` — ONE doc with three sections: the next 14 days day-by-day, the weekends in
    days 15–35 (Thu–Sun), and **on the radar**. All of it is the editor **slate** (assemble over the

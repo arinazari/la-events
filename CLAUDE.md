@@ -78,7 +78,8 @@ scripts/lib/                        # shared modules: scoring, dedupe, pipeline,
                                     #   editor (event-editor verdict store + judging pool + Spotify affinity hints),
                                     #   assemble (the digest slate: lanes + elastic fill/cliff/diversity-floor) — tested
 scripts/merge_verdicts.py           # fold event-editor results JSON → per-profile data/verdicts/<hash>.json
-scripts/build_radar.py              # deterministic "on the radar" set (festival/big-venue/tracked/editorial) → data/radar.json
+scripts/build_radar.py              # deterministic "on the radar" set (festival/big-venue/tracked/editorial
+                                    #   + curated festivals.yaml watch-list, status-gated) → data/radar.json
 scripts/render_digest.py            # scored pool + verdicts → digest slate. `--consolidated` = one daily doc (next 2 wks
                                     #   + weekends ahead + radar); `--from/--to` = per-weekend look-ahead. .md + hosted .html
 scripts/cache_images.py             # download enrichment hero images → data/images/ (no hotlink rot)

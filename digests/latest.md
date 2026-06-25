@@ -1,33 +1,8 @@
-# LA Events — 2026-06-23
+# LA Events — 2026-06-25
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Updated Tue 6/23 · 6 new · 70 updated since the last pull · 🆕 new · ↻ updated*
 
 ## Next two weeks
-
-### Tuesday · June 23
-
-**Electronic & dance**
-- `11pm` (Tue 6/23 + Wed 6/24) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2471883)** — The Lexington, DTLA
-- `11pm` **[AFTERS 6-23](https://posh.vip/e/afters-623-2)** — 129 E 3rd St, DTLA · free
-
-**Live music**
-- `8:30pm` **[Sobbing Honey   The Wameki ‍  ‍ (Tokyo, Japan)   Unclench     Plus DJs Shapeshif](https://www.thesmell.org/events/tuesday-june-23-2026)** — The Smell, DTLA
-- `7pm` **[Blues Night LA: Corey Congilio, Pedro Cordeiro, Robinson James Band](https://dice.fm/event/eo8dlw-blues-night-la-corey-congilio-pedro-cordeiro-robinson-james-band-23rd-jun-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-
-**Film**
-- `1pm` **[An American in Paris](https://vidiotsfoundation.org/showtimes/an-american-in-paris-6-23-26-100-pm/)** — Vidiots, Eagle Rock
-
-### Wednesday · June 24
-
-**Electronic & dance**
-- `7:30pm` **[Mamma Mia! (Touring)](https://ra.co/events/2320217)** — Ahmanson Theatre, DTLA · ↻ updated (start)
-- `8pm` **[Aaron MF Olson's Songs Group, Jeff Parker & Patrick Shiroishi, DJ Rockin' Rian Murphy](https://dice.fm/event/eomd8o-aaron-mf-olsons-songs-group-jeff-parker-patrick-shiroishi-dj-rockin-rian-murphy-24th-jun-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
-
-**Live music**
-- `7:30pm` **[A Night of Films by Julius-Amédée Laou](https://dice.fm/event/bb7mkx-a-night-of-films-by-julius-amde-laou-24th-jun-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
-
-**Film**
-- `2pm` **[Donnie Darko](https://vidiotsfoundation.org/showtimes/donnie-darko-6-24-26-100-pm/)** — Vidiots, Eagle Rock
 
 ### Thursday · June 25
 
@@ -193,6 +168,25 @@
 **Film**
 - `7:30pm` 🆕 **[Top Gun](https://vidiotsfoundation.org/showtimes/top-gun-7-6-26-730-pm/)** — Vidiots, Eagle Rock
 
+### Tuesday · July 7
+
+**Live music**
+- `8pm` **[Jared Mattson & Ruban Nielson, Joshua Crumbley](https://dice.fm/event/eo8b7o-jared-mattson-ruban-nielson-joshua-crumbley-7th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
+- `7:30pm` 🆕 **[Chris Patrick](https://www.axs.com/events/1328100/chris-patrick-tickets)** — El Cid, Silver Lake
+- `8pm` **[MILK CRATE MIC](https://tockify.com/sugarmillsaloon/detail/1721/1783479600000)** — Maui Sugar Mill Saloon, Tarzana
+- `10pm` **[Dear Amy](https://www.vibratogrilljazz.com/music/t57866ena49aslenlnskregdmzbxx3)** — Vibrato Grill Jazz, Bel Air
+
+### Wednesday · July 8
+
+**Electronic & dance**
+- `8pm` **[Saintbreaker](https://ra.co/events/2468087)** — The Redwood Bar And Grill, DTLA
+
+**Live music**
+- `2am` **[SIAMES](https://www.ticketmaster.com/siames-los-angeles-california-07-07-2026/event/09006491C2A7BF7F)** — The Echo, Echo Park
+- `6pm` **[Pearl Charles with Carson McHone](https://dice.fm/event/k6db98-pearl-charles-with-carson-mchone-8th-jul-permanent-records-roadhouse-los-angeles-tickets)** — Permanent Records Roadhouse, Cypress Park
+- `8pm` **[A Page of Madness with live metal score by The Silent Light](https://dice.fm/event/6dkwo8-a-page-of-madness-with-live-metal-score-by-the-silent-light-8th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
+- `7pm` **[Natalia Catalan, Micah Preite, Mika Zhané, The Cesar Hernandez Quartet](https://dice.fm/event/pydyd8-natalia-catalan-micah-preite-mika-zhan-the-cesar-hernandez-quartet-8th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
+
 ## Weekends ahead
 
 ### Thursday · July 9
@@ -271,12 +265,12 @@
 
 **Electronic & dance**
 - `10pm` **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA - Downtown LA, DTLA
+- `2pm` **[Love Long Beach Festival 2026](https://ra.co/events/2386257)** — Shoreline Aquatic Park, Los Angeles  
+  DJ Minx — Detroit house matriarch, Women on Wax founder — tracked artist; deep, soulful, dancefloor-first selection.
 - `10pm` **[Markus Schulz (Open To Close)](https://ra.co/events/2429659)** — Avalon Hollywood, Hollywood
 - `10pm` **[Paradisco](https://ra.co/events/2464518)** — Kiss Kiss Bang Bang, Koreatown
 - `11pm` **[WORK presents: Ken Ishii, Phara, & yNOTi](https://ra.co/events/2458130)** — TBA - Los Angeles, Los Angeles
 - `6pm` **[Ann the Raven Birthday Blues Bash](https://ra.co/events/2468068)** — The Redwood Bar And Grill, DTLA
-- `2pm` **[Love Long Beach Festival 2026](https://ra.co/events/2386257)** — Shoreline Aquatic Park, Los Angeles  
-  DJ Minx — Detroit house matriarch, Women on Wax founder — tracked artist; deep, soulful, dancefloor-first selection.
 
 ### Sunday · July 19
 
@@ -336,6 +330,18 @@
 - `1:30am` **[Highvyn: Album Release Show](https://www.ticketmaster.com/highvyn-album-release-show-los-angeles-california-07-25-2026/event/090064AE3363FBFC)** — The Moroccan Lounge, Arts District
 - `3am` **[Walk Off the Earth](https://www.ticketmaster.com/event/Z7r9jZ1A7xeGM)** — The United Theater on Broadway, DTLA
 
+### Thursday · July 30
+
+**Electronic & dance**
+- `8pm` **[Los Dead Kings](https://ra.co/events/2468097)** — The Redwood Bar And Grill, DTLA
+
+**Live music**
+- `2am` **[Violent Femmes: 45 Years of Violent Femmes Tour](https://www.ticketmaster.com/violent-femmes-45-years-of-violent-los-angeles-california-07-29-2026/event/09006490BF5397CB)** — The Bellwether, DTLA
+- `4:30am` **[More Ephemerol with FoXix & Jackie Body](https://www.ticketmaster.com/more-ephemerol-with-foxix-jackie-body-los-angeles-california-07-29-2026/event/090064C9F689828E)** — The Moroccan Lounge, Arts District
+- `1:30am` **[AZRA](https://www.ticketmaster.com/azra-los-angeles-california-07-29-2026/event/0900648FB73A883B)** — The Moroccan Lounge, Arts District
+- `3am` **[Tower of Power w/ Preservation Hall Jazz Band](https://www.ticketmaster.com/event/Z7r9jZ1A7xZZV)** — Hollywood Bowl, Hollywood
+- `2am` **[Meet Me @ The Altar - The Worried Sick Summer Tour](https://www.ticketmaster.com/meet-me-the-altar-the-worried-los-angeles-california-07-29-2026/event/090064862FC064B5)** — The Echo, Echo Park
+
 ## On the radar
 
 
@@ -344,15 +350,12 @@
 
 **August 2026**
 - `Sat 8/1` **[HARD Summer Music Festival](https://on.fgtix.com/trk/5oHm)** — Hollywood Park Grounds · Inglewood  ·  *festival, Amelie Lens,Charlotte de Witte*
-- `Sat 8/1` **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPw)** — Festival of Arts Pageant of the Masters · Laguna Beach  ·  *festival*
 - `Sun 8/2` **[HARD Summer Music Festival](https://on.fgtix.com/trk/5oHm)** — Hollywood Park Grounds · Inglewood  ·  *festival, Amelie Lens,Vintage Culture*
-- `Fri 8/7` **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPz)** — Festival of Arts Pageant of the Masters · Laguna Beach  ·  *festival*
-- `Sat 8/8` **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPy)** — Festival of Arts Pageant of the Masters · Laguna Beach  ·  *festival*
-- `Fri 8/14` **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJA)** — Festival of Arts Pageant of the Masters · Laguna Beach  ·  *festival*
+- `Fri 8/7` **[Outside Lands 2026](https://www.sfoutsidelands.com/)** — Golden Gate Park, San Francisco  ·  *curated*
 - `Sat 8/15` **[Moodymann and DJ Rashida Play Prince](https://www.ticketmaster.com/moodymann-and-dj-rashida-play-prince-los-angeles-california-08-14-2026/event/090064BA38058214)** — The Regent Theater · DTLA  ·  *Moodymann*
-- `Sat 8/15` **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJF)** — Festival of Arts Pageant of the Masters · Laguna Beach  ·  *festival*
 - `Thu 8/20` **[Mt. Joy 2026: 2 Day Ticket (08/20 - 08/21) Valid Both Days](https://www.ticketmaster.com/mt-joy-2026-2-day-ticket-los-angeles-california-08-20-2026/event/0900637A9E4A8605)** — Greek Theatre · Los Feliz  ·  *festival, big-venue*
 - `Sat 8/22` **[Just Like Heaven Festival](https://www.ticketmaster.com/event/Z7r9jZ1A7-Ujy)** — Brookside at the Rose Bowl · Pasadena  ·  *festival, big-venue*
+- `Sat 8/29` **[Daisy Chain Fields Music Festival](https://www.daisychainfields.com/tickets)** — Great Park Live · Irvine  ·  *festival*
 
 **September 2026**
 - `Sat 9/5` **[Hypnotique Presents: Sway Festival - 2 DAY PASS](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE)** — Teragram Ballroom · Westlake  ·  *festival*
@@ -361,5 +364,10 @@
 - `Fri 9/11` **[Cold Waves 2-Day (9/11/26-9/12/26)](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76)** — Pacific Electric · DTLA  ·  *festival*
 - `Sat 9/12` **[Island Fest ](https://www.ticketmaster.com/island-fest-rancho-mirage-california-09-12-2026/event/090064B3408D0F38)** — The Show at Agua Caliente Casino Rancho Mirage · Rancho Mirage  ·  *festival*
 - `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono*
+- `Sat 9/26` **[Portola 2026](https://www.portolamusicfestival.com/)** — Pier 80, San Francisco  ·  *curated, Four Tet*
+- `Sat 9/26` **[CRSSD Festival — Fall 2026](https://www.crssdfest.com/)** — Waterfront Park, San Diego  ·  *curated, Chris Lake,Disclosure*
 - `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park · DTLA  ·  *Amelie Lens*
+
+**April 2027**
+- `Fri 4/9` **[Coachella 2027](https://www.coachella.com/)** — Empire Polo Club, Indio CA  ·  *curated*
 

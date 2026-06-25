@@ -12,6 +12,11 @@ two weeks out. Deterministic (no API): a transparent signal heuristic over the c
 Signals (per event): editorial mention, festival/multi-day, a tracked artist on the bill, an
 arena/amphitheater booking. Tracked-name matching is whole-token (so 'Ame' doesn't hit 'James').
 
+Also folds in the hand-curated `festivals.yaml` watch-list — the out-of-market / far-tail
+festivals (SF, Indio, etc.) the LA-scoped catalog never fetches, gated to active statuses
+(NOT dormant/annual_watch) and future dates, deduped against catalog-derived rows. Without this
+those entries had no path into the rendered "On the radar" section (it reads only this artifact).
+
 Usage:
   python scripts/build_radar.py                      # data/catalog.json -> data/radar.json
   python scripts/build_radar.py --cutoff-days 35 --md radar-candidates.md
@@ -19,12 +24,13 @@ Usage:
 
 import argparse
 import json
+import re
 import sys
-from datetime import datetime
+from datetime import datetime, date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from lib.config import load_taste, load_profile  # noqa: E402
+from lib.config import load_taste, load_profile, load_yaml  # noqa: E402
 from lib.scoring import score_event, parse_event_date  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
 from lib.affinity import _token_pat  # noqa: E402  (whole-token matcher — no 'Ame' in 'James')
@@ -39,8 +45,11 @@ BIG_VENUE = ("hollywood bowl", "kia forum", "the forum", "crypto.com arena", "bm
              "dodger stadium", "rose bowl", "banc of california", "frost amphitheater")
 FEST_TERMS = ("festival", "fest ", "fest)", "two-day", "three-day", "2-day", "3-day",
               "weekender", "block party")
-# Signal -> weight for the radar rank (editorial/festival/tracked beat the broad big-venue).
-SIGNAL_WEIGHT = {"editorial": 3, "festival": 2, "tracked": 2, "big-venue": 1}
+# Signal -> weight for the radar rank (editorial/curated/festival/tracked beat the broad big-venue).
+# "curated" = a hand-picked festivals.yaml must-know; ranks with editorial (top tier).
+SIGNAL_WEIGHT = {"editorial": 3, "curated": 3, "festival": 2, "tracked": 2, "big-venue": 1}
+# festivals.yaml statuses that stay in the file and do NOT surface until timely (per its header).
+CURATED_HOLD = {"dormant", "annual_watch", "past"}
 
 
 def radar_signals(ev: dict, tracked: list) -> list:
@@ -67,8 +76,88 @@ def radar_rank(score: int, signals: list) -> float:
     return w + (score or 0) / 10.0
 
 
-def build_radar(catalog: list, taste: dict, profile: dict, today, cutoff_days: int = 35) -> list:
-    """Ranked radar set: events on/after today+cutoff_days that fire ≥1 signal, best-first."""
+def _curated_date(when):
+    """Best-effort start-date from a festivals.yaml `when` (ranges/prose tolerated):
+    '2026-08-07..09' -> Aug 7; '2027-04-09..11 and ...' -> Apr 9; '~2027-05 (...)' -> May 1.
+    A bare ISO date (`when: 2026-08-29`) is auto-parsed to a date by YAML — pass it through."""
+    if not when:
+        return None
+    if isinstance(when, datetime):
+        return when.date()
+    if isinstance(when, date):
+        return when
+    m = re.search(r"\d{4}-\d{2}-\d{2}", when)
+    if m:
+        try:
+            return date.fromisoformat(m.group())
+        except ValueError:
+            return None
+    m = re.search(r"(\d{4})-(\d{2})\b", when)
+    if m:
+        try:
+            return date(int(m.group(1)), int(m.group(2)), 1)
+        except ValueError:
+            return None
+    return None
+
+
+def _norm_tokens(title: str) -> set:
+    """Significant title tokens for dedupe vs catalog rows (drop boilerplate + years)."""
+    stop = {"festival", "fest", "music", "the", "presents", "feat", "day", "pass",
+            "tickets", "ticket", "valid", "both", "days", "two", "three", "edition"}
+    return {t for t in re.findall(r"[a-z]+", (title or "").lower()) if t not in stop and len(t) > 2}
+
+
+def _curated_rows(doc: dict, taste: dict, profile: dict, today, catalog_rows: list) -> list:
+    """festivals.yaml -> radar rows. Surfaced when status is active (NOT dormant/annual_watch/past)
+    and the start date is in the future; deduped against catalog-derived radar rows so a festival
+    that IS in the LA catalog isn't double-listed. Curated entries skip the cutoff_days horizon —
+    being out-of-market, they appear nowhere else, so they belong on the radar at any distance."""
+    if not doc:
+        return []
+    tracked = [a for a in (taste.get("artists_tracked") or []) if a]
+    seen = [t for t in (_norm_tokens(r.get("title")) for r in catalog_rows) if t]
+    out = []
+    for entry in (doc.get("festivals") or []) + (doc.get("big_concerts") or []):
+        name = (entry.get("name") or "").strip()
+        status = (entry.get("status") or "").strip().lower()
+        if not name or status in CURATED_HOLD:
+            continue
+        d = _curated_date(entry.get("when"))
+        if d is None or d < today:
+            continue
+        toks = _norm_tokens(name)
+        if toks and any(len(toks & s) >= 2 or toks <= s for s in seen):
+            continue  # already covered by a catalog radar row
+        why = entry.get("why") or ""
+        sig = ["curated"]
+        hits = sorted({a for a in tracked
+                       if len(a) >= 4 and _token_pat(a.lower()).search((name + " " + why).lower())})
+        if hits:
+            sig.append("tracked:" + ",".join(hits[:2]))
+        try:
+            s = score_event({"title": name, "venue": entry.get("location"),
+                             "description": why, "date": d.isoformat()}, taste, profile)["score"]
+        except Exception:
+            s = 0
+        out.append({
+            "id": name, "title": name, "venue": entry.get("location"), "neighborhood": None,
+            "date": entry.get("when"), "iso_date": d.isoformat(), "score": s, "signals": sig,
+            "link": entry.get("tickets"), "lineup": [], "category": "festival", "curated": True,
+        })
+    return out
+
+
+def curated_radar(festivals_path, taste: dict, profile: dict, today, catalog_rows: list) -> list:
+    """Load festivals.yaml and turn its active, future entries into radar rows (see _curated_rows)."""
+    return _curated_rows(load_yaml(festivals_path), taste, profile, today, catalog_rows)
+
+
+def build_radar(catalog: list, taste: dict, profile: dict, today, cutoff_days: int = 35,
+                festivals: str = "festivals.yaml") -> list:
+    """Ranked radar set: catalog events on/after today+cutoff_days that fire ≥1 signal, PLUS the
+    hand-curated festivals.yaml watch-list (out-of-market / far tail), best-first. `festivals`
+    empty/None skips the curated merge."""
     tracked = [a for a in (taste.get("artists_tracked") or []) if a]
     cutoff = today.toordinal() + cutoff_days
     out = []
@@ -88,6 +177,8 @@ def build_radar(catalog: list, taste: dict, profile: dict, today, cutoff_days: i
             "iso_date": d.isoformat(), "score": s, "signals": sig, "link": link,
             "lineup": ev.get("lineup") or [], "category": ev.get("category"),
         })
+    if festivals:
+        out += curated_radar(festivals, taste, profile, today, out)
     out.sort(key=lambda e: (-radar_rank(e["score"], e["signals"]), e["iso_date"]))
     return out
 
@@ -119,6 +210,8 @@ def main() -> int:
     ap.add_argument("--taste", default="taste.yaml")
     ap.add_argument("--profile", default="profile.yaml")
     ap.add_argument("--cutoff-days", type=int, default=35, help="radar = events at least this far out")
+    ap.add_argument("--festivals", default="festivals.yaml",
+                    help="curated festival watch-list merged into the radar ('' to disable)")
     ap.add_argument("--md", default=None, help="also write a reviewable markdown table here")
     args = ap.parse_args()
 
@@ -128,7 +221,8 @@ def main() -> int:
     catalog = json.loads(resolve(args.input).read_text())
     taste, profile = load_taste(args.taste), load_profile(args.profile)
     today = today_la()
-    rows = build_radar(catalog, taste, profile, today, cutoff_days=args.cutoff_days)
+    rows = build_radar(catalog, taste, profile, today, cutoff_days=args.cutoff_days,
+                       festivals=args.festivals)
 
     doc = {"generated_at": datetime.now().isoformat(timespec="seconds"),
            "today": today.isoformat(), "cutoff_days": args.cutoff_days,

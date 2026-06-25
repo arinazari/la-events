@@ -127,7 +127,8 @@ once, so the scene graph compounds. Verify-or-omit: no invented bios.
 **Weekends ahead** (days 14–35, Thu–Sun only), and **On the radar** (festivals / big shows /
 tracked far-out). Run `python scripts/build_radar.py --md radar-candidates.md` first; it writes
 `data/radar.json` (a deterministic signal heuristic — editorial / festival / tracked-artist /
-arena), which `--consolidated` reads for the radar tier. The first two sections are the editor
+arena) and folds in the curated `festivals.yaml` watch-list (out-of-market / far-tail festivals
+the LA catalog never fetches), which `--consolidated` reads for the radar tier. The first two sections are the editor
 **slate** — `assemble()` over the scored pool + verdicts (day-grouped, lane-diverse,
 verdict-ranked). The **windowed `--from <date> --to <date>`** mode is retained as the per-weekend
 look-ahead (one file per upcoming weekend, keyed by the Friday — the dashboard's per-weekend view
@@ -159,11 +160,13 @@ the spine — it answers "what's on tonight / this weekend" at a glance). Struct
 3. **Around town** — GENERAL LA context, not ticketed picks: what's in the air citywide
    (e.g. FIFA World Cup 26 matches at SoFi + watch parties, big sports, street fairs, museum
    free days). From the DiscoverLA weekend roundup + LAist. 2–5 short lines.
-4. **On the radar** — big events months out, from `festivals.yaml` + a quick live web lookup
-   each run. SHORT and plain (no bold/hype), **relevance-driven, not list-driven**: surface an
-   item only when there's an actual ticket-timing reason (on-sale/presale opening, prices
-   climbing, low stock, selling out, sold out, lineup just dropped). If nothing's time-sensitive,
-   a line or two is plenty; dormant entries stay in `festivals.yaml`. Lead most on-taste + urgent.
+4. **On the radar** — big events months out. `build_radar.py` now auto-folds `festivals.yaml`
+   into `data/radar.json` (active statuses only — `dormant`/`annual_watch`/`past` stay in the
+   file), so the curated out-of-market festivals render even on an unattended routine run; on top,
+   do a quick live web lookup to refresh status/pricing. SHORT and plain (no bold/hype),
+   **relevance-driven, not list-driven**: lead the on-taste + urgent (on-sale/presale opening,
+   prices climbing, low stock, selling out, sold out, lineup just dropped). If nothing's
+   time-sensitive, a line or two is plenty; dormant entries stay in `festivals.yaml`.
 5. Footer: sources that failed/were skipped this run.
 
 **ALWAYS hyperlink the event** to its ticket/info URL when the catalog has one (it usually
