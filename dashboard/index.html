@@ -1513,7 +1513,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## June 2026",
     "",
-    "- **A quick-start welcome.** The first time you sign in, a short four-step tour walks you through how the picks are made, teaching the concierge your taste, and refreshing your ranking. Tick *don't show this again* to dismiss it; re-open it any time from **Settings → quick start**.",
+    "- **A quick-start welcome.** The first time you sign in, a short four-step tour walks you through how the picks are made, setting yourself up (connect the concierge, tell it your neighborhood + tastes, connect Spotify), and refreshing your ranks. Tick *don't show this again* to dismiss it; re-open it any time from **Settings → quick start**.",
     "- **See your taste edits land.** *View taste & profile* (Settings) now shows a diff of every change the concierge made to your taste or profile, with a badge for whether it's already live in your ranking or still pending.",
     "- **Festivals & further ahead.** The digest now surfaces big destination festivals and looks up to ~6 months out, so you can catch the major stuff while tickets last.",
     "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you — open it from your name in the header.",
@@ -1532,7 +1532,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
   // ---------- First-run welcome / onboarding (auto-opens once per signed-in profile) ----------
   // A short, stepped quick-start that orients a newly-signed-in person: how the picks are made,
-  // teach the concierge your taste, refresh your ranking, and where everything lives. It auto-opens
+  // set yourself up (connect the concierge with Ari's token / your own key → tell it your
+  // neighborhood + tastes → connect Spotify), refresh your ranks, and where everything else lives.
+  // It auto-opens
   // the first time someone signs into a profile (keyed by hash) — never on the logged-out default
   // view — and only stops re-appearing once they tick "don't show this again", so closing it without
   // confirming brings it back next visit (per the spec). The owner/default can preview it via
@@ -1550,30 +1552,28 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       "- A light editorial pass then sets the final **rank** (the `#`). Sort the table by either."
     ].join('\n'),
     [
-      "# Make it yours — talk to the concierge",
+      "# Set yourself up — about a minute",
       "",
-      "The panel on the left is your **concierge**. The quickest way to get good picks is to tell it about yourself.",
+      "Three one-time things make the picks truly *yours*. Do them in order, then refresh (next step).",
       "",
-      "- First **connect** it from the chat header (*connect*). No backend yet? It falls back to an instant, offline **Fast filter** — either way it filters the table to match.",
-      "- Then just talk to it like a friend who knows the city: `I'm into deep house and warehouse parties, less comedy`, `I live in Echo Park`, `track Peggy Gou`.",
-      "- It **rewrites your taste & profile** for you behind the scenes — no config files to touch."
+      "- **1 · Connect the concierge.** Tap **connect** in the chat header and paste the access **token Ari sent you** — or add your own **Claude API key** in Settings. Either one flips the left chat from the offline **Fast filter** to the full conversational concierge (you need it for the next step).",
+      "- **2 · Tell it about you.** Talk to the concierge like a local friend — your **neighborhood** and your **tastes**: `I live in Echo Park`, `more techno, less comedy`, `track Peggy Gou`. It **rewrites your taste & profile** for you, no config files to touch.",
+      "- **3 · Connect Spotify.** In **Settings** — so your listening history leans the picks toward the artists and sounds you already play."
     ].join('\n'),
     [
-      "# Refresh your ranking",
+      "# Now refresh your ranks",
       "",
-      "Taste edits and newly-found events don't change your list until you fold them in.",
+      "Your **taste, neighborhood and Spotify don't change your list until you fold them in.**",
       "",
-      "- Open **Settings** (the **☰** icon, bottom-right) and hit **Ranks & Digest → Update** to re-rank against your new taste and the latest events. Takes a minute or two.",
-      "- When there's something fresh to fold in, that button lights up as **Update available** — so you always know when your list is behind."
+      "- Open **Settings** (the **☰** icon, bottom-right) and hit **Ranks & Digest → Update** to re-rank against everything you just set up, plus the latest events. Takes a minute or two.",
+      "- Anytime there's something new to fold in — a taste edit, fresh events — that button lights up as **Update available**, so you always know when your list is behind."
     ].join('\n'),
     [
-      "# Where everything lives",
+      "# Where everything else lives",
       "",
-      "Now that you're signed in, the **⚷** key (bottom-right) becomes your **☰ settings** — that's where the rest lives:",
-      "",
-      "- **Settings (☰)** holds the rest: connect **Spotify**, add your own **Claude key**, and **View taste & profile** — which shows a diff of every edit the concierge made and whether it's **live or still pending**.",
-      "- Your **name in the header** opens your written **digest**; the **what changed** readout (in Settings) tells you what moved on the last pull — lineups, prices, set times.",
-      "- Want this again, or the full walkthrough? It's all under **Settings → how it works**. That's the tour — go find something good."
+      "- Your **name in the header** opens your written **digest** — the top picks with a sentence each, grouped by day.",
+      "- **View taste & profile** (Settings) shows a **diff** of every edit the concierge made and whether it's **live or still pending**; **what changed** tells you what moved on the last pull — lineups, prices, set times.",
+      "- Want this tour again, or the full walkthrough? It's all under **Settings → how it works**. That's it — go find something good."
     ].join('\n')
   ];
   onboardKey(p) { return 'la-onboarded:' + ((p && p.hash) || 'default'); }
