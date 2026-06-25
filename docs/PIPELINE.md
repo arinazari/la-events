@@ -75,9 +75,12 @@ no backend; the static page just renders it.
 
 - **reflected** is content-based (`git diff <last-enrichment-commit>..HEAD -- <file>` is empty),
   so an edit-then-revert correctly reads as reflected. `enrich_paths` per profile =
-  `digests/<hash>/latest.md` + `data/verdicts/<hash>.json` (owner also folds in the consolidated
-  `digests/latest.md` + `data/verdicts/default.json`) — their last-commit *is* "the most recent
-  enrichment". The page treats `reflected === false` as the authoritative **taste-dirty** state that
+  `digests/<hash>/latest.md` + `data/verdicts/<hash>.json` — the per-profile narrative + verdicts that
+  **only the full LLM pass writes**; their last-commit *is* "the most recent enrichment". Same bar for
+  everyone, **owner included**: we deliberately do NOT count the consolidated `digests/latest.md`,
+  because a cheap deterministic Refresh re-renders it without re-running the LLM, which would flip the
+  owner green before the AI reprocessed their taste. The page treats `reflected === false` as the
+  authoritative **taste-dirty** state that
   lights "Update my ranking & digest" (the localStorage flag is just the optimistic pre-CI bridge).
 - **Timing.** A concierge edit → `build-profiles.yml` re-ranks the feed → it bakes **pending**.
   Clicking **Update** (`rebuild-profile.yml`) runs the LLM pass, commits the enrichment, then

@@ -249,11 +249,13 @@ def main() -> int:
                 block["profile_yaml"] = (REPO / profile_rel).read_text()
             except OSError:
                 block["profile_yaml"] = None
-            # How the concierge adjusted each file + whether that's reflected in this
-            # profile's most recent enrichment (the verdicts + narrative the LLM pass
-            # commits). Owner's enrichment is the consolidated digest + default verdicts.
-            enrich_paths = ([f"digests/{h}/latest.md", f"data/verdicts/{h}.json"]
-                            + (["digests/latest.md", "data/verdicts/default.json"] if is_owner else []))
+            # How the concierge adjusted each file + whether that's reflected in this profile's
+            # most recent enrichment. "Reflected" gates on the FULL LLM pass — the per-profile
+            # narrative digest + verdicts — and uses the same bar for everyone, owner included. We
+            # deliberately do NOT count the consolidated digest (digests/latest.md): a cheap
+            # deterministic Refresh re-renders that without re-running the LLM, which would flip the
+            # owner green before the AI actually reprocessed their taste.
+            enrich_paths = [f"digests/{h}/latest.md", f"data/verdicts/{h}.json"]
             block["self_edit"] = {
                 "taste": selfedit_block(REPO, taste, enrich_paths),
                 "profile": selfedit_block(REPO, profile_rel, enrich_paths),
