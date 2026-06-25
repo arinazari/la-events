@@ -86,10 +86,10 @@
           <button onClick="{{ s.onClick }}" style="font:500 11px/1 -apple-system,system-ui,sans-serif; padding:5px 9px; border:1px solid #d2d0c7; background:#f7f6f2; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ s.label }}</button>
         </sc-for>
       </div>
-      <div style="display:flex; gap:6px; align-items:flex-end;">
-        <textarea value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="e.g. techno this weekend under $30" style="flex:1; resize:none; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; padding:9px 10px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none; height:38px;" style-focus="border-color:#2b5cd9;"></textarea>
-        <button onClick="{{ onGoStop }}" title="{{ goLabel }}" style="flex:none; font:600 12px/1 -apple-system,system-ui,sans-serif; padding:0 14px; height:38px; border:1px solid {{ goBg }}; background: {{ goBg }}; color:#fff; border-radius:2px; cursor:pointer;" style-hover="opacity:0.9;">{{ goLabel }}</button>
-      </div>
+      <span style="display:flex; align-items:center; gap:6px; padding:7px 9px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
+        <textarea value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="e.g. techno this weekend under $30" style="flex:1; min-width:0; resize:none; border:none; outline:none; background:transparent; padding:0; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17; height:18px;"></textarea>
+        <span onClick="{{ onGoStop }}" title="{{ goTitle }}" style="flex:none; cursor:pointer; color: {{ goColor }}; font-size:15px; line-height:1; padding:0 2px;" style-hover="opacity:0.7;">{{ goLabel }}</span>
+      </span>
     </div>
   </aside>
   </sc-if>
@@ -2335,7 +2335,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       html: React.createElement('div', { style: { fontSize: '12.5px', lineHeight: 1.5, color: m.role === 'user' ? '#161512' : '#3f3d36', wordBreak: 'break-word' }, dangerouslySetInnerHTML: { __html: this.renderChatHtml(m.text) } })
     }));
 
-    const chips = ['plan my saturday — dinner then a show','techno this weekend','date night in los feliz','where should I eat near silver lake','rep cinema in 35mm','afterhours warehouse','free shows','top picks'];
+    const chips = ['plan my saturday — dinner then a show','make a night of it friday','date night in los feliz','where should I eat near silver lake',"what's the hot new restaurant",'food trucks worth hitting','techno this weekend','rep cinema in 35mm','afterhours warehouse'];
     const suggestions = chips.map(label => ({ label, onClick: () => this.runQuery(label) }));
 
     const chatMode = this.state.chatMode || 'llm';
@@ -2518,7 +2518,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     return {
       messages: msgs, suggestions, loading,
       modeOpts, showConnect, backendLabel, backendColor, connectBackend: this.connectBackend,
-      goLabel: loading ? 'stop' : 'go', goBg: loading ? '#b4453a' : '#2b5cd9', onGoStop: this.onGoStop,
+      goLabel: loading ? '■' : '→', goColor: loading ? '#b4453a' : '#2b5cd9', goTitle: loading ? 'Stop' : 'Send', onGoStop: this.onGoStop,
       profileInput: this.state.profileInput || '', profileError: this.state.profileError || '',
       profileActive, profileName: profileActive ? (profile.name || 'profile') : '', profileTasteYaml,
       ...seBindings,
