@@ -647,6 +647,17 @@ sources:
     priority: 3
     status: active
     notes: DIY/queer arts space — showcases, DJ sets, screenings. Squarespace (verified 2026-06-16, ~19 events/3wk).
+  - name: The Circle OC (Huntington Beach)
+    category: electronic
+    method: squarespace
+    url: https://www.thecircleoc.com/upcoming-events
+    priority: 2
+    status: active
+    notes: >
+      OC nightclub (8901 Warner Ave) — house/techno/bass raves + traveling productions (Blade Rave,
+      Velocity, BLOOLAH, RIDDIM TINGS). Squarespace events feed nests under "upcoming" (fetch_squarespace
+      already handles that key). Verified 2026-06-25 (7 events/30d incl. Blade Rave 6/27, which 19hz
+      missed). 19hz carries this OC venue only intermittently — registering it closes the recurring gap.
   - name: Bar Franca (DTLA)
     category: live_music
     method: squarespace
