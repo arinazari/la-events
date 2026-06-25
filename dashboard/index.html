@@ -1861,6 +1861,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // Switch the active profile: persist it, reset the view, load that feed (+ digest).
   async applyProfile(profileObj, raw) {
     try { profileObj ? localStorage.setItem('la-profile', JSON.stringify(profileObj)) : localStorage.removeItem('la-profile'); } catch (e) {}
+    clearInterval(this._freshPoll); this._freshPoll = null;   // stop polling the previous profile's rebuild
     // Connection is per-profile: drop the profile we're leaving and load the target's saved token (if
     // still fresh), then re-check it so the indicator reflects THIS profile, not the one we just left.
     this.BACKEND_TOKEN = this.readConn(profileObj).token || '';
@@ -1871,6 +1872,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
     this.checkCatalogFreshness();
+    this.reattachJobs();   // resume this profile's Update spinner if its rebuild is still in flight
     // "First time entering their profile" — show the welcome on sign-in (not on logout), once.
     if (profileObj) this.maybeOnboard(profileObj);
   }
@@ -1954,45 +1956,84 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   startJobTick() {
     if (this._jobTick) return;
     this._jobTick = setInterval(() => {
-      if (this.state.refreshBusy || this.state.updateBusy) this.forceUpdate();
+      const active = this.state.profile && this.state.profile.hash;
+      if ((active && this.getUpdating(active)) || this.getRefreshing()) this.forceUpdate();
       else { clearInterval(this._jobTick); this._jobTick = null; }
     }, 1000);
   }
-  // OWNER ONLY: refresh the shared events DB from sources (the daily fetch, on demand). Fires the
-  // refresh-events workflow via the concierge Worker; that run rebuilds the catalog + the default
-  // feed and republishes catalog_meta.json, so everyone's feed then reads as stale until each
-  // person updates their own. Per-profile feeds are intentionally NOT rebuilt here. The button stays
-  // "working" (dimmed, progress bar) until the published catalog version changes = the run deployed.
-  refreshEvents = async () => {
-    if (this.state.refreshBusy) return;
-    if (!this.BACKEND_URL) { this.flashToast('Connect the concierge backend first (chat → connect).'); return; }
-    let baseFetched = (this.LIVE_CATALOG && this.LIVE_CATALOG.fetched_at) || null;
-    let baseV = (this.LIVE_CATALOG && (this.LIVE_CATALOG.content_version || this.LIVE_CATALOG.version)) || null;
-    this.setState({ refreshBusy: true, refreshStartedAt: Date.now() });
+  // ---- in-flight pipeline jobs, persisted so they survive a profile switch / reload ----
+  // The per-profile "Update" (rebuild-profile) and the shared "Refresh" (refresh-events) are async
+  // server jobs that take minutes. We persist a small marker per job (mirroring la-dirty-<hash>) so a
+  // profile switch or reload RE-ATTACHES the spinner instead of silently dropping it — or, worse,
+  // declaring a false completion against whatever feed happens to be loaded. Completion is always
+  // judged against the LAUNCHING profile, never the active one.
+  updatingKey(hash) { return 'la-updating-' + (hash || 'default'); }
+  getUpdating(hash) { try { return JSON.parse(localStorage.getItem(this.updatingKey(hash)) || 'null'); } catch (e) { return null; } }
+  setUpdating(hash, val) { try { val ? localStorage.setItem(this.updatingKey(hash), JSON.stringify(val)) : localStorage.removeItem(this.updatingKey(hash)); } catch (e) {} }
+  getRefreshing() { try { return JSON.parse(localStorage.getItem('la-refreshing') || 'null'); } catch (e) { return null; } }
+  setRefreshing(val) { try { val ? localStorage.setItem('la-refreshing', JSON.stringify(val)) : localStorage.removeItem('la-refreshing'); } catch (e) {} }
+  // Read a profile feed's build stamp WITHOUT applying it to the view — the completion probe.
+  fetchFeedStamp(hash) {
+    const path = (hash ? ('./data.' + hash + '.json') : './data.json') + '?t=' + Date.now();
+    return fetch(path, { cache: 'no-store' }).then(res => res.ok ? res.json() : null)
+      .then(j => (j && j.generated_at) || null).catch(() => null);
+  }
+  // Resume polling for any job already in flight (after a reload, or a switch back to its profile).
+  // The active profile's Update is the only spinner that matters; another profile's job reconciles
+  // lazily when you switch back to it (its feed is fetched fresh on return either way).
+  reattachJobs() {
+    const active = this.state.profile && this.state.profile.hash;
+    if (active && this.getUpdating(active) && !this._freshPoll) this.startUpdatePoll(active);
+    if (this.getRefreshing() && !this._refreshPoll) this.startRefreshPoll();
+  }
+  // Poll until THIS profile's rebuilt feed deploys (its generated_at advances past the launch baseline).
+  startUpdatePoll(hash) {
+    clearInterval(this._freshPoll); this._freshPoll = null;
+    const job = this.getUpdating(hash);
+    if (!job) return;
+    const baseGen = job.baseGen || '';
+    let n = 0;
     this.startJobTick();
-    try {
-      const headers = { 'content-type': 'application/json' };
-      if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
-      const res = await fetch(this.workerUrl('/refresh-events'), { method: 'POST', headers, body: JSON.stringify({}) });
-      if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setState({ refreshBusy: false }); return; }
-      if (res.status === 429) { this.flashToast('Just refreshed a moment ago — the database is already current.'); this.setState({ refreshBusy: false }); return; }
-      if (!res.ok) { this.flashToast('Refresh failed (' + res.status + ') — is the Worker redeployed with GITHUB_TOKEN?'); this.setState({ refreshBusy: false }); return; }
-      this.flashToast('Refreshing events from sources — rebuilding the database (~2–3 min).');
-    } catch (e) { this.flashToast('Could not reach the backend to refresh.'); this.setState({ refreshBusy: false }); return; }
-    // Completion keys off `fetched_at`, not the version: a refresh ALWAYS republishes catalog_meta
-    // with a newer fetched_at (even when nothing changed), whereas content_version only moves when
-    // something actually did — keying on the version was the old "button spins to the cap on a
-    // no-change refresh" bug. Once it lands, the version tells us whether to say "updated" or not.
-    let n = 0; clearInterval(this._refreshPoll);
+    this._freshPoll = setInterval(async () => {
+      if (((this.state.profile && this.state.profile.hash) || null) !== hash) {   // switched away → reattach owns it
+        clearInterval(this._freshPoll); this._freshPoll = null; return;
+      }
+      const gen = await this.fetchFeedStamp(hash);
+      await this.checkCatalogFreshness();
+      const landed = gen && gen !== baseGen;
+      if (++n > 60 || landed) {                                                   // ~15 min cap
+        clearInterval(this._freshPoll); this._freshPoll = null;
+        this.setUpdating(hash, null);
+        if (landed) {
+          this.setTasteDirtyFor(hash, false);                                     // clear the LAUNCHING profile's flag
+          if (((this.state.profile && this.state.profile.hash) || null) === hash) await this.loadFeedFor(this.state.profile);
+          this.flashToast('Your picks + digest are up to date.');
+        }
+        this.forceUpdate();
+      }
+    }, 15000);
+  }
+  // Poll until the shared events DB republishes. Completion keys off catalog_meta's fetched_at, not the
+  // version: a refresh ALWAYS republishes a newer fetched_at (even with no changes), whereas
+  // content_version only moves when something actually did — keying on the version was the old "button
+  // spins to the cap on a no-change refresh" bug. Once it lands, the version says whether to say "updated".
+  startRefreshPoll() {
+    clearInterval(this._refreshPoll); this._refreshPoll = null;
+    const job = this.getRefreshing();
+    if (!job) return;
+    let baseFetched = job.baseFetched || null;
+    const baseV = job.baseV || null;
+    let n = 0;
+    this.startJobTick();
     this._refreshPoll = setInterval(async () => {
       await this.checkCatalogFreshness();
       const lc = this.LIVE_CATALOG || {};
       const fetched = lc.fetched_at || null;
-      if (baseFetched == null && fetched) baseFetched = fetched;   // establish baseline if we lacked one
+      if (baseFetched == null && fetched) baseFetched = fetched;                  // establish baseline if we lacked one
       const done = fetched && baseFetched && fetched !== baseFetched;
-      if (done || ++n > 40) {                                       // ~10 min cap
-        clearInterval(this._refreshPoll);
-        this.setState({ refreshBusy: false });
+      if (done || ++n > 40) {                                                     // ~10 min cap
+        clearInterval(this._refreshPoll); this._refreshPoll = null;
+        this.setRefreshing(null);
         if (done) {
           const v = lc.content_version || lc.version || null;
           const changed = v && baseV && v !== baseV;
@@ -2000,8 +2041,33 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
             ? 'Events database updated — open Settings → “Ranks & Digest” to refresh your picks.'
             : 'Refreshed — no new or changed events right now.');
         }
+        this.forceUpdate();
       }
     }, 15000);
+  }
+  // OWNER ONLY: refresh the shared events DB from sources (the daily fetch, on demand). Fires the
+  // refresh-events workflow via the concierge Worker; that run rebuilds the catalog + the default
+  // feed and republishes catalog_meta.json, so everyone's feed then reads as stale until each
+  // person updates their own. Per-profile feeds are intentionally NOT rebuilt here. The button stays
+  // "working" (dimmed, progress bar) until the published catalog version changes = the run deployed.
+  refreshEvents = async () => {
+    if (this.getRefreshing()) return;
+    if (!this.BACKEND_URL) { this.flashToast('Connect the concierge backend first (chat → connect).'); return; }
+    const baseFetched = (this.LIVE_CATALOG && this.LIVE_CATALOG.fetched_at) || null;
+    const baseV = (this.LIVE_CATALOG && (this.LIVE_CATALOG.content_version || this.LIVE_CATALOG.version)) || null;
+    this.setRefreshing({ startedAt: Date.now(), baseFetched, baseV });
+    this.forceUpdate();
+    this.startJobTick();
+    try {
+      const headers = { 'content-type': 'application/json' };
+      if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+      const res = await fetch(this.workerUrl('/refresh-events'), { method: 'POST', headers, body: JSON.stringify({}) });
+      if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setRefreshing(null); this.forceUpdate(); return; }
+      if (res.status === 429) { this.flashToast('Just refreshed a moment ago — the database is already current.'); this.setRefreshing(null); this.forceUpdate(); return; }
+      if (!res.ok) { this.flashToast('Refresh failed (' + res.status + ') — is the Worker redeployed with GITHUB_TOKEN?'); this.setRefreshing(null); this.forceUpdate(); return; }
+      this.flashToast('Refreshing events from sources — rebuilding the database (~2–3 min).');
+    } catch (e) { this.flashToast('Could not reach the backend to refresh.'); this.setRefreshing(null); this.forceUpdate(); return; }
+    this.startRefreshPoll();   // poll for the republished catalog (survives a profile switch / reload)
   };
   // ANY logged-in profile: re-rank + re-render THIS profile's feed/digest against the latest DB.
   // Fires the rebuild-profile workflow (keyed by the public feed hash) via the Worker. Disabled
@@ -2009,32 +2075,23 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // deploy lands the fresh feed (which flips catalog_version back in sync and disables it).
   updateMyDigest = async () => {
     const p = this.state.profile;
-    if (this.state.updateBusy || !(p && p.hash)) return;
+    if (!(p && p.hash) || this.getUpdating(p.hash)) return;
     if (!this.BACKEND_URL) { this.flashToast('Connect the concierge backend first (chat → connect).'); return; }
-    this.setState({ updateBusy: true, updateStartedAt: Date.now() });
+    const hash = p.hash;
+    // Baseline = THIS profile's current build stamp; the rebuild is "done" only when it advances.
+    // Works for both the catalog-stale and taste-dirty cases (catalog_version may be unchanged on a edit).
+    this.setUpdating(hash, { startedAt: Date.now(), baseGen: (this.META && this.META.generated_at) || '' });
+    this.forceUpdate();
     this.startJobTick();
     try {
       const headers = { 'content-type': 'application/json' };
       if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
-      const res = await fetch(this.workerUrl('/rebuild-profile'), { method: 'POST', headers, body: JSON.stringify({ profile: p.hash }) });
-      if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setState({ updateBusy: false }); return; }
-      if (!res.ok) { this.flashToast('Update failed (' + res.status + ') — is the workflow deployed?'); this.setState({ updateBusy: false }); return; }
+      const res = await fetch(this.workerUrl('/rebuild-profile'), { method: 'POST', headers, body: JSON.stringify({ profile: hash }) });
+      if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setUpdating(hash, null); this.forceUpdate(); return; }
+      if (!res.ok) { this.flashToast('Update failed (' + res.status + ') — is the workflow deployed?'); this.setUpdating(hash, null); this.forceUpdate(); return; }
       this.flashToast('Re-running your editor + digest against the latest events — this takes a few minutes.');
-      // Completion = the rebuilt feed deploys (its generated_at advances). Works for both the
-      // catalog-stale and taste-dirty cases (catalog_version may be unchanged on a taste edit).
-      const baseGen = (this.META && this.META.generated_at) || '';
-      let n = 0; clearInterval(this._freshPoll);
-      this._freshPoll = setInterval(async () => {
-        await this.loadFeedFor(this.state.profile);
-        await this.checkCatalogFreshness();
-        const landed = ((this.META && this.META.generated_at) || '') !== baseGen;
-        if (++n > 60 || landed) {
-          clearInterval(this._freshPoll);
-          this.setState({ updateBusy: false });
-          if (landed) { this.setTasteDirty(false); this.flashToast('Your picks + digest are up to date.'); }
-        }
-      }, 15000);
-    } catch (e) { this.flashToast('Could not reach the backend to update.'); this.setState({ updateBusy: false }); }
+      this.startUpdatePoll(hash);   // poll for the rebuilt feed (survives a profile switch / reload)
+    } catch (e) { this.flashToast('Could not reach the backend to update.'); this.setUpdating(hash, null); this.forceUpdate(); }
   };
   // True when the loaded feed was scored against an older catalog than the live one. A feed with
   // no catalog_version predates versioning (or was never rebuilt since) — treat it as behind so the
@@ -2052,7 +2109,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // A concierge taste/profile edit re-ranks the feed (build-profiles CI) but does NOT regenerate the
   // LLM digest — so we flag the profile "dirty" until an Update (which re-runs editor + digest with
   // the new taste). Persisted per-hash so it survives reloads; cleared when an Update completes.
-  dirtyKey() { const p = this.state.profile; return 'la-dirty-' + ((p && p.hash) || 'default'); }
+  dirtyKeyFor(hash) { return 'la-dirty-' + (hash || 'default'); }
+  dirtyKey() { return this.dirtyKeyFor(this.state.profile && this.state.profile.hash); }
   // Pending = the latest concierge edit isn't yet in this profile's digest/ranking. The feed bakes
   // the authoritative answer (profile.self_edit.*.reflected, computed from git at build time); the
   // localStorage flag is the optimistic bridge for the ~1–2 min before CI rebuilds the feed.
@@ -2066,7 +2124,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       return this.feedPending() || localStorage.getItem(this.dirtyKey()) === '1';
     } catch (e) { return false; }
   }
-  setTasteDirty(v) { try { v ? localStorage.setItem(this.dirtyKey(), '1') : localStorage.removeItem(this.dirtyKey()); } catch (e) {} this.forceUpdate(); }
+  setTasteDirtyFor(hash, v) { try { v ? localStorage.setItem(this.dirtyKeyFor(hash), '1') : localStorage.removeItem(this.dirtyKeyFor(hash)); } catch (e) {} this.forceUpdate(); }
+  setTasteDirty(v) { this.setTasteDirtyFor(this.state.profile && this.state.profile.hash, v); }
   // The "Update" button lights up when the feed is behind the catalog OR a taste edit needs a digest.
   needsUpdate() { return this.isFeedStale() || this.isTasteDirty(); }
 
@@ -2581,6 +2640,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.loadDigest();
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
+    this.reattachJobs();   // a rebuild/refresh kicked off before a reload keeps its spinner + polling
     // First-run onboarding — only for a signed-in profile (never the logged-out default view).
     // Covers the persisted-login reload; a fresh sign-in triggers it from applyProfile().
     if (this.state.profile) this.maybeOnboard(this.state.profile);
@@ -2716,6 +2776,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     const profile = this.state.profile;
     const profileActive = !!(profile && profile.hash);
+    // In-flight pipeline jobs come from their persisted markers (per-profile Update; shared Refresh),
+    // so the spinner reflects the ACTIVE profile and survives switches/reloads — not a stale global flag.
+    const updateJob = profileActive ? this.getUpdating(profile.hash) : null;
+    const refreshJob = this.getRefreshing();
+    const updateBusy = !!updateJob;
+    const refreshBusy = !!refreshJob;
     const profileTasteYaml = (profileActive && this.META && this.META.profile && this.META.profile.taste_yaml) || '';
     // ---- taste/profile modal: tabbed YAML + how the concierge adjusted it + reflected badge ----
     const seMeta = (profileActive && this.META && this.META.profile) || {};
@@ -2726,8 +2792,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const seFileLabel = seTab === 'profile' ? 'profile.yaml' : 'taste.yaml';
     const sePending = seBlock.reflected === false;
     const seReflected = seBlock.reflected === true;
-    const seBusy = !!this.state.updateBusy;                       // an Update is running (settings or this modal)
-    const seUpdElapsed = this.fmtElapsed(this.state.updateStartedAt);
+    const seBusy = updateBusy;                                    // an Update is running for this profile (settings or this modal)
+    const seUpdElapsed = this.fmtElapsed(updateJob ? updateJob.startedAt : null);
     const seDiff = seBlock.diff || '';
     const tabOn = 'font:600 11px/1 ui-monospace,Menlo,monospace; padding:5px 11px; border-radius:2px; cursor:pointer; background:#1b1a17; color:#fff;';
     const tabOff = 'font:600 11px/1 ui-monospace,Menlo,monospace; padding:5px 11px; border-radius:2px; cursor:pointer; background:#f0eee7; color:#76746b;';
@@ -2808,11 +2874,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const isOwner = !!(this.META && this.META.profile && this.META.profile.owner);
     const feedStale = this.isFeedStale();
     const tasteDirty = this.isTasteDirty();
-    const updateBusy = !!this.state.updateBusy;
-    const refreshBusy = !!this.state.refreshBusy;
     const liveDataPull = this.fmtStamp((liveCatalog && liveCatalog.fetched_at) || null);
-    const updateElapsed = this.fmtElapsed(this.state.updateStartedAt);
-    const refreshElapsed = this.fmtElapsed(this.state.refreshStartedAt);
+    const updateElapsed = this.fmtElapsed(updateJob ? updateJob.startedAt : null);
+    const refreshElapsed = this.fmtElapsed(refreshJob ? refreshJob.startedAt : null);
     // The per-profile "Ranks & Digest" item. It's actionable when the catalog is newer than the feed
     // OR a concierge taste edit needs a fresh digest; the TITLE carries that state and the subtitle is
     // a single date/time line. "Last synced with database" = when THIS profile's feed was last built
