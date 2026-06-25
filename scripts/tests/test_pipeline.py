@@ -106,7 +106,7 @@ def test_expire_past_keeps_future_and_undated():
     assert n == 1 and titles == {"today", "future", "tba"}
 
 
-def test_select_candidates_orders_flags_and_windows():
+def test_select_candidates_orders_and_windows():
     cat = [
         {"title": "elec", "category": "electronic", "venue": "A", "date": "2026-06-18"},  # +3
         {"title": "thtr", "category": "theater", "venue": "B", "date": "2026-06-19"},     # +2
@@ -114,11 +114,9 @@ def test_select_candidates_orders_flags_and_windows():
         {"title": "farout", "category": "electronic", "venue": "D", "date": "2026-09-01"},  # window-excluded
     ]
     cand = P.select_candidates(cat, taste={}, profile={}, today=TODAY,
-                               window_days=30, top_n=10, image_n=1)
+                               window_days=30, top_n=10)
     titles = [c["title"] for c in cand]
     assert titles == ["elec", "thtr"]                 # upcoming, in-window, best-first
-    assert cand[0]["image_wanted"] is True            # top image_n
-    assert cand[1]["image_wanted"] is False
     assert all("score" in c and "rating" in c and "reasons" in c for c in cand)
 
 

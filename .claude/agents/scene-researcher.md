@@ -4,8 +4,8 @@ description: >
   Tier-1 enrichment worker for the la-events digest. Invoke (in parallel, one per batch)
   during a digest run to enrich the top ~30–40 ranked candidate events with scene
   intelligence: type/sub-genre tags, artist notes (who each lineup name is and why
-  on-taste), a curator's note, a clean description, and — for the top picks — a
-  representative image. Returns structured JSON for the synthesis step to render.
+  on-taste), a curator's note, and a clean description. Returns structured JSON for the
+  synthesis step to render.
   Not for writing the digest prose itself (that's the main agent) and not for ranking
   (that's the deterministic core). Enrichment only.
 tools: Read, Write, Glob, Grep, WebSearch, WebFetch
@@ -23,7 +23,6 @@ knowledgeable scene insider wrote it. You do research + tagging + a draft curato
   category, price, links[], detail`).
 - The path to `taste.yaml` (the lane to anchor everything to).
 - The enrichment **cache** path (artist bios + prior event enrichments — read it first, write back to it).
-- Which event `id`s are **top-N** (these need an image; the rest don't).
 
 ## Method
 1. **Read `taste.yaml` first.** Internalize the lane: house/techno/tech-house across the spectrum,
@@ -58,9 +57,6 @@ knowledgeable scene insider wrote it. You do research + tagging + a draft curato
    lane", "the lane explicitly wants", "on-taste", "squarely in the lane", or similar. Be specific
    and vary how each note opens; no two should sound templated.
 6. **Description:** one tight, factual line for someone who's never heard of it.
-7. **Image (top-N only):** find ONE representative image URL — artist promo, the official flyer,
-   or the venue. Prefer official/stable sources; record `source` + `credit`. (Images hotlink-rot;
-   the orchestrator caches the file — your job is just the best URL + provenance.)
 
 ## Output
 Write a JSON array to the cache path (one object per event) **and** return a one-line summary
@@ -78,11 +74,10 @@ Write a JSON array to the cache path (one object per event) **and** return a one
   "artist_notes": [{"name": "Antal", "note": "Rush Hour boss — Dutch digger, deep/disco selector."}],
   "curator_note": "An all-afternoon rooftop groove from one of the best diggers alive — worth building the day around.",
   "description": "All-day open-air party with Rhythm Section's Bradley Zero and Antal.",
-  "image": {"url": "https://…", "source": "ra.co", "credit": "promoter"},
   "confidence": "high"
 }
 ```
-Omit `image` for non-top-N events. Update the artist cache with any new bios (keyed by normalized
+Update the artist cache with any new bios (keyed by normalized
 name) so future runs reuse them.
 
 ## Quality bars (non-negotiable)

@@ -117,8 +117,8 @@ portability.
       expire → stamp seen → score → emit candidate set. Pure transforms in `scripts/lib/pipeline.py`
       (tested); thin CLI orchestrator runs the fetchers as subprocesses and degrades gracefully
       (missing key/error/timeout → run report, never blocks). Emits `data/catalog.json` (durable,
-      score-free) + `data/candidates.json` (runtime, gitignored; flags top `images` as
-      `image_wanted` — the scene-researcher contract). Verified: 697→686 (dupes collapsed), idempotent.
+      score-free) + `data/candidates.json` (runtime, gitignored; the scored, ranked top-N for
+      enrichment). Verified: 697→686 (dupes collapsed), idempotent.
 - [x] Catalog hygiene in the core: expires past events, maintains first-/last-seen, window math
       standardized on `America/Los_Angeles` (zoneinfo) — all in `run_digest`/`pipeline`.
 - [x] **Wire `run_digest.py` into the daily routine + `SKILL.md`** — done: SKILL Mode 1 is now
@@ -132,16 +132,16 @@ portability.
       `update_cache` (artists researched once). Validated by a real agent run over 8 live candidates
       (Bradley Zero→Rhythm Section, Eddie C→Endless Flight, Chris Lake→Black Book, DJ Minx/Casmalia placed).
 - [x] **Enriched per-event schema** — `type` + `subgenres`/`label_orbit`/`energy`/`setting`/`sounds_like`,
-      `artist_notes`, `curator_note`, `description`, `image` (image_wanted picks). ★ relevance reads the
+      `artist_notes`, `curator_note`, `description`. ★ relevance reads the
       precomputed candidate `rating`. All ticket links preserved on the candidate.
-- [x] **Two renderers from one enriched dataset** — `scripts/render_digest.py` → canonical `.md`
-      (Don't-miss + day-by-day, type tag, ★, linked title, curator note + gloss) **and** a rich
-      emailable `.html` (type chips, ★, curator notes, hero images, inline CSS). Tested; can't drift.
-- [x] **Image caching** — `scripts/cache_images.py` + `scripts/lib/images.py`: download hero images
-      to `data/images/`, set `image.cached`; the renderer prefers the cached copy (`--asset-prefix`
-      for hosted serving). Verified live (Goldenvoice posters cached; graceful on blocked CDNs).
+- [x] **Markdown renderer from the enriched dataset** — `scripts/render_digest.py` → canonical `.md`
+      (day-by-day, type tag, ★, linked title, curator note + gloss). Tested; can't drift. (Phase B also
+      shipped a rich emailable `.html` renderer + hero-image caching `scripts/cache_images.py` /
+      `lib/images.py`; **removed 6/25** as dead weight — no email ever shipped, the dashboard reads
+      `.md`, and the cached images were never rendered anywhere. The `scene-researcher` no longer
+      spends search calls hunting image URLs.)
 - [x] **Routine wiring (no email)** — `routines/daily-digest-prompt.md` now runs core → layer →
-      enrich → `cache_images` → `render_digest --from/--to` per weekend (.md + .html) → commit.
+      enrich → `render_digest --from/--to` per weekend (.md) → commit.
       Email intentionally dropped in favor of the **Hosted page** (below). **Phase B complete.**
 - [x] **Per-day floor in the weekend render (follow-up, surfaced 6/17)** — `render_digest` used to
       pull from the *global* top-N candidate set, so quiet days starved: the first live weekend run
@@ -215,7 +215,7 @@ The ranking-judgment tier (above) made real, plus one daily digest replacing the
       editor treats listening history as a first-class signal — per profile (the music layer the LLM can use).
 - [x] **Consolidated daily digest** — `scripts/build_radar.py` (deterministic "on the radar" set:
       editorial / festival / tracked-artist / arena signals, ranked) + `render_digest.py --consolidated`
-      → ONE doc (`digests/latest.{md,html}`): next 14 days day-by-day · weekends ahead (days 15–35,
+      → ONE doc (`digests/latest.md`): next 14 days day-by-day · weekends ahead (days 15–35,
       Thu–Sun) · on the radar. The windowed `--from/--to` mode is **retained** as the per-weekend
       look-ahead (a future dashboard view). Live end-to-end dry run
       (2026-06-20): fresh fetch (3421 catalog) → radar (336) → consolidated (82 + 78 + 18), both renderers
@@ -238,7 +238,7 @@ The ranking-judgment tier (above) made real, plus one daily digest replacing the
       Festival-ness is a property of the pair; one-sided cases demand an identical core. Validated on the
       live catalog: 6 new merges, all genuinely the same event, zero false merges.
 - [ ] **Land on `main`** — merge the branch; the first scheduled routine run then judges the live delta,
-      commits `digests/latest.{md,html}` + the per-profile verdicts, and the Pages workflow redeploys.
+      commits `digests/latest.md` + the per-profile verdicts, and the Pages workflow redeploys.
 - [ ] **Per-profile editor pass** — `build_profiles.py` already emits each profile's own judging pool
       (`data/editor_pool.<hash>.json`); run the editor + `merge_verdicts.py --profile-hash <hash>` per
       friend to give them the full editor treatment (else their feeds rank deterministically against their
@@ -304,9 +304,8 @@ Runs explicit strategies, returns a proposal table (approve → append to `sourc
 
 ## Delivery — Hosted page (the new primary surface; supersedes email)
 A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and tune taste.
-- **Static core, wired:** the committed weekend `.html` + `dashboard/data.json` deploy to GitHub
-  Pages (`.github/workflows/deploy-dashboard.yml`). `render_digest --asset-prefix` points cached
-  images at the served base, so the digests are self-contained.
+- **Static core, wired:** the committed `digests/latest.md` + `dashboard/data.json` deploy to GitHub
+  Pages (`.github/workflows/deploy-dashboard.yml`); the dashboard renders the Markdown digest.
 - [x] **Interactive home shipped (static + Claude Code hand-off)** — the dashboard is now a 3-view
   app (`dashboard/`): **Explore** (search/filter/present every event — reworked to the real catalog
   schema + enrichment + save-for-plan), **Plan** (a chatbox: a local no-LLM query engine over the

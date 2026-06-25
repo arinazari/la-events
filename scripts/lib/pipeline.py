@@ -290,13 +290,9 @@ def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=N
 
 
 def select_candidates(catalog, taste, profile, today=None, window_days=None,
-                      top_n=40, image_n=10, affinity=None) -> list:
+                      top_n=40, affinity=None) -> list:
     """The enrichment candidate set: upcoming events, best-first, top N.
 
-    Flags the first `image_n` with image_wanted=True (the scene-researcher images contract).
     `affinity` (optional) layers the Spotify + feedback music profile into the scoring.
     """
-    top = score_pool(catalog, taste, profile, today, window_days, affinity)[:top_n]
-    for i, e in enumerate(top):
-        e["image_wanted"] = i < image_n
-    return top
+    return score_pool(catalog, taste, profile, today, window_days, affinity)[:top_n]
