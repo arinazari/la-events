@@ -1,6 +1,10 @@
 name: Refresh events database
 
-# ADMIN action (owner's "Refresh events database" button -> concierge Worker -> repository_dispatch).
+# ADMIN action + nightly deterministic fallback. Triggers:
+#   - schedule (cron): a DETERMINISTIC nightly catalog floor so the dashboard's "last data pull"
+#     stays fresh even when the full LLM Routine (claude.ai Routines) fails to land a run. No LLM here.
+#   - repository_dispatch: the owner's "Refresh events database" button -> concierge Worker.
+#   - workflow_dispatch: manual.
 # Re-fetches every source, rebuilds the deduped catalog, and republishes the catalog version stamp
 # + the default/logged-out feed. This is the deterministic core of the daily routine, on demand —
 # it does NOT run the LLM enrichment/editor passes and does NOT rebuild per-profile feeds: each
@@ -11,6 +15,12 @@ name: Refresh events database
 # just skipped), so the refresh works with whatever is configured:
 #   TM_API_KEY  POSH_TOKEN  SPOTIFY_CLIENT_ID  SPOTIFY_CLIENT_SECRET  SPOTIFY_REFRESH_TOKEN
 on:
+  schedule:
+    # 10:00 UTC ≈ 3am PT. Deterministic nightly refresh — the reliable floor under the LLM Routine.
+    # NB: GitHub only runs scheduled workflows from the DEFAULT branch, so this activates once merged
+    # to main. If the Routine also runs nightly and you want its short LLM intro on digests/latest to
+    # win, schedule the Routine after this time (this run re-renders the consolidated digest plainly).
+    - cron: "0 10 * * *"
   repository_dispatch:
     types: [refresh-events]
   workflow_dispatch:
