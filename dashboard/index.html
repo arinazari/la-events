@@ -1340,7 +1340,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## June 2026",
     "",
-    "- **A quick-start welcome.** First time you open the site or sign in, a short four-step tour walks you through how the picks are made, teaching the concierge your taste, and refreshing your ranking. Tick *don't show this again* to dismiss it; re-open it any time from **Settings → quick start**.",
+    "- **A quick-start welcome.** The first time you sign in, a short four-step tour walks you through how the picks are made, teaching the concierge your taste, and refreshing your ranking. Tick *don't show this again* to dismiss it; re-open it any time from **Settings → quick start**.",
     "- **See your taste edits land.** *View taste & profile* (Settings) now shows a diff of every change the concierge made to your taste or profile, with a badge for whether it's already live in your ranking or still pending.",
     "- **Festivals & further ahead.** The digest now surfaces big destination festivals and looks up to ~6 months out, so you can catch the major stuff while tickets last.",
     "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you — open it from your name in the header.",
@@ -1357,13 +1357,13 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   closeGuide = () => this.setState({ guideOpen: false });
   setGuideTab = (t) => this.setState({ guideTab: t });
 
-  // ---------- First-run welcome / onboarding (auto-opens once per profile) ----------
-  // A short, stepped quick-start that orients a new (or newly-signed-in) person: how the picks
-  // are made, teach the concierge your taste, refresh your ranking, and where everything lives.
-  // It auto-opens the first time someone "enters" a profile context (default or a signed-in
-  // profile, keyed by hash) and only stops re-appearing once they tick "don't show this again"
-  // — so closing it without confirming brings it back next visit (per the spec). The detailed
-  // tour (GUIDE_HOW) and changelog (GUIDE_NEW) stay manual under Settings → ABOUT.
+  // ---------- First-run welcome / onboarding (auto-opens once per signed-in profile) ----------
+  // A short, stepped quick-start that orients a newly-signed-in person: how the picks are made,
+  // teach the concierge your taste, refresh your ranking, and where everything lives. It auto-opens
+  // the first time someone signs into a profile (keyed by hash) — never on the logged-out default
+  // view — and only stops re-appearing once they tick "don't show this again", so closing it without
+  // confirming brings it back next visit (per the spec). The owner/default can preview it via
+  // Settings → ABOUT → quick start. The detailed tour (GUIDE_HOW) and changelog (GUIDE_NEW) stay manual.
   WELCOME = [
     [
       "# Welcome",
@@ -1396,7 +1396,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     [
       "# Where everything lives",
       "",
-      "Not signed in yet? Tap the **⚷** key (bottom-right) and enter your username to load your own taste, ranking and digest. Once you're in, that icon becomes your **☰ settings**:",
+      "Now that you're signed in, the **⚷** key (bottom-right) becomes your **☰ settings** — that's where the rest lives:",
       "",
       "- **Settings (☰)** holds the rest: connect **Spotify**, add your own **Claude key**, and **View taste & profile** — which shows a diff of every edit the concierge made and whether it's **live or still pending**.",
       "- Your **name in the header** opens your written **digest**; the **what changed** readout (in Settings) tells you what moved on the last pull — lineups, prices, set times.",
@@ -2356,9 +2356,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.loadDigest();
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
-    // First-run onboarding for whatever profile context we booted into (default or a persisted
-    // sign-in). Signing into a different profile triggers it again from applyProfile().
-    this.maybeOnboard(this.state.profile);
+    // First-run onboarding — only for a signed-in profile (never the logged-out default view).
+    // Covers the persisted-login reload; a fresh sign-in triggers it from applyProfile().
+    if (this.state.profile) this.maybeOnboard(this.state.profile);
   }
   componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); }
 

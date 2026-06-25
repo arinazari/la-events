@@ -107,15 +107,16 @@ shows a "ranked picks are live in the table" placeholder.
 There are two onboarding surfaces, both authored as Markdown strings in `index.html` and rendered
 through the same `renderMarkdown` the digest modal uses (so they match its look exactly — no new styling):
 
-**1. First-run welcome (auto-opens).** A short, **stepped** quick-start (`WELCOME` — four steps:
-how the picks are made → teach the concierge your taste → refresh your ranking → where everything
-lives). It **auto-opens the first time someone enters a profile context** — on initial load for the
-default/persisted profile, and again on sign-in to a different profile (`maybeOnboard`, called from
-`componentDidMount` and `applyProfile`). It is keyed per profile in localStorage
-(`la-onboarded:<hash|default>`), and the **"Don't show this again" checkbox is the dismissal**: ticked →
-the flag is set and it never auto-opens for that profile again; left un-ticked → closing it just hides
-it for now and it greets you again next visit (deliberate — it nags until acknowledged). Re-openable any
-time from **Settings → ABOUT → quick start**.
+**1. First-run welcome (auto-opens after sign-in).** A short, **stepped** quick-start (`WELCOME` — four
+steps: how the picks are made → teach the concierge your taste → refresh your ranking → where everything
+lives). It **auto-opens the first time someone signs into a profile** — on a fresh sign-in and on a
+persisted-login reload (`maybeOnboard`, called from `applyProfile` and, guarded by a logged-in profile,
+`componentDidMount`). It **never pops up on the logged-out default view**; the owner/default can preview
+it from Settings → ABOUT → quick start. It is keyed per profile in localStorage (`la-onboarded:<hash>`),
+and the **"Don't show this again" checkbox is the dismissal**: ticked → the flag is set and it never
+auto-opens for that profile again; left un-ticked → closing it just hides it for now and it greets you
+again next visit (deliberate — it nags until acknowledged). Re-openable any time from
+**Settings → ABOUT → quick start**.
 
 **2. Guide & changelog (manual).** A two-tab modal — **How it works** (the full plain-language tour:
 the table, rank-vs-score, the concierge, signing in, tuning taste, installing the PWA) and **What's new**
