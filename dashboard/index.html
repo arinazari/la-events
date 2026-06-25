@@ -2419,9 +2419,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       seHasYaml: !!seYaml,
       seYaml,
       seNoYaml: !seYaml,
-      seNoYamlText: seTab === 'profile'
-        ? 'No personal profile.yaml yet — your feed uses the defaults for location & ranking dials. Tell the concierge e.g. “I’m in Highland Park” or “weight live music higher” and it’ll create one.'
-        : 'No taste profile found for this account.',
+      // Only claim "you have no profile" when build_profiles positively says so (exists === false).
+      // If the field is simply absent (a feed built before this shipped), say it's still populating —
+      // don't tell someone they have no profile when they do.
+      seNoYamlText: seTab !== 'profile'
+        ? 'No taste profile found for this account.'
+        : (seBlock.exists === false
+            ? 'No personal profile.yaml yet — your feed uses the defaults for location & ranking dials. Tell the concierge e.g. “I’m in Highland Park” or “weight live music higher” and it’ll create one.'
+            : 'Your profile will appear here after your feed’s next rebuild.'),
     };
     const sstat = this.state.spotifyStatus;
     // Spotify, in the settings-row style: one line of live status + a single tap that connects,
