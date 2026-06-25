@@ -105,7 +105,7 @@ shows a "ranked picks are live in the table" placeholder.
 ## Guide & "What's new" (friend onboarding)
 
 A two-tab modal — **How it works** (a plain-language tour: the table, rank-vs-score, the concierge,
-signing in, tuning taste, installing the PWA) and **What's new** (a short changelog of friend-facing
+dining & planning a night, signing in, tuning taste, installing the PWA) and **What's new** (a short changelog of friend-facing
 features). Both are authored as Markdown strings in `index.html` (`GUIDE_HOW` / `GUIDE_NEW`) and rendered
 through the same `renderMarkdown` the digest modal uses, so they match its look exactly — no new styling.
 
