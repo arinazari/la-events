@@ -13,15 +13,25 @@ const SHELL = [
   "./vendor/babel.min.js",
 ];
 
+// Non-disruptive lifecycle: we deliberately do NOT call skipWaiting() or
+// clients.claim(). Claiming an already-open page that loaded WITHOUT a controller
+// (i.e. the very first visit) makes the worker take over mid-session — which iOS/
+// macOS Safari turns into a full page reload. That's the "site reloads on the first
+// few interactions after a cold start, then stops" bug: it stops because the next
+// load is already controlled. By not claiming, the first load stays stable and the
+// worker only takes control on the NEXT navigation. Tradeoff: offline caching kicks
+// in from the second visit rather than the first — fine for a catalog viewer.
+// Don't re-add skipWaiting()/clients.claim() without accounting for this.
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)));
 });
 
 self.addEventListener("activate", (e) => {
+  // Still purge stale shell caches from older versions — just don't claim clients.
   e.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
-    ).then(() => self.clients.claim())
+    )
   );
 });
 
