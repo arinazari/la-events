@@ -100,3 +100,10 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
 > NOT email. The planned delivery is a **hosted, bookmarkable page** served from these artifacts,
 > with on-page actions (re-scan sources, request an ad-hoc digest from the LLM). See ROADMAP
 > "Hosted page". Until it exists, open the committed weekend `.html` directly.
+>
+> **Operational nudges ride in the digest, not your inbox** (consistent with no-email):
+> `render_digest --consolidated` auto-adds a **Posh-token re-auth banner** at the top of
+> `digests/latest.{md,html}` when `POSH_TOKEN` is within 5 days of expiry (or already dead) —
+> Posh has no token refresh, so the JWT must be re-captured by hand ~monthly. It's automatic
+> (reads the token's own expiry; no action in this routine). Sanity-check anytime with
+> `python scripts/posh_token_status.py`.
