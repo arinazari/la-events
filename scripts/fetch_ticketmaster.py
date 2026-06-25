@@ -12,6 +12,7 @@ Rate limits on free tier: 5000 calls/day, 5 req/sec.
 import argparse
 import json
 import os
+import re
 import sys
 import time
 from datetime import datetime, timedelta, timezone
@@ -19,6 +20,36 @@ from urllib.parse import urlencode
 from urllib.request import urlopen
 
 BASE = "https://app.ticketmaster.com/discovery/v2/events.json"
+
+# TM marketing URLs embed the night-of date in the slug: .../<name>-<city>-<state>-MM-DD-YYYY/event/<id>
+_SLUG_DATE = re.compile(r"-(\d{2})-(\d{2})-(\d{4})/event/", re.I)
+
+
+def _nightof_date(local_date, local_time, url):
+    """Undo Ticketmaster's occasional post-midnight date-roll.
+
+    TM sometimes files a late-night show under the calendar day of its *after-midnight* start
+    (localDate 2026-06-28 @ localTime 03:00) while the event URL slug still carries the night-of
+    date it's actually marketed under (.../06-27-2026/event/<id>). That mis-dates the show by a
+    day and — worse — splits it from every other source (RA/19hz/the flyer) that bills it night-of,
+    so it lands in the catalog twice. When the slug date is exactly the day before localDate and the
+    start time is in the small hours, trust the slug (night-of) date. Every other case is untouched.
+    """
+    if not (local_date and local_time and url):
+        return local_date
+    m = _SLUG_DATE.search(url)
+    if not m:
+        return local_date
+    mm, dd, yyyy = m.groups()
+    try:
+        ld = datetime.strptime(local_date, "%Y-%m-%d").date()
+        sd = datetime.strptime(f"{yyyy}-{mm}-{dd}", "%Y-%m-%d").date()
+        hour = int(str(local_time)[:2])
+    except (ValueError, TypeError):
+        return local_date
+    if 0 <= hour < 6 and (ld - sd).days == 1:
+        return sd.isoformat()
+    return local_date
 
 
 def _profile_dma(default="324"):
@@ -54,15 +85,17 @@ def normalize(ev: dict) -> dict:
         genre = None
     start = ev.get("dates", {}).get("start", {})
     attractions = (ev.get("_embedded") or {}).get("attractions") or []
+    # Prefer venue-LOCAL date (+ time). TM's `dateTime` is UTC, which rolls an evening LA show past
+    # midnight into the next calendar day; `localDate`/`localTime` are venue-local. Then undo TM's
+    # own post-midnight roll (a 3am set filed on the next day) using the night-of date in the URL slug.
+    local_date = _nightof_date(start.get("localDate"), start.get("localTime"), ev.get("url"))
     return {
         "source": "ticketmaster",
         "id": ev.get("id"),
         "title": ev.get("name"),
-        # Prefer venue-LOCAL date (+ time). TM's `dateTime` is UTC, which rolls an evening LA
-        # show past midnight into the next calendar day; `localDate`/`localTime` are venue-local.
-        "datetime": (f"{start['localDate']}T{start['localTime']}"
-                     if start.get("localDate") and start.get("localTime")
-                     else start.get("localDate") or start.get("dateTime")),
+        "datetime": (f"{local_date}T{start['localTime']}"
+                     if local_date and start.get("localTime")
+                     else local_date or start.get("dateTime")),
         "local_time": start.get("localTime"),
         "venue": venue.get("name"),
         "neighborhood": (venue.get("city") or {}).get("name"),

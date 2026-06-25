@@ -12,6 +12,8 @@ merge(a, b) -> dict                 # combine two duplicate records
 """
 
 import re
+from collections import defaultdict
+from datetime import date
 from difflib import SequenceMatcher
 
 from .scoring import parse_event_date
@@ -135,8 +137,96 @@ def _festival_match(a: dict, b: dict) -> bool:
     return ca == cb                                 # one-sided: demand an identical core name
 
 
+# ── Ticket-link identity ───────────────────────────────────────────────────────
+# A shared *per-event* ticket id is the highest-precision duplicate signal there is: two records
+# pointing at the same Ticketmaster event / RA event / Posh page / DICE / Eventbrite listing are
+# the same event, even when their venue+title strings diverge past the fuzzy threshold (a
+# secret-warehouse party billed "Secret DTLA Warehouse" by one source, "TBA (DTLA)" by another) or
+# when a source mis-dates it by a day (a post-midnight set filed on the next calendar day). 19hz in
+# particular re-lists RA/Posh/TM events and links straight back to them, so most of these collide.
+#
+# Two rules make this safe:
+#   • Only canonicalize URLs that identify ONE event. Promoter/tracking links (on.fgtix.com/trk/...)
+#     and venue homepages are shared by many distinct events, so they are NOT identity — a two-day
+#     festival shares one fgtix link across both nights and must stay two rows.
+#   • TM ids are CASE-SENSITIVE and use a base64url alphabet ('Z7r9jZ1A7x71F' and '...71f' are two
+#     different shows): preserve case and keep '_' and '-', or distinct events collapse together.
+_LINK_ID_PATTERNS = [
+    ("tm", re.compile(r"ticketmaster\.com/(?:[^?#]*/)?event/([0-9A-Za-z_-]+)")),
+    ("ra", re.compile(r"ra\.co/events/(\d+)")),
+    ("posh", re.compile(r"posh\.vip/e/([A-Za-z0-9-]+)")),
+    ("dice", re.compile(r"dice\.fm/(?:event|e)/([A-Za-z0-9-]+)")),
+    ("eventbrite", re.compile(r"eventbrite\.[a-z.]+/e/(?:[A-Za-z0-9-]*-)?(\d{6,})")),
+]
+
+
+def _link_ids(ev: dict) -> set:
+    """Canonical per-event ticket ids carried by a record's links (e.g. {'tm:09006437C99A49D6'}).
+    Case preserved on purpose (TM ids are case-sensitive). Generic/tracking links yield nothing."""
+    ids = set()
+    for link in (ev.get("links") or []):
+        url = link.get("url") if isinstance(link, dict) else link
+        if not url:
+            continue
+        for tag, pat in _LINK_ID_PATTERNS:
+            m = pat.search(str(url))
+            if m:
+                ids.add(f"{tag}:{m.group(1)}")
+    return ids
+
+
+def _link_premerge(events: list) -> tuple:
+    """Collapse records that share a per-event ticket id — regardless of date, venue, or title.
+
+    Runs before the date-bucketed fuzzy pass and catches exactly what that pass can't: the same
+    event from two sources whose venue strings diverge too far to fuzzy-match, and the same event
+    a source filed a day off (post-midnight roll). Each cluster merges into its EARLIEST-dated
+    member — a roll only ever pushes a show later, so the earliest date is the night-of one.
+    Returns (events, report) with report entries shaped like dedupe's (kept_title, absorbed_title).
+    """
+    buckets = defaultdict(list)            # link id -> [event index, ...]
+    for idx, ev in enumerate(events):
+        for lid in _link_ids(ev):
+            buckets[lid].append(idx)
+
+    parent = list(range(len(events)))      # union-find so an event bridging two ids joins one cluster
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[ra] = rb
+    for idxs in buckets.values():
+        for other in idxs[1:]:
+            union(idxs[0], other)
+
+    comps = defaultdict(list)
+    for idx in range(len(events)):
+        comps[find(idx)].append(idx)
+
+    out, report = [], []
+    for idxs in comps.values():
+        members = [events[i] for i in idxs]
+        if len(members) == 1:
+            out.append(members[0])
+            continue
+        members.sort(key=lambda e: (parse_event_date(e) or date.max))   # earliest = night-of
+        base = members[0]
+        for m in members[1:]:
+            report.append((base.get("title"), m.get("title")))
+            base = merge(base, m)
+        out.append(base)
+    return out, report
+
+
 def is_duplicate(a: dict, b: dict) -> bool:
     """Two records describe the same real-world event."""
+    if _link_ids(a) & _link_ids(b):
+        return True  # same per-event ticket id — same event, even if venue/title/date drifted
+
     da, db = parse_event_date(a), parse_event_date(b)
     if da is None or db is None or da != db:
         return False  # conservative: no date match, no merge
@@ -210,10 +300,12 @@ def merge(a: dict, b: dict) -> dict:
 def dedupe(events: list) -> tuple:
     """Collapse duplicate records. Returns (merged_events, merge_report).
 
-    Buckets by date so comparison is ~O(n) in practice, then greedily clusters
-    within each day. merge_report is a list of (kept_title, absorbed_title).
+    First collapses shared-ticket-link duplicates (cross-date, cross-venue), then buckets by date so
+    the fuzzy comparison is ~O(n) in practice and greedily clusters within each day. merge_report is
+    a list of (kept_title, absorbed_title).
     """
-    merged, report = [], []
+    events, report = _link_premerge(events)
+    merged = []
     by_date = {}
     for ev in events:
         d = parse_event_date(ev)
