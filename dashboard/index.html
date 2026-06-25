@@ -37,19 +37,32 @@
   @keyframes om-scan { 0%{transform:translateX(-100%)} 100%{transform:translateX(300%)} }
   .la-prog { position:relative; height:3px; margin-top:8px; background:#dcdad1; border-radius:2px; overflow:hidden; }
   .la-prog > i { position:absolute; top:0; left:0; height:100%; width:40%; background:#2b5cd9; border-radius:2px; animation: om-scan 1.15s ease-in-out infinite; }
+  /* ---- mobile / responsive ---- */
+  /* dvh keeps the footer on-screen on mobile (100vh overshoots under the URL bar);
+     two declarations need the stylesheet — inline style collapses duplicate keys. */
+  .app-shell { height: 100vh; height: 100dvh; }
+  .m-fab { position:fixed; right:16px; bottom:calc(58px + env(safe-area-inset-bottom)); z-index:65;
+    display:inline-flex; align-items:center; gap:7px; padding:12px 15px; border-radius:999px;
+    background:#2b5cd9; color:#fff; border:none; cursor:pointer; box-shadow:0 6px 18px rgba(27,41,92,0.34);
+    font:600 12.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em; }
+  .m-fab:active { transform:scale(0.96); }
+  .m-card:active { background:#f1efe7; }
+  @media (max-width: 720px) {
+    input, textarea { font-size: 16px !important; }  /* stop iOS zoom-on-focus */
+  }
 </style>
 </helmet>
 
-<div style="display:flex; height:100vh; width:100%; overflow:hidden; font-family:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif; color:#1b1a17; background:#f4f3ef;">
+<div class="app-shell" style="display:flex; width:100%; overflow:hidden; font-family:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif; color:#1b1a17; background:#f4f3ef;">
 
-  <!-- ===================== CHAT SIDEBAR ===================== -->
-  <sc-if value="{{ collapsed }}" hint-placeholder-val="{{ false }}">
+  <!-- ===================== CHAT SIDEBAR (desktop) ===================== -->
+  <sc-if value="{{ desktopChatStrip }}" hint-placeholder-val="{{ false }}">
     <div style="order:2; width:46px; flex:none; display:flex; flex-direction:column; align-items:center; gap:16px; padding-top:14px; border-left:1px solid #d9d7cf; background:#efeee9;">
       <button onClick="{{ toggleCollapse }}" title="Open digest" style="font:600 13px/1 ui-monospace,Menlo,monospace; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#2b5cd9; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9;">«</button>
       <div onClick="{{ toggleCollapse }}" style="writing-mode:vertical-rl; transform:rotate(180deg); font:600 12px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#2b5cd9; cursor:pointer;">ASK THE DIGEST</div>
     </div>
   </sc-if>
-  <sc-if value="{{ expanded }}" hint-placeholder-val="{{ true }}">
+  <sc-if value="{{ desktopChatPanel }}" hint-placeholder-val="{{ true }}">
   <aside style="position:relative; order:2; width: {{ sidebarW }}; flex:none; display:flex; flex-direction:column; border-left:1px solid #d9d7cf; background:#efeee9;">
     <div onMouseDown="{{ startResize }}" title="Drag to resize" style="position:absolute; left:-4px; top:0; bottom:0; width:8px; cursor:col-resize; z-index:6;" style-hover="background:rgba(43,92,217,0.18);"></div>
     <div style="padding:16px 16px 12px; border-bottom:1px solid #d9d7cf;">
@@ -94,9 +107,54 @@
   </aside>
   </sc-if>
 
+  <!-- ===================== CHAT (mobile) ===================== -->
+  <sc-if value="{{ mobileChatFab }}" hint-placeholder-val="{{ false }}">
+    <button onClick="{{ toggleCollapse }}" class="m-fab" title="Ask the digest"><span style="font-size:13px; line-height:1;">✦</span> Ask the digest</button>
+  </sc-if>
+  <sc-if value="{{ mobileChatPanel }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:70; display:flex; flex-direction:column; background:#efeee9;">
+      <div style="flex:none; padding:calc(13px + env(safe-area-inset-top)) 16px 11px; border-bottom:1px solid #d9d7cf;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+          <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE DIGEST</div>
+          <button onClick="{{ toggleCollapse }}" title="Close" style="font:600 15px/1 ui-monospace,Menlo,monospace; width:34px; height:34px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:3px; cursor:pointer;">✕</button>
+        </div>
+        <div style="margin-top:9px; display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+          <sc-for list="{{ modeOpts }}" as="o">
+            <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:7px 11px; border:1px solid #d2d0c7; background: {{ o.bg }}; color: {{ o.color }}; opacity: {{ o.opacity }}; border-radius:2px; cursor:pointer;">{{ o.label }}</button>
+          </sc-for>
+          <sc-if value="{{ showConnect }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ connectBackend }}" title="Point the concierge at your backend (URL + token)" style="margin-left:auto; font:600 10px/1 ui-monospace,Menlo,monospace; padding:7px 11px; border:1px dashed {{ backendColor }}; background:transparent; color: {{ backendColor }}; border-radius:2px; cursor:pointer;">● {{ backendLabel }} ↗</button>
+          </sc-if>
+        </div>
+      </div>
+      <div class="scry" style="flex:1; overflow-y:auto; padding:14px 16px; display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ messages }}" as="m" hint-placeholder-count="2">
+          <div style="display:flex; flex-direction:column; gap:3px;">
+            <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; text-transform:uppercase; color: {{ m.tagColor }};">{{ m.tag }}</div>
+            {{ m.html }}
+          </div>
+        </sc-for>
+        <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; align-items:center; gap:5px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">THINKING<span class="om-dots"><i></i><i></i><i></i></span></div>
+        </sc-if>
+      </div>
+      <div style="flex:none; padding:10px 16px calc(8px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#efeee9;">
+        <div style="display:flex; gap:6px; margin-bottom:10px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:2px;">
+          <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="6">
+            <button onClick="{{ s.onClick }}" style="flex:none; white-space:nowrap; font:500 12px/1 -apple-system,system-ui,sans-serif; padding:8px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#3f3d36; border-radius:2px; cursor:pointer;">{{ s.label }}</button>
+          </sc-for>
+        </div>
+        <span style="display:flex; align-items:flex-end; gap:6px; padding:9px 11px; border:1px solid #c9c7bd; background:#fff; border-radius:3px;" style-focus-within="border-color:#2b5cd9;">
+          <textarea value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="e.g. techno this weekend under $30" style="flex:1; min-width:0; resize:none; border:none; outline:none; background:transparent; padding:0; font:400 16px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17; max-height:120px;"></textarea>
+          <span onClick="{{ onGoStop }}" title="{{ goTitle }}" style="flex:none; cursor:pointer; color: {{ goColor }}; font-size:19px; line-height:1; padding:0 4px;">{{ goLabel }}</span>
+        </span>
+      </div>
+    </div>
+  </sc-if>
+
   <!-- ===================== MAIN / TABLE ===================== -->
   <main style="order:1; flex:1; display:flex; flex-direction:column; min-width:0; background:#f9f8f4;">
-    <header style="flex:none; padding:14px 22px 12px; border-bottom:1px solid #d9d7cf; display:flex; align-items:baseline; justify-content:space-between; gap:16px;">
+    <header style="flex:none; padding:14px 22px 12px; padding-top:calc(14px + env(safe-area-inset-top)); border-bottom:1px solid #d9d7cf; display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;">
       <div>
         <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
           <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">curated digest for <span onClick="{{ openDigest }}" title="Open this curated digest" style="color:#76746b; cursor:pointer;" style-hover="color:#161512;">{{ digestUser }} <span style="font-size:0.72em;">↗</span></span></sc-if><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">curated digests for {{ digestUser }}</sc-if></span></span>
@@ -185,6 +243,50 @@
     </header>
 
     <div class="scry" style="flex:1; overflow:auto;">
+      <!-- ===== mobile sort / filter toolbar ===== -->
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <div style="position:sticky; top:0; z-index:6; display:flex; gap:8px; padding:9px 16px; background:#f4f3ef; border-bottom:1px solid #e0ded5;">
+          <span onClick="{{ toggleMobileSort }}" style="flex:1; display:inline-flex; align-items:center; justify-content:center; gap:5px; padding:9px 10px; border:1px solid #d2d0c7; background:#fff; border-radius:3px; font:600 11px/1 ui-monospace,Menlo,monospace; color:#3f3d36; cursor:pointer;">Sort · <span style="color:#2b5cd9;">{{ sortLabel }}</span></span>
+          <span onClick="{{ toggleMobileFilter }}" style="flex:1; display:inline-flex; align-items:center; justify-content:center; gap:5px; padding:9px 10px; border:1px solid {{ mFilterBorder }}; background: {{ mFilterBg }}; border-radius:3px; font:600 11px/1 ui-monospace,Menlo,monospace; color: {{ mFilterColor }}; cursor:pointer;">Filters {{ mFilterBadge }}</span>
+        </div>
+        <!-- sort bottom sheet -->
+        <sc-if value="{{ mobileSortOpen }}" hint-placeholder-val="{{ false }}">
+          <span onClick="{{ closeMobilePanels }}" style="position:fixed; inset:0; z-index:71; background:rgba(20,18,15,0.34);"></span>
+          <div style="position:fixed; left:0; right:0; bottom:0; z-index:72; background:#fff; border-top-left-radius:14px; border-top-right-radius:14px; box-shadow:0 -8px 30px rgba(0,0,0,0.2); padding:14px 18px calc(18px + env(safe-area-inset-bottom));">
+            <div style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512; margin-bottom:10px;">Sort by</div>
+            <sc-for list="{{ mobileSortOpts }}" as="o" hint-placeholder-count="4">
+              <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; justify-content:space-between; padding:12px 4px; border-bottom:1px solid #f1efe7; font: {{ o.weight }} 14px/1 -apple-system,system-ui,sans-serif; color: {{ o.color }}; cursor:pointer;"><span>{{ o.label }}</span><sc-if value="{{ o.active }}" hint-placeholder-val="{{ false }}"><span style="color:#2b5cd9;">●</span></sc-if></div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <!-- filter bottom sheet -->
+        <sc-if value="{{ mobileFilterOpen }}" hint-placeholder-val="{{ false }}">
+          <span onClick="{{ closeMobilePanels }}" style="position:fixed; inset:0; z-index:71; background:rgba(20,18,15,0.34);"></span>
+          <div style="position:fixed; left:0; right:0; bottom:0; z-index:72; max-height:82vh; display:flex; flex-direction:column; background:#fff; border-top-left-radius:14px; border-top-right-radius:14px; box-shadow:0 -8px 30px rgba(0,0,0,0.2);">
+            <div style="flex:none; display:flex; align-items:center; justify-content:space-between; padding:14px 18px 10px; border-bottom:1px solid #eceae2;">
+              <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Filters</span>
+              <span onClick="{{ closeMobilePanels }}" style="cursor:pointer; font:600 15px/1 ui-monospace,Menlo,monospace; color:#76746b; padding:2px 6px;">✕</span>
+            </div>
+            <div class="fcol" style="flex:1; overflow-y:auto; padding:14px 18px;">
+              <sc-for list="{{ mobileFilterSections }}" as="sec" hint-placeholder-count="7">
+                <div style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:8px;">{{ sec.label }}</div>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px;">
+                  <sc-for list="{{ sec.items }}" as="o" hint-placeholder-count="6">
+                    <span onClick="{{ o.onClick }}" style="display:inline-flex; align-items:center; gap:5px; padding:7px 10px; border:1px solid #e2e0d8; border-radius:16px; background: {{ o.bg }}; color: {{ o.color }}; font: {{ o.weight }} 12px/1 ui-monospace,Menlo,monospace; cursor:pointer;"><span style="color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></span>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+            <div style="flex:none; padding:11px 18px calc(13px + env(safe-area-inset-bottom)); border-top:1px solid #eceae2; display:flex; gap:10px;">
+              <span onClick="{{ onReset }}" style="flex:none; display:inline-flex; align-items:center; justify-content:center; padding:11px 16px; border:1px solid #d2d0c7; background:#fff; border-radius:3px; font:600 12px/1 ui-monospace,Menlo,monospace; color:#76746b; cursor:pointer;">Reset all</span>
+              <span onClick="{{ closeMobilePanels }}" style="flex:1; display:block; text-align:center; padding:11px 16px; border:1px solid #2b5cd9; background:#2b5cd9; border-radius:3px; font:600 12px/1 ui-monospace,Menlo,monospace; color:#fff; cursor:pointer;">Show {{ shownCount }} events</span>
+            </div>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <!-- ===== desktop table ===== -->
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
       <table style="width:100%; border-collapse:collapse; font-size:12.5px;">
         <thead>
           <tr style="position:sticky; top:0; z-index:2; background:#efeee9; box-shadow:0 1px 0 #d9d7cf;">
@@ -365,12 +467,64 @@
           </sc-for>
         </tbody>
       </table>
+      </sc-if>
+
+      <!-- ===== mobile card list ===== -->
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <sc-for list="{{ rows }}" as="ev" hint-placeholder-count="8">
+          <div class="m-card" onClick="{{ ev.onClick }}" style="border-bottom:1px solid #e8e6de; padding:13px 16px; cursor:pointer; background: {{ ev.rowBg }};">
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px;">
+              <div style="min-width:0;">
+                <div style="font:600 11px/1.2 ui-monospace,Menlo,monospace; color:#76746b;">{{ ev.wd }} {{ ev.md }} · {{ ev.t }}</div>
+                <div style="margin-top:4px; font:600 15px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ ev.title }}</div>
+              </div>
+              <div style="flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:3px;">
+                <span style="display:inline-flex; align-items:baseline; gap:1px;">
+                  <sc-if value="{{ ev.hasRank }}" hint-placeholder-val="{{ true }}"><span style="font:500 9px/1 ui-monospace,Menlo,monospace; color:#c2c0b6;">#</span></sc-if>
+                  <span style="font:600 16px/1 ui-monospace,Menlo,monospace; color: {{ ev.rankColor }};">{{ ev.rankNum }}</span>
+                </span>
+                <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color: {{ ev.scoreColor }};">score {{ ev.scoreLabel }}</span>
+              </div>
+            </div>
+            <div style="margin-top:6px; font-size:12.5px; line-height:1.4; color:#76746b;">{{ ev.sub }}</div>
+            <div style="margin-top:7px; display:flex; flex-wrap:wrap; align-items:center; gap:6px;">
+              <span style="font:600 10.5px/1 -apple-system,system-ui,sans-serif; color: {{ ev.catColor }};">{{ ev.cat }}</span>
+              <span style="color:#cdcbc3;">·</span>
+              <span style="font:500 11px/1 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.hood }}</span>
+              <span style="color:#cdcbc3;">·</span>
+              <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ ev.source }}</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:8px;">
+              <sc-for list="{{ ev.badges }}" as="b">
+                <span style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ b.color }}; background: {{ b.bg }};">{{ b.text }}</span>
+              </sc-for>
+            </div>
+            <sc-if value="{{ ev.expanded }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:13px; padding-top:13px; border-top:1px solid #e0ded5;">
+                <div style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">WHY IT'S RANKED</div>
+                <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ ev.why }}</div>
+                <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">LINEUP</div>
+                <div style="font-size:12.5px; line-height:1.5; color:#161512;">{{ ev.lineupStr }}</div>
+                <div style="margin-top:13px; font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.venueLine }}</div>
+                <div style="font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.priceLine }}</div>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:13px;">
+                  <sc-for list="{{ ev.links }}" as="lk">
+                    <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:3px; text-decoration:none;">{{ lk.label }} ↗</a>
+                  </sc-for>
+                  <span onClick="{{ ev.icsClick }}" title="Download .ics — add to your calendar" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">Add to calendar ↓</span>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </sc-if>
+
       <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
         <div style="padding:48px 22px; text-align:center; font:500 13px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">No events match that filter. <span onClick="{{ onReset }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">Reset</span></div>
       </sc-if>
     </div>
 
-    <footer style="flex:none; padding:9px 22px; border-top:1px solid #d9d7cf; background:#f4f3ef; display:flex; align-items:center; justify-content:space-between; gap:16px; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; letter-spacing:0.02em;">
+    <footer style="flex:none; padding:9px 22px; padding-bottom:calc(9px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#f4f3ef; display:flex; align-items:center; justify-content:space-between; gap:16px; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; letter-spacing:0.02em;">
       <span><span style="color:#3f3d36; font-weight:600;">{{ shownCount }}</span> shown · <span style="color:#3f3d36; font-weight:600;">{{ totalCount }}</span> entries in catalog</span>
       <span style="display:inline-flex; align-items:center; gap:14px;">
         <sc-if value="{{ anyActive }}" hint-placeholder-val="{{ false }}">
@@ -454,6 +608,7 @@
               </div>
               <div style="margin-top:10px; padding-top:9px; border-top:1px solid #eceae2; display:flex; flex-direction:column; gap:4px;">
                 <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:3px;">ABOUT</div>
+                <div onClick="{{ openWelcome }}" title="The 4-step quick start you saw on your first visit" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>quick start</span><span style="color:#76746b;">welcome ↗</span></div>
                 <div onClick="{{ openGuide }}" title="A quick tour of how the site works" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>how it works</span><span style="color:#76746b;">tour ↗</span></div>
                 <div onClick="{{ openWhatsNew }}" title="Recent features &amp; changes" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>what's new</span><span style="color:#76746b;">changelog ↗</span></div>
               </div>
@@ -564,6 +719,39 @@
           <button onClick="{{ closeGuide }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
         </div>
         <div class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 28px;">{{ guideBody }}</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===================== WELCOME / FIRST-RUN ONBOARDING ===================== -->
+  <sc-if value="{{ welcomeOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:101; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
+      <div onClick="{{ closeWelcome }}" style="position:absolute; inset:0;"></div>
+      <div style="position:relative; z-index:1; width:100%; max-width:560px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 14px 13px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:3px 3px 0 0;">
+          <div style="display:flex; align-items:center; gap:11px; min-width:0;">
+            <span style="font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; text-transform:uppercase; color:#a7a59b;">Quick start</span>
+            <span style="display:inline-flex; gap:5px; align-items:center;">
+              <sc-for list="{{ welcomeDots }}" as="d" hint-placeholder-count="4">
+                <span style="width:6px; height:6px; border-radius:50%; background: {{ d.bg }};"></span>
+              </sc-for>
+            </span>
+          </div>
+          <button onClick="{{ closeWelcome }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+        </div>
+        <div class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 24px;">{{ welcomeBody }}</div>
+        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 18px; border-top:1px solid #e2e0d8; background:#faf9f5; border-radius:0 0 3px 3px;">
+          <div onClick="{{ toggleWelcomeDismiss }}" title="Tick this once you've read it — otherwise it'll greet you again next time" style="display:inline-flex; align-items:center; gap:8px; cursor:pointer;">
+            <span style="width:15px; height:15px; flex:none; border:1px solid {{ welcomeCheckBorder }}; background: {{ welcomeCheckBg }}; border-radius:3px; display:inline-flex; align-items:center; justify-content:center; font:700 10px/1 ui-monospace,Menlo,monospace; color:#fff;">{{ welcomeCheckMark }}</span>
+            <span style="font:500 11px/1.4 -apple-system,system-ui,sans-serif; color:#76746b;">Don&rsquo;t show this again</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <sc-if value="{{ welcomeHasBack }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ welcomeBack }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#1b1a17; color:#161512;">Back</button>
+            </sc-if>
+            <button onClick="{{ welcomeNext }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 16px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:2px; cursor:pointer;" style-hover="background:#000;">{{ welcomeNextLabel }}</button>
+          </div>
+        </div>
       </div>
     </div>
   </sc-if>
@@ -738,7 +926,11 @@ class Component extends DCLogic {
     range: 'ten', rangeStart: this.TODAY, rangeEnd: this.TEN_END, bubbleOpen: false,
     pickerOpen: null, pickerMonth: this.MONTH1,
     dataSource: 'sample',
-    sidebarWidth: 340, collapsed: false,
+    sidebarWidth: 340,
+    // On a phone the chat starts collapsed so the list is the first thing seen.
+    collapsed: (typeof window !== 'undefined' && window.innerWidth <= 720),
+    viewportW: (typeof window !== 'undefined' ? window.innerWidth : 1280),
+    mobileFilterOpen: false, mobileSortOpen: false,
     expandedId: null,
     filtered: null,            // array of ids or null (=all)
     filterSummary: '', digestPicks: false,
@@ -755,6 +947,7 @@ class Component extends DCLogic {
     tasteTab: 'taste',       // which file the taste/profile modal is showing (taste | profile)
     spotifyModalOpen: false,
     guideOpen: false, guideTab: 'how',
+    welcomeOpen: false, welcomeStep: 0, welcomeDismiss: false,   // first-run onboarding (auto-opens once per profile)
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
     profileError: '',
@@ -771,7 +964,9 @@ class Component extends DCLogic {
   // the local "Fast filter" engine. Set via the chat header "connect" affordance (localStorage),
   // or hardcode the URL here. See backend/README.md.
   BACKEND_URL = (typeof localStorage !== 'undefined' && localStorage.getItem('la-backend-url')) || 'https://la-events-concierge.arinazari.workers.dev';
-  BACKEND_TOKEN = (typeof localStorage !== 'undefined' && localStorage.getItem('la-concierge-token')) || '';
+  // Per-profile connection (token/key/Opus) — see the CONN store below. This prefill is the active
+  // profile's saved token; componentDidMount re-reads it authoritatively (after migration + TTL check).
+  BACKEND_TOKEN = (() => { try { return this.readConn().token || ''; } catch (e) { return ''; } })();
 
   // ---- taste constants ----
   EASTSIDE = ['Silver Lake','Echo Park','Los Feliz','Atwater Village','Highland Park','Eagle Rock','East Hollywood','Historic Filipinotown','Cypress Park','Chinatown','Glendale'];
@@ -1019,6 +1214,10 @@ class Component extends DCLogic {
 
   // ---------- sidebar resize / collapse ----------
   toggleCollapse = () => this.setState(s => ({ collapsed: !s.collapsed }));
+  // mobile sort / filter sheets (the column-header menus have no home without the table head)
+  toggleMobileFilter = () => this.setState(s => ({ mobileFilterOpen: !s.mobileFilterOpen, mobileSortOpen: false }));
+  toggleMobileSort = () => this.setState(s => ({ mobileSortOpen: !s.mobileSortOpen, mobileFilterOpen: false }));
+  closeMobilePanels = () => this.setState({ mobileFilterOpen: false, mobileSortOpen: false });
   startResize = (e) => {
     e.preventDefault();
     const startX = e.clientX;
@@ -1305,6 +1504,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## June 2026",
     "",
+    "- **A quick-start welcome.** The first time you sign in, a short four-step tour walks you through how the picks are made, teaching the concierge your taste, and refreshing your ranking. Tick *don't show this again* to dismiss it; re-open it any time from **Settings → quick start**.",
     "- **See your taste edits land.** *View taste & profile* (Settings) now shows a diff of every change the concierge made to your taste or profile, with a badge for whether it's already live in your ranking or still pending.",
     "- **Festivals & further ahead.** The digest now surfaces big destination festivals and looks up to ~6 months out, so you can catch the major stuff while tickets last.",
     "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you — open it from your name in the header.",
@@ -1320,6 +1520,67 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   openGuide = (tab) => this.setState({ guideOpen: true, guideTab: tab || 'how', settingsOpen: false });
   closeGuide = () => this.setState({ guideOpen: false });
   setGuideTab = (t) => this.setState({ guideTab: t });
+
+  // ---------- First-run welcome / onboarding (auto-opens once per signed-in profile) ----------
+  // A short, stepped quick-start that orients a newly-signed-in person: how the picks are made,
+  // teach the concierge your taste, refresh your ranking, and where everything lives. It auto-opens
+  // the first time someone signs into a profile (keyed by hash) — never on the logged-out default
+  // view — and only stops re-appearing once they tick "don't show this again", so closing it without
+  // confirming brings it back next visit (per the spec). The owner/default can preview it via
+  // Settings → ABOUT → quick start. The detailed tour (GUIDE_HOW) and changelog (GUIDE_NEW) stay manual.
+  WELCOME = [
+    [
+      "# Welcome",
+      "",
+      "This is your **taste-ranked read on LA** — music, clubs, comedy, film, theater and food, scored to what *you* like so the best stuff floats to the top with a one-line *why*. A curated digest, not a full calendar dump.",
+      "",
+      "## How the picks are made",
+      "",
+      "- Events are pulled from dozens of sources every day.",
+      "- Each is **scored against your taste** — that's the transparent number (with the little bar) in the right-hand column.",
+      "- A light editorial pass then sets the final **rank** (the `#`). Sort the table by either."
+    ].join('\n'),
+    [
+      "# Make it yours — talk to the concierge",
+      "",
+      "The panel on the left is your **concierge**. The quickest way to get good picks is to tell it about yourself.",
+      "",
+      "- First **connect** it from the chat header (*connect*). No backend yet? It falls back to an instant, offline **Fast filter** — either way it filters the table to match.",
+      "- Then just talk to it like a friend who knows the city: `I'm into deep house and warehouse parties, less comedy`, `I live in Echo Park`, `track Peggy Gou`.",
+      "- It **rewrites your taste & profile** for you behind the scenes — no config files to touch."
+    ].join('\n'),
+    [
+      "# Refresh your ranking",
+      "",
+      "Taste edits and newly-found events don't change your list until you fold them in.",
+      "",
+      "- Open **Settings** (the **☰** icon, bottom-right) and hit **Ranks & Digest → Update** to re-rank against your new taste and the latest events. Takes a minute or two.",
+      "- When there's something fresh to fold in, that button lights up as **Update available** — so you always know when your list is behind."
+    ].join('\n'),
+    [
+      "# Where everything lives",
+      "",
+      "Now that you're signed in, the **⚷** key (bottom-right) becomes your **☰ settings** — that's where the rest lives:",
+      "",
+      "- **Settings (☰)** holds the rest: connect **Spotify**, add your own **Claude key**, and **View taste & profile** — which shows a diff of every edit the concierge made and whether it's **live or still pending**.",
+      "- Your **name in the header** opens your written **digest**; the **what changed** readout (in Settings) tells you what moved on the last pull — lineups, prices, set times.",
+      "- Want this again, or the full walkthrough? It's all under **Settings → how it works**. That's the tour — go find something good."
+    ].join('\n')
+  ];
+  onboardKey(p) { return 'la-onboarded:' + ((p && p.hash) || 'default'); }
+  hasOnboarded(p) { try { return (typeof localStorage !== 'undefined') && localStorage.getItem(this.onboardKey(p)) === '1'; } catch (e) { return false; } }
+  // Auto-open path: show the welcome the first time a given profile context is entered.
+  maybeOnboard(p) { if (this.hasOnboarded(p)) return; this.setState({ welcomeOpen: true, welcomeStep: 0, welcomeDismiss: false }); }
+  // Manual re-open (Settings → ABOUT): reflect the current dismissed state so closing it doesn't
+  // silently un-tick "don't show again".
+  openWelcome = () => this.setState({ welcomeOpen: true, welcomeStep: 0, welcomeDismiss: this.hasOnboarded(this.state.profile), settingsOpen: false });
+  // Persist the per-profile flag from the checkbox, then close. Ticked = never auto-open again;
+  // left un-ticked = it comes back next visit.
+  persistOnboard() { const k = this.onboardKey(this.state.profile); try { this.state.welcomeDismiss ? localStorage.setItem(k, '1') : localStorage.removeItem(k); } catch (e) {} }
+  closeWelcome = () => { this.persistOnboard(); this.setState({ welcomeOpen: false }); };
+  welcomeBack = () => this.setState({ welcomeStep: Math.max(0, this.state.welcomeStep - 1) });
+  welcomeNext = () => { if (this.state.welcomeStep >= this.WELCOME.length - 1) this.closeWelcome(); else this.setState({ welcomeStep: this.state.welcomeStep + 1 }); };
+  toggleWelcomeDismiss = () => this.setState({ welcomeDismiss: !this.state.welcomeDismiss });
 
   // ---------- digest modal toolbar (download / email) ----------
   downloadDigest = () => {
@@ -1407,10 +1668,57 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // sends it to the Worker (header x-anthropic-key) and that key pays for every message; when OFF, the
   // concierge falls back to the shared access token (if one's been entered). No silent failover — if a
   // live key errors/limits, the user flips it OFF and the token takes over. See backend/concierge-worker.js.
-  rawClaudeKey = () => { try { return ((typeof localStorage !== 'undefined' && localStorage.getItem('la-claude-api-key')) || '').trim(); } catch (e) { return ''; } };
-  apiEnabled = () => { try { return (typeof localStorage !== 'undefined') && localStorage.getItem('la-claude-api-enabled') === '1'; } catch (e) { return false; } };
+
+  // ---------- per-profile connection store (token + Claude key + on/off + Opus) ----------
+  // The whole concierge connection is scoped to the signed-in profile (keyed by feed hash; 'default'
+  // when logged out) and kept in THIS browser. Scoping per profile is the fix for the connection
+  // leaking when you switch profiles; persisting it means you enter it only once per profile. A
+  // freshness TTL ages out a connection you haven't used in a while (re-entry), and a different
+  // browser always starts blank (localStorage is per-browser). Shape: {token,key,enabled,opus,ts}.
+  CONN_TTL_MS = 45 * 24 * 60 * 60 * 1000;   // 45 days since last successful use -> ask again
+  connKey(p) { p = (p === undefined) ? this.state.profile : p; return 'la-conn:' + ((p && p.hash) || 'default'); }
+  readConn(p) {
+    try {
+      const raw = (typeof localStorage !== 'undefined') && localStorage.getItem(this.connKey(p));
+      if (!raw) return {};
+      const c = JSON.parse(raw);
+      if (!c || typeof c !== 'object') return {};
+      if (c.ts && (Date.now() - c.ts) > this.CONN_TTL_MS) { try { localStorage.removeItem(this.connKey(p)); } catch (e) {} return {}; }
+      return c;
+    } catch (e) { return {}; }
+  }
+  writeConn(patch, p) {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      const next = { ...this.readConn(p), ...patch, ts: Date.now() };
+      const empty = !next.token && !next.key && !next.enabled && !next.opus;
+      empty ? localStorage.removeItem(this.connKey(p)) : localStorage.setItem(this.connKey(p), JSON.stringify(next));
+    } catch (e) {}
+  }
+  // Keep an actively-used connection fresh: bump its stamp on every successful ping, so only a dormant
+  // connection ages past CONN_TTL_MS.
+  touchConn() { try { const c = this.readConn(); if (c.token || c.key) this.writeConn({}); } catch (e) {} }
+  // One-time migration off the OLD global keys (the source of the cross-profile leak): fold any legacy
+  // globals into the currently-active profile, then delete them so they can't bleed across profiles again.
+  migrateLegacyConn() {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      const legacy = ['la-concierge-token', 'la-claude-api-key', 'la-claude-api-enabled', 'la-claude-use-opus'];
+      if (legacy.every(k => localStorage.getItem(k) == null)) return;
+      const patch = {};
+      const tok = localStorage.getItem('la-concierge-token'); if (tok) patch.token = tok;
+      const key = localStorage.getItem('la-claude-api-key'); if (key) patch.key = key;
+      if (localStorage.getItem('la-claude-api-enabled') === '1') patch.enabled = true;
+      if (localStorage.getItem('la-claude-use-opus') === '1') patch.opus = true;
+      if (Object.keys(patch).length) this.writeConn(patch);
+      legacy.forEach(k => { try { localStorage.removeItem(k); } catch (e) {} });
+    } catch (e) {}
+  }
+
+  rawClaudeKey = () => { try { return (this.readConn().key || '').trim(); } catch (e) { return ''; } };
+  apiEnabled = () => { try { return !!this.readConn().enabled; } catch (e) { return false; } };
   // Opus upgrade for the concierge chat — only honored by the Worker for a BYOK caller (their spend).
-  useOpus = () => { try { return (typeof localStorage !== 'undefined') && localStorage.getItem('la-claude-use-opus') === '1'; } catch (e) { return false; } };
+  useOpus = () => { try { return !!this.readConn().opus; } catch (e) { return false; } };
   // The key actually sent on a request: only when switched ON *and* present. Empty -> the token is used.
   byokKey = () => { const k = this.rawClaudeKey(); return (this.apiEnabled() && k) ? k : ''; };
   logoutFromSettings = () => this.logoutProfile();
@@ -1473,12 +1781,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (key && !/^sk-ant-/.test(key)) { this.flashToast('That doesn’t look like an Anthropic key (expected sk-ant-…) — not saved'); return; }
     const enabled = !!this.state.apiEnabledDraft;
     const tok = (this.state.tokenInput || '').trim();
-    try {
-      key ? localStorage.setItem('la-claude-api-key', key) : localStorage.removeItem('la-claude-api-key');
-      enabled ? localStorage.setItem('la-claude-api-enabled', '1') : localStorage.removeItem('la-claude-api-enabled');
-      this.state.useOpusDraft ? localStorage.setItem('la-claude-use-opus', '1') : localStorage.removeItem('la-claude-use-opus');
-      tok ? localStorage.setItem('la-concierge-token', tok) : localStorage.removeItem('la-concierge-token');
-    } catch (e) {}
+    // Save the whole connection under THIS profile only (never the old global keys) so it can't leak
+    // into another profile; writeConn stamps it fresh and clears the slot if everything's blank.
+    this.writeConn({ token: tok, key: key, enabled: enabled, opus: !!this.state.useOpusDraft });
     this.BACKEND_TOKEN = tok;
     this.setState({ connectModalOpen: false });
     const via = (enabled && key) ? 'your Claude API key' : (tok ? 'the shared access token' : null);
@@ -1520,6 +1825,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // a personal key alone can connect
       const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify({ ping: true }) });
       this.setState({ backendStatus: res.ok ? 'ok' : 'err' });
+      if (res.ok) this.touchConn();   // keep an actively-used connection from aging out
     } catch (e) { this.setState({ backendStatus: 'err' }); }
   }
   stopLLM = () => { if (this._abort) { try { this._abort.abort(); } catch (e) {} } this.setState({ loading: false }); };
@@ -1556,13 +1862,19 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   async applyProfile(profileObj, raw) {
     try { profileObj ? localStorage.setItem('la-profile', JSON.stringify(profileObj)) : localStorage.removeItem('la-profile'); } catch (e) {}
     clearInterval(this._freshPoll); this._freshPoll = null;   // stop polling the previous profile's rebuild
+    // Connection is per-profile: drop the profile we're leaving and load the target's saved token (if
+    // still fresh), then re-check it so the indicator reflects THIS profile, not the one we just left.
+    this.BACKEND_TOKEN = this.readConn(profileObj).token || '';
     this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
-      spotifyStatus: null, spotifyName: '' });
+      spotifyStatus: null, spotifyName: '', backendStatus: null },
+      () => { if (this.BACKEND_URL) this.pingBackend(); });
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
     this.checkCatalogFreshness();
     this.reattachJobs();   // resume this profile's Update spinner if its rebuild is still in flight
+    // "First time entering their profile" — show the welcome on sign-in (not on logout), once.
+    if (profileObj) this.maybeOnboard(profileObj);
   }
 
   // ---------- per-profile Spotify (the music layer) ----------
@@ -2310,15 +2622,30 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
     else if (ds === 'score') this.setState({ sortKey: 'score', sortDir: 'desc' });
     else if (ds === 'rank') this.setState({ sortKey: 'rank', sortDir: 'asc' });
-    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); } };
+    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); if (this.state.welcomeOpen) this.closeWelcome(); } };
     window.addEventListener('keydown', this._onKeyDown);
+    // Track viewport width so the layout can switch between the desktop table and the
+    // mobile card/overlay layout live (rAF-coalesced to avoid setState churn on resize).
+    this._onResize = () => {
+      if (this._resizeRaf) return;
+      this._resizeRaf = requestAnimationFrame(() => {
+        this._resizeRaf = null;
+        if (window.innerWidth !== this.state.viewportW) this.setState({ viewportW: window.innerWidth });
+      });
+    };
+    window.addEventListener('resize', this._onResize);
+    this.migrateLegacyConn();                          // fold any legacy global connection into this profile
+    this.BACKEND_TOKEN = this.readConn().token || '';  // authoritative load: post-migration, TTL-checked
     this.loadCatalog();
     this.loadDigest();
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
     this.reattachJobs();   // a rebuild/refresh kicked off before a reload keeps its spinner + polling
+    // First-run onboarding — only for a signed-in profile (never the logged-out default view).
+    // Covers the persisted-login reload; a fresh sign-in triggers it from applyProfile().
+    if (this.state.profile) this.maybeOnboard(this.state.profile);
   }
-  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); }
+  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._resizeRaf) cancelAnimationFrame(this._resizeRaf); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); }
 
   // ---------- render ----------
   renderVals() {
@@ -2326,6 +2653,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const comfy = (this.props.density ?? 'compact') === 'comfortable';
     const rowPad = comfy ? '11px 12px' : '7px 12px';
     const showBar = this.props.showScoreBar ?? true;
+    const isMobile = this.state.viewportW <= 720;
 
     const { range, rangeStart, rangeEnd, bubbleOpen } = this.state;
 
@@ -2603,10 +2931,37 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       cal: this.state.pickerOpen ? this.buildCalendar(this.state.pickerMonth, this.state.pickerOpen === 'start' ? rangeStart : rangeEnd) : { monthName: '', cells: [] },
       sidebarW: this.state.sidebarWidth + 'px',
       collapsed: this.state.collapsed, expanded: !this.state.collapsed,
+      desktopChatStrip: !isMobile && this.state.collapsed,
+      desktopChatPanel: !isMobile && !this.state.collapsed,
+      mobileChatFab: isMobile && this.state.collapsed,
+      mobileChatPanel: isMobile && !this.state.collapsed,
       toggleCollapse: this.toggleCollapse, startResize: this.startResize,
       input: this.state.input,
       onInput: this.onInput, onKey: this.onKey, onSend: () => this.send(), onReset: this.reset,
       rows, rowPad, showBar,
+      isMobile, isDesktop: !isMobile,
+      mobileFilterOpen: this.state.mobileFilterOpen, mobileSortOpen: this.state.mobileSortOpen,
+      toggleMobileFilter: this.toggleMobileFilter, toggleMobileSort: this.toggleMobileSort,
+      closeMobilePanels: this.closeMobilePanels,
+      sortLabel: ({ rank:'Rank', score:'Score', date:'Date', title:'Title', hood:'Neighborhood', cat:'Category', source:'Source' }[sortKey] || 'Rank') + (sortDir === 'asc' ? ' ↑' : ' ↓'),
+      mobileSortOpts: [['rank','Rank'],['score','Score'],['date','Date'],['title','Title']].map(([k, label]) => ({
+        label, active: sortKey === k, color: sortKey === k ? '#2b5cd9' : '#3f3d36', weight: sortKey === k ? '700' : '500',
+        onClick: () => { this.setSort(k); this.setState({ mobileSortOpen: false }); }
+      })),
+      mFilterBadge: ((nsel('hood') + nsel('region') + catGenreActive + nsel('source')) > 0) ? ('· ' + (nsel('hood') + nsel('region') + catGenreActive + nsel('source'))) : '',
+      mFilterActive: (nsel('hood') + nsel('region') + catGenreActive + nsel('source')) > 0,
+      mFilterColor: (nsel('hood') + nsel('region') + catGenreActive + nsel('source')) > 0 ? '#2b5cd9' : '#3f3d36',
+      mFilterBorder: (nsel('hood') + nsel('region') + catGenreActive + nsel('source')) > 0 ? '#2b5cd9' : '#d2d0c7',
+      mFilterBg: (nsel('hood') + nsel('region') + catGenreActive + nsel('source')) > 0 ? '#eaf0fe' : '#fff',
+      mobileFilterSections: [
+        { label: 'NEIGHBORHOOD', items: mkMenu('hood') },
+        { label: 'REGION', items: mkMenu('region', prettyTag) },
+        { label: 'CATEGORY', items: mkMenu('cat') },
+        { label: 'GENRE', items: mkMenu('genre', prettyTag) },
+        { label: 'VIBE', items: mkMenu('vibe', prettyTag) },
+        { label: 'SETTING', items: mkMenu('setting', prettyTag) },
+        { label: 'SOURCE', items: mkMenu('source') },
+      ],
       empty: rows.length === 0,
       count: rows.length + (filtered ? ' / ' + this.ALL.length : '') + ' events',
       hasFilter: !!filtered,
@@ -2625,6 +2980,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       guideNewColor: this.state.guideTab === 'new' ? '#fff' : '#76746b',
       guideNewBorder: this.state.guideTab === 'new' ? '#1b1a17' : '#d2d0c7',
       guideBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.state.guideTab === 'new' ? this.GUIDE_NEW : this.GUIDE_HOW) } }),
+      welcomeOpen: !!this.state.welcomeOpen,
+      openWelcome: this.openWelcome, closeWelcome: this.closeWelcome,
+      welcomeBack: this.welcomeBack, welcomeNext: this.welcomeNext, toggleWelcomeDismiss: this.toggleWelcomeDismiss,
+      welcomeBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.WELCOME[Math.min(this.state.welcomeStep, this.WELCOME.length - 1)]) } }),
+      welcomeDots: this.WELCOME.map((_, i) => ({ bg: i === this.state.welcomeStep ? '#1b1a17' : '#d8d6cd' })),
+      welcomeHasBack: this.state.welcomeStep > 0,
+      welcomeNextLabel: this.state.welcomeStep >= this.WELCOME.length - 1 ? 'Got it' : 'Next',
+      welcomeCheckBorder: this.state.welcomeDismiss ? '#1b1a17' : '#cdcbc3',
+      welcomeCheckBg: this.state.welcomeDismiss ? '#1b1a17' : '#fff',
+      welcomeCheckMark: this.state.welcomeDismiss ? '✓' : '',
       digestFile: this.DIGEST_FILE, digestUser,
       downloadDigest: this.downloadDigest,
       digestEmailOpen: !!this.state.digestEmailOpen, toggleEmailDigest: this.toggleEmailDigest,
