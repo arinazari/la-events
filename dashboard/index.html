@@ -70,7 +70,7 @@
         <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE DIGEST</div>
         <button onClick="{{ toggleCollapse }}" title="Collapse" style="font:600 13px/1 ui-monospace,Menlo,monospace; width:26px; height:24px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">»</button>
       </div>
-      <div style="margin-top:6px; font-size:11.5px; line-height:1.45; color:#76746b;">Your taste-ranked LA concierge — ask, get recommendations, or plan a night (dinner → show → afters). Switch to Fast filter for instant offline filtering.</div>
+      <div style="margin-top:6px; font-size:11.5px; line-height:1.45; color:#76746b;">Your taste-ranked LA concierge — find shows, pick a restaurant, plan a whole night (dinner → show → afters), or tune your taste. Switch to Fast filter for instant offline filtering.</div>
       <div style="margin-top:10px; display:flex; align-items:center; gap:6px;">
         <sc-for list="{{ modeOpts }}" as="o">
           <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px solid #d2d0c7; background: {{ o.bg }}; color: {{ o.color }}; opacity: {{ o.opacity }}; border-radius:2px; cursor:pointer;">{{ o.label }}</button>
@@ -965,7 +965,7 @@ class Component extends DCLogic {
     spotifyName: '',
     loading: false,
     messages: [
-      { role: 'assistant', text: "I'm your LA concierge — the best of what's on in LA, ranked to your taste. Tell me a vibe, a price, a neighborhood, or a date and I'll pull picks (the table filters to match). A few things I can do:\n- **Find shows** — `techno this weekend`, rep cinema in 35mm, warehouse afterhours, comedy, live music.\n- **Point you to food** — `what's the hot new restaurant`, a spot near Silver Lake, popups & food trucks.\n- **Plan a whole night** — say `plan my Saturday: dinner then a show` and I'll fuse events + dining into one sequenced, travel-timed itinerary (dinner → show → afters).\n- **Tune your taste** — `more techno, less comedy` or `I moved to Highland Park`, and I'll re-rank you.\nNew here? Tap a suggestion below to see it in action." }
+      { role: 'assistant', text: "I'm your LA concierge — the best of what's on in LA, ranked to your taste. Tell me a vibe, a price, a neighborhood, or a date and I'll pull picks (the table filters to match). A few things I can do:\n- **Find shows** — `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n- **Point you to food** — `what's the hot new restaurant`, a spot near Silver Lake, popups & food trucks.\n- **Plan a whole night** — say `plan my Saturday: dinner then a show` and I'll fuse events + dining into one sequenced, travel-timed itinerary (dinner → show → afters).\n- **Tune your taste** — `more techno, less comedy` or `I moved to Highland Park`, and I'll re-rank you.\nNew here? Tap a suggestion below to see it in action." }
     ]
   };
 
@@ -2731,7 +2731,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       html: React.createElement('div', { style: { fontSize: '12.5px', lineHeight: 1.5, color: m.role === 'user' ? '#161512' : '#3f3d36', wordBreak: 'break-word' }, dangerouslySetInnerHTML: { __html: this.renderChatHtml(m.text) } })
     }));
 
-    const chips = ['plan my saturday — dinner then a show','make a night of it friday','date night in los feliz','where should I eat near silver lake',"what's the hot new restaurant",'food trucks worth hitting','techno this weekend','rep cinema in 35mm','afterhours warehouse'];
+    const chips = ['plan my saturday — dinner then a show','techno this weekend','where should I eat near silver lake','more deep house, less comedy','free shows this weekend',"what's the hot new restaurant",'afterhours warehouse','date night in los feliz','food trucks worth hitting'];
     const suggestions = chips.map(label => ({ label, onClick: () => this.runQuery(label) }));
 
     const chatMode = this.state.chatMode || 'llm';
