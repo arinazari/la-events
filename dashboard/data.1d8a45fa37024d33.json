@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-25T09:40:29+00:00",
+  "generated_at": "2026-06-25T10:04:55+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "48a289d5dd81",
   "catalog_content_version": "e4dca624499d",
   "catalog_fetched_at": "2026-06-25T09:34:49+00:00",
   "count": 2148,
-  "enriched_count": 7,
+  "enriched_count": 26,
   "neighborhoods": [
     "Anaheim",
     "Arcadia",
@@ -5100,6 +5100,42 @@
       ],
       "iso_date": "2026-06-26",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "house",
+          "deep house",
+          "experimental club"
+        ],
+        "label_orbit": [
+          "Godmode",
+          "XL Recordings"
+        ],
+        "energy": "peak / late-night",
+        "setting": "warehouse (location-TBA)",
+        "sounds_like": [
+          "Peggy Gou",
+          "DJ Python",
+          "object blue"
+        ],
+        "artist_notes": [
+          {
+            "name": "Yaeji",
+            "note": "Brooklyn-based, Korean-American producer/DJ (Kathy Yaeji Lee) \u2014 whispered bilingual vocals over deep house and club rhythms; breakthrough Boiler Room in 2017, debut LP 'What We Drew' on XL. A tracked name on a proper North American DJ tour right now."
+          },
+          {
+            "name": "Alima Lee",
+            "note": "LA-based DJ and co-founder of the Baexploitation / Hood Rave orbit \u2014 global club, footwork-adjacent and deeply communal sets."
+          }
+        ],
+        "curator_note": "Lights Down Low doing what it does best: TBA location drops day-of, and they've booked Yaeji on a dedicated DJ-set summer tour \u2014 whispered-bilingual-house in a warehouse rather than a festival tent is the right format for her. Worth the address chase.",
+        "description": "Lights Down Low presents Yaeji DJ set (plus Alima Lee, Hu Dat, AMERICANRECYCLING) at a location-TBA downtown warehouse, 10pm, 21+.",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Yaeji_at_Pitchfork_Paris_2018.jpg/640px-Yaeji_at_Pitchfork_Paris_2018.jpg",
+          "source": "Wikimedia Commons",
+          "credit": "Yaeji performing at Pitchfork Paris 2018 (Wikimedia Commons)"
+        }
+      },
       "verdict": {
         "tier": "great",
         "adjust": 1,
@@ -5173,6 +5209,48 @@
       ],
       "iso_date": "2026-06-26",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "techno",
+          "deep techno",
+          "house"
+        ],
+        "label_orbit": [
+          "Blackflag Recordings",
+          "Transmat",
+          "Planet E"
+        ],
+        "energy": "peak / late-night",
+        "setting": "warehouse (location-TBA)",
+        "sounds_like": [
+          "Derrick May",
+          "Carl Craig",
+          "Juan Atkins"
+        ],
+        "artist_notes": [
+          {
+            "name": "Stacey Pullen",
+            "note": "Second-wave Detroit techno architect \u2014 studied under Derrick May, released on R&S, Transmat and Eclipse, ran Blackflag Recordings, and cut the acclaimed DJ-Kicks in 1996. Known aliases: Bango, Kosmik Messenger, Silent Phase. A tracked name bringing genuine Detroit lineage to this TBA night."
+          },
+          {
+            "name": "BAE BAE",
+            "note": "Kumi James \u2014 LA-born DJ/producer, sound artist, Planet Mu signee, and co-founder of Hood Rave. Sets move freely through Black diasporic club music: footwork, juke, breaks, R&B; a key figure in LA's queer underground."
+          },
+          {
+            "name": "Nish",
+            "note": "LA/Boracay-raised DJ \u2014 groove-forward, soulful house and global rhythms with an intention-first curatorial approach; active in the Westside Bounce and LA underground circuits."
+          }
+        ],
+        "curator_note": "Dirty Epic and INCOGNITO have been landing Berghain-calibre bookings for years, and Stacey Pullen for a TBA late night is exactly that \u2014 second-wave Detroit in an intimate warehouse rather than a stage. BAE BAE warming up keeps the energy genuinely interesting rather than just competent.",
+        "description": "Dirty Epic x INCOGNITO present Stacey Pullen (Detroit techno) alongside BAE BAE and Nish at a TBA Los Angeles warehouse, 10pm-4am, $25-30.",
+        "image": {
+          "url": "https://dirty-epic.com/wp-content/uploads/2026/04/20260626-LA-SQ-1024x1024.jpg",
+          "source": "dirty-epic.com",
+          "credit": "Dirty Epic (official event flyer)",
+          "cached": "data/images/58579f941eb8.jpg"
+        }
+      },
       "verdict": {
         "tier": "great",
         "adjust": 1,
@@ -5487,6 +5565,23 @@
       ],
       "iso_date": "2026-06-26",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "disco",
+          "house",
+          "Italo disco"
+        ],
+        "energy": "groove / late-night",
+        "setting": "club",
+        "sounds_like": [
+          "Dimitri From Paris",
+          "Horse Meat Disco",
+          "The Slipper Clutch residents"
+        ],
+        "curator_note": "LA Discoteca is a recurring night at The Slipper Clutch doing what the name says \u2014 disco and house in a basement-y DTLA room. No headliner detail in the billing, so treat it as a low-effort add-on to a Friday that already has Yaeji or Stacey Pullen on it.",
+        "description": "LA DISCOTECA recurring disco/house night at The Slipper Clutch, DTLA, 10pm."
+      },
       "verdict": {
         "tier": "solid",
         "adjust": 0,
@@ -5554,6 +5649,36 @@
       ],
       "iso_date": "2026-06-26",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "experimental club",
+          "global bass",
+          "South Asian club"
+        ],
+        "label_orbit": [
+          "SLINK"
+        ],
+        "energy": "peak / late-night",
+        "setting": "warehouse (location-TBA)",
+        "sounds_like": [
+          "Yaeji",
+          "Happa",
+          "Blawan (rhythmically)"
+        ],
+        "artist_notes": [
+          {
+            "name": "Enayet",
+            "note": "NYC-based, Dhaka-raised producer and SLINK co-founder \u2014 debut EP 'Chokkor' recorded in Bangladesh using deep soundsystem pressure and South Asian vocal/percussion textures; collaborated with Daytimers and Talvin Singh. Slippery, off-kilter club rhythms."
+          },
+          {
+            "name": "K Wata",
+            "note": "NYC producer Kenzo Perron, also a SLINK co-founder \u2014 experimental grooves between warehouse electro, trap and psychedelic reggaeton; has produced for Yaeji and contributed to the james K remix album. The duo have played as E Wata together."
+          }
+        ],
+        "curator_note": "CSW (Costumed Suicide Watcher) and SLINK booking Enayet + K Wata all-night is a genuine curatorial swing \u2014 SLINK's whole thing is polyrhythmic club mutations that don't resolve neatly into any genre, which makes for unpredictable, genuinely interesting late nights. Different proposition from the Stacey Pullen or Robert Hood options on the same weekend.",
+        "description": "CSW and SLINK present Enayet and K Wata (SLINK, NYC) playing all night at a TBA downtown LA location, 10pm, live/DJ."
+      },
       "verdict": {
         "tier": "solid",
         "adjust": -1,
@@ -6070,6 +6195,18 @@
       ],
       "iso_date": "2026-06-26",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "Enayet",
+            "note": "NYC-based, Dhaka-raised producer and SLINK co-founder \u2014 debut EP 'Chokkor' recorded in Bangladesh; polyrhythmic club music with South Asian vocal/percussion textures; collaborated with Daytimers and Talvin Singh."
+          },
+          {
+            "name": "K Wata",
+            "note": "NYC producer Kenzo Perron, SLINK co-founder \u2014 experimental grooves between warehouse electro, trap and psychedelic reggaeton; produced for Yaeji; contributed to james K 'Friend' remix album."
+          }
+        ]
+      },
       "lane": "club:afters",
       "final_rank": 104
     },
@@ -6122,6 +6259,18 @@
       ],
       "iso_date": "2026-06-26",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "Stacey Pullen",
+            "note": "Second-wave Detroit techno architect \u2014 studied under Derrick May, released on R&S, Transmat and Eclipse in the '90s; Blackflag Recordings founder; acclaimed DJ-Kicks (1996); also releases as Bango, Kosmik Messenger and Silent Phase. Tracked name."
+          },
+          {
+            "name": "Bae Bae",
+            "note": "Kumi James \u2014 LA-born DJ/producer, sound artist, Planet Mu signee, and co-founder of Hood Rave (DTLA's queer-Black underground party). Sets weave footwork, juke, breaks and R&B through an explicitly Black-diasporic and femme lens; NTS and Dublab radio host."
+          }
+        ]
+      },
       "verdict": {
         "tier": "skip",
         "adjust": -3,
@@ -11135,6 +11284,34 @@
       ],
       "iso_date": "2026-06-27",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "house",
+          "disco",
+          "Latin house"
+        ],
+        "energy": "groove / early-evening",
+        "setting": "club",
+        "sounds_like": [
+          "Louie Vega Latin edits",
+          "Kerri Chandler",
+          "David Mancuso"
+        ],
+        "artist_notes": [
+          {
+            "name": "DJ Toka",
+            "note": "Resident at Sudamericana, LA's long-running Latin dance party (founded 2012, now at Exchange LA) \u2014 plays between classic South American rhythms, house, and disco edits in an unpretentious, inclusive room."
+          }
+        ],
+        "curator_note": "Sudamericana has been one of LA's most freewheeling Latin dance parties for over a decade \u2014 early 6pm start at Exchange LA, free with RSVP, and DJ Toka knows exactly how to move the room between cumbia, disco, and house without losing the floor.",
+        "description": "Sudamericana monthly Latin house/disco party at Exchange LA, DTLA, with resident DJ Toka, 6pm, free with RSVP.",
+        "image": {
+          "url": "https://www.sudamericanaevents.com/assets/images/og-image.jpg",
+          "source": "sudamericanaevents.com",
+          "credit": "Sudamericana (official)"
+        }
+      },
       "lane": "club:underground",
       "final_rank": 19
     },
@@ -11431,6 +11608,33 @@
       ],
       "iso_date": "2026-06-27",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "global beats",
+          "South Asian",
+          "SWANA disco",
+          "experimental"
+        ],
+        "label_orbit": [
+          "Discostan"
+        ],
+        "energy": "groove / late-night",
+        "setting": "club",
+        "sounds_like": [
+          "Discwoman nights",
+          "Palms Out Sounds edits",
+          "Sublime Frequencies"
+        ],
+        "artist_notes": [
+          {
+            "name": "discostan",
+            "note": "LA collective/label co-founded by Arshia Fatima Haq and Jeremy Loudenback \u2014 archives and decolonizes the dancefloor through South and West Asian / North African music: 1980s disco, folkloric sounds, dancefloor re-edits and political interventions. Featured in Pitchfork, The Guardian, KCRW. One of a kind in LA."
+          }
+        ],
+        "curator_note": "Discostan at El Cid is one of LA's genuinely singular recurring nights \u2014 Arshia Haq and crew weave SWANA folkloric music, '80s diaspora disco and re-edits into something no other promoter is doing in the city. Different enough from the house/techno lane to feel like a real discovery rather than a lateral move.",
+        "description": "Discostan at El Cid, Silver Lake \u2014 the LA SWANA diaspora dance collective (Arshia Haq, co-founder) playing South/West Asian and North African disco, re-edits and folkloric dancefloor music, 9pm."
+      },
       "verdict": {
         "tier": "solid",
         "adjust": 1,
@@ -12051,6 +12255,45 @@
       ],
       "iso_date": "2026-06-27",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "house",
+          "deep house",
+          "Chicago house"
+        ],
+        "energy": "groove / late-night",
+        "setting": "warehouse (location-TBA)",
+        "sounds_like": [
+          "Honey Dijon warm-up",
+          "local Chicago-influenced house",
+          "Beau Didier"
+        ],
+        "artist_notes": [
+          {
+            "name": "Pocari G",
+            "note": "LA-based house DJ \u2014 active in the local underground circuit; limited wider public footprint, name included on billing confidence."
+          },
+          {
+            "name": "Ashtre",
+            "note": "LA-based selector on the local house/underground circuit; no verified label or broader profile found."
+          },
+          {
+            "name": "Costa",
+            "note": "LA house DJ; included per billing, limited verifiable detail."
+          },
+          {
+            "name": "Oso Disco",
+            "note": "LA DJ name \u2014 local disco/house selector; included per billing."
+          },
+          {
+            "name": "Blaze Claze",
+            "note": "LA-based DJ; included per billing, no wider verifiable profile found."
+          }
+        ],
+        "curator_note": "Butterground is a local DTLA house collective running TBA-location parties \u2014 all local selectors, no marquee name, but that format at 9pm on July 4th usually means an early crowd that's actually there to dance rather than pose. Worth watching if you're already out that night.",
+        "description": "Butterground house collective party at a TBA DTLA location with Pocari G, Ashtre, Costa, Oso Disco and Blaze Claze, 9pm."
+      },
       "verdict": {
         "tier": "solid",
         "adjust": -1,
@@ -12109,6 +12352,22 @@
       ],
       "iso_date": "2026-06-27",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "house",
+          "groove",
+          "deep house"
+        ],
+        "energy": "afterhours",
+        "setting": "warehouse",
+        "sounds_like": [
+          "WORK afterhours",
+          "long-format house sets"
+        ],
+        "curator_note": "INLAND GROOVE running a 2am afterhours on July 4th in DTLA \u2014 no lineup detail, which is how these things go. If you're already at Robert Hood or Jayda G and want to keep moving, this is the move; if you're picking cold, wait for the lineup drop.",
+        "description": "INLAND GROOVE afterhours party at a DTLA location, starting 2am on July 4th \u2014 lineup TBA."
+      },
       "verdict": {
         "tier": "skip",
         "adjust": -2,
@@ -13565,6 +13824,14 @@
       ],
       "iso_date": "2026-06-27",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "Josh Baker",
+            "note": "Manchester DJ/producer and You&Me Records founder \u2014 groove-heavy fluid house and minimal; played fabric, DC10, The Warehouse Project; also runs SYNTHO production school."
+          }
+        ]
+      },
       "lane": "club:underground",
       "final_rank": 336
     },
@@ -19361,6 +19628,83 @@
       ],
       "iso_date": "2026-06-28",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "tech house",
+          "house",
+          "techno",
+          "melodic house"
+        ],
+        "label_orbit": [
+          "Drumcode",
+          "Desolat",
+          "CLNE",
+          "Repopulate Mars",
+          "HILOMATIK"
+        ],
+        "energy": "peak / festival",
+        "setting": "open-air festival",
+        "sounds_like": [
+          "Drumcode festival",
+          "CRSSD",
+          "Day Trip in the Park"
+        ],
+        "artist_notes": [
+          {
+            "name": "Adam Beyer",
+            "note": "Swedish techno institution and Drumcode founder \u2014 driving, functional, peak-time techno that anchors the darker half of this lineup. Tracked artist."
+          },
+          {
+            "name": "Cloonee",
+            "note": "Manchester-raised tech-house heavyweight (CLNE, Repopulate Mars, Sola) \u2014 Beatport #1s with 'Like What' and a Chris Lake collab ('Nightmares'); reliable festival-circuit crowd-mover. Tracked artist."
+          },
+          {
+            "name": "Loco Dice",
+            "note": "Tunisian-German DJ born Yassine Ben Achour, D\u00fcsseldorf \u2014 founder of Desolat; evolved from hip-hop residencies to Space/Hi Ibiza residencies; blends hip-hop textures and North African rhythm into house and tech house."
+          },
+          {
+            "name": "Hi-Lo",
+            "note": "Oliver Heldens' darker techno alias \u2014 HILOMATIK label boss; has dropped on Drumcode and deadmau5's mau5trap; melodic-peak techno pitched between festival and underground."
+          },
+          {
+            "name": "Elderbrook",
+            "note": "London singer-producer Alexander Kotz \u2014 'Cola' (CamelPhat collab, Grammy-nominated) made him; soulful voice over emotive deep house. Live-electronic act rather than a DJ set."
+          },
+          {
+            "name": "Hayden James",
+            "note": "Sydney producer \u2014 polished, melodic house (multi-Platinum 'Something About You'); RUFUS Du Sol-adjacent but a shade more radio-pop."
+          },
+          {
+            "name": "Sidepiece",
+            "note": "LA-based duo Party Favor + Nitti Gritti \u2014 their 2019 'On My Mind' was Grammy-nominated for Best Dance Recording; peak-time tech house rooted in Motown edits."
+          },
+          {
+            "name": "Westend",
+            "note": "New York tech house producer Tyler Morris \u2014 helped draft the modern American tech-house blueprint; recent single 'The Ceiling' on John Summit's Experts Only."
+          },
+          {
+            "name": "Josh Baker",
+            "note": "Manchester DJ/producer and You&Me Records founder \u2014 groove-heavy, fluid house and minimal; played fabric, DC10, The Warehouse Project."
+          },
+          {
+            "name": "Riordan",
+            "note": "South-coast UK rising producer \u2014 garage-influenced tech house; Beatport #1 'Needle On The Record' on Gorgon City's Realm, plus Black Book and Catch & Release."
+          },
+          {
+            "name": "Greg 99",
+            "note": "Brazilian producer from Minas Gerais \u2014 Latin and Afro-inflected tech house; Beatport #1 collab 'Still My Baby' with Cloonee; Insomniac Records debut."
+          }
+        ],
+        "curator_note": "Day Trip's sixth Long Beach edition at the new Queen Mary Amphitheater is the tech-house festival LA actually needs \u2014 the Adam Beyer / Loco Dice / Hi-Lo block gives it real techno weight, and Cloonee headlining keeps it from disappearing up its own prog-house backside. Saturday is the day to go.",
+        "description": "Day Trip Festival sixth edition at Queen Mary Waterfront, Long Beach \u2014 two-day house/techno/melodic fest with Adam Beyer, Cloonee, Loco Dice, Hi-Lo, Elderbrook, Hayden James, Sidepiece, Westend and 50+ others.",
+        "image": {
+          "url": "https://electronicgroove.com/wp-content/uploads/2026/04/DayTrip-Fetival-2026-Lineup-800x1000.jpg",
+          "source": "electronicgroove.com",
+          "credit": "Day Trip Festival official lineup poster (via Electronic Groove)",
+          "cached": "data/images/bb4f346b7a87.jpg"
+        }
+      },
       "verdict": {
         "tier": "great",
         "adjust": 2,
@@ -19416,6 +19760,14 @@
       ],
       "iso_date": "2026-06-28",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "Discostan",
+            "note": "LA collective/label co-founded by Arshia Fatima Haq and Jeremy Loudenback \u2014 archives and decolonizes the dancefloor through South/West Asian and North African music: '80s diaspora disco, folkloric sounds, re-edits and political interventions. Featured in Pitchfork, The Guardian, KCRW."
+          }
+        ]
+      },
       "lane": "live-music",
       "final_rank": 601
     },
@@ -31820,6 +32172,51 @@
       ],
       "iso_date": "2026-07-04",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "techno",
+          "minimal techno",
+          "acid"
+        ],
+        "label_orbit": [
+          "M-Plant",
+          "Underground Resistance"
+        ],
+        "energy": "peak / late-night",
+        "setting": "warehouse (location-TBA)",
+        "sounds_like": [
+          "Jeff Mills",
+          "Surgeon",
+          "Planetary Assault Systems"
+        ],
+        "artist_notes": [
+          {
+            "name": "Robert Hood",
+            "note": "Detroit minimal-techno originator, M-Plant founder \u2014 co-founder of Underground Resistance alongside Jeff Mills and Mad Mike, then reduced the form to its bare drum/bassline essentials on 'Internal Empire' and 'Minimal Nation' (both 1994). Also records as Floorplan (gospel-inflected house). A tracked name."
+          },
+          {
+            "name": "Disco Zombie",
+            "note": "LA-based techno DJ and producer active in the WORK / Dirty Epic underground orbit \u2014 dark, groovy techno sets; hosts the @earlyafters show on KCHUNG Radio."
+          },
+          {
+            "name": "\u00d8nyx",
+            "note": "LA-based DJ active on the city's underground techno circuit; has an RA profile and plays the same WORK/INCOGNITO-adjacent events \u2014 limited wider footprint, included on billing confidence."
+          },
+          {
+            "name": "Rubbermiro",
+            "note": "LA techno DJ (KCHUNG Radio's earlyafters host alongside Disco Zombie) \u2014 dark, groovy underground techno; regular on the Dirty Epic / WORK circuit."
+          }
+        ],
+        "curator_note": "Robert Hood in a TBA warehouse on July 4th is the anti-fireworks plan \u2014 stripped, relentless M-Plant minimal with a crew of actual LA heads supporting. WORK's format (address drops day-of) means the room stays self-selecting, which is exactly right for this.",
+        "description": "WORK presents Robert Hood (M-Plant, Detroit) with Disco Zombie, \u00d8nyx and Rubbermiro at a TBA Los Angeles warehouse, 10pm.",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Robert_Hood_Live_%40_Kennedys%2C_Dublin%2C_Ireland_2009.JPG",
+          "source": "Wikimedia Commons",
+          "credit": "Robert Hood live at Kennedys, Dublin, 2009 (Wikimedia Commons)",
+          "cached": "data/images/0f729582faa3.jpg"
+        }
+      },
       "verdict": {
         "tier": "great",
         "adjust": 2,
@@ -31878,6 +32275,32 @@
       ],
       "iso_date": "2026-07-04",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "disco",
+          "deep house",
+          "soulful house"
+        ],
+        "label_orbit": [
+          "Ninja Tune"
+        ],
+        "energy": "groove / late-night",
+        "setting": "club",
+        "sounds_like": [
+          "Honey Dijon",
+          "Horse Meat Disco",
+          "DJ Harvey"
+        ],
+        "artist_notes": [
+          {
+            "name": "Jayda G",
+            "note": "Vancouver-born, London-based producer/DJ (Jacinda Gulley) \u2014 environmental toxicologist turned Grammy-nominated house and disco selector; two albums on Ninja Tune including 'Guy' (2023). An instinctive digger with genuine soul in her selections. Tracked name."
+          }
+        ],
+        "curator_note": "Sound is a proper room for Jayda G \u2014 she thrives in longer, sweatier sets where she can pull the floor through disco into gospel-house without hitting a hard stop. This is the July 4th pick if warehouse TBAs feel like too much admin.",
+        "description": "Jayda G (Ninja Tune) headlines Sound Nightclub in Hollywood, 10pm."
+      },
       "lane": "club:afters",
       "final_rank": 15
     },
@@ -31933,6 +32356,45 @@
       ],
       "iso_date": "2026-07-04",
       "is_past": false,
+      "enrichment": {
+        "type": "electronic",
+        "subgenres": [
+          "techno",
+          "minimal techno",
+          "acid"
+        ],
+        "label_orbit": [
+          "M-Plant",
+          "Underground Resistance"
+        ],
+        "energy": "peak / late-night",
+        "setting": "warehouse (location-TBA)",
+        "sounds_like": [
+          "Jeff Mills",
+          "Surgeon",
+          "Planetary Assault Systems"
+        ],
+        "artist_notes": [
+          {
+            "name": "Robert Hood",
+            "note": "Detroit minimal-techno originator and M-Plant founder \u2014 his stripped drum/bassline formula on 'Minimal Nation' (1994) is the blueprint for a significant chunk of modern techno. Tracked name."
+          },
+          {
+            "name": "Disco Zombie",
+            "note": "LA-based techno DJ, dark and groovy underground techno; KCHUNG Radio earlyafters host."
+          },
+          {
+            "name": "Onyx",
+            "note": "LA underground techno DJ; active on the WORK / Dirty Epic circuit. Limited wider footprint."
+          },
+          {
+            "name": "Rubbermiro",
+            "note": "LA techno DJ \u2014 KCHUNG Radio earlyafters, Dirty Epic / WORK circuit regular. Dark, groovy sets."
+          }
+        ],
+        "curator_note": "Same Robert Hood / Disco Zombie / \u00d8nyx / Rubbermiro lineup as the WORK event \u2014 likely a duplicate listing. Confirm before buying tickets; the WORK-branded version (0f729582faa3) is the canonical one to trust.",
+        "description": "Robert Hood (M-Plant, Detroit) with Disco Zombie, Onyx and Rubbermiro at a TBA Los Angeles location, 10pm \u2014 appears to be the same event as the WORK-presented listing."
+      },
       "lane": "club:afters",
       "final_rank": 20
     },
@@ -35601,6 +36063,14 @@
       ],
       "iso_date": "2026-07-05",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "Hayden James",
+            "note": "Sydney producer \u2014 polished, melodic house (multi-Platinum 'Something About You'); worked with Gorgon City and Katy Perry; RUFUS Du Sol-adjacent but slightly more radio-pop."
+          }
+        ]
+      },
       "verdict": {
         "tier": "great",
         "adjust": 1,
@@ -43200,6 +43670,14 @@
       ],
       "iso_date": "2026-07-11",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "BAE BAE",
+            "note": "Kumi James \u2014 LA-born DJ/producer, sound artist, Planet Mu signee, and co-founder of Hood Rave (DTLA's queer-Black underground party). Sets weave footwork, juke, breaks and R&B through an explicitly Black-diasporic and femme lens; NTS and Dublab radio host."
+          }
+        ]
+      },
       "lane": "club:underground",
       "final_rank": 623
     },
@@ -92499,6 +92977,14 @@
       ],
       "iso_date": "2026-08-30",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "Loco Dice",
+            "note": "Tunisian-German DJ Yassine Ben Achour, D\u00fcsseldorf \u2014 founder of Desolat; Space/Hi Ibiza resident; blends hip-hop textures and North African rhythms into house and tech house. Records on Ovum, M-nus, Cadenza, Cocoon."
+          }
+        ]
+      },
       "lane": "club:day",
       "final_rank": 417
     },
@@ -109505,7 +109991,7 @@
         "diff": "diff --git a/taste.yaml b/taste.yaml\nindex 0d55924..fbac0dd 100644\n--- a/taste.yaml\n+++ b/taste.yaml\n@@ -11,7 +11,7 @@\n categories:\n   high:    # weight +3 each match\n     - house / techno / tech-house / acid / electro / minimal / melodic \u2014 DJ sets of all sizes\n-    - mainstream & festival-scale house / tech-house headliners (Chris Lake, FISHER, John Summit,\n+    - mainstream & festival-scale house / tech-house headliners (John Summit,\n       Dom Dolla, Gorgon City, etc.) \u2014 big-room fun counts, not just the underground\n     - fabric-London-style proper club nights / European-leaning dance lineups\n     - rooftop / sunset / daytime open-air house, disco, Balearic, groove sets\n@@ -19,19 +19,20 @@ categories:\n     - warehouse and afterhours parties (incl. location-TBA)\n     - melodic/organic/afro house + progressive (Anjuna/Innervisions/Keinemusik/Afterlife orbit)\n     - rep & arthouse cinema (Vidiots, Vista, Brain Dead, Cinematheque, New Bev)\n-  medium:  # weight +2\n-    - live electronic / electronic-adjacent acts (R\u00fcf\u00fcs Du Sol, ODESZA, Bonobo, Jamie xx tier)\n     - small rock / indie band shows at clubs (Troubadour, Echo, Zebulon, Moroccan, Lodge Room,\n       Teragram) \u2014 post-punk, indie, garage, dream-pop, experimental, krautrock-y\n+    - Goldenvoice events\n+  medium:  # weight +2\n+    - live electronic / electronic-adjacent acts (R\u00fcf\u00fcs Du Sol, ODESZA, Bonobo, Jamie xx tier)\n     - daytime & lifestyle \u2014 flea / vintage / design markets (Rose Bowl Flea, Melrose Trading\n       Post), farmers markets (esp. Silver Lake/eastside), food & drink pop-ups, brand activations\n       / block parties / spritz-type parties, neighborhood street fairs\n     - record fairs, listening bars, food events with a music angle\n     - craft beer events / brewery takeovers / festivals\n     - theater (Pantages-scale and black-box)\n+    - concerts of big name artists (Kendrick Lamar, Kacey Musgraves, Tame Impala) \u2014 mostly to stay informed\n   low:     # weight +1, include only if exceptional\n     - standup comedy \u2014 NOT generally wanted; only known/favorite names (see comedians_loved)\n-    - stadium pop, museum/gallery openings (skip ongoing exhibitions unless closing soon)\n \n boosts:    # +1 each (stack)\n   - rooftop / open-air / sunset / golden-hour setting\n@@ -139,11 +140,10 @@ artists_tracked:\n   - Stacey Pullen\n   - Waajeed\n   - Robert Hood\n+  - Tini Gessler\n \n-comedians_loved: [Stavros Halkias]   # the comedy exception \u2014 these get surfaced; others don't\n-venues_loved: [Zebulon, Vidiots, Vista, Lodge Room, 2220 Arts, El Cid, Golden Hour at Level 8]   # +1\n-# Named-favorite series to PIN in the digest whenever on (surface even if score is modest):\n-pinned_series: [\"Sunset Sessions\"]   # a recurring rooftop-vinyl-house favorite @ Level 8 DTLA (one kind of event he likes)\n+comedians_loved: [Stavros Halkias, Chris D'Elia, Larry David, Conan O'Bryan]   # the comedy exception \u2014 these get surfaced; others don't\n+venues_loved: [Vista, Lodge Room, 2220 Arts, The Greek, Pantages, Hollywood Bowl, Landmark Pasadena, Old Sears, Sid the Cat]   # +1\n \n # Feedback log \u2014 append reactions here (\"more like X\", \"never show Y\");\n # periodically fold them into the weights above.\n@@ -151,11 +151,10 @@ feedback:\n   - \"2026-06-16: rooftop vinyl house w/ European feel is a core lane; Sunset Sessions is one example (don't overstate it).\"\n   - \"2026-06-16: techno + house both mainstream and underground (fabric-London energy).\"\n   - \"2026-06-16: not a comedy fan generally; surface known names only (loves Stavros Halkias).\"\n-  - \"2026-06-16: curious about Vidiots (never been); add Vista to rep-cinema rotation.\"\n   - \"2026-06-16: surface Sunset Sessions @ Level 8 when it's on \u2014 a recurring favorite / one kind of event I like (not a headline).\"\n   - \"2026-06-16: festival radar should be compact + urgency-driven, not a curated list dump.\"\n-  - \"2026-06-16: mainstream big-room headliners (Chris Lake et al.) ARE priority too \u2014 don't\n-     down-rank them as 'mainstream EDM'. Curate like an electronic head; want MORE/additional recs.\"\n+  - \"2026-06-16: mainstream big-room headliners (John Summit et al.) ARE priority too \u2014 don't\n+     down-rank them as 'mainstream EDM'. Curate like an electronic head.\"\n   - \"2026-06-16: surface the live-band lane too (indie/rock/experimental \u2014 Zebulon, Troubadour,\n      Echo, Moroccan, Lodge Room, Teragram); don't let electronic crowd it out of the digest.\n      NOTE: Zebulon is JS-rendered and currently uncaptured (e.g. Mamas Gun) \u2014 needs a real fetcher.\"",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-06-23"
+        "enriched_at": "2026-06-25"
       },
       "profile": {
         "file": "profile.yaml",
@@ -109539,7 +110025,7 @@
         "diff": "diff --git a/profile.yaml b/profile.yaml\nindex 24570ee..75e94b7 100644\n--- a/profile.yaml\n+++ b/profile.yaml\n@@ -15,21 +15,21 @@ timezone: America/Los_Angeles\n home:\n   neighborhood: Silver Lake\n   cross_streets: Hyperion & Del Mar\n-  coords: [34.0906, -118.2717]   # ~Hyperion & Del Mar; used by scripts/lib/geo.py\n+  coords: [ 34.0906, -118.2717 ] # ~Hyperion & Del Mar; used by scripts/lib/geo.py\n \n # City-specific source ids (lifted from the fetchers; they fall back to these literals).\n sources:\n-  ticketmaster_dma_id: \"324\"   # LA DMA \u2014 fetch_ticketmaster.py\n-  ra_area_id: 23               # RA's internal LA area number \u2014 fetch_ra.py\n+  ticketmaster_dma_id: \"324\" # LA DMA \u2014 fetch_ticketmaster.py\n+  ra_area_id: 23 # RA's internal LA area number \u2014 fetch_ra.py\n \n scoring:\n   # Base category weight, mirroring taste.yaml high/medium/low. Comedy is special-cased in code\n   # (suppressed unless a loved comedian). Unknown categories default to 1.\n   category_weights:\n     electronic: 3\n-    party: 3          # club / warehouse / afterhours\n-    film: 3           # rep & arthouse cinema\n-    music: 2          # live music (catalog's term)\n+    party: 3 # club / warehouse / afterhours\n+    film: 3 # rep & arthouse cinema\n+    music: 2 # live music (catalog's term)\n     live_music: 2\n     theater: 2\n     beer_food: 2\n@@ -40,10 +40,10 @@ scoring:\n \n   # Raw-score -> 1..5 star rating. [min_score, rating], checked high-to-low; below all => 1.\n   rating_thresholds:\n-    - [8, 5]\n-    - [6, 4]\n-    - [4, 3]\n-    - [2, 2]\n+    - [ 8, 5 ]\n+    - [ 6, 4 ]\n+    - [ 4, 3 ]\n+    - [ 2, 2 ]\n \n   # Neighborhoods walkable / a short drive from home (+1). Matched case-insensitively.\n   near_home_neighborhoods:\n@@ -89,6 +89,7 @@ scoring:\n     - day party\n     - poolside\n     - pool party\n+    - beach\n \n   # +1: European label / vibe.\n   eu_terms:\n@@ -162,33 +163,47 @@ scoring:\n     # Points an affinity artist contributes when it appears in a lineup/title, by tier.\n     # `hidden` = a feedback \"never show\" down-rank.\n     tier_points:\n-      core: 3        # long-term top / followed / multi-signal \u2014 your spine; reliably clears \u26054\n-      strong: 2      # heavy rotation \u2014 a real nudge above \"on rotation\"\n-      light: 1       # on rotation \u2014 a gentle bump\n-      hidden: -3     # feedback: never show this artist\n-    artist_cap: 5    # max total artist-affinity points per event (a core + a strong both register;\n-                     # a stacked dream lineup still can't run away)\n-    genre_points: 1  # points when a high-affinity Spotify genre appears in the haystack\n-    genre_threshold: 0.5  # min normalized (0..1) genre affinity to count\n-    genre_cap: 1     # max genre points per event (kept conservative \u2014 genre match on free text is noisy)\n-    min_name_len: 3  # skip ultra-short artist names (avoid false substring matches)\n+      core: 3 # long-term top / followed / multi-signal \u2014 your spine; reliably clears \u26054\n+      strong: 2 # heavy rotation \u2014 a real nudge above \"on rotation\"\n+      light: 1 # on rotation \u2014 a gentle bump\n+      hidden: -3 # feedback: never show this artist\n+    artist_cap: 5\n+      # max total artist-affinity points per event (a core + a strong both register;\n+      # a stacked dream lineup still can't run away)\n+    genre_points: 1 # points when a high-affinity Spotify genre appears in the haystack\n+    genre_threshold: 0.5 # min normalized (0..1) genre affinity to count\n+    genre_cap: 1 # max genre points per event (kept conservative \u2014 genre match on free text is noisy)\n+    min_name_len: 3 # skip ultra-short artist names (avoid false substring matches)\n     # Single-word artist names that are also common English/party words (the band Train, the\n     # rapper Future). Auto-pulled from Spotify they false-match party titles, so they only count\n     # when they appear in the structured lineup, not loose title text. Grow this as you spot more.\n-    ambiguous_names: [train, future, juice, jungle, lights, justice, work, sanctuary, paradise,\n-                      chance, hold, alive]\n+    ambiguous_names:\n+      [\n+        train,\n+        future,\n+        juice,\n+        jungle,\n+        lights,\n+        justice,\n+        work,\n+        sanctuary,\n+        paradise,\n+        chance,\n+        hold,\n+        alive\n+      ]\n \n   # Feedback loop (Phase C). Reactions in data/feedback.jsonl fold into the affinity layer\n   # automatically (no hand-merge into taste.yaml). Each weight nudges an artist/genre; once\n   # the summed weight clears affinity's tier thresholds it scores like a Spotify artist.\n   feedback:\n     weights:\n-      loved: 2.0           # \"more like this\"\n-      went: 1.5            # you went\n-      clicked_ticket: 0.5  # implicit \u2014 emitted by the digest/dashboard delivery surfaces (Phase B/D)\n-      added_calendar: 0.5  # implicit \u2014 ICS export / save-to-calendar\n-      skipped: -0.5        # soft down-nudge\n-      hide: -10.0          # \"never show\" \u2014 forces the `hidden` tier (hard down-rank)\n+      loved: 2.0 # \"more like this\"\n+      went: 1.5 # you went\n+      clicked_ticket: 0.5 # implicit \u2014 emitted by the digest/dashboard delivery surfaces (Phase B/D)\n+      added_calendar: 0.5 # implicit \u2014 ICS export / save-to-calendar\n+      skipped: -0.5 # soft down-nudge\n+      hide: -10.0 # \"never show\" \u2014 forces the `hidden` tier (hard down-rank)\n \n # Travel / geography for the night-planner (scripts/lib/geo.py). Used to sequence\n # dinner -> show -> afters with rough drive/walk times. The LA neighborhood-centroid\n@@ -197,13 +212,13 @@ scoring:\n # `travel` knobs live here by default \u2014 add `neighborhoods:` / `venues:` to override.\n geo:\n   travel:\n-    walk_max_miles: 0.8        # at/under this straight-line distance, prefer walking\n-    walk_min_per_mile: 20.0    # ~3 mph\n-    drive_floor_min: 8         # any drive costs at least this (parking, getting going)\n-    park_buffer_min: 6         # find parking + walk from the car\n-    short_min_per_mile: 4.0    # surface streets w/ lights (~15 mph effective)\n-    long_min_per_mile: 2.4     # some freeway on longer hops (~25 mph effective)\n-    short_threshold_miles: 4   # beyond this, the tail is freeway-paced\n+    walk_max_miles: 0.8 # at/under this straight-line distance, prefer walking\n+    walk_min_per_mile: 20.0 # ~3 mph\n+    drive_floor_min: 8 # any drive costs at least this (parking, getting going)\n+    park_buffer_min: 6 # find parking + walk from the car\n+    short_min_per_mile: 4.0 # surface streets w/ lights (~15 mph effective)\n+    long_min_per_mile: 2.4 # some freeway on longer hops (~25 mph effective)\n+    short_threshold_miles: 4 # beyond this, the tail is freeway-paced\n   # neighborhoods:             # uncomment to override geo.py's LA centroids\n   #   Silver Lake: [34.0869, -118.2702]\n   # venues:                    # uncomment to map venues -> neighborhood for blank/city-level records",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-06-23"
+        "enriched_at": "2026-06-25"
       }
     }
   }
