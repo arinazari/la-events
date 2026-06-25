@@ -266,6 +266,10 @@ def main() -> int:
     # dashboard/catalog_meta.json to decide if this profile's ranking/digest is stale. Prefer the
     # stamp written by run_digest; fall back to recomputing from the catalog we just read.
     cat_meta = CM.read_meta(catalog_path.parent / "catalog_meta.json") or CM.build_meta(catalog)
+    # Backfill content_version if the on-disk meta predates it, so a build-only path (build-profiles)
+    # still stamps/publishes it — the dashboard staleness check keys off content_version now.
+    if not cat_meta.get("content_version"):
+        cat_meta["content_version"] = CM.content_version(catalog)
 
     feed = {
         # Timezone-aware (UTC) — the dashboard's "last data pull" parses this; a naive stamp is
@@ -274,6 +278,7 @@ def main() -> int:
         "source_file": str(catalog_path.relative_to(REPO)) if catalog_path.is_relative_to(REPO) else str(catalog_path),
         "is_sample": is_sample,
         "catalog_version": cat_meta.get("version"),
+        "catalog_content_version": cat_meta.get("content_version"),
         "catalog_fetched_at": cat_meta.get("fetched_at"),
         "count": len(events),
         "enriched_count": enriched_hits,
@@ -301,9 +306,13 @@ def main() -> int:
     # on every load to compare against each feed's `catalog_version`.
     if not is_sample and out_path.parent.is_dir():
         try:
+            # Publish content_version (the staleness key) + this run's change delta (added/updated/
+            # changes) so the dashboard can both flag "your ranking is stale" AND show what moved.
+            meta_pub = {k: v for k, v in cat_meta.items()
+                        if k in ("version", "content_version", "count", "fetched_at",
+                                 "added", "updated", "changes") and v is not None}
             (out_path.parent / "catalog_meta.json").write_text(
-                json.dumps({k: cat_meta.get(k) for k in ("version", "count", "fetched_at")},
-                           indent=2) + "\n", encoding="utf-8")
+                json.dumps(meta_pub, indent=2) + "\n", encoding="utf-8")
         except OSError as e:
             print(f"  WARN: could not publish catalog_meta.json: {e}", file=sys.stderr)
 

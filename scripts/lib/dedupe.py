@@ -173,19 +173,31 @@ def _richest(*vals):
 
 
 def merge(a: dict, b: dict) -> dict:
-    """Combine two duplicate records — keep all links + the richest fields."""
+    """Combine two duplicate records.
+
+    Descriptive fields keep the RICHEST value (longest title/detail, any non-null neighborhood/
+    genre/organizer) — completeness across sources. But the VOLATILE fields (price, start time,
+    status) take the FRESHEST non-null value instead: merge_new feeds the existing catalog record
+    as `a` and today's fetch as `b`, so `b` is the newer reading — this is what un-freezes a price
+    that moved, a door time that shifted, or a sold-out/cancelled flag (the "lineups firm up, prices
+    change" staleness gap). Lineup prefers the longer bill, tie → the fresher `b` (captures a firm-up
+    or a same-size swap without letting a sparse re-fetch clobber a richer known bill)."""
     out = dict(a)
     out["links"] = _merge_links(a, b)
     out["sources"] = _union(a.get("sources"), b.get("sources"))
-    out["lineup"] = a.get("lineup") if len(a.get("lineup") or []) >= len(b.get("lineup") or []) else b.get("lineup")
+    out["lineup"] = b.get("lineup") if len(b.get("lineup") or []) >= len(a.get("lineup") or []) else a.get("lineup")
     out["detail"] = _richest(a.get("detail"), b.get("detail"))
     out["title"] = _richest(a.get("title"), b.get("title")) or a.get("title")
     out["organizers"] = _richest(a.get("organizers"), b.get("organizers"))
-    out["price"] = a.get("price") or b.get("price")
     out["neighborhood"] = a.get("neighborhood") or b.get("neighborhood")
     out["genre"] = a.get("genre") or b.get("genre")  # sparse (only some sources classify); don't lose it if the base lacks one
     out["ra_pick"] = bool(a.get("ra_pick") or b.get("ra_pick"))
     out["afterhours"] = bool(a.get("afterhours") or b.get("afterhours"))
+    # Volatile fields: freshest (b) non-null wins, so a re-fetch updates them in place.
+    out["price"] = b.get("price") if b.get("price") not in (None, "") else a.get("price")
+    out["start"] = b.get("start") if b.get("start") not in (None, "") else a.get("start")
+    if a.get("status") or b.get("status"):
+        out["status"] = b.get("status") if b.get("status") not in (None, "") else a.get("status")
     fs = [x for x in (a.get("first_seen"), b.get("first_seen")) if x]
     ls = [x for x in (a.get("last_seen"), b.get("last_seen")) if x]
     if fs:

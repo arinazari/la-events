@@ -37,9 +37,15 @@ not on a schedule.
 - **The enrichment cache is the moat-lite:** keyed by event-id + normalized artist name, it turns
   the nightly fan-out into an accumulating LA scene knowledge base — recurring artists are
   researched once.
-- **Model:** unset → inherits the parent run's model. `scene-researcher` is the one candidate for
-  a cheaper model if the nightly fan-out ever needs cost control; quality of its annotations is
-  the brand, so keep it sharp until proven otherwise.
+- **Model (cost tier):** `event-editor` and `scene-researcher` are pinned to **`sonnet`** — bounded,
+  structured-output judgment/enrichment that doesn't need the parent's (Opus) tier every night, and
+  the per-call work is already delta-gated (only new/changed events are judged or enriched). Escalate
+  to Opus only **when it matters**, never by default: the orchestrator may spawn the editor with a
+  `model: opus` override for a tier-boundary or genuinely ambiguous batch, and the per-user rebuild
+  (`rebuild-profile.yml`) takes a `model` input (default Sonnet) so an owner can request an Opus pass.
+  A bring-your-own-key concierge caller can run the **live chat** on Opus on their own spend (the
+  Worker honors a per-request `model` override for BYOK). Keep annotation quality the bar: if a
+  Sonnet gloss ever reads thin, bump `scene-researcher` back up.
 - **Status:** `night-planner` is wired and operational (Phase D) — it runs the travel engine +
   offline rescore and reads both catalogs. `scene-researcher` is still a draft of the Phase-B
   enrichment shape (wiring it into `run_digest.py` + the daily routine is Phase B). `source-scout`

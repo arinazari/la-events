@@ -18,6 +18,10 @@ on:
       hash:
         description: "Profile feed hash to rebuild"
         required: true
+      model:
+        description: "LLM for the editor+enrichment+digest pass: sonnet (default) or opus (when it matters)"
+        required: false
+        default: sonnet
 
 permissions:
   contents: write
@@ -59,6 +63,15 @@ jobs:
           # ($HASH is validated hex above, so it's safe to interpolate into the one-liner.)
           owner="$(python -c "import hashlib,yaml; m=yaml.safe_load(open('profiles.yaml')) or {}; s=m.get('salt') or 'la-events/v1:'; print('true' if any(p.get('owner') and hashlib.sha256((s+p['username'].strip().lower()).encode()).hexdigest()[:16]=='$HASH' for p in (m.get('profiles') or []) if p.get('username')) else 'false')")"
           echo "is_owner=${owner:-false}" >> "$GITHUB_OUTPUT"
+          # Model for the LLM pass: sonnet by default (Q3), 'opus' when it matters (or an explicit
+          # claude-* id). repository_dispatch may carry client_payload.model; the manual run takes the input.
+          MODEL="${{ github.event.client_payload.model || github.event.inputs.model }}"
+          case "$MODEL" in
+            opus) MODEL="claude-opus-4-8" ;;
+            claude-*) : ;;
+            *) MODEL="claude-sonnet-4-6" ;;
+          esac
+          echo "model=$MODEL" >> "$GITHUB_OUTPUT"
 
       # Keep the per-profile music layer intact: sync connected Spotify into data/spotify/<hash>.json
       # (gitignored) BEFORE the rebuild, so a single-profile build doesn't drop it to taste-only.
@@ -115,7 +128,7 @@ jobs:
             leave every changed file in the working tree; the workflow commits and deploys after you finish.
           claude_args: |
             --max-turns 80
-            --model claude-sonnet-4-6
+            --model ${{ steps.target.outputs.model }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash,Task,WebSearch,WebFetch"
 
       # Best-effort: durably commit the LLM digest + verdicts too (warm cache => cheaper next click).

@@ -1,0 +1,42 @@
+# profile.yaml — MECHANISM overrides for Dr. Ganesan's feed, created by the dashboard concierge.
+# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs
+# that differ need to live here — anything absent falls back to the repo defaults.
+
+home:
+  neighborhood: Downtown LA (DTLA)
+  cross_streets: Downtown LA
+  coords: [ 34.0407, -118.2468 ]
+scoring:
+  near_home_neighborhoods:
+    - silver lake
+    - silverlake
+    - echo park
+    - los feliz
+    - east hollywood
+    - atwater village
+    - atwater
+    - frogtown
+    - elysian valley
+    - highland park
+    - eagle rock
+    - glassell park
+    - cypress park
+    - lincoln heights
+    - chinatown
+    - virgil village
+    - westlake
+    - historic filipinotown
+    - downtown
+    - dtla
+    - arts district
+    - Long Beach
+  far_terms:
+    - anaheim
+    - santa ana
+    - irvine
+    - san diego
+    - temecula
+    - ventura
+    - riverside
+    - costa mesa
+    - huntington beach

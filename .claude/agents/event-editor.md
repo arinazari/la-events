@@ -9,6 +9,7 @@ description: >
   scene-researcher), or compute the base score (that's the deterministic core). Judgment only —
   the deltas the heuristic can't see.
 tools: Read, Write, WebSearch, WebFetch
+model: sonnet
 ---
 
 # event-editor

@@ -49,7 +49,7 @@ REPO = Path(__file__).resolve().parent.parent
 # Output is read from the `-o` temp file each script writes (list of records, or {"events": [...]}).
 FETCHERS = [
     {"name": "Ticketmaster", "source": "ticketmaster", "script": "fetch_ticketmaster.py",
-     "args": ["--days", "{days}"], "needs": ["TM_API_KEY"]},
+     "args": ["--days", "{days}"], "needs": ["TM_API_KEY"], "far": True},
     {"name": "Resident Advisor", "source": "ra", "script": "fetch_ra.py", "args": ["--days", "{days}"]},
     {"name": "19hz", "source": "19hz", "script": "fetch_19hz.py", "args": []},
     {"name": "Goldenvoice", "source": "goldenvoice", "script": "fetch_goldenvoice.py", "args": []},
@@ -60,13 +60,22 @@ FETCHERS = [
 ]
 
 
-def run_fetcher(entry: dict, days: int, tmpdir: str) -> list:
+def fetch_window(entry: dict, days: int, far_days: int = None) -> int:
+    """Days to fetch for one source. Far-capable sources (`far: True` — e.g. Ticketmaster, which
+    date-windows internally) get the wide plan-ahead horizon; everyone else keeps the near window.
+    far_days=None => the near window for all (today's single-speed behaviour). This is the seam of
+    the two-speed fetch: full fidelity near-term, deterministic plan-ahead far (festivals, big tours,
+    theater seasons) for the radar tier — without dragging the LLM editor/enrich windows out with it."""
+    return far_days if (far_days and entry.get("far")) else days
+
+
+def run_fetcher(entry: dict, days: int, tmpdir: str, far_days: int = None) -> list:
     """Run one fetcher as a subprocess and return its normalized records. Raises on any failure."""
     for var in entry.get("needs", []):
         if not os.environ.get(var):
             raise RuntimeError(f"missing ${var}")
     out = Path(tmpdir) / f"{entry['source']}.json"
-    args = [a.format(days=days) for a in entry["args"]]
+    args = [a.format(days=fetch_window(entry, days, far_days)) for a in entry["args"]]
     cmd = [sys.executable, str(REPO / "scripts" / entry["script"]), *args, "-o", str(out)]
     proc = subprocess.run(cmd, capture_output=True, timeout=120, cwd=str(REPO), text=True)
     if proc.returncode != 0:
@@ -77,7 +86,7 @@ def run_fetcher(entry: dict, days: int, tmpdir: str) -> list:
     return [P.normalize_record(r, entry["source"]) for r in records]
 
 
-def fetch_all(selected: set, days: int) -> tuple:
+def fetch_all(selected: set, days: int, far_days: int = None) -> tuple:
     """Run the configured fetchers, collecting normalized records. Returns (incoming, report)."""
     report = {"ok": [], "failed": [], "skipped": []}
     incoming = []
@@ -87,7 +96,7 @@ def fetch_all(selected: set, days: int) -> tuple:
                 report["skipped"].append(e["source"])
                 continue
             try:
-                recs = run_fetcher(e, days, tmp)
+                recs = run_fetcher(e, days, tmp, far_days)
                 incoming.extend(recs)
                 report["ok"].append((e["source"], len(recs)))
             except Exception as ex:  # degrade gracefully — never block the run
@@ -121,7 +130,10 @@ def main() -> int:
     ap.add_argument("--candidates", default="data/candidates.json")
     ap.add_argument("--no-fetch", action="store_true", help="skip fetching; pipeline-only re-run")
     ap.add_argument("--sources", default="", help="comma list to fetch a subset (default: all)")
-    ap.add_argument("--days", type=int, default=21, help="fetch window passed to fetchers")
+    ap.add_argument("--days", type=int, default=21, help="near fetch window passed to fetchers")
+    ap.add_argument("--far-days", type=int, default=None,
+                    help="wide plan-ahead horizon (days) for far-capable sources (Ticketmaster); near "
+                         "sources keep --days. Two-speed fetch: full-fidelity near, deterministic radar far.")
     ap.add_argument("--window", type=int, default=None, help="candidate window in days (default: all upcoming)")
     ap.add_argument("--top", type=int, default=40, help="candidate set size for enrichment")
     ap.add_argument("--images", type=int, default=10, help="how many top candidates are flagged image_wanted")
@@ -137,12 +149,15 @@ def main() -> int:
     catalog = json.loads(cat_path.read_text()) if cat_path.exists() else []
     taste, profile = load_taste(), load_profile()
     today = P.today_la()
+    # Snapshot the volatile-field state BEFORE the fetch so we can report exactly what this run
+    # added vs. updated (price/time/lineup/status moves) — the "what changed, and when" signal.
+    old_index = P.content_index(catalog)
 
     report = {"ok": [], "failed": [], "skipped": []}
     incoming = []
     if not args.no_fetch:
         selected = {s.strip() for s in args.sources.split(",") if s.strip()}
-        incoming, report = fetch_all(selected, args.days)
+        incoming, report = fetch_all(selected, args.days, args.far_days)
         incoming = [r for r in incoming if r.get("title") and r.get("date")]
 
     # Always dedupe (idempotent) — collapses incoming AND any pre-existing catalog dupes.
@@ -155,12 +170,25 @@ def main() -> int:
     # record — recomputed each run, so re-tagging only needs a --no-fetch pass (lib/tagging.py).
     # Runs AFTER normalize_locations so the region tag reflects the canonicalized neighborhood.
     tag_catalog(catalog, profile)
+    # Ghost sweep: events still future-dated but dropped from ALL their (successfully re-fetched)
+    # sources get status:"unlisted" so they stop being recommended (score_pool drops them). Skipped
+    # on --no-fetch (no fetched sources → no-op), so a pipeline-only re-run never ghosts anything.
+    # NB: ghost-detection horizon stays the NEAR window (args.days), never --far-days. Far-horizon
+    # plan-ahead events legitimately come and go from feeds (a venue hasn't listed November yet),
+    # so judging their absence beyond the near window would false-flag them as unlisted.
+    fetched_ok = {s for s, _ in report.get("ok", [])}
+    stale_n = P.flag_stale(catalog, fetched_ok, today, horizon_days=args.days)
+    # What moved since last run: stamps updated_at/changed_fields on changed records, returns the
+    # {added, updated, changes} summary (must run AFTER tagging + flag_stale so the record is final).
+    delta = P.diff_catalog(old_index, catalog, today)
     cat_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
 
     # Stamp the catalog version (the dashboard staleness check keys off this). Lives beside the
     # catalog; build_dashboard reads it to tag each feed with the version it was built against.
+    # `content_version` moves on price/time/lineup changes too (not just adds/drops); `delta`
+    # carries this run's added/updated counts + a sample of what changed for the digest line.
     meta_path = cat_path.parent / "catalog_meta.json"
-    cat_meta = CM.write_meta(meta_path, catalog)
+    cat_meta = CM.write_meta(meta_path, catalog, delta)
 
     affinity = load_affinity_layer(args.no_fetch, report, profile)
     candidates = P.select_candidates(catalog, taste, profile, today,
@@ -191,8 +219,8 @@ def main() -> int:
     ep_path.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")
 
     # Run report.
-    print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}) "
-          f"(+{stats['added']} new, {stats['merged']} merged, {expired} expired) "
+    print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}/c{cat_meta['content_version']}) "
+          f"(+{delta['added']} new, {delta['updated']} updated, {stale_n} unlisted, {stats['merged']} merged, {expired} expired) "
           f"-> {len(candidates)} candidates ({cand_doc['image_wanted']} need images), "
           f"{len(judge)} to judge")
     if report["ok"]:
@@ -201,6 +229,9 @@ def main() -> int:
         print("  failed: ", ", ".join(f"{s} ({e})" for s, e in report["failed"]))
     if report["skipped"]:
         print("  skipped:", ", ".join(report["skipped"]))
+    if args.far_days:
+        far_srcs = ", ".join(e["source"] for e in FETCHERS if e.get("far"))
+        print(f"  far horizon: {args.far_days}d for {far_srcs} (near {args.days}d for the rest)")
     if affinity:
         print(f"  music layer ({affinity.get('source', 'spotify')}): "
               f"{len(affinity.get('artists', {}))} artists, {len(affinity.get('genres', {}))} genres")

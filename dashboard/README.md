@@ -96,6 +96,23 @@ Each profile also gets its own **personalized digest** (the daily routine writes
 from their feed; the popup's "digest ↗" shows it). Until the routine has run for a new profile, the page
 shows a "ranked picks are live in the table" placeholder.
 
+## Guide & "What's new" (friend onboarding)
+
+The **"? how it works"** chip next to the header title opens a two-tab modal: **How it works** (a
+plain-language tour — the table, rank-vs-score, the concierge, signing in, tuning taste, installing the
+PWA) and **What's new** (a short changelog of friend-facing features). Both are authored as Markdown
+strings in `index.html` (`GUIDE_HOW` / `GUIDE_NEW`) and rendered through the same `renderMarkdown` the
+digest modal uses, so they match its look exactly — no new styling.
+
+**Surfacing, two tiers (the gate is `localStorage['la-guide-seen']` vs the `GUIDE_VERSION` constant):**
+- A **true first-timer** (no stored version) gets *How it works* auto-opened once — light onboarding.
+- A **returning visitor** with a stale version is *not* interrupted: a subtle blue dot appears on the
+  "? how it works" chip, and the footer's **last site update** date becomes a link (both open *What's new*).
+  The dot/link clear once they open the guide (`la-guide-seen` is rewritten to the current version).
+
+**When you ship a friend-facing change, add a bullet to `GUIDE_NEW` and bump `GUIDE_VERSION`** — that lights
+the dot (and re-links "last site update") for everyone on their next visit, without popping a modal at them.
+
 ## Use it
 
 ```bash

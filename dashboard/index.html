@@ -100,6 +100,7 @@
       <div>
         <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
           <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">curated digest for <span onClick="{{ openDigest }}" title="Open this curated digest" style="color:#76746b; cursor:pointer;" style-hover="color:#161512;">{{ digestUser }} <span style="font-size:0.72em;">↗</span></span></sc-if><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">curated digests for {{ digestUser }}</sc-if></span></span>
+          <span onClick="{{ openGuide }}" title="How the site works + what's new" style="align-self:center; cursor:pointer; display:inline-flex; align-items:center; gap:5px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em; color:#a7a59b; border:1px solid #d9d7cf; border-radius:2px; padding:5px 8px;" style-hover="color:#161512; border-color:#a7a59b;"><span style="font-size:11px; line-height:1;">?</span> how it works<sc-if value="{{ guideUnseen }}" hint-placeholder-val="{{ false }}"><span title="New since your last visit" style="flex:none; width:5px; height:5px; border-radius:50%; background:#2b5cd9;"></span></sc-if></span>
         </div>
         <div style="margin-top:5px; font:500 11px/1.6 ui-monospace,Menlo,monospace; color:#76746b; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
           <span style="display:inline-flex; align-items:center; gap:6px;">
@@ -449,7 +450,8 @@
                 <sc-if value="{{ showBottomPull }}" hint-placeholder-val="{{ true }}">
                   <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last data pull</span><span style="color:#76746b;">{{ lastDataPull }}</span></div>
                 </sc-if>
-                <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last site update</span><span style="color:#76746b;">{{ lastSiteUpdate }}</span></div>
+                <div onClick="{{ showChanges }}" title="What moved on the last pull — lineups, prices, times (tap to see)" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:{{ changeCursor }};"><span>what changed</span><span style="color:{{ lastChangeColor }};">{{ lastChangeLabel }}</span></div>
+                <div onClick="{{ openWhatsNew }}" title="See what's new on the site" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>last site update</span><span style="color:#2b5cd9;">{{ lastSiteUpdate }} ↗</span></div>
               </div>
             </div>
           </sc-if>
@@ -506,6 +508,23 @@
     </div>
   </sc-if>
 
+  <!-- ===================== GUIDE / WHAT'S NEW ===================== -->
+  <sc-if value="{{ guideOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
+      <div onClick="{{ closeGuide }}" style="position:absolute; inset:0;"></div>
+      <div style="position:relative; z-index:1; width:100%; max-width:680px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:11px 14px 11px 18px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:3px 3px 0 0;">
+          <div style="display:inline-flex; gap:6px;">
+            <span onClick="{{ guideTabHow }}" style="cursor:pointer; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:7px 12px; border:1px solid {{ guideHowBorder }}; background: {{ guideHowBg }}; color: {{ guideHowColor }}; border-radius:2px;">HOW IT WORKS</span>
+            <span onClick="{{ guideTabNew }}" style="cursor:pointer; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:7px 12px; border:1px solid {{ guideNewBorder }}; background: {{ guideNewBg }}; color: {{ guideNewColor }}; border-radius:2px;">WHAT'S NEW</span>
+          </div>
+          <button onClick="{{ closeGuide }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+        </div>
+        <div class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 28px;">{{ guideBody }}</div>
+      </div>
+    </div>
+  </sc-if>
+
   <!-- ===================== SPOTIFY STATUS ===================== -->
   <sc-if value="{{ spotifyModalOpen }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
@@ -553,6 +572,17 @@
           <input id="la-api-key-input" value="{{ apiKeyInput }}" onChange="{{ onApiKeyInput }}" onKeyDown="{{ onTokenKey }}" type="password" placeholder="sk-ant-…" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:400 12px/1.4 ui-monospace,Menlo,monospace; color:#1b1a17;" />
         </span>
         <div style="margin-top:6px; font:500 9.5px/1.45 ui-monospace,Menlo,monospace; color:#a7a59b;">When ON, your key pays for every message. Stored only in this browser. If it errors or hits a limit, switch it OFF to fall back to the token.</div>
+
+        <div style="margin-top:11px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
+          <span style="font:600 11px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Use Opus <span style="font-weight:500; color:#a7a59b;">(sharper, slower)</span></span>
+          <span style="display:inline-flex; align-items:center; gap:7px;">
+            <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">{{ opusTogLabel }}</span>
+            <span onClick="{{ toggleUseOpusDraft }}" title="On = run the concierge on Opus — only applies when your own key is ON (Opus runs on your key)" style="position:relative; flex:none; width:32px; height:18px; border-radius:9px; background:{{ opusTogTrackBg }}; cursor:pointer; transition:background .15s;">
+              <span style="position:absolute; top:1px; left:1px; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.3); transform:translateX({{ opusTogKnobX }}); transition:transform .15s;"></span>
+            </span>
+          </span>
+        </div>
+        <div style="margin-top:6px; font:500 9.5px/1.45 ui-monospace,Menlo,monospace; color:#a7a59b;">Only applies when your own key is ON — Opus runs on your key. Otherwise the concierge uses the default model.</div>
 
         <div style="margin-top:14px; font:600 11px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Shared access token <span style="font-weight:500; color:#a7a59b;">(from Ari)</span></div>
         <span style="margin-top:7px; display:flex; align-items:center; gap:6px; padding:8px 10px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
@@ -673,13 +703,14 @@ class Component extends DCLogic {
     colFilters: { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} }, openFilter: null,
     search: '', digestPrevState: null,
     settingsOpen: false, toast: null, connectModalOpen: false, tokenInput: '',
-    apiKeyInput: '', apiEnabledDraft: false,   // drafts for the connection modal (key + on/off switch)
+    apiKeyInput: '', apiEnabledDraft: false, useOpusDraft: false,   // drafts for the connection modal (key + on/off switch + Opus)
     input: '',
     chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
     backendStatus: null,
     profileOpen: false,
     tasteModalOpen: false,
     spotifyModalOpen: false,
+    guideOpen: false, guideTab: 'how', guideUnseen: false,
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
     profileError: '',
@@ -1104,8 +1135,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .replace(/\*(.+?)\*/g, '<em style="color:#76746b; font-style:normal; font:600 11px ui-monospace,Menlo,monospace; letter-spacing:0.02em;">$1</em>')
       .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:#1b1a17; text-decoration:underline; text-underline-offset:2px;">$1</a>');
   }
-  renderDigestHtml() {
-    const lines = this.DIGEST_MD.split('\n');
+  renderDigestHtml() { return this.renderMarkdown(this.DIGEST_MD || ''); }
+  // Shared Markdown → styled HTML — used by the digest modal AND the guide / what's-new modal.
+  // Supports #/## headings, "- " bullets (with indented wrapped continuations), `---` rules, and
+  // the inlineMd spans (bold / code / links). Keeps both surfaces visually identical.
+  renderMarkdown(md) {
+    const lines = String(md || '').split('\n');
     let html = '';
     let items = null;   // array of <li> inner-HTML while inside a bullet list (else null)
     const flush = () => {
@@ -1168,6 +1203,81 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   }
   openDigest = () => this.setState({ digestModalOpen: true, digestMenuOpen: false, digestEmailOpen: false });
   closeDigest = () => this.setState({ digestModalOpen: false, digestMenuOpen: false, digestEmailOpen: false });
+
+  // ---------- Guide / What's-new modal ----------
+  // Bump GUIDE_VERSION whenever the content below changes to re-surface "What's new" to everyone
+  // (it auto-opens once per device per version — see componentDidMount).
+  GUIDE_VERSION = '2026-06-23';
+  GUIDE_HOW = [
+    "# How it works",
+    "",
+    "This is a **taste-ranked digest of what's happening in LA** — electronic, live music, comedy, film, theater, food and arts. Every event is scored against a taste profile, so the best ones float to the top with a one-line reason. It's a curated read, not a full calendar dump.",
+    "",
+    "## Find something to do",
+    "",
+    "- **Click any row** in the table to expand it — you'll see why it's ranked, the full lineup, ticket links, and an **Add to calendar** button.",
+    "- **Sort** by tapping the `DATE`, `EVENT` or `NEIGHBORHOOD` column headers.",
+    "- **Filter** with the small filter icon (the stacked bars) in a column header: click a value to keep it, click again to hide it, once more to clear. Works for neighborhood, category, genre and source.",
+    "- **Search** the whole catalog from the box at the top right, and set a **date range** by clicking the dates in the header — or pick a preset like `this weekend`.",
+    "",
+    "## Rank vs. score",
+    "",
+    "The right-hand column shows two things. The **score** (with the little bar) is the transparent taste-match — pure, deterministic, the same math behind the digest. The **rank** (the `#`) is the final running order after a light editorial pass nudges a few picks up or down. Sort by either.",
+    "",
+    "## Ask the concierge",
+    "",
+    "The panel on the left is your **concierge**. Talk to it like a friend who knows the city:",
+    "",
+    "- `free shows this weekend`",
+    "- `something chill and walkable tonight, no techno`",
+    "- `plan my Saturday — dinner then a show`",
+    "",
+    "It replies in plain language and **filters the table** to match. Two modes toggle in its header: **Concierge** is the full conversational AI; **Fast filter** is an instant, offline keyword search that always works, even with no connection.",
+    "",
+    "## Open your digest",
+    "",
+    "Click your name in the header — **curated digest for <you> ↗** — for a written rundown: the top picks with a sentence each, grouped by day. It refreshes as new events come in.",
+    "",
+    "## Sign in — make it yours",
+    "",
+    "Tap the **⚷** key icon in the bottom-right corner and type your **username** to load your own taste profile, your ranking, and your personal digest. It's remembered on this device; **log out** returns to the default view. No username yet? Ask Ari.",
+    "",
+    "Once you're signed in, the same icon becomes your **☰ settings** menu:",
+    "",
+    "- **Update my ranking & digest** — re-rank against the newest events (it lights up when there's fresh data to fold in).",
+    "- **Connect Spotify** — let your listening history shape the picks.",
+    "- **Claude API key** — optionally run the concierge on your own key.",
+    "- **View taste profile** — see the config behind your ranking.",
+    "",
+    "## Tune your taste",
+    "",
+    "You never edit settings by hand — just tell the concierge: `more techno, less comedy`, `track Peggy Gou`, or `I'm in Echo Park now`. It rewrites your profile and re-ranks you within a minute or two.",
+    "",
+    "## Install it",
+    "",
+    "It's an installable app. Choose **Add to Home Screen** in your browser and it opens full-screen, works offline, and stays one tap away."
+  ].join('\n');
+  GUIDE_NEW = [
+    "# What's new",
+    "",
+    "Recent upgrades to the site. Hit **how it works** up top any time for the full tour.",
+    "",
+    "## June 2026",
+    "",
+    "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you — open it from your name in the header.",
+    "- **A real concierge.** The left panel now holds a conversational concierge: ask for a vibe, a price, a neighborhood, or a whole night (`dinner then a show`) and it answers and filters the table. It falls back to an instant offline filter when it needs to.",
+    "- **Tune your taste by chatting.** Tell the concierge `more techno, less comedy` or `track Peggy Gou` and it rewrites your profile and re-ranks you — no config files to touch.",
+    "- **Connect Spotify.** Fold your listening history into your ranking so picks lean toward the artists and sounds you already play. (Settings → Spotify.)",
+    "- **Bring your own Claude key.** Optionally run the concierge on your own API key, with an on/off switch and an Opus toggle. (Settings → Claude API key.)",
+    "- **Rank ⇄ score.** Every event now shows both its transparent taste **score** and its final **rank** after the editorial pass — sortable by either.",
+    "- **Fresh-data nudge.** When new events land, **Update my ranking & digest** lights up, and a `what changed` readout tells you what moved — lineups, prices, set times — on the last pull.",
+    "- **Add to calendar.** Every event's detail row has a one-click **Add to calendar** (.ics) export."
+  ].join('\n');
+  _markGuideSeen = () => { try { localStorage.setItem('la-guide-seen', this.GUIDE_VERSION); } catch (e) {} this.setState({ guideUnseen: false }); };
+  openWhatsNew = () => this.openGuide('new');
+  openGuide = (tab) => { this._markGuideSeen(); this.setState({ guideOpen: true, guideTab: tab || 'how', settingsOpen: false }); };
+  closeGuide = () => this.setState({ guideOpen: false });
+  setGuideTab = (t) => this.setState({ guideTab: t });
 
   // ---------- digest modal toolbar (download / email) ----------
   downloadDigest = () => {
@@ -1242,6 +1352,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // live key errors/limits, the user flips it OFF and the token takes over. See backend/concierge-worker.js.
   rawClaudeKey = () => { try { return ((typeof localStorage !== 'undefined' && localStorage.getItem('la-claude-api-key')) || '').trim(); } catch (e) { return ''; } };
   apiEnabled = () => { try { return (typeof localStorage !== 'undefined') && localStorage.getItem('la-claude-api-enabled') === '1'; } catch (e) { return false; } };
+  // Opus upgrade for the concierge chat — only honored by the Worker for a BYOK caller (their spend).
+  useOpus = () => { try { return (typeof localStorage !== 'undefined') && localStorage.getItem('la-claude-use-opus') === '1'; } catch (e) { return false; } };
   // The key actually sent on a request: only when switched ON *and* present. Empty -> the token is used.
   byokKey = () => { const k = this.rawClaudeKey(); return (this.apiEnabled() && k) ? k : ''; };
   logoutFromSettings = () => this.logoutProfile();
@@ -1289,13 +1401,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // it's both the editor and the "which API am I on / how do I connect" surface.
   connectBackend = () => {
     this.setState({ connectModalOpen: true, settingsOpen: false,
-      apiKeyInput: this.rawClaudeKey(), apiEnabledDraft: this.apiEnabled(), tokenInput: this.BACKEND_TOKEN || '' });
+      apiKeyInput: this.rawClaudeKey(), apiEnabledDraft: this.apiEnabled(), useOpusDraft: this.useOpus(), tokenInput: this.BACKEND_TOKEN || '' });
     setTimeout(() => { const el = document.getElementById('la-api-key-input'); if (el) el.focus(); }, 30);
   };
   closeConnectModal = () => this.setState({ connectModalOpen: false });
   onApiKeyInput = (e) => this.setState({ apiKeyInput: e.target.value });
   onTokenInput = (e) => this.setState({ tokenInput: e.target.value });
   toggleApiEnabledDraft = () => this.setState({ apiEnabledDraft: !this.state.apiEnabledDraft });
+  toggleUseOpusDraft = () => this.setState({ useOpusDraft: !this.state.useOpusDraft });
   onTokenKey = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.saveApiSettings(); } };
   // Save all three at once (key, switch, token); persist to this browser; re-check the connection.
   saveApiSettings = () => {
@@ -1306,6 +1419,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     try {
       key ? localStorage.setItem('la-claude-api-key', key) : localStorage.removeItem('la-claude-api-key');
       enabled ? localStorage.setItem('la-claude-api-enabled', '1') : localStorage.removeItem('la-claude-api-enabled');
+      this.state.useOpusDraft ? localStorage.setItem('la-claude-use-opus', '1') : localStorage.removeItem('la-claude-use-opus');
       tok ? localStorage.setItem('la-concierge-token', tok) : localStorage.removeItem('la-concierge-token');
     } catch (e) {}
     this.BACKEND_TOKEN = tok;
@@ -1322,6 +1436,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
     const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // BYOK: your key pays for this request
     const body = { messages: history };
+    if (key && this.useOpus()) body.model = 'opus';   // BYOK only: upgrade the executor to Opus on your spend
     const p = this.state.profile;
     if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
     this._abort = new AbortController();       // so the user can stop a slow reply
@@ -1445,6 +1560,21 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .then(j => { this.LIVE_CATALOG = (j && j.version) ? j : null; this.forceUpdate(); })
       .catch(() => { this.LIVE_CATALOG = null; this.forceUpdate(); });
   };
+  // Itemize what moved on the last pull — the tap target on the "what changed" readout. Reads the
+  // bounded `changes` list catalog_meta publishes ({title, fields}); keeps it to one short toast.
+  showChanges = () => {
+    const lc = this.LIVE_CATALOG || {};
+    const ch = lc.changes || [];
+    const added = +lc.added || 0;
+    if (!ch.length) {
+      this.flashToast(added
+        ? (added + ' new event' + (added > 1 ? 's' : '') + ' on the last pull; no itemized detail recorded.')
+        : 'No event details changed on the last pull.');
+      return;
+    }
+    const lines = ch.slice(0, 6).map(c => (c.title || 'an event') + (c.fields && c.fields.length ? ' (' + c.fields.join(', ') + ')' : ''));
+    this.flashToast('Updated since last pull — ' + lines.join('; ') + (ch.length > 6 ? ' +' + (ch.length - 6) + ' more' : ''));
+  };
   // mm:ss since a job started, for the in-button progress readout.
   fmtElapsed(since) {
     if (!since) return '';
@@ -1467,7 +1597,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   refreshEvents = async () => {
     if (this.state.refreshBusy) return;
     if (!this.BACKEND_URL) { this.flashToast('Connect the concierge backend first (chat → connect).'); return; }
-    let base = (this.LIVE_CATALOG && this.LIVE_CATALOG.version) || null;
+    let baseFetched = (this.LIVE_CATALOG && this.LIVE_CATALOG.fetched_at) || null;
+    let baseV = (this.LIVE_CATALOG && (this.LIVE_CATALOG.content_version || this.LIVE_CATALOG.version)) || null;
     this.setState({ refreshBusy: true, refreshStartedAt: Date.now() });
     this.startJobTick();
     try {
@@ -1475,20 +1606,31 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
       const res = await fetch(this.workerUrl('/refresh-events'), { method: 'POST', headers, body: JSON.stringify({}) });
       if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setState({ refreshBusy: false }); return; }
+      if (res.status === 429) { this.flashToast('Just refreshed a moment ago — the database is already current.'); this.setState({ refreshBusy: false }); return; }
       if (!res.ok) { this.flashToast('Refresh failed (' + res.status + ') — is the Worker redeployed with GITHUB_TOKEN?'); this.setState({ refreshBusy: false }); return; }
       this.flashToast('Refreshing events from sources — rebuilding the database (~2–3 min).');
     } catch (e) { this.flashToast('Could not reach the backend to refresh.'); this.setState({ refreshBusy: false }); return; }
-    // Poll the published catalog version; when it changes, the run finished + deployed.
+    // Completion keys off `fetched_at`, not the version: a refresh ALWAYS republishes catalog_meta
+    // with a newer fetched_at (even when nothing changed), whereas content_version only moves when
+    // something actually did — keying on the version was the old "button spins to the cap on a
+    // no-change refresh" bug. Once it lands, the version tells us whether to say "updated" or not.
     let n = 0; clearInterval(this._refreshPoll);
     this._refreshPoll = setInterval(async () => {
       await this.checkCatalogFreshness();
-      const v = this.LIVE_CATALOG && this.LIVE_CATALOG.version;
-      if (base == null && v) base = v;                      // establish baseline if we lacked one
-      const done = v && base && v !== base;
-      if (done || ++n > 40) {                                // ~10 min cap
+      const lc = this.LIVE_CATALOG || {};
+      const fetched = lc.fetched_at || null;
+      if (baseFetched == null && fetched) baseFetched = fetched;   // establish baseline if we lacked one
+      const done = fetched && baseFetched && fetched !== baseFetched;
+      if (done || ++n > 40) {                                       // ~10 min cap
         clearInterval(this._refreshPoll);
         this.setState({ refreshBusy: false });
-        if (done) this.flashToast('Events database updated — tap “Update my ranking & digest” to refresh your picks.');
+        if (done) {
+          const v = lc.content_version || lc.version || null;
+          const changed = v && baseV && v !== baseV;
+          this.flashToast(changed
+            ? 'Events database updated — tap “Update my ranking & digest” to refresh your picks.'
+            : 'Refreshed — no new or changed events right now.');
+        }
       }
     }, 15000);
   };
@@ -1529,10 +1671,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // no catalog_version predates versioning (or was never rebuilt since) — treat it as behind so the
   // user can rebuild and get a stamped feed (otherwise the button could never enable).
   isFeedStale() {
-    const live = this.LIVE_CATALOG && this.LIVE_CATALOG.version;
-    if (!live) return false;                       // no live info → don't nag
-    const feed = this.META && this.META.catalog_version;
-    return feed !== live;                           // missing or different → stale
+    const live = this.LIVE_CATALOG;
+    if (!live || !(live.content_version || live.version)) return false;   // no live info → don't nag
+    // Prefer content_version so a price/lineup/time move counts as stale too (Q1 default); fall
+    // back to the identity version for a feed built before content_version existed — it reads stale
+    // once, prompting a single rebuild that stamps the content version and brings it back in sync.
+    const liveV = live.content_version || live.version;
+    const feedV = this.META && (this.META.catalog_content_version || this.META.catalog_version);
+    return feedV !== liveV;                          // missing or different → stale
   }
   // A concierge taste/profile edit re-ranks the feed (build-profiles CI) but does NOT regenerate the
   // LLM digest — so we flag the profile "dirty" until an Update (which re-runs editor + digest with
@@ -2037,14 +2183,28 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
     else if (ds === 'score') this.setState({ sortKey: 'score', sortDir: 'desc' });
     else if (ds === 'rank') this.setState({ sortKey: 'rank', sortDir: 'asc' });
-    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); } };
+    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); } };
     window.addEventListener('keydown', this._onKeyDown);
     this.loadCatalog();
     this.loadDigest();
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
+    // Onboarding vs. the subtle dot: a true first-timer (no stored version) gets the guide opened
+    // once to "How it works". A returning visitor with a stale version is NOT interrupted — the
+    // unseen dot on the header chip + the "last site update" link carry them to What's new instead.
+    try {
+      const seen = localStorage.getItem('la-guide-seen');
+      this.setState({ guideUnseen: seen !== this.GUIDE_VERSION });
+      if (!seen) {
+        this._guideTimer = setTimeout(() => {
+          if (this.state.guideOpen) return;   // user opened it manually in the meantime
+          this._markGuideSeen();
+          this.setState({ guideOpen: true, guideTab: 'how' });
+        }, 700);
+      }
+    } catch (e) {}
   }
-  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); }
+  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); clearTimeout(this._guideTimer); }
 
   // ---------- render ----------
   renderVals() {
@@ -2167,6 +2327,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const apiTogTrackBg = apiTogOn ? '#1f9d57' : '#d2d0c7';
     const apiTogKnobX = apiTogOn ? '15px' : '1px';
     const apiTogLabel = apiTogOn ? 'ON' : 'OFF';
+    const opusTogOn = !!this.state.useOpusDraft;
+    const opusTogTrackBg = opusTogOn ? '#7c5cff' : '#d2d0c7';
+    const opusTogKnobX = opusTogOn ? '15px' : '1px';
+    const opusTogLabel = opusTogOn ? 'ON' : 'OFF';
 
     const profile = this.state.profile;
     const profileActive = !!(profile && profile.hash);
@@ -2196,6 +2360,17 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const liveCatalog = this.LIVE_CATALOG || null;
     const lastDataPull = this.fmtStamp((liveCatalog && liveCatalog.fetched_at) || (this.META && this.META.generated_at) || null);
     const lastSiteUpdate = (typeof document !== 'undefined' && document.lastModified) ? this.fmtStamp(new Date(document.lastModified)) : '—';   // HTML deploy time
+    // What moved on the last pull (Q1: an at-a-glance way to know/check if lineups/prices/times
+    // changed). From catalog_meta's run delta; tap the row for the itemized list (showChanges).
+    const liveAdded = (liveCatalog && +liveCatalog.added) || 0;
+    const liveUpdated = (liveCatalog && +liveCatalog.updated) || 0;
+    const hasChangeInfo = !!(liveCatalog && (liveCatalog.added !== undefined || liveCatalog.updated !== undefined));
+    const lastChangeLabel = !hasChangeInfo ? '—'
+      : (liveAdded || liveUpdated)
+        ? [liveAdded ? liveAdded + ' new' : '', liveUpdated ? liveUpdated + ' updated' : ''].filter(Boolean).join(' · ')
+        : 'no changes';
+    const lastChangeColor = (liveAdded || liveUpdated) ? '#1f7a4d' : '#76746b';
+    const changeCursor = (liveCatalog && (liveCatalog.changes || []).length) ? 'pointer' : 'default';
     const claudeKeyState = !rawKey ? 'not set · uses the shared token'
       : (keyOn ? ('on · ' + rawKey.slice(0, 11) + '…') : 'saved · switched off');
     // Catalog freshness: is this profile's ranking/digest behind the live events DB?
@@ -2269,6 +2444,17 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       openDigest: this.openDigest, closeDigest: this.closeDigest,
       tasteModalOpen: !!this.state.tasteModalOpen,
       openTasteModal: this.openTasteModal, closeTasteModal: this.closeTasteModal,
+      guideOpen: !!this.state.guideOpen,
+      openGuide: () => this.openGuide('how'), openWhatsNew: this.openWhatsNew, closeGuide: this.closeGuide,
+      guideUnseen: !!this.state.guideUnseen,
+      guideTabHow: () => this.setGuideTab('how'), guideTabNew: () => this.setGuideTab('new'),
+      guideHowBg: this.state.guideTab !== 'new' ? '#1b1a17' : '#fff',
+      guideHowColor: this.state.guideTab !== 'new' ? '#fff' : '#76746b',
+      guideHowBorder: this.state.guideTab !== 'new' ? '#1b1a17' : '#d2d0c7',
+      guideNewBg: this.state.guideTab === 'new' ? '#1b1a17' : '#fff',
+      guideNewColor: this.state.guideTab === 'new' ? '#fff' : '#76746b',
+      guideNewBorder: this.state.guideTab === 'new' ? '#1b1a17' : '#d2d0c7',
+      guideBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.state.guideTab === 'new' ? this.GUIDE_NEW : this.GUIDE_HOW) } }),
       digestFile: this.DIGEST_FILE, digestUser,
       downloadDigest: this.downloadDigest,
       digestEmailOpen: !!this.state.digestEmailOpen, toggleEmailDigest: this.toggleEmailDigest,
@@ -2280,6 +2466,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, closeSettings: this.closeSettings,
       settingsTitle: loggedOut ? 'Log in' : 'Settings',
       loggedOut, lastDataPull, lastSiteUpdate, claudeKeyState,
+      lastChangeLabel, lastChangeColor, changeCursor, showChanges: this.showChanges,
       isOwner, feedStale, updateBusy, refreshBusy, updateStatus, updateActive, liveDataPull,
       showUpdateBar: updateBusy, showRefreshBar: refreshBusy,
       refreshEvents: this.refreshEvents, updateMyDigest: this.updateMyDigest,
@@ -2302,6 +2489,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       apiKeyInput: this.state.apiKeyInput || '', onApiKeyInput: this.onApiKeyInput,
       toggleApiEnabledDraft: this.toggleApiEnabledDraft, openApiModal: this.connectBackend,
       apiTogTrackBg, apiTogKnobX, apiTogLabel, apiStatusLine, apiStatusColor,
+      opusTogTrackBg, opusTogKnobX, opusTogLabel, toggleUseOpusDraft: this.toggleUseOpusDraft,
       saveApiSettings: this.saveApiSettings, backendHost,
       dataSourceLabel: this.state.dataSource === 'live' ? 'live · data.json' : 'bundled sample',
       toast: this.state.toast, hasToast: !!this.state.toast,

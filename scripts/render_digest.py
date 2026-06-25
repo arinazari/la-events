@@ -29,6 +29,7 @@ from lib.feedback import merged_affinity  # noqa: E402
 from lib.pipeline import score_pool, today_la  # noqa: E402
 from lib.assemble import assemble  # noqa: E402
 from lib import editor as ED  # noqa: E402
+from lib import catalog_meta as CM  # noqa: E402
 from posh_token_status import evaluate as posh_evaluate  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
@@ -129,6 +130,37 @@ def _link(ev: dict):
 
 
 ASSET_PREFIX = ""   # prepended to cached image paths (set by main; for hosted serving)
+FETCH_REF = ""      # the latest catalog fetch date (YYYY-MM-DD); events first_seen/updated on or
+                    # after it are flagged 🆕 new / ↻ updated in the digest (set by main from meta)
+
+
+def freshness_line(meta: dict, today_iso: str) -> str:
+    """One human line stating WHEN the catalog was last pulled and WHAT moved — shown in every
+    digest so it's always clear what changed or didn't (Q2). Sources the run delta from catalog_meta."""
+    ref = (meta.get("fetched_at") or "")[:10] or today_iso[:10]
+    when = day_label(ref) if ref else "recently"
+    added, updated = int(meta.get("added") or 0), int(meta.get("updated") or 0)
+    if added or updated:
+        bits = []
+        if added:
+            bits.append(f"{added} new")
+        if updated:
+            bits.append(f"{updated} updated")
+        return f"Updated {when} · {' · '.join(bits)} since the last pull · 🆕 new · ↻ updated"
+    return f"Checked {when} · no new or changed events since the last pull"
+
+
+def _is_new(ev: dict) -> bool:
+    fs = str(ev.get("first_seen") or "")[:10]
+    return bool(FETCH_REF and fs and fs >= FETCH_REF)
+
+
+def _updated_fields(ev: dict) -> list:
+    """The volatile fields that moved on the latest pull, for an event that isn't brand-new."""
+    ua = str(ev.get("updated_at") or "")[:10]
+    if _is_new(ev) or not FETCH_REF or not ua or ua < FETCH_REF:
+        return []
+    return ev.get("changed_fields") or ["details"]
 
 
 def _image_src(ev: dict):
@@ -210,10 +242,13 @@ def event_md(ev: dict) -> str:
     dates = ev.get("_dates") or []
     span = f" ({fmt_dates(dates)})" if len(dates) > 1 else ""
     pick = "⭐ " if _is_pick(ev) else ""
+    fresh = "🆕 " if _is_new(ev) else ""
+    upd = _updated_fields(ev)
+    upd_note = f"↻ updated ({', '.join(upd)})" if upd else ""
     title, url = ev.get("title") or "Untitled", _link(ev)
     head = f"[{title}]({url})" if url else title
-    tail = " · ".join(x for x in (_loc(ev), ev.get("price")) if x)
-    line = f"- `{time}`{span} {pick}**{head}**" + (f" — {tail}" if tail else "")
+    tail = " · ".join(x for x in (_loc(ev), ev.get("price"), upd_note) if x)
+    line = f"- `{time}`{span} {pick}{fresh}**{head}**" + (f" — {tail}" if tail else "")
     note = e.get("curator_note") or _gloss(ev)
     if note:
         line += f"  \n  {note}"
@@ -224,7 +259,8 @@ def render_markdown(doc: dict, cands: list) -> str:
     days = _by_day(cands)
     n = sum(len(v) for v in days.values())
     out = [f"# LA Events — {doc.get('today','')[:10]}",
-           f"*{n} picks across {len(days)} days · ⭐ = top pick · ranked for your taste*", ""]
+           f"*{n} picks across {len(days)} days · ⭐ = top pick · ranked for your taste*",
+           f"*{freshness_line(doc.get('meta') or {}, doc.get('today',''))}*", ""]
     for iso in sorted(days):
         out.append(f"## {day_header(iso)}")
         for label, evs in _day_groups(days[iso]):
@@ -243,7 +279,9 @@ CSS = """
 *{box-sizing:border-box}body{margin:0;background:#0e1014;color:#e8eaf0;
 font:15px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
 .wrap{max-width:660px;margin:0 auto;padding:30px 18px 56px}
-h1{font-size:22px;margin:0 0 3px;letter-spacing:-.01em}.sub{color:#878d9b;font-size:13px;margin:0 0 8px}
+h1{font-size:22px;margin:0 0 3px;letter-spacing:-.01em}.sub{color:#878d9b;font-size:13px;margin:0 0 2px}
+.fresh{color:#5bd6a0;font-size:12px;margin:0 0 10px}
+.newtag{font-size:10px;font-weight:700;color:#5bd6a0;border:1px solid #2c5c48;border-radius:999px;padding:1px 7px}
 .day{margin:30px 0 4px;padding-bottom:8px;border-bottom:1px solid #20242e}
 .day .dh{font-size:18px;font-weight:700}.day .dd{color:#7b8190;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
 .grp{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#878d9b;margin:16px 0 6px}
@@ -294,10 +332,14 @@ def event_html(ev: dict) -> str:
     r1 = [_chip(ev)]
     if pick:
         r1.append('<span class="picktag">⭐ PICK</span>')
+    if _is_new(ev):
+        r1.append('<span class="newtag">🆕 NEW</span>')
     body = [f'<div class="r1">{"".join(r1)}</div>', f'<div class="ti">{title_html}</div>']
     loc = _loc(ev)
-    if loc or ev.get("price"):
-        body.append(f'<div class="meta">{escape(" · ".join(x for x in (loc, ev.get("price")) if x))}</div>')
+    upd = _updated_fields(ev)
+    upd_note = f"↻ updated ({', '.join(upd)})" if upd else ""
+    if loc or ev.get("price") or upd_note:
+        body.append(f'<div class="meta">{escape(" · ".join(x for x in (loc, ev.get("price"), upd_note) if x))}</div>')
     note = e.get("curator_note")
     gloss = _gloss(ev)
     if note or gloss:
@@ -323,7 +365,8 @@ def render_html(doc: dict, cands: list) -> str:
              f'<style>{CSS}</style></head><body><div class="wrap">',
              f'<h1>LA Events</h1>',
              f'<p class="sub">{escape(doc.get("today","")[:10])} · {n} picks across {len(days)} days · '
-             f'<span style="color:#ffd166">⭐</span> top pick · ranked for your taste</p>']
+             f'<span style="color:#ffd166">⭐</span> top pick · ranked for your taste</p>',
+             f'<p class="fresh">{escape(freshness_line(doc.get("meta") or {}, doc.get("today","")))}</p>']
     for iso in sorted(days):
         parts.append(f'<div class="day"><div class="dh">{escape(day_header(iso))}</div></div>')
         for label, evs in _day_groups(days[iso]):
@@ -427,7 +470,8 @@ def _posh_banner_html(notice: dict) -> str:
 def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dict, notice=None) -> str:
     out = [f"# LA Events — {today_iso[:10]}",
            "*Your week ahead, the weekends after, and what's on the radar — "
-           "ranked for your taste · ⭐ = top pick*", ""]
+           "ranked for your taste · ⭐ = top pick*",
+           f"*{freshness_line(doc.get('meta') or {}, today_iso)}*", ""]
     if notice:
         out += [_posh_banner_md(notice), ""]
     for title, cands in sections:
@@ -484,7 +528,8 @@ def render_consolidated_html(today_iso: str, sections: list, radar: list, doc: d
              f'<style>{CSS}</style></head><body><div class="wrap">',
              '<h1>LA Events</h1>',
              f'<p class="sub">{escape(today_iso[:10])} · your week ahead, the weekends after, and '
-             f'what\'s on the radar · <span style="color:#ffd166">⭐</span> top pick</p>']
+             f'what\'s on the radar · <span style="color:#ffd166">⭐</span> top pick</p>',
+             f'<p class="fresh">{escape(freshness_line(doc.get("meta") or {}, today_iso))}</p>']
     if notice:
         parts.append(_posh_banner_html(notice))
     for title, cands in sections:
@@ -508,7 +553,7 @@ def render_consolidated_html(today_iso: str, sections: list, radar: list, doc: d
 
 
 def main() -> int:
-    global ASSET_PREFIX
+    global ASSET_PREFIX, FETCH_REF
     ap = argparse.ArgumentParser()
     ap.add_argument("--catalog", default="data/catalog.json")
     ap.add_argument("--candidates", default="data/candidates.json",
@@ -535,15 +580,18 @@ def main() -> int:
         return REPO / p if not Path(p).is_absolute() else Path(p)
 
     catalog = json.loads(resolve(args.catalog).read_text())
+    meta = CM.read_meta(resolve(args.catalog).parent / "catalog_meta.json")
     taste, profile = load_taste(args.taste), load_profile(args.profile)
     today = today_la()
+    # Events first_seen / updated on or after the latest fetch are flagged 🆕 / ↻ in the digest.
+    FETCH_REF = (meta.get("fetched_at") or "")[:10] or today.isoformat()
     affinity = merged_affinity(REPO, profile, profile_hash=args.profile_hash)
     vpath = resolve(args.verdicts) if args.verdicts else ED.verdict_path(args.profile_hash)
     verdicts = ED.verdict_map(ED.load_verdicts(vpath))
     cache = load_cache(resolve(args.enrichment))
 
     # Coverage footer: pull `sources` from candidates.json if present.
-    doc = {"today": today.isoformat()}
+    doc = {"today": today.isoformat(), "meta": meta}
     cpath = resolve(args.candidates)
     if cpath.exists():
         try:

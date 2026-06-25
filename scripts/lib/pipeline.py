@@ -10,6 +10,8 @@ from datetime import date, datetime, timedelta
 
 from .scoring import score_event, score_to_rating, parse_event_date
 from .dedupe import dedupe
+from .enrich import event_key
+from .catalog_meta import VOLATILE_FIELDS, _lineup_sig
 from . import geo
 
 try:
@@ -158,6 +160,83 @@ def expire_past(catalog: list, today: date = None) -> tuple:
     return kept, expired
 
 
+def _volatile_snapshot(ev: dict) -> dict:
+    """A compact view of the fields whose change means 'this event was updated' (not just re-seen).
+    Shares `_lineup_sig` with catalog_meta so the per-field diff can't drift from content_version."""
+    snap = {f: ("" if ev.get(f) is None else str(ev.get(f))) for f in VOLATILE_FIELDS if f != "lineup"}
+    snap["lineup"] = _lineup_sig(ev)
+    return snap
+
+
+def content_index(catalog: list) -> dict:
+    """Map event_key -> its volatile snapshot. Taken BEFORE a fetch/merge so the next diff_catalog
+    can tell genuinely-new and genuinely-changed events apart from merely re-seen ones."""
+    return {event_key(e): _volatile_snapshot(e) for e in (catalog or [])}
+
+
+def diff_catalog(old_index: dict, new_catalog: list, today: date = None) -> dict:
+    """Compare the merged catalog against the pre-fetch `content_index`. Stamps `updated_at` +
+    `changed_fields` on each record whose volatile fields moved, and returns the run's change
+    summary {added, updated, changes:[{title,date,venue,fields}]} — the data behind the digest's
+    "N new, M updated since <when>" line and the dashboard's "what changed" readout."""
+    t = (today or today_la()).isoformat()
+    added = updated = 0
+    changes = []
+    for ev in new_catalog:
+        prev = old_index.get(event_key(ev))
+        if prev is None:
+            added += 1
+            continue
+        snap = _volatile_snapshot(ev)
+        moved = [f for f in snap if snap[f] != prev.get(f, "")]
+        if moved:
+            updated += 1
+            ev["updated_at"] = t
+            ev["changed_fields"] = moved
+            changes.append({"title": ev.get("title"), "date": ev.get("date"),
+                            "venue": ev.get("venue"), "fields": moved})
+    return {"added": added, "updated": updated, "changes": changes}
+
+
+def flag_stale(catalog: list, fetched_sources, today: date = None, *,
+               horizon_days: int, grace_days: int = 2) -> int:
+    """Ghost detection: an event still future-dated but no longer listed by ANY of its sources is
+    probably cancelled / postponed / sold-through / pulled — stamp `status: "unlisted"` so it stops
+    being recommended (score_pool drops it) while staying in the catalog (it un-flags if it returns).
+
+    Conservative on purpose — only judges an event when we can: every one of its sources was fetched
+    OK this run (a source that failed/wasn't fetched tells us nothing), the event is inside the fetch
+    horizon (beyond it, absence is expected), and it's been unseen for `grace_days` (last_seen lag),
+    so a single source hiccup doesn't ghost the catalog. Returns the number newly flagged."""
+    today = today or today_la()
+    fetched = set(fetched_sources or [])
+    if not fetched:
+        return 0                              # no successful structured fetch → can't judge anything
+    horizon = today + timedelta(days=horizon_days)
+    flagged = 0
+    for ev in catalog:
+        d = parse_event_date(ev)
+        if d is None or d < today or d > horizon:
+            continue
+        srcs = set(ev.get("sources") or [])
+        if not srcs or not srcs.issubset(fetched):     # some source wasn't refreshed → don't judge
+            continue
+        ls = str(ev.get("last_seen") or "")[:10]
+        try:
+            seen = date.fromisoformat(ls) if ls else None
+        except ValueError:
+            seen = None
+        if seen is None:
+            continue
+        if (today - seen).days >= grace_days:
+            if ev.get("status") != "unlisted":
+                ev["status"] = "unlisted"
+                flagged += 1
+        elif ev.get("status") == "unlisted":           # re-listed since → clear the flag
+            ev.pop("status", None)
+    return flagged
+
+
 def normalize_locations(catalog: list, profile: dict = None) -> list:
     """Canonicalize each record's `neighborhood` in place (idempotent).
 
@@ -197,6 +276,8 @@ def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=N
 
     scored = []
     for ev in catalog:
+        if ev.get("status") == "unlisted":          # ghost (dropped from all its sources) — don't surface
+            continue
         v = score_view(ev, taste, profile, affinity)
         if not v["iso_date"] or v["iso_date"] < start:
             continue
