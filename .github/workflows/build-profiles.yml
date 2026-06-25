@@ -32,6 +32,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0      # build_profiles bakes a git diff of the taste/profile edit + a
+                              # reflected/pending flag into each feed; needs real history, not a shallow clone.
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
