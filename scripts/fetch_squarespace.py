@@ -36,6 +36,7 @@ SITES = {
     "Junior High":   ("https://juniorhighlosangeles.com/calendar", "Glendale", "live_music"),
     "Vibrato Grill Jazz": ("https://www.vibratogrilljazz.com/music", "Bel Air", "live_music"),
     "The Smell":     ("https://www.thesmell.org/events", "DTLA", "live_music"),
+    "The Circle OC": ("https://www.thecircleoc.com/upcoming-events", "Huntington Beach", "electronic"),
 }
 
 DATE_TITLE = re.compile(r"^(mon|tue|wed|thu|fri|sat|sun)", re.I)
