@@ -68,6 +68,11 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    taste + Ari's Spotify/feedback) AND every per-profile feed `dashboard/data.<hash>.json` (one per
    entry in `profiles.yaml`), each scored against **its own** music layer, so friends' feeds stay
    fresh as the catalog changes. Each feed folds in that profile's verdicts (`data/verdicts/<hash>.json`) → each event's verdict + **final rank** beside its score, and emits the profile's editor pool `data/editor_pool.<hash>.json`. To give friends the full editor treatment, judge those per profile (`event-editor` → `merge_verdicts.py --profile-hash <hash>`) and re-run build_profiles; otherwise their feeds rank deterministically against their own music and pick up verdicts next run.
+   Each feed also carries a `profile.self_edit` block (baked from git by `build_profiles`): a diff of
+   the concierge's taste/profile edits + whether they're **reflected** in that profile's latest committed
+   verdicts/narrative. The dashboard renders it (diff + reflected/pending badge); nothing to hand-edit
+   here. The flag is "as of this build" — a friend's same-day edit reads *pending* until their next
+   Update (the per-user rebuild re-bakes it to *reflected*) or the following night; that's expected.
 9. **Per-profile digests (regenerate only when picks moved — saves tokens, but always honest):**
    for each profile in `profiles.yaml`, first GATE on whether its picks actually changed:
    `python scripts/digest_gate.py decide --feed dashboard/data.<hash>.json --md digests/<hash>/latest.md`
