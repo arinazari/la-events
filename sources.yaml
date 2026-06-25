@@ -14,7 +14,7 @@
 # last_discovery: updated whenever Discover mode runs
 # ---------------------------------------------------------------------------
 
-last_discovery: 2026-06-19
+last_discovery: 2026-06-25
 
 sources:
 
@@ -290,6 +290,144 @@ sources:
       2026-06-25: 60 showtimes/3wk (70mm Disclosure Day, Odyssey 70mm 7/16). Use the NO-trailing-slash
       form (the /sessions/ slash variant hits Cloudflare __cf_bm → 0 bytes); real UA. siteToken is the
       durable key; same Veezi template as New Beverly (one fetcher, two tokens).
+
+  # ── Rep/arthouse cinema — Discover 2026-06-25 (source-scout; approved adds) ──
+  # All candidate. webfetch/scrape entries layer at digest (SKILL Step 2); none are Filmbot/
+  # clean-API except Lumiere (Veezi white-label — token recoverable to join fetch_veezi.py).
+  - name: LA Filmforum (@ 2220 Arts + Archives)
+    category: film
+    method: scrape
+    url: https://www.lafilmforum.org/schedule/
+    priority: 1
+    status: candidate
+    notes: >
+      LA's flagship experimental/avant-garde film series (50+ yrs), screens at 2220 Arts + Archives
+      (Historic Filipinotown — eastside-adjacent; we already pull 2220 for music via DICE). Verified
+      2026-06-25: /schedule/ is server-rendered HTML (dates+titles+venue in markup, real UA); no
+      JSON-LD / wp-json. Tickets via Eventbrite + DICE. Dedicated film series → whole slate on-taste
+      (no filtering). Scrape/WebFetch the schedule page at digest time.
+
+  - name: Philosophical Research Society (Los Feliz)
+    category: film
+    method: eventbrite
+    url: https://www.eventbrite.com/o/the-philosophical-research-society-14834044496
+    priority: 2
+    status: candidate
+    notes: >
+      EASTSIDE (Los Feliz Blvd nr Griffith Park — near home). Curated rare/experimental 16mm + lectures
+      (e.g. Ben Rivers MARE'S NEST, LA premiere 6/26/26 on 16mm). CAVEAT (verified 2026-06-25): the EB
+      organizer is WORKSHOP-DOMINATED (Death Cafe, Buddhist-practice, somatics) — do NOT add it to the
+      Eventbrite source's auto-fetch `organizers` list; it would inject off-taste rows. Instead capture
+      the occasional film screening individually: fetch_eventbrite.py --event <screening URL> when one
+      surfaces via a blast / flyer / RevivalHub.
+
+  - name: Cinespia (Hollywood Forever)
+    category: film
+    method: scrape
+    url: https://cinespia.org/
+    priority: 1   # SEASONAL — drop to 3 / status:flaky off-season (~Oct–Apr)
+    status: candidate
+    notes: >
+      Iconic outdoor rep on the Fairbanks Lawn, Hollywood Forever Cemetery. SEASONAL, peak now. Verified
+      2026-06-25: WordPress, server-rendered HTML, dated summer slate in markup (Pulp Fiction 7/11,
+      Rosemary's Baby 7/18, Edward Scissorhands 7/25, X + Pearl 8/15…). Tickets via TicketWeb → DEDUPE
+      CAVEAT: TicketWeb feeds the Ticketmaster Discovery API, so some dates likely also arrive via
+      fetch_ticketmaster.py (dmaId=324) — cross-check/merge on venue+date+title. Scrape adds the full
+      lineup + the experience framing TM rows lack.
+
+  - name: Academy Museum of Motion Pictures
+    category: film
+    method: webfetch
+    url: https://www.academymuseum.org/en/calendar
+    priority: 2
+    status: candidate
+    notes: >
+      Curated repertory + premieres + restorations, two theaters, near-daily ($10; $2 doubles). Verified
+      2026-06-25: JS-rendered SPA (/calendar, /films, /programs return shells; no JSON-LD / wp-json;
+      sitemap lists only /calendar & /films). Ticketing on ticketing.oscars.org (not a feed we parse).
+      No clean structured path → WebFetch the rendered /calendar at digest. NOT on TM rails → low dedupe
+      risk. High taste. Recheck periodically for a Contentful/GraphQL endpoint to promote to api.
+
+  - name: Alamo Drafthouse DTLA
+    category: film
+    method: webfetch
+    url: https://drafthouse.com/los-angeles/theater/downtown
+    priority: 2
+    status: candidate
+    notes: >
+      Rep + special-event programming (Weird Wednesday, Terror Tuesday, Movie Parties, Guest Selects).
+      Verified 2026-06-25: Angular SPA (static fetch = spinner). A public JSON API family exists at
+      drafthouse.com/s/mother/v2/schedule/... but the market call returns empty cinemaSessionIds[] and
+      sub-paths 405 (real endpoint needs a browser network capture). Near-term: WebFetch the rendered
+      theater page at digest. NOT on TM rails → low dedupe risk. FOLLOW-UP: one devtools capture of the
+      mother/v2 sessions call would unlock a clean api fetcher.
+
+  - name: UCLA Film & TV Archive / Billy Wilder Theater
+    category: film
+    method: webfetch
+    url: https://www.cinema.ucla.edu/events/
+    priority: 2
+    status: candidate
+    notes: >
+      Archival repertory at the Hammer (Westwood) — preservation premieres, retrospectives; ALL
+      screenings FREE (first-come) → pure upside, no ticket dedupe. Verified 2026-06-25: JS-rendered;
+      not WP Tribe; no JSON-LD / ICS at guessed paths. Programs also mirrored on LibCal
+      (calendar.library.ucla.edu, cid=17609) which exposes an iCal feed — URL not yet recovered.
+      FOLLOW-UP: pull the LibCal iCal URL → promote to method:ics (free + structured). Until then
+      WebFetch the events page at digest.
+
+  - name: Lumiere Cinema (Music Hall, Beverly Hills)
+    category: film
+    method: scrape
+    url: https://lumierecinemala.com/
+    priority: 2
+    status: candidate
+    notes: >
+      Ex-Laemmle Music Hall — indie/foreign/doc + curated rep w/ filmmaker Q&As (westside, not eastside).
+      Verified 2026-06-25: homepage server-rendered with Now-Playing/Coming-Soon + showtimes in static
+      HTML (real UA). Ticketing = Veezi WHITE-LABEL (lumieretickets.com/purchase?showId=…) — the public
+      ticketing.uswest.veezi.com/sessions?siteToken= path is NOT exposed (token hidden). BEST PATH:
+      recover the siteToken from lumieretickets.com (redirect/network) → reuse scripts/fetch_veezi.py
+      (one token, same parser as Vista/New Bev); until then scrape the homepage. Not on TM rails.
+
+  - name: Laemmle Theatres
+    category: film
+    method: webfetch
+    url: https://www.laemmle.com/films
+    priority: 3
+    status: candidate
+    notes: >
+      Arthouse CHAIN (Royal / NoHo 7 / Glendale / Monica Film Center / Town Center) — first-run indie/
+      foreign/doc. Verified 2026-06-25: JS film-finder; NOT Filmbot (nj/v1 404) / not WP Tribe; tickets
+      on tickets.laemmle.com (white-label, 403s curl). No clean feed → WebFetch a per-theater page at
+      digest. DEDUPE CAVEAT: first-run chain whose bookings overlap other arthouses and partly ride
+      TM/Fandango — lower marginal value than rep-only houses; keep pri 3, lean on it for foreign/doc.
+
+  - name: Nuart Theatre (Landmark, West LA)
+    category: film
+    method: webfetch
+    url: https://www.landmarktheatres.com/los-angeles/nuart-theatre/
+    priority: 3
+    status: candidate
+    notes: >
+      Iconic single-screen arthouse + 35mm + the long-running Rocky Horror midnight (West LA). Verified
+      2026-06-25: Landmark/Webedia stack — showtimes load via JS, no JSON-LD / __NEXT_DATA__ / feed
+      (same dead-ends as Landmark Pasadena). WebFetch at digest. Landmark rides TM rails → some slate
+      arrives via fetch_ticketmaster.py; unique value is the midnight/repertory long tail. Cross-check.
+
+  - name: RevivalHub LA
+    category: editorial
+    method: webfetch
+    url: https://revivalhub.com/
+    priority: 2
+    status: candidate
+    notes: >
+      Aggregator/SIGNAL, not a primary catalog (the rep-cinema analogue of 19hz's organizer column).
+      Verified 2026-06-25: tracks ~250 LA venues / ~1300 screenings with per-film pages, server-rendered,
+      incl. Academy Museum, all Laemmles, Nuart, Alamo DTLA, Lumiere, Secret Movie Club, PRS, Los Feliz 3
+      (NOT UCLA/Billy Wilder). Two uses: (1) digest-time coverage cross-check/fill for the JS-rendered
+      houses above, and (2) a standing Discover seed for new rep venues. Editorial = ranking/coverage
+      signal; do NOT double-add its rows to the catalog.
 
   - name: Comedy Store
     category: comedy
