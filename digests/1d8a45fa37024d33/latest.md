@@ -5,6 +5,10 @@
 
 ## Tonight
 
+**Thu 6/25 — Disclosure Day (70mm)** — Vista Theater, Los Feliz, 7:30pm
+[ticketing.uswest.veezi.com](https://ticketing.uswest.veezi.com/purchase/3710?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)
+Not a Disclosure DJ set — the score had a false artist-match. This is a 70mm film presentation at Vista; the format alone makes it worth the drive out to Los Feliz.
+
 **Thu 6/25 — Recollect Underground: JTJ, Kenny Cordeiro, Matt Marauder, Lavenge B2B Xuliet, Mama J B2B Max Rush** — TBA DTLA warehouse, $11.50–23, 11pm–5am
 Tech-house/minimal/deep house, b2b stacking — format and genre are right, names are local unknowns. Good Thursday warm-up if you're feeling it; skip if you need the energy for the weekend.
 
@@ -38,6 +42,10 @@ Free rooftop house, sunset start — the series you keep on the radar for a reas
 [ra.co/events/2396500](https://ra.co/events/2396500)
 JKriv is Razor-N-Tape co-founder — deep disco, groove, soulful house. Free and walkable from home.
 
+**Race with The Devil** — Vista Theater, Los Feliz, 8pm
+[ticketing.uswest.veezi.com](https://ticketing.uswest.veezi.com/purchase/3736?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)
+Peter Fonda and Warren Oates, 1975 road-horror cult classic — Vista programs these for a crowd that shows up knowing exactly what it is.
+
 **Stavros Halkias: The Dreamboat Tour** — The Wiltern, evening
 [ticketmaster.com](https://www.ticketmaster.com/stavros-halkias-the-dreamboat-tour-los-angeles-california-06-25-2026/event/090064A7A898C83F)
 The one standing comedy exception. Wiltern's the right room for this.
@@ -47,6 +55,10 @@ The one standing comedy exception. Wiltern's the right room for this.
 **Satin Jackets** — The Spotlight, $31 pre, 10pm
 [dice.fm](https://dice.fm/event/wwdnpn-satin-jackets-27th-jun-the-spotlight-los-angeles-tickets)
 Genuine Balearic/Italo-disco act with a proper European sensibility — exactly the groove/nu-disco lane.
+
+**Wake in Fright** — Vista Theater, Los Feliz, 8pm
+[ticketing.uswest.veezi.com](https://ticketing.uswest.veezi.com/purchase/3737?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)
+The 1971 Australian cult classic — intense, acclaimed, Criterion-orbit rep cinema. Top film pick of the weekend.
 
 **Extra Sensory x VICE: TOP SECRET HEADLINER FROM LONDON** — TBA Rave DEN
 [ra.co/events/2458992](https://ra.co/events/2458992)
@@ -124,6 +136,10 @@ Charlotte de Witte, Amelie Lens, DJ Seinfeld, Mau P, Vintage Culture, Maceo Plex
 ⭐ **Factory 93: Amelie Lens @ Grand Park Block 2 — Sat 9/26**
 [ra.co/events/2400834](https://ra.co/events/2400834)
 Outdoor block party, RA-picked, solo Amelie Lens. September — put it on the calendar now.
+
+**Midnight Lovers: Massimiliano Pagliara, Masha Mar, James Axon** — The Bridge, DTLA, Fri 9/11
+[ra.co/events/2432189](https://ra.co/events/2432189)
+Pagliara is a Permanent Vacation artist — analogue electro-disco, Balearic house, exactly the European groove lane. September but book early.
 
 **Certified Groovers: Gene On Earth** — TBA Downtown LA, Fri 9/25
 [ra.co/events/2457514](https://ra.co/events/2457514)
