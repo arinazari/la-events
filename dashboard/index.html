@@ -733,6 +733,14 @@ class Component extends DCLogic {
   TEN_END = (() => { const d = new Date(); d.setDate(d.getDate() + 10); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()); })();
   MONTH1 = (() => { const d = new Date(); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-01'; })();
 
+  // ---- concierge chat persistence (keep the last 4 days of conversation across reloads) ----
+  // Client-side only (localStorage, per browser) — matches every other bit of page state here
+  // (chat mode, profile, tokens). The seed welcome line is never stored; the 4-day prune runs on load.
+  CHAT_KEY = 'la-chat-history';
+  CHAT_TTL_MS = 4 * 24 * 60 * 60 * 1000;   // 4 days
+  CHAT_MAX = 300;                          // quota safety: hard cap on stored messages
+  WELCOME = { role: 'assistant', seed: true, text: "I'm your LA concierge — ranked to your taste profile. Ask for a vibe, a night, a price, or a neighborhood and I'll pull picks (the table filters too). Want a full night out? Say “plan my Saturday — dinner then a show” and I'll fuse the catalog with the restaurant list and hand a sequenced itinerary to your Claude Code session." };
+
   state = {
     sortKey: 'rank', sortDir: 'asc',
     range: 'ten', rangeStart: this.TODAY, rangeEnd: this.TEN_END, bubbleOpen: false,
@@ -762,9 +770,7 @@ class Component extends DCLogic {
     spotifyStatus: null,   // per-profile Spotify: null=unknown/checking, true=connected, false=not
     spotifyName: '',
     loading: false,
-    messages: [
-      { role: 'assistant', text: "I'm your LA concierge — ranked to your taste profile. Ask for a vibe, a night, a price, or a neighborhood and I'll pull picks (the table filters too). Want a full night out? Say “plan my Saturday — dinner then a show” and I'll fuse the catalog with the restaurant list and hand a sequenced itinerary to your Claude Code session." }
-    ]
+    messages: [this.WELCOME]
   };
 
   // LLM concierge backend (the BACKEND_URL seam). Empty = not wired -> the chat falls back to
@@ -2246,6 +2252,37 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   loadCatalog() { return this.loadFeedFor(this.state.profile); }
   loadDigest() { this.loadDigestIndex(this.state.profile); return this.loadDigestFor(this.state.profile); }
 
+  // ---------- concierge chat persistence ----------
+  // Restore the saved conversation (pruned to the last 4 days) on load, after the welcome seed.
+  hydrateChat() {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      const raw = localStorage.getItem(this.CHAT_KEY);
+      if (!raw) return;
+      const now = Date.now();
+      const stored = (JSON.parse(raw) || [])
+        .filter(m => m && m.text && (now - (m.ts || 0)) <= this.CHAT_TTL_MS)
+        .slice(-this.CHAT_MAX);
+      if (stored.length) this.setState({ messages: [this.WELCOME, ...stored] });
+      else localStorage.removeItem(this.CHAT_KEY);
+    } catch (e) {}
+  }
+  // Save the conversation to localStorage. Drops the welcome seed, stamps a ts on first save
+  // (≈ creation time — this runs right after the append commits), prunes past 4 days, caps the size.
+  persistChat() {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      const now = Date.now();
+      const keep = (this.state.messages || [])
+        .filter(m => m && !m.seed && m.text)
+        .map(m => { if (!m.ts) m.ts = now; return { role: m.role, text: m.text, ts: m.ts }; })
+        .filter(m => (now - m.ts) <= this.CHAT_TTL_MS)
+        .slice(-this.CHAT_MAX);
+      if (keep.length) localStorage.setItem(this.CHAT_KEY, JSON.stringify(keep));
+      else localStorage.removeItem(this.CHAT_KEY);
+    } catch (e) {}
+  }
+
   componentDidMount() {
     this.SAMPLE = this.ALL;
     const ds = this.props.defaultSort;
@@ -2258,6 +2295,15 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.loadDigest();
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
+    this._persistedMsgsRef = this.state.messages;   // seed-only ref; never persist the bare welcome line
+    this.hydrateChat();
+  }
+  componentDidUpdate(prevProps) {
+    // Persist whenever the messages array is replaced (every append makes a new array) — cheap ref check.
+    if (this.state.messages !== this._persistedMsgsRef) {
+      this._persistedMsgsRef = this.state.messages;
+      this.persistChat();
+    }
   }
   componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); }
 
