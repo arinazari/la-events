@@ -100,7 +100,6 @@
       <div>
         <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
           <span style="font:700 16px/1 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em;">LA EVENTS <span style="color:#a7a59b; font-weight:500;">/ <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">curated digest for <span onClick="{{ openDigest }}" title="Open this curated digest" style="color:#76746b; cursor:pointer;" style-hover="color:#161512;">{{ digestUser }} <span style="font-size:0.72em;">↗</span></span></sc-if><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">curated digests for {{ digestUser }}</sc-if></span></span>
-          <span onClick="{{ openGuide }}" title="How the site works + what's new" style="align-self:center; cursor:pointer; display:inline-flex; align-items:center; gap:5px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em; color:#a7a59b; border:1px solid #d9d7cf; border-radius:2px; padding:5px 8px;" style-hover="color:#161512; border-color:#a7a59b;"><span style="font-size:11px; line-height:1;">?</span> how it works<sc-if value="{{ guideUnseen }}" hint-placeholder-val="{{ false }}"><span title="New since your last visit" style="flex:none; width:5px; height:5px; border-radius:50%; background:#2b5cd9;"></span></sc-if></span>
         </div>
         <div style="margin-top:5px; font:500 11px/1.6 ui-monospace,Menlo,monospace; color:#76746b; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
           <span style="display:inline-flex; align-items:center; gap:6px;">
@@ -451,7 +450,12 @@
                   <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last data pull</span><span style="color:#76746b;">{{ lastDataPull }}</span></div>
                 </sc-if>
                 <div onClick="{{ showChanges }}" title="What moved on the last pull — lineups, prices, times (tap to see)" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:{{ changeCursor }};"><span>what changed</span><span style="color:{{ lastChangeColor }};">{{ lastChangeLabel }}</span></div>
-                <div onClick="{{ openWhatsNew }}" title="See what's new on the site" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>last site update</span><span style="color:#2b5cd9;">{{ lastSiteUpdate }} ↗</span></div>
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;"><span>last site update</span><span style="color:#76746b;">{{ lastSiteUpdate }}</span></div>
+              </div>
+              <div style="margin-top:10px; padding-top:9px; border-top:1px solid #eceae2; display:flex; flex-direction:column; gap:4px;">
+                <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:3px;">ABOUT</div>
+                <div onClick="{{ openGuide }}" title="A quick tour of how the site works" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>how it works</span><span style="color:#76746b;">tour ↗</span></div>
+                <div onClick="{{ openWhatsNew }}" title="Recent features &amp; changes" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>what's new</span><span style="color:#76746b;">changelog ↗</span></div>
               </div>
             </div>
           </sc-if>
@@ -747,7 +751,7 @@ class Component extends DCLogic {
     tasteModalOpen: false,
     tasteTab: 'taste',       // which file the taste/profile modal is showing (taste | profile)
     spotifyModalOpen: false,
-    guideOpen: false, guideTab: 'how', guideUnseen: false,
+    guideOpen: false, guideTab: 'how',
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
     profileError: '',
@@ -1244,7 +1248,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // ---------- Guide / What's-new modal ----------
   // Bump GUIDE_VERSION whenever the content below changes to re-surface "What's new" to everyone
   // (it auto-opens once per device per version — see componentDidMount).
-  GUIDE_VERSION = '2026-06-23';
+  GUIDE_VERSION = '2026-06-25';
   GUIDE_HOW = [
     "# How it works",
     "",
@@ -1284,7 +1288,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "- **Update my ranking & digest** — re-rank against the newest events (it lights up when there's fresh data to fold in).",
     "- **Connect Spotify** — let your listening history shape the picks.",
     "- **Claude API key** — optionally run the concierge on your own key.",
-    "- **View taste profile** — see the config behind your ranking.",
+    "- **View taste & profile** — see the config behind your ranking, including any edits the concierge made and whether they're live yet.",
     "",
     "## Tune your taste",
     "",
@@ -1297,10 +1301,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   GUIDE_NEW = [
     "# What's new",
     "",
-    "Recent upgrades to the site. Hit **how it works** up top any time for the full tour.",
+    "Recent upgrades to the site. See **how it works** (Settings → About) any time for the full tour.",
     "",
     "## June 2026",
     "",
+    "- **See your taste edits land.** *View taste & profile* (Settings) now shows a diff of every change the concierge made to your taste or profile, with a badge for whether it's already live in your ranking or still pending.",
+    "- **Festivals & further ahead.** The digest now surfaces big destination festivals and looks up to ~6 months out, so you can catch the major stuff while tickets last.",
     "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you — open it from your name in the header.",
     "- **A real concierge.** The left panel now holds a conversational concierge: ask for a vibe, a price, a neighborhood, or a whole night (`dinner then a show`) and it answers and filters the table. It falls back to an instant offline filter when it needs to.",
     "- **Tune your taste by chatting.** Tell the concierge `more techno, less comedy` or `track Peggy Gou` and it rewrites your profile and re-ranks you — no config files to touch.",
@@ -1310,7 +1316,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "- **Fresh-data nudge.** When new events land, **Update my ranking & digest** lights up, and a `what changed` readout tells you what moved — lineups, prices, set times — on the last pull.",
     "- **Add to calendar.** Every event's detail row has a one-click **Add to calendar** (.ics) export."
   ].join('\n');
-  _markGuideSeen = () => { try { localStorage.setItem('la-guide-seen', this.GUIDE_VERSION); } catch (e) {} this.setState({ guideUnseen: false }); };
+  _markGuideSeen = () => { try { localStorage.setItem('la-guide-seen', this.GUIDE_VERSION); } catch (e) {} };
   openWhatsNew = () => this.openGuide('new');
   openGuide = (tab) => { this._markGuideSeen(); this.setState({ guideOpen: true, guideTab: tab || 'how', settingsOpen: false }); };
   closeGuide = () => this.setState({ guideOpen: false });
@@ -2252,12 +2258,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.loadDigest();
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
-    // Onboarding vs. the subtle dot: a true first-timer (no stored version) gets the guide opened
-    // once to "How it works". A returning visitor with a stale version is NOT interrupted — the
-    // unseen dot on the header chip + the "last site update" link carry them to What's new instead.
+    // First-timer onboarding: someone who has never opened the guide on this device gets "How it
+    // works" once. Everyone else reaches the guide + changelog from Settings → ABOUT (no header
+    // chip, no popup on return).
     try {
       const seen = localStorage.getItem('la-guide-seen');
-      this.setState({ guideUnseen: seen !== this.GUIDE_VERSION });
       if (!seen) {
         this._guideTimer = setTimeout(() => {
           if (this.state.guideOpen) return;   // user opened it manually in the meantime
@@ -2547,7 +2552,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       openTasteModal: this.openTasteModal, closeTasteModal: this.closeTasteModal,
       guideOpen: !!this.state.guideOpen,
       openGuide: () => this.openGuide('how'), openWhatsNew: this.openWhatsNew, closeGuide: this.closeGuide,
-      guideUnseen: !!this.state.guideUnseen,
       guideTabHow: () => this.setGuideTab('how'), guideTabNew: () => this.setGuideTab('new'),
       guideHowBg: this.state.guideTab !== 'new' ? '#1b1a17' : '#fff',
       guideHowColor: this.state.guideTab !== 'new' ? '#fff' : '#76746b',

@@ -104,20 +104,20 @@ shows a "ranked picks are live in the table" placeholder.
 
 ## Guide & "What's new" (friend onboarding)
 
-The **"? how it works"** chip next to the header title opens a two-tab modal: **How it works** (a
-plain-language tour — the table, rank-vs-score, the concierge, signing in, tuning taste, installing the
-PWA) and **What's new** (a short changelog of friend-facing features). Both are authored as Markdown
-strings in `index.html` (`GUIDE_HOW` / `GUIDE_NEW`) and rendered through the same `renderMarkdown` the
-digest modal uses, so they match its look exactly — no new styling.
+A two-tab modal — **How it works** (a plain-language tour: the table, rank-vs-score, the concierge,
+signing in, tuning taste, installing the PWA) and **What's new** (a short changelog of friend-facing
+features). Both are authored as Markdown strings in `index.html` (`GUIDE_HOW` / `GUIDE_NEW`) and rendered
+through the same `renderMarkdown` the digest modal uses, so they match its look exactly — no new styling.
 
-**Surfacing, two tiers (the gate is `localStorage['la-guide-seen']` vs the `GUIDE_VERSION` constant):**
-- A **true first-timer** (no stored version) gets *How it works* auto-opened once — light onboarding.
-- A **returning visitor** with a stale version is *not* interrupted: a subtle blue dot appears on the
-  "? how it works" chip, and the footer's **last site update** date becomes a link (both open *What's new*).
-  The dot/link clear once they open the guide (`la-guide-seen` is rewritten to the current version).
+**Where it lives:** tucked into the **⚷ / ☰** settings popup (footer), in an **ABOUT** group at the
+bottom — *how it works* (tour) and *what's new* (changelog). That group sits outside the logged-in /
+logged-out branches, so it's reachable whether or not someone is signed in. There's no header button —
+the entry points are deliberately quiet. A **true first-timer** (no `localStorage['la-guide-seen']`) still
+gets *How it works* auto-opened once for onboarding; everyone else just opens it from the menu.
 
-**When you ship a friend-facing change, add a bullet to `GUIDE_NEW` and bump `GUIDE_VERSION`** — that lights
-the dot (and re-links "last site update") for everyone on their next visit, without popping a modal at them.
+**When you ship a friend-facing change, add a bullet to `GUIDE_NEW` and bump `GUIDE_VERSION`.** The version
+constant gates only the one-time first-run open (bumping it won't nag existing users); they find the
+changelog under Settings → ABOUT.
 
 ## Use it
 
