@@ -102,6 +102,22 @@ Each profile also gets its own **personalized digest** (the daily routine writes
 from their feed; the popup's "digest ↗" shows it). Until the routine has run for a new profile, the page
 shows a "ranked picks are live in the table" placeholder.
 
+## Guide & "What's new" (friend onboarding)
+
+A two-tab modal — **How it works** (a plain-language tour: the table, rank-vs-score, the concierge,
+signing in, tuning taste, installing the PWA) and **What's new** (a short changelog of friend-facing
+features). Both are authored as Markdown strings in `index.html` (`GUIDE_HOW` / `GUIDE_NEW`) and rendered
+through the same `renderMarkdown` the digest modal uses, so they match its look exactly — no new styling.
+
+**Where it lives:** tucked into the **⚷ / ☰** settings popup (footer), in an **ABOUT** group at the
+bottom — *how it works* (tour) and *what's new* (changelog). That group sits outside the logged-in /
+logged-out branches, so it's reachable whether or not someone is signed in. The entry points are
+**fully manual and deliberately quiet** — no header button and no auto-open; nothing ever pops up on
+load or login.
+
+**When you ship a friend-facing change, add a bullet to `GUIDE_NEW`** (and a `## <month>` heading when a
+new period starts). That's the only upkeep — friends find it under Settings → ABOUT.
+
 ## Use it
 
 ```bash

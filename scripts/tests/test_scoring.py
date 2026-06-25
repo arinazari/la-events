@@ -53,6 +53,25 @@ def test_penalty_terms_and_far():
     assert any("far from LA" in x for x in r["reasons"])
 
 
+def test_festival_waives_far_penalty():
+    """A far-flung club night keeps the -2 geo penalty, but a festival-scale event in the same
+    far city is judged on taste (penalty waived): a marquee festival is a worth-the-trip radar
+    item, not a far club night. Detection is the explicit `festival: true` flag OR the word
+    'festival' in the haystack (mirrors build_radar's festival signal)."""
+    far_club = {"title": "Late night warehouse", "category": "party", "venue": "A Club",
+                "neighborhood": "Irvine", "date": "2026-08-29"}
+    r_club = score_event(far_club, TASTE, PROFILE)
+    assert any("far from LA" in x for x in r_club["reasons"]), r_club
+    # Same record flagged as a festival -> geo penalty waived (worth exactly +2), with a reason.
+    r_flag = score_event({**far_club, "festival": True}, TASTE, PROFILE)
+    assert not any("far from LA" in x for x in r_flag["reasons"]), r_flag
+    assert any("waived (festival)" in x for x in r_flag["reasons"]), r_flag
+    assert r_flag["score"] - r_club["score"] == 2, (r_club["score"], r_flag["score"])
+    # Detection also fires off the word "festival" in the title (no explicit flag needed).
+    r_word = score_event({**far_club, "title": "Some Music Festival"}, TASTE, PROFILE)
+    assert not any("far from LA" in x for x in r_word["reasons"]), r_word
+
+
 def test_profile_is_actually_consumed():
     """Proof the config lift works: overriding the profile changes the score,
     so scoring reads profile.yaml rather than silently using code defaults."""
@@ -82,16 +101,22 @@ def test_taste_yaml_scoring_fallback():
     assert "zzztest" in _scoring_cfg({}, {"scoring": {"groove_terms": ["zzztest"]}})["groove"]
 
 
-def test_defaults_match_profile():
-    """profile.yaml must transcribe the code defaults verbatim (behavior-preserving)."""
+def test_profile_preserves_code_defaults():
+    """profile.yaml is the live, user-editable scoring config (the city-portable knob);
+    the DEFAULT_* in scoring.py are the generic fallback used only when a key is absent.
+    profile.yaml may EXTEND the baseline — e.g. Ari's 'beach' groove term (commit 8c0229c) —
+    but must not silently DROP or CHANGE a baseline default, which would regress scoring with
+    no one noticing. So: every code default must still be present; additions are allowed."""
     from lib.scoring import (DEFAULT_GROOVE_TERMS, DEFAULT_EU_TERMS,
                              DEFAULT_PENALTY_TERMS, DEFAULT_FAR_TERMS, DEFAULT_CATEGORY_WEIGHTS)
     cfg = _scoring_cfg(PROFILE)
-    assert tuple(cfg["groove"]) == DEFAULT_GROOVE_TERMS
-    assert tuple(cfg["eu"]) == DEFAULT_EU_TERMS
-    assert tuple(cfg["penalty"]) == DEFAULT_PENALTY_TERMS
-    assert tuple(cfg["far"]) == DEFAULT_FAR_TERMS
-    assert cfg["category_weights"] == DEFAULT_CATEGORY_WEIGHTS
+    for name, default in [("groove", DEFAULT_GROOVE_TERMS), ("eu", DEFAULT_EU_TERMS),
+                          ("penalty", DEFAULT_PENALTY_TERMS), ("far", DEFAULT_FAR_TERMS)]:
+        dropped = set(default) - set(cfg[name])
+        assert not dropped, f"profile.yaml {name}_terms dropped baseline default(s): {sorted(dropped)}"
+    changed = {k: (cfg["category_weights"].get(k), v)
+               for k, v in DEFAULT_CATEGORY_WEIGHTS.items() if cfg["category_weights"].get(k) != v}
+    assert not changed, f"profile.yaml category_weights changed/dropped baseline (got, want): {changed}"
 
 
 def test_parse_event_date_tm_utc_evening_is_local_day():
@@ -119,6 +144,22 @@ def test_tm_fetcher_normalize_prefers_local_date():
     rec = tm.normalize(ev)
     assert rec["datetime"] == "2026-06-17T19:00:00", rec["datetime"]
     assert parse_event_date(rec) == date(2026, 6, 17)
+
+
+def test_tm_date_windows_defeat_the_1000_cap():
+    # The far-horizon sweep windows the TM query so no single slice hits the 1000-result cap.
+    import fetch_ticketmaster as tm
+    from datetime import datetime, timezone
+    start = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    end = datetime(2026, 7, 1, tzinfo=timezone.utc)            # 181 days
+    wins = tm.date_windows(start, end, chunk_days=30)
+    assert wins[0][0] == start and wins[-1][1] == end          # fully covers [start, end]
+    for (a, b), (c, d) in zip(wins, wins[1:]):
+        assert a < b == c < d                                  # contiguous, forward, no gaps/overlap
+    assert all((b - a).days <= 30 for a, b in wins)            # every slice under the chunk size
+    assert len(wins) == 7                                      # 181 / 30 -> 7 slices
+    # The default 21-day horizon collapses to ONE window — behaviour-preserving at the near default.
+    assert len(tm.date_windows(start, datetime(2026, 1, 22, tzinfo=timezone.utc), 30)) == 1
 
 
 if __name__ == "__main__":

@@ -17,13 +17,17 @@ app.ticketmaster.com, ra.co, dice.fm + the domains in sources.yaml), and `TM_API
 
 Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set** mode:
 
-1. **Run the deterministic core:** `python scripts/run_digest.py --days 120`. Fetches the
-   structured sources, dedupes, expires past events, scores against taste.yaml + profile.yaml →
-   `data/catalog.json` + `data/candidates.json` (wide horizon so far weekends carry announcements)
-   plus the editor judging pool `data/editor_pool.json`.
-   Capture the run report (failed/skipped sources) for footers. Degrades gracefully. The Phase C
-   music layer rides along: if `SPOTIFY_REFRESH_TOKEN` is set it syncs Spotify and folds it with
-   `data/feedback.jsonl` into the scoring (report prints a `music layer …` line).
+1. **Run the deterministic core:** `python scripts/run_digest.py --days 120 --far-days 180`.
+   Fetches the structured sources, dedupes, expires past events, scores against taste.yaml +
+   profile.yaml → `data/catalog.json` + `data/candidates.json` plus the editor judging pool
+   `data/editor_pool.json`. **Two-speed horizon:** near sources fetch 120 days; far-capable sources
+   (Ticketmaster) reach `--far-days` (180 ≈ 6 months) so festivals, big tours, and theater seasons
+   land early on the radar — the TM fetcher date-windows internally so the wide pull doesn't hit the
+   Discovery API's 1000-results/query cap (which was silently truncating even the 120-day pull).
+   Ghost-detection stays on the near (120d) window, so far events aren't flagged unlisted before
+   their feeds list them. Capture the run report (failed/skipped sources) for footers. Degrades
+   gracefully. The Phase C music layer rides along: if `SPOTIFY_REFRESH_TOKEN` is set it syncs
+   Spotify and folds it with `data/feedback.jsonl` into the scoring (report prints a `music layer …` line).
 2. **Layer in + re-score:** add the sources the core doesn't cover (SKILL Step 2) — the Gmail
    "Events" label if available, `webfetch`/`squarespace`/`ics` venues (≤15-source budget), and this
    week's editorial roundups as `editorial_mentions`. Then `python scripts/run_digest.py --no-fetch`
@@ -101,3 +105,10 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
 > NOT email. The planned delivery is a **hosted, bookmarkable page** served from these artifacts,
 > with on-page actions (re-scan sources, request an ad-hoc digest from the LLM). See ROADMAP
 > "Hosted page". Until it exists, open the committed weekend `.html` directly.
+>
+> **Operational nudges ride in the digest, not your inbox** (consistent with no-email):
+> `render_digest --consolidated` auto-adds a **Posh-token re-auth banner** at the top of
+> `digests/latest.{md,html}` when `POSH_TOKEN` is within 5 days of expiry (or already dead) —
+> Posh has no token refresh, so the JWT must be re-captured by hand ~monthly. It's automatic
+> (reads the token's own expiry; no action in this routine). Sanity-check anytime with
+> `python scripts/posh_token_status.py`.

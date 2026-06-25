@@ -7,37 +7,58 @@
 # the feed sorts by score. Weights noted per block.
 
 categories:
-  high:    # +3
-    - live music in intimate clubs & theaters — indie / rock / soul / funk / jazz
-      (Troubadour, Echo, Lodge Room, Teragram, Zebulon, The Greek)
+  high:
+    # +3
+    - live music in intimate clubs & theaters — indie / rock / soul / funk /
+      jazz (Troubadour, Echo, Lodge Room, Teragram, Zebulon, The Greek)
     - rep & arthouse cinema (Vidiots, Vista, New Beverly, Cinematheque, Aero)
     - food & drink — pop-ups, tastings, night markets, notable restaurant events
-  medium:  # +2
-    - standup comedy at clubs and theaters (Largo, Comedy Store, Dynasty Typewriter)
+    - melodic / progressive EDM at large venues and festivals
+  medium:
+    # +2
+    - standup comedy at clubs and theaters (Largo, Comedy Store, Dynasty
+      Typewriter)
     - theater & performing arts (black-box through Pantages / Ahmanson scale)
-    - daytime & lifestyle — flea / vintage / design markets, farmers markets, street fairs
-    - melodic / disco / groove house & DJ sets in a relaxed setting (rooftop, listening bar)
-  low:     # +1, only if exceptional
+    - daytime & lifestyle — flea / vintage / design markets, farmers markets,
+      street fairs
+    - melodic / disco / groove house & DJ sets in a relaxed setting (rooftop,
+      listening bar)
+  low:
+    # +1, only if exceptional
     - big-room / festival EDM and warehouse techno — only marquee names
 
-boosts:    # +1 each (stack)
+boosts:
+  # +1 each (stack)
   - intimate / seated / listening-room setting
   - walkable or short drive (set the home neighborhood in a profile.yaml later)
   - Friday or Saturday night
   - independent editorial mention (LAist, Time Out, DiscoverLA)
   - outdoor / rooftop / sunset setting
 
-penalties: # -2 each
+penalties:
+  # -2 each
   - bottle-service / table-service nightclubs
   - hardstyle / dubstep / bass-music mega-shows
   - tribute / cover bands and "[decade] night" nostalgia nights
   - far-flung (OC / SD / Temecula / Ventura) unless genuinely worth the trip
 
 # Match in a lineup => +2 and a "tracked" badge. Empty for now — add Dr. Ganesan's favorites.
-artists_tracked: []
+artists_tracked: [ Gryffin, Rufus du Sol ]
 
 comedians_loved: []
-venues_loved: [Largo, Vista, New Beverly, Troubadour, The Greek, Walt Disney Concert Hall]
+venues_loved:
+  [
+    Largo,
+    Vista,
+    New Beverly,
+    Troubadour,
+    The Greek,
+    Walt Disney Concert Hall
+  ]
 
 feedback:
-  - "STARTER profile (neutral LA generalist). Replace with Dr. Ganesan's real taste, then rebuild."
+  - "STARTER profile (neutral LA generalist). Replace with Dr. Ganesan's real
+    taste, then rebuild."
+  - '2026-06-25: Likes mainstream melodic EDM artists at large events (e.g.
+    Gryffin, Rufus du Sol); elevating this from "only if exceptional" to a
+    genuine like. (self-edit via concierge)'
