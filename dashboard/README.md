@@ -102,18 +102,29 @@ Each profile also gets its own **personalized digest** (the daily routine writes
 from their feed; the popup's "digest ↗" shows it). Until the routine has run for a new profile, the page
 shows a "ranked picks are live in the table" placeholder.
 
-## Guide & "What's new" (friend onboarding)
+## Onboarding — first-run welcome, guide & "What's new"
 
-A two-tab modal — **How it works** (a plain-language tour: the table, rank-vs-score, the concierge,
-signing in, tuning taste, installing the PWA) and **What's new** (a short changelog of friend-facing
-features). Both are authored as Markdown strings in `index.html` (`GUIDE_HOW` / `GUIDE_NEW`) and rendered
-through the same `renderMarkdown` the digest modal uses, so they match its look exactly — no new styling.
+There are two onboarding surfaces, both authored as Markdown strings in `index.html` and rendered
+through the same `renderMarkdown` the digest modal uses (so they match its look exactly — no new styling):
 
-**Where it lives:** tucked into the **⚷ / ☰** settings popup (footer), in an **ABOUT** group at the
-bottom — *how it works* (tour) and *what's new* (changelog). That group sits outside the logged-in /
-logged-out branches, so it's reachable whether or not someone is signed in. The entry points are
-**fully manual and deliberately quiet** — no header button and no auto-open; nothing ever pops up on
-load or login.
+**1. First-run welcome (auto-opens).** A short, **stepped** quick-start (`WELCOME` — four steps:
+how the picks are made → teach the concierge your taste → refresh your ranking → where everything
+lives). It **auto-opens the first time someone enters a profile context** — on initial load for the
+default/persisted profile, and again on sign-in to a different profile (`maybeOnboard`, called from
+`componentDidMount` and `applyProfile`). It is keyed per profile in localStorage
+(`la-onboarded:<hash|default>`), and the **"Don't show this again" checkbox is the dismissal**: ticked →
+the flag is set and it never auto-opens for that profile again; left un-ticked → closing it just hides
+it for now and it greets you again next visit (deliberate — it nags until acknowledged). Re-openable any
+time from **Settings → ABOUT → quick start**.
+
+**2. Guide & changelog (manual).** A two-tab modal — **How it works** (the full plain-language tour:
+the table, rank-vs-score, the concierge, signing in, tuning taste, installing the PWA) and **What's new**
+(a short changelog of friend-facing features), `GUIDE_HOW` / `GUIDE_NEW`. These stay **manual and quiet** —
+no auto-open; reached under Settings → ABOUT (*how it works* / *what's new*).
+
+**Where it lives:** the **ABOUT** group in the **⚷ / ☰** settings popup (footer) — *quick start* (re-open
+the welcome), *how it works* (tour), *what's new* (changelog). That group sits outside the logged-in /
+logged-out branches, so it's reachable whether or not someone is signed in.
 
 **When you ship a friend-facing change, add a bullet to `GUIDE_NEW`** (and a `## <month>` heading when a
 new period starts). That's the only upkeep — friends find it under Settings → ABOUT.
