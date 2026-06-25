@@ -92,7 +92,8 @@ REGIONS = {
         "historic filipinotown", "mount washington", "boyle heights", "thai town"},
     "dtla": {"dtla", "downtown", "downtown la", "arts district", "chinatown",
         "little tokyo", "westlake"},
-    "hollywood": {"hollywood", "west hollywood", "weho", "thai town"},
+    "hollywood": {"hollywood", "west hollywood", "weho", "thai town",
+        "fairfax", "beverly grove"},   # central cluster folded in (New Beverly, Brain Dead)
     "westside": {"venice", "santa monica", "culver city", "mar vista", "west la",
         "westwood", "bel air", "brentwood", "marina del rey", "sawtelle", "playa vista"},
     "valley": {"glendale", "burbank", "north hollywood", "noho", "studio city",
