@@ -111,13 +111,12 @@ through the same `renderMarkdown` the digest modal uses, so they match its look 
 
 **Where it lives:** tucked into the **⚷ / ☰** settings popup (footer), in an **ABOUT** group at the
 bottom — *how it works* (tour) and *what's new* (changelog). That group sits outside the logged-in /
-logged-out branches, so it's reachable whether or not someone is signed in. There's no header button —
-the entry points are deliberately quiet. A **true first-timer** (no `localStorage['la-guide-seen']`) still
-gets *How it works* auto-opened once for onboarding; everyone else just opens it from the menu.
+logged-out branches, so it's reachable whether or not someone is signed in. The entry points are
+**fully manual and deliberately quiet** — no header button and no auto-open; nothing ever pops up on
+load or login.
 
-**When you ship a friend-facing change, add a bullet to `GUIDE_NEW` and bump `GUIDE_VERSION`.** The version
-constant gates only the one-time first-run open (bumping it won't nag existing users); they find the
-changelog under Settings → ABOUT.
+**When you ship a friend-facing change, add a bullet to `GUIDE_NEW`** (and a `## <month>` heading when a
+new period starts). That's the only upkeep — friends find it under Settings → ABOUT.
 
 ## Use it
 

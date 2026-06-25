@@ -1245,10 +1245,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   openDigest = () => this.setState({ digestModalOpen: true, digestMenuOpen: false, digestEmailOpen: false });
   closeDigest = () => this.setState({ digestModalOpen: false, digestMenuOpen: false, digestEmailOpen: false });
 
-  // ---------- Guide / What's-new modal ----------
-  // Bump GUIDE_VERSION whenever the content below changes to re-surface "What's new" to everyone
-  // (it auto-opens once per device per version — see componentDidMount).
-  GUIDE_VERSION = '2026-06-25';
+  // ---------- Guide / What's-new modal (opened manually from Settings → ABOUT) ----------
   GUIDE_HOW = [
     "# How it works",
     "",
@@ -1316,9 +1313,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "- **Fresh-data nudge.** When new events land, **Update my ranking & digest** lights up, and a `what changed` readout tells you what moved — lineups, prices, set times — on the last pull.",
     "- **Add to calendar.** Every event's detail row has a one-click **Add to calendar** (.ics) export."
   ].join('\n');
-  _markGuideSeen = () => { try { localStorage.setItem('la-guide-seen', this.GUIDE_VERSION); } catch (e) {} };
   openWhatsNew = () => this.openGuide('new');
-  openGuide = (tab) => { this._markGuideSeen(); this.setState({ guideOpen: true, guideTab: tab || 'how', settingsOpen: false }); };
+  openGuide = (tab) => this.setState({ guideOpen: true, guideTab: tab || 'how', settingsOpen: false });
   closeGuide = () => this.setState({ guideOpen: false });
   setGuideTab = (t) => this.setState({ guideTab: t });
 
@@ -2258,21 +2254,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.loadDigest();
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
-    // First-timer onboarding: someone who has never opened the guide on this device gets "How it
-    // works" once. Everyone else reaches the guide + changelog from Settings → ABOUT (no header
-    // chip, no popup on return).
-    try {
-      const seen = localStorage.getItem('la-guide-seen');
-      if (!seen) {
-        this._guideTimer = setTimeout(() => {
-          if (this.state.guideOpen) return;   // user opened it manually in the meantime
-          this._markGuideSeen();
-          this.setState({ guideOpen: true, guideTab: 'how' });
-        }, 700);
-      }
-    } catch (e) {}
   }
-  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); clearTimeout(this._guideTimer); }
+  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); }
 
   // ---------- render ----------
   renderVals() {
