@@ -608,6 +608,7 @@
               </div>
               <div style="margin-top:10px; padding-top:9px; border-top:1px solid #eceae2; display:flex; flex-direction:column; gap:4px;">
                 <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:3px;">ABOUT</div>
+                <div onClick="{{ openWelcome }}" title="The 4-step quick start you saw on your first visit" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>quick start</span><span style="color:#76746b;">welcome ↗</span></div>
                 <div onClick="{{ openGuide }}" title="A quick tour of how the site works" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>how it works</span><span style="color:#76746b;">tour ↗</span></div>
                 <div onClick="{{ openWhatsNew }}" title="Recent features &amp; changes" style="display:flex; align-items:center; justify-content:space-between; gap:8px; font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; cursor:pointer;" style-hover="color:#161512;"><span>what's new</span><span style="color:#76746b;">changelog ↗</span></div>
               </div>
@@ -718,6 +719,39 @@
           <button onClick="{{ closeGuide }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
         </div>
         <div class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 28px;">{{ guideBody }}</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===================== WELCOME / FIRST-RUN ONBOARDING ===================== -->
+  <sc-if value="{{ welcomeOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:101; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
+      <div onClick="{{ closeWelcome }}" style="position:absolute; inset:0;"></div>
+      <div style="position:relative; z-index:1; width:100%; max-width:560px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 14px 13px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:3px 3px 0 0;">
+          <div style="display:flex; align-items:center; gap:11px; min-width:0;">
+            <span style="font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; text-transform:uppercase; color:#a7a59b;">Quick start</span>
+            <span style="display:inline-flex; gap:5px; align-items:center;">
+              <sc-for list="{{ welcomeDots }}" as="d" hint-placeholder-count="4">
+                <span style="width:6px; height:6px; border-radius:50%; background: {{ d.bg }};"></span>
+              </sc-for>
+            </span>
+          </div>
+          <button onClick="{{ closeWelcome }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+        </div>
+        <div class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 24px;">{{ welcomeBody }}</div>
+        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 18px; border-top:1px solid #e2e0d8; background:#faf9f5; border-radius:0 0 3px 3px;">
+          <div onClick="{{ toggleWelcomeDismiss }}" title="Tick this once you've read it — otherwise it'll greet you again next time" style="display:inline-flex; align-items:center; gap:8px; cursor:pointer;">
+            <span style="width:15px; height:15px; flex:none; border:1px solid {{ welcomeCheckBorder }}; background: {{ welcomeCheckBg }}; border-radius:3px; display:inline-flex; align-items:center; justify-content:center; font:700 10px/1 ui-monospace,Menlo,monospace; color:#fff;">{{ welcomeCheckMark }}</span>
+            <span style="font:500 11px/1.4 -apple-system,system-ui,sans-serif; color:#76746b;">Don&rsquo;t show this again</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <sc-if value="{{ welcomeHasBack }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ welcomeBack }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#1b1a17; color:#161512;">Back</button>
+            </sc-if>
+            <button onClick="{{ welcomeNext }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 16px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:2px; cursor:pointer;" style-hover="background:#000;">{{ welcomeNextLabel }}</button>
+          </div>
+        </div>
       </div>
     </div>
   </sc-if>
@@ -913,6 +947,7 @@ class Component extends DCLogic {
     tasteTab: 'taste',       // which file the taste/profile modal is showing (taste | profile)
     spotifyModalOpen: false,
     guideOpen: false, guideTab: 'how',
+    welcomeOpen: false, welcomeStep: 0, welcomeDismiss: false,   // first-run onboarding (auto-opens once per profile)
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
     profileError: '',
@@ -1469,6 +1504,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## June 2026",
     "",
+    "- **A quick-start welcome.** The first time you sign in, a short four-step tour walks you through how the picks are made, teaching the concierge your taste, and refreshing your ranking. Tick *don't show this again* to dismiss it; re-open it any time from **Settings → quick start**.",
     "- **See your taste edits land.** *View taste & profile* (Settings) now shows a diff of every change the concierge made to your taste or profile, with a badge for whether it's already live in your ranking or still pending.",
     "- **Festivals & further ahead.** The digest now surfaces big destination festivals and looks up to ~6 months out, so you can catch the major stuff while tickets last.",
     "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you — open it from your name in the header.",
@@ -1484,6 +1520,67 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   openGuide = (tab) => this.setState({ guideOpen: true, guideTab: tab || 'how', settingsOpen: false });
   closeGuide = () => this.setState({ guideOpen: false });
   setGuideTab = (t) => this.setState({ guideTab: t });
+
+  // ---------- First-run welcome / onboarding (auto-opens once per signed-in profile) ----------
+  // A short, stepped quick-start that orients a newly-signed-in person: how the picks are made,
+  // teach the concierge your taste, refresh your ranking, and where everything lives. It auto-opens
+  // the first time someone signs into a profile (keyed by hash) — never on the logged-out default
+  // view — and only stops re-appearing once they tick "don't show this again", so closing it without
+  // confirming brings it back next visit (per the spec). The owner/default can preview it via
+  // Settings → ABOUT → quick start. The detailed tour (GUIDE_HOW) and changelog (GUIDE_NEW) stay manual.
+  WELCOME = [
+    [
+      "# Welcome",
+      "",
+      "This is your **taste-ranked read on LA** — music, clubs, comedy, film, theater and food, scored to what *you* like so the best stuff floats to the top with a one-line *why*. A curated digest, not a full calendar dump.",
+      "",
+      "## How the picks are made",
+      "",
+      "- Events are pulled from dozens of sources every day.",
+      "- Each is **scored against your taste** — that's the transparent number (with the little bar) in the right-hand column.",
+      "- A light editorial pass then sets the final **rank** (the `#`). Sort the table by either."
+    ].join('\n'),
+    [
+      "# Make it yours — talk to the concierge",
+      "",
+      "The panel on the left is your **concierge**. The quickest way to get good picks is to tell it about yourself.",
+      "",
+      "- First **connect** it from the chat header (*connect*). No backend yet? It falls back to an instant, offline **Fast filter** — either way it filters the table to match.",
+      "- Then just talk to it like a friend who knows the city: `I'm into deep house and warehouse parties, less comedy`, `I live in Echo Park`, `track Peggy Gou`.",
+      "- It **rewrites your taste & profile** for you behind the scenes — no config files to touch."
+    ].join('\n'),
+    [
+      "# Refresh your ranking",
+      "",
+      "Taste edits and newly-found events don't change your list until you fold them in.",
+      "",
+      "- Open **Settings** (the **☰** icon, bottom-right) and hit **Ranks & Digest → Update** to re-rank against your new taste and the latest events. Takes a minute or two.",
+      "- When there's something fresh to fold in, that button lights up as **Update available** — so you always know when your list is behind."
+    ].join('\n'),
+    [
+      "# Where everything lives",
+      "",
+      "Now that you're signed in, the **⚷** key (bottom-right) becomes your **☰ settings** — that's where the rest lives:",
+      "",
+      "- **Settings (☰)** holds the rest: connect **Spotify**, add your own **Claude key**, and **View taste & profile** — which shows a diff of every edit the concierge made and whether it's **live or still pending**.",
+      "- Your **name in the header** opens your written **digest**; the **what changed** readout (in Settings) tells you what moved on the last pull — lineups, prices, set times.",
+      "- Want this again, or the full walkthrough? It's all under **Settings → how it works**. That's the tour — go find something good."
+    ].join('\n')
+  ];
+  onboardKey(p) { return 'la-onboarded:' + ((p && p.hash) || 'default'); }
+  hasOnboarded(p) { try { return (typeof localStorage !== 'undefined') && localStorage.getItem(this.onboardKey(p)) === '1'; } catch (e) { return false; } }
+  // Auto-open path: show the welcome the first time a given profile context is entered.
+  maybeOnboard(p) { if (this.hasOnboarded(p)) return; this.setState({ welcomeOpen: true, welcomeStep: 0, welcomeDismiss: false }); }
+  // Manual re-open (Settings → ABOUT): reflect the current dismissed state so closing it doesn't
+  // silently un-tick "don't show again".
+  openWelcome = () => this.setState({ welcomeOpen: true, welcomeStep: 0, welcomeDismiss: this.hasOnboarded(this.state.profile), settingsOpen: false });
+  // Persist the per-profile flag from the checkbox, then close. Ticked = never auto-open again;
+  // left un-ticked = it comes back next visit.
+  persistOnboard() { const k = this.onboardKey(this.state.profile); try { this.state.welcomeDismiss ? localStorage.setItem(k, '1') : localStorage.removeItem(k); } catch (e) {} }
+  closeWelcome = () => { this.persistOnboard(); this.setState({ welcomeOpen: false }); };
+  welcomeBack = () => this.setState({ welcomeStep: Math.max(0, this.state.welcomeStep - 1) });
+  welcomeNext = () => { if (this.state.welcomeStep >= this.WELCOME.length - 1) this.closeWelcome(); else this.setState({ welcomeStep: this.state.welcomeStep + 1 }); };
+  toggleWelcomeDismiss = () => this.setState({ welcomeDismiss: !this.state.welcomeDismiss });
 
   // ---------- digest modal toolbar (download / email) ----------
   downloadDigest = () => {
@@ -1774,6 +1871,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
     this.checkCatalogFreshness();
+    // "First time entering their profile" — show the welcome on sign-in (not on logout), once.
+    if (profileObj) this.maybeOnboard(profileObj);
   }
 
   // ---------- per-profile Spotify (the music layer) ----------
@@ -2464,7 +2563,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
     else if (ds === 'score') this.setState({ sortKey: 'score', sortDir: 'desc' });
     else if (ds === 'rank') this.setState({ sortKey: 'rank', sortDir: 'asc' });
-    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); } };
+    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); if (this.state.welcomeOpen) this.closeWelcome(); } };
     window.addEventListener('keydown', this._onKeyDown);
     // Track viewport width so the layout can switch between the desktop table and the
     // mobile card/overlay layout live (rAF-coalesced to avoid setState churn on resize).
@@ -2482,6 +2581,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.loadDigest();
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
+    // First-run onboarding — only for a signed-in profile (never the logged-out default view).
+    // Covers the persisted-login reload; a fresh sign-in triggers it from applyProfile().
+    if (this.state.profile) this.maybeOnboard(this.state.profile);
   }
   componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._resizeRaf) cancelAnimationFrame(this._resizeRaf); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); }
 
@@ -2814,6 +2916,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       guideNewColor: this.state.guideTab === 'new' ? '#fff' : '#76746b',
       guideNewBorder: this.state.guideTab === 'new' ? '#1b1a17' : '#d2d0c7',
       guideBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.state.guideTab === 'new' ? this.GUIDE_NEW : this.GUIDE_HOW) } }),
+      welcomeOpen: !!this.state.welcomeOpen,
+      openWelcome: this.openWelcome, closeWelcome: this.closeWelcome,
+      welcomeBack: this.welcomeBack, welcomeNext: this.welcomeNext, toggleWelcomeDismiss: this.toggleWelcomeDismiss,
+      welcomeBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.WELCOME[Math.min(this.state.welcomeStep, this.WELCOME.length - 1)]) } }),
+      welcomeDots: this.WELCOME.map((_, i) => ({ bg: i === this.state.welcomeStep ? '#1b1a17' : '#d8d6cd' })),
+      welcomeHasBack: this.state.welcomeStep > 0,
+      welcomeNextLabel: this.state.welcomeStep >= this.WELCOME.length - 1 ? 'Got it' : 'Next',
+      welcomeCheckBorder: this.state.welcomeDismiss ? '#1b1a17' : '#cdcbc3',
+      welcomeCheckBg: this.state.welcomeDismiss ? '#1b1a17' : '#fff',
+      welcomeCheckMark: this.state.welcomeDismiss ? '✓' : '',
       digestFile: this.DIGEST_FILE, digestUser,
       downloadDigest: this.downloadDigest,
       digestEmailOpen: !!this.state.digestEmailOpen, toggleEmailDigest: this.toggleEmailDigest,
