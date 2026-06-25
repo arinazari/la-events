@@ -44,6 +44,125 @@ def profile_hash(username: str, salt: str) -> str:
     return hashlib.sha256((salt + username.strip().lower()).encode("utf-8")).hexdigest()[:16]
 
 
+# ---------------------------------------------------------------------------
+# Self-edit visibility (baked at build time, static-first)
+# ---------------------------------------------------------------------------
+# Surface HOW a profile's taste/profile YAML was adjusted (the concierge commits
+# these edits) and WHETHER the latest adjustment has propagated into that profile's
+# most recent *data enrichment* — the per-profile event-editor verdicts + the
+# narrative digest the LLM pass commits. Both are derived from git here and baked
+# into the feed, so the static dashboard can render a diff + a reflected/pending
+# badge with no backend. Everything degrades to empty/None when git history is
+# unavailable (e.g. a shallow CI checkout) — the page just hides the affordance.
+
+# Automated re-rank/refresh/deploy commits — filtered out of the human-readable
+# edit history so the list reads as *intent* (concierge + hand edits), not churn.
+_AUTO_COMMIT_PREFIXES = ("build:", "rebuild:", "refresh:", "build(", "chore:", "deploy:")
+_DIFF_LINE_CAP = 200
+
+
+def _git(repo, *args):
+    """Run a read-only git command; return stdout (str) or None on any failure."""
+    try:
+        r = subprocess.run(["git", *args], cwd=str(repo),
+                           capture_output=True, text=True, timeout=20)
+        return r.stdout if r.returncode == 0 else None
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
+def _last_commit(repo, paths):
+    """Full SHA of the most recent commit touching any of `paths` (or None)."""
+    out = _git(repo, "log", "-1", "--format=%H", "--", *paths)
+    return (out or "").strip() or None
+
+
+def _commit_date(repo, sha):
+    """Committer date (YYYY-MM-DD) of `sha`, or None."""
+    out = _git(repo, "show", "-s", "--format=%cI", sha) if sha else None
+    return (out or "").strip()[:10] or None
+
+
+def _cap_diff(text):
+    lines = (text or "").splitlines()
+    if len(lines) > _DIFF_LINE_CAP:
+        lines = lines[:_DIFF_LINE_CAP] + ["@@ … diff truncated …"]
+    return "\n".join(lines)
+
+
+def _last_human_commit(repo, path):
+    """SHA of the most recent NON-automated commit touching `path` (a concierge or hand
+    edit), or None — mirrors the _edit_history filter so the 'latest change' diff and the
+    history list always agree (a `build:`/`rebuild:` commit is not "your change")."""
+    out = _git(repo, "log", "-n", "40", "--format=%H\x1f%s", "--", path)
+    for line in (out or "").splitlines():
+        if "\x1f" not in line:
+            continue
+        sha, subject = line.split("\x1f", 1)
+        if subject.strip().lower().startswith(_AUTO_COMMIT_PREFIXES):
+            continue
+        return sha.strip() or None
+    return None
+
+
+def _edit_history(repo, path, limit=6):
+    """Recent human/concierge edits to `path`, newest first: [{date, summary}].
+    Automated commits (re-rank/refresh/deploy) are dropped so it reads as intent."""
+    out = _git(repo, "log", "-n", str(limit * 4), "--format=%cI\x1f%s", "--", path)
+    hist = []
+    for line in (out or "").splitlines():
+        if "\x1f" not in line:
+            continue
+        iso, subject = line.split("\x1f", 1)
+        subject = subject.strip()
+        if subject.lower().startswith(_AUTO_COMMIT_PREFIXES):
+            continue
+        hist.append({"date": iso[:10], "summary": subject})
+        if len(hist) >= limit:
+            break
+    return hist
+
+
+def selfedit_block(repo, file_rel, enrich_paths):
+    """Per-file visibility block for the dashboard's diff modal.
+
+    Returns: {file, exists, history[], diff, diff_kind, reflected, enriched_at}.
+      reflected  — the file is byte-identical between the last enrichment commit and
+                   HEAD (content-based: an edit-then-revert correctly reads reflected).
+                   None when it can't be determined (no git history / never enriched
+                   is handled as not-reflected).
+      diff_kind  — 'pending' (edits not yet in the enrichment), 'applied' (the latest
+                   change, already live), or 'none'.
+      diff       — a unified diff for that change (capped), '' when none.
+      enrich_paths — the artifacts the LLM pass commits for this profile (its verdicts
+                   + narrative digest); their last-commit time *is* "the most recent
+                   data enrichment" we compare against.
+    """
+    block = {"file": file_rel, "exists": (repo / file_rel).exists(),
+             "history": [], "diff": "", "diff_kind": "none",
+             "reflected": None, "enriched_at": None}
+    if not block["exists"]:
+        return block  # e.g. a friend who hasn't created a personal profile.yaml yet
+    block["history"] = _edit_history(repo, file_rel)
+    edit_sha = _last_human_commit(repo, file_rel)        # the latest concierge/hand edit
+    enr_sha = _last_commit(repo, list(enrich_paths))     # the latest enrichment (a rebuild: commit)
+    block["enriched_at"] = _commit_date(repo, enr_sha)
+    if enr_sha:
+        pending = _cap_diff(_git(repo, "diff", f"{enr_sha}..HEAD", "--", file_rel) or "")
+        if pending.strip():
+            block.update(diff=pending, diff_kind="pending", reflected=False)
+        else:
+            applied = _cap_diff(_git(repo, "show", "--format=", edit_sha, "--", file_rel) or "") if edit_sha else ""
+            block.update(diff=applied, diff_kind=("applied" if applied.strip() else "none"),
+                         reflected=True)
+    elif edit_sha:
+        # No enrichment has ever been committed for this profile → the edit is, by
+        # definition, not yet reflected. Show the latest change as the pending one.
+        applied = _cap_diff(_git(repo, "show", "--format=", edit_sha, "--", file_rel) or "")
+        block.update(diff=applied, diff_kind="pending", reflected=False)
+    return block
+
+
 def run_build(taste: str, profile: str, out: Path, profile_hash: str = None,
               editor_pool_out: str = None) -> bool:
     cmd = [sys.executable, str(BUILD), "--taste", taste, "--profile", profile, "-o", str(out)]
@@ -122,6 +241,23 @@ def main() -> int:
                 block["taste_yaml"] = (REPO / taste).read_text()
             except OSError:
                 pass
+            # profile.yaml too: the concierge edits both (taste = artists/genres/venues;
+            # profile = home/coords + scoring dials). Owner edits the root file; a friend
+            # their own profiles/<name>/profile.yaml (may not exist until their first edit).
+            profile_rel = "profile.yaml" if is_owner else (p.get("profile") or f"profiles/{u}/profile.yaml")
+            try:
+                block["profile_yaml"] = (REPO / profile_rel).read_text()
+            except OSError:
+                block["profile_yaml"] = None
+            # How the concierge adjusted each file + whether that's reflected in this
+            # profile's most recent enrichment (the verdicts + narrative the LLM pass
+            # commits). Owner's enrichment is the consolidated digest + default verdicts.
+            enrich_paths = ([f"digests/{h}/latest.md", f"data/verdicts/{h}.json"]
+                            + (["digests/latest.md", "data/verdicts/default.json"] if is_owner else []))
+            block["self_edit"] = {
+                "taste": selfedit_block(REPO, taste, enrich_paths),
+                "profile": selfedit_block(REPO, profile_rel, enrich_paths),
+            }
             feed["profile"] = block
             out.write_text(json.dumps(feed, indent=2))
         except (OSError, json.JSONDecodeError) as e:
