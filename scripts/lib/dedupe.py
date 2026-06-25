@@ -222,6 +222,35 @@ def _link_premerge(events: list) -> tuple:
     return out, report
 
 
+# ── Placeholder-venue dedupe ───────────────────────────────────────────────────
+# Secret / TBA warehouse + afterhours parties name no real place, and the placeholder string varies
+# by source ("Secret DTLA Warehouse" / "TBA (DTLA)" / "TBA - DTLA Warehouse"), so _venue_match can't
+# pair them and — when they also share no ticket link (a third source the link pass can't reach) —
+# they slip through as duplicates. When BOTH sides are placeholders we drop the venue requirement and
+# lean on a STRONG title match instead (stricter than the normal venue+title bar, since the weak
+# venue signal is gone). Same-date is still required (the date guard above this path).
+_PLACEHOLDER_VENUE = re.compile(
+    r"\b(tba|tbd|secret|undisclosed|location|address|rsvp|dm|day of|drops?)\b")
+
+
+def _is_placeholder_venue(v: str) -> bool:
+    if not _venue_key(v):
+        return True                                   # blank / filler-only venue string
+    return bool(_PLACEHOLDER_VENUE.search(normalize(v)))
+
+
+def _strong_title_match(a: dict, b: dict) -> bool:
+    """A high-confidence title match: near-identical, or one title is a substantial substring of the
+    other (a source appends the lineup — "… Party" vs "… Party ft Rhino, Iguess, …")."""
+    ta, tb = normalize(a.get("title", "")), normalize(b.get("title", ""))
+    if not ta or not tb:
+        return False
+    if _ratio(ta, tb) >= 0.85:
+        return True
+    short, long = sorted((ta, tb), key=len)
+    return len(short) >= 15 and short in long
+
+
 def is_duplicate(a: dict, b: dict) -> bool:
     """Two records describe the same real-world event."""
     if _link_ids(a) & _link_ids(b):
@@ -232,6 +261,9 @@ def is_duplicate(a: dict, b: dict) -> bool:
         return False  # conservative: no date match, no merge
     if _venue_match(a, b) and _title_or_headliner_match(a, b):
         return True
+    if _is_placeholder_venue(a.get("venue", "")) and _is_placeholder_venue(b.get("venue", "")) \
+            and _strong_title_match(a, b):
+        return True  # both venues are TBA/secret placeholders + a strong title match = same underground event
     return _festival_match(a, b)  # cross-source festival (venue + title vary by source)
 
 

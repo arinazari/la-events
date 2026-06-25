@@ -185,6 +185,43 @@ def test_tracking_link_does_not_collapse_multiday_festival():
     assert len(merged) == 2, [(e["title"], e["date"]) for e in merged]
 
 
+# ── Placeholder-venue dedupe (TBA/secret warehouse, no shared link) ──────────────
+
+def test_placeholder_venue_strong_title_merges():
+    # Bass Recovery shape: a third source (RA) shares no link and its TBA venue string diverges
+    # from the others' — but the title is the same event (one side appends the lineup).
+    ra = {"title": "Bass Recovery Day 1 (Unofficial Apocalypse Recovery Party)", "venue": "TBA - DTLA Warehouse",
+          "date": "2026-06-27", "lineup": [], "links": [{"source": "ra", "url": "https://ra.co/events/2471045"}],
+          "sources": ["ra"]}
+    nh = {"title": "Bass Recovery Day 1 (Unofficial Apocalypse Recovery Party) ft Rhino, Iguess, Masterpiece",
+          "venue": "Secret DTLA Warehouse", "date": "2026-06-27", "lineup": [],
+          "links": [{"source": "19hz", "url": "https://posh.vip/e/bass-recovery"}], "sources": ["19hz"]}
+    assert is_duplicate(ra, nh)
+    merged, _ = dedupe([ra, nh])
+    assert len(merged) == 1, [e["title"] for e in merged]
+
+
+def test_placeholder_venue_distinct_titles_not_merged():
+    # Two DIFFERENT warehouse parties at TBA the same night must NOT merge on the weak venue alone.
+    a = {"title": "Butterground", "venue": "TBA - DTLA", "date": "2026-06-27", "lineup": []}
+    b = {"title": "Panic Room", "venue": "TBA (Los Angeles) techno", "date": "2026-06-27", "lineup": []}
+    assert not is_duplicate(a, b)
+
+
+def test_placeholder_venue_weak_title_not_merged():
+    # Both TBA but the titles aren't a strong match (ratio < 0.85, no substantial substring) -> no merge.
+    a = {"title": "Warehouse Techno Night", "venue": "TBA", "date": "2026-06-27", "lineup": []}
+    b = {"title": "Warehouse House Party", "venue": "Secret Location", "date": "2026-06-27", "lineup": []}
+    assert not is_duplicate(a, b)
+
+
+def test_real_venue_unaffected_by_placeholder_path():
+    # Distinct events at a REAL (non-placeholder) venue keep the strict venue+title requirement.
+    a = {"title": "FRA VS SEN", "venue": "Dom Futbola", "date": "2026-06-16", "lineup": []}
+    b = {"title": "ARG VS BRA", "venue": "Dom Futbola", "date": "2026-06-16", "lineup": []}
+    assert not is_duplicate(a, b)
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
