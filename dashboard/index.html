@@ -547,7 +547,7 @@
               <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:10px;">SETTINGS</div>
               <sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}">
                 <div onClick="{{ onUpdateClick }}" title="Re-rank your picks + re-render your digest against the latest events database" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid {{ updateBorder }}; background:{{ updateBg }}; border-radius:2px; cursor:{{ updateCursor }}; opacity:{{ updateOpacity }}; margin-bottom:7px;">
-                  <span style="flex:none; color:{{ updateColor }}; font-size:14px; transform:translateY(1px);">{{ updateIcon }}</span>
+                  <span style="flex:none; color:{{ updateIconColor }}; font-size:16px; transform:translateY(1px);">{{ updateIcon }}</span>
                   <span style="flex:1;">
                     <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:{{ updateColor }};">{{ updateTitle }}</span>
                     <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ updateStatus }}</span>
@@ -556,7 +556,7 @@
                 </div>
                 <sc-if value="{{ isOwner }}" hint-placeholder-val="{{ false }}">
                   <div onClick="{{ onRefreshClick }}" title="Admin: fetch all sources and rebuild the shared events database (applies to everyone)" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:{{ refreshCursor }}; opacity:{{ refreshOpacity }}; margin-bottom:7px;" style-hover="border-color:#161512;">
-                    <span style="flex:none; color:#b4453a; font-size:14px; transform:translateY(1px);">{{ refreshIcon }}</span>
+                    <span style="flex:none; color:#b4453a; font-size:16px; transform:translateY(1px);">{{ refreshIcon }}</span>
                     <span style="flex:1;">
                       <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">{{ refreshTitle }}</span>
                       <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ refreshLabel }}</span>
@@ -565,28 +565,28 @@
                   </div>
                 </sc-if>
                 <div onClick="{{ openApiModal }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:14px; transform:translateY(1px);">◈</span>
+                  <span style="flex:none; color:#3f3d36; font-size:16px; transform:translateY(1px);">◈</span>
                   <span style="flex:1;">
                     <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Claude API key</span>
                     <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ claudeKeyState }}</span>
                   </span>
                 </div>
                 <div onClick="{{ openSpotifyModal }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#1f9d57; font-size:14px; transform:translateY(1px);">◉</span>
+                  <span style="flex:none; color:#1f9d57; font-size:16px; transform:translateY(1px);">◉</span>
                   <span style="flex:1;">
                     <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Spotify</span>
                     <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ spotifySettingsText }}</span>
                   </span>
                 </div>
                 <div onClick="{{ openTasteModal }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer; margin-bottom:7px;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:14px; transform:translateY(1px);">❏</span>
+                  <span style="flex:none; color:#3f3d36; font-size:16px; transform:translateY(1px);">✦</span>
                   <span style="flex:1;">
                     <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">View taste &amp; profile</span>
-                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">your config + recent edits (read-only)</span>
+                    <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">your config + recent edits</span>
                   </span>
                 </div>
                 <div onClick="{{ logoutFromSettings }}" style="display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
-                  <span style="flex:none; color:#3f3d36; font-size:14px; transform:translateY(1px);">⊖</span>
+                  <span style="flex:none; color:#3f3d36; font-size:16px; transform:translateY(1px);">⊖</span>
                   <span style="flex:1;">
                     <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log out</span>
                     <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">signed in as {{ profileName }}</span>
@@ -2877,7 +2877,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         : 'no changes';
     const lastChangeColor = (liveAdded || liveUpdated) ? '#1f7a4d' : '#76746b';
     const changeCursor = (liveCatalog && (liveCatalog.changes || []).length) ? 'pointer' : 'default';
-    const claudeKeyState = !rawKey ? 'not set · uses the shared token'
+    const claudeKeyState = !rawKey ? 'not set'
       : (keyOn ? ('on · ' + rawKey.slice(0, 11) + '…') : 'saved · switched off');
     // Catalog freshness: is this profile's ranking/digest behind the live events DB?
     const isOwner = !!(this.META && this.META.profile && this.META.profile.owner);
@@ -2893,7 +2893,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // DB pull it hasn't caught up to yet.
     const feedSynced = this.fmtStamp((this.META && this.META.generated_at) || null);
     const updateActive = (feedStale || tasteDirty) && !updateBusy;
-    const updateTitle = 'Ranks & Digest: ' + (updateBusy ? 'Updating…' : updateActive ? 'Update available' : 'Up to date');
+    const updateTitle = 'Ranks & Digest: ' + (updateBusy ? 'Updating…' : updateActive ? 'Update available' : 'Current');
     const updateStatus = updateBusy
       ? (updateElapsed + ' elapsed · a few min')
       : ('Last synced with database: ' + feedSynced);
@@ -3027,6 +3027,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       updateOpacity: updateBusy ? '0.7' : '1',
       updateCursor: updateActive ? 'pointer' : 'default',
       updateIcon: updateBusy ? '◌' : (updateActive ? '↻' : '✓'),
+      updateIconColor: updateBusy ? '#a7a59b' : (updateActive ? '#fff' : '#1f7a4d'),
       onUpdateClick: updateActive ? this.updateMyDigest : (() => {}),
       logoutFromSettings: this.logoutFromSettings,
       connectModalOpen: this.state.connectModalOpen, closeConnectModal: this.closeConnectModal,
