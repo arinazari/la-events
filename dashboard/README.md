@@ -108,8 +108,9 @@ There are two onboarding surfaces, both authored as Markdown strings in `index.h
 through the same `renderMarkdown` the digest modal uses (so they match its look exactly — no new styling):
 
 **1. First-run welcome (auto-opens after sign-in).** A short, **stepped** quick-start (`WELCOME` — four
-steps: how the picks are made → teach the concierge your taste → refresh your ranking → where everything
-lives). It **auto-opens the first time someone signs into a profile** — on a fresh sign-in and on a
+steps: how the picks are made → **set yourself up** (connect the concierge with Ari's token / your own
+key → tell it your neighborhood + tastes → connect Spotify) → **refresh your ranks** to fold it all in →
+where everything else lives). It **auto-opens the first time someone signs into a profile** — on a fresh sign-in and on a
 persisted-login reload (`maybeOnboard`, called from `applyProfile` and, guarded by a logged-in profile,
 `componentDidMount`). It **never pops up on the logged-out default view**; the owner/default can preview
 it from Settings → ABOUT → quick start. It is keyed per profile in localStorage (`la-onboarded:<hash>`),
