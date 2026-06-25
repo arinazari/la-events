@@ -82,16 +82,22 @@ def test_taste_yaml_scoring_fallback():
     assert "zzztest" in _scoring_cfg({}, {"scoring": {"groove_terms": ["zzztest"]}})["groove"]
 
 
-def test_defaults_match_profile():
-    """profile.yaml must transcribe the code defaults verbatim (behavior-preserving)."""
+def test_profile_preserves_code_defaults():
+    """profile.yaml is the live, user-editable scoring config (the city-portable knob);
+    the DEFAULT_* in scoring.py are the generic fallback used only when a key is absent.
+    profile.yaml may EXTEND the baseline — e.g. Ari's 'beach' groove term (commit 8c0229c) —
+    but must not silently DROP or CHANGE a baseline default, which would regress scoring with
+    no one noticing. So: every code default must still be present; additions are allowed."""
     from lib.scoring import (DEFAULT_GROOVE_TERMS, DEFAULT_EU_TERMS,
                              DEFAULT_PENALTY_TERMS, DEFAULT_FAR_TERMS, DEFAULT_CATEGORY_WEIGHTS)
     cfg = _scoring_cfg(PROFILE)
-    assert tuple(cfg["groove"]) == DEFAULT_GROOVE_TERMS
-    assert tuple(cfg["eu"]) == DEFAULT_EU_TERMS
-    assert tuple(cfg["penalty"]) == DEFAULT_PENALTY_TERMS
-    assert tuple(cfg["far"]) == DEFAULT_FAR_TERMS
-    assert cfg["category_weights"] == DEFAULT_CATEGORY_WEIGHTS
+    for name, default in [("groove", DEFAULT_GROOVE_TERMS), ("eu", DEFAULT_EU_TERMS),
+                          ("penalty", DEFAULT_PENALTY_TERMS), ("far", DEFAULT_FAR_TERMS)]:
+        dropped = set(default) - set(cfg[name])
+        assert not dropped, f"profile.yaml {name}_terms dropped baseline default(s): {sorted(dropped)}"
+    changed = {k: (cfg["category_weights"].get(k), v)
+               for k, v in DEFAULT_CATEGORY_WEIGHTS.items() if cfg["category_weights"].get(k) != v}
+    assert not changed, f"profile.yaml category_weights changed/dropped baseline (got, want): {changed}"
 
 
 def test_parse_event_date_tm_utc_evening_is_local_day():
