@@ -11,7 +11,7 @@ you" rating can't drift from the digest's ranking.
 The feed has three parts:
   - events[]   — every catalog event, scored (+ rating/reasons), with enrichment folded
                  in when data/enrichment.json has a hit for it (curator note, type/
-                 subgenre tags, artist notes, image).
+                 subgenre tags, artist notes).
   - config     — a structured snapshot of the editable knobs (taste.yaml content,
                  profile.yaml scoring mechanics, sources.yaml registry) so the
                  dashboard's Settings view can render current state and stage edits.
@@ -51,7 +51,7 @@ REPO = Path(__file__).resolve().parent.parent
 # cache also stores id/enriched_at/confidence — internal plumbing the viewer ignores.
 ENRICH_FIELDS = (
     "type", "subgenres", "label_orbit", "energy", "setting", "sounds_like",
-    "artist_notes", "curator_note", "description", "image",
+    "artist_notes", "curator_note", "description",
 )
 
 

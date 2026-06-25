@@ -55,8 +55,7 @@ jobs:
         run: |
           python scripts/build_radar.py || true
           python scripts/render_digest.py --consolidated \
-            --md digests/latest.md --html digests/latest.html \
-            --asset-prefix "./" || true
+            --md digests/latest.md || true
 
       - name: Commit the refreshed catalog + feed
         run: |
@@ -64,7 +63,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -- data/catalog.json data/catalog_meta.json \
             dashboard/data.json dashboard/catalog_meta.json \
-            digests/latest.md digests/latest.html 2>/dev/null || true
+            digests/latest.md 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes after refresh."
           else

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for scripts/render_digest.py — day-grouped renderers (.md + .html).
+"""Tests for scripts/render_digest.py — the day-grouped Markdown agenda renderer.
 
 Run: python scripts/tests/test_render.py
 """
@@ -15,11 +15,10 @@ DOC = {"generated_at": "2026-06-17T09:00:00", "today": "2026-06-17",
 CANDS = [
     {"title": "Sunset Sessions", "iso_date": "2026-06-19", "start": "17:00", "score": 11,
      "rating": 5, "venue": "Golden Hour at Level 8", "neighborhood": "DTLA", "price": "free",
-     "category": "electronic", "image_wanted": True,
+     "category": "electronic",
      "links": [{"source": "ra", "url": "https://ra.co/e/1"}, {"source": "ticketmaster", "url": "https://tm/1"}],
      "enrichment": {"type": "electronic", "curator_note": "Rooftop house as the sun drops.",
-                    "artist_notes": [{"name": "Antal", "note": "Rush Hour boss"}],
-                    "image": {"url": "https://img/1.jpg"}}},
+                    "artist_notes": [{"name": "Antal", "note": "Rush Hour boss"}]}},
     {"title": "Mad Max: Fury Road", "iso_date": "2026-06-19", "start": "2026-06-19T16:00:00", "score": 6,
      "rating": 4, "venue": "Vidiots", "neighborhood": "Eagle Rock", "price": "$15", "category": "film",
      "links": [{"source": "vidiots", "url": "https://vidiots/1"}]},
@@ -46,17 +45,6 @@ def test_markdown_is_day_grouped_with_variety():
     assert "Mad Max: Fury Road" in md                               # non-electronic surfaced
     assert "Rooftop house as the sun drops." in md                  # curator note
     assert "dice (exit 1)" in md                                    # footer
-
-
-def test_html_is_day_grouped_with_uppercase_tags():
-    html = R.render_html(DOC, CANDS)
-    assert html.startswith("<!doctype html>")
-    assert 'class="grp"' in html and "Electronic &amp; dance" in html
-    assert "Friday · June 19" in html
-    assert "⭐ PICK" in html                                         # inline pick tag
-    assert ">RA<" in html and ">TICKETMASTER<" in html              # uppercase source tags
-    assert '<img class="thumb"' in html                            # hero thumb on the pick
-    assert "Rooftop house as the sun drops." in html
 
 
 def test_collapse_multidate_runs():

@@ -104,8 +104,8 @@ jobs:
           if [ "$IS_OWNER" = "true" ]; then
             python scripts/build_radar.py || true
             python scripts/render_digest.py --consolidated \
-              --md digests/latest.md --html digests/latest.html --asset-prefix "./" || true
-            paths="$paths digests/latest.md digests/latest.html"
+              --md digests/latest.md || true
+            paths="$paths digests/latest.md"
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

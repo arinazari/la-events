@@ -136,7 +136,6 @@ def main() -> int:
                          "sources keep --days. Two-speed fetch: full-fidelity near, deterministic radar far.")
     ap.add_argument("--window", type=int, default=None, help="candidate window in days (default: all upcoming)")
     ap.add_argument("--top", type=int, default=40, help="candidate set size for enrichment")
-    ap.add_argument("--images", type=int, default=10, help="how many top candidates are flagged image_wanted")
     ap.add_argument("--editor-pool", default="data/editor_pool.json", help="editor judging-set output")
     ap.add_argument("--editor-window", type=int, default=28, help="days the editor pool spans")
     ap.add_argument("--editor-per-lane", type=int, default=4, help="top-K per lane judged")
@@ -192,14 +191,13 @@ def main() -> int:
 
     affinity = load_affinity_layer(args.no_fetch, report, profile)
     candidates = P.select_candidates(catalog, taste, profile, today,
-                                     window_days=args.window, top_n=args.top, image_n=args.images,
+                                     window_days=args.window, top_n=args.top,
                                      affinity=affinity)
     cand_doc = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "today": today.isoformat(),
         "window_days": args.window,
         "count": len(candidates),
-        "image_wanted": sum(1 for c in candidates if c.get("image_wanted")),
         "affinity": ({"artists": len(affinity.get("artists", {})),
                       "genres": len(affinity.get("genres", {}))} if affinity else None),
         "sources": report,
@@ -221,8 +219,7 @@ def main() -> int:
     # Run report.
     print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}/c{cat_meta['content_version']}) "
           f"(+{delta['added']} new, {delta['updated']} updated, {stale_n} unlisted, {stats['merged']} merged, {expired} expired) "
-          f"-> {len(candidates)} candidates ({cand_doc['image_wanted']} need images), "
-          f"{len(judge)} to judge")
+          f"-> {len(candidates)} candidates, {len(judge)} to judge")
     if report["ok"]:
         print("  fetched:", ", ".join(f"{s}:{n}" for s, n in report["ok"]))
     if report["failed"]:

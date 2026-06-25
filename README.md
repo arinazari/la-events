@@ -21,10 +21,10 @@ lives outside git.
   "never show Y") fold in automatically. It *enriches* `taste.yaml` — never overwrites it; with no
   Spotify creds and no feedback, scoring is identical to the taste-only path.
 - **Enriches** the top picks via the `scene-researcher` agent: sub-genre tags, who each artist is
-  and why they fit, a curator's note, a clean description, and a hero image. Artist research is
+  and why they fit, a curator's note, and a clean description. Artist research is
   cached in `data/enrichment.json` and reused — the "scene graph" compounds each run.
-- **Renders** a day-by-day digest (`scripts/render_digest.py`): a canonical `.md` and a rich
-  `.html` (type tags, ★ relevance, inline ⭐ picks, cached images).
+- **Renders** a day-by-day digest (`scripts/render_digest.py`): a canonical Markdown agenda
+  (type tags, ★ relevance, inline ⭐ picks, curator notes).
 - **Discovers** new sources on demand (`source-scout`): propose → you approve → `sources.yaml`.
 
 ## The pipeline
@@ -34,8 +34,7 @@ fetch_spotify.py     top / followed / recent → music affinity      → data/sp
 run_digest.py        fetch → dedupe → expire → score (+ affinity   → data/catalog.json + data/candidates.json
                        + data/feedback.jsonl)
 scene-researcher ×N  enrich the top candidates (parallel)          → data/enrichment.json  (scene graph, grows)
-cache_images.py      download hero images                           → data/images/
-render_digest.py     enriched candidates → the digest              → .md + .html
+render_digest.py     enriched candidates → the digest              → .md (Markdown agenda)
 ```
 
 `run_digest.py` runs the Spotify sync itself when `SPOTIFY_REFRESH_TOKEN` is set, then folds the
@@ -48,12 +47,12 @@ is still one command.
   this weekend"). It runs the pipeline and writes the files. `/la-events discover | flyer | sources`
   for the other modes.
 - **Scheduled routine:** `routines/daily-digest-prompt.md` runs the pipeline **daily** and maintains
-  a rolling set of **per-weekend** digests (`digests/weekends/YYYY-MM-DD.{md,html}` + `index.md`),
+  a rolling set of **per-weekend** digests (`digests/weekends/YYYY-MM-DD.md` + `index.md`),
   ~4 months out. You set this up once in **claude.ai → Routines** (schedule, secrets, network); it
   commits to **`main`**, which auto-republishes the dashboard (see below).
 
-The `.html` is the visual version (images, color-coded tags, picks); the `.md` is the canonical,
-diffable text. **No email** — the `.html` is the artifact the planned hosted page will serve.
+The `.md` is the canonical, diffable digest artifact. **No email** — it's what the planned
+hosted page will serve.
 
 ## What's live now vs. next
 

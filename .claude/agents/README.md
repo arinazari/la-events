@@ -7,7 +7,7 @@ to these workers** so the main run stays fast and its context doesn't bloat.
 
 | Agent | Tier / when | Spawned by | Returns |
 |---|---|---|---|
-| `scene-researcher` | Tier 1 — every digest run, **in parallel** over the top ~30–40 (one per batch) | la-events skill / daily routine | structured enrichment JSON (tags, artist notes, curator note, description, image) → written to the enrichment cache |
+| `scene-researcher` | Tier 1 — every digest run, **in parallel** over the top ~30–40 (one per batch) | la-events skill / daily routine | structured enrichment JSON (tags, artist notes, curator note, description) → written to the enrichment cache |
 | `source-scout` | On demand only | la-events Discover mode / Ari | a vetted **proposal** table (+ ready-to-paste `sources.yaml` snippets); never commits |
 | `night-planner` | On demand | concierge / Ari | a timed dinner → show → afters itinerary with booking links |
 
@@ -21,7 +21,7 @@ scene-researcher ×N  (Tier 1, parallel) ← enrich top ~30–40; read+update th
         │  enriched records (cache)
         ▼
 main agent (Tier 2, one creative step) ← write the digest in the single "LA insider" voice,
-                                          render .md (canonical) + HTML (top-10 images) → email
+                                          render the canonical Markdown agenda (.md)
 ```
 
 `source-scout` and `night-planner` sit **outside** that loop — invoked when Ari asks (typically

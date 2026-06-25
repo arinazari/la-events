@@ -36,8 +36,8 @@ Run, for the profile feed hash `<HASH>`:
 
 2. **Enrich the very top picks (scene-researcher) — ≤1 batch, optional.** Only the top ~10–12 cache-miss
    candidates (`enrich.select_for_enrichment`): one **scene-researcher** batch → tags, artist notes,
-   curator's notes, descriptions, images for `image_wanted` → fold into `data/enrichment.json`, then
-   `python scripts/cache_images.py`. Skip entirely if there are no misses or you're low on turns.
+   curator's notes, descriptions → fold into `data/enrichment.json`.
+   Skip entirely if there are no misses or you're low on turns.
 
 3. **Re-score with fresh verdicts.** `python scripts/build_profiles.py --only-hash <HASH>` again, so the
    new verdicts fold into each event's **final rank** in `dashboard/data.<HASH>.json`.

@@ -49,7 +49,7 @@ weekend," "next two weeks"), use that.
 
 `python scripts/run_digest.py --days 21` does the mechanical work — fetch → normalize → dedupe →
 expire → score — and writes `data/catalog.json` (durable, score-free) plus `data/candidates.json`
-(the scored, ranked, upcoming top-N; the top 10 flagged `image_wanted`). **Don't fetch / dedupe /
+(the scored, ranked, upcoming top-N). **Don't fetch / dedupe /
 score these by hand anymore.** It covers the single-endpoint structured fetchers: Ticketmaster
 (`TM_API_KEY`), Resident Advisor, 19hz, Goldenvoice, Vidiots (Filmbot), Posh (`POSH_TOKEN`),
 Eventbrite (curated organizers), DICE. It **degrades gracefully** — any fetcher that errors / times
@@ -116,14 +116,14 @@ profile's own pool (`data/editor_pool.<hash>.json`); run the editor per profile 
 
 Fan out the **`scene-researcher`** agent over the cache-miss candidates (`scripts/lib/enrich.py`
 `select_for_enrichment`) in parallel batches → per-event sub-genre tags, artist notes, a curator's
-note, a clean description, and an image for the `image_wanted` top picks. Fold results into the
+note, and a clean description. Fold results into the
 accumulating cache (`data/enrichment.json`) via `update_cache` — recurring artists are researched
 once, so the scene graph compounds. Verify-or-omit: no invented bios.
 
 ### Step 6 — Render + synthesize
 
 `python scripts/render_digest.py --consolidated` is the **primary** invocation: ONE daily digest
-(`digests/latest.{md,html}`) with three sections — **Next two weeks** (days 0–13, day-by-day),
+(`digests/latest.md`) with three sections — **Next two weeks** (days 0–13, day-by-day),
 **Weekends ahead** (days 14–35, Thu–Sun only), and **On the radar** (festivals / big shows /
 tracked far-out). Run `python scripts/build_radar.py --md radar-candidates.md` first; it writes
 `data/radar.json` (a deterministic signal heuristic — editorial / festival / tracked-artist /
@@ -131,8 +131,7 @@ arena), which `--consolidated` reads for the radar tier. The first two sections 
 **slate** — `assemble()` over the scored pool + verdicts (day-grouped, lane-diverse,
 verdict-ranked). The **windowed `--from <date> --to <date>`** mode is retained as the per-weekend
 look-ahead (one file per upcoming weekend, keyed by the Friday — the dashboard's per-weekend view
-plugs into it). Either mode emits canonical `.md` (committable) **and** a rich emailable `.html`
-(type chips, ★ relevance, curator notes, hero images for the `image_wanted` picks). The per-event
+plugs into it). Either mode emits a canonical Markdown agenda (committable). The per-event
 **curator notes + artist glosses come from Step-4 enrichment**, so the insider voice is baked in;
 scoring is **precomputed** (read `score`/`rating`/
 `reasons` — never hand-score; the taste profile below is just orientation for *why* things rank). On
@@ -278,7 +277,7 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
   `affinity.py` (Spotify music layer), `feedback.py` (reactions → affinity), `tagging.py` (deterministic
   multi-axis tags — `type`/`genre`/`setting`/`vibe`/`region`, stamped onto every catalog record each run;
   its `VOCAB` is the controlled vocabulary the scene-researcher should refine within). Tested in `scripts/tests/`.
-- `scripts/render_digest.py` — enriched candidates → the digest: canonical `.md` + rich emailable `.html`.
+- `scripts/render_digest.py` — enriched candidates → the digest: a canonical Markdown agenda.
 - `data/enrichment.json` — the accumulating scene-graph cache (event enrichment + artist notes); grows each run.
 - `profile.yaml` — place/person config (ids, geo, scoring weights/terms/thresholds, `scoring.spotify`
   + `scoring.feedback` knobs); the city-portable knob.
