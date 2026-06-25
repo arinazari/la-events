@@ -2530,16 +2530,28 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       })
       .catch(() => { this.DIGEST_INDEX = []; this.DIGEST_CURRENT = null; this.forceUpdate(); });
   }
-  // Load the feed for a profile (null = default). Falls back to the default feed if a profile's
-  // file is missing (e.g. it was removed), clearing the now-stale stored profile.
+  // Load the feed for a profile (null = default). If a logged-in profile's feed can't be loaded,
+  // fall back to the default feed for the moment — but only SIGN THE USER OUT when the feed is
+  // *definitively gone* (a 404/410: the profile was removed server-side). A transient failure
+  // (offline, connection reset, a fetch aborted by a reload, a momentarily empty/garbled feed)
+  // must NOT wipe a valid login: the old code did `removeItem('la-profile')` on *any* !ok — so a
+  // single network blip, or a remount mid-fetch, silently logged you out. Stay signed in and let
+  // the next successful load restore the profile feed.
   loadFeedFor(p) {
-    const primary = (p && p.hash) ? ('./data.' + p.hash + '.json') : './data.json';
-    return this._tryFeed(primary).then(ok => {
-      if (!ok && p) return this._tryFeed('./data.json').then(() => {
-        try { localStorage.removeItem('la-profile'); } catch (e) {}
-        this.setState({ profile: null });
-      });
-    });
+    if (!(p && p.hash)) return this._tryFeed('./data.json').then(() => {});
+    const primary = './data.' + p.hash + '.json';
+    const fallback = () => this._tryFeed('./data.json').then(() => {});   // show default picks, stay signed in
+    return fetch(primary, { cache: 'no-store' }).then(
+      res => {
+        if (res.ok) return res.json().then(raw => { if (!this._applyFeed(raw)) return fallback(); }, fallback);
+        // Non-OK response: only a hard "gone" clears the stored login.
+        const gone = res.status === 404 || res.status === 410;
+        return this._tryFeed('./data.json').then(() => {
+          if (gone) { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setState({ profile: null }); }
+        });
+      },
+      fallback,                                                            // network error → keep the login
+    );
   }
   loadDigestFor(p) {
     if (p && p.hash) {
