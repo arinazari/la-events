@@ -84,8 +84,14 @@ python scripts/build_profiles.py            # rebuilds data.json + every profile
 by *talking to the concierge* — "more techno, less comedy", "track Peggy Gou". The backend Worker
 commits the change to their `profiles/<name>/taste.yaml`; CI (`build-profiles.yml`) re-scores the
 feed with the same `build_profiles.py` scorer and redeploys (~1–2 min — the chat says "refresh
-shortly"). The popup also shows their taste YAML read-only. Requires the backend deployed with a
-`GITHUB_TOKEN` — see `backend/README.md`.
+shortly"). Requires the backend deployed with a `GITHUB_TOKEN` — see `backend/README.md`.
+
+**Seeing your edits land:** the profile popup's "View taste & profile" opens a read-only modal with a
+tab per file (taste + profile). Each shows a **diff** of how the concierge adjusted it and a single
+**reflected/pending** badge — whether that change is live in your ranking & digest yet, or still
+pending (with an *Update now →* button). It's all baked into the feed by `build_profiles.py` from git
+(`profile.self_edit`), so it works on the static page with no backend; a friend's edit reads *pending*
+until they hit Update (or the nightly run) regenerates their digest against the new taste.
 
 **This is obfuscation, not security:** the username is a public, guessable-if-known bearer key, and
 each feed file is publicly fetchable. Taste *writes* are low-stakes too (every edit is a revertible

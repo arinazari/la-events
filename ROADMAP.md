@@ -371,6 +371,16 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   holds and there's no browser-side commit; the concierge chat stays the edit path. Pick this up if
   free-text editing is wanted (mind: it loosens "structured-patch-only" to arbitrary valid YAML, and
   needs a Worker redeploy).
+- [x] **Taste/profile self-edit *diff* + "reflected?" badge (2026-06-25)** — the read-only modal is now a
+  two-tab view (**Taste | Profile**, profile.yaml surfaced for the first time) that shows, per file: a
+  colored **diff** of how the concierge adjusted it + a recent-edits list, and one **reflected/pending**
+  badge — is the change live in your ranking & digest, or not yet (with an *Update now →* CTA that fires
+  the existing per-profile rebuild). All static-first: `build_profiles.py` bakes a `profile.self_edit`
+  block (diff + content-based `reflected`, derived from git — the file vs. the last enrichment commit)
+  into each feed; the page just renders it, and `isTasteDirty()` now treats that baked flag as
+  authoritative (one pending state shared with the Settings "Update" button — ranking + enrichment read
+  as one thing, per Ari). `build-profiles`/`rebuild-profile` checkout `fetch-depth: 0`; the latter
+  rebuilds the feed after committing enrichment so an Update flips pending→reflected immediately.
 - [x] **Role-gated settings (2026-06-20)** — the gear menu branches by who's signed in. The **owner**
   (ari; `owner: true` in `profiles.yaml`, propagated into the feed's `profile` block by
   `build_profiles.py` and read on the page as `META.profile.owner`) keeps **Refresh events** +

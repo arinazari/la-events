@@ -54,6 +54,38 @@ Who reads it:
 Per-event stamps (`first_seen`, `updated_at`, `changed_fields`) are written by
 `pipeline.diff_catalog` and persisted on the catalog record.
 
+## The self-edit reflected signal — "did my taste change land yet?"
+
+Separate from the *catalog* clock above: when the concierge edits a profile's
+`taste.yaml`/`profile.yaml` (a commit), the dashboard shows a **diff** of the change and
+whether it's **reflected** in that profile's latest *data enrichment* (its committed
+event-editor verdicts + narrative digest). Both are derived from git **at build time** by
+`build_profiles.py` and baked into each feed's `profile.self_edit.{taste,profile}` block —
+no backend; the static page just renders it.
+
+```jsonc
+"self_edit": { "taste": {
+  "history":   [ { "date": "2026-06-23", "summary": "track Peggy Gou" } ],  // non-automated commits only
+  "diff":      "…unified diff…",      // pending changes (enrich→HEAD), else the latest applied change
+  "diff_kind": "pending|applied|none",
+  "reflected": true,                  // file identical between last enrichment commit and HEAD (content-based)
+  "enriched_at": "2026-06-23"
+}, "profile": { … } }
+```
+
+- **reflected** is content-based (`git diff <last-enrichment-commit>..HEAD -- <file>` is empty),
+  so an edit-then-revert correctly reads as reflected. `enrich_paths` per profile =
+  `digests/<hash>/latest.md` + `data/verdicts/<hash>.json` (owner also folds in the consolidated
+  `digests/latest.md` + `data/verdicts/default.json`) — their last-commit *is* "the most recent
+  enrichment". The page treats `reflected === false` as the authoritative **taste-dirty** state that
+  lights "Update my ranking & digest" (the localStorage flag is just the optimistic pre-CI bridge).
+- **Timing.** A concierge edit → `build-profiles.yml` re-ranks the feed → it bakes **pending**.
+  Clicking **Update** (`rebuild-profile.yml`) runs the LLM pass, commits the enrichment, then
+  rebuilds the feed once more in the same commit so it bakes **reflected** immediately — ranking and
+  enrichment are one step from the user's view. Nightly is eventually-correct (a same-day edit reads
+  pending until the next Update or the following night). Needs `fetch-depth: 0` on those workflows
+  (a shallow clone has no diff); degrades to no-badge when history is unavailable.
+
 ## Per-stage run conditions & no-op behavior
 
 | Stage | Runs | No-ops when | Cost tier |
@@ -107,7 +139,8 @@ Per-event stamps (`first_seen`, `updated_at`, `changed_fields`) are written by
 - `scripts/lib/editor.py` / `enrich.py` — the delta/write-once selection that bounds LLM cost.
 - `scripts/render_digest.py` — the freshness line + 🆕/↻ markers.
 - `scripts/digest_gate.py` — per-profile regen gate + honest freshness stamp.
+- `scripts/build_profiles.py` — per-profile feeds + the `profile.self_edit` diff/reflected block (from git).
 - `backend/concierge-worker.js` — `/refresh-events` (debounced) + `/rebuild-profile` + BYOK model.
 - `.github/workflows/{refresh-events,rebuild-profile,build-profiles,spotify-sync,deploy-dashboard}.yml`.
-- `dashboard/index.html` — staleness badge, "what changed" readout, refresh/update buttons.
+- `dashboard/index.html` — staleness badge, "what changed" readout, refresh/update buttons, taste/profile diff modal.
 - `routines/daily-digest-prompt.md` — the nightly orchestration.
