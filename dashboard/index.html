@@ -94,11 +94,16 @@
     </div>
 
     <div style="padding:10px 16px 6px; border-top:1px solid #d9d7cf;">
-      <div style="display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px;">
-        <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="6">
-          <button onClick="{{ s.onClick }}" style="font:500 11px/1 -apple-system,system-ui,sans-serif; padding:5px 9px; border:1px solid #d2d0c7; background:#f7f6f2; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ s.label }}</button>
-        </sc-for>
-      </div>
+      <sc-if value="{{ chatStarted }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ toggleExamples }}" title="Example prompts" style="display:inline-flex; align-items:center; gap:5px; margin-bottom:8px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; cursor:pointer; user-select:none;" style-hover="color:#2b5cd9;"><span style="color:#2b5cd9;">✦</span>EXAMPLES<span style="font-size:7px; transform:translateY(0.5px);">{{ examplesCaret }}</span></div>
+      </sc-if>
+      <sc-if value="{{ showSuggestions }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; flex-wrap: {{ sugWrap }}; gap:5px; margin-bottom:10px; overflow-x: {{ sugOverflow }}; -webkit-overflow-scrolling:touch; padding-bottom:2px;">
+          <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="6">
+            <button onClick="{{ s.onClick }}" style="flex:none; white-space:nowrap; font:500 11px/1 -apple-system,system-ui,sans-serif; padding:5px 9px; border:1px solid #d2d0c7; background:#f7f6f2; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ s.label }}</button>
+          </sc-for>
+        </div>
+      </sc-if>
       <span style="display:flex; align-items:center; gap:6px; padding:7px 9px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
         <textarea value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="e.g. techno this weekend under $30" style="flex:1; min-width:0; resize:none; border:none; outline:none; background:transparent; padding:0; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17; height:18px;"></textarea>
         <span onClick="{{ onGoStop }}" title="{{ goTitle }}" style="flex:none; cursor:pointer; color: {{ goColor }}; font-size:15px; line-height:1; padding:0 2px;" style-hover="opacity:0.7;">{{ goLabel }}</span>
@@ -139,11 +144,16 @@
         </sc-if>
       </div>
       <div style="flex:none; padding:10px 16px calc(8px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#efeee9;">
-        <div style="display:flex; gap:6px; margin-bottom:10px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:2px;">
-          <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="6">
-            <button onClick="{{ s.onClick }}" style="flex:none; white-space:nowrap; font:500 12px/1 -apple-system,system-ui,sans-serif; padding:8px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#3f3d36; border-radius:2px; cursor:pointer;">{{ s.label }}</button>
-          </sc-for>
-        </div>
+        <sc-if value="{{ chatStarted }}" hint-placeholder-val="{{ false }}">
+          <div onClick="{{ toggleExamples }}" title="Example prompts" style="display:inline-flex; align-items:center; gap:5px; margin-bottom:8px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; cursor:pointer; user-select:none;"><span style="color:#2b5cd9;">✦</span>EXAMPLES<span style="font-size:8px; transform:translateY(0.5px);">{{ examplesCaret }}</span></div>
+        </sc-if>
+        <sc-if value="{{ showSuggestions }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex; gap:6px; margin-bottom:10px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:2px;">
+            <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="6">
+              <button onClick="{{ s.onClick }}" style="flex:none; white-space:nowrap; font:500 12px/1 -apple-system,system-ui,sans-serif; padding:8px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#3f3d36; border-radius:2px; cursor:pointer;">{{ s.label }}</button>
+            </sc-for>
+          </div>
+        </sc-if>
         <span style="display:flex; align-items:flex-end; gap:6px; padding:9px 11px; border:1px solid #c9c7bd; background:#fff; border-radius:3px;" style-focus-within="border-color:#2b5cd9;">
           <textarea value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="e.g. techno this weekend under $30" style="flex:1; min-width:0; resize:none; border:none; outline:none; background:transparent; padding:0; font:400 16px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17; max-height:120px;"></textarea>
           <span onClick="{{ onGoStop }}" title="{{ goTitle }}" style="flex:none; cursor:pointer; color: {{ goColor }}; font-size:19px; line-height:1; padding:0 4px;">{{ goLabel }}</span>
@@ -957,6 +967,7 @@ class Component extends DCLogic {
     spotifyModalOpen: false,
     guideOpen: false, guideTab: 'how',
     welcomeOpen: false, welcomeStep: 0, welcomeDismiss: false,   // first-run onboarding (auto-opens once per profile)
+    examplesOpen: false,   // chat suggestion chips: shown in full when fresh; once chatting they collapse behind a toggle (this = user re-opened them)
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
     profileError: '',
@@ -1767,6 +1778,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   onInput = (e) => this.setState({ input: e.target.value });
   onKey = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.runQuery(this.state.input); } };
   send = () => this.runQuery(this.state.input);
+  toggleExamples = () => this.setState(s => ({ examplesOpen: !s.examplesOpen }));
 
   // ---------- concierge mode + backend wiring ----------
   setChatMode = (m) => { try { localStorage.setItem('la-chat-mode', m); } catch (e) {} this.setState({ chatMode: m }); };
@@ -2282,7 +2294,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   async runQuery(text) {
     text = (text || '').trim();
     if (!text || this.state.loading) return;
-    this.setState(s => ({ messages: [...s.messages, { role: 'user', text }], input: '', loading: true, digestPicks: false, digestPrevState: null }));
+    this.setState(s => ({ messages: [...s.messages, { role: 'user', text }], input: '', loading: true, examplesOpen: false, digestPicks: false, digestPrevState: null }));
 
     const mode = this.state.chatMode || 'llm';
     const profileActive = !!(this.state.profile && this.state.profile.hash);
@@ -2733,6 +2745,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     const chips = ['plan my saturday — dinner then a show','techno this weekend','where should I eat near silver lake','more deep house, less comedy','free shows this weekend',"what's the hot new restaurant",'afterhours warehouse','date night in los feliz','food trucks worth hitting'];
     const suggestions = chips.map(label => ({ label, onClick: () => this.runQuery(label) }));
+    // Suggestion chips reclaim space once a conversation is underway: full (wrapping) block while it's
+    // just the seeded greeting; once there's real chat they collapse behind a slim "examples" toggle
+    // and reopen as a single compact scroll-row.
+    const chatStarted = msgs.length > 1;
+    const examplesOpen = !!this.state.examplesOpen;
+    const showSuggestions = !chatStarted || examplesOpen;
 
     const chatMode = this.state.chatMode || 'llm';
     const bstat = this.state.backendStatus;
@@ -2917,6 +2935,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     return {
       messages: msgs, suggestions, loading,
+      showSuggestions, chatStarted, examplesOpen, toggleExamples: this.toggleExamples,
+      examplesCaret: examplesOpen ? '▾' : '▸',
+      sugWrap: chatStarted ? 'nowrap' : 'wrap', sugOverflow: chatStarted ? 'auto' : 'visible',
       modeOpts, showConnect, backendLabel, backendColor, connectBackend: this.connectBackend,
       goLabel: loading ? '■' : '→', goColor: loading ? '#b4453a' : '#2b5cd9', goTitle: loading ? 'Stop' : 'Send', onGoStop: this.onGoStop,
       profileInput: this.state.profileInput || '', profileError: this.state.profileError || '',
