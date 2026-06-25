@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T10:04:55+00:00",
+  "generated_at": "2026-06-25T10:31:14+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "48a289d5dd81",
@@ -1793,16 +1793,86 @@
       {
         "name": "New Beverly Cinema",
         "category": "film",
-        "method": "scrape",
+        "method": "veezi",
         "priority": 2,
         "status": "active"
       },
       {
         "name": "Vista Theater (Hollywood)",
         "category": "film",
-        "method": "scrape",
+        "method": "veezi",
         "priority": 1,
         "status": "active"
+      },
+      {
+        "name": "LA Filmforum (@ 2220 Arts + Archives)",
+        "category": "film",
+        "method": "scrape",
+        "priority": 1,
+        "status": "candidate"
+      },
+      {
+        "name": "Philosophical Research Society (Los Feliz)",
+        "category": "film",
+        "method": "eventbrite",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Cinespia (Hollywood Forever)",
+        "category": "film",
+        "method": "scrape",
+        "priority": 1,
+        "status": "candidate"
+      },
+      {
+        "name": "Academy Museum of Motion Pictures",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Alamo Drafthouse DTLA",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "UCLA Film & TV Archive / Billy Wilder Theater",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Lumiere Cinema (Music Hall, Beverly Hills)",
+        "category": "film",
+        "method": "scrape",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Laemmle Theatres",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "Nuart Theatre (Landmark, West LA)",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "RevivalHub LA",
+        "category": "editorial",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "candidate"
       },
       {
         "name": "Comedy Store",
@@ -5129,12 +5199,7 @@
           }
         ],
         "curator_note": "Lights Down Low doing what it does best: TBA location drops day-of, and they've booked Yaeji on a dedicated DJ-set summer tour \u2014 whispered-bilingual-house in a warehouse rather than a festival tent is the right format for her. Worth the address chase.",
-        "description": "Lights Down Low presents Yaeji DJ set (plus Alima Lee, Hu Dat, AMERICANRECYCLING) at a location-TBA downtown warehouse, 10pm, 21+.",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Yaeji_at_Pitchfork_Paris_2018.jpg/640px-Yaeji_at_Pitchfork_Paris_2018.jpg",
-          "source": "Wikimedia Commons",
-          "credit": "Yaeji performing at Pitchfork Paris 2018 (Wikimedia Commons)"
-        }
+        "description": "Lights Down Low presents Yaeji DJ set (plus Alima Lee, Hu Dat, AMERICANRECYCLING) at a location-TBA downtown warehouse, 10pm, 21+."
       },
       "verdict": {
         "tier": "great",
@@ -5243,13 +5308,7 @@
           }
         ],
         "curator_note": "Dirty Epic and INCOGNITO have been landing Berghain-calibre bookings for years, and Stacey Pullen for a TBA late night is exactly that \u2014 second-wave Detroit in an intimate warehouse rather than a stage. BAE BAE warming up keeps the energy genuinely interesting rather than just competent.",
-        "description": "Dirty Epic x INCOGNITO present Stacey Pullen (Detroit techno) alongside BAE BAE and Nish at a TBA Los Angeles warehouse, 10pm-4am, $25-30.",
-        "image": {
-          "url": "https://dirty-epic.com/wp-content/uploads/2026/04/20260626-LA-SQ-1024x1024.jpg",
-          "source": "dirty-epic.com",
-          "credit": "Dirty Epic (official event flyer)",
-          "cached": "data/images/58579f941eb8.jpg"
-        }
+        "description": "Dirty Epic x INCOGNITO present Stacey Pullen (Detroit techno) alongside BAE BAE and Nish at a TBA Los Angeles warehouse, 10pm-4am, $25-30."
       },
       "verdict": {
         "tier": "great",
@@ -11305,12 +11364,7 @@
           }
         ],
         "curator_note": "Sudamericana has been one of LA's most freewheeling Latin dance parties for over a decade \u2014 early 6pm start at Exchange LA, free with RSVP, and DJ Toka knows exactly how to move the room between cumbia, disco, and house without losing the floor.",
-        "description": "Sudamericana monthly Latin house/disco party at Exchange LA, DTLA, with resident DJ Toka, 6pm, free with RSVP.",
-        "image": {
-          "url": "https://www.sudamericanaevents.com/assets/images/og-image.jpg",
-          "source": "sudamericanaevents.com",
-          "credit": "Sudamericana (official)"
-        }
+        "description": "Sudamericana monthly Latin house/disco party at Exchange LA, DTLA, with resident DJ Toka, 6pm, free with RSVP."
       },
       "lane": "club:underground",
       "final_rank": 19
@@ -19697,13 +19751,7 @@
           }
         ],
         "curator_note": "Day Trip's sixth Long Beach edition at the new Queen Mary Amphitheater is the tech-house festival LA actually needs \u2014 the Adam Beyer / Loco Dice / Hi-Lo block gives it real techno weight, and Cloonee headlining keeps it from disappearing up its own prog-house backside. Saturday is the day to go.",
-        "description": "Day Trip Festival sixth edition at Queen Mary Waterfront, Long Beach \u2014 two-day house/techno/melodic fest with Adam Beyer, Cloonee, Loco Dice, Hi-Lo, Elderbrook, Hayden James, Sidepiece, Westend and 50+ others.",
-        "image": {
-          "url": "https://electronicgroove.com/wp-content/uploads/2026/04/DayTrip-Fetival-2026-Lineup-800x1000.jpg",
-          "source": "electronicgroove.com",
-          "credit": "Day Trip Festival official lineup poster (via Electronic Groove)",
-          "cached": "data/images/bb4f346b7a87.jpg"
-        }
+        "description": "Day Trip Festival sixth edition at Queen Mary Waterfront, Long Beach \u2014 two-day house/techno/melodic fest with Adam Beyer, Cloonee, Loco Dice, Hi-Lo, Elderbrook, Hayden James, Sidepiece, Westend and 50+ others."
       },
       "verdict": {
         "tier": "great",
@@ -32209,13 +32257,7 @@
           }
         ],
         "curator_note": "Robert Hood in a TBA warehouse on July 4th is the anti-fireworks plan \u2014 stripped, relentless M-Plant minimal with a crew of actual LA heads supporting. WORK's format (address drops day-of) means the room stays self-selecting, which is exactly right for this.",
-        "description": "WORK presents Robert Hood (M-Plant, Detroit) with Disco Zombie, \u00d8nyx and Rubbermiro at a TBA Los Angeles warehouse, 10pm.",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Robert_Hood_Live_%40_Kennedys%2C_Dublin%2C_Ireland_2009.JPG",
-          "source": "Wikimedia Commons",
-          "credit": "Robert Hood live at Kennedys, Dublin, 2009 (Wikimedia Commons)",
-          "cached": "data/images/0f729582faa3.jpg"
-        }
+        "description": "WORK presents Robert Hood (M-Plant, Detroit) with Disco Zombie, \u00d8nyx and Rubbermiro at a TBA Los Angeles warehouse, 10pm."
       },
       "verdict": {
         "tier": "great",

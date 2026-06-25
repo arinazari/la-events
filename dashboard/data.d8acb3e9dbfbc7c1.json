@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T10:23:40+00:00",
+  "generated_at": "2026-06-25T10:31:16+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "48a289d5dd81",
@@ -1405,16 +1405,86 @@
       {
         "name": "New Beverly Cinema",
         "category": "film",
-        "method": "scrape",
+        "method": "veezi",
         "priority": 2,
         "status": "active"
       },
       {
         "name": "Vista Theater (Hollywood)",
         "category": "film",
-        "method": "scrape",
+        "method": "veezi",
         "priority": 1,
         "status": "active"
+      },
+      {
+        "name": "LA Filmforum (@ 2220 Arts + Archives)",
+        "category": "film",
+        "method": "scrape",
+        "priority": 1,
+        "status": "candidate"
+      },
+      {
+        "name": "Philosophical Research Society (Los Feliz)",
+        "category": "film",
+        "method": "eventbrite",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Cinespia (Hollywood Forever)",
+        "category": "film",
+        "method": "scrape",
+        "priority": 1,
+        "status": "candidate"
+      },
+      {
+        "name": "Academy Museum of Motion Pictures",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Alamo Drafthouse DTLA",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "UCLA Film & TV Archive / Billy Wilder Theater",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Lumiere Cinema (Music Hall, Beverly Hills)",
+        "category": "film",
+        "method": "scrape",
+        "priority": 2,
+        "status": "candidate"
+      },
+      {
+        "name": "Laemmle Theatres",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "Nuart Theatre (Landmark, West LA)",
+        "category": "film",
+        "method": "webfetch",
+        "priority": 3,
+        "status": "candidate"
+      },
+      {
+        "name": "RevivalHub LA",
+        "category": "editorial",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "candidate"
       },
       {
         "name": "Comedy Store",
@@ -109122,10 +109192,15 @@
       "taste": {
         "file": "profiles/garo/taste.yaml",
         "exists": true,
-        "history": [],
-        "diff": "",
-        "diff_kind": "none",
-        "reflected": null,
+        "history": [
+          {
+            "date": "2026-06-25",
+            "summary": "Add three empty friend profiles: garo, taylor, alexa (#62)"
+          }
+        ],
+        "diff": "diff --git a/profiles/garo/taste.yaml b/profiles/garo/taste.yaml\nnew file mode 100644\nindex 0000000..2f40962\n--- /dev/null\n+++ b/profiles/garo/taste.yaml\n@@ -0,0 +1,19 @@\n+# Taste profile \u2014 Garo. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only garo\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium:  []   # +2 each\n+  low:     []   # +1, include only if exceptional\n+\n+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: []   # -2 each (the \"not for me\" list)\n+\n+artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n+comedians_loved:  []\n+venues_loved:     []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"",
+        "diff_kind": "pending",
+        "reflected": false,
         "enriched_at": null
       },
       "profile": {
