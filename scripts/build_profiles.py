@@ -185,6 +185,10 @@ def main() -> int:
                          "Lets the rebuild-profile workflow target a profile by its public hash, "
                          "since the dashboard only knows the hash, not the username.")
     ap.add_argument("--skip-default", action="store_true", help="don't rebuild dashboard/data.json")
+    ap.add_argument("--inject-only", action="store_true",
+                    help="don't re-score — only (re)inject the profile block (taste/profile YAML + "
+                         "self_edit diff) into existing feeds. Safe backfill that preserves the scored "
+                         "rows (and their Spotify ranking, which a standalone re-score would drop).")
     args = ap.parse_args()
 
     manifest = load_yaml(REPO / args.manifest) or {}
@@ -196,7 +200,8 @@ def main() -> int:
     built = 0
 
     # Default feed (root taste/profile -> data.json), unless restricted to --only(-hash)/--skip-default.
-    if not args.skip_default and not restricted:
+    # --inject-only never touches the default feed (it carries no profile block).
+    if not args.skip_default and not restricted and not args.inject_only:
         print("default -> dashboard/data.json")
         if run_build("taste.yaml", "profile.yaml", DASH / "data.json",
                      editor_pool_out=str(REPO / "data" / "editor_pool.json")):
@@ -216,7 +221,13 @@ def main() -> int:
         # The owner shares the ROOT taste/profile/verdicts, so build their feed exactly like the
         # default (no per-hash verdict/Spotify lookup — those files don't exist for the owner) —
         # just written to the owner's hash + tagged with the owner block below.
-        if is_owner:
+        if args.inject_only:
+            # Backfill: only (re)inject the profile block into the existing feed; no re-score.
+            if not out.exists():
+                print(f"  skip {u}: no existing feed to inject into (run a full build first)")
+                continue
+            ok = True
+        elif is_owner:
             ok = run_build("taste.yaml", "profile.yaml", out)
         else:
             # Friend: their OWN profiles/<name>/profile.yaml if present, else ABSENT — the scorer
