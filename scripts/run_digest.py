@@ -157,7 +157,12 @@ def main() -> int:
                     help="wide plan-ahead horizon (days) for far-capable sources (Ticketmaster); near "
                          "sources keep --days. Two-speed fetch: full-fidelity near, deterministic radar far.")
     ap.add_argument("--window", type=int, default=None, help="candidate window in days (default: all upcoming)")
-    ap.add_argument("--top", type=int, default=40, help="candidate set size for enrichment")
+    ap.add_argument("--top", type=int, default=100, help="full-enrichment head size (scene-researcher)")
+    ap.add_argument("--blurb-pool", default="data/blurb_pool.json", help="cheap-tier blurb candidate output")
+    ap.add_argument("--blurb-window", type=int, default=35, help="days the blurb (cheap-tier) pool spans (the real bound)")
+    ap.add_argument("--blurb-top", type=int, default=0,
+                    help="optional safety cap on the blurb pool below the head (0 = no cap; bound by --blurb-window). "
+                         "Blurbs are haiku + write-once, so covering the whole window costs cents one-time.")
     ap.add_argument("--editor-pool", default="data/editor_pool.json", help="editor judging-set output")
     ap.add_argument("--editor-window", type=int, default=28, help="days the editor pool spans")
     ap.add_argument("--editor-per-lane", type=int, default=4, help="top-K per lane judged")
@@ -251,11 +256,38 @@ def main() -> int:
                          affinity=affinity, enrichment=enr_cache)
     ep_path.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")
 
+    # Blurb pool — the cheap-tier (blurb-writer) candidate slice: every upcoming event within
+    # --blurb-window that ranks BELOW the full-enrichment head. The bound is the WINDOW, not an
+    # arbitrary count: blurbs are haiku + write-once, so giving every surfaced card a clean factual
+    # line costs cents one-time, then only the daily delta. The fan-out runs enrich.select_for_blurb
+    # over this (skips only events already in the cache); --blurb-top is an optional safety cap
+    # (0 = off) for pathological catalogs, and any overflow past it falls back to source detail.
+    bp_path = REPO / args.blurb_pool if not Path(args.blurb_pool).is_absolute() else Path(args.blurb_pool)
+    head_keys = {P.event_key(c) for c in candidates}
+    bpool = P.score_pool(catalog, taste, profile, today, window_days=args.blurb_window, affinity=affinity)
+    bpool = [e for e in bpool if (e.get("score") or 0) >= 0 and P.event_key(e) not in head_keys]
+    if args.blurb_top and args.blurb_top > 0:
+        blurb_overflow = max(0, len(bpool) - args.blurb_top)
+        blurb_cands = bpool[:args.blurb_top]
+    else:
+        blurb_overflow = 0
+        blurb_cands = bpool
+    bp_doc = {
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "today": today.isoformat(),
+        "window_days": args.blurb_window,
+        "count": len(blurb_cands),
+        "overflow": blurb_overflow,   # ranked below the cap -> raw-detail/no-blurb fallback
+        "candidates": blurb_cands,
+    }
+    bp_path.write_text(json.dumps(bp_doc, indent=2, ensure_ascii=False) + "\n")
+
     # Run report.
     print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}/c{cat_meta['content_version']}) "
           f"(+{delta['added']} new, {delta['updated']} updated, {stale_n} unlisted, {stats['merged']} merged, "
           f"{expired} expired, {redated} TM dates pinned) "
-          f"-> {len(candidates)} candidates, {len(judge)} to judge")
+          f"-> {len(candidates)} candidates, {len(judge)} to judge, {len(blurb_cands)} blurb pool"
+          f"{f' (+{blurb_overflow} overflow)' if blurb_overflow else ''}")
     if report["ok"]:
         print("  fetched:", ", ".join(f"{s}:{n}" for s, n in report["ok"]))
     if report["failed"]:

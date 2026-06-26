@@ -58,7 +58,8 @@ unless special) + `restaurants_loved`; ranking honors it.
 .claude/skills/la-events/SKILL.md   # events operating spec (digest/discover/flyer/sources modes)
 .claude/skills/la-dining/SKILL.md   # dining operating spec (query/radar/discover/capture)
 .claude/skills/concierge/SKILL.md   # concierge — NL front door routing to the modes/agents (primary interface)
-.claude/agents/                     # worker agents: event-editor (ranking verdicts), scene-researcher (enrichment),
+.claude/agents/                     # worker agents: event-editor (ranking verdicts), scene-researcher (full enrichment,
+                                    #   top-100 head), blurb-writer (cheap one-line descriptions for the band below the head),
                                     #   night-planner (events×dining itinerary), source-scout (discovery)
 sources.yaml                        # events source registry — schema in file header
 dining-sources.yaml                 # dining source registry — schema in file header
@@ -95,11 +96,12 @@ scripts/build_dashboard.py          # builds dashboard/data.json from catalog + 
                                     #   (--profile-hash loads that profile's own Spotify/feedback music layer)
 scripts/build_profiles.py           # per-profile dashboard feeds (data.<hash>.json) — reuses build_dashboard's scorer
 data/catalog.json                   # deduped events store (committed = the state)
-data/candidates.json                # scored, ranked top-N for enrichment (runtime; gitignored)
+data/candidates.json                # scored, ranked top-N (full-enrichment head) (runtime; gitignored)
+data/blurb_pool.json                # cheap-tier (blurb-writer) candidate band below the head (runtime; gitignored)
 data/editor_pool*.json              # event-editor judging pool, per profile (runtime; gitignored)
 data/radar.json                     # "on the radar" set for the consolidated digest (runtime; gitignored)
 data/verdicts/<hash>.json           # event-editor verdicts, per profile (committed; only the delta is judged each run)
-data/enrichment.json                # scene-graph cache: per-event enrichment + artist notes (committed; grows each run)
+data/enrichment.json                # scene-graph cache: per-event enrichment (full + blurb tiers) + artist notes (committed; grows each run)
 data/spotify_affinity.json          # Spotify music-affinity artifact (runtime; gitignored)
 data/feedback.jsonl                 # append-only reaction log (committed); folds into scoring each run
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)
