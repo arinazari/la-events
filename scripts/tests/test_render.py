@@ -47,6 +47,21 @@ def test_markdown_is_day_grouped_with_variety():
     assert "dice (exit 1)" in md                                    # footer
 
 
+def test_footer_notes_disclose_coverage_and_music():
+    # A failed source (coverage gap) and a failed Spotify refresh both surface, kept distinct.
+    sources = {"failed": [["dice", "exit 1"]],
+               "spotify": {"ok": False, "note": "Spotify auth rejected (401) — refresh token may be revoked"}}
+    notes = R._footer_notes({"sources": sources})
+    assert any("Coverage gaps" in n and "dice (exit 1)" in n for n in notes)
+    assert any("Ranking note" in n and "refresh token may be revoked" in n for n in notes)
+    # A healthy layer adds no ranking note; nothing failed adds no footer at all.
+    assert R._footer_notes({"sources": {"spotify": {"ok": True, "note": "Wrote Spotify affinity"}}}) == []
+    assert R._footer_notes({}) == []
+    # And it wires through the actual renderer footer (taste-only disclosure).
+    md = R.render_markdown({"today": "2026-06-17", "candidates": [], "sources": sources}, [])
+    assert "Ranking note" in md and "taste profile only" in md
+
+
 def test_collapse_multidate_runs():
     runs = [
         {"title": "Chris Lake", "venue": "LA State Historic Park", "iso_date": "2026-06-19",

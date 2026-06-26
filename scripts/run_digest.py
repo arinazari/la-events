@@ -108,6 +108,14 @@ def fetch_all(selected: set, days: int, far_days: int = None) -> tuple:
     return incoming, report
 
 
+def _clean_spotify_note(note: str) -> str:
+    """Strip the degrade-marker prefix fetch_spotify.py prints so the footer/report read cleanly."""
+    for p in ("WARN:", "SKIP:", "ERROR:"):
+        if note.startswith(p):
+            return note[len(p):].strip()
+    return note.strip()
+
+
 def load_affinity_layer(no_fetch: bool, report: dict, profile: dict) -> dict:
     """Sync Spotify (if creds present and we're fetching), then load the merged music layer.
 
@@ -115,16 +123,25 @@ def load_affinity_layer(no_fetch: bool, report: dict, profile: dict) -> dict:
     with the feedback log (data/feedback.jsonl) — the one place this happens for both the
     digest and the dashboard. Degrades gracefully: any failure leaves the scorer on the
     taste.yaml-only path. The music layer only ever enriches. Returns the affinity dict or None.
+
+    Records `report["spotify"]` as {"ok": bool, "note": str} so the run report + the digest
+    footer can disclose a failed refresh (revoked token / API error) instead of swallowing it.
     """
     if not no_fetch and os.environ.get("SPOTIFY_REFRESH_TOKEN"):
         try:
             proc = subprocess.run([sys.executable, str(REPO / "scripts" / "fetch_spotify.py"),
                                    "-o", str(REPO / "data" / "spotify_affinity.json")],
                                   capture_output=True, timeout=120, cwd=str(REPO), text=True)
-            note = (proc.stdout or proc.stderr or "").strip().splitlines()
-            report["spotify"] = note[-1][:140] if note else f"exit {proc.returncode}"
+            lines = (proc.stdout or proc.stderr or "").strip().splitlines()
+            note = lines[-1][:160] if lines else f"exit {proc.returncode}"
+            # fetch_spotify.py degrades gracefully — missing creds, a revoked refresh token, or an
+            # API error all exit 0 with a SKIP/WARN/ERROR line (so a dead music layer can never
+            # block a digest). Health is therefore read from the message, not the exit code: only a
+            # successful sync prints "Wrote Spotify affinity".
+            ok = proc.returncode == 0 and note.startswith("Wrote Spotify affinity")
+            report["spotify"] = {"ok": ok, "note": _clean_spotify_note(note)}
         except Exception as ex:  # noqa: BLE001
-            report["spotify"] = f"sync failed: {str(ex).splitlines()[0][:100]}"
+            report["spotify"] = {"ok": False, "note": f"sync failed: {str(ex).splitlines()[0][:100]}"}
     return FB.merged_affinity(REPO, profile)
 
 
@@ -236,8 +253,12 @@ def main() -> int:
     if affinity:
         print(f"  music layer ({affinity.get('source', 'spotify')}): "
               f"{len(affinity.get('artists', {}))} artists, {len(affinity.get('genres', {}))} genres")
-    elif report.get("spotify"):
-        print("  spotify:", report["spotify"])
+    sp = report.get("spotify")
+    if isinstance(sp, dict) and not sp.get("ok"):
+        # Surface a failed refresh even when feedback alone still produced an affinity layer above.
+        print("  spotify: FAILED —", sp.get("note") or "refresh failed")
+    elif isinstance(sp, dict) and not affinity:
+        print("  spotify:", sp.get("note") or "")
     return 0
 
 

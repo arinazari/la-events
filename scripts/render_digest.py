@@ -229,6 +229,24 @@ def event_md(ev: dict) -> str:
     return line
 
 
+def _footer_notes(doc: dict) -> list:
+    """Degraded-but-not-fatal conditions to disclose in the digest footer. Two kinds, kept
+    distinct: event-source COVERAGE gaps (a fetcher failed → missing events) and a RANKING note
+    when the Spotify music layer couldn't refresh (picks ranked on the taste profile only).
+    Neither blocks the digest — they're surfaced, per the 'degrade gracefully' contract."""
+    sources = doc.get("sources") or {}
+    notes = []
+    failed = sources.get("failed") or []
+    if failed:
+        notes.append("*Coverage gaps: " + ", ".join(f"{s} ({why})" for s, why in failed) + "*")
+    sp = sources.get("spotify")
+    if isinstance(sp, dict) and not sp.get("ok"):
+        why = (sp.get("note") or "refresh failed").strip()
+        notes.append("*Ranking note: Spotify music layer unavailable this run — picks ranked on "
+                     "your taste profile only. (" + why + ")*")
+    return notes
+
+
 def render_markdown(doc: dict, cands: list) -> str:
     days = _by_day(cands)
     n = sum(len(v) for v in days.values())
@@ -241,10 +259,10 @@ def render_markdown(doc: dict, cands: list) -> str:
             out.append(f"\n**{label}**")
             out.extend(event_md(ev) for ev in evs)
         out.append("")
-    failed = (doc.get("sources") or {}).get("failed") or []
-    if failed:
+    notes = _footer_notes(doc)
+    if notes:
         out.append("---")
-        out.append("*Coverage gaps: " + ", ".join(f"{s} ({why})" for s, why in failed) + "*")
+        out.extend(notes)
     return "\n".join(out) + "\n"
 
 
@@ -345,10 +363,10 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
     out.append("## On the radar\n")
     out.extend(_radar_md(radar))
     out.append("")
-    failed = (doc.get("sources") or {}).get("failed") or []
-    if failed:
+    notes = _footer_notes(doc)
+    if notes:
         out.append("---")
-        out.append("*Coverage gaps: " + ", ".join(f"{s} ({why})" for s, why in failed) + "*")
+        out.extend(notes)
     return "\n".join(out) + "\n"
 
 
