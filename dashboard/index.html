@@ -61,8 +61,8 @@
   <!-- ===================== CHAT SIDEBAR (desktop) ===================== -->
   <sc-if value="{{ desktopChatStrip }}" hint-placeholder-val="{{ false }}">
     <div style="order:2; width:46px; flex:none; display:flex; flex-direction:column; align-items:center; gap:16px; padding-top:14px; border-left:1px solid #d9d7cf; background:#efeee9;">
-      <button onClick="{{ toggleCollapse }}" title="Open digest" style="font:600 13px/1 ui-monospace,Menlo,monospace; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#2b5cd9; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9;">«</button>
-      <div onClick="{{ toggleCollapse }}" style="writing-mode:vertical-rl; transform:rotate(180deg); font:600 12px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#2b5cd9; cursor:pointer;">ASK THE DIGEST</div>
+      <button onClick="{{ toggleCollapse }}" title="Open concierge" style="font:600 13px/1 ui-monospace,Menlo,monospace; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#2b5cd9; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9;">«</button>
+      <div onClick="{{ toggleCollapse }}" style="writing-mode:vertical-rl; transform:rotate(180deg); font:600 12px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#2b5cd9; cursor:pointer;">ASK THE CONCIERGE</div>
     </div>
   </sc-if>
   <sc-if value="{{ desktopChatPanel }}" hint-placeholder-val="{{ true }}">
@@ -70,10 +70,10 @@
     <div onMouseDown="{{ startResize }}" title="Drag to resize" style="position:absolute; left:-4px; top:0; bottom:0; width:8px; cursor:col-resize; z-index:6;" style-hover="background:rgba(43,92,217,0.18);"></div>
     <div style="padding:16px 16px 12px; border-bottom:1px solid #d9d7cf;">
       <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
-        <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE DIGEST</div>
+        <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE CONCIERGE</div>
         <button onClick="{{ toggleCollapse }}" title="Collapse" style="font:600 13px/1 ui-monospace,Menlo,monospace; width:26px; height:24px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">»</button>
       </div>
-      <div style="margin-top:6px; font-size:11.5px; line-height:1.45; color:#76746b;">Your taste-ranked LA concierge — find shows, pick a restaurant, plan a whole night (dinner → show → afters), or tune your taste. Switch to Fast filter for instant offline filtering.</div>
+      <div style="margin-top:6px; font-size:11.5px; line-height:1.45; color:#76746b;">Concierge plans and recommends; <strong style="font-weight:600; color:#5a584f;">Fast filter</strong> is instant, offline keyword search — no connection needed.</div>
       <div style="margin-top:10px; display:flex; align-items:center; gap:6px;">
         <sc-for list="{{ modeOpts }}" as="o">
           <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px solid #d2d0c7; background: {{ o.bg }}; color: {{ o.color }}; opacity: {{ o.opacity }}; border-radius:2px; cursor:pointer;">{{ o.label }}</button>
@@ -96,7 +96,7 @@
       </sc-if>
     </div>
 
-    <div style="padding:10px 16px 6px; border-top:1px solid #d9d7cf;">
+    <div style="padding:10px 16px 10px; border-top:1px solid #d9d7cf;">
       <span style="position:relative; display:flex; align-items:center; gap:6px; padding:7px 9px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
         <textarea id="chatbox" value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="{{ phStatic }}" style="flex:1; min-width:0; resize:none; border:none; outline:none; background:transparent; padding:0; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17; height:18px;"></textarea>
         <span class="ph-hint" style="position:absolute; left:9px; right:30px; top:50%; transform:translateY(-50%); pointer-events:none; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; color:#a7a59b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display: {{ phDisplay }}; opacity: {{ phOpacity }}; transition:opacity 0.3s ease;">{{ phText }}</span>
@@ -108,13 +108,13 @@
 
   <!-- ===================== CHAT (mobile) ===================== -->
   <sc-if value="{{ mobileChatFab }}" hint-placeholder-val="{{ false }}">
-    <button onClick="{{ toggleCollapse }}" class="m-fab" title="Ask the digest"><span style="font-size:13px; line-height:1;">✦</span> Ask the digest</button>
+    <button onClick="{{ toggleCollapse }}" class="m-fab" title="Ask the concierge"><span style="font-size:13px; line-height:1;">✦</span> Ask the concierge</button>
   </sc-if>
   <sc-if value="{{ mobileChatPanel }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed; inset:0; z-index:70; display:flex; flex-direction:column; background:#efeee9;">
       <div style="flex:none; padding:calc(13px + env(safe-area-inset-top)) 16px 11px; border-bottom:1px solid #d9d7cf;">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
-          <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE DIGEST</div>
+          <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE CONCIERGE</div>
           <button onClick="{{ toggleCollapse }}" title="Close" style="font:600 15px/1 ui-monospace,Menlo,monospace; width:34px; height:34px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:3px; cursor:pointer;">✕</button>
         </div>
         <div style="margin-top:9px; display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
@@ -137,7 +137,7 @@
           <div style="display:flex; align-items:center; gap:5px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">THINKING<span class="om-dots"><i></i><i></i><i></i></span></div>
         </sc-if>
       </div>
-      <div style="flex:none; padding:10px 16px calc(8px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#efeee9;">
+      <div style="flex:none; padding:10px 16px calc(12px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#efeee9;">
         <span style="position:relative; display:flex; align-items:flex-end; gap:6px; padding:9px 11px; border:1px solid #c9c7bd; background:#fff; border-radius:3px;" style-focus-within="border-color:#2b5cd9;">
           <textarea id="chatbox" value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="{{ phStatic }}" style="flex:1; min-width:0; resize:none; border:none; outline:none; background:transparent; padding:0; font:400 16px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17; max-height:120px;"></textarea>
           <span class="ph-hint" style="position:absolute; left:11px; right:34px; top:50%; transform:translateY(-50%); pointer-events:none; font:400 16px/1.4 -apple-system,system-ui,sans-serif; color:#a7a59b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display: {{ phDisplay }}; opacity: {{ phOpacity }}; transition:opacity 0.3s ease;">{{ phText }}</span>
