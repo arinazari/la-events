@@ -30,7 +30,7 @@ from collections import defaultdict
 from datetime import date, datetime
 from pathlib import Path
 
-from .enrich import event_key
+from .enrich import event_key, scene_facts
 from .assemble import event_lane
 from .affinity import _token_pat
 
@@ -48,6 +48,11 @@ NON_SLATE_LANES = ("other", "workshop", "community", "market")
 
 _RECORD_FIELDS = ("title", "venue", "neighborhood", "date", "start", "category",
                   "price", "score", "reasons", "tags")
+
+# Bumped whenever the editor RECORD shape changes (the LLM's input), so already-judged verdicts
+# get re-judged once against the new context — `_stale` re-selects any verdict stamped with an
+# older version. (1 = baseline; 2 = adds the shared-enrichment `scene` block from scene_facts.)
+EDITOR_INPUT_VERSION = 2
 
 
 # ── Per-profile verdict store ─────────────────────────────────────────────────────────
@@ -149,9 +154,13 @@ def affinity_summary(affinity: dict, n_artists: int = 20, n_genres: int = 12) ->
     }
 
 
-def _record(ev: dict, affinity: dict) -> dict:
+def _record(ev: dict, affinity: dict, enrichment: dict = None) -> dict:
     """Compact event record for the event-editor agent — deterministic score/reasons/tags, the
-    derived lane (overridable by the verdict), and the per-event affinity hint."""
+    derived lane (overridable by the verdict), the per-event affinity hint, and (when the shared
+    enrichment cache is supplied) a taste-NEUTRAL `scene` block of facts about the event/lineup so
+    the editor judges unfamiliar names against verified facts instead of re-deriving them. The
+    `scene` block is the SAME shared enrichment for every profile (no taste leak — see
+    enrich.scene_facts); only `affinity` + the profile's taste personalize the verdict."""
     rec = {"id": event_key(ev)}
     for f in _RECORD_FIELDS:
         rec[f] = ev.get(f)
@@ -160,12 +169,18 @@ def _record(ev: dict, affinity: dict) -> dict:
     hint = affinity_hint(ev, affinity)
     if hint:
         rec["affinity"] = hint
+    if enrichment is not None:
+        scene = scene_facts(ev, enrichment)
+        if scene:
+            rec["scene"] = scene
     return rec
 
 
-def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict = None) -> dict:
+def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict = None,
+             enrichment: dict = None) -> dict:
     """Build the editor-pool document run_digest/build_dashboard write for the agent to judge.
-    Includes the profile's Spotify lane (`profile_affinity`) so the editor judges with it."""
+    Includes the profile's Spotify lane (`profile_affinity`) so the editor judges with it, and —
+    when `enrichment` (the shared scene cache) is passed — a per-event factual `scene` block."""
     doc = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "today": today.isoformat() if hasattr(today, "isoformat") else today,
@@ -173,7 +188,7 @@ def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict
         "per_lane": per_lane,
         "floor": floor,
         "count": len(judge),
-        "events": [_record(e, affinity) for e in judge],
+        "events": [_record(e, affinity, enrichment) for e in judge],
     }
     summary = affinity_summary(affinity)
     if summary:
@@ -184,8 +199,13 @@ def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict
 # ── Verdict cache ─────────────────────────────────────────────────────────────────────
 
 def _stale(hit: dict, ev: dict, refresh_days, today: date) -> bool:
-    """Re-judge if the deterministic score moved since the verdict (new lineup, or feedback/
-    affinity shifted it), or — when refresh_days is set — the verdict is older than that."""
+    """Re-judge if the editor's input SHAPE changed since the verdict (input_version bump — e.g. the
+    scene block was added, so an old blind verdict must be re-judged once), if the deterministic
+    score moved (new lineup, or feedback/affinity shifted it), or — when refresh_days is set — the
+    verdict is older than that. A legacy verdict with no input_version reads as version-mismatched
+    and re-judges once, then carries the current stamp."""
+    if hit.get("input_version") != EDITOR_INPUT_VERSION:
+        return True
     saj = hit.get("score_at_judge")
     if saj is not None and (ev.get("score") or 0) != saj:
         return True
@@ -255,6 +275,7 @@ def update_verdicts(cache: dict, results: list, scores: dict = None, now: str = 
         if not k or v is None:
             continue
         v["judged_at"] = now
+        v["input_version"] = EDITOR_INPUT_VERSION   # so a later record-shape bump re-judges this
         if k in scores:
             v["score_at_judge"] = scores[k]
         elif "score" in r:

@@ -280,12 +280,18 @@ DEFAULT_PER_DAY = {"weekday": 5, "weekend": 8}
 
 
 def build_slate_cands(catalog, taste, profile, today, verdicts, *, window=None,
-                      per_day=None, mute=None, from_=None, to=None, affinity=None) -> list:
+                      per_day=None, mute=None, from_=None, to=None, affinity=None, pool=None) -> list:
     """The digest's event list = the assemble() slate (verdict-ranked, lane-diverse, capped),
     flattened best-first per day. Each pick gets the editor's tier mapped onto `rating` and its
-    `adjust` folded into `score`, so the existing rating-based renderer reflects the verdict."""
-    pool = [e for e in score_pool(catalog, taste, profile, today, window_days=window, affinity=affinity)
-            if (e.get("score") or 0) >= 0]                       # hard-negatives never make the digest
+    `adjust` folded into `score`, so the existing rating-based renderer reflects the verdict.
+
+    Pass a pre-scored `pool` (already filtered to score >= 0) to skip the score_pool call — the
+    consolidated digest scores the wide window once and date-slices it for the near section, since
+    a window-N pool is exactly the window-M pool (M>N) filtered by date (score_pool is a pure date
+    filter over identically-scored events)."""
+    if pool is None:
+        pool = [e for e in score_pool(catalog, taste, profile, today, window_days=window, affinity=affinity)
+                if (e.get("score") or 0) >= 0]                   # hard-negatives never make the digest
     slate = assemble(pool, verdicts, per_day=per_day or DEFAULT_PER_DAY, mute=mute)
     cands = []
     for day in slate:
@@ -426,11 +432,17 @@ def main() -> int:
     if args.consolidated:
         # Tier 1: next 14 days, day-by-day. Tier 2: the weekends in days 15–35 (Thu–Sun), lighter.
         # Tier 3: the radar set (festivals/big shows beyond), from build_radar.
+        # Score the wide (36-day) window ONCE; the 14-day pool is the same set date-sliced (score_pool
+        # is a pure date filter over identically-scored events), so assemble sees identical inputs.
+        wide_pool = [e for e in score_pool(catalog, taste, profile, today, window_days=36, affinity=affinity)
+                     if (e.get("score") or 0) >= 0]
+        end14 = (today + timedelta(days=14)).isoformat()
+        near_pool = [e for e in wide_pool if e["iso_date"] <= end14]
         sec1 = build_slate_cands(catalog, taste, profile, today, verdicts, window=14,
-                                 to=(today + timedelta(days=13)).isoformat(), affinity=affinity)
+                                 to=(today + timedelta(days=13)).isoformat(), affinity=affinity, pool=near_pool)
         sec2 = build_slate_cands(catalog, taste, profile, today, verdicts, window=36, per_day=6,
                                  from_=(today + timedelta(days=14)).isoformat(),
-                                 to=(today + timedelta(days=35)).isoformat(), affinity=affinity)
+                                 to=(today + timedelta(days=35)).isoformat(), affinity=affinity, pool=wide_pool)
         sec2 = [c for c in sec2 if date.fromisoformat(c["iso_date"]).weekday() in (3, 4, 5, 6)]
         radar = []
         rpath = resolve(args.radar)

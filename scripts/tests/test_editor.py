@@ -61,6 +61,7 @@ def test_select_for_verdict_reselects_on_score_drift():
     ev = _ev("Drifter", CLUB_U, 5)
     k = ED.event_key(ev)
     cache = {"verdicts": {k: {"tier": "solid", "score_at_judge": 5,
+                              "input_version": ED.EDITOR_INPUT_VERSION,
                               "judged_at": "2026-06-19T00:00:00"}}}
     assert ED.select_for_verdict([ev], cache) == []          # score unchanged -> skip
     ev2 = dict(ev); ev2["score"] = 8                          # lineup/feedback moved the score
@@ -71,6 +72,7 @@ def test_select_for_verdict_refresh_days():
     ev = _ev("Recur", CLUB_U, 5)
     k = ED.event_key(ev)
     cache = {"verdicts": {k: {"tier": "solid", "score_at_judge": 5,
+                              "input_version": ED.EDITOR_INPUT_VERSION,
                               "judged_at": "2026-06-01T00:00:00"}}}
     today = date(2026, 6, 19)
     assert ED.select_for_verdict([ev], cache, refresh_days=90, today=today) == []   # 18d < 90
@@ -145,6 +147,48 @@ def test_pool_doc_carries_affinity_and_summary():
     rec = doc["events"][0]
     assert rec["id"] == ED.event_key(ev) and rec["lane"] == "club:afters"
     assert rec["affinity"]["artists"][0]["name"] == "Antal"
+
+
+def test_record_folds_scene_facts_but_never_curator_note():
+    """The enrich->editor handoff: factual scene block in, taste-flavored curator_note/energy out."""
+    ev = {"title": "Antal All Night", "date": "2026-07-04", "venue": "Warehouse",
+          "lineup": ["Antal"], "score": 9, "iso_date": "2026-07-04", "tags": {"type": "club"}}
+    k = ED.event_key(ev)
+    cache = {"events": {k: {"id": k, "subgenres": ["disco", "deep house"], "setting": "warehouse",
+                            "description": "All-night warehouse party.",
+                            "curator_note": "Worth building the whole night around — Ari's lane.",
+                            "energy": "peak"}},
+             "artists": {"antal": {"note": "Rush Hour boss — Dutch digger."}}}
+    doc = ED.pool_doc([ev], today=date(2026, 7, 4), window_days=28, per_lane=4, floor=4,
+                      affinity=AFF, enrichment=cache)
+    scene = doc["events"][0]["scene"]
+    assert scene["subgenres"] == ["disco", "deep house"] and scene["setting"] == "warehouse"
+    assert scene["description"] == "All-night warehouse party."
+    assert [n["name"] for n in scene["artist_notes"]] == ["Antal"]   # compounding artist bio folds in
+    # the personalization invariant — opinion fields must NOT leak into another profile's editor
+    assert "curator_note" not in scene and "energy" not in scene
+    # no enrichment passed -> no scene block (prior behavior preserved exactly)
+    plain = ED.pool_doc([ev], today=date(2026, 7, 4), window_days=28, per_lane=4, floor=4, affinity=AFF)
+    assert "scene" not in plain["events"][0]
+    # cache miss -> no scene block
+    miss = ED.pool_doc([{**ev, "title": "Unknown Night"}], today=date(2026, 7, 4), window_days=28,
+                       per_lane=4, floor=4, enrichment={"events": {}, "artists": {}})
+    assert "scene" not in miss["events"][0]
+
+
+def test_input_version_bump_reselects_legacy_verdicts():
+    """Adding the scene block (an input_version bump) must force a one-time re-judge of every
+    already-judged verdict — recurring artists are exactly the already-cached set, so without this
+    the new context would reach only never-judged events."""
+    ev = _ev("Legacy", CLUB_U, 5)
+    k = ED.event_key(ev)
+    # legacy verdict: score matches, but no input_version stamp (judged before the scene block)
+    cache = {"verdicts": {k: {"tier": "solid", "score_at_judge": 5, "judged_at": "2026-06-19T00:00:00"}}}
+    assert [m["id"] for m in ED.select_for_verdict([ev], cache)] == [k]   # re-selected despite no drift
+    # re-judging stamps the current version -> stable thereafter
+    ED.update_verdicts(cache, [{"id": k, "tier": "great"}], scores={k: 5})
+    assert cache["verdicts"][k]["input_version"] == ED.EDITOR_INPUT_VERSION
+    assert ED.select_for_verdict([ev], cache) == []
 
 
 def test_verdict_store_round_trip(tmp=None):

@@ -188,6 +188,37 @@ def merge_enrichment(candidates: list, cache: dict) -> list:
     return out
 
 
+# Taste-NEUTRAL factual enrichment fields safe to share into the PER-PROFILE editor pass.
+# Deliberately EXCLUDES curator_note and energy: curator_note is written in the root profile's
+# taste voice (scene-researcher reads taste.yaml first), and energy reads as taste-adjacent — so
+# folding either into another profile's editor would leak one person's verdict into another's.
+# Facts only ("what is this / who is playing"), never opinion.
+SCENE_FACT_FIELDS = ("type", "subgenres", "label_orbit", "setting", "sounds_like", "description")
+
+
+def scene_facts(ev: dict, cache: dict, max_artists: int = 8) -> dict:
+    """A compact, taste-NEUTRAL projection of the SHARED enrichment for one event — the factual
+    subset (SCENE_FACT_FIELDS + artist bios) safe to feed into the per-profile editor as read-only
+    context so it judges unfamiliar lineups against verified facts instead of guessing / re-searching.
+    Returns {} on a cache miss. Artist bios fold in from the compounding artist cache
+    (cached_artist_notes), so even an un-researched event still tells the editor who its lineup is.
+    Structurally cannot include curator_note/energy — only SCENE_FACT_FIELDS + artist_notes."""
+    out = {}
+    hit = (cache.get("events") or {}).get(event_key(ev))
+    if hit:
+        for f in SCENE_FACT_FIELDS:
+            val = hit.get(f)
+            if val:
+                out[f] = val
+    notes = cached_artist_notes(ev, cache)
+    if hit and hit.get("artist_notes"):                 # supplement with the researched record's own
+        have = {normalize(n.get("name", "")) for n in notes}
+        notes = notes + [n for n in hit["artist_notes"] if normalize(n.get("name", "")) not in have]
+    if notes:
+        out["artist_notes"] = notes[:max_artists]
+    return out
+
+
 def update_cache(cache: dict, results: list, now: str = None) -> dict:
     """Fold a scene-researcher (FULL-tier) batch (list of enrichment records) into the cache.
     Events are keyed by `id` and stamped `enriched_tier:"full"` (overwriting any prior blurb);

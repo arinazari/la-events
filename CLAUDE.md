@@ -76,7 +76,8 @@ scripts/run_digest.py               # deterministic core: fetch→dedupe→expir
 scripts/lib/                        # shared modules: scoring, dedupe, pipeline, enrich, images, config,
                                     #   affinity (Spotify), feedback (reactions→affinity), geo (travel),
                                     #   tagging (deterministic multi-axis tags: type/genre/setting/vibe/region),
-                                    #   editor (event-editor verdict store + judging pool + Spotify affinity hints),
+                                    #   editor (event-editor verdict store + judging pool + Spotify affinity hints +
+                                    #     a read-only taste-neutral `scene` block folded from the shared enrichment),
                                     #   assemble (the digest slate: lanes + elastic fill/cliff/diversity-floor) — tested
 scripts/merge_verdicts.py           # fold event-editor results JSON → per-profile data/verdicts/<hash>.json
 scripts/build_radar.py              # deterministic "on the radar" set (festival/big-venue/tracked/editorial) → data/radar.json

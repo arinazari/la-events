@@ -40,6 +40,7 @@ from lib.config import load_taste, load_profile  # noqa: E402
 from lib import pipeline as P  # noqa: E402
 from lib import feedback as FB  # noqa: E402
 from lib import editor as ED  # noqa: E402
+from lib import enrich as EN  # noqa: E402
 from lib.tagging import tag_catalog  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 
@@ -246,8 +247,13 @@ def main() -> int:
     pool = P.score_pool(catalog, taste, profile, today, window_days=args.editor_window, affinity=affinity)
     pool = [e for e in pool if (e.get("score") or 0) >= 0]          # negatives auto-skip; don't judge
     judge = ED.editor_pool(pool, per_lane=args.editor_per_lane, floor=args.editor_floor)
+    # Fold the shared scene cache (last run's write-once enrichment) into each editor record so the
+    # judge sees verified facts about unfamiliar lineups instead of re-deriving them. Read-only;
+    # taste-neutral (scene_facts excludes curator_note/energy). Empty cache = prior behavior exactly.
+    enr_cache = EN.load_cache()
     ep_doc = ED.pool_doc(judge, today=today, window_days=args.editor_window,
-                         per_lane=args.editor_per_lane, floor=args.editor_floor, affinity=affinity)
+                         per_lane=args.editor_per_lane, floor=args.editor_floor,
+                         affinity=affinity, enrichment=enr_cache)
     ep_path.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")
 
     # Blurb pool — the cheap-tier (blurb-writer) candidate slice: every upcoming event within
