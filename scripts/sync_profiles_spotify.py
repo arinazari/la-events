@@ -90,17 +90,23 @@ def main() -> int:
         print("No profiles have connected Spotify yet — nothing to sync.")
         return 0
 
+    attempted = [h for h in hashes if h]
     synced = 0
-    for h in hashes:
-        if not h:
-            continue
+    for h in attempted:
         try:
             print("  " + sync_one(args.url, args.token, h, out_dir))
             synced += 1
         except (HTTPError, URLError, ValueError, KeyError) as e:
             print(f"  WARN: {h} failed ({e}); skipped.", file=sys.stderr)
 
-    print(f"Synced {synced}/{len(hashes)} connected profile(s).")
+    failed = len(attempted) - synced
+    # Exit 0 even when some/all fail — a revoked token or a Worker blip must never block the feed
+    # rebuild/deploy that follows. The failed count is surfaced loudly instead (those feeds keep
+    # their last good music layer from the committed data.<hash>.json).
+    summary = f"Synced {synced}/{len(attempted)} connected profile(s)."
+    if failed:
+        summary += f" {failed} FAILED — those feeds keep their last good music layer."
+    print(summary)
     return 0
 
 

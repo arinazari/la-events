@@ -55,6 +55,18 @@ ENRICH_FIELDS = (
 )
 
 
+def music_block(affinity: dict) -> dict:
+    """A compact self-report of the music layer this feed was actually scored against, so the
+    dashboard can tell a connected-but-not-yet-applied Spotify (a stale ranking, or a failed
+    per-profile sync) from a live one. `layer` is none / feedback / spotify / spotify+feedback;
+    the counts are what fed the scorer. Purely additive — older viewers ignore it."""
+    if not affinity:
+        return {"layer": "none", "artists": 0, "genres": 0}
+    return {"layer": affinity.get("source") or "spotify",
+            "artists": len(affinity.get("artists") or {}),
+            "genres": len(affinity.get("genres") or {})}
+
+
 def build_config(taste: dict, profile: dict, sources: dict) -> dict:
     """A structured snapshot of the editable settings for the dashboard Settings view.
 
@@ -282,6 +294,7 @@ def main() -> int:
         "catalog_fetched_at": cat_meta.get("fetched_at"),
         "count": len(events),
         "enriched_count": enriched_hits,
+        "music": music_block(affinity),
         "neighborhoods": neighborhoods,
         "categories": categories,
         "tag_facets": tag_facets,
