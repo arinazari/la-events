@@ -137,16 +137,17 @@ def test_blurb_never_downgrades_full():
     assert "description" not in cache["events"][k] or cache["events"][k].get("curator_note")
 
 
-def test_select_for_blurb_skips_cached_and_detailed():
+def test_select_for_blurb_skips_only_cached():
     miss = {"title": "Needs A Blurb", "date": "2026-07-11", "venue": "1642"}
     has_detail = {"title": "Has Detail", "date": "2026-07-12", "venue": "The Lash",
-                  "detail": "A long enough source description that we can just show verbatim here."}
+                  "detail": "A source description — still gets a clean LLM line for a uniform card."}
     cached = {"title": "Done", "date": "2026-07-13", "venue": "Sound"}
     cache = {"events": {E.event_key(cached): {"id": E.event_key(cached), "enriched_tier": "blurb"}},
              "artists": {}}
     picks = E.select_for_blurb([miss, has_detail, cached], cache)
-    assert [p["title"] for p in picks] == ["Needs A Blurb"]   # detail-haver + cached both skipped
-    assert picks[0]["id"] == E.event_key(miss)
+    # detail no longer skips — only an existing cache record does
+    assert [p["title"] for p in picks] == ["Needs A Blurb", "Has Detail"]
+    assert {p["id"] for p in picks} == {E.event_key(miss), E.event_key(has_detail)}
 
 
 def test_blurb_skips_results_without_description():

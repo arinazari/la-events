@@ -101,18 +101,17 @@ def select_for_enrichment(candidates: list, cache: dict, refresh_days=None, toda
     return out
 
 
-def select_for_blurb(candidates: list, cache: dict, min_detail: int = 40) -> list:
-    """Cheap-tier candidates for the blurb-writer: events with NO cache record at all AND no usable
-    source `detail` to display instead. Skipped (so we pay no LLM call): anything already enriched
-    (full or blurb), and anything that already carries a decent source description (>= min_detail
-    chars — the raw-detail fallback covers the card). Caller passes the mid-tier slice (the upcoming
-    events below the full head); each result carries its `id` for write-back."""
+def select_for_blurb(candidates: list, cache: dict) -> list:
+    """Cheap-tier candidates for the blurb-writer: every event with NO cache record yet (full or
+    blurb). One clean factual line per event — cheap (haiku, no web), write-once. We do NOT skip
+    events that carry source `detail`: a sanitized source blurb is an inconsistent voice and often
+    marketing-toned, so the LLM line is worth its (tiny) cost for a uniform card. Raw `detail`
+    stays as the display fallback for anything the blurb tier doesn't reach (overflow/failure).
+    Caller passes the slice below the full head; each result carries its `id` for write-back."""
     out = []
     for c in candidates:
         k = event_key(c)
         if cache["events"].get(k) is not None:
-            continue
-        if len((c.get("detail") or "").strip()) >= min_detail:
             continue
         cc = dict(c)
         cc["id"] = k

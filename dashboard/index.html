@@ -2566,7 +2566,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const settingArr = uniqLow([...(Array.isArray(tags.setting) ? tags.setting : []), ...(enr.setting ? [enr.setting] : [])]);
     const vibeArr = uniqLow([...(Array.isArray(tags.vibe) ? tags.vibe : []), ...(Array.isArray(enr.vibe) ? enr.vibe : [])]);
     const genre = genreArr.length ? genreArr.join(', ') : (enr.type || r.genre || '');
-    const why = enr.curator_note || (Array.isArray(r.reasons) && r.reasons.length ? r.reasons.join(' · ') : (r.why || r.blurb || r.note || ''));
+    // "Why it's ranked", richest-first: the scene-researcher's curator note (full-enriched head),
+    // else the event-editor's per-profile verdict rationale (judged pool — far wider than the
+    // enrichment head, and the curated taste "why"), else the deterministic scoring reasons.
+    const verdictWhy = (r.verdict && typeof r.verdict.why === 'string') ? r.verdict.why : '';
+    const why = enr.curator_note || verdictWhy || (Array.isArray(r.reasons) && r.reasons.length ? r.reasons.join(' · ') : (r.why || r.blurb || r.note || ''));
     return {
       id: (r.id != null ? String(r.id) : this.slugId(r, i)),
       iso: d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()),

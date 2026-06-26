@@ -138,7 +138,7 @@ no backend; the static page just renders it.
 | `event-editor` / `scene-researcher` `model:` | agent frontmatter | `sonnet` | nightly subagent tier |
 | `blurb-writer` `model:` | agent frontmatter | `haiku` | cheap-tier description writer (no web tools) |
 | `--top` | `run_digest` | 100 | full-enrichment head size (scene-researcher) |
-| `--blurb-window` / `--blurb-top` | `run_digest` | 35d / 200 | blurb (cheap-tier) pool span + cap below the head |
+| `--blurb-window` / `--blurb-top` | `run_digest` | 35d / 0 | blurb (cheap-tier) pool span (the real bound) + optional safety cap (0 = off, cover the whole window) |
 | `refresh_days` | `select_for_verdict` / `select_for_enrichment` | `None` (write-once) | optional periodic re-judge / re-research |
 | `--top-n` | `digest_gate` | 25 | how many picks define a digest's signature |
 
