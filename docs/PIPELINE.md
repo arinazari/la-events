@@ -94,7 +94,7 @@ no backend; the static page just renders it.
 | Stage | Runs | No-ops when | Cost tier |
 |---|---|---|---|
 | fetch + dedupe + expire + score (`run_digest`) | every routine run / refresh | — (always; deterministic, cheap). Merge is **freshest-wins** for price/time/lineup/status, so in-place updates land | none |
-| **event-editor** (Tier 1 verdicts) | routine + per-user rebuild | event already judged at this score (`select_for_verdict`) | Sonnet, delta only |
+| **event-editor** (Tier 1 verdicts) | routine + per-user rebuild | event already judged at this score AND editor-input version unchanged (`select_for_verdict`) | Sonnet, delta only |
 | **scene-researcher** (Tier 2 enrichment) | routine + per-user rebuild | event/artist already in `enrichment.json` (write-once) | Sonnet, misses only |
 | consolidated narrative intro | every routine run | — (cheap; the slate is deterministic, only a short intro is LLM) | small |
 | **per-profile narrative** | routine + per-user rebuild | feed signature unchanged (`digest_gate decide` → SKIP) | gated; one narrative per *changed* feed |
@@ -104,6 +104,14 @@ no backend; the static page just renders it.
 ## Cost ledger — where tokens go, and the bound on each
 
 1. **Nightly editor** — only new/score-drifted events are judged; cached + committed per profile. Sonnet.
+   The editor record now carries a read-only `scene` block — the **taste-neutral** factual subset of
+   the shared enrichment cache (`editor._record` → `enrich.scene_facts`: type/subgenres/label_orbit/
+   setting/sounds_like/description + artist bios; **never** curator_note/energy, which are taste-voiced)
+   — so the judge reads verified facts about unfamiliar lineups instead of re-deriving / re-searching
+   them. Enrichment stays one shared write-once cache; only the per-profile `affinity` + `taste.yaml`
+   personalize the verdict. A bump to `editor.EDITOR_INPUT_VERSION` (now 2, for the `scene` block)
+   forces a **one-time re-judge** of every prior verdict (they were judged blind); steady-state is
+   unchanged after that one pass.
 2. **Nightly enrichment** — write-once on event-id + artist; recurring artists researched once. Sonnet.
 3. **Per-profile narratives** — regenerated only when that feed's top-N picks moved (`digest_gate`).
    On a quiet day this is **0 LLM calls**; it scales with *changed* friends, not all friends.

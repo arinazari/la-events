@@ -104,6 +104,27 @@ def test_select_refresh_days_reselects_stale():
     assert [s["id"] for s in stale] == [k]
 
 
+def test_scene_facts_projects_facts_only():
+    """scene_facts is the taste-NEUTRAL projection fed into the per-profile editor: facts + artist
+    bios in, curator_note/energy out (those carry the root profile's taste voice)."""
+    ev = {"title": "Rooftop Groove", "date": "2026-07-04", "venue": "Level 8", "lineup": ["Antal"]}
+    k = E.event_key(ev)
+    cache = {"events": {k: {"id": k, "type": "electronic", "subgenres": ["disco"],
+                            "label_orbit": ["Rush Hour"], "setting": "rooftop",
+                            "sounds_like": ["Hunee"], "description": "Daytime rooftop party.",
+                            "curator_note": "Build the day around it.", "energy": "groove"}},
+             "artists": {"antal": {"note": "Rush Hour boss."}}}
+    sf = E.scene_facts(ev, cache)
+    assert sf["subgenres"] == ["disco"] and sf["setting"] == "rooftop"
+    assert sf["sounds_like"] == ["Hunee"] and sf["description"] == "Daytime rooftop party."
+    assert [n["name"] for n in sf["artist_notes"]] == ["Antal"]
+    assert "curator_note" not in sf and "energy" not in sf          # the personalization invariant
+    # cache miss -> {}; artist-only (un-researched event) still folds the compounding bio
+    assert E.scene_facts({"title": "Z", "date": "2026-07-05", "venue": "Q"}, cache) == {}
+    bare = E.scene_facts({"title": "Antal b2b", "date": "2026-07-06", "venue": "X", "lineup": ["Antal"]}, cache)
+    assert [n["name"] for n in bare["artist_notes"]] == ["Antal"] and "description" not in bare
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

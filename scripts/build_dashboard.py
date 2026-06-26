@@ -213,9 +213,13 @@ def main() -> int:
     # still happening tonight in LA get marked is_past and lose their final_rank / highlight.
     today = today_la()
 
+    # Fold the enrichment cache onto the whole catalog ONCE (order-preserving) instead of a
+    # per-event merge_enrichment([ev]) call inside the loop — same result, O(N) not O(N) calls.
+    merged_all = merge_enrichment(catalog, cache)
+
     events = []
     enriched_hits = 0
-    for ev in catalog:
+    for ev, merged in zip(catalog, merged_all):
         scored = score_event(ev, taste, profile, affinity)
         d = parse_event_date(ev)
         out = dict(ev)
@@ -225,7 +229,6 @@ def main() -> int:
         out["iso_date"] = d.isoformat() if d else None
         out["is_past"] = bool(d and d < today)
 
-        [merged] = merge_enrichment([ev], cache)
         enr = merged.get("enrichment")
         if enr:
             out["enrichment"] = {k: enr[k] for k in ENRICH_FIELDS if enr.get(k)}
@@ -339,7 +342,8 @@ def main() -> int:
                  and e["iso_date"] <= end_iso and (e.get("score") or 0) >= 0]
         judge = ED.editor_pool(epool, per_lane=args.editor_per_lane, floor=args.editor_floor)
         ep_doc = ED.pool_doc(judge, today=today, window_days=args.editor_window,
-                             per_lane=args.editor_per_lane, floor=args.editor_floor, affinity=affinity)
+                             per_lane=args.editor_per_lane, floor=args.editor_floor,
+                             affinity=affinity, enrichment=cache)
         epath = resolve(args.editor_pool_out)
         epath.parent.mkdir(parents=True, exist_ok=True)
         epath.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")

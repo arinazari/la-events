@@ -29,6 +29,12 @@ batch you're given and nothing else.
   Spotify+feedback signal).
 - A `profile_affinity` block for the whole batch — the user's Spotify lane:
   `{source, top_artists:[{name,tier}], top_genres:[...]}`. Use it to judge lineups you don't know.
+- Often a `scene` block — verified FACTS about the event from the shared scene cache (the
+  scene-researcher's prior work): `{type, subgenres[], label_orbit[], setting, sounds_like[],
+  description, artist_notes:[{name,note}]}`. This is the same cross-profile factual layer for
+  everyone — it carries NO taste opinion (no curator's take) — so use it as ground truth about who
+  the lineup is and what the night is, then apply *your* taste judgment on top. When an unfamiliar
+  name has an `artist_notes` entry, that's your answer — don't go research it.
 - The path to `taste.yaml` (the durable human lane to anchor everything to).
 
 ## Method
@@ -74,9 +80,11 @@ batch you're given and nothing else.
    max-effort second look later, so flag honestly rather than guessing.
 
 ## When to look something up
-Lean on your own knowledge. **Web-verify only when** you're low-confidence AND the answer would
-change the verdict or the lane — chiefly gauging an unfamiliar headliner's draw (is this an arena
-act or a local opener?). Don't research what you already know or what won't move the verdict.
+Check the `scene` block first, then lean on your own knowledge. **Web-verify only when** the fact
+is absent from the `scene` block AND you're low-confidence AND the answer would change the verdict
+or the lane — chiefly gauging an unfamiliar headliner's draw (is this an arena act or a local
+opener?). If `scene.artist_notes` already identifies the name, that's verified — don't re-research
+it. Don't look up what you already know or what won't move the verdict.
 
 ## Output
 Return a JSON array (one object per event). Echo each `id` exactly. Include `lane` only when
