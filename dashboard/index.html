@@ -463,6 +463,10 @@
                 <td colspan="5" style="padding:4px 12px 18px;">
                   <div style="display:flex; gap:40px; flex-wrap:wrap; max-width:760px;">
                     <div style="flex:1; min-width:240px;">
+                      <sc-if value="{{ ev.hasDesc }}" hint-placeholder-val="{{ false }}">
+                        <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">WHAT IT IS</div>
+                        <div style="font-size:12.5px; line-height:1.55; color:#3f3d36; margin-bottom:14px;">{{ ev.desc }}</div>
+                      </sc-if>
                       <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">WHY IT'S RANKED</div>
                       <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ ev.why }}</div>
                       <div style="margin-top:14px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">LINEUP</div>
@@ -520,6 +524,10 @@
             </div>
             <sc-if value="{{ ev.expanded }}" hint-placeholder-val="{{ false }}">
               <div style="margin-top:13px; padding-top:13px; border-top:1px solid #e0ded5;">
+                <sc-if value="{{ ev.hasDesc }}" hint-placeholder-val="{{ false }}">
+                  <div style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">WHAT IT IS</div>
+                  <div style="font-size:12.5px; line-height:1.55; color:#3f3d36; margin-bottom:13px;">{{ ev.desc }}</div>
+                </sc-if>
                 <div style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">WHY IT'S RANKED</div>
                 <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ ev.why }}</div>
                 <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">LINEUP</div>
@@ -2584,6 +2592,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       verdict: r.verdict || null,
       why,
       detail: r.detail || '',
+      // Factual one-line description for the card: the enrichment blurb (full or cheap tier)
+      // if researched, else the sanitized raw source detail. Distinct from `why` (the curator's
+      // opinion / ranking reasons) — this is the plain "what it is".
+      desc: (enr.description || r.detail || ''),
+      hasDesc: !!(enr.description || r.detail),
       xb: Array.isArray(r.badges) ? r.badges : (Array.isArray(r.xb) ? r.xb : []),
       url: r.url || (links[0] && links[0].url) || null,
       links
@@ -2746,6 +2759,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       source: e.source,
       badges: this.computedBadges(e),
       why: e.why,
+      desc: e.desc, hasDesc: e.hasDesc,
       lineupStr: e.lineup.join('  \u00b7  '),
       venueLine: e.venue + ' (' + e.hood + ')',
       priceLine: this.priceLabel(e) + (e.ah ? '  \u00b7  afterhours' : '') + '  \u00b7  ' + e.wd + ' ' + e.md + ' ' + e.t,
