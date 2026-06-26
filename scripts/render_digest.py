@@ -239,6 +239,13 @@ def _footer_notes(doc: dict) -> list:
     failed = sources.get("failed") or []
     if failed:
         notes.append("*Coverage gaps: " + ", ".join(f"{s} ({why})" for s, why in failed) + "*")
+    # A source gone dark (frozen last_seen — broken fetcher / lapsed key) is worse than a one-run
+    # failure: its events keep showing as if live while silently aging. Disclose it so week-old data
+    # never passes for current (the gap that let a Thu show read as Fri all week).
+    stale = (doc.get("meta") or {}).get("stale_sources") or []
+    if stale:
+        notes.append("*⚠️ Stale sources (not refreshed — these events may be out of date): "
+                     + ", ".join(f"{s['source']} {s['days']}d ({s['count']} events)" for s in stale) + "*")
     sp = sources.get("spotify")
     if isinstance(sp, dict) and not sp.get("ok"):
         why = (sp.get("note") or "refresh failed").strip()

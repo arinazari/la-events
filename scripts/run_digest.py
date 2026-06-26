@@ -185,8 +185,15 @@ def main() -> int:
         incoming, report = fetch_all(selected, args.days, args.far_days)
         incoming = [r for r in incoming if r.get("title") and r.get("date")]
 
+    # Pin Ticketmaster rows to their night-of (URL-slug) date, undoing any UTC-dateTime day-roll left by
+    # an older fetcher or re-seeded by a stale source. BEFORE dedupe so a duplicate the bug split across
+    # two calendar days (TM on the rolled day, RA/19hz on the real night) re-aligns and merges this pass.
+    redated = P.reconcile_tm_dates(catalog)
     # Always dedupe (idempotent) — collapses incoming AND any pre-existing catalog dupes.
     catalog, stats = P.merge_new(catalog, incoming, today)
+    # Re-pin after the merge too: incoming is already venue-local from the fixed fetcher, but this keeps
+    # the guarantee total (idempotent; normally a no-op). Before expire so a corrected past show expires.
+    P.reconcile_tm_dates(catalog)
     catalog, expired = P.expire_past(catalog, today)
     P.stamp_seen(catalog, today)
     # Canonicalize the location column (venue-resolve city-level/blank neighborhoods).
@@ -213,7 +220,8 @@ def main() -> int:
     # `content_version` moves on price/time/lineup changes too (not just adds/drops); `delta`
     # carries this run's added/updated counts + a sample of what changed for the digest line.
     meta_path = cat_path.parent / "catalog_meta.json"
-    cat_meta = CM.write_meta(meta_path, catalog, delta)
+    stale = P.stale_sources(catalog, today)   # sources gone dark (frozen last_seen) → meta + report
+    cat_meta = CM.write_meta(meta_path, catalog, delta, stale)
 
     affinity = load_affinity_layer(args.no_fetch, report, profile)
     candidates = P.select_candidates(catalog, taste, profile, today,
@@ -270,7 +278,8 @@ def main() -> int:
 
     # Run report.
     print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}/c{cat_meta['content_version']}) "
-          f"(+{delta['added']} new, {delta['updated']} updated, {stale_n} unlisted, {stats['merged']} merged, {expired} expired) "
+          f"(+{delta['added']} new, {delta['updated']} updated, {stale_n} unlisted, {stats['merged']} merged, "
+          f"{expired} expired, {redated} TM dates pinned) "
           f"-> {len(candidates)} candidates, {len(judge)} to judge, {len(blurb_cands)} blurb pool"
           f"{f' (+{blurb_overflow} overflow)' if blurb_overflow else ''}")
     if report["ok"]:
@@ -279,6 +288,12 @@ def main() -> int:
         print("  failed: ", ", ".join(f"{s} ({e})" for s, e in report["failed"]))
     if report["skipped"]:
         print("  skipped:", ", ".join(report["skipped"]))
+    # Loud alarm for a source that has gone dark (fetcher broke / key/token lapsed): its newest
+    # last_seen has frozen while today marched on. This is the gap that let TM sit a week stale —
+    # a 'success' run with one source quietly contributing nothing. Surfaced here AND in catalog_meta.
+    if stale:
+        print("  ⚠ STALE SOURCES (not refreshed — check API keys / fetchers):",
+              ", ".join(f"{s} {d}d ({n} events)" for s, d, n in stale))
     if args.far_days:
         far_srcs = ", ".join(e["source"] for e in FETCHERS if e.get("far"))
         print(f"  far horizon: {args.far_days}d for {far_srcs} (near {args.days}d for the rest)")

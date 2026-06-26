@@ -7,7 +7,7 @@ free: run_digest.py does the I/O, this module does the transforms.
 """
 
 import re
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 
 from .scoring import score_event, score_to_rating, parse_event_date
 from .dedupe import dedupe
@@ -180,6 +180,72 @@ def merge_new(catalog: list, incoming: list, today: date = None) -> tuple:
     return deduped, stats
 
 
+# Ticketmaster bakes the night-of date into its marketing URL slug: .../<name>-<city>-MM-DD-YYYY/event/<id>.
+# Verified against the live Discovery API, this slug date equals `localDate` for every correctly-dated
+# event — the *only* rows where it disagrees are ones an older fetcher mis-dated off TM's UTC `dateTime`
+# (an evening LA show rolls past midnight into the next calendar day). So the slug is the authority.
+_TM_SLUG_DATE = re.compile(r"-(\d{2})-(\d{2})-(\d{4})/event/", re.I)
+
+
+def _tm_slug_date(ev: dict):
+    """The night-of date from a record's Ticketmaster URL slug ('YYYY-MM-DD'), or None."""
+    for link in (ev.get("links") or []):
+        url = link.get("url") if isinstance(link, dict) else link
+        m = _TM_SLUG_DATE.search(str(url or ""))
+        if m:
+            mm, dd, yyyy = m.groups()
+            return f"{yyyy}-{mm}-{dd}"
+    return None
+
+
+def reconcile_tm_dates(catalog: list) -> int:
+    """Repair Ticketmaster rows whose stored date drifted a day off the night-of date. Returns the count fixed.
+
+    The root cause was fixed in fetch_ticketmaster.py (it now reads venue-LOCAL `localDate`/`localTime`,
+    not UTC `dateTime`), but two failure modes outlive that fix: ~hundreds of pre-fix rows already sit in
+    the catalog mis-dated, and a stale source (e.g. TM dark on a missing key) can keep re-seeding them. A
+    mis-dated row is invisible until the night of the show — it just sits a day late — so this runs on
+    EVERY pipeline pass (including --no-fetch rebuilds), idempotently, making the slug authoritative so a
+    drifted row can never silently outlive one pass. (This is the general-day-roll sibling of the fetcher's
+    narrow post-midnight `_nightof_date`; together they keep TM dates pinned to night-of.)
+
+    Self-classifying per row — only the exactly-one-day roll signature is ever touched, so a genuinely
+    different date is never clobbered:
+      • full-UTC row  — (date, start) interpreted as UTC lands on the slug day once converted to LA, so
+        the whole stamp is UTC: take the LA-local date AND time (a `01:30` 'next day' becomes the real
+        `18:30` night-of).
+      • date-only roll — the time is already venue-local; just move the date back to the slug.
+    """
+    fixed = 0
+    for ev in catalog:
+        slug = _tm_slug_date(ev)
+        stored = str(ev.get("date") or "")[:10]
+        if not slug or not stored or slug == stored:
+            continue
+        try:
+            d0 = datetime.strptime(stored, "%Y-%m-%d").date()
+            sd = datetime.strptime(slug, "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if abs((d0 - sd).days) != 1:
+            continue  # only the day-roll signature — never touch a genuinely different date
+        start = ev.get("start")
+        if start and _LA:
+            try:
+                la = (datetime.fromisoformat(f"{stored}T{start}")
+                      .replace(tzinfo=timezone.utc).astimezone(_LA))
+                if la.date().isoformat() == slug:        # whole stamp was UTC → recover local date+time
+                    ev["date"] = slug
+                    ev["start"] = la.strftime("%H:%M:%S")
+                    fixed += 1
+                    continue
+            except ValueError:
+                pass
+        ev["date"] = slug                                # date-only roll — venue-local time already right
+        fixed += 1
+    return fixed
+
+
 def expire_past(catalog: list, today: date = None) -> tuple:
     """Drop events dated before today (LA). Keep future + undated (TBA). Returns (kept, n)."""
     today = today or today_la()
@@ -268,6 +334,57 @@ def flag_stale(catalog: list, fetched_sources, today: date = None, *,
         elif ev.get("status") == "unlisted":           # re-listed since → clear the flag
             ev.pop("status", None)
     return flagged
+
+
+def source_freshness(catalog: list, today: date = None) -> dict:
+    """Per-source recency from the catalog's `last_seen` stamps:
+    {source: {"last_seen": newest, "median_last_seen": bulk, "days": <bulk staleness>,
+              "newest_days": <newest staleness>, "count": n}}.
+
+    The signal behind 'a source went dark'. last_seen is fetch-time: a healthy fetcher re-confirms
+    nearly all of its events every run, so their last_seen tracks today; when the fetcher breaks or a
+    key/token lapses, those timestamps freeze while today marches on — even though the run still
+    'succeeds' (degrade-gracefully buries the gap in one log line). Staleness keys off the MEDIAN
+    last_seen, not the newest: a dark source can still show a few fresh rows because another source
+    cross-lists them (19hz/DICE re-list a TM event and refresh it), and the max would let those
+    outliers mask the outage. The bulk (median) is immune. Computed straight off the committed catalog
+    so it's honest whether or not this run fetched."""
+    today = today or today_la()
+    from collections import defaultdict
+    seen: dict = defaultdict(list)
+    for ev in catalog:
+        ls = str(ev.get("last_seen") or "")[:10]
+        if not ls:
+            continue
+        for s in (ev.get("sources") or []):
+            seen[s].append(ls)
+
+    def _days(d):
+        try:
+            return (today - date.fromisoformat(d)).days
+        except ValueError:
+            return None
+
+    out: dict = {}
+    for s, dates in seen.items():
+        dates.sort()
+        newest = dates[-1]
+        median = dates[(len(dates) - 1) // 2]      # lower median — robust to cross-listed fresh outliers
+        out[s] = {"last_seen": newest, "median_last_seen": median,
+                  "days": _days(median), "newest_days": _days(newest), "count": len(dates)}
+    return out
+
+
+def stale_sources(catalog: list, today: date = None, *, min_days: int = 3, min_count: int = 20) -> list:
+    """Sources gone quiet: the BULK (median) of their events hasn't been re-seen in >= min_days, and
+    they carry >= min_count rows (so a tiny/occasional source isn't flagged). Returns
+    [(source, days_stale, count)], stalest first — the 'Ticketmaster has been dark for a week' alarm
+    that a silently-skipped fetch (missing key, broken fetcher) never raised."""
+    out = []
+    for s, v in source_freshness(catalog, today).items():
+        if v.get("count", 0) >= min_count and v.get("days") is not None and v["days"] >= min_days:
+            out.append((s, v["days"], v["count"]))
+    return sorted(out, key=lambda x: -x[1])
 
 
 def normalize_locations(catalog: list, profile: dict = None) -> list:
