@@ -156,7 +156,10 @@ def main() -> int:
                     help="wide plan-ahead horizon (days) for far-capable sources (Ticketmaster); near "
                          "sources keep --days. Two-speed fetch: full-fidelity near, deterministic radar far.")
     ap.add_argument("--window", type=int, default=None, help="candidate window in days (default: all upcoming)")
-    ap.add_argument("--top", type=int, default=40, help="candidate set size for enrichment")
+    ap.add_argument("--top", type=int, default=100, help="full-enrichment head size (scene-researcher)")
+    ap.add_argument("--blurb-pool", default="data/blurb_pool.json", help="cheap-tier blurb candidate output")
+    ap.add_argument("--blurb-window", type=int, default=35, help="days the blurb (cheap-tier) pool spans")
+    ap.add_argument("--blurb-top", type=int, default=200, help="cap on the blurb pool below the full head")
     ap.add_argument("--editor-pool", default="data/editor_pool.json", help="editor judging-set output")
     ap.add_argument("--editor-window", type=int, default=28, help="days the editor pool spans")
     ap.add_argument("--editor-per-lane", type=int, default=4, help="top-K per lane judged")
@@ -237,10 +240,32 @@ def main() -> int:
                          per_lane=args.editor_per_lane, floor=args.editor_floor, affinity=affinity)
     ep_path.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")
 
+    # Blurb pool — the cheap-tier (blurb-writer) candidate slice: upcoming events within
+    # --blurb-window that rank BELOW the full-enrichment head, capped at --blurb-top. The fan-out
+    # then runs enrich.select_for_blurb over this (only events with no cache record AND no usable
+    # source detail actually cost a haiku call — the rest display raw detail for free). Bounded on
+    # purpose; events past the window/cap fall back to source detail or nothing (logged below).
+    bp_path = REPO / args.blurb_pool if not Path(args.blurb_pool).is_absolute() else Path(args.blurb_pool)
+    head_keys = {P.event_key(c) for c in candidates}
+    bpool = P.score_pool(catalog, taste, profile, today, window_days=args.blurb_window, affinity=affinity)
+    bpool = [e for e in bpool if (e.get("score") or 0) >= 0 and P.event_key(e) not in head_keys]
+    blurb_overflow = max(0, len(bpool) - args.blurb_top)
+    blurb_cands = bpool[:args.blurb_top]
+    bp_doc = {
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "today": today.isoformat(),
+        "window_days": args.blurb_window,
+        "count": len(blurb_cands),
+        "overflow": blurb_overflow,   # ranked below the cap -> raw-detail/no-blurb fallback
+        "candidates": blurb_cands,
+    }
+    bp_path.write_text(json.dumps(bp_doc, indent=2, ensure_ascii=False) + "\n")
+
     # Run report.
     print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}/c{cat_meta['content_version']}) "
           f"(+{delta['added']} new, {delta['updated']} updated, {stale_n} unlisted, {stats['merged']} merged, {expired} expired) "
-          f"-> {len(candidates)} candidates, {len(judge)} to judge")
+          f"-> {len(candidates)} candidates, {len(judge)} to judge, {len(blurb_cands)} blurb pool"
+          f"{f' (+{blurb_overflow} overflow)' if blurb_overflow else ''}")
     if report["ok"]:
         print("  fetched:", ", ".join(f"{s}:{n}" for s, n in report["ok"]))
     if report["failed"]:
