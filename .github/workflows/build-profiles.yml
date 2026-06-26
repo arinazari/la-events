@@ -39,6 +39,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main           # Publish the TIP of main, not the triggering SHA. This deploy shares the
+                              # `pages` concurrency group, so it can run queued behind a rebuild-profile
+                              # run; checking out the triggering commit would re-publish a snapshot that
+                              # predates a per-profile digest just committed, clobbering it on Pages.
           fetch-depth: 0      # build_profiles bakes a git diff of the taste/profile edit + a
                               # reflected/pending flag into each feed; needs real history, not a shallow clone.
       - uses: actions/setup-python@v5

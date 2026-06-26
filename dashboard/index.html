@@ -1993,11 +1993,24 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   setUpdating(hash, val) { try { val ? localStorage.setItem(this.updatingKey(hash), JSON.stringify(val)) : localStorage.removeItem(this.updatingKey(hash)); } catch (e) {} }
   getRefreshing() { try { return JSON.parse(localStorage.getItem('la-refreshing') || 'null'); } catch (e) { return null; } }
   setRefreshing(val) { try { val ? localStorage.setItem('la-refreshing', JSON.stringify(val)) : localStorage.removeItem('la-refreshing'); } catch (e) {} }
-  // Read a profile feed's build stamp WITHOUT applying it to the view — the completion probe.
-  fetchFeedStamp(hash) {
-    const path = (hash ? ('./data.' + hash + '.json') : './data.json') + '?t=' + Date.now();
-    return fetch(path, { cache: 'no-store' }).then(res => res.ok ? res.json() : null)
-      .then(j => (j && j.generated_at) || null).catch(() => null);
+  // Cheap, dependency-free content signature (length + djb2 hash) so the Update poll can tell two
+  // digests apart without pulling in a crypto dep.
+  strSig(s) {
+    let h = 5381;
+    for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0;
+    return s.length + ':' + (h >>> 0).toString(36);
+  }
+  // Read THIS profile's deployed digest WITHOUT applying it to the view — the Update completion probe.
+  // We key completion on the per-profile DIGEST (a few KB), NOT the 2.7 MB feed's generated_at: the
+  // no-LLM deterministic re-rank (build-profiles CI after a taste edit, or rebuild-profile's own first
+  // step) bumps generated_at and redeploys the SAME digest — or none at all, for a never-enriched
+  // profile — which used to satisfy this poll in ~1 min: it finished with nothing charged and the
+  // digest still empty. The digest changes only when the LLM pass actually re-runs. Returns null when
+  // no digest is deployed yet (e.g. a brand-new profile), which any first digest then completes.
+  fetchDigestSig(hash) {
+    const path = './digests/' + hash + '/latest.md?t=' + Date.now();
+    return fetch(path, { cache: 'no-store' }).then(res => res.ok ? res.text() : null)
+      .then(md => (md && md.trim().length >= 20) ? this.strSig(md) : null).catch(() => null);
   }
   // Resume polling for any job already in flight (after a reload, or a switch back to its profile).
   // The active profile's Update is the only spinner that matters; another profile's job reconciles
@@ -2007,27 +2020,33 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (active && this.getUpdating(active) && !this._freshPoll) this.startUpdatePoll(active);
     if (this.getRefreshing() && !this._refreshPoll) this.startRefreshPoll();
   }
-  // Poll until THIS profile's rebuilt feed deploys (its generated_at advances past the launch baseline).
+  // Poll until THIS profile's rebuilt DIGEST deploys (its content changes vs the click-time baseline)
+  // — that, not the feed's generated_at, is what the paid LLM pass actually produces (see fetchDigestSig).
   startUpdatePoll(hash) {
     clearInterval(this._freshPoll); this._freshPoll = null;
     const job = this.getUpdating(hash);
     if (!job) return;
-    const baseGen = job.baseGen || '';
+    const baseDigest = job.baseDigest || null;
     let n = 0;
     this.startJobTick();
     this._freshPoll = setInterval(async () => {
       if (((this.state.profile && this.state.profile.hash) || null) !== hash) {   // switched away → reattach owns it
         clearInterval(this._freshPoll); this._freshPoll = null; return;
       }
-      const gen = await this.fetchFeedStamp(hash);
+      const sig = await this.fetchDigestSig(hash);
       await this.checkCatalogFreshness();
-      const landed = gen && gen !== baseGen;
-      if (++n > 60 || landed) {                                                   // ~15 min cap
+      // Done when the digest is present AND differs from the baseline (null→present for a first-ever
+      // digest, or a changed signature) — i.e. the LLM pass re-rendered it. A no-LLM re-rank can't.
+      const landed = !!(sig && sig !== baseDigest);
+      if (++n > 120 || landed) {                                                  // ~30 min cap (full LLM pass is slow)
         clearInterval(this._freshPoll); this._freshPoll = null;
         this.setUpdating(hash, null);
         if (landed) {
           this.setTasteDirtyFor(hash, false);                                     // clear the LAUNCHING profile's flag
-          if (((this.state.profile && this.state.profile.hash) || null) === hash) await this.loadFeedFor(this.state.profile);
+          if (((this.state.profile && this.state.profile.hash) || null) === hash) {
+            await this.loadFeedFor(this.state.profile);                           // refresh the ranked rows (fresh verdicts) …
+            await this.loadDigestFor(this.state.profile);                         // … and show the freshly rebuilt digest
+          }
           this.flashToast('Your picks + digest are up to date.');
         }
         this.forceUpdate();
@@ -2099,11 +2118,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (!(p && p.hash) || this.getUpdating(p.hash)) return;
     if (!this.BACKEND_URL) { this.flashToast('Connect the concierge backend first (chat → connect).'); return; }
     const hash = p.hash;
-    // Baseline = THIS profile's current build stamp; the rebuild is "done" only when it advances.
-    // Works for both the catalog-stale and taste-dirty cases (catalog_version may be unchanged on a edit).
-    this.setUpdating(hash, { startedAt: Date.now(), baseGen: (this.META && this.META.generated_at) || '' });
+    // Claim the in-flight slot synchronously (before the await below) so a double-click can't launch
+    // two rebuilds. Baseline = THIS profile's current DIGEST signature; the rebuild is "done" only when
+    // the digest CHANGES — i.e. the LLM pass re-rendered it. Keying on the feed's generated_at instead
+    // let the cheap deterministic re-rank (build-profiles CI / rebuild-profile's first step) end the
+    // poll in ~1 min with nothing charged and the digest still empty. null = no digest yet (new profile).
+    this.setUpdating(hash, { startedAt: Date.now() });
     this.forceUpdate();
     this.startJobTick();
+    const baseDigest = await this.fetchDigestSig(hash);
+    this.setUpdating(hash, { ...(this.getUpdating(hash) || { startedAt: Date.now() }), baseDigest });
     try {
       const headers = { 'content-type': 'application/json' };
       if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
@@ -2111,7 +2135,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       if (res.status === 401) { this.flashToast('Not authorized — set the concierge token in the chat.'); this.setUpdating(hash, null); this.forceUpdate(); return; }
       if (!res.ok) { this.flashToast('Update failed (' + res.status + ') — is the workflow deployed?'); this.setUpdating(hash, null); this.forceUpdate(); return; }
       this.flashToast('Re-running your editor + digest against the latest events — this takes a few minutes.');
-      this.startUpdatePoll(hash);   // poll for the rebuilt feed (survives a profile switch / reload)
+      this.startUpdatePoll(hash);   // poll for the rebuilt digest (survives a profile switch / reload)
     } catch (e) { this.flashToast('Could not reach the backend to update.'); this.setUpdating(hash, null); this.forceUpdate(); }
   };
   // True when the loaded feed was scored against an older catalog than the live one. A feed with

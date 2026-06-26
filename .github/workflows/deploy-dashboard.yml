@@ -27,7 +27,14 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Publish the TIP of main, not the commit that triggered this run. Every Pages deploy shares the
+      # `pages` concurrency group (cancel-in-progress: false), so a push-triggered deploy can sit queued
+      # behind a rebuild-profile run and only start AFTER it. Checking out the triggering SHA would then
+      # re-publish that older snapshot and silently drop a per-profile digest the rebuild just committed
+      # (exactly how Taylor's digest got committed to main yet 404'd live). ref:main = always newest.
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/configure-pages@v5
       # The dashboard reads ./digests/latest.md (default) and ./digests/<hash>/latest.md (per
       # logged-in profile). stage_digests.py stages the consolidated daily digest (digests/latest.md,
