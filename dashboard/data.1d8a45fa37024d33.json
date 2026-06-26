@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T21:34:02+00:00",
+  "generated_at": "2026-06-26T01:35:35+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "15e915097501",
@@ -2030,6 +2030,13 @@
         "status": "active"
       },
       {
+        "name": "The Circle OC (Huntington Beach)",
+        "category": "electronic",
+        "method": "squarespace",
+        "priority": 2,
+        "status": "active"
+      },
+      {
         "name": "Bar Franca (DTLA)",
         "category": "live_music",
         "method": "squarespace",
@@ -2042,6 +2049,13 @@
         "method": "squarespace",
         "priority": 3,
         "status": "candidate"
+      },
+      {
+        "name": "Avalon Hollywood",
+        "category": "multi",
+        "method": "webfetch",
+        "priority": 2,
+        "status": "active"
       },
       {
         "name": "McCabe's Guitar Shop",
