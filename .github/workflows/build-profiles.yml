@@ -50,6 +50,18 @@ jobs:
           python-version: "3.12"
       - run: pip install pyyaml
 
+      # Keep the per-profile music layer intact: sync connected Spotify into data/spotify/<hash>.json
+      # (gitignored) BEFORE re-scoring, so rebuilding every feed on a taste/profile edit doesn't drop
+      # each one's Spotify ranking back to taste-only (the artifact is transient — absent it, the build
+      # silently clobbers the layer). Mirrors rebuild-profile.yml + the nightly routine. SKIPs cleanly
+      # if the Worker sync isn't configured.
+      - name: Sync connected profiles' Spotify (best-effort)
+        continue-on-error: true
+        env:
+          SPOTIFY_SYNC_URL: ${{ secrets.SPOTIFY_SYNC_URL }}
+          SPOTIFY_SYNC_TOKEN: ${{ secrets.SPOTIFY_SYNC_TOKEN }}
+        run: python scripts/sync_profiles_spotify.py
+
       - name: Rebuild profile feeds (not the default)
         run: python scripts/build_profiles.py --skip-default
 
