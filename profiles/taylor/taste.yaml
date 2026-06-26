@@ -4,16 +4,25 @@
 # Schema mirrors the root taste.yaml — see it for examples of what each section can hold.
 
 categories:
-  high:    []   # +3 each match — the core "yes, this is for me" buckets
-  medium:  []   # +2 each
-  low:     []   # +1, include only if exceptional
+  high: [] # +3 each match — the core "yes, this is for me" buckets
+  medium: [] # +2 each
+  low: [] # +1, include only if exceptional
 
-boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, …)
-penalties: []   # -2 each (the "not for me" list)
+boosts:
+  [
+    Arab culture,
+    Palestinian culture,
+    Armenian culture,
+    Middle Eastern music,
+    SWANA events
+  ] # +1 each (context: setting, night-of-week, editorial mention, …)
+penalties: [] # -2 each (the "not for me" list)
 
-artists_tracked:  []   # lineup match => +2 and a "tracked" badge
-comedians_loved:  []
-venues_loved:     []
+artists_tracked: [ Habibeats ] # lineup match => +2 and a "tracked" badge
+comedians_loved: []
+venues_loved: []
 
 feedback:
   - "New empty profile — taste not configured yet."
+  - "2026-06-26: Added Habibeats as a tracked artist; boosting Arab/Palestinian
+    and Armenian cultural events and music. (self-edit via concierge)"
