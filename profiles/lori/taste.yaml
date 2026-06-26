@@ -8,36 +8,53 @@
 # profiles/lori/profile.yaml. Edit this, then: python scripts/build_profiles.py --only lori
 
 categories:
-  high:    # +3
-    - live bands across the spectrum — garage / proto-punk / post-punk / indie / art-rock /
-      experimental in intimate clubs (Zebulon, The Echo, Lodge Room, Teragram, Gold Diggers)
-    - global / diaspora / traditional & roots music — desert blues, Latin alternative, cumbia,
-      Afro-funk, highlife, Anatolian/psych, world & folk traditions (the ethnomusicologist core)
-    - jazz, soul, funk & live-band nights in listening rooms and small clubs (ETA, Gold Line)
-    - craft / songwriter pop with a point of view (Olivia Rodrigo, Mitski, Caroline Polachek tier)
-  medium:  # +2
-    - rep & arthouse cinema (Vidiots, Vista, New Beverly, Cinematheque, Aero, Alex Theatre)
-    - record fairs, listening bars, vinyl nights, in-stores & album-listening events
-    - cultural / heritage programming — museum nights, music-doc screenings, talks & performances
-    - daytime & lifestyle — flea / vintage / record / design markets, farmers markets, street fairs
+  high:
+    # +3
+    - live bands across the spectrum — garage / proto-punk / post-punk / indie /
+      art-rock / experimental in intimate clubs (Zebulon, The Echo, Lodge Room,
+      Teragram, Gold Diggers)
+    - global / diaspora / traditional & roots music — desert blues, Latin
+      alternative, cumbia, Afro-funk, highlife, Anatolian/psych, world & folk
+      traditions (the ethnomusicologist core)
+    - jazz, soul, funk & live-band nights in listening rooms and small clubs
+      (ETA, Gold Line)
+    - craft / songwriter pop with a point of view (Olivia Rodrigo, Mitski,
+      Caroline Polachek tier)
+  medium:
+    # +2
+    - rep & arthouse cinema (Vidiots, Vista, New Beverly, Cinematheque, Aero,
+      Alex Theatre)
+    - record fairs, listening bars, vinyl nights, in-stores & album-listening
+      events
+    - cultural / heritage programming — museum nights, music-doc screenings,
+      talks & performances
+    - daytime & lifestyle — flea / vintage / record / design markets, farmers
+      markets, street fairs
     - theater & performing arts (black-box through Pantages / Ahmanson scale)
-  low:     # +1, only if exceptional
-    - DJ sets / electronic in a chill, musical, listening-forward setting (not the main thing)
-    - big-room / festival EDM and warehouse techno — only a marquee, genuinely special name
+  low:
+    # +1, only if exceptional
+    - DJ sets / electronic in a chill, musical, listening-forward setting (not
+      the main thing)
+    - big-room / festival EDM and warehouse techno — only a marquee, genuinely
+      special name
 
-boosts:    # +1 each (stack)
+boosts:
+  # +1 each (stack)
   - intimate / seated / listening-room setting
   - vinyl / all-analog presentation, record-store & in-store shows
-  - walkable or short drive from Glendale / the Eastside (NELA, Atwater, Los Feliz, Pasadena)
+  - walkable or short drive from Glendale / the Eastside (NELA, Atwater, Los
+    Feliz, Pasadena)
   - Friday or Saturday night
   - independent editorial mention (LAist, Time Out, DiscoverLA, KCRW)
   - outdoor / garden / sunset setting
 
-penalties: # -2 each
+penalties:
+  # -2 each
   - bottle-service / table-service nightclubs
   - generic Top-40 / open-format club nights with no real billing
   - tribute / cover bands and "[decade] night" nostalgia nights
-  - far-flung (OC / SD / Temecula / Ventura / Long Beach) unless genuinely worth the trip
+  - far-flung (OC / SD / Temecula / Ventura / Long Beach) unless genuinely worth
+    the trip
 
 # Match in a lineup => +2 and a "tracked" badge. Curated across her range — proto-punk & garage,
 # indie / art-rock, craft pop, and the global / diaspora / jazz spine an ethnomusicologist lives in.
@@ -68,7 +85,7 @@ artists_tracked:
   - Japanese Breakfast
   - Faye Webster
   - boygenius
-  - Alanis Morissette   # 90s confessional alt-rock — the ancestor of the craft-pop lane; arena tours
+  - Alanis Morissette # 90s confessional alt-rock — the ancestor of the craft-pop lane; arena tours
   # global / diaspora / Latin alt / desert blues (the ethnomusicologist spine)
   - Chicano Batman
   - Hermanos Gutiérrez
@@ -87,12 +104,30 @@ artists_tracked:
   - Thundercat
   - BadBadNotGood
   - Adrian Younge
+  - Kacey Musgraves
+  - Grateful Dead
+  - David Bowie
+  - Lauryn Hill
 
 comedians_loved: []
-venues_loved: [Alex Theatre, Zebulon, Lodge Room, ETA, Permanent Records Roadhouse, The Echo,
-               Teragram Ballroom, The Greek, Gold Line, Masonic Lodge at Hollywood Forever]
+venues_loved:
+  [
+    Alex Theatre,
+    Zebulon,
+    Lodge Room,
+    ETA,
+    Permanent Records Roadhouse,
+    The Echo,
+    Teragram Ballroom,
+    The Greek,
+    Gold Line,
+    Masonic Lodge at Hollywood Forever
+  ]
 
 feedback:
-  - "2026-06-20: ethnomusicologist; diverse, knowledgeable taste — Stooges to Olivia Rodrigo.
-     Bands & live music over electronic. Based in Glendale (Eastside geo). Don't penalize genre
-     breadth (hip-hop, bass, etc. are fine); penalize only bottle-service clubs / cover bands / junk."
+  - "2026-06-20: ethnomusicologist; diverse, knowledgeable taste — Stooges to
+    Olivia Rodrigo. Bands & live music over electronic. Based in Glendale
+    (Eastside geo). Don't penalize genre breadth (hip-hop, bass, etc. are fine);
+    penalize only bottle-service clubs / cover bands / junk."
+  - "2026-06-26: Added Kacey Musgraves, Grateful Dead, David Bowie, and Lauryn
+    Hill to tracked artists. (self-edit via concierge)"
