@@ -46,6 +46,37 @@ def _as_list(x) -> list:
     return x if isinstance(x, list) else [x]
 
 
+# Marketing boilerplate that adds no information to a card blurb — dropped line-by-line.
+_DETAIL_JUNK = re.compile(
+    r"^\s*(buy\s+tickets?|get\s+tickets?|tickets?\s+(on\s+sale|available)|"
+    r"doors?\s+open|21\s*\+|18\s*\+|all\s+ages|presented\s+by|"
+    r"follow\s+us|click\s+here|rsvp|sold\s+out|free\s+entry|no\s+refunds?).*$",
+    re.I)
+_TAG = re.compile(r"<[^>]+>")
+_WS = re.compile(r"\s+")
+_SPACE_BEFORE_PUNCT = re.compile(r"\s+([.,;:!?])")
+
+
+def clean_detail(text, max_len: int = 400):
+    """Sanitize a raw source description into a card-safe blurb: strip HTML tags/entities, drop
+    pure-boilerplate lines (ticket CTAs, age limits, 'presented by …'), collapse whitespace, and
+    cap length on a word boundary. Returns None when nothing meaningful survives — the single
+    chokepoint so every source's `detail` is uniformly clean (run on normalize, not per-fetcher)."""
+    if not text:
+        return None
+    s = _TAG.sub(" ", str(text))
+    s = (s.replace("&amp;", "&").replace("&nbsp;", " ").replace("&#39;", "'")
+          .replace("&quot;", '"').replace("&rsquo;", "'").replace("&ldquo;", '"').replace("&rdquo;", '"'))
+    # Drop lines that are nothing but boilerplate; keep informative ones.
+    kept = [ln.strip() for ln in s.splitlines() if ln.strip() and not _DETAIL_JUNK.match(ln.strip())]
+    s = _SPACE_BEFORE_PUNCT.sub(r"\1", _WS.sub(" ", " ".join(kept)).strip())
+    if len(s) < 3:
+        return None
+    if len(s) > max_len:
+        s = s[:max_len].rsplit(" ", 1)[0].rstrip(",;:-") + "…"
+    return s or None
+
+
 def _split_datetime(raw: dict):
     """(date 'YYYY-MM-DD', start 'HH:MM') from a record's date/datetime/start fields."""
     d = parse_event_date(raw)
@@ -117,7 +148,7 @@ def normalize_record(raw: dict, source=None) -> dict:
         "links": _links(raw, source),
         "sources": _as_list(raw.get("sources") or source),
         "organizers": raw.get("organizers") or raw.get("organizer") or raw.get("promoter"),
-        "detail": raw.get("detail") or raw.get("description") or raw.get("desc"),
+        "detail": clean_detail(raw.get("detail") or raw.get("description") or raw.get("desc")),
         "price": _price(raw),
         "ra_pick": bool(raw.get("ra_pick")),
         "afterhours": bool(raw.get("afterhours") or raw.get("afterhours_flag")),

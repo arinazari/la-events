@@ -127,6 +127,24 @@ def test_select_candidates_respects_top_n():
     assert len(cand) == 3
 
 
+def test_clean_detail_strips_html_and_boilerplate():
+    raw = "<p>An all-vinyl rooftop party with <b>Antal</b>.</p>\nBuy tickets now!\n21+"
+    assert P.clean_detail(raw) == "An all-vinyl rooftop party with Antal."
+    assert P.clean_detail("<br><br>") is None          # nothing meaningful survives
+    assert P.clean_detail("Tickets on sale Friday") is None  # pure boilerplate line
+    assert P.clean_detail("") is None and P.clean_detail(None) is None
+    long = "word " * 200
+    out = P.clean_detail(long, max_len=50)
+    assert len(out) <= 51 and out.endswith("…")        # capped on a word boundary
+
+
+def test_normalize_sanitizes_detail():
+    raw = {"name": "X", "venue": "Y", "date": "2026-06-20",
+           "description": "<p>Deep house till late &amp; beyond.</p>"}
+    rec = P.normalize_record(raw, "ra")
+    assert rec["detail"] == "Deep house till late & beyond."
+
+
 def _tm(date_s, start, slug, **extra):
     """A minimal TM-linked catalog row carrying the night-of date in its URL slug."""
     return {"title": "Show", "venue": "The Wiltern", "date": date_s, "start": start,

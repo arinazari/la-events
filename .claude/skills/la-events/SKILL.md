@@ -112,13 +112,24 @@ committed, so a daily run only judges the delta. *Per-profile:* `build_profiles.
 profile's own pool (`data/editor_pool.<hash>.json`); run the editor per profile and merge with
 `merge_verdicts.py --profile-hash <hash>`.
 
-### Step 5 — Enrich the top candidates  *(scene-researcher)*
+### Step 5 — Enrich the candidates  *(two tiers: scene-researcher + blurb-writer)*
 
-Fan out the **`scene-researcher`** agent over the cache-miss candidates (`scripts/lib/enrich.py`
-`select_for_enrichment`) in parallel batches → per-event sub-genre tags, artist notes, a curator's
-note, and a clean description. Fold results into the
-accumulating cache (`data/enrichment.json`) via `update_cache` — recurring artists are researched
-once, so the scene graph compounds. Verify-or-omit: no invented bios.
+Both tiers write to the one cache (`data/enrichment.json`), keyed by event-id, write-once:
+
+- **Full head (~100):** fan out **`scene-researcher`** over the cache-miss candidates
+  (`select_for_enrichment` — misses + blurb-tier events that climbed into the head, which it
+  upgrades) in parallel batches → per-event sub-genre tags, artist notes, a curator's note, and a
+  clean description. Fold via `update_cache` (`enriched_tier: full`) — recurring artists are
+  researched once, so the scene graph compounds. Verify-or-omit: no invented bios.
+- **Cheap blurb tier:** fan out **`blurb-writer`** (haiku, no web tools) over `select_for_blurb`
+  applied to `data/blurb_pool.json` (the ranked band below the head) → ONE factual description line
+  per event. Fold via `update_blurb_cache` (`enriched_tier: blurb`; never downgrades a full record).
+  `select_for_blurb` skips events that already have a cache record OR a usable source `detail`
+  (those display the raw detail for free), so only genuine gaps cost a call; the pool's reported
+  `overflow` (past the cap) gets the raw-detail fallback, not a call.
+
+The dashboard card surfaces this as **"WHAT IT IS"** (`enrichment.description`, else sanitized
+`detail`), distinct from the curator's "why".
 
 ### Step 6 — Render + synthesize
 

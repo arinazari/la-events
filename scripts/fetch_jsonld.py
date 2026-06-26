@@ -115,6 +115,7 @@ def normalize(ev: dict, source: str) -> dict:
         "lng": geo.get("longitude"),
         "category": (ev.get("@type") if isinstance(ev.get("@type"), str) else None),
         "price_min": offers.get("lowPrice") or offers.get("price"),
+        "detail": ev.get("description"),  # schema.org Event description (sanitized on normalize)
         "url": text(ev.get("url")),
     }
 

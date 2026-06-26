@@ -104,6 +104,59 @@ def test_select_refresh_days_reselects_stale():
     assert [s["id"] for s in stale] == [k]
 
 
+def test_update_cache_stamps_full_tier():
+    cache = {"events": {}, "artists": {}}
+    k = E.event_key(EV)
+    E.update_cache(cache, [{"id": k, "description": "rooftop groove"}], now="2026-06-17")
+    assert cache["events"][k]["enriched_tier"] == "full"
+
+
+def test_blurb_writes_then_full_upgrades_it():
+    """A blurb record is an upgrade candidate: select_for_enrichment re-selects it, and a full
+    pass overwrites it with the whole record. The one-way street."""
+    ev = {"title": "Mid Tier Show", "date": "2026-07-09", "venue": "Gold Diggers"}
+    k = E.event_key(ev)
+    cache = {"events": {}, "artists": {}}
+    E.update_blurb_cache(cache, [{"id": k, "description": "A one-liner."}], now="2026-06-17")
+    assert cache["events"][k]["enriched_tier"] == "blurb"
+    # climbs into the head -> full enrichment re-selects it (a blurb hit is NOT a cache hit here)
+    assert [s["id"] for s in E.select_for_enrichment([ev], cache)] == [k]
+    E.update_cache(cache, [{"id": k, "curator_note": "worth it", "subgenres": ["house"]}], now="2026-06-18")
+    assert cache["events"][k]["enriched_tier"] == "full"
+    assert cache["events"][k]["curator_note"] == "worth it"
+    assert E.select_for_enrichment([ev], cache) == []   # now write-once again
+
+
+def test_blurb_never_downgrades_full():
+    """update_blurb_cache must not clobber a full record (incl. legacy-full with no tier)."""
+    ev = {"title": "Already Rich", "date": "2026-07-10", "venue": "Zebulon"}
+    k = E.event_key(ev)
+    cache = {"events": {k: {"id": k, "curator_note": "the good stuff"}}, "artists": {}}  # legacy-full
+    E.update_blurb_cache(cache, [{"id": k, "description": "thin one-liner"}], now="2026-06-17")
+    assert cache["events"][k].get("curator_note") == "the good stuff"   # untouched
+    assert "description" not in cache["events"][k] or cache["events"][k].get("curator_note")
+
+
+def test_select_for_blurb_skips_only_cached():
+    miss = {"title": "Needs A Blurb", "date": "2026-07-11", "venue": "1642"}
+    has_detail = {"title": "Has Detail", "date": "2026-07-12", "venue": "The Lash",
+                  "detail": "A source description — still gets a clean LLM line for a uniform card."}
+    cached = {"title": "Done", "date": "2026-07-13", "venue": "Sound"}
+    cache = {"events": {E.event_key(cached): {"id": E.event_key(cached), "enriched_tier": "blurb"}},
+             "artists": {}}
+    picks = E.select_for_blurb([miss, has_detail, cached], cache)
+    # detail no longer skips — only an existing cache record does
+    assert [p["title"] for p in picks] == ["Needs A Blurb", "Has Detail"]
+    assert {p["id"] for p in picks} == {E.event_key(miss), E.event_key(has_detail)}
+
+
+def test_blurb_skips_results_without_description():
+    cache = {"events": {}, "artists": {}}
+    k = E.event_key(EV)
+    E.update_blurb_cache(cache, [{"id": k}], now="2026-06-17")   # no description -> no-op
+    assert k not in cache["events"]
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
