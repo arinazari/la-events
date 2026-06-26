@@ -2869,9 +2869,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       : 'not connected';
     const spotifyIsConnected = !!this.BACKEND_URL && sstat === true;
     const spotifyCanConnect = !!this.BACKEND_URL && sstat !== true;
+    // Does the LOADED feed actually reflect this profile's Spotify? feed.music is build_dashboard's
+    // self-report of the music layer it scored against. Connected (per the Worker) but not reflected
+    // in the feed = the per-profile sync hasn't landed yet, or its last refresh failed — say so
+    // rather than implying the ranking is already live on their listening.
+    const musicLayer = (this.META && this.META.music) || null;
+    const feedHasSpotify = !!(musicLayer && /spotify/.test(musicLayer.layer || '') && (musicLayer.artists || 0) > 0);
+    const spotifyStaleHint = ' ⚠︎ But your current ranking was built without it — it may still be syncing (give it a minute), or the last refresh failed. Try “Ranks & Digest → Update,” or Disconnect and reconnect to re-link.';
     const spotifyModalStatus = !this.BACKEND_URL
       ? 'The concierge backend isn’t connected yet — Spotify links through it. Use the chat’s “connect” link first.'
-      : (sstat === true ? ('Connected' + (this.state.spotifyName ? ' as ' + this.state.spotifyName : '') + ' — your feed re-ranks to what you actually listen to.')
+      : (sstat === true ? ('Connected' + (this.state.spotifyName ? ' as ' + this.state.spotifyName : '') + ' — your feed re-ranks to what you actually listen to.' + (feedHasSpotify ? '' : spotifyStaleHint))
          : sstat === null ? 'Checking your Spotify connection…'
          : 'Not connected. Link your Spotify so your picks re-rank to what you actually listen to.');
     // Header / digest subject: the logged-in name, or everyone's shared default when logged out.
