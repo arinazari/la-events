@@ -198,6 +198,7 @@ def main() -> int:
     only_hash = {h.strip().lower() for h in (args.only_hash or [])}
     restricted = bool(only or only_hash)
     built = 0
+    failed = []   # usernames whose feed build failed this run (surfaced in the summary; never fatal)
 
     # Default feed (root taste/profile -> data.json), unless restricted to --only(-hash)/--skip-default.
     # --inject-only never touches the default feed (it carries no profile block).
@@ -206,6 +207,9 @@ def main() -> int:
         if run_build("taste.yaml", "profile.yaml", DASH / "data.json",
                      editor_pool_out=str(REPO / "data" / "editor_pool.json")):
             built += 1
+        else:
+            print("  ERROR: build failed for default", file=sys.stderr)
+            failed.append("default")
 
     for p in profiles:
         u = p["username"]
@@ -238,6 +242,7 @@ def main() -> int:
                            editor_pool_out=str(REPO / "data" / f"editor_pool.{h}.json"))
         if not ok:
             print(f"  ERROR: build failed for {u}", file=sys.stderr)
+            failed.append(u)
             continue
         # Inject the self-describing profile block so the page needs only the hash. Includes the
         # raw taste.yaml text so the popup can show "your taste" read-only (no extra fetch).
@@ -277,7 +282,13 @@ def main() -> int:
             print(f"  WARN: could not inject profile block for {u}: {e}", file=sys.stderr)
         built += 1
 
-    print(f"Built {built} feed(s).")
+    # Exit 0 even on a failure — a single broken profile must never block the feeds that DID build
+    # from committing/deploying (the workflows run this as a `bash -e` step). The failure is surfaced
+    # loudly in the summary instead; the broken profile keeps its last good committed feed.
+    summary = f"Built {built} feed(s)."
+    if failed:
+        summary += f" {len(failed)} FAILED: {', '.join(failed)}."
+    print(summary)
     return 0
 
 
