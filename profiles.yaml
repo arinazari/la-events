@@ -55,3 +55,7 @@ profiles:
   - username: alexa          # friend profile (not owner/admin). EMPTY — taste not configured yet.
     name: Alexa              #   username is the access key + is guessable here; swap for something
     taste: profiles/alexa/taste.yaml        #   non-obvious before sharing the feed widely.
+
+  - username: raffi          # friend profile (not owner/admin). EMPTY — taste not configured yet.
+    name: Raffi              #   username is the access key + is guessable here; swap for something
+    taste: profiles/raffi/taste.yaml        #   non-obvious before sharing the feed widely.
