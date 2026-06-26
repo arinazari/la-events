@@ -2,10 +2,11 @@
 name: scene-researcher
 description: >
   Tier-1 enrichment worker for the la-events digest. Invoke (in parallel, one per batch)
-  during a digest run to enrich the top ~30–40 ranked candidate events with scene
+  during a digest run to enrich the top ~100 ranked candidate events (the full head) with scene
   intelligence: type/sub-genre tags, artist notes (who each lineup name is and why
   on-taste), a curator's note, and a clean description. Returns structured JSON for the
-  synthesis step to render.
+  synthesis step to render. The cheaper blurb-writer agent handles the band below the head
+  (one-line descriptions only); this agent is the rich, full-treatment tier.
   Not for writing the digest prose itself (that's the main agent) and not for ranking
   (that's the deterministic core). Enrichment only.
 tools: Read, Write, Glob, Grep, WebSearch, WebFetch

@@ -39,13 +39,23 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    verdicts (`{tier, lane?, adjust, why, confidence}`) and merge: `python scripts/merge_verdicts.py
    <results.json>` → `data/verdicts/default.json`. These drive the slate (render) and the dashboard's
    final rank. Cached + committed, so only the delta is judged each day.
-4. **Enrich:** fan out the `scene-researcher` agent over the cache-miss candidates
-   (`enrich.select_for_enrichment`) → per-event tags, artist notes, curator's notes, and
-   descriptions → folded into `data/enrichment.json` (recurring artists
-   reuse the cache; verify-or-omit). Then **prune**: `python scripts/prune_enrichment.py` drops
-   enrichment entries for events that have since expired (cache hygiene — artist bios are kept,
-   they're the durable scene knowledge). Optional periodic refresh: pass `refresh_days` to
-   `select_for_enrichment` to re-research entries older than N days (default: write-once, no cost).
+4. **Enrich — two tiers (hybrid coverage).** Both write to `data/enrichment.json`, keyed the same,
+   so the dashboard reads one place; both are write-once cached (only the daily delta costs calls).
+   - **Full head (~100):** fan out the `scene-researcher` agent over the cache-miss candidates in
+     `data/candidates.json` (`enrich.select_for_enrichment` — misses + any blurb-tier event that
+     climbed into the head, which it upgrades) → per-event tags, artist notes, curator's notes, and
+     descriptions (recurring artists reuse the cache; verify-or-omit; `enriched_tier: full`).
+   - **Cheap blurb tier:** fan out the `blurb-writer` agent over `enrich.select_for_blurb` applied to
+     `data/blurb_pool.json` (the ranked band below the head). It writes ONE factual description line
+     per event, no web/artist research (haiku, Read/Write only). `select_for_blurb` already skips
+     events that have any cache record OR a usable source `detail` (those display raw detail for
+     free), so only genuine gaps cost a call. Fold results with `enrich.update_blurb_cache`
+     (`enriched_tier: blurb`; never downgrades a full record). The blurb-pool `overflow` (events
+     past the cap, in the run report) intentionally gets no blurb — they fall back to raw detail.
+   - Then **prune**: `python scripts/prune_enrichment.py` drops enrichment entries for events that
+     have since expired (cache hygiene — artist bios are kept, the durable scene knowledge).
+   Optional periodic refresh: pass `refresh_days` to `select_for_enrichment` to re-research full
+   entries older than N days (default: write-once, no cost).
 5. **Render.** First the radar tier: `python scripts/build_radar.py --md radar-candidates.md` →
    `data/radar.json` (festivals/big shows/tracked far-out). Then the **primary consolidated daily
    digest**: `python scripts/render_digest.py --consolidated --md digests/latest.md` — ONE doc with

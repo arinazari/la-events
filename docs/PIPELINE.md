@@ -95,7 +95,8 @@ no backend; the static page just renders it.
 |---|---|---|---|
 | fetch + dedupe + expire + score (`run_digest`) | every routine run / refresh | — (always; deterministic, cheap). Merge is **freshest-wins** for price/time/lineup/status, so in-place updates land | none |
 | **event-editor** (Tier 1 verdicts) | routine + per-user rebuild | event already judged at this score (`select_for_verdict`) | Sonnet, delta only |
-| **scene-researcher** (Tier 2 enrichment) | routine + per-user rebuild | event/artist already in `enrichment.json` (write-once) | Sonnet, misses only |
+| **scene-researcher** (Tier 1 full enrichment, top-100 head) | routine + per-user rebuild | event already full-tier in `enrichment.json` (write-once; a blurb-tier event in the head is *re-selected* to upgrade) | Sonnet, misses + upgrades only |
+| **blurb-writer** (Tier 2 cheap enrichment, band below head) | routine | event already has any cache record OR usable source `detail` (`select_for_blurb`) | Haiku, gaps only, no web |
 | consolidated narrative intro | every routine run | — (cheap; the slate is deterministic, only a short intro is LLM) | small |
 | **per-profile narrative** | routine + per-user rebuild | feed signature unchanged (`digest_gate decide` → SKIP) | gated; one narrative per *changed* feed |
 | `build_dashboard` / `build_profiles` | end of routine / on edit | — (deterministic) | none |
@@ -104,7 +105,12 @@ no backend; the static page just renders it.
 ## Cost ledger — where tokens go, and the bound on each
 
 1. **Nightly editor** — only new/score-drifted events are judged; cached + committed per profile. Sonnet.
-2. **Nightly enrichment** — write-once on event-id + artist; recurring artists researched once. Sonnet.
+2. **Nightly enrichment (two tiers)** — *full* (scene-researcher, top-100 head): write-once on
+   event-id + artist; recurring artists researched once; Sonnet. *blurb* (blurb-writer, the bounded
+   band below the head): one description line, write-once, and only for events with no record AND no
+   usable source `detail` — so events carrying a source description cost **0** (raw-detail fallback);
+   Haiku, no web. Both amortize to the daily delta. The blurb pool is capped (`--blurb-top`); the
+   reported overflow gets raw detail or nothing, never a call.
 3. **Per-profile narratives** — regenerated only when that feed's top-N picks moved (`digest_gate`).
    On a quiet day this is **0 LLM calls**; it scales with *changed* friends, not all friends.
 4. **Consolidated intro** — small, every run (the body is deterministic slate).
@@ -130,6 +136,9 @@ no backend; the static page just renders it.
 | `REFRESH_MIN_MINUTES` | Worker env | 15 | refresh debounce window |
 | `model` input | `rebuild-profile.yml` / Worker `body.model` (BYOK) | `sonnet` | escalate a rebuild / chat to Opus when it matters |
 | `event-editor` / `scene-researcher` `model:` | agent frontmatter | `sonnet` | nightly subagent tier |
+| `blurb-writer` `model:` | agent frontmatter | `haiku` | cheap-tier description writer (no web tools) |
+| `--top` | `run_digest` | 100 | full-enrichment head size (scene-researcher) |
+| `--blurb-window` / `--blurb-top` | `run_digest` | 35d / 200 | blurb (cheap-tier) pool span + cap below the head |
 | `refresh_days` | `select_for_verdict` / `select_for_enrichment` | `None` (write-once) | optional periodic re-judge / re-research |
 | `--top-n` | `digest_gate` | 25 | how many picks define a digest's signature |
 
