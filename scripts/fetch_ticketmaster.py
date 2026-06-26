@@ -106,6 +106,7 @@ def normalize(ev: dict) -> dict:
         "genre": genre,
         "price_min": prices.get("min"),
         "price_max": prices.get("max"),
+        "detail": ev.get("info"),  # TM event blurb (pleaseNote is logistics fine-print — skip; sanitized on normalize)
         "url": ev.get("url"),
         "onsale": (ev.get("sales", {}).get("public") or {}).get("startDateTime"),
         "status": ev.get("dates", {}).get("status", {}).get("code"),
