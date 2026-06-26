@@ -127,6 +127,81 @@ def test_select_candidates_respects_top_n():
     assert len(cand) == 3
 
 
+def _tm(date_s, start, slug, **extra):
+    """A minimal TM-linked catalog row carrying the night-of date in its URL slug."""
+    return {"title": "Show", "venue": "The Wiltern", "date": date_s, "start": start,
+            "sources": ["tm", "ticketmaster"],
+            "links": [{"source": "tm",
+                       "url": f"https://www.ticketmaster.com/show-los-angeles-california-{slug}/event/ABC"}],
+            **extra}
+
+
+def test_reconcile_full_utc_row_recovers_local_date_and_time():
+    # Kid Cudi signature: an evening LA show stored as its UTC dateTime (01:30 'next day').
+    # slug 06-26-2026 = night-of; 2026-06-27T01:30Z → 2026-06-26 18:30 PDT.
+    cat = [_tm("2026-06-27", "01:30", "06-26-2026")]
+    assert P.reconcile_tm_dates(cat) == 1
+    assert cat[0]["date"] == "2026-06-26"
+    assert cat[0]["start"] == "18:30:00"
+
+
+def test_reconcile_date_only_roll_keeps_local_time():
+    # Stavros signature: venue-local time (19:00) but the date rolled a day forward.
+    cat = [_tm("2026-06-26", "19:00:00", "06-25-2026")]
+    assert P.reconcile_tm_dates(cat) == 1
+    assert cat[0]["date"] == "2026-06-25"
+    assert cat[0]["start"] == "19:00:00"           # already local — untouched
+
+
+def test_reconcile_is_noop_when_slug_matches():
+    cat = [_tm("2026-06-25", "19:00:00", "06-25-2026")]
+    assert P.reconcile_tm_dates(cat) == 0
+    assert cat[0]["date"] == "2026-06-25"
+
+
+def test_reconcile_ignores_rows_without_a_tm_slug():
+    cat = [{"title": "RA show", "date": "2026-06-26", "start": "22:00",
+            "links": [{"source": "ra", "url": "https://ra.co/events/123"}]}]
+    assert P.reconcile_tm_dates(cat) == 0
+    assert cat[0]["date"] == "2026-06-26"           # non-TM dates are never touched
+
+
+def test_reconcile_only_touches_the_one_day_roll():
+    # A genuinely different date (slug says a week earlier) must NOT be clobbered.
+    cat = [_tm("2026-06-26", "19:00:00", "06-19-2026")]
+    assert P.reconcile_tm_dates(cat) == 0
+    assert cat[0]["date"] == "2026-06-26"
+
+
+def test_reconcile_is_idempotent():
+    cat = [_tm("2026-06-27", "01:30", "06-26-2026"),
+           _tm("2026-06-26", "19:00:00", "06-25-2026")]
+    assert P.reconcile_tm_dates(cat) == 2
+    assert P.reconcile_tm_dates(cat) == 0           # second pass finds nothing to fix
+    assert [e["date"] for e in cat] == ["2026-06-26", "2026-06-25"]
+
+
+def test_stale_sources_flags_a_frozen_source_only():
+    cat = ([{"sources": ["ticketmaster"], "last_seen": "2026-06-19"} for _ in range(50)]
+           + [{"sources": ["ra"], "last_seen": "2026-06-26"} for _ in range(50)]
+           + [{"sources": ["tinysrc"], "last_seen": "2026-06-01"} for _ in range(3)])
+    stale = P.stale_sources(cat, today=date(2026, 6, 26))
+    flagged = {s for s, _d, _n in stale}
+    assert "ticketmaster" in flagged                 # 7 days frozen, 50 rows → alarm
+    assert "ra" not in flagged                        # refreshed today
+    assert "tinysrc" not in flagged                   # below the min_count floor
+
+
+def test_stale_sources_sees_through_crosslisted_fresh_outliers():
+    # A dark source still shows a few fresh rows because another source cross-lists them (19hz/DICE
+    # re-list a TM event and refresh its last_seen). The bulk (median) must still flag the outage —
+    # a max-last_seen check would let those 5 outliers mask 1418 week-old rows (the real-world bug).
+    cat = ([{"sources": ["ticketmaster"], "last_seen": "2026-06-19"} for _ in range(1418)]
+           + [{"sources": ["ticketmaster", "dice"], "last_seen": "2026-06-26"} for _ in range(5)])
+    stale = dict((s, d) for s, d, _n in P.stale_sources(cat, today=date(2026, 6, 26)))
+    assert stale.get("ticketmaster") == 7            # median is still 2026-06-19, not the fresh max
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

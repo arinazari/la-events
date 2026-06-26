@@ -64,7 +64,7 @@ def content_version(catalog) -> str:
     return _digest_of(_content_identity(e) for e in (catalog or []))
 
 
-def build_meta(catalog, delta: dict = None) -> dict:
+def build_meta(catalog, delta: dict = None, stale: list = None) -> dict:
     meta = {
         "version": version(catalog),
         "content_version": content_version(catalog),
@@ -81,12 +81,16 @@ def build_meta(catalog, delta: dict = None) -> dict:
         meta["updated"] = int(delta.get("updated") or 0)
         if delta.get("changes"):
             meta["changes"] = delta["changes"][:25]
+    if stale:
+        # Sources that have gone dark (newest last_seen frozen N days back) — so the dashboard/digest
+        # can warn that e.g. Ticketmaster events may be stale instead of presenting week-old data as live.
+        meta["stale_sources"] = [{"source": s, "days": d, "count": n} for s, d, n in stale]
     return meta
 
 
-def write_meta(path, catalog, delta: dict = None) -> dict:
-    """Write {version, content_version, count, fetched_at, [added/updated/changes]}; return it."""
-    meta = build_meta(catalog, delta)
+def write_meta(path, catalog, delta: dict = None, stale: list = None) -> dict:
+    """Write {version, content_version, count, fetched_at, [added/updated/changes/stale_sources]}; return it."""
+    meta = build_meta(catalog, delta, stale)
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
