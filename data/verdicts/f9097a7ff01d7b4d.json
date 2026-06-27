@@ -51,42 +51,52 @@
     "b7c17242d2fa": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Pride dance party at Zebulon is culturally in the right orbit and the queer/community vibe fits, but with no lineup it's a generic dance night — can't tell if the selectors are interesting or not.",
-      "confidence": "low",
-      "judged_at": "2026-06-21T06:12:48",
-      "score_at_judge": 6
+      "why": "Loved venue and Pride energy but no lineup and the title flags this as a dance party, not a band show — Zebulon without a live act is a much softer call for Lori.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "8c09f691f4b6": {
       "tier": "solid",
       "adjust": -1,
-      "why": "The Virgil is fine but not a loved venue, and 'irL word' with no lineup is completely opaque — could be a live band or a DJ set, could be interesting or filler. Hard to surface without more informatio",
+      "why": "No lineup and The Virgil books everything from punk to comedy — can't assign real signal without knowing what 'irL word' actually is.",
       "confidence": "low",
-      "judged_at": "2026-06-21T06:12:48",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "7cebb7d63e53": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Rentboy at Gold Diggers has a track record of interesting queer avant-cabaret-meets-live-music bookings — 'Megachurch' reads like a performance night with real curation, not a straight DJ set. But no ",
+      "why": "Gold Diggers is the right venue and Rentboy has a queer-arts credibility in LA, but without a lineup this is a coin flip on whether there are live bands or DJs.",
       "confidence": "low",
-      "judged_at": "2026-06-21T06:12:48",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "df08d4f1a3b1": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Levitation Room are a legit LA Chicano psych-garage band (Burger Records orbit, three proper albums) spinning records — that's a DJ set from musicians whose taste is likely to track Lori's, at her fav",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Levitation Room as DJs rather than live is a downgrade — free and fun at a loved venue, but Lori is here for bands, not DJ sets from the same group.",
       "confidence": "high",
-      "judged_at": "2026-06-21T06:12:48",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "871a38831290": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Monster Madonna is a tribute night — falls squarely under the penalty clause. The Virgil isn't a loved venue and the drag/tribute format has no claim on Lori's attention.",
+      "why": "Monster Madonna is a Madonna tribute night — name-and-concept tribute formats are exactly what the penalties target.",
       "confidence": "high",
-      "judged_at": "2026-06-21T06:12:48",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "0e035242f88f": {
       "tier": "solid",
@@ -245,20 +255,24 @@
       "score_at_judge": 5
     },
     "eadb7dbfaa8b": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Album release at Permanent Records Roadhouse is exactly the kind of intimate milestone show Lori would enjoy — but 'Loose' as an act is completely unknown, and without even a genre cue the score's pos",
-      "confidence": "low",
-      "judged_at": "2026-06-21T06:12:48",
-      "score_at_judge": 6
+      "tier": "great",
+      "adjust": 2,
+      "why": "Album release at Permanent Records Roadhouse is the ideal format for Lori — intimate, record-store-adjacent, the kind of show where an unknown act becomes a discovery.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "9a0fd9893571": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "All-vinyl DJ night checks the record/listening-bar medium-interest box, but the names (Taylor Shockley, Luke Mele, CHOÍCE) are too obscure to gauge the draw, and electronic is Lori's secondary lane re",
-      "confidence": "low",
-      "judged_at": "2026-06-21T06:12:48",
-      "score_at_judge": 6
+      "adjust": 1,
+      "why": "All-vinyl DJ night hits Lori's record-culture interest and the listening-bar setting elevates it above generic afterhours — TBA location is the only friction.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "274dcca3ab50": {
       "tier": "solid",
@@ -379,18 +393,22 @@
     "4ffec44a0057": {
       "tier": "solid",
       "adjust": 1,
-      "why": "Zebulon on a Saturday afternoon with a pop-up market and live act is the indie/eastside format the digest should keep in the mix — but Memo PST is a niche act and the draw is modest.",
+      "why": "A vintage/art popup at Zebulon on a Saturday afternoon lands in her record-fair/market tier at a loved venue — easy cultural hangout.",
       "confidence": "med",
-      "judged_at": "2026-06-23T10:35:21",
-      "score_at_judge": 5
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
     },
     "d10660bfcf11": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "Midnight-to-5am TBA warehouse in Silver Lake — the exact afterhours format the taste profile prioritizes. Rob Aquino is a solid local house operator; Banoffee adds an interesting wildcard.",
+      "why": "Banoffee's presence adds an alt-pop/electronic songwriting dimension that's more interesting than a pure DJ night — still afters but with a real artist in the mix.",
       "confidence": "med",
-      "judged_at": "2026-06-23T10:35:21",
-      "score_at_judge": 5
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
     },
     "2874e906e214": {
       "tier": "great",
@@ -411,59 +429,1117 @@
     "f70433d950df": {
       "tier": "solid",
       "adjust": 1,
-      "why": "All-vinyl, outdoor/TBA format is textbook on-taste — the bones are right. Shakolin and Slip are unknowns so the actual draw is unclear, but the format alone keeps it worth watching.",
-      "confidence": "low",
-      "judged_at": "2026-06-23T10:35:21",
-      "score_at_judge": 5
+      "why": "All-vinyl outdoor gathering directly hits her vinyl/listening-bar boost, even if electronic is secondary — the format earns it a look.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
     },
     "34fdace28302": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Levitation Room is a legit LA psych-rock draw and Zebulon is the right room for it — this is the live-band lane at its best. Sol Societe rounds out a solid bill.",
+      "adjust": 2,
+      "why": "Levitation Room as a live band headlining Zebulon with three other acts is a completely different proposition than their DJ set — LA psychedelic/garage rock at a loved venue is the show.",
       "confidence": "high",
-      "judged_at": "2026-06-23T10:35:21",
-      "score_at_judge": 5
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
     },
     "b38c68d6b875": {
       "tier": "solid",
-      "adjust": -2,
-      "why": "Recurring rock format at a good small room, but no lineup listed means no way to gauge the actual draw — could be great, could be filler.",
+      "adjust": 1,
+      "why": "Gold Diggers hosting a rock night is the right direction but without a lineup this stays a blind pick — the venue earns the slight positive.",
       "confidence": "low",
-      "judged_at": "2026-06-23T10:35:21",
-      "score_at_judge": 5
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
     },
     "f4fe507771f1": {
       "tier": "solid",
       "adjust": -1,
-      "why": "'House and Hits' is the tell — that 'Hits' qualifier usually means open-format crossover rather than a focused house night, and there's no lineup to check.",
-      "confidence": "med",
-      "judged_at": "2026-06-23T10:35:21",
-      "score_at_judge": 5
+      "why": "Recurring house party at Gold Diggers is filler for a live-band-first listener — correctly scored but worth depressing to make room for actual band shows.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
     },
     "b4799df0eb5f": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "Pan-Pot doing a 4-hour set at a TBA warehouse via WORK — proper Berlin techno, extended format, underground logistics. This is exactly the European club-night energy the taste profile is built around.",
-      "confidence": "high",
-      "judged_at": "2026-06-23T10:35:21",
-      "score_at_judge": 5
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Pan-Pot is a legitimate Berlin techno act (Afterlife pedigree) — the one exception case for Lori's 'only a marquee name' clause, but it's still a TBA warehouse techno night, not a band show.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
     },
     "308407656156": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Agents of Time are a genuine Afterlife-orbit draw — melodic/progressive techno that lands squarely in the European end of the lane. Avalon is a bigger room than ideal but the booking earns it.",
-      "confidence": "high",
-      "judged_at": "2026-06-23T10:35:21",
-      "score_at_judge": 5
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Agents Of Time are credible Afterlife-adjacent artists but Avalon Hollywood is a commercial club, not an intimate or listening-forward setting — the venue context undercuts the booking.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
     },
     "f7ba57f98f38": {
       "tier": "skip",
+      "adjust": -1,
+      "why": "Kayzo is hardstyle/bass EDM at a downtown nightclub — well outside Lori's lane in both genre and setting.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "2ebecef33ac3": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Discostan is a genuine institution — 15 years of archiving South/West Asian and North African diaspora sounds into the dancefloor, with Pitchfork/Guardian/KCRW cred; the 15-year anniversary makes this",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 8,
+      "model": "claude-sonnet-4-6"
+    },
+    "547b20e12963": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Banda Rave is a genuine cultural mashup — Mexican regional music meeting rave production — with ethnomusicological interest, though the Palladium scale and Hollywood location soften it.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "511b7302f8b9": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Shrek Rave is meme-EDM tourism with no real artist behind it — novelty gimmick, not music.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "9202cac5ec5e": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "EP release at Permanent Records Roadhouse is exactly Lori's setting — the venue and format do the heavy lifting even without knowing Luella yet.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "ef692eadce31": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Alex Lahey is a real indie-rock songwriter with genuine critical traction, and Permanent Records Roadhouse is a loved venue — the combination is a reliable Friday night.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "53075a8e619b": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Honky tonk Grateful Dead tribute is a cover-concept performance no matter how well-intentioned — the tracked artist boost doesn't override the tribute band penalty.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "4d3ecadd54b9": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Taleen Kali (Armenian-American psych/indie) anchors a multi-act festival night at The Echo with a queer-arts dimension — this has the cultural specificity and venue credibility Lori actually wants.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "e4b79620fb4c": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Aquarium Drunkard's 21st anniversary presented by KCRW at Teragram is the platonic Lori event — the blog lives in her exact world (vinyl, global, indie, jazz), Genevieve Artadi is a genuine jazz-influ",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "8c77784b39fc": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Generación Suicida are a real LA Chicano post-punk band — dark, Spanish-language, underground and beloved — which is the garage/punk lane with a diaspora dimension an ethnomusicologist notices.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "865790061737": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Three unknown acts at The Echo — 'Desmadre' could indicate Latin punk but there's not enough to call this more than a trusted-venue blind pick.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "6b5cd25349e1": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Already sold out — no point surfacing an event Lori can't attend.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "ec6985d2623d": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "8RO8 is a complete blank — The Echo sets the floor but a single unknown act with no context is thin.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "7d817dcc89cc": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Two unknown local acts at The Echo; no scene notes, no genre signal beyond the venue.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "4214073c80fe": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Insomniac at the Palladium is the production template Lori isn't here for — big-room bass/dubstep EDM package with a Mexican DJ who is interesting in another context but not surfaced correctly here.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "2fb03fcba54b": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Tony Seltzer and Alexander Spit bring genuine hip-hop/underground credibility, and Lori's profile explicitly doesn't penalize hip-hop — The Echo seals it as a worthwhile night.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "383bb93f5b7c": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Emperor X is a 20-year DIY cult figure making dense, politically charged indie/lo-fi — KCRW presenting at a loved venue is the exact editorial signal Lori's profile rewards.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "3230dbfd7fb2": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "TBA warehouse techno is Lori's lowest category and these European names have no scene context to elevate them — queer Pride framing is a plus but not enough to lift above the genre floor.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "413f975dfff9": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Generic queer rave night at an undisclosed Rave DEN venue with no recognizable names — nothing here rises above the baseline club noise for Lori.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "4eea8f28c93f": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Analog media fair at 2220 Arts + Archives is a direct hit on the vinyl/record-culture/DIY arts programming Lori loves — the score treated this as generic music when it's actually ethnomusicologist bai",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "f1185705c9d8": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Dillon Francis and Flosstradamus are big-room trap/moombahton EDM — nothing about this booking maps to Lori's taste.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "2793fb5b98f9": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Decade-nostalgia 90s/2000s dance party at a loved venue still hits the tribute/nostalgia format penalty — the venue doesn't redeem the format.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "f6ea17a86147": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Listed title is 'Closed' — this entry appears to be a closed/cancelled or ghost event at a Bel Air jazz supper club that's also a geo-penalty westside destination.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "d26b1c2aec3d": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Disco/nu-disco at Gold Diggers has some groove-culture appeal but it's a DJ format and a recurring party rather than a booking Lori would prioritize.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "01f3e6c170c9": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Eli Escobar's Afrobeat/reggaeton/funk range is genuinely broader than a house DJ, and the day-to-night format at The Bridge is a comfortable entry point for a listener who doesn't usually prioritize c",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "61428e90f126": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "OKAYVAL is a complete unknown and the TBA warehouse format at midnight is low-priority for Lori without any context on genre or draw.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "fc7159a30596": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "El Cid in Silver Lake is walkable and Club Cielo has a Latin framing that could be interesting, but the selectors are unknown and the night could go anywhere.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "262bc08f8304": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Hotel rooftop tech-house set — this is Ari's wheelhouse, not Lori's; a hotel club DJ night is far from her live-band-first priorities.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "dd6b37497c71": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Pearl Charles is a critically recognized LA singer-songwriter in the alt-country/folk-rock lane, and Carson McHone is a respected Texas roots act — this is exactly the intimate songwriter night Perman",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "10a8287bef7b": {
+      "tier": "great",
+      "adjust": 3,
+      "why": "Toody Cole co-founded Dead Moon and is a Pacific NW punk/garage legend — this is a rare chance to see a foundational figure in the genre, at Zebulon no less.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "4830bf21efbf": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Moderator and The Architect are blanks at Gold Diggers — the venue is right but without any artist context this stays a placeholder.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "12b8b6b92c6c": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "The Arabic script in 'Omar ﯏' suggests a Middle Eastern or North African artist, which would be directly in Lori's ethnomusicologist lane — worth a closer look but unverified.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "2c90bdf56911": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Comedy is off Lori's priority list and the Valley location adds geo friction — not a reason to skip but not something to surface prominently.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "152ca22ba09c": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Unknown names, TBA location, generic electronic — nothing distinguishes this from the dozen other afterhours nights in the batch.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "09b626d65d89": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Dubstep at Dragonfly Hollywood is well outside Lori's range even on the charitable 'electronic is welcome' reading.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "0f7d11c088ac": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Afro house at Sound Nightclub has genre interest for an ethnomusicologist but Sound is a commercial Hollywood club — the genre is right, the setting is wrong.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "5b8636a94da3": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Porter Robinson, Louis the Child, Audien — this is the melodic EDM festival circuit at its most mainstream, nothing in the lineup connects to Lori's taste.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "b99762fcd997": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "R3HAB is big-room Dutch EDM, not the chill/listening-forward electronic that earns a pass here — wrong format entirely.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "ba821699654f": {
+      "tier": "great",
+      "adjust": 3,
+      "why": "Lenny Kaye — Patti Smith Group guitarist and rock historian — playing Zebulon is exactly the kind of deeply literate punk-adjacent booking an ethnomusicologist plans around; the score misses who he is",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "1f74b3f5ded5": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Cumbia dance night hits the Latin/diaspora spine of her taste, and The Virgil on a Friday is an easy Eastside stop.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "314526ac72f5": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Funky Sole is a long-running LA soul/funk institution — exactly the groove-forward listening night Gold Diggers was built for.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "6e6f42f1d04a": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Generic DJ dance party at a loved venue — Zebulon rescues it from skip, but 'classics' DJ nights with no real curation aren't her thing.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "9ed72f177f29": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Comedy at Permanent Records Roadhouse is a fine cultural hang, but her comedians list is empty and this isn't her primary interest.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "41d5da9c0f27": {
+      "tier": "solid",
+      "lane": "comedy",
+      "adjust": -1,
+      "why": "Vanessa Bayer is a legit comedian but comedy isn't Lori's priority and the lane was wrongly filed as live-music.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "4a1af7cf2124": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Totally unknown indie acts at a loved Saturday-night venue — the booking could be great or generic; Gold Diggers earns a look.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "d8180e2e3285": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Mura Masa crosses producer/live-act territory with real indie credibility — more interesting than a standard club night, but TBA location is a friction point.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "a5d9334e56d6": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Generic branding, no meaningful lineup — 'ethereal and euphoric' tells you nothing, and this format isn't her thing regardless.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "bdd53b3c89a5": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Markus Schulz is a trance DJ doing a big-room set — nowhere near Lori's lane.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "8de56ecb032a": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Underground techno with local/unknown acts at a TBA warehouse — electronic is her secondary interest and there's nothing here to pull it up.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "e0f85fecf6ca": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Album release format is a good sign but 'Super Steve' is completely unknown — Eastside Saturday earns a baseline slot, nothing more.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "6d70e46cf658": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "The Femcels at Zebulon on a Saturday signals the right curatorial lane — Zebulon doesn't book junk, and the name suggests punk/art-rock territory she'd enjoy.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "ce67a2ad267c": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Buckingham Ween reads as a tribute/mashup cover act — that format is an explicit penalty regardless of the loved venue.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "2145646bdb95": {
+      "tier": "solid",
+      "lane": "live-music",
+      "adjust": 1,
+      "why": "Prince Daddy & the Hyena is genuine indie emo worth catching — the venue is a comedy room doing live music, not a real comedy show, and North Hollywood isn't a brutal trip from Glendale.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "66a16855b568": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Stavroz plays live with an organic, folk-inflected electronic sound — closer to a live band than a DJ set, which edges it into her secondary-interest zone with something real to offer.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "c0280e879181": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Darude at Avalon is pure nostalgia EDM — Sandstorm-era trance revival, not a genre or format she cares about.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "93893e417f6a": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Clay/craft workshop in her home neighborhood is a fine Saturday-afternoon hang, but the score inflated it with music reasons that don't apply to a workshop.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "30911739ef31": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Pride month electronic pop showcase in Glendale (home turf) with a queer/all-ages vibe fits the craft-pop secondary interest, though no lineup to assess quality.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "0f839705d5cf": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "OP ED, Uni Boys, Softjaw at Gold Diggers is a classic three-band Friday indie/punk night at a venue she loves — exactly the format her taste is built around.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "5e1ddb0a422d": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "No artist context whatsoever — Eastside Friday at The Virgil earns a baseline, but this could be anything.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "5f0cd6635f8e": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "The Smell is LA's DIY punk/experimental institution and this bill's genre tags (punk/experimental) and Latin-touring-act framing hit multiple interest nodes for an ethnomusicologist.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "e4b13db61635": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Unknown act at a Venice speakeasy — the Westside location is a friction penalty and there's no signal to justify the trip.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "b028d3b632b3": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Event is cancelled.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "a92fbe353474": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Exchange LA is a big-room club and Vendex is generic electronic billing — not her lane.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "ea88536e890a": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Local house/disco DJs at a TBA DTLA warehouse — scene-block verified they're all circuit-local with no wider profile; not worth the unknown-location friction.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "8213b45c6582": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free community electronic night at The Airliner in Lincoln Heights — the Eastside proximity and no-barrier entry make it a casual fallback, nothing more.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "d3f6d17b2492": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Bass music warehouse afterhours with a stack of local unknowns — not her format and the lineup has no draw for her.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "cc7c2b4b40d5": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Blank-lineup generic afterhours club night — nothing to distinguish it.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "3921a04ebfe3": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "RA pick with a hybrid live set from Teo Amo elevates this above standard DJ nights; house music in a studio setting is about as listening-forward as the electronic lane gets for her.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "45eefe8f3cb7": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Tech-house/EDM at Los Globos is generic club format — not her lane.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "8cfd63b26744": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Afro-house gestures toward the global/African music interest, but it's a club DJ format not a live act — partial credit only.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "d05607ba89ed": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Melodic dubstep/future bass EDM at Academy — wrong genre, wrong format, wrong venue for her.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "db05c953321c": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "80s/New Wave nostalgia dance night is exactly the decade-themed party format her taste.yaml penalizes.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "40714afacca9": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "KALEO brings Icelandic blues-folk roots and genuine craft — interesting for an ethnomusicologist drawn to global sounds, and Dawes is solid support; The Novo is an accessible mid-size room.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "e4fb725ece2d": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Party-format house/EDM night in North Hollywood with no notable billing — not worth the Valley trip.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "562710e9bc68": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "San Diego is a hard far-flung penalty, and trance/progressive afterhours isn't even her lane.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "cfc03a32e02c": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free bar night in Silver Lake with local electronic DJs — low stakes, close to home, but no musical hook to make it worth seeking out.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "58432e286883": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Rx Bandits' 20th anniversary of 'And the Battle Begun' is a genuine celebration of a prog-ska landmark — this is a real band playing a meaningful album, not a cover night, and Maps & Atlases is seriou",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "ee9da7c08e5b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Monolord/Acid King/Mizmor is a credible doom metal bill, but this is a stretch from her garage/punk core into territory she'd respect more than attend.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "929c546cd3c4": {
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Natalia Lafourcade is one of the most important living Latin songwriters and a Cancionera-style concert at the Dolby is a rare, substantive event — the score wildly undersells an artist who is dead-ce",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "049ab819c62b": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Pomplamoose's craft-pop/arrangement approach has genuine songwriter credibility — fine DTLA Friday pick if she wants something low-key and accessible.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "a3f6042f500d": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Hotel rooftop DJ night with generic/unknown billing — lifestyle format without the musical substance that earns a pass.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "55182158f587": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Decade throwback dance party at Avalon is exactly the nostalgia-night format her taste profile penalizes.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "ac4a19d5e4c5": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Sunday outdoor community hang in her home neighborhood — queer/all-ages daytime format is pleasant but light on the musical substance she prioritizes.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "66d1c8708faf": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Grand Ole Echo is The Echo's beloved recurring country/Americana night — exactly the roots/folk axis of her taste at a loved venue, and Sunday 5:30pm is a perfect wind-down.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "30b7e69e712e": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Already sold out — listed in the title, can't attend.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "b84f1a116faf": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "The Reytons are Sheffield indie-rock — energetic crowd-pleasers but not the post-punk or art-rock edge Lori gravitates toward; the Echo setting is right, the band is just mid-tier for her.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "5307548d0d4e": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "All-unknown local bill at a loved venue — could be fine but zero signal on genre or quality; filed as solid on venue credit alone.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "7c9659457dcc": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Jazz fits her high-interest category but Vibrato Grill is a Bel Air supper-club setting — upscale dinner-jazz rather than the listening-room intimacy she prefers, and it's a westside haul.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "0405937e7e2a": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Dubstep in Murrieta — far-flung penalty on top of a genre she doesn't prioritize; this is a long drive to the wrong night.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "cf65e6d3a51e": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Ginger Root (Cameron Lew) brings genuine YMO/alt-disco/city pop depth — more musicologically interesting than a standard DJ night, and it's free; squarely adjacent to her global-pop curiosity.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "a81e295e28e3": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Dubstep/bass at Academy — big-room club format with a genre Lori doesn't follow; no angle in.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "20ce7b0ed53d": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Generic tech-house night at a big Hollywood club — Lori's electronic tolerance is reserved for listening-forward or genuinely special acts, not this.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "10c0150aaf3b": {
+      "tier": "skip",
       "lane": "club:mainstream",
       "adjust": -3,
-      "why": "Kayzo is a hardstyle/hybrid-trap act — the exact penalty category in taste.yaml. $40 at Exchange LA confirms the big-room EDM format; nothing here for the house/techno lane.",
+      "why": "Don Julio-branded bottle-service holiday party at Warwick LA — direct hit on the bottle-service penalty; not close.",
       "confidence": "high",
-      "judged_at": "2026-06-23T10:35:21",
-      "score_at_judge": 5
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "be4939188e8d": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Afro house rooftop in Beverly Hills is a club DJ format — the Afro tag isn't enough to override that this is a nightclub night, not the Afro-funk live-band world she actually wants.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "8d5d4fa32304": {
+      "tier": "great",
+      "lane": "club:underground",
+      "adjust": 2,
+      "why": "Ian Svenonius (Nation of Ulysses, The Make-Up) DJing at Zebulon for free — a cult post-punk/garage figure spinning at her favorite venue is exactly the kind of insider night her taste profile is built",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "9baf37262829": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Themed anime rave — electronic/EDM format built around an aesthetic that has nothing to do with her musical interests.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "df9809a5d212": {
+      "tier": "solid",
+      "lane": "live-music",
+      "adjust": 1,
+      "why": "The Beach Boys are a foundational American music artifact worth experiencing at the Bowl — an ethnomusicologist's guilty-pleasure landmark, not a must-see but a pleasant holiday night out.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "667b3cc75dbe": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Clay pottery workshop in her home neighborhood — daytime lifestyle fits the medium-interest bucket, but it's a craft activity rather than the music/cultural programming end of that category.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "b2ab009efccd": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Trap/moombahton/EDM night at Avalon — big-room club format, no live element, not a genre she follows.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "7e00f46a7221": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Jayda G is a genuinely soul-forward selector with real musical depth (Ninja Tune, Grammy-nominated), but this is still a DJ set at Sound Nightclub — Lori's electronic tolerance is low and the live-ban",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "56f6f58ae7be": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Laidback Luke is Dutch big-room EDM — festival-circuit name with no listening-forward angle, wrong end of the electronic spectrum entirely for Lori.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "3bf979c7af5e": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Hardstyle all-night-long at $35-95 — the genre furthest from her taste; nothing to see here.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "fcbd25dfcf43": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Acid techno TBA party with unknowns — pure club-electronic format with no hook for a live-music-first listener.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "a0f659cafa69": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Senpai Squad at The Belasco — no scene block, no genre tags, but the name and 18+ framing alongside the Anime Rave on the same night reads as the same EDM-adjacent cultural orbit; not her world.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "a45ae22756b0": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Afterpunk branding at The Regent on July 4 could genuinely intersect with her post-punk sensibility, but no lineup and no scene block — can't elevate without knowing who's playing.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:16:47",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
     }
   }
 }

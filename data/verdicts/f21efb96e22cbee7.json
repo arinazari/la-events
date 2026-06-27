@@ -1,12 +1,14 @@
 {
   "verdicts": {
     "b4799df0eb5f": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "Pan-Pot is a Berghain/fabric-tier Berlin duo doing a 4-hour set — the kind of extended techno booking LA rarely gets at a TBA warehouse level. The WORK promoter knows what they're doing; this is the a",
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Pan-Pot is a legitimate Berlin techno name (Get Physical, Mobilee) doing a four-hour set — not a Taylor cultural match but a proper headliner worth flagging for underground-leaning nights.",
       "confidence": "high",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "da4e3fe70e19": {
       "tier": "must-see",
@@ -41,20 +43,24 @@
       "score_at_judge": 7
     },
     "9a0fd9893571": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "All-vinyl night at a TBA Downtown space is the taste profile's sweet spot — the listening-bar setting tag seals it. Taylor Shockley and Luke Mele are part of the LA underground vinyl circuit; CHOÍCE r",
+      "why": "All-vinyl format with a named three-person lineup gives this more substance than the average TBA-DTLA entry — the listening-bar setting suits a more intentional night out.",
       "confidence": "med",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 7
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
     },
     "cf65e6d3a51e": {
       "tier": "great",
-      "adjust": 0,
-      "why": "Ginger Root doing a DJ set is a genuine curiosity — city pop, j-pop, disco source material at Camille's, free. He's a real artist who knows his records, not a vanity slot.",
+      "adjust": 1,
+      "why": "Ginger Root's city-pop/alt-disco DJ set at a good room is genuinely fun and different — the J-pop/boogie angle is a nice outlier in this house-heavy batch, and it's free.",
       "confidence": "high",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 7
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
     },
     "a2ec0d8dd081": {
       "tier": "great",
@@ -66,11 +72,13 @@
     },
     "4812141a4770": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "ABSTRACT at 1720 is a known Arts District warehouse with a real room — DEA MAGNA and Merimell are solid underground electronic acts. Not a marquee booking but 1720 alone adds a floor of quality the sc",
+      "adjust": 0,
+      "why": "Arts District afters with partial lineup (DEA MAGNA, Merimell) — generic underground slot, no differentiating signal for Taylor.",
       "confidence": "med",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "4d5f11e375f5": {
       "tier": "solid",
@@ -99,10 +107,12 @@
     "f4fe507771f1": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Groove Room at Gold Diggers is a dependable East Hollywood neighborhood night — the venue is a genuinely good small room. No lineup named means no ceiling lift; it's a reliable fallback.",
-      "confidence": "med",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 7
+      "why": "Recurring Gold Diggers house-and-hits night — reliable room, nothing distinctive for Taylor's profile specifically.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
     },
     "1e27960536ad": {
       "tier": "solid",
@@ -115,10 +125,12 @@
     "2e5710a4c036": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Certified Groovers all-night at TBA Downtown — Collin Reeve and MXM are working local names but neither carries headline weight. The format is right; the draw is thin.",
-      "confidence": "med",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "why": "All-night afters with no lineup information and a Thursday start — lowest-information entry in the batch, hard to recommend over anything with a named act.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "e667ba3ea44d": {
       "tier": "solid",
@@ -130,11 +142,13 @@
     },
     "3bb8aa27a866": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Sudamericana at Exchange LA is free with RSVP and the house/disco tags are right, but Exchange LA leans mainstream and the 6pm start suggests a day-party vibe more than a serious club night.",
-      "confidence": "med",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "adjust": 0,
+      "why": "Latin house/disco at Exchange LA with a long-running monthly resident — decent daytime entry point, nothing special for Taylor's profile.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "31d6a23bb826": {
       "tier": "solid",
@@ -145,20 +159,24 @@
       "score_at_judge": 6
     },
     "a686cbd059dc": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Likely a duplicate entry for Inland Groove After Hours (same night, same area as c272d34d687c) filed under a 'DTLA LOCATION' placeholder with zero lineup info.",
-      "confidence": "high",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 7
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free DTLA warehouse house afters with no posted lineup — the WORK/groove orbit is solid but the TBA-everything nature keeps confidence low on whether it actually delivers.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
     },
     "d26b1c2aec3d": {
       "tier": "solid",
-      "adjust": -2,
-      "why": "The Hustle at Gold Diggers falls on July 4th — a recurring disco party that's perfectly decent but 'First and Third Saturday' branding signals a formulaic recurring night with no special booking.",
-      "confidence": "med",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 7
+      "adjust": -1,
+      "why": "Reliable recurring disco party but the July 4th date and no named lineup makes this the filler version of The Hustle.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
     },
     "9ea5376be5a4": {
       "tier": "must-see",
@@ -177,12 +195,14 @@
       "score_at_judge": 6
     },
     "0f729582faa3": {
-      "tier": "must-see",
-      "adjust": 1,
-      "why": "Robert Hood is a tracked artist and one of Detroit techno's foundational figures — WORK is a credible underground LA promoter, TBA warehouse on a holiday weekend.",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Robert Hood is a genuine Detroit techno legend (Underground Resistance co-founder, Tresor, M-Plant) — even without a Taylor cultural hook, this is a marquee booking in the underground world and worth ",
       "confidence": "high",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "437b015f697a": {
       "tier": "great",
@@ -193,12 +213,14 @@
       "score_at_judge": 6
     },
     "262bc08f8304": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "This is the Golden Hour / Sunset Sessions at Level 8 rooftop format — tech-house/deep/minimal/disco, $10 early bird, rooftop sunset window. Exactly the type.",
-      "confidence": "high",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Tech-house sunset at Level 8 with no named act (just 'Adam Auburn') — the setting is pleasant but there's nothing here that rises above background music for the holiday.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "221fd89985fd": {
       "tier": "great",
@@ -209,12 +231,14 @@
       "score_at_judge": 6
     },
     "f9740e4e2ca2": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 0,
-      "why": "Township Rebellion is a South African duo with a genuine afro/deep house following, and 1720 is one of the better warehouse rooms in the Arts District.",
+      "why": "Township Rebellion at 1720 — a reliable Arts District underground room, standard afters format without a standout booking.",
       "confidence": "med",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "7c349f4a2cfe": {
       "tier": "solid",
@@ -226,27 +250,33 @@
     },
     "d8180e2e3285": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Mura Masa is a credible UK electronic act but sits at the indie/bass/pop crossover rather than the house-techno spine — worth knowing about, not a priority night for this lane.",
+      "adjust": 1,
+      "why": "Mura Masa is a recognizable name (Domino Records, indie-electronic crossover) — not Taylor's SWANA lane but a genuine headliner that lifts this above the generic afters pile.",
       "confidence": "high",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "152ca22ba09c": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Unknown names but TBA DTLA late-night on a Friday from Cirra (a small underground LA party collective) — no red flags, just low-info. Could be good.",
-      "confidence": "low",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "why": "Cirra collective night with Day Thief, Faited, David Le Brun — local underground names in the DTLA orbit, fine but no Taylor cultural signal.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "5797c554d79b": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Paradisco is a recurring disco/house night at Kiss Kiss Bang Bang — fine format, small room, but no lineup details make it impossible to gauge this edition.",
-      "confidence": "low",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "why": "Paradisco with unnamed DJ Nica at Kiss Kiss Bang Bang — the recurring disco format is fine but this instance has no named draw and sits outside Taylor's near-home radius.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "185fb5832f6e": {
       "tier": "solid",
@@ -258,27 +288,33 @@
     },
     "570a40fedd57": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "The Groove Lab branding and Saturday timing are fine signals, but one unknown name (Rosie Love) and a TBA venue is too low-info to place higher.",
+      "adjust": 0,
+      "why": "Divine LA x Apt4B Radio groove night — local radio-adjacent underground event, no particular Taylor hook.",
       "confidence": "low",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "a5d9334e56d6": {
       "tier": "solid",
-      "adjust": -2,
-      "why": "El Cid is a fine Silver Lake room but 'Ethereal & Euphoric Dance Night' with no lineup is generic event-marketing filler — no basis to rank it above any other nameless Friday.",
-      "confidence": "high",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "adjust": -1,
+      "why": "Club Blush at El Cid — nice venue, but 'ethereal and euphoric' with no named lineup is a vague pitch; nothing here for Taylor specifically.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "adb4a466d3c2": {
       "tier": "solid",
-      "adjust": -2,
-      "why": "Same Paradisco recurring format but no lineup at all on this edition — truly zero-info.",
-      "confidence": "low",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "adjust": -1,
+      "why": "Paradisco with no named DJ at Kiss Kiss Bang Bang — recurring placeholder entry, outside Taylor's near-home radius, nothing to distinguish it.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "0716b886d8b1": {
       "tier": "solid",
@@ -298,11 +334,13 @@
     },
     "bdd53b3c89a5": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "Markus Schulz is a trance/progressive-trance DJ — a real draw for that crowd but squarely outside the house-techno lane. Avalon Hollywood with a trance headliner is not the room.",
+      "adjust": -2,
+      "why": "Markus Schulz open-to-close at Avalon is big-room progressive trance — polished EDM festival energy that doesn't fit Taylor's profile or the underground vibe this batch rewards.",
       "confidence": "high",
-      "judged_at": "2026-06-26T01:43:06",
-      "score_at_judge": 6
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
     },
     "409df093abce": {
       "tier": "skip",
@@ -320,6 +358,1009 @@
       "confidence": "high",
       "judged_at": "2026-06-26T01:43:06",
       "score_at_judge": 6
+    },
+    "2ebecef33ac3": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Discostan is the rare perfect match for Taylor's profile — a SWANA-rooted collective explicitly built around South/West Asian and North African dancefloor sounds; the 15-year anniversary is the bigges",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 9,
+      "model": "claude-sonnet-4-6"
+    },
+    "cfc03a32e02c": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Raffi Kadafi and Orbel are Armenian names playing Silver Lake for free — the cultural signal lines up with Taylor's SWANA boosts, and the b2b format at a neighborhood bar is a low-commitment way to ch",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "ea88536e890a": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "All-local underground disco/house lineup with some groove credibility (Oso Disco, Ashtre), DTLA afters format — fine but no Taylor-specific cultural hook to elevate it.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-4-6"
+    },
+    "3230dbfd7fb2": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Queer warehouse techno afters with European debuts (Lea Occhi, softchaos) — solid underground cred, no Taylor cultural hook, location TBA is the usual risk.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "01f3e6c170c9": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Eli Escobar is a credible NY house veteran (Tiki Disco, Night People) doing a day-to-night set — good room but nothing elevates it for Taylor's profile specifically.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "7d556fb301ff": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "July 4th pool party at Level 8 — Young Franco is an Australian producer who fits the day-party vibe, decent but generic for Taylor's profile.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "13cbe6748424": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free July 4th groove party at an unnamed DTLA venue with no lineup — lowest-information event of the holiday batch, filler.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "2759edca2c7e": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Tech-house/disco afters with no lineup, no neighborhood, TBA venue — the Groove Lab brand has some credibility but this entry is too thin to surface over named events.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "7b5fd6a26231": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Acts of Service Sounds soulful house night at Gold Diggers — good venue, right genre, but unnamed lineup keeps it at baseline for Taylor.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "8de56ecb032a": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "CLOSER presents Beau Didier (LA debut) with a full local supporting cast — unknown-to-profile headliner, can't gauge draw without more info.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "66a16855b568": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Stavroz live at The Bridge — the Belgian duo does cinematic live electronic sets that stand out from the pure DJ nights; credible booking for the DTLA underground room.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "43fef8a9bc07": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "2010–2015 pop/EDM nostalgia night — the format is exactly the tired throwback party that earns a bury regardless of profile.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "dd2fa322c507": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Discotheke day party at Apotheke with 'Discotheke DJs' — no named acts, 4pm Sunday afternoon, lowest-draw version of a disco format.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "d10660bfcf11": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Panic Room afters in Silver Lake with Banoffee and Shane Thomas — Banoffee is a known indie-pop/electronic name, the Silver Lake location is on-radius for Taylor.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "413f975dfff9": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Extra Sensory x Vice queer rave with Heidi Lawden headlining — RA-picked queer underground afters with a real lineup, fine but no Taylor cultural hook.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "b29dd7e07f50": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Goldcap birthday bash — TBA venue, groove/house orbit, no Taylor signal; the artist has a following but nothing moves this above baseline.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "f70433d950df": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Information all-vinyl outdoor gathering — the format is appealing (all-vinyl, outdoor, groove) but it's far from Taylor's eastside radius and neither Shakolin nor Slip is a known draw.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "b028d3b632b3": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Marked cancelled in the title — bury immediately.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "a92fbe353474": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Mutate at Exchange LA with no named headline act — the venue is reliable but without a lineup this is an anonymous placeholder in a crowded Saturday night.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "8213b45c6582": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Reflections at The Airliner — free, Lincoln Heights, local selectors (Paulita, Ms. Ed, Dirt Vibes); accessible eastside underground entry with no Taylor cultural hook.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "d3f6d17b2492": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Bass Recovery 'unofficial apocalypse party' at a DTLA warehouse with names like OLRAZZLEDAZZLEE and YOHO — bass/rave scene, no connection to Taylor's taste signals, free but not worth the trip.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "cc7c2b4b40d5": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "NIGHTSHIFT at The Lexington — free-before-1am generic afters with no lineup; the venue is fine but this is the most anonymous entry in the late-night batch.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "3921a04ebfe3": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Synoptico at Psst Studio — RA-picked house night with a real multi-act lineup (Tigerbalm, Hayes Bradley, Teo Amo hybrid live); good underground credibility without a Taylor cultural boost.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "45eefe8f3cb7": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Electric Ave at Los Globos is a tech-house/EDM night — the venue trends more mainstream than underground and no lineup is listed.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "84807f06fa2d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Satin Jackets (German nu-disco/house producer) has real Balearic-adjacent credibility — decent genre fit but The Spotlight's location is unspecified and the event lacks Taylor-specific cultural resona",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "90f392daf0b0": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Unofficial Day Trip afters at a TBA DTLA location with SVNX/AFTR RA1N/FUMIX — no identifiable draw, anonymous free afters that's more fill-the-floor than curated.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "e4fb725ece2d": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Steam Towel Party at The Bullet Bar in North Hollywood — far out of radius, the venue/format is casual bar-house without the underground depth Taylor's boosts are built around.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "562710e9bc68": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "San Diego trance/progressive afters — wrong genre (festival trance), wrong city, no Taylor signal at all.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "a3f6042f500d": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Sunset Saturdays at Sunset EDITION with KAYA (US) — hotel rooftop vibe, unspecified genre, no Taylor cultural hook; pleasant but generic.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "92ef96279309": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Duplicate entry for Synoptico at Psstudio with no lineup listed and no neighborhood — 3921a04ebfe3 is the stronger instance of this event with more detail.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "95e6fc86f917": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "18+ foam party at Los Globos — gimmick format with no musical intent, not a night worth Taylor's time.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "7e00f46a7221": {
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Jayda G (Ninja Tune, Grammy-nominated) is a genuine headliner — deep disco-house selector with a real discography; the best-credentialed booking in this entire batch by a wide margin.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "f090d8176e1e": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "ASCO: Without Permission at Vidiots — the Chicano avant-garde collective's documentary at one of LA's best rep houses; culturally substantive in a way most of this batch isn't.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "4b71b410d323": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "When We Were Kings (Leon Gast's Ali-Foreman doc) is a classic worth seeing on a proper screen at Vidiots.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "569c831115a3": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "The Birdcage at Vidiots during Pride weekend — the timing is perfect and it's a genuinely funny, relevant film for the occasion.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "7687694da154": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Ardalan (Dirtybird / Sunset Sound System lineage per scene block) gives this FLOAT session credible pedigree; the 2pm-8am window is a real marathon commitment if you're in.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "be4939188e8d": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Afro house on a Beverly Hills rooftop with a full afternoon-to-late run — the setting and genre combo is more interesting than the generic electronic afters elsewhere in this batch.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "e36b742112bb": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "All-vinyl, open-air Sunday session at The Bridge — a more intentional format than the generic TBA afters, and the vinyl-only flag suggests selectors who care about the music.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "ee4071370ca2": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Pride Plastique at Slipper Clutch — free, queer-centered, electronic, and near DTLA; one of the few events this weekend with a clear cultural identity beyond 'club night'.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "446a75d7f957": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Multiform at The Broad is a free disco/R&B event at a serious art institution — the combination of venue prestige and low barrier makes it worth flagging.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "2d75da459ff9": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Sunset Boulevard at Vidiots — a Wilder classic, good anytime, but less essential than the Vidiots picks above.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "e02ebe814686": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "The Incredibles at Vidiots is an easy family-friendly matinee but not a cinephile priority screening.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "4eea8f28c93f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Analog Media Fair at 2220 Arts is a decent record/media browse with an editorial nod, but no lineup or cultural hook that lifts it above baseline for Taylor's profile.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "fc7159a30596": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Club Cielo at El Cid has a named lineup (Kebra, Linapary, Queenie, Dinabn) at a reliable Silver Lake room — more grounded than the TBA-location afters.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "0a9339df873f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Plastics Dept. (ambient/experimental live electronics) at Coaxial is a niche but legitimate scene with Perfect Circuit backing — free entry keeps the risk low.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "7075782b1841": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Soul Source at The Airliner has a soul/dance focus and a local eastside crowd; blksoap in the lineup suggests selectors who know their records.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "629aa2a7aebe": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Luttrell is a recognizable minimal techno act (Anjunadeep orbit) but Level 8 DTLA is a hotel rooftop that leans more polished-tourist than underground.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "b7c17242d2fa": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Cute Dance Party for Pride at Zebulon has the right spirit but no lineup info to distinguish it from a generic late-night.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "82ea13c92501": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "KCRW + The Broad Multiform day event is family-friendly and institutionally backed, but the daytime/family framing pulls it away from any serious club energy.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "005067882e99": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Anonymous afters at an unlisted DTLA address with no lineup — fine as a late-night option but nothing here to recommend over the named bookings.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "c6134030ed30": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free warehouse afters with a named lineup (APx1, Novella, Catnap, Phayla, Kaali) and zero information on those names — TBA location is a friction point too.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "1a7cfe76b924": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Nightshift After Hours at The Lexington is a functioning late-night room but no lineup makes this generic filler relative to named nights.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "fcbd25dfcf43": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Techno/acid/house TBA with a $7.95 ticket suggests an emerging-night vibe — the Okayval name appears in two entries this weekend which is slightly redundant.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "61428e90f126": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "OKAYVAL headline show at a TBA DTLA warehouse — the TBA location and duplicate billing (same artist appears in 'fcbd25dfcf43') make this hard to evaluate; may be the same night.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "3d72506d1507": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Hard techno at a secret DTLA location with no lineup — the genre skews heavy and the anonymity adds friction without the cultural or musical hooks Taylor's profile would reward.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "e9d454dac330": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Kyle Kinch at Avalon Hollywood is competent tech-house but Avalon is a big commercial room and there's nothing here that earns a night out over the sharper alternatives.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "adc9a5c6a146": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Drakk + Triptykh hard techno/EDM at 1720 — the genre reads harder and more EDM-adjacent than anything Taylor's profile flags as interesting.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "9e68d5d86b0c": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Caribbean Heritage Month at El Cid has cultural resonance but no lineup and $8 cover for a party night at an otherwise reliable Silver Lake room — not enough to elevate above baseline.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "2758d1eaf1f3": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "WALL-E is charming but a daytime rerun screening of a mainstream Pixar film isn't a priority pick even at Vidiots.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "9b3c92c53d8b": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Underland at Vidiots — no information on what this is (title alone gives nothing), can't recommend without knowing the film.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "3c5b529d50d0": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Throne of Blood (Kurosawa's Macbeth adaptation) is a serious film, but the 3:30pm Friday slot and five Vidiots entries on the same day means this is the one that gets cut.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "7ed1b7632c39": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Independence Day at Vidiots is a fun 4th-of-July-adjacent gimmick screening but not a serious rep cinema pick.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "d289eefd0421": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Near-duplicate of the 'be4939188e8d' Amore Rooftop entry — same venue, same date (one day earlier), overlapping lineup; likely the same event listed twice.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "5fbb32e838d9": {
+      "tier": "solid",
+      "adjust": -3,
+      "why": "Third Amore Beverly Hills entry for the same party — dedupe issue, this is redundant noise in the slate.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "5a954993cb7d": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Disconic TBA night July 18 — three weeks out, no venue confirmed, no artist notes on the lineup; too speculative to prioritize now.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "708cefbd4c20": {
+      "tier": "skip",
+      "lane": "live-music",
+      "adjust": -2,
+      "why": "Alice Bag Band is punk/rock and the rest of the night follows suit — this is clearly live-music/rock, not electronic, and the tag lane is wrong.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "8c09f691f4b6": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "irL word at The Virgil — no genre, no lineup, no description; nothing to surface or recommend.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "7cebb7d63e53": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Rentboy Presents Megachurch at Gold Diggers — the name suggests a drag/camp night which is fine, but there's zero lineup info and it's in a music-venue lane mismatch with Taylor's electronic focus.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "871a38831290": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Monster Madonna tribute/drag at The Virgil — tribute-format night is the exact tired booking that should be buried, and it's not near Taylor's cultural interests.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "df08d4f1a3b1": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Free Dance Party with Levitation Room DJs at Zebulon — 'Levitation Room' is a psych-rock band whose DJs spinning at a club night is a low-energy filler booking.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "dbd663f94dec": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "18+ Friday 2000s night at Los Globos — top-40 throwback format is exactly the wrong-vibe booking that deserves to be buried.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "afc0b77eecee": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Casa del Reggaeton at Los Globos — reggeaton bottle-service night is squarely off-profile and the 18+ free format signals mainstream draw.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-4-6"
+    },
+    "e5f98f805238": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Pretty Girls Love 2000s at Los Globos — same format as the Friday 2000s night above, same skip logic.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "54a14071dc26": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "BET Awards Weekend Pool Party at the Roosevelt — celebrity-adjacent promotional event, not a music night Taylor's profile would find interesting.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "b9a9b614db33": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Orlove's 4th of July pool party at the Mondrian/Valorian is a nice luxury format but no lineup and a $28 ticket for a hotel pool party reads as bottle-service adjacency.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "42df28f8980b": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Space Yacht Pool Party at W Hollywood is a free hotel pool event — Space Yacht skews mainstream EDM and the W Hollywood setting confirms it.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "12df616e7660": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "This is a private memorial service for a deceased person — not a ticketed event, should not appear in a public digest at all.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "09aa6fa85d23": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Indoor Sale at a Sunset Blvd address is a vintage/clothing sale misfiled as an electronic party — wrong category entirely.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "4f8b3b0c5df8": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Neobounce hard trance/hard techno afters at TBA with tiered pricing up to $45 — the genre is far from Taylor's profile and TBA-location adds friction.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "57fefe338dac": {
+      "tier": "skip",
+      "lane": "live-music",
+      "adjust": -2,
+      "why": "Cactus Flowers at Redwood Bar is tagged electronic but has no lineup and the venue is a classic rock dive bar — almost certainly a band night in the wrong lane.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "2b01e7c61ec4": {
+      "tier": "solid",
+      "adjust": 2,
+      "why": "4th of July boat party with fireworks is a genuinely distinct experience — the holiday spectacle angle earns it a look even without deep affinity for the lineup.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "84180a2db7a4": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free DTLA party on the 4th, but no lineup info and the LEVEL 8 venue suggests bottle-service mainstream; baseline only.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "7361904c9a2d": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Wrestling + Techno is a legitimately weird novelty format at $10 — earns a mild lift for the absurdist premise alone.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "6025d696290f": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Vidiots rep screening but 'The Furious' is an unknown title with no profile hook; fine but nothing to prioritize.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "95714aff8655": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Jaws on the 4th of July at Vidiots is a perfect holiday-cinema pairing — an obvious crowd-pleaser at a beloved rep house.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "aeb1d442c1ab": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Vidiots screening with no title context beyond the name; holds at baseline without a profile hook.",
+      "confidence": "low",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "3811f57ad3ce": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Midnight Jaws on the 4th at the Vista is a classic late-night holiday cult-cinema move — the midnight start and holiday timing make this the better Jaws pick for a night out.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "181fd333aea4": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Egyptian Lover is a genuine electro pioneer with real draw; this is the kind of historically-grounded booking that rises above a generic club night.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "d4f5c2ce4869": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Free perreo night at Los Globos in Silver Lake — neighborhood convenience and free entry make it worth knowing about even with no lineup listed.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "950bca0d7cc8": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "UCLA vs USC party branding at the same venue same night as the Perreo City event — almost certainly a duplicate or competing promotion; the college-rivalry framing is also a hard off-tone signal.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "6826702ba23e": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Queer pool party at Broken Shaker on a holiday weekend Sunday — the inclusive framing and daytime format are genuinely distinct, and Broken Shaker is a credible venue.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "deee526f1748": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free goth/industrial/EBM night at Slipper Clutch — a niche but legitimate subculture; no profile signal to lift it above baseline.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "f2dda7a6bd9b": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "TBA-location underground event creates real friction for planning; LA Riots is a commercial house act, not a strong draw for this profile.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "4ffb1babe6aa": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Free Friday dance party at Zebulon — that venue consistently books credible selectors; worth surfacing as low-commitment neighborhood option.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "9fd90f37b8e7": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "The Redwood Bar and Grill is a dive-bar-adjacent rock room; tagging this 'electronic' is a mislabel and the venue doesn't fit any active taste signal.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "d3dedbfdbea3": {
+      "tier": "solid",
+      "lane": "live-music",
+      "adjust": 0,
+      "why": "Adam Lambert is a legitimate pop-rock draw but mislabeled as electronic/club:underground — correct lane is live-music; sits at baseline without a profile hook.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "56dd56a5f238": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Coaxial experimental/noise showcase is a credible niche night but well outside any active taste signal in this profile; bury below electronic events with actual affinity.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "6f32f9cbcf9b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Dances with Wolves at the Vista is solid rep programming; no specific profile hook to push it up.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "f198ba14b87d": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Midnight-ish Vista screening of Hollywood 90028 — the late-night local-cult angle at a great rep house gives it a slight edge over a standard Friday film.",
+      "confidence": "med",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
+    },
+    "74e28a674793": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "The Wailing is a legitimately great Korean horror film; Vidiots is the right rep house for it and it's the kind of title worth highlighting even without a direct profile match.",
+      "confidence": "high",
+      "judged_at": "2026-06-27T12:15:46",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-4-6"
     }
   }
 }
