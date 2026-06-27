@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for scripts/render_digest.py — day-grouped renderers (.md + .html).
+"""Tests for scripts/render_digest.py — the day-grouped Markdown agenda renderer.
 
 Run: python scripts/tests/test_render.py
 """
@@ -15,11 +15,10 @@ DOC = {"generated_at": "2026-06-17T09:00:00", "today": "2026-06-17",
 CANDS = [
     {"title": "Sunset Sessions", "iso_date": "2026-06-19", "start": "17:00", "score": 11,
      "rating": 5, "venue": "Golden Hour at Level 8", "neighborhood": "DTLA", "price": "free",
-     "category": "electronic", "image_wanted": True,
+     "category": "electronic",
      "links": [{"source": "ra", "url": "https://ra.co/e/1"}, {"source": "ticketmaster", "url": "https://tm/1"}],
      "enrichment": {"type": "electronic", "curator_note": "Rooftop house as the sun drops.",
-                    "artist_notes": [{"name": "Antal", "note": "Rush Hour boss"}],
-                    "image": {"url": "https://img/1.jpg"}}},
+                    "artist_notes": [{"name": "Antal", "note": "Rush Hour boss"}]}},
     {"title": "Mad Max: Fury Road", "iso_date": "2026-06-19", "start": "2026-06-19T16:00:00", "score": 6,
      "rating": 4, "venue": "Vidiots", "neighborhood": "Eagle Rock", "price": "$15", "category": "film",
      "links": [{"source": "vidiots", "url": "https://vidiots/1"}]},
@@ -48,15 +47,19 @@ def test_markdown_is_day_grouped_with_variety():
     assert "dice (exit 1)" in md                                    # footer
 
 
-def test_html_is_day_grouped_with_uppercase_tags():
-    html = R.render_html(DOC, CANDS)
-    assert html.startswith("<!doctype html>")
-    assert 'class="grp"' in html and "Electronic &amp; dance" in html
-    assert "Friday · June 19" in html
-    assert "⭐ PICK" in html                                         # inline pick tag
-    assert ">RA<" in html and ">TICKETMASTER<" in html              # uppercase source tags
-    assert '<img class="thumb"' in html                            # hero thumb on the pick
-    assert "Rooftop house as the sun drops." in html
+def test_footer_notes_disclose_coverage_and_music():
+    # A failed source (coverage gap) and a failed Spotify refresh both surface, kept distinct.
+    sources = {"failed": [["dice", "exit 1"]],
+               "spotify": {"ok": False, "note": "Spotify auth rejected (401) — refresh token may be revoked"}}
+    notes = R._footer_notes({"sources": sources})
+    assert any("Coverage gaps" in n and "dice (exit 1)" in n for n in notes)
+    assert any("Ranking note" in n and "refresh token may be revoked" in n for n in notes)
+    # A healthy layer adds no ranking note; nothing failed adds no footer at all.
+    assert R._footer_notes({"sources": {"spotify": {"ok": True, "note": "Wrote Spotify affinity"}}}) == []
+    assert R._footer_notes({}) == []
+    # And it wires through the actual renderer footer (taste-only disclosure).
+    md = R.render_markdown({"today": "2026-06-17", "candidates": [], "sources": sources}, [])
+    assert "Ranking note" in md and "taste profile only" in md
 
 
 def test_collapse_multidate_runs():

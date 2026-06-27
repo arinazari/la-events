@@ -80,7 +80,8 @@ DEFAULT_NEIGHBORHOODS = {
 # the planner can web-look-up anything missing. Keys are normalized (see _norm).
 DEFAULT_VENUES = {
     "zebulon": "frogtown", "vidiots": "eagle rock", "vista theatre": "los feliz",
-    "vista": "los feliz", "lodge room": "highland park",
+    "vista": "los feliz", "vista theater": "los feliz", "lodge room": "highland park",
+    "new beverly cinema": "fairfax", "new beverly": "fairfax", "new bev": "fairfax",
     "2220 arts archives": "historic filipinotown", "2220 arts": "historic filipinotown",
     "el cid": "silver lake", "echo": "echo park", "echoplex": "echo park",
     "the echo": "echo park", "teragram ballroom": "westlake", "teragram": "westlake",

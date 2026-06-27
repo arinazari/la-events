@@ -40,6 +40,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0      # build_profiles bakes a git diff + reflected/pending flag into the feed;
+                              # needs real history. Also lets the final step rebuild the feed against the
+                              # just-committed enrichment so it bakes "reflected" immediately.
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -100,8 +104,8 @@ jobs:
           if [ "$IS_OWNER" = "true" ]; then
             python scripts/build_radar.py || true
             python scripts/render_digest.py --consolidated \
-              --md digests/latest.md --html digests/latest.html --asset-prefix "./" || true
-            paths="$paths digests/latest.md digests/latest.html"
+              --md digests/latest.md || true
+            paths="$paths digests/latest.md"
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -159,6 +163,14 @@ jobs:
             echo "No LLM artifacts to commit for $HASH."
           else
             git commit -m "rebuild: LLM digest + verdicts for profile $HASH [skip ci]"
+            # The fresh enrichment is now in HEAD. Rebuild this feed once more so its baked
+            # self_edit diff/reflected flag sees it (otherwise the feed would keep showing
+            # the user's last edit as "pending" until the next nightly build). Fold the
+            # corrected feed into the same commit; best-effort so it never blocks the push.
+            if python scripts/build_profiles.py --only-hash "$HASH"; then
+              git add -- "dashboard/data.$HASH.json" 2>/dev/null || true
+              git diff --cached --quiet || git commit --amend --no-edit
+            fi
             git push origin HEAD:main || echo "digest push skipped (nightly routine will persist it)"
           fi
 

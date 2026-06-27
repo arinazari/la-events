@@ -101,6 +101,7 @@ def normalize(listing: dict) -> dict:
         "lineup": [a.get("name") for a in (ev.get("artists") or [])],
         "attending": ev.get("attending"),
         "ra_pick": bool(ev.get("pick")),
+        "detail": (ev.get("pick") or {}).get("blurb"),  # RA editorial pick blurb (sanitized on normalize)
         "afterhours_flag": afterhours,
         "url": f"https://ra.co{ev.get('contentUrl', '')}",
     }

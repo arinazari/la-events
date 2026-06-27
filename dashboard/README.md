@@ -84,8 +84,14 @@ python scripts/build_profiles.py            # rebuilds data.json + every profile
 by *talking to the concierge* — "more techno, less comedy", "track Peggy Gou". The backend Worker
 commits the change to their `profiles/<name>/taste.yaml`; CI (`build-profiles.yml`) re-scores the
 feed with the same `build_profiles.py` scorer and redeploys (~1–2 min — the chat says "refresh
-shortly"). The popup also shows their taste YAML read-only. Requires the backend deployed with a
-`GITHUB_TOKEN` — see `backend/README.md`.
+shortly"). Requires the backend deployed with a `GITHUB_TOKEN` — see `backend/README.md`.
+
+**Seeing your edits land:** the profile popup's "View taste & profile" opens a read-only modal with a
+tab per file (taste + profile). Each shows a **diff** of how the concierge adjusted it and a single
+**reflected/pending** badge — whether that change is live in your ranking & digest yet, or still
+pending (with an *Update now →* button). It's all baked into the feed by `build_profiles.py` from git
+(`profile.self_edit`), so it works on the static page with no backend; a friend's edit reads *pending*
+until they hit Update (or the nightly run) regenerates their digest against the new taste.
 
 **This is obfuscation, not security:** the username is a public, guessable-if-known bearer key, and
 each feed file is publicly fetchable. Taste *writes* are low-stakes too (every edit is a revertible
@@ -95,6 +101,35 @@ non-obvious usernames. Still deferred (see ROADMAP): per-profile Spotify affinit
 Each profile also gets its own **personalized digest** (the daily routine writes `digests/<hash>/latest.md`
 from their feed; the popup's "digest ↗" shows it). Until the routine has run for a new profile, the page
 shows a "ranked picks are live in the table" placeholder.
+
+## Onboarding — first-run welcome, guide & "What's new"
+
+There are two onboarding surfaces, both authored as Markdown strings in `index.html` and rendered
+through the same `renderMarkdown` the digest modal uses (so they match its look exactly — no new styling):
+
+**1. First-run welcome (auto-opens after sign-in).** A short, **stepped** quick-start (`WELCOME` — four
+steps: how the picks are made → **set yourself up** (connect the concierge with Ari's token / your own
+key → tell it your neighborhood + tastes → connect Spotify) → **refresh your ranks** to fold it all in →
+where everything else lives). It **auto-opens the first time someone signs into a profile** — on a fresh sign-in and on a
+persisted-login reload (`maybeOnboard`, called from `applyProfile` and, guarded by a logged-in profile,
+`componentDidMount`). It **never pops up on the logged-out default view**; the owner/default can preview
+it from Settings → ABOUT → quick start. It is keyed per profile in localStorage (`la-onboarded:<hash>`),
+and the **"Don't show this again" checkbox is the dismissal**: ticked → the flag is set and it never
+auto-opens for that profile again; left un-ticked → closing it just hides it for now and it greets you
+again next visit (deliberate — it nags until acknowledged). Re-openable any time from
+**Settings → ABOUT → quick start**.
+
+**2. Guide & changelog (manual).** A two-tab modal — **How it works** (the full plain-language tour:
+the table, rank-vs-score, the concierge, signing in, tuning taste, installing the PWA) and **What's new**
+(a short changelog of friend-facing features), `GUIDE_HOW` / `GUIDE_NEW`. These stay **manual and quiet** —
+no auto-open; reached under Settings → ABOUT (*how it works* / *what's new*).
+
+**Where it lives:** the **ABOUT** group in the **⚷ / ☰** settings popup (footer) — *quick start* (re-open
+the welcome), *how it works* (tour), *what's new* (changelog). That group sits outside the logged-in /
+logged-out branches, so it's reachable whether or not someone is signed in.
+
+**When you ship a friend-facing change, add a bullet to `GUIDE_NEW`** (and a `## <month>` heading when a
+new period starts). That's the only upkeep — friends find it under Settings → ABOUT.
 
 ## Use it
 

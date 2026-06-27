@@ -58,7 +58,8 @@ unless special) + `restaurants_loved`; ranking honors it.
 .claude/skills/la-events/SKILL.md   # events operating spec (digest/discover/flyer/sources modes)
 .claude/skills/la-dining/SKILL.md   # dining operating spec (query/radar/discover/capture)
 .claude/skills/concierge/SKILL.md   # concierge — NL front door routing to the modes/agents (primary interface)
-.claude/agents/                     # worker agents: event-editor (ranking verdicts), scene-researcher (enrichment),
+.claude/agents/                     # worker agents: event-editor (ranking verdicts), scene-researcher (full enrichment,
+                                    #   top-100 head), blurb-writer (cheap one-line descriptions for the band below the head),
                                     #   night-planner (events×dining itinerary), source-scout (discovery)
 sources.yaml                        # events source registry — schema in file header
 dining-sources.yaml                 # dining source registry — schema in file header
@@ -75,13 +76,13 @@ scripts/run_digest.py               # deterministic core: fetch→dedupe→expir
 scripts/lib/                        # shared modules: scoring, dedupe, pipeline, enrich, images, config,
                                     #   affinity (Spotify), feedback (reactions→affinity), geo (travel),
                                     #   tagging (deterministic multi-axis tags: type/genre/setting/vibe/region),
-                                    #   editor (event-editor verdict store + judging pool + Spotify affinity hints),
+                                    #   editor (event-editor verdict store + judging pool + Spotify affinity hints +
+                                    #     a read-only taste-neutral `scene` block folded from the shared enrichment),
                                     #   assemble (the digest slate: lanes + elastic fill/cliff/diversity-floor) — tested
 scripts/merge_verdicts.py           # fold event-editor results JSON → per-profile data/verdicts/<hash>.json
 scripts/build_radar.py              # deterministic "on the radar" set (festival/big-venue/tracked/editorial) → data/radar.json
-scripts/render_digest.py            # scored pool + verdicts → digest slate. `--consolidated` = one daily doc (next 2 wks
-                                    #   + weekends ahead + radar); `--from/--to` = per-weekend look-ahead. .md + hosted .html
-scripts/cache_images.py             # download enrichment hero images → data/images/ (no hotlink rot)
+scripts/render_digest.py            # scored pool + verdicts → digest slate (Markdown). `--consolidated` = one daily doc
+                                    #   (next 2 wks + weekends ahead + radar); `--from/--to` = per-weekend look-ahead
 scripts/travel.py                   # night-planner travel CLI: rough LA drive/walk times (lib/geo.py + dining.json)
 scripts/make_ics.py                 # turn a night-planner itinerary into a calendar .ics (lib/ics.py)
 scripts/log_feedback.py             # concierge: append a reaction to data/feedback.jsonl (the learned loop)
@@ -95,19 +96,19 @@ scripts/build_dashboard.py          # builds dashboard/data.json from catalog + 
                                     #   (--profile-hash loads that profile's own Spotify/feedback music layer)
 scripts/build_profiles.py           # per-profile dashboard feeds (data.<hash>.json) — reuses build_dashboard's scorer
 data/catalog.json                   # deduped events store (committed = the state)
-data/candidates.json                # scored, ranked top-N for enrichment (runtime; gitignored)
+data/candidates.json                # scored, ranked top-N (full-enrichment head) (runtime; gitignored)
+data/blurb_pool.json                # cheap-tier (blurb-writer) candidate band below the head (runtime; gitignored)
 data/editor_pool*.json              # event-editor judging pool, per profile (runtime; gitignored)
 data/radar.json                     # "on the radar" set for the consolidated digest (runtime; gitignored)
 data/verdicts/<hash>.json           # event-editor verdicts, per profile (committed; only the delta is judged each run)
-data/enrichment.json                # scene-graph cache: per-event enrichment + artist notes (committed; grows each run)
-data/images/                        # cached hero images for the digests (committed)
+data/enrichment.json                # scene-graph cache: per-event enrichment (full + blurb tiers) + artist notes (committed; grows each run)
 data/spotify_affinity.json          # Spotify music-affinity artifact (runtime; gitignored)
 data/feedback.jsonl                 # append-only reaction log (committed); folds into scoring each run
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)
 data/dining.json                    # dining catalog: restaurants + popups/trucks
-digests/latest.{md,html}            # PRIMARY consolidated daily digest (next 2 wks + weekends ahead + on the radar)
+digests/latest.md                   # PRIMARY consolidated daily digest (next 2 wks + weekends ahead + on the radar)
 digests/<hash>/latest.md            # per-profile personalized digest (the dashboard profile popup reads this)
-digests/weekends/YYYY-MM-DD.{md,html} # per-weekend look-ahead digests, day-grouped (~4 mo out) + index.md
+digests/weekends/YYYY-MM-DD.md      # per-weekend look-ahead digests, day-grouped (~4 mo out) + index.md
 digests/YYYY-MM-DD.md               # ad-hoc windowed events digests
 digests/dining-YYYY-MM-DD.md        # dining radar outputs
 routines/daily-digest-prompt.md     # scheduled events-digest routine prompt
@@ -163,7 +164,7 @@ he wants input at the decision points listed in ROADMAP.md.
   promoter blasts. If the connector isn't available in a session, skip that source and
   note it in the digest footer.
 - Daily digest runs as a scheduled Routine using routines/daily-digest-prompt.md: it builds the
-  consolidated daily digest (`digests/latest.{md,html}` — next 2 weeks + weekends ahead + on the
+  consolidated daily digest (`digests/latest.md` — next 2 weeks + weekends ahead + on the
   radar) plus a rolling set of per-weekend look-ahead digests (`digests/weekends/`, ~4 months out),
   and commits them + the updated catalog + per-profile verdicts (`data/verdicts/`) to `main` (the
   Pages workflow then redeploys the dashboard).

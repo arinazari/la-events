@@ -12,10 +12,14 @@ Right Now), location preset (Los Angeles + lat/long), limit, clientTimezone. Pos
 surfaces a lot of warehouse/afterhours/party events with TBA "revealed after approval"
 locations — squarely on-profile — plus the promoter (groupName/groupUrl) on every event.
 
-AUTH: needs a Posh session JWT in the POSH_TOKEN env var. The token is ~30-day-lived; when
-it expires the API returns an auth error and this prints a clear message (and degrades to an
-empty result, never blocking a digest). Re-capture from a logged-in browser's network tab
-(events.fetchMarketplaceEvents request, x-jwt-token header) and update POSH_TOKEN.
+AUTH: needs a Posh session JWT in the POSH_TOKEN env var. The token is ~30-day-lived; Posh
+mints it at OTP login and lets it lapse — there is no refresh endpoint (verified against the
+web client), so it must be re-captured by hand roughly monthly. When it expires this degrades
+to an empty result AND exits non-zero, so run_digest files Posh under `failed` and the digest
+footer flags it ("Coverage gaps: posh (POSH_TOKEN expired — re-capture it)"). It never blocks
+the digest — run_digest catches each fetcher's failure per-source. Re-capture from a logged-in
+browser's network tab (events.fetchMarketplaceEvents request, x-jwt-token header), update
+POSH_TOKEN, and the flag clears on the next run.
 
 Usage:
     export POSH_TOKEN=...    # session JWT
@@ -118,6 +122,28 @@ def fetch(when: str, sort: str, limit: int, token: str):
         return json.loads(resp.read().decode("utf-8", "replace"))
 
 
+# Surfaced verbatim in the digest footer's "Coverage gaps" line (run_digest takes the LAST
+# stderr line as the failure reason). Keep it concise + actionable — the how-to is in the
+# module docstring. Posh has no token refresh, so expiry is an expected ~monthly re-capture.
+EXPIRED_MSG = "POSH_TOKEN expired — re-capture it"
+# Posh returns auth failures as 200-with-error-body, not HTTP 401 — an expired/invalid token
+# comes back as {"error": {"message": "Error authenticating."}}. Match that (and related
+# phrasings) so expiry surfaces the actionable EXPIRED_MSG, not a generic "Posh API error".
+_AUTH_HINTS = ("authenticat", "unauth", "jwt", "token", "session", "forbidden", "expired", "log in")
+
+
+def degrade(out_path: str, footer_msg: str, detail: str = "") -> int:
+    """Write an empty result and exit non-zero so run_digest files Posh under `failed`
+    (→ digest footer flag). The LAST stderr line becomes the footer reason, so `footer_msg`
+    is printed last and kept concise; `detail` (printed first) is for the run log only.
+    Non-zero never blocks the digest — fetch_all catches each fetcher's failure per-source."""
+    json.dump([], open(out_path, "w"))
+    if detail:
+        print(f"  posh detail: {detail}", file=sys.stderr)
+    print(footer_msg, file=sys.stderr)
+    return 2
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--when", default="This Month",
@@ -137,23 +163,17 @@ def main() -> int:
         data = fetch(args.when, args.sort, args.limit, token)
     except HTTPError as e:
         body = e.read().decode("utf-8", "replace")[:200]
-        if e.code in (401, 403):
-            print(f"ERROR: POSH_TOKEN rejected ({e.code}) — likely expired; re-capture it. {body}",
-                  file=sys.stderr)
-        else:
-            print(f"WARN: Posh fetch failed: {e.code} {body}", file=sys.stderr)
-        json.dump([], open(args.out, "w"))
-        return 0
-    except Exception as e:  # noqa: BLE001
-        print(f"WARN: Posh fetch failed: {e}", file=sys.stderr)
-        json.dump([], open(args.out, "w"))
-        return 0
+        if e.code in (401, 403):  # expired/invalid session JWT — the ~monthly re-capture
+            return degrade(args.out, EXPIRED_MSG, detail=f"auth {e.code}: {body}")
+        return degrade(args.out, f"Posh fetch failed: HTTP {e.code}", detail=body)
+    except Exception as e:  # noqa: BLE001  — network/parse/etc: a coverage gap, not a block
+        return degrade(args.out, f"Posh fetch failed: {str(e).splitlines()[0][:120]}")
 
     if isinstance(data, dict) and data.get("error"):
-        msg = data["error"].get("message", "")
-        print(f"WARN: Posh API error: {msg}", file=sys.stderr)
-        json.dump([], open(args.out, "w"))
-        return 0
+        msg = (data["error"].get("message") or "").strip()
+        if any(k in msg.lower() for k in _AUTH_HINTS):  # auth error returned 200-with-body
+            return degrade(args.out, EXPIRED_MSG, detail=f"tRPC error: {msg[:160]}")
+        return degrade(args.out, f"Posh API error: {msg[:120]}")
 
     events = data.get("result", {}).get("data", {}).get("events", [])
     lo = datetime.now(LA).date()

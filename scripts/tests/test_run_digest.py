@@ -32,6 +32,63 @@ def test_fetch_all_degrades_gracefully():
     assert "ra" not in report["skipped"]
 
 
+def test_fetch_window_two_speed():
+    """Far-capable sources (TM) widen to --far-days; near sources keep --days; no far_days => near."""
+    tm = next(e for e in R.FETCHERS if e["source"] == "ticketmaster")
+    dice = next(e for e in R.FETCHERS if e["source"] == "dice")
+    assert tm.get("far") is True and not dice.get("far")
+    # two-speed: TM reaches the far horizon, DICE stays near
+    assert R.fetch_window(tm, days=21, far_days=180) == 180
+    assert R.fetch_window(dice, days=21, far_days=180) == 21
+    # single-speed (far_days unset): everyone near — behaviour-preserving
+    assert R.fetch_window(tm, days=21) == 21
+    assert R.fetch_window(dice, days=21, far_days=None) == 21
+
+
+def _run_affinity_with_fake_spotify(stdout, returncode=0):
+    """Drive load_affinity_layer with a stubbed fetch_spotify subprocess + a present token,
+    and return the recorded report['spotify']. Restores the globals it touches."""
+    import os
+
+    class _Proc:
+        pass
+    proc = _Proc(); proc.returncode = returncode; proc.stdout = stdout; proc.stderr = ""
+    orig_run, orig_tok = R.subprocess.run, os.environ.get("SPOTIFY_REFRESH_TOKEN")
+    R.subprocess.run = lambda *a, **k: proc
+    os.environ["SPOTIFY_REFRESH_TOKEN"] = "present"
+    try:
+        report = {}
+        R.load_affinity_layer(no_fetch=False, report=report, profile={})
+        return report.get("spotify")
+    finally:
+        R.subprocess.run = orig_run
+        if orig_tok is None:
+            os.environ.pop("SPOTIFY_REFRESH_TOKEN", None)
+        else:
+            os.environ["SPOTIFY_REFRESH_TOKEN"] = orig_tok
+
+
+def test_spotify_refresh_failure_is_recorded_not_swallowed():
+    """A revoked token (fetch_spotify exits 0 with a WARN line) is recorded ok=False — the
+    digest footer reads this to disclose the degraded ranking instead of hiding it."""
+    sp = _run_affinity_with_fake_spotify(
+        "WARN: Spotify auth rejected (401) — refresh token may be revoked; re-run --authorize.")
+    assert isinstance(sp, dict) and sp["ok"] is False
+    assert "refresh token may be revoked" in sp["note"]
+    assert not sp["note"].startswith("WARN")          # marker prefix stripped for clean display
+
+
+def test_spotify_success_is_marked_ok():
+    sp = _run_affinity_with_fake_spotify(
+        "Wrote Spotify affinity -> data/spotify_affinity.json (42 artists, 9 core; 3 genres)")
+    assert isinstance(sp, dict) and sp["ok"] is True
+
+
+def test_clean_spotify_note_strips_markers():
+    assert R._clean_spotify_note("SKIP: set SPOTIFY_CLIENT_ID …") == "set SPOTIFY_CLIENT_ID …"
+    assert R._clean_spotify_note("Wrote Spotify affinity -> x") == "Wrote Spotify affinity -> x"
+
+
 def test_missing_api_key_is_a_clean_skip_reason():
     """run_fetcher refuses (raises) when a required env var is absent — caught upstream."""
     import os

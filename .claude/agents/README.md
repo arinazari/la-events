@@ -7,7 +7,8 @@ to these workers** so the main run stays fast and its context doesn't bloat.
 
 | Agent | Tier / when | Spawned by | Returns |
 |---|---|---|---|
-| `scene-researcher` | Tier 1 — every digest run, **in parallel** over the top ~30–40 (one per batch) | la-events skill / daily routine | structured enrichment JSON (tags, artist notes, curator note, description, image) → written to the enrichment cache |
+| `scene-researcher` | Tier 1 — every digest run, **in parallel** over the top ~100 full head (one per batch) | la-events skill / daily routine | structured enrichment JSON (tags, artist notes, curator note, description) → enrichment cache (`enriched_tier: full`) |
+| `blurb-writer` | Tier 2 (cheap) — every digest run, **in parallel** over the blurb pool below the head (one per batch) | la-events skill / daily routine | one-line `{id, description}` per event, no web/artist research → enrichment cache (`enriched_tier: blurb`; upgrades to full if it climbs into the head) |
 | `source-scout` | On demand only | la-events Discover mode / Ari | a vetted **proposal** table (+ ready-to-paste `sources.yaml` snippets); never commits |
 | `night-planner` | On demand | concierge / Ari | a timed dinner → show → afters itinerary with booking links |
 
@@ -17,11 +18,12 @@ to these workers** so the main run stays fast and its context doesn't bloat.
 run_digest.py (Tier 0, no LLM)         ← fetch → normalize → dedupe → expire → score
         │  ranked, deduped candidate set
         ▼
-scene-researcher ×N  (Tier 1, parallel) ← enrich top ~30–40; read+update the enrichment cache
-        │  enriched records (cache)
+scene-researcher ×N  (Tier 1, parallel) ← full-enrich the top ~100 head; read+update the cache
+blurb-writer ×N      (Tier 2 cheap, ∥)   ← one-line descriptions for the band below the head
+        │  enriched records (cache: full + blurb tiers)
         ▼
 main agent (Tier 2, one creative step) ← write the digest in the single "LA insider" voice,
-                                          render .md (canonical) + HTML (top-10 images) → email
+                                          render the canonical Markdown agenda (.md)
 ```
 
 `source-scout` and `night-planner` sit **outside** that loop — invoked when Ari asks (typically
@@ -39,7 +41,10 @@ not on a schedule.
   researched once.
 - **Model (cost tier):** `event-editor` and `scene-researcher` are pinned to **`sonnet`** — bounded,
   structured-output judgment/enrichment that doesn't need the parent's (Opus) tier every night, and
-  the per-call work is already delta-gated (only new/changed events are judged or enriched). Escalate
+  the per-call work is already delta-gated (only new/changed events are judged or enriched).
+  `blurb-writer` is pinned a tier lower to **`haiku`** with no web tools — it only writes one
+  factual line from fields it's handed, so it's the cheapest of the three and runs over the widest
+  band (the events below the full head). Escalate
   to Opus only **when it matters**, never by default: the orchestrator may spawn the editor with a
   `model: opus` override for a tier-boundary or genuinely ambiguous batch, and the per-user rebuild
   (`rebuild-profile.yml`) takes a `model` input (default Sonnet) so an owner can request an Opus pass.

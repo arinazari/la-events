@@ -11,7 +11,7 @@ you" rating can't drift from the digest's ranking.
 The feed has three parts:
   - events[]   — every catalog event, scored (+ rating/reasons), with enrichment folded
                  in when data/enrichment.json has a hit for it (curator note, type/
-                 subgenre tags, artist notes, image).
+                 subgenre tags, artist notes).
   - config     — a structured snapshot of the editable knobs (taste.yaml content,
                  profile.yaml scoring mechanics, sources.yaml registry) so the
                  dashboard's Settings view can render current state and stage edits.
@@ -51,8 +51,20 @@ REPO = Path(__file__).resolve().parent.parent
 # cache also stores id/enriched_at/confidence — internal plumbing the viewer ignores.
 ENRICH_FIELDS = (
     "type", "subgenres", "label_orbit", "energy", "setting", "sounds_like",
-    "artist_notes", "curator_note", "description", "image",
+    "artist_notes", "curator_note", "description",
 )
+
+
+def music_block(affinity: dict) -> dict:
+    """A compact self-report of the music layer this feed was actually scored against, so the
+    dashboard can tell a connected-but-not-yet-applied Spotify (a stale ranking, or a failed
+    per-profile sync) from a live one. `layer` is none / feedback / spotify / spotify+feedback;
+    the counts are what fed the scorer. Purely additive — older viewers ignore it."""
+    if not affinity:
+        return {"layer": "none", "artists": 0, "genres": 0}
+    return {"layer": affinity.get("source") or "spotify",
+            "artists": len(affinity.get("artists") or {}),
+            "genres": len(affinity.get("genres") or {})}
 
 
 def build_config(taste: dict, profile: dict, sources: dict) -> dict:
@@ -201,9 +213,13 @@ def main() -> int:
     # still happening tonight in LA get marked is_past and lose their final_rank / highlight.
     today = today_la()
 
+    # Fold the enrichment cache onto the whole catalog ONCE (order-preserving) instead of a
+    # per-event merge_enrichment([ev]) call inside the loop — same result, O(N) not O(N) calls.
+    merged_all = merge_enrichment(catalog, cache)
+
     events = []
     enriched_hits = 0
-    for ev in catalog:
+    for ev, merged in zip(catalog, merged_all):
         scored = score_event(ev, taste, profile, affinity)
         d = parse_event_date(ev)
         out = dict(ev)
@@ -213,7 +229,6 @@ def main() -> int:
         out["iso_date"] = d.isoformat() if d else None
         out["is_past"] = bool(d and d < today)
 
-        [merged] = merge_enrichment([ev], cache)
         enr = merged.get("enrichment")
         if enr:
             out["enrichment"] = {k: enr[k] for k in ENRICH_FIELDS if enr.get(k)}
@@ -282,6 +297,7 @@ def main() -> int:
         "catalog_fetched_at": cat_meta.get("fetched_at"),
         "count": len(events),
         "enriched_count": enriched_hits,
+        "music": music_block(affinity),
         "neighborhoods": neighborhoods,
         "categories": categories,
         "tag_facets": tag_facets,
@@ -326,7 +342,8 @@ def main() -> int:
                  and e["iso_date"] <= end_iso and (e.get("score") or 0) >= 0]
         judge = ED.editor_pool(epool, per_lane=args.editor_per_lane, floor=args.editor_floor)
         ep_doc = ED.pool_doc(judge, today=today, window_days=args.editor_window,
-                             per_lane=args.editor_per_lane, floor=args.editor_floor, affinity=affinity)
+                             per_lane=args.editor_per_lane, floor=args.editor_floor,
+                             affinity=affinity, enrichment=cache)
         epath = resolve(args.editor_pool_out)
         epath.parent.mkdir(parents=True, exist_ok=True)
         epath.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")

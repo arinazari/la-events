@@ -17,13 +17,17 @@ app.ticketmaster.com, ra.co, dice.fm + the domains in sources.yaml), and `TM_API
 
 Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set** mode:
 
-1. **Run the deterministic core:** `python scripts/run_digest.py --days 120`. Fetches the
-   structured sources, dedupes, expires past events, scores against taste.yaml + profile.yaml →
-   `data/catalog.json` + `data/candidates.json` (wide horizon so far weekends carry announcements)
-   plus the editor judging pool `data/editor_pool.json`.
-   Capture the run report (failed/skipped sources) for footers. Degrades gracefully. The Phase C
-   music layer rides along: if `SPOTIFY_REFRESH_TOKEN` is set it syncs Spotify and folds it with
-   `data/feedback.jsonl` into the scoring (report prints a `music layer …` line).
+1. **Run the deterministic core:** `python scripts/run_digest.py --days 120 --far-days 180`.
+   Fetches the structured sources, dedupes, expires past events, scores against taste.yaml +
+   profile.yaml → `data/catalog.json` + `data/candidates.json` plus the editor judging pool
+   `data/editor_pool.json`. **Two-speed horizon:** near sources fetch 120 days; far-capable sources
+   (Ticketmaster) reach `--far-days` (180 ≈ 6 months) so festivals, big tours, and theater seasons
+   land early on the radar — the TM fetcher date-windows internally so the wide pull doesn't hit the
+   Discovery API's 1000-results/query cap (which was silently truncating even the 120-day pull).
+   Ghost-detection stays on the near (120d) window, so far events aren't flagged unlisted before
+   their feeds list them. Capture the run report (failed/skipped sources) for footers. Degrades
+   gracefully. The Phase C music layer rides along: if `SPOTIFY_REFRESH_TOKEN` is set it syncs
+   Spotify and folds it with `data/feedback.jsonl` into the scoring (report prints a `music layer …` line).
 2. **Layer in + re-score:** add the sources the core doesn't cover (SKILL Step 2) — the Gmail
    "Events" label if available, `webfetch`/`squarespace`/`ics` venues (≤15-source budget), and this
    week's editorial roundups as `editorial_mentions`. Then `python scripts/run_digest.py --no-fetch`
@@ -35,19 +39,27 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    verdicts (`{tier, lane?, adjust, why, confidence}`) and merge: `python scripts/merge_verdicts.py
    <results.json>` → `data/verdicts/default.json`. These drive the slate (render) and the dashboard's
    final rank. Cached + committed, so only the delta is judged each day.
-4. **Enrich:** fan out the `scene-researcher` agent over the cache-miss candidates
-   (`enrich.select_for_enrichment`) → per-event tags, artist notes, curator's notes, descriptions,
-   and images for the `image_wanted` picks → folded into `data/enrichment.json` (recurring artists
-   reuse the cache; verify-or-omit). Then **prune**: `python scripts/prune_enrichment.py` drops
-   enrichment entries for events that have since expired (cache hygiene — artist bios are kept,
-   they're the durable scene knowledge). Optional periodic refresh: pass `refresh_days` to
-   `select_for_enrichment` to re-research entries older than N days (default: write-once, no cost).
-5. **Cache images:** `python scripts/cache_images.py` — downloads the hero images into
-   `data/images/` so committed/hosted digests don't hotlink-rot. Idempotent.
-6. **Render.** First the radar tier: `python scripts/build_radar.py --md radar-candidates.md` →
+4. **Enrich — two tiers (hybrid coverage).** Both write to `data/enrichment.json`, keyed the same,
+   so the dashboard reads one place; both are write-once cached (only the daily delta costs calls).
+   - **Full head (~100):** fan out the `scene-researcher` agent over the cache-miss candidates in
+     `data/candidates.json` (`enrich.select_for_enrichment` — misses + any blurb-tier event that
+     climbed into the head, which it upgrades) → per-event tags, artist notes, curator's notes, and
+     descriptions (recurring artists reuse the cache; verify-or-omit; `enriched_tier: full`).
+   - **Cheap blurb tier:** fan out the `blurb-writer` agent over `enrich.select_for_blurb` applied to
+     `data/blurb_pool.json` (the ranked band below the head). It writes ONE factual description line
+     per event, no web/artist research (haiku, Read/Write only). `select_for_blurb` already skips
+     events that have any cache record OR a usable source `detail` (those display raw detail for
+     free), so only genuine gaps cost a call. Fold results with `enrich.update_blurb_cache`
+     (`enriched_tier: blurb`; never downgrades a full record). The blurb-pool `overflow` (events
+     past the cap, in the run report) intentionally gets no blurb — they fall back to raw detail.
+   - Then **prune**: `python scripts/prune_enrichment.py` drops enrichment entries for events that
+     have since expired (cache hygiene — artist bios are kept, the durable scene knowledge).
+   Optional periodic refresh: pass `refresh_days` to `select_for_enrichment` to re-research full
+   entries older than N days (default: write-once, no cost).
+5. **Render.** First the radar tier: `python scripts/build_radar.py --md radar-candidates.md` →
    `data/radar.json` (festivals/big shows/tracked far-out). Then the **primary consolidated daily
-   digest**: `python scripts/render_digest.py --consolidated --md digests/latest.md --html
-   digests/latest.html` — ONE doc with three sections: the next 14 days day-by-day, the weekends in
+   digest**: `python scripts/render_digest.py --consolidated --md digests/latest.md` — ONE doc with
+   three sections: the next 14 days day-by-day, the weekends in
    days 15–35 (Thu–Sun), and **on the radar**. All of it is the editor **slate** (assemble over the
    scored pool + verdicts); ⭐ = the editor's must-sees, curator notes from enrichment. `render_digest`
    auto-reads the root **`digest.yaml`** format prefs (only the structural `max_picks_per_day` cap
@@ -55,11 +67,11 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    interactive synthesis). Also keep the
    **per-weekend look-ahead** (backend option for the dashboard's per-weekend view): for each of the
    next ~16 weekends keyed by the **Friday**, `python scripts/render_digest.py --from <Fri> --to <Sun>
-   --md digests/weekends/<Fri>.md --html digests/weekends/<Fri>.html`. Near weekends fill out; far
+   --md digests/weekends/<Fri>.md`. Near weekends fill out; far
    ones stay thin — do NOT pad.
-7. Maintain `digests/weekends/index.md`: one row per weekend (date range, # events, top pick),
+6. Maintain `digests/weekends/index.md`: one row per weekend (date range, # events, top pick),
    soonest first; drop past weekends.
-8. **Sync per-profile Spotify, then rebuild the dashboard feeds.** First, if the per-profile
+7. **Sync per-profile Spotify, then rebuild the dashboard feeds.** First, if the per-profile
    music layer is configured (env `SPOTIFY_SYNC_URL` + `SPOTIFY_SYNC_TOKEN` — the concierge
    Worker), `python scripts/sync_profiles_spotify.py`: pulls each friend who connected Spotify
    into `data/spotify/<hash>.json` (gitignored; the token stays in the Worker). SKIPs cleanly if
@@ -67,7 +79,12 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    taste + Ari's Spotify/feedback) AND every per-profile feed `dashboard/data.<hash>.json` (one per
    entry in `profiles.yaml`), each scored against **its own** music layer, so friends' feeds stay
    fresh as the catalog changes. Each feed folds in that profile's verdicts (`data/verdicts/<hash>.json`) → each event's verdict + **final rank** beside its score, and emits the profile's editor pool `data/editor_pool.<hash>.json`. To give friends the full editor treatment, judge those per profile (`event-editor` → `merge_verdicts.py --profile-hash <hash>`) and re-run build_profiles; otherwise their feeds rank deterministically against their own music and pick up verdicts next run.
-9. **Per-profile digests (regenerate only when picks moved — saves tokens, but always honest):**
+   Each feed also carries a `profile.self_edit` block (baked from git by `build_profiles`): a diff of
+   the concierge's taste/profile edits + whether they're **reflected** in that profile's latest committed
+   verdicts/narrative. The dashboard renders it (diff + reflected/pending badge); nothing to hand-edit
+   here. The flag is "as of this build" — a friend's same-day edit reads *pending* until their next
+   Update (the per-user rebuild re-bakes it to *reflected*) or the following night; that's expected.
+8. **Per-profile digests (regenerate only when picks moved — saves tokens, but always honest):**
    for each profile in `profiles.yaml`, first GATE on whether its picks actually changed:
    `python scripts/digest_gate.py decide --feed dashboard/data.<hash>.json --md digests/<hash>/latest.md`
    - Prints **SKIP** → the profile's top picks haven't moved since the last regeneration, so the
@@ -87,18 +104,25 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    The dashboard's profile popup reads `digests/<hash>/latest.md`. (An `owner: true` profile shares the
    root taste.yaml, so its digest ≈ the default — expected.) Friends' feeds re-rank within ~1–2 min of a
    self-edit via CI; their *narrative* digest refreshes here only when their picks actually move.
-10. Commit catalog + **`data/catalog_meta.json`** (the version stamp the dashboard's staleness
+9. Commit catalog + **`data/catalog_meta.json`** (the version stamp the dashboard's staleness
    check keys off — written by `run_digest`) + `data/enrichment.json` + `data/verdicts/` +
-   `data/images/` + **`digests/latest.{md,html}`** (the consolidated digest) + `radar-candidates.md`
-   + the changed weekend `.md`/`.html` + index + **all `dashboard/data*.json`** (default + profile
+   **`digests/latest.md`** (the consolidated digest) + `radar-candidates.md`
+   + the changed weekend `.md` + index + **all `dashboard/data*.json`** (default + profile
    feeds) + **`dashboard/catalog_meta.json`** (published by `build_dashboard`) +
    **`digests/<hash>/latest.md`** + the digest-gate sidecars **`digests/<hash>/latest.md.meta.json`**
    (signature/regenerated/checked stamps), message "digest: YYYY-MM-DD (N events, M new, K updated)".
-11. If a source failed twice in a row, mark it `flaky` in sources.yaml and note it in the nearest
+10. If a source failed twice in a row, mark it `flaky` in sources.yaml and note it in the nearest
    weekend footer.
-12. Do NOT run discover mode here (separate / manual).
+11. Do NOT run discover mode here (separate / manual).
 
-> **Delivery — no email (deliberate).** The routine commits the `.md` + `.html` to the branch; do
+> **Delivery — no email (deliberate).** The routine commits the `.md` to the branch; do
 > NOT email. The planned delivery is a **hosted, bookmarkable page** served from these artifacts,
 > with on-page actions (re-scan sources, request an ad-hoc digest from the LLM). See ROADMAP
-> "Hosted page". Until it exists, open the committed weekend `.html` directly.
+> "Hosted page". Until it exists, open the committed weekend `.md` directly.
+>
+> **Operational nudges ride in the digest, not your inbox** (consistent with no-email):
+> `render_digest --consolidated` auto-adds a **Posh-token re-auth banner** at the top of
+> `digests/latest.md` when `POSH_TOKEN` is within 5 days of expiry (or already dead) —
+> Posh has no token refresh, so the JWT must be re-captured by hand ~monthly. It's automatic
+> (reads the token's own expiry; no action in this routine). Sanity-check anytime with
+> `python scripts/posh_token_status.py`.

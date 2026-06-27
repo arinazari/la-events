@@ -54,13 +54,49 @@ Who reads it:
 Per-event stamps (`first_seen`, `updated_at`, `changed_fields`) are written by
 `pipeline.diff_catalog` and persisted on the catalog record.
 
+## The self-edit reflected signal — "did my taste change land yet?"
+
+Separate from the *catalog* clock above: when the concierge edits a profile's
+`taste.yaml`/`profile.yaml` (a commit), the dashboard shows a **diff** of the change and
+whether it's **reflected** in that profile's latest *data enrichment* (its committed
+event-editor verdicts + narrative digest). Both are derived from git **at build time** by
+`build_profiles.py` and baked into each feed's `profile.self_edit.{taste,profile}` block —
+no backend; the static page just renders it.
+
+```jsonc
+"self_edit": { "taste": {
+  "history":   [ { "date": "2026-06-23", "summary": "track Peggy Gou" } ],  // non-automated commits only
+  "diff":      "…unified diff…",      // pending changes (enrich→HEAD), else the latest applied change
+  "diff_kind": "pending|applied|none",
+  "reflected": true,                  // file identical between last enrichment commit and HEAD (content-based)
+  "enriched_at": "2026-06-23"
+}, "profile": { … } }
+```
+
+- **reflected** is content-based (`git diff <last-enrichment-commit>..HEAD -- <file>` is empty),
+  so an edit-then-revert correctly reads as reflected. `enrich_paths` per profile =
+  `digests/<hash>/latest.md` + `data/verdicts/<hash>.json` — the per-profile narrative + verdicts that
+  **only the full LLM pass writes**; their last-commit *is* "the most recent enrichment". Same bar for
+  everyone, **owner included**: we deliberately do NOT count the consolidated `digests/latest.md`,
+  because a cheap deterministic Refresh re-renders it without re-running the LLM, which would flip the
+  owner green before the AI reprocessed their taste. The page treats `reflected === false` as the
+  authoritative **taste-dirty** state that
+  lights "Update my ranking & digest" (the localStorage flag is just the optimistic pre-CI bridge).
+- **Timing.** A concierge edit → `build-profiles.yml` re-ranks the feed → it bakes **pending**.
+  Clicking **Update** (`rebuild-profile.yml`) runs the LLM pass, commits the enrichment, then
+  rebuilds the feed once more in the same commit so it bakes **reflected** immediately — ranking and
+  enrichment are one step from the user's view. Nightly is eventually-correct (a same-day edit reads
+  pending until the next Update or the following night). Needs `fetch-depth: 0` on those workflows
+  (a shallow clone has no diff); degrades to no-badge when history is unavailable.
+
 ## Per-stage run conditions & no-op behavior
 
 | Stage | Runs | No-ops when | Cost tier |
 |---|---|---|---|
 | fetch + dedupe + expire + score (`run_digest`) | every routine run / refresh | — (always; deterministic, cheap). Merge is **freshest-wins** for price/time/lineup/status, so in-place updates land | none |
-| **event-editor** (Tier 1 verdicts) | routine + per-user rebuild | event already judged at this score (`select_for_verdict`) | Sonnet, delta only |
-| **scene-researcher** (Tier 2 enrichment) | routine + per-user rebuild | event/artist already in `enrichment.json` (write-once) | Sonnet, misses only |
+| **event-editor** (Tier 1 verdicts) | routine + per-user rebuild | event already judged at this score AND editor-input version unchanged (`select_for_verdict`) | Sonnet, delta only |
+| **scene-researcher** (Tier 1 full enrichment, top-100 head) | routine + per-user rebuild | event already full-tier in `enrichment.json` (write-once; a blurb-tier event in the head is *re-selected* to upgrade) | Sonnet, misses + upgrades only |
+| **blurb-writer** (Tier 2 cheap enrichment, band below head) | routine | event already has a cache record (`select_for_blurb`) | Haiku, gaps only, no web |
 | consolidated narrative intro | every routine run | — (cheap; the slate is deterministic, only a short intro is LLM) | small |
 | **per-profile narrative** | routine + per-user rebuild | feed signature unchanged (`digest_gate decide` → SKIP) | gated; one narrative per *changed* feed |
 | `build_dashboard` / `build_profiles` | end of routine / on edit | — (deterministic) | none |
@@ -69,7 +105,19 @@ Per-event stamps (`first_seen`, `updated_at`, `changed_fields`) are written by
 ## Cost ledger — where tokens go, and the bound on each
 
 1. **Nightly editor** — only new/score-drifted events are judged; cached + committed per profile. Sonnet.
-2. **Nightly enrichment** — write-once on event-id + artist; recurring artists researched once. Sonnet.
+   The editor record now carries a read-only `scene` block — the **taste-neutral** factual subset of
+   the shared enrichment cache (`editor._record` → `enrich.scene_facts`: type/subgenres/label_orbit/
+   setting/sounds_like/description + artist bios; **never** curator_note/energy, which are taste-voiced)
+   — so the judge reads verified facts about unfamiliar lineups instead of re-deriving / re-searching
+   them. Enrichment stays one shared write-once cache; only the per-profile `affinity` + `taste.yaml`
+   personalize the verdict. A bump to `editor.EDITOR_INPUT_VERSION` (now 2, for the `scene` block)
+   forces a **one-time re-judge** of every prior verdict (they were judged blind); steady-state is
+   unchanged after that one pass.
+2. **Nightly enrichment (two tiers)** — *full* (scene-researcher, top-100 head): write-once on
+   event-id + artist; recurring artists researched once; Sonnet. *blurb* (blurb-writer, the bounded
+   band below the head): one description line, write-once, for events with no cache record (events
+   carrying source `detail` still get a clean line; raw detail is the display fallback for un-blurbed
+   events); Haiku, no web. Both amortize to the daily delta.
 3. **Per-profile narratives** — regenerated only when that feed's top-N picks moved (`digest_gate`).
    On a quiet day this is **0 LLM calls**; it scales with *changed* friends, not all friends.
 4. **Consolidated intro** — small, every run (the body is deterministic slate).
@@ -95,6 +143,9 @@ Per-event stamps (`first_seen`, `updated_at`, `changed_fields`) are written by
 | `REFRESH_MIN_MINUTES` | Worker env | 15 | refresh debounce window |
 | `model` input | `rebuild-profile.yml` / Worker `body.model` (BYOK) | `sonnet` | escalate a rebuild / chat to Opus when it matters |
 | `event-editor` / `scene-researcher` `model:` | agent frontmatter | `sonnet` | nightly subagent tier |
+| `blurb-writer` `model:` | agent frontmatter | `haiku` | cheap-tier description writer (no web tools) |
+| `--top` | `run_digest` | 100 | full-enrichment head size (scene-researcher) |
+| `--blurb-window` / `--blurb-top` | `run_digest` | 35d / 0 | blurb (cheap-tier) pool span (the real bound) + optional safety cap (0 = off, cover the whole window) |
 | `refresh_days` | `select_for_verdict` / `select_for_enrichment` | `None` (write-once) | optional periodic re-judge / re-research |
 | `--top-n` | `digest_gate` | 25 | how many picks define a digest's signature |
 
@@ -107,7 +158,8 @@ Per-event stamps (`first_seen`, `updated_at`, `changed_fields`) are written by
 - `scripts/lib/editor.py` / `enrich.py` — the delta/write-once selection that bounds LLM cost.
 - `scripts/render_digest.py` — the freshness line + 🆕/↻ markers.
 - `scripts/digest_gate.py` — per-profile regen gate + honest freshness stamp.
+- `scripts/build_profiles.py` — per-profile feeds + the `profile.self_edit` diff/reflected block (from git).
 - `backend/concierge-worker.js` — `/refresh-events` (debounced) + `/rebuild-profile` + BYOK model.
 - `.github/workflows/{refresh-events,rebuild-profile,build-profiles,spotify-sync,deploy-dashboard}.yml`.
-- `dashboard/index.html` — staleness badge, "what changed" readout, refresh/update buttons.
+- `dashboard/index.html` — staleness badge, "what changed" readout, refresh/update buttons, taste/profile diff modal.
 - `routines/daily-digest-prompt.md` — the nightly orchestration.

@@ -117,8 +117,8 @@ portability.
       expire → stamp seen → score → emit candidate set. Pure transforms in `scripts/lib/pipeline.py`
       (tested); thin CLI orchestrator runs the fetchers as subprocesses and degrades gracefully
       (missing key/error/timeout → run report, never blocks). Emits `data/catalog.json` (durable,
-      score-free) + `data/candidates.json` (runtime, gitignored; flags top `images` as
-      `image_wanted` — the scene-researcher contract). Verified: 697→686 (dupes collapsed), idempotent.
+      score-free) + `data/candidates.json` (runtime, gitignored; the scored, ranked top-N for
+      enrichment). Verified: 697→686 (dupes collapsed), idempotent.
 - [x] Catalog hygiene in the core: expires past events, maintains first-/last-seen, window math
       standardized on `America/Los_Angeles` (zoneinfo) — all in `run_digest`/`pipeline`.
 - [x] **Wire `run_digest.py` into the daily routine + `SKILL.md`** — done: SKILL Mode 1 is now
@@ -132,16 +132,16 @@ portability.
       `update_cache` (artists researched once). Validated by a real agent run over 8 live candidates
       (Bradley Zero→Rhythm Section, Eddie C→Endless Flight, Chris Lake→Black Book, DJ Minx/Casmalia placed).
 - [x] **Enriched per-event schema** — `type` + `subgenres`/`label_orbit`/`energy`/`setting`/`sounds_like`,
-      `artist_notes`, `curator_note`, `description`, `image` (image_wanted picks). ★ relevance reads the
+      `artist_notes`, `curator_note`, `description`. ★ relevance reads the
       precomputed candidate `rating`. All ticket links preserved on the candidate.
-- [x] **Two renderers from one enriched dataset** — `scripts/render_digest.py` → canonical `.md`
-      (Don't-miss + day-by-day, type tag, ★, linked title, curator note + gloss) **and** a rich
-      emailable `.html` (type chips, ★, curator notes, hero images, inline CSS). Tested; can't drift.
-- [x] **Image caching** — `scripts/cache_images.py` + `scripts/lib/images.py`: download hero images
-      to `data/images/`, set `image.cached`; the renderer prefers the cached copy (`--asset-prefix`
-      for hosted serving). Verified live (Goldenvoice posters cached; graceful on blocked CDNs).
+- [x] **Markdown renderer from the enriched dataset** — `scripts/render_digest.py` → canonical `.md`
+      (day-by-day, type tag, ★, linked title, curator note + gloss). Tested; can't drift. (Phase B also
+      shipped a rich emailable `.html` renderer + hero-image caching `scripts/cache_images.py` /
+      `lib/images.py`; **removed 6/25** as dead weight — no email ever shipped, the dashboard reads
+      `.md`, and the cached images were never rendered anywhere. The `scene-researcher` no longer
+      spends search calls hunting image URLs.)
 - [x] **Routine wiring (no email)** — `routines/daily-digest-prompt.md` now runs core → layer →
-      enrich → `cache_images` → `render_digest --from/--to` per weekend (.md + .html) → commit.
+      enrich → `render_digest --from/--to` per weekend (.md) → commit.
       Email intentionally dropped in favor of the **Hosted page** (below). **Phase B complete.**
 - [x] **Per-day floor in the weekend render (follow-up, surfaced 6/17)** — `render_digest` used to
       pull from the *global* top-N candidate set, so quiet days starved: the first live weekend run
@@ -215,7 +215,7 @@ The ranking-judgment tier (above) made real, plus one daily digest replacing the
       editor treats listening history as a first-class signal — per profile (the music layer the LLM can use).
 - [x] **Consolidated daily digest** — `scripts/build_radar.py` (deterministic "on the radar" set:
       editorial / festival / tracked-artist / arena signals, ranked) + `render_digest.py --consolidated`
-      → ONE doc (`digests/latest.{md,html}`): next 14 days day-by-day · weekends ahead (days 15–35,
+      → ONE doc (`digests/latest.md`): next 14 days day-by-day · weekends ahead (days 15–35,
       Thu–Sun) · on the radar. The windowed `--from/--to` mode is **retained** as the per-weekend
       look-ahead (a future dashboard view). Live end-to-end dry run
       (2026-06-20): fresh fetch (3421 catalog) → radar (336) → consolidated (82 + 78 + 18), both renderers
@@ -238,11 +238,56 @@ The ranking-judgment tier (above) made real, plus one daily digest replacing the
       Festival-ness is a property of the pair; one-sided cases demand an identical core. Validated on the
       live catalog: 6 new merges, all genuinely the same event, zero false merges.
 - [ ] **Land on `main`** — merge the branch; the first scheduled routine run then judges the live delta,
-      commits `digests/latest.{md,html}` + the per-profile verdicts, and the Pages workflow redeploys.
+      commits `digests/latest.md` + the per-profile verdicts, and the Pages workflow redeploys.
 - [ ] **Per-profile editor pass** — `build_profiles.py` already emits each profile's own judging pool
       (`data/editor_pool.<hash>.json`); run the editor + `merge_verdicts.py --profile-hash <hash>` per
       friend to give them the full editor treatment (else their feeds rank deterministically against their
       own music and pick up verdicts next run).
+
+## Phase F — Horizon expansion (the 6-month plan-ahead tier)
+**Why now (the canonical miss):** Lori saw on *Bandsintown* that Alanis Morissette plays LA in
+November and bought tickets — a tracked-artist-worthy show ~5 months out that a per-artist app
+caught while we were blind past 3 weeks. The daily run fetches a flat 21-day window, so festivals,
+big tours, and theater seasons never enter the catalog until they're nearly here. (Same root cause
+as the Daisy Chain Fields miss; the festival geo-waiver shipped 2026-06-23 is brick #1 of this tier.)
+
+**The key insight — extending the horizon is cheap.** The expensive (LLM) tiers are already
+windowed and independent of catalog size: the editor judges `--editor-window 28`, enrichment is
+top ~30–40 only. So going to 6 months is mostly a *deterministic* fetch/catalog change, **not** an
+LLM-cost explosion — as long as the editor/enrich windows stay near-horizon and the far tail is
+deterministic-only (radar). The digest already *renders* "weekends ahead (~4 mo)"; this feeds it.
+
+**The shape — two-speed, not uniform.** Most sources (DICE/19hz/Squarespace/venue-webfetch) only
+publish ~2–6 weeks out, so a uniform 180-day fetch buys nothing from them. The far tail is inherently
+TM (date-windowed) + Goldenvoice (full feed already) + RA + theater seasons + festival ticketers.
+  - **Near (~21–35d): full fidelity** — all sources, full editor + enrichment, day-by-day. (today)
+  - **Far (35d–6mo): deterministic plan-ahead** — only far-publishing sources, gated to radar-worthy
+    scale (festival / big-venue / tracked-artist / on-sale), **no per-event LLM**, feeds catalog →
+    radar + weekend look-aheads. Can run **weekly** (far events don't move nightly; `content_version`
+    gate makes no-ops cheap).
+
+- [x] **Phase 1 — two-speed fetch + the TM truncation fix (2026-06-23).** `run_digest.py`
+      `--far-days N` reaches the wide horizon for `far: True` sources (Ticketmaster); near sources keep
+      `--days`. `fetch_ticketmaster.py` now **date-windows** the query (`--chunk-days`, default 30) so a
+      wide range doesn't silently hit the API's <1000-results/query cap (the 21-day default stays one
+      window). Ghost-detection (`flag_stale`) deliberately stays on the near window so far events aren't
+      flagged unlisted before their feeds list them. Off by default (behaviour-preserving); tested.
+- [ ] **Turn it on in the routine** — add `--far-days ~180` to the daily run (or a separate **weekly**
+      far-sweep routine, the cheaper option). Confirm the first live run's TM volume + windowing.
+- [ ] **Per-artist "tour radar" (the Bandsintown lesson)** — for tracked / high-affinity artists,
+      surface ANY announced LA-area date at any horizon. Mostly free already: the far TM sweep +
+      `build_radar`'s `tracked` signal does this once the artist is in `artists_tracked`/Spotify. The
+      Alanis case also wants her in Lori's tracked list (a taste-content nudge, not architecture).
+- [ ] **Widen RA to the far window** — mark `far: True` once its pagination/rate-limits are vetted past
+      ~2 months (RA caps at ≤10 small pages); far RA coverage is thin, so low priority.
+- [ ] **Dashboard far-tail UX** — default the grid to near-term with a "plan ahead / on the radar"
+      section; cap each per-profile feed's far tail to radar-worthy so feeds don't balloon × N profiles.
+- [ ] **Volume watch** — a 6-month catalog may finally trip the tabled **SQLite** swap (below); revisit
+      `catalog.json` diff size + feed weight after the first wide run.
+
+**Decisions — Ari's input:** (1) **two-speed vs uniform** (recommend two-speed); (2) **far-tail filter**
+— radar-signal-gated vs keep-everything; (3) **cadence** — far sweep weekly (lean) vs daily; (4) **far
+horizon** — 6 mo, or further for festivals/theater seasons.
 
 ## On-demand — `source-scout` discovery agent (your call, never scheduled)
 Runs explicit strategies, returns a proposal table (approve → append to `sources.yaml`):
@@ -259,9 +304,8 @@ Runs explicit strategies, returns a proposal table (approve → append to `sourc
 
 ## Delivery — Hosted page (the new primary surface; supersedes email)
 A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and tune taste.
-- **Static core, wired:** the committed weekend `.html` + `dashboard/data.json` deploy to GitHub
-  Pages (`.github/workflows/deploy-dashboard.yml`). `render_digest --asset-prefix` points cached
-  images at the served base, so the digests are self-contained.
+- **Static core, wired:** the committed `digests/latest.md` + `dashboard/data.json` deploy to GitHub
+  Pages (`.github/workflows/deploy-dashboard.yml`); the dashboard renders the Markdown digest.
 - [x] **Interactive home shipped (static + Claude Code hand-off)** — the dashboard is now a 3-view
   app (`dashboard/`): **Explore** (search/filter/present every event — reworked to the real catalog
   schema + enrichment + save-for-plan), **Plan** (a chatbox: a local no-LLM query engine over the
@@ -371,6 +415,16 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   holds and there's no browser-side commit; the concierge chat stays the edit path. Pick this up if
   free-text editing is wanted (mind: it loosens "structured-patch-only" to arbitrary valid YAML, and
   needs a Worker redeploy).
+- [x] **Taste/profile self-edit *diff* + "reflected?" badge (2026-06-25)** — the read-only modal is now a
+  two-tab view (**Taste | Profile**, profile.yaml surfaced for the first time) that shows, per file: a
+  colored **diff** of how the concierge adjusted it + a recent-edits list, and one **reflected/pending**
+  badge — is the change live in your ranking & digest, or not yet (with an *Update now →* CTA that fires
+  the existing per-profile rebuild). All static-first: `build_profiles.py` bakes a `profile.self_edit`
+  block (diff + content-based `reflected`, derived from git — the file vs. the last enrichment commit)
+  into each feed; the page just renders it, and `isTasteDirty()` now treats that baked flag as
+  authoritative (one pending state shared with the Settings "Update" button — ranking + enrichment read
+  as one thing, per Ari). `build-profiles`/`rebuild-profile` checkout `fetch-depth: 0`; the latter
+  rebuilds the feed after committing enrichment so an Update flips pending→reflected immediately.
 - [x] **Role-gated settings (2026-06-20)** — the gear menu branches by who's signed in. The **owner**
   (ari; `owner: true` in `profiles.yaml`, propagated into the feed's `profile` block by
   `build_profiles.py` and read on the page as `META.profile.owner`) keeps **Refresh events** +

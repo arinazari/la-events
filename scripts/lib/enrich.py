@@ -6,21 +6,34 @@ does that; THIS module is the side-effect-free glue around it:
 
   event_key(ev)                    -> stable cache key (title+date+venue), no schema mutation
   load_cache / save_cache          -> the accumulating scene graph (data/enrichment.json)
-  select_for_enrichment(cands,c)   -> candidates not yet cached (or stale, via refresh_days)
+  select_for_enrichment(cands,c)   -> candidates needing FULL scene-research: not cached, stale,
+                                      OR only blurb-tier so far (a blurb event that climbed into the
+                                      head gets upgraded — see the tier model below)
+  select_for_blurb(cands, cache)   -> cheap-tier candidates: no cache record AND no usable source
+                                      `detail` to fall back on (blurb-writer gives them one line)
   merge_enrichment(cands, cache)   -> attach cached enrichment + fold cached artist bios onto any
                                       event that lists them (coverage compounds across runs)
-  update_cache(cache, results)     -> fold a scene-researcher batch back in (events + artists)
+  update_cache(cache, results)     -> fold a scene-researcher (FULL-tier) batch back in (events + artists)
+  update_blurb_cache(cache, res)   -> fold a blurb-writer (cheap-tier) batch back in (never downgrades full)
   prune_cache(cache, catalog)      -> drop entries for events gone from the catalog (hygiene;
                                       keeps artist bios). Run by the daily routine, not the planner.
 
 Cache (data/enrichment.json) — the moat-lite, accumulates across runs:
-  { "events":  { "<key>": { ...enrichment..., "enriched_at": ISO } },
+  { "events":  { "<key>": { ...enrichment..., "enriched_tier": full|blurb, "enriched_at": ISO } },
     "artists": { "<norm name>": { "note": str, "seen": ISO } } }
 
-Enrichment record (scene-researcher output, per event):
+Two enrichment tiers share the events cache (keyed the same), so the dashboard reads one place:
+  - `full`  (head, top ~100): the scene-researcher's whole scene-intelligence record (below).
+  - `blurb` (mid): a blurb-writer one-liner — { id, description, enriched_tier:"blurb", confidence }.
+A blurb record is an UPGRADE candidate: if its event later ranks into the full head,
+select_for_enrichment re-selects it and scene-researcher overwrites it with a full record. The
+reverse never happens (update_blurb_cache won't downgrade a full record). A record with NO
+`enriched_tier` is legacy = full (only full scene-research ever wrote the cache before tiers).
+
+Enrichment record (scene-researcher FULL output, per event):
   { id, type, subgenres[], label_orbit[], energy, setting, sounds_like[],
     artist_notes[{name,note}], curator_note, description,
-    image{url,source,credit}  (top-N only), confidence }
+    enriched_tier:"full", confidence }
 """
 
 import hashlib
@@ -71,18 +84,38 @@ def _is_stale(hit: dict, refresh_days, today: date = None) -> bool:
 
 
 def select_for_enrichment(candidates: list, cache: dict, refresh_days=None, today: date = None) -> list:
-    """Candidates to (re)research: not cached yet, OR — when refresh_days is set — cached but
-    stale (enriched_at older than refresh_days, the freshness knob). Each carries an `id`
-    (= event_key) so the agent echoes it back for merging. Default (refresh_days=None) is
-    write-once: only genuine misses, no re-research cost."""
+    """Candidates needing FULL scene-research: not cached yet, only blurb-tier so far (a cheap-tier
+    event that climbed into the head — upgrade it), OR — when refresh_days is set — cached but stale
+    (enriched_at older than refresh_days, the freshness knob). Each carries an `id` (= event_key) so
+    the agent echoes it back for merging. Default (refresh_days=None) is write-once for FULL records:
+    only genuine misses + blurb-upgrades, no re-research cost. A record with no `enriched_tier` is
+    legacy-full and never re-selected (pre-tiers, only full scene-research wrote the cache)."""
     out = []
     for c in candidates:
         k = event_key(c)
         hit = cache["events"].get(k)
-        if hit is None or _is_stale(hit, refresh_days, today):
+        if hit is None or hit.get("enriched_tier") == "blurb" or _is_stale(hit, refresh_days, today):
             cc = dict(c)
             cc["id"] = k
             out.append(cc)
+    return out
+
+
+def select_for_blurb(candidates: list, cache: dict) -> list:
+    """Cheap-tier candidates for the blurb-writer: every event with NO cache record yet (full or
+    blurb). One clean factual line per event — cheap (haiku, no web), write-once. We do NOT skip
+    events that carry source `detail`: a sanitized source blurb is an inconsistent voice and often
+    marketing-toned, so the LLM line is worth its (tiny) cost for a uniform card. Raw `detail`
+    stays as the display fallback for anything the blurb tier doesn't reach (overflow/failure).
+    Caller passes the slice below the full head; each result carries its `id` for write-back."""
+    out = []
+    for c in candidates:
+        k = event_key(c)
+        if cache["events"].get(k) is not None:
+            continue
+        cc = dict(c)
+        cc["id"] = k
+        out.append(cc)
     return out
 
 
@@ -155,9 +188,41 @@ def merge_enrichment(candidates: list, cache: dict) -> list:
     return out
 
 
+# Taste-NEUTRAL factual enrichment fields safe to share into the PER-PROFILE editor pass.
+# Deliberately EXCLUDES curator_note and energy: curator_note is written in the root profile's
+# taste voice (scene-researcher reads taste.yaml first), and energy reads as taste-adjacent — so
+# folding either into another profile's editor would leak one person's verdict into another's.
+# Facts only ("what is this / who is playing"), never opinion.
+SCENE_FACT_FIELDS = ("type", "subgenres", "label_orbit", "setting", "sounds_like", "description")
+
+
+def scene_facts(ev: dict, cache: dict, max_artists: int = 8) -> dict:
+    """A compact, taste-NEUTRAL projection of the SHARED enrichment for one event — the factual
+    subset (SCENE_FACT_FIELDS + artist bios) safe to feed into the per-profile editor as read-only
+    context so it judges unfamiliar lineups against verified facts instead of guessing / re-searching.
+    Returns {} on a cache miss. Artist bios fold in from the compounding artist cache
+    (cached_artist_notes), so even an un-researched event still tells the editor who its lineup is.
+    Structurally cannot include curator_note/energy — only SCENE_FACT_FIELDS + artist_notes."""
+    out = {}
+    hit = (cache.get("events") or {}).get(event_key(ev))
+    if hit:
+        for f in SCENE_FACT_FIELDS:
+            val = hit.get(f)
+            if val:
+                out[f] = val
+    notes = cached_artist_notes(ev, cache)
+    if hit and hit.get("artist_notes"):                 # supplement with the researched record's own
+        have = {normalize(n.get("name", "")) for n in notes}
+        notes = notes + [n for n in hit["artist_notes"] if normalize(n.get("name", "")) not in have]
+    if notes:
+        out["artist_notes"] = notes[:max_artists]
+    return out
+
+
 def update_cache(cache: dict, results: list, now: str = None) -> dict:
-    """Fold a scene-researcher batch (list of enrichment records) into the cache.
-    Events are keyed by `id`; artist notes accumulate by normalized name (reused next run)."""
+    """Fold a scene-researcher (FULL-tier) batch (list of enrichment records) into the cache.
+    Events are keyed by `id` and stamped `enriched_tier:"full"` (overwriting any prior blurb);
+    artist notes accumulate by normalized name (reused next run)."""
     now = now or datetime.now().isoformat(timespec="seconds")
     for r in results:
         k = r.get("id")
@@ -165,9 +230,30 @@ def update_cache(cache: dict, results: list, now: str = None) -> dict:
             continue
         rec = dict(r)
         rec["enriched_at"] = now
+        rec.setdefault("enriched_tier", "full")
         cache["events"][k] = rec
         for an in r.get("artist_notes") or []:
             name = normalize(an.get("name", ""))
             if name and name not in cache["artists"]:
                 cache["artists"][name] = {"note": an.get("note"), "seen": now}
+    return cache
+
+
+def update_blurb_cache(cache: dict, results: list, now: str = None) -> dict:
+    """Fold a blurb-writer (cheap-tier) batch into the cache as `blurb`-tier records, each
+    {id, description, confidence?}. Never downgrades a FULL record (if the event got fully
+    enriched in the same run, that wins) — so the upgrade path is one-way, full beats blurb."""
+    now = now or datetime.now().isoformat(timespec="seconds")
+    for r in results:
+        k = r.get("id")
+        if not k or not r.get("description"):
+            continue
+        existing = cache["events"].get(k)
+        if existing and existing.get("enriched_tier") != "blurb":
+            continue   # legacy-full or full -> don't clobber with a one-liner
+        rec = {"id": k, "description": r["description"],
+               "enriched_tier": "blurb", "enriched_at": now}
+        if r.get("confidence"):
+            rec["confidence"] = r["confidence"]
+        cache["events"][k] = rec
     return cache

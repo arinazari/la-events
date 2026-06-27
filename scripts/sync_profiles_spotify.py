@@ -25,6 +25,7 @@ is logged and skipped, the rest still sync.
 """
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -36,8 +37,33 @@ from urllib.request import Request, urlopen
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # scripts/ on path
 from lib.affinity import build_affinity  # noqa: E402
 
+try:
+    import yaml
+except ImportError:  # pragma: no cover - pyyaml always installed in CI/runtime
+    yaml = None
+
 REPO = Path(__file__).resolve().parent.parent
 UA = "la-events/1.0 (+https://github.com/arinazari/la-events)"
+
+
+def _owner_hash() -> str:
+    """The owner's feed hash from profiles.yaml — sha256(salt + lowercased username)[:16] — or None.
+
+    The owner connects Spotify through the SAME dashboard flow as friends, so their listening lands in
+    data/spotify/<hash>.json. But build_profiles.py builds the owner's feed from the owner-affinity path
+    (data/spotify_affinity.json), NOT the per-profile artifact — so without bridging the two, the owner
+    connects Spotify and nothing changes on their feed. This identifies the owner so we can mirror it."""
+    if yaml is None:
+        return None
+    try:
+        reg = yaml.safe_load((REPO / "profiles.yaml").read_text()) or {}
+    except (OSError, yaml.YAMLError):
+        return None
+    salt = reg.get("salt") or "la-events/v1:"
+    for p in (reg.get("profiles") or []):
+        if p.get("owner") and p.get("username"):
+            return hashlib.sha256((salt + p["username"].strip().lower()).encode()).hexdigest()[:16]
+    return None
 
 
 def _get(base: str, path: str, token: str, params: dict = None) -> dict:
@@ -90,17 +116,36 @@ def main() -> int:
         print("No profiles have connected Spotify yet — nothing to sync.")
         return 0
 
+    attempted = [h for h in hashes if h]
     synced = 0
-    for h in hashes:
-        if not h:
-            continue
+    for h in attempted:
         try:
             print("  " + sync_one(args.url, args.token, h, out_dir))
             synced += 1
         except (HTTPError, URLError, ValueError, KeyError) as e:
             print(f"  WARN: {h} failed ({e}); skipped.", file=sys.stderr)
 
-    print(f"Synced {synced}/{len(hashes)} connected profile(s).")
+    # Owner bridge: the owner's feed is built from the owner-affinity path, not the per-profile
+    # artifact (see _owner_hash). If the owner connected Spotify and we just synced it, mirror their
+    # artifact into data/spotify_affinity.json so build_profiles' owner branch (+ the default feed)
+    # actually picks it up. Same builder/schema, so a plain copy is correct. Best-effort.
+    oh = _owner_hash()
+    owner_art = out_dir / f"{oh}.json" if oh else None
+    if owner_art and owner_art.exists():
+        try:
+            (REPO / "data" / "spotify_affinity.json").write_text(owner_art.read_text())
+            print(f"  owner bridge: data/spotify/{oh}.json -> data/spotify_affinity.json")
+        except OSError as e:
+            print(f"  WARN: owner Spotify bridge failed ({e}).", file=sys.stderr)
+
+    failed = len(attempted) - synced
+    # Exit 0 even when some/all fail — a revoked token or a Worker blip must never block the feed
+    # rebuild/deploy that follows. The failed count is surfaced loudly instead (those feeds keep
+    # their last good music layer from the committed data.<hash>.json).
+    summary = f"Synced {synced}/{len(attempted)} connected profile(s)."
+    if failed:
+        summary += f" {failed} FAILED — those feeds keep their last good music layer."
+    print(summary)
     return 0
 
 

@@ -1,0 +1,36 @@
+# profile.yaml — MECHANISM overrides for Taylor's feed, created by the dashboard concierge.
+# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs
+# that differ need to live here — anything absent falls back to the repo defaults.
+
+home:
+  neighborhood: North Hollywood / Burbank
+  cross_streets: Lankershim & Magnolia area
+  coords: [ 34.187, -118.376 ]
+scoring:
+  near_home_neighborhoods:
+    - silver lake
+    - silverlake
+    - echo park
+    - los feliz
+    - east hollywood
+    - atwater village
+    - atwater
+    - frogtown
+    - elysian valley
+    - highland park
+    - eagle rock
+    - glassell park
+    - cypress park
+    - lincoln heights
+    - chinatown
+    - virgil village
+    - westlake
+    - historic filipinotown
+    - downtown
+    - dtla
+    - arts district
+    - North Hollywood
+    - Burbank
+    - NoHo Arts District
+    - Studio City
+    - Toluca Lake
