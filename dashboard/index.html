@@ -50,6 +50,9 @@
   @media (max-width: 720px) {
     input, textarea { font-size: 16px !important; }  /* stop iOS zoom-on-focus */
   }
+  /* greeting examples (the blue `code` spans) are tap-to-fill the concierge box */
+  .chat-intro code { cursor: pointer; }
+  .chat-intro code:hover { background: #dde4fb !important; color: #1d49b8 !important; }
 </style>
 </helmet>
 
@@ -58,8 +61,8 @@
   <!-- ===================== CHAT SIDEBAR (desktop) ===================== -->
   <sc-if value="{{ desktopChatStrip }}" hint-placeholder-val="{{ false }}">
     <div style="order:2; width:46px; flex:none; display:flex; flex-direction:column; align-items:center; gap:16px; padding-top:14px; border-left:1px solid #d9d7cf; background:#efeee9;">
-      <button onClick="{{ toggleCollapse }}" title="Open digest" style="font:600 13px/1 ui-monospace,Menlo,monospace; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#2b5cd9; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9;">«</button>
-      <div onClick="{{ toggleCollapse }}" style="writing-mode:vertical-rl; transform:rotate(180deg); font:600 12px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#2b5cd9; cursor:pointer;">ASK THE DIGEST</div>
+      <button onClick="{{ toggleCollapse }}" title="Open concierge" style="font:600 13px/1 ui-monospace,Menlo,monospace; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#2b5cd9; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9;">«</button>
+      <div onClick="{{ toggleCollapse }}" style="writing-mode:vertical-rl; transform:rotate(180deg); font:600 12px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#2b5cd9; cursor:pointer;">ASK THE CONCIERGE</div>
     </div>
   </sc-if>
   <sc-if value="{{ desktopChatPanel }}" hint-placeholder-val="{{ true }}">
@@ -67,17 +70,21 @@
     <div onMouseDown="{{ startResize }}" title="Drag to resize" style="position:absolute; left:-4px; top:0; bottom:0; width:8px; cursor:col-resize; z-index:6;" style-hover="background:rgba(43,92,217,0.18);"></div>
     <div style="padding:16px 16px 12px; border-bottom:1px solid #d9d7cf;">
       <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
-        <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE DIGEST</div>
-        <button onClick="{{ toggleCollapse }}" title="Collapse" style="font:600 13px/1 ui-monospace,Menlo,monospace; width:26px; height:24px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">»</button>
+        <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE CONCIERGE</div>
+        <div style="display:flex; align-items:center; gap:9px;">
+          <sc-if value="{{ showConnect }}" hint-placeholder-val="{{ true }}">
+            <span onClick="{{ connectBackend }}" title="Point the concierge at your backend (URL + token)" style="display:inline-flex; align-items:center; gap:4px; font:600 9.5px/1 ui-monospace,Menlo,monospace; color: {{ backendColor }}; cursor:pointer;" style-hover="opacity:0.7;"><span style="font-size:8px;">●</span>{{ backendLabel }}</span>
+          </sc-if>
+          <button onClick="{{ toggleCollapse }}" title="Collapse" style="font:600 13px/1 ui-monospace,Menlo,monospace; width:26px; height:24px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">»</button>
+        </div>
       </div>
-      <div style="margin-top:6px; font-size:11.5px; line-height:1.45; color:#76746b;">Your taste-ranked LA concierge — find shows, pick a restaurant, plan a whole night (dinner → show → afters), or tune your taste. Switch to Fast filter for instant offline filtering.</div>
-      <div style="margin-top:10px; display:flex; align-items:center; gap:6px;">
-        <sc-for list="{{ modeOpts }}" as="o">
-          <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px solid #d2d0c7; background: {{ o.bg }}; color: {{ o.color }}; opacity: {{ o.opacity }}; border-radius:2px; cursor:pointer;">{{ o.label }}</button>
-        </sc-for>
-        <sc-if value="{{ showConnect }}" hint-placeholder-val="{{ true }}">
-          <button onClick="{{ connectBackend }}" title="Point the concierge at your backend (URL + token)" style="margin-left:auto; font:600 10px/1 ui-monospace,Menlo,monospace; padding:5px 8px; border:1px dashed {{ backendColor }}; background:transparent; color: {{ backendColor }}; border-radius:2px; cursor:pointer;" style-hover="opacity:0.75;">● {{ backendLabel }} ↗</button>
-        </sc-if>
+      <div style="margin-top:6px; font-size:11.5px; line-height:1.45; color:#76746b;">Concierge plans and recommends; <strong style="font-weight:600; color:#5a584f;">Fast filter</strong> is instant, offline keyword search — no connection needed.</div>
+      <div style="margin-top:10px;">
+        <div style="display:inline-flex; border:1px solid #d2d0c7; border-radius:3px; overflow:hidden;">
+          <sc-for list="{{ modeOpts }}" as="o">
+            <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:6px 12px; border:none; background: {{ o.bg }}; color: {{ o.color }}; opacity: {{ o.opacity }}; cursor:pointer;">{{ o.label }}</button>
+          </sc-for>
+        </div>
       </div>
     </div>
 
@@ -93,19 +100,10 @@
       </sc-if>
     </div>
 
-    <div style="padding:10px 16px 6px; border-top:1px solid #d9d7cf;">
-      <sc-if value="{{ chatStarted }}" hint-placeholder-val="{{ false }}">
-        <div onClick="{{ toggleExamples }}" title="Example prompts" style="display:inline-flex; align-items:center; gap:5px; margin-bottom:8px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; cursor:pointer; user-select:none;" style-hover="color:#2b5cd9;"><span style="color:#2b5cd9;">✦</span>EXAMPLES<span style="font-size:7px; transform:translateY(0.5px);">{{ examplesCaret }}</span></div>
-      </sc-if>
-      <sc-if value="{{ showSuggestions }}" hint-placeholder-val="{{ true }}">
-        <div style="display:flex; flex-wrap: {{ sugWrap }}; gap:5px; margin-bottom:10px; overflow-x: {{ sugOverflow }}; -webkit-overflow-scrolling:touch; padding-bottom:2px;">
-          <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="6">
-            <button onClick="{{ s.onClick }}" style="flex:none; white-space:nowrap; font:500 11px/1 -apple-system,system-ui,sans-serif; padding:5px 9px; border:1px solid #d2d0c7; background:#f7f6f2; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ s.label }}</button>
-          </sc-for>
-        </div>
-      </sc-if>
-      <span style="display:flex; align-items:center; gap:6px; padding:7px 9px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
-        <textarea value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="e.g. techno this weekend under $30" style="flex:1; min-width:0; resize:none; border:none; outline:none; background:transparent; padding:0; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17; height:18px;"></textarea>
+    <div style="padding:10px 16px 10px; border-top:1px solid #d9d7cf;">
+      <span style="position:relative; display:flex; align-items:center; gap:6px; padding:7px 9px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
+        <textarea id="chatbox" value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="{{ phStatic }}" style="flex:1; min-width:0; resize:none; border:none; outline:none; background:transparent; padding:0; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17; height:18px;"></textarea>
+        <span class="ph-hint" style="position:absolute; left:9px; right:30px; top:50%; transform:translateY(-50%); pointer-events:none; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; color:#a7a59b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display: {{ phDisplay }}; opacity: {{ phOpacity }}; transition:opacity 0.3s ease;">{{ phText }}</span>
         <span onClick="{{ onGoStop }}" title="{{ goTitle }}" style="flex:none; cursor:pointer; color: {{ goColor }}; font-size:15px; line-height:1; padding:0 2px;" style-hover="opacity:0.7;">{{ goLabel }}</span>
       </span>
     </div>
@@ -114,22 +112,26 @@
 
   <!-- ===================== CHAT (mobile) ===================== -->
   <sc-if value="{{ mobileChatFab }}" hint-placeholder-val="{{ false }}">
-    <button onClick="{{ toggleCollapse }}" class="m-fab" title="Ask the digest"><span style="font-size:13px; line-height:1;">✦</span> Ask the digest</button>
+    <button onClick="{{ toggleCollapse }}" class="m-fab" title="Ask the concierge"><span style="font-size:13px; line-height:1;">✦</span> Ask the concierge</button>
   </sc-if>
   <sc-if value="{{ mobileChatPanel }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed; inset:0; z-index:70; display:flex; flex-direction:column; background:#efeee9;">
       <div style="flex:none; padding:calc(13px + env(safe-area-inset-top)) 16px 11px; border-bottom:1px solid #d9d7cf;">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
-          <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE DIGEST</div>
-          <button onClick="{{ toggleCollapse }}" title="Close" style="font:600 15px/1 ui-monospace,Menlo,monospace; width:34px; height:34px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:3px; cursor:pointer;">✕</button>
+          <div style="font:600 13px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.04em; color:#2b5cd9;">ASK THE CONCIERGE</div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <sc-if value="{{ showConnect }}" hint-placeholder-val="{{ true }}">
+              <span onClick="{{ connectBackend }}" title="Point the concierge at your backend (URL + token)" style="display:inline-flex; align-items:center; gap:4px; font:600 10px/1 ui-monospace,Menlo,monospace; color: {{ backendColor }}; cursor:pointer;"><span style="font-size:8px;">●</span>{{ backendLabel }}</span>
+            </sc-if>
+            <button onClick="{{ toggleCollapse }}" title="Close" style="font:600 15px/1 ui-monospace,Menlo,monospace; width:34px; height:34px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:3px; cursor:pointer;">✕</button>
+          </div>
         </div>
-        <div style="margin-top:9px; display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
-          <sc-for list="{{ modeOpts }}" as="o">
-            <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:7px 11px; border:1px solid #d2d0c7; background: {{ o.bg }}; color: {{ o.color }}; opacity: {{ o.opacity }}; border-radius:2px; cursor:pointer;">{{ o.label }}</button>
-          </sc-for>
-          <sc-if value="{{ showConnect }}" hint-placeholder-val="{{ true }}">
-            <button onClick="{{ connectBackend }}" title="Point the concierge at your backend (URL + token)" style="margin-left:auto; font:600 10px/1 ui-monospace,Menlo,monospace; padding:7px 11px; border:1px dashed {{ backendColor }}; background:transparent; color: {{ backendColor }}; border-radius:2px; cursor:pointer;">● {{ backendLabel }} ↗</button>
-          </sc-if>
+        <div style="margin-top:9px;">
+          <div style="display:inline-flex; border:1px solid #d2d0c7; border-radius:3px; overflow:hidden;">
+            <sc-for list="{{ modeOpts }}" as="o">
+              <button onClick="{{ o.onClick }}" title="{{ o.title }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:8px 14px; border:none; background: {{ o.bg }}; color: {{ o.color }}; opacity: {{ o.opacity }}; cursor:pointer;">{{ o.label }}</button>
+            </sc-for>
+          </div>
         </div>
       </div>
       <div class="scry" style="flex:1; overflow-y:auto; padding:14px 16px; display:flex; flex-direction:column; gap:12px;">
@@ -143,19 +145,10 @@
           <div style="display:flex; align-items:center; gap:5px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">THINKING<span class="om-dots"><i></i><i></i><i></i></span></div>
         </sc-if>
       </div>
-      <div style="flex:none; padding:10px 16px calc(8px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#efeee9;">
-        <sc-if value="{{ chatStarted }}" hint-placeholder-val="{{ false }}">
-          <div onClick="{{ toggleExamples }}" title="Example prompts" style="display:inline-flex; align-items:center; gap:5px; margin-bottom:8px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; cursor:pointer; user-select:none;"><span style="color:#2b5cd9;">✦</span>EXAMPLES<span style="font-size:8px; transform:translateY(0.5px);">{{ examplesCaret }}</span></div>
-        </sc-if>
-        <sc-if value="{{ showSuggestions }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex; gap:6px; margin-bottom:10px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:2px;">
-            <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="6">
-              <button onClick="{{ s.onClick }}" style="flex:none; white-space:nowrap; font:500 12px/1 -apple-system,system-ui,sans-serif; padding:8px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#3f3d36; border-radius:2px; cursor:pointer;">{{ s.label }}</button>
-            </sc-for>
-          </div>
-        </sc-if>
-        <span style="display:flex; align-items:flex-end; gap:6px; padding:9px 11px; border:1px solid #c9c7bd; background:#fff; border-radius:3px;" style-focus-within="border-color:#2b5cd9;">
-          <textarea value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="e.g. techno this weekend under $30" style="flex:1; min-width:0; resize:none; border:none; outline:none; background:transparent; padding:0; font:400 16px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17; max-height:120px;"></textarea>
+      <div style="flex:none; padding:10px 16px calc(12px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#efeee9;">
+        <span style="position:relative; display:flex; align-items:flex-end; gap:6px; padding:9px 11px; border:1px solid #c9c7bd; background:#fff; border-radius:3px;" style-focus-within="border-color:#2b5cd9;">
+          <textarea id="chatbox" value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" rows="1" placeholder="{{ phStatic }}" style="flex:1; min-width:0; resize:none; border:none; outline:none; background:transparent; padding:0; font:400 16px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17; max-height:120px;"></textarea>
+          <span class="ph-hint" style="position:absolute; left:11px; right:34px; top:50%; transform:translateY(-50%); pointer-events:none; font:400 16px/1.4 -apple-system,system-ui,sans-serif; color:#a7a59b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display: {{ phDisplay }}; opacity: {{ phOpacity }}; transition:opacity 0.3s ease;">{{ phText }}</span>
           <span onClick="{{ onGoStop }}" title="{{ goTitle }}" style="flex:none; cursor:pointer; color: {{ goColor }}; font-size:19px; line-height:1; padding:0 4px;">{{ goLabel }}</span>
         </span>
       </div>
@@ -975,7 +968,7 @@ class Component extends DCLogic {
     spotifyModalOpen: false,
     guideOpen: false, guideTab: 'how',
     welcomeOpen: false, welcomeStep: 0, welcomeDismiss: false,   // first-run onboarding (auto-opens once per profile)
-    examplesOpen: false,   // chat suggestion chips: shown in full when fresh; once chatting they collapse behind a toggle (this = user re-opened them)
+    phIndex: 0, phFade: false,   // rotating example placeholder (logged-in, pre-first-use hint) + its cross-fade flag
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
     profileError: '',
@@ -984,7 +977,7 @@ class Component extends DCLogic {
     spotifyName: '',
     loading: false,
     messages: [
-      { role: 'assistant', text: "I'm your LA concierge — the best of what's on in LA, ranked to your taste. Tell me a vibe, a price, a neighborhood, or a date and I'll pull picks (the table filters to match). A few things I can do:\n- **Find shows** — `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n- **Point you to food** — `what's the hot new restaurant`, a spot near Silver Lake, popups & food trucks.\n- **Plan a whole night** — say `plan my Saturday: dinner then a show` and I'll fuse events + dining into one sequenced, travel-timed itinerary (dinner → show → afters).\n- **Tune your taste** — `more techno, less comedy` or `I moved to Highland Park`, and I'll re-rank you.\nNew here? Tap a suggestion below to see it in action." }
+      { role: 'assistant', intro: true, text: "I'm your LA concierge — the best of what's on in LA, ranked to your taste. Tell me a vibe, a price, a neighborhood, or a date and I'll pull picks (the table filters to match). A few things I can do:\n- **Find shows** — `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n- **Point you to food** — `what's the hot new restaurant`, a spot near Silver Lake, popups & food trucks.\n- **Plan a whole night** — say `plan my Saturday: dinner then a show` and I'll fuse events + dining into one sequenced, travel-timed itinerary (dinner → show → afters).\n- **Tune your taste** — `more techno, less comedy` or `I moved to Highland Park`, and I'll re-rank you.\nTap any blue example to drop it in the box — or just start typing." }
     ]
   };
 
@@ -1786,7 +1779,19 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   onInput = (e) => this.setState({ input: e.target.value });
   onKey = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.runQuery(this.state.input); } };
   send = () => this.runQuery(this.state.input);
-  toggleExamples = () => this.setState(s => ({ examplesOpen: !s.examplesOpen }));
+  // Click a blue example in the greeting -> drop it into the box (and focus), ready to edit or send.
+  useExample = (t) => {
+    const v = String(t || '').trim();
+    if (!v) return;
+    this.setState({ input: v });
+    try { const el = document.getElementById('chatbox'); if (el) { el.focus(); el.setSelectionRange(v.length, v.length); } } catch (e) {}
+  };
+  // Rotating placeholder examples — the only example surface besides the greeting now. They cycle
+  // (with a cross-fade) while nobody's used the concierge yet and the box is empty — logged in or out.
+  PH_EXAMPLES = ['techno this weekend','where to eat in silver lake','plan saturday — dinner then a show','more deep house, less comedy',"what's the hot new restaurant",'free shows this weekend','afterhours warehouse','track Peggy Gou'];
+  rotationActive() {
+    return (this.state.messages.length <= 1) && !((this.state.input || '').trim());
+  }
 
   // ---------- concierge mode + backend wiring ----------
   setChatMode = (m) => { try { localStorage.setItem('la-chat-mode', m); } catch (e) {} this.setState({ chatMode: m }); };
@@ -2326,7 +2331,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   async runQuery(text) {
     text = (text || '').trim();
     if (!text || this.state.loading) return;
-    this.setState(s => ({ messages: [...s.messages, { role: 'user', text }], input: '', loading: true, examplesOpen: false, digestPicks: false, digestPrevState: null }));
+    this.setState(s => ({ messages: [...s.messages, { role: 'user', text }], input: '', loading: true, digestPicks: false, digestPrevState: null }));
 
     const mode = this.state.chatMode || 'llm';
     const profileActive = !!(this.state.profile && this.state.profile.hash);
@@ -2703,11 +2708,21 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
     this.reattachJobs();   // a rebuild/refresh kicked off before a reload keeps its spinner + polling
+    // Rotate the placeholder hint (cross-fade) while it's relevant — guarded so it never re-renders
+    // once someone has typed or sent a message.
+    this._phTick = setInterval(() => {
+      if (!this.rotationActive()) return;
+      this.setState({ phFade: true });
+      this._phSwap = setTimeout(() => {
+        if (!this.rotationActive()) { this.setState({ phFade: false }); return; }
+        this.setState(s => ({ phIndex: (s.phIndex + 1) % this.PH_EXAMPLES.length, phFade: false }));
+      }, 300);
+    }, 1800);
     // First-run onboarding — only for a signed-in profile (never the logged-out default view).
     // Covers the persisted-login reload; a fresh sign-in triggers it from applyProfile().
     if (this.state.profile) this.maybeOnboard(this.state.profile);
   }
-  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._resizeRaf) cancelAnimationFrame(this._resizeRaf); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); }
+  componentWillUnmount() { if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._resizeRaf) cancelAnimationFrame(this._resizeRaf); clearInterval(this._freshPoll); clearInterval(this._refreshPoll); clearInterval(this._jobTick); clearInterval(this._spotifyPoll); clearInterval(this._phTick); clearTimeout(this._phSwap); }
 
   // ---------- render ----------
   renderVals() {
@@ -2782,17 +2797,18 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       tagColor: m.role === 'user' ? '#1b1a17' : '#2b5cd9',
       color: m.role === 'user' ? '#161512' : '#3f3d36',
       text: m.text,
-      html: React.createElement('div', { style: { fontSize: '12.5px', lineHeight: 1.5, color: m.role === 'user' ? '#161512' : '#3f3d36', wordBreak: 'break-word' }, dangerouslySetInnerHTML: { __html: this.renderChatHtml(m.text) } })
+      html: React.createElement('div', {
+        className: m.intro ? 'chat-intro' : undefined,
+        onClick: m.intro ? (e) => { const c = e.target && e.target.closest && e.target.closest('code'); if (c && c.textContent) this.useExample(c.textContent); } : undefined,
+        style: { fontSize: '12.5px', lineHeight: 1.5, color: m.role === 'user' ? '#161512' : '#3f3d36', wordBreak: 'break-word' },
+        dangerouslySetInnerHTML: { __html: this.renderChatHtml(m.text) }
+      })
     }));
 
-    const chips = ['plan my saturday — dinner then a show','techno this weekend','where should I eat near silver lake','more deep house, less comedy','free shows this weekend',"what's the hot new restaurant",'afterhours warehouse','date night in los feliz','food trucks worth hitting'];
-    const suggestions = chips.map(label => ({ label, onClick: () => this.runQuery(label) }));
-    // Suggestion chips reclaim space once a conversation is underway: full (wrapping) block while it's
-    // just the seeded greeting; once there's real chat they collapse behind a slim "examples" toggle
-    // and reopen as a single compact scroll-row.
-    const chatStarted = msgs.length > 1;
-    const examplesOpen = !!this.state.examplesOpen;
-    const showSuggestions = !chatStarted || examplesOpen;
+    // The text box is the example surface now: a placeholder that cycles through prompts (pre-first-use,
+    // empty box). The greeting's blue examples (tap-to-fill) carry the rest.
+    const phRotate = this.rotationActive();
+    const phText = this.PH_EXAMPLES[this.state.phIndex % this.PH_EXAMPLES.length];
 
     const chatMode = this.state.chatMode || 'llm';
     const bstat = this.state.backendStatus;
@@ -2983,10 +2999,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const anyActive = !!filtered || nsel('hood') || nsel('cat') || nsel('genre') || nsel('vibe') || nsel('setting') || nsel('region') || nsel('source') || (this.state.search || '').trim() || digestPicks;
 
     return {
-      messages: msgs, suggestions, loading,
-      showSuggestions, chatStarted, examplesOpen, toggleExamples: this.toggleExamples,
-      examplesCaret: examplesOpen ? '▾' : '▸',
-      sugWrap: chatStarted ? 'nowrap' : 'wrap', sugOverflow: chatStarted ? 'auto' : 'visible',
+      messages: msgs, loading,
+      phText, phOpacity: this.state.phFade ? '0' : '1',
+      phDisplay: phRotate ? 'block' : 'none',
+      phStatic: phRotate ? '' : 'e.g. techno this weekend under $30',
       modeOpts, showConnect, backendLabel, backendColor, connectBackend: this.connectBackend,
       goLabel: loading ? '■' : '→', goColor: loading ? '#b4453a' : '#2b5cd9', goTitle: loading ? 'Stop' : 'Send', onGoStop: this.onGoStop,
       profileInput: this.state.profileInput || '', profileError: this.state.profileError || '',
