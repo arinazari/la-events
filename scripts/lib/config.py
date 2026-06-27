@@ -36,3 +36,9 @@ def load_profile(path="profile.yaml") -> dict:
 def load_taste(path="taste.yaml") -> dict:
     """Taste content (artists_tracked, venues_loved, comedians_loved, ...)."""
     return load_yaml(path)
+
+
+def load_digest_prefs(path="digest.yaml") -> dict:
+    """How a person's digest READS (format/voice) — length, sections, group_by, emphasis, tone.
+    Presentation only; ranking lives in taste.yaml + profile.yaml. {} if absent (= the defaults)."""
+    return load_yaml(path)

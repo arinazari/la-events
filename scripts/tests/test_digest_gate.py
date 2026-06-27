@@ -30,6 +30,22 @@ def test_signature_stable_and_sensitive_to_rank_and_tier():
     assert G.feed_signature(a) != G.feed_signature(_feed([_ev("Antal", 1, "must-see"), _ev("Hunee", 2)]))  # tier
 
 
+def test_signature_moves_when_digest_prefs_change():
+    """A pure FORMAT change (same picks) must move the signature so it regenerates once."""
+    base = _feed([_ev("Antal", 1), _ev("Hunee", 2)])
+    plain = G.feed_signature(base)
+    brief = _feed([_ev("Antal", 1), _ev("Hunee", 2)])
+    brief["profile"] = {"digest_prefs": {"length": "brief"}}
+    detailed = _feed([_ev("Antal", 1), _ev("Hunee", 2)])
+    detailed["profile"] = {"digest_prefs": {"length": "detailed"}}
+    assert plain != G.feed_signature(brief)              # adding prefs moves it
+    assert G.feed_signature(brief) != G.feed_signature(detailed)   # different prefs differ
+    # stable for the same prefs regardless of key order
+    again = _feed([_ev("Antal", 1), _ev("Hunee", 2)])
+    again["profile"] = {"digest_prefs": {"length": "brief"}}
+    assert G.feed_signature(brief) == G.feed_signature(again)
+
+
 def test_signature_ignores_past_events():
     fut = _feed([_ev("Antal", 1)])
     with_past = _feed([_ev("Antal", 1),
