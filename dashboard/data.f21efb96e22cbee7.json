@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T20:16:47+00:00",
+  "generated_at": "2026-06-27T00:39:24+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "53ec17dda804",
@@ -103918,15 +103918,11 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-06-25",
-            "summary": "taste(Taylor): Added Habibeats as a tracked artist; boosting Arab/Palestinian and Armen"
-          },
-          {
-            "date": "2026-06-25",
-            "summary": "Add three empty friend profiles: garo, taylor, alexa (#62)"
+            "date": "2026-06-26",
+            "summary": "Merge pull request #75 from arinazari/claude/editor-enrich-fold-perf"
           }
         ],
-        "diff": "diff --git a/profiles/taylor/taste.yaml b/profiles/taylor/taste.yaml\nindex 0db05bd..52987e9 100644\n--- a/profiles/taylor/taste.yaml\n+++ b/profiles/taylor/taste.yaml\n@@ -4,16 +4,25 @@\n # Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n \n categories:\n-  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n-  medium:  []   # +2 each\n-  low:     []   # +1, include only if exceptional\n+  high: [] # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium: [] # +2 each\n+  low: [] # +1, include only if exceptional\n \n-boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n-penalties: []   # -2 each (the \"not for me\" list)\n+boosts:\n+  [\n+    Arab culture,\n+    Palestinian culture,\n+    Armenian culture,\n+    Middle Eastern music,\n+    SWANA events\n+  ] # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: [] # -2 each (the \"not for me\" list)\n \n-artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n-comedians_loved:  []\n-venues_loved:     []\n+artists_tracked: [ Habibeats ] # lineup match => +2 and a \"tracked\" badge\n+comedians_loved: []\n+venues_loved: []\n \n feedback:\n   - \"New empty profile \u2014 taste not configured yet.\"\n+  - \"2026-06-26: Added Habibeats as a tracked artist; boosting Arab/Palestinian\n+    and Armenian cultural events and music. (self-edit via concierge)\"",
+        "diff": "diff --git a/profiles/taylor/taste.yaml b/profiles/taylor/taste.yaml\nnew file mode 100644\nindex 0000000..52987e9\n--- /dev/null\n+++ b/profiles/taylor/taste.yaml\n@@ -0,0 +1,28 @@\n+# Taste profile \u2014 Taylor. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only taylor\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high: [] # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium: [] # +2 each\n+  low: [] # +1, include only if exceptional\n+\n+boosts:\n+  [\n+    Arab culture,\n+    Palestinian culture,\n+    Armenian culture,\n+    Middle Eastern music,\n+    SWANA events\n+  ] # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: [] # -2 each (the \"not for me\" list)\n+\n+artists_tracked: [ Habibeats ] # lineup match => +2 and a \"tracked\" badge\n+comedians_loved: []\n+venues_loved: []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"\n+  - \"2026-06-26: Added Habibeats as a tracked artist; boosting Arab/Palestinian\n+    and Armenian cultural events and music. (self-edit via concierge)\"",
         "diff_kind": "applied",
         "reflected": true,
         "enriched_at": "2026-06-26"
@@ -103936,8 +103932,8 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-06-25",
-            "summary": "profile(Taylor): Set home to North Hollywood/Burbank area; adding NoHo and Burbank as nea"
+            "date": "2026-06-26",
+            "summary": "Merge pull request #75 from arinazari/claude/editor-enrich-fold-perf"
           }
         ],
         "diff": "diff --git a/profiles/taylor/profile.yaml b/profiles/taylor/profile.yaml\nnew file mode 100644\nindex 0000000..68ce951\n--- /dev/null\n+++ b/profiles/taylor/profile.yaml\n@@ -0,0 +1,36 @@\n+# profile.yaml \u2014 MECHANISM overrides for Taylor's feed, created by the dashboard concierge.\n+# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs\n+# that differ need to live here \u2014 anything absent falls back to the repo defaults.\n+\n+home:\n+  neighborhood: North Hollywood / Burbank\n+  cross_streets: Lankershim & Magnolia area\n+  coords: [ 34.187, -118.376 ]\n+scoring:\n+  near_home_neighborhoods:\n+    - silver lake\n+    - silverlake\n+    - echo park\n+    - los feliz\n+    - east hollywood\n+    - atwater village\n+    - atwater\n+    - frogtown\n+    - elysian valley\n+    - highland park\n+    - eagle rock\n+    - glassell park\n+    - cypress park\n+    - lincoln heights\n+    - chinatown\n+    - virgil village\n+    - westlake\n+    - historic filipinotown\n+    - downtown\n+    - dtla\n+    - arts district\n+    - North Hollywood\n+    - Burbank\n+    - NoHo Arts District\n+    - Studio City\n+    - Toluca Lake",
