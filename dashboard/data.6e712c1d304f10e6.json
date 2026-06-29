@@ -103852,12 +103852,12 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-06-27",
-            "summary": "spotify-sync: bridge the owner's connected Spotify into their feed"
+            "date": "2026-06-24",
+            "summary": "Posh token re-auth nudges + scoring drift-test fix (#51)"
           }
         ],
-        "diff": "diff --git a/profiles/demo/taste.yaml b/profiles/demo/taste.yaml\nnew file mode 100644\nindex 0000000..0f1306c\n--- /dev/null\n+++ b/profiles/demo/taste.yaml\n@@ -0,0 +1,62 @@\n+# Taste profile \u2014 EXAMPLE friend profile for the dashboard profile-switcher (username: demo).\n+# Deliberately different from the root taste.yaml so switching visibly re-ranks: this person is\n+# an indie/rock + jazz + comedy head who's lukewarm on big-room electronic. Copy this file to\n+# profiles/<name>/taste.yaml, edit it, add an entry to profiles.yaml, then run build_profiles.py.\n+\n+categories:\n+  high:    # +3\n+    - indie / rock / post-punk / garage / dream-pop / experimental band shows\n+      (Troubadour, Echo, Zebulon, Lodge Room, Teragram, Moroccan)\n+    - jazz, soul, funk, and live-band nights (listening rooms, small clubs)\n+    - rep & arthouse cinema (Vidiots, Vista, New Beverly, Cinematheque, Brain Dead)\n+    - singer-songwriter / folk / Americana in intimate rooms\n+  medium:  # +2\n+    - standup comedy at clubs and theaters (a genuine draw here, not the exception)\n+    - theater (black-box + Pantages-scale)\n+    - daytime & lifestyle \u2014 flea / vintage / design markets, farmers markets, food pop-ups\n+    - melodic / organic / disco-leaning house in a chill setting (not the main thing)\n+  low:     # +1, only if exceptional\n+    - big-room / festival EDM and warehouse techno \u2014 occasional, only marquee names\n+\n+boosts:    # +1 each\n+  - intimate / seated / listening-room setting\n+  - walkable or short drive from Santa Monica / the Westside\n+  - Friday or Saturday night\n+  - independent editorial mention (LAist, Time Out, DiscoverLA)\n+  - vinyl / all-analog presentation\n+\n+penalties: # -2 each\n+  - big-room / festival-scale EDM as the main draw\n+  - warehouse / afterhours raves\n+  - bottle-service / table-service clubs\n+  - hardstyle / dubstep / bass-music mega-shows\n+  - far-flung (OC / SD / Temecula / Ventura) unless genuinely worth the trip\n+\n+# Match in a lineup => +2 and a \"tracked\" badge.\n+artists_tracked:\n+  - Phoebe Bridgers\n+  - Big Thief\n+  - Vampire Weekend\n+  - Khruangbin\n+  - Mac DeMarco\n+  - Parquet Courts\n+  - King Krule\n+  - black midi\n+  - BadBadNotGood\n+  - Kamasi Washington\n+  - Robert Glasper\n+  - Thundercat\n+  - Unknown Mortal Orchestra\n+  - Beach House\n+  - Father John Misty\n+  - Andy Shauf\n+  - Japanese Breakfast\n+  - Alvvays\n+  - The War on Drugs\n+  - Bon Iver\n+\n+comedians_loved: [John Mulaney, Nate Bargatze, Tig Notaro, Maria Bamford, Hannibal Buress]\n+venues_loved: [Troubadour, Lodge Room, Zebulon, The Greek, Vista, New Beverly, McCabe's, Largo]\n+\n+feedback:\n+  - \"Example profile. Indie/rock + jazz + comedy core; lukewarm on big-room electronic and raves.\"",
-        "diff_kind": "pending",
+        "diff": "",
+        "diff_kind": "none",
         "reflected": false,
         "enriched_at": null
       },
