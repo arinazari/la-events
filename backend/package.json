@@ -5,6 +5,9 @@
   "description": "Cloudflare Worker: la-events concierge (chat) + taste self-edit. Deploy with `npm i && npx wrangler deploy`.",
   "type": "module",
   "main": "concierge-worker.js",
+  "scripts": {
+    "test": "node test-edits.mjs"
+  },
   "dependencies": {
     "yaml": "^2.5.0"
   },

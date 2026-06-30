@@ -314,6 +314,14 @@ def main() -> int:
                 "taste": selfedit_block(REPO, taste, enrich_paths),
                 "profile": selfedit_block(REPO, profile_rel, enrich_paths),
             }
+            # Per-person digest FORMAT prefs (HOW their digest reads). Owner shares the root
+            # digest.yaml; a friend gets profiles/<u>/digest.yaml (or an explicit `digest_prefs:`
+            # path). Injected so the hash-keyed digest routines + the freshness gate (which only see
+            # the feed, never the username) can honor + sign over it. Omitted when there's no file.
+            dpath = "digest.yaml" if is_owner else (p.get("digest_prefs") or f"profiles/{u}/digest.yaml")
+            prefs = load_yaml(dpath)
+            if prefs:
+                block["digest_prefs"] = prefs
             feed["profile"] = block
             out.write_text(json.dumps(feed, indent=2))
         except (OSError, json.JSONDecodeError) as e:

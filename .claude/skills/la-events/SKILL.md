@@ -148,6 +148,13 @@ scoring is **precomputed** (read `score`/`rating`/
 `reasons` — never hand-score; the taste profile below is just orientation for *why* things rank). On
 top of the renderer you add a short conversational intro and the sections it doesn't generate
 (**Around town**, **On the radar**) plus pinning/judgment. The full digest — NOT a wall of every event.
+**Honor `digest.yaml` when present** — the reader's format prefs (`length` · `group_by` · `sections` ·
+`max_picks_per_day` · `emphasis` · `tone` · `notes`). They reshape the structure below to taste
+(presentation only; ranking is unchanged). `render_digest` already applies the `max_picks_per_day` cap
+to the deterministic scaffold; you apply the rest in synthesis. **Token-cost guardrail:** a pref that
+materially raises generation cost (`length: detailed`, every-event, big per-pick prose) — flag it and
+offer a bounded version rather than silently ballooning the run; small/structural prefs just apply.
+
 **Organize PRIMARILY BY DATE** (a day-by-day agenda is
 the spine — it answers "what's on tonight / this weekend" at a glance). Structure:
 
@@ -274,6 +281,9 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
   the file header.
 - `taste.yaml` — ranking config (re-read every run). Has the core taste, weights, and
   `comedians_loved` (the comedy exception list).
+- `digest.yaml` — per-person digest FORMAT prefs (`length`/`group_by`/`sections`/`max_picks_per_day`/
+  `emphasis`/`tone`); presentation only, not ranking. Read at render + synthesis; `render_digest`
+  honors the `max_picks_per_day` cap. Friends get `profiles/<name>/digest.yaml`.
 - `festivals.yaml` — the "On the radar" curated list (festivals + big concerts months out);
   refresh status with a live web lookup each digest run.
 - `recurring.yaml` — predictable recurring markets/happenings (farmers markets, fleas,

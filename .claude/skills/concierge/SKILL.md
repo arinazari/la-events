@@ -74,6 +74,7 @@ root files.)
 | Ari's ask | Route to | How |
 |---|---|---|
 | "plan my Saturday night," "dinner then the [show]," "make a night of it," any **food + event + timing** ask | **`night-planner` agent** | Spawn it with the night spec (date, area, vibe, party size, budget, anchor). It fuses both catalogs + travel. The hero path. Then **offer a calendar `.ics`** (`scripts/make_ics.py`) and deliver the file. |
+| "what would **me + Lori** be into," "find something **the group**'d like," plan **with friends** | **group picks** (multi-profile) | `python scripts/group_picks.py --people me,<friends> [--days N \| --from/--to]` → synthesize with discretion. See *Plan with friends* below. Feeds the night-planner for a group night. |
 | "what's on this weekend," "any good shows/raves/film," "events digest," `/la-events` | **la-events — Digest** | Hand off the window + any constraints (genre, area, "no techno"). |
 | "where should I eat," "dinner spot Friday," "best new restaurant," `/la-dining` | **la-dining — Query** | Hand off occasion / area / party size / price. |
 | "what's trending in dining," "new openings" | **la-dining — Radar** | Trending digest, not occasion-specific. |
@@ -84,6 +85,47 @@ root files.)
 **Single-domain shortcut:** if the ask is unambiguously just-shows or just-food, you may run that
 skill's mode directly rather than ceremony. The concierge earns its keep on the **open-ended**
 ("sort out my Friday") and the **cross-domain** ("food + a show") asks — that's when you plan.
+
+## Plan with friends (group taste)
+When the ask names other people — "what would me + Lori be into," "find a show the three of us would
+like," "plan something for me and Dr. Ganesan" — don't just use Ari's taste. Run the group scorer:
+
+`python scripts/group_picks.py --people me,lori,dr_ganesan [--days N | --from <ISO> --to <ISO>]`
+
+It scores the catalog against **each person's own** taste / mechanics / music layer (the same scorer
+as their solo feed, so it can't drift) and prints a per-event matrix: every shared upcoming event with
+each person's score + ★ + a `⛔` when it's a hard down-rank for them, plus `avg` / `floor` / `n into it`.
+`me` (or `default`) = Ari/the owner; friends are their `profiles.yaml` usernames.
+
+**There are no fixed group rules — you decide (Ari's call).** Read the matrix and apply judgment:
+lead with what's strong for *everyone* (high floor, nobody vetoing), but it's fine to surface a pick
+one person merely tolerates if it's a 10 for the other two — just **say so** ("huge for you + Lori, Dr.
+G can take or leave it"). A `⛔` is a real signal (banned/penalized for them); let it kill a pick unless
+there's a good reason. Gloss each pick with *who* it's for and why, same insider voice. For a full night,
+hand the group shortlist + party to the **`night-planner`**.
+
+**Privacy: profiles aren't private (Ari's call).** If Ari can name someone who has a profile, that's
+permission enough to plan with their taste — there's no opt-out flag and you don't need to ask. If he
+names someone with **no** profile, say so and either plan without them or offer to spin up a quick
+profile (`profiles/<name>/taste.yaml` + a `profiles.yaml` entry) or take their taste inline for this ask.
+
+## Shape how the digest reads — `digest.yaml` (a fourth write path: format, not taste)
+Beyond the three taste paths above, you can also tune **how the digest is formatted** — separate from
+*what* ranks. When Ari says "make my digest shorter," "drop the radar section," "group by neighborhood
+not day," "more detail on each pick," "lead with live music," "drier tone" — edit `digest.yaml` (Ari's
+root file; a friend's is `profiles/<name>/digest.yaml`). Minimal structured change to the right key
+(`length` · `group_by` · `sections` · `max_picks_per_day` · `emphasis` · `tone` · `notes`), **show the
+one-line diff.** This is presentation only; ranking/scoring is untouched. The digest routines read these
+prefs (the page reads `feed.profile.digest_prefs`, injected by `build_profiles.py`), so the change lands
+on the next digest build.
+
+**Token-cost guardrail (the safeguard — run it before you commit a format change).** Some format
+changes cost materially more to *generate*: `length: detailed`, "a full paragraph per pick," "show every
+event," lifting a per-day cap. Reordering sections, toggling one off, `group_by`, tone tweaks, and small
+`emphasis` nudges cost ~nothing. **Estimate the delta out loud:** if it's modest (≲~20% more), just apply
+it. If it's large (roughly doubles the digest, or scales with the whole catalog), say so in one line and
+offer a bounded version before committing — e.g. "detailed + every event would roughly 2–3× the digest's
+generation cost; want it capped at the top 15 per day instead?" Don't silently balloon the run.
 
 ## Disambiguate sparingly
 Infer defaults before asking: home = Silver Lake, eastside lean, his core taste (rooftop/vinyl/
@@ -112,6 +154,9 @@ fill a gap, "set a Resy Notify," an alt show). A great two-stop night beats a fo
 
 ## Files
 - `taste.yaml`, `dining-taste.yaml`, `profile.yaml` — read every time; `taste.yaml` **and** `profile.yaml` are yours to **edit** (standing taste → `taste.yaml`, path 2; location/scoring dials → `profile.yaml`, path 3).
+- `digest.yaml` (+ `profiles/<name>/digest.yaml`) — read + **edit**: how the digest reads (format, not taste — the 4th write path). Mind the token-cost guardrail.
+- `profiles.yaml` + each `profiles/<name>/taste.yaml` (and optional `profiles/<name>/profile.yaml`) — read **any** profile to plan with friends (profiles aren't private). The registry header has the roster.
+- `scripts/group_picks.py` — multi-profile score matrix for group planning (run it for "with friends" asks).
 - `scripts/log_feedback.py` — append a reaction to `data/feedback.jsonl` (path 1 above).
 - `data/feedback.jsonl` — the append-only reaction log; folds into affinity each run.
 - `.claude/skills/la-events/SKILL.md`, `.claude/skills/la-dining/SKILL.md` — the modes you route to.

@@ -19,6 +19,16 @@
 # (data/spotify/<hash>.json + data/feedback.<hash>.jsonl), not Ari's. Friends connect Spotify in the
 # dashboard (the profile popup) via the concierge Worker; build_profiles.py passes each profile's hash
 # so the feed re-ranks to their listening. Nothing to add here — see backend/README.md "Per-profile Spotify".
+#
+# Group planning (NOT private — Ari's call): the concierge can read ANY profile here and combine tastes
+# to "find events together" (scripts/group_picks.py --people me,<friends>). Knowing the username is
+# permission enough; there's deliberately no per-profile "private" flag. Pick non-obvious usernames if
+# that matters to a friend — the access model is obfuscation, not security (same as the feed files).
+#
+# Per-profile digest FORMAT (optional `digest_prefs:` on an entry): HOW that person's digest reads
+# (length/sections/group_by/tone) — a path to a YAML like digest.yaml; defaults to
+# profiles/<username>/digest.yaml. Presentation only (ranking lives in taste/profile). The concierge
+# edits it ("make my digest shorter", "drop the radar"); build_profiles.py injects it into the feed.
 
 salt: "la-events/v1:"        # mixed into the filename hash; shared verbatim with the page. Public by nature.
 
@@ -28,6 +38,7 @@ profiles:
     taste: profiles/demo/taste.yaml
     # profile: profile.yaml    # optional; omit to inherit the root profile.yaml (geo + scoring mechanics)
     # digest: digests/<hash>   # optional; per-profile digest dir staged by the deploy workflow (follow-up)
+    # digest_prefs: profiles/demo/digest.yaml  # optional; HOW the digest reads (defaults to this path)
 
   - username: ari            # Ari's own login -> unlocks the concierge/LLM on the default feed.
     name: Ari                #   RENAME this to something non-obvious: as owner it can self-edit the

@@ -49,6 +49,10 @@ Run, for the profile feed hash `<HASH>`:
    `digests/<HASH>/latest.md` (overwrite) — the LA-insider voice, ranked to THIS person: top picks across
    the next ~2–3 weeks + weekends ahead, grouped by day, a one-line *why* each, ⭐ on the editor's
    must-sees. Thin feed → a couple of honest lines, don't pad. The dashboard's digest modal loads this.
+   **Honor this person's format prefs** if present in `feed.profile.digest_prefs` (`length` ·
+   `group_by` · `sections` · `max_picks_per_day` · `emphasis` · `tone` · `notes`) — that's HOW they want
+   it to read (presentation only; the ranking already happened above). Stay within the bounded turn
+   budget regardless: if `length: detailed` would blow the cap, honor its spirit but keep it shippable.
 
 6. **Stop.** Leave the changed files (`dashboard/data.<HASH>.json`, `data/verdicts/<HASH>.json`,
    `data/enrichment.json`, `data/images/`, `digests/<HASH>/latest.md`) in the working tree. The

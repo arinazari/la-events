@@ -1,0 +1,29 @@
+# digest.yaml — HOW your digest READS (format + voice), not WHAT ranks (that's taste.yaml +
+# profile.yaml). The digest-writing step reads this and adapts; the concierge edits it when you
+# say "make my digest shorter", "drop the radar section", "group by neighborhood", "more detail
+# per pick", "lead with live music". Every key is OPTIONAL — omit one to take the default. This
+# only changes PRESENTATION; ranking/scoring is untouched.
+#
+# This is Ari's ROOT digest config (drives the consolidated daily digest + the default feed).
+# Friends get their own profiles/<name>/digest.yaml (same schema); the concierge/Worker edits theirs.
+#
+# Token-cost guardrail — the concierge enforces it. Changes that add prose, per-event detail, or
+# more events cost more to GENERATE. The concierge applies small changes (≲20% more) freely and
+# flags big ones before committing ("detailed + every event roughly doubles the digest — cap at the
+# top 15 instead?"). It estimates the delta out loud rather than silently ballooning the run.
+
+length: standard          # brief | standard | detailed — prose verbosity per pick (the main cost lever)
+group_by: day             # day | neighborhood | category — the day-by-day agenda is the default spine
+max_picks_per_day: null   # optional hard cap on events listed per day (null = the renderer's default)
+
+# Which sections to include, in order. Omit the key to take the full default set below. Known
+# sections: dont_miss · day_by_day · around_town · radar. (day_by_day is the body; don't drop it.)
+sections:
+  - dont_miss
+  - day_by_day
+  - around_town
+  - radar
+
+emphasis: []              # free-text nudges, e.g. ["lead with live music", "more on afterhours"]
+tone: []                  # free-text voice notes, e.g. ["drier, less hype", "more opinionated"]
+notes: []                 # anything the keys above don't cover, e.g. ["always show ticket prices"]
