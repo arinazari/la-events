@@ -8,7 +8,10 @@ every day as new events are announced and lineups firm up.
 Configure in the routine's environment (not here): the daily schedule, the target branch
 (recommended: **`main`** — the Pages workflow then auto-redeploys the dashboard on each push; the
 tradeoff is daily digest commits on main, fine for a personal repo), the network policy (outbound to
-app.ticketmaster.com, ra.co, dice.fm + the domains in sources.yaml), and `TM_API_KEY` / `POSH_TOKEN`.
+app.ticketmaster.com, ra.co, dice.fm + the domains in sources.yaml), `TM_API_KEY` / `POSH_TOKEN`, and
+**pre-approval for the fan-out tools** — allow the Agent/Task tool (and the Workflow tool, if you use it)
+so an unattended run doesn't block on an "Allow Claude to run a workflow/agent?" prompt and hang in
+*Running* (see the scheduled-run note below).
 
 > Prereq: validate one manual digest run first (ROADMAP Phase 1). A daily routine pointed
 > at an unvalidated pipeline with no `TM_API_KEY` just commits empty weekend files daily.
@@ -16,6 +19,13 @@ app.ticketmaster.com, ra.co, dice.fm + the domains in sources.yaml), and `TM_API
 ---
 
 Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set** mode:
+
+> **Scheduled-run note (unattended).** Where a step says to *fan out* an agent — the `event-editor`
+> in Step 3, and `scene-researcher` / `blurb-writer` in Step 4 — spawn them as **direct parallel
+> subagents** (several Agent/Task calls in one turn). Do **NOT** reach for the **Workflow** tool here:
+> it raises an interactive "Allow Claude to run a workflow?" approval that a scheduled run cannot
+> answer, so the run stalls in *Running* indefinitely (and never commits). Plain parallel subagents
+> need no such gate; if you must use Workflow, pre-approve it in the routine's environment (above).
 
 1. **Run the deterministic core:** `python scripts/run_digest.py --days 120 --far-days 180`.
    Fetches the structured sources, dedupes, expires past events, scores against taste.yaml +
