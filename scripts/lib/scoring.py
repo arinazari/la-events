@@ -18,6 +18,7 @@ no profile.yaml is scored from its OWN taste.yaml — per-person tuning without 
 separate mechanism file.
 """
 
+import re
 from datetime import date, datetime
 
 try:
@@ -173,8 +174,12 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         lab = {3: "high", 2: "medium", 1: "low"}.get(base, "low")
         reasons.append(f"+{base} {cat.replace('_', ' ')} ({lab} interest)")
 
-    # Tracked artist — match title OR lineup (+2 each; also the "tracked" badge).
-    hits = sorted({a for a in tracked if a.lower() in hay})
+    # Tracked artist — match title OR lineup (+2 each; also the "tracked" badge). Whole-token
+    # match (bounded by non-alphanumerics, not a raw substring) so short names like "Ame" / "&ME"
+    # don't fire inside "america" / "frame" / "Amelie Lens" — a recurring false positive the
+    # event-editor kept having to downgrade.
+    hits = sorted({a for a in tracked
+                   if re.search(r'(?<![a-z0-9])' + re.escape(a.lower()) + r'(?![a-z0-9])', hay)})
     if hits:
         score += 2 * len(hits)
         reasons.append(f"+{2 * len(hits)} tracked artist ({', '.join(hits)})")

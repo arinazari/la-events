@@ -38,6 +38,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0      # build_profiles (run below) bakes a git diff of the taste/profile edit +
+                              # a reflected/pending flag into each feed; needs real history, not a shallow
+                              # clone. Without this, a depth-1 checkout makes the baked self_edit diff show
+                              # the whole file as newly-added and mis-attributes the edit to this run's
+                              # commit. Mirrors build-profiles.yml / rebuild-profile.yml.
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

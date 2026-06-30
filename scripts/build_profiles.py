@@ -57,7 +57,13 @@ def profile_hash(username: str, salt: str) -> str:
 
 # Automated re-rank/refresh/deploy commits — filtered out of the human-readable
 # edit history so the list reads as *intent* (concierge + hand edits), not churn.
-_AUTO_COMMIT_PREFIXES = ("build:", "rebuild:", "refresh:", "build(", "chore:", "deploy:")
+# Keep every bot/CI commit subject that can touch a profile's taste/profile YAML or its
+# feed here: a `spotify-sync:`/`build-profiles:` commit is NOT "your change", and on a
+# shallow checkout (where only the tip is visible) one of these would otherwise be picked
+# up as the latest "human edit" and baked into the diff modal (the bug that mis-attributed
+# edits to "spotify-sync: bridge the owner's connected Spotify…").
+_AUTO_COMMIT_PREFIXES = ("build:", "rebuild:", "refresh:", "build(", "chore:", "deploy:",
+                         "spotify-sync:", "build-profiles:")
 _DIFF_LINE_CAP = 200
 
 
@@ -69,6 +75,36 @@ def _git(repo, *args):
         return r.stdout if r.returncode == 0 else None
     except (OSError, subprocess.SubprocessError):
         return None
+
+
+def _is_shallow(repo):
+    """True if `repo` is a shallow clone — its history may be truncated at a graft boundary."""
+    return (_git(repo, "rev-parse", "--is-shallow-repository") or "").strip() == "true"
+
+
+def _has_parent(repo, sha):
+    """True if `sha`'s first parent is present in this clone. False at a shallow boundary
+    (the parent was grafted away) — exactly where `git show <sha>` renders an already-existing
+    file as wholly-new, an artifact we must not mistake for a real edit."""
+    return bool((_git(repo, "rev-parse", "-q", "--verify", f"{sha}^") or "").strip())
+
+
+def _show_diff(repo, sha, file_rel):
+    """The diff `sha` introduced for `file_rel` (capped) — but BLANKED when it can't be
+    trusted. On a shallow clone whose boundary is `sha` (parent grafted away), git renders
+    the whole file as a `new file mode` add even if it has real earlier history. Returning ''
+    makes the dashboard hide the diff rather than paint a misleading whole-file "change"
+    (this is the corruption class whose root cause was the shallow checkout in spotify-sync.yml).
+    A genuine creation on a full clone keeps its diff (its parent is present → trusted)."""
+    if not sha:
+        return ""
+    raw = _git(repo, "show", "--format=", sha, "--", file_rel) or ""
+    if raw.strip() and "new file mode " in raw and _is_shallow(repo) and not _has_parent(repo, sha):
+        print(f"  NOTE: shallow clone can't verify {file_rel} history at {sha[:8]}; hiding its "
+              f"whole-file diff (rebuild with full history / fetch-depth:0 to populate it).",
+              file=sys.stderr)
+        return ""
+    return _cap_diff(raw)
 
 
 def _last_commit(repo, paths):
@@ -152,14 +188,16 @@ def selfedit_block(repo, file_rel, enrich_paths):
         if pending.strip():
             block.update(diff=pending, diff_kind="pending", reflected=False)
         else:
-            applied = _cap_diff(_git(repo, "show", "--format=", edit_sha, "--", file_rel) or "") if edit_sha else ""
+            applied = _show_diff(repo, edit_sha, file_rel)
             block.update(diff=applied, diff_kind=("applied" if applied.strip() else "none"),
                          reflected=True)
     elif edit_sha:
         # No enrichment has ever been committed for this profile → the edit is, by
-        # definition, not yet reflected. Show the latest change as the pending one.
-        applied = _cap_diff(_git(repo, "show", "--format=", edit_sha, "--", file_rel) or "")
-        block.update(diff=applied, diff_kind="pending", reflected=False)
+        # definition, not yet reflected. Show the latest change as the pending one
+        # (blanked if a shallow boundary makes its diff untrustworthy).
+        applied = _show_diff(repo, edit_sha, file_rel)
+        block.update(diff=applied, diff_kind=("pending" if applied.strip() else "none"),
+                     reflected=False)
     return block
 
 

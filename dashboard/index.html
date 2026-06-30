@@ -1841,7 +1841,17 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify(body), signal: this._abort.signal });
     } finally { this._abort = null; }
     if (res.status === 401) { this.setState({ backendStatus: 'err' }); const e = new Error('unauthorized'); e.code = 401; throw e; }
-    if (!res.ok) { this.setState({ backendStatus: 'err' }); throw new Error('backend ' + res.status); }
+    if (!res.ok) {
+      this.setState({ backendStatus: 'err' });
+      // Surface the worker's own error body ({error, detail}) instead of swallowing it — otherwise a
+      // self-edit 502/timeout or a missing-secret 500 reads as a generic "backend unreachable" and we
+      // silently drop to Fast filter with no clue why (the Alexa case). Best-effort: ignore non-JSON.
+      let detail = '';
+      try { const ed = await res.json(); detail = String((ed && (ed.detail || ed.error)) || '').slice(0, 180); } catch (_) {}
+      const e = new Error('backend ' + res.status + (detail ? (': ' + detail) : ''));
+      e.code = res.status; e.detail = detail;
+      throw e;
+    }
     this.setState({ backendStatus: 'ok' });
     const data = await res.json();
     this._lastTasteChanged = !!(data && (data.taste_changed || data.profile_changed));   // worker committed a taste/profile edit -> CI re-ranks
@@ -2185,7 +2195,41 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   setTasteDirtyFor(hash, v) { try { v ? localStorage.setItem(this.dirtyKeyFor(hash), '1') : localStorage.removeItem(this.dirtyKeyFor(hash)); } catch (e) {} this.forceUpdate(); }
   setTasteDirty(v) { this.setTasteDirtyFor(this.state.profile && this.state.profile.hash, v); }
   // The "Update" button lights up when the feed is behind the catalog OR a taste edit needs a digest.
-  needsUpdate() { return this.isFeedStale() || this.isTasteDirty(); }
+  needsUpdate() { return this.isFeedStale() || this.isTasteDirty() || this.digestBehindFeed(); }
+
+  // The digest's OWN self-reported regeneration date, parsed from the markdown the digest modal
+  // renders (this.DIGEST_MD) — the same artifact, so the "Ranks & Digest" row can't claim a date the
+  // modal contradicts. Returns {label:'M/D', date} or null when unparseable (then we make no digest
+  // claim). Header formats vary across profiles: "*Digest regenerated Thu 6/25 …*", "*Updated 6/26 …*",
+  // "# … — 2026-06-26", "# … — Jun 21, 2026".
+  digestRegenDate() {
+    const head = String(this.DIGEST_MD || '').split('\n').slice(0, 4).join('\n');
+    if (!head) return null;
+    let m, y = new Date().getFullYear(), mo, d;
+    if ((m = head.match(/(20\d\d)-(\d{1,2})-(\d{1,2})/))) { y = +m[1]; mo = +m[2]; d = +m[3]; }
+    else if ((m = head.match(/\b(\d{1,2})\/(\d{1,2})\b/))) { mo = +m[1]; d = +m[2]; }
+    else if ((m = head.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s+(\d{1,2})(?:,\s*(20\d\d))?/i))) {
+      mo = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(m[1].slice(0, 3).toLowerCase()) + 1;
+      d = +m[2]; if (m[3]) y = +m[3];
+    } else return null;
+    if (!(mo >= 1 && mo <= 12 && d >= 1 && d <= 31)) return null;
+    const date = new Date(y, mo - 1, d);
+    return isNaN(date.getTime()) ? null : { label: mo + '/' + d, date: date };
+  }
+  // True when the digest the modal would show self-reports an OLDER day than the feed was last built
+  // (META.generated_at). Happens when a deterministic re-rank (spotify-sync / catalog bump) refreshes
+  // the ranking without regenerating the LLM digest — so the row mustn't read a plain "Current".
+  // Day-granular and conservative: false unless clearly (1–120 days) behind, and on any parse failure.
+  digestBehindFeed() {
+    try {
+      const reg = this.digestRegenDate();
+      const gen = (this.META && this.META.generated_at) ? new Date(this.META.generated_at) : null;
+      if (!reg || !gen || isNaN(gen.getTime())) return false;
+      const dayOf = (dt) => new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()).getTime();
+      const diffDays = (dayOf(gen) - dayOf(reg.date)) / 86400000;
+      return diffDays >= 1 && diffDays <= 120;   // digest at least a day older; ignore absurd gaps (parse noise)
+    } catch (e) { return false; }
+  }
 
   applySpec(spec) {
     let list = this.ALL.slice();
@@ -2345,11 +2389,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         return;
       } catch (e) {
         if (e && e.name === 'AbortError') { this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: '■ stopped.' }] })); return; }
+        const detail = (e && e.detail) ? (' — ' + e.detail) : '';   // the worker's real reason, if any
         const note = (e && e.code === 401)
           ? '⚠︎ Concierge needs your own Claude API key or an access token — open settings (☰). Falling back to fast filter:'
           : this.byokKey()
-            ? '⚠︎ That failed on your Claude API key (it may be invalid, rate-limited, or out of credit). Switch it off in settings (☰) to fall back to the shared token. Using fast filter:'
-            : '⚠︎ Concierge backend unreachable — falling back to fast filter:';
+            ? '⚠︎ That failed on your Claude API key' + detail + ' (it may be invalid, rate-limited, or out of credit). Switch it off in settings (☰) to fall back to the shared token. Using fast filter:'
+            : (e && e.code)
+              ? '⚠︎ Concierge backend error ' + e.code + detail + ' — falling back to fast filter:'
+              : '⚠︎ Concierge backend unreachable — falling back to fast filter:';
         this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: note }] }));
         // fall through to the local engine
       }
@@ -2975,11 +3022,17 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // (META.generated_at), so a stale feed shows the older, truthful sync time rather than the newer
     // DB pull it hasn't caught up to yet.
     const feedSynced = this.fmtStamp((this.META && this.META.generated_at) || null);
-    const updateActive = (feedStale || tasteDirty) && !updateBusy;
+    // The digest can trail the feed: a deterministic re-rank (spotify-sync / catalog bump) refreshes the
+    // ranking + bumps generated_at but redeploys the SAME LLM digest. Surface that so the row can't read
+    // "Current" while the digest modal shows an older date; folding it into updateActive lets an Update
+    // regenerate the digest (startUpdatePoll already waits on the digest's own content signature).
+    const digestBehind = this.digestBehindFeed();
+    const digestReg = digestBehind ? this.digestRegenDate() : null;
+    const updateActive = (feedStale || tasteDirty || digestBehind) && !updateBusy;
     const updateTitle = 'Ranks & Digest: ' + (updateBusy ? 'Updating…' : updateActive ? 'Update available' : 'Current');
     const updateStatus = updateBusy
       ? (updateElapsed + ' elapsed · a few min')
-      : ('Last synced with database: ' + feedSynced);
+      : ('Last synced with database: ' + feedSynced + (digestReg ? (' · digest ' + digestReg.label) : ''));
 
     const LBL = {
       today: { num: 'today', unit: '' }, weekend: { num: 'this weekend', unit: '' },
