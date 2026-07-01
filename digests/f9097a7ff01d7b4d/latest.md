@@ -1,62 +1,52 @@
-# Lori's Digest — Week of Jun 21, 2026
+# LA Events
+*Digest regenerated Tue 6/30 — picks updated.*
 
-Three solid weeks ahead. The peak is scattered across weeknights and July 4th weekend; the best live-band moments are mid-week, so don't sleep on Thursday. The 4th of July brings a genuinely great DIY punk show — at 3am, but worth it.
+*Lori's week ahead, ranked for you — psych and indie up top, a couple techno nights, and one festival worth planning around.*
 
----
+## Friday · July 3
 
-## This Week
+- **[Free Dance Party with Levitation Room DJs](https://dice.fm/event/v3n7yl-free-dance-party-with-levitation-room-djs-3rd-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · free
+  Levitation Room behind the decks instead of on stage, no cover — easiest yes on the board for 7/3.
+- **[Levitation Room, Sol Societe, Hector Waluyo, Walkin' Love](https://dice.fm/event/g5qe76-levitation-room-sol-societe-hector-waluyo-walkin-love-3rd-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
+  The band playing live at 7pm, same room — pair it with the late DJ set and the whole night's in Frogtown.
+- **[Agents Of Time, Henri Bergmann](https://ra.co/events/2409770)** — Avalon Hollywood, Hollywood · $20 pre
+  Melodic techno at Avalon, 10pm–2am — the cheaper, more varied alternative to the Pan-Pot marathon.
+- **[WORK presents: Pan-Pot [4 Hour Set], DOOSTAH, & Kitty Logic](https://ra.co/events/2414397)** — TBA, Los Angeles · $30 b4 12 / $35–42
+  Four straight hours of Pan-Pot, 11pm–6am — a deep dive into one duo's weighty techno if you want the long haul over the variety.
 
-**Mon 6/22 — The Echo, Echo Park**
-**Grand Ole Echo** — The Echo's beloved roots/Americana variety night. Rotating cast of singer-songwriters, country, folk, and whatever wanders in. A reliable Sunday-extends-into-Monday slot when you want something earnest and unhurried.
+## Friday · July 10
 
-**Thu 6/25 — The Echo, Echo Park**
-**Lamb with Never Goodbye** — Lamb (Louise Rhodes + Andy Barlow) are a proper live act: her voice over orchestral trip-hop textures, two decades of records that hold up. Not a DJ set, not a nostalgia tour — a compositional duo in a trusted room. One of the better bookings this window.
+- **[Loose Album Release Show](https://dice.fm/event/3oxplx-loose-album-release-show-10th-jul-permanent-records-roadhouse-los-angeles-tickets)** — Permanent Records Roadhouse, Cypress Park
+  Album-release night at the Roadhouse, doors 6pm.
 
-**Thu 6/25 — The GRAMMY Museum, DTLA**
-**BUST A MOVE: Matt Dike, Delicious Vinyl, and the Hip-Hop Hits** — Museum programming, not a nostalgia night: Matt Dike and Delicious Vinyl were the mechanism behind West Coast hip-hop's commercial peak, and B Real, Mellow Man Ace, and Young MC performing live at the Grammy Museum is the kind of music-history event an ethnomusicologist actually wants to be in the room for.
+## Friday · July 17
 
----
+- **[Alex Lahey](https://dice.fm/event/l8dnal-alex-lahey-17th-jul-permanent-records-roadhouse-los-angeles-tickets)** — Permanent Records Roadhouse, Cypress Park
+  Live at 9pm at the Roadhouse.
+- **[8RO8](https://www.ticketmaster.com/8ro8-los-angeles-california-07-17-2026/event/090064C5DC4B7126)** — The Echo, Echo Park
+  Early one at The Echo, 7pm.
 
-## This Weekend (Fri 6/26 – Sat 6/27)
+## Saturday · August 1
 
-**Fri 6/26 — Zebulon, Frogtown**
-**Smoking Popes 35th Anniversary Tour, Nerf Herder** — 90s alt-punk/pop-punk legends, both bands still touring sharp. Zebulon is an odd fit for them (they usually play bigger) but the intimacy works in your favor. Nerf Herder are funnier than you remember.
+- **[Deadhead Disco: Jerry Garcia's Birthday Celebration](https://www.ticketmaster.com/deadhead-disco-jerry-garcias-birthday-celebration-los-angeles-california-08-01-2026/event/090064A5B278E816)** — Teragram Ballroom, Westlake
+  The Dead reworked for a dancefloor, with ORLOVE, 9pm at Teragram.
 
-**Fri 6/26 — TBA Downtown LA**
-**Lights Down Low feat. Yaeji** — Yaeji is the real thing: Korean-American experimental pop, genuinely strange production, her own lane entirely. TBA location is friction, but $22 for a Yaeji set is fair. Worth watching for the address reveal.
+## Wednesday · August 5
 
-**Fri 6/26 — The Smell, DTLA**
-**Noise Etc presents Necia Fatale (Oakland), Odd Limbs** — Free, all-ages, DIY. The Smell is the irreplaceable venue; Necia Fatale is an Oakland-based experimental/noise artist. Low-commitment entry point into the weirder end of the weekend.
+- **[Meridian Brothers + Mexican Institute of Sound](https://www.ticketmaster.com/meridian-brothers-mexican-institute-of-sound-los-angeles-california-08-05-2026/event/0900648DEE27B236)** — The Regent Theater, DTLA
+  Colombian art-tropicalia meets Mexico City electro-cumbia — a strange, danceable double bill.
 
-**Fri 6/26 — Camille's at The Bellwether**
-**Flying Mojito Bros, Brainstory** — Brainstory are a psychedelic soul/R&B act out of LA (brothers, heavy Cali funk influence) who've been quietly building a catalog worth knowing. $24, small room.
+## Saturday · August 29
 
-**Sat 6/27 — Gold Diggers, East Hollywood**
-**Rentboy Presents Megachurch** — Rentboy at Gold Diggers has a track record for queer avant-cabaret-meets-live-performance nights rather than straight DJ sets. "Megachurch" as a name is doing work. Worth a look closer to the date for a lineup reveal.
+- **[Daisy Chain Fields Music Festival](https://www.daisychainfields.com/tickets)** — Great Park Live, Irvine · from $250
+  Olivia Rodrigo, Chappell Roan, Doechii and Bikini Kill on one bill — the far-out ticket actually worth planning the drive to Irvine for.
 
-**Sat 6/27 — Zebulon, Frogtown**
-**CUTE DANCE PARTY 4 PRIDE** — No lineup posted but it's Pride weekend at Zebulon, which earns a soft pass. The community/queer vibe fits; whether the selectors are interesting depends on who shows up.
+## Friday · October 2
 
----
+- **[Osees ft. Brigid Dawson](https://www.ticketmaster.com/osees-ft-brigid-dawson-los-angeles-california-10-02-2026/event/09006429C3DCADCF)** — The Bellwether, DTLA
+  Dwyer's psych-garage machine with Brigid Dawson back in the fold — a loud one, worth booking early.
 
-## July 4th Weekend
+## Friday · October 16
 
-**Fri 7/3 — Zebulon, Frogtown**
-**Free Dance Party with Levitation Room DJs** — Levitation Room are a real Chicano psych-garage band (three albums, Burger Records orbit) spinning their own records. Free, holiday Friday, your venue. Easy yes.
-
-**Sat 7/4 — The Echo, Echo Park**
-**Generación Suicida** (3am start) — South Central Chicano KBD punk band, built their following entirely DIY, turned down major label interest. Kerrang covered them; LA TACO calls them one of the best punk acts in the state. The 3am start on July 4th is a commitment, but this is exactly the band the Latin punk / diaspora corner of your taste profile is built around. They don't play Echo Park every month.
-
----
-
-## The Following Weekend (Jul 10–11)
-
-**Fri 7/10 — Permanent Records Roadhouse, Cypress Park**
-**Loose Album Release Show** — An unknown quantity: no genre info, no lineup depth, but a record release show at Permanent Records is almost always DIY indie with real stakes. Check the socials closer to the date.
-
-**Sat 7/11 — The Virgil, East Hollywood**
-**Club Cumbia** — Monthly cumbia night. The Virgil isn't a loved venue but cumbia is deep in your lane. Worthwhile if you haven't been.
-
----
-
-*Nothing must-see this window — the clear top event (Ak'chamel at Zebulon) was last night. Lamb on Thursday and Generación Suicida on the 4th are the anchors.*
+- **[Geese](https://www.ticketmaster.com/event/Z7r9jZ1A70vqt)** — Hollywood Forever Cemetery, Hollywood
+  One of the sharpest young rock bands going, playing among the headstones.

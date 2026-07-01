@@ -1,89 +1,60 @@
-# Taylor's LA Events Digest
-*Updated 6/26 · Next 3 weeks · Top picks ranked to your taste*
+# LA Events
+*Digest regenerated Tue 6/30 — picks updated.*
+
+*Your week ahead, ranked to your taste — heavy on DTLA warehouse techno and rooftop house, with July 4th weekend doing most of the lifting. Straight read: nothing in this batch lands in the SWANA / Habibeats corner you actually chase, so this is the club-nights list, not the diaspora one.*
 
 ---
 
-## Tonight — Fri 6/26
+## Friday · July 3
 
-This is actually a stacked Friday. Multiple things worth going to; the hard part is picking.
+- **[WORK presents: Pan-Pot [4 Hour Set], DOOSTAH, & Kitty Logic](https://ra.co/events/2414397)** — TBA, Los Angeles · $30 b4 12 / $35-42
+  Four straight hours of Pan-Pot is a commitment to one duo's weighty, extended techno rather than a lineup night — the pick of the Friday if that's the mood, less so if you want variety across the room.
 
-⭐ **Lights Down Low feat. Yaeji** — TBA Downtown LA, 10pm–4am, $22–46  
-The pick of the night. Yaeji's a tracked artist and Lights Down Low is one of the more reliable underground promoters in LA — good support too (Alima Lee, Hu Dat). TBA location means real warehouse energy. Get tickets in advance; this one sells.  
-→ [ra.co/events/2443844](https://ra.co/events/2443844)
+- **[Ginger Root (DJ Set) at Camille's](https://www.instagram.com/p/DZnMuYqjFAC/?img_index=1)** — Camille's at The Bellwether, DTLA · free
+  Ginger Root off the stage and behind the decks is a fun oddity — boogie and alt-disco influences, free door, a nice palate-cleanser against the heavier rooms tonight.
 
-⭐ **Dirty Epic & INCOGNITO: Stacey Pullen, BAE BAE, Nish** — TBA, 11pm, $27 before midnight  
-Stacey Pullen is a Detroit techno legend (Transmat Records, Model 500 orbit). Dirty Epic is one of the trusted editorial voices in this scene, and RA picked it. If you can only do one late-late, here.  
-→ [ra.co/events/2415209](https://ra.co/events/2415209)
+- **[Dirtybird x FLOAT: Road to Campout — Rooftop Pool Party [2-8 PM]](https://ra.co/events/2449768)** — Level 8 DTLA · $30 pre
+  Daytime, bouncy West Coast house with Sacha Robotti and Ardalan both carrying real Dirtybird pedigree. Sun-and-speakers Friday — start here, go warehouse after dark.
 
-**Flying Mojito Bros + Brainstory at Camille's** — The Bellwether, 9pm–2am, $24  
-Flying Mojito Bros do this odd, excellent thing: desert-disco, acid-house, cosmic Americana — Haçienda meets Laurel Canyon. Brainstory is a live soul-funk band. The combo is genuinely good and Camille's is a proper room. Good early start before the late stuff.  
-→ [ra.co/events/2475625](https://ra.co/events/2475625)
+- **[ABSTRACT: LOS ANGELES. feat. NEEK + DEA MAGNA + Merimell](https://ra.co/events/2447566)** — 1720, Arts District · $19.25-25.67
+  International hard-techno brand's LA debut — Merimell and NEEK both play fast and aggressive, so go in expecting Terminal V energy, not a fabric night.
 
-**MARBLE: Halo Varga, Dylan Payne, Hazy, PabloDiscobar** — TBA Arts District, 10pm–7am, $20–37  
-Nine hours, TBA Arts District warehouse. Halo Varga is a fabric London resident (Chicago roots, European-finished); Dylan Payne is a solid LA vinyl selector. If you want the full sunrise afterhours, this is your option tonight.  
-→ [ra.co/events/2461312](https://ra.co/events/2461312)
+## Saturday · July 4
 
-**Midnight Lovers w/ JKriv (Razor-N-Tape)** — Bar Franca, Silver Lake, 9pm–2am, free  
-JKriv runs Razor-N-Tape, a legit NYC disco-house label. Free, Silver Lake, tonight — easiest yes on this list if you just want to walk into something good without planning.  
-→ [ra.co/events/2396500](https://ra.co/events/2396500)
+- **[WORK presents: Robert Hood, Disco Zombie, Ønyx, & Rubbermiro](https://ra.co/events/2434712)** — TBA, Los Angeles · $24 b4 12 / $35+
+  Robert Hood in a warehouse on the 4th is the anti-fireworks plan — stripped, relentless M-Plant minimal with actual LA heads supporting, and WORK's day-of address drop keeps the room self-selecting. Best thing on the calendar this weekend.
 
-**BAILE WORLD Pride: Bambii, Jubilee, Introspekt** — TBA DTLA, 11pm–5am, $11–33  
-Bambii and Jubilee are both real selectors (not just Pride-night filler). Queer afters, proper lineup, honest pricing. Good call if the vibe matches.  
-→ [ra.co/events/2443079](https://ra.co/events/2443079)
+- **[Adam Auburn — Golden Hour at Level 8](https://posh.vip/e/4th-of-july-with-adam-auburnpresented-by-trip-to-ibiza)** — Level 8 DTLA · $10 b4 9 / $25
+  The rooftop tech-house/deep-house/disco series that's basically the reference point for a good open-air night here — no marquee name this round, but worth it for the setting alone.
 
----
+- **[Okayval, Silvertone, Xvirad, Jacz](https://posh.vip/e/okayval-la-headline-show-1?t=infohz)** — TBA, DTLA · free
+  Free-entry techno/acid/house warehouse bill from The LA Raver x Techtonik — late (11:45pm). Lean on the free door if you're already out.
 
-## Saturday 6/27
+- **[Club Cielo: Kebra, Linapary, Queenie, Dina](https://ra.co/events/2471058)** — El Cid, Silver Lake · $17-26
+  Four names with no verifiable track record — could be a solid eastside night, but nothing yet confirms the sound beyond the generic billing. Gap flag, not a guarantee.
 
-⭐ **discostan** — El Cid, Silver Lake, 9:30pm–2am, $11.50–17.25  
-This one hits directly. Discostan is the longest-running SWANA-diaspora electronic night in LA — Arshia Fatima Haq (who runs it) plays acid, techno, house and global archive sounds, queered and decolonized. Palestinian, Arab, Armenian, South Asian cultural context woven into the programming. $12 to get in, Silver Lake, Saturday night. Easy yes.  
-→ [ra.co/events/2438916](https://ra.co/events/2438916)
+## Friday · July 10
 
-**Inland Groove After Hours** — TBA DTLA, 11pm–5am, free before 1am / $10  
-No lineup announced, but the series has a consistent community following. Free with RSVP if you're in before 1. Low-risk late option if you're already out.
+- **[Great Quality Entertainment presents Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District · $21 pre
+  The melodic, emotionally-pitched end of techno — closer to Lane 8 than a warehouse hammer, so expect build and atmosphere over peak-time. Trou's an unknown quantity on the bill.
 
----
+- **[Cirra presents: Day Thief, Faited, and sosoftly](https://ra.co/events/2472986)** — TBA, DTLA · price TBA
+  Two names straight out of the SF/Oakland queer-underground soundsystem scene (Faited runs sound for Eris Drew's crew) instead of the usual warehouse regulars — a genuinely rawer flavor of afters.
 
-## 4th of July Weekend — Fri 7/3 & Sat 7/4
+- **[Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush](https://www.instagram.com/p/DZl9KXzKRBX/)** — Los Globos, Silver Lake · $10 pre
+  Los Globos 11pm-5am, locally-rooted tech-house/deep-house/minimal — solid if you're already eastside, but the support slots read thin. Good-not-essential.
 
-Two WORK nights back to back. WORK is one of the better underground promoters in LA and they've booked genuinely heavy.
+## Friday · July 17
 
-⭐ **WORK: Pan-Pot [4 Hour Set], DOOSTAH, Kitty Logic** — TBA Los Angeles, Fri 7/3, 11pm  
-Pan-Pot are a Berlin duo in the Berghain/fabric tier — extended sets, precise techno, real draw. A 4-hour open-to-close at a TBA warehouse is exactly the format for them. The anchor booking of the whole month.  
-→ [ra.co/events/2414397](https://ra.co/events/2414397)
+- **[Lights Down Low feat. Mura Masa](https://ra.co/events/2452948)** — TBA, DTLA · price TBA
+  More pop-production than club-selector, so a warehouse DJ set from him is a curiosity — go for the name, not for deep selection.
 
-⭐ **WORK: Robert Hood, Disco Zombie, Ønyx, Rubbermiro** — TBA Los Angeles, Sat 7/4, 11pm  
-Robert Hood is one of the foundational figures in Detroit techno. WORK doing back-to-back nights with lineups like this is not an accident. If you go to one of the two, it's a coin flip — but Hood is a singular name.  
-→ [ra.co/events/2434712](https://ra.co/events/2434712)
+## Saturday · July 18
 
-**Ginger Root DJ Set at Camille's** — The Bellwether, Fri 7/3, 8pm–2am, free  
-Ginger Root (Cameron Lew) is a live act doing a DJ set here — his source material is alt-disco, boogie, Japanese city pop. Free, interesting, and it ends early enough to catch the WORK night after.  
-→ [ra.co/events/2475626](https://ra.co/events/2475626)
+- **[Information — All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA, DTLA · price TBA
+  A location-TBA all-vinyl night built around Luke Mele's NTS-honed Balearic/ambient/dub sensibility — the listening-bar format worth chasing an address for, quieter and more textural than a peak-time club.
 
-**Adam Auburn / Golden Hour at Level 8** — Level 8 DTLA rooftop, Sat 7/4, 8pm–midnight, $10 before 9 / $25  
-The rooftop tech-house/deep/disco format at Level 8. $10 early bird. Good pre-game for Robert Hood, or the whole night if you want to be home by midnight on the 4th.  
-→ [posh.vip](https://posh.vip/e/4th-of-july-with-adam-auburnpresented-by-trip-to-ibiza)
+## Saturday · July 25
 
-**Midnight Lovers: Eli Escobar** — TBA DTLA, Sat 7/4, 7pm–2am, $22 pre  
-Eli Escobar is 20+ years NYC house/disco — Tiki Disco, Night People label. The Midnight Lovers format suits him. Worth it if you're doing a different Saturday than WORK.  
-→ [ra.co/events/2415277](https://ra.co/events/2415277)
-
----
-
-## Fri 7/10
-
-**Township Rebellion w/ Trou and DENYC** — 1720, Arts District, 10pm  
-Township Rebellion are a South African afro/deep house act with a real following; 1720 is one of the better warehouse rooms in the Arts District. Straightforward good booking at a trusted room.  
-→ [ra.co/events/2474681](https://ra.co/events/2474681)
-
----
-
-## Sat 7/18
-
-**Information: All-Vinyl Night w/ Taylor Shockley, Luke Mele, CHOÍCE** — TBA Downtown LA, 10pm  
-An all-vinyl night at a TBA Downtown space — the format is the pitch. Taylor Shockley and Luke Mele are part of the LA underground vinyl circuit. Three weeks out; watch for TBA location reveal.  
-→ [ra.co/events/2456585](https://ra.co/events/2456585)
-
----
-
-*Skipped: INLAND GROOVE duplicate listing, Sorry For Party Rocking (2010-2015 EDM nostalgia night), Young Franco pool party (table-service pricing), Markus Schulz (trance, different lane).*
+- **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA, DTLA · price TBA
+  Not a straight house night — Miami dembow and dancehall woven into club music, one of the more interesting bookings in this batch if you want something that doesn't sound like everything else on the calendar.
