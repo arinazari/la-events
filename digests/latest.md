@@ -1,21 +1,8 @@
-# LA Events — 2026-06-30
+# LA Events — 2026-07-01
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Updated Wed 7/1 · 1256 new · 967 updated since the last pull · 🆕 new · ↻ updated*
+*Checked Wed 7/1 · no new or changed events since the last pull*
 
 ## Next two weeks
-
-### Tuesday · June 30
-
-**Electronic & dance**
-- `11pm` **[AFTERS 6-30](https://posh.vip/e/afters-630-2)** — 129 E 3rd St, DTLA · free
-
-**Live music**
-- `7pm` **[Tim Kasher](https://dice.fm/event/nv6wa9-tim-kasher-30th-jun-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-- `8pm` **[Acropolis Cinema: Masao Adachi's Escape (2025)](https://dice.fm/event/2wypn6-acropolis-cinema-masao-adachis-escape-2025-30th-jun-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
-- `8pm` **[Primitive Ring Residency, Zig Zags, The ACA](https://dice.fm/event/avppnv-primitive-ring-residency-zig-zags-the-aca-30th-jun-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
-
-**Film**
-- `7:30pm` (Tue 6/30 +5 more) **[The Invite](https://ticketing.uswest.veezi.com/purchase/3771?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
 
 ### Wednesday · July 1
 
@@ -26,6 +13,9 @@
 **Live music**
 - `8:30pm` ⭐ **[ROSALÍA: LUX TOUR 2026](https://www.ticketmaster.com/rosalia-lux-tour-2026-inglewood-california-07-01-2026/event/0900638500FF6ACE)** — Kia Forum, Inglewood
 - `8pm` **[Michael Brook (75th Birthday Concert), Suzanne Kraft](https://dice.fm/event/q2vdoy-michael-brook-75th-birthday-concert-1st-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
+
+**Film**
+- `7:30pm` (Wed 7/1 +4 more) **[The Invite](https://ticketing.uswest.veezi.com/purchase/3771?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
 
 ### Thursday · July 2
 
@@ -103,13 +93,15 @@
 
 ### Tuesday · July 7
 
+**Electronic & dance**
+- `10pm` 🆕 **[On A Tuesday - Every Tuesday](https://posh.vip/e/on-a-tuesday-each-every-tuesday-2026-7-8-9-0)** — Lost But Found · free
+
 **Live music**
 - `8pm` **[Jared Mattson & Ruban Nielson, Joshua Crumbley](https://dice.fm/event/eo8b7o-jared-mattson-ruban-nielson-joshua-crumbley-7th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
 
 **Film**
 - `7:30pm` **[Picnic at Hanging Rock](https://vidiotsfoundation.org/showtimes/picnic-at-hanging-rock-7-7-26-730-pm/)** — Vidiots, Eagle Rock
 - `2pm` **[Monsieur Verdoux](https://ticketing.uswest.veezi.com/purchase/3833?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-- `1pm` **[Band of Outsiders (1964)](https://vidiotsfoundation.org/showtimes/band-of-outsiders-1964-7-7-26-100-pm/)** — Vidiots, Eagle Rock
 
 ### Wednesday · July 8
 
@@ -140,7 +132,7 @@
 - `10pm-3am` **[Maxi Meraki](https://dice.fm/event/8elybv-maxi-meraki-10th-jul-sound-nightclub-los-angeles-tickets)** — Sound Nightclub (Los Angeles) progressive house, indie dance, afro house, Hollywood · $25 pre
 
 **Live music**
-- `6pm` **[Loose Album Release Show](https://dice.fm/event/3oxplx-loose-album-release-show-10th-jul-permanent-records-roadhouse-los-angeles-tickets)** — Permanent Records Roadhouse, Cypress Park
+- `8:30pm` 🆕 **[ZUM presents…      LAWWSS    Daron Key ‍  ‍ (Hawaii)    Hair Grease      8:30 pm](https://www.thesmell.org/events/friday-july-10-2026)** — The Smell, DTLA
 
 **Film**
 - `11:59pm` ⭐ **[Hollywood 90028](https://ticketing.uswest.veezi.com/purchase/3815?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz  
@@ -153,11 +145,12 @@
 **Electronic & dance**
 - `2pm-11:59pm` ⭐ **[Certified Groovers x SNEAK'S BEATS: Louie Vega, Karizma, DJ Sneak, Heidi Lawden, Juliet Mendoza](https://ra.co/events/2402790)** — TBA - 2346 Porter Street, Los Angeles, CA 90021, Los Angeles · $40
 - `10pm-4am` ⭐ **[I LOVE DNB: Jumpin' Jack Frost + Ray Keith](https://ra.co/events/2441821)** — TBA, Los Angeles · $23 pre
-- `3pm` **[Hypersleep - a deep progressive rooftop day party](https://ra.co/events/2468903)** — Somewhere Special, Los Angeles
+- `1pm` 🆕 **[Café Grooves & Product Pluto Present: Tongva Park](https://posh.vip/e/caf-grooves-product-pluto-present)** — Tongva Park · $16.82
 
 **Live music**
 - `7pm` ⭐ **[Lenny Kaye (Patti Smith Band), Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-patti-smith-band-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
 - `1pm` **[Acropolis Cinema: The Plagiarists](https://dice.fm/event/dko5no-acropolis-cinema-the-plagiarists-11th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
+- `8pm` **[Foodman, Sun Araw, DJ Ryley Walker](https://dice.fm/event/6d832q-foodman-sun-araw-11th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown
 
 **Film**
 - `8pm` **[Chopper](https://ticketing.uswest.veezi.com/purchase/3839?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz  
@@ -166,8 +159,6 @@
 **Other**
 - `11pm` **[SMD - Mike Servito & Jason Kendig](https://ra.co/events/2477599)** — TBA - Downtown LA, DTLA  
   SMD pairing Servito and Kendig is a real one — these two have logged years of Honcho and Honey Soundsystem warehouse nights together and know how to build a room slowly rather than just peak-time-blast it. TBA location keeps it self-selecting, which fits the sound.
-- `8pm` **[Divine LA x Apt4B Radio present: The Groove Lab](https://ra.co/events/2472030)** — TBA - DTLA, DTLA  
-  Apt4B Radio's whole pitch is a 'festival microdose' for people who want the intensity without the full production — this is a single-name, location-TBA night, so it's a lower-stakes bet than the bigger warehouse bookings this weekend.
 
 ### Sunday · July 12
 
@@ -190,6 +181,17 @@
 - `1pm` **[The Royal Tenenbaums](https://vidiotsfoundation.org/showtimes/the-royal-tenenbaums-7-13-26-100-pm/)** — Vidiots, Eagle Rock
 - `7:30pm` **[The Deer Hunter](https://vidiotsfoundation.org/showtimes/the-deer-hunter-7-13-26-730-pm/)** — Vidiots, Eagle Rock
 - `7pm` **[Maddie’s Secret](https://vidiotsfoundation.org/showtimes/maddies-secret-7-13-26-700-pm/)** — Vidiots, Eagle Rock
+
+### Tuesday · July 14
+
+**Live music**
+- `8pm` **[Kuru](https://www.axs.com/events/1475878/kuru-tickets)** — The Roxy, West Hollywood
+- `8pm` **[Night Scene: A Rock n Roll Sleaze Show](https://dice.fm/event/yowl9r-night-scene-a-rock-n-roll-sleaze-show-14th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
+
+**Film**
+- `7:30pm` 🆕 **[Harry Dean Stanton: Partly Fiction](https://vidiotsfoundation.org/showtimes/harry-dean-stanton-partly-fiction-7-14-26-730-pm/)** — Vidiots, Eagle Rock
+- `2pm` **[Mommie Dearest](https://ticketing.uswest.veezi.com/purchase/3840?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
+- `7pm` 🆕 **[ASCO: Without Permission](https://vidiotsfoundation.org/showtimes/asco-without-permission-7-14-26-700-pm/)** — Vidiots, Eagle Rock
 
 ## Weekends ahead
 
@@ -216,10 +218,7 @@
 **Live music**
 - `8pm` **[Yoshiki - Violet Night](https://www.musiccenter.org/tickets-free-events/lease-events/yoshiki/)** — The Music Center's Walt Disney Concert Hall, DTLA
 - `9pm` **[Alex Lahey](https://dice.fm/event/l8dnal-alex-lahey-17th-jul-permanent-records-roadhouse-los-angeles-tickets)** — Permanent Records Roadhouse, Cypress Park
-
-**Film**
-- `8pm` **[Starman](https://ticketing.uswest.veezi.com/sessions?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz  
-  John Carpenter's underrated 1984 sci-fi romance with Jeff Bridges as a stranded alien — gentler and warmer than his horror run, and a good change of pace on the Vista's Friday slate.
+- `7pm` 🆕 **[Exhibition Opening | Catharsis by Clumsy World](https://juniorhighlosangeles.com/calendar/catharsis-clumsyworld-exhibit-2026)** — Junior High, Glendale
 
 **Other**
 - `11pm` **[Lights Down Low feat. Mura Masa](https://ra.co/events/2452948)** — TBA - Downtown LA, DTLA  
@@ -258,9 +257,9 @@
 
 **Electronic & dance**
 - `11pm` **[RECOLLECT UNDERGROUND: SPEACIAL GUESTS - LARSa and SWANYA](https://ra.co/events/2475860)** — TBA - Location Link in Bio on Instagram @recollectunderground, Los Angeles
-- `8pm` **[The Futons](https://ra.co/events/2477986)** — The Redwood Bar And Grill, DTLA
 
 **Live music**
+- `time TBA` 🆕 **[Tim Rachbach Group ft. Mark Turner](https://www.samfirstbar.com/events/tim-rachbach-group-ft-mark-turner-with-adam-ratner-adam-hersh-graeham-guerin)** — Sam First, Westchester
 - `6:30pm` **[VLSF & KCRW Present: Moondough w/ mypilotis & Waldo Witt](https://www.ticketmaster.com/vlsf-kcrw-present-moondough-w-mypilotis-los-angeles-california-07-23-2026/event/090064BDDEA64988)** — The Moroccan Lounge, Arts District
 
 **Film**
@@ -276,8 +275,8 @@
 - `8pm` **[Snoop Dogg 21+](https://www.ticketmaster.com/event/Z7r9jZ1A7x4u8)** — Yaamava Resort & Casino at San Manuel, Highland
 - `9:30pm` **[Orion 224 with Cannon the Dealers & American Woman](https://www.ticketmaster.com/orion-224-with-cannon-the-dealers-los-angeles-california-07-24-2026/event/0900649DE2A156D5)** — The Moroccan Lounge, Arts District  
   A touring Texas indie-rock double bill — Orion 224's melodic guitars and Cannon the Dealers' scrappier indie-sleaze — landing at the Moroccan for an all-ages Friday. Solidly in the small-club live-band lane, just not a big enough name to build a night around; good if you're already in the Arts District.
-- `8pm` (Fri 7/24 + Sat 7/25) **[Smokey Robinson w/ Gladys Knight](https://www.ticketmaster.com/event/Z7r9jZ1A7xZGM)** — Hollywood Bowl, Hollywood
 - `6:45pm` **[Prince Daddy & The Hyena + Macseal Australian Tour 2026 ](https://www.moshtix.com.au/v2/event/prince-daddy-the-hyena-macseal-australian-tour-2026/192302)** — The Comedy Chateau (Yorick Showroom), North Hollywood
+- `11pm` 🆕 **[Brenna Whitaker](https://www.vibratogrilljazz.com/music/7n7gr38hgd84szrcfygxbmxz87tmgg)** — Vibrato Grill Jazz, Bel Air
 
 **Film**
 - `8pm` **[Fight Without Jingi](https://ticketing.uswest.veezi.com/purchase/3850?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz  
@@ -289,9 +288,11 @@
 - `2pm` ⭐ **[FLOAT feat. Jody Wisternoff](https://ra.co/events/2449781)** — Level 8 DTLA, DTLA
 - `10pm` **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA - Downtown, DTLA  
   An all-night TBA set from Nick León isn't a straight house night — it's Miami dembow-and-dancehall rhythm woven into club music, which makes this one of the more interesting bookings in this batch if you want something that doesn't sound like everything else on the calendar.
-- `4pm` **[DISCOTHEKE](https://ra.co/events/2473853)** — Apotheke, Chinatown  
-  No billed lineup beyond a house crew name and a bare RA listing — could be a fine Chinatown day-party, but there's nothing here yet to confirm the selection is worth planning around.
 - `7:30pm` **[LEMS 14 - Live Electronic Music Sessions](https://ra.co/events/2477202)** — Coaxial, DTLA
+
+**Live music**
+- `8pm` **[Smokey Robinson w/ Gladys Knight](https://www.ticketmaster.com/event/Z7r9jZ1A7-o3a)** — Hollywood Bowl, Hollywood
+- `11:30pm` 🆕 **[Tawanda- Jazz & Soul with a Twist](https://www.vibratogrilljazz.com/music/tawanda-jazz-soul-with-a-twist-5)** — Vibrato Grill Jazz, Bel Air
 
 **Film**
 - `8pm` **[Christmas in July](https://ticketing.uswest.veezi.com/purchase/3851?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz  
@@ -302,9 +303,9 @@
 **Electronic & dance**
 - `7pm` ⭐ **[Boris Brejcha with the Hollywood Bowl Orchestra](https://ra.co/events/2375675)** — Hollywood Bowl, Hollywood
 - `4pm` **[Nikka Costa and DJ Anthony Valadez at Summer Sounds](https://ra.co/events/2476721)** — TBA - Plummer Park WeHo, West Hollywood
-- `1:30pm` **[Tenement Rats](https://ra.co/events/2468096)** — The Redwood Bar And Grill, DTLA
 
 **Live music**
+- `8pm` 🆕 **[Teddy Thompson](https://www.mccabes.com/concerts-landing/)** — McCabe's Guitar Shop, Santa Monica
 - `7pm` **[Wu Lyf](https://www.ticketmaster.com/wu-lyf-los-angeles-california-07-26-2026/event/090064C3EA438AA6)** — The Echo, Echo Park
 - `5:30pm` **[Grand Ole Echo](https://www.ticketmaster.com/grand-ole-echo-los-angeles-california-07-26-2026/event/0900646425BAA879)** — The Echo, Echo Park
 
@@ -319,7 +320,7 @@
 **Live music**
 - `7pm` **[Violent Femmes: 45 Years of Violent Femmes Tour](https://www.ticketmaster.com/violent-femmes-45-years-of-violent-los-angeles-california-07-30-2026/event/09006490BF5597CE)** — The Bellwether, DTLA
 - `7pm` **[The Fixx](https://www.ticketmaster.com/the-fixx-los-angeles-california-07-30-2026/event/090064ABB556C945)** — The Belasco, DTLA
-- `8pm` **[Los Angeles Philharmonic](https://www.ticketmaster.com/event/Z7r9jZ1A7r4bU)** — Hollywood Bowl, Hollywood
+- `11:30pm` 🆕 **[The K-Tel All-Stars | 70s Soundtrack](https://www.vibratogrilljazz.com/music/the-k-tel-all-stars-70s-soundtrack)** — Vibrato Grill Jazz, Bel Air
 
 **Film**
 - `8pm` **[The Petrified Forest](https://ticketing.uswest.veezi.com/sessions?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
@@ -333,7 +334,7 @@
 **Live music**
 - `8pm` **[Tchaikovsky Spectacular](https://www.ticketmaster.com/event/Z7r9jZ1A7-EbY)** — Hollywood Bowl, Hollywood
 - `8pm` **[Black Moth Super Rainbow](https://www.ticketmaster.com/black-moth-super-rainbow-los-angeles-california-07-31-2026/event/09006473E312DAC6)** — The Belasco, DTLA
-- `7pm` **[BIG SIS](https://www.ticketmaster.com/big-sis-los-angeles-california-07-31-2026/event/090064741F89BA65)** — Echoplex, Echo Park
+- `time TBA` 🆕 **[Peter Erskine Dr. Um Band](https://www.samfirstbar.com/events/peter-erskine-dr-um-band-with-john-beasley-bob-sheppard-janek-gwizdala)** — Sam First, Westchester
 
 **Film**
 - `8pm` **[12 Angry Men](https://ticketing.uswest.veezi.com/sessions?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz  
@@ -349,6 +350,9 @@
 - `10pm` **[Certified Groovers with Demuir](https://ra.co/events/2464585)** — TBA - Downtown Los Angeles, DTLA  
   Certified Groovers keeps booking real house heads for these TBA nights, and Demuir's jackin'-house pedigree (he basically named the subgenre) makes this a solid groove-forward pick over a lot of the generic 'electronic, TBA' listings this week.
 
+**Live music**
+- `11pm` 🆕 **[Luke Carlsen and the Fresh Rhythm Band](https://www.vibratogrilljazz.com/music/ne6y8lhhrnsaggnyagscz25nmxgnsa)** — Vibrato Grill Jazz, Bel Air
+
 **Other**
 - `2pm` (Sat 8/1 + Sun 8/2) ⭐ **[HARD Summer Music Festival](https://on.fgtix.com/trk/5oHm)** — Hollywood Park Grounds, Inglewood  
   This is the maximalist, 68-name-deep HARD Summer bill — Charlotte de Witte, VTSS and Amelie Lens give the techno stage real weight, but the day is mostly festival-scale bass/electro/hyperpop stuff outside the lane. Go for a handful of sets, not the whole grounds.
@@ -362,7 +366,7 @@
 **Live music**
 - `6:30pm` **[Loving Worship Praise Concert - THIS. IS. RUACH.](https://www.ticketmaster.com/event/Z7r9jZ1A7PkbV)** — The Novo by Microsoft, DTLA
 - `7pm` **[St. Vincent](https://www.ticketmaster.com/event/Z7r9jZ1A7-ObY)** — Hollywood Bowl, Hollywood
-- `8pm` **[Kim Gordon - Play Me Tour](https://www.ticketmaster.com/kim-gordon-play-me-tour-los-angeles-california-08-02-2026/event/09006482BE647FBF)** — Pacific Electric, DTLA
+- `11pm` 🆕 **[An Evening with Olivia Kuper Harris](https://www.vibratogrilljazz.com/music/an-evening-with-olivia-kuper-harris)** — Vibrato Grill Jazz, Bel Air
 
 ## On the radar
 

@@ -1,5 +1,5 @@
 # LA Events
-*Digest regenerated Tue 6/30 — picks updated.*
+*Digest regenerated Tue 6/30 · checked Wed 7/1 · no new picks since.*
 
 *Lori's week ahead, ranked for you — psych and indie up top, a couple techno nights, and one festival worth planning around.*
 

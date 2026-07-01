@@ -1,50 +1,51 @@
 # LA Events
-*Digest regenerated Tue 6/30 — picks updated.*
+*Digest regenerated Wed 7/1 — picks updated.*
 
-*The week ahead, ranked for your taste — house, disco, and a couple of rep-cinema curveballs, soonest first.*
+Heads up on the feed: the raw scoring pass this week is skewed toward warehouse techno/afterhours parties (the deterministic scorer's "electronic = high interest" reasons don't match your taste.yaml, which is explicit that big-room/warehouse stuff is a penalty and indie/rock, jazz, and rep cinema are the high-interest lanes). I re-ranked to what your profile actually says you like. Bottom line: it's a rep-cinema-heavy stretch with one great live-music night, and comedy is a bust this cycle — nothing from your loved comedians turned up, just circuit-club filler in Temecula and Bolingbrook, so I'm skipping it rather than padding.
 
-## Friday · July 3
+## This week
 
-- **[Groove Room: A House and Hits Dance Party](https://dice.fm/event/3o7k2g-groove-room-a-house-and-hits-dance-party-3rd-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-  No headliner, no ticket line — just house and hits in a small room you can walk to from Silver Lake. The unpretentious pick.
-- **[Ginger Root (DJ Set) at Camille's](https://www.instagram.com/p/DZnMuYqjFAC/?img_index=1)** — Camille's at The Bellwether, DTLA · free
-  Cameron Lew off the stage and behind the decks, playing his boogie/alt-disco influences instead of performing them. Free, low-commitment, a nice change of pace.
-- **[Dirtybird x FLOAT: Road to Campout · Rooftop Pool Party](https://ra.co/events/2449768)** — Level 8 DTLA, DTLA · $30 pre
-  Sacha Robotti and Ardalan, both real Dirtybird pedigree, warming up for Campout. Daytime, bouncy West Coast house — sun and speakers, 2–8pm.
-- **[Mutate: Kayzo](https://ra.co/events/2453933)** — Exchange LA, DTLA · $40 pre
-  Insomniac-run bass/hardstyle night — heavy drops, young crowd. Skip unless that's specifically the mood.
+**Fri 7/3**
+- **[Heat (1995)](https://ticketing.uswest.veezi.com/purchase/4774?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax, 7pm. De Niro/Pacino on the big screen — the kind of rep booking worth building a Friday around.
+- **[Jaws](https://ticketing.uswest.veezi.com/purchase/3667?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz, 11:30pm. Late-night Spielberg; pairs well with dinner in Los Feliz beforehand.
 
-## Saturday · July 4
+**Sat 7/4**
+- **[The Invite](https://ticketing.uswest.veezi.com/purchase/3827?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz, 7pm. Lower-key alternative if you want to dodge fireworks crowds.
 
-- **[The Hustle ~ First and Third Saturday Disco Party!](https://dice.fm/event/bb7p6g-the-hustle-first-and-third-saturday-disco-party-4th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-  Gold Diggers' reliable disco-and-boogie residency, residents doing their thing. Easy late add to the Fourth if the warehouse TBAs don't pan out.
-- **[Okayval, Silvertone, Xvirad, Jacz](https://posh.vip/e/okayval-la-headline-show-1?t=infohz)** — TBA, DTLA · free
-  Techno/acid/house warehouse bill from The LA Raver x Techtonik. Free at the door — same show floats around a couple of feeds, so treat it as one event.
-- **[Club Cielo: Kebra, Linapary, Queenie, Dina](https://ra.co/events/2471058)** — El Cid, Silver Lake · $17–26
-  Could be a solid eastside night, but the four names have no public track record to confirm the sound. Gap-flagged rather than guessed.
+**Sun 7/5**
+- **[Rose of Nevada](https://vidiotsfoundation.org/showtimes/rose-of-nevada-7-5-26-730-pm/)** — Vidiots, Eagle Rock, 7:30pm. New release in the rep-house slot.
 
-## Friday · July 10
+**Wed 7/8 — best single night of the stretch**
+- **[Royel Otis](https://www.axs.com/events/1372714/royel-otis-tickets)** w/ Ax and the Hatchetmen — Greek Theatre, Los Feliz, 7:30pm. Aussie indie-rock duo, squarely in your Alvvays/Beach House lane, at a room you love.
+- **[Kurt Vile & The Violators](https://www.axs.com/events/1404504/kurt-vile-and-the-violators-tickets)** w/ Ryan Davis & the Roadhouse Band — The Novo, DTLA, 8pm. Same night, different flavor — laconic guitar-rock if the Greek's too big a room for your mood.
 
-- **[Great Quality Entertainment presents Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District · $21 pre
-  Township Rebellion is the draw — melodic, emotionally-pitched techno closer to Lane 8 than a warehouse hammer. Go in expecting build and atmosphere. Trou's an unknown on the bill.
-- **[Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush](https://www.instagram.com/p/DZl9KXzKRBX/)** — Los Globos, Silver Lake · $10 pre
-  Los Globos going 11pm–5am on a tech/deep/minimal bill. Solid afterhours if you're already eastside, but the support reads thin — good, not essential.
-- **[Hollywood 90028](https://ticketing.uswest.veezi.com/purchase/3815?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  A Vista midnight slot almost always means a cult curio. Worth checking what it actually is before you commit to a near-1am end.
+**Thu 7/9**
+- **[Dylan LeBlanc + Band](https://dice.fm/event/bb7anv-dylan-leblanc-band-10-year-anniversary-of-cautionary-tale-9th-jul-zebulon-los-angeles-tickets)** — 10-year anniversary of *Cautionary Tale* — Zebulon, Frogtown, 8pm. Americana/singer-songwriter, right in the intimate-listening-room zone.
 
-## Friday · July 24
+**Fri 7/10**
+- **[Hollywood 90028](https://ticketing.uswest.veezi.com/purchase/3815?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, 11:59pm. Cult curio at a midnight slot — check what it actually is before committing to the late finish.
 
-- **[Fight Without Jingi](https://ticketing.uswest.veezi.com/purchase/3850?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  Fukasaku's 'Battles Without Honor and Humanity' under its literal title — the ultra-violent yakuza classic that basically invented the jitsuroku genre. Bracing instead of a comfort rep-watch.
+**Sat 7/11**
+- **[Lenny Kaye (Patti Smith Band) & Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-patti-smith-band-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown, 7pm. Real pedigree — Kaye's been Patti Smith's guitarist/co-writer since the start; worth it for the stories between songs alone.
+- **[Chopper](https://ticketing.uswest.veezi.com/purchase/3839?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, 8pm. Eric Bana's breakout, pitch-black Aussie crime-comedy — good Los Feliz double-feature anchor.
 
-## Saturday · July 18
+## Weekends ahead
 
-- **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA, DTLA
-  Luke Mele's NTS-honed Balearic/ambient/dub sensibility on an all-vinyl bill — the listening-bar format worth chasing an address for. Quieter and more textural than a peak-time club.
-- **[Fandango](https://ticketing.uswest.veezi.com/purchase/3845?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  Kevin Reynolds' 1985 cult favorite, Costner's first lead — five friends on one last road trip before the draft. Warm and funny, low-stakes Saturday.
+**Thu 7/16**
+- **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3743?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, 10:30pm. Nolan in true 70mm — a format event, not just a rewatch.
 
-## Saturday · July 25
+**Fri 7/17**
+- **[Adam Spry, Adam James, The Pretty Flowers](https://dice.fm/event/6dle87--adam-spry-adam-james-the-pretty-flowers-17th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood, 7pm. A proper small-club indie triple bill (Shins/Fruit Bats-adjacent) instead of Gold Diggers' usual house night — the clearest "your lane" pick that weekend.
 
-- **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA, DTLA
-  An all-night Nick León set isn't a straight house night — it's Miami dembow and dancehall woven into club music. One of the more interesting bookings in the batch if you want something that doesn't sound like everything else.
+**Sat 7/18**
+- **[Fandango](https://ticketing.uswest.veezi.com/purchase/3845?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz. Costner's 1985 cult road-trip comedy — warm, funny, low-stakes Saturday.
+
+**Fri 7/24**
+- **[Fight Without Jingi](https://ticketing.uswest.veezi.com/purchase/3850?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, 8pm. *Battles Without Honor and Humanity* under its literal title — the ultra-violent yakuza classic that invented the genre. Bracing over comfortable.
+
+**Sun 7/26**
+- **[Teddy Thompson](https://www.mccabes.com/concerts-landing/)** — McCabe's Guitar Shop, Santa Monica, 8pm. Folk/Americana in your favorite intimate listening room — closes the stretch on-brand.
+
+## Honest read
+
+Live-music and rep-cinema coverage is solid (Zebulon and Vista/Vidiots/New Beverly are doing the work), but nothing from your `artists_tracked` list showed up in the next four weeks, and comedy is empty of anyone you actually follow. If Wed 7/8 (Royel Otis / Kurt Vile) doesn't grab you, this is a quieter stretch — lean on the rep-cinema calendar rather than expecting a marquee week.

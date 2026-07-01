@@ -1292,34 +1292,6 @@
       "enriched_at": "2026-07-01T03:19:17",
       "enriched_tier": "full"
     },
-    "262bc08f8304": {
-      "id": "262bc08f8304",
-      "type": "club",
-      "subgenres": [
-        "tech-house",
-        "deep-house",
-        "minimal",
-        "disco"
-      ],
-      "setting": [
-        "rooftop"
-      ],
-      "vibe": [
-        "sunset"
-      ],
-      "label_orbit": [],
-      "energy": "groove / golden-hour",
-      "sounds_like": [
-        "Sunset Sessions residents",
-        "Golden Hour rooftop house"
-      ],
-      "artist_notes": [],
-      "curator_note": "A Fourth of July edition of the Golden Hour rooftop series at Level 8 — same tech-house/deep-house/disco format that's basically the reference point for a good open-air night here, just no marquee name billed this time. Worth it for the setting alone.",
-      "description": "'Golden Hour' Fourth of July rooftop party at Level 8 DTLA with Adam Auburn, tech-house/deep-house/minimal/disco, 8pm-12am, $10 before 9pm.",
-      "confidence": "medium",
-      "enriched_at": "2026-07-01T03:19:17",
-      "enriched_tier": "full"
-    },
     "3811f57ad3ce": {
       "id": "3811f57ad3ce",
       "type": "film",
@@ -2776,20 +2748,6 @@
       "enriched_at": "2026-07-01T03:19:17",
       "enriched_tier": "full"
     },
-    "f9282d4269df": {
-      "id": "f9282d4269df",
-      "description": "Rep/arthouse film screening at Vista Theater, Los Feliz.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "f30beb2dacd8": {
-      "id": "f30beb2dacd8",
-      "description": "Free electronic afterhours at 129 E 3rd St (NIGHTSHIFT).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
     "8edae61d0416": {
       "id": "8edae61d0416",
       "description": "Tim Hockenberry & Sherman Oakies cover Willie, Dylan & Americana at Vibrato Grill Jazz.",
@@ -2992,13 +2950,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "medium"
-    },
-    "10c0150aaf3b": {
-      "id": "10c0150aaf3b",
-      "description": "Don Julio presents Red, White & Vibes Independence Day electronic party at Warwick LA ($11.50-46).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
     },
     "069c14ea5e36": {
       "id": "069c14ea5e36",
@@ -3504,13 +3455,6 @@
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "high"
     },
-    "f2dda7a6bd9b": {
-      "id": "f2dda7a6bd9b",
-      "description": "Underground electronic show with LA Riots, Lavenge, and Max Rush in TBA LA location (Fri 7/10, 11pm, afterhours).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
     "b4a01eb3768c": {
       "id": "b4a01eb3768c",
       "description": "Live music showcase at The Mint featuring Slim Freaky, Evan Dexter Big Band, and others (Fri 7/10, 7:30pm).",
@@ -3654,13 +3598,6 @@
     "da17266cfd9b": {
       "id": "da17266cfd9b",
       "description": "Acropolis Cinema screening 'The Plagiarists' at 2220 Arts + Archives, Historic Filipinotown (Sat 7/11, 1pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "3ee7a77cd2a9": {
-      "id": "3ee7a77cd2a9",
-      "description": "Live music performance with Foodman and Sun Araw at 2220 Arts + Archives, Historic Filipinotown (Sat 7/11, 8pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "high"
@@ -4084,41 +4021,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "high"
-    },
-    "5b74c1c6d40a": {
-      "id": "5b74c1c6d40a",
-      "description": "Acropolis Cinema screening of Masao Adachi's Escape at 2220 Arts + Archives, Historic Filipinotown (20:00).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "7f4e2d1ad288": {
-      "id": "7f4e2d1ad288",
-      "description": "Stand by Me screening at Vidiots, Eagle Rock (13:00).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "5e8b6008b889": {
-      "id": "5e8b6008b889",
-      "description": "Bad Education on 35mm at Vidiots, Eagle Rock (19:30).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "c5b8cb092259": {
-      "id": "c5b8cb092259",
-      "description": "Lufthansa Airlines customer service spam event (low-confidence spam/trash entry).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "low"
-    },
-    "c76da151b16b": {
-      "id": "c76da151b16b",
-      "description": "On A Tuesday afterhours electronic party at Lost But Found (22:00, free w/RSVP).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "low"
     },
     "a357c46ccc67": {
       "id": "a357c46ccc67",
@@ -6003,55 +5905,6 @@
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "high"
     },
-    "74a2ebf1964f": {
-      "id": "74a2ebf1964f",
-      "description": "Tim Kasher live at Gold Diggers.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "medium"
-    },
-    "cadf369ecffa": {
-      "id": "cadf369ecffa",
-      "description": "Primitive Ring Residency with Zig Zags and The ACA at Zebulon.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "medium"
-    },
-    "e32a124768c1": {
-      "id": "e32a124768c1",
-      "description": "Seth MacFarlane and his Chamber Orchestra at Vibrato Grill Jazz (prix fixe dinner + jazz, 11:30pm show).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "b84f1a116faf": {
-      "id": "b84f1a116faf",
-      "description": "The Reytons and Casey Lowery play rock at The Echo.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "55d1e54aa46e": {
-      "id": "55d1e54aa46e",
-      "description": "Connor Price and GRAHAM perform hip-hop at The Bellwether.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "f12be896de45": {
-      "id": "f12be896de45",
-      "description": "Back to the Future 35mm theatrical screening at New Beverly Cinema.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "f32165dc69c9": {
-      "id": "f32165dc69c9",
-      "description": "Mexico vs Ecuador match viewing party at Dom Futbola ($10).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "medium"
-    },
     "6309b6339a45": {
       "id": "6309b6339a45",
       "description": "Aaron Goldberg performs improvised loops and live animations with Pendleton Ward at Gold Diggers.",
@@ -7060,13 +6913,6 @@
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "medium"
     },
-    "102aa418065d": {
-      "id": "102aa418065d",
-      "description": "R&B artist Olivia Dean live at Crypto.com Arena DTLA, Wed 7/15 at 8pm.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "medium"
-    },
     "8036e11b3fff": {
       "id": "8036e11b3fff",
       "description": "Pop artist Bella Poarch performs Spotlight at Grammy Museum LA Live, Wed 7/15 at 7:30pm.",
@@ -8071,48 +7917,6 @@
     "bc30650a1bde": {
       "id": "bc30650a1bde",
       "description": "Hip-hop artist Rio Da Yung Og at The Regent Theater, DTLA (all ages).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "2450a62b64a7": {
-      "id": "2450a62b64a7",
-      "description": "Junior High Book Club community event at Junior High, Glendale (free, all ages).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "74b88b5d49ed": {
-      "id": "74b88b5d49ed",
-      "description": "Milk Crate Mic open mic night at Maui Sugar Mill Saloon, Tarzana.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "medium"
-    },
-    "d25d7b11186b": {
-      "id": "d25d7b11186b",
-      "description": "Leven Kali with Adanna Duru + Daiela at The Roxy, West Hollywood.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "6570fa8f5cd4": {
-      "id": "6570fa8f5cd4",
-      "description": "Royal & the Serpent with SlushPuppy and Bardo at El Rey Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "c0151e22fab7": {
-      "id": "c0151e22fab7",
-      "description": "The Phantom of the Opera touring production at Hollywood Pantages Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "45166eb8b2bf": {
-      "id": "45166eb8b2bf",
-      "description": "Mamma Mia! touring production at Ahmanson Theatre, DTLA.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "high"
@@ -10825,6 +10629,1466 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "high"
+    },
+    "4a64737cba18": {
+      "id": "4a64737cba18",
+      "description": "DJs Monika Starling & Sommer Ray spin July 4th weekend at Warwick LA, 10pm-2am afterhours.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "d03350b303ac": {
+      "id": "d03350b303ac",
+      "description": "Electronic set with LEXACELI, 99% ANGEL, and Puta de Inglewood at Homage Brewing in Pomona (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "35e4432628b5": {
+      "id": "35e4432628b5",
+      "description": "Free Caribbean & Latin beach social at Dockweiler Beach for SlayPride LA Black Pride, 10am.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "d8d9d89fcfa1": {
+      "id": "d8d9d89fcfa1",
+      "description": "July 4th mansion pool party hosted by Events by Ty & Kenny, 2pm (location revealed after RSVP).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "a9477c91b9e8": {
+      "id": "a9477c91b9e8",
+      "description": "Free cumbia night at Hello Stranger Little Tokyo with LA Sonidera Party, 10pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "c5fa59d6f948": {
+      "id": "c5fa59d6f948",
+      "description": "Free afterhours electronic party at 129 E 3rd St in DTLA, 11pm-dawn.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "4cec54ce25b4": {
+      "id": "4cec54ce25b4",
+      "description": "Recollect Underground with LA Riots, Lavenge & Max Rush, TBA warehouse location (11pm-5am, $10 pre).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "446974fecbd6": {
+      "id": "446974fecbd6",
+      "description": "Free afterhours electronic party, Utopia Fridays at secret location (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "5be2afc2ad62": {
+      "id": "5be2afc2ad62",
+      "description": "Live show: Foodman, Sun Araw & DJ Ryley Walker at 2220 Arts + Archives in Historic Filipinotown, 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "25b4b6457021": {
+      "id": "25b4b6457021",
+      "description": "Day party at Tongva Park with CINTHIE, Slugg, Mr. Bones & Nate Ash (1pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "c33e779bba05": {
+      "id": "c33e779bba05",
+      "description": "Free afterhours electronic event, SXTPS: Locker Room at secret location (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "f73b4538e2c2": {
+      "id": "f73b4538e2c2",
+      "description": "Slow Jamz Takeover electronic night at Homage Brewing in Pomona (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "dda89cb1660d": {
+      "id": "dda89cb1660d",
+      "description": "Clink Takeover electronic night at Homage Brewing in Pomona (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "5197ebf06e59": {
+      "id": "5197ebf06e59",
+      "description": "Free Scene & Heard film club screening at Alamo Drafthouse DTLA, 6pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "acb677ac6982": {
+      "id": "acb677ac6982",
+      "description": "Electronic event Bu Tea Call Friday at Bu Tea Den, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "36965bfd743f": {
+      "id": "36965bfd743f",
+      "description": "Ravemakase omakase supper club & dance party in Arts District DTLA, 5pm ($20).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "bba77ec8c473": {
+      "id": "bba77ec8c473",
+      "description": "Live bands Sapient Scar, Plastic Rhino & Xtine at Harvard & Stone in East Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "c8903d5550da": {
+      "id": "c8903d5550da",
+      "description": "OCHO ETC!ETC! electronic party at Avalon Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "4d6f212addbb": {
+      "id": "4d6f212addbb",
+      "description": "Free rooftop day party Where You At at Lost Rooftop, 3pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "2e412712fec5": {
+      "id": "2e412712fec5",
+      "description": "Free open-air Sundaze event at Utopia with secret guest headliner (7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "17a718671d36": {
+      "id": "17a718671d36",
+      "description": "Free electronic kickback First Tuesdays at Precinct DTLA, 9pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "dc36ee880958": {
+      "id": "dc36ee880958",
+      "description": "Free afterhours electronic party On a Tuesday at Lost But Found (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "7db76a64703e": {
+      "id": "7db76a64703e",
+      "description": "Electronic event Bu Tea Den x Electric LA at Bu Tea Den, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "7de7aef98007": {
+      "id": "7de7aef98007",
+      "description": "Summer on the Shaw outdoor party at Crenshaw yoga dance studio, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "1b999dfe2dfa": {
+      "id": "1b999dfe2dfa",
+      "description": "Free Function Fridays Jersey party theme at Catch One Nightclub in Mid-City (9pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "f95f4bf6928e": {
+      "id": "f95f4bf6928e",
+      "description": "DIY punk/experimental live show with Lawwss, Daron Key & Hair Grease at The Smell (8:30pm, $10).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "809d91c80b04": {
+      "id": "809d91c80b04",
+      "description": "Emo Nite electronic party at Avalon Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "e596e40057aa": {
+      "id": "e596e40057aa",
+      "description": "Free outdoor music festival Santa Monica Block Fest Vol V across Third Street Promenade with 12+ DJs & food market (5pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "6a219f3683bf": {
+      "id": "6a219f3683bf",
+      "description": "Free pop-up event Rina Revenge LA at 2449 E Cesar E Chavez Ave, 5pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "d6ddc2d6ea80": {
+      "id": "d6ddc2d6ea80",
+      "description": "Free electronic evening LowLight Vol. 1 at SZNS Coffeehouse in Pasadena (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "dd009529b619": {
+      "id": "dd009529b619",
+      "description": "House DJ set at Melrose House, free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "04a71ec3b8c3": {
+      "id": "04a71ec3b8c3",
+      "description": "Electronic music party at Globe Theatre hosted by CODE RED, $9.71.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "79b69def6667": {
+      "id": "79b69def6667",
+      "description": "In Your Pocket presents punk/experimental live show with Open Letter, prune, and girl/interrupted at The Smell (DTLA), $10 advance.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "993c8f902ef1": {
+      "id": "993c8f902ef1",
+      "description": "Audien electronic set at Avalon Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "c6274d0cb36a": {
+      "id": "c6274d0cb36a",
+      "description": "Disco night with Bad News, PB&Yam live at The Venice West, 10:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "32484d49997c": {
+      "id": "32484d49997c",
+      "description": "Film screening: The Angry Black Girl and Her Monster at Vidiots, 1pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "53394a36b0f0": {
+      "id": "53394a36b0f0",
+      "description": "ASCO: Without Permission, archival film screening at Vidiots, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "d835e5666ad3": {
+      "id": "d835e5666ad3",
+      "description": "Harry Dean Stanton: Partly Fiction, documentary screening at Vidiots, 7:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "e0c38978217e": {
+      "id": "e0c38978217e",
+      "description": "Catharsis by Clumsy World exhibition opening at Junior High (Glendale), $5–10 suggested donation, all-ages.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "38ac74ba2963": {
+      "id": "38ac74ba2963",
+      "description": "Twoth presents punk/experimental bands Bonnie's Casket, Worn Down Thread, and Pet Rats at The Smell (DTLA), $12 advance.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "25615b89ce82": {
+      "id": "25615b89ce82",
+      "description": "Rotations: Aloïse + Colors Folly live at 2220 Arts + Archives (Historic Filipinotown), 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "6076c7e280f1": {
+      "id": "6076c7e280f1",
+      "description": "Minerva Hoyt, starsdontmeananything, and Wazoo punk show at The Smell (DTLA), $12.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "16833755ce3c": {
+      "id": "16833755ce3c",
+      "description": "Brenna Whitaker vintage jazz and soulful vocals at Vibrato Grill Jazz (Bel Air), 11pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "2c29f30f3f34": {
+      "id": "2c29f30f3f34",
+      "description": "Best Buds, Girl Dinner, and OLDER punk/experimental show at The Smell (DTLA), 8pm, $10.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "eab83eab4779": {
+      "id": "eab83eab4779",
+      "description": "Tawanda jazz and soul performance at Vibrato Grill Jazz (Bel Air), 11:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "c0280e879181": {
+      "id": "c0280e879181",
+      "description": "Darude electronic set at Avalon Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "951bac6c75f1": {
+      "id": "951bac6c75f1",
+      "description": "Gasolina electronic event at Avalon Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "5569781bd5c1": {
+      "id": "5569781bd5c1",
+      "description": "Peter Erskine Dr. Um Band reunion celebrating groove-driven fusion at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "4fc4d69f04a1": {
+      "id": "4fc4d69f04a1",
+      "description": "Shuriken, Thraxinapack, Chino DJ set, and others at The Smell (DTLA), 6:30pm, $10.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "a8561b5b682a": {
+      "id": "a8561b5b682a",
+      "description": "Event at Universal Studios Hollywood; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "e93dcd0aae4a": {
+      "id": "e93dcd0aae4a",
+      "description": "Event at Los Angeles Union Station; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "59567b064ed0": {
+      "id": "59567b064ed0",
+      "description": "Event at Universal City; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "7bb51ecc48b3": {
+      "id": "7bb51ecc48b3",
+      "description": "Event at Universal Studios Hollywood; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "127e8fbc8986": {
+      "id": "127e8fbc8986",
+      "description": "Event at USA GYM; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "92088570d186": {
+      "id": "92088570d186",
+      "description": "Event at Los Angeles Union Station; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "a443393616b1": {
+      "id": "a443393616b1",
+      "description": "Event at Universal City; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "a4e3ead7a2c3": {
+      "id": "a4e3ead7a2c3",
+      "description": "Event at Universal Cinema AMC at CityWalk Hollywood; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "fa6492c75f37": {
+      "id": "fa6492c75f37",
+      "description": "Event at Universal Studios Hollywood; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "91f23e281b85": {
+      "id": "91f23e281b85",
+      "description": "Event at Universal Cinema AMC at CityWalk Hollywood; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "5af2f8917731": {
+      "id": "5af2f8917731",
+      "description": "Event at USC Village; details unclear.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "ecabf1d3739d": {
+      "id": "ecabf1d3739d",
+      "description": "Electronic party at Universal Studios Hollywood (7:15am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "ea6d9bd41ab9": {
+      "id": "ea6d9bd41ab9",
+      "description": "Free techno night at Jungle Hollywood featuring Clinic Wednesdays, Reunite, and Utopia LA (9pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "medium"
+    },
+    "93e3c6ed5f5c": {
+      "id": "93e3c6ed5f5c",
+      "description": "Free electronic day party at DTLA Venue organized by Inland Groove (6pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "medium"
+    },
+    "4cf773648a58": {
+      "id": "4cf773648a58",
+      "description": "Live rock show at Harvard & Stone featuring The Eagle Rock Gospel Singers, Lefty Split, and Don't Shoot the Messenger.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "bb0a04e038f9": {
+      "id": "bb0a04e038f9",
+      "description": "Jazz duo performance by Kathleen Grace & Larry Koonse at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "98894a7878dc": {
+      "id": "98894a7878dc",
+      "description": "Jazz quintet (Daniel Rotem with Jeff Parker, Joshua White, Darek Oles, Mark Ferber) at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "004a29044d67": {
+      "id": "004a29044d67",
+      "description": "R&B/Soul/Jazz show by Adam Jackson at Vibrato Grill Jazz (10:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "26df21d09f78": {
+      "id": "26df21d09f78",
+      "description": "Contemporary Latin/Latin-jazz show by Grammy-winning pianist Oscar Hernández & Alma Libre at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "1876102e4faf": {
+      "id": "1876102e4faf",
+      "description": "Live show by Dizgo at The Venice West (10:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "7218eedff714": {
+      "id": "7218eedff714",
+      "description": "R&B/Soul party 'u don't have 2 call' by Slow Jamz at SALA Long Beach ($5, 8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "3af22e305886": {
+      "id": "3af22e305886",
+      "description": "Queer & Thick Pole Show (dance/performance) at Junior High Glendale, 21+ ($20 pre).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "26fea0e7aa6f": {
+      "id": "26fea0e7aa6f",
+      "description": "Brazilian jazz with Teka (vocals/guitar), Bob Sheppard (sax), Tom Zink (piano), and rhythm section at Vibrato Grill Jazz (10:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "3dbd95b03fc1": {
+      "id": "3dbd95b03fc1",
+      "description": "Jazz trio/quartet (Euman/Renfroe/Carroll featuring Devin Daniels) at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "medium"
+    },
+    "29f18df8ae9d": {
+      "id": "29f18df8ae9d",
+      "description": "Live show by Swamp Dogg with Ben Vaughn Ensemble and DJ Eli Paperboy Reed at The Venice West (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "2e92eae51d7f": {
+      "id": "2e92eae51d7f",
+      "description": "DIY show featuring Odie and jousting (from Portland, OR) with Altangeles and Noise Etc at The Smell ($10 advance, $15 door).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "29b8e6432adf": {
+      "id": "29b8e6432adf",
+      "description": "R&B artist Olivia Dean at Crypto.com Arena (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "745963ec8eba": {
+      "id": "745963ec8eba",
+      "description": "Electronic show at Avalon Hollywood with Lil Texas, YOSUF, Dionysus, Beebo, and Ojjisin.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "a8a78f17d3b2": {
+      "id": "a8a78f17d3b2",
+      "description": "R&B/Blues show by Tasha Taylor (daughter of Johnny Taylor, BMA award winner) at Vibrato Grill Jazz (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "b2bca6ca6cb5": {
+      "id": "b2bca6ca6cb5",
+      "description": "Community celebration for Miry's List (refugee/immigrant support nonprofit) at Junior High Glendale (5pm, all ages, $65-150).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "318e8ae52a71": {
+      "id": "318e8ae52a71",
+      "description": "Jazz/swing/pop by The Amanda Castro Band (vintage jazz, New Orleans jazz, and pop) at Vibrato Grill Jazz (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "1fcaa5b0e1d3": {
+      "id": "1fcaa5b0e1d3",
+      "description": "DIY punk/experimental show at The Smell with Astronaut Samurais, One Outta Ten, and Lawn Darts ($10 advance).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "c7c514a07725": {
+      "id": "c7c514a07725",
+      "description": "Latin show by Tito Puente Jr. with Maria Sanchez & The Midnight Groove at The Venice West (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "d7c599b536d7": {
+      "id": "d7c599b536d7",
+      "description": "Funk-soul show with Gary Wilson, The Soul Family Band, and Kenny Matuucci at Gold Diggers (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "28096c76cc90": {
+      "id": "28096c76cc90",
+      "description": "House show at The Mint with Tree Adams' Dagnasterpus, Casa Del Sol, and W4RHORS3 (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "fc9d9ded895f": {
+      "id": "fc9d9ded895f",
+      "description": "Folk show by El Rayo-X at McCabe's Guitar Shop (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "medium"
+    },
+    "65427ab2076c": {
+      "id": "65427ab2076c",
+      "description": "Monophonics performing their 2020 album 'It's Only Us' in full, with Kendra Morris at The Venice West (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "6b6fbb1099f1": {
+      "id": "6b6fbb1099f1",
+      "description": "Amy Winehouse tribute show by Missus Jones at The Venice West (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "d836993f59b3": {
+      "id": "d836993f59b3",
+      "description": "Jazz/Latin-jazz/R&B show by Louie Cruz Beltran (vocals, percussion, Afro-Cuban rhythms) at Vibrato Grill Jazz (11:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "0e71fc8de30c": {
+      "id": "0e71fc8de30c",
+      "description": "Folk show by Andy McKee at McCabe's Guitar Shop (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "medium"
+    },
+    "9eaab912321a": {
+      "id": "9eaab912321a",
+      "description": "Live show with Strawberry Fuzz and Flames Of Durga at The Venice West (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "24fe4c1b4a58": {
+      "id": "24fe4c1b4a58",
+      "description": "Live show at The Venice West, Venice.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "2358b2afbf01": {
+      "id": "2358b2afbf01",
+      "description": "Jazz saxophonist Luke Carlsen and music director Michael Seaman perform at Vibrato Grill Jazz in Bel Air (7pm & 9:30pm sets).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "3827914c0cac": {
+      "id": "3827914c0cac",
+      "description": "Tom Kubis Big Band delivers high-energy swing and soulful vocals led by Nicole Kubis at Vibrato Grill Jazz (7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "9a971dda79e3": {
+      "id": "9a971dda79e3",
+      "description": "Breaking Sound LA, Ridiculous Thoughts, and Identity Crisis play original rock at The Peppermint Club in West Hollywood (21+, doors 7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "49bdc213584b": {
+      "id": "49bdc213584b",
+      "description": "Sarah McLachlan performs her Better Broken Tour at the Greek Theatre in Los Feliz with Allison Russell.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "d240aa4d35ce": {
+      "id": "d240aa4d35ce",
+      "description": "Meridian Brothers and Mexican Institute of Sound headline world music at The Regent Theater in DTLA (18+, doors 8pm, show 9pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "530eec9fc23c": {
+      "id": "530eec9fc23c",
+      "description": "ZZ Top and Cheap Trick play at the Hollywood Bowl.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "691d118e09c2": {
+      "id": "691d118e09c2",
+      "description": "Mark Valdes and Joey Curreri's Tabula Rasa creates music through pure connection at Sam First in Westchester.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "2f1712705454": {
+      "id": "2f1712705454",
+      "description": "Multi-band lineup featuring Natural Supernatural, Death Valley Night School, Sydney Dalessi, and The Sea Tease at The Venice West, Venice (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "f9c07106b094": {
+      "id": "f9c07106b094",
+      "description": "Jazz quartet led by Logan Kane performs at Sam First in Westchester.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "df1eb28e1501": {
+      "id": "df1eb28e1501",
+      "description": "Local showcase featuring Kyle Rising, OF Limbo, The Letters Home, Electric Preacher, and Last Second Chance at The Venice West, Venice (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "4820011b26a2": {
+      "id": "4820011b26a2",
+      "description": "House and techno night headlining LUCATI, DATELESS, and Ceeda at The Circle OC in Huntington Beach (21+, free before 10:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "d63bd9a8d392": {
+      "id": "d63bd9a8d392",
+      "description": "Ben Williams hosts a jazz session at Sam First in Westchester (7:30pm Tuesday).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "3d407061c3b3": {
+      "id": "3d407061c3b3",
+      "description": "Local's Night featuring Rodeo Clown, Gag Tusk, and Babyfangs at The Venice West, Venice (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "01469a4f5f56": {
+      "id": "01469a4f5f56",
+      "description": "Patrick Barnitt and the D. Ben-Jamin' Orchestra deliver burnin' jazz and pop at Vibrato Grill Jazz in Bel Air (7pm & late set).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "05a548cce990": {
+      "id": "05a548cce990",
+      "description": "Jazz ensemble led by Ethan Chilton plays Dream Machine at Sam First in Westchester.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "37b9fd3e1fc4": {
+      "id": "37b9fd3e1fc4",
+      "description": "Emma Dayhuff leads a sextet at Sam First in Westchester.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "abf074b0389b": {
+      "id": "abf074b0389b",
+      "description": "Country night at The Circle OC in Huntington Beach featuring Brad Johnson and the Killin' Time Band with dance lessons.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "f60e7307a0ca": {
+      "id": "f60e7307a0ca",
+      "description": "Screening of outrageous animated shorts by local animators at Junior High in Glendale (noon, 18+, $10, fundraiser).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "e06af298b9b7": {
+      "id": "e06af298b9b7",
+      "description": "Rapper and producer Iggy Madison hosts #BleedingHeartsSummer, a showcase of loud, experimental trap music at Junior High in Glendale (all-ages, $10 pre/$15 door).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "ad44a780c0a2": {
+      "id": "ad44a780c0a2",
+      "description": "Greg Adams and East Bay Soul blend funk, jazz, soul, and R&B at Vibrato Grill Jazz in Bel Air (7:30pm & late set).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "bdab15fe342c": {
+      "id": "bdab15fe342c",
+      "description": "Multi-act heavy showcase with Doomboyz, Great Electric Quest, Pegzilla, and The Owling at The Venice West, Venice (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "a0583ddb9f28": {
+      "id": "a0583ddb9f28",
+      "description": "Live show at Maui Sugar Mill Saloon in Tarzana (8pm Tuesday).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "cdec53c7d0e7": {
+      "id": "cdec53c7d0e7",
+      "description": "Live show at The Venice West, Venice (8pm Tuesday).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "8e05381e1dab": {
+      "id": "8e05381e1dab",
+      "description": "AKRIILA with Canelle at The Roxy in West Hollywood (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "84149f641136": {
+      "id": "84149f641136",
+      "description": "Live show at El Rey Theatre in Mid-Wilshire (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "low"
+    },
+    "708ba6780f0c": {
+      "id": "708ba6780f0c",
+      "description": "ABBA LA performs a live concert experience with singing and dancing at Vibrato Grill Jazz in Bel Air (6:30pm & 9pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "c14f0115fd75": {
+      "id": "c14f0115fd75",
+      "description": "The Vindys with Chloe Cicoria perform at The Venice West, Venice (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "011df39849c5": {
+      "id": "011df39849c5",
+      "description": "Paris Chansons delivers French music with a global twist at Vibrato Grill Jazz in Bel Air (7:30pm & late set).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "aa4b2e259c58": {
+      "id": "aa4b2e259c58",
+      "description": "KCRW Presents Third Thursdays: Miles Lennox Quartet performs jazz at Sam First in Westchester.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "1ebf286fb466": {
+      "id": "1ebf286fb466",
+      "description": "Shwayze live at The Venice West.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "8ecfd8f83c29": {
+      "id": "8ecfd8f83c29",
+      "description": "2010s EDM tribute dance night at Avalon Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "6841c74ce3a9": {
+      "id": "6841c74ce3a9",
+      "description": "Steely Dan tribute jazz show at Vibrato Grill (11pm, 6:30pm & 9pm seatings).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "ef5bf8af9cac": {
+      "id": "ef5bf8af9cac",
+      "description": "Live folk music at McCabe's Guitar Shop in Santa Monica.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "95a464c28eff": {
+      "id": "95a464c28eff",
+      "description": "Brent Fischer Orchestra plays salsa, funk & jazz with 15 horns at Vibrato Grill (11pm, 7:30pm show).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "5beccb8ce71c": {
+      "id": "5beccb8ce71c",
+      "description": "Milk Crate Mic open mic at Maui Sugar Mill Saloon in Tarzana.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "6864dc714c36": {
+      "id": "6864dc714c36",
+      "description": "Terrell Edwards covers classic jazz and soul singers (Nat King Cole, Ella, Ray, Louis) at Vibrato Grill (11pm, 7pm show).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "b3ab7b179962": {
+      "id": "b3ab7b179962",
+      "description": "Martin Nevin jazz quartet at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "e57fb508eac2": {
+      "id": "e57fb508eac2",
+      "description": "Tim Rachbach Group featuring saxophonist Mark Turner at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "09d5e262f3a6": {
+      "id": "09d5e262f3a6",
+      "description": "The Singers in Law perform swing, jazz, pop and standards at Vibrato Grill (11:30pm, 7:30pm show).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "0bac6efb9776": {
+      "id": "0bac6efb9776",
+      "description": "Teddy Thompson folk concert at McCabe's Guitar Shop in Santa Monica.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "34f4697f9ab8": {
+      "id": "34f4697f9ab8",
+      "description": "Mother Jones Band with members of Jerry's Middle Finger at The Venice West.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "efa1ca559117": {
+      "id": "efa1ca559117",
+      "description": "Junior High Book Club July gathering on organizing and community (free, all-ages).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "b65185eb7252": {
+      "id": "b65185eb7252",
+      "description": "Joe Rozum & His Band play smooth jazz and cool blues at Vibrato Grill (11:30pm, 7:30pm show).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "9a0c8fc21337": {
+      "id": "9a0c8fc21337",
+      "description": "Milk Crate Mic open mic at Maui Sugar Mill Saloon in Tarzana.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "3d7436f03230": {
+      "id": "3d7436f03230",
+      "description": "Chloe Perrier and the French Heart Jazz Band perform French and American classics (11:30pm, 7pm show).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "7506ac0826f9": {
+      "id": "7506ac0826f9",
+      "description": "Adi Meyerson & Dark Matter jazz ensemble at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "e52a0474293c": {
+      "id": "e52a0474293c",
+      "description": "The McCharmlys live at The Venice West.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "b22f735373a2": {
+      "id": "b22f735373a2",
+      "description": "The K-Tel All-Stars perform 1970s hits and AM radio gold at Vibrato Grill (11:30pm, 7pm show).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "4c6141486f68": {
+      "id": "4c6141486f68",
+      "description": "Quinerly Plays the Connoisseur Series with Reggie Quinerly at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "fc0a48038d3d": {
+      "id": "fc0a48038d3d",
+      "description": "Olivia Kuper Harris, vocalist from The Voice, performs jazz, soul and originals at Vibrato Grill (11pm, 7:30pm show).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "b0dafb5b173a": {
+      "id": "b0dafb5b173a",
+      "description": "Milk Crate Mic open mic at Maui Sugar Mill Saloon in Tarzana.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "8a05844d8830": {
+      "id": "8a05844d8830",
+      "description": "Sierra Ferrell and The Brudi Brothers play country at The Wiltern (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "cea7525f5081": {
+      "id": "cea7525f5081",
+      "description": "The Phantom of the Opera touring production at Hollywood Pantages Theatre (7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "7757954dd08c": {
+      "id": "7757954dd08c",
+      "description": "John Proulx & Marina Pacowski sing jazz vocals and originals with all-star band at Vibrato Grill (11pm, 7pm show).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "6c488f7d70cf": {
+      "id": "6c488f7d70cf",
+      "description": "Tom Petty & The Heartbreakers tribute band at The Venice West.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "421f718cbe9f": {
+      "id": "421f718cbe9f",
+      "description": "Clay Date ceramic sculpture workshop at Junior High (ages 12+, $25, 2hr session).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "96c13acdc097": {
+      "id": "96c13acdc097",
+      "description": "Pink Floyd tribute band at The Venice West.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "9ab36ebe6b9a": {
+      "id": "9ab36ebe6b9a",
+      "description": "Clay Date ceramic sculpture workshop at Junior High (ages 12+, $25, 2hr session, masks required).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "58908e0d876d": {
+      "id": "58908e0d876d",
+      "description": "Prince tribute band at The Venice West.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "6a2678139a03": {
+      "id": "6a2678139a03",
+      "description": "Open mic and feature event at Junior High, Glendale (all ages, donate-what-you-can).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "3edec7c96cc4": {
+      "id": "3edec7c96cc4",
+      "description": "Monthly fiber arts workshop for knitting, crocheting, and sewing at Junior High (all ages, $5-10 suggested).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "35044686ef87": {
+      "id": "35044686ef87",
+      "description": "Stage production of The Full Monty at The Nocturne Theatre, Glendale.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "7b703c2d01ea": {
+      "id": "7b703c2d01ea",
+      "description": "Stand-up comedy from Samuel J. Comroe at Brea Improv.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "65e8a3460efb": {
+      "id": "65e8a3460efb",
+      "description": "Pageant of the Masters theatrical production at Festival of Arts, Laguna Beach.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "b41e7f29764a": {
+      "id": "b41e7f29764a",
+      "description": "Five-week BDSM and kink workshop taught by pro domme Grace Vee at Junior High (18+, $25 per session).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "663bc7664df0": {
+      "id": "663bc7664df0",
+      "description": "Clay hand-building workshop with artist Chelsie Rivera at Junior High (ages 12+, pay-what-you-can).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "13ae68a90c32": {
+      "id": "13ae68a90c32",
+      "description": "Tribute band performing Mamas & Papas hits live at Vibrato Grill Jazz, Bel Air.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "059f4ca8f438": {
+      "id": "059f4ca8f438",
+      "description": "Zine-making workshop focused on self-care and mutual aid at Junior High (all ages, $15).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "910449f328bf": {
+      "id": "910449f328bf",
+      "description": "Bee Gees Gold tribute band at Vibrato Grill Jazz, Bel Air.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "8fc0d253a1dc": {
+      "id": "8fc0d253a1dc",
+      "description": "Guided ceramic domino set handbuilding class taught by Mira Lanz at Junior High (all ages, $60).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "b252e90ea1e8": {
+      "id": "b252e90ea1e8",
+      "description": "Riddim dubstep night with Codd Dubz and guests at The Circle OC, Huntington Beach.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "158dd9dedb31": {
+      "id": "158dd9dedb31",
+      "description": "One-day writers' retreat with five workshops across genres at Junior High (all ages, $50).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "951d165c8afa": {
+      "id": "951d165c8afa",
+      "description": "Free monthly clay play date for children ages 8-12 at Junior High's gallery.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "bd46a2ad2f25": {
+      "id": "bd46a2ad2f25",
+      "description": "Pay-what-you-can clay hand-building workshop with mask requirement at Junior High (ages 12+).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "61b7c46efede": {
+      "id": "61b7c46efede",
+      "description": "Neil Diamond tribute band led by Steve Waddington at Vibrato Grill Jazz, Bel Air.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "a78818e1db47": {
+      "id": "a78818e1db47",
+      "description": "Free all-ages volunteer native gardening workshop at Junior High (last Sunday of month).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "1c3e42b4a126": {
+      "id": "1c3e42b4a126",
+      "description": "Hip-hop show featuring Andre Nickatina at The Venice West, Venice.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "2a75fb36cfdd": {
+      "id": "2a75fb36cfdd",
+      "description": "Hip-hop performance by Rio Da Yung Og at The Observatory, Santa Ana.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "b755b2e0c666": {
+      "id": "b755b2e0c666",
+      "description": "Rock show featuring The Technicolors and Theo Moss at Constellation Room, Santa Ana.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "e0eae893f25e": {
+      "id": "e0eae893f25e",
+      "description": "John Fogerty rock concert with opener Hearty Har at Pacific Amphitheatre, Costa Mesa.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "c79fc2c2dfd3": {
+      "id": "c79fc2c2dfd3",
+      "description": "Country music performance by Nate Smith at Ventura Fairgrounds.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "029c4010db20": {
+      "id": "029c4010db20",
+      "description": "Wild Wednesdays drag show at Hamburger Mary's, Long Beach.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-01T12:21:56",
+      "confidence": "high"
+    },
+    "38704e425435": {
+      "id": "38704e425435",
+      "type": "club",
+      "subgenres": [
+        "tech-house",
+        "deep-house",
+        "minimal",
+        "disco"
+      ],
+      "label_orbit": [],
+      "energy": "groove / peak",
+      "setting": "rooftop",
+      "vibe": [
+        "sunset"
+      ],
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Adam Auburn",
+          "note": "LA house-scene lifer — Exchange LA's longtime marketing/entertainment director and a working DJ since the mid-2000s (Traxsource DJ Competition winner). Reliable, crowd-savvy selector rather than an underground name."
+        }
+      ],
+      "curator_note": "Holiday-weekend rooftop set from a genuine LA house-scene fixture, not a tourist import — the tech-house/deep-house/minimal/disco spread on the flyer says open-format groove more than a single-lane set. Fine for a low-key 4th if you're in DTLA anyway.",
+      "description": "4th of July rooftop house party at Golden Hour (Level 8 DTLA) with LA DJ Adam Auburn plus Rozzwell and DVYN.",
+      "confidence": "medium",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "5a1bcb2cf468": {
+      "id": "5a1bcb2cf468",
+      "type": "club",
+      "subgenres": [
+        "house"
+      ],
+      "label_orbit": [],
+      "energy": "groove / daytime",
+      "setting": "rooftop",
+      "vibe": [
+        "sunset"
+      ],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "A rooftop day-into-evening house party — the exact shape of thing that's usually worth it, but Eddie Sandström and Sandström Records don't have a verifiable track record I could confirm, so treat this as a vibe bet on the setting rather than the name.",
+      "description": "Santa Monica rooftop house party (500 Broadway) hosted by Sandström Records with Eddie Sandström, starting at golden hour.",
+      "confidence": "low",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "f91339161424": {
+      "id": "f91339161424",
+      "type": "club",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "unknown",
+      "setting": "outdoor",
+      "vibe": [],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "A fundraiser under the 6th Street Bridge could be a great open-air setting, but there's no lineup listed yet and \"Good Society\" isn't a promoter I can vouch for — hold off until artists are announced.",
+      "description": "Open-air fundraiser party under the 6th Street Bridge in DTLA, benefiting Camp Questionmark; no lineup posted yet.",
+      "confidence": "low",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "6f8d76827115": {
+      "id": "6f8d76827115",
+      "type": "club",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "unknown",
+      "setting": "warehouse",
+      "vibe": [
+        "afterhours",
+        "tba-location"
+      ],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "TBA-location afterhours with zero lineup posted — could be a proper warehouse night, could be nothing; not enough here to plan around yet.",
+      "description": "Location-TBA late-night/afterhours electronic party in DTLA (Club Pivete); no lineup announced.",
+      "confidence": "low",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "e8ff8c423d38": {
+      "id": "e8ff8c423d38",
+      "type": "other",
+      "subgenres": [
+        "latin",
+        "pop"
+      ],
+      "label_orbit": [],
+      "energy": "peak / arena",
+      "setting": "amphitheater",
+      "vibe": [],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Karol G at SoFi is a stadium-scale Latin pop spectacle, not this taste's lane — flagging mainly because she's in regular Spotify rotation, not because it's a scene pick.",
+      "description": "Karol G's Tropitour stadium show at SoFi Stadium in Inglewood.",
+      "confidence": "high",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "d6d919ad1b86": {
+      "id": "d6d919ad1b86",
+      "type": "club",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "peak",
+      "setting": "club",
+      "vibe": [
+        "afterhours",
+        "21+"
+      ],
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Maddix",
+          "note": "Dutch DJ/producer (Pablo Rindt) — big-room/hard-techno-leaning, Revealed Recordings/Extatic Records orbit, best known for the \"Bella Ciao\" remix. Festival-mainstage energy, not the rooftop/groove lane."
+        }
+      ],
+      "curator_note": "Maddix is festival-mainstage big-room/hard-techno, not the deep/groove end of the spectrum — could work as a big fun night out at the Palladium but it's a different flavor of electronic than the usual pick.",
+      "description": "Dutch DJ/producer Maddix headlines a big-room electronic night at Hollywood Palladium.",
+      "confidence": "high",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "964a65685fac": {
+      "id": "964a65685fac",
+      "type": "other",
+      "subgenres": [
+        "rock"
+      ],
+      "label_orbit": [],
+      "energy": "nostalgia / arena",
+      "setting": "amphitheater",
+      "vibe": [
+        "tribute"
+      ],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "A Led Zeppelin tribute/celebration show by the drummer's son, out at Paso Robles — a long drive for a nostalgia act, not really the lane even before the trip logistics.",
+      "description": "Jason Bonham leads a Led Zeppelin tribute concert at Vina Robles Amphitheatre, Paso Robles.",
+      "confidence": "high",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "28b893e6e79d": {
+      "id": "28b893e6e79d",
+      "type": "film",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "cinema",
+      "vibe": [],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "The Fast and the Furious turning 25 at the Vista is a fun, easy rep-house pick if you're around Los Feliz that night — big-screen nostalgia without needing to be a superfan.",
+      "description": "25th-anniversary theatrical screening of The Fast and the Furious at the Vista Theater in Los Feliz.",
+      "confidence": "high",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "a4fbb098114f": {
+      "id": "a4fbb098114f",
+      "type": "club",
+      "subgenres": [
+        "techno"
+      ],
+      "label_orbit": [],
+      "energy": "peak",
+      "setting": "club",
+      "vibe": [
+        "afterhours"
+      ],
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Oguz",
+          "note": "Dutch-Turkish techno DJ/producer (Oguz Gulcenbay) out of Amsterdam — plays hard/high-tempo techno, has hit Berghain, Printworks, Awakenings, ADE. Intense peak-time techno, not a groove/deep pick."
+        }
+      ],
+      "curator_note": "Oguz brings proper high-energy European techno pedigree (Berghain, Awakenings, ADE) to Exchange LA — solid if you want hard and fast rather than deep and slow that night.",
+      "description": "Dutch techno DJ Oguz headlines Mutate at Exchange LA.",
+      "confidence": "medium",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "e59632d2236d": {
+      "id": "e59632d2236d",
+      "type": "other",
+      "subgenres": [
+        "country"
+      ],
+      "label_orbit": [],
+      "energy": "arena",
+      "setting": "amphitheater",
+      "vibe": [],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Country tour stop out in Paso Robles — outside the lane entirely, skip.",
+      "description": "Tucker Wetmore's \"The Brunette World Tour\" stop at Vina Robles Amphitheatre, with William Beckmann and Stella Lefty opening.",
+      "confidence": "high",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "e653cbe40068": {
+      "id": "e653cbe40068",
+      "type": "other",
+      "subgenres": [
+        "house"
+      ],
+      "label_orbit": [
+        "Techné Records"
+      ],
+      "energy": "peak",
+      "setting": "club",
+      "vibe": [],
+      "sounds_like": [
+        "John Summit",
+        "Dom Dolla"
+      ],
+      "artist_notes": [
+        {
+          "name": "Noizu",
+          "note": "UK-born, LA-based house producer, runs Techné Records — feel-good, hooky club house that gets played by John Summit, Dom Dolla, Diplo, Green Velvet. Closer to the mainstream-fun end of the spectrum than deep/underground."
+        }
+      ],
+      "curator_note": "Noizu makes the kind of hooky, big-room-friendly house that John Summit and Dom Dolla actually play out — a real, credible pick if the mainstream tech-house/house lane is what you're in the mood for that night.",
+      "description": "UK-born, LA-based house producer Noizu headlines a club show at Shrine Expo Hall.",
+      "confidence": "high",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
+    },
+    "880d4a67db6c": {
+      "id": "880d4a67db6c",
+      "type": "film",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "cinema",
+      "vibe": [],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Same Fast and Furious 25th-anniversary run at the Vista, a night later — pick whichever date works.",
+      "description": "25th-anniversary theatrical screening of The Fast and the Furious at the Vista Theater in Los Feliz.",
+      "confidence": "high",
+      "enriched_at": "2026-07-01T12:22:08",
+      "enriched_tier": "full"
     }
   },
   "artists": {
@@ -11467,6 +12731,22 @@
     "american tomahawk": {
       "note": "LA indie/alt-rock trio (not the Mike Patton supergroup of the same-ish name) — small local footprint, couldn't verify much beyond the billing.",
       "seen": "2026-07-01T03:19:17"
+    },
+    "adam auburn": {
+      "note": "LA house-scene lifer — Exchange LA's longtime marketing/entertainment director and a working DJ since the mid-2000s (Traxsource DJ Competition winner). Reliable, crowd-savvy selector rather than an underground name.",
+      "seen": "2026-07-01T12:22:08"
+    },
+    "maddix": {
+      "note": "Dutch DJ/producer (Pablo Rindt) — big-room/hard-techno-leaning, Revealed Recordings/Extatic Records orbit, best known for the \"Bella Ciao\" remix. Festival-mainstage energy, not the rooftop/groove lane.",
+      "seen": "2026-07-01T12:22:08"
+    },
+    "oguz": {
+      "note": "Dutch-Turkish techno DJ/producer (Oguz Gulcenbay) out of Amsterdam — plays hard/high-tempo techno, has hit Berghain, Printworks, Awakenings, ADE. Intense peak-time techno, not a groove/deep pick.",
+      "seen": "2026-07-01T12:22:08"
+    },
+    "noizu": {
+      "note": "UK-born, LA-based house producer, runs Techné Records — feel-good, hooky club house that gets played by John Summit, Dom Dolla, Diplo, Green Velvet. Closer to the mainstream-fun end of the spectrum than deep/underground.",
+      "seen": "2026-07-01T12:22:08"
     }
   }
 }

@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 6/30/2026 deterministically (no API). 389 candidates. Signals: big-venue 326, festival 60, tracked 6._
+_Generated 7/1/2026 deterministically (no API). 387 candidates. Signals: big-venue 325, festival 59, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -119,7 +119,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 8/4 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPU) |
 | Wed 8/5 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPM) |
 | Thu 8/6 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPz) |
 | Sun 8/9 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJv) |
@@ -238,7 +237,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 8/4 | 3 | Sarah McLachlan - Better Broken Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/sarah-mclachlan-better-broken-tour-los-angeles-california-08-04-2026/event/09006445CDD8A699) |
 | Wed 8/5 | 3 | Sarah McLachlan - Better Broken Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/sarah-mclachlan-better-broken-tour-los-angeles-california-08-05-2026/event/09006445CDDDA69B) |
 | Wed 8/5 | 3 | ZZ Top w/ Cheap Trick | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-o3F) |
 | Fri 8/7 | 3 | RÜFÜS DU SOL NORTH AMERICA 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-07-2026/event/09006455E5DFE35A) |
