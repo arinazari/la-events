@@ -1,50 +1,57 @@
 # LA Events
-*Digest regenerated Tue 6/30 — picks updated.*
+*Digest regenerated Thu 7/2 — picks updated.*
 
-*The week ahead, ranked for your taste — house, disco, and a couple of rep-cinema curveballs, soonest first.*
+*Your next 3 weekends, ranked for indie/rock, jazz, and intimate listening rooms — soonest first.*
+
+Quiet stretch on the big-lineup front, but the small rooms are doing a lot: two Sam First jazz
+bills bookend the Fourth, McCabe's has a proper Americana double-header, and Zebulon pulls out
+Lenny Kaye for a rare one-off. Skipping the warehouse/EDM sprawl this taste profile isn't here for.
 
 ## Friday · July 3
 
-- **[Groove Room: A House and Hits Dance Party](https://dice.fm/event/3o7k2g-groove-room-a-house-and-hits-dance-party-3rd-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-  No headliner, no ticket line — just house and hits in a small room you can walk to from Silver Lake. The unpretentious pick.
-- **[Ginger Root (DJ Set) at Camille's](https://www.instagram.com/p/DZnMuYqjFAC/?img_index=1)** — Camille's at The Bellwether, DTLA · free
-  Cameron Lew off the stage and behind the decks, playing his boogie/alt-disco influences instead of performing them. Free, low-commitment, a nice change of pace.
-- **[Dirtybird x FLOAT: Road to Campout · Rooftop Pool Party](https://ra.co/events/2449768)** — Level 8 DTLA, DTLA · $30 pre
-  Sacha Robotti and Ardalan, both real Dirtybird pedigree, warming up for Campout. Daytime, bouncy West Coast house — sun and speakers, 2–8pm.
-- **[Mutate: Kayzo](https://ra.co/events/2453933)** — Exchange LA, DTLA · $40 pre
-  Insomniac-run bass/hardstyle night — heavy drops, young crowd. Skip unless that's specifically the mood.
+- **[Kathleen Grace & Larry Koonse — "The Art of the Duo"](https://www.samfirstbar.com/events/kathleen-grace-larry-koonse-the-art-of-the-duo)** — Sam First, Westchester
+  Just voice and guitar in Sam First's tiny room — the unamplified, up-close jazz this taste profile is built around. Low-key way to start the holiday weekend.
 
 ## Saturday · July 4
 
-- **[The Hustle ~ First and Third Saturday Disco Party!](https://dice.fm/event/bb7p6g-the-hustle-first-and-third-saturday-disco-party-4th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-  Gold Diggers' reliable disco-and-boogie residency, residents doing their thing. Easy late add to the Fourth if the warehouse TBAs don't pan out.
-- **[Okayval, Silvertone, Xvirad, Jacz](https://posh.vip/e/okayval-la-headline-show-1?t=infohz)** — TBA, DTLA · free
-  Techno/acid/house warehouse bill from The LA Raver x Techtonik. Free at the door — same show floats around a couple of feeds, so treat it as one event.
-- **[Club Cielo: Kebra, Linapary, Queenie, Dina](https://ra.co/events/2471058)** — El Cid, Silver Lake · $17–26
-  Could be a solid eastside night, but the four names have no public track record to confirm the sound. Gap-flagged rather than guessed.
+- **[Daniel Rotem Quintet feat. Jeff Parker](https://www.samfirstbar.com/events/daniel-rotem-quintet-with-jeff-parker-joshua-white-darek-oles-mark-ferber)** — Sam First, Westchester
+  Skip the fireworks — Jeff Parker (Tortoise, one of the more inventive guitarists working in jazz or indie) sits in on tenor player Daniel Rotem's quintet. Exactly the kind of crossover booking worth the drive to Westchester.
 
 ## Friday · July 10
 
-- **[Great Quality Entertainment presents Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District · $21 pre
-  Township Rebellion is the draw — melodic, emotionally-pitched techno closer to Lane 8 than a warehouse hammer. Go in expecting build and atmosphere. Trou's an unknown on the bill.
-- **[Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush](https://www.instagram.com/p/DZl9KXzKRBX/)** — Los Globos, Silver Lake · $10 pre
-  Los Globos going 11pm–5am on a tech/deep/minimal bill. Solid afterhours if you're already eastside, but the support reads thin — good, not essential.
-- **[Hollywood 90028](https://ticketing.uswest.veezi.com/purchase/3815?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  A Vista midnight slot almost always means a cult curio. Worth checking what it actually is before you commit to a near-1am end.
+- **[Dave Alvin & Jimmie Dale Gilmore](https://www.mccabes.com/product/dave-alvin-jimmie-dale-gilmore-friday-show/)** — McCabe's Guitar Shop, Santa Monica
+  Two Americana lifers trading songs in the room built for exactly this. It's a two-night stand (Saturday too), so there's a backup date if Friday's sold out.
+- **[Atta Boy](https://www.ticketmaster.com/event/Z7r9jZ1A7PkZt)** — Troubadour, West Hollywood
+  Lighter pop-leaning bill, but it's the Troubadour on a Friday if the McCabe's show doesn't fit the night.
 
-## Friday · July 24
+## Saturday · July 11
 
-- **[Fight Without Jingi](https://ticketing.uswest.veezi.com/purchase/3850?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  Fukasaku's 'Battles Without Honor and Humanity' under its literal title — the ultra-violent yakuza classic that basically invented the jitsuroku genre. Bracing instead of a comfort rep-watch.
+- **[Lenny Kaye, Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
+  Lenny Kaye — Patti Smith's longtime guitarist and the guy behind the *Nuggets* garage-rock comp — playing a rare intimate set alongside singer-songwriter Cindy Lee Berryhill. The pick of the whole window if you only do one thing.
+- **[TÉKA — Brazilian Jazz / New Bossa](https://www.vibratogrilljazz.com/music/tka-brazilian-jazz-new-bossa-4)** — Vibrato Grill Jazz, Bel Air
+  Late (10:30pm) bossa/jazz set — a quieter second stop after Zebulon rather than a competing pick.
+
+## Friday · July 17
+
+- **[Low Cut Connie](https://www.ticketmaster.com/event/Z7r9jZ1A7x4uK)** — Troubadour, West Hollywood
+  Adam Weiner's piano-pounding bar-rock band is one of the best live acts still working rooms this size — high energy, zero pretense. Top pick of the weekend.
 
 ## Saturday · July 18
 
-- **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA, DTLA
-  Luke Mele's NTS-honed Balearic/ambient/dub sensibility on an all-vinyl bill — the listening-bar format worth chasing an address for. Quieter and more textural than a peak-time club.
-- **[Fandango](https://ticketing.uswest.veezi.com/purchase/3845?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  Kevin Reynolds' 1985 cult favorite, Costner's first lead — five friends on one last road trip before the draft. Warm and funny, low-stakes Saturday.
+- **[Susanna Hoffs & Friends](https://wl.seetickets.us/event/susanna-hoffs-and-friends/692021?afflky=LargoAtTheCoronet)** — Largo at the Coronet, West Hollywood
+  The Bangles' frontwoman in Largo's seated listening-room format — about as on-taste as this profile gets. $40.
 
-## Saturday · July 25
+## Sunday · July 19
 
-- **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA, DTLA
-  An all-night Nick León set isn't a straight house night — it's Miami dembow and dancehall woven into club music. One of the more interesting bookings in the batch if you want something that doesn't sound like everything else.
+- **[James McMurtry w/ Bettysoo](https://www.ticketmaster.com/event/Z7r9jZ1A7x4bS)** — Troubadour, West Hollywood
+  McMurtry's talky, novelistic Americana songwriting closes the weekend out. Quieter than the Friday/Saturday picks, in a good way.
+- **[In the Big Round](https://www.mccabes.com/product/in-the-big-round/)** — McCabe's Guitar Shop, Santa Monica
+  Folk-in-the-round format, same night — a fallback if the Troubadour show doesn't land.
+
+## Looking a bit further
+
+- **[Tom Rush](https://www.mccabes.com/product/tom-rush/)** — McCabe's, Fri 7/25 — 60s folk-revival mainstay, one more McCabe's date just past the 3-week window. Worth flagging early since McCabe's shows are small-room and can sell out.
+
+*Skipped, on purpose: the heavy run of warehouse techno / EDM afters this window (Groove Room,
+The Hustle, Recollect Underground, etc.) — plenty for the default LA feed, off-brand for this
+taste profile.*
