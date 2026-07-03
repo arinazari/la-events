@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 6/30/2026 deterministically (no API). 389 candidates. Signals: big-venue 326, festival 60, tracked 6._
+_Generated 7/3/2026 deterministically (no API). 385 candidates. Signals: big-venue 324, festival 57, tracked 7._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -30,6 +30,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 8/14 | 6 | Moodymann and DJ Rashida Play Prince | The Regent Theater | tracked:Moodymann | [link](https://www.ticketmaster.com/moodymann-and-dj-rashida-play-prince-los-angeles-california-08-14-2026/event/090064BA38058214) |
+| Thu 8/13 | 5 | Fisher and Thames - Sounds Of the 70s | Vibrato Grill Jazz | tracked:FISHER | [link](https://www.vibratogrilljazz.com/music/fisher-and-thames-sounds-of-the-70s) |
 | Sun 8/16 | 5 | The Soul Space f/ Tamara Jade & Orlando Dixon, Mark Evich, | TBA - Plummer Park WeHo | tracked:Dixon | [link](https://ra.co/events/2476723) |
 
 ## September 2026
@@ -119,9 +120,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 8/4 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPU) |
-| Wed 8/5 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPM) |
-| Thu 8/6 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPz) |
 | Sun 8/9 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJv) |
 | Mon 8/10 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJe) |
 | Tue 8/11 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJd) |
@@ -238,9 +236,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 8/4 | 3 | Sarah McLachlan - Better Broken Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/sarah-mclachlan-better-broken-tour-los-angeles-california-08-04-2026/event/09006445CDD8A699) |
-| Wed 8/5 | 3 | Sarah McLachlan - Better Broken Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/sarah-mclachlan-better-broken-tour-los-angeles-california-08-05-2026/event/09006445CDDDA69B) |
-| Wed 8/5 | 3 | ZZ Top w/ Cheap Trick | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-o3F) |
 | Fri 8/7 | 3 | RÜFÜS DU SOL NORTH AMERICA 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-07-2026/event/09006455E5DFE35A) |
 | Fri 8/7 | 3 | Grupo Frontera - Triste Pero Bien C*bron Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/grupo-frontera-triste-pero-bien-cbron-inglewood-california-08-07-2026/event/09006464DF4511C9) |
 | Fri 8/7 | 3 | Eslabon Armado - Amor Nocturno | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/eslabon-armado-amor-nocturno-inglewood-california-08-07-2026/event/0A0064C894B56013) |
@@ -301,6 +296,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 9/12 | 3 | The Red Clay Strays | Toyota Arena-CA | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A70vj3) |
 | Sat 9/12 | 3 | Soda Stereo - ECOS Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/soda-stereo-ecos-tour-inglewood-california-09-12-2026/event/090064A1F4CCBBC7) |
 | Sat 9/12 | 3 | Alejandro Fernández: de Rey a Rey | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alejandro-fernandez-de-rey-a-rey-inglewood-california-09-12-2026/event/0A00644AC88392E1) |
+| Sat 9/12 | 3 | Richie Jen (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7PVZo) |
 | Sun 9/13 | 3 | Lucy Dacus | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7x7ax) |
 | Sun 9/13 | 3 | Ryan Beatty - Arms Over Armor North American Tour '26 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/ryan-beatty-arms-over-armor-north-los-angeles-california-09-13-2026/event/090064CA0B05A3E1) |
 | Tue 9/15 | 3 | ANDREA BOCELLI "Romanza - 30th Anniversary World Tour" | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/andrea-bocelli-romanza-30th-anniversary-world-hollywood-california-09-15-2026/event/0B00643AAF963918) |
@@ -415,6 +411,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 12/5 | 3 | The Neighbourhood: THE WOURLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-neighbourhood-the-wourld-tour-inglewood-california-12-05-2026/event/0900645403D3F8BA) |
 | Sat 12/5 | 3 | Alicia Villarreal - Bendita Locura Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alicia-villarreal-bendita-locura-tour-2026-inglewood-california-12-05-2026/event/0A0064C91DB19A75) |
 | Fri 12/11 | 3 | Marisela: La Dama de Hierro | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/marisela-la-dama-de-hierro-inglewood-california-12-11-2026/event/0A00645BE3CDB957) |
+| Fri 12/11 | 3 | Pepe Aguilar (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7Pwp_) |
 | Fri 12/18 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-18-2026/event/090064BBE484EE0D) |
 | Sat 12/19 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-19-2026/event/090064BBE48FEE25) |
 
@@ -422,9 +419,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 8/6 | 2 | Shinedown: Dance, Kid, Dance Act II | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/shinedown-dance-kid-dance-act-ii-ontario-california-08-06-2026/event/0900644AB8148EC1) |
-| Thu 8/6 | 2 | RÜFÜS DU SOL NORTH AMERICA 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-06-2026/event/0900644BFCB72440) |
-| Thu 8/6 | 2 | Siddhartha - Tu y Yo y Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/siddhartha-tu-y-yo-y-tour-inglewood-california-08-06-2026/event/0A00647EDD87CF27) |
 | Sat 8/8 | 2 | Deon Cole | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7x7r3) |
 | Tue 8/11 | 2 | RÜFÜS DU SOL NORTH AMERICA 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-11-2026/event/09006455E5EDE39D) |
 | Tue 8/11 | 2 | Jill Scott - To Whom This May Concern Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jill-scott-to-whom-this-may-inglewood-california-08-11-2026/event/0A006465CDF6911B) |
@@ -460,6 +454,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Mon 9/7 | 2 | Kany Garcia: Puerta Abierta Tour (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xa0y) |
 | Thu 9/10 | 2 | Palomazo Norteno -  21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A70NO0) |
 | Fri 9/11 | 2 | Dane Cook (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7P3qe) |
+| Fri 9/11 | 2 | Dane Cook | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7Pwbd) |
 | Sun 9/13 | 2 | Los Angeles Azules (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-z40) |
 | Thu 9/17 | 2 | Morgan Jay: The Goofy Guy Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/morgan-jay-the-goofy-guy-tour-los-angeles-california-09-17-2026/event/0900644C0AB37D8C) |
 | Thu 9/17 | 2 | Matute - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-z8b) |
@@ -468,6 +463,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 9/19 | 2 | Mentiras All Stars | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/mentiras-all-stars-inglewood-california-09-19-2026/event/0A006489CA1CA33B) |
 | Sat 9/19 | 2 | Ralph Barbosa | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7x4o7) |
 | Sun 9/20 | 2 | Carin Leon - De Sonora Para El Mundo Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/carin-leon-de-sonora-para-el-los-angeles-california-09-20-2026/event/0A00644328E0E003) |
+| Sun 9/20 | 2 | Dierks Bentley (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7PsuZ) |
 | Wed 9/23 | 2 | Dropkick Murphys - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A70d0p) |
 | Wed 9/23 | 2 | Robyn - The Sexistential Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/robyn-the-sexistential-tour-inglewood-california-09-23-2026/event/0900643CE7CDE833) |
 | Thu 9/24 | 2 | THE KEHLANI WORLD TOUR: North America | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/the-kehlani-world-tour-north-america-inglewood-california-09-24-2026/event/090064B6E25E61FE) |
@@ -569,7 +565,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/23 | 0 | Daniel Caesar - Son Of Spergy Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/daniel-caesar-son-of-spergy-tour-anaheim-california-08-23-2026/event/0900647BCBC1F780) |
+| Sun 8/23 | 0 | Premium Club Seats - Daniel Caesar - Son Of Spergy Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/daniel-caesar-son-of-spergy-tour-anaheim-california-08-23-2026/event/0900647BCBC1F780) |
 | Mon 8/24 | 0 | Premium Club Seats - Daniel Caesar - Son Of Spergy Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/daniel-caesar-son-of-spergy-tour-anaheim-california-08-24-2026/event/0900647BCBBDF77A) |
 
 ## September 2026
