@@ -1,50 +1,64 @@
-# LA Events
-*Digest regenerated Tue 6/30 — picks updated.*
+# LA Events — Demo (indie + jazz)
+*Digest regenerated Fri 7/3 — picks updated.*
 
-*The week ahead, ranked for your taste — house, disco, and a couple of rep-cinema curveballs, soonest first.*
+*The weeks ahead, ranked for this profile's taste — indie/rock and Americana, jazz and soul in
+listening rooms, and a couple of rep-cinema picks, soonest first.*
 
 ## Friday · July 3
 
-- **[Groove Room: A House and Hits Dance Party](https://dice.fm/event/3o7k2g-groove-room-a-house-and-hits-dance-party-3rd-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-  No headliner, no ticket line — just house and hits in a small room you can walk to from Silver Lake. The unpretentious pick.
-- **[Ginger Root (DJ Set) at Camille's](https://www.instagram.com/p/DZnMuYqjFAC/?img_index=1)** — Camille's at The Bellwether, DTLA · free
-  Cameron Lew off the stage and behind the decks, playing his boogie/alt-disco influences instead of performing them. Free, low-commitment, a nice change of pace.
-- **[Dirtybird x FLOAT: Road to Campout · Rooftop Pool Party](https://ra.co/events/2449768)** — Level 8 DTLA, DTLA · $30 pre
-  Sacha Robotti and Ardalan, both real Dirtybird pedigree, warming up for Campout. Daytime, bouncy West Coast house — sun and speakers, 2–8pm.
-- **[Mutate: Kayzo](https://ra.co/events/2453933)** — Exchange LA, DTLA · $40 pre
-  Insomniac-run bass/hardstyle night — heavy drops, young crowd. Skip unless that's specifically the mood.
+- **[Levitation Room, Sol Societe, Hector Waluyo, Walkin' Love](https://dice.fm/event/g5qe76-levitation-room-sol-societe-hector-waluyo-walkin-love-3rd-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · 7pm
+  Levitation Room's fuzzed-out LA psych/dream-pop is squarely the core lane here, on a full local bill.
+- **[Jaws](https://ticketing.uswest.veezi.com/purchase/3667?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · 11:30pm
+  Spielberg on the big screen at a late slot — the rep-cinema pick when you want a classic instead of a rewatch at home.
 
-## Saturday · July 4
+## Sunday · July 5
 
-- **[The Hustle ~ First and Third Saturday Disco Party!](https://dice.fm/event/bb7p6g-the-hustle-first-and-third-saturday-disco-party-4th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-  Gold Diggers' reliable disco-and-boogie residency, residents doing their thing. Easy late add to the Fourth if the warehouse TBAs don't pan out.
-- **[Okayval, Silvertone, Xvirad, Jacz](https://posh.vip/e/okayval-la-headline-show-1?t=infohz)** — TBA, DTLA · free
-  Techno/acid/house warehouse bill from The LA Raver x Techtonik. Free at the door — same show floats around a couple of feeds, so treat it as one event.
-- **[Club Cielo: Kebra, Linapary, Queenie, Dina](https://ra.co/events/2471058)** — El Cid, Silver Lake · $17–26
-  Could be a solid eastside night, but the four names have no public track record to confirm the sound. Gap-flagged rather than guessed.
+- **[Harry Dean Stanton 100th Birthday: Free Screening of Lucky (2017)](https://dice.fm/event/xeo28a-harry-dean-stanton-100th-birthday-free-screening-of-lucky-2017-5th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · free
+  A free tribute screening of Stanton's own late-career lead role, at a venue that suits the mood. Easy, low-key Sunday.
+
+## Tuesday · July 7
+
+- **[Jared Mattson & Ruban Nielson, Joshua Crumbley](https://dice.fm/event/eo8b7o-jared-mattson-ruban-nielson-joshua-crumbley-7th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · 8pm
+  Ruban Nielson (Unknown Mortal Orchestra) and his brother Jared Mattson (UMO's guitarist) in a stripped-down room set — a tracked artist, off his usual stage.
+
+## Thursday · July 9
+
+- **[Dylan LeBlanc + Band — 10 Year Anniversary of "Cautionary Tale"](https://dice.fm/event/bb7anv-dylan-leblanc-band-10-year-anniversary-of-cautionary-tale-9th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · 8pm
+  Grammy-nominated Americana songwriter marking a decade of his breakout record, full band. Solid midweek folk pick.
 
 ## Friday · July 10
 
-- **[Great Quality Entertainment presents Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District · $21 pre
-  Township Rebellion is the draw — melodic, emotionally-pitched techno closer to Lane 8 than a warehouse hammer. Go in expecting build and atmosphere. Trou's an unknown on the bill.
-- **[Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush](https://www.instagram.com/p/DZl9KXzKRBX/)** — Los Globos, Silver Lake · $10 pre
-  Los Globos going 11pm–5am on a tech/deep/minimal bill. Solid afterhours if you're already eastside, but the support reads thin — good, not essential.
-- **[Hollywood 90028](https://ticketing.uswest.veezi.com/purchase/3815?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  A Vista midnight slot almost always means a cult curio. Worth checking what it actually is before you commit to a near-1am end.
+- **[Dave Alvin & Jimmie Dale Gilmore (Friday Show)](https://www.mccabes.com/product/dave-alvin-jimmie-dale-gilmore-friday-show/)** — McCabe's Guitar Shop, Santa Monica · 8pm
+  Two roots-music heavyweights (The Blasters / The Flatlanders) sharing a bill in McCabe's listening room — the exact intimate-Americana format this taste is built for. Also playing Saturday.
+- **[Toody Cole & Her Band, OP ED](https://dice.fm/event/2w3v56-toody-cole-her-band-op-ed-10th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · 7pm
+  Toody Cole (Dead Moon, Sam Coomes' longtime foil) is Pacific Northwest garage-punk royalty — raw and unpolished in the best way.
 
-## Friday · July 24
+## Saturday · July 11
 
-- **[Fight Without Jingi](https://ticketing.uswest.veezi.com/purchase/3850?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  Fukasaku's 'Battles Without Honor and Humanity' under its literal title — the ultra-violent yakuza classic that basically invented the jitsuroku genre. Bracing instead of a comfort rep-watch.
+- **[Lenny Kaye, Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · 7pm
+  Lenny Kaye — Patti Smith Group guitarist and the guy who compiled *Nuggets* — paired with anti-folk songwriter Cindy Lee Berryhill. Rock-history pedigree in a small room.
+- **[TÉKA — Brazilian Jazz • New Bossa](https://www.vibratogrilljazz.com/music/tka-brazilian-jazz-new-bossa-4)** — Vibrato Grill Jazz, Bel-Air · 10:30pm
+  Bossa nova vocalist with a real jazz band behind her — the listening-room jazz pick if you want something quieter than a club night.
+- **[Santa Monica Block Fest Vol V](https://posh.vip/e/santa-monica-block-fest-vol-v-free-music-festival)** — Third Street Promenade, Santa Monica · free
+  Free daytime street festival on the Westside — easy afternoon add before an evening show.
+
+## Friday · July 17
+
+- **[Low Cut Connie](https://www.ticketmaster.com/event/Z7r9jZ1A7x4uK)** — Troubadour, West Hollywood · 7pm
+  Adam Weiner's piano-pounding, sweat-soaked rock 'n' roll act — one of the best live bands still touring small rooms. A genuine highlight.
+- **[Ravi Campbell Quintet, Adam Hersh Trio](https://dice.fm/event/pyb7ey-ravi-campbell-quintet-adam-hersh-trio-17th-jul-the-mint-los-angeles-tickets)** — The Mint, Mid-City · 9pm
+  A straight-ahead jazz double bill at one of LA's oldest live rooms — the jazz-club option if Vibrato's not in the cards.
 
 ## Saturday · July 18
 
-- **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA, DTLA
-  Luke Mele's NTS-honed Balearic/ambient/dub sensibility on an all-vinyl bill — the listening-bar format worth chasing an address for. Quieter and more textural than a peak-time club.
-- **[Fandango](https://ticketing.uswest.veezi.com/purchase/3845?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  Kevin Reynolds' 1985 cult favorite, Costner's first lead — five friends on one last road trip before the draft. Warm and funny, low-stakes Saturday.
+- **[Fandango](https://ticketing.uswest.veezi.com/purchase/3845?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · 8pm
+  Kevin Reynolds' 1985 cult favorite, Costner's first lead — five friends on one last road trip before the draft. Warm, funny, low-stakes Saturday.
 
-## Saturday · July 25
+## Sunday · July 19
 
-- **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA, DTLA
-  An all-night Nick León set isn't a straight house night — it's Miami dembow and dancehall woven into club music. One of the more interesting bookings in the batch if you want something that doesn't sound like everything else.
+- **[James McMurtry w/ Bettysoo](https://www.ticketmaster.com/event/Z7r9jZ1A7x4bS)** — Troubadour, West Hollywood · 6pm
+  Sharp, novelistic songwriting (he's Larry McMurtry's son, and it shows) — one of the better Americana songwriters still working a room this size.
+
+## Further out — weekend of July 24–26
+
+Quieter for this taste, but three worth flagging: **[Tom Rush](https://www.mccabes.com/product/tom-rush/)** (folk legend, already sold out — Sat 7/25 at McCabe's) and **[Teddy Thompson](https://www.mccabes.com/product/teddy-thompson/)** (Richard & Linda Thompson's son, Sun 7/26, also McCabe's) keep the listening-room streak going, and **[Fight Without Jingi](https://ticketing.uswest.veezi.com/purchase/3850?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** (Fri 7/24, Vista) is Fukasaku's ultra-violent yakuza classic *Battles Without Honor and Humanity* under its literal title — a bracing rep-cinema pick if you want something harder-edged than the usual comfort watch.

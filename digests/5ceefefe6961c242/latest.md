@@ -1,23 +1,30 @@
 # LA Events
-*Digest regenerated Tue 6/30 — picks updated.*
+*Digest regenerated Fri 7/3 — picks updated.*
 
-*Alexa — your taste isn't set yet, so this is LA's general slate rather than a personalized pick list. Add a few artists / genres / venues to your taste and this becomes yours.*
+*Alexa — your taste.yaml is still an empty starter, so nothing here is boosted or penalized for you personally. This is just a plain, general-baseline slate of what's on across the next two weekends; add a few artists/genres/venues to your taste and this becomes a personalized pick list instead.*
 
-## Around town this week
+## This weekend (Fri 7/3–Sun 7/5)
 
-- `Fri 7/3` **[Groove Room: A House and Hits Dance Party]({'source': 'dice', 'url': 'https://dice.fm/event/3o7k2g-groove-room-a-house-and-hits-dance-party-3rd-jul-gold-diggers-los-angeles-tickets'})** — Gold Diggers, East Hollywood  
-  Gold Diggers' Groove Room is a no-frills house party in a small East Hollywood room — the name says it, house and hits on a Friday night with no headliner. The kind of unpretentious local spot worth walking to from Silver Lake if you want to dance without a ticket line.
-- `Sat 7/4` **[The Hustle ~ First and Third Saturday Disco Party!]({'source': 'dice', 'url': 'https://dice.fm/event/bb7p6g-the-hustle-first-and-third-saturday-disco-party-4th-jul-gold-diggers-los-angeles-tickets'})** — Gold Diggers, East Hollywood  
-  The Hustle on July 4th is the same format as every first-and-third Saturday — Gold Diggers' reliable disco-and-boogie residency, no headliner, just the residents doing their thing in a small East Hollywood room. Easy late add to a Fourth if the warehouse TBAs don't pan out.
-- `Fri 7/3` **[Ginger Root (DJ Set) at Camille's]({'source': '19hz', 'url': 'https://www.instagram.com/p/DZnMuYqjFAC/?img_index=1'})** — Camille's at The Bellwether (Los Angeles) j-pop, disco, DTLA  
-  Ginger Root doing a DJ set at Camille's is a fun oddity — his music sits in the boogie/alt-disco zone and a free DJ night lets him play his influences rather than perform. Low commitment, free entry, and a nice change of pace from the heavier club nights on the same night.
-- `Fri 7/10` **[Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush]({'source': '19hz', 'url': 'https://www.instagram.com/p/DZl9KXzKRBX/'})** — Los Globos (Los Angeles) tech house, deep house, minimal, Silver Lake  
-  Los Globos going 11pm-5am with a locally-rooted tech-house/deep-house/minimal bill — solid afterhours option if you're already eastside, but the support slots (Beast, Jacz, Lavenge, Max Rush) are thin enough on the record that this reads as a good-not-essential Friday.
-- `Sat 7/25` **[CSW - Nick León [All Night]]({'source': 'ra', 'url': 'https://ra.co/events/2475085'})** — TBA - Downtown, DTLA  
-  An all-night TBA set from Nick León isn't a straight house night — it's Miami dembow-and-dancehall rhythm woven into club music, which makes this one of the more interesting bookings in this batch if you want something that doesn't sound like everything else on the calendar.
-- `Sat 7/18` **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE]({'source': 'ra', 'url': 'https://ra.co/events/2456585'})** — TBA - Downtown LA, DTLA  
-  A location-TBA all-vinyl night built around Luke Mele's NTS-honed Balearic/ambient/dub sensibility is squarely the listening-bar format worth chasing an address for — quieter and more textural than a peak-time club night.
-- `Fri 9/25` **[Certified Groovers: Gene On Earth in LA]({'source': 'ra', 'url': 'https://ra.co/events/2457514'})** — TBA - Downtown Los Angeles, DTLA  
-  Certified Groovers landing Gene On Earth is a nice get — his Limousine Dream sound is more minimal-and-breaks-leaning than most of the TBA-warehouse bills this month, worth it if you want something a shade weirder than straight house.
-- `Fri 7/3` **[Dirtybird x FLOAT: Road to Campout • Rooftop Pool Party [2-8 PM]]({'source': 'ra', 'url': 'https://ra.co/events/2449768'})** — Level 8 DTLA, DTLA  
-  A Dirtybird-flavored rooftop pool party warming up for Campout, with Sacha Robotti and Ardalan both carrying real Dirtybird pedigree — daytime, bouncy West Coast house rather than anything moody. Good sun-and-speakers Friday.
+- `Fri 7/3` **[Groove Room: A House and Hits Dance Party](https://dice.fm/event/3o7k2g-groove-room-a-house-and-hits-dance-party-3rd-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood · no cover listed
+  Recurring house/dancefloor-hits party, no headliner, 10:30pm start.
+- `Fri 7/3` **[Ginger Root (DJ Set) at Camille's](https://ra.co/events/2475626)** — Camille's at The Bellwether, DTLA · free
+  Ginger Root (indie soul/alt-disco) spinning a free DJ set, 8pm–2am.
+- `Fri 7/3` **[Independence Day](https://vidiotsfoundation.org/showtimes/independence-day-7-3-26-630-pm/)** — Vidiots, Eagle Rock · check listing
+  35mm(ish) rep screening, 6:30pm — part of Vidiots' regular calendar, not a special one-off.
+- `Sat 7/4` **[The Hustle ~ First and Third Saturday Disco Party!](https://dice.fm/event/bb7p6g-the-hustle-first-and-third-saturday-disco-party-4th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood · no cover listed
+  Gold Diggers' regular disco/boogie residency, no headliner, 9pm start.
+- `Sat 7/4` **[Jayda G](https://dice.fm/event/k6dyll-jayda-g-4th-jul-sound-nightclub-los-angeles-tickets)** — Sound Nightclub, Hollywood · $31
+  Ninja Tune's Jayda G headlines a deep house/disco night, 10pm–3am.
+- `Sun 7/5` **[CASUAL ~ A Queer Pool Party](https://ra.co/events/2471575)** — The Broken Shaker, DTLA · price not listed
+  Daytime queer pool party with DJ Terrell Brooke, starts 3pm.
+
+## Next weekend (Fri 7/10–Sun 7/12)
+
+- `Fri 7/10` **[Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush](https://www.instagram.com/p/DZl9KXzKRBX/)** — Los Globos, Silver Lake · $10 pre
+  Tech-house/deep-house/minimal afterhours bill, 11pm–5am.
+- `Sat 7/11` **[The Groove Lab: Arkez, GC Lyte, IKARI, Limbo, Rosie Love B2B SuperJenn, Saul Nunez, Stilo, Zeerow](https://ra.co/events/2472030)** — TBA venue, DTLA · $12-34
+  Multi-DJ house/techno afterhours party, 8pm–4am, from the Apt4B Radio crew.
+- `Sat 7/11` **[Matt Rife: Stay Golden World Tour](https://www.ticketmaster.com/matt-rife-stay-golden-world-tour-los-angeles-california-07-11-2026/event/09006365E4729143)** — Greek Theatre, Los Feliz · price varies
+  Touring stand-up show, 7:30pm.
+- `Sun 7/12` **[Factory 93 presents: Beltran Open to Close at Naud St](https://ra.co/events/2399254)** — 1756 Naud St, Chinatown · $66 pre
+  Open-to-close techno set from Beltran, starts 5pm.
