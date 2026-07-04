@@ -1,4 +1,5 @@
 # LA Events
+*Digest regenerated Sat 7/4 — picks updated.*
 
 *Garo — heads up: your taste profile isn't set up yet (no genres, artists, or venues added to `profiles/garo/taste.yaml`), so this isn't personalized. It's the deterministic ranking's honest read on what's best-put-together on LA's calendar this stretch, which right now skews hard toward the club/electronic scene — that's what's scoring well against a neutral baseline, not a reflection of what you'd actually pick. Add a few likes and this list starts looking like yours.*
 
@@ -8,7 +9,7 @@
   Gold Diggers' reliable disco-and-boogie residency — no headliner, just the house doing what it does. Easy, unpretentious Fourth-of-July add.
 - **[Jayda G](https://dice.fm/event/k6dyll-jayda-g-4th-jul-sound-nightclub-los-angeles-tickets)** — Sound Nightclub, Hollywood · $31
   A proper room for her — long, sweaty sets that pull the floor from disco into gospel-house without a hard stop.
-- **[Okayval, Silvertone, Xvirad, Jacz](https://ra.co/events/2453933)** — TBA, DTLA · free
+- **[Okayval, Silvertone, Xvirad, Jacz](https://posh.vip/e/okayval-la-headline-show-1?t=infohz)** — TBA, DTLA · free
   Free-door techno/acid/house warehouse bill — the same show floats around a couple of feeds, so treat it as one event.
 
 ## Friday · July 10
