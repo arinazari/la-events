@@ -1,10 +1,11 @@
 name: Land routine digests on main
 
-# The daily digest Routine runs in a scheduled cloud session that pushes to an
-# auto-assigned claude/* branch — it cannot push main directly, so its runs strand
-# on side branches and the dashboard (deployed from main) goes stale. This closes
-# that gap: when a claude/* branch tip is a routine "digest:" commit AND the branch
-# is a pure extension of main, fast-forward main to it and kick the Pages deploy
+# Scheduled Routines (the daily digest, the weekly Tuesday source-discovery) run in
+# cloud sessions that push to an auto-assigned claude/* branch — they cannot push
+# main directly, so their runs strand on side branches and the dashboard (deployed
+# from main) goes stale. This closes that gap: when a claude/* branch tip is a
+# routine "digest:" or "discover:" commit AND the branch is a pure extension of
+# main, fast-forward main to it and kick the Pages deploy
 # (a GITHUB_TOKEN push never fires push-triggered workflows, so the deploy must be
 # dispatched explicitly; build-profiles isn't dispatched — the run already rebuilt
 # every feed itself).
@@ -12,6 +13,9 @@ name: Land routine digests on main
 # Safety: fast-forward ONLY. If main is not an ancestor of the tip (branch based on
 # a stale main, or any unrelated claude/* branch), the job skips with a notice and
 # main is untouched — the next morning's run starts from current main and lands.
+# Discover runs may only auto-commit what CLAUDE.md already allows unattended
+# (Eventbrite organizer harvests, flaky/dead marks); new-source registrations stay
+# proposals and must not ride in these commits.
 # Mid-run checkpoint pushes (the routine commits in stages) may land too; each is a
 # consistent committed snapshot, and the day's final push completes it.
 #
@@ -39,7 +43,7 @@ concurrency:
 
 jobs:
   fast-forward:
-    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.head_commit.message, 'digest:')
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.head_commit.message, 'digest:') || startsWith(github.event.head_commit.message, 'discover:')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
