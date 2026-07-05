@@ -790,9 +790,9 @@
     }
   },
   {
-    "title": "Afrobeats Day Party",
+    "title": "Afrobeats Day Party ( Beverly Hills ) 4th of July Weekend",
     "date": "2026-07-05",
-    "start": "4pm-10pm",
+    "start": "16:00",
     "venue": "Sofitel Los Angeles At Beverly Hills (Los Angeles) afrobeats, dancehall, reggae, amapiano",
     "neighborhood": "Beverly Hills",
     "category": "electronic",
@@ -805,11 +805,12 @@
       }
     ],
     "sources": [
-      "19hz"
+      "19hz",
+      "eventbrite"
     ],
     "organizers": "Enjoyment Worldwide",
-    "detail": null,
-    "price": "21+",
+    "detail": "Afrobeats Day Party ( Beverly Hills ) 4th of July Weekend",
+    "price": "free",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-22",
@@ -821,7 +822,10 @@
         "amapiano"
       ],
       "setting": [],
-      "vibe": [],
+      "vibe": [
+        "day-party",
+        "free"
+      ],
       "region": null,
       "near_home": false
     }
@@ -2845,6 +2849,45 @@
     }
   },
   {
+    "title": "Friday Morning Afters  @under_groundla x Kariwood",
+    "date": "2026-07-05",
+    "start": "03:00",
+    "venue": "Afters on 11th",
+    "neighborhood": null,
+    "category": "party",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "posh",
+        "url": "https://posh.vip/e/friday-morning-afters-undergroundla-x-kariwood-18"
+      }
+    ],
+    "sources": [
+      "posh"
+    ],
+    "organizers": "LORD KARI WOOD",
+    "detail": null,
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": true,
+    "first_seen": "2026-07-05",
+    "last_seen": "2026-07-05",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [],
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "very good mondays - 5 Year Anniversary!",
     "date": "2026-07-06",
     "start": "19:00",
@@ -4455,7 +4498,7 @@
     }
   },
   {
-    "title": "FIFA World Cup 2026 - Switzerland vs. ?",
+    "title": "FIFA World Cup 2026 - Switzerland vs. Colombia",
     "date": "2026-07-07",
     "start": "12:00",
     "venue": "Zebulon",
@@ -4467,6 +4510,10 @@
       {
         "source": "dice",
         "url": "https://dice.fm/event/6d82qq-fifa-world-cup-2026-switzerland-vs-7th-jul-zebulon-los-angeles-tickets"
+      },
+      {
+        "source": "dice",
+        "url": "https://dice.fm/event/6d82qq-fifa-world-cup-2026-switzerland-vs-colombia-7th-jul-zebulon-los-angeles-tickets"
       }
     ],
     "sources": [
@@ -8192,6 +8239,40 @@
       ],
       "region": null,
       "near_home": false
+    }
+  },
+  {
+    "title": "FIFA World Cup 2026 - France vs. Morocco",
+    "date": "2026-07-09",
+    "start": "12:00",
+    "venue": "Zebulon",
+    "neighborhood": "Frogtown",
+    "category": "music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "dice",
+        "url": "https://dice.fm/event/xey67l-fifa-world-cup-2026-france-vs-morocco-9th-jul-zebulon-los-angeles-tickets"
+      }
+    ],
+    "sources": [
+      "dice"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-05",
+    "last_seen": "2026-07-05",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [],
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
     }
   },
   {
@@ -12344,6 +12425,80 @@
     }
   },
   {
+    "title": "TeckMEout Events",
+    "date": "2026-07-10",
+    "start": "23:45",
+    "venue": "TBA",
+    "neighborhood": null,
+    "category": "party",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "posh",
+        "url": "https://posh.vip/e/teckmeout-events-2026-7-11-15-0"
+      }
+    ],
+    "sources": [
+      "posh"
+    ],
+    "organizers": "TeckMeOut",
+    "detail": null,
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": true,
+    "first_seen": "2026-07-05",
+    "last_seen": "2026-07-05",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [],
+      "vibe": [
+        "afterhours",
+        "tba-location",
+        "free"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "Music for the Masses: Dark 80's New Wave Nite [Portland]",
+    "date": "2026-07-10",
+    "start": "21:00",
+    "venue": "The Get Down",
+    "neighborhood": "Portland",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/music-for-the-masses-dark-80s-new-wave-nite-portland-tickets-1988714710233"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Music for the Masses returns to Portland!",
+    "price": "$25.67",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-05",
+    "last_seen": "2026-07-05",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "Lost in Dreams Los Angeles",
     "date": "2026-07-11",
     "start": "Sat: 3pm-Sun: 11pm",
@@ -15294,7 +15449,7 @@
   {
     "title": "Party Pupils",
     "date": "2026-07-11",
-    "start": "12pm-4pm",
+    "start": "12:00",
     "venue": "The Huntington Beach House (Huntington Beach) future funk, house",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -15307,11 +15462,12 @@
       }
     ],
     "sources": [
-      "19hz"
+      "19hz",
+      "eventbrite"
     ],
     "organizers": "Huntington Beach House",
-    "detail": null,
-    "price": "free w/free w/rsvp",
+    "detail": "Come join us at HB House on to listen to Party Pupils at noon. All ages welcome. For VIP reservations email reservations@prjktgroup.com",
+    "price": "free",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-30",
@@ -15323,11 +15479,18 @@
       ],
       "setting": [],
       "vibe": [
-        "free"
+        "day-party",
+        "free",
+        "all-ages"
       ],
       "region": "far",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-07-05",
+    "changed_fields": [
+      "price",
+      "start"
+    ]
   },
   {
     "title": "Marco Strous",
@@ -17961,6 +18124,42 @@
       ],
       "region": null,
       "near_home": false
+    }
+  },
+  {
+    "title": "NACHTURNAL EVENTS PRESENTS \" EYES WIDE SHUT\"",
+    "date": "2026-07-11",
+    "start": "23:59",
+    "venue": "DTLA",
+    "neighborhood": "DTLA",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/nachturnal-events-presents-eyes-wide-shut-tickets-1992991038847"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Get ready for a mysterious night where nothing is as it seems and every glance hides a secret.",
+    "price": "$33.85",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-05",
+    "last_seen": "2026-07-05",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "vibe": [
+        "afterhours"
+      ],
+      "region": "dtla",
+      "near_home": true
     }
   },
   {
@@ -20921,6 +21120,46 @@
       ],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "title": "TeckMEout Events",
+    "date": "2026-07-12",
+    "start": "23:45",
+    "venue": "TBA",
+    "neighborhood": null,
+    "category": "party",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "posh",
+        "url": "https://posh.vip/e/teckmeout-events-2026-7-13-15-0"
+      }
+    ],
+    "sources": [
+      "posh"
+    ],
+    "organizers": "TeckMeOut",
+    "detail": null,
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": true,
+    "first_seen": "2026-07-05",
+    "last_seen": "2026-07-05",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [],
+      "vibe": [
+        "afterhours",
+        "tba-location",
+        "free"
+      ],
+      "region": null,
+      "near_home": false
     }
   },
   {
@@ -29520,7 +29759,7 @@
   {
     "title": "Deep House Brunch: World Cup Edition",
     "date": "2026-07-18",
-    "start": "19:00",
+    "start": "14:00",
     "venue": "Jungle Hollywood",
     "neighborhood": "Hollywood",
     "category": "electronic",
@@ -29533,14 +29772,19 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2467775"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/deep-house-brunch-world-cup-edition-tickets-1988486923918"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "eventbrite"
     ],
     "organizers": null,
-    "detail": null,
-    "price": null,
+    "detail": "House Music and Bar Olympics Collide!",
+    "price": "free",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-19",
@@ -29552,13 +29796,17 @@
         "dnb"
       ],
       "setting": [],
-      "vibe": [],
+      "vibe": [
+        "day-party",
+        "free"
+      ],
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-06-30",
+    "updated_at": "2026-07-05",
     "changed_fields": [
-      "lineup"
+      "price",
+      "start"
     ]
   },
   {
@@ -41845,7 +42093,7 @@
   {
     "title": "The Phantom of the Opera (Touring)",
     "date": "2026-07-25",
-    "start": "13:00",
+    "start": "20:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Arts & Theatre",
@@ -41883,7 +42131,7 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-06-30",
+    "updated_at": "2026-07-05",
     "changed_fields": [
       "start"
     ]

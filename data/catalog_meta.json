@@ -1,8 +1,36 @@
 {
-  "version": "1af65b0d79e8",
-  "content_version": "22f9c44d2b22",
-  "count": 3358,
-  "fetched_at": "2026-07-05T12:17:11+00:00",
-  "added": 0,
-  "updated": 0
+  "version": "dfc71665064d",
+  "content_version": "d5a77642f09b",
+  "count": 3364,
+  "fetched_at": "2026-07-05T13:54:52+00:00",
+  "added": 8,
+  "updated": 3,
+  "changes": [
+    {
+      "title": "Party Pupils",
+      "date": "2026-07-11",
+      "venue": "The Huntington Beach House (Huntington Beach) future funk, house",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Deep House Brunch: World Cup Edition",
+      "date": "2026-07-18",
+      "venue": "Jungle Hollywood",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "The Phantom of the Opera (Touring)",
+      "date": "2026-07-25",
+      "venue": "Hollywood Pantages Theatre",
+      "fields": [
+        "start"
+      ]
+    }
+  ]
 }

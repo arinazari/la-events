@@ -1,6 +1,6 @@
 # LA Events — 2026-07-05
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Checked Sun 7/5 · no new or changed events since the last pull*
+*Updated Sun 7/5 · 8 new · 3 updated since the last pull · 🆕 new · ↻ updated*
 
 ## Next two weeks
 
@@ -104,6 +104,7 @@
 ### Sunday · July 12
 
 **Electronic & dance**
+- `4pm-10pm` **[Day Party | The 3rd Wave ft Amal Nemer](https://shotgun.live/en/events/day-party-a-fan-space-x-members-present-the-3rd-wave)** — Members Restaurant & Club (Los Angeles) tech house, latin house, afro house · $20.20-40.40
 - `6pm-12am` **[Sunday Sessions LA (Vinyl Only) Open Air](https://ra.co/events/2478840)** — Apotheke, Chinatown · free b4 7pm / $22.66-34.50
 - `11pm` 🆕 **[AFTERS 7-12](https://posh.vip/e/afters-712-2)** — 129 E 3rd St, DTLA · free
 
@@ -112,10 +113,6 @@
 
 **Film**
 - `7:30pm` (Sun 7/12 + Mon 7/13) **[Dances With Wolves](https://ticketing.uswest.veezi.com/purchase/3809?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-
-**Other**
-- `5pm` **[Factory 93 presents: Beltran Open to Close at Naud St](https://ra.co/events/2399254)** — 1756 Naud St., Chinatown · $66 pre  
-  This is the added second date and it's the better ticket than the night before — open-to-close means Beltran builds the whole arc himself instead of a support-slot warm-up, and that's the format this taste rewards.
 
 ### Monday · July 13
 
@@ -239,7 +236,8 @@
 - `time TBA` **[Black V Neck, Dillon Nathaniel Sorry Not Jomari | MFP](https://avalonhollywood.com/event/black-v-neck-dillon-nathaniel-nightclub-near-me-discover-avalon-hollywood-2026-july-24-best-night-club-near-me-hollywood-los-angeles/)** — Avalon Hollywood, Hollywood
 
 **Live music**
-- `8pm` **[Snoop Dogg 21+](https://www.ticketmaster.com/event/Z7r9jZ1A7x4u8)** — Yaamava Resort & Casino at San Manuel, Highland
+- `9:30pm` **[Orion 224 with Cannon the Dealers & American Woman](https://www.ticketmaster.com/orion-224-with-cannon-the-dealers-los-angeles-california-07-24-2026/event/0900649DE2A156D5)** — The Moroccan Lounge, Arts District  
+  A touring Texas indie-rock double bill — Orion 224's melodic guitars and Cannon the Dealers' scrappier indie-sleaze — landing at the Moroccan for an all-ages Friday. Solidly in the small-club live-band lane, just not a big enough name to build a night around; good if you're already in the Arts District.
 - `8:30pm` **[Minerva Hoyt    starsdontmeananything ‍  ‍ (Oakland)    Wazoo      8:30 pm    $1](https://www.thesmell.org/events/friday-july-24-2026)** — The Smell, DTLA
 
 **Film**
