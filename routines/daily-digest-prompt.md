@@ -5,13 +5,22 @@ as the routine prompt; repo = this one. Runs **daily** and maintains a rolling s
 **per-weekend** digests for the next ~4 months — each weekend gets its own file, refreshed
 every day as new events are announced and lineups firm up.
 
-Configure in the routine's environment (not here): the daily schedule, the target branch
-(recommended: **`main`** — the Pages workflow then auto-redeploys the dashboard on each push; the
-tradeoff is daily digest commits on main, fine for a personal repo), the network policy (outbound to
+Configure in the routine's environment (not here): the daily schedule, the network policy (outbound to
 app.ticketmaster.com, ra.co, dice.fm + the domains in sources.yaml), `TM_API_KEY` / `POSH_TOKEN`, and
 **pre-approval for the fan-out tools** — allow the Agent/Task tool (and the Workflow tool, if you use it)
 so an unattended run doesn't block on an "Allow Claude to run a workflow/agent?" prompt and hang in
 *Running* (see the scheduled-run note below).
+
+**Branch mechanics — how a run reaches `main`.** There is NO target-branch setting on a routine
+(an earlier version of this header claimed one; it doesn't exist, which is why runs silently
+stranded 7/1–7/4). A scheduled session clones the default branch but may only push to
+`claude/*`-prefixed branches — a prompt saying "push to main" cannot override that, so every run
+lands on its own `claude/<session>-<suffix>` branch. The **`land-digest.yml`** workflow closes the
+gap: when a `claude/*` tip is a `digest:` commit that purely extends main, CI fast-forwards main
+to it and redeploys Pages (fast-forward only — main can be extended, never rewritten; a run based
+on a stale main skips harmlessly and the next morning's run lands). The alternative — the
+per-repo "Allow unrestricted branch pushes" toggle under the routine's Permissions — would let an
+unattended session push anything to any branch; leave it OFF and let the workflow do the landing.
 
 > Prereq: validate one manual digest run first (ROADMAP Phase 1). A daily routine pointed
 > at an unvalidated pipeline with no `TM_API_KEY` just commits empty weekend files daily.
