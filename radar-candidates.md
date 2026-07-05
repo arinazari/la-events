@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/4/2026 deterministically (no API). 378 candidates. Signals: big-venue 318, festival 56, tracked 7._
+_Generated 7/5/2026 deterministically (no API). 371 candidates. Signals: big-venue 312, festival 55, tracked 7._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -30,7 +30,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 8/14 | 6 | Moodymann and DJ Rashida Play Prince | The Regent Theater | tracked:Moodymann | [link](https://www.ticketmaster.com/moodymann-and-dj-rashida-play-prince-los-angeles-california-08-14-2026/event/090064BA38058214) |
-| Thu 8/13 | 5 | Fisher and Thames - Sounds Of the 70s | Vibrato Grill Jazz | tracked:FISHER |  |
+| Thu 8/13 | 5 | Fisher and Thames - Sounds Of the 70s | Vibrato Grill Jazz | tracked:FISHER | [link](https://www.vibratogrilljazz.com/music/fisher-and-thames-sounds-of-the-70s) |
 | Sun 8/16 | 5 | The Soul Space f/ Tamara Jade & Orlando Dixon, Mark Evich, | TBA - Plummer Park WeHo | tracked:Dixon | [link](https://ra.co/events/2476723) |
 
 ## September 2026
@@ -82,7 +82,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 8/8 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJZ) |
 | Fri 8/14 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJF) |
 | Sat 8/15 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJa) |
 | Fri 8/21 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJp) |
@@ -168,10 +167,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 8/8 | 4 | O.A.R. Three Decades Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/oar-three-decades-tour-los-angeles-california-08-08-2026/event/0900635CE5A483CC) |
-| Sat 8/8 | 4 | Lionel Richie and Earth, Wind & Fire - Sing a Song All Nig | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/lionel-richie-and-earth-wind-fire-palm-desert-california-08-08-2026/event/0A006434D34883D3) |
-| Sat 8/8 | 4 | Megan Moroney | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7OAC9) |
-| Sat 8/8 | 4 | Panter Belico w/ Arley Perez | Peacock Theater - LA | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A704Z-) |
 | Fri 8/14 | 4 | KCSN Presents: An Evening With Goose | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/kcsn-presents-an-evening-with-goose-los-angeles-california-08-14-2026/event/09006437A956DDFC) |
 | Fri 8/14 | 4 | Al Green w/ The Womack Sisters | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-Ebs) |
 | Fri 8/14 | 4 | KCON - Friday | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xZ4d) |
@@ -233,7 +228,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 8/8 | 3 | Ed Sheeran: LOOP Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/ed-sheeran-loop-tour-inglewood-california-08-08-2026/event/0A006331DC273765) |
 | Sun 8/9 | 3 | Lionel Richie and Earth, Wind & Fire - Sing a Song All Nig | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/lionel-richie-and-earth-wind-fire-inglewood-california-08-09-2026/event/09006436B59BEE36) |
 | Mon 8/10 | 3 | John Mellencamp Dancing Words Tour The Greatest Hits | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/john-mellencamp-dancing-words-tour-the-hollywood-california-08-10-2026/event/0B00642993A8269D) |
 | Mon 8/10 | 3 | Benson Boone | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-yOP) |
@@ -412,7 +406,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 8/8 | 2 | Deon Cole | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7x7r3) |
 | Tue 8/11 | 2 | RÜFÜS DU SOL NORTH AMERICA 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-11-2026/event/09006455E5EDE39D) |
 | Tue 8/11 | 2 | Jill Scott - To Whom This May Concern Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jill-scott-to-whom-this-may-inglewood-california-08-11-2026/event/0A006465CDF6911B) |
 | Wed 8/12 | 2 | RÜFÜS DU SOL NORTH AMERICA 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-12-2026/event/09006455E5F2E3B2) |

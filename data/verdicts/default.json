@@ -449,13 +449,15 @@
       "score_at_judge": 6
     },
     "469750d25f5c": {
-      "tier": "great",
+      "tier": "must-see",
+      "lane": "club:mainstream",
       "adjust": 1,
-      "why": "Hayden James is real, RUFUS-adjacent melodic house with actual festival draw — a solid daytime pick at a distinctive outdoor venue.",
-      "confidence": "med",
-      "judged_at": "2026-07-04T12:35:53",
+      "why": "Hayden James is genuine core rotation for you and this is a daytime outdoor party, not an underground warehouse booking — the mainstream-polish lane fits better than 'underground', and it's today.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8,
+      "model": "sonnet"
     },
     "6b5b9824dca1": {
       "tier": "solid",
@@ -2100,15 +2102,15 @@
       "model": "claude-sonnet-5"
     },
     "5992d7ab4dcc": {
-      "tier": "great",
+      "tier": "solid",
       "lane": "club:underground",
       "adjust": 1,
-      "why": "Beltran is a legit deep-house/techno selector and Factory 93 is Insomniac's underground arm — the mainstream lane tag looks like a price-tier artifact, this reads closer to the fabric-style proper clu",
-      "confidence": "high",
-      "judged_at": "2026-07-01T03:19:17",
+      "why": "Beltran's slow-building, Innervisions-adjacent techno is squarely your groove — the higher price point misread as 'mainstream' but this is the same crowd as the open-to-close date.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6,
+      "model": "sonnet"
     },
     "e31e58917236": {
       "tier": "great",
@@ -2161,14 +2163,14 @@
       "model": "claude-sonnet-5"
     },
     "3f495ac3b11f": {
-      "tier": "must-see",
-      "adjust": 2,
-      "why": "Beltran open-to-close at a proper DTLA warehouse space is the single-DJ marathon set taste.yaml explicitly boosts — the clear headliner of this stretch.",
-      "confidence": "high",
-      "judged_at": "2026-07-01T03:19:17",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Same Beltran booking but open-to-close and half the price — the single-DJ marathon format is the exact boost you like, and it's the better night of the two.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6,
+      "model": "sonnet"
     },
     "c8784c5d4298": {
       "tier": "solid",
@@ -7700,12 +7702,13 @@
     },
     "d836993f59b3": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Established local Latin-jazz vocalist/percussionist — fine late-set at Vibrato, no more.",
-      "confidence": "med",
-      "judged_at": "2026-07-04T12:35:53",
+      "adjust": 1,
+      "why": "Beltran's actually in your rotation and the late-night jazz-Latin set at Vibrato fits the afterhours mood, just outside the core electronic lane.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 4,
+      "model": "sonnet"
     },
     "0e71fc8de30c": {
       "tier": "great",
@@ -8939,6 +8942,594 @@
       "judged_at": "2026-07-04T12:35:53",
       "input_version": 2,
       "score_at_judge": 4
+    },
+    "89e8984704a1": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Indigo Sparke is a real touring indie-folk name (Sacred Bones/Saddle Creek orbit) and Zebulon record-release bills are exactly the small-venue indie lane the score under-credits here since it can't re",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "1fd176fa7173": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "ASCO is a genuinely important LA art-history subject for a rep screening, not just generic arthouse filler — Vidiots doing it justifies the bump.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "1042ee0637ff": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Niche film-preservation clip program — good if you're already at Vidiots that day, but a narrower draw than the ASCO screening on the same slate.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "d1c1c1a58cf1": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "'Mamacitas vs Snow Bunnies' 18+ theme night with an unbilled DJ is the generic bottle-service format the taste explicitly wants buried, not an afters worth the late start.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "0ed838379772": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Recurring unnamed 'AFTERS' night — no lineup to gauge, so it rides on the format alone rather than a real draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "e86f0d394964": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Same generic recurring afters series, no billed DJs — can't tell this night apart from the others in the run.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "3d8d964349ab": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Same generic recurring afters series, no billed DJs — can't tell this night apart from the others in the run.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "0f34b5f4913e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Same generic recurring afters series, no billed DJs — can't tell this night apart from the others in the run.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "98bd9665f842": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Right format (rooftop-vinyl-adjacent silent disco) but La Jolla is a real trip, not a weekend detour, and the lineup is unknown names — not worth the drive.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "f04617235664": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "TBA-location afterhours techno hits the format you like, but KX CHR / Nina J / nat the f*kn rat are unverified draws so it's a floor-level include, not a pull-up.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "84ca22ca09ae": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "This is the afters for HARDfest — the hard-dance/rave crowd the taste explicitly wants avoided, even though 'afterhours' reads as a plus on paper.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "acd49bdb220b": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "All-vinyl open-air rooftop house in DTLA with a series resident DJ — this is the exact recurring lane you keep flagging as a favorite, just under a different series name.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "f45740099378": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Poolside day-party residency format fits, but no billed DJ to confirm it's more than a hotel lifestyle event.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "021e2a49a9a5": {
+      "tier": "skip",
+      "lane": "other",
+      "adjust": -3,
+      "why": "World Cup watch party misfiled as a club night — this belongs in 'around town,' not the picks.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "617616f83ae1": {
+      "tier": "skip",
+      "lane": "other",
+      "adjust": -3,
+      "why": "Another World Cup watch party tagged as electronic/club — same call, not a music event.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "54bf52941c5f": {
+      "tier": "skip",
+      "lane": "other",
+      "adjust": -3,
+      "why": "Another World Cup watch party tagged as electronic/club — same call, not a music event.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "3557104a3c7e": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Mousse T is a legit disco-house veteran (Defected/Peppermint Jam orbit) the score can't recognize by name — this is a sleeper the '+1 rooftop' bump badly undersells.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "4a52c2315b3b": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Huntington Beach day party with an unknown headliner — the far-flung penalty is doing the right thing here.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "87b824e7586c": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Soul Clap's a solid disco-house name but this is a San Diego day party — not worth the drive on its own.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "69ae2565b596": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Exactly the small Zebulon indie-band booking you want in rotation, even if none of these names are known quantities yet.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "369c551f8631": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "B-Wade's gospel-tinged soulful house is the groove/deep-house lane you actually chase, at a speakeasy no less.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "99e85cc6d8c8": {
+      "tier": "great",
+      "lane": "film",
+      "adjust": 2,
+      "why": "Yoko Ono film program at a venue you love — this is a rep-cinema pick, not a live-music one, and it's the right kind of afternoon experimental booking.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "85951e1df0f6": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Gracie and Rachel are a fine chamber-pop duo but not a big enough draw to push above the pack.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "7bf067652a43": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Unknown local bill at Gold Diggers — fine filler, no signal either way.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "5538e8098e6d": {
+      "tier": "skip",
+      "lane": "community",
+      "adjust": -2,
+      "why": "\"SUI VS COL\" at a spot called Dom Futbola during World Cup summer reads as a soccer watch party, not a DJ set — the electronic tag looks like a mis-scrape.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "8d8f319c34f5": {
+      "tier": "great",
+      "lane": "live-music",
+      "adjust": 2,
+      "why": "Bob Moses is a legit live-electronic act (Rüfüs/ODESZA tier) and the Bowl is a venue you'd build a night around — the score under-credits this one.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "fc0a48038d3d": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Postmodern Jukebox-adjacent vocalist doing vintage-style covers — competent but a tired format, not a real draw for you.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "15590e98a814": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Placeholder listing with zero lineup info — nothing here to actually justify a slot.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "e064e14c8440": {
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Country karaoke — double penalty territory, correctly buried.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "sonnet"
+    },
+    "b18515b70c6b": {
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Puppet improv isn't one of your comedy exceptions — pass.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "sonnet"
+    },
+    "27b5f5c8099c": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Free, late, walkable DTLA afters — the exact format you want, even without a named lineup to confirm quality.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "eb32903ddda3": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Same recurring afters series, same reasoning — reliable weekend-night filler in the right lane.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "52241f8a3d48": {
+      "tier": "must-see",
+      "lane": "club:mainstream",
+      "adjust": 3,
+      "why": "Amelie Lens and Vintage Culture are both tracked names, and the bill's stacked with real ones (VTSS, Boys Noize, Tiga) — this is a festival day worth planning around, and the score badly underrates it",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "784ebb3dd49e": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Third night of the same free DTLA afters run — consistent, on-taste, no reason to rank it differently than the others.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "74ca4c165275": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "TBA-location afterhours fits the lane but \"Chiefers Club\" gives no read on music quality — can't confirm it's more than a hang.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "8afb176b5dd9": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Apt4b's the real deal — intimate no-phones house/techno/UKG with a community focus, exactly the underground groove night you'd want over a marquee booking.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "546d8ab37c0b": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Rocco's Tavern in Westwood is a college sports-bar scene, not a DJ room — the \"party\" tag is likely doing more work than the actual booking deserves.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "c33e779bba05": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Secret-location afters fits the format but the name gives no signal on who's actually playing.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "bd3543427a34": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "TBA crew, zero lineup or genre confirmation beyond the generic afters tag — nothing here to build a night around.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "1e934615654b": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Vidiots rep booking, exactly the eastside cinema lane, just can't confirm the specific title's pull.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "ec3b95b6928e": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Tootsie at Vidiots is the reliable crowd-pleaser of the night's three screenings.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "a6bf911fb44a": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Carpenter's The Thing late-night is the one of this trio actually worth building the evening around.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "a55fef1e8a7b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Beach day-party fits the sunset/open-air lane on format alone, but DJCJ/Kanykei aren't names you can vouch for.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "2e412712fec5": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Open-air Sunday session hits the setting taste.yaml likes, but a 'secret guest headliner' tease with no name is unverifiable.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "01346d426281": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Los Globos open-format free night, no house/techno billing behind DJ Smoke One — the generic-club-night penalty applies.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "28c4b87134b7": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "A reality-TV premiere afterparty, not a DJ booking — bottle-service energy, not the lane.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "90762dc5594e": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "10:30am coffee meetup for kids'-content creators — mistagged as a party, has nothing to do with the electronic lane.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "059d42d00a36": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Queer gamer meetup, not a music night — the electronic tag here is a default, not a fact.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "b4dd0b0c8a24": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Emo/pop-punk theme night in a black box — off the house/techno lane entirely.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "ac623ad2cc28": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Bar-top dance-party theme with no DJ info given — reads like a bottle/shot-special night, not a booking to chase.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "1b999dfe2dfa": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Jersey club night at Catch One — different lane than the house/techno spine, no crossover draw here.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "6ef0f3571c32": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "A fashion-show event dressed up as a party listing, not a DJ night.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "6a219f3683bf": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Reads like a brand/pop-up drop rather than a music booking, and there's no lineup to check that against.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "ec3ae31574b0": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Church-hosted community food festival out in Duarte — family/community programming, far outside the lane and the geography.",
+      "confidence": "high",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "0acf3d009eb6": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Earthquake-relief benefit concert — worthy cause, but it's a community benefit show, not a house/techno booking.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "b3dca1944030": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Generic club-night branding with no lineup detail to evaluate against the lane.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "c5defe28443c": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "A brunch spot's late-night rebrand with no DJ billing — bottle-service-adjacent, not the lane.",
+      "confidence": "med",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "e29482d10369": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Unnamed birthday party at a TBD venue — nothing to confirm this is anything more than a generic day-party listing.",
+      "confidence": "low",
+      "judged_at": "2026-07-05T12:19:59",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
     }
   }
 }
