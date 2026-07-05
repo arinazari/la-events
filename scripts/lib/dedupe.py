@@ -267,6 +267,17 @@ def is_duplicate(a: dict, b: dict) -> bool:
     return _festival_match(a, b)  # cross-source festival (venue + title vary by source)
 
 
+# TM resale-marketplace URLs (TMR feed, id prefix 'Z') routinely dead-end — the primary sale was
+# never on Ticketmaster. They stay in the list (the Z id above is an identity signal) but must
+# never be links[0]: the digest and dashboard both surface the first link as THE ticket link.
+_TM_RESALE_URL = re.compile(r"ticketmaster\.com/(?:[^?#]*/)?event/Z")
+
+
+def _is_resale_link(link) -> bool:
+    url = link.get("url") if isinstance(link, dict) else link
+    return bool(url and _TM_RESALE_URL.search(str(url)))
+
+
 def _merge_links(a, b):
     seen, out = set(), []
     for link in (a.get("links") or []) + (b.get("links") or []):
@@ -274,7 +285,8 @@ def _merge_links(a, b):
         if url and url not in seen:
             seen.add(url)
             out.append(link)
-    return out
+    # Stable demote: any working link outranks a TM resale-marketplace URL.
+    return [l for l in out if not _is_resale_link(l)] + [l for l in out if _is_resale_link(l)]
 
 
 def _union(a, b):

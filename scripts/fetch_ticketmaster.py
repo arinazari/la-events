@@ -52,6 +52,29 @@ def _nightof_date(local_date, local_time, url):
     return local_date
 
 
+def _resale_links(ev):
+    """Working ticket links for TM's resale-feed records (TMR, id prefix 'Z').
+
+    Discovery also carries events whose primary sale is NOT on Ticketmaster (Hollywood Bowl /
+    LA Phil, Segerstrom, Pappy's, …) as resale-marketplace records. Their `url` is a constructed
+    ticketmaster.com/event/Z… page that routinely dead-ends — TM never had primary inventory.
+    The record's `outlets` names the real point of sale (type "venueBoxOffice"). Put that first
+    and keep the marketplace URL second: it still carries the Z id, which dedupe uses as a
+    per-event identity signal. Primary TM events (non-Z ids) pass through untouched.
+    Returns (url, links) — links is None when there's nothing to fix."""
+    url = ev.get("url")
+    if not str(ev.get("id") or "").startswith("Z"):
+        return url, None
+    box = next((o.get("url") for o in (ev.get("outlets") or [])
+                if o.get("type") == "venueBoxOffice" and o.get("url")), None)
+    if not box:
+        return url, None
+    links = [{"source": "venue", "url": box}]
+    if url:
+        links.append({"source": "ticketmaster", "url": url})
+    return box, links
+
+
 def _profile_dma(default="324"):
     """LA DMA id, lifted to profile.yaml (sources.ticketmaster_dma_id); falls back to 324."""
     try:
@@ -89,6 +112,7 @@ def normalize(ev: dict) -> dict:
     # midnight into the next calendar day; `localDate`/`localTime` are venue-local. Then undo TM's
     # own post-midnight roll (a 3am set filed on the next day) using the night-of date in the URL slug.
     local_date = _nightof_date(start.get("localDate"), start.get("localTime"), ev.get("url"))
+    url, links = _resale_links(ev)
     return {
         "source": "ticketmaster",
         "id": ev.get("id"),
@@ -107,7 +131,8 @@ def normalize(ev: dict) -> dict:
         "price_min": prices.get("min"),
         "price_max": prices.get("max"),
         "detail": ev.get("info"),  # TM event blurb (pleaseNote is logistics fine-print — skip; sanitized on normalize)
-        "url": ev.get("url"),
+        "url": url,
+        **({"links": links} if links else {}),
         "onsale": (ev.get("sales", {}).get("public") or {}).get("startDateTime"),
         "status": ev.get("dates", {}).get("status", {}).get("code"),
     }

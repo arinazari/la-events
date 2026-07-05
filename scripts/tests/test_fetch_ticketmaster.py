@@ -51,6 +51,40 @@ def test_missing_time_unchanged():
     assert _nightof_date("2026-06-28", None, SLUG) == "2026-06-28"
 
 
+# ── Resale-feed (TMR) records: prefer the real point of sale over the dead marketplace URL ──
+
+def _resale_ev(outlets):
+    return {"id": "Z7r9jZ1A7-o3_", "name": "Los Angeles Philharmonic",
+            "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7-o3_",
+            "dates": {"start": {"localDate": "2026-07-11", "localTime": "20:00:00"}},
+            "outlets": outlets,
+            "_embedded": {"venues": [{"name": "Hollywood Bowl"}], "attractions": []}}
+
+
+def test_resale_record_prefers_box_office_outlet():
+    ev = _resale_ev([{"url": "https://www.hollywoodbowl.com/events/performances/", "type": "venueBoxOffice"},
+                     {"url": "https://www.ticketmaster.com/event/Z7r9jZ1A7-o3_", "type": "tmMarketPlace"}])
+    n = normalize(ev)
+    assert n["url"] == "https://www.hollywoodbowl.com/events/performances/"
+    assert n["links"][0] == {"source": "venue", "url": "https://www.hollywoodbowl.com/events/performances/"}
+    # marketplace URL kept second — its Z id is dedupe's per-event identity signal
+    assert n["links"][1] == {"source": "ticketmaster", "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7-o3_"}
+
+
+def test_resale_record_without_box_office_untouched():
+    n = normalize(_resale_ev([]))
+    assert n["url"] == "https://www.ticketmaster.com/event/Z7r9jZ1A7-o3_"
+    assert "links" not in n
+
+
+def test_primary_record_never_rewritten():
+    # Non-Z id = primary TM inventory; a venueBoxOffice outlet must NOT displace the working TM URL.
+    n = normalize(_ev("2026-06-27", "20:00:00", SLUG) |
+                  {"outlets": [{"url": "https://example.com/box", "type": "venueBoxOffice"}]})
+    assert n["url"] == SLUG
+    assert "links" not in n
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
