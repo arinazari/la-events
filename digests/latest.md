@@ -407,3 +407,7 @@
 - `Thu 11/12` **[Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4)** — The Wiltern · Koreatown  ·  *Bonobo*
 - `Sun 11/22` **[Three Days Grace - Alienation Tour ](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0)** — Intuit Dome · Inglewood  ·  *festival, big-venue*
 
+---
+
+*Sources this run: all 10 structured fetchers (TM/RA/19hz/Goldenvoice/Vidiots/Vista/New Bev/Posh/Eventbrite/DICE) OK, plus squarespace/ICS/JSON-LD + 6 webfetch venue calendars. Gmail "Events" label had no new threads this cycle. Eater LA failed to fetch (site unreachable); UncoverLA and the DiscoverLA weekend roundup only returned stale/past content — no editorial_mentions added this run, worth a URL re-check next pass.*
+
