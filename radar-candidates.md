@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/6/2026 deterministically (no API). 369 candidates. Signals: big-venue 311, festival 54, tracked 7._
+_Generated 7/7/2026 deterministically (no API). 366 candidates. Signals: big-venue 309, festival 53, tracked 7._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -44,8 +44,8 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 11/11 | 4 | Bonobo: Distance in Static Live North American Tour | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
-| Thu 11/12 | 4 | Bonobo: Distance in Static Live North American Tour | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
+| Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
+| Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
 
 ## August 2026
 
@@ -118,7 +118,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 8/10 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJe) |
 | Tue 8/11 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJd) |
 | Wed 8/12 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ7) |
 | Thu 8/13 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJA) |
@@ -227,8 +226,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 8/10 | 3 | John Mellencamp Dancing Words Tour The Greatest Hits | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/john-mellencamp-dancing-words-tour-the-hollywood-california-08-10-2026/event/0B00642993A8269D) |
-| Mon 8/10 | 3 | Benson Boone | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-yOP) |
 | Tue 8/11 | 3 | Benson Boone | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-yOJ) |
 | Thu 8/13 | 3 | Santana & The Doobie Brothers - Oneness Tour 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/santana-the-doobie-brothers-oneness-tour-hollywood-california-08-13-2026/event/0B00644BE0465338) |
 | Fri 8/14 | 3 | KAROL G - VIAJANDO POR EL MUNDO TROPITOUR | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-14-2026/event/0A0064904B5EEA09) |

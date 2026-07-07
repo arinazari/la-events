@@ -1,5 +1,5 @@
 # LA Events
-*Digest regenerated Mon 7/6 — picks updated.*
+*Digest regenerated Tue 7/7 — picks updated.*
 
 *Dr. Ganesan's next few weeks — vinyl/listening-bar picks lead, house afters and a rep-cinema deep cut round it out.*
 
