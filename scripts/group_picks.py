@@ -8,7 +8,9 @@ aggregates (mean, floor/min, how many are into it, who'd veto), and leaves the *
 matters most tonight, how to weigh a lukewarm friend, when a veto kills a pick — to the concierge.
 "Find something me + Lori + Dr. Ganesan would all be into."
 
-People are profiles.yaml usernames; "me" / "default" / the owner's username resolves to the ROOT
+People are profiles.yaml usernames OR display names (case-insensitive — "Lori" resolves the same as
+"lori", "Dr. Ganesan" the same as "dr_ganesan"), so the concierge can pass whatever name Ari said
+without a username-lookup step. "me" / "default" / the owner's username resolves to the ROOT
 taste.yaml + profile.yaml (the canonical feed). Each person is scored against THEIR OWN taste,
 profile mechanics, and music layer — exactly like build_profiles.py, reusing the same scorer, so a
 group pick can't drift from that person's solo feed.
@@ -25,6 +27,7 @@ Usage:
 import argparse
 import hashlib
 import json
+import re
 import sys
 from datetime import timedelta
 from pathlib import Path
@@ -46,10 +49,20 @@ def profile_hash(username: str, salt: str) -> str:
     return hashlib.sha256((salt + username.strip().lower()).encode("utf-8")).hexdigest()[:16]
 
 
-def resolve_member(person: str, by_user: dict, owner_entry: dict, salt: str):
-    """Resolve a requested name to {id, name, taste, profile, hash}, mirroring build_profiles.py:
+def norm_name(s: str) -> str:
+    """Normalize a display name for lookup: lowercase, drop . and , , collapse whitespace.
+    So 'Dr. Ganesan', 'dr ganesan', and 'Dr Ganesan' all key the same; 'Lori' -> 'lori'."""
+    return " ".join(re.sub(r"[.,]", " ", (s or "").lower()).split())
+
+
+def resolve_member(person: str, by_user: dict, owner_entry: dict, salt: str, by_name: dict = None):
+    """Resolve a requested person to {id, name, taste, profile, hash}, mirroring build_profiles.py:
     the owner (and the aliases) → root taste.yaml/profile.yaml, no per-hash music layer; a friend →
-    their own profiles/<u>/taste.yaml + profile.yaml (+ their music layer via hash). None = unknown."""
+    their own profiles/<username>/taste.yaml + profile.yaml (+ their music layer via hash).
+
+    A person matches by USERNAME or (via by_name) by DISPLAY NAME, case-insensitively — so the
+    concierge can pass whatever name Ari used and skip a username-lookup step. Username wins on a
+    tie. None = no such profile."""
     u = person.strip().lower()
     owner_user = (owner_entry or {}).get("username", "").strip().lower()
     if owner_entry and (u == owner_user or u in OWNER_ALIASES):
@@ -59,16 +72,18 @@ def resolve_member(person: str, by_user: dict, owner_entry: dict, salt: str):
     if u in OWNER_ALIASES:                       # asked for "me"/default but no owner entry exists
         return {"id": "default", "name": "Default", "taste": "taste.yaml",
                 "profile": "profile.yaml", "hash": None}
-    entry = by_user.get(u)
+    entry = by_user.get(u) or (by_name or {}).get(norm_name(person))
     if not entry:
         return None
+    canon = (entry.get("username") or u).strip().lower()   # the profile's real username, not the typed name
     if entry.get("owner"):
-        return {"id": u, "name": entry.get("name") or u, "taste": entry.get("taste") or "taste.yaml",
+        return {"id": canon, "name": entry.get("name") or canon,
+                "taste": entry.get("taste") or "taste.yaml",
                 "profile": entry.get("profile") or "profile.yaml", "hash": None}
-    return {"id": u, "name": entry.get("name") or u,
-            "taste": entry.get("taste") or f"profiles/{u}/taste.yaml",
-            "profile": entry.get("profile") or f"profiles/{u}/profile.yaml",
-            "hash": profile_hash(u, salt)}
+    return {"id": canon, "name": entry.get("name") or canon,
+            "taste": entry.get("taste") or f"profiles/{canon}/taste.yaml",
+            "profile": entry.get("profile") or f"profiles/{canon}/profile.yaml",
+            "hash": profile_hash(canon, salt)}
 
 
 def combine(pools: dict, members: list) -> list:
@@ -151,6 +166,11 @@ def main() -> int:
     salt = manifest.get("salt") or DEFAULT_SALT
     profiles = [p for p in (manifest.get("profiles") or []) if isinstance(p, dict) and p.get("username")]
     by_user = {p["username"].strip().lower(): p for p in profiles}
+    by_name = {}                                 # display name -> entry, so "Lori" resolves like "lori"
+    for p in profiles:
+        n = norm_name(p.get("name") or "")
+        if n and n not in by_name and n not in by_user:   # username wins on a tie; first name wins
+            by_name[n] = p
     owner_entry = next((p for p in profiles if p.get("owner")), None)
 
     # Flatten comma-separated people, resolve + dedupe (preserve order).
@@ -158,7 +178,7 @@ def main() -> int:
     for chunk in args.people:
         requested.extend(x for x in chunk.replace(",", " ").split() if x)
     for person in requested:
-        m = resolve_member(person, by_user, owner_entry, salt)
+        m = resolve_member(person, by_user, owner_entry, salt, by_name)
         if m is None:
             unknown.append(person)
         elif m["id"] not in seen_ids:

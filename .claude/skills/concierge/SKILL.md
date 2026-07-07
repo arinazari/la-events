@@ -95,7 +95,14 @@ like," "plan something for me and Dr. Ganesan" — don't just use Ari's taste. R
 It scores the catalog against **each person's own** taste / mechanics / music layer (the same scorer
 as their solo feed, so it can't drift) and prints a per-event matrix: every shared upcoming event with
 each person's score + ★ + a `⛔` when it's a hard down-rank for them, plus `avg` / `floor` / `n into it`.
-`me` (or `default`) = Ari/the owner; friends are their `profiles.yaml` usernames.
+`me` (or `default`) = Ari/the owner; friends are their `profiles.yaml` entries.
+
+**Don't ask for a username — resolve the name yourself.** `--people` takes a profile's display **name
+or** username, case-insensitively (`Lori` == `lori`, `Dr. Ganesan` == `dr_ganesan`), so pass whatever
+Ari called them. When he says "me + Lori," run `--people me,Lori` directly — asking him to confirm
+"Lori's username" is a pointless extra step when the name already maps to a profile. Only stop to ask
+when the name is genuinely **ambiguous** (matches two different people you both know) or **has no
+profile** at all (below).
 
 **There are no fixed group rules — you decide (Ari's call).** Read the matrix and apply judgment:
 lead with what's strong for *everyone* (high floor, nobody vetoing), but it's fine to surface a pick
