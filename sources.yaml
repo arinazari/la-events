@@ -243,7 +243,7 @@ sources:
     method: scrape
     url: https://theredwoodbar.com/events.html
     priority: 2
-    status: candidate
+    status: active
     notes: >
       DTLA pirate-themed bar/venue (316 W 2nd St) — punk/garage/metal/rockabilly/blues bookings,
       cover-charge shows most nights, some free karaoke/open-mic. Verified 2026-07-07: events.html
@@ -1002,15 +1002,17 @@ sources:
     method: webfetch
     url: https://www.kcrw.com/events
     priority: 2
-    status: candidate
+    status: flaky
     notes: >
       KCRW's curated events calendar (KCRW Music sessions/showcases, Summer Nights free outdoor series,
       KCRW Festival @ Hollywood Bowl). On-taste live-music/DJ/cultural SIGNAL, not a catalog — most
       ticketed shows ride partner venues already covered (Hollywood Bowl, Troubadour via TM, Permanent
       Records Roadhouse, Sam First); unique value is the FREE cultural/museum-concert long tail (Summer
-      Nights @ CAAM/The Broad/Grand Performances) TM & Goldenvoice miss. UNLOCK CHECK: kcrw.com hard-429'd
-      every fetch 2026-06-19 — confirm https://www.kcrw.com/wp-json/tribe/events/v1/events (WordPress +
-      The Events Calendar) from a non-throttled IP; if present, promote to method:api/ics (active).
+      Nights @ CAAM/The Broad/Grand Performances) TM & Goldenvoice miss. Approved 2026-07-07. UNLOCK
+      CHECK re-run 2026-07-07: both /events and wp-json/tribe/events/v1/events still hard-429 (via
+      curl and the WebFetch tool) — same block as 2026-06-19, not IP-specific to that session. Marked
+      flaky rather than active: attempt at digest time, note the failure in the footer, and retry the
+      wp-json unlock check periodically; promote to active/method:api once it 200s.
       Harvest its free events; use ticketed listings only as a rank boost.
 
   - name: Landmark Theatres Pasadena
