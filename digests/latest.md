@@ -1,21 +1,6 @@
 # LA Events — 2026-07-07
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Checked Tue 7/7 · full refresh: fetched all structured sources + 8 additional venue calendars, judged/enriched the delta*
-
-A quiet Tuesday into a loaded Friday: Sunset Sessions is back at Level 8 for the rooftop-groove
-fix, and the Uffie/Mia Moretti bloghouse-revival afters is the fun wildcard the same night. The
-back half of the two-week window is stacked with rep cinema (Vista's 70mm Odyssey run, Vidiots'
-midnight slate) and two legit outdoor electronic bookings — Bodzin live at the Santa Monica Pier
-and Boris Brejcha with the Hollywood Bowl Orchestra closing out the following weekend.
-
-## Don't-miss
-
-- **Fri 7/10 — [SUNSET SESSIONS](https://ra.co/events/2484237)** — Level 8 DTLA, 5pm. The rooftop-sunset-house reference point itself, with Tamara Lanza on the decks — if you only do one thing this week, golden hour here.
-- **Fri 7/10 — [Lights Down Low feat. Uffie x Mia Moretti](https://ra.co/events/2484126)** — TBA Silver Lake, 11:59pm. A bloghouse-nostalgia one-off from the long-running LDL crew — different flavor than the usual house night, worth it for the novelty alone.
-- **Sat 7/11 — [SMD: Mike Servito & Jason Kendig](https://ra.co/events/2477599)** — TBA DTLA, 11pm–5am. Two Honcho/Honey Soundsystem veterans who know how to build a warehouse room slowly — the real afters pick of the weekend.
-- **Sat 7/18 — [Stephan Bodzin (Live), SKALA, MANTi, Bibo, DENYC](https://ra.co/events/2423110)** — Santa Monica Pier, 3pm–10:30pm. A proper live-electronic booking right on the water — rare for this promoter tier to land someone this good.
-- **Fri 7/24 — [STRANGER THAN presents: Stavroz (Live)](https://ra.co/events/2437239)** — The Bridge, DTLA, 10pm. Live European groove act in an intimate room — closest thing to a European club night this stretch has.
-- **Sun 7/26 — [Boris Brejcha with the Hollywood Bowl Orchestra](https://ra.co/events/2375675)** — Hollywood Bowl, 7pm. Minimal-tech's biggest crossover stunt gets a full orchestra — a genuinely unusual booking worth the Bowl prices.
+*Updated Tue 7/7 · 24 new · 1 updated since the last pull · 🆕 new · ↻ updated*
 
 ## Next two weeks
 
@@ -208,7 +193,7 @@ and Boris Brejcha with the Hollywood Bowl Orchestra closing out the following we
   Krane — Longtime Sunday Sessions LA resident — vinyl-only house DJ recorded across the series' open-air sets.
 
 **Live music**
-- `7pm` **[Bob Moses and Cannons: Afterglow Tour](https://www.ticketmaster.com/event/Z7r9jZ1A7-Obt)** — Hollywood Bowl, Hollywood · $18+
+- `7pm` **[Bob Moses and Cannons: Afterglow Tour](https://www.hollywoodbowl.com/events/performances/4302/2026-07-19/bob-moses-and-cannons-afterglow-tour)** — Hollywood Bowl, Hollywood · $18+
 
 **Film**
 - `4pm` **[East of Eden](https://vidiotsfoundation.org/showtimes/east-of-eden-7-19-26-400-pm/)** — Vidiots, Eagle Rock
@@ -247,7 +232,7 @@ and Boris Brejcha with the Hollywood Bowl Orchestra closing out the following we
 - `time TBA` **[Black V Neck, Dillon Nathaniel Sorry Not Jomari | MFP](https://avalonhollywood.com/event/black-v-neck-dillon-nathaniel-nightclub-near-me-discover-avalon-hollywood-2026-july-24-best-night-club-near-me-hollywood-los-angeles/)** — Avalon Hollywood, Hollywood
 
 **Live music**
-- `8pm` **[Snoop Dogg 21+](https://www.ticketmaster.com/event/Z7r9jZ1A7x4u8)** — Yaamava Resort & Casino at San Manuel, Highland
+- `8pm` **[Snoop Dogg 21+](https://yaamava.com/yaamava-theater)** — Yaamava Resort & Casino at San Manuel, Highland
 - `7pm` **[Parts & Labor, HLLLYH, Molly Horses](https://dice.fm/event/eomgyd-parts-labor-hlllyh-molly-horses-24th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
 
 **Film**
@@ -339,7 +324,7 @@ and Boris Brejcha with the Hollywood Bowl Orchestra closing out the following we
 - `12pm` **[Sirens del Sol: Poolside Residency](https://ra.co/events/2446609)** — Palihotel Hollywood, Hollywood
 
 **Live music**
-- `6:30pm` **[Loving Worship Praise Concert - THIS. IS. RUACH.](https://www.ticketmaster.com/event/Z7r9jZ1A7PkbV)** — The Novo by Microsoft, DTLA
+- `6:30pm` **[Loving Worship Praise Concert - THIS. IS. RUACH.](https://www.thenovodtla.com)** — The Novo by Microsoft, DTLA
 - `11pm` **[An Evening with Olivia Kuper Harris](https://www.vibratogrilljazz.com/music/an-evening-with-olivia-kuper-harris)** — Vibrato Grill Jazz, Bel Air
 
 ### Thursday · August 6
@@ -398,16 +383,6 @@ and Boris Brejcha with the Hollywood Bowl Orchestra closing out the following we
 - `5:30pm` **[Grand Ole Echo](https://www.ticketmaster.com/grand-ole-echo-los-angeles-california-08-09-2026/event/0900646425C4A88C)** — The Echo, Echo Park
 - `8pm` **[Beep Boop](https://juniorhighlosangeles.com/calendar/beepboop-musicshow2026)** — Junior High, Glendale
 
-## Around town
-
-- **FIFA World Cup 2026** quarterfinals are on all week — SoFi Stadium hosts Fri 7/10, plus fan
-  zones with live music/DJs at Venice Beach (7/10–11) and Whittier Narrows (7/9–11) if you want
-  the atmosphere without stadium prices.
-- **Dodgers vs. Diamondbacks** at Dodger Stadium 7/10–12, nightly giveaways.
-- **Lost in Dreams** electronic festival (Porter Robinson, Dabin, Louis the Child) hits LA State
-  Historic Park 7/11–12 — future-bass/melodic-dubstep, not this lane, but it's the big one everyone's talking about this weekend.
-- **Flying Lotus** plays two nights at The Blue Note 7/11–12 if you want the more left-field/beat-scene alternative.
-
 ## On the radar
 
 
@@ -434,20 +409,4 @@ and Boris Brejcha with the Hollywood Bowl Orchestra closing out the following we
 - `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo*
 - `Thu 11/12` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4)** — The Wiltern · Koreatown  ·  *Bonobo*
 - `Sun 11/22` **[Three Days Grace - Alienation Tour ](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0)** — Intuit Dome · Inglewood  ·  *festival, big-venue*
-
----
-
-**Sources this run:** Ticketmaster, RA, 19hz, Goldenvoice, Vidiots, Vista, New Beverly, Posh, DICE,
-Eventbrite (curated organizers), Squarespace (Junior High/Vibrato/The Smell/Circle OC), ICS (Maui
-Sugar Mill), JSON-LD (Broadway in Hollywood — 0 events this pull), plus 6 additional webfetch venue
-calendars (Avalon Hollywood, McCabe's, Harvelle's, Sam First, Alva's Showroom, The Venice West) and
-Discover LA's weekend roundup for editorial signal. Eventbrite's structured fetch briefly timed out
-mid-run but succeeded on retry — no data lost. Harvard & Stone and The Dresden had no events dated
-this pull. Eater LA and UncoverLA didn't return usable content this run.
-
-**Data-quality note:** a batch of ~19 SEO-spam listings (fake "airline customer service" postings
-routed through Posh, spoofing venues like LAX and USACE survey markers) surfaced in the candidate
-pool this run — the event-editor caught and buried all of them, but they're worth a look at the
-`fetch_posh.py`/dedupe layer since they'll keep costing judging calls every day until filtered
-upstream.
 
