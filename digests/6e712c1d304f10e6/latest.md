@@ -1,5 +1,5 @@
 # LA Events
-*Digest regenerated Mon 7/6 — picks updated.*
+*Digest regenerated Tue 7/7 — picks updated.*
 
 *Demo's next few weeks — house/groove afters, a couple of vinyl-listening-bar nights, and rep-cinema deep cuts filling the gaps.*
 

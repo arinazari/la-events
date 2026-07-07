@@ -1,5 +1,5 @@
 # LA Events
-*Digest regenerated Mon 7/6 — picks updated.*
+*Digest regenerated Tue 7/7 — picks updated.*
 
 *Ari's next few weeks, ranked for you — a stacked deep-house day party, Stephan Bodzin and Boris Brejcha going big outdoors, a five-night Odyssey 70mm run at the Vista, and rep-cinema gems filling the gaps.*
 

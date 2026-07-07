@@ -1,5 +1,5 @@
 # LA Events
-*Digest regenerated Mon 7/6 — picks updated.*
+*Digest regenerated Tue 7/7 — picks updated.*
 
 *Taylor hasn't set a taste profile yet, so this is just what's ranking well generally — set up profiles/taylor/taste.yaml for a real personalized read.*
 
