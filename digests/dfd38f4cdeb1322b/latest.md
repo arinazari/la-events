@@ -1,30 +1,53 @@
-# LA Events
-*Digest regenerated Sun 7/5 — picks updated.*
+# Raffi's LA Events Digest
+*Updated Tue 7/7 · Taste: big-room / festival EDM · Studio City*
 
-*Raffi hasn't set a taste profile yet, so this is just what's ranking well generally — set up profiles/raffi/taste.yaml for a real personalized read.*
+---
 
-## Friday · July 10
+Most of what's going on in LA right now skews underground club and afterhours — not your lane. The catalog's thin for festival-scale EDM this close in. Here's what's actually worth your attention.
 
-- **[Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush](https://www.instagram.com/p/DZl9KXzKRBX/)** — Los Globos, Silver Lake · $10 pre
-  11pm-5am afterhours — solid if you're already eastside, but a good-not-essential Friday overall.
-- **[Great Quality Entertainment presents Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District · $21 pre
-  Township Rebellion is the real draw — melodic, emotionally-pitched techno, closer to Lane 8 than a warehouse hammer.
+## Top Picks
 
-## Saturday · July 11
+### Saturday · July 18
 
-- **[SMD - Mike Servito & Jason Kendig](https://ra.co/events/2477599)** — TBA - Downtown LA, DTLA · $47 pre
-  A real pairing — years of Honcho and Honey Soundsystem history together, know how to build a room slowly.
+**[Markus Schulz (Open To Close)](https://ra.co/events/2429659)** — Avalon Hollywood · 10pm–2am · $35 pre
+Your best bet in the next two weeks. Schulz runs Global DJ Broadcast, plays the same trance/progressive big-room tier as Kaskade — Avalon is the right room for it. If you go to one thing this month, make it this.
 
-## Saturday · July 18
+### Friday · July 24
 
-- **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA - Downtown LA, DTLA
-  Listening-bar format built around Luke Mele's NTS-honed Balearic/dub sensibility — quieter and more textural than a peak-time club night.
-- **[The Hustle ~ First and Third Saturday Disco Party!](https://dice.fm/event/l8xylp-the-hustle-first-and-third-saturday-disco-party-18th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
-  Reliable disco residency — no headliner, just the house selectors doing boogie and classic house in a small room.
+**SORRY FOR PARTY ROCKING** (2010–2015 Pop & EDM All Night) — Catch One · 11pm
+The era SHM, Kaskade, and Alesso all peaked in. No DJ names posted yet, so confirm the lineup before you commit — could be excellent or a Spotify-DJ situation depending on who's actually behind the decks.
 
-## Saturday · July 25
+### Saturday · July 25
 
-- **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA - Downtown, DTLA
-  Miami dembow-and-dancehall rhythm woven into club music — one of the more interesting bookings in this batch.
-- **[FLOAT Rooftop Pool Party ft. Jody Wisternoff [2-8 PM]](https://ra.co/events/2449781)** — Level 8 DTLA, DTLA
-  Daytime rooftop pool party with an actual Anjunadeep mainstay — the strongest pick in this batch.
+**[FLOAT Rooftop Pool Party ft. Jody Wisternoff](https://ra.co/events/2449781)** — Level 8 DTLA · 2–8pm
+Daytime rooftop pool party — the format that's closest to a festival day stage. Wisternoff is Anjunadeep/progressive, so adjacent to your zone without being dead-center. Good summer afternoon option from Studio City (20 min down the 101).
+
+---
+
+## Also This Run
+
+**Sat 7/11 — [Simon Says: Felix Da Housecat](https://ra.co/events/2429660)** — The Spotlight · 10pm · $19+
+Electro-house name with real commercial crossover (Madame Hollywood-era). Not big-room EDM but a recognizable headliner — better than anything else going on that Saturday.
+
+**Fri 7/17 — [Lights Down Low feat. Mura Masa](https://ra.co/events/2452948)** — TBA Downtown LA · 11pm
+Festival-circuit name (Coachella, Glastonbury). More pop-production than selector, but the name gives it legitimacy. Location TBA — confirm before going.
+
+**Fri 7/10 — Electric Ave.** — Los Globos · 10pm · 21+
+No lineup yet, but Los Globos tags house/tech-house/EDM and runs more mainstream than the underground DTLA spots. Worth checking back closer to the date.
+
+**Sat 8/1 — [FLOAT Rooftop Pool Party ft. Chambord](https://ra.co/events/2480000)** — Level 8 DTLA · 2–8pm
+Same FLOAT series as the Wisternoff date. Chambord is less known but the format holds up — a good fallback for a summer Saturday afternoon.
+
+---
+
+## On the Radar
+
+**Fri–Sat 8/1–8/2 — HARD Summer Music Festival** — Hollywood Park Grounds
+This is your lane. Hollywood Park is 30 min from Studio City. Keep an eye on the full lineup announcement — this should anchor your August.
+
+**Fri 9/26 — Amelie Lens (Factory 93)** — Grand Park Block 2
+Factory 93's outdoor Grand Park setup is proper festival-scale. Peak techno, big-room draw — mark the calendar now.
+
+---
+
+*Your taste profile was just set up (big-room/festival EDM, Alesso/Kaskade/SHM tracked). The underground club/afters lane is dominating the catalog right now; adding a penalty for that in your taste.yaml would clean up the ranking considerably.*

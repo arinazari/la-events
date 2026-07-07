@@ -1,0 +1,8 @@
+# profile.yaml — MECHANISM overrides for Raffi's feed, created by the dashboard concierge.
+# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs
+# that differ need to live here — anything absent falls back to the repo defaults.
+
+home:
+  neighborhood: Studio City
+  cross_streets: Ventura Blvd & Laurel Canyon Blvd
+  coords: [ 34.14, -118.39 ]

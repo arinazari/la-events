@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/5/2026 deterministically (no API). 371 candidates. Signals: big-venue 312, festival 55, tracked 7._
+_Generated 7/6/2026 deterministically (no API). 369 candidates. Signals: big-venue 311, festival 54, tracked 7._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -118,7 +118,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/9 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJv) |
 | Mon 8/10 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJe) |
 | Tue 8/11 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJd) |
 | Wed 8/12 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ7) |
@@ -228,7 +227,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/9 | 3 | Lionel Richie and Earth, Wind & Fire - Sing a Song All Nig | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/lionel-richie-and-earth-wind-fire-inglewood-california-08-09-2026/event/09006436B59BEE36) |
 | Mon 8/10 | 3 | John Mellencamp Dancing Words Tour The Greatest Hits | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/john-mellencamp-dancing-words-tour-the-hollywood-california-08-10-2026/event/0B00642993A8269D) |
 | Mon 8/10 | 3 | Benson Boone | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-yOP) |
 | Tue 8/11 | 3 | Benson Boone | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-yOJ) |

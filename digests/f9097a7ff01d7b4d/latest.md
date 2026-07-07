@@ -1,5 +1,5 @@
 # LA Events
-*Digest regenerated Sun 7/5 — picks updated.*
+*Digest regenerated Sun 7/5 · checked Mon 7/6 · no new picks since.*
 
 *A quieter, thinner stretch for Lori this run — no strong Ari-shaped fits before July 10, then a run built around the Roadhouse (twice), a TBA vinyl/afters pair in DTLA, a Dead-songbook honky-tonk night, McCabe's listening-room folk, and a KCRW-stamped indie bill at the Echo.*
 
