@@ -69,6 +69,8 @@ sources:
       - sid-the-cat-auditorium-2wr5m       # Sid The Cat Auditorium (South Pasadena) — indie dance/electropop (Discover 6/19; 18 ev/30d)
       - catch-one-e582                     # Catch One (Mid-City) — house/techno + queer nightlife (Discover 6/19; 7 ev/30d)
       - only-the-wild-ones-mxvwr           # Only The Wild Ones (Venice) — hi-fi/vinyl listening bar, occasional DJ nights (Discover 6/19)
+      - los-globos-a6w7                     # Los Globos (Silver Lake) — indie/pop/K-pop + parties beyond Posh/RA (Discover 7/7; verified 8 ev/wk)
+      - 1720-mvpw                           # 1720 (Arts District warehouse) — hardcore/techno/hyperpop beyond RA/19hz overlap (Discover 7/7; verified 8 ev/wk)
       # - the-silverlake-lounge-wb2v       # Silverlake Lounge — slug returned 0, re-verify
     notes: >
       THE unlock for the eastside/indie live-music lane. /browse is JS-rendered (0 events via
@@ -220,6 +222,7 @@ sources:
       - https://www.eventbrite.com/o/blakcircle-108339115091   # Blakcircle
       - https://www.eventbrite.com/o/afrobeats-takeover-17508767406   # AFROBEATS TAKEOVER
       - https://www.eventbrite.com/o/we-love-kandy-tour-11369190113   # hard techno / rave promoter
+      - https://www.eventbrite.com/o/damngooddykenights-cat-fight-productions-115428928801   # Damn Good Dyke Nights — lesbian/queer parties (SNACK, Hot Flash); page live but 0 upcoming events at add time (Discover 7/7), re-check next pass
     notes: >
       Open browse (/d/...) is behind an AWS WAF CAPTCHA — not scrapeable; public search API is
       retired. WORKAROUND (verified 2026-06-16): individual event + organizer pages are NOT walled
@@ -233,6 +236,65 @@ sources:
       Both extract the event's *own* organizer from JSON-LD and append it here, deduped.
       FUTURE: retry open browse discovery if the AWS WAF CAPTCHA is ever lifted, or via a
       headless/authed path — would replace the need to hand-curate organizers.
+
+  # ── Discovered 2026-07-07 (Discover run: gap-mine + queer-nightlife/theater web sweep) ──
+  - name: The Redwood Bar & Grill (DTLA)
+    category: live_music
+    method: scrape
+    url: https://theredwoodbar.com/events.html
+    priority: 2
+    status: candidate
+    notes: >
+      DTLA pirate-themed bar/venue (316 W 2nd St) — punk/garage/metal/rockabilly/blues bookings,
+      cover-charge shows most nights, some free karaoke/open-mic. Verified 2026-07-07: events.html
+      is server-rendered static HTML (Weebly, follows one redirect), plain-text dated entries with
+      band names (linked to IG, not JSON-LD) + cover price + doors time; some shows link out to
+      Eventbrite for advance tickets (harvest those via --scan-catalog). Recurring "Redwood Bar
+      And Grill" electronic nights already land via fetch_ra.py — this scrape adds the live-band/DJ
+      nights RA misses. No JSON-LD; needs a plain-text parser + real UA (no bot wall observed).
+
+  - name: BroadwayWorld LA — Regional Shows
+    category: theater
+    method: jsonld
+    url: https://www.broadwayworld.com/los-angeles/regionalshows/
+    priority: 3
+    status: candidate
+    notes: >
+      Would-be LA theater aggregator beyond Pantages/CTG — black-box companies (Rogue Machine @
+      Matrix, Skylight Theatre in Los Feliz, Antaeus, The Road, The Garage in Long Beach...)
+      alongside the bigger houses. UNVERIFIED: direct fetch 2026-07-07 hit a Cloudflare "Just a
+      moment" challenge (403) from this session's egress — could not confirm the claimed
+      schema.org TheaterEvent JSON-LD. Re-check via the WebFetch tool (renders through a different
+      path) or a browser-capable fetch before wiring fetch_jsonld.py at it; don't trust the method
+      field until then. Big touring/Pantages shows will dedupe against TM regardless; the value
+      would be the black-box long tail matching the "theater (Pantages + black-box)" taste line.
+
+  - name: Take It Outside
+    category: electronic
+    method: manual
+    url: instagram.com/takeitoutside_la
+    priority: 2
+    status: manual
+    notes: >
+      Queer/FLINTA-focused warehouse party (Heidi Lawden + Masha Mar, running since 2022), part of
+      the newer queer-underground wave (distinct from Signal Underground/Por Detroit, which already
+      have their own RA promoter pages and ride fetch_ra.py). No RA/Eventbrite/DICE presence found
+      2026-07-07 — locations drop via IG. Capture via flyer mode; never scrape IG.
+
+  - name: Akbar (Silver Lake)
+    category: electronic
+    method: manual
+    url: instagram.com/akbarsilverlake
+    priority: 2
+    status: manual
+    notes: >
+      Silver Lake queer neighborhood bar/dance floor (1811 Sunset Blvd — walkable from home). No
+      ticketing, no structured calendar: akbarsilverlake.com/upcoming-events/ only links a monthly
+      PDF flyer (verified 2026-07-07, no JSON-LD/ICS); programming otherwise lives in IG story
+      highlights. Defaulted to manual/flyer-capture given the high taste/proximity relevance — an
+      alternative worth a human call is opportunistically parsing the linked PDF at digest time
+      (the Read tool can read PDFs) instead of waiting on a flyer capture; brittler, but this venue
+      is close enough to home it may be worth the extra step.
 
   - name: Hollywood Pantages / Broadway in Hollywood
     category: theater
