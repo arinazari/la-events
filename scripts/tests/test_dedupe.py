@@ -70,6 +70,24 @@ def test_merge_keeps_all_links_and_richest_fields():
     assert len(m["lineup"]) == 2                        # richest lineup
 
 
+def test_merge_demotes_tm_resale_link():
+    # TM resale-marketplace URLs (/event/Z…) routinely dead-end — after a merge a working link
+    # must sit at links[0] (the digest + dashboard surface the first link as THE ticket link).
+    tmr = {"title": "LA Phil", "venue": "Hollywood Bowl", "date": "2026-07-11", "lineup": [],
+           "links": [{"source": "ticketmaster", "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7-o3_"}]}
+    hz = {"title": "LA Phil", "venue": "Hollywood Bowl", "date": "2026-07-11", "lineup": [],
+          "links": [{"source": "19hz", "url": "https://www.hollywoodbowl.com/events/performances/1234"}]}
+    m = merge(tmr, hz)
+    assert m["links"][0]["url"].startswith("https://www.hollywoodbowl.com/")  # working link first
+    assert m["links"][-1]["url"].endswith("/event/Z7r9jZ1A7-o3_")             # resale kept (dedupe id)
+    # Primary TM links (non-Z ids) are NOT resale and must keep their position.
+    tm = {"title": "Show", "venue": "Echo", "date": "2026-06-20", "lineup": [],
+          "links": [{"source": "ticketmaster", "url": "https://www.ticketmaster.com/event/09006437C99A49D6"}]}
+    ra = {"title": "Show", "venue": "Echo", "date": "2026-06-20", "lineup": [],
+          "links": [{"source": "ra", "url": "https://ra.co/events/111"}]}
+    assert merge(tm, ra)["links"][0]["url"].endswith("09006437C99A49D6")
+
+
 def test_merge_preserves_genre_from_either_record():
     # Genre is sparse (only some sources classify), so a merge must not lose it when the
     # base record lacks one — otherwise backfilling an existing genre-less catalog row from
