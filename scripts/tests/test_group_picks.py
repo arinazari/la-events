@@ -84,6 +84,46 @@ def test_friend_without_explicit_paths_falls_back_to_convention():
     assert m["hash"] == G.profile_hash("dr_ganesan", "la-events/v1:")
 
 
+def test_resolve_by_display_name_not_just_username():
+    # The whole point of the fix: passing a friend's display NAME resolves to their profile
+    # (no username-lookup step), and lands on the SAME id/paths/hash as passing the username.
+    lori = {"username": "lori", "name": "Lori", "taste": "profiles/lori/taste.yaml"}
+    by_user = {"lori": lori}
+    by_name = {G.norm_name("Lori"): lori}
+    m = G.resolve_member("Lori", by_user, None, "la-events/v1:", by_name)
+    assert m is not None, "display name should resolve"
+    assert m["id"] == "lori"                                   # canonical username, not the typed name
+    assert m["taste"] == "profiles/lori/taste.yaml"
+    assert m["hash"] == G.profile_hash("lori", "la-events/v1:")
+    # identical to resolving by username
+    assert m == G.resolve_member("lori", by_user, None, "la-events/v1:", by_name)
+
+
+def test_resolve_by_name_normalizes_punctuation_and_case():
+    dg = {"username": "dr_ganesan", "name": "Dr. Ganesan", "taste": "profiles/dr_ganesan/taste.yaml"}
+    by_user = {"dr_ganesan": dg}
+    by_name = {G.norm_name("Dr. Ganesan"): dg}
+    for typed in ("Dr. Ganesan", "dr ganesan", "DR  GANESAN"):
+        m = G.resolve_member(typed, by_user, None, "la-events/v1:", by_name)
+        assert m is not None and m["id"] == "dr_ganesan", f"{typed!r} should resolve"
+
+
+def test_username_wins_over_a_colliding_name():
+    # If one profile's name equals another's username, the username match takes precedence.
+    lori = {"username": "lori", "name": "Lori"}
+    other = {"username": "somebody", "name": "lori"}       # display name collides with lori's username
+    by_user = {"lori": lori, "somebody": other}
+    by_name = {G.norm_name("Somebody"): other}             # "lori" name NOT added (it's a username)
+    m = G.resolve_member("lori", by_user, None, "la-events/v1:", by_name)
+    assert m["id"] == "lori"
+
+
+def test_unknown_name_still_returns_none():
+    by_user = {"lori": {"username": "lori", "name": "Lori"}}
+    by_name = {G.norm_name("Lori"): by_user["lori"]}
+    assert G.resolve_member("Nobody", by_user, None, "la-events/v1:", by_name) is None
+
+
 def test_profile_hash_stable_16_hex():
     h = G.profile_hash("Lori", "la-events/v1:")
     assert h == G.profile_hash("lori", "la-events/v1:")          # case-insensitive
