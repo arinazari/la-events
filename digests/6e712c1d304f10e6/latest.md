@@ -1,47 +1,44 @@
-# LA Events
-*Digest regenerated Tue 7/7 — picks updated.*
+# Demo (indie + jazz)'s LA Events Digest
+*Updated Tue 7/7 · Taste: indie/rock/post-punk + jazz-soul listening rooms + rep cinema + folk/Americana, real yes on comedy, cold on big-room EDM · Silver Lake home base*
 
-*Demo's next few weeks — house/groove afters, a couple of vinyl-listening-bar nights, and rep-cinema deep cuts filling the gaps.*
+---
+Honest flag first: the feed's own top-ranked events this cycle are almost all DTLA afterhours/warehouse electronic — that's a scoring-engine quirk (category weights are shared across profiles, so "electronic" reads as high-interest here even though your own taste.yaml puts it in the low tier and flags afterhours raves as a penalty). Ignored that ordering and built this from what actually fits: two Americana elders at McCabe's, a Grammy-winning Latin-jazz set at Sam First, the regular Zebulon/Troubadour indie-rock run, and Nolan's *Odyssey* on real 70mm at the Vista. Comedy's dry — nothing from your loved-comedian list (Mulaney, Bargatze, Notaro, Bamford, Buress) turns up in the next three weekends.
 
-## Friday · July 10
+## Top Picks
 
-- **[Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush](https://www.instagram.com/p/DZl9KXzKRBX/)** — Los Globos (Los Angeles) tech house, deep house, minimal, Silver Lake — $10 pre
-  Los Globos going 11pm-5am with a locally-rooted tech-house/deep-house/minimal bill — solid afterhours option if you're already eastside, but the support slots (Beast, Jacz, Lavenge, Max Rush) are thin enough on the record that this reads as a good-not-essential Friday.
-- **[Cirra presents: Day Thief, Faited, and sosoftly](https://ra.co/events/2472986)** — TBA - Downtown Los Angeles, DTLA — $20-50
-  Cirra's booked two names straight out of the SF/Oakland queer-underground soundsystem scene (Faited runs sound for Eris Drew's crew) rather than the usual LA warehouse regulars — a genuinely different flavor of afters if you want something rawer than the DTLA circuit.
-- **[Great Quality Entertainment presents Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District — $21 pre
-  Township Rebellion at 1720 is the real draw — this is the melodic, emotionally-pitched end of techno that runs closer to Lane 8 than to a warehouse hammer, so go in expecting build and atmosphere over pure peak-time. Couldn't turn up anything solid on Trou, so that's an unknown quantity on the bill.
-- **[Hollywood 90028](https://ticketing.uswest.veezi.com/purchase/3815?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  A midnight slot at the Vista almost always means a cult curio rather than a mainstream title — worth checking what this actually is before committing to a near-1am end time.
+### Friday 7/10
+**[Dave Alvin & Jimmie Dale Gilmore](https://www.mccabes.com/concerts-landing/)** — McCabe's Guitar Shop · 8pm (Friday sold out, Saturday repeat still has room)
+Two bona fide Americana/folk elders sharing a bill in McCabe's 150-seat back room — the "singer-songwriter/folk in an intimate room" lane your taste is built around, at a venue you already love.
 
-## Saturday · July 11
+**[Oscar Hernández & Alma Libre](https://www.samfirstbar.com/events/oscar-hernandez-alma-libre-with-katisse-buckingham-andy-senesi-christian-moraga-rene-camacho)** — Sam First · 7:30pm
+A 4x-Grammy Latin-jazz bandleader (Spanish Harlem Orchestra) in a 20-seat Westchester listening room — small-club jazz exactly as described, even though the blunt category scorer buries it as "low interest."
 
-- **[Certified Groovers x SNEAK'S BEATS: AFTERS](https://ra.co/events/2483327)** — TBA - Downtown Los Angeles, DTLA
-  This is the late-night extension of Certified Groovers' Sneak's Beats day party (same date, TBA DTLA) — Certified Groovers consistently books real house/groove selectors, but no afters-specific lineup is posted yet, so it's a bet on the brand rather than a name you can vouch for.
-- **[The Groove Lab: Arkez, GC Lyte, IKARI, Limbo, Rosie Love B2B SuperJenn, Saul Nunez, Stilo, Zeerow](https://ra.co/events/2472030)** — TBA - DTLA, DTLA — $12-34
-  Eight names deep on the flyer and Rosie Love is the only one that even makes it into the actual lineup data — TBA-DTLA, all-local, no real hook to hang a Friday on unless you already know this crew.
-- **[AFTERS 7-11](https://posh.vip/e/afters-711-2)** — 129 E 3rd St, DTLA — free
-  Same NIGHTSHIFT afters, one night later, same problem: free and late doesn't tell you who's actually behind the decks.
-- **[Dances With Wolves](https://ticketing.uswest.veezi.com/purchase/3808?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  Same Kevin Costner epic as Friday, just the Saturday 7:30 showing at the Vista — pick whichever night fits, the movie's identical.
+### Saturday 7/11
+**[Lenny Kaye (Patti Smith Band), Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-patti-smith-band-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Zebulon · 7pm
+Patti Smith's longtime guitarist and rock historian teams with singer-songwriter Cindy Lee Berryhill in the Frogtown room that's basically your home base.
 
-## Saturday · July 18
+### Friday–Sunday 7/17–19
+**[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/sessions?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater · multiple showtimes Thu 7/16 through Sun 7/19
+Nolan's Homer adaptation on a true 70mm print at a venue you love — a legitimate see-it-on-film event, not just another rep-house rerun. Worth confirming the Vista is actually running one of the ~30 true 70mm prints before building the night around it.
 
-- **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA - Downtown LA, DTLA
-  A location-TBA all-vinyl night built around Luke Mele's NTS-honed Balearic/ambient/dub sensibility is squarely the listening-bar format worth chasing an address for — quieter and more textural than a peak-time club night.
-- **[Fandango](https://ticketing.uswest.veezi.com/purchase/3845?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  Kevin Reynolds' 1985 cult favorite — Kevin Costner's first starring role, five Texas college friends on one last road trip before the draft — is a low-stakes, unpretentious rep pick if you want something warm and funny rather than heavy on a Saturday night.
+### Friday 7/17
+**[Low Cut Connie](https://www.ticketmaster.com/event/Z7r9jZ1A7x4uK)** — Troubadour · 7pm
+Barroom-glam singer-songwriter rock at a loved venue — the straightforward indie/rock pick of the weekend.
 
-## Friday · July 24
+### Saturday 7/25
+**[Tom Rush](https://www.mccabes.com/concerts-landing/)** — McCabe's Guitar Shop · 8pm (sold out — worth chasing resale)
+A genuine '60s folk-revival name ("Urge for Going") in the same intimate McCabe's room — the Americana lane at its most legit.
 
-- **[Fight Without Jingi](https://ticketing.uswest.veezi.com/purchase/3850?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  This is Kinji Fukasaku's 'Battles Without Honor and Humanity' under its literal Japanese-title translation — the documentary-style, ultra-violent yakuza classic that basically invented the jitsuroku genre. A great pick if you want something bracing instead of another comfort rep-watch.
+### Friday 7/24
+**[Parts & Labor, HLLLYH, Molly Horses](https://dice.fm/event/eomgyd-parts-labor-hlllyh-molly-horses-24th-jul-zebulon-los-angeles-tickets)** — Zebulon · 7pm
+Parts & Labor were one of Brooklyn's better art-punk/noise-pop bands last decade — a scrappier, more experimental night than the usual Zebulon bill.
 
-## Saturday · July 25
-
-- **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA - Downtown, DTLA
-  An all-night TBA set from Nick León isn't a straight house night — it's Miami dembow-and-dancehall rhythm woven into club music, which makes this one of the more interesting bookings in this batch if you want something that doesn't sound like everything else on the calendar.
-- **[DISCOTHEKE](https://ra.co/events/2473853)** — Apotheke, Chinatown
-  No billed lineup beyond a house crew name and a bare RA listing — could be a fine Chinatown day-party, but there's nothing here yet to confirm the selection is worth planning around.
-- **[FLOAT Rooftop Pool Party ft. Jody Wisternoff [2-8 PM]](https://ra.co/events/2449781)** — Level 8 DTLA, DTLA
-  This is the template: daytime rooftop pool party, melodic progressive house from an actual Anjunadeep mainstay. Build the Saturday around it.
+## Also This Run
+**Sat 7/11 — [Dave Alvin & Jimmie Dale Gilmore (Saturday show)](https://www.mccabes.com/concerts-landing/)** — McCabe's · 8pm; the Friday date sold out, this one hasn't (yet).
+**Thu 7/16 — [KCRW Presents: Third Thursdays w/ Miles Lennox Quartet](https://www.samfirstbar.com/events/kcrw-presents-third-thursdays-with-miles-lennox-quartet-with-nic-gelin-nolan-nwachukwu-josh-green)** — Sam First · 7:30pm; KCRW-curated original jazz, same small room, a Thursday-night option if the weekend's full.
+**Fri 7/10 — Punch-Drunk Love** — New Beverly Cinema; PTA/Sandler cult favorite, straight down the rep-cinema alley.
+**Fri 7/17 — [Futurebirds — Far Out Country Tour](https://www.ticketmaster.com/futurebirds-far-out-country-tour-los-angeles-california-07-17-2026/event/0900645BCC4C1CCC)** — Teragram Ballroom · 7pm; country-inflected indie-rock, a notch twangier than the usual bill.
+**Sun 7/19 — [Colleen Green, Fat Tony, DA Stern](https://dice.fm/event/wwed2g-colleen-green-fat-tony-da-stern-19th-jul-zebulon-los-angeles-tickets)** — Zebulon · 8pm; lo-fi indie-pop headliner closing out the weekend.
+**Sat 7/25 — [Bass Drum of Death, MEMO PST](https://dice.fm/event/xea8qk-bass-drum-of-death-memo-pst-25th-jul-zebulon-los-angeles-tickets)** — Zebulon · 7:30pm; fuzzed-out garage-rock, on-brand for the room.
+**Sat 7/25 — [KCRW Presents: Emperor X w/ clovers daughter](https://www.ticketmaster.com/kcrw-presents-emperor-x-los-angeles-california-07-25-2026/event/0900648FBB408D7A)** — The Echo · 7pm; DIY indie-rock, KCRW-backed.
+**Sun 7/26 — [Teddy Thompson](https://www.mccabes.com/concerts-landing/)** — McCabe's · 8pm; Richard & Linda Thompson's son, folk pedigree, a quiet close to the run.

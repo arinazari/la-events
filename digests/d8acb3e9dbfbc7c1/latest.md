@@ -1,47 +1,40 @@
-# LA Events
-*Digest regenerated Tue 7/7 — picks updated.*
+# Garo's LA Events Digest
+*Updated Tue 7/7 · Taste: not set yet — feed running on system defaults (electronic/party/film weighted, "close to Silver Lake" assumed as home) · home neighborhood: unknown*
 
-*Garo hasn't set a taste profile yet, so this is just what's ranking well generally — set up profiles/garo/taste.yaml for a real personalized read.*
+---
+Straight talk first: `profiles/garo/taste.yaml` is still the empty starter — no loved artists, venues, or categories — so nothing below is actually tuned to you yet. What's ranking is the code's generic fallback weighting, which happens to reward electronic/party/afterhours events, Friday/Saturday nights, and proximity to Silver Lake (not necessarily your neighborhood). I dug through the top of that generic queue for bookings that are legit on their own merits — real venues, real names — rather than just listing whatever scored highest, since most of the raw list is interchangeable TBA-location afters.
 
-## Friday · July 10
+## Top Picks
+### Fri 7/10
+**[Sunset Sessions](https://ra.co/events/2484237)** — Level 8 DTLA · 5pm
+Golden-hour rooftop house with actual named residents (Tamara Lanza, Cam Miles) instead of a nameless open-format booking — the cleanest "just go" option of the batch.
 
-- **[Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush](https://www.instagram.com/p/DZl9KXzKRBX/)** — Los Globos (Los Angeles) tech house, deep house, minimal, Silver Lake — $10 pre
-  Los Globos going 11pm-5am with a locally-rooted tech-house/deep-house/minimal bill — solid afterhours option if you're already eastside, but the support slots (Beast, Jacz, Lavenge, Max Rush) are thin enough on the record that this reads as a good-not-essential Friday.
-- **[Cirra presents: Day Thief, Faited, and sosoftly](https://ra.co/events/2472986)** — TBA - Downtown Los Angeles, DTLA — $20-50
-  Cirra's booked two names straight out of the SF/Oakland queer-underground soundsystem scene (Faited runs sound for Eris Drew's crew) rather than the usual LA warehouse regulars — a genuinely different flavor of afters if you want something rawer than the DTLA circuit.
-- **[Great Quality Entertainment presents Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District — $21 pre
-  Township Rebellion at 1720 is the real draw — this is the melodic, emotionally-pitched end of techno that runs closer to Lane 8 than to a warehouse hammer, so go in expecting build and atmosphere over pure peak-time. Couldn't turn up anything solid on Trou, so that's an unknown quantity on the bill.
-- **[Electric Ave.](https://www.facebook.com/events/1616327542800520/)** — Los Globos (Los Angeles) house, tech house, EDM, Silver Lake — $21+
-  Recurring 'Electric Ave.' slot at Los Globos with no lineup revealed — pure crapshoot until names post.
+### Sat 7/11
+**[Simon Says: Felix Da Housecat](https://dice.fm/event/oe73bg-simon-says-felix-da-housecat-11th-jul-the-spotlight-los-angeles-tickets)** — The Spotlight · 10pm-2am · $19+
+A genuine Chicago house/electroclash legend (co-wrote the *Kittenz and Thee Glitz* playbook) in a small room for under $20 — rare to get a real name that cheap in this list.
 
-## Saturday · July 11
+### Fri 7/17
+**[Information — All Vinyl Night](https://ra.co/events/2456585)** — TBA, Downtown LA · 10pm
+Built around Luke Mele, an NTS-radio digger with a genuine Balearic/dub/ambient ear — a listening-bar night, not another peak-time club-anthems booking.
 
-- **[Certified Groovers x SNEAK'S BEATS: AFTERS](https://ra.co/events/2483327)** — TBA - Downtown Los Angeles, DTLA
-  This is the late-night extension of Certified Groovers' Sneak's Beats day party (same date, TBA DTLA) — Certified Groovers consistently books real house/groove selectors, but no afters-specific lineup is posted yet, so it's a bet on the brand rather than a name you can vouch for.
-- **[The Groove Lab: Arkez, GC Lyte, IKARI, Limbo, Rosie Love B2B SuperJenn, Saul Nunez, Stilo, Zeerow](https://ra.co/events/2472030)** — TBA - DTLA, DTLA — $12-34
-  Eight names deep on the flyer and Rosie Love is the only one that even makes it into the actual lineup data — TBA-DTLA, all-local, no real hook to hang a Friday on unless you already know this crew.
-- **[AFTERS 7-11](https://posh.vip/e/afters-711-2)** — 129 E 3rd St, DTLA — free
-  Same NIGHTSHIFT afters, one night later, same problem: free and late doesn't tell you who's actually behind the decks.
+### Sat 7/18
+**[Markus Schulz (Open to Close)](https://www.tixr.com/groups/avalonhollywood/events/markus-schulz-open-to-close--187783)** — Avalon Hollywood · 10pm-2am · $35 pre
+A legitimate trance veteran (Coldharbour Recordings) at a real room — a different genre lane than the house/tech-house wall-of-sameness clogging most of this window.
 
-## Friday · July 17
+### Fri 7/24
+**[Widespread Panic](https://www.ticketmaster.com/widespread-panic-los-angeles-california-07-24-2026/event/0900646CA6AD9272)** — Orpheum Theatre · 8pm
+An actual advertised concert with a fixed room and a real headliner — worth flagging mostly because so much of the rest of this list is unnamed TBA-location afters.
 
-- **[Lights Down Low feat. Mura Masa](https://ra.co/events/2452948)** — TBA - Downtown LA, DTLA
-  Mura Masa's more pop-production than club-selector, so a TBA-warehouse DJ set from him is a curiosity rather than a proper night out for this lane — go for the name recognition, not for deep selection.
+### Sat 7/25
+**[FLOAT Rooftop Pool Party ft. Jody Wisternoff](https://ra.co/events/2449781)** — Level 8 DTLA · 2pm-8pm
+Wisternoff (Way Out West, Anjunadeep co-curator) doing a proper daytime rooftop pool set — the single most "actually worth planning around" booking in the whole 3-week window.
 
-## Saturday · July 18
+## Also This Run
+**Sat 7/11 — [Factory93: Beltran](https://ra.co/events/2396469)** — Naud St · 5pm; $113–273, already sold out once — pricy, but Beltran's a real rising tech-house name in a proper industrial room.
+**Sat 7/11 — [Santa Monica Block Fest Vol V](https://posh.vip/e/santa-monica-block-fest-vol-v-free-music-festival)** — Third St Promenade · 5pm; free street festival, 20+ vendors — a daytime option instead of another club night.
+**Sat 7/11 — [Chopper](https://ticketing.uswest.veezi.com/purchase/3839?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater · 8pm; Eric Bana's Aussie crime-comedy breakout, an easy Los Feliz anchor for a film night.
+**Fri 7/17 — [Lights Down Low feat. Mura Masa](https://ra.co/events/2452948)** — TBA, Downtown LA · 11pm; Grammy-nominated name, but a DJ set from a mostly-pop producer — go for curiosity, not deep selection.
+**Sat 7/25 — [CSW – Nick León (All Night)](https://ra.co/events/2475085)** — TBA, Downtown · 10pm; Miami producer fusing dembow/dancehall into house — one of the more distinctive bookings on the calendar, if you're willing to chase a TBA address.
 
-- **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA - Downtown LA, DTLA
-  A location-TBA all-vinyl night built around Luke Mele's NTS-honed Balearic/ambient/dub sensibility is squarely the listening-bar format worth chasing an address for — quieter and more textural than a peak-time club night.
-- **[Markus Schulz (Open To Close)](https://ra.co/events/2429659)** — Avalon Hollywood, Hollywood — $35 pre
-  A trance open-to-close set is a genuinely different genre from the rooftop-groove and tech-house lane — Schulz is a legitimate name in that world, just not this one, so this is more 'know it exists' than 'go.'
-- **[Paradisco](https://ra.co/events/2464518)** — Kiss Kiss Bang Bang, Koreatown
-  Kiss Kiss Bang Bang's disco-deco room inside the Line Hotel doing a weekly Paradisco night — no lineup listed, so this reads as a stylish, dress-up dance-floor rather than a DJ-driven pick. Fine for a Saturday-night backup, not a destination.
-
-## Saturday · July 25
-
-- **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA - Downtown, DTLA
-  An all-night TBA set from Nick León isn't a straight house night — it's Miami dembow-and-dancehall rhythm woven into club music, which makes this one of the more interesting bookings in this batch if you want something that doesn't sound like everything else on the calendar.
-- **[DISCOTHEKE](https://ra.co/events/2473853)** — Apotheke, Chinatown
-  No billed lineup beyond a house crew name and a bare RA listing — could be a fine Chinatown day-party, but there's nothing here yet to confirm the selection is worth planning around.
-- **[FLOAT Rooftop Pool Party ft. Jody Wisternoff [2-8 PM]](https://ra.co/events/2449781)** — Level 8 DTLA, DTLA
-  This is the template: daytime rooftop pool party, melodic progressive house from an actual Anjunadeep mainstay. Build the Saturday around it.
+---
+*Bottom line: the raw feed is mostly anonymous-location afterhours parties because the scorer has nothing of yours to sort by yet. The picks above clear the bar on their own (known artist, known room) — set up your taste profile with the concierge and this digest starts working for you instead of just echoing the defaults.*
