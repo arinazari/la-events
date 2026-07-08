@@ -45,8 +45,9 @@ mechanics are untouched.
 
 **Measured impact (live data, 7/8):**
 - pool 618 → **774** events (+156);
-- one-time backlog of unjudged events: **154** (≈3 normal days of editor spend; the 7/01 run
-  already did 607 in one day without issue);
+- one-time backlog of unjudged events: **154** — judged in **ONE run** (the first nightly
+  after the flip fans out ~6 editor batches instead of 1–2; "≈3 normal days of editor spend"
+  is a *cost* comparison, not a schedule — the 7/01 run already did 607 in one night);
 - steady-state daily delta unchanged (~50/day — new events are new events either way).
 
 **Mechanics for the routine:** nothing changes in `daily-digest-prompt.md` except the first
@@ -73,6 +74,13 @@ it follows gate 1 automatically. Zero code.
 **Gate 3 — dashboard default sort.** Default the grid to `final_rank` (already computed and
 displayed); the score column stays visible as the transparent spine. One small change in
 `dashboard/index.html`'s initial sort state.
+*Honesty note + option:* `final_rank` (`rank_score`) is a **blend** — score + adjust + a
+bounded tier bonus (±6) — because the grid mixes the judged 28-day window with unjudged
+far-tail events (out to 6 months), and an unbounded tier-primary sort would bury every
+unjudged far event below every judged solid. If Ari wants the dashboard as LLM-first as the
+digest: a **two-zone sort** — tier-primary (same key as the slate) across judged events,
+unjudged far-tail slotted by score/date below — is a small `rank_score` variant. Decision 5
+below.
 
 **Net effect with B1:** every surfaceable in-window event is judged, the slate's tier-primary
 key (`assemble.effective_key`) now governs a fully-judged window, and enrichment researches
@@ -184,3 +192,5 @@ of ⭐ picks glossed, 0 intro, 0 Don't-miss, 0 Around-town; 48% of the 28-day wi
 3. Confirm **no `EDITOR_INPUT_VERSION` bump** in B3 (recommend: don't — avoids a 1,035-verdict
    re-judge for near-zero benefit).
 4. Green-light the **154-verdict one-time backlog** (B1).
+5. Dashboard sort: keep the bounded blend (`final_rank` as-is) or go **two-zone tier-primary**
+   (as LLM-first as the digest; far unjudged tail sorts below the judged window).
