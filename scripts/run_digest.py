@@ -82,7 +82,10 @@ def run_fetcher(entry: dict, days: int, tmpdir: str, far_days: int = None) -> li
     out = Path(tmpdir) / f"{entry['source']}.json"
     args = [a.format(days=fetch_window(entry, days, far_days)) for a in entry["args"]]
     cmd = [sys.executable, str(REPO / "scripts" / entry["script"]), *args, "-o", str(out)]
-    proc = subprocess.run(cmd, capture_output=True, timeout=120, cwd=str(REPO), text=True)
+    # Eventbrite crawls ~70 event pages (curated organizers) and reliably takes ~130s — the old
+    # 120s cap was timing it out every run, not degrading a genuinely dead source.
+    fetch_timeout = 200 if entry["source"] == "eventbrite" else 120
+    proc = subprocess.run(cmd, capture_output=True, timeout=fetch_timeout, cwd=str(REPO), text=True)
     if proc.returncode != 0:
         tail = (proc.stderr or proc.stdout or "").strip().splitlines()
         raise RuntimeError(tail[-1][:160] if tail else f"exit {proc.returncode}")
