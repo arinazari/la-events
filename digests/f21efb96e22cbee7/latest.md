@@ -1,5 +1,7 @@
 # Taylor's LA Events Digest
-*Updated Tue 7/7 · Taste: mostly unset — a light boost toward Arab/Palestinian/Armenian/Middle Eastern/SWANA culture, Habibeats tracked · North Hollywood / Burbank*
+*Digest regenerated Wed 7/8 — picks updated.*
+
+*Updated Wed 7/8 · Taste: mostly unset — a light boost toward Arab/Palestinian/Armenian/Middle Eastern/SWANA culture, Habibeats tracked · North Hollywood / Burbank*
 
 ---
 Straight talk up front: your taste.yaml is close to a blank slate — no categories saved, and the only real signal is that SWANA/Middle Eastern boost plus Habibeats as a tracked artist. **Neither showed up this cycle** — no Habibeats dates anywhere in the catalog, and the only "Middle Eastern" hits were a Persian pop bill at the Dolby and a world-guitar act name-dropping "Middle Eastern grooves" in its own bio, not the real thing. So what's below is just the best-vetted LA nightlife/film picks over the next three weekends — not tuned to you yet. Worth 10 minutes adding real likes to `profiles/taylor/taste.yaml` (and flagging any SWANA-event sources we should be tracking) so the next run actually reflects you.

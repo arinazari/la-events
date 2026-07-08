@@ -1,5 +1,5 @@
 # LA Events
-*Digest regenerated Tue 7/7 — picks updated.*
+*Digest regenerated Wed 7/8 — picks updated.*
 
 *Dr. Ganesan's next few weeks — vinyl/listening-bar picks lead, house afters and a rep-cinema deep cut round it out.*
 
@@ -31,7 +31,7 @@
 ## Saturday · July 18
 
 - **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA - Downtown LA, DTLA
-  A location-TBA all-vinyl night built around Luke Mele's NTS-honed Balearic/ambient/dub sensibility is squarely the listening-bar format worth chasing an address for — quieter and more textural than a peak-time club night.
+  All-vinyl night is an explicit taste signal — Taylor Shockley is a respected LA selector and the Information series has a track record; this is exactly the format your profile prioritizes. The clearest top pick in this window.
 - **[Fandango](https://ticketing.uswest.veezi.com/purchase/3845?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
   Kevin Reynolds' 1985 cult favorite — Kevin Costner's first starring role, five Texas college friends on one last road trip before the draft — is a low-stakes, unpretentious rep pick if you want something warm and funny rather than heavy on a Saturday night.
 

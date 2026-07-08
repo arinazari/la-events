@@ -1,14 +1,14 @@
 # Demo (indie + jazz)'s LA Events Digest
-*Updated Tue 7/7 · Taste: indie/rock/post-punk + jazz-soul listening rooms + rep cinema + folk/Americana, real yes on comedy, cold on big-room EDM · Silver Lake home base*
+*Digest regenerated Wed 7/8 — picks updated.*
+
+*Updated Wed 7/8 · Taste: indie/rock/post-punk + jazz-soul listening rooms + rep cinema + folk/Americana, real yes on comedy, cold on big-room EDM · Silver Lake home base*
 
 ---
-Honest flag first: the feed's own top-ranked events this cycle are almost all DTLA afterhours/warehouse electronic — that's a scoring-engine quirk (category weights are shared across profiles, so "electronic" reads as high-interest here even though your own taste.yaml puts it in the low tier and flags afterhours raves as a penalty). Ignored that ordering and built this from what actually fits: two Americana elders at McCabe's, a Grammy-winning Latin-jazz set at Sam First, the regular Zebulon/Troubadour indie-rock run, and Nolan's *Odyssey* on real 70mm at the Vista. Comedy's dry — nothing from your loved-comedian list (Mulaney, Bargatze, Notaro, Bamford, Buress) turns up in the next three weekends.
+Honest flag first: the feed's own top-ranked events this cycle are almost all DTLA afterhours/warehouse electronic — that's a scoring-engine quirk (category weights are shared across profiles, so "electronic" reads as high-interest here even though your own taste.yaml puts it in the low tier and flags afterhours raves as a penalty). Ignored that ordering and built this from what actually fits: a Grammy-winning Latin-jazz set at Sam First, the regular Zebulon/Troubadour indie-rock run, and Nolan's *Odyssey* on real 70mm at the Vista. Both McCabe's Dave Alvin/Jimmie Dale Gilmore shows are now sold out — chase resale if you want in. Comedy's dry — nothing from your loved-comedian list (Mulaney, Bargatze, Notaro, Bamford, Buress) turns up in the next three weekends.
 
 ## Top Picks
 
 ### Friday 7/10
-**[Dave Alvin & Jimmie Dale Gilmore](https://www.mccabes.com/concerts-landing/)** — McCabe's Guitar Shop · 8pm (Friday sold out, Saturday repeat still has room)
-Two bona fide Americana/folk elders sharing a bill in McCabe's 150-seat back room — the "singer-songwriter/folk in an intimate room" lane your taste is built around, at a venue you already love.
 
 **[Oscar Hernández & Alma Libre](https://www.samfirstbar.com/events/oscar-hernandez-alma-libre-with-katisse-buckingham-andy-senesi-christian-moraga-rene-camacho)** — Sam First · 7:30pm
 A 4x-Grammy Latin-jazz bandleader (Spanish Harlem Orchestra) in a 20-seat Westchester listening room — small-club jazz exactly as described, even though the blunt category scorer buries it as "low interest."
@@ -34,7 +34,7 @@ A genuine '60s folk-revival name ("Urge for Going") in the same intimate McCabe'
 Parts & Labor were one of Brooklyn's better art-punk/noise-pop bands last decade — a scrappier, more experimental night than the usual Zebulon bill.
 
 ## Also This Run
-**Sat 7/11 — [Dave Alvin & Jimmie Dale Gilmore (Saturday show)](https://www.mccabes.com/concerts-landing/)** — McCabe's · 8pm; the Friday date sold out, this one hasn't (yet).
+**Sat 7/11 — [Dave Alvin & Jimmie Dale Gilmore (Saturday show)](https://www.mccabes.com/concerts-landing/)** — McCabe's · 8pm; also sold out now — both nights are gone, resale only.
 **Thu 7/16 — [KCRW Presents: Third Thursdays w/ Miles Lennox Quartet](https://www.samfirstbar.com/events/kcrw-presents-third-thursdays-with-miles-lennox-quartet-with-nic-gelin-nolan-nwachukwu-josh-green)** — Sam First · 7:30pm; KCRW-curated original jazz, same small room, a Thursday-night option if the weekend's full.
 **Fri 7/10 — Punch-Drunk Love** — New Beverly Cinema; PTA/Sandler cult favorite, straight down the rep-cinema alley.
 **Fri 7/17 — [Futurebirds — Far Out Country Tour](https://www.ticketmaster.com/futurebirds-far-out-country-tour-los-angeles-california-07-17-2026/event/0900645BCC4C1CCC)** — Teragram Ballroom · 7pm; country-inflected indie-rock, a notch twangier than the usual bill.

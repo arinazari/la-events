@@ -1,5 +1,7 @@
 # Garo's LA Events Digest
-*Updated Tue 7/7 · Taste: not set yet — feed running on system defaults (electronic/party/film weighted, "close to Silver Lake" assumed as home) · home neighborhood: unknown*
+*Digest regenerated Wed 7/8 — picks updated.*
+
+*Updated Wed 7/8 · Taste: not set yet — feed running on system defaults (electronic/party/film weighted, "close to Silver Lake" assumed as home) · home neighborhood: unknown*
 
 ---
 Straight talk first: `profiles/garo/taste.yaml` is still the empty starter — no loved artists, venues, or categories — so nothing below is actually tuned to you yet. What's ranking is the code's generic fallback weighting, which happens to reward electronic/party/afterhours events, Friday/Saturday nights, and proximity to Silver Lake (not necessarily your neighborhood). I dug through the top of that generic queue for bookings that are legit on their own merits — real venues, real names — rather than just listing whatever scored highest, since most of the raw list is interchangeable TBA-location afters.

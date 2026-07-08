@@ -1,5 +1,7 @@
 # Lori's LA Events Digest
-*Updated Tue 7/7 · Taste: ethnomusicologist ear — garage/proto-punk/post-punk through craft pop, global & diaspora roots music, live bands over DJs · Glendale (East LA)*
+*Digest regenerated Wed 7/8 — picks updated.*
+
+*Updated Wed 7/8 · Taste: ethnomusicologist ear — garage/proto-punk/post-punk through craft pop, global & diaspora roots music, live bands over DJs · Glendale (East LA)*
 
 ---
 Three solid weekends of exactly your lane: garage-punk lineage at Zebulon two weekends running, a cumbia night, and a McCabe's roots-music booking that's basically what "ethnomusicologist" means in concert form. Heads up — the raw scoring pool this cycle is cluttered with bass/dubstep raves (Palladium, Academy, Exchange) tied at the same numeric score as these picks; they're not really your speed and I've filtered past them below.
@@ -26,8 +28,8 @@ Weekly outdoor country/Americana series — sunset setting, roots music, your fa
 Hooky, sharp-witted Australian indie-rock songwriter — craft pop with real teeth, in the Mitski/Rodrigo lane but louder and more guitar-forward.
 
 ### Friday 7/24
-**[El Rayo-X](https://www.mccabes.com/concerts-landing/)** — McCabe's Guitar Shop, Santa Monica · 8pm
-David Lindley's old outfit — desert-tinged roots rock in the quintessential intimate listening room. It's a schlep from Glendale but this is exactly the kind of booking McCabe's exists for.
+**[El Rayo-X](https://www.mccabes.com/concerts-landing/)** — McCabe's Guitar Shop, Santa Monica · 8pm (sold out — resale only)
+David Lindley's old outfit — desert-tinged roots rock in the quintessential intimate listening room. It's a schlep from Glendale but this is exactly the kind of booking McCabe's exists for; just sold out, so chase resale if it matters.
 
 ### Saturday 7/25
 **[KCRW Presents: Emperor X with clovers daughter](https://www.ticketmaster.com/kcrw-presents-emperor-x-los-angeles-california-07-25-2026/event/0900648FBB408D7A)** — The Echo, Echo Park · 7pm

@@ -1,5 +1,7 @@
 # Raffi's LA Events Digest
-*Updated Tue 7/7 · Taste: big-room / festival EDM · Studio City*
+*Digest regenerated Wed 7/8 — picks updated.*
+
+*Updated Wed 7/8 · Taste: big-room / festival EDM · Studio City*
 
 ---
 

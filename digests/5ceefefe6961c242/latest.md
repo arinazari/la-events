@@ -1,5 +1,7 @@
 # Alexa's LA Events Digest
-*Updated Tue 7/7 · Taste: not configured yet — running on system defaults · home neighborhood not set*
+*Digest regenerated Wed 7/8 — picks updated.*
+
+*Updated Wed 7/8 · Taste: not configured yet — running on system defaults · home neighborhood not set*
 
 ---
 Alexa's `profiles/alexa/taste.yaml` is still the empty starter — nothing's boosted or banned for her specifically, so this whole list is just LA's baseline category math (which happens to favor underground electronic/afterhours hard, plus a "close to Silver Lake" bonus that's actually Ari's default, not hers). The picks below lean on what's factually distinctive about each booking rather than any real personalization — worth fixing that soon.
