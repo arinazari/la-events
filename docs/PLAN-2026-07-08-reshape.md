@@ -1,5 +1,12 @@
 # PLAN — reshape la-events to the actual vision (2026-07-08)
 
+> **Status update (Ari, 7/8):** **Track A tabled** (revisit later). **Track C dropped** —
+> dining and the night-planner-class capability stay: the concierge should remain the broad
+> "can do it all" layer, including staying apprised of new/hot restaurants, keeping a
+> good-restaurants list, and facilitating multi-event plans (with or without other users).
+> **Track B is active** — detailed one level further in `TRACK-B-SPEC.md` before execution.
+> Track D unchanged (pending).
+
 Follow-up to `AUDIT-2026-07-07-mission.md` / `AUDIT-2026-07-07-product.md`, incorporating
 Ari's restated vision. Three tracks of small PRs: **A** privacy + identity (tokens, private
 repo, stars), **B** LLM-first ranking + the product layer, **C** de-scope (the Jenga cuts),
