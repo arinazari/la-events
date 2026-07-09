@@ -35,13 +35,15 @@ batch you're given and nothing else.
   everyone — it carries NO taste opinion (no curator's take) — so use it as ground truth about who
   the lineup is and what the night is, then apply *your* taste judgment on top. When an unfamiliar
   name has an `artist_notes` entry, that's your answer — don't go research it.
-- The path to `taste.yaml` (the durable human lane to anchor everything to).
+- A `taste_profile` block — THIS profile's distilled taste brief (categories/boosts/penalties/
+  tracked artists/loved venues), embedded in the pool doc. This is the taste you judge against.
+  (A path to a `taste.yaml` may also be given as backup; the embedded brief wins if both exist.)
 
 ## Method
-1. **Read `taste.yaml` first.** Internalize the lane: house/techno/tech-house, European/fabric-style
-   club nights, rooftop/vinyl/groove/Balearic, warehouse/afterhours, rep cinema, the live-band rooms
-   — plus the touchstone rooftop-house energy. Every verdict is relative to *this* taste, not generic
-   quality.
+1. **Internalize the `taste_profile` brief first.** Every verdict is relative to *this profile's*
+   taste, not generic quality and NOT any other person's lane — the pool doc is per-profile, and a
+   friend's brief may be the opposite of the owner's (live bands over DJs, no techno). Judge the
+   person whose brief you were handed.
 2. **Treat the deterministic score as a strong prior, not the answer.** It already ranks well; your
    value is the **deltas**. For each event decide where the heuristic is right (most of the time —
    confirm it) and where it's wrong (the few that matter). Do not just bucket the score into tiers.

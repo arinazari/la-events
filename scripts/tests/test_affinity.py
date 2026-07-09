@@ -13,7 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # scripts/ on path
 from lib.affinity import (build_affinity, artist_affinity, genre_affinity,  # noqa: E402
-                          normalize_name)
+                          normalize_name, tracked_hits, ambiguous_set)
 from lib.config import load_taste, load_profile  # noqa: E402
 from lib.scoring import score_event  # noqa: E402
 
@@ -121,6 +121,26 @@ def test_no_affinity_is_byte_identical():
 def test_normalize_name():
     assert normalize_name("  Floating   Points ") == "floating points"
     assert normalize_name("&ME") == "&me"
+
+
+def test_tracked_hits_lineup_first_and_ambiguous_gate():
+    """Track B3: ambiguous word-like names need an EXACT lineup entry; token presence in a title
+    (or inside a longer act name) must not fire. Normal names keep whole-token title+lineup match."""
+    amb = {"fisher", "drama"}
+    # the audit's live false positive: FISHER badged 'Fisher and Thames' (a jazz duo)
+    assert tracked_hits(["FISHER"], "Fisher and Thames - Sounds Of the 70s", [], amb) == set()
+    assert tracked_hits(["FISHER"], "Sounds Of the 70s", ["Fisher and Thames"], amb) == set()
+    # FISHER actually billed -> exact lineup entry matches
+    assert tracked_hits(["FISHER"], "HARD Summer", ["FISHER", "Chris Lake"], amb) == {"FISHER"}
+    # normal names: whole-token in title or lineup text, no substring bleed
+    assert tracked_hits(["Antal"], "Antal all night long", [], amb) == {"Antal"}
+    assert tracked_hits(["Ame"], "Amelie Lens at Grand Park", [], amb, min_len=2) == set()
+
+
+def test_ambiguous_set_reads_profile():
+    prof = {"scoring": {"spotify": {"ambiguous_names": ["FISHER", " Drama "]}}}
+    assert ambiguous_set(prof) == {"fisher", "drama"}
+    assert ambiguous_set({}) == set()
 
 
 if __name__ == "__main__":

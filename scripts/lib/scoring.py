@@ -27,7 +27,7 @@ try:
 except Exception:  # pragma: no cover - zoneinfo always present on py3.9+
     _LA = None
 
-from .affinity import artist_affinity, genre_affinity
+from .affinity import artist_affinity, genre_affinity, tracked_hits, ambiguous_set
 
 # ── Defaults (verbatim from pre-refactor build_dashboard.py) ─────────────────
 DEFAULT_CATEGORY_WEIGHTS = {
@@ -174,12 +174,12 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         lab = {3: "high", 2: "medium", 1: "low"}.get(base, "low")
         reasons.append(f"+{base} {cat.replace('_', ' ')} ({lab} interest)")
 
-    # Tracked artist — match title OR lineup (+2 each; also the "tracked" badge). Whole-token
-    # match (bounded by non-alphanumerics, not a raw substring) so short names like "Ame" / "&ME"
-    # don't fire inside "america" / "frame" / "Amelie Lens" — a recurring false positive the
-    # event-editor kept having to downgrade.
-    hits = sorted({a for a in tracked
-                   if re.search(r'(?<![a-z0-9])' + re.escape(a.lower()) + r'(?![a-z0-9])', hay)})
+    # Tracked artist (+2 each; also the "tracked" badge) — matched where artists are BILLED
+    # (title + lineup), not the venue/detail/promoter blob (Track B3: a bio mentioning a name
+    # isn't a booking). Whole-token match so "Ame" doesn't fire inside "Amelie Lens"; names on
+    # the ambiguous list (FISHER, Drama — words as well as artists) must equal a lineup entry,
+    # since token presence can't tell FISHER from the unrelated duo "Fisher and Thames".
+    hits = sorted(tracked_hits(tracked, title, lineup, ambiguous=ambiguous_set(profile)))
     if hits:
         score += 2 * len(hits)
         reasons.append(f"+{2 * len(hits)} tracked artist ({', '.join(hits)})")

@@ -131,14 +131,21 @@ def prune_cache(cache: dict, catalog: list) -> tuple:
     return cache, pruned
 
 
+# Categories where an artist name in the TITLE is probably not a music billing — a play called
+# "The Drama" or a film sharing a band's name must not inherit that artist's bio (Track B3; the
+# DRAMA-duo-on-a-stage-show false positive shipped to feeds).
+_NON_MUSIC_CATEGORIES = {"film", "comedy", "theater", "theatre", "arts & theatre"}
+
+
 def cached_artist_notes(ev: dict, cache: dict) -> list:
     """Artist bios from the cache for any tracked name in this event's lineup/title.
 
     The scene graph's value compounds here: the ~N accumulated artist bios apply to EVERY
     event featuring those artists, not just the events individually researched. Conservative
-    matching — exact normalized lineup entries, plus a length-guarded title substring for an
-    artist not in the lineup — to avoid false hits on short names. Display name comes from the
-    event's own lineup text (the cache key is lowercased/normalized)."""
+    matching — exact normalized lineup entries, plus a length-guarded WHOLE-TOKEN title match
+    (never a raw substring) for an artist not in the lineup, and no title matching at all on
+    non-music categories (film/theater titles collide with band names). Display name comes
+    from the event's own lineup text (the cache key is lowercased/normalized)."""
     arts = cache.get("artists") or {}
     if not arts:
         return []
@@ -151,11 +158,12 @@ def cached_artist_notes(ev: dict, cache: dict) -> list:
         if k and k in arts and k not in seen:
             out.append({"name": a.strip(), "note": arts[k].get("note")})
             seen.add(k)
-    title_norm = normalize(ev.get("title", ""))
-    for k, info in arts.items():
-        if k and k not in seen and len(k) >= 5 and k in title_norm:
-            out.append({"name": k.title(), "note": info.get("note")})
-            seen.add(k)
+    if (ev.get("category") or "").lower() not in _NON_MUSIC_CATEGORIES:
+        title_tokens = f" {normalize(ev.get('title', ''))} "
+        for k, info in arts.items():
+            if k and k not in seen and len(k) >= 5 and f" {k} " in title_tokens:
+                out.append({"name": k.title(), "note": info.get("note")})
+                seen.add(k)
     return out
 
 

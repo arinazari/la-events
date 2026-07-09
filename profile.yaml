@@ -174,9 +174,11 @@ scoring:
     genre_threshold: 0.5 # min normalized (0..1) genre affinity to count
     genre_cap: 1 # max genre points per event (kept conservative — genre match on free text is noisy)
     min_name_len: 3 # skip ultra-short artist names (avoid false substring matches)
-    # Single-word artist names that are also common English/party words (the band Train, the
-    # rapper Future). Auto-pulled from Spotify they false-match party titles, so they only count
-    # when they appear in the structured lineup, not loose title text. Grow this as you spot more.
+    # Single-word artist names that are also common English/party words or surnames (the band
+    # Train, the rapper Future, the tech-house FISHER). These only count when they match a
+    # structured lineup ENTRY, never loose title text — shared by the Spotify layer AND the
+    # tracked-artist/radar matchers (Track B3: 'Fisher and Thames' must not badge FISHER,
+    # 'The Drama' must not badge DRAMA). Grow this as you spot more.
     ambiguous_names:
       [
         train,
@@ -190,7 +192,9 @@ scoring:
         paradise,
         chance,
         hold,
-        alive
+        alive,
+        fisher,
+        drama
       ]
 
   # Feedback loop (Phase C). Reactions in data/feedback.jsonl fold into the affinity layer

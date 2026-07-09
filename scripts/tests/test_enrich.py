@@ -81,6 +81,22 @@ def test_cached_artist_notes_no_false_match():
     assert E.cached_artist_notes(ev, cache) == []   # 'ame' must not match 'game'/'someone'
 
 
+def test_cached_artist_notes_title_is_whole_token_and_music_only():
+    """Track B3: the audit's live false positive — the duo DRAMA's bio attached to a stage/film
+    title 'The Drama' via title-substring. Title matches must be whole-token AND music-context."""
+    cache = {"events": {}, "artists": {"drama": {"note": "Chicago duo, Na'el Shehade + Via Rosa"}}}
+    film = {"title": "The Drama", "date": "2026-07-10", "venue": "New Beverly",
+            "category": "film", "lineup": []}
+    assert E.cached_artist_notes(film, cache) == []          # non-music category: no title fold
+    gig = {"title": "DRAMA live", "date": "2026-07-11", "venue": "El Rey",
+           "category": "electronic", "lineup": []}
+    assert [n["name"] for n in E.cached_artist_notes(gig, cache)] == ["Drama"]
+    # whole-token still required on music titles: 'dramarama' must not hit 'drama'
+    gig2 = {"title": "Dramarama night", "date": "2026-07-12", "venue": "El Rey",
+            "category": "electronic", "lineup": []}
+    assert E.cached_artist_notes(gig2, cache) == []
+
+
 def test_prune_cache_drops_orphans_keeps_artists():
     """Hygiene: event entries for events gone from the catalog are dropped; artist bios stay."""
     live = {"title": "Live Show", "date": "2026-07-07", "venue": "Zebulon"}

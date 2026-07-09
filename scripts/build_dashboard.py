@@ -345,7 +345,7 @@ def main() -> int:
         judge = ED.editor_pool(epool, per_lane=args.editor_per_lane, floor=args.editor_floor)
         ep_doc = ED.pool_doc(judge, today=today, window_days=args.editor_window,
                              per_lane=args.editor_per_lane, floor=args.editor_floor,
-                             affinity=affinity, enrichment=cache)
+                             affinity=affinity, enrichment=cache, taste=taste)
         epath = resolve(args.editor_pool_out)
         epath.parent.mkdir(parents=True, exist_ok=True)
         epath.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")

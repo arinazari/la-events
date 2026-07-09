@@ -72,6 +72,39 @@ def normalize_name(name: str) -> str:
     return " ".join((name or "").split()).lower()
 
 
+def ambiguous_set(profile) -> set:
+    """The profile's ambiguous-name list (scoring.spotify.ambiguous_names), normalized — artist
+    names that are also ordinary words/surnames, shared by every billed-name matcher."""
+    names = ((((profile or {}).get("scoring") or {}).get("spotify") or {})
+             .get("ambiguous_names") or [])
+    return {normalize_name(n) for n in names}
+
+
+def tracked_hits(names, title, lineup, ambiguous=frozenset(), min_len=2) -> set:
+    """Which curated/tracked artist `names` are billed on this event — lineup-first (Track B3).
+
+    Non-ambiguous names match as whole tokens in title+lineup text ('antal' at a word edge).
+    Ambiguous names — artist names that are also ordinary words or common surnames (FISHER,
+    Drama, Future) — must EQUAL a normalized lineup entry: token presence isn't enough, because
+    'fisher' sits as a whole token inside the unrelated duo 'Fisher and Thames', and a title-only
+    billing can't disambiguate the word from the artist. Exact-entry means FISHER billed solo
+    still matches while name-collisions don't. Returns the matching names as given."""
+    lineup = [str(a) for a in (lineup or [])] if isinstance(lineup, (list, tuple)) else [str(lineup)]
+    entries = {normalize_name(a) for a in lineup}
+    text = ((title or "") + " " + " ".join(lineup)).lower()
+    hits = set()
+    for a in names or []:
+        k = normalize_name(a)
+        if len(k) < min_len:
+            continue
+        if k in ambiguous:
+            if k in entries:
+                hits.add(a)
+        elif _token_pat(k).search(text):
+            hits.add(a)
+    return hits
+
+
 def _tier_for(weight: float) -> str:
     for tier, threshold in TIER_THRESHOLDS:
         if weight >= threshold:

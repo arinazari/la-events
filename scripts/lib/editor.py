@@ -184,11 +184,27 @@ def _record(ev: dict, affinity: dict, enrichment: dict = None) -> dict:
     return rec
 
 
+# The taste keys worth embedding in the pool doc — the editor's BRIEF (Track B3). The editor is
+# the ranker now; the human-authored taste content rides in its input so the judgment is hermetic
+# (no repo Read needed) and per-profile pools carry that profile's own brief. Additive context —
+# deliberately NOT part of EDITOR_INPUT_VERSION (prior verdicts were judged by an agent that Read
+# taste.yaml itself; a bump would re-judge ~1,000 cached verdicts for near-zero delta).
+_TASTE_BRIEF_KEYS = ("categories", "boosts", "penalties", "artists_tracked",
+                     "venues_loved", "comedians_loved")
+
+
+def taste_brief(taste: dict) -> dict:
+    """The distilled taste profile embedded in the editor's pool doc."""
+    return {k: (taste or {}).get(k) for k in _TASTE_BRIEF_KEYS if (taste or {}).get(k)}
+
+
 def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict = None,
-             enrichment: dict = None) -> dict:
+             enrichment: dict = None, taste: dict = None) -> dict:
     """Build the editor-pool document run_digest/build_dashboard write for the agent to judge.
-    Includes the profile's Spotify lane (`profile_affinity`) so the editor judges with it, and —
-    when `enrichment` (the shared scene cache) is passed — a per-event factual `scene` block."""
+    Includes the profile's Spotify lane (`profile_affinity`) so the editor judges with it, the
+    profile's `taste_profile` brief (Track B3 — the editor is the ranker; this is its brief),
+    and — when `enrichment` (the shared scene cache) is passed — a per-event factual `scene`
+    block."""
     doc = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "today": today.isoformat() if hasattr(today, "isoformat") else today,
@@ -198,6 +214,9 @@ def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict
         "count": len(judge),
         "events": [_record(e, affinity, enrichment) for e in judge],
     }
+    brief = taste_brief(taste)
+    if brief:
+        doc["taste_profile"] = brief
     summary = affinity_summary(affinity)
     if summary:
         doc["profile_affinity"] = summary

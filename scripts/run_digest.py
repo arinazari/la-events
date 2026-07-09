@@ -259,7 +259,7 @@ def main() -> int:
     enr_cache = EN.load_cache()
     ep_doc = ED.pool_doc(judge, today=today, window_days=args.editor_window,
                          per_lane=args.editor_per_lane, floor=args.editor_floor,
-                         affinity=affinity, enrichment=enr_cache)
+                         affinity=affinity, enrichment=enr_cache, taste=taste)
     ep_path.write_text(json.dumps(ep_doc, indent=2, ensure_ascii=False) + "\n")
 
     # Blurb pool — the cheap-tier (blurb-writer) candidate slice: every upcoming event within

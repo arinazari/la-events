@@ -27,7 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.config import load_taste, load_profile  # noqa: E402
 from lib.scoring import score_event, parse_event_date  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
-from lib.affinity import _token_pat  # noqa: E402  (whole-token matcher — no 'Ame' in 'James')
+from lib.affinity import tracked_hits, ambiguous_set  # noqa: E402  (lineup-first billed-name match)
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -43,17 +43,20 @@ FEST_TERMS = ("festival", "fest ", "fest)", "two-day", "three-day", "2-day", "3-
 SIGNAL_WEIGHT = {"editorial": 3, "festival": 2, "tracked": 2, "big-venue": 1}
 
 
-def radar_signals(ev: dict, tracked: list) -> list:
-    """The radar signals an event fires (empty = not radar-worthy)."""
+def radar_signals(ev: dict, tracked: list, ambiguous=frozenset()) -> list:
+    """The radar signals an event fires (empty = not radar-worthy). Tracked-name matching is
+    lineup-first (Track B3): whole-token in title+lineup for normal names; ambiguous word-like
+    names (FISHER, Drama) must equal a lineup entry — a title like 'Fisher and Thames' can't
+    badge the tech-house FISHER."""
     hay = json.dumps(ev, ensure_ascii=False).lower()
     vlow = (ev.get("venue") or "").lower()
-    name_text = (ev.get("title", "") + " " + str(ev.get("lineup") or "")).lower()
     out = []
     if ev.get("editorial_mentions"):
         out.append("editorial")
     if any(t in hay for t in FEST_TERMS):
         out.append("festival")
-    hits = sorted({a for a in tracked if len(a) >= 4 and _token_pat(a.lower()).search(name_text)})
+    hits = sorted(tracked_hits(tracked, ev.get("title", ""), ev.get("lineup"),
+                               ambiguous=ambiguous, min_len=4))
     if hits:
         out.append("tracked:" + ",".join(hits[:2]))
     if any(b in vlow for b in BIG_VENUE):
@@ -70,13 +73,14 @@ def radar_rank(score: int, signals: list) -> float:
 def build_radar(catalog: list, taste: dict, profile: dict, today, cutoff_days: int = 35) -> list:
     """Ranked radar set: events on/after today+cutoff_days that fire ≥1 signal, best-first."""
     tracked = [a for a in (taste.get("artists_tracked") or []) if a]
+    amb = ambiguous_set(profile)
     cutoff = today.toordinal() + cutoff_days
     out = []
     for ev in catalog:
         d = parse_event_date(ev)
         if d is None or d.toordinal() < cutoff:
             continue
-        sig = radar_signals(ev, tracked)
+        sig = radar_signals(ev, tracked, amb)
         if not sig:
             continue
         s = score_event(ev, taste, profile)["score"]
