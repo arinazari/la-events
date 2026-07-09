@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/8/2026 deterministically (no API). 366 candidates. Signals: big-venue 308, festival 54, tracked 7._
+_Generated 7/9/2026 deterministically (no API). 364 candidates. Signals: big-venue 306, festival 54, tracked 7._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -39,6 +39,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 9/5 | 4 | Hypnotique Presents: Sway Festival - 2 DAY PASS | Teragram Ballroom | festival | [link](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE) |
 | Fri 9/11 | 4 | Cold Waves 2-Day (9/11/26-9/12/26) | Pacific Electric | festival | [link](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76) |
+| Sat 9/19 | 4 | Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustB | Echoplex | festival | [link](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA) |
 
 ## November 2026
 
@@ -125,7 +126,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 8/12 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ7) |
 | Thu 8/13 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJA) |
 | Sun 8/16 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJo) |
 | Mon 8/17 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ3) |
@@ -407,8 +407,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 8/12 | 2 | RÜFÜS DU SOL NORTH AMERICA 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-12-2026/event/09006455E5F2E3B2) |
-| Wed 8/12 | 2 | Jill Scott - To Whom This May Concern Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jill-scott-to-whom-this-may-inglewood-california-08-12-2026/event/0A006466E756B0D7) |
 | Thu 8/13 | 2 | RÜFÜS DU SOL NORTH AMERICA 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-13-2026/event/09006455E5F7E3C2) |
 | Thu 8/13 | 2 | 2026 CORTIS TOUR <PUT YOUR PHONE DOWN> IN LOS ANGELES | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/2026-cortis-tour-put-your-phone-inglewood-california-08-13-2026/event/0A0064B49F1C6DB3) |
 | Sun 8/16 | 2 | KAROL G - VIAJANDO POR EL MUNDO TROPITOUR | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-16-2026/event/0A0064904B67EA10) |
