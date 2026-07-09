@@ -76,18 +76,30 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    Optional periodic refresh: pass `refresh_days` to `select_for_enrichment` to re-research full
    entries older than N days (default: write-once, no cost).
 5. **Render.** First the radar tier: `python scripts/build_radar.py --md radar-candidates.md` →
-   `data/radar.json` (festivals/big shows/tracked far-out). Then the **primary consolidated daily
-   digest**: `python scripts/render_digest.py --consolidated --md digests/latest.md` — ONE doc with
-   three sections: the next 14 days day-by-day, the weekends in
-   days 15–35 (Thu–Sun), and **on the radar**. All of it is the editor **slate** (assemble over the
-   scored pool + verdicts); ⭐ = the editor's must-sees, curator notes from enrichment. `render_digest`
-   auto-reads the root **`digest.yaml`** format prefs (only the structural `max_picks_per_day` cap
-   applies to this deterministic scaffold; sections/tone/length shape the LLM digest layer in step 9 +
-   interactive synthesis). Also keep the
+   `data/radar.json` (festivals/big shows/tracked far-out) AND `data/around_town.json` (the
+   near-window city-pulse set — civic/arena/festival signals regardless of taste score). Then the
+   **primary consolidated daily digest**: `python scripts/render_digest.py --consolidated --md
+   digests/latest.md` — ONE doc whose sections follow the root **`digest.yaml`** `sections:` list
+   (Track B4, the renderer now honors it): **Don't miss** (the top ~6 across the window,
+   tier-primary, whys prefilled from curator notes/verdicts), the day-by-day body (next 14 days +
+   the weekends in days 15–35, Thu–Sun), **Around town** (city-pulse, NOT taste-ranked, de-duped
+   against the slate), and **on the radar**. All slate content is the editor slate (assemble over
+   the scored pool + verdicts); ⭐ = the editor's must-sees. Also keep the
    **per-weekend look-ahead** (backend option for the dashboard's per-weekend view): for each of the
    next ~16 weekends keyed by the **Friday**, `python scripts/render_digest.py --from <Fri> --to <Sun>
    --md digests/weekends/<Fri>.md`. Near weekends fill out; far
    ones stay thin — do NOT pad.
+5b. **Voice pass (Tier-3) on the consolidated digest — the insider layer.** Edit
+   `digests/latest.md` in place, filling ONLY the marked slots:
+   - replace `<!-- tier3:intro -->` with a 2–4 sentence intro in the LA-insider voice — the
+     week's shape, what kind of stretch it is, where the heat is;
+   - tighten each **Don't miss** why at its `<!-- tier3:why <key> -->` marker (the scaffold
+     prefills verdict/curator text — rewrite for voice and brevity, don't template);
+   - optionally give an **Around town** item a one-line gloss at its `<!-- tier3:gloss -->`
+     marker, only where you genuinely have something to say.
+   **HARD RULE: never add, remove, or reorder events or sections** — the slate is deterministic
+   and diffable; this pass adds voice, not selection. Honor `digest.yaml` `length`/`tone`/
+   `emphasis`. One pass, a few K tokens (see docs/PIPELINE.md cost ledger).
 6. Maintain `digests/weekends/index.md`: one row per weekend (date range, # events, top pick),
    soonest first; drop past weekends.
 7. **Sync per-profile Spotify, then rebuild the dashboard feeds.** First, if the per-profile

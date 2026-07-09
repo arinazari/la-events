@@ -97,7 +97,7 @@ no backend; the static page just renders it.
 | **event-editor** (Tier 1 verdicts) | routine + per-user rebuild | event already judged at this score AND editor-input version unchanged (`select_for_verdict`) | Sonnet, delta only |
 | **scene-researcher** (Tier 1 full enrichment, top-100 head) | routine + per-user rebuild | event already full-tier in `enrichment.json` (write-once; a blurb-tier event in the head is *re-selected* to upgrade) | Sonnet, misses + upgrades only |
 | **blurb-writer** (Tier 2 cheap enrichment, band below head) | routine | event already has a cache record (`select_for_blurb`) | Haiku, gaps only, no web |
-| consolidated narrative intro | every routine run | — (cheap; the slate is deterministic, only a short intro is LLM) | small |
+| consolidated voice pass (Tier-3: intro + Don't-miss whys + Around-town gloss, routine step 5b) | every routine run | — (cheap; the slate/sections are deterministic scaffold, the pass fills marked slots only) | small |
 | **per-profile narrative** | routine + per-user rebuild | feed signature unchanged (`digest_gate decide` → SKIP) | gated; one narrative per *changed* feed |
 | `build_dashboard` / `build_profiles` | end of routine / on edit | — (deterministic) | none |
 | renderers (`render_digest`) | every routine run | — (deterministic) | none |
@@ -120,7 +120,10 @@ no backend; the static page just renders it.
    events); Haiku, no web. Both amortize to the daily delta.
 3. **Per-profile narratives** — regenerated only when that feed's top-N picks moved (`digest_gate`).
    On a quiet day this is **0 LLM calls**; it scales with *changed* friends, not all friends.
-4. **Consolidated intro** — small, every run (the body is deterministic slate).
+4. **Consolidated voice pass** (Tier-3, routine step 5b) — small, every run: the intro slot,
+   the Don't-miss whys (prefilled deterministically from verdicts/curator notes; the pass
+   rewrites for voice), an optional Around-town gloss. Fills marked slots only — never
+   selection (the body is deterministic slate).
 5. **Owner refresh** — **no LLM**, and debounced so a rapid re-click doesn't re-sweep sources.
 6. **Per-user rebuild** — Sonnet; gated client-side to "stale or taste-dirty"; the deterministic feed
    commits first so a timed-out LLM step still leaves the ranking fresh.

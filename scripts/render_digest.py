@@ -308,7 +308,67 @@ def build_slate_cands(catalog, taste, profile, today, verdicts, *, window=None,
     return cands
 
 
-# ── Consolidated digest (one doc: next 2 weeks · weekends ahead · on the radar) ─────────
+# ── Consolidated digest (one doc: don't-miss · next 2 weeks · weekends ahead · around town ·
+#    on the radar) ────────────────────────────────────────────────────────────────────────
+# Display sizes for the two Track-B4 sections. These cap what's PRINTED, never the ranking —
+# the full verdict store ranks everything; Don't-miss is just its top slice pulled forward.
+DONT_MISS_LIMIT = 6
+AROUND_LIMIT = 12
+_DM_TIER = {"must-see": 3, "great": 2, "solid": 1}
+DEFAULT_SECTIONS = ["dont_miss", "day_by_day", "around_town", "radar"]
+
+
+def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
+    """The editorial shelf (Track B4): the highest-ranked picks across the WHOLE window pulled
+    to the top — tier-primary (the editor's call), then adjusted score. Each line prefills its
+    why from the curator note / verdict why; the Tier-3 voice pass may rewrite the why text at
+    its slot marker but never the picks themselves (the slate stays deterministic)."""
+    seen, uniq = set(), []
+    for ev in cands:
+        k = event_key(ev)
+        if k not in seen:
+            seen.add(k)
+            uniq.append(ev)
+    uniq.sort(key=lambda e: (-_DM_TIER.get((e.get("verdict") or {}).get("tier"), 0),
+                             -(e.get("score") or 0), e.get("iso_date") or "9999-12-31"))
+    picked = [e for e in uniq[:limit] if e.get("iso_date")]
+    if not picked:
+        return []
+    out = ["## Don't miss\n"]
+    for ev in sorted(picked, key=lambda e: e["iso_date"]):
+        d = date.fromisoformat(ev["iso_date"])
+        title, url = ev.get("title") or "Untitled", _link(ev)
+        head = f"[{title}]({url})" if url else title
+        e = ev.get("enrichment") or {}
+        why = e.get("curator_note") or (ev.get("verdict") or {}).get("why") or ""
+        line = f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}**"
+        loc = _loc(ev)
+        if loc:
+            line += f" — {loc}"
+        out.append(line + f"  \n  {why} <!-- tier3:why {event_key(ev)} -->")
+    return out + [""]
+
+
+def _around_md(rows: list, slate_keys: set, limit: int = AROUND_LIMIT) -> list:
+    """Around town (Track B4, the city-pulse): notable around LA this stretch — civic/seasonal
+    one-offs, arena bookings, festivals — deliberately NOT taste-ranked ('stay apprised'), and
+    de-duped against the slate: this section is what the taste lanes DIDN'T surface."""
+    rows = [r for r in rows if r.get("key") not in slate_keys]
+    if not rows:
+        return []
+    out = ["## Around town\n",
+           "*Notable around the city — not ranked to taste; here so you stay apprised.*"]
+    for r in sorted(rows[:limit], key=lambda r: r["iso_date"]):
+        d = date.fromisoformat(r["iso_date"])
+        sig = ", ".join(s.replace("tracked:", "") for s in (r.get("signals") or []))
+        head = f"[{r['title']}]({r['link']})" if r.get("link") else (r.get("title") or "Untitled")
+        loc = " · ".join(x for x in (r.get("venue"), r.get("neighborhood")) if x)
+        out.append(f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}**"
+                   + (f" — {loc}" if loc else "") + (f"  ·  *{sig}*" if sig else "")
+                   + f" <!-- tier3:gloss {r.get('key', '')} -->")
+    return out + [""]
+
+
 def _radar_md(rows: list, limit: int = 18) -> list:
     if not rows:
         return ["*Nothing flagged on the radar yet.*"]
@@ -355,27 +415,43 @@ def _posh_banner_md(notice: dict) -> str:
             "until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).")
 
 
-def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dict, notice=None) -> str:
+def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dict, notice=None,
+                           dont_miss: list = None, around: list = None, order: list = None) -> str:
+    """The consolidated scaffold. Section inclusion + order follow digest.yaml `sections`
+    (Track B4 — the renderer finally honors it); day_by_day is the body and is never droppable.
+    The `<!-- tier3:… -->` markers are the Tier-3 voice pass's slots: it fills the intro and may
+    rewrite a why/gloss, but never adds, removes, or reorders events."""
     out = [f"# LA Events — {today_iso[:10]}",
            "*Your week ahead, the weekends after, and what's on the radar — "
            "ranked for your taste · ⭐ = top pick*",
-           f"*{freshness_line(doc.get('meta') or {}, today_iso)}*", ""]
+           f"*{freshness_line(doc.get('meta') or {}, today_iso)}*", "",
+           "<!-- tier3:intro -->", ""]
     if notice:
         out += [_posh_banner_md(notice), ""]
-    for title, cands in sections:
-        days = _by_day(cands)
-        if not days:
-            continue
-        out.append(f"## {title}\n")
-        for iso in sorted(days):
-            out.append(f"### {day_header(iso)}")
-            for label, evs in _day_groups(days[iso]):
-                out.append(f"\n**{label}**")
-                out.extend(event_md(ev) for ev in evs)
+    order = [s for s in (order or DEFAULT_SECTIONS) if s in DEFAULT_SECTIONS]
+    if "day_by_day" not in order:
+        order.append("day_by_day")
+    for sec in order:
+        if sec == "dont_miss" and dont_miss:
+            out.extend(dont_miss)
+        elif sec == "day_by_day":
+            for title, cands in sections:
+                days = _by_day(cands)
+                if not days:
+                    continue
+                out.append(f"## {title}\n")
+                for iso in sorted(days):
+                    out.append(f"### {day_header(iso)}")
+                    for label, evs in _day_groups(days[iso]):
+                        out.append(f"\n**{label}**")
+                        out.extend(event_md(ev) for ev in evs)
+                    out.append("")
+        elif sec == "around_town" and around:
+            out.extend(around)
+        elif sec == "radar":
+            out.append("## On the radar\n")
+            out.extend(_radar_md(radar))
             out.append("")
-    out.append("## On the radar\n")
-    out.extend(_radar_md(radar))
-    out.append("")
     notes = _footer_notes(doc)
     if notes:
         out.append("---")
@@ -399,6 +475,8 @@ def main() -> int:
     ap.add_argument("--consolidated", action="store_true",
                     help="one digest: next 2 weeks (day-by-day) + weekends ahead + on the radar")
     ap.add_argument("--radar", default="data/radar.json", help="radar set for the consolidated digest")
+    ap.add_argument("--around", default="data/around_town.json",
+                    help="around-town (city-pulse) set for the consolidated digest (build_radar emits it)")
     ap.add_argument("--window", type=int, default=None, help="windowed mode: days from today (default: all upcoming)")
     ap.add_argument("--per-day", type=int, default=None, help="cap per day (default: weekend-aware 8/5)")
     ap.add_argument("--md", default="/tmp/digest.md")
@@ -458,11 +536,24 @@ def main() -> int:
                 radar = json.loads(rpath.read_text()).get("events", [])
             except (json.JSONDecodeError, OSError):
                 pass
-        sections = [("Next two weeks", merge_enrichment(sec1, cache)),
-                    ("Weekends ahead", merge_enrichment(sec2, cache))]
+        around_rows = []
+        apath = resolve(args.around)
+        if apath.exists():
+            try:
+                around_rows = json.loads(apath.read_text()).get("events", [])
+            except (json.JSONDecodeError, OSError):
+                pass
+        enr1, enr2 = merge_enrichment(sec1, cache), merge_enrichment(sec2, cache)
+        sections = [("Next two weeks", enr1), ("Weekends ahead", enr2)]
+        slate_keys = {event_key(e) for e in enr1 + enr2}
+        dont_miss = _dont_miss_md(enr1 + enr2)
+        around = _around_md(around_rows, slate_keys)
         notice = posh_notice()  # proactive Posh-token banner (no-email nudge), if warn/expired
-        Path(args.md).write_text(render_consolidated_md(doc["today"], sections, radar, doc, notice))
-        print(f"rendered consolidated digest: {len(sec1)} + {len(sec2)} picks + "
+        Path(args.md).write_text(render_consolidated_md(
+            doc["today"], sections, radar, doc, notice,
+            dont_miss=dont_miss, around=around, order=prefs.get("sections")))
+        print(f"rendered consolidated digest: {max(len(dont_miss) - 2, 0)} don't-miss + "
+              f"{len(sec1)} + {len(sec2)} picks + {max(len(around) - 3, 0)} around town + "
               f"{min(len(radar), 18)} on the radar -> {args.md}")
         return 0
 

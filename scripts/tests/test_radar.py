@@ -37,6 +37,22 @@ def test_rank_weights_editorial_over_big_venue():
     assert BR.radar_rank(9, ["big-venue"]) > BR.radar_rank(2, ["big-venue"])   # score breaks ties
 
 
+def test_around_signals_civic_and_window():
+    """Track B4: the city-pulse class — civic terms fire regardless of taste score, and
+    build_around_town only spans the near window, with a stable de-dupe key per row."""
+    marathon = {"title": "LA Marathon 2026", "venue": "Downtown", "lineup": []}
+    assert "civic" in BR.around_signals(marathon, TRACKED)
+    today = date(2026, 6, 20)
+    catalog = [
+        {"title": "LA Marathon 2026", "venue": "Downtown", "date": "2026-06-28", "lineup": []},
+        {"title": "Far Parade", "venue": "X", "date": "2026-09-01", "lineup": []},   # past window -> out
+        {"title": "Nothing Special", "venue": "A Bar", "date": "2026-06-25", "lineup": []},  # no signal
+    ]
+    rows = BR.build_around_town(catalog, {}, {}, today, days=14)
+    assert [r["title"] for r in rows] == ["LA Marathon 2026"]
+    assert rows[0]["key"]                                   # event_key present for slate de-dupe
+
+
 def test_build_radar_respects_cutoff_and_ranks():
     today = date(2026, 6, 20)
     catalog = [

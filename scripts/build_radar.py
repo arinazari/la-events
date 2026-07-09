@@ -25,8 +25,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.config import load_taste, load_profile  # noqa: E402
-from lib.scoring import score_event, parse_event_date  # noqa: E402
+from lib.scoring import score_event, parse_event_date, _scoring_cfg  # noqa: E402
+from lib.dedupe import normalize  # noqa: E402  (run-collapse key for around-town)
 from lib.pipeline import today_la  # noqa: E402
+from lib.enrich import event_key  # noqa: E402  (stable key for the around-town/slate de-dupe)
 from lib.affinity import tracked_hits, ambiguous_set  # noqa: E402  (lineup-first billed-name match)
 
 REPO = Path(__file__).resolve().parent.parent
@@ -39,8 +41,16 @@ BIG_VENUE = ("hollywood bowl", "kia forum", "the forum", "crypto.com arena", "bm
              "dodger stadium", "rose bowl", "banc of california", "frost amphitheater")
 FEST_TERMS = ("festival", "fest ", "fest)", "two-day", "three-day", "2-day", "3-day",
               "weekender", "block party")
+# Civic/seasonal one-offs (Track B4) — the "make the city feel alive" class: notable for the
+# city even when the taste score is ~0 (LA Marathon, a book festival, fireworks, a night
+# market). These feed the digest's Around-town section, which is deliberately NOT taste-ranked.
+# Kept tight to stay signal; grow it as real misses show up.
+CIVIC_TERMS = ("marathon", "book fair", "book festival", "county fair", "state fair", "parade",
+               "fireworks", "night market", "art walk", "open studios", "solstice", "equinox",
+               "grand prix", "air show", "street fair", "food festival", "lantern festival",
+               "car show", "county museum free")
 # Signal -> weight for the radar rank (editorial/festival/tracked beat the broad big-venue).
-SIGNAL_WEIGHT = {"editorial": 3, "festival": 2, "tracked": 2, "big-venue": 1}
+SIGNAL_WEIGHT = {"editorial": 3, "festival": 2, "tracked": 2, "civic": 2, "big-venue": 1}
 
 
 def radar_signals(ev: dict, tracked: list, ambiguous=frozenset()) -> list:
@@ -61,6 +71,17 @@ def radar_signals(ev: dict, tracked: list, ambiguous=frozenset()) -> list:
         out.append("tracked:" + ",".join(hits[:2]))
     if any(b in vlow for b in BIG_VENUE):
         out.append("big-venue")
+    return out
+
+
+def around_signals(ev: dict, tracked: list, ambiguous=frozenset()) -> list:
+    """Signals for the near-window Around-town set (Track B4): everything radar fires PLUS the
+    civic/seasonal class. An event qualifies regardless of its taste score — this is the
+    city-pulse ('stay apprised'), not the taste lanes."""
+    out = radar_signals(ev, tracked, ambiguous)
+    hay = json.dumps(ev, ensure_ascii=False).lower()
+    if any(t in hay for t in CIVIC_TERMS):
+        out.append("civic")
     return out
 
 
@@ -88,6 +109,50 @@ def build_radar(catalog: list, taste: dict, profile: dict, today, cutoff_days: i
                      if isinstance(l, dict) and l.get("url")), None)
         out.append({
             "id": ev.get("title"), "title": ev.get("title"), "venue": ev.get("venue"),
+            "neighborhood": ev.get("neighborhood"), "date": ev.get("date"),
+            "iso_date": d.isoformat(), "score": s, "signals": sig, "link": link,
+            "lineup": ev.get("lineup") or [], "category": ev.get("category"),
+        })
+    out.sort(key=lambda e: (-radar_rank(e["score"], e["signals"]), e["iso_date"]))
+    return out
+
+
+def build_around_town(catalog: list, taste: dict, profile: dict, today, days: int = 14) -> list:
+    """The near-window city-pulse set (Track B4): events in the next `days` days firing ≥1
+    around_signals signal, regardless of taste score. Feeds the digest's Around-town section
+    ('stay apprised' — LA Marathon, Kendrick at an arena, a night market), which the renderer
+    de-dupes against the taste slate (this section is what the taste lanes DIDN'T surface).
+    Rows carry a stable `key` (event_key) for that de-dupe. Three noise gates, each caught on
+    live output: far-flung events are out entirely (the city-pulse is LA — profile far_terms;
+    no festival waiver here, unlike scoring); film/comedy titles can't fire `civic` (the 1925
+    film 'The Big Parade' is not a parade); multi-date runs collapse to their earliest date."""
+    tracked = [a for a in (taste.get("artists_tracked") or []) if a]
+    amb = ambiguous_set(profile)
+    far = _scoring_cfg(profile, taste)["far"]
+    start, end = today.toordinal(), today.toordinal() + days
+    out, seen_runs = [], set()
+    for ev in sorted(catalog, key=lambda e: e.get("date") or "9999"):
+        d = parse_event_date(ev)
+        if d is None or not (start <= d.toordinal() < end):
+            continue
+        place = " ".join([ev.get("venue") or "", ev.get("neighborhood") or "",
+                          ev.get("title") or ""]).lower()
+        if any(f in place for f in far):
+            continue
+        sig = around_signals(ev, tracked, amb)
+        if (ev.get("category") or "").lower() in ("film", "comedy") and "civic" in sig:
+            sig.remove("civic")
+        if not sig:
+            continue
+        run = (normalize(ev.get("title") or ""), normalize(ev.get("venue") or ""))
+        if run in seen_runs:
+            continue
+        seen_runs.add(run)
+        s = score_event(ev, taste, profile)["score"]
+        link = next((l["url"] for l in (ev.get("links") or [])
+                     if isinstance(l, dict) and l.get("url")), None)
+        out.append({
+            "key": event_key(ev), "title": ev.get("title"), "venue": ev.get("venue"),
             "neighborhood": ev.get("neighborhood"), "date": ev.get("date"),
             "iso_date": d.isoformat(), "score": s, "signals": sig, "link": link,
             "lineup": ev.get("lineup") or [], "category": ev.get("category"),
@@ -124,6 +189,11 @@ def main() -> int:
     ap.add_argument("--profile", default="profile.yaml")
     ap.add_argument("--cutoff-days", type=int, default=35, help="radar = events at least this far out")
     ap.add_argument("--md", default=None, help="also write a reviewable markdown table here")
+    ap.add_argument("--around-days", type=int, default=14,
+                    help="also build the near-window Around-town (city-pulse) set spanning this "
+                         "many days (0 = skip)")
+    ap.add_argument("--around-out", default="data/around_town.json",
+                    help="Around-town set output (the consolidated renderer reads it)")
     args = ap.parse_args()
 
     def resolve(p):
@@ -142,7 +212,20 @@ def main() -> int:
     out_path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
     if args.md:
         _write_md(rows, resolve(args.md), today)
-    print(f"build_radar {today}: {len(rows)} radar candidates (>{args.cutoff_days}d) -> "
+
+    n_around = 0
+    if args.around_days > 0:
+        around = build_around_town(catalog, taste, profile, today, days=args.around_days)
+        n_around = len(around)
+        a_doc = {"generated_at": datetime.now().isoformat(timespec="seconds"),
+                 "today": today.isoformat(), "days": args.around_days,
+                 "count": n_around, "events": around}
+        a_path = resolve(args.around_out)
+        a_path.parent.mkdir(parents=True, exist_ok=True)
+        a_path.write_text(json.dumps(a_doc, indent=2, ensure_ascii=False) + "\n")
+
+    print(f"build_radar {today}: {len(rows)} radar candidates (>{args.cutoff_days}d)"
+          f"{f' + {n_around} around-town (<{args.around_days}d)' if args.around_days > 0 else ''} -> "
           f"{out_path.relative_to(REPO) if out_path.is_relative_to(REPO) else out_path}"
           f"{' + ' + args.md if args.md else ''}")
     return 0

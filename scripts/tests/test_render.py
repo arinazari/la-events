@@ -75,6 +75,60 @@ def test_collapse_multidate_runs():
     assert "Saturday" not in md                                    # placed once, earliest day
 
 
+def _dm_cands():
+    great = {"title": "Great9", "iso_date": "2026-06-20", "venue": "V1", "score": 9,
+             "category": "electronic", "links": [], "verdict": {"tier": "great", "why": "strong bill"}}
+    ms = {"title": "MustSee3", "iso_date": "2026-06-19", "venue": "V2", "score": 3,
+          "category": "electronic", "links": [],
+          "verdict": {"tier": "must-see", "why": "the one to build plans around"},
+          "enrichment": {"curator_note": "Rare LA date."}}
+    return [great, ms]
+
+
+def test_dont_miss_is_tier_primary_with_why_slots():
+    """Track B4: the shelf is the top slice of the full ranking — tier beats raw score — and
+    every item carries a prefilled why + a tier3 slot marker."""
+    out = R._dont_miss_md(_dm_cands(), limit=1)
+    md = "\n".join(out)
+    assert "## Don't miss" in md
+    assert "MustSee3" in md and "Great9" not in md      # must-see (score 3) beats great (score 9)
+    assert "Rare LA date." in md                        # curator note preferred as the why
+    assert "<!-- tier3:why" in md
+
+
+def test_around_md_excludes_slate_and_caps():
+    rows = [{"key": f"k{i}", "title": f"Civic{i}", "venue": "City", "iso_date": "2026-06-2" + str(i % 8),
+             "signals": ["civic"], "link": None} for i in range(15)]
+    out = R._around_md(rows, slate_keys={"k0"}, limit=12)
+    md = "\n".join(out)
+    assert "## Around town" in md and "not ranked to taste" in md
+    assert "Civic0" not in md                           # already in the slate -> excluded
+    assert md.count("- `") == 12                        # cap holds
+    assert R._around_md([], set()) == []                # empty -> section omitted entirely
+
+
+def test_consolidated_sections_follow_prefs_order():
+    """The renderer honors digest.yaml `sections` (Track B4): inclusion, order, and the intro
+    slot marker; day_by_day is never droppable."""
+    cands = _dm_cands()
+    doc = {"today": "2026-06-17", "meta": {}}
+    md = R.render_consolidated_md("2026-06-17", [("Next two weeks", cands)], [], doc,
+                                  dont_miss=R._dont_miss_md(cands),
+                                  around=R._around_md([{"key": "x", "title": "Marathon",
+                                                        "iso_date": "2026-06-21",
+                                                        "signals": ["civic"], "link": None,
+                                                        "venue": "DTLA"}], set()))
+    assert "<!-- tier3:intro -->" in md
+    assert md.index("## Don't miss") < md.index("## Next two weeks") \
+        < md.index("## Around town") < md.index("## On the radar")
+    # a prefs list that drops everything optional still renders the body
+    md2 = R.render_consolidated_md("2026-06-17", [("Next two weeks", cands)], [], doc,
+                                   dont_miss=R._dont_miss_md(cands), around=None,
+                                   order=["day_by_day"])
+    assert "## Don't miss" not in md2 and "## On the radar" not in md2
+    assert "## Next two weeks" in md2
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
