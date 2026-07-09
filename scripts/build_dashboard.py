@@ -140,7 +140,8 @@ def main() -> int:
     ap.add_argument("--editor-pool-out", default=None,
                     help="also emit this profile's editor judging pool here (for the event-editor pass)")
     ap.add_argument("--editor-window", type=int, default=28)
-    ap.add_argument("--editor-per-lane", type=int, default=4)
+    ap.add_argument("--editor-per-lane", type=int, default=0,
+                    help="0 (default) = judge every slate-lane event in the window (LLM-first)")
     ap.add_argument("--editor-floor", type=int, default=4)
     args = ap.parse_args()
 

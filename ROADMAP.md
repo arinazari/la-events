@@ -1,5 +1,19 @@
 # ROADMAP — la-events
 
+> **Course correction (2026-07-08)** — a ground-up audit + product re-think reset priorities;
+> where anything below conflicts, the newer docs win: `docs/AUDIT-2026-07-07-mission.md`,
+> `docs/AUDIT-2026-07-07-product.md`, `docs/PLAN-2026-07-08-reshape.md`, `docs/TRACK-B-SPEC.md`.
+> - **Track B — EXECUTING**: LLM-first ranking (the editor judges everything surfaceable;
+>   verdicts govern the enrichment head / blurb pool / dashboard rank; taste.yaml becomes the
+>   editor's brief, keyword weights demoted to coarse filter + tiebreak) plus the flagship
+>   digest's product layer (Don't-miss · Around-town city-pulse · the Tier-3 voice pass).
+> - **Track A — PENDING (next up)**: random capability tokens replace name-derived feed hashes,
+>   repo goes private, published coords rounded, mutual stars (which double as the first
+>   feedback-loop signal).
+> - **Track C — DROPPED**: la-dining, night-planner, and the broad concierge STAY — hot-restaurant
+>   radar, a good-restaurants list, and multi-event plans are wanted features, not scope creep.
+> - The factory pauses: no new fetchers/pipeline sophistication until Tracks B + A land.
+
 **What this is:** a private events + dining concierge for Ari and friends — *not* a venture.
 The bar is "investor-quality" only in the sense of **polish, depth of curation, and the
 "an insider made this for me" feeling**. Optimize for that, not for scale/moat/revenue.

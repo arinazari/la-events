@@ -165,7 +165,9 @@ def main() -> int:
                          "Blurbs are haiku + write-once, so covering the whole window costs cents one-time.")
     ap.add_argument("--editor-pool", default="data/editor_pool.json", help="editor judging-set output")
     ap.add_argument("--editor-window", type=int, default=28, help="days the editor pool spans")
-    ap.add_argument("--editor-per-lane", type=int, default=4, help="top-K per lane judged")
+    ap.add_argument("--editor-per-lane", type=int, default=0,
+                    help="0 (default) = judge EVERY slate-lane event in the window (LLM-first, "
+                         "Track B1); >0 = legacy top-K per lane per day")
     ap.add_argument("--editor-floor", type=int, default=4, help="also judge everything scoring >= this")
     args = ap.parse_args()
 

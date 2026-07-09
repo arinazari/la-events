@@ -80,27 +80,35 @@ def save_verdicts(cache: dict, path=None, profile_hash: str = None) -> None:
 
 # ── Selection: who to judge ───────────────────────────────────────────────────────────
 
-def editor_pool(scored: list, per_lane: int = 4, floor: int = 4,
+def editor_pool(scored: list, per_lane: int = 0, floor: int = 4,
                 skip_lanes=NON_SLATE_LANES) -> list:
-    """The set worth spending LLM judgment on — PER-LANE, not a flat score cutoff.
+    """The set worth spending LLM judgment on.
 
-    Union of (a) the top `per_lane` events of each lane *per day* and (b) everything scoring
-    >= `floor`. (a) guarantees every surfaceable lane's best gets judged even when its absolute
-    scores sit below the electronic flood (the "theater never clears a flat 4" problem); (b)
-    covers the high-absolute set. Non-slate lanes (skip_lanes) are excluded from (a) — they only
-    enter via the floor. De-duped by event_key; lane is the deterministic one (no verdicts yet)."""
+    `per_lane=0` (the default — LLM-first recall mode, Track B1): EVERY slate-lane event in the
+    window is judged, so the deterministic score never gates what the editor sees. Non-slate
+    lanes (skip_lanes — market stalls, workshops) still only enter via the `floor` score, so
+    junk lanes aren't judged wholesale. The verdict cache keeps this affordable: only the daily
+    delta actually costs calls.
+
+    `per_lane>0` (legacy shape, kept for cheap ad-hoc runs): union of (a) the top `per_lane`
+    events of each lane *per day* and (b) everything scoring >= `floor`. De-duped by event_key;
+    lane is the deterministic one (no verdicts yet)."""
     skip = set(skip_lanes)
-    groups = defaultdict(list)
-    for e in scored:
-        ln = event_lane(e)
-        if ln in skip:
-            continue
-        groups[(e.get("iso_date"), ln)].append(e)
-
     picked = {}
-    for evs in groups.values():
-        for e in sorted(evs, key=lambda e: -(e.get("score") or 0))[:per_lane]:
-            picked[event_key(e)] = e
+    if per_lane and per_lane > 0:
+        groups = defaultdict(list)
+        for e in scored:
+            ln = event_lane(e)
+            if ln in skip:
+                continue
+            groups[(e.get("iso_date"), ln)].append(e)
+        for evs in groups.values():
+            for e in sorted(evs, key=lambda e: -(e.get("score") or 0))[:per_lane]:
+                picked[event_key(e)] = e
+    else:
+        for e in scored:
+            if event_lane(e) not in skip:
+                picked[event_key(e)] = e
     for e in scored:
         if (e.get("score") or 0) >= floor:
             picked[event_key(e)] = e

@@ -46,6 +46,18 @@ def test_editor_pool_per_lane_includes_thin_lane_below_floor():
     assert ED.event_key(_ev("Other3", OTHER, 3)) not in keys  # non-slate lane, below floor -> skipped
 
 
+def test_editor_pool_default_judges_every_slate_lane_event():
+    """LLM-first recall mode (Track B1, the default): per_lane=0 means every slate-lane event
+    enters the pool regardless of score; non-slate lanes still need the floor."""
+    pool = [_ev("U7", CLUB_U, 7), _ev("U1", CLUB_U, 1), _ev("Stage0", STAGE, 0),
+            _ev("Other3", OTHER, 3), _ev("Other5", OTHER, 5)]
+    keys = {ED.event_key(e) for e in ED.editor_pool(pool)}
+    assert ED.event_key(_ev("U1", CLUB_U, 1)) in keys        # score-1 slate event: judged anyway
+    assert ED.event_key(_ev("Stage0", STAGE, 0)) in keys     # score-0 slate event: judged anyway
+    assert ED.event_key(_ev("Other3", OTHER, 3)) not in keys  # non-slate below floor: still out
+    assert ED.event_key(_ev("Other5", OTHER, 5)) in keys      # non-slate via floor: in
+
+
 def test_select_for_verdict_finds_misses_and_carries_id():
     ev = _ev("Afters", CLUB_U, 5)
     cache = {"verdicts": {}}
