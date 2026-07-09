@@ -40,7 +40,7 @@ from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: 
 from lib.feedback import merged_affinity  # noqa: E402
 from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
 from lib import editor as ED  # noqa: E402
-from lib.assemble import rank_score, event_lane  # noqa: E402
+from lib.assemble import rank_key, event_lane  # noqa: E402
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
@@ -242,14 +242,15 @@ def main() -> int:
 
         events.append(out)
 
-    # Final rank — each UPCOMING event's position by rank_score (score + adjust + bounded tier
-    # bonus), 1 = best. Additive (not tier-primary) so judged and unjudged events compare sensibly:
-    # a must-see lifts hard but an unjudged score-12 still beats a judged score-4 must-see. Unjudged
-    # events fall in by raw score, so every upcoming row carries both numbers; the dashboard shows
-    # final_rank beside the deterministic score and sorts by either. Past events stay unranked.
+    # Final rank — each UPCOMING event's position by the two-zone rank_key (Track B2, LLM-first):
+    # judged non-skip events tier-primary (the editor's call IS the ranking; score orders within a
+    # tier), then the unjudged tail (far-out / junk lanes) by raw score, judged skips last. The
+    # near window is fully judged (B1), so the default view leads with the LLM's ranking and the
+    # far tail sorts below it (date filters cover plan-ahead). The dashboard shows final_rank
+    # beside the deterministic score and sorts by either. Past events stay unranked.
     upcoming = [e for e in events if not e["is_past"]]
     for rank, e in enumerate(
-            sorted(upcoming, key=lambda e: (rank_score(e, verdicts), event_key(e)), reverse=True), 1):
+            sorted(upcoming, key=lambda e: (rank_key(e, verdicts), event_key(e)), reverse=True), 1):
         e["final_rank"] = rank
 
     # Sort: upcoming first by date, then by rating desc within a date.

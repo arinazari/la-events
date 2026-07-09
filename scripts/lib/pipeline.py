@@ -440,9 +440,18 @@ def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=N
 
 
 def select_candidates(catalog, taste, profile, today=None, window_days=None,
-                      top_n=40, affinity=None) -> list:
+                      top_n=40, affinity=None, verdicts=None) -> list:
     """The enrichment candidate set: upcoming events, best-first, top N.
 
     `affinity` (optional) layers the Spotify + feedback music profile into the scoring.
+    `verdicts` (optional, Track B2 — the on-disk event-editor cache as a key->verdict map):
+    orders the head by assemble.rank_score (score + adjust + bounded tier bonus), so the
+    editor's judgment, not the raw keyword score, decides what gets the full enrichment
+    treatment. Unjudged (brand-new) events compete on raw score — they're judged the same
+    run and slot correctly the next.
     """
-    return score_pool(catalog, taste, profile, today, window_days, affinity)[:top_n]
+    pool = score_pool(catalog, taste, profile, today, window_days, affinity)
+    if verdicts:
+        from .assemble import rank_score
+        pool = sorted(pool, key=lambda e: (-rank_score(e, verdicts), event_key(e)))
+    return pool[:top_n]

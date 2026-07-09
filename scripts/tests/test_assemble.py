@@ -54,6 +54,22 @@ def test_rank_score_additive():
     assert A.rank_score(_ev("sk", UG, 8), {A.event_key(_ev("sk", UG, 8)): {"tier": "skip"}}) == 2
 
 
+def test_rank_key_two_zone():
+    """Dashboard ordering (Track B2): judged non-skip beats ANY unjudged (tier-primary);
+    unjudged sorts by raw score in the middle; judged skips sink below everything."""
+    solid2 = _ev("solid2", UG, 2)
+    skip8 = _ev("skip8", UG, 8)
+    v = {A.event_key(solid2): {"tier": "solid"},
+         A.event_key(skip8): {"tier": "skip"}}
+    unjudged12 = _ev("n12", UG, 12)
+    # judged solid score-2 > unjudged score-12 > judged skip score-8
+    assert A.rank_key(solid2, v) > A.rank_key(unjudged12, v) > A.rank_key(skip8, v)
+    # within the judged zone, tier is primary: a score-3 must-see beats a score-9 great
+    ms3, gr9 = _ev("ms3", UG, 3), _ev("gr9", UG, 9)
+    v2 = {A.event_key(ms3): {"tier": "must-see"}, A.event_key(gr9): {"tier": "great"}}
+    assert A.rank_key(ms3, v2) > A.rank_key(gr9, v2)
+
+
 def test_slate_elastic_no_lane_cap():
     """A stacked-afters night takes many afters — no firm per-lane number."""
     day = [_ev(f"a{i}", AFTERS, 6) for i in range(8)]

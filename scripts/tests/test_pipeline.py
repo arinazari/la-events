@@ -127,6 +127,22 @@ def test_select_candidates_respects_top_n():
     assert len(cand) == 3
 
 
+def test_select_candidates_verdicts_order_the_head():
+    """Track B2: with the verdict cache supplied, the editor's tier lifts an event into the
+    head over a higher-raw-score unjudged one (rank_score = score + adjust + tier bonus)."""
+    cat = [
+        {"title": "kw", "category": "electronic", "venue": "A", "date": "2026-06-20"},   # raw +3
+        {"title": "ms", "category": "theater", "venue": "B", "date": "2026-06-20"},      # raw +2
+    ]
+    ms_key = P.event_key({"title": "ms", "venue": "B", "date": "2026-06-20"})
+    verdicts = {ms_key: {"tier": "must-see", "adjust": 0}}
+    cand = P.select_candidates(cat, {}, {}, today=TODAY, top_n=1, verdicts=verdicts)
+    assert [c["title"] for c in cand] == ["ms"]       # 2+6 beats unjudged 3
+    # without verdicts, raw score still decides
+    cand = P.select_candidates(cat, {}, {}, today=TODAY, top_n=1)
+    assert [c["title"] for c in cand] == ["kw"]
+
+
 def test_clean_detail_strips_html_and_boilerplate():
     raw = "<p>An all-vinyl rooftop party with <b>Antal</b>.</p>\nBuy tickets now!\n21+"
     assert P.clean_detail(raw) == "An all-vinyl rooftop party with Antal."

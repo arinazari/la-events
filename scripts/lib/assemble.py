@@ -124,10 +124,30 @@ RANK_TIER_BONUS = {"must-see": 6, "great": 3, "solid": 1, None: 0, "skip": -6}
 
 
 def rank_score(ev: dict, verdicts: dict):
-    """Scalar for the dashboard's final_rank: score + adjust + a bounded tier bonus, so a must-see
-    is strongly lifted but an unjudged score-12 still outranks a judged score-4 must-see (10)."""
+    """Scalar blend: score + adjust + a bounded tier bonus, so a must-see is strongly lifted but
+    an unjudged score-12 still outranks a judged score-4 must-see (10). Used where judged and
+    brand-new/unjudged events must compete fairly — the enrichment-head selection (Track B2)."""
     v = verdicts.get(event_key(ev)) or {}
     return (ev.get("score") or 0) + (v.get("adjust") or 0) + RANK_TIER_BONUS.get(v.get("tier"), 0)
+
+
+def rank_key(ev: dict, verdicts: dict):
+    """Two-zone ordering for the dashboard's final_rank (Track B2, LLM-first): judged non-skip
+    events sort TIER-PRIMARY (the editor's call is the ranking; score+adjust orders within a
+    tier), the unjudged tail (far-out / junk-lane / judged-any-second-now) sorts below them by
+    raw score, and judged skips sink to the very bottom. Descending sort — higher tuple wins.
+
+    Rationale vs rank_score's blend: the near window is fully judged (Track B1), so on the
+    global list "judged" ≈ "near + surfaceable" and the far unjudged tail *should* rank below
+    it in a default view (date filters cover plan-ahead)."""
+    v = verdicts.get(event_key(ev)) or {}
+    tier = v.get("tier")
+    eff = (ev.get("score") or 0) + (v.get("adjust") or 0)
+    if tier == "skip":
+        return (0, 0, eff)
+    if tier:
+        return (2, _TIER_RANK.get(tier, 0), eff)
+    return (1, 0, ev.get("score") or 0)
 
 
 def slate_fill(day_evs: list, per_day: int, slate: dict, verdicts: dict,

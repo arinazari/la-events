@@ -227,9 +227,13 @@ def main() -> int:
     cat_meta = CM.write_meta(meta_path, catalog, delta, stale)
 
     affinity = load_affinity_layer(args.no_fetch, report, profile)
+    # Track B2: the enrichment head is ordered by the editor's cached judgment (rank_score =
+    # score + adjust + bounded tier bonus), not raw keyword score. Brand-new events fall back
+    # to raw score for this one run (they're judged below, and slot correctly next run).
+    verdict_map = ED.verdict_map(ED.load_verdicts())
     candidates = P.select_candidates(catalog, taste, profile, today,
                                      window_days=args.window, top_n=args.top,
-                                     affinity=affinity)
+                                     affinity=affinity, verdicts=verdict_map)
     cand_doc = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "today": today.isoformat(),
