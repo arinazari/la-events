@@ -2,22 +2,22 @@
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Fri 7/10 · no new or changed events since the last pull*
 
-A quiet week that peaks hard this weekend. Saturday's the real night to build around — Louie Vega and DJ Sneak trading sets in an unmarked Arts District warehouse, Red Axes going all-night at Club Tularosa, and Ray Keith proving jungle still has teeth, all stacked into one 24-hour window. Everything else is filler by comparison, so don't spread yourself thin on the smaller Friday/Sunday stuff — save the energy for Saturday.
+<!-- tier3:intro -->
 
 ## Don't miss
 
 - `Fri 7/10` **[Hollywood 90028](https://ticketing.uswest.veezi.com/purchase/3815?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz  
-  Midnight slots at the Vista are almost always a cult curio, not a mainstream title — worth a quick look before you commit to a near-1am end time.
+  A midnight slot at the Vista almost always means a cult curio rather than a mainstream title — worth checking what this actually is before committing to a near-1am end time. <!-- tier3:why f198ba14b87d -->
 - `Sat 7/11` **[Certified Groovers x SNEAK'S BEATS: Louie Vega, Karizma, DJ Sneak, Heidi Lawden, Juliet Mendoza](https://ra.co/events/2402790)** — TBA - 2346 Porter Street, Los Angeles, CA 90021, Los Angeles  
-  Louie Vega and DJ Sneak on the same bill is a house-history flex — Masters at Work meets Chicago jack, all day into midnight in an unmarked Arts District space.
+  Louie Vega and DJ Sneak on the same bill is a house-history flex — Masters at Work meets Chicago jack, all day into midnight in an unmarked Arts District space. <!-- tier3:why 5e5d34fd0b97 -->
 - `Sat 7/11` **[Red Axes, Club Tularosa](https://ra.co/events/2485178)** — TBA - Downtown Los Angeles, DTLA  
-  Red Axes' psych-disco digging plus Club Tularosa's Italo/post-punk sensibility is a genuinely good pairing — TBA location just means it'll run all night.
+  Red Axes' psych-disco digging is exactly the eclectic groove energy this lane wants, and Club Tularosa's Italo/post-punk sensibility is a genuinely good local pairing — TBA location just means it'll run all night. <!-- tier3:why 60a008b8520d -->
 - `Sat 7/11` **[I LOVE DNB: Jumpin' Jack Frost + Ray Keith](https://ra.co/events/2441821)** — TBA, Los Angeles  
-  Two actual jungle originators — Ray Keith's "Terrorist" basically wrote the genre's rulebook — for a proper old-school 10pm-4am rave, not the mainstream bass-music version of this sound.
+  Two actual jungle originators — Ray Keith's 'Terrorist' basically wrote the genre's rulebook — for a proper old-school 10pm-4am rave, not the mainstream bass-music version of this sound. <!-- tier3:why 418eae054202 -->
 - `Sun 7/12` **[Factory 93 presents: Beltran Open to Close at Naud St](https://ra.co/events/2399254)** — 1756 Naud St., Chinatown  
-  The added second date, and the better ticket than the night before — open-to-close means Beltran builds the whole arc himself instead of a support-slot warm-up.
+  This is the added second date and it's the better ticket than the night before — open-to-close means Beltran builds the whole arc himself instead of a support-slot warm-up, and that's the format this taste rewards. <!-- tier3:why 3f495ac3b11f -->
 - `Sat 8/1` **[HARD Summer Music Festival](https://on.fgtix.com/trk/5oHm)** — Hollywood Park Grounds, Inglewood  
-  A maximalist, 68-name-deep bill — Charlotte de Witte, VTSS and Amelie Lens give the techno stage real weight, but most of the day is festival-scale bass/electro/hyperpop outside the lane. Go for a handful of sets, not the whole grounds.
+  This is the maximalist, 68-name-deep HARD Summer bill — Charlotte de Witte, VTSS and Amelie Lens give the techno stage real weight, but the day is mostly festival-scale bass/electro/hyperpop stuff outside the lane. Go for a handful of sets, not the whole grounds. <!-- tier3:why 4dd13aaa260f -->
 
 ## Next two weeks
 
@@ -446,18 +446,18 @@ A quiet week that peaks hard this weekend. Saturday's the real night to build ar
 ## Around town
 
 *Notable around the city — not ranked to taste; here so you stay apprised.*
-- `Fri 7/10` **[LADY BUNNY: BUNNY BUTCHERS BROADWAY (Drag Icon, Comedienne)](https://www.ticketmaster.com/lady-bunny-bunny-butchers-broadway-drag-los-angeles-california-07-10-2026/event/090064C4FBD471D6)** — The Renberg Theatre · Hollywood  ·  *editorial*
-- `Fri 7/10` **[RE-MOLD. NIGHT MARKET | The Mold.](https://posh.vip/e/remold-night-market-the-mold)** — The Mold.  ·  *civic*
-- `Sat 7/11` **Central Library Centennial Festival** — LA Central Library · La Central Library  ·  *editorial, festival* — 100 years of the Goodhue building, free and family-friendly if you want a daytime detour.
-- `Sat 7/11` **[JOJI: SOLARIS](https://www.ticketmaster.com/joji-solaris-inglewood-california-07-11-2026/event/09006458B8A6B315)** — Intuit Dome · Inglewood  ·  *editorial, big-venue*
-- `Sat 7/11` **[Los Angeles Philharmonic](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue*
-- `Sat 7/11` **[Block Fest Vol V w/Distant Matter, Moonlght, Sam Silver, Marzi, Wenzl, Nash Rly, Plexusplay, KNWN, Waxthieves, Little Dinosaur, Sauaro, KMNI, Dr Chaii, No Relation, Emily Apollo, HBB, Boulevant](https://posh.vip/e/santa-monica-block-fest-vol-v-free-music-festival)** — ALL THREE BLOCKS OF THIRD STREET PROMENADE  ·  *festival, civic*
-- `Sat 7/11` **[Community Food Festival At Church Of The Foothills](https://posh.vip/e/community-food-festival-at-church-of-the-foothills)** — Church of the Foothills UMC Duarte  ·  *festival, civic*
-- `Sat 7/11` **[Lost in Dreams Los Angeles](https://on.fgtix.com/trk/aALP)** — Los Angeles State Historic Park · Chinatown  ·  *editorial*
-- `Sat 7/11` **[WOLFMOTHER - 20th Anniversary Tour](https://ra.co/events/2357351)** — The Wiltern · Koreatown  ·  *editorial*
-- `Sat 7/11` **[Lenny Kaye, Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Zebulon · Frogtown  ·  *editorial*
-- `Sat 7/11` **[Flying Lotus](https://www.ticketweb.com/event/flying-lotus-with-live-band-blue-note-los-angeles-tickets/14908773)** — Blue Note (Los Angeles) future beats, glitch-hop, hip-hop · Hollywood  ·  *editorial* — a Brainfeeder-tier headliner in an unusually intimate room; worth it even outside the club-groove lane.
-- `Sat 7/11` **[SANTA MONICA BLOCK FEST VOL V OFFICIAL AFTERS](https://posh.vip/e/santa-monica-block-fest-vol-v-official-afters)** — 1212 SANTA MONICA · Santa Monica  ·  *festival*
+- `Fri 7/10` **[LADY BUNNY: BUNNY BUTCHERS BROADWAY (Drag Icon, Comedienne)](https://www.ticketmaster.com/lady-bunny-bunny-butchers-broadway-drag-los-angeles-california-07-10-2026/event/090064C4FBD471D6)** — The Renberg Theatre · Hollywood  ·  *editorial* <!-- tier3:gloss cfe0cdae18c8 -->
+- `Fri 7/10` **[RE-MOLD. NIGHT MARKET | The Mold.](https://posh.vip/e/remold-night-market-the-mold)** — The Mold.  ·  *civic* <!-- tier3:gloss e1ea9d9dadc8 -->
+- `Sat 7/11` **Central Library Centennial Festival** — LA Central Library · La Central Library  ·  *editorial, festival* <!-- tier3:gloss 9dc58a16b59a -->
+- `Sat 7/11` **[JOJI: SOLARIS](https://www.ticketmaster.com/joji-solaris-inglewood-california-07-11-2026/event/09006458B8A6B315)** — Intuit Dome · Inglewood  ·  *editorial, big-venue* <!-- tier3:gloss e35cdf56a667 -->
+- `Sat 7/11` **[Los Angeles Philharmonic](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue* <!-- tier3:gloss 443a0b395c57 -->
+- `Sat 7/11` **[Block Fest Vol V w/Distant Matter, Moonlght, Sam Silver, Marzi, Wenzl, Nash Rly, Plexusplay, KNWN, Waxthieves, Little Dinosaur, Sauaro, KMNI, Dr Chaii, No Relation, Emily Apollo, HBB, Boulevant](https://posh.vip/e/santa-monica-block-fest-vol-v-free-music-festival)** — ALL THREE BLOCKS OF THIRD STREET PROMENADE  ·  *festival, civic* <!-- tier3:gloss f9f12816f13f -->
+- `Sat 7/11` **[Community Food Festival At Church Of The Foothills](https://posh.vip/e/community-food-festival-at-church-of-the-foothills)** — Church of the Foothills UMC Duarte  ·  *festival, civic* <!-- tier3:gloss ec3ae31574b0 -->
+- `Sat 7/11` **[Lost in Dreams Los Angeles](https://on.fgtix.com/trk/aALP)** — Los Angeles State Historic Park · Chinatown  ·  *editorial* <!-- tier3:gloss 5b8636a94da3 -->
+- `Sat 7/11` **[WOLFMOTHER - 20th Anniversary Tour](https://ra.co/events/2357351)** — The Wiltern · Koreatown  ·  *editorial* <!-- tier3:gloss 0cf0d897487f -->
+- `Sat 7/11` **[Lenny Kaye, Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Zebulon · Frogtown  ·  *editorial* <!-- tier3:gloss ba821699654f -->
+- `Sat 7/11` **[Flying Lotus](https://www.ticketweb.com/event/flying-lotus-with-live-band-blue-note-los-angeles-tickets/14908773)** — Blue Note (Los Angeles) future beats, glitch-hop, hip-hop · Hollywood  ·  *editorial* <!-- tier3:gloss 276ea975b835 -->
+- `Sat 7/11` **[SANTA MONICA BLOCK FEST VOL V OFFICIAL AFTERS](https://posh.vip/e/santa-monica-block-fest-vol-v-official-afters)** — 1212 SANTA MONICA · Santa Monica  ·  *festival* <!-- tier3:gloss ba60cdf2da7a -->
 
 ## On the radar
 
