@@ -3671,12 +3671,11 @@
     "cfe0cdae18c8": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Drag comedy/variety show — comedy is a hard pass outside the comedians_loved list, and Lady Bunny isn't on it.",
+      "why": "Drag comedy at a black-box theater, no name from the comedians_loved list attached — outside the lane he actually wants comedy in.",
       "confidence": "high",
-      "judged_at": "2026-07-09T12:28:27",
+      "judged_at": "2026-07-10T12:37:59",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 4
     },
     "094ea1af8153": {
       "tier": "skip",
@@ -6048,15 +6047,14 @@
       "model": "claude-sonnet-5"
     },
     "e35cdf56a667": {
-      "tier": "great",
-      "lane": "other",
-      "adjust": 2,
-      "why": "Joji at an arena is a real headliner night, not a random club show the 'other' lane suggests — Nate Sib's a light Spotify touch but Joji himself is the draw.",
+      "tier": "solid",
+      "lane": "live-music",
+      "adjust": 0,
+      "why": "Joji's a legitimate arena-scale draw (Glimpse of Us era), just entirely off the house/techno lane — good to know about, not a pick to build a night around.",
       "confidence": "high",
-      "judged_at": "2026-07-01T03:19:17",
+      "judged_at": "2026-07-10T12:37:59",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 5
     },
     "6b5cd25349e1": {
       "tier": "skip",
@@ -6089,14 +6087,14 @@
       "model": "claude-sonnet-5"
     },
     "443a0b395c57": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "LA Phil at a venue you love — reliably worth a Friday even without a marquee soloist listed.",
+      "tier": "solid",
+      "lane": "live-music",
+      "adjust": 0,
+      "why": "Hollywood Bowl is a loved venue, but a standard LA Phil subscription program isn't the kind of big-name pull that category usually means for him.",
       "confidence": "high",
-      "judged_at": "2026-07-01T03:19:17",
+      "judged_at": "2026-07-10T12:37:59",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 5
     },
     "7085f71317a2": {
       "tier": "solid",
@@ -6139,14 +6137,13 @@
       "model": "claude-sonnet-5"
     },
     "9af7289bc2e8": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "Lenny Kaye — Patti Smith Group guitarist and the guy who compiled Nuggets, the record that basically invented garage-punk canon — in an intimate Frogtown room is a rare one, not a random 'medium inter",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Lenny Kaye co-wrote the Patti Smith songbook and compiled Nuggets — legit rock-history draw at a room (Zebulon) built for exactly this.",
       "confidence": "high",
-      "judged_at": "2026-07-01T03:19:17",
+      "judged_at": "2026-07-10T12:37:59",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 5
     },
     "2d612907e7fc": {
       "tier": "skip",
@@ -14589,6 +14586,70 @@
       "judged_at": "2026-07-10T12:34:52",
       "input_version": 2,
       "score_at_judge": 4
+    },
+    "a879ee252c53": {
+      "tier": "solid",
+      "lane": "club:mainstream",
+      "adjust": 0,
+      "why": "Audien's a real touring trance/prog-house name, but this is a 10pm-2am prime-time set, not an afters — and Avalon's bottle-service room isn't the deep-groove draw.",
+      "confidence": "high",
+      "judged_at": "2026-07-10T12:37:59",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "d77f78c89235": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Dark Knight under the stars is date-night lifestyle programming, not the rep-house cinema he actually chases, but rooftop setting and the short drive keep it in play.",
+      "confidence": "high",
+      "judged_at": "2026-07-10T12:37:59",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "eb43e36a382c": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Pulp Fiction at Hollywood Forever is the Cinespia institution, not a random rooftop screening — a real LA-summer staple worth the bump.",
+      "confidence": "high",
+      "judged_at": "2026-07-10T12:37:59",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "35e265ff4e6b": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Venice West's weekly Grateful Dead-cover brunch series — the nostalgia jam-band format the taste brief explicitly flags to bury.",
+      "confidence": "med",
+      "judged_at": "2026-07-10T12:37:59",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "b30012c513af": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Same Dead-cover brunch series, different week's backing band — still a cover-format Sunday, not a pick.",
+      "confidence": "med",
+      "judged_at": "2026-07-10T12:37:59",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "a8a39ddefeb2": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Marcel Camargo and crew are real working LA jazz players at a respected small room — worth a nod even though no boost fired for it.",
+      "confidence": "med",
+      "judged_at": "2026-07-10T12:37:59",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "22fd020ad916": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Stevie Nicks dinner-theater tribute act, already sold out — the exact cover-band nostalgia format to bury.",
+      "confidence": "high",
+      "judged_at": "2026-07-10T12:37:59",
+      "input_version": 2,
+      "score_at_judge": 1
     }
   }
 }
