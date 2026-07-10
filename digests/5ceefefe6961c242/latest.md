@@ -1,94 +1,33 @@
-# Alexa's LA Digest — 2026-07-09
-*Digest regenerated Thu 7/9 — picks updated.*
+# Alexa's LA Digest
 
-Straight talk first: `profiles/alexa/taste.yaml` is still the empty starter — no loved
-artists, venues, or genres set — so nothing below is actually dialed to your taste yet.
-The feed is running on system baseline math, which happens to weight electronic/party
-nightlife highest and throws in a "close to Silver Lake" bonus that's really Ari's
-neighborhood, not yours. Rather than hand you fifty interchangeable TBA-DTLA afters
-parties just because they scored well, I pulled the ones that are actually *something* —
-real venue, known artist, or a distinct format — across the next three weekends (through
-7/26). Fill in a few likes with the concierge and the next one of these will be sharper.
+*Digest regenerated Fri 7/10 — picks updated.*
 
-## Weekend of 7/10
+Heads up on how this one's built: your `taste.yaml` is still an empty starter — no loved categories, artists, venues, or comedians set yet — so nothing in the pool is actually scored *for you*. Left alone, that default scoring tilts hard toward DTLA warehouse/afterhours techno (it gets a flat bonus for being late-night and "close to home" regardless of who's playing), which would make for a pretty repetitive, TBA-location-heavy digest. Instead of dumping that raw list, here's an editorial cut of the most notable, well-known, or genuinely distinctive things across genres for the next three weekends. Fill in a few likes with the concierge (or edit `profiles/alexa/taste.yaml` directly) and the next one of these will be shorter and much more yours.
 
-**Fri 7/10 — [Township Rebellion, Trou, DENYC](https://ra.co/events/2474681)** — 1720,
-Arts District · 10pm–3am · $21 presale
-Township Rebellion is a real touring name — a Berlin/Cologne melodic-techno duo (Stil vor
-Talent, Suara) who broke wider off a 2019 Burning Man set that connected them to RÜFÜS Du
-Sol's camp. Emotional, building techno rather than a warehouse hammer, at an actual
-address. (If you want something rawer: [Cirra's Day Thief / Faited / sosoftly
-bill](https://ra.co/events/2472986) pulls two DJs out of the SF/Oakland queer-underground
-soundsystem scene — different flavor, TBA location.)
+## This weekend — Fri 7/10 to Sun 7/12
 
-**Sat 7/11 — [Wolfmother — 20th Anniversary Tour](https://www.ticketmaster.com/wolfmother-20th-anniversary-tour-los-angeles-california-07-11-2026/event/0900635EE7FB98A3)** —
-The Wiltern, Koreatown · 7pm
-Not in the club lane at all, and that's the point — a real ticketed show in a real room,
-playing their 2005 debut front-to-back with Love Gang opening. A loud rock palate-cleanser
-if you're not doing another warehouse night three days running. (Tech-house alternative:
-[Factory93 presents Beltran](https://factory93.frontgatetickets.com/event/v0yo23xuhbz26430),
-the Naud St industrial room in Chinatown, $113–273 — pricey, but Beltran's a real
-FISHER/Michael Bibi-cosigned name and this date already sold out once.)
+- **[Babyface Ray & 42 Dugg — 4 the Trenches Tour](https://www.ticketmaster.com/babyface-ray-and-42-dugg-4-los-angeles-california-07-10-2026/event/0900648DDD3FA21A)** — Fri 7/10, The Belasco, DTLA, 8pm. Detroit hip-hop headliners, a proper touring bill in a mid-size room.
+- **[Brit Floyd: The Moon, The Wall and Beyond](https://www.ticketmaster.com/brit-floyd-the-moon-the-wall-los-angeles-california-07-10-2026/event/0900643799EFBC9E)** — Fri 7/10, Greek Theatre, Los Feliz, 8pm. Full-production Pink Floyd tribute in one of LA's best outdoor rooms — a big-spectacle rock night.
+- **[Lenny Kaye, Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Sat 7/11, Zebulon, Frogtown, 7pm. Kaye is Patti Smith's longtime guitarist and the guy who compiled *Nuggets* — real garage-rock lineage, not a revival act.
+- **[Wolfmother — 20th Anniversary Tour](https://ra.co/events/2357351)** — Sat 7/11, The Wiltern, Koreatown, 7pm. Riff-heavy 2000s arena-rock nostalgia in a proper theater.
+- **[Los Angeles Philharmonic](https://www.hollywoodbowl.com/events/performances/)** — Sat 7/11, Hollywood Bowl, 8pm. The reliable "bring a blanket and wine" outdoor-classical option, if that's ever the mood.
+- **["The Dark Knight" Rooftop Screening](https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend)** — Sun 7/12, Rooftop Cinema Club DTLA, 8:35pm. Skyline backdrop, easy Sunday-night hang.
+- Worth knowing about even without a real read on it: **Lost in Dreams**, an Insomniac dubstep/bass-music festival, takes over LA State Historic Park Sat–Sun 7/11–12 and technically out-scores everything above. Not calling it a "pick" here — it's mainstage EDM, generic unless that's specifically your lane.
 
-**Sun 7/12 — [Factory93 presents Beltran, Open to Close](https://factory93.frontgatetickets.com/event/bfhobjn83i31misf)** —
-1756 Naud St, Chinatown · 5pm · $66 presale
-The better ticket than Saturday's version of the same booking: open-to-close means Beltran
-builds the whole night solo instead of a support-slot warm-up, and it's less than a third
-of the Saturday price for the same artist.
+## Weekend after — Fri 7/17 to Sun 7/19
 
-## Weekend of 7/17
+- **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3745?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Fri 7/17 (playing nightly all week), Vista Theater, Los Feliz, 10:30pm. Big-format repertory screening at LA's best-restored single-screen house.
+- **[Futurebirds — Far Out Country Tour](https://www.ticketmaster.com/futurebirds-far-out-country-tour-los-angeles-california-07-17-2026/event/0900645BCC4C1CCC)** — Fri 7/17, Teragram Ballroom, Westlake, 7pm. Georgia alt-country/roots-rock, all ages.
+- **[Beats Antique](https://www.ticketmaster.com/beats-antique-los-angeles-california-07-17-2026/event/09006458DC2EF35E)** — Fri 7/17, Pacific Electric, DTLA, 8pm. Middle Eastern/Balkan-sourced world-fusion with a live band — more texture than a standard DJ booking.
+- **[Markus Schulz (Open to Close)](https://www.tixr.com/groups/avalonhollywood/events/markus-schulz-open-to-close--187783)** — Sat 7/18, Avalon Hollywood, 9pm. Trance's real deal — Coldharbour Recordings founder, long a top-10 DJ Mag name — playing a full open-to-close set.
+- **[Sam Barber w/ John Vincent III](https://www.ticketmaster.com)** — Sat 7/18, Greek Theatre, Los Feliz, 7pm. Country's current breakout name, outdoors at the Greek.
 
-**Fri 7/17 — [Markus Schulz, Open to Close](https://www.tixr.com/groups/avalonhollywood/events/markus-schulz-open-to-close--187783)** —
-Avalon Hollywood · 10pm–2am · $35 presale
-A legitimate trance veteran (Coldharbour Recordings founder, long a top-10 DJ Mag name)
-playing a full open-to-close set at a real club. Off the house/techno path everything else
-here runs on, but a genuine name if trance is even adjacent to your thing. (For a bigger
-name with less certainty: [Lights Down Low feat. Mura
-Masa](https://ra.co/events/2452948) — Grammy-nominated producer, but it's a DJ set at a
-still-TBA location, not his own material.)
+## Weekend after that — Thu 7/23 to Sun 7/26 (busiest stretch)
 
-**Sat 7/18 — [KCRW Summer Nights w/ Manuela: Olive Kimoto and Jason Bentley](https://www.kcrw.com/events/kcrw-summer-nights-with-maneula-at-hauser-and-wirth)** —
-Hauser & Wirth, DTLA · 6pm–6am
-The one non-warehouse setting on the whole list — KCRW's summer series in the gallery's
-courtyard, with Jason Bentley (the station's longtime music-world tastemaker) on the
-bill. Worth checking KCRW's own page for access/RSVP details before planning around it.
-(If you want an actual all-vinyl listening-bar night instead: [Information w/ Taylor
-Shockley, Luke Mele, CHOíCE](https://ra.co/events/2456585) — Luke Mele's NTS show runs
-Balearic/dub/ambient, a genuinely different register than peak-time club sets, but TBA
-location.)
+- **[Suki Waterhouse](https://www.ticketmaster.com/event/Z7r9jZ1A7Pe_N)** — Thu 7/23, Hollywood Forever Cemetery, 7:30pm. Confessional craft-pop in one of LA's best outdoor settings.
+- **[Widespread Panic](https://www.ticketmaster.com/widespread-panic-los-angeles-california-07-24-2026/event/0900646CA6AD9272)** — Fri 7/24 & [Sat 7/25](https://www.ticketmaster.com/widespread-panic-los-angeles-california-07-25-2026/event/0900646CA6B0927E), Orpheum Theatre, DTLA, 8pm. Two-night stand from the veteran jam band — real improvisation in a grand old theater.
+- **[Smokey Robinson w/ Gladys Knight](https://www.hollywoodbowl.com/events/performances/)** — Fri 7/24 & Sat 7/25, Hollywood Bowl, 8pm. A legit Motown double bill — as marquee as it gets that week.
+- **[KCRW Presents: Emperor X w/ clovers daughter](https://www.ticketmaster.com/kcrw-presents-emperor-x-los-angeles-california-07-25-2026/event/0900648FBB408D7A)** — Sat 7/25, The Echo, Echo Park, 7pm. Lo-fi indie-folk carrying the KCRW editorial stamp.
+- **[Bass Drum of Death, MEMO PST](https://dice.fm/event/xea8qk-bass-drum-of-death-memo-pst-25th-jul-zebulon-los-angeles-tickets)** — Sat 7/25, Zebulon, Frogtown, 7:30pm. Fuzzed-out garage rock if you want something scruffier than the Bowl/Orpheum crowd.
 
-**Sun 7/19 — [The Emperor's New Groove](https://vidiotsfoundation.org/showtimes/the-emperors-new-groove-7-19-26-100-pm/)** —
-Vidiots, Eagle Rock · 1pm
-Counter-programming for a weekend that's otherwise wall-to-wall club nights — a matinee
-rep screening if Sunday calls for sitting down instead of standing up.
-
-## Weekend of 7/24
-
-**Fri 7/24 — [Stranger Than presents Stavroz (Live)](https://ra.co/events/2437239)** —
-The Bridge, DTLA · 10pm
-A live band, not a DJ set — a Belgian four-piece doing cinematic, organic electronic in
-the Bonobo/RÜFÜS Du Sol vein, Coachella and Pukkelpop credits, 500k+ monthly Spotify
-listeners. Warmer and more "feel it" than the usual warehouse chase.
-
-**Sat 7/25 — [CSW — Nick León \[All Night\]](https://ra.co/events/2475085)** — TBA,
-Downtown LA · 10pm
-The most distinctive booking in the whole run: León (TraTraTrax/Future Times) weaves
-dembow and reggaeton rhythm into house and techno — an actual point of view instead of
-another generic tech-house filler night. Location drops day-of via the RA ticket. (Lower-
-commitment daytime option: [FLOAT Rooftop ft. Jody
-Wisternoff](https://ra.co/events/2449781) at Level 8 DTLA, 2–8pm — Wisternoff co-curates
-Anjunadeep's flagship mix series, real melodic-progressive pedigree, no all-nighter
-required.)
-
-**Sun 7/26 — [LA Filmforum: Films by Yoko Ono](https://dice.fm/event/6d82vq-la-filmforum-films-by-yoko-ono-26th-jul-2220-arts-archives-los-angeles-tickets)** —
-2220 Arts + Archives · 2pm
-The odd one out on purpose — an afternoon of experimental film if you want something that
-isn't a club night to close out three weekends of them.
-
----
-
-*Real talk: this list leans on what's factually verifiable about each booking (real venue,
-known artist, distinct format) rather than any actual read on what you like, because there
-isn't one yet. Tell the concierge a few artists, venues, or genres you're into — even
-loosely — and `profiles/alexa/taste.yaml` gets edited and rebuilt (`python
-scripts/build_profiles.py --only alexa`), and the next digest will actually be yours.*
+That's the honest shape of it: broad and genre-spanning, picked on general notability rather than your actual taste, because there isn't one on file yet. A couple of sentences in `taste.yaml` — a few loved categories or artists — turns this into something much more targeted next time.
