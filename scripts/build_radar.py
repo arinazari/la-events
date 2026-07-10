@@ -94,7 +94,7 @@ def radar_rank(score: int, signals: list) -> float:
 def build_radar(catalog: list, taste: dict, profile: dict, today, cutoff_days: int = 35) -> list:
     """Ranked radar set: events on/after today+cutoff_days that fire ≥1 signal, best-first."""
     tracked = [a for a in (taste.get("artists_tracked") or []) if a]
-    amb = ambiguous_set(profile)
+    amb = ambiguous_set(profile, taste)
     cutoff = today.toordinal() + cutoff_days
     out = []
     for ev in catalog:
@@ -127,7 +127,7 @@ def build_around_town(catalog: list, taste: dict, profile: dict, today, days: in
     no festival waiver here, unlike scoring); film/comedy titles can't fire `civic` (the 1925
     film 'The Big Parade' is not a parade); multi-date runs collapse to their earliest date."""
     tracked = [a for a in (taste.get("artists_tracked") or []) if a]
-    amb = ambiguous_set(profile)
+    amb = ambiguous_set(profile, taste)
     far = _scoring_cfg(profile, taste)["far"]
     start, end = today.toordinal(), today.toordinal() + days
     out, seen_runs = [], set()

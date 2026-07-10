@@ -91,6 +91,11 @@ def test_cached_artist_notes_title_is_whole_token_and_music_only():
     gig = {"title": "DRAMA live", "date": "2026-07-11", "venue": "El Rey",
            "category": "electronic", "lineup": []}
     assert [n["name"] for n in E.cached_artist_notes(gig, cache)] == ["Drama"]
+    # with the ambiguity gate (production callers pass ambiguous_set), a title-only match of a
+    # word-like key is blocked even on music categories; a lineup ENTRY still matches exactly
+    assert E.cached_artist_notes(gig, cache, ambiguous={"drama"}) == []
+    billed = dict(gig, lineup=["DRAMA"])
+    assert [n["name"] for n in E.cached_artist_notes(billed, cache, ambiguous={"drama"})] == ["DRAMA"]
     # whole-token still required on music titles: 'dramarama' must not hit 'drama'
     gig2 = {"title": "Dramarama night", "date": "2026-07-12", "venue": "El Rey",
             "category": "electronic", "lineup": []}

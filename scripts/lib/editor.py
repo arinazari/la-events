@@ -189,7 +189,7 @@ def _record(ev: dict, affinity: dict, enrichment: dict = None) -> dict:
 # (no repo Read needed) and per-profile pools carry that profile's own brief. Additive context —
 # deliberately NOT part of EDITOR_INPUT_VERSION (prior verdicts were judged by an agent that Read
 # taste.yaml itself; a bump would re-judge ~1,000 cached verdicts for near-zero delta).
-_TASTE_BRIEF_KEYS = ("categories", "boosts", "penalties", "artists_tracked",
+_TASTE_BRIEF_KEYS = ("narrative", "categories", "boosts", "penalties", "artists_tracked",
                      "venues_loved", "comedians_loved")
 
 

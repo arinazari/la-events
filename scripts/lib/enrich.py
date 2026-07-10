@@ -137,15 +137,17 @@ def prune_cache(cache: dict, catalog: list) -> tuple:
 _NON_MUSIC_CATEGORIES = {"film", "comedy", "theater", "theatre", "arts & theatre"}
 
 
-def cached_artist_notes(ev: dict, cache: dict) -> list:
+def cached_artist_notes(ev: dict, cache: dict, ambiguous=frozenset()) -> list:
     """Artist bios from the cache for any tracked name in this event's lineup/title.
 
     The scene graph's value compounds here: the ~N accumulated artist bios apply to EVERY
     event featuring those artists, not just the events individually researched. Conservative
-    matching — exact normalized lineup entries, plus a length-guarded WHOLE-TOKEN title match
-    (never a raw substring) for an artist not in the lineup, and no title matching at all on
-    non-music categories (film/theater titles collide with band names). Display name comes
-    from the event's own lineup text (the cache key is lowercased/normalized)."""
+    matching — exact normalized lineup entries; a length-guarded WHOLE-TOKEN title match
+    (never a raw substring) for an artist not in the lineup, skipped on non-music categories
+    (film/theater titles collide with band names) AND for `ambiguous` word-like cache keys
+    (drama/fisher — a title token can't disambiguate the word from the artist; lineup entries
+    still match them exactly). Display name comes from the event's own lineup text (the cache
+    key is lowercased/normalized)."""
     arts = cache.get("artists") or {}
     if not arts:
         return []
@@ -161,18 +163,20 @@ def cached_artist_notes(ev: dict, cache: dict) -> list:
     if (ev.get("category") or "").lower() not in _NON_MUSIC_CATEGORIES:
         title_tokens = f" {normalize(ev.get('title', ''))} "
         for k, info in arts.items():
-            if k and k not in seen and len(k) >= 5 and f" {k} " in title_tokens:
+            if (k and k not in seen and k not in ambiguous and len(k) >= 5
+                    and f" {k} " in title_tokens):
                 out.append({"name": k.title(), "note": info.get("note")})
                 seen.add(k)
     return out
 
 
-def merge_enrichment(candidates: list, cache: dict) -> list:
+def merge_enrichment(candidates: list, cache: dict, ambiguous=frozenset()) -> list:
     """Return candidates with cached enrichment attached under `enrichment` (+ stable `id`).
 
     A fully-researched event gets its whole cached record; ANY event whose lineup/title hits
     the artist cache also gets those artist notes folded in (free coverage from the scene graph),
-    supplementing a partial event record or standing in as a lightweight `from_cache` enrichment."""
+    supplementing a partial event record or standing in as a lightweight `from_cache` enrichment.
+    `ambiguous` (lib.affinity.ambiguous_set) blocks title-token folds of word-like artist keys."""
     out = []
     for c in candidates:
         cc = dict(c)
@@ -181,7 +185,7 @@ def merge_enrichment(candidates: list, cache: dict) -> list:
         hit = cache["events"].get(k)
         if hit:
             cc["enrichment"] = hit
-        notes = cached_artist_notes(c, cache)
+        notes = cached_artist_notes(c, cache, ambiguous)
         if notes:
             if hit:
                 have = {normalize(n.get("name", "")) for n in (hit.get("artist_notes") or [])}

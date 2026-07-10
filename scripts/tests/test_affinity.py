@@ -135,12 +135,22 @@ def test_tracked_hits_lineup_first_and_ambiguous_gate():
     # normal names: whole-token in title or lineup text, no substring bleed
     assert tracked_hits(["Antal"], "Antal all night long", [], amb) == {"Antal"}
     assert tracked_hits(["Ame"], "Amelie Lens at Grand Park", [], amb, min_len=2) == set()
+    # composite billings split on b2b/vs (but never on 'and' — band names keep it)
+    assert tracked_hits(["FISHER"], "HARD", ["FISHER b2b Chris Lake"], amb) == {"FISHER"}
+    assert tracked_hits(["FISHER"], "HARD", ["Fisher and Thames b2b Someone"], amb) == set()
+    # None lineup is an empty lineup, not the string 'None'
+    assert tracked_hits(["None"], "no lineup here", None, amb, min_len=2) == set()
 
 
-def test_ambiguous_set_reads_profile():
+def test_ambiguous_set_resolves_profile_then_taste_then_default():
     prof = {"scoring": {"spotify": {"ambiguous_names": ["FISHER", " Drama "]}}}
     assert ambiguous_set(prof) == {"fisher", "drama"}
-    assert ambiguous_set({}) == set()
+    taste = {"scoring": {"spotify": {"ambiguous_names": ["Train"]}}}
+    assert ambiguous_set({}, taste) == {"train"}
+    # no profile/taste list -> the baseline default (friend profiles without a profile.yaml
+    # must still get the gate, not an empty set)
+    base = ambiguous_set({})
+    assert "fisher" in base and "drama" in base and "future" in base
 
 
 if __name__ == "__main__":

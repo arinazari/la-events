@@ -125,6 +125,10 @@ no backend; the static page just renders it.
    rewrites for voice), an optional Around-town gloss. Fills marked slots only — never
    selection (the body is deterministic slate).
 5. **Owner refresh** — **no LLM**, and debounced so a rapid re-click doesn't re-sweep sources.
+   Known tradeoff: its best-effort re-render of `digests/latest.md` replaces the morning's
+   Tier-3 voice layer with a fresh deterministic scaffold (whys stay prefilled; the intro slot
+   marker is an invisible HTML comment) — data freshness wins intra-day; the nightly voice
+   pass restores the prose.
 6. **Per-user rebuild** — Sonnet; gated client-side to "stale or taste-dirty"; the deterministic feed
    commits first so a timed-out LLM step still leaves the ranking fresh.
 7. **BYOK concierge chat** — the friend's own key/spend; may opt into Opus per request.

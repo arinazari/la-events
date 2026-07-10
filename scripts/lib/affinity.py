@@ -56,7 +56,7 @@ DEFAULT_SCORING = {
     # rapper Future, …). Auto-pulled from Spotify they false-match party titles, so they only
     # count when they appear in the STRUCTURED lineup, not loose title text. Grow as needed.
     "ambiguous_names": ["train", "future", "juice", "jungle", "lights", "justice", "work",
-                        "sanctuary", "paradise", "chance", "hold", "alive"],
+                        "sanctuary", "paradise", "chance", "hold", "alive", "fisher", "drama"],
 }
 
 
@@ -72,12 +72,23 @@ def normalize_name(name: str) -> str:
     return " ".join((name or "").split()).lower()
 
 
-def ambiguous_set(profile) -> set:
-    """The profile's ambiguous-name list (scoring.spotify.ambiguous_names), normalized — artist
-    names that are also ordinary words/surnames, shared by every billed-name matcher."""
-    names = ((((profile or {}).get("scoring") or {}).get("spotify") or {})
-             .get("ambiguous_names") or [])
-    return {normalize_name(n) for n in names}
+def ambiguous_set(profile, taste=None) -> set:
+    """The ambiguous-name list (scoring.spotify.ambiguous_names), normalized — artist names that
+    are also ordinary words/surnames, shared by every billed-name matcher. Resolves like every
+    other scoring knob: profile → taste → the baseline default (so a friend profile with no
+    profile.yaml still gets the gate, not an empty set)."""
+    for src in (profile, taste):
+        names = ((((src or {}).get("scoring") or {}).get("spotify") or {})
+                 .get("ambiguous_names"))
+        if names is not None:
+            return {normalize_name(n) for n in names}
+    return {normalize_name(n) for n in DEFAULT_SCORING["ambiguous_names"]}
+
+
+# Composite-billing separators: one lineup ENTRY often carries several acts ("FISHER b2b Cloonee",
+# "A vs B"). Split on these before the exact-entry ambiguous match — but never on "and"/"&",
+# which sit INSIDE band names (the duo "Fisher and Thames" must stay one entry).
+_ENTRY_SPLIT = re.compile(r"\s+(?:b2b|b3b|vs\.?|×)\s+", re.I)
 
 
 def tracked_hits(names, title, lineup, ambiguous=frozenset(), min_len=2) -> set:
@@ -85,12 +96,18 @@ def tracked_hits(names, title, lineup, ambiguous=frozenset(), min_len=2) -> set:
 
     Non-ambiguous names match as whole tokens in title+lineup text ('antal' at a word edge).
     Ambiguous names — artist names that are also ordinary words or common surnames (FISHER,
-    Drama, Future) — must EQUAL a normalized lineup entry: token presence isn't enough, because
-    'fisher' sits as a whole token inside the unrelated duo 'Fisher and Thames', and a title-only
-    billing can't disambiguate the word from the artist. Exact-entry means FISHER billed solo
-    still matches while name-collisions don't. Returns the matching names as given."""
-    lineup = [str(a) for a in (lineup or [])] if isinstance(lineup, (list, tuple)) else [str(lineup)]
-    entries = {normalize_name(a) for a in lineup}
+    Drama, Future) — must EQUAL a normalized lineup entry (after splitting composite b2b/vs
+    billings): token presence isn't enough, because 'fisher' sits as a whole token inside the
+    unrelated duo 'Fisher and Thames', and a title-only billing can't disambiguate the word
+    from the artist. Exact-entry means FISHER billed solo (or in a b2b) still matches while
+    name-collisions don't. Returns the matching names as given."""
+    if lineup is None:
+        lineup = []
+    lineup = [str(a) for a in lineup] if isinstance(lineup, (list, tuple)) else [str(lineup)]
+    entries = set()
+    for a in lineup:
+        for part in _ENTRY_SPLIT.split(a):
+            entries.add(normalize_name(part))
     text = ((title or "") + " " + " ".join(lineup)).lower()
     hits = set()
     for a in names or []:

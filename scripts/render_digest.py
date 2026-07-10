@@ -25,6 +25,7 @@ from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
 from lib.dedupe import normalize  # noqa: E402
 from lib.config import load_taste, load_profile, load_digest_prefs  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
+from lib.affinity import ambiguous_set  # noqa: E402  (gates title-token artist-bio folds)
 from lib.pipeline import score_pool, today_la  # noqa: E402
 from lib.assemble import assemble  # noqa: E402
 from lib import editor as ED  # noqa: E402
@@ -331,7 +332,17 @@ def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
             uniq.append(ev)
     uniq.sort(key=lambda e: (-_DM_TIER.get((e.get("verdict") or {}).get("tier"), 0),
                              -(e.get("score") or 0), e.get("iso_date") or "9999-12-31"))
-    picked = [e for e in uniq[:limit] if e.get("iso_date")]
+    # Collapse multi-night runs (same normalized title+venue) so one festival/residency can't
+    # eat several of the shelf's slots — the best-ranked night represents the run, matching the
+    # day-by-day body's collapse_runs convention.
+    runs, uniq2 = set(), []
+    for ev in uniq:
+        rk = (normalize(ev.get("title") or ""), normalize(ev.get("venue") or ""))
+        if rk in runs:
+            continue
+        runs.add(rk)
+        uniq2.append(ev)
+    picked = [e for e in uniq2[:limit] if e.get("iso_date")]
     if not picked:
         return []
     out = ["## Don't miss\n"]
@@ -543,7 +554,8 @@ def main() -> int:
                 around_rows = json.loads(apath.read_text()).get("events", [])
             except (json.JSONDecodeError, OSError):
                 pass
-        enr1, enr2 = merge_enrichment(sec1, cache), merge_enrichment(sec2, cache)
+        amb = ambiguous_set(profile, taste)
+        enr1, enr2 = merge_enrichment(sec1, cache, amb), merge_enrichment(sec2, cache, amb)
         sections = [("Next two weeks", enr1), ("Weekends ahead", enr2)]
         slate_keys = {event_key(e) for e in enr1 + enr2}
         dont_miss = _dont_miss_md(enr1 + enr2)
@@ -562,7 +574,7 @@ def main() -> int:
     cands = build_slate_cands(catalog, taste, profile, today, verdicts,
                               window=args.window, per_day=args.per_day or cap,
                               from_=args.from_, to=args.to, affinity=affinity)
-    enriched = merge_enrichment(cands, cache)
+    enriched = merge_enrichment(cands, cache, ambiguous_set(profile, taste))
     Path(args.md).write_text(render_markdown(doc, enriched))
     n_enr = sum(1 for e in enriched if e.get("enrichment"))
     n_v = sum(1 for e in enriched if e.get("verdict"))

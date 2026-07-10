@@ -38,6 +38,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.config import load_yaml  # noqa: E402
 from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
+from lib import affinity as AF  # noqa: E402  (ambiguous_set gates title-token bio folds)
 from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib.assemble import rank_key, event_lane  # noqa: E402
@@ -216,7 +217,7 @@ def main() -> int:
 
     # Fold the enrichment cache onto the whole catalog ONCE (order-preserving) instead of a
     # per-event merge_enrichment([ev]) call inside the loop — same result, O(N) not O(N) calls.
-    merged_all = merge_enrichment(catalog, cache)
+    merged_all = merge_enrichment(catalog, cache, AF.ambiguous_set(profile, taste))
 
     events = []
     enriched_hits = 0

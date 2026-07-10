@@ -1,12 +1,20 @@
-# Taste profile — the ranking config. Edit freely; the digest re-reads this every run.
-# Weights: events accumulate points from category/genre/context matches; digest sorts by score.
+# Taste profile — the taste CONTENT. Edit freely; every run re-reads this.
 #
-# Curated as an electronic head: the spine is house / techno / tech-house across the spectrum —
-# from rooftop-vinyl-groove and proper European club nights all the way to
-# mainstream festival/big-room headliners (Chris Lake, FISHER, etc. ARE priority, not noise).
-# A recurring favorite — one kind of event he likes, not the be-all: "Sunset Sessions at Golden
-# Hour DTLA" — chill rooftop, vinyl, house, European feel. But don't let "tasteful" exclude the
-# big fun mainstream sets.
+# Since Track B (2026-07, LLM-first ranking): the event-editor LLM is the RANKER — this whole
+# file rides in its judging brief (categories/boosts/penalties/tracked/narrative), and the
+# keyword weights below act only as a coarse pre-filter + within-tier tiebreak. Don't hand-tune
+# the numbers for ranking effect anymore; say what you like in words (here or via the concierge)
+# and the editor applies it.
+
+# The narrative — the taste in prose. This is the highest-signal part of the editor's brief;
+# keep it current as your taste moves.
+narrative: >
+  Curated as an electronic head: the spine is house / techno / tech-house across the spectrum —
+  from rooftop-vinyl-groove and proper European club nights all the way to mainstream
+  festival/big-room headliners (Chris Lake, FISHER, etc. ARE priority, not noise). A recurring
+  favorite — one kind of event he likes, not the be-all: "Sunset Sessions at Golden Hour DTLA" —
+  chill rooftop, vinyl, house, European feel. But don't let "tasteful" exclude the big fun
+  mainstream sets.
 
 categories:
   high:    # weight +3 each match

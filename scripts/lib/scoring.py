@@ -179,7 +179,7 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
     # isn't a booking). Whole-token match so "Ame" doesn't fire inside "Amelie Lens"; names on
     # the ambiguous list (FISHER, Drama — words as well as artists) must equal a lineup entry,
     # since token presence can't tell FISHER from the unrelated duo "Fisher and Thames".
-    hits = sorted(tracked_hits(tracked, title, lineup, ambiguous=ambiguous_set(profile)))
+    hits = sorted(tracked_hits(tracked, title, lineup, ambiguous=ambiguous_set(profile, taste)))
     if hits:
         score += 2 * len(hits)
         reasons.append(f"+{2 * len(hits)} tracked artist ({', '.join(hits)})")
