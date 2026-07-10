@@ -1,47 +1,64 @@
-# LA Events
-*Digest regenerated Mon 7/6 — picks updated.*
+# Raffi's LA Digest — 2026-07-09
+*Digest regenerated Thu 7/9 — picks updated.*
 
-*Raffi hasn't set a taste profile yet, so this is just what's ranking well generally — set up profiles/raffi/taste.yaml for a real personalized read.*
+Your taste profile is fresh — big-room/festival EDM, tracked on Alesso, Kaskade, and
+Swedish House Mafia, plus a Dodgers boost — and honestly, the catalog right now is mostly
+DTLA warehouse tech-house/afterhours nights, the opposite lane from mainstage EDM.
+Nothing across the next three weekends is an actual Alesso/Kaskade/SHM-caliber show. So
+rather than pad this with underground picks that don't fit, here's the short list of
+things that genuinely lean toward your lane — everything else this run is a hedge, not a
+must.
 
-## Friday · July 10
+## Top Picks
 
-- **[Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush](https://www.instagram.com/p/DZl9KXzKRBX/)** — Los Globos (Los Angeles) tech house, deep house, minimal, Silver Lake — $10 pre
-  Los Globos going 11pm-5am with a locally-rooted tech-house/deep-house/minimal bill — solid afterhours option if you're already eastside, but the support slots (Beast, Jacz, Lavenge, Max Rush) are thin enough on the record that this reads as a good-not-essential Friday.
-- **[Cirra presents: Day Thief, Faited, and sosoftly](https://ra.co/events/2472986)** — TBA - Downtown Los Angeles, DTLA — $20-50
-  Cirra's booked two names straight out of the SF/Oakland queer-underground soundsystem scene (Faited runs sound for Eris Drew's crew) rather than the usual LA warehouse regulars — a genuinely different flavor of afters if you want something rawer than the DTLA circuit.
-- **[Great Quality Entertainment presents Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District — $21 pre
-  Township Rebellion at 1720 is the real draw — this is the melodic, emotionally-pitched end of techno that runs closer to Lane 8 than to a warehouse hammer, so go in expecting build and atmosphere over pure peak-time. Couldn't turn up anything solid on Trou, so that's an unknown quantity on the bill.
-- **[Electric Ave.](https://www.facebook.com/events/1616327542800520/)** — Los Globos (Los Angeles) house, tech house, EDM, Silver Lake — $21+
-  Recurring 'Electric Ave.' slot at Los Globos with no lineup revealed — pure crapshoot until names post.
+### Saturday, 7/18
 
-## Saturday · July 11
+**[Markus Schulz (Open to Close)](https://ra.co/events/2429659)** — Avalon Hollywood ·
+10pm–2am · $35 pre
+The clear best of the batch. Schulz runs Global DJ Broadcast and founded Coldharbour
+Recordings — same trance/progressive big-room tier as Kaskade and SHM — and an
+open-to-close set means a full arc, not a 90-minute guest slot.
 
-- **[Certified Groovers x SNEAK'S BEATS: AFTERS](https://ra.co/events/2483327)** — TBA - Downtown Los Angeles, DTLA
-  This is the late-night extension of Certified Groovers' Sneak's Beats day party (same date, TBA DTLA) — Certified Groovers consistently books real house/groove selectors, but no afters-specific lineup is posted yet, so it's a bet on the brand rather than a name you can vouch for.
-- **[The Groove Lab: Arkez, GC Lyte, IKARI, Limbo, Rosie Love B2B SuperJenn, Saul Nunez, Stilo, Zeerow](https://ra.co/events/2472030)** — TBA - DTLA, DTLA — $12-34
-  Eight names deep on the flyer and Rosie Love is the only one that even makes it into the actual lineup data — TBA-DTLA, all-local, no real hook to hang a Friday on unless you already know this crew.
-- **[AFTERS 7-11](https://posh.vip/e/afters-711-2)** — 129 E 3rd St, DTLA — free
-  Same NIGHTSHIFT afters, one night later, same problem: free and late doesn't tell you who's actually behind the decks.
+### Friday, 7/24
 
-## Friday · July 17
+**[SORRY FOR PARTY ROCKING (2010–2015 Pop & EDM All Night Long)](https://ra.co/events/2464421)**
+— Catch One · 9pm
+The exact era your tracked artists peaked in. No DJ names posted, so it's a themed party
+rather than a real booking — could be a genuinely fun nostalgia set or a cheesy playlist
+night. Worth a lineup check before you commit.
 
-- **[Lights Down Low feat. Mura Masa](https://ra.co/events/2452948)** — TBA - Downtown LA, DTLA
-  Mura Masa's more pop-production than club-selector, so a TBA-warehouse DJ set from him is a curiosity rather than a proper night out for this lane — go for the name recognition, not for deep selection.
+### Saturday, 7/25
 
-## Saturday · July 18
+**[FLOAT Rooftop Pool Party ft. Jody Wisternoff](https://ra.co/events/2449781)** — Level 8
+DTLA · 2pm–8pm
+Wisternoff co-curates Anjunadeep's flagship mix series and is one half of Way Out West —
+melodic progressive house, adjacent to your lane without being dead-center. Daytime
+rooftop-pool is the closest thing to a festival day-stage this catalog has right now.
 
-- **[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA - Downtown LA, DTLA
-  A location-TBA all-vinyl night built around Luke Mele's NTS-honed Balearic/ambient/dub sensibility is squarely the listening-bar format worth chasing an address for — quieter and more textural than a peak-time club night.
-- **[Markus Schulz (Open To Close)](https://ra.co/events/2429659)** — Avalon Hollywood, Hollywood — $35 pre
-  A trance open-to-close set is a genuinely different genre from the rooftop-groove and tech-house lane — Schulz is a legitimate name in that world, just not this one, so this is more 'know it exists' than 'go.'
-- **[Paradisco](https://ra.co/events/2464518)** — Kiss Kiss Bang Bang, Koreatown
-  Kiss Kiss Bang Bang's disco-deco room inside the Line Hotel doing a weekly Paradisco night — no lineup listed, so this reads as a stylish, dress-up dance-floor rather than a DJ-driven pick. Fine for a Saturday-night backup, not a destination.
+## Also This Run
 
-## Saturday · July 25
+**Fri 7/10 — Electric Ave.** — Los Globos, Silver Lake · 10pm · 21+
+No lineup posted yet, but Los Globos runs its EDM-tagged nights more mainstream than the
+underground spots dominating this week — closest genre match with a confirmed date, if
+you don't mind the gamble.
 
-- **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA - Downtown, DTLA
-  An all-night TBA set from Nick León isn't a straight house night — it's Miami dembow-and-dancehall rhythm woven into club music, which makes this one of the more interesting bookings in this batch if you want something that doesn't sound like everything else on the calendar.
-- **[DISCOTHEKE](https://ra.co/events/2473853)** — Apotheke, Chinatown
-  No billed lineup beyond a house crew name and a bare RA listing — could be a fine Chinatown day-party, but there's nothing here yet to confirm the selection is worth planning around.
-- **[FLOAT Rooftop Pool Party ft. Jody Wisternoff [2-8 PM]](https://ra.co/events/2449781)** — Level 8 DTLA, DTLA
-  This is the template: daytime rooftop pool party, melodic progressive house from an actual Anjunadeep mainstay. Build the Saturday around it.
+**Sat 7/11 — [Simon Says: Felix Da Housecat](https://dice.fm/event/oe73bg-simon-says-felix-da-housecat-11th-jul-the-spotlight-los-angeles-tickets)**
+— The Spotlight · 10pm–2am · $19+
+Chicago house/electroclash legend — wrote the electroclash playbook with *Kittenz and
+Thee Glitz*, remixed Madonna and Britney back in the day. Not festival EDM, but real
+crossover name recognition on an otherwise small-room bill.
+
+**Fri 7/17 — [Lights Down Low feat. Mura Masa](https://ra.co/events/2452948)** — TBA,
+Downtown LA · 11pm
+Charted, festival-circuit name (Coachella, Glastonbury) — more pop-production than club
+selector, so this DJ set is a curiosity rather than a proper set for the lane. Location
+still TBA.
+
+---
+
+Bottom line: it's a thin stretch for your specific sound. If you want the real thing —
+Alesso/Kaskade/SHM-tier, actual mainstage — it's worth waiting on the next
+Insomniac/festival-scale booking to land rather than settling for warehouse tech-house
+nights that score well in a generic "electronic" bucket but aren't your sound. Also: no
+Dodgers home dates are in this feed yet (sports isn't a source this pulls from) — say the
+word and I'll check the MLB schedule separately.

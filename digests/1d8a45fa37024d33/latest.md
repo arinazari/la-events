@@ -1,79 +1,56 @@
-# LA Events
-*Digest regenerated Mon 7/6 — picks updated.*
+# Ari's LA Events Digest
+*Digest regenerated Thu 7/9 — picks updated.*
 
-*Ari's next few weeks, ranked for you — a stacked deep-house day party, Stephan Bodzin and Boris Brejcha going big outdoors, a five-night Odyssey 70mm run at the Vista, and rep-cinema gems filling the gaps.*
+*Updated Thu 7/9 · Taste: house/techno/rooftop-vinyl-groove core, warehouse afterhours, rep cinema + small-room indie · Silver Lake*
 
-## Wednesday · July 8
+---
+Saturday's the one to build the weekend around — a TBA-warehouse Red Axes/Club Tularosa night stacked against a three-legend house bill (Louie Vega, Karizma, DJ Sneak) the same night, then Beltran gets a rare second at-bat Sunday with an open-to-close set at Naud St. The following weekend brings Stephan Bodzin's live melodic-techno set to Santa Monica Pier, and HARD Summer anchors the first weekend of August. Full sprawl is in the consolidated digest; this is the cut worth actually planning around.
 
-- **[Rabit presented by VLSF & KCRW](https://www.ticketmaster.com/event/090064BB0DF7BC3F)** — The Echo (Los Angeles) experimental, Echo Park — $27
-  Rabit with sivil, münki, Ice Wall at The Echo presented by VLSF & KCRW (19:00, $27).
+## Top Picks
 
-## Friday · July 10
+### Friday · July 10
+**[Sunset Sessions: Madison Orange, Tamara Lanza, Ay-lex Song, Cam Miles, Lunique, Ailla](https://ra.co/events/2484237)** — Level 8 DTLA · 5pm
+The standing rooftop-golden-hour pick, Tamara Lanza back on the decks — the touchstone room the whole taste profile keeps citing. Free RSVP.
 
-- **[Hollywood 90028](https://ticketing.uswest.veezi.com/purchase/3815?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  A midnight slot at the Vista almost always means a cult curio rather than a mainstream title — worth checking what this actually is before committing to a near-1am end time.
-- **[Heat (1995)](https://ticketing.uswest.veezi.com/purchase/4789?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax
-  Heat (1995) screening at New Beverly Cinema Fairfax (18:30).
-- **[The Wailing](https://vidiotsfoundation.org/showtimes/the-wailing-7-10-26-315-pm/)** — Vidiots, Eagle Rock
-  Arthouse film screening at Vidiots, Eagle Rock (Fri 7/10, 3:15pm).
+**[Hollywood 90028](https://ticketing.uswest.veezi.com/purchase/3815?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · 11:59pm
+A rediscovered grindhouse curio, freshly restored — exactly the deep-cut the Vista midnight slot exists for.
 
-## Saturday · July 11
+### Saturday · July 11
+**[Red Axes, Club Tularosa](https://ra.co/events/2485178)** — TBA, DTLA · 11:59pm–6am
+Red Axes' psych-disco digging is the exact eclectic-groove energy this lane wants, paired with Club Tularosa's Italo/post-punk sensibility. TBA location, all-night.
 
-- **[Certified Groovers x SNEAK'S BEATS: Louie Vega, Karizma, DJ Sneak, Heidi Lawden, Juliet Mendoza](https://ra.co/events/2402790)** — TBA - 2346 Porter Street, Los Angeles, CA 90021, Los Angeles — $40
-  Day-long electronic showcase 'Certified Groovers x SNEAK'S BEATS' with Louie Vega, Karizma, DJ Sneak, and others (Sat 7/11, 2pm-midnight, $40, TBA warehouse).
-- **[I LOVE DNB: Jumpin' Jack Frost + Ray Keith](https://ra.co/events/2441821)** — TBA, Los Angeles — $23 pre
-  DNB afterhours 'I LOVE DNB' with Jumping Jack Frost and Ray Keith at TBA location (Sat 7/11, 10pm-4am, $23 pre).
-- **[Lenny Kaye (Patti Smith Band), Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-patti-smith-band-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown
-  Lenny Kaye (Patti Smith Band) and Cindy Lee Berryhill at Zebulon in Frogtown (7pm).
+**[Certified Groovers x Sneak's Beats: Louie Vega, Karizma, DJ Sneak, Heidi Lawden, Juliet Mendoza](https://ra.co/events/2402790)** — TBA, DTLA · 2pm–midnight
+Three house legends stacked on one bill — a rare lineup, worth building the whole day around.
 
-## Wednesday · July 15
+**[I LOVE DNB: Jumpin' Jack Frost + Ray Keith](https://ra.co/events/2441821)** — TBA, Los Angeles · 9pm
+Foundational jungle/DNB figures — a genuine underground booking, not the usual TBA noise.
 
-- **[Eartheater](https://www.ticketweb.com/event/eartheater-the-masonic-lodge-at-hollywood-tickets/14915813)** — Masonic Lodge At Hollywood Forever Cemetary (Los Angeles) leftfield, synthpop, industrial, experimental, Hollywood — $14-39
-  Electronic/experimental artist Eartheater at Masonic Lodge Hollywood Forever, Wed 7/15 at 7pm, $14-39.
+### Sunday · July 12
+**[Factory 93 presents: Beltran Open to Close at Naud St](https://ra.co/events/2399254)** — Naud St, Chinatown · 5pm
+The better of Beltran's two Naud St dates — open-to-close means he builds the arc himself rather than a support-slot warm-up.
 
-## Thursday · July 16
+### Weekend of July 17–19
+**[Stephan Bodzin (Live), SKALA, MANTi, Bibo, DENYC](https://ra.co/events/2423110)** — Santa Monica Pier · Sat 7/18, 3pm–10:30pm
+Melodic techno's biggest live act, oceanfront — a genuine event, not just another club night.
 
-- **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3743?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  Sci-fi epic 'The Odyssey' in 70MM at Vista Theater, Los Feliz (Thu 7/16, 8pm).
+**[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3745?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · running most nights this stretch
+Nolan's epic in true 70mm — pick whichever night fits.
 
-## Friday · July 17
+### Weekend of July 24–26
+**[STRANGER THAN presents: Stavroz (Live)](https://ra.co/events/2437239)** — The Bridge, DTLA · Fri 7/24, 10pm
+Belgian live band in the organic/melodic Innervisions-adjacent lane — warmer and more cinematic than another DJ night.
 
-- **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3745?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  Christopher Nolan's 'The Odyssey' in true 70mm at the Vista is a format event as much as a film one — this is exactly the print-and-projector reason to go there instead of streaming it.
-- **[Lights Down Low feat. Mura Masa](https://ra.co/events/2452948)** — TBA - Downtown LA, DTLA
-  Mura Masa's more pop-production than club-selector, so a TBA-warehouse DJ set from him is a curiosity rather than a proper night out for this lane — go for the name recognition, not for deep selection.
+**[Boris Brejcha with the Hollywood Bowl Orchestra](https://ra.co/events/2375675)** — Hollywood Bowl · Sun 7/26, 7pm
+Brejcha's first-ever orchestral set — a genuine one-off worth the drive to the Bowl.
 
-## Saturday · July 18
+### On the radar
+**[HARD Summer Music Festival](https://on.fgtix.com/trk/5oHm)** — Hollywood Park Grounds, Inglewood · Sat–Sun 8/1–8/2
+Charlotte de Witte, Amelie Lens, Boys Noize, Chris Lorenzo, Mau P, Vintage Culture — the festival to actually buy a ticket for this summer.
 
-- **[Stephan Bodzin (Live), SKALA, MANTi, Bibo, DENYC](https://ra.co/events/2423110)** — Santa Monica Pier, Santa Monica — $51 b4 5 / $61-221
-  Electronic and live performance with Stephan Bodzin at Santa Monica Pier, 3pm-10:30pm, $51 before 5pm/$61-221.
+## Also This Run
+- **Fri 7/10** — [RECOLLECT UNDERGROUND w/ LA Riots](https://posh.vip/e/recollect-underground-w-la-riots) — $10 afters, festival-tier tech-house for cheap.
+- **Fri 7/10** — [Cirra presents: Day Thief, Faited, sosoftly](https://ra.co/events/2472986) — TBA DTLA, $20-50 — Eris Drew/Octo Octa-adjacent queer-underground soundsystem flavor.
+- **Sat 7/11** — [Lenny Kaye (Patti Smith Band), Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-patti-smith-band-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets) — Zebulon, Frogtown, 7pm — the guy who compiled *Nuggets*, in an intimate Frogtown room.
+- **Sat 7/11** — [Factory 93 presents: Beltran at Naud St](https://ra.co/events/2396469) — the first of the two Naud St dates, already sold out once.
 
-## Sunday · July 19
-
-- **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3747?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  The Odyssey in 70mm at Vista Theater, Los Feliz (19:00).
-
-## Tuesday · July 21
-
-- **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3749?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  The Odyssey in 70mm at Vista Theater, Los Feliz (19:30).
-
-## Thursday · July 23
-
-- **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3751?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz
-  The Odyssey in 70mm at Vista Theater, Los Feliz (19:30).
-
-## Friday · July 24
-
-- **[STRANGER THAN presents: Stavroz (Live)](https://ra.co/events/2437239)** — The Bridge, DTLA
-  Stavroz play live rather than DJ, so this is closer to the Bonobo/RÜFÜS Du Sol live-electronic lane than a club night — warm, cinematic, built for a room that wants to feel rather than peak. A good pick if you want the melodic-organic end of the taste without the warehouse chase.
-
-## Saturday · July 25
-
-- **[FLOAT Rooftop Pool Party ft. Jody Wisternoff [2-8 PM]](https://ra.co/events/2449781)** — Level 8 DTLA, DTLA
-  This is the template: daytime rooftop pool party, melodic progressive house from an actual Anjunadeep mainstay. Build the Saturday around it.
-
-## Sunday · July 26
-
-- **[Boris Brejcha with the Hollywood Bowl Orchestra](https://ra.co/events/2375675)** — Hollywood Bowl, Hollywood
-  Electronic producer Boris Brejcha performs with the Hollywood Bowl Orchestra.
+Full sprawl (day-by-day, Around town, on-the-radar) lives in the [consolidated digest](../../latest.md).

@@ -8,7 +8,10 @@ returns 403 to a default urllib User-Agent, so a real browser UA is mandatory.
 
 This unlocks the eastside/indie live-music lane the structured APIs miss — Zebulon,
 Gold Diggers, The Mint, 2220 Arts, Permanent Records, the Townhouse, The Virgil, etc.
-Add slugs to VENUES below (or pass --venues) as Discover mode finds them.
+The slug list is read from the DICE entry's `venues:` in sources.yaml — the registry
+Discover mode actually grows — so a new slug there is fetched with NO code change.
+VENUES below only carries display metadata (name, neighborhood); add a row when you
+know them, or let the slug-derived fallback stand.
 
 Usage:
     python fetch_dice.py --days 21 [-o events_dice.json]
@@ -18,6 +21,7 @@ Usage:
 import argparse
 import html
 import json
+import os
 import re
 import sys
 from datetime import datetime, timedelta
@@ -35,8 +39,9 @@ except Exception:  # pragma: no cover
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 
-# slug -> (display name, neighborhood). DICE's JSON-LD address is just "Los Angeles",
-# so we carry the neighborhood here. Grow this list in Discover mode.
+# slug -> (display name, neighborhood) — metadata ONLY, not the fetch list (that's the
+# `venues:` list on the DICE entry in sources.yaml). DICE's JSON-LD address is just
+# "Los Angeles", so the neighborhood has to live here.
 VENUES = {
     "zebulon-y8bv":                     ("Zebulon", "Frogtown"),
     "gold-diggers-n2mq":                ("Gold Diggers", "East Hollywood"),
@@ -47,7 +52,37 @@ VENUES = {
     "permanent-records-roadhouse-olyg": ("Permanent Records Roadhouse", "Cypress Park"),
     "the-silverlake-lounge-wb2v":       ("Silverlake Lounge", "Silver Lake"),
     "grand-star-jazz-club-6kx8":        ("Grand Star Jazz Club", "Chinatown"),
+    "sid-the-cat-auditorium-2wr5m":     ("Sid The Cat Auditorium", "South Pasadena"),
+    "catch-one-e582":                   ("Catch One", "Mid-City"),
+    "only-the-wild-ones-mxvwr":         ("Only The Wild Ones", "Venice"),
 }
+
+# DICE slugs end in a short id ("sid-the-cat-auditorium-2wr5m") — strip it for the
+# derived display name when a slug has no VENUES row yet.
+_SLUG_ID = re.compile(r"-[a-z0-9]{4,6}$")
+
+
+def _venue_meta(slug):
+    return VENUES.get(slug) or (_SLUG_ID.sub("", slug).replace("-", " ").title(), None)
+
+
+_REGISTRY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "sources.yaml")
+
+
+def registry_slugs(path=_REGISTRY):
+    """The DICE entry's `venues:` slug list from sources.yaml — the single source of truth
+    Discover mode grows. Falls back to the built-in VENUES keys if the registry is missing
+    or unreadable (never let a yaml hiccup zero out the DICE lane)."""
+    try:
+        import yaml
+        with open(path) as f:
+            srcs = yaml.safe_load(f)["sources"]
+        slugs = next((s.get("venues") for s in srcs if s.get("method") == "dice"), None)
+        if slugs:
+            return [str(s).strip() for s in slugs if str(s).strip()]
+    except Exception as e:  # noqa: BLE001
+        print(f"WARN: sources.yaml unreadable ({e}); using built-in VENUES", file=sys.stderr)
+    return list(VENUES)
 
 LDJSON_RE = re.compile(
     r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
@@ -158,19 +193,14 @@ def fetch_venue(slug, name, hood, now, hi):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--venues", help="comma-separated DICE slugs (default: built-in VENUES)")
+    ap.add_argument("--venues", help="comma-separated DICE slugs (default: sources.yaml `venues:` list)")
     ap.add_argument("--days", type=int, default=21)
     ap.add_argument("-o", "--out", default="events_dice.json")
     args = ap.parse_args()
 
-    venues = {}
-    if args.venues:
-        for s in args.venues.split(","):
-            s = s.strip()
-            if s:
-                venues[s] = VENUES.get(s, (s.replace("-", " ").title(), None))
-    else:
-        venues = VENUES
+    slugs = ([s.strip() for s in args.venues.split(",") if s.strip()]
+             if args.venues else registry_slugs())
+    venues = {s: _venue_meta(s) for s in slugs}
 
     now = datetime.now(LA)
     hi = now + timedelta(days=args.days)
