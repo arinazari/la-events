@@ -1,7 +1,7 @@
 # Ari's LA Events Digest
-*Digest regenerated Thu 7/9 — picks updated.*
+*Digest regenerated Fri 7/10 — picks updated.*
 
-*Updated Thu 7/9 · Taste: house/techno/rooftop-vinyl-groove core, warehouse afterhours, rep cinema + small-room indie · Silver Lake*
+*Updated Fri 7/10 · Taste: house/techno/rooftop-vinyl-groove core, warehouse afterhours, rep cinema + small-room indie · Silver Lake*
 
 ---
 Saturday's the one to build the weekend around — a TBA-warehouse Red Axes/Club Tularosa night stacked against a three-legend house bill (Louie Vega, Karizma, DJ Sneak) the same night, then Beltran gets a rare second at-bat Sunday with an open-to-close set at Naud St. The following weekend brings Stephan Bodzin's live melodic-techno set to Santa Monica Pier, and HARD Summer anchors the first weekend of August. Full sprawl is in the consolidated digest; this is the cut worth actually planning around.
@@ -22,7 +22,7 @@ Red Axes' psych-disco digging is the exact eclectic-groove energy this lane want
 **[Certified Groovers x Sneak's Beats: Louie Vega, Karizma, DJ Sneak, Heidi Lawden, Juliet Mendoza](https://ra.co/events/2402790)** — TBA, DTLA · 2pm–midnight
 Three house legends stacked on one bill — a rare lineup, worth building the whole day around.
 
-**[I LOVE DNB: Jumpin' Jack Frost + Ray Keith](https://ra.co/events/2441821)** — TBA, Los Angeles · 9pm
+**[I LOVE DNB: Jumpin' Jack Frost + Ray Keith](https://ra.co/events/2441821)** — TBA, Los Angeles · 10pm–4am
 Foundational jungle/DNB figures — a genuine underground booking, not the usual TBA noise.
 
 ### Sunday · July 12
@@ -48,9 +48,10 @@ Brejcha's first-ever orchestral set — a genuine one-off worth the drive to the
 Charlotte de Witte, Amelie Lens, Boys Noize, Chris Lorenzo, Mau P, Vintage Culture — the festival to actually buy a ticket for this summer.
 
 ## Also This Run
-- **Fri 7/10** — [RECOLLECT UNDERGROUND w/ LA Riots](https://posh.vip/e/recollect-underground-w-la-riots) — $10 afters, festival-tier tech-house for cheap.
 - **Fri 7/10** — [Cirra presents: Day Thief, Faited, sosoftly](https://ra.co/events/2472986) — TBA DTLA, $20-50 — Eris Drew/Octo Octa-adjacent queer-underground soundsystem flavor.
+- **Fri 7/10** — [Riva Starr, Offaiah, Heidi Lawden, Gene Farris, Ochok, Danny Moggs, Jon Besant](https://venicebeachfwc26.dizeetix.com/event/defected-official-after-party---friday-july-10th) — Venice boardwalk, 4pm–10pm — official Defected afterparty, Riva Starr and Gene Farris.
 - **Sat 7/11** — [Lenny Kaye (Patti Smith Band), Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-patti-smith-band-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets) — Zebulon, Frogtown, 7pm — the guy who compiled *Nuggets*, in an intimate Frogtown room.
 - **Sat 7/11** — [Factory 93 presents: Beltran at Naud St](https://ra.co/events/2396469) — the first of the two Naud St dates, already sold out once.
+- **Sat 7/11** — [Flying Lotus](https://www.ticketweb.com/event/flying-lotus-with-live-band-blue-note-los-angeles-tickets/14908773) — Blue Note LA, Hollywood, 5pm — Brainfeeder headliner in an unusually intimate room, live band not a laptop set.
 
 Full sprawl (day-by-day, Around town, on-the-radar) lives in the [consolidated digest](../../latest.md).
