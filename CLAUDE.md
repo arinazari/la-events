@@ -64,7 +64,8 @@ unless special) + `restaurants_loved`; ranking honors it.
 sources.yaml                        # events source registry — schema in file header
 dining-sources.yaml                 # dining source registry — schema in file header
 taste.yaml                          # events ranking config — user-editable, re-read each run
-profiles.yaml                       # per-person taste registry for the dashboard profile-switcher (schema in header)
+profiles.yaml                       # per-person taste registry + the PRIVATE token map (Track A1: each profile's
+                                    #   access key is a random `token`; feed hash = sha256(salt+token)[:16])
 profiles/<name>/taste.yaml          # a friend's hand-authored taste profile (build_profiles.py emits their feed)
 dining-taste.yaml                   # food-taste config — minimal, learns from reactions
 festivals.yaml                      # "on the radar" curated festivals/big-shows + live lookups
@@ -75,6 +76,7 @@ profile.yaml                        # place/person config (ids, geo, scoring wei
 scripts/run_digest.py               # deterministic core: fetch→dedupe→expire→tag→score→catalog+candidates+editor_pool.json
 scripts/lib/                        # shared modules: scoring, dedupe, pipeline, enrich, images, config,
                                     #   affinity (Spotify), feedback (reactions→affinity), geo (travel),
+                                    #   profiles (capability token→feed hash, A1), reactions (stars fold, A4),
                                     #   tagging (deterministic multi-axis tags: type/genre/setting/vibe/region),
                                     #   editor (event-editor verdict store + judging pool + Spotify affinity hints +
                                     #     a read-only taste-neutral `scene` block folded from the shared enrichment),
@@ -104,6 +106,10 @@ data/verdicts/<hash>.json           # event-editor verdicts, per profile (commit
 data/enrichment.json                # scene-graph cache: per-event enrichment (full + blurb tiers) + artist notes (committed; grows each run)
 data/spotify_affinity.json          # Spotify music-affinity artifact (runtime; gitignored)
 data/feedback.jsonl                 # append-only reaction log (committed); folds into scoring each run
+data/feedback.<hash>.jsonl          # a profile's own reaction log — the Worker's /react appends star→loved /
+                                    #   hide→hide lines (committed; same fold-in as above)
+data/reactions.jsonl                # stars social log (A4) — Worker /react writes it; feeds + digests fold
+                                    #   "★ Lori" onto events from it (lib/reactions.py)
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)
 data/dining.json                    # dining catalog: restaurants + popups/trucks
 digests/latest.md                   # PRIMARY consolidated daily digest (next 2 wks + weekends ahead + on the radar)

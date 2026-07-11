@@ -1,5 +1,13 @@
 # PLAN — reshape la-events to the actual vision (2026-07-08)
 
+> **Status update (7/11): Track A executed** (un-tabled by Ari) — A1 (random capability
+> tokens, v2 salt, migration of all hash-keyed artifacts), A3 (feed location hygiene), and
+> A4 (stars + the /react endpoint) are landed on `claude/track-a-execution-vu3gif`.
+> **A2 is the one open piece and it gates the rest:** the token map (profiles.yaml) sits in
+> the repo, so A1's privacy win is only real once the repo is private — decide GitHub Pro
+> vs. Cloudflare Pages (below), flip it, then rotate the tokens once (they appeared in
+> public history) and send the 6 links.
+>
 > **Status update (Ari, 7/8):** **Track A tabled** (revisit later). **Track C dropped** —
 > dining and the night-planner-class capability stay: the concierge should remain the broad
 > "can do it all" layer, including staying apprised of new/hot restaurants, keeping a
