@@ -25,7 +25,6 @@ is logged and skipped, the rest still sync.
 """
 
 import argparse
-import hashlib
 import json
 import os
 import sys
@@ -36,6 +35,7 @@ from urllib.request import Request, urlopen
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # scripts/ on path
 from lib.affinity import build_affinity  # noqa: E402
+from lib.profiles import entry_hash, DEFAULT_SALT  # noqa: E402  (token -> feed hash, Track A1)
 
 try:
     import yaml
@@ -47,7 +47,7 @@ UA = "la-events/1.0 (+https://github.com/arinazari/la-events)"
 
 
 def _owner_hash() -> str:
-    """The owner's feed hash from profiles.yaml — sha256(salt + lowercased username)[:16] — or None.
+    """The owner's feed hash from profiles.yaml — profile_hash(owner token) (Track A1) — or None.
 
     The owner connects Spotify through the SAME dashboard flow as friends, so their listening lands in
     data/spotify/<hash>.json. But build_profiles.py builds the owner's feed from the owner-affinity path
@@ -59,10 +59,9 @@ def _owner_hash() -> str:
         reg = yaml.safe_load((REPO / "profiles.yaml").read_text()) or {}
     except (OSError, yaml.YAMLError):
         return None
-    salt = reg.get("salt") or "la-events/v1:"
     for p in (reg.get("profiles") or []):
-        if p.get("owner") and p.get("username"):
-            return hashlib.sha256((salt + p["username"].strip().lower()).encode()).hexdigest()[:16]
+        if p.get("owner"):
+            return entry_hash(p, reg.get("salt") or DEFAULT_SALT)
     return None
 
 

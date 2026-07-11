@@ -606,9 +606,9 @@
               </sc-if>
               <sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">
                 <div style="font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Log in</div>
-                <div style="margin-top:3px; font:500 10px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">Type your username to load your taste profile + digest.</div>
+                <div style="margin-top:3px; font:500 10px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">Open your personal link, or paste your access key once — it's remembered on this device.</div>
                 <span style="margin-top:8px; display:flex; align-items:center; gap:6px; padding:7px 9px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
-                  <input id="la-login-input" value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="username" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:400 12px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
+                  <input id="la-login-input" value="{{ profileInput }}" onChange="{{ onProfileInput }}" onKeyDown="{{ onProfileKey }}" type="password" placeholder="access key or personal link" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:400 12px/1.4 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
                   <span onClick="{{ submitProfile }}" title="Log in" style="flex:none; cursor:pointer; color:#2b5cd9; font-size:15px; line-height:1; padding:0 2px;" style-hover="color:#161512;">{{ profileBtnLabel }}</span>
                 </span>
                 <sc-if value="{{ profileError }}" hint-placeholder-val="{{ false }}">
@@ -1501,7 +1501,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## Sign in — make it yours",
     "",
-    "Tap the **⚷** key icon in the bottom-right corner and type your **username** to load your own taste profile, your ranking, and your personal digest. It's remembered on this device; **log out** returns to the default view. No username yet? Ask Ari.",
+    "Open the **personal link** Ari texted you — it signs this device in and loads your own taste profile, your ranking, and your personal digest. (Or tap the **⚷** key icon in the bottom-right corner and paste your access key once.) It's remembered on this device; **log out** returns to the default view. No link yet? Ask Ari.",
     "",
     "Once you're signed in, the same icon becomes your **☰ settings** menu:",
     "",
@@ -1528,7 +1528,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "- **A quick-start welcome.** The first time you sign in, a short four-step tour walks you through how the picks are made, setting yourself up (connect the concierge, tell it your neighborhood + tastes, connect Spotify), and refreshing your ranks. Tick *don't show this again* to dismiss it; re-open it any time from **Settings → quick start**.",
     "- **See your taste edits land.** *View taste & profile* (Settings) now shows a diff of every change the concierge made to your taste or profile, with a badge for whether it's already live in your ranking or still pending.",
     "- **Festivals & further ahead.** The digest now surfaces big destination festivals and looks up to ~6 months out, so you can catch the major stuff while tickets last.",
-    "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you — open it from your name in the header.",
+    "- **Personal links.** Sign in by opening your personal link (or pasting your access key once) to get your own taste-ranked feed and a written digest made just for you — open it from your name in the header.",
     "- **A real concierge.** The left panel now holds a conversational concierge: ask for a vibe, a price, a neighborhood, or a whole night (`dinner then a show`) and it answers and filters the table. It falls back to an instant offline filter when it needs to.",
     "- **Tune your taste by chatting.** Tell the concierge `more techno, less comedy` or `track Peggy Gou` and it rewrites your profile and re-ranks you — no config files to touch.",
     "- **Connect Spotify.** Fold your listening history into your ranking so picks lean toward the artists and sounds you already play. (Settings → Spotify.)",
@@ -1666,7 +1666,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.setState({ settingsOpen: open, profileError: '' });
     if (open) this.checkCatalogFreshness();   // so the "Update" button reflects the live DB on open
     if (open && !loggedOut) this.checkSpotify();
-    // Logged out: jump straight to the username box and focus it (one click to type).
+    // Logged out: jump straight to the access-key box and focus it (one click to paste).
     if (open && loggedOut) setTimeout(() => { const el = document.getElementById('la-login-input'); if (el) el.focus(); }, 30);
   };
   closeSettings = () => this.setState({ settingsOpen: false });
@@ -1876,30 +1876,46 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   onGoStop = () => { if (this.state.loading) this.stopLLM(); else this.send(); };
 
   // ---------- profile switcher (per-person taste) ----------
-  // The username is hashed (same salt as scripts/build_profiles.py) to locate that profile's
-  // feed file. Friends-tool convenience layer, NOT real auth — see profiles.yaml / ROADMAP.
-  PROFILE_SALT = 'la-events/v1:';
-  profileHash(u) {
-    const data = new TextEncoder().encode(this.PROFILE_SALT + String(u).trim().toLowerCase());
+  // Login is a random capability TOKEN (Track A1): each friend gets one personal link
+  // (?t=<token>) texted once — opening it signs them in on that device — or they paste the
+  // token here. The token is hashed in the browser (same salt as scripts/lib/profiles.py)
+  // to locate that profile's feed file; it's never sent anywhere.
+  PROFILE_SALT = 'la-events/v2:';
+  profileHash(t) {
+    const data = new TextEncoder().encode(this.PROFILE_SALT + String(t).trim().toLowerCase());
     return crypto.subtle.digest('SHA-256', data).then(buf =>
       [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 16));
+  }
+  // Accept a bare token OR a pasted personal link (anything carrying ?t=<token>).
+  extractToken(raw) {
+    const s = String(raw || '').trim();
+    if (!s) return '';
+    try { const t = new URL(s).searchParams.get('t'); if (t) return t.trim(); } catch (e) {}
+    const m = s.match(/[?&]t=([^&\s]+)/);
+    return m ? decodeURIComponent(m[1]).trim() : s;
   }
   onProfileInput = (e) => this.setState({ profileInput: e.target.value });
   onProfileKey = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.submitProfile(); } };
   submitProfile = async () => {
-    const u = (this.state.profileInput || '').trim();
-    if (!u || this.state.profileBusy) return;
+    const t = this.extractToken(this.state.profileInput);
+    if (!t || this.state.profileBusy) return;
     this.setState({ profileBusy: true, profileError: '' });
+    const ok = await this.loginWithToken(t);
+    if (!ok) return;   // loginWithToken set the error state
+    this.setState({ profileBusy: false, profileInput: '' });
+  };
+  // The one login path: hash the token, fetch that feed, apply it. Returns true on success.
+  loginWithToken = async (t) => {
     try {
-      const hash = await this.profileHash(u);
+      const hash = await this.profileHash(t);
       const res = await fetch('./data.' + hash + '.json', { cache: 'no-store' });
-      if (!res.ok) { this.setState({ profileBusy: false, profileError: 'No profile found for that username.' }); return; }
+      if (!res.ok) { this.setState({ profileBusy: false, profileError: 'That key didn’t match a profile — check the link Ari sent you.' }); return false; }
       const raw = await res.json();
-      const name = (raw && raw.profile && raw.profile.name) || u;
-      this.setState({ profileBusy: false, profileInput: '' });
+      const name = (raw && raw.profile && raw.profile.name) || 'you';
       this.flashToast('Signed in as ' + name);
       await this.applyProfile({ hash, name }, raw);   // reuse the feed we just fetched
-    } catch (e) { this.setState({ profileBusy: false, profileError: 'Could not load that profile.' }); }
+      return true;
+    } catch (e) { this.setState({ profileBusy: false, profileError: 'Could not load that profile.' }); return false; }
   };
   logoutProfile = () => { this.flashToast('Signed out — default picks'); this.applyProfile(null); };
   // Switch the active profile: persist it, reset the view, load that feed (+ digest).
@@ -2750,8 +2766,28 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     window.addEventListener('resize', this._onResize);
     this.migrateLegacyConn();                          // fold any legacy global connection into this profile
     this.BACKEND_TOKEN = this.readConn().token || '';  // authoritative load: post-migration, TTL-checked
-    this.loadCatalog();
-    this.loadDigest();
+    // Personal-link login (Track A1): opening ?t=<token> signs this device in, then the token is
+    // scrubbed from the address bar so it doesn't linger in screenshots / share sheets.
+    let urlToken = '';
+    try {
+      const q = new URLSearchParams(location.search);
+      urlToken = (q.get('t') || '').trim();
+      if (urlToken) {
+        q.delete('t');
+        const qs = q.toString();
+        history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+      }
+    } catch (e) {}
+    if (urlToken) {
+      // applyProfile loads the feed + digest on success; only fall back to the default view
+      // (or the previously stored profile) when the link's token doesn't match a feed.
+      this.loginWithToken(urlToken).then(ok => {
+        if (!ok) { this.flashToast('That link didn’t match a profile — ask Ari for a fresh one'); this.loadCatalog(); this.loadDigest(); }
+      });
+    } else {
+      this.loadCatalog();
+      this.loadDigest();
+    }
     this.checkCatalogFreshness();
     if (this.BACKEND_URL) this.pingBackend();
     this.reattachJobs();   // a rebuild/refresh kicked off before a reload keeps its spinner + polling

@@ -60,7 +60,7 @@ const DEFAULTS = {
   ALLOWED_ORIGIN: "https://arinazari.github.io",
   GITHUB_REPO: "arinazari/la-events",
   GITHUB_BRANCH: "main",
-  PROFILE_SALT: "la-events/v1:",
+  PROFILE_SALT: "la-events/v2:",   // v2 = the Track-A1 token cutover (hash input is the random token)
   MAX_EVENTS: 220,     // cap grounding context (events are ~700; dining is small, sent whole)
   MAX_TOKENS: 8000,    // room for adaptive thinking + the reply (raise if complex plans get cut off)
   SPOTIFY_AUTH: "https://accounts.spotify.com",
@@ -541,8 +541,11 @@ export function buildSystem(feed, opts = {}) {
 }
 
 /* ----- taste self-edit (commit profiles/<name>/taste.yaml; CI rebuilds the feed) ----- */
-export async function profileHash(username, salt) {
-  const data = new TextEncoder().encode((salt || DEFAULTS.PROFILE_SALT) + String(username).trim().toLowerCase());
+/* Feed hash = sha256(salt + token)[:16] over the profile's random capability `token` from
+ * profiles.yaml (Track A1) — NOT the username, which anyone could derive. Mirrors the page's
+ * Web Crypto hashing and scripts/lib/profiles.py. */
+export async function profileHash(token, salt) {
+  const data = new TextEncoder().encode((salt || DEFAULTS.PROFILE_SALT) + String(token).trim().toLowerCase());
   const buf = await crypto.subtle.digest("SHA-256", data);
   return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 16);
 }
@@ -596,8 +599,8 @@ async function resolveProfile(env, hash) {
   const manifest = yamlParse(f.text) || {};
   const salt = manifest.salt || DEFAULTS.PROFILE_SALT;
   for (const p of manifest.profiles || []) {
-    if (!p || !p.username) continue;
-    if ((await profileHash(p.username, salt)) === hash) {
+    if (!p || !p.username || !p.token) continue;   // tokenless profile = no feed hash (A1)
+    if ((await profileHash(p.token, salt)) === hash) {
       const tastePath = p.taste || "taste.yaml";
       const owner = !!p.owner;
       const u = String(p.username).trim().toLowerCase();
@@ -927,22 +930,43 @@ async function fetchFeedByHash(env, hash) {
   return null;
 }
 
+/* Username/display-name -> feed hash, via profiles.yaml (the token map). Post-A1 a username can't
+ * be hashed directly — the hash comes from the profile's random token. Needs GITHUB_TOKEN to read
+ * the manifest; returns null when it can't (callers then treat every name as unknown). */
+async function usernameHashMap(env) {
+  const f = await ghGetFile(env, "profiles.yaml");
+  if (!f) return null;
+  const manifest = yamlParse(f.text) || {};
+  const salt = manifest.salt || DEFAULTS.PROFILE_SALT;
+  const map = {};
+  for (const p of manifest.profiles || []) {
+    if (!p || !p.username || !p.token) continue;
+    const h = await profileHash(p.token, salt);
+    map[String(p.username).trim().toLowerCase()] = h;
+    const n = String(p.name || "").trim().toLowerCase();
+    if (n && !(n in map)) map[n] = h;               // display name resolves too; username wins on a tie
+  }
+  return map;
+}
+
 async function groupFeedMatrix(env, input, callerHash) {
-  const salt = env.PROFILE_SALT || DEFAULTS.PROFILE_SALT;
   const days = Number.isFinite(input && input.days) ? Math.max(1, Math.min(120, input.days)) : 21;
   const today = new Date().toISOString().slice(0, 10);
   const horizon = new Date(Date.now() + days * 864e5).toISOString().slice(0, 10);
 
-  // People = the caller (by session hash, label from their own feed) + each named username.
+  // People = the caller (by session hash, label from their own feed) + each named username,
+  // resolved to feed hashes through profiles.yaml (names are lookup keys, tokens are the keys).
   const people = [], unknown = [];
   if (callerHash) {
     const f = await fetchFeedByHash(env, callerHash);
     if (f) people.push({ id: callerHash, name: (f.profile && f.profile.name) || "You", feed: f });
   }
+  const nameMap = await usernameHashMap(env);
   for (const raw of (input && input.usernames) || []) {
     const u = String(raw || "").trim().toLowerCase();
     if (!u) continue;
-    const h = await profileHash(u, salt);
+    const h = nameMap && nameMap[u];
+    if (!h) { unknown.push(raw); continue; }
     if (people.some((p) => p.id === h)) continue;            // dedupe (caller may name themselves)
     const f = await fetchFeedByHash(env, h);
     if (!f) { unknown.push(raw); continue; }

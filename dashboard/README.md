@@ -65,19 +65,21 @@ repo). Nothing is auto-written to `sources.yaml`.
 
 ## Profiles (per-person taste)
 
-The **"prof"** link in the footer opens a popup: type a username and the page loads that person's
-taste profile + digest. It works by hashing the username (SHA-256, salt `la-events/v1:`) and
-fetching `data.<hash>.json` — the per-profile feed built by `scripts/build_profiles.py`. Blank or
-unknown stays on the default (Ari's) feed; "log out" returns to it. The active profile persists in
-localStorage.
+Login is a **personal link** (Track A1): each friend gets `…/?t=<token>` texted once — a random
+capability token from `profiles.yaml`, not their name. Opening it signs that device in (the page
+hashes the token — SHA-256, salt `la-events/v2:` — and fetches `data.<hash>.json`, the per-profile
+feed built by `scripts/build_profiles.py`); the ⚷ popup also accepts a pasted key/link once. An
+unknown key stays on the default (Ari's) feed; "log out" returns to it. The active profile persists
+in localStorage.
 
 You **create** a profile in the repo (a few friends, not open signup):
 
 ```bash
 mkdir -p profiles/<name> && cp profiles/demo/taste.yaml profiles/<name>/taste.yaml  # then edit
-#  add an entry to profiles.yaml (username = the key they type; name = display name)
+#  add an entry to profiles.yaml (username = the human id; token = secrets.token_hex(8); name = display)
 python scripts/build_profiles.py            # rebuilds data.json + every profile feed
 #  commit the new dashboard/data.<hash>.json (the whole dashboard/ folder is published)
+#  text the friend their link: https://<site>/?t=<token>
 ```
 
 **Self-edit (no repo access needed):** once a friend is in their profile, they can tune their taste
@@ -93,10 +95,12 @@ pending (with an *Update now →* button). It's all baked into the feed by `buil
 (`profile.self_edit`), so it works on the static page with no backend; a friend's edit reads *pending*
 until they hit Update (or the nightly run) regenerates their digest against the new taste.
 
-**This is obfuscation, not security:** the username is a public, guessable-if-known bearer key, and
-each feed file is publicly fetchable. Taste *writes* are low-stakes too (every edit is a revertible
-commit) — the backend's `CONCIERGE_TOKEN` guards API spend + commit-spam, not the data. Pick
-non-obvious usernames. Still deferred (see ROADMAP): per-profile Spotify affinity.
+**Access model:** the Google-Docs-link model — the token is an unguessable random bearer key, so a
+capability URL is the whole gate (feed files are still publicly fetchable *if you know the hash*,
+which is only derivable from the token). Usernames are just human ids for group planning now, not
+keys. Taste *writes* stay low-stakes (every edit is a revertible commit) — the backend's
+`CONCIERGE_TOKEN` guards API spend + commit-spam, not the data. `profiles.yaml` is the token map:
+it must stay in the private repo, never in `dashboard/`.
 
 Each profile also gets its own **personalized digest** (the daily routine writes `digests/<hash>/latest.md`
 from their feed; the popup's "digest ↗" shows it). Until the routine has run for a new profile, the page

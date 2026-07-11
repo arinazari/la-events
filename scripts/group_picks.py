@@ -25,7 +25,6 @@ Usage:
 """
 
 import argparse
-import hashlib
 import json
 import re
 import sys
@@ -37,16 +36,11 @@ from lib.config import load_yaml, load_taste, load_profile  # noqa: E402
 from lib.pipeline import score_pool, today_la  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
 from lib.enrich import event_key, load_cache, merge_enrichment  # noqa: E402
+from lib.profiles import profile_hash, entry_hash, DEFAULT_SALT  # noqa: E402  (token -> hash, A1)
 
 REPO = Path(__file__).resolve().parent.parent
-DEFAULT_SALT = "la-events/v1:"
 OWNER_ALIASES = {"me", "default", "owner", "root", "self", "us"}
 DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-
-
-def profile_hash(username: str, salt: str) -> str:
-    """Mirror of build_profiles.py / the dashboard hashing — keep all in sync if it changes."""
-    return hashlib.sha256((salt + username.strip().lower()).encode("utf-8")).hexdigest()[:16]
 
 
 def norm_name(s: str) -> str:
@@ -62,7 +56,10 @@ def resolve_member(person: str, by_user: dict, owner_entry: dict, salt: str, by_
 
     A person matches by USERNAME or (via by_name) by DISPLAY NAME, case-insensitively — so the
     concierge can pass whatever name Ari used and skip a username-lookup step. Username wins on a
-    tie. None = no such profile."""
+    tie. None = no such profile.
+
+    The hash comes from the entry's capability `token` (Track A1), never the name — it locates
+    that person's music/feedback layer. A tokenless friend resolves with hash None (taste-only)."""
     u = person.strip().lower()
     owner_user = (owner_entry or {}).get("username", "").strip().lower()
     if owner_entry and (u == owner_user or u in OWNER_ALIASES):
@@ -83,7 +80,7 @@ def resolve_member(person: str, by_user: dict, owner_entry: dict, salt: str, by_
     return {"id": canon, "name": entry.get("name") or canon,
             "taste": entry.get("taste") or f"profiles/{canon}/taste.yaml",
             "profile": entry.get("profile") or f"profiles/{canon}/profile.yaml",
-            "hash": profile_hash(canon, salt)}
+            "hash": entry_hash(entry, salt)}
 
 
 def combine(pools: dict, members: list) -> list:

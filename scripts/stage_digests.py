@@ -36,17 +36,18 @@ import shutil
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-DEFAULT_SALT = "la-events/v1:"
+DEFAULT_SALT = "la-events/v2:"
 DATED_GLOB = "[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md"
 
 
-def profile_hash(username: str, salt: str) -> str:
-    """Same hash the page (Web Crypto) and build_profiles.py use."""
-    return hashlib.sha256((salt + username.strip().lower()).encode("utf-8")).hexdigest()[:16]
+def profile_hash(token: str, salt: str) -> str:
+    """Same hash the page (Web Crypto) and build_profiles.py use — over the profile's random
+    capability `token` (Track A1), never the username."""
+    return hashlib.sha256((salt + token.strip().lower()).encode("utf-8")).hexdigest()[:16]
 
 
 def parse_profiles(text: str):
-    """Minimal line parser for profiles.yaml -> (salt, [{username, owner, digest, ...}]).
+    """Minimal line parser for profiles.yaml -> (salt, [{username, token, owner, digest, ...}]).
     Deliberately tiny (no pyyaml): the file's shape is fixed and repo-controlled."""
     salt = DEFAULT_SALT
     profiles, cur = [], None
@@ -68,7 +69,7 @@ def parse_profiles(text: str):
         if cur is None:
             continue
         m = re.match(r'\s+(\w+):\s*["\']?(.*?)["\']?\s*$', line)
-        if m and m.group(1) in ("name", "taste", "profile", "digest", "owner"):
+        if m and m.group(1) in ("name", "token", "taste", "profile", "digest", "owner"):
             cur[m.group(1)] = m.group(2)
     return salt, profiles
 
@@ -143,9 +144,9 @@ def main(argv=None) -> int:
     salt, profiles = parse_profiles(manifest_path.read_text())
     for p in profiles:
         u = p.get("username")
-        if not u:
+        if not u or not p.get("token"):   # no token = no feed hash = nothing to stage under
             continue
-        h = profile_hash(u, salt)
+        h = profile_hash(p["token"], salt)
         is_owner = str(p.get("owner", "")).strip().lower() == "true"
 
         if is_owner and default_src:

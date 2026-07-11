@@ -65,7 +65,7 @@ jobs:
           # Is this the owner? The owner's displayed digest is the consolidated digests/latest.md
           # (stage_digests publishes that for owner), so the owner's Update must re-render THAT.
           # ($HASH is validated hex above, so it's safe to interpolate into the one-liner.)
-          owner="$(python -c "import hashlib,yaml; m=yaml.safe_load(open('profiles.yaml')) or {}; s=m.get('salt') or 'la-events/v1:'; print('true' if any(p.get('owner') and hashlib.sha256((s+p['username'].strip().lower()).encode()).hexdigest()[:16]=='$HASH' for p in (m.get('profiles') or []) if p.get('username')) else 'false')")"
+          owner="$(python -c "import sys, yaml; sys.path.insert(0, 'scripts'); from lib.profiles import entry_hash, DEFAULT_SALT; m=yaml.safe_load(open('profiles.yaml')) or {}; s=m.get('salt') or DEFAULT_SALT; print('true' if any(p.get('owner') and entry_hash(p, s)=='$HASH' for p in (m.get('profiles') or []) if isinstance(p, dict)) else 'false')")"
           echo "is_owner=${owner:-false}" >> "$GITHUB_OUTPUT"
           # Model for the LLM pass: sonnet by default (Q3), 'opus' when it matters (or an explicit
           # claude-* id). repository_dispatch may carry client_payload.model; the manual run takes the input.

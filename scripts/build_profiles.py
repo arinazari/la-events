@@ -6,11 +6,13 @@ profile.yaml) plus each listed profile, runs build_dashboard.py to score the cat
 THAT profile's taste and write its feed:
 
     default      -> dashboard/data.json
-    <username>   -> dashboard/data.<hash>.json     (hash = profile_hash(username))
+    <username>   -> dashboard/data.<hash>.json     (hash = profile_hash(token))
 
-where profile_hash = first 16 hex of sha256(salt + lowercased username). The dashboard hashes
-the typed username the same way (Web Crypto, same salt) to locate the file, so the username acts
-as the access key. Each per-profile feed gets a small self-describing "profile" block injected
+where profile_hash = first 16 hex of sha256(salt + token) and `token` is that profile's random
+capability key from profiles.yaml (Track A1 — NOT the username, which anyone could derive). The
+dashboard hashes the pasted/linked token the same way (Web Crypto, same salt) to locate the file.
+A profile without a token is skipped with an error. Each per-profile feed gets a small
+self-describing "profile" block injected
 ({name, hash, [digest]}) so the page can show the display name and find the profile's digest
 without ever reading this manifest.
 
@@ -23,7 +25,6 @@ Usage:
     python scripts/build_profiles.py --skip-default  # every profile, leave data.json untouched
 """
 import argparse
-import hashlib
 import json
 import subprocess
 import sys
@@ -35,13 +36,7 @@ DASH = REPO / "dashboard"
 
 sys.path.insert(0, str(REPO / "scripts"))
 from lib.config import load_yaml  # noqa: E402
-
-DEFAULT_SALT = "la-events/v1:"
-
-
-def profile_hash(username: str, salt: str) -> str:
-    """Mirror of the page's hashing — keep both in sync if you change it."""
-    return hashlib.sha256((salt + username.strip().lower()).encode("utf-8")).hexdigest()[:16]
+from lib.profiles import profile_hash, DEFAULT_SALT  # noqa: E402  (token -> feed hash, Track A1)
 
 
 # ---------------------------------------------------------------------------
@@ -251,9 +246,17 @@ def main() -> int:
 
     for p in profiles:
         u = p["username"]
-        h = profile_hash(u, salt)
         if only and u.strip().lower() not in only:
             continue
+        if not p.get("token"):
+            # No token = no feed hash = no feed. Loud, but never blocks the other profiles.
+            # (In an --only-hash run a tokenless profile can't be the target — skip quietly.)
+            if not only_hash:
+                print(f"  ERROR: profile '{u}' has no token: — generate one "
+                      f"(secrets.token_hex(8)) in profiles.yaml; skipping its feed", file=sys.stderr)
+                failed.append(u)
+            continue
+        h = profile_hash(str(p["token"]), salt)
         if only_hash and h.lower() not in only_hash:
             continue
         out = DASH / f"data.{h}.json"

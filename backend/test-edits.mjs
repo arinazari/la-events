@@ -95,11 +95,13 @@ const ok = (name) => { console.log("ok  " + name); passed++; };
   ok("system prompt advertises group planning + digest editing + the guardrail");
 }
 
-/* ---- hash parity with Python/build_profiles (salt + lowercasing) ---- */
+/* ---- hash parity with Python/build_profiles (salt + token, Track A1) ---- */
 {
-  assert.equal(await profileHash("ari", "la-events/v1:"), "1d8a45fa37024d33");
-  assert.equal(await profileHash("ARI", "la-events/v1:"), await profileHash("ari", "la-events/v1:"));
-  ok("profileHash matches the Python/page hashing");
+  // Same fixture as scripts/lib/profiles.py: sha256("la-events/v2:" + token)[:16].
+  assert.equal(await profileHash("aaaa000011112222", "la-events/v2:"), "a8de6e4309060de7");
+  assert.equal(await profileHash(" AAAA000011112222 ", "la-events/v2:"),
+               await profileHash("aaaa000011112222", "la-events/v2:"));
+  ok("profileHash matches the Python/page hashing (token, v2 salt)");
 }
 
 console.log(`\nall ${passed} worker edit tests passed`);

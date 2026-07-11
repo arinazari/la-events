@@ -1,11 +1,16 @@
 # profiles.yaml — per-person taste configs for the dashboard's profile switcher.
 #
-# This is a friends-tool convenience layer, NOT real security. Each profile gets its own
-# taste.yaml (+ optional profile.yaml) and its own scored feed at dashboard/data.<hash>.json,
-# where <hash> = first 16 hex of sha256("la-events/v1:" + lowercased(username)). The username
-# is the access key ("like a password"): it's typed into the dashboard's "prof" popup, hashed
-# in the browser, and used to fetch that feed. Anyone who knows a username can load that profile
-# (and the feed file is publicly served), so pick non-obvious usernames. See ROADMAP "Profiles".
+# ACCESS MODEL (Track A1): each profile's access key is a random capability `token`
+# (secrets.token_hex(8), generated once — NOT derivable from anyone's name). The feed lives at
+# dashboard/data.<hash>.json where <hash> = first 16 hex of sha256(salt + token). Friends log in
+# by opening their personal link (dashboard/?t=<token>) once — the page hashes the token in the
+# browser (Web Crypto, same salt), remembers it on that device, and never sends it anywhere.
+# The `username` is NO LONGER the access key: it's the human-readable id the concierge and
+# group-planning tools use ("plan with lori"). Knowing a username gets you group planning against
+# that profile's public-by-capability feed; it does not unlock login or self-edit.
+#
+# THIS FILE IS THE TOKEN MAP — it must never be published. It lives only in the (private) repo;
+# nothing in dashboard/ or the emitted feeds contains a token. See PLAN-2026-07-08 Track A.
 #
 # The DEFAULT (logged-out) feed is the repo-root taste.yaml / profile.yaml -> dashboard/data.json.
 # An `owner: true` profile (Ari's own login) also points at the root taste.yaml: logging in just
@@ -15,58 +20,68 @@
 # After editing, rebuild the feeds:   python scripts/build_profiles.py
 # (or just one:                        python scripts/build_profiles.py --only <username>)
 #
+# ROTATING A KEY: replace that profile's `token:` with a fresh `secrets.token_hex(8)`, rebuild the
+# feeds, delete the old dashboard/data.<oldhash>.json, send the friend their new link. Bumping
+# `salt:` rotates EVERYONE at once (that's how the v1 name-derived URLs were killed).
+#
 # Per-profile Spotify (the music layer): each profile scores against ITS OWN Spotify + reactions
 # (data/spotify/<hash>.json + data/feedback.<hash>.jsonl), not Ari's. Friends connect Spotify in the
 # dashboard (the profile popup) via the concierge Worker; build_profiles.py passes each profile's hash
 # so the feed re-ranks to their listening. Nothing to add here — see backend/README.md "Per-profile Spotify".
 #
-# Group planning (NOT private — Ari's call): the concierge can read ANY profile here and combine tastes
-# to "find events together" (scripts/group_picks.py --people me,<friends>). Knowing the username is
-# permission enough; there's deliberately no per-profile "private" flag. Pick non-obvious usernames if
-# that matters to a friend — the access model is obfuscation, not security (same as the feed files).
+# Group planning: the concierge can read ANY profile here BY USERNAME/display name and combine
+# tastes to "find events together" (scripts/group_picks.py --people me,<friends>). Naming someone
+# is permission enough for planning (Ari's call); tokens are never needed for it.
 #
 # Per-profile digest FORMAT (optional `digest_prefs:` on an entry): HOW that person's digest reads
 # (length/sections/group_by/tone) — a path to a YAML like digest.yaml; defaults to
 # profiles/<username>/digest.yaml. Presentation only (ranking lives in taste/profile). The concierge
 # edits it ("make my digest shorter", "drop the radar"); build_profiles.py injects it into the feed.
 
-salt: "la-events/v1:"        # mixed into the filename hash; shared verbatim with the page. Public by nature.
+salt: "la-events/v2:"        # mixed into the hash; v2 = the token cutover (all v1 name-hash URLs are dead)
 
 profiles:
-  - username: demo           # EXAMPLE — replace or delete. (Guessable on purpose; real ones shouldn't be.)
+  - username: demo           # EXAMPLE profile — the token below is as public as the sample data it ranks.
     name: Demo (indie + jazz)
+    token: "bbf934bc3bf083db"
     taste: profiles/demo/taste.yaml
     # profile: profile.yaml    # optional; omit to inherit the root profile.yaml (geo + scoring mechanics)
     # digest: digests/<hash>   # optional; per-profile digest dir staged by the deploy workflow (follow-up)
     # digest_prefs: profiles/demo/digest.yaml  # optional; HOW the digest reads (defaults to this path)
 
   - username: ari            # Ari's own login -> unlocks the concierge/LLM on the default feed.
-    name: Ari                #   RENAME this to something non-obvious: as owner it can self-edit the
-    taste: taste.yaml        #   canonical taste.yaml (which drives the digest + everyone's default feed).
-    owner: true              #   owner -> edits the root taste.yaml (friends can't) + unlocks the
-                             #   dashboard's admin settings (Refresh events / Discover sources).
+    name: Ari                #   owner -> edits the root taste.yaml (friends can't) + unlocks the
+    token: "3825d7ef3e474fbb"
+    taste: taste.yaml        #   dashboard's admin settings (Refresh events / Discover sources).
+    owner: true
 
-  - username: dr_ganesan     # friend profile. NOTE: username is the access key + is guessable here;
-    name: Dr. Ganesan        #   swap it for something non-obvious before sharing the feed widely.
+  - username: dr_ganesan     # friend profile.
+    name: Dr. Ganesan
+    token: "35164486e2a65bf6"
     taste: profiles/dr_ganesan/taste.yaml   # starter taste — edit it, then rebuild this profile.
 
-  - username: lori           # friend profile. NOTE: username is the access key + is guessable here;
-    name: Lori               #   swap it for something non-obvious before sharing the feed widely.
+  - username: lori           # friend profile.
+    name: Lori
+    token: "5b6acb56ed97e6a4"
     taste: profiles/lori/taste.yaml         # band-forward, diverse ethnomusicologist taste.
     profile: profiles/lori/profile.yaml     # her own MECHANISM: Glendale geo + live-music weighting.
 
   - username: garo           # friend profile (not owner/admin). EMPTY — taste not configured yet.
-    name: Garo               #   username is the access key + is guessable here; swap for something
-    taste: profiles/garo/taste.yaml         #   non-obvious before sharing the feed widely.
+    name: Garo
+    token: "7fc119c9f68be9bf"
+    taste: profiles/garo/taste.yaml
 
   - username: taylor         # friend profile (not owner/admin). EMPTY — taste not configured yet.
-    name: Taylor             #   username is the access key + is guessable here; swap for something
-    taste: profiles/taylor/taste.yaml       #   non-obvious before sharing the feed widely.
+    name: Taylor
+    token: "8d832ac6566e5589"
+    taste: profiles/taylor/taste.yaml
 
   - username: alexa          # friend profile (not owner/admin). EMPTY — taste not configured yet.
-    name: Alexa              #   username is the access key + is guessable here; swap for something
-    taste: profiles/alexa/taste.yaml        #   non-obvious before sharing the feed widely.
+    name: Alexa
+    token: "9819a1f4b15604ab"
+    taste: profiles/alexa/taste.yaml
 
   - username: raffi          # friend profile (not owner/admin). EMPTY — taste not configured yet.
-    name: Raffi              #   username is the access key + is guessable here; swap for something
-    taste: profiles/raffi/taste.yaml        #   non-obvious before sharing the feed widely.
+    name: Raffi
+    token: "ced12cb2004ab0d3"
+    taste: profiles/raffi/taste.yaml

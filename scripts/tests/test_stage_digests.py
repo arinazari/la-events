@@ -12,7 +12,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import stage_digests as S  # noqa: E402
 
-SALT = "la-events/v1:"
+SALT = "la-events/v2:"
+ARI_TOKEN = "aaaa000011112222"     # tokens are the access keys now (A1) — hashes derive from these
+DEMO_TOKEN = "bbbb000011112222"
+NOBODY_TOKEN = "cccc000011112222"
 
 
 def _scaffold(root: Path):
@@ -28,16 +31,22 @@ def _scaffold(root: Path):
     (friend_dir / "latest.md").write_text("# Demo digest — 6/19\n\nFriend's own.\n")
 
     (root / "profiles.yaml").write_text(
-        'salt: "la-events/v1:"\n'
+        'salt: "la-events/v2:"\n'
         "profiles:\n"
         "  - username: ari\n"
         "    name: Ari\n"
+        f'    token: "{ARI_TOKEN}"\n'
         "    owner: true\n"
         "  - username: demo\n"
         "    name: Demo\n"
+        f'    token: "{DEMO_TOKEN}"\n'
         "    digest: digests/demo\n"
         "  - username: nobody\n"      # no digest dir, not owner -> staged nothing
         "    name: Nobody\n"
+        f'    token: "{NOBODY_TOKEN}"\n'
+        "  - username: tokenless\n"   # no token -> no feed hash -> skipped entirely
+        "    name: Tokenless\n"
+        "    digest: digests/demo\n"
     )
     return digests
 
@@ -80,7 +89,7 @@ def test_consolidated_latest_wins_over_dated():
         dest = _run(root)
 
         assert (dest / "latest.md").read_text().startswith("# LA Events — 2026-06-20")  # consolidated
-        h = S.profile_hash("ari", SALT)
+        h = S.profile_hash(ARI_TOKEN, SALT)
         assert (dest / h / "latest.md").read_text().startswith("# LA Events — 2026-06-20")  # owner too
         idx = json.loads((dest / "index.json").read_text())                # dropdown = dated files
         assert [e["date"] for e in idx] == ["2026-06-19", "2026-06-12"]
@@ -91,7 +100,7 @@ def test_owner_shares_root_index():
         root = Path(td)
         _scaffold(root)
         dest = _run(root)
-        h = S.profile_hash("ari", SALT)
+        h = S.profile_hash(ARI_TOKEN, SALT)
 
         # owner gets a logged-in latest.md + an index pointing back at the ROOT <date>.md files
         assert (dest / h / "latest.md").read_text().startswith("# LA Events — Fri 6/19")
@@ -105,7 +114,7 @@ def test_friend_with_own_digest_dir():
         root = Path(td)
         _scaffold(root)
         dest = _run(root)
-        h = S.profile_hash("demo", SALT)
+        h = S.profile_hash(DEMO_TOKEN, SALT)
 
         assert (dest / h / "latest.md").read_text().startswith("# Demo digest")
         assert (dest / h / "2026-06-19.md").is_file()
@@ -119,7 +128,7 @@ def test_friend_without_digest_is_skipped():
         root = Path(td)
         _scaffold(root)
         dest = _run(root)
-        h = S.profile_hash("nobody", SALT)
+        h = S.profile_hash(NOBODY_TOKEN, SALT)
         assert not (dest / h).exists()                    # nothing staged for them
 
 

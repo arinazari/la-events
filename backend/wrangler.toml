@@ -30,7 +30,7 @@ DATA_URL = "https://arinazari.github.io/la-events/data.json"
 ALLOWED_ORIGIN = "https://arinazari.github.io"
 GITHUB_REPO = "arinazari/la-events"
 GITHUB_BRANCH = "main"
-PROFILE_SALT = "la-events/v1:"
+PROFILE_SALT = "la-events/v2:"   # v2 = Track-A1 token cutover (hashes are over each profile's random token)
 # Spotify (per-profile music layer). The redirect URI must EXACTLY match one registered in your
 # Spotify app at developer.spotify.com. Replace <you> with your workers.dev subdomain.
 SPOTIFY_REDIRECT_URI = "https://la-events-concierge.arinazari.workers.dev/spotify/callback"

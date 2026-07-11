@@ -196751,7 +196751,7 @@
   ],
   "profile": {
     "name": "Garo",
-    "hash": "d8acb3e9dbfbc7c1",
+    "hash": "2ff347a45fc77f4a",
     "taste_yaml": "# Taste profile \u2014 Garo. EMPTY starter: no preferences set yet, so this feed scores every\n# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only garo\n# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n\ncategories:\n  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n  medium:  []   # +2 each\n  low:     []   # +1, include only if exceptional\n\nboosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\npenalties: []   # -2 each (the \"not for me\" list)\n\nartists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\ncomedians_loved:  []\nvenues_loved:     []\n\nfeedback:\n  - \"New empty profile \u2014 taste not configured yet.\"\n",
     "profile_yaml": null,
     "self_edit": {

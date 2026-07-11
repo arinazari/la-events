@@ -61,10 +61,13 @@ refuses to commit anything that doesn't re-parse as valid YAML:
 And one **read-only** tool (no commit, no GitHub token, available to any authed caller):
 
 - **`plan_with_friends`** (GROUP) — "find events for me + Lori + Dr. Ganesan." Given the friends'
-  usernames, the Worker fetches each one's **public** feed (`data.<hash>.json`) plus the caller's,
-  joins upcoming events, and returns a per-person rating matrix the model reasons over with judgment
-  (no fixed group rules — Ari's call). **Profiles aren't private**: knowing a username is permission
-  enough, there's no opt-out flag. A username with no feed comes back under `unknown`.
+  usernames, the Worker resolves each to their feed hash via `profiles.yaml` (post-A1 a name can't be
+  hashed directly — the hash comes from that profile's random token, so this read needs
+  `GITHUB_TOKEN`), fetches each feed (`data.<hash>.json`) plus the caller's, joins upcoming events,
+  and returns a per-person rating matrix the model reasons over with judgment (no fixed group rules —
+  Ari's call). **Group planning stays name-based** (Ari's call): naming someone is permission enough
+  to plan *with* them; it doesn't unlock their login or edits. An unresolvable name comes back under
+  `unknown`.
 
 ## Contract
 
@@ -74,7 +77,7 @@ POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<
 Auth: optional  Authorization: Bearer <CONCIERGE_TOKEN>
 ```
 
-`profile` is the feed hash the page already computes from the username (it's what `data.<hash>.json`
+`profile` is the feed hash the page already computes from the login token (it's what `data.<hash>.json`
 is named after). The Worker resolves it back to the profile via `profiles.yaml` and edits that
 person's files: a friend's own `profiles/<name>/{taste,profile}.yaml`, or — for the `owner: true`
 profile (Ari's login) — the shared root `taste.yaml` / `profile.yaml`. A friend can never edit the
@@ -138,7 +141,7 @@ Worker URL + (if set) the token. Stored in your browser's localStorage — no re
 | `DATA_URL`          | `wrangler.toml [vars]` | the published `data.json` to ground on (profile feeds are derived from it) |
 | `ALLOWED_ORIGIN`    | `wrangler.toml [vars]` | CORS origin (your Pages site) |
 | `GITHUB_REPO` / `GITHUB_BRANCH` | `wrangler.toml [vars]` | where to commit taste edits (defaults: `arinazari/la-events` / `main`) |
-| `PROFILE_SALT`      | `wrangler.toml [vars]` | **must match** the page + `build_profiles.py` (`la-events/v1:`) so hashes line up |
+| `PROFILE_SALT`      | `wrangler.toml [vars]` | **must match** the page + `build_profiles.py` (`la-events/v2:` — hashes are over each profile's random `token` from profiles.yaml, Track A1) |
 
 ## Quality & cost
 

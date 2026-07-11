@@ -53,50 +53,64 @@ def test_combine_sorted_by_mean_desc():
     assert titles == ["High", "Mid", "Low"]
 
 
+SALT = "la-events/v2:"
+
+
 def test_resolve_member_owner_alias_and_friend():
     by_user = {
-        "ari": {"username": "ari", "name": "Ari", "owner": True, "taste": "taste.yaml"},
+        "ari": {"username": "ari", "name": "Ari", "owner": True, "taste": "taste.yaml",
+                "token": "aaaa000011112222"},
         "lori": {"username": "lori", "name": "Lori", "taste": "profiles/lori/taste.yaml",
-                 "profile": "profiles/lori/profile.yaml"},
+                 "profile": "profiles/lori/profile.yaml", "token": "bbbb000011112222"},
     }
     owner = by_user["ari"]
-    salt = "la-events/v1:"
 
-    me = G.resolve_member("me", by_user, owner, salt)
+    me = G.resolve_member("me", by_user, owner, SALT)
     assert me["id"] == "ari" and me["taste"] == "taste.yaml" and me["profile"] == "profile.yaml"
     assert me["hash"] is None
     # owner addressed by username resolves the same way
-    assert G.resolve_member("ari", by_user, owner, salt)["profile"] == "profile.yaml"
+    assert G.resolve_member("ari", by_user, owner, SALT)["profile"] == "profile.yaml"
 
-    lori = G.resolve_member("lori", by_user, owner, salt)
+    lori = G.resolve_member("lori", by_user, owner, SALT)
     assert lori["taste"] == "profiles/lori/taste.yaml"
     assert lori["profile"] == "profiles/lori/profile.yaml"
-    assert lori["hash"] == G.profile_hash("lori", salt)
+    # the hash comes from the TOKEN (A1), never the username
+    assert lori["hash"] == G.profile_hash("bbbb000011112222", SALT)
+    assert lori["hash"] != G.profile_hash("lori", SALT)
 
-    assert G.resolve_member("nobody", by_user, owner, salt) is None
+    assert G.resolve_member("nobody", by_user, owner, SALT) is None
 
 
 def test_friend_without_explicit_paths_falls_back_to_convention():
-    by_user = {"dr_ganesan": {"username": "dr_ganesan", "name": "Dr. Ganesan"}}
-    m = G.resolve_member("dr_ganesan", by_user, None, "la-events/v1:")
+    by_user = {"dr_ganesan": {"username": "dr_ganesan", "name": "Dr. Ganesan",
+                              "token": "cccc000011112222"}}
+    m = G.resolve_member("dr_ganesan", by_user, None, SALT)
     assert m["taste"] == "profiles/dr_ganesan/taste.yaml"
     assert m["profile"] == "profiles/dr_ganesan/profile.yaml"
-    assert m["hash"] == G.profile_hash("dr_ganesan", "la-events/v1:")
+    assert m["hash"] == G.profile_hash("cccc000011112222", SALT)
+
+
+def test_friend_without_token_resolves_with_no_hash():
+    # A tokenless profile still plans by taste — it just has no per-person music layer to load.
+    by_user = {"garo": {"username": "garo", "name": "Garo"}}
+    m = G.resolve_member("garo", by_user, None, SALT)
+    assert m is not None and m["hash"] is None
 
 
 def test_resolve_by_display_name_not_just_username():
     # The whole point of the fix: passing a friend's display NAME resolves to their profile
     # (no username-lookup step), and lands on the SAME id/paths/hash as passing the username.
-    lori = {"username": "lori", "name": "Lori", "taste": "profiles/lori/taste.yaml"}
+    lori = {"username": "lori", "name": "Lori", "taste": "profiles/lori/taste.yaml",
+            "token": "bbbb000011112222"}
     by_user = {"lori": lori}
     by_name = {G.norm_name("Lori"): lori}
-    m = G.resolve_member("Lori", by_user, None, "la-events/v1:", by_name)
+    m = G.resolve_member("Lori", by_user, None, SALT, by_name)
     assert m is not None, "display name should resolve"
     assert m["id"] == "lori"                                   # canonical username, not the typed name
     assert m["taste"] == "profiles/lori/taste.yaml"
-    assert m["hash"] == G.profile_hash("lori", "la-events/v1:")
+    assert m["hash"] == G.profile_hash("bbbb000011112222", SALT)
     # identical to resolving by username
-    assert m == G.resolve_member("lori", by_user, None, "la-events/v1:", by_name)
+    assert m == G.resolve_member("lori", by_user, None, SALT, by_name)
 
 
 def test_resolve_by_name_normalizes_punctuation_and_case():
@@ -104,7 +118,7 @@ def test_resolve_by_name_normalizes_punctuation_and_case():
     by_user = {"dr_ganesan": dg}
     by_name = {G.norm_name("Dr. Ganesan"): dg}
     for typed in ("Dr. Ganesan", "dr ganesan", "DR  GANESAN"):
-        m = G.resolve_member(typed, by_user, None, "la-events/v1:", by_name)
+        m = G.resolve_member(typed, by_user, None, SALT, by_name)
         assert m is not None and m["id"] == "dr_ganesan", f"{typed!r} should resolve"
 
 
@@ -114,19 +128,19 @@ def test_username_wins_over_a_colliding_name():
     other = {"username": "somebody", "name": "lori"}       # display name collides with lori's username
     by_user = {"lori": lori, "somebody": other}
     by_name = {G.norm_name("Somebody"): other}             # "lori" name NOT added (it's a username)
-    m = G.resolve_member("lori", by_user, None, "la-events/v1:", by_name)
+    m = G.resolve_member("lori", by_user, None, SALT, by_name)
     assert m["id"] == "lori"
 
 
 def test_unknown_name_still_returns_none():
     by_user = {"lori": {"username": "lori", "name": "Lori"}}
     by_name = {G.norm_name("Lori"): by_user["lori"]}
-    assert G.resolve_member("Nobody", by_user, None, "la-events/v1:", by_name) is None
+    assert G.resolve_member("Nobody", by_user, None, SALT, by_name) is None
 
 
 def test_profile_hash_stable_16_hex():
-    h = G.profile_hash("Lori", "la-events/v1:")
-    assert h == G.profile_hash("lori", "la-events/v1:")          # case-insensitive
+    h = G.profile_hash("AbCd000011112222", SALT)
+    assert h == G.profile_hash("abcd000011112222", SALT)         # case/whitespace-insensitive
     assert len(h) == 16 and all(c in "0123456789abcdef" for c in h)
 
 
