@@ -68,6 +68,23 @@ def music_block(affinity: dict) -> dict:
             "genres": len(affinity.get("genres") or {})}
 
 
+def public_home(home: dict) -> dict:
+    """The home block as PUBLISHED in feeds (Track A3 hygiene): neighborhood + coords rounded
+    to 2 decimals (~1 km). Cross-streets never ship, and exact coords stay in the (private)
+    repo's profile.yaml for the travel math — display doesn't need house-level precision."""
+    home = home or {}
+    out = {}
+    if home.get("neighborhood"):
+        out["neighborhood"] = home["neighborhood"]
+    c = home.get("coords")
+    if isinstance(c, (list, tuple)) and len(c) == 2:
+        try:
+            out["coords"] = [round(float(c[0]), 2), round(float(c[1]), 2)]
+        except (TypeError, ValueError):
+            pass
+    return out
+
+
 def build_config(taste: dict, profile: dict, sources: dict) -> dict:
     """A structured snapshot of the editable settings for the dashboard Settings view.
 
@@ -116,7 +133,7 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
             "spotify": scoring.get("spotify") or {},
             "feedback": scoring.get("feedback") or {},
         },
-        "home": profile.get("home") or {},
+        "home": public_home(profile.get("home")),
         "sources": src_list,
     }
 

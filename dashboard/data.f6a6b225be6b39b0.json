@@ -1316,10 +1316,9 @@
     },
     "home": {
       "neighborhood": "North Hollywood / Burbank",
-      "cross_streets": "Lankershim & Magnolia area",
       "coords": [
-        34.187,
-        -118.376
+        34.19,
+        -118.38
       ]
     },
     "sources": [
@@ -196853,7 +196852,7 @@
     "name": "Taylor",
     "hash": "f6a6b225be6b39b0",
     "taste_yaml": "# Taste profile \u2014 Taylor. EMPTY starter: no preferences set yet, so this feed scores every\n# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only taylor\n# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n\ncategories:\n  high: [] # +3 each match \u2014 the core \"yes, this is for me\" buckets\n  medium: [] # +2 each\n  low: [] # +1, include only if exceptional\n\nboosts:\n  [\n    Arab culture,\n    Palestinian culture,\n    Armenian culture,\n    Middle Eastern music,\n    SWANA events\n  ] # +1 each (context: setting, night-of-week, editorial mention, \u2026)\npenalties: [] # -2 each (the \"not for me\" list)\n\nartists_tracked: [ Habibeats ] # lineup match => +2 and a \"tracked\" badge\ncomedians_loved: []\nvenues_loved: []\n\nfeedback:\n  - \"New empty profile \u2014 taste not configured yet.\"\n  - \"2026-06-26: Added Habibeats as a tracked artist; boosting Arab/Palestinian\n    and Armenian cultural events and music. (self-edit via concierge)\"\n",
-    "profile_yaml": "# profile.yaml \u2014 MECHANISM overrides for Taylor's feed, created by the dashboard concierge.\n# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs\n# that differ need to live here \u2014 anything absent falls back to the repo defaults.\n\nhome:\n  neighborhood: North Hollywood / Burbank\n  cross_streets: Lankershim & Magnolia area\n  coords: [ 34.187, -118.376 ]\nscoring:\n  near_home_neighborhoods:\n    - silver lake\n    - silverlake\n    - echo park\n    - los feliz\n    - east hollywood\n    - atwater village\n    - atwater\n    - frogtown\n    - elysian valley\n    - highland park\n    - eagle rock\n    - glassell park\n    - cypress park\n    - lincoln heights\n    - chinatown\n    - virgil village\n    - westlake\n    - historic filipinotown\n    - downtown\n    - dtla\n    - arts district\n    - North Hollywood\n    - Burbank\n    - NoHo Arts District\n    - Studio City\n    - Toluca Lake\n",
+    "profile_yaml": "# profile.yaml \u2014 MECHANISM overrides for Taylor's feed, created by the dashboard concierge.\n# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs\n# that differ need to live here \u2014 anything absent falls back to the repo defaults.\n\nhome:\n  neighborhood: North Hollywood / Burbank\n  coords: [ 34.19, -118.38 ]\nscoring:\n  near_home_neighborhoods:\n    - silver lake\n    - silverlake\n    - echo park\n    - los feliz\n    - east hollywood\n    - atwater village\n    - atwater\n    - frogtown\n    - elysian valley\n    - highland park\n    - eagle rock\n    - glassell park\n    - cypress park\n    - lincoln heights\n    - chinatown\n    - virgil village\n    - westlake\n    - historic filipinotown\n    - downtown\n    - dtla\n    - arts district\n    - North Hollywood\n    - Burbank\n    - NoHo Arts District\n    - Studio City\n    - Toluca Lake\n",
     "self_edit": {
       "taste": {
         "file": "profiles/taylor/taste.yaml",

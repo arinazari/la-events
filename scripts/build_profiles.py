@@ -26,6 +26,7 @@ Usage:
 """
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -196,6 +197,26 @@ def selfedit_block(repo, file_rel, enrich_paths):
     return block
 
 
+# ---------------------------------------------------------------------------
+# Published-feed hygiene (Track A3)
+# ---------------------------------------------------------------------------
+# Feeds are served publicly (capability-URL model), so raw profile.yaml text shipped in a
+# feed block must not carry house-level precision: cross-street lines are dropped entirely
+# and any high-precision decimal (3+ places — in practice, a coordinate) is rounded to 2
+# (~1 km). The exact values stay in the repo file itself for the travel math.
+_PRECISE_NUM_RE = re.compile(r"-?\d{1,3}\.\d{3,}")
+_CROSS_STREETS_RE = re.compile(r"^\s*[+-]?\s*cross_streets\s*:")   # plain YAML or a +/- diff line
+
+
+def sanitize_profile_text(text):
+    """Round coords + drop cross-streets in profile.yaml text (or a diff of it) bound for a feed."""
+    if not text:
+        return text
+    lines = [_PRECISE_NUM_RE.sub(lambda m: f"{float(m.group(0)):.2f}", ln)
+             for ln in text.splitlines() if not _CROSS_STREETS_RE.match(ln)]
+    return "\n".join(lines) + ("\n" if text.endswith("\n") else "")
+
+
 def run_build(taste: str, profile: str, out: Path, profile_hash: str = None,
               editor_pool_out: str = None) -> bool:
     cmd = [sys.executable, str(BUILD), "--taste", taste, "--profile", profile, "-o", str(out)]
@@ -303,7 +324,8 @@ def main() -> int:
             # their own profiles/<name>/profile.yaml (may not exist until their first edit).
             profile_rel = "profile.yaml" if is_owner else (p.get("profile") or f"profiles/{u}/profile.yaml")
             try:
-                block["profile_yaml"] = (REPO / profile_rel).read_text()
+                # A3 hygiene: the published copy rounds coords + drops cross-streets.
+                block["profile_yaml"] = sanitize_profile_text((REPO / profile_rel).read_text())
             except OSError:
                 block["profile_yaml"] = None
             # How the concierge adjusted each file + whether that's reflected in this profile's
@@ -313,9 +335,11 @@ def main() -> int:
             # deterministic Refresh re-renders that without re-running the LLM, which would flip the
             # owner green before the AI actually reprocessed their taste.
             enrich_paths = [f"digests/{h}/latest.md", f"data/verdicts/{h}.json"]
+            profile_se = selfedit_block(REPO, profile_rel, enrich_paths)
+            profile_se["diff"] = sanitize_profile_text(profile_se.get("diff"))   # A3: diffs ship clean too
             block["self_edit"] = {
                 "taste": selfedit_block(REPO, taste, enrich_paths),
-                "profile": selfedit_block(REPO, profile_rel, enrich_paths),
+                "profile": profile_se,
             }
             # Per-person digest FORMAT prefs (HOW their digest reads). Owner shares the root
             # digest.yaml; a friend gets profiles/<u>/digest.yaml (or an explicit `digest_prefs:`
