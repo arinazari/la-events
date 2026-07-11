@@ -30,6 +30,9 @@ from lib.pipeline import score_pool, today_la  # noqa: E402
 from lib.assemble import assemble  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
+from lib.profiles import hash_names  # noqa: E402
+from lib.reactions import load_reactions, star_map, stars_for  # noqa: E402  (A4 stars)
+from lib.config import load_yaml  # noqa: E402
 from posh_token_status import evaluate as posh_evaluate  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
@@ -115,6 +118,14 @@ def _link(ev: dict):
 
 FETCH_REF = ""      # the latest catalog fetch date (YYYY-MM-DD); events first_seen/updated on or
                     # after it are flagged 🆕 new / ↻ updated in the digest (set by main from meta)
+
+STARS = {}          # event_key -> ["Lori", ...] — who starred it (A4; set by main from
+                    # data/reactions.jsonl). Stars are mutual, so every digest shows them.
+
+
+def _stars_note(ev: dict) -> str:
+    names = STARS.get(event_key(ev)) or []
+    return " · ".join(f"★ {n}" for n in names)
 
 
 def freshness_line(meta: dict, today_iso: str) -> str:
@@ -222,7 +233,7 @@ def event_md(ev: dict) -> str:
     upd_note = f"↻ updated ({', '.join(upd)})" if upd else ""
     title, url = ev.get("title") or "Untitled", _link(ev)
     head = f"[{title}]({url})" if url else title
-    tail = " · ".join(x for x in (_loc(ev), ev.get("price"), upd_note) if x)
+    tail = " · ".join(x for x in (_loc(ev), ev.get("price"), _stars_note(ev), upd_note) if x)
     line = f"- `{time}`{span} {pick}{fresh}**{head}**" + (f" — {tail}" if tail else "")
     note = e.get("curator_note") or _gloss(ev)
     if note:
@@ -471,7 +482,7 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
 
 
 def main() -> int:
-    global FETCH_REF
+    global FETCH_REF, STARS
     ap = argparse.ArgumentParser()
     ap.add_argument("--catalog", default="data/catalog.json")
     ap.add_argument("--candidates", default="data/candidates.json",
@@ -513,6 +524,10 @@ def main() -> int:
     vpath = resolve(args.verdicts) if args.verdicts else ED.verdict_path(args.profile_hash)
     verdicts = ED.verdict_map(ED.load_verdicts(vpath))
     cache = load_cache(resolve(args.enrichment))
+    # Stars (A4): "★ Lori" beside starred events. Mutual by design — every digest shows them.
+    smap = star_map(load_reactions(REPO / "data" / "reactions.jsonl"))
+    names = hash_names(load_yaml(REPO / "profiles.yaml") or {}) if smap else {}
+    STARS = {k: [s["name"] for s in stars_for(smap, names, k)] for k in smap}
 
     # Coverage footer: pull `sources` from candidates.json if present.
     doc = {"today": today.isoformat(), "meta": meta}

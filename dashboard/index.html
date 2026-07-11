@@ -474,6 +474,9 @@
                           <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:2px; text-decoration:none; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="background:#e9f0fd; border-color:#234bb3; color:#234bb3;">{{ lk.label }} ↗</a>
                         </sc-for>
                         <span onClick="{{ ev.icsClick }}" title="Download .ics — add to your calendar" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#2b5cd9; background:#f4f7fe; color:#2b5cd9;">Add to calendar ↓</span>
+                        <sc-if value="{{ ev.canStar }}" hint-placeholder-val="{{ false }}">
+                          <span onClick="{{ ev.starClick }}" title="Star it — friends see your star, and it teaches your ranking" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid {{ ev.starBorder }}; background: {{ ev.starBg }}; color: {{ ev.starColor }}; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#b06a00; color:#b06a00;">{{ ev.starLabel }}</span>
+                        </sc-if>
                       </div>
                     </div>
                   </div>
@@ -532,6 +535,9 @@
                     <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:3px; text-decoration:none;">{{ lk.label }} ↗</a>
                   </sc-for>
                   <span onClick="{{ ev.icsClick }}" title="Download .ics — add to your calendar" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">Add to calendar ↓</span>
+                  <sc-if value="{{ ev.canStar }}" hint-placeholder-val="{{ false }}">
+                    <span onClick="{{ ev.starClick }}" title="Star it — friends see your star, and it teaches your ranking" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid {{ ev.starBorder }}; background: {{ ev.starBg }}; color: {{ ev.starColor }}; border-radius:3px; cursor:pointer;">{{ ev.starLabel }}</span>
+                  </sc-if>
                 </div>
               </div>
             </sc-if>
@@ -1019,6 +1025,7 @@ class Component extends DCLogic {
 
   badgeStyle(text) {
     const t = text.toLowerCase();
+    if (t.startsWith('★')) return { color:'#b06a00', bg:'rgba(176,106,0,0.12)' };   // friends' stars
     if (t.includes('ra pick')) return { color:'#1f7a4d', bg:'rgba(31,122,77,0.10)' };
     if (t.includes('afterhours') || t.includes('tba')) return { color:'#8a3ffb'.replace('8a3ffb','6d3fb3'), bg:'rgba(109,63,179,0.10)' };
     if (t === 'free') return { color:'#1f7a4d', bg:'rgba(31,122,77,0.10)' };
@@ -1030,6 +1037,8 @@ class Component extends DCLogic {
 
   computedBadges(e) {
     const arr = [];
+    // Friends' stars lead — the mutual social signal (A4). Everyone sees them, logged in or not.
+    if (e.stars && e.stars.length) arr.push('★ ' + e.stars.map(s => s.name).join(', '));
     if (e.ra) arr.push('RA pick');
     if (e.ah) arr.push('afterhours');
     for (const b of e.xb) arr.push(b);
@@ -1925,6 +1934,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // Connection is per-profile: drop the profile we're leaving and load the target's saved token (if
     // still fresh), then re-check it so the indicator reflects THIS profile, not the one we just left.
     this.BACKEND_TOKEN = this.readConn(profileObj).token || '';
+    this.STAR_LOCAL = {};   // optimistic star taps are per-profile; drop them on switch
     this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
       spotifyStatus: null, spotifyName: '', backendStatus: null },
       () => { if (this.BACKEND_URL) this.pingBackend(); });
@@ -1976,6 +1986,48 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     } catch (e) {}
     this.setState({ spotifyStatus: false, spotifyName: '' });
     this.flashToast('Spotify disconnected');
+  };
+
+  // ---------- stars (Track A4 — the one social feature) ----------
+  // A star is mutual ("★ Lori" on everyone's cards + digests) AND a taste signal: the Worker
+  // logs it to data/reactions.jsonl and folds a `loved` line into this profile's feedback log
+  // (hide → `hide`), which the ranking already consumes. Optimistic locally: STAR_LOCAL overrides
+  // this device's view instantly; friends see it after the next feed rebuild (fine at this cadence).
+  STAR_LOCAL = {};   // event key -> bool (this session's taps); reset on profile switch
+  starOn(e) {
+    if (e.key && Object.prototype.hasOwnProperty.call(this.STAR_LOCAL, e.key)) return this.STAR_LOCAL[e.key];
+    const p = this.state.profile;
+    return !!(p && p.hash && e.stars.some(s => s.hash === p.hash));
+  }
+  // The stars list with this session's optimistic taps applied (so your own ★ shows/hides instantly).
+  adjustedStars(e) {
+    const p = this.state.profile;
+    if (!p || !p.hash || !e.key || !Object.prototype.hasOwnProperty.call(this.STAR_LOCAL, e.key)) return e.stars;
+    const rest = e.stars.filter(s => s.hash !== p.hash);
+    return this.STAR_LOCAL[e.key] ? [{ name: p.name || 'You', hash: p.hash }, ...rest] : rest;
+  }
+  toggleStar = async (e, domEv) => {
+    if (domEv) domEv.stopPropagation();
+    const p = this.state.profile;
+    if (!p || !p.hash || !e.key || !this.BACKEND_URL) return;
+    const next = !this.starOn(e);
+    this.STAR_LOCAL = { ...this.STAR_LOCAL, [e.key]: next };   // optimistic
+    this.forceUpdate();
+    try {
+      const headers = { 'content-type': 'application/json' };
+      if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+      const res = await fetch(this.workerUrl('/react'), {
+        method: 'POST', headers,
+        body: JSON.stringify({ profile: p.hash, event_key: e.key, kind: next ? 'star' : 'unstar',
+                               title: e.title, artists: e.lineup.slice(0, 12) }),
+      });
+      if (!res.ok) throw new Error('react ' + res.status);
+      this.flashToast(next ? '★ Starred — friends will see it' : 'Star removed');
+    } catch (err) {
+      this.STAR_LOCAL = { ...this.STAR_LOCAL, [e.key]: !next };   // revert on failure
+      this.forceUpdate();
+      this.flashToast('Couldn’t save that star — try again');
+    }
   };
 
   // ---------- catalog freshness + pipeline actions (refresh / update-my-digest) ----------
@@ -2641,6 +2693,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const why = enr.curator_note || verdictWhy || (Array.isArray(r.reasons) && r.reasons.length ? r.reasons.join(' · ') : (r.why || r.blurb || r.note || ''));
     return {
       id: (r.id != null ? String(r.id) : this.slugId(r, i)),
+      key: (typeof r.key === 'string' ? r.key : null),   // lib/enrich event_key — reactions key off it
+      stars: Array.isArray(r.stars) ? r.stars.filter(s => s && s.name) : [],   // [{name, hash}] (A4)
       iso: d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()),
       time: p(h) + ':' + p(mm),
       wd: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()],
@@ -2846,6 +2900,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const openF = this.state.openFilter;
     const catGenreActive = nsel('cat') + nsel('genre') + nsel('vibe') + nsel('setting');
 
+    const activeProf = this.state.profile;
+    const canStarAny = !!(activeProf && activeProf.hash && this.BACKEND_URL);
     const rows = sorted.map(e => ({
       id: e.id, wd: e.wd, md: e.md, t: e.t,
       title: e.title,
@@ -2859,7 +2915,13 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       rankColor: (e.final_rank ? '#161512' : '#cfcdc4'),
       rankTitle: (e.verdict ? (String(e.verdict.tier || '').toUpperCase() + (e.verdict.why ? ' — ' + e.verdict.why : '')) : 'deterministic rank'),
       source: e.source,
-      badges: this.computedBadges(e),
+      badges: this.computedBadges({ ...e, stars: this.adjustedStars(e) }),
+      canStar: canStarAny && !!e.key,
+      starLabel: this.starOn(e) ? '★ Starred' : '☆ Star',
+      starBorder: this.starOn(e) ? '#b06a00' : '#c9c7bd',
+      starColor: this.starOn(e) ? '#b06a00' : '#3f3d36',
+      starBg: this.starOn(e) ? 'rgba(176,106,0,0.08)' : '#fff',
+      starClick: (domEv) => this.toggleStar(e, domEv),
       why: e.why,
       desc: e.desc, hasDesc: e.hasDesc,
       lineupStr: e.lineup.join('  \u00b7  '),

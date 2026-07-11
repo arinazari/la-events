@@ -45,6 +45,8 @@ from lib.assemble import rank_key, event_lane  # noqa: E402
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
+from lib.profiles import hash_names  # noqa: E402
+from lib.reactions import load_reactions, star_map, stars_for  # noqa: E402  (A4 stars)
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -235,6 +237,11 @@ def main() -> int:
     vpath = resolve(args.verdicts) if args.verdicts else ED.verdict_path(args.profile_hash)
     verdicts = ED.verdict_map(ED.load_verdicts(vpath))
 
+    # Stars (Track A4) — the shared reaction log folded onto events as display names, the one
+    # social feature. Same fold in every feed (stars are mutual). Graceful: no log -> no stars.
+    smap = star_map(load_reactions(REPO / "data" / "reactions.jsonl"))
+    star_names = hash_names(load_yaml(REPO / "profiles.yaml") or {}) if smap else {}
+
     is_sample = "sample" in catalog_path.name
     # LA-local today (NOT the runner's UTC date) — otherwise, in CI (UTC) past midnight UTC, events
     # still happening tonight in LA get marked is_past and lose their final_rank / highlight.
@@ -261,10 +268,16 @@ def main() -> int:
             out["enrichment"] = {k: enr[k] for k in ENRICH_FIELDS if enr.get(k)}
             enriched_hits += 1
 
-        v = verdicts.get(event_key(ev))
+        k = event_key(ev)
+        out["key"] = k                               # stable identity: reactions + stars key off it
+        v = verdicts.get(k)
         if v:
             out["verdict"] = v                       # {tier, lane?, adjust, why, confidence}
         out["lane"] = event_lane(out, verdicts)      # verdict lane override else tag-derived
+
+        starred = stars_for(smap, star_names, k)
+        if starred:
+            out["stars"] = starred                   # [{name, hash}] — who starred it (A4)
 
         events.append(out)
 

@@ -83,6 +83,23 @@ person's files: a friend's own `profiles/<name>/{taste,profile}.yaml`, or — fo
 profile (Ari's login) — the shared root `taste.yaml` / `profile.yaml`. A friend can never edit the
 root files.
 
+### Stars (Track A4 — POST /react)
+
+```
+POST /react { profile: "<feed-hash>", event_key: "<12-hex>", kind: "star"|"unstar"|"hide",
+              title?: string, artists?: [string] }
+->   200 { ok, changed, learned }
+```
+
+The one social feature, double-duty by design: the Worker commits the reaction to
+`data/reactions.jsonl` (the shared log — feeds/digests fold "★ Lori" onto events at the next
+rebuild; star state is last-wins per person+event) AND, for `star`/`hide` with artists attached,
+appends a `loved`/`hide` line to that profile's `data/feedback.<hash>.jsonl` — the tested
+feedback→scoring fold picks it up with zero new ranking code (append-once per event+kind, so
+flapping can't stack weight). Gate = a valid profile hash (post-A1 that's a random-token
+capability) + `GITHUB_TOKEN`; no `CONCIERGE_TOKEN` needed — it guards LLM spend and this spends
+none, so a friend who never set up the concierge can still star.
+
 ### Pipeline actions (the dashboard's refresh / update buttons)
 
 Two extra POST routes let the dashboard trigger a GitHub Action (via `repository_dispatch`, the

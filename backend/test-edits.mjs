@@ -8,6 +8,7 @@ import { readFileSync } from "node:fs";
 import { parse as yamlParse, parseDocument } from "yaml";
 import {
   applyDigestPatchDoc, newDigestDoc, applyProfilePatchDoc, applyPatchDoc, buildSystem, profileHash,
+  foldReaction, foldFeedback,
 } from "./concierge-worker.js";
 
 let passed = 0;
@@ -102,6 +103,40 @@ const ok = (name) => { console.log("ok  " + name); passed++; };
   assert.equal(await profileHash(" AAAA000011112222 ", "la-events/v2:"),
                await profileHash("aaaa000011112222", "la-events/v2:"));
   ok("profileHash matches the Python/page hashing (token, v2 salt)");
+}
+
+/* ---- stars (Track A4): the pure reaction/feedback folds ---- */
+{
+  const rec = { ts: "2026-07-11", profile: "abc123", name: "Lori", event_key: "aaaabbbbcccc", kind: "star", title: "X" };
+  let r = foldReaction("", rec);
+  assert.ok(r.changed && r.text.endsWith("\n"));
+  assert.equal(JSON.parse(r.text.trim()).kind, "star");
+  // idempotent: same state again -> no append
+  assert.equal(foldReaction(r.text, rec).changed, false);
+  // state flip appends; flip back appends again (last-wins log)
+  const un = { ...rec, kind: "unstar" };
+  r = foldReaction(r.text, un);
+  assert.ok(r.changed);
+  r = foldReaction(r.text, rec);
+  assert.ok(r.changed && r.text.trim().split("\n").length === 3);
+  // another profile's state is independent
+  assert.ok(foldReaction(r.text, { ...rec, profile: "def456" }).changed);
+  // missing trailing newline never merges lines
+  const glued = foldReaction('{"profile":"zz","event_key":"aaaabbbbcccc","kind":"star"}', un);
+  assert.ok(glued.text.includes('}\n{'));
+  ok("react: foldReaction is last-wins + idempotent per (profile, event)");
+}
+{
+  const frec = { ts: "2026-07-11", kind: "loved", artists: ["Antal"], event_key: "aaaabbbbcccc" };
+  let f = foldFeedback("", frec);
+  assert.ok(f.changed);
+  // star/unstar flapping can't stack weight: same (event, kind) appends once
+  assert.equal(foldFeedback(f.text, frec).changed, false);
+  // a different kind for the same event (hide after loved) still lands
+  assert.ok(foldFeedback(f.text, { ...frec, kind: "hide" }).changed);
+  // junk lines in the log are tolerated
+  assert.equal(foldFeedback("not json\n" + f.text, frec).changed, false);
+  ok("react: foldFeedback appends once per (event, kind)");
 }
 
 console.log(`\nall ${passed} worker edit tests passed`);
