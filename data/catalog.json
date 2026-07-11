@@ -78,7 +78,7 @@
   {
     "title": "Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush",
     "date": "2026-07-10",
-    "start": "11pm-5am",
+    "start": "23:00",
     "venue": "TBA - Location Link in Bio on Instagram @recollectunderground",
     "neighborhood": "Los Angeles",
     "category": "electronic",
@@ -96,15 +96,24 @@
       {
         "source": "19hz",
         "url": "https://www.instagram.com/p/DZl9KXzKRBX/"
+      },
+      {
+        "source": "posh",
+        "url": "https://posh.vip/e/recollect-underground-w-la-riots"
+      },
+      {
+        "source": "posh",
+        "url": "https://posh.vip/e/recollect-underground-2"
       }
     ],
     "sources": [
       "ra",
-      "19hz"
+      "19hz",
+      "posh"
     ],
-    "organizers": null,
+    "organizers": "GROOVE-ISM & ReFuze",
     "detail": null,
-    "price": "$10 pre",
+    "price": "$8.19",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-06-19",
@@ -121,7 +130,12 @@
       ],
       "region": null,
       "near_home": false
-    }
+    },
+    "updated_at": "2026-07-10",
+    "changed_fields": [
+      "price",
+      "start"
+    ]
   },
   {
     "title": "Loose Album Release Show",
@@ -2674,51 +2688,6 @@
     }
   },
   {
-    "title": "Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush",
-    "date": "2026-07-10",
-    "start": "11pm-5am",
-    "venue": "Los Globos (Los Angeles) tech house, deep house, minimal",
-    "neighborhood": "Silver Lake",
-    "category": "electronic",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://www.instagram.com/p/DZl9KXzKRBX/"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "organizers": null,
-    "detail": null,
-    "price": "$10 pre",
-    "ra_pick": false,
-    "afterhours": true,
-    "first_seen": "2026-06-30",
-    "last_seen": "2026-06-30",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "tech-house",
-        "deep-house",
-        "minimal"
-      ],
-      "setting": [],
-      "vibe": [
-        "afterhours"
-      ],
-      "region": "eastside",
-      "near_home": true
-    },
-    "status": "unlisted",
-    "updated_at": "2026-07-04",
-    "changed_fields": [
-      "status"
-    ]
-  },
-  {
     "title": "The Wailing",
     "date": "2026-07-10",
     "start": "15:15",
@@ -4900,49 +4869,6 @@
     }
   },
   {
-    "title": "RECOLLECT UNDERGROUND W/ LA RIOTS",
-    "date": "2026-07-10",
-    "start": "23:00",
-    "venue": "The Location will be revealed on the event date",
-    "neighborhood": null,
-    "category": "party",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "posh",
-        "url": "https://posh.vip/e/recollect-underground-w-la-riots"
-      }
-    ],
-    "sources": [
-      "posh"
-    ],
-    "organizers": "GROOVE-ISM & ReFuze",
-    "detail": null,
-    "price": "$10",
-    "ra_pick": false,
-    "afterhours": true,
-    "first_seen": "2026-07-07",
-    "last_seen": "2026-07-08",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "electronic"
-      ],
-      "setting": [],
-      "vibe": [
-        "afterhours"
-      ],
-      "region": null,
-      "near_home": false
-    },
-    "status": "unlisted",
-    "updated_at": "2026-07-10",
-    "changed_fields": [
-      "status"
-    ]
-  },
-  {
     "title": "GIRLS NIGHT OUT HARD TECHNO",
     "date": "2026-07-10",
     "start": "23:45",
@@ -6133,79 +6059,11 @@
       {
         "source": "posh",
         "url": "https://posh.vip/e/lot-polish-airlines-sha-terminal-18445237130"
-      }
-    ],
-    "sources": [
-      "posh"
-    ],
-    "organizers": "usa",
-    "detail": null,
-    "price": "free",
-    "ra_pick": false,
-    "afterhours": false,
-    "first_seen": "2026-07-10",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "electronic"
-      ],
-      "setting": [],
-      "vibe": [
-        "free"
-      ],
-      "region": null,
-      "near_home": false
-    }
-  },
-  {
-    "title": "LOT Polish Airlines DTW Terminal 1-844-523-7130",
-    "date": "2026-07-10",
-    "start": "08:30",
-    "venue": "Usatine Richard P MD",
-    "neighborhood": null,
-    "category": "party",
-    "genre": null,
-    "lineup": [],
-    "links": [
+      },
       {
         "source": "posh",
         "url": "https://posh.vip/e/lot-polish-airlines-dtw-terminal-18445237130"
-      }
-    ],
-    "sources": [
-      "posh"
-    ],
-    "organizers": "usa",
-    "detail": null,
-    "price": "free",
-    "ra_pick": false,
-    "afterhours": false,
-    "first_seen": "2026-07-10",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "electronic"
-      ],
-      "setting": [],
-      "vibe": [
-        "free"
-      ],
-      "region": null,
-      "near_home": false
-    }
-  },
-  {
-    "title": "LOT Polish Airlines MSP Terminal 1-844-523-7130",
-    "date": "2026-07-10",
-    "start": "08:30",
-    "venue": "U.S.A. ENTERPRISE, INC.",
-    "neighborhood": null,
-    "category": "party",
-    "genre": null,
-    "lineup": [],
-    "links": [
+      },
       {
         "source": "posh",
         "url": "https://posh.vip/e/lot-polish-airlines-msp-terminal-18445237130"
@@ -6345,46 +6203,6 @@
         "free"
       ],
       "region": "hollywood",
-      "near_home": false
-    }
-  },
-  {
-    "title": "RECOLLECT UNDERGROUND",
-    "date": "2026-07-10",
-    "start": "23:00",
-    "venue": "Warehouse",
-    "neighborhood": null,
-    "category": "party",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "posh",
-        "url": "https://posh.vip/e/recollect-underground-2"
-      }
-    ],
-    "sources": [
-      "posh"
-    ],
-    "organizers": "Recollect Afters",
-    "detail": null,
-    "price": "$8.19",
-    "ra_pick": false,
-    "afterhours": true,
-    "first_seen": "2026-07-10",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "electronic"
-      ],
-      "setting": [
-        "warehouse"
-      ],
-      "vibe": [
-        "afterhours"
-      ],
-      "region": null,
       "near_home": false
     }
   },
@@ -6725,7 +6543,7 @@
   {
     "title": "INCOGNITO presents Klaudia Gawlas (4-Hour Set) plus Gigi b2b Gerard Not Gerald",
     "date": "2026-07-11",
-    "start": "23:00",
+    "start": "11pm-5am",
     "venue": "TBA - Los Angeles (Warehouse)",
     "neighborhood": "Los Angeles",
     "category": "electronic",
@@ -6739,14 +6557,19 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2423081"
+      },
+      {
+        "source": "19hz",
+        "url": "https://iluvincognito.com/events/lax/2026/07/11/klaudia-gawlas"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "19hz"
     ],
-    "organizers": null,
+    "organizers": "Incognito",
     "detail": "Techno-hero Klaudia Gawlas touches down in LA for a no-fuss 4-hour set, alongside acid and techno locals GiGi and Gerard Not Gerald. 125+ BPM all-night.",
-    "price": null,
+    "price": "$25 b4 12 / $30-40",
     "ra_pick": true,
     "afterhours": true,
     "first_seen": "2026-06-19",
@@ -6768,7 +6591,12 @@
       ],
       "region": null,
       "near_home": false
-    }
+    },
+    "updated_at": "2026-07-10",
+    "changed_fields": [
+      "price",
+      "start"
+    ]
   },
   {
     "title": "Factory 93 presents: Beltran at Naud St",
@@ -6871,7 +6699,7 @@
   {
     "title": "NAACH SHOWCASE: Ivory (Extended Set), Hyde Clip, Arthur Onni, EDA & Belek Boy",
     "date": "2026-07-11",
-    "start": "21:00",
+    "start": "9pm-4am",
     "venue": "District 7",
     "neighborhood": "Los Angeles",
     "category": "electronic",
@@ -6887,16 +6715,21 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2471167"
+      },
+      {
+        "source": "19hz",
+        "url": "https://www.naach.life/"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "19hz"
     ],
     "organizers": null,
     "detail": null,
-    "price": null,
+    "price": "$35 pre",
     "ra_pick": false,
-    "afterhours": false,
+    "afterhours": true,
     "first_seen": "2026-06-19",
     "last_seen": "2026-07-10",
     "tags": {
@@ -6905,13 +6738,16 @@
         "electronic"
       ],
       "setting": [],
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
-    "updated_at": "2026-07-08",
+    "updated_at": "2026-07-10",
     "changed_fields": [
-      "lineup"
+      "price",
+      "start"
     ]
   },
   {
@@ -7022,9 +6858,9 @@
     ]
   },
   {
-    "title": "POSTPONED Deluge & No)one. Art House present: A Program for Sound, Movement & Light",
+    "title": "A Program For Sound, Movement & Light: Kelman Duran,  Linafornia,  Algorythm.Code, Holodec, Marcella Lewis, Chris Emile",
     "date": "2026-07-11",
-    "start": "10pm-4am",
+    "start": "8pm-11pm",
     "venue": "TBA",
     "neighborhood": "Los Angeles",
     "category": "electronic",
@@ -7041,15 +6877,19 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2484263"
+      },
+      {
+        "source": "19hz",
+        "url": "https://www.instagram.com/delugesound/"
       }
     ],
     "sources": [
       "ra",
       "19hz"
     ],
-    "organizers": "Neurotek, Pedalfeens",
+    "organizers": "Deluge & No)One. Art House",
     "detail": null,
-    "price": "$10 pre / $15",
+    "price": "$23-34.50",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-06-19",
@@ -9989,47 +9829,6 @@
     }
   },
   {
-    "title": "Klaudia Gawlas, Gigi b2b Gerard Not Gerald",
-    "date": "2026-07-11",
-    "start": "11pm-5am",
-    "venue": "TBA (Los Angeles) techno, tech house",
-    "neighborhood": null,
-    "category": "electronic",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://iluvincognito.com/events/lax/2026/07/11/klaudia-gawlas"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "organizers": "Incognito",
-    "detail": null,
-    "price": "$25 b4 12 / $30-40",
-    "ra_pick": false,
-    "afterhours": true,
-    "first_seen": "2026-06-30",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "tech-house",
-        "techno"
-      ],
-      "setting": [],
-      "vibe": [
-        "afterhours",
-        "b2b",
-        "tba-location"
-      ],
-      "region": null,
-      "near_home": false
-    }
-  },
-  {
     "title": "XLOV",
     "date": "2026-07-11",
     "start": "15:00",
@@ -10493,9 +10292,9 @@
     ]
   },
   {
-    "title": "URIEL presents: Linda Lo's 'Deep Time'",
+    "title": "Deep Time: Linda Lo, Max Ellington, 435t, pollensource",
     "date": "2026-07-11",
-    "start": "20:00",
+    "start": "8pm-3am",
     "venue": "TBA - DTLA",
     "neighborhood": "DTLA",
     "category": "electronic",
@@ -10509,16 +10308,21 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2481162"
+      },
+      {
+        "source": "19hz",
+        "url": "https://uriel-sound.bandcamp.com/"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "19hz"
     ],
-    "organizers": null,
+    "organizers": "Uriel",
     "detail": null,
-    "price": null,
+    "price": "$15",
     "ra_pick": false,
-    "afterhours": false,
+    "afterhours": true,
     "first_seen": "2026-07-04",
     "last_seen": "2026-07-10",
     "tags": {
@@ -10528,6 +10332,7 @@
       ],
       "setting": [],
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": "dtla",
@@ -10718,45 +10523,6 @@
     }
   },
   {
-    "title": "A Program For Sound, Movement & Light: Kelman Duran,  Linafornia,  Algorythm.Code, Holodec, Marcella Lewis, Chris Emile",
-    "date": "2026-07-11",
-    "start": "8pm-11pm",
-    "venue": "TBA (Los Angeles) ambient, experimental",
-    "neighborhood": null,
-    "category": "electronic",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://www.instagram.com/delugesound/"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "organizers": "Deluge & No)One. Art House",
-    "detail": null,
-    "price": "$23-34.50",
-    "ra_pick": false,
-    "afterhours": false,
-    "first_seen": "2026-07-04",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "house",
-        "ambient"
-      ],
-      "setting": [],
-      "vibe": [
-        "tba-location"
-      ],
-      "region": null,
-      "near_home": false
-    }
-  },
-  {
     "title": "Good Society: A Camp Questionmark Fundraiser - Under The 6th Street Bridge [Open Air]",
     "date": "2026-07-11",
     "start": "20:00",
@@ -10872,47 +10638,6 @@
       ],
       "region": null,
       "near_home": false
-    }
-  },
-  {
-    "title": "Naach: Ivory (Extended Set), Hydeclip, Arthur Onni, Eda, Belek Boy",
-    "date": "2026-07-11",
-    "start": "9pm-4am",
-    "venue": "TBA Arts District (Los Angeles) progressive house, tech house, minimal",
-    "neighborhood": "Arts District",
-    "category": "electronic",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://www.naach.life/"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "organizers": null,
-    "detail": null,
-    "price": "$35 pre",
-    "ra_pick": false,
-    "afterhours": true,
-    "first_seen": "2026-07-04",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "tech-house",
-        "progressive",
-        "minimal"
-      ],
-      "setting": [],
-      "vibe": [
-        "afterhours",
-        "tba-location"
-      ],
-      "region": "dtla",
-      "near_home": true
     }
   },
   {
@@ -13289,30 +13014,40 @@
     }
   },
   {
-    "title": "ANNIKA WOLFE 7/11",
+    "title": "Annika Wolfe, SOMOS, Vein, AHSATAN, Seph",
     "date": "2026-07-11",
-    "start": "23:45",
+    "start": "11:30pm-6am",
     "venue": "Secret Location",
-    "neighborhood": null,
+    "neighborhood": "Los Angeles",
     "category": "party",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Annika Wolfe",
+      "SØMOS",
+      "Seph (IE)"
+    ],
     "links": [
       {
         "source": "posh",
         "url": "https://posh.vip/e/annika-wolfe-711"
+      },
+      {
+        "source": "ra",
+        "url": "https://ra.co/events/2485226"
       }
     ],
     "sources": [
-      "posh"
+      "posh",
+      "ra",
+      "19hz"
     ],
-    "organizers": "LICKNDIP",
+    "organizers": "Lick N Dip",
     "detail": null,
-    "price": "$7.52",
+    "price": "$20",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-07",
+    "last_seen": "2026-07-10",
     "tags": {
       "type": "club",
       "genre": [
@@ -13320,12 +13055,12 @@
       ],
       "setting": [],
       "vibe": [
-        "afterhours"
+        "afterhours",
+        "day-party"
       ],
       "region": null,
       "near_home": false
     },
-    "status": "unlisted",
     "updated_at": "2026-07-09",
     "changed_fields": [
       "status"
@@ -13560,51 +13295,6 @@
       "setting": [],
       "vibe": [
         "free"
-      ],
-      "region": null,
-      "near_home": false
-    }
-  },
-  {
-    "title": "Annika Wolfe, SOMOS, Vein, AHSATAN, Seph",
-    "date": "2026-07-11",
-    "start": "11:30pm-6am",
-    "venue": "TBA",
-    "neighborhood": "Los Angeles",
-    "category": "electronic",
-    "genre": null,
-    "lineup": [
-      "Annika Wolfe",
-      "SØMOS",
-      "Seph (IE)"
-    ],
-    "links": [
-      {
-        "source": "ra",
-        "url": "https://ra.co/events/2485226"
-      }
-    ],
-    "sources": [
-      "ra",
-      "19hz"
-    ],
-    "organizers": "Lick N Dip",
-    "detail": null,
-    "price": "$20",
-    "ra_pick": false,
-    "afterhours": true,
-    "first_seen": "2026-07-08",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "electronic"
-      ],
-      "setting": [],
-      "vibe": [
-        "afterhours",
-        "day-party",
-        "tba-location"
       ],
       "region": null,
       "near_home": false
@@ -13978,47 +13668,6 @@
       ],
       "region": null,
       "near_home": false
-    }
-  },
-  {
-    "title": "Deep Time: Linda Lo, Max Ellington, 435t, pollensource",
-    "date": "2026-07-11",
-    "start": "8pm-3am",
-    "venue": "TBA (DTLA/Los Angeles) uk garage, dub techno, dubstep, club",
-    "neighborhood": "DTLA",
-    "category": "electronic",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://uriel-sound.bandcamp.com/"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "organizers": "Uriel",
-    "detail": null,
-    "price": "$15",
-    "ra_pick": false,
-    "afterhours": true,
-    "first_seen": "2026-07-09",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "techno",
-        "dub",
-        "garage"
-      ],
-      "setting": [],
-      "vibe": [
-        "afterhours",
-        "tba-location"
-      ],
-      "region": "dtla",
-      "near_home": true
     }
   },
   {
@@ -15044,7 +14693,7 @@
   {
     "title": "Claude VonStroke presents WRONG#NUMBER - Open Air",
     "date": "2026-07-12",
-    "start": "15:00",
+    "start": "3pm-8pm",
     "venue": "TBA - 624 S Anderson St Los Angeles CA 90023",
     "neighborhood": "Boyle Heights",
     "category": "electronic",
@@ -15056,14 +14705,19 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2457756"
+      },
+      {
+        "source": "19hz",
+        "url": "https://mailchi.mp/inbetweenevents/06yf4wtey4"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "19hz"
     ],
-    "organizers": null,
+    "organizers": "In Between",
     "detail": null,
-    "price": null,
+    "price": "free w/rsvp",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-19",
@@ -15077,12 +14731,17 @@
         "outdoor"
       ],
       "vibe": [
-        "day-party",
-        "tba-location"
+        "tba-location",
+        "free"
       ],
       "region": "eastside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-07-10",
+    "changed_fields": [
+      "price",
+      "start"
+    ]
   },
   {
     "title": "Factory 93 presents: Beltran Open to Close at Naud St",
@@ -16525,46 +16184,6 @@
       "setting": [],
       "vibe": [],
       "region": "far",
-      "near_home": false
-    }
-  },
-  {
-    "title": "Claude Vonstroke Presents Wrong#Number - Open Air",
-    "date": "2026-07-12",
-    "start": "3pm-8pm",
-    "venue": "624 S Anderson St (Los Angeles) funky house, tech house",
-    "neighborhood": "Boyle Heights",
-    "category": "electronic",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://mailchi.mp/inbetweenevents/06yf4wtey4"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "organizers": "In Between",
-    "detail": null,
-    "price": "free w/rsvp",
-    "ra_pick": false,
-    "afterhours": false,
-    "first_seen": "2026-06-30",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "tech-house"
-      ],
-      "setting": [
-        "outdoor"
-      ],
-      "vibe": [
-        "free"
-      ],
-      "region": "eastside",
       "near_home": false
     }
   },
@@ -22761,9 +22380,9 @@
     }
   },
   {
-    "title": "RECOLLECT UNDERGROUND: SPECIAL GUEST CURRY FURY (B-DAY SET)",
+    "title": "Recollect Underground: Curry Fury Bday Bash, Blerry, Jaxx Noveira, King Leon, Shredy",
     "date": "2026-07-16",
-    "start": "23:00",
+    "start": "11pm-5am",
     "venue": "TBA - Location Link in Bio on Instagram @recollectunderground",
     "neighborhood": "Los Angeles",
     "category": "electronic",
@@ -22776,14 +22395,19 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2475747"
+      },
+      {
+        "source": "19hz",
+        "url": "https://posh.vip/e/recollect-underground-curry-fury-bday-bash"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "19hz"
     ],
-    "organizers": null,
+    "organizers": "Recollect Afters",
     "detail": null,
-    "price": null,
+    "price": "$10-23",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-06-25",
@@ -24653,47 +24277,6 @@
       "vibe": [],
       "region": "far",
       "near_home": false
-    }
-  },
-  {
-    "title": "Recollect Underground: Curry Fury Bday Bash, Blerry, Jaxx Noveira, King Leon, Shredy",
-    "date": "2026-07-16",
-    "start": "11pm-5am",
-    "venue": "TBA (DTLA/Los Angeles) tech house, minimal, deep house",
-    "neighborhood": "DTLA",
-    "category": "electronic",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://posh.vip/e/recollect-underground-curry-fury-bday-bash"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "organizers": "Recollect Afters",
-    "detail": null,
-    "price": "$10-23",
-    "ra_pick": false,
-    "afterhours": true,
-    "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "tech-house",
-        "deep-house",
-        "minimal"
-      ],
-      "setting": [],
-      "vibe": [
-        "afterhours",
-        "tba-location"
-      ],
-      "region": "dtla",
-      "near_home": true
     }
   },
   {
@@ -36774,7 +36357,7 @@
   {
     "title": "Yamagucci & Friends - Strange House Reopening",
     "date": "2026-07-19",
-    "start": "16:00",
+    "start": "4pm-10pm",
     "venue": "TBA - STRANGE HOUSE",
     "neighborhood": "Los Angeles",
     "category": "electronic",
@@ -36786,14 +36369,19 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2472533"
+      },
+      {
+        "source": "19hz",
+        "url": "https://dice.fm/event/dkow8o-stranger-than-presents-yamagucci-friends-19th-jul-strange-house-los-angeles-tickets"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "19hz"
     ],
-    "organizers": null,
+    "organizers": "Stranger Than",
     "detail": null,
-    "price": null,
+    "price": "$40.95-93.55",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-30",
@@ -36805,12 +36393,16 @@
       ],
       "setting": [],
       "vibe": [
-        "day-party",
         "tba-location"
       ],
       "region": null,
       "near_home": false
-    }
+    },
+    "updated_at": "2026-07-10",
+    "changed_fields": [
+      "price",
+      "start"
+    ]
   },
   {
     "title": "The Breakfast Club with Marques Wyatt, Colette, Patricio, J-Dub, Mark Lewis",
@@ -37853,43 +37445,6 @@
       "setting": [],
       "vibe": [],
       "region": "south-bay",
-      "near_home": false
-    }
-  },
-  {
-    "title": "Yamagucci & Friends - Strange House Reopening",
-    "date": "2026-07-19",
-    "start": "4pm-10pm",
-    "venue": "1717 Bronson Ave (Los Angeles) progressive house, tech house",
-    "neighborhood": null,
-    "category": "electronic",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://dice.fm/event/dkow8o-stranger-than-presents-yamagucci-friends-19th-jul-strange-house-los-angeles-tickets"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "organizers": "Stranger Than",
-    "detail": null,
-    "price": "$40.95-93.55",
-    "ra_pick": false,
-    "afterhours": false,
-    "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "tech-house",
-        "progressive"
-      ],
-      "setting": [],
-      "vibe": [],
-      "region": null,
       "near_home": false
     }
   },
@@ -42016,9 +41571,9 @@
     }
   },
   {
-    "title": "RECOLLECT UNDERGROUND: SPEACIAL GUESTS - LARSa and SWANYA",
+    "title": "Recollect Underground: Isimo! B2B Grey Allen, Estalit, Swanya, LARSa, Lavenge B2B Max Rush",
     "date": "2026-07-23",
-    "start": "23:00",
+    "start": "11pm-5am",
     "venue": "TBA - Location Link in Bio on Instagram @recollectunderground",
     "neighborhood": "Los Angeles",
     "category": "electronic",
@@ -42031,14 +41586,19 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2475860"
+      },
+      {
+        "source": "19hz",
+        "url": "https://posh.vip/e/recollect-underground-special-guest-larsaswanya"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "19hz"
     ],
-    "organizers": null,
+    "organizers": "Recollect",
     "detail": null,
-    "price": null,
+    "price": "$11.50-23",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-06-30",
@@ -42051,6 +41611,7 @@
       "setting": [],
       "vibe": [
         "afterhours",
+        "b2b",
         "tba-location"
       ],
       "region": null,
@@ -42739,48 +42300,6 @@
       ],
       "region": "hollywood",
       "near_home": false
-    }
-  },
-  {
-    "title": "Recollect Underground: Isimo! B2B Grey Allen, Estalit, Swanya, LARSa, Lavenge B2B Max Rush",
-    "date": "2026-07-23",
-    "start": "11pm-5am",
-    "venue": "TBA (DTLA/Los Angeles) tech house, minimal, deep house",
-    "neighborhood": "DTLA",
-    "category": "electronic",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "19hz",
-        "url": "https://posh.vip/e/recollect-underground-special-guest-larsaswanya"
-      }
-    ],
-    "sources": [
-      "19hz"
-    ],
-    "organizers": "Recollect",
-    "detail": null,
-    "price": "$11.50-23",
-    "ra_pick": false,
-    "afterhours": true,
-    "first_seen": "2026-07-09",
-    "last_seen": "2026-07-10",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "tech-house",
-        "deep-house",
-        "minimal"
-      ],
-      "setting": [],
-      "vibe": [
-        "afterhours",
-        "b2b",
-        "tba-location"
-      ],
-      "region": "dtla",
-      "near_home": true
     }
   },
   {

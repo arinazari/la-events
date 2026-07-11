@@ -224,13 +224,32 @@ def _link_premerge(events: list) -> tuple:
 
 # ── Placeholder-venue dedupe ───────────────────────────────────────────────────
 # Secret / TBA warehouse + afterhours parties name no real place, and the placeholder string varies
-# by source ("Secret DTLA Warehouse" / "TBA (DTLA)" / "TBA - DTLA Warehouse"), so _venue_match can't
-# pair them and — when they also share no ticket link (a third source the link pass can't reach) —
-# they slip through as duplicates. When BOTH sides are placeholders we drop the venue requirement and
-# lean on a STRONG title match instead (stricter than the normal venue+title bar, since the weak
-# venue signal is gone). Same-date is still required (the date guard above this path).
+# by source ("Secret DTLA Warehouse" / "TBA (DTLA)" / "TBA - Location Link in Bio on Instagram …"),
+# so _venue_match can't pair them and — when they also share no ticket link (a third source the link
+# pass can't reach) — they slip through as duplicates. Two escapes, both behind the same-date guard:
+#   • At least ONE side is a placeholder + a STRONG title match (stricter than the normal
+#     venue+title bar, since the venue signal is weak or absent). One-sided covers the TBA party's
+#     lifecycle: a source names the room (venue reveal) or the promoter re-lists it under the bare
+#     series name ("RECOLLECT UNDERGROUND" ⊂ "Recollect Underground: <lineup>") — the Recollect
+#     shape, where the TBA row and the venue'd row are the same night's party.
+#   • BOTH sides are placeholders + a shared headliner. Sources retitle the same secret party
+#     around different names ("SPECIAL GUEST CURRY FURY (B-DAY SET)" vs "Curry Fury Bday Bash,
+#     Blerry, …") — past any title-ratio bar — but two secret-venue rows billing the same headliner
+#     on one night are the same party. Both-sides-only on purpose: an artist can play a real venue
+#     AND be billed at someone's TBA afters the same night, so a one-sided headliner tie is not
+#     identity. And because a shared name is the WEAKEST tie, it defers to platform evidence:
+#     records carrying DIFFERENT per-event ids on the same platform (two distinct RA pages — the
+#     headliner's 7pm doc screening vs his 10pm rave) are two events, no merge. The strong-title
+#     arm deliberately skips that veto: promoters delete-and-recreate ticket pages for one party
+#     (two posh slugs, same night, near-same title), and a near-identical title outranks id drift.
+# Guard on the whole path: a title pair that DISAGREES about being a companion event never merges —
+# "X" and "X Afterparty" (or "X Documentary Screening") share a name stem, ≥15-char substring and
+# all, but are two gatherings.
 _PLACEHOLDER_VENUE = re.compile(
     r"\b(tba|tbd|secret|undisclosed|location|address|rsvp|dm|day of|drops?)\b")
+_COMPANION_MARKER = re.compile(
+    r"\b(afterparty|after party|afters|afterhours|after hours|pre party|preparty|"
+    r"screening|documentary|premiere|listening party)\b")
 
 
 def _is_placeholder_venue(v: str) -> bool:
@@ -251,6 +270,35 @@ def _strong_title_match(a: dict, b: dict) -> bool:
     return len(short) >= 15 and short in long
 
 
+def _companion_disagree(a: dict, b: dict) -> bool:
+    """Exactly one title reads as a companion event (afterparty/screening/…) — a shared name
+    stem around the same artist or brand, not the same gathering."""
+    ta, tb = normalize(a.get("title", "")), normalize(b.get("title", ""))
+    return bool(_COMPANION_MARKER.search(ta)) != bool(_COMPANION_MARKER.search(tb))
+
+
+def _conflicting_link_ids(a: dict, b: dict) -> bool:
+    """Both records carry per-event ids on a common platform, and none agree — the platform
+    itself files them as two different events (they'd have hit the shared-id path otherwise)."""
+    ia, ib = _link_ids(a), _link_ids(b)
+    if ia & ib:
+        return False
+    plat = lambda ids: {i.split(":", 1)[0] for i in ids}
+    return bool(plat(ia) & plat(ib))
+
+
+def _headliner_tie(a: dict, b: dict) -> bool:
+    """Same headliner: lineup[0] agreement, or one side's headliner billed in the other's title.
+    Min-length guard so a short name can't land in an unrelated title by accident."""
+    ha, hb = _headliner(a), _headliner(b)
+    if ha and hb and (ha == hb or _ratio(ha, hb) >= 0.9):
+        return True
+    ta, tb = normalize(a.get("title", "")), normalize(b.get("title", ""))
+    if ha and len(ha) >= 5 and ha in tb:
+        return True
+    return bool(hb and len(hb) >= 5 and hb in ta)
+
+
 def is_duplicate(a: dict, b: dict) -> bool:
     """Two records describe the same real-world event."""
     if _link_ids(a) & _link_ids(b):
@@ -261,9 +309,12 @@ def is_duplicate(a: dict, b: dict) -> bool:
         return False  # conservative: no date match, no merge
     if _venue_match(a, b) and _title_or_headliner_match(a, b):
         return True
-    if _is_placeholder_venue(a.get("venue", "")) and _is_placeholder_venue(b.get("venue", "")) \
-            and _strong_title_match(a, b):
-        return True  # both venues are TBA/secret placeholders + a strong title match = same underground event
+    pa, pb = _is_placeholder_venue(a.get("venue", "")), _is_placeholder_venue(b.get("venue", ""))
+    if (pa or pb) and not _companion_disagree(a, b):
+        if _strong_title_match(a, b):
+            return True  # TBA/secret placeholder on (at least) one side + strong title = same underground event
+        if pa and pb and not _conflicting_link_ids(a, b) and _headliner_tie(a, b):
+            return True  # two secret-venue rows billing the same headliner that night = same party
     return _festival_match(a, b)  # cross-source festival (venue + title vary by source)
 
 
@@ -311,15 +362,23 @@ def merge(a: dict, b: dict) -> dict:
 
     Descriptive fields keep the RICHEST value (longest title/detail, any non-null neighborhood/
     genre/organizer) — completeness across sources. But the VOLATILE fields (price, start time,
-    status) take the FRESHEST non-null value instead: merge_new feeds the existing catalog record
-    as `a` and today's fetch as `b`, so `b` is the newer reading — this is what un-freezes a price
+    status) track the FRESHER side instead: merge_new feeds the existing catalog record as `a` and
+    today's fetch as `b`, so `b` is normally the newer reading — this is what un-freezes a price
     that moved, a door time that shifted, or a sold-out/cancelled flag (the "lineups firm up, prices
-    change" staleness gap). Lineup prefers the longer bill, tie → the fresher `b` (captures a firm-up
-    or a same-size swap without letting a sparse re-fetch clobber a richer known bill)."""
+    change" staleness gap). But when two long-lived CATALOG rows collapse (a predicate improvement
+    healing an old dupe), either side may be the stale one — last_seen decides, tie → `b`, which
+    keeps merge_new's behavior exactly (incoming is always stamped today). Status is the one field
+    with no non-null fallback: NO status on the fresher-seen side means "still listed as of
+    last_seen", so a stale row's `unlisted` flag must not ghost a live event. Lineup prefers the
+    longer bill, tie → the fresher side (captures a firm-up or a same-size swap without letting a
+    sparse re-fetch clobber a richer known bill)."""
+    fresh, stale = (a, b) if (a.get("last_seen") or "") > (b.get("last_seen") or "") else (b, a)
     out = dict(a)
     out["links"] = _merge_links(a, b)
     out["sources"] = _union(a.get("sources"), b.get("sources"))
-    out["lineup"] = b.get("lineup") if len(b.get("lineup") or []) >= len(a.get("lineup") or []) else a.get("lineup")
+    out["lineup"] = (fresh.get("lineup")
+                     if len(fresh.get("lineup") or []) >= len(stale.get("lineup") or [])
+                     else stale.get("lineup"))
     out["detail"] = _richest(a.get("detail"), b.get("detail"))
     out["title"] = _richest(a.get("title"), b.get("title")) or a.get("title")
     out["organizers"] = _richest(a.get("organizers"), b.get("organizers"))
@@ -327,11 +386,14 @@ def merge(a: dict, b: dict) -> dict:
     out["genre"] = a.get("genre") or b.get("genre")  # sparse (only some sources classify); don't lose it if the base lacks one
     out["ra_pick"] = bool(a.get("ra_pick") or b.get("ra_pick"))
     out["afterhours"] = bool(a.get("afterhours") or b.get("afterhours"))
-    # Volatile fields: freshest (b) non-null wins, so a re-fetch updates them in place.
-    out["price"] = b.get("price") if b.get("price") not in (None, "") else a.get("price")
-    out["start"] = b.get("start") if b.get("start") not in (None, "") else a.get("start")
-    if a.get("status") or b.get("status"):
-        out["status"] = b.get("status") if b.get("status") not in (None, "") else a.get("status")
+    # Volatile fields: the fresher side's non-null reading wins, so a re-fetch updates them in place.
+    out["price"] = fresh.get("price") if fresh.get("price") not in (None, "") else stale.get("price")
+    out["start"] = fresh.get("start") if fresh.get("start") not in (None, "") else stale.get("start")
+    # Status follows the fresher side WITHOUT fallback: its absence means "listed as of last_seen".
+    if fresh.get("status"):
+        out["status"] = fresh["status"]
+    else:
+        out.pop("status", None)
     fs = [x for x in (a.get("first_seen"), b.get("first_seen")) if x]
     ls = [x for x in (a.get("last_seen"), b.get("last_seen")) if x]
     if fs:

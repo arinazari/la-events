@@ -240,6 +240,131 @@ def test_real_venue_unaffected_by_placeholder_path():
     assert not is_duplicate(a, b)
 
 
+# ── One-sided placeholder + shared-headliner escapes (the Recollect Underground shapes) ──────────
+# One weekly TBA party, four catalog rows: RA/flyer keeps "TBA - link in bio", 19hz briefly names
+# the room (genre-suffixed venue string), posh re-lists under the bare series name — no shared
+# ticket ids, venue strings unbridgeable, titles drifting from identical to headliner-only overlap.
+
+RECOLLECT_RA = {"title": "Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush",
+                "venue": "TBA - Location Link in Bio on Instagram @recollectunderground",
+                "date": "2026-07-10", "lineup": ["LA Riots", "Lavenge", "Max Rush"],
+                "links": [{"source": "ra", "url": "https://ra.co/events/2469039"}],
+                "sources": ["ra"], "first_seen": "2026-06-19", "last_seen": "2026-07-10"}
+RECOLLECT_REVEAL = {"title": "Recollect Underground: LA Riots, Beast, Jacz, Lavenge, Max Rush",
+                    "venue": "Los Globos (Los Angeles) tech house, deep house, minimal",
+                    "date": "2026-07-10", "lineup": [],
+                    "links": [{"source": "19hz", "url": "https://www.instagram.com/p/DZl9KXzKRBX/"}],
+                    "sources": ["19hz"], "first_seen": "2026-06-30", "last_seen": "2026-06-30",
+                    "status": "unlisted"}
+RECOLLECT_POSH_OLD = {"title": "RECOLLECT UNDERGROUND W/ LA RIOTS",
+                      "venue": "The Location will be revealed on the event date",
+                      "date": "2026-07-10", "lineup": [],
+                      "links": [{"source": "posh", "url": "https://posh.vip/e/recollect-underground-w-la-riots"}],
+                      "sources": ["posh"], "first_seen": "2026-07-07", "last_seen": "2026-07-08",
+                      "status": "unlisted"}
+RECOLLECT_POSH_NEW = {"title": "RECOLLECT UNDERGROUND", "venue": "Warehouse",
+                      "date": "2026-07-10", "lineup": [],
+                      "links": [{"source": "posh", "url": "https://posh.vip/e/recollect-underground-2"}],
+                      "sources": ["posh"], "first_seen": "2026-07-10", "last_seen": "2026-07-10"}
+
+
+def test_one_sided_placeholder_venue_reveal_merges():
+    # Identical titles, one side TBA, the other naming the room: the venue-reveal lifecycle.
+    assert is_duplicate(RECOLLECT_RA, RECOLLECT_REVEAL)
+
+
+def test_one_sided_placeholder_series_name_substring_merges():
+    # The bare series name re-list ("RECOLLECT UNDERGROUND" ⊂ the lineup-billed title).
+    assert is_duplicate(RECOLLECT_RA, RECOLLECT_POSH_NEW)
+
+
+def test_both_placeholder_shared_headliner_merges():
+    # 7/16 shape: RA and 19hz retitle the same secret party around different names — no strong
+    # title match, but RA's billed headliner appears in 19hz's title. Both venues placeholders.
+    ra = {"title": "RECOLLECT UNDERGROUND: SPECIAL GUEST CURRY FURY (B-DAY SET)",
+          "venue": "TBA - Location Link in Bio on Instagram @recollectunderground",
+          "date": "2026-07-16", "lineup": ["JAXX NOVEIRA", "Shredy"],
+          "links": [{"source": "ra", "url": "https://ra.co/events/2475747"}], "sources": ["ra"]}
+    nh = {"title": "Recollect Underground: Curry Fury Bday Bash, Blerry, Jaxx Noveira, King Leon, Shredy",
+          "venue": "TBA (DTLA/Los Angeles) tech house, minimal, deep house",
+          "date": "2026-07-16", "lineup": [],
+          "links": [{"source": "19hz", "url": "https://posh.vip/e/recollect-underground-curry-fury-bday-bash"}],
+          "sources": ["19hz"]}
+    assert is_duplicate(ra, nh)
+
+
+def test_conflicting_platform_ids_veto_headliner_tie():
+    # Real 7/11 pair: the headliner's 7pm mini-documentary screening and his 10pm-4am rave, both
+    # TBA venues, name shared via lineup/title — but two DISTINCT RA event pages. The platform
+    # filing them separately outranks the (weakest) headliner tie.
+    rave = {"title": "I LOVE DNB: Jumpin' Jack Frost + Ray Keith", "venue": "TBA",
+            "date": "2026-07-11", "lineup": ["Jumpin Jack Frost", "Ray Keith"],
+            "links": [{"source": "ra", "url": "https://ra.co/events/2441821"}], "sources": ["ra"]}
+    doc = {"title": "Big, Bad & Heavy - Jumpin' Jack Frost Mini-Documentary Screening",
+           "venue": "TBA - Worms Music Studio B", "date": "2026-07-11",
+           "lineup": ["Jumping Jack Frost"],
+           "links": [{"source": "ra", "url": "https://ra.co/events/2482797"}], "sources": ["ra"]}
+    assert not is_duplicate(rave, doc)
+    # Belt and suspenders: even without the id conflict, the companion-marker guard
+    # ("documentary screening" on one side only) blocks the placeholder path.
+    assert not is_duplicate(dict(rave, links=[]), dict(doc, links=[]))
+
+
+def test_one_sided_headliner_alone_does_not_merge():
+    # An artist playing a REAL venue can also be billed at someone's TBA afters the same night —
+    # the headliner tie only counts when BOTH venues are placeholders.
+    show = {"title": "Factory 93 presents: Beltran at Naud St", "venue": "1756 Naud St.",
+            "date": "2026-07-11", "lineup": ["Beltran"]}
+    tba = {"title": "Warehouse party w/ special guest Beltran", "venue": "TBA - DTLA",
+           "date": "2026-07-11", "lineup": []}
+    assert not is_duplicate(show, tba)
+
+
+def test_afterparty_does_not_merge_into_main_event():
+    # "X" and "X Afterparty" share a name stem (a ≥15-char substring!) but are two events.
+    main = {"title": "Recollect Underground", "venue": "Los Globos", "date": "2026-07-10", "lineup": []}
+    afters = {"title": "Recollect Underground Afterparty", "venue": "TBA - DTLA",
+              "date": "2026-07-10", "lineup": []}
+    assert not is_duplicate(main, afters)
+
+
+def test_dedupe_collapses_recollect_cluster():
+    # All four 7/10 rows fold into one live record: links from every source kept, and the two
+    # ghost-flagged (stale) rows must NOT carry their `unlisted` status onto the live merge.
+    merged, report = dedupe([RECOLLECT_RA, RECOLLECT_REVEAL, RECOLLECT_POSH_OLD, RECOLLECT_POSH_NEW])
+    assert len(merged) == 1, [e["title"] for e in merged]
+    m = merged[0]
+    assert set(m["sources"]) == {"ra", "19hz", "posh"}
+    assert len({l["url"] for l in m["links"]}) == 4
+    assert "status" not in m                      # the stale unlisted flags don't ghost the live row
+    assert m["first_seen"] == "2026-06-19"
+    assert m["last_seen"] == "2026-07-10"
+
+
+def test_merge_stale_unlisted_flag_does_not_ghost_live_record():
+    # Healing an old dupe: the absorbed row went stale (ghost-flagged) while the kept row is still
+    # re-seen — the merged record must stay live whichever side is the merge base.
+    live = dict(RECOLLECT_RA, price="$10 pre")
+    ghost = dict(RECOLLECT_REVEAL, price="$15")
+    assert "status" not in merge(live, ghost)
+    assert "status" not in merge(ghost, live)
+    assert merge(live, ghost)["price"] == "$10 pre"   # volatile follows the fresher-seen side
+    assert merge(ghost, live)["price"] == "$10 pre"
+
+
+def test_merge_new_fetch_still_wins_volatiles():
+    # merge_new semantics unchanged: incoming (stamped today) is the fresher side on tie/newer.
+    old = {"title": "Show", "venue": "Echo", "date": "2026-07-20", "lineup": [],
+           "price": "$10", "last_seen": "2026-07-09"}
+    fetched = {"title": "Show", "venue": "Echo", "date": "2026-07-20", "lineup": [],
+               "price": "$15", "last_seen": "2026-07-10"}
+    assert merge(old, fetched)["price"] == "$15"
+    # A fresher unlisted flag DOES stick (the reverse of the ghost case above)…
+    assert merge(old, dict(fetched, status="unlisted"))["status"] == "unlisted"
+    # …and a stale flag on the catalog side is cleared by a fresh re-listing.
+    assert "status" not in merge(dict(old, status="unlisted"), fetched)
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
