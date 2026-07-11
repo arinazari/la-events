@@ -1,41 +1,24 @@
-# Taylor's LA Events Digest
-*Digest regenerated Thu 7/9 — picks updated.*
+# Taylor's LA Digest
+*Digest regenerated Fri 7/10 — picks updated.*
 
-*Updated Thu 7/9 · Taste: mostly unset — a light boost toward Arab/Palestinian/Armenian/Middle Eastern/SWANA culture, Habibeats tracked · North Hollywood / Burbank*
+Straight talk: your taste.yaml is basically a blank slate — no category likes saved, so nothing in the scored pool is actually tuned to you yet. The only two real signals are the SWANA/Middle Eastern culture boost and Habibeats as a tracked artist, and **neither turned up anything** through mid-August (no Habibeats dates anywhere in the catalog; the lone SWANA-tagged item is a Palestinian-embroidery workshop on 8/16, outside this window and not really a going-out pick). One long shot worth a look tonight: **Omar ؏** at Gold Diggers — the name carries an Arabic character but there's no bio or lineup info to confirm a SWANA connection, so treat it as a maybe, not a match. Everything below is the best-vetted stuff across the wider pool — not personalized, just genuinely good — filtered away from the DTLA electronic-afterhours noise that dominates the raw scores. Worth 10 minutes filling in `profiles/taylor/taste.yaml` so the next run actually reflects you.
 
----
-Straight talk up front: your taste.yaml is still close to a blank slate — no categories saved, and the only real signal is the SWANA/Middle Eastern boost plus Habibeats as a tracked artist. **Neither showed up this cycle** — still no Habibeats dates anywhere in the catalog, and the only near-misses on the SWANA boost were a stray "Middle Eastern melodic textures" line in one DJ's bio, not an actual SWANA-culture event. So what's below is the best-vetted LA nightlife/film picks over the next three weekends, not yet tuned to you specifically. Worth 10 minutes adding real likes to `profiles/taylor/taste.yaml` (and flagging any SWANA-event sources we should be tracking) so the next run actually reflects you.
+## This weekend — Fri 7/10 to Sun 7/12
 
-## Top Picks
-### Fri 7/10
-**[Township Rebellion with Trou and DENYC](https://ra.co/events/2474681)** — 1720, Arts District · 10pm–3am · $21 pre
-German melodic-techno duo (Stil vor Talent/Suara, the sound that fed into the Lane 8/Afterlife lane) in one of the better warehouse rooms downtown — atmosphere-first, not a peak-time hammer.
+- **[Toody Cole & Her Band, OP ED](https://dice.fm/event/2w3v56-toody-cole-her-band-op-ed-10th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown, 7pm. Toody Cole co-founded Dead Moon and Pierced Arrows — raw Pacific Northwest garage-punk from a real lineage act, not a revival.
+- **[Omar ؏ Live in LA](https://dice.fm/event/ryqbvr-omar-live-in-la-10th-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood, 10:30pm. Low-info listing, possible SWANA tie per the name — flagged for your boost, not vetted.
+- **[Lenny Kaye (Patti Smith Band), Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-patti-smith-band-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Sat 7/11, Zebulon, 7pm. Pick of the run: Kaye is Patti Smith's longtime guitarist and compiled *Nuggets*, the garage-rock canon — live, next to singer-songwriter Cindy Lee Berryhill.
+- **["The Dark Knight" Rooftop Screening](https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend)** — Sun 7/12, Rooftop Cinema Club, DTLA, 8:35pm. Easy Sunday-night rooftop rewatch if you want something low-key to close the weekend.
 
-### Sat 7/11
-**[SMD - Mike Servito & Jason Kendig](https://ra.co/events/2477599)** — TBA, Downtown LA · 11pm–5am · $47 pre
-Two decades-deep queer-underground DJs (Bunker NYC, Honey Soundsystem) doing a real all-night back-to-back — actual pedigree on a Saturday otherwise thick with TBA lineups and no info.
+## Weekend after — Fri 7/17 to Sun 7/19
 
-### Fri 7/17
-**[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3745?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · 10:30pm
-Nolan's Homer adaptation (Matt Damon, Anne Hathaway), shot on IMAX film stock, on one of the ~30 true 70mm prints in circulation — a format event as much as a film one. Worth confirming the Vista's actually running a true 70mm print before building the night around it.
+- **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3745?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Fri 7/17, Vista Theater, Los Feliz, 10:30pm. Nolan's Homer adaptation on one of the few true 70mm prints in circulation — running nightly through the month if this slot doesn't work.
+- **[Room 5: House & Techno, 2 Stages](https://www.instagram.com/actv.la)** — Sat 7/18, 5627 Lankershim Blvd, North Hollywood, 9pm–3am. The one pick this run that's actually in your own neighborhood — generic club-night lineup, but zero commute.
 
-### Sat 7/18
-**[Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE](https://ra.co/events/2456585)** — TBA, Downtown LA · 10pm
-All-vinyl listening-bar night; Luke Mele's long-running NTS show (Balearic, dub techno, ambient) is the real draw over the usual DTLA warehouse churn. Top-ranked pick of the run.
+## Weekend after that — Fri 7/24 to Sun 7/26
 
-### Fri 7/24
-**[Stavroz (Live)](https://ra.co/events/2437239)** — The Bridge, DTLA · 10pm
-Belgian live band, not a DJ set — cinematic, organic house in the Bonobo/RÜFÜS Du Sol lane if you want something warmer than another peak-time Friday.
-
-### Sat 7/25
-**[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA, Downtown · 10pm
-Miami producer folding dembow and dancehall rhythm into house/techno ("arquitectronica," his own term) — one of the few bookings this run that doesn't sound like everything else on the calendar.
-
-## Also This Run
-**Fri 7/10 — [Cirra presents: Day Thief, Faited, and sosoftly](https://ra.co/events/2472986)** — TBA, DTLA · 10pm–4am, $20-50; Faited runs sound for Eris Drew's crew — a rawer SF/Oakland queer-underground flavor than the usual DTLA afters. RA pick.
-**Sat 7/11 — [Naach: Ivory (Extended Set), HydeClip, Arthur Onni, Eda, Belek Boy](https://www.naach.life/)** — TBA, Arts District · 9pm–4am, $35 pre; tech-house/minimal, worth it if the location drops early enough to plan around.
-**Sat 7/18 — [Room 5 House & Techno, 2 Stages](https://www.instagram.com/actv.la)** — 5627 Lankershim Blvd, North Hollywood · 9pm–3am, $6.50+; the one pick this run that's actually in your own neighborhood.
-**Sat 7/25 — [FLOAT Rooftop Pool Party ft. Jody Wisternoff](https://ra.co/events/2449781)** — Level 8, DTLA · 2pm–8pm; an Anjunadeep mainstay doing daytime melodic house on a rooftop pool — a lighter counter to another night of warehouse afters.
+- **[Widespread Panic](https://www.ticketmaster.com/widespread-panic-los-angeles-california-07-24-2026/event/0900646CA6AD9272)** — Fri 7/24 & [Sat 7/25](https://www.ticketmaster.com/widespread-panic-los-angeles-california-07-25-2026/event/0900646CA6B0927E), Orpheum Theatre, DTLA, 8pm. Three-night stand (also Thu 7/23) from the veteran Southern jam band — real improvisation in a proper downtown theater, if that's ever your thing.
+- The Odyssey (70mm) is still running most nights at the Vista if you missed it the weekend before.
 
 ---
-*Next step: fill in `profiles/taylor/taste.yaml` with real likes/venues/genres — this list sharpens the moment there's something to score against.*
+*Next step: add real likes/venues/genres to `profiles/taylor/taste.yaml` — this list sharpens the moment there's something to score against.*

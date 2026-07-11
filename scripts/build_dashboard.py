@@ -161,7 +161,15 @@ def main() -> int:
         return 1
 
     with catalog_path.open() as f:
-        catalog = json.load(f)
+        all_rows = json.load(f)
+    # Ghost rows (status:"unlisted" — dropped by every source that carried them; lib/pipeline
+    # flag_stale) don't ship in the feed: the digest's score_pool already refuses to recommend
+    # them, and the dashboard would render a probably-cancelled/pulled event exactly like a live
+    # one. They stay in the catalog (flag_stale un-flags them if a source re-lists) and the
+    # catalog_meta version fallback below still spans them, so the staleness key can't drift
+    # from the run_digest stamp.
+    catalog = [e for e in all_rows if e.get("status") != "unlisted"]
+    ghosts = len(all_rows) - len(catalog)
     taste = load_yaml(taste_path)
     profile = load_yaml(profile_path)
     sources = load_yaml(sources_path)
@@ -283,11 +291,12 @@ def main() -> int:
     # The catalog version this feed was scored against — the dashboard compares it to the live
     # dashboard/catalog_meta.json to decide if this profile's ranking/digest is stale. Prefer the
     # stamp written by run_digest; fall back to recomputing from the catalog we just read.
-    cat_meta = CM.read_meta(catalog_path.parent / "catalog_meta.json") or CM.build_meta(catalog)
+    cat_meta = CM.read_meta(catalog_path.parent / "catalog_meta.json") or CM.build_meta(all_rows)
     # Backfill content_version if the on-disk meta predates it, so a build-only path (build-profiles)
     # still stamps/publishes it — the dashboard staleness check keys off content_version now.
+    # Versions compute over ALL rows (ghosts included), matching what run_digest stamps.
     if not cat_meta.get("content_version"):
-        cat_meta["content_version"] = CM.content_version(catalog)
+        cat_meta["content_version"] = CM.content_version(all_rows)
 
     feed = {
         # Timezone-aware (UTC) — the dashboard's "last data pull" parses this; a naive stamp is
@@ -317,7 +326,8 @@ def main() -> int:
     with out_path.open("w") as f:
         json.dump(feed, f, indent=2)
     rel_out = out_path.relative_to(REPO) if out_path.is_relative_to(REPO) else out_path
-    print(f"Wrote {len(events)} events ({enriched_hits} enriched) -> {rel_out}"
+    print(f"Wrote {len(events)} events ({enriched_hits} enriched"
+          f"{f', {ghosts} unlisted hidden' if ghosts else ''}) -> {rel_out}"
           f"{' (SAMPLE data)' if is_sample else ''}")
 
     # Publish the live catalog version next to the feeds (any non-sample build refreshes it; the

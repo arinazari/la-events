@@ -1,35 +1,30 @@
-# Demo (indie + jazz)'s LA Digest — 2026-07-09
-*Digest regenerated Thu 7/9 — picks updated.*
+# Demo's LA Digest
+*Digest regenerated Fri 7/10 — picks updated.*
 
-*Indie/rock/garage/dream-pop, jazz & soul, rep cinema, folk-Americana, comedy when it's a real name — cold on the warehouse/afters circuit. Next three weekends, through Sun 7/26.*
+Two things about the raw feed worth flagging before the picks. First, the pool is thick with DTLA warehouse afterhours (TBA locations, 3am starts, tech-house/minimal all-nighters) riding "close to home" and late-start boosts — none of that is this lane, so it's filtered out. Second, no event-editor verdicts have run for this profile yet — everything below is deterministic scoring only, and jazz specifically is landing as "low interest" in the score reasons even though the taste file puts jazz/soul/funk in the *high* tier, so I pulled the real Sam First bookings by hand rather than trust the raw order. Good stretch overall: another Zebulon-heavy run, real jazz names at Sam First most nights, and Nolan's *Odyssey* on true 70mm at the Vista.
 
-Heads up on the data: this feed's raw ranking is dominated by DTLA afterhours/warehouse electronic, which is a scoring-engine artifact (category weights are shared with the main "Ari" profile, so "electronic" reads as high-interest even though your taste.yaml puts big-room EDM in the low tier with penalties for exactly that stuff). Ignored that ordering and built this from what actually fits your lane. Good news: it's a genuinely strong stretch — a run of Zebulon indie/garage nights, real jazz names at Sam First almost every night, Nolan's *Odyssey* on true 70mm at the Vista, and a McCabe's roots-Americana run. Comedy's dry (nothing from Mulaney/Bargatze/Notaro/Bamford/Buress posted for this window), so I've left it out rather than padding with open mics.
+## This weekend — Fri 7/10 to Sun 7/12
 
-## This week — Thu 7/9 to Sun 7/12
+- **[Oscar Hernández & Alma Libre](https://www.samfirstbar.com/events/oscar-hernandez-alma-libre-with-katisse-buckingham-andy-senesi-christian-moraga-rene-camacho)** — Fri 7/10, Sam First, 7:30pm. Grammy-winning Spanish Harlem Orchestra bandleader doing Latin jazz in a 20-seat room — the jazz pick of the week.
+- **[Toody Cole & Her Band, OP ED](https://dice.fm/event/2w3v56-toody-cole-her-band-op-ed-10th-jul-zebulon-los-angeles-tickets)** — Fri 7/10, Zebulon, 7pm. Toody Cole co-founded Dead Moon and Pierced Arrows — raw, lo-fi Pacific Northwest garage-punk from a lifer, not a nostalgia act.
+- **[Lenny Kaye (Patti Smith Band), Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-patti-smith-band-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Sat 7/11, Zebulon, 7pm. The pick of the weekend. Kaye is Patti Smith's longtime guitarist and the guy who compiled *Nuggets*, the garage-rock canon — real CBGB lineage in a room as small as Zebulon.
+- **[Grand Ole Echo](https://www.ticketmaster.com/grand-ole-echo-los-angeles-california-07-12-2026/event/0900646425B0A86B)** — Sun 7/12, The Echo patio, Echo Park, 5:30pm. Weekly outdoor country/Americana series — sunset patio, roots music. Repeats most Sundays this run (also 7/19, 7/26).
 
-- **Thu 7/9 · [Dylan LeBlanc + Band — 10 Year Anniversary of "Cautionary Tale"](https://dice.fm/event/bb7anv-dylan-leblanc-band-10-year-anniversary-of-cautionary-tale-9th-jul-zebulon-los-angeles-tickets)** — Zebulon, 8pm. An Americana songwriter revisiting a decade-old record start to finish, in exactly the small-room setting that makes those nights work.
-- **Fri 7/10 · [Oscar Hernández & Alma Libre](https://www.samfirstbar.com/events/oscar-hernandez-alma-libre-with-katisse-buckingham-andy-senesi-christian-moraga-rene-camacho)** — Sam First, 7:30pm. A 4x-Grammy Latin-jazz bandleader (Spanish Harlem Orchestra) in a 20-seat Westchester room — top jazz pick of the week.
-- **Fri 7/10 · [Toody Cole & Her Band, OP ED](https://dice.fm/event/2w3v56-toody-cole-her-band-op-ed-10th-jul-zebulon-los-angeles-tickets)** — Zebulon, 7pm. Toody Cole co-founded Dead Moon and Pierced Arrows; raw Pacific Northwest garage-punk from a lifer, not a nostalgia act.
-- **Sat 7/11 · ⭐ [Lenny Kaye (Patti Smith Band), Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Zebulon, 7pm. Patti Smith's longtime guitarist and rock historian, paired with LA singer-songwriter Cindy Lee Berryhill — real rock history in a room that seats maybe 100.
-- **Sat 7/11 · [Dave Alvin & Jimmie Dale Gilmore](https://www.mccabes.com/concerts-landing/)** — McCabe's, 8pm. Friday's date already sold out; this Saturday show was still up as of this pull — two Americana/roots-rock lifers trading songs in a guitar shop's back room.
-- **Sat 7/11 · [Foodman, Sun Araw, DJ Ryley Walker](https://dice.fm/event/6d832q-foodman-sun-araw-11th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, 8pm. Odder bill worth knowing about: Foodman's footwork-adjacent electronics + Sun Araw's psych-dub + Ryley Walker DJing — closer to experimental listening room than club night.
+## Weekend after — Fri 7/17 to Sun 7/19
 
-## Weekend of 7/17–7/19
+- **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3745?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Fri 7/17, Vista Theater, 10:30pm. Not rep cinema, but a genuine all-analog presentation — Nolan's next film in true 70mm the night before wide release. The format's the reason to go.
+- **[Larry Goldings Trio](https://www.samfirstbar.com/events/larry-goldings-trio-with-david-piltch-joe-la-barbera)** — Fri 7/17, Sam First, 7:30pm. Goldings is a genuinely major jazz organist (Pat Metheny, James Taylor's band) — build the night around this one.
+- **[Low Cut Connie](https://www.troubadour.com/)** — Fri 7/17, Troubadour, West Hollywood, 7pm. Piano-driven, sweaty bar-band rock and roll at a room this profile already trusts.
+- **[James McMurtry w/ Bettysoo](https://www.troubadour.com/)** — Sun 7/19, Troubadour, 6pm. Gravelly, novelistic Texas songwriting — one of the sharper lyricists in Americana, easy Sunday close.
 
-- **Fri 7/17 · ⭐ [The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3752?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, 10:30pm (running most nights this stretch). Nolan's *Odyssey* on a true 70mm print — a format event, the actual reason to see it there instead of streaming it later.
-- **Fri 7/17 · [Larry Goldings Trio](https://www.samfirstbar.com/events/larry-goldings-trio-with-david-piltch-joe-la-barbera)** — Sam First, 7:30pm. Goldings is a genuinely major jazz organist (Pat Metheny, James Taylor's band) — this is the jazz night to build around this weekend.
-- **Fri 7/17 · [Low Cut Connie](https://www.ticketmaster.com/event/Z7r9jZ1A7x4uK)** — Troubadour, 7pm. Adam Weiner's bar-band-gone-big rock and roll — a fun, sweaty show in a room you already love.
-- **Sun 7/19 · [James McMurtry w/ Bettysoo](https://www.ticketmaster.com/event/Z7r9jZ1A7x4bS)** — Troubadour, 6pm. One of the sharpest lyricists working in Americana; early slot makes it an easy Sunday close.
+## Weekend after that — Thu 7/23 to Sun 7/26 (busiest stretch)
 
-## Weekend of 7/24–7/26
-
-- **Thu 7/23 · [Austyn Gillette Record Release Show w/ Indigo Sparke](https://dice.fm/event/ryq835-austyn-gillette-record-release-show-indigo-sparke-23rd-jul-zebulon-los-angeles-tickets)** — Zebulon, 8pm. Indigo Sparke (Adrianne Lenker collaborator) doing hushed, dream-pop-leaning folk is the real draw here.
-- **Fri 7/24 · [Jane Monheit Duo](https://www.samfirstbar.com/events)** — Sam First, 7:30pm (also Sat 7/25). A genuine jazz-vocal name doing Great American Songbook standards — book whichever night works, same set.
-- **Fri 7/24 · [El Rayo-X](https://www.mccabes.com/concerts-landing/)** — McCabe's, 8pm. David Lindley's old roots-rock/reggae-inflected band — Americana pedigree in the room built for it.
-- **Fri 7/24 · [Parts & Labor, HLLLYH, Molly Horses](https://dice.fm/event/eomgyd-parts-labor-hlllyh-molly-horses-24th-jul-zebulon-los-angeles-tickets)** — Zebulon, 7pm. Noisy, experimental guitar-rock triple bill if you want the scrappier option that same night.
-- **Sat 7/25 · [Bass Drum of Death, MEMO PST](https://dice.fm/event/xea8qk-bass-drum-of-death-memo-pst-25th-jul-zebulon-los-angeles-tickets)** — Zebulon, 7:30pm. Fuzzed-out garage rock — Zebulon's bread and butter.
-- **Sun 7/26 · [Teddy Thompson](https://www.mccabes.com/product/teddy-thompson/)** — McCabe's, 8pm. Richard & Linda Thompson's son, real folk pedigree — a quiet, well-earned close to the run.
+- **[Widespread Panic](https://www.ticketmaster.com/widespread-panic-los-angeles-california-07-24-2026/event/0900646CA6AD9272)** — Fri 7/24 & [Sat 7/25](https://www.ticketmaster.com/widespread-panic-los-angeles-california-07-25-2026/event/0900646CA6B0927E), Orpheum Theatre, DTLA, 8pm. Two-night stand from the veteran jam band — classic-rock lineage and real improvisation in a proper theater.
+- **[Jane Monheit Duo](https://samfirstbar.com/events/jane-monheit-duo-with-max-haymer)** — Fri 7/24 & Sat 7/25, Sam First, 7:30pm, same set both nights. A genuine jazz-vocal name doing Great American Songbook standards.
+- **[El Rayo-X](https://www.mccabes.com/concerts-landing/)** — Fri 7/24, McCabe's Guitar Shop, Santa Monica, 8pm. David Lindley's old roots/world-fusion outfit at the legendary guitar-shop listening room.
+- **[Bass Drum of Death, MEMO PST](https://dice.fm/event/xea8qk-bass-drum-of-death-memo-pst-25th-jul-zebulon-los-angeles-tickets)** — Sat 7/25, Zebulon, 7:30pm. Fuzzed-out Mississippi garage rock — Zebulon's bread and butter, and hers.
+- **[Teddy Thompson](https://www.mccabes.com/concerts-landing/)** — Sun 7/26, McCabe's Guitar Shop, 8pm. Richard & Linda Thompson's son, real English folk-rock pedigree — a quiet, well-earned close to the run.
 
 ---
 
-*Left out: the club/afters/warehouse circuit (most of the feed's raw volume, none of it your lane), comedy (nothing from your loved-comedian list this window), and the "market" listings tagged this week (mislabeled block/EDM parties, not flea/vintage). Sam First is running real jazz names basically every night through this whole window — the two above are the standout ones, but check their calendar directly if a specific date matters more than a specific name.*
+*Left out: the DTLA afterhours/warehouse circuit (most of the feed's raw volume, none of it this lane), and comedy (nothing from the loved-comedian list — Mulaney, Bargatze, Notaro, Bamford, Buress — posted for this window, so it's skipped rather than padded).*
