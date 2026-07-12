@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/10/2026 deterministically (no API). 359 candidates. Signals: big-venue 303, festival 53, tracked 6._
+_Generated 7/12/2026 deterministically (no API). 345 candidates. Signals: big-venue 291, festival 52, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -29,13 +29,13 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/14 | 6 | Moodymann and DJ Rashida Play Prince | The Regent Theater | tracked:Moodymann | [link](https://www.ticketmaster.com/moodymann-and-dj-rashida-play-prince-los-angeles-california-08-14-2026/event/090064BA38058214) |
 | Sun 8/16 | 5 | The Soul Space f/ Tamara Jade & Orlando Dixon, Mark Evich, | TBA - Plummer Park WeHo | tracked:Dixon | [link](https://ra.co/events/2476723) |
 
 ## September 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 9/19 | 5 | Âme, DJ Tennis, Kaz James - Chinatown Block Party | Gin Ling Way, Chinatown | festival | [link](https://ra.co/events/2487802) |
 | Sat 9/5 | 4 | Hypnotique Presents: Sway Festival - 2 DAY PASS | Teragram Ballroom | festival | [link](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE) |
 | Fri 9/11 | 4 | Cold Waves 2-Day (9/11/26-9/12/26) | Pacific Electric | festival | [link](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76) |
 | Sat 9/19 | 4 | Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustB | Echoplex | festival | [link](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA) |
@@ -51,7 +51,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 8/15 | 3 | 80s MUSIC FESTIVAL | The Show at Agua Caliente Casino R | festival | [link](https://www.ticketmaster.com/80s-music-festival-rancho-mirage-california-08-15-2026/event/090064BF0895AF1C) |
 | Sat 8/29 | 3 | Verizon offer - Daisy Chain Fields | Great Park Live | festival | [link](https://www.daisychainfields.com/tickets) |
 | Sat 8/29 | 3 | Biergarten Blues Festival | The Biergarten at Old World HB | festival | [link](https://www.universe.com/events/biergarten-blues-festival-tickets-YVZ36T?ref=ticketmaster) |
 
@@ -82,8 +81,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/14 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJF) |
-| Sat 8/15 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJa) |
 | Fri 8/21 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJp) |
 | Sat 8/22 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ9) |
 | Fri 8/28 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZd) |
@@ -125,6 +122,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 8/16 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJo) |
+| Sun 8/16 | 1 | Elliott Brothers Present COMEDY BLOCK PARTY Hosted by Chri | The Miracle Theater | festival | [link](https://www.ticketmaster.com/elliott-brothers-present-comedy-block-party-inglewood-california-08-16-2026/event/0B0064E7F3225942) |
 | Mon 8/17 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ3) |
 | Tue 8/18 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJK) |
 | Wed 8/19 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJf) |
@@ -169,11 +167,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/14 | 4 | KCSN Presents: An Evening With Goose | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/kcsn-presents-an-evening-with-goose-los-angeles-california-08-14-2026/event/09006437A956DDFC) |
-| Fri 8/14 | 4 | Al Green w/ The Womack Sisters | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
-| Fri 8/14 | 4 | KCON - Friday | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
-| Sat 8/15 | 4 | Gavin Adcock w/ Pecos and The Rooftops | Toyota Arena-CA | big-venue | [link](https://www.cbbankarena.com) |
-| Sat 8/15 | 4 | KCON - Saturday | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 8/21 | 4 | Mt. Joy 2026: Celebrating 10 Years Of Mt. Joy | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/mt-joy-2026-celebrating-10-years-los-angeles-california-08-21-2026/event/09006379E448BED8) |
 | Fri 8/21 | 4 | Ricardo Montaner | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 8/22 | 4 | 90s Corridos Tour (Lineup Subject to Change) | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
@@ -230,13 +223,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/14 | 3 | KAROL G - VIAJANDO POR EL MUNDO TROPITOUR | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-14-2026/event/0A0064904B5EEA09) |
-| Fri 8/14 | 3 | Melanie Martinez - HADES: THE SACRIFICE | Kia Forum | big-venue | [link](https://www.ticketmaster.com/melanie-martinez-hades-the-sacrifice-inglewood-california-08-14-2026/event/0900648EB86C9CD6) |
-| Sat 8/15 | 3 | Meghan Trainor: The Get In Girl Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/meghan-trainor-the-get-in-girl-inglewood-california-08-15-2026/event/0900636BE15BF95A) |
-| Sat 8/15 | 3 | Noah Kahan: The Great Divide Tour  | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/noah-kahan-the-great-divide-tour-pasadena-california-08-15-2026/event/0B0064417CB517BA) |
-| Sat 8/15 | 3 | Yeat: The LOVE/LYFE Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/yeat-the-lovelyfe-tour-inglewood-california-08-15-2026/event/0900647AA1B08600) |
-| Sat 8/15 | 3 | KAROL G - VIAJANDO POR EL MUNDO TROPITOUR | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-15-2026/event/0A0064904B63EA0D) |
-| Sat 8/15 | 3 | She Wants Revenge - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 8/16 | 3 | YOASOBI: Never Ending Stories Tour | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/yoasobi-never-ending-stories-tour-hollywood-california-08-16-2026/event/0B0064848AA827EC) |
 | Sun 8/16 | 3 | KCON - Sunday | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Mon 8/17 | 3 | The Black Crowes, Tedeschi Trucks Band, Whiskey Myers | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/the-black-crowes-tedeschi-trucks-band-hollywood-california-08-17-2026/event/0B00643ABF0C3FD9) |

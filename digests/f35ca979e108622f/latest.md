@@ -1,32 +1,51 @@
-# Dr. Ganesan's LA Digest
-*Digest regenerated Fri 7/10 — picks updated.*
+# Dr. Ganesan's LA Events Digest
+*Digest regenerated Sun 7/12 — picks updated.*
 
-Quick honesty check before the picks: the raw feed this cycle is dominated by two things that aren't your lane — a wall of TBA-location DTLA "afters" (tech house, hard techno, minimal) riding the deterministic score's downtown-proximity boost, and *Lost in Dreams* (7/11–12, LA State Historic Park), an Insomniac melodic-bass/dubstep festival headlined by Porter Robinson and Dabin that technically out-scored everything else. Neither is the "melodic/progressive EDM at large venues" you actually like — skipping both. What's real this stretch: the Vista and New Beverly are both having a strong run, Comedy Store's rotating showcase is worth a stop, and the Hollywood Bowl books two acts (Bob Moses, Boris Brejcha) that land exactly in your big-venue-electronic bucket.
-
-## Tonight & this weekend — Fri 7/10 to Sun 7/12
-
-- **[Dances With Wolves](https://ticketing.uswest.veezi.com/purchase/3807?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Fri 7/10, Vista Theater, 8pm — Costner's 3-hour epic on the Vista's big screen and vintage marquee, one of your loved rooms.
-- **[Lenny Kaye, Cindy Lee Berryhill](https://dice.fm/event/mx98nl-lenny-kaye-cindy-lee-berryhill-11th-jul-zebulon-los-angeles-tickets)** — Sat 7/11, Zebulon, 7pm — Patti Smith's longtime guitarist (and the guy who compiled *Nuggets*) in an intimate room, with independent-editorial pickup behind it.
-- **[L.A. French Fry Festival](https://uncoverla.com/2026/07/08/best-los-angeles-events-july-2026/)** — Sat 7/11, Gene Autry Museum, 11am — daytime food event with local chefs and trucks, straight down your "food & drink" lane if you're up for a museum-lawn outing.
-- **["Pulp Fiction" — Cinespia](https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend)** — Sat 7/11, Hollywood Forever Cemetery, 7:15pm — outdoor Tarantino screening with DJ sets before/after; the rep-cinema pick if you want it under the stars instead of indoors.
-- **["The Dark Knight" — Rooftop Cinema Club](https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend)** — Sun 7/12, Rooftop Cinema Club DTLA, 8:35pm — pet-friendly rooftop screening with skyline views, a short hop from home and an easy way to close the weekend.
-
-## Weekend after — Fri 7/17 to Sun 7/19
-
-- **[Low Cut Connie](https://www.troubadour.com/)** — Fri 7/17, Troubadour, 7pm — raucous piano-driven rock and roll at one of your favorite rooms.
-- **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3745?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Fri 7/17, Vista Theater, 10:30pm — Nolan's new epic in true 70mm, the exact reason the Vista keeps that projector running; it's on an extended run through late July if this date doesn't work.
-- **[Sam Barber w/ John Vincent III](https://www.axs.com/events/1402202/sam-barber-tickets)** — Sat 7/18, The Greek, 7pm — country at a venue you love.
-- **The Best of the Store** — Sat 7/18, [Comedy Store](https://thecomedystore.com/), 7pm — the rotating showcase at one of the two clubs actually named in your taste profile; low-stakes, reliably solid.
-- **[Bob Moses and Cannons — Afterglow Tour](https://www.hollywoodbowl.com/events/performances/4302/2026-07-19/bob-moses-and-cannons-afterglow-tour)** — Sun 7/19, Hollywood Bowl, 7pm — melodic, atmospheric electronic-pop at a big outdoor venue: precisely the "progressive EDM at large venues" category, a good way to close the weekend.
-- Worth a look if you're around: **[Yoshiki — Violet Night](https://www.musiccenter.org/tickets-free-events/lease-events/yoshiki/)** at Walt Disney Concert Hall (Fri 7/17, 8pm) — the X Japan founder doing rock/classical-crossover material at another loved room; a genuine wildcard, not the usual lane.
-
-## Weekend after that — Fri 7/24 to Sun 7/26
-
-- **[Fight Without Jingi](https://ticketing.uswest.veezi.com/purchase/3850?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Fri 7/24, Vista Theater, 8pm — Fukasaku's "Battles Without Honor and Humanity" under its literal title, the ultra-violent yakuza classic that basically invented the genre; the best rep pick of the whole stretch.
-- **[Riff Wood w/ Cherry Bombs](https://www.troubadour.com/)** — Fri 7/24, Troubadour, 7pm — another rock bill at a room you already trust.
-- **[Smokey Robinson w/ Gladys Knight](https://www.hollywoodbowl.com/events/performances/)** — Fri 7/24 & Sat 7/25, Hollywood Bowl, 8pm — two soul legends on one bill, squarely the "soul/funk" side of your live-music taste, at LA's best outdoor room for it.
-- **[Dazed and Confused](https://ticketing.uswest.veezi.com/purchase/4829?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — Sat 7/25, New Beverly Cinema, 11:59pm — easy, low-stakes late-night rep if you want a lighter Saturday than Fight Without Jingi.
-- **[Boris Brejcha with the Hollywood Bowl Orchestra](https://ra.co/events/2375675)** — Sun 7/26, Hollywood Bowl, 7pm — a genuine marquee-name techno DJ paired with a full orchestra outdoors; closes the run on the same big-venue-melodic-electronic note Bob Moses opened it on.
+*Updated Sun 7/12 · Taste: broad starter baseline (profile not dialed in yet) — the feed's currently leaning late-night house/disco/melodic-groove electronic + Vista Theater rep cinema · edit `profiles/dr_ganesan/taste.yaml` to sharpen it*
 
 ---
-*Skipped: the DTLA warehouse-afters/tech-house flood and Lost in Dreams (Insomniac melodic-bass fest, 7/11–12) — not your lane per taste.yaml. Touring Broadway (Mamma Mia!, Phantom of the Opera at the Ahmanson/Pantages, running most of this window) scored low with nothing new to flag. Daytime markets were thin outside the French Fry Festival.*
+This is still a generic baseline profile, not a tailored one, so take the picks below as "what scored well against a broad LA taste" rather than a dialed-in read on Dr. Ganesan specifically. That said, the next three weekends are carried by DTLA's TBA-location afters/rooftop scene and a run of strong Vista Theater rep bookings — a thin but real slate.
+
+## Top Picks
+
+### Fri · 7/17
+**[Lights Down Low feat. Mura Masa](https://ra.co/events/2452948)** — TBA, Downtown LA · 11pm
+Mura Masa's more pop-producer than club selector, but Lights Down Low has a real track record — booking him signals something worth checking out.
+
+**[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3745?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · 10:30pm
+Nolan's Homer epic on a true 70mm print — a format event as much as a film one.
+
+### Sat · 7/18
+**[Information - All Vinyl Night](https://ra.co/events/2456585)** — TBA, Downtown LA · 10pm
+The pick of the week: an all-vinyl night built around Luke Mele's NTS-honed Balearic/ambient/dub sensibility — quieter and more textural than the usual peak-time TBA warehouse night.
+
+**[Nightshift After Hours](https://blindtiger.la/)** — The Lexington, DTLA · 11pm–6am
+The real thing: Blind Tiger's secret-lineup house/tech-house speakeasy afterhours, free RSVP before 1am if you can hang til 6.
+
+**[Fandango](https://ticketing.uswest.veezi.com/purchase/3845?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · 8pm
+Low-stakes and warm if you'd rather skip the club circuit: Kevin Costner's cult 1985 debut, five friends' last road trip before the draft.
+
+### Fri · 7/24
+**[Fight Without Jingi](https://ticketing.uswest.veezi.com/purchase/3850?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · 8pm
+Kinji Fukasaku's documentary-style, ultra-violent yakuza classic ("Battles Without Honor and Humanity") — bracing rep-cinema instead of another comfort watch.
+
+**[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3859?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · 7:30pm
+Same 70mm Nolan print as the 7/17 slot, earlier start — one or the other, not both.
+
+### Sat · 7/25
+**[FLOAT Rooftop Pool Party ft. Jody Wisternoff](https://ra.co/events/2449781)** — Level 8, DTLA · 2pm–8pm
+The template pick of this batch: an actual Anjunadeep mainstay (Way Out West, co-curator of the label's flagship mix series) doing melodic progressive house poolside.
+
+**[CSW - Nick León (All Night)](https://ra.co/events/2475085)** — TBA, Downtown · 10pm
+Miami dembow-and-dancehall rhythm woven into house/techno — his own coined "arquitectronica" — one of the more genuinely distinctive bookings on the calendar if you want a late set after FLOAT winds down.
+
+### Fri · 7/31
+**[SEBASTIANE](https://ra.co/events/2471583)** — Akbar, Silver Lake · 10pm
+Silver Lake's tiny, unpretentious queer neighborhood bar rather than a proper club — an easy, close-to-home dive-bar dancefloor if you don't want to trek to DTLA.
+
+### Sat · 8/1
+**[Certified Groovers with Demuir](https://ra.co/events/2464585)** — TBA, Downtown Los Angeles · 10pm
+Demuir basically named the "jackin' house" subgenre — funky, groove-first Chicago-schooled house, a stronger pick than most of the generic "electronic, TBA" listings around it.
+
+---
+Left off the slate on purpose: several repeat "lineup TBA" Paradisco/Discotheke nights, a hardcore/gabber booking, and a couple of TBA parties the editor flagged as unverifiable gambles — none of them worth building a night around this round.

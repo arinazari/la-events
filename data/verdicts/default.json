@@ -2156,14 +2156,13 @@
       "model": "claude-sonnet-5"
     },
     "3f495ac3b11f": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "Open-to-close warehouse set from a FISHER/Chris Lake/Michael Bibi co-sign — exactly the tasteful mainstream tech-house lane, the one to build the weekend around.",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Beltran open-to-close solo at a real Chinatown warehouse — co-signed by FISHER, Chris Lake and Michael Bibi, basically the rising-producer edge of the mainstream-tasteful tech-house lane you track.",
       "confidence": "high",
-      "judged_at": "2026-07-08T12:32:03",
+      "judged_at": "2026-07-12T12:21:25",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "c8784c5d4298": {
       "tier": "solid",
@@ -7689,14 +7688,13 @@
       "score_at_judge": 3
     },
     "d836993f59b3": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Beltran's actually in your rotation and the late-night jazz-Latin set at Vibrato fits the afterhours mood, just outside the core electronic lane.",
-      "confidence": "high",
-      "judged_at": "2026-07-05T12:19:59",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Afro-Cuban jazz/percussion set, not the electronic or indie-rock lane this profile runs on, plus a late Bel Air set out of the way — the scene note citing a tech-house producer is a mismatched name, n",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 3
     },
     "0e71fc8de30c": {
       "tier": "great",
@@ -15334,6 +15332,340 @@
       "judged_at": "2026-07-11T12:26:43",
       "input_version": 2,
       "score_at_judge": 4
+    },
+    "cd80a22dff3f": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "No lineup, no genre info — reads as a generic 'about last night' RSVP party at Los Globos, not a booking worth planning around.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "ddaf93983235": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "\"Code Red Hard Techno\" with an act called Noize Suppressor is hard-techno/hardstyle energy — the exact lane the brief says isn't the draw.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "e844781fd886": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Elaine May's A New Leaf is a genuine rep-cinema classic, not a filler screening — Vidiots doing it justice.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "dbae6c948d58": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Luis Valdez doc at Vidiots — worthwhile but a narrower audience than the fiction screenings same day.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "89760439649a": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Three Kings on an actual 35mm print is the kind of format detail that makes a rep screening worth the trip.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "dfa5894faff7": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Late 10:15pm slot and an unfamiliar title — likely a deeper-cut pick on a stacked Vidiots night, keep it lower in the pack.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "55ea669c1f29": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Alien on the big screen is the one people actually show up for out of this whole Vidiots slate.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "7474456564c6": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Shonky extended set plus Lubelski's vinyl-informed house on a DTLA rooftop day party is the exact sunset-groove format you keep gravitating to.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "50c32042679e": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Calvin Bailey is a legit UK tech-house name for a beach day party — score's underrating this one since the venue location isn't parsed.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "f9e0ceaf467e": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "This is a scam/spam listing (Expedia customer-service SEO junk), not an event.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "3367044dceb0": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Rooftop tag aside, this is a generic no-lineup brunch social, not a DJ booking worth the slot.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "4fa56a711e72": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Gimmick concept (phone-free night) with zero lineup info — nothing here to actually judge as a music booking.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "25c64701403d": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Tagged electronic but the title says emo — likely a themed nostalgia night rather than a real DJ set or band show, the format the brief wants buried.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "dfd1390defdf": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "\"DJ R-Tistic\" at a Venice speakeasy reads like an open-format bar DJ, not a house/techno selector worth surfacing.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "b1abeab7e2b2": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Speakeasy afters at a venue with a decent house reputation, but Allen Dent isn't a name yet — no way to gauge the actual draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "b31ffed0d94d": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Free rooftop day-party with the sunset/groove setting you go for — score undersells the boost stack (rooftop + free + vibe).",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "665b261322e5": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "The Smell is the real DIY punk/experimental room and this is squarely the indie/post-punk lane you asked to keep in the mix — a scraped-flyer title is dragging the score, not the booking.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "85e9b7ff2e7b": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Rooftop tech-house/disco anniversary party hits the right sound, but Pomona's a real haul for a lineup with no known names.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "4f87b1e5d078": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Zebulon booking with no lineup detail to size up — trusting the venue more than the artists here.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "0c920f69e1ab": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Geneva Jacuzzi is a real LA post-punk/synth cult name (Dark Entries orbit) — a genuine small-venue indie pick, not filler.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "7c4fcf96f49e": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "An '80s decade dance party is exactly the nostalgia-night format you've said to bury, even at a venue you otherwise like — it's a DJ dance night, not a live-music booking.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "46524bcb1dde": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "All-vinyl open-air DTLA session is the exact 'Sunset Sessions'-style pattern you've flagged as a favorite — the flat score doesn't capture how on-format this is.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "6ee76fc1b912": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Lee Foss is a legit Repopulate Mars/Hot Creations-orbit tech-house name — a real draw for a Malibu sunset day party, not just another rooftop DJ slot.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "c639220652fd": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Reads like someone's personal birthday ice cream crawl that leaked into the feed, not a real public event worth surfacing.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "b5a19ebac95c": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No lineup, no clear draw, mangled title — generic party filler sitting at the score floor for a reason.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "4234ce8abea8": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Cypress Park DIY room near home, but 'Casi' is unknown — no basis to move it beyond the score.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "9b06fa8054a8": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Gold Diggers is a good small room and it's close, but Young Bull isn't a name to size up the draw with.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "faf97381590a": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Latin/rumba night doesn't touch the house-techno or indie-rock lanes this profile actually runs on.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "a235da6eeec8": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "No lineup or genre info to go on beyond a speakeasy setting and a full-moon framing — could be a groove-leaning night, could be nothing; not enough signal to move it.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "4460431aacba": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "\"Episode 4: Building The Garden\" reads like a talk/community series, not a DJ or band booking — thin fit even filed under music.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "6c3352e12ce4": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Straight big-band jazz set — fine Sunday filler, not the electronic/groove lane he leads with.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "f3138227c160": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Teenage live-electronic showcase at Junior High, $5 all-ages — genuinely novel and cheap, worth a mention as a curiosity even without a known draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "a8b86b26a673": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Generic promoter-night booking at Harvelle's with no lineup detail — nothing here to lift or bury it.",
+      "confidence": "low",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "435d81d1db8f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Trad New Orleans jazz club at Alva's — solid for what it is, outside the house/techno spine.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "e744ba333e35": {
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Walker & Royce are a real tech-house draw, but this is a San Diego day party — exactly the far-flung trip taste.yaml says to skip unless it's genuinely worth the drive, and a two-name bill isn't.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 1
+    },
+    "2ddff384203f": {
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Improv puppet comedy — a fun format in general but not a comedian on the loved list, and comedy off that list is explicitly a pass.",
+      "confidence": "med",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 1
+    },
+    "865303749265": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Luther Vandross tribute act — textbook tired-tribute-night the taste profile calls out to bury, rooftop-jazz setting doesn't save it.",
+      "confidence": "high",
+      "judged_at": "2026-07-12T12:21:25",
+      "input_version": 2,
+      "score_at_judge": 1
     }
   }
 }
