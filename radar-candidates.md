@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/12/2026 deterministically (no API). 345 candidates. Signals: big-venue 291, festival 52, tracked 5._
+_Generated 7/13/2026 deterministically (no API). 339 candidates. Signals: big-venue 288, festival 50, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -24,17 +24,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 9/26 | 8 | Factory 93 presents: Amelie Lens at Grand Park Block 2 | Grand Park | tracked:Amelie Lens | [link](https://ra.co/events/2400834) |
 | Fri 9/25 | 7 | Overmono - Pure Devotion World Tour | Hollywood Palladium | tracked:Overmono | [link](https://ra.co/events/2446440) |
-
-## August 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 8/16 | 5 | The Soul Space f/ Tamara Jade & Orlando Dixon, Mark Evich, | TBA - Plummer Park WeHo | tracked:Dixon | [link](https://ra.co/events/2476723) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
 | Sat 9/19 | 5 | Âme, DJ Tennis, Kaz James - Chinatown Block Party | Gin Ling Way, Chinatown | festival | [link](https://ra.co/events/2487802) |
 | Sat 9/5 | 4 | Hypnotique Presents: Sway Festival - 2 DAY PASS | Teragram Ballroom | festival | [link](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE) |
 | Fri 9/11 | 4 | Cold Waves 2-Day (9/11/26-9/12/26) | Pacific Electric | festival | [link](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76) |
@@ -121,8 +110,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/16 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJo) |
-| Sun 8/16 | 1 | Elliott Brothers Present COMEDY BLOCK PARTY Hosted by Chri | The Miracle Theater | festival | [link](https://www.ticketmaster.com/elliott-brothers-present-comedy-block-party-inglewood-california-08-16-2026/event/0B0064E7F3225942) |
 | Mon 8/17 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ3) |
 | Tue 8/18 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJK) |
 | Wed 8/19 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJf) |
@@ -223,8 +210,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/16 | 3 | YOASOBI: Never Ending Stories Tour | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/yoasobi-never-ending-stories-tour-hollywood-california-08-16-2026/event/0B0064848AA827EC) |
-| Sun 8/16 | 3 | KCON - Sunday | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Mon 8/17 | 3 | The Black Crowes, Tedeschi Trucks Band, Whiskey Myers | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/the-black-crowes-tedeschi-trucks-band-hollywood-california-08-17-2026/event/0B00643ABF0C3FD9) |
 | Tue 8/18 | 3 | NEEDTOBREATHE: The Long Surrender Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/needtobreathe-the-long-surrender-tour-los-angeles-california-08-18-2026/event/09006465B2CECE2B) |
 | Wed 8/19 | 3 | The Guess Who: Takin' It Back Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/the-guess-who-takin-it-back-los-angeles-california-08-19-2026/event/09006458F47DD28E) |
@@ -384,7 +369,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/16 | 2 | KAROL G - VIAJANDO POR EL MUNDO TROPITOUR | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-inglewood-california-08-16-2026/event/0A0064904B67EA10) |
 | Thu 8/20 | 2 | Ricardo Montaner - El Ultimo Regreso Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/ricardo-montaner-el-ultimo-regreso-tour-ontario-california-08-20-2026/event/0900635FD4678638) |
 | Sun 8/23 | 2 | Slayyyter w/ Pearly Drops | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Mon 8/24 | 2 | Slayyyter w/ Pearly Drops | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
