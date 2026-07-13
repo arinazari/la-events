@@ -3,10 +3,14 @@
 > **Status update (7/11): Track A executed** (un-tabled by Ari) — A1 (random capability
 > tokens, v2 salt, migration of all hash-keyed artifacts), A3 (feed location hygiene), and
 > A4 (stars + the /react endpoint) are landed on `claude/track-a-execution-vu3gif`.
-> **A2 is the one open piece and it gates the rest:** the token map (profiles.yaml) sits in
-> the repo, so A1's privacy win is only real once the repo is private — decide GitHub Pro
-> vs. Cloudflare Pages (below), flip it, then rotate the tokens once (they appeared in
-> public history) and send the 6 links.
+> **A2 decided: Cloudflare Pages** (Ari, 7/11) — the deploy is wired
+> (`.github/actions/deploy-pages`, shared by all five publishing workflows; Worker origin
+> vars updated to `https://la-events.pages.dev`). Remaining hands-on steps, in order:
+> (1) add `CLOUDFLARE_API_TOKEN` (Pages: Edit) + `CLOUDFLARE_ACCOUNT_ID` repo secrets;
+> (2) merge, confirm the pages.dev site serves; (3) **flip the repo private** (Settings →
+> General → Danger Zone) — GH Pages dies with it, which is the point; (4) redeploy the
+> Worker (`npx wrangler deploy`) for the new CORS origin; (5) rotate the tokens once (they
+> touched public history), rebuild feeds, send the 6 links.
 >
 > **Status update (Ari, 7/8):** **Track A tabled** (revisit later). **Track C dropped** —
 > dining and the night-planner-class capability stay: the concierge should remain the broad
@@ -190,7 +194,8 @@ One-time costs: the B1 verdict backlog (a few hundred judgments, one run) and re
 friend links (A1). Everything else is neutral or cheaper than today.
 
 ## Decisions Ari owes the plan
-1. **A2:** GitHub Pro (repo private, Pages as-is) vs. Cloudflare Pages deploy.
+1. **A2:** ~~GitHub Pro (repo private, Pages as-is) vs. Cloudflare Pages deploy.~~
+   **Decided 7/11: Cloudflare Pages** (wired; see status note).
 2. **C1:** delete dining/night-planner outright (recommended; git history keeps it) vs. attic dir.
 3. **C3:** keep or drop BYOK.
 4. **B1:** green-light the one-time verdict backlog run.

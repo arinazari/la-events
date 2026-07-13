@@ -1,7 +1,7 @@
 /**
  * la-events concierge backend — a Cloudflare Worker (the BACKEND_URL the dashboard POSTs to).
  *
- * Why this exists: the dashboard is a static GitHub Pages site, so it can't hold an API key
+ * Why this exists: the dashboard is a static site (Cloudflare Pages), so it can't hold an API key
  * or call an LLM directly. This Worker is the one place that does: it holds ANTHROPIC_API_KEY,
  * grounds the model on the live catalog + dining feed, and answers in the LA-insider concierge
  * voice. The page's "Concierge" mode POSTs here; "Fast filter" mode never touches it.
@@ -58,8 +58,8 @@ const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
   ADVISOR_MODEL: "claude-opus-4-8",        // advisor — consulted for multi-step planning (must be >= executor)
   EFFORT: "max",                            // executor effort: low | medium | high | max
-  DATA_URL: "https://arinazari.github.io/la-events/data.json",
-  ALLOWED_ORIGIN: "https://arinazari.github.io",
+  DATA_URL: "https://la-events.pages.dev/data.json",      // Cloudflare Pages (A2; GH Pages retired)
+  ALLOWED_ORIGIN: "https://la-events.pages.dev",
   GITHUB_REPO: "arinazari/la-events",
   GITHUB_BRANCH: "main",
   PROFILE_SALT: "la-events/v2:",   // v2 = the Track-A1 token cutover (hash input is the random token)

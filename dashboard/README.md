@@ -162,17 +162,24 @@ The daily digest routine regenerates the feed and commits it (step 7 of
 python scripts/build_dashboard.py && git add dashboard/data.json
 ```
 
-## Hosting on GitHub Pages
+## Hosting on Cloudflare Pages (Track A2)
 
-`.github/workflows/deploy-dashboard.yml` publishes the `dashboard/` folder to Pages on every
-push to `main` that touches it (and via manual "Run workflow"). The deploy step also stages the
-newest dated digest into the artifact as `digests/latest.md` for the "digest ↗" popup. One-time
-setup:
+`.github/workflows/deploy-dashboard.yml` publishes the `dashboard/` folder to **Cloudflare
+Pages** (`https://la-events.pages.dev`) on every push to `main` that touches it (and via manual
+"Run workflow"); the feed workflows (refresh-events / build-profiles / spotify-sync /
+rebuild-profile) publish through the same shared step, `.github/actions/deploy-pages`. Each
+deploy first stages the digests into the artifact (`digests/latest.md` + per-hash dirs) for the
+"digest ↗" popup. Cloudflare Pages serves from a private repo on the free plan — that's the
+point: the repo (profiles.yaml = the token map, taste files, history) goes private while the
+site stays up. One-time setup (repo Actions secrets):
 
-> **Settings → Pages → Build and deployment → Source: GitHub Actions**
+> `CLOUDFLARE_API_TOKEN` (a token with **Cloudflare Pages: Edit**) and `CLOUDFLARE_ACCOUNT_ID`.
+> The Pages project is auto-created on the first deploy. GitHub Pages is retired — after the
+> repo flips private it turns off by itself (unpublish it manually if flipping later).
 
 The site is served with `dashboard/` as its root, so `index.html` loads `./data.json`,
-`./support.js`, and `./vendor/*` relative to itself — no path changes needed.
+`./support.js`, and `./vendor/*` relative to itself — no path changes needed (the page is
+origin-agnostic; only the Worker's `DATA_URL`/`ALLOWED_ORIGIN`/`PAGE_URL` know the hostname).
 
 ## Editing the design later
 

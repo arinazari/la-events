@@ -25,8 +25,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -35,9 +33,6 @@ concurrency:
 jobs:
   rebuild:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -174,11 +169,9 @@ jobs:
             git push origin HEAD:main || echo "digest push skipped (nightly routine will persist it)"
           fi
 
-      - uses: actions/configure-pages@v5
       - name: Stage digests for the dashboard
         run: python3 scripts/stage_digests.py
-      - uses: actions/upload-pages-artifact@v3
+      - uses: ./.github/actions/deploy-pages
         with:
-          path: dashboard
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

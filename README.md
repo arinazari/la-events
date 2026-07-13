@@ -58,7 +58,7 @@ hosted page will serve.
 
 - **Live:** the deterministic core, the worker agents, the enrichment scene-graph, the day-grouped
   dual renderer, image caching, the **Spotify + feedback taste layer**, and the static **dashboard**
-  (`dashboard/`) — a filterable catalog view that **auto-deploys to GitHub Pages** on any push to
+  (`dashboard/`) — a filterable catalog view that **auto-deploys to Cloudflare Pages** on any push to
   `main` touching `dashboard/**`.
 - **Next:** an **interactive hosted page** — the bookmarkable daily digest *with on-page actions*
   (trigger a source re-scan, ask the LLM for an ad-hoc digest). It supersedes the basic dashboard.

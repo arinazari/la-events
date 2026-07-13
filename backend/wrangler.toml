@@ -26,12 +26,15 @@ ANTHROPIC_MODEL = "claude-sonnet-4-6"   # executor (does the bulk of generation)
 ADVISOR_MODEL = "claude-opus-4-8"        # advisor the executor consults for planning ("" disables; must be >= executor)
 EFFORT = "max"                            # executor effort: low | medium | high | max
 MAX_TOKENS = "8000"                       # output cap (leave room for adaptive thinking; raise if plans truncate)
-DATA_URL = "https://arinazari.github.io/la-events/data.json"
-ALLOWED_ORIGIN = "https://arinazari.github.io"
+# Cloudflare Pages hosting (Track A2 — repo private, GH Pages retired). If the `la-events`
+# project name is taken on pages.dev, change it in .github/actions/deploy-pages/action.yml
+# AND update these three URLs + the DEFAULTS in concierge-worker.js to match.
+DATA_URL = "https://la-events.pages.dev/data.json"
+ALLOWED_ORIGIN = "https://la-events.pages.dev"
 GITHUB_REPO = "arinazari/la-events"
 GITHUB_BRANCH = "main"
 PROFILE_SALT = "la-events/v2:"   # v2 = Track-A1 token cutover (hashes are over each profile's random token)
 # Spotify (per-profile music layer). The redirect URI must EXACTLY match one registered in your
 # Spotify app at developer.spotify.com. Replace <you> with your workers.dev subdomain.
 SPOTIFY_REDIRECT_URI = "https://la-events-concierge.arinazari.workers.dev/spotify/callback"
-PAGE_URL = "https://arinazari.github.io/la-events/"   # where the "back to la-events" link points
+PAGE_URL = "https://la-events.pages.dev/"   # where the "back to la-events" link points

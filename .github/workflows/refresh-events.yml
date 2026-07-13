@@ -17,8 +17,6 @@ on:
 
 permissions:
   contents: write      # commit the refreshed catalog + feed
-  pages: write
-  id-token: write
 
 # Share the Pages concurrency group with the other feed workflows so deploys don't race.
 concurrency:
@@ -28,9 +26,6 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -71,12 +66,10 @@ jobs:
             git push
           fi
 
-      # Deploy the refreshed dashboard/ to Pages (the [skip ci] commit won't trigger deploy-dashboard).
-      - uses: actions/configure-pages@v5
+      # Deploy the refreshed dashboard/ (the [skip ci] commit won't trigger deploy-dashboard).
       - name: Stage digests for the dashboard
         run: python3 scripts/stage_digests.py
-      - uses: actions/upload-pages-artifact@v3
+      - uses: ./.github/actions/deploy-pages
         with:
-          path: dashboard
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
