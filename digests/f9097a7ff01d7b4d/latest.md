@@ -1,5 +1,5 @@
 # Lori's LA Events Digest
-*Digest regenerated Sun 7/12 — picks updated.*
+*Digest regenerated Sun 7/12 · checked Mon 7/13 · no new picks since.*
 
 *Updated Sun 7/12 · Taste: live bands over DJs, proto-punk/garage/post-punk through craft pop, plus a real ear for global & diaspora sounds · electronic kept secondary, Eastside-leaning*
 
