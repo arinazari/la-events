@@ -976,7 +976,7 @@
   },
   {
     "source": "Sam First",
-    "title": "Tuesday Happenings: Hosted by Devin Daniels with Julien Knowles, Paul Cornish, Logan Kane & Jonathan Pinson",
+    "title": "\"Tuesday Happenings\": Hosted by Devin Daniels (with Julien Knowles, Isaiah Harwood, Logan Kane, Jonathan Pinson)",
     "date": "2026-07-14",
     "start": "19:30",
     "venue": "Sam First",
@@ -993,7 +993,7 @@
     "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-devin-daniels-15",
     "detail": "Devin Daniels, one of the most unique and exciting voices from LA's thriving creative music scene, leads tonight's Happenings.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -1010,6 +1010,10 @@
       {
         "source": "webfetch",
         "url": "https://samfirstbar.com/events/tuesday-happenings-hosted-by-devin-daniels-with-julien-knowles-paul-cornish-logan-kane-jonathan-pinson"
+      },
+      {
+        "source": "webfetch",
+        "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-devin-daniels-with-julien-knowles-isaiah-harwood-logan-kane-jonathan-pinson"
       }
     ],
     "sources": [
@@ -1449,7 +1453,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -3826,7 +3830,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/the-vindys-w-chloe-cicoria-194986",
     "detail": "7:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -4263,7 +4267,7 @@
     }
   },
   {
-    "title": "Jason Hayashi Group",
+    "title": "Jason Hayashi Group (with Steve Lehman, Luca Mendoza, Ryan Embola, Jonathan Pinson)",
     "date": "2026-07-15",
     "start": "19:30",
     "venue": "Sam First",
@@ -4281,7 +4285,7 @@
     "url": "https://www.samfirstbar.com/upcoming-shows",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -4408,13 +4412,54 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
       "setting": [],
       "vibe": [],
       "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Eartheater",
+    "date": "2026-07-15",
+    "start": null,
+    "venue": "Hollywood Forever's Masonic Lodge",
+    "neighborhood": "Hollywood",
+    "category": "music",
+    "genre": null,
+    "lineup": [
+      "Eartheater"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Avant-garde/experimental singer-producer, multi-night run (7/15-17) in an intimate room.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "experimental"
+      ],
+      "setting": [],
+      "vibe": [],
+      "region": "hollywood",
       "near_home": false
     }
   },
@@ -5556,7 +5601,8 @@
       "start"
     ],
     "editorial_mentions": [
-      "LAist"
+      "LAist",
+      "Discover LA"
     ]
   },
   {
@@ -5925,7 +5971,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "AKRIILA",
@@ -6163,7 +6212,7 @@
   },
   {
     "source": "Sam First",
-    "title": "KCRW Presents: Third Thursdays with Miles Lennox Quartet",
+    "title": "KCRW Presents: \"Third Thursdays\" - Miles Lennox Quartet (with Nic Gelin, Nolan Nwachukwu, John Davis)",
     "date": "2026-07-16",
     "start": "19:30",
     "venue": "Sam First",
@@ -6179,7 +6228,7 @@
     "url": "https://www.samfirstbar.com/events/kcrw-presents-third-thursdays-with-miles-lennox-quartet-with-nic-gelin-nolan-nwachukwu-josh-green",
     "detail": "Pianist Miles Lennox brings his quartet back to Sam First, presenting new original music with an exciting and soulful group.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -6226,7 +6275,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/shwayze-186370",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -6874,7 +6923,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -8979,6 +9028,9 @@
     "updated_at": "2026-06-30",
     "changed_fields": [
       "start"
+    ],
+    "editorial_mentions": [
+      "Discover LA"
     ]
   },
   {
@@ -10935,7 +10987,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/which-one-s-pink-a-tribute-to-pink-floyd-172894",
     "detail": "Pink Floyd tribute show.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -11418,7 +11470,7 @@
     }
   },
   {
-    "title": "Larry Goldings Trio with David Piltch & Joe La Barbera",
+    "title": "Larry Goldings Trio (with David Piltch, Joe La Barbera)",
     "date": "2026-07-17",
     "start": "19:30",
     "venue": "Sam First",
@@ -11450,7 +11502,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -12379,7 +12431,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -13135,6 +13187,46 @@
     }
   },
   {
+    "title": "Inara George, Van Dyke Parks",
+    "date": "2026-07-17",
+    "start": null,
+    "venue": "Blue Note LA",
+    "neighborhood": "Hollywood",
+    "category": "music",
+    "genre": null,
+    "lineup": [
+      "Inara George",
+      "Van Dyke Parks"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Songwriter duo billed at Blue Note LA.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [],
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
     "title": "Matilda the Musical",
     "date": "2026-07-18",
     "start": "14:00",
@@ -13331,6 +13423,9 @@
     "changed_fields": [
       "price",
       "start"
+    ],
+    "editorial_mentions": [
+      "Discover LA"
     ]
   },
   {
@@ -14529,6 +14624,9 @@
     "updated_at": "2026-06-30",
     "changed_fields": [
       "start"
+    ],
+    "editorial_mentions": [
+      "Discover LA"
     ]
   },
   {
@@ -17057,7 +17155,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/prince-again-a-tribute-to-prince-173566",
     "detail": "Prince tribute show.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -17311,11 +17409,11 @@
     ],
     "organizers": null,
     "detail": "LA session musicians performing jazz/funk renditions of popular songs",
-    "price": "$35",
+    "price": "$35.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-06",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -17595,7 +17693,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -18893,7 +18991,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -19165,7 +19263,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -19829,6 +19927,249 @@
       "setting": [],
       "vibe": [],
       "region": "valley",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Los Lobos (free outdoor show)",
+    "date": "2026-07-18",
+    "start": null,
+    "venue": "Burton Chace Park",
+    "neighborhood": "Marina Del Rey",
+    "category": "music",
+    "genre": null,
+    "lineup": [
+      "Los Lobos"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Free outdoor show at Burton Chace Park.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "vibe": [
+        "free"
+      ],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Resilience",
+    "date": "2026-07-18",
+    "start": null,
+    "venue": "LA Dance Project",
+    "neighborhood": "Los Angeles",
+    "category": "dance",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Dance program at LA Dance Project.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "Rosemary's Baby (screening)",
+    "date": "2026-07-18",
+    "start": null,
+    "venue": "Hollywood Forever (Cinespia)",
+    "neighborhood": "Hollywood",
+    "category": "film",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Cinespia outdoor cemetery screening.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "tags": {
+      "type": "film",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "SOSA",
+    "date": "2026-07-18",
+    "start": null,
+    "venue": "Expo Lawn (Exposition Park)",
+    "neighborhood": "Exposition Park",
+    "category": "music",
+    "genre": null,
+    "lineup": [
+      "SOSA"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Outdoor show on the Expo Lawn.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "Wonder-Full",
+    "date": "2026-07-18",
+    "start": null,
+    "venue": "Grand Performances",
+    "neighborhood": "DTLA",
+    "category": "music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Free outdoor performance series at California Plaza.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "vibe": [
+        "free"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "title": "A Weekend with Robert Rodriguez",
+    "date": "2026-07-18",
+    "start": null,
+    "venue": "Academy Museum",
+    "neighborhood": "Miracle Mile",
+    "category": "film",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Filmmaker retrospective/screening weekend at the Academy Museum.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema",
+        "gallery"
+      ],
+      "vibe": [],
+      "region": null,
       "near_home": false
     }
   },
@@ -20596,6 +20937,9 @@
     "updated_at": "2026-06-30",
     "changed_fields": [
       "start"
+    ],
+    "editorial_mentions": [
+      "Discover LA"
     ]
   },
   {
@@ -20730,6 +21074,9 @@
     "updated_at": "2026-06-30",
     "changed_fields": [
       "start"
+    ],
+    "editorial_mentions": [
+      "Discover LA"
     ]
   },
   {
@@ -21642,7 +21989,7 @@
     "url": "https://www.mccabes.com/product/in-the-big-round/",
     "detail": "Listening-room concert at McCabe's Guitar Shop.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21727,7 +22074,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/tito-puente-jr-w-maria-sanchez-the-midnight-groove-175159",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -22090,7 +22437,7 @@
     }
   },
   {
-    "title": "PffT w/ opener Travis Larson",
+    "title": "PffT (Mike Keneally, Andrew Synowiec, Bryan Beller, Jonathan Mover) w/ opener Travis Larson",
     "date": "2026-07-19",
     "start": "17:00",
     "venue": "Alva's Showroom",
@@ -22122,12 +22469,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Fusion performances inspired by classic instrumental rock acts",
-    "price": "$45",
+    "detail": "Modern fusion featuring classic artists like Jeff Beck and Billy Cobham.",
+    "price": "$45.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-06",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -22793,7 +23140,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -22949,7 +23296,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -23957,7 +24304,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -24662,7 +25009,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/clever-girl-trivia-1st-3rd-tuesdays--197169",
     "detail": "6:00 PM trivia night, 1st & 3rd Tuesdays",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -24701,7 +25048,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/2-pauls-1-show-ft-paul-ollinger-and-paul-farahvar-194388",
     "detail": "Comedy double bill.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "comedy",
       "genre": [],
@@ -25016,13 +25363,49 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
       "setting": [],
       "vibe": [],
       "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "\"Tuesday Happenings\": Hosted by Kevin Kanner",
+    "date": "2026-07-21",
+    "start": "19:30",
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-kevin-kanner-5"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Band performs one set at 7:30 followed by a jam session from 9:00-11:00pm.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [],
+      "vibe": [],
+      "region": null,
       "near_home": false
     }
   },
@@ -25674,9 +26057,9 @@
   },
   {
     "source": "Sam First",
-    "title": "Martin Nevin with Anthony Wilson & Christian Euman",
+    "title": "Martin Nevin Trio (with Joshua White, Christian Euman)",
     "date": "2026-07-22",
-    "start": "7:30pm",
+    "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "lineup": [
@@ -25689,7 +26072,7 @@
     "url": "https://www.samfirstbar.com/events/martin-nevin-with-anthony-wilson-christian-euman",
     "detail": "NYC-based bassist and composer Martin Nevin brings his deeply expressive music to Sam First.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -25972,7 +26355,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -27524,9 +27907,9 @@
   },
   {
     "source": "Sam First",
-    "title": "Tim Rachbach Group ft. Mark Turner with Adam Ratner, Adam Hersh & Graeham Guerin",
+    "title": "Tim Rachbach Group ft. Mark Turner (with Adam Ratner, Adam Hersh, Graeham Guerin)",
     "date": "2026-07-23",
-    "start": "7:30pm",
+    "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "lineup": [
@@ -27541,7 +27924,7 @@
     "url": "https://www.samfirstbar.com/events/tim-rachbach-group-ft-mark-turner-with-adam-ratner-adam-hersh-graeham-guerin",
     "detail": "Guitarist and composer Tim Rachbach returns with new original music inspired by his European experiences.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -27702,7 +28085,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-08",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -27926,7 +28309,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -30319,7 +30702,7 @@
     "url": "https://avalonhollywood.com/event/black-v-neck-dillon-nathaniel-nightclub-near-me-discover-avalon-hollywood-2026-july-24-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "EDM night at Avalon Hollywood.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -30365,7 +30748,7 @@
     "url": "https://www.mccabes.com/product/el-rayo-x/",
     "detail": "Listening-room concert at McCabe's Guitar Shop.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -30410,7 +30793,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/monophonics-performing-their-2020-album-it-s-only-us-in-its-entirety-w-kendra-morris-178910",
     "detail": "Full album performance.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -30571,19 +30954,18 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Fleetwood Mac tribute with dinner package; sold out",
-    "price": "$35 (Sold Out)",
+    "detail": "Authentic-sounding Fleetwood Mac tribute with Diana Grace and Monty Sommer.",
+    "price": "$35.00 (sold out)",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
       "setting": [],
       "vibe": [
-        "tribute",
-        "sold-out"
+        "tribute"
       ],
       "region": "south-bay",
       "near_home": false
@@ -30617,7 +30999,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -30833,7 +31215,7 @@
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "live_music",
-    "detail": "Great American Songbook classics and contemporary favorites.",
+    "detail": "Intimate evening of Great American Songbook classics and contemporary favorites.",
     "lineup": [
       "Jane Monheit",
       "Max Haymer"
@@ -30842,7 +31224,7 @@
     "url": "https://www.samfirstbar.com/upcoming-shows",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -31538,7 +31920,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -31805,7 +32187,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-07-14"
+    "last_seen": "2026-07-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "punk",
+        "experimental"
+      ],
+      "setting": [
+        "diy"
+      ],
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
   },
   {
     "title": "Music Stage at Lexus US Open: G. Love & Special Sauce // Matt Costa",
@@ -34284,7 +34679,7 @@
     "url": "https://www.mccabes.com/product/tom-rush/",
     "detail": "Sold out.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -34331,7 +34726,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/the-music-of-amy-winehouse-by-missus-jones-w-colonels-of-truth-184961",
     "detail": "Amy Winehouse tribute show.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -34370,7 +34765,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/places-to-be-fred-again-dance-party-197643",
     "detail": "Fred Again-themed dance party.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -34463,12 +34858,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Modern straight-ahead jazz with new compositions",
-    "price": "$20",
+    "detail": "Modern straight-ahead jazz with new original compositions.",
+    "price": "$20.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-06",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -34672,11 +35067,11 @@
   {
     "title": "Jane Monheit Duo with Max Haymer (second show)",
     "date": "2026-07-25",
-    "start": "7:30pm",
+    "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "live_music",
-    "detail": "Great American Songbook classics and contemporary favorites.",
+    "detail": "Intimate evening of Great American Songbook classics and contemporary favorites.",
     "lineup": [
       "Jane Monheit",
       "Max Haymer"
@@ -34685,7 +35080,7 @@
     "url": "https://www.samfirstbar.com/upcoming-shows",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -34860,7 +35255,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -35786,7 +36181,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -36896,7 +37291,7 @@
     "url": "https://www.mccabes.com/product/teddy-thompson/",
     "detail": "Listening-room concert at McCabe's Guitar Shop.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -36943,7 +37338,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/mother-jones-band-ft-members-of-jerry-s-middle-finger-w-house-dog-late-for-dinner-176886",
     "detail": "7:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -37638,7 +38033,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -38187,7 +38582,7 @@
     "source": "Sam First",
     "title": "\"Tuesday Happenings\": Hosted by Devin Daniels",
     "date": "2026-07-28",
-    "start": "7:30pm & 9:30pm",
+    "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "lineup": [
@@ -38198,7 +38593,7 @@
     "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-devin-daniels-16",
     "detail": "House band performs one set at 7:30pm followed by a jam session from 9:30-11pm.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -38370,7 +38765,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -38972,7 +39367,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -39807,9 +40202,9 @@
   },
   {
     "source": "Sam First",
-    "title": "Adi Meyerson & Dark Matter with Nicole McCabe, Julien Knowles & Anthony Fung",
+    "title": "Adi Meyerson & Dark Matter (with Nicole McCabe, Julien Knowles, Anthony Fung)",
     "date": "2026-07-29",
-    "start": "7:30pm",
+    "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "lineup": [
@@ -39823,7 +40218,7 @@
     "url": "https://www.samfirstbar.com/events/adi-meyerson-dark-matter-with-nicole-mccabe-julien-knowles-anthony-fung",
     "detail": "Dark Matter explores the balance between composition and improvisation, weaving tension, release, silence, and sound.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -39866,7 +40261,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/the-mccharmlys-194861",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -40216,7 +40611,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -41343,9 +41738,9 @@
   },
   {
     "source": "Sam First",
-    "title": "Quinerly Plays the Connoisseur Series with Ashley Chanel, Reuben Allen & Johnathan Richards",
+    "title": "\"Quinerly Plays the Connoisseur Series\" (with Ashley Chanel, Reuben Allen, Johnathan Richards)",
     "date": "2026-07-30",
-    "start": "7:30pm",
+    "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "lineup": [
@@ -41359,7 +41754,7 @@
     "url": "https://www.samfirstbar.com/events/quinerly-plays-the-connoisseur-series-with-ashley-chanel-reuben-allen-johnathan-richards-2",
     "detail": "Drummer with a nimble, approachable style playing original material and jazz pioneer compositions.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -41402,7 +41797,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/andre-nickatina-183272",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -41685,7 +42080,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -43631,9 +44026,9 @@
     "category": "electronic",
     "price": null,
     "url": "https://avalonhollywood.com/event/gasolina-upcoming-edm-shows-nightlife-concerts-events-tonight-tomorrow-2026-jul-31-best-nightclub-near-me-hollywood-los-angeles/",
-    "detail": "Latin/EDM night at Avalon Hollywood.",
+    "detail": "Latin/reggaeton night, recurring Friday series.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -43679,7 +44074,7 @@
     "url": "https://www.mccabes.com/product/andy-mckee/",
     "detail": "Listening-room concert at McCabe's Guitar Shop.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43711,7 +44106,7 @@
   },
   {
     "source": "Sam First",
-    "title": "Peter Erskine Dr. Um Band with John Beasley, Bob Sheppard & Janek Gwizdala",
+    "title": "Peter Erskine Dr. Um Band (with John Beasley, Bob Sheppard, Janek Gwizdala)",
     "date": "2026-07-31",
     "start": "19:30",
     "venue": "Sam First",
@@ -43727,7 +44122,7 @@
     "url": "https://www.samfirstbar.com/events/peter-erskine-dr-um-band-with-john-beasley-bob-sheppard-janek-gwizdala",
     "detail": "The original Dr. Um Band reunites to celebrate Peter Erskine's GRAMMY-nominated album Dr. Um.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -43771,7 +44166,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/strawberry-fuzz-w-flames-of-durga-182594",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -43810,7 +44205,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/barefoot-in-the-bathroom-186927",
     "detail": "10:30 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -44250,7 +44645,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -46679,9 +47074,9 @@
   },
   {
     "source": "Sam First",
-    "title": "Peter Erskine Dr. Um Band with John Beasley, Bob Sheppard & Janek Gwizdala",
+    "title": "Peter Erskine Dr. Um Band (with John Beasley, Bob Sheppard, Janek Gwizdala)",
     "date": "2026-08-01",
-    "start": "7:30pm",
+    "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "lineup": [
@@ -46695,7 +47090,7 @@
     "url": "https://www.samfirstbar.com/events/peter-erskine-dr-um-band-with-john-beasley-bob-sheppard-janek-gwizdala-2",
     "detail": "Second night of the original Dr. Um Band reunion celebrating Peter Erskine's GRAMMY-nominated album.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -46741,7 +47136,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/dirty-monday-s-presents-jessy-fury-papagodi-andrea-turk-two-seam-rats-department-195682",
     "detail": "6:30 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -46777,7 +47172,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/bad-bunny-night-deb-tirar-m-s-fiestas-185277",
     "detail": "Bad Bunny-themed dance party.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -48176,7 +48571,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/live-band-country-legends-karaoke-night-194680",
     "detail": "7:00 PM live band karaoke",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -48231,11 +48626,11 @@
     ],
     "organizers": null,
     "detail": "Complete performance of the Harvest album plus greatest hits",
-    "price": "$35",
+    "price": "$35.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-06",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -48273,7 +48668,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -49577,7 +49972,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/local-s-night-w-nat-le-maffa-rico-the-robinson-james-band-michael-lemmo-194684",
     "detail": "Local's Night showcase of LA bands.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -49603,7 +49998,7 @@
   {
     "title": "\"Tuesday Happenings\": Hosted by Gerald Clayton",
     "date": "2026-08-04",
-    "start": "7:30pm & 9:30pm",
+    "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "live_music",
@@ -49624,7 +50019,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-11",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -50491,7 +50886,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "comedy",
       "genre": [],
@@ -50502,7 +50897,7 @@
     }
   },
   {
-    "title": "Brazilian Jazz Summit",
+    "title": "Brazilian Jazz Summit (with Ian Coury, Marcel Camargo, Michael Ragonese, Marcelo Bucater)",
     "date": "2026-08-05",
     "start": "19:30",
     "venue": "Sam First",
@@ -50534,7 +50929,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -51394,7 +51789,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/tommy-newport-187959",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -53161,7 +53556,7 @@
     "url": "https://www.samfirstbar.com/events/nicole-mccabe-quartet-live-album-recording-for-sam-first-records-feat-gerald-clayton-justin-brown-logan-kane",
     "detail": "Nicole McCabe is a Los Angeles-based saxophonist and composer whose genre-defying sound blends jazz tradition with modern experimentation.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -53204,7 +53599,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/start-making-sense-a-tribute-to-the-talking-heads-168454",
     "detail": "Talking Heads tribute show.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -55053,7 +55448,7 @@
     "url": "https://avalonhollywood.com/event/inquisitive-nightclub-near-me-discover-academy-la-2026-august-8-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "EDM night at Avalon Hollywood.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -55095,7 +55490,7 @@
     "url": "https://www.mccabes.com/product/dan-navarro-2/",
     "detail": "Listening-room concert at McCabe's Guitar Shop.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -55219,7 +55614,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/gimme-gimme-disco-195681",
     "detail": "10:30 PM dance party",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -55396,7 +55791,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-08",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -56458,12 +56853,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
-    "price": "$15",
+    "detail": "Monthly club meeting with three sets and featured guest band for dancing.",
+    "price": "$15.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -57304,7 +57699,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/lorelei-marcell-196401",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -59300,6 +59695,43 @@
     }
   },
   {
+    "title": "Blanco Diablo",
+    "date": "2026-08-13",
+    "start": "20:00",
+    "venue": "Alva's Showroom",
+    "neighborhood": "San Pedro",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://alvasshowroom.com/event/blanco-diablo-2/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Genre-blending supergroup playing son clave, afro-beat, R&B, reggae, funk, and jazz.",
+    "price": "$30.00",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz",
+        "funk-soul"
+      ],
+      "setting": [],
+      "vibe": [],
+      "region": "south-bay",
+      "near_home": false
+    }
+  },
+  {
     "title": "KCON",
     "date": "2026-08-14",
     "start": "10:00",
@@ -61008,7 +61440,7 @@
     "url": "https://avalonhollywood.com/event/audiofreq-codeblack-toneshifterz-nightclub-near-me-discover-avalon-hollywood-2026-august-14-best-night-club-near-me-los-angeles/",
     "detail": "EDM night at Avalon Hollywood.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -61242,7 +61674,7 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -63000,7 +63432,7 @@
     "url": "https://www.mccabes.com/product/abby-posner/",
     "detail": "Listening-room concert at McCabe's Guitar Shop.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -63083,7 +63515,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/wayward-sons-174902",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -63121,7 +63553,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/music-of-the-strokes-a-tribute-by-juicebox-185856",
     "detail": "The Strokes tribute show.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -63174,12 +63606,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Funky organ jams with LA and NYC musicians",
-    "price": "$35",
+    "detail": "Funky organ jams with LA and NYC superstar musicians.",
+    "price": "$35.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -64461,7 +64893,7 @@
     "url": "https://www.mccabes.com/product/the-john-stewart-band/",
     "detail": "Listening-room concert at McCabe's Guitar Shop.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -64557,12 +64989,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Celebration of Elton John's greatest hits",
-    "price": "$25",
+    "detail": "Live celebration of Elton John's greatest hits.",
+    "price": "$25.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -65678,7 +66110,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/black-joe-lewis-w-zg-smith-184075",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -67239,7 +67671,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/-venice-western-line-dancing-197733",
     "detail": "Recurring line dancing night.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -68774,6 +69206,10 @@
       {
         "source": "webfetch",
         "url": "https://avalonhollywood.com/event/ahee-nightclub-near-me-discover-avalon-hollywood-2026-august-21-best-night-club-near-me-los-angeles/"
+      },
+      {
+        "source": "webfetch",
+        "url": "https://avalonhollywood.com/event/ahee-nightclub-near-me-discover-avalon-hollywood-2026-august-21-best-night-club-near-me-hollywood-los-angeles/"
       }
     ],
     "sources": [
@@ -68785,7 +69221,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-11",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -70501,7 +70937,7 @@
     "url": "https://avalonhollywood.com/event/for-the-culture-3-nightclub-near-me-discover-avalon-hollywood-2026-august-22-best-night-club-near-me-los-angeles/",
     "detail": "Hip-Hop/Urban night at Avalon Hollywood.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -70581,7 +71017,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/twisted-gypsy-fleetwood-mac-reimagined-181305",
     "detail": "Fleetwood Mac tribute show.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -70633,12 +71069,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Modern creative jazz group",
-    "price": "$20",
+    "detail": "Modern creative jazz group featuring guitar, saxophone, and drums.",
+    "price": "$20.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -71814,12 +72250,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Authentic reproduction of a real U2 concert",
-    "price": "$35",
+    "detail": "Authentic reproduction of a real U2 concert experience.",
+    "price": "$35.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -71855,7 +72291,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -71901,7 +72337,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -72931,7 +73367,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/jeff-dye-early-show--184195",
     "detail": "7:00 PM comedy, early show",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "links": [
       {
         "source": "webfetch",
@@ -73402,7 +73838,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -74137,7 +74573,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/bob-schneider-181083",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -75366,7 +75802,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/strawberry-fuzz-w-the-abomic-toms-simplystics-182595",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -75420,7 +75856,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -75534,7 +75970,18 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-07-14"
+    "last_seen": "2026-07-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz",
+        "latin"
+      ],
+      "setting": [],
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -76761,7 +77208,7 @@
     "url": "https://www.mccabes.com/product/amy-lavere-featuring-will-sexton/",
     "detail": "Listening-room concert at McCabe's Guitar Shop.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -76844,7 +77291,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/la-luz-186907",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -77099,6 +77546,46 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "title": "Michael Grange",
+    "date": "2026-08-29",
+    "start": "20:00",
+    "venue": "Alva's Showroom",
+    "neighborhood": "San Pedro",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://alvasshowroom.com/event/michael-grange-band/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "High-energy guitar-driven show blending jazz fusion, blues, funk, rock, and Latin.",
+    "price": "$20.00",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz",
+        "funk-soul",
+        "rock",
+        "latin",
+        "blues"
+      ],
+      "setting": [],
+      "vibe": [],
+      "region": "south-bay",
+      "near_home": false
     }
   },
   {
@@ -77936,7 +78423,7 @@
   },
   {
     "source": "McCabe's Guitar Shop",
-    "title": "Jim Keller w/ David Hidalgo, Mitchell Froom, Bob Glaub, Pete Thomas (Sunday Show)",
+    "title": "Jim Keller (with David Hidalgo, Mitchell Froom, Bob Glaub, Pete Thomas) - Sunday show",
     "date": "2026-08-30",
     "start": "20:00",
     "venue": "McCabe's Guitar Shop",
@@ -77953,7 +78440,7 @@
     "url": "https://www.mccabes.com/product/jim-keller/",
     "detail": "Sunday show",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -78034,7 +78521,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/tab-benoit-w-the-zac-schulze-gang-176882",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -78225,7 +78712,7 @@
   },
   {
     "source": "McCabe's Guitar Shop",
-    "title": "Jim Keller w/ David Hidalgo, Mitchell Froom, Bob Glaub, Pete Thomas (Monday Show)",
+    "title": "Jim Keller (with David Hidalgo, Mitchell Froom, Bob Glaub, Pete Thomas) - Monday show",
     "date": "2026-08-31",
     "start": "20:00",
     "venue": "McCabe's Guitar Shop",
@@ -78242,7 +78729,7 @@
     "url": "https://www.mccabes.com/product/jim-keller-monday-show/",
     "detail": "Monday show",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -79029,7 +79516,7 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "links": [
       {
         "source": "webfetch",
@@ -80705,7 +81192,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/bee-gees-fever-a-tribute-to-bee-gees--181313",
     "detail": "Bee Gees tribute show.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -82083,7 +82570,7 @@
     "url": "https://avalonhollywood.com/event/bed-by-10-nightclub-near-me-discover-avalon-hollywood-2026-september-5-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "EDM night at Avalon Hollywood.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -83116,7 +83603,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/black-uhuru-184204",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -85706,7 +86193,7 @@
     }
   },
   {
-    "title": "Mike Keneally & Beer For Dolphins w/ Travis Larson (Friday)",
+    "title": "Mike Keneally & Beer For Dolphins w/ opener Travis Larson (Friday show)",
     "date": "2026-09-11",
     "start": "20:00",
     "venue": "Alva's Showroom",
@@ -85732,15 +86219,17 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Virtuosity-focused performance from Frank Zappa/Steve Vai collaborator",
-    "price": "$35",
+    "detail": "Virtuosity and soul-sharing featuring Frank Zappa collaborator and his band.",
+    "price": "$35.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul"
+      ],
       "setting": [],
       "vibe": [],
       "region": "south-bay",
@@ -87155,7 +87644,7 @@
     }
   },
   {
-    "title": "Mike Keneally & Beer For Dolphins w/ Travis Larson (Saturday)",
+    "title": "Mike Keneally & Beer For Dolphins w/ opener Travis Larson (Saturday show)",
     "date": "2026-09-12",
     "start": "20:00",
     "venue": "Alva's Showroom",
@@ -87181,15 +87670,17 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Second night of the same performance",
-    "price": "$35",
+    "detail": "Two-night engagement of virtuosity and soul-sharing performances.",
+    "price": "$35.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul"
+      ],
       "setting": [],
       "vibe": [],
       "region": "south-bay",
@@ -87839,7 +88330,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/suzy-williams-songs-of-venice-190744",
     "detail": "7:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -87887,12 +88378,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Celebration of classic teen idol era music",
-    "price": "$40",
+    "detail": "Celebration of 1950s-60s teen idol hits with Alex Mack and Terri Ghio.",
+    "price": "$40.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -88544,7 +89035,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-11",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -88971,7 +89462,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/kirk-fletcher-195677",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -91028,7 +91519,7 @@
     "url": "https://www.mccabes.com/product/claudia-russell-bruce-kaplan-milo-binder/",
     "detail": "Listening-room concert at McCabe's Guitar Shop.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -91073,7 +91564,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/evan-giia-193447",
     "detail": "10:30 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -92772,7 +93263,7 @@
     "url": "https://avalonhollywood.com/event/rnb-fest-nightclub-near-me-discover-avalon-hollywood-2026-september-19-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "R&B night at Avalon Hollywood.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -92805,7 +93296,7 @@
   },
   {
     "source": "McCabe's Guitar Shop",
-    "title": "I See Hawks in L.A. w/ Rick Shea and Tony Gilkyson",
+    "title": "I See Hawks in L.A. (with Rick Shea and Tony Gilkyson)",
     "date": "2026-09-19",
     "start": "20:00",
     "venue": "McCabe's Guitar Shop",
@@ -92820,7 +93311,7 @@
     "url": "https://www.mccabes.com/product/i-see-hawks-in-l-a/",
     "detail": "Listening-room concert at McCabe's Guitar Shop.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -92876,12 +93367,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Architect of the Aja Sound performs with Steely Dan tribute band",
-    "price": "$45",
+    "detail": "Grammy-winning saxophonist Tom Scott joins Steely Dan tribute band for one night.",
+    "price": "$45.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -93905,12 +94396,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Doobie Brothers tribute featuring harmonies and guitar work",
-    "price": "$35",
+    "detail": "Tribute capturing the unmistakable sound and guitar licks of the Doobie Brothers.",
+    "price": "$35.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -95626,7 +96117,7 @@
     "url": "https://avalonhollywood.com/event/janaga-nightclub-near-me-discover-avalon-hollywood-2026-24-september-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Music performance",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -95668,7 +96159,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/red-not-chili-peppers-184205",
     "detail": "Red Hot Chili Peppers tribute show.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -97339,7 +97830,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -98891,7 +99382,7 @@
     "url": "https://avalonhollywood.com/event/tritonal-nightclub-near-me-discover-avalon-hollywood-2026-september-26-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Electronic music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -98937,7 +99428,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/andy-frasco-the-u-n--189913",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -98989,12 +99480,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Innovative bass player with new quartet presentation",
-    "price": "$65",
+    "detail": "One of the world's most innovative bass players performs with her new quartet.",
+    "price": "$65.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -99887,7 +100378,7 @@
     "url": "https://www.mccabes.com/product/deke-dickerson/",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -99932,7 +100423,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/wall-of-sound-185855",
     "detail": "7:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -100090,12 +100581,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
-    "price": "$15",
+    "detail": "Monthly gathering preserving America's cultural traditions through jazz.",
+    "price": "$15.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-10",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -100986,7 +101477,7 @@
     "url": "https://www.mccabes.com/product/val-mccallum-2/",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -101730,7 +102221,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/mike-dawes-135433",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -105573,7 +106064,7 @@
     "url": "https://www.mccabes.com/product/rebecca-pidgeon/",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -105606,7 +106097,7 @@
   {
     "title": "Orquesta Ritmo Alegre featuring Candi Sosa & Lazaro Galarraga",
     "date": "2026-10-03",
-    "start": null,
+    "start": "20:00",
     "venue": "Alva's Showroom",
     "neighborhood": "San Pedro",
     "category": "live_music",
@@ -105620,18 +106111,22 @@
       {
         "source": "webfetch",
         "url": "https://alvasshowroom.com/events/"
+      },
+      {
+        "source": "webfetch",
+        "url": "https://alvasshowroom.com/event/orquesta-ritmo-alegre-featuring-candi-sosa-lazaro-galarraga/"
       }
     ],
     "sources": [
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Cuban charanga ensemble blending folklore, jazz, and classical elements",
-    "price": null,
+    "detail": "Charanga ensemble fusing Cuban rhythms, jazz harmonies, and classical sensibility.",
+    "price": "$25.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-07",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -105659,7 +106154,7 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -106506,7 +107001,7 @@
     "url": "https://www.mccabes.com/product/maya-de-vitry-mark-erelli/",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -106551,7 +107046,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/marcus-rezak-shred-is-dead-196037",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -106575,9 +107070,9 @@
     "afterhours": false
   },
   {
-    "title": "Taylor Made Tapestry (Carole King & James Taylor Tribute)",
+    "title": "Taylor Made Tapestry (A Tribute to Carole King & James Taylor)",
     "date": "2026-10-04",
-    "start": null,
+    "start": "16:00",
     "venue": "Alva's Showroom",
     "neighborhood": "San Pedro",
     "category": "live_music",
@@ -106589,18 +107084,22 @@
       {
         "source": "webfetch",
         "url": "https://alvasshowroom.com/events/"
+      },
+      {
+        "source": "webfetch",
+        "url": "https://alvasshowroom.com/event/taylor-made-tapestry-a-tribute-to-carole-king-james-taylor-3/"
       }
     ],
     "sources": [
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Celebrates influential singer-songwriters",
-    "price": null,
+    "detail": "Tribute to two prolific singer-songwriters who defined a generation's sound.",
+    "price": "$35.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-07",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -107855,7 +108354,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -108783,7 +109282,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/aj-lee-blue-summit-179087",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -111557,7 +112056,7 @@
     "url": "https://www.mccabes.com/product/amy-speace-jesse-lynn-madera/",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -111590,7 +112089,7 @@
   {
     "title": "Frank Unzueta Album Release Concert",
     "date": "2026-10-10",
-    "start": null,
+    "start": "20:00",
     "venue": "Alva's Showroom",
     "neighborhood": "San Pedro",
     "category": "live_music",
@@ -111602,18 +112101,22 @@
       {
         "source": "webfetch",
         "url": "https://alvasshowroom.com/events/"
+      },
+      {
+        "source": "webfetch",
+        "url": "https://alvasshowroom.com/event/frank-unzueta-album-release-concert/"
       }
     ],
     "sources": [
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Jazz album celebration with guest musicians",
-    "price": null,
+    "detail": "Pianist/composer celebrating new jazz release with stellar guest musicians.",
+    "price": "$40.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-07",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -112485,7 +112988,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -112494,6 +112997,78 @@
       "setting": [],
       "vibe": [],
       "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "FolkWorks 25th Anniversary Benefit Concert",
+    "date": "2026-10-11",
+    "start": "20:00",
+    "venue": "McCabe's Guitar Shop",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.mccabes.com/product/folkworks/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Benefit concert.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "folk"
+      ],
+      "setting": [],
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "South Bay New Orleans Jazz Club",
+    "date": "2026-10-11",
+    "start": "13:00",
+    "venue": "Alva's Showroom",
+    "neighborhood": "San Pedro",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://alvasshowroom.com/event/south-bay-new-orleans-jazz-club-6/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Monthly meeting preserving jazz traditions with dancing and live music.",
+    "price": "$15.00",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [],
+      "vibe": [],
+      "region": "south-bay",
       "near_home": false
     }
   },
@@ -115458,7 +116033,7 @@
     "url": "https://www.mccabes.com/product/kim-richey/",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -117127,7 +117702,7 @@
     "url": "https://www.mccabes.com/product/laurence-juber/",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -117173,7 +117748,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/shovels-rope-w-nolan-taylor-176962",
     "detail": "8:00 PM live music",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -117199,7 +117774,7 @@
   {
     "title": "Incendio",
     "date": "2026-10-17",
-    "start": null,
+    "start": "20:00",
     "venue": "Alva's Showroom",
     "neighborhood": "San Pedro",
     "category": "live_music",
@@ -117211,18 +117786,22 @@
       {
         "source": "webfetch",
         "url": "https://alvasshowroom.com/events/"
+      },
+      {
+        "source": "webfetch",
+        "url": "https://alvasshowroom.com/event/incendio-5/"
       }
     ],
     "sources": [
       "webfetch"
     ],
     "organizers": null,
-    "detail": "World guitar compositions featuring Latin, Middle Eastern, and Celtic grooves",
-    "price": null,
+    "detail": "Acclaimed group performing \"world guitar\" compositions blending Latin and Middle Eastern styles.",
+    "price": "$25.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-07",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -120907,7 +121486,7 @@
     "url": "https://www.mccabes.com/product/holly-near/",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -121927,7 +122506,7 @@
   {
     "title": "The Baker Brothers Jazz Octet",
     "date": "2026-10-24",
-    "start": null,
+    "start": "20:00",
     "venue": "Alva's Showroom",
     "neighborhood": "San Pedro",
     "category": "live_music",
@@ -121939,18 +122518,22 @@
       {
         "source": "webfetch",
         "url": "https://alvasshowroom.com/events/"
+      },
+      {
+        "source": "webfetch",
+        "url": "https://alvasshowroom.com/event/the-baker-brothers-jazz-octet-2/"
       }
     ],
     "sources": [
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Mid-sized ensemble with four-horn frontline and vocalists",
-    "price": null,
+    "detail": "Classic mid-sized ensemble with robust horn frontline and three vocalists.",
+    "price": "$30.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-07",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -124263,7 +124846,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -124995,7 +125578,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -127398,7 +127981,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -127503,7 +128086,7 @@
     "url": "https://www.mccabes.com/product/jeffrey-foucault/",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -128289,7 +128872,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -128297,6 +128880,42 @@
       "vibe": [
         "tribute"
       ],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Phranc",
+    "date": "2026-11-06",
+    "start": "20:00",
+    "venue": "McCabe's Guitar Shop",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.mccabes.com/product/phranc/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "folk"
+      ],
+      "setting": [],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -129257,7 +129876,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -129295,7 +129914,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -129673,7 +130292,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -129711,7 +130330,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -129761,6 +130380,42 @@
       ],
       "vibe": [],
       "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "South Bay New Orleans Jazz Club",
+    "date": "2026-11-08",
+    "start": "13:00",
+    "venue": "Alva's Showroom",
+    "neighborhood": "San Pedro",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://alvasshowroom.com/event/south-bay-new-orleans-jazz-club-12/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Monthly gathering featuring club musicians and featured guest band.",
+    "price": "$15.00",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-07-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [],
+      "vibe": [],
+      "region": "south-bay",
       "near_home": false
     }
   },
@@ -131233,7 +131888,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -132049,7 +132704,7 @@
   {
     "title": "Ned and Neo",
     "date": "2026-11-13",
-    "start": null,
+    "start": "20:00",
     "venue": "Alva's Showroom",
     "neighborhood": "San Pedro",
     "category": "live_music",
@@ -132061,18 +132716,22 @@
       {
         "source": "webfetch",
         "url": "https://alvasshowroom.com/events/"
+      },
+      {
+        "source": "webfetch",
+        "url": "https://alvasshowroom.com/event/ned-and-neo/"
       }
     ],
     "sources": [
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Fretless glass guitar, cinematic bass, and expressive vocals",
-    "price": null,
+    "detail": "Performance blending fretless glass guitar, bass, and expressive vocals.",
+    "price": "$25.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-07",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -133236,7 +133895,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -133977,7 +134636,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-13",
+    "last_seen": "2026-07-14",
     "tags": {
       "type": "club",
       "genre": [
