@@ -69,6 +69,7 @@ sources:
       - sid-the-cat-auditorium-2wr5m       # Sid The Cat Auditorium (South Pasadena) — indie dance/electropop (Discover 6/19; 18 ev/30d)
       - catch-one-e582                     # Catch One (Mid-City) — house/techno + queer nightlife (Discover 6/19; 7 ev/30d)
       - only-the-wild-ones-mxvwr           # Only The Wild Ones (Venice) — hi-fi/vinyl listening bar, occasional DJ nights (Discover 6/19)
+      - sound-nightclub-kxeo                # Sound Nightclub (Hollywood) — underground house/techno; verified 2026-07-14, 18 events/120d
       # - the-silverlake-lounge-wb2v       # Silverlake Lounge — slug returned 0, re-verify
     notes: >
       THE unlock for the eastside/indie live-music lane. /browse is JS-rendered (0 events via
@@ -968,6 +969,38 @@ sources:
       JSON-LD. No clean structured path → WebFetch the rendered theater page at digest time. Landmark is
       a first-run chain on TM rails, so much of its slate likely already arrives via the Ticketmaster
       Discovery API — dedupe/cross-check; downgrade to candidate-only if fully covered.
+
+  # ── Discovered 2026-07-14 (Discover run: gap-mine + web sweep; + Ari-requested venue sites) ──
+
+  - name: Exchange LA
+    category: electronic
+    method: webfetch
+    url: https://www.exchangela.com/events
+    priority: 1
+    status: active
+    notes: >
+      Insomniac's DTLA dance-music home (618 S Spring St, Historic Core) — bass/house/EDM.
+      Verified 2026-07-14: static HTML with dated events (Space Yacht, Vicetone, Flux Pavilion,
+      Big Gigantic 360°, Jul-Sep 2026), ticket buttons off-domain. Has generic Yoast SEO JSON-LD
+      (WebPage/Organization only, no per-event Event schema) — not fetchable via fetch_jsonld.py;
+      read the rendered /events page at digest time. Some shows also ride RA/TM — dedupe expected.
+
+  - name: ORIGIN Los Angeles
+    category: electronic
+    method: manual
+    url: https://ra.co/clubs/15062   # currently listed as "Lot 613"; watch for rebrand to ORIGIN
+    priority: 2
+    status: candidate
+    notes: >
+      NEW electronic-music venue (~1000-cap, indoor room + outdoor patio) at 613 Imperial St,
+      Arts District — from the SBCLTR / Minimal Effort team (Roni Mehrabian, Cyril Bitar), their
+      first permanent room. Opening late summer/early fall 2026. Fri = top-tier/indie electronic
+      bookings; Sat alternates daytime outdoor + late-night house/techno; quarterly Arts District
+      parties. Verified 2026-07-14 (Billboard/Pollstar/EDM.com coverage) — not open yet, no
+      calendar/ticketing live. The address already exists as an RA club ("Lot 613",
+      ra.co/clubs/15062) — once it opens under the ORIGIN name, events likely arrive automatically
+      via the RA source (no new fetcher needed). RE-PROBE in ~6-8 weeks: confirm RA lists it as
+      ORIGIN, or find its own site/IG for a manual-capture bridge until then.
 
   # ── Verified-this-session reality check (2026-06-16) ─────────────────────
   # Static JSON-LD scraping (scripts/fetch_jsonld.py) covers FAR fewer LA sources than the
