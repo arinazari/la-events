@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/13/2026 deterministically (no API). 339 candidates. Signals: big-venue 288, festival 50, tracked 4._
+_Generated 7/14/2026 deterministically (no API). 341 candidates. Signals: big-venue 291, festival 49, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -110,7 +110,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 8/17 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ3) |
 | Tue 8/18 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJK) |
 | Wed 8/19 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJf) |
 | Thu 8/20 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ4) |
@@ -202,6 +201,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Fri 11/20 | 4 | BOYNEXTDOOR | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 11/21 | 4 | KATSEYE: THE WILDWORLD TOUR | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/katseye-the-wildworld-tour-los-angeles-california-11-21-2026/event/2C0064ABC62217BE) |
 | Sat 11/21 | 4 | El Fantasma | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 11/28 | 4 | Cristian Castro | Peacock Theater - LA | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-f4V) |
@@ -210,7 +210,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 8/17 | 3 | The Black Crowes, Tedeschi Trucks Band, Whiskey Myers | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/the-black-crowes-tedeschi-trucks-band-hollywood-california-08-17-2026/event/0B00643ABF0C3FD9) |
 | Tue 8/18 | 3 | NEEDTOBREATHE: The Long Surrender Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/needtobreathe-the-long-surrender-tour-los-angeles-california-08-18-2026/event/09006465B2CECE2B) |
 | Wed 8/19 | 3 | The Guess Who: Takin' It Back Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/the-guess-who-takin-it-back-los-angeles-california-08-19-2026/event/09006458F47DD28E) |
 | Wed 8/19 | 3 | Herbie Hancock | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
@@ -262,6 +261,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 9/19 | 3 | MANÁ: VIVIR SIN AIRE TOUR | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/mana-vivir-sin-aire-tour-inglewood-california-09-19-2026/event/0900637A9D738574) |
 | Sun 9/20 | 3 | Gregory Alan Isakov w/ Jose Gonzalez | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sun 9/20 | 3 | KCRW Presents Haruomi Hosono: The Yours Sincerely Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/kcrw-presents-haruomi-hosono-the-yours-los-angeles-california-09-20-2026/event/090064AEAECDEA57) |
+| Mon 9/21 | 3 | Lily Allen Performs West End Girl | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lily-allen-performs-west-end-girl-los-angeles-california-09-21-2026/event/090064E8F349EC5D) |
 | Wed 9/23 | 3 | Jazz at Lincoln Center Orchestra with Wynton Marsalis | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Wed 9/23 | 3 | BECK: RIDE LONESOME TOUR | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/beck-ride-lonesome-tour-los-angeles-california-09-23-2026/event/0900648A40ABD374) |
 | Thu 9/24 | 3 | Jon Bellion | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
@@ -429,6 +429,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Thu 10/1 | 2 | Rod Wave: Don't Look Down Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/rod-wave-dont-look-down-tour-inglewood-california-10-01-2026/event/090064D1B0F2AB13) |
 | Sat 10/3 | 2 | Ron White | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 10/4 | 2 | Lynyrd Skynyrd - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Sun 10/4 | 2 | YSL Records & Young Thug Present: The New Generation Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/ysl-records-young-thug-present-the-inglewood-california-10-04-2026/event/0A0064E8DBC9B8C9) |
 | Tue 10/6 | 2 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-10-06-2026/event/0A006426C23B4B2A) |
 | Tue 10/6 | 2 | Mumford & Sons - Prizefighter Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mumford-sons-prizefighter-tour-inglewood-california-10-06-2026/event/09006452D41C6346) |
 | Wed 10/7 | 2 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-10-07-2026/event/0A006426C2444B31) |
@@ -501,6 +502,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Sat 10/3 | 1 | Breaking Benjamin | Honda Center | big-venue | [link](https://www.ticketmaster.com/breaking-benjamin-anaheim-california-10-03-2026/event/0900644BB38E9BE4) |
 | Fri 10/9 | 1 | SOMBR - You Are The Reason Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/sombr-you-are-the-reason-tour-anaheim-california-10-09-2026/event/090064891741C9C1) |
 | Sat 10/17 | 1 | Los Tigres Del Norte: Los Tigres Del Mundo Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-los-tigres-anaheim-california-10-17-2026/event/09006458A0D5CC52) |
+| Sat 10/24 | 1 | Intocable: Cultura Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/intocable-cultura-tour-2026-anaheim-california-10-24-2026/event/090064E1B08C886A) |
 | Sat 10/31 | 1 | THE B-52s * DEVO:  COSMIC DE-EVOLUTION TOUR | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/the-b52s-devo-cosmic-deevolution-tour-palm-desert-california-10-31-2026/event/0A0064D093588054) |
 
 ## November 2026
