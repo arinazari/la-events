@@ -708,14 +708,13 @@
       "model": "claude-sonnet-5"
     },
     "86ca88c4e980": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Deep lineup for a beach festival — Justin Martin, Doc Martin, Lee Burridge, Radio Slave plus tracked DJ Minx — genuinely worth the Long Beach trip even though it's not walking distance from home.",
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Doc Martin, Justin Martin, Lee Burridge (All Day I Dream) and DJ Minx on one outdoor day-into-night bill is the actual house lineage this taste points to — the score's flat +2 tracked bump badly under",
       "confidence": "high",
-      "judged_at": "2026-07-01T03:19:17",
+      "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 8
     },
     "67f90570eb9d": {
       "tier": "solid",
@@ -1135,14 +1134,13 @@
       "score_at_judge": 6
     },
     "d8180e2e3285": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Strong-rotation producer DJing a real warehouse afters — Lights Down Low is a legit LA underground institution even though Mura Masa's studio sound skews alt-R&B/future-bass.",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Mura Masa's a real name but it's future-bass/alt-R&B crossover, not house/techno — a DJ set from an artist whose lane isn't this one.",
       "confidence": "high",
-      "judged_at": "2026-07-08T12:32:03",
+      "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
-      "score_at_judge": 8,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "a5d9334e56d6": {
       "tier": "solid",
@@ -2426,14 +2424,13 @@
       "model": "claude-sonnet-5"
     },
     "c866b112d8a7": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "No lineup and an unfamiliar High Tide room — nothing distinguishes this from generic Friday club filler.",
+      "tier": "solid",
+      "adjust": -2,
+      "why": "No lineup, no scene detail beyond the venue name — nothing here to lift it above filler.",
       "confidence": "low",
-      "judged_at": "2026-07-01T03:19:17",
+      "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 5
     },
     "67bad413805f": {
       "tier": "solid",
@@ -6308,14 +6305,13 @@
       "model": "claude-sonnet-5"
     },
     "39a5646e1975": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "No lineup listed and nothing to verify the draw of this Valley electronic night.",
+      "tier": "solid",
+      "adjust": -2,
+      "why": "NoHo bar night with no lineup and a longer trek than most of this weekend's options.",
       "confidence": "low",
-      "judged_at": "2026-07-01T03:19:17",
+      "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 5
     },
     "d6dd5587f73a": {
       "tier": "solid",
@@ -6626,15 +6622,13 @@
       "model": "claude-sonnet-5"
     },
     "4dd13aaa260f": {
-      "tier": "must-see",
-      "lane": "club:mainstream",
-      "adjust": 2,
-      "why": "60+ deep bill but the depth is real — Charlotte de Witte and Amelie Lens are two of the strongest techno bookings you'll see all year, plus Boys Noize, Chris Lorenzo, Mau P, Vintage Culture, DJ Seinfe",
+      "tier": "great",
+      "adjust": -1,
+      "why": "Charlotte de Witte and Amelie Lens are genuine top-tier techno headliners, but they're two sets buried in a 60-act bass/trap/hard-dance day festival — worth catching, not a night built for the house/t",
       "confidence": "high",
-      "judged_at": "2026-07-09T12:26:39",
+      "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
-      "score_at_judge": 18,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 17
     },
     "425ea1314810": {
       "tier": "solid",
@@ -9187,14 +9181,12 @@
     },
     "8d8f319c34f5": {
       "tier": "great",
-      "lane": "live-music",
       "adjust": 2,
-      "why": "Bob Moses is a legit live-electronic act (Rüfüs/ODESZA tier) and the Bowl is a venue you'd build a night around — the score under-credits this one.",
+      "why": "Bob Moses sits right in the Rufus/ODESZA live-electronic tier at a venue you love — the flat score undersells this one.",
       "confidence": "high",
-      "judged_at": "2026-07-05T12:19:59",
+      "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 4
     },
     "fc0a48038d3d": {
       "tier": "skip",
@@ -12179,14 +12171,13 @@
       "model": "claude-sonnet-5"
     },
     "0a825ee910a3": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Matroda's a real bass house name but only a light Spotify touch — $75 and an OC drive isn't the payoff the far-flung penalty needs overridden.",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Matroda's a real bass-house draw, but Costa Mesa plus $75 buys fun, not essential.",
       "confidence": "med",
-      "judged_at": "2026-07-09T12:26:39",
+      "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 3
     },
     "00b4883dd422": {
       "tier": "skip",
@@ -13337,13 +13328,13 @@
       "score_at_judge": 3
     },
     "22ed6b033625": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Film-score spectacle, not your lane's music, but a fun one-off if you're into it — filed correctly as informational.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "LOTR Fellowship 25th-anniversary live-to-picture score at Peacock, walkable-close to Silver Lake — a genuine one-off, not just 'stay informed' filler.",
       "confidence": "high",
-      "judged_at": "2026-07-10T12:34:52",
+      "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 4
     },
     "44d2a8871b80": {
       "tier": "solid",
@@ -14048,12 +14039,12 @@
     },
     "8ecfd8f83c29": {
       "tier": "skip",
-      "adjust": -3,
-      "why": "2010s EDM tribute party — the textbook nostalgia-night skip.",
+      "adjust": -2,
+      "why": "2010s EDM tribute night — nostalgia cover format is the explicit anti-pattern here, not real DJ billing.",
       "confidence": "high",
-      "judged_at": "2026-07-10T12:34:52",
+      "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 3
     },
     "f1db0ac5b1c1": {
       "tier": "skip",
@@ -16157,11 +16148,1172 @@
       "score_at_judge": 4
     },
     "fe2d926e7eb9": {
-      "tier": "solid",
-      "adjust": 2,
-      "why": "Yoshiki (X Japan) doing his orchestral solo-classical mode at Disney Hall — a genuine outlier from the house/techno lane but a rare, prestige booking worth flagging even if it's not the usual taste.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Yoshiki's classical-crossover show at Disney Hall is a genuine bucket-list booking — nowhere near the house/techno lane, but too rare to bury, and it's a straight shot from Silver Lake.",
       "confidence": "high",
-      "judged_at": "2026-07-13T12:27:34",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "7ebedfb81299": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tech-house/disco/latin-house free night ticks the genre boxes but there's no name on the bill to actually judge the room.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "be1cba2bd991": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Warehouse house-and-techno afters close to home hits every structural box, but no lineup means no way to gauge the set.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "9bda719907f4": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free afters with Klarck and Nathan Miles — unfamiliar names, can't gauge the draw either way.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "167811959f9d": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Beau Didier is a HÖR/Awakenings-credentialed European techno booking on a recurring Thermal night that knows its lane — a real step up from the average TBA-warehouse party.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "310b9de5ba07": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Soul Clap headlining their own long-running party — funky, disco-leaning Wolf+Lamb-orbit house, exactly the groove/soulful boost this taste rewards.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "04de64113e0e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Vinyl-only format is the right shape but Jen Ferrer and Gay Felony aren't names to build a night around.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "d19e38a9eaf2": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Unnamed generic afters — nothing distinguishes it from a dozen others this weekend.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "2487b6733cbe": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Rooftop house at Broken Shaker is exactly the sunset/groove format this taste keeps chasing, even with unfamiliar names on the bill.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "c3bdc75eca6d": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Hard techno afters, free and close by, but zero lineup info — no way to know if it's peak-time techno or just loud.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "235c618a99b3": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Open-air TBA party with no lineup — nice setting, nothing to actually vouch for it.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "01902895ab21": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Anime-themed rave with unknown DJs reads as novelty booking, not a real house/techno night.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "ca7818267db2": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Pretty Gay Friendly is a known Dublab/queer-scene fixture, but Pomona's a real haul for a free brewery set.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "0967cd51a806": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Close to home and cheap, but Juliet Mendoza and Samo aren't names with a track record here.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "e1eafc313f4e": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Santa Barbara is a 90-plus-minute trip for an unknown electro/ghettotech bill — the far-flung-without-payoff case the taste explicitly flags.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "b4a73961f2bb": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Those coordinates put this in San Diego, not LA — a two-hour-plus drive for a no-name free party.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "e9fbbf58191a": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tech-house/afro-house/progressive is squarely the right genre lane but no actual lineup names surface to confirm the quality.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "077378971fb9": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Goth/euro-trance/hi-NRG night — European in feel but trance/hi-NRG sits outside the house/techno spine this taste actually wants.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "62fc6616c70a": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Right genre (tech-house) but Omri isn't a name to hang a night on, and Sound skews more bottle-service than selector-driven.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "4ba98a9c0efb": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Einmusik is a legit Berlin melodic-techno/house name out of the Watergate orbit — the score's flat +3 badly undersells this one.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "ffdad3e32b77": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "No lineup, no venue detail — reads as a generic rooftop mixer, not a music night, and that's exactly the 'no real DJ billing' pattern to bury.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "7ba271169566": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Sunset poolside session hits the daytime/open-air boost, but Jace Mile and Eclectic1uan are unknowns with nothing to confirm the set's worth building a Saturday around.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "5bfcded3d179": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Perreo anniversary night — dembow/reggaeton, not house or techno, the deterministic 'electronic' tag is just a genre miss.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "2841d50b2106": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "A UFC-gym rave in Corona with zero billed DJs — gimmick venue, real haul, nothing to justify either.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "34a02481246d": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Murda Beatz is a trap/hip-hop hitmaker (Drake, Migos), not a house or techno booking — this is a generic club night wearing an electronic tag.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "ed55f8eb4c29": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Anime-themed pop-EDM rave in Commerce — production-over-selection territory, not the lane.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "35d229cddd56": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Space Yacht crew doing a free sunset set at a diner is a fun only-in-LA novelty, but their lane runs more festival/bass than the deep house you actually chase.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "c73d256dba0d": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "'2010s Bangers' is the decade-nostalgia club format the taste explicitly rules out.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "31b35080dcc3": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Sid the Cat is a loved room, but DJ Lionmilk is an unknown quantity — the venue is carrying this one, not a confirmed lineup.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "514dbb0dc293": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Cinespia's Rosemary's Baby under the stars at Hollywood Forever is the classic-cinema-outdoors format this taste is built for, not just any rep screening.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "485ed756a174": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free outdoor DTLA series, walkable-close, but 'Wonder-Full' gives no read on what's actually being programmed.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "341de9ab5cb0": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "A real filmmaker retrospective at the Academy Museum is exactly the arthouse-programming category this profile prioritizes.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "8a3d95d9db16": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Rich NXT, Nu Zau, and the Dialed Records roster are legit fabric/European-orbit techno names on a free TBA-location night — the exact underground-warehouse sweet spot the flat score of 5 buried.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "085544fa581e": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No billed lineup on a small free late-night party — nothing distinguishes it from filler.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "748778f02d7b": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "A 'US debut' billing for Marian (BR) hints at some underground pedigree, but there's no scene data to confirm it.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "600c847c4500": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Loved venue again, but 'DJ Coffin Prick' reads more novelty/goth-night than house or techno — can't confirm the sound fits.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "401e96aced6b": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "This is a spam listing — an airline customer-service scam number dressed as a party, venue field literally 'Karate Wadō Style.' Not a real event.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "257d9b239f2b": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Same scam pattern as the Lufthansa listing — junk data, not a real event.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "54e048547f19": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Generic K-town dance-party booking with no real DJ names attached — the 'general' catch-all the score barely lifted for a reason.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "737d45c2816c": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Scene note pins Ardalan as a Dirtybird deep-house mainstay — real pedigree a flat score of 4 didn't capture.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "a382d68dea35": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Bruno Furlan is a legit Defected/Nervous-orbit tech-house DJ, but Huntington Beach is a real haul for one name on the bill — the score's far-penalty already has this about right.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "1517e5a4d9b8": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Van Dyke Parks is a genuine legend (Beach Boys' Smile, decades of arranging credits) paired with his daughter at a great room — rare enough to flag above typical big-name filler.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "293cd895c5d5": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Santa Barbara boat party at $74 with no billed headliner is a bigger haul than the Huntington Beach show yet somehow wasn't hit with a distance penalty — bury it.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "1b21d6fe2ec9": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Ray Keith's a real jungle pioneer per the notes, but DNB isn't the house/techno lane this profile runs on, and Santa Barbara is a real trek for it.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "c6d161144b16": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free outdoor Los Lobos is a fine legacy booking, just westside and squarely the medium-interest 'stay informed' bucket, not a must-plan-around night.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "6aa86ed1d480": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Can't confirm which 'SOSA' this is or what genre — free outdoor slot with no lineup detail to back a stronger call.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "d8f8558e7e45": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Perry's is a casual beach day-party spot — right shape (daytime, $20 door) but no lineup to say it's more than a tourist-friendly scene.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "77e1b6bac672": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Jungle/DNB/dub-reggae night — solid for that scene, but it's not the house/techno spine this profile is built on.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "36596366e35c": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "\"Private listening event\" framing reads like exactly the vinyl/listening-bar format this profile boosts, though Sultan Dè isn't a name I can vouch for.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "6f9ba3bde39e": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "No lineup, no venue signal — generic party listing with nothing to hang a stronger verdict on.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "761c80154ca2": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Reads like a Latin/open-format club night with no real DJ billing — the exact generic-club-night pattern this profile skips.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "0831ff8b370a": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "DIY punk/experimental bill at The Smell, near home — exactly the small-club indie lane this profile likes even without recognizable names.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "2d6c34e73f13": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Another no-lineup day party — can't tell if there's a real selector behind it or just a vibe-only listing.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "fc258cb7142c": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "A movie most people already caught, but a fine excuse to be at a loved room for a rep-cinema matinee.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "85a8465d4e08": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Can't place this title — defaulting to the baseline Vidiots-venue bump without more to go on.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "7fee695768b7": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Teshigahara's 1966 arthouse landmark (Kobo Abe script) is exactly the rep-cinema pick this profile is built for — better than the same-day EEAAO slot.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "707209d8a25b": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Tech-house is the core genre here, but it's a Tuesday bar night out in Pomona, not a destination booking.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "5280da93865a": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "WeHo bottle-service room, no DJ billed — reads like the Vegas-style night this profile explicitly steers away from.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "f795c8e301fd": {
+      "tier": "great",
+      "lane": "film",
+      "adjust": 1,
+      "why": "This is 2220's Mezzanine series screening the 1979 UK-reggae documentary, not a live set — a good rep-adjacent pick at a loved room, tagged wrong as live-music.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "4ca35970ef98": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Banoffee's the only name here I know and she's indie-electropop, not house/techno, but the pool day-party setting is the right shape.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "8f62ab0a1b91": {
+      "tier": "great",
+      "lane": "film",
+      "adjust": 1,
+      "why": "LA Filmforum's experimental-film program on Fluxus/George Maciunas at a loved venue — arthouse-curious even outside the house/techno lane, mistagged as live-music.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "f195440280f5": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "What So Not is a legit festival-scale name in the Flume orbit with a Mixmag stamp behind it, near home — the flat score undersells the actual draw.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "6ad73832c2e6": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "TBA location, no lineup — generic recurring-party listing with nothing to distinguish it.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "bca24004bdaf": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Another no-lineup day party in the same mold as the others this batch — nothing here to lift it above the pack.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "072be1189401": {
+      "tier": "skip",
+      "lane": "live-music",
+      "adjust": -2,
+      "why": "International Pop Overthrow is the long-running multi-night power-pop marathon, hit-or-miss local bands — mistagged electronic, not a real pick.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "cf78886f4aea": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "This is a spam listing — an airline customer-service phone number, not a real event.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "7d6de3a0124e": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Airline customer-service scam listing masquerading as a party — not a real event.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "e4ca13c915d3": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Same Lufthansa phone-scam spam template, different fake venue — bury.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "c25d2772e56b": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Gulf Air scam-hotline spam, not an event.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "b83a29342bea": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Virgin Australia scam-hotline spam dressed up as a UCLA party listing.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "50912ecada79": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "China Southern scam-hotline spam, no real event behind it.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "75164350b3c4": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Baggage-fee scam-hotline spam with emoji bait — not an event.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "0b5ff8f22743": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Norse Atlantic scam-hotline spam.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "e84fa900f4c6": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Same Lufthansa spam template posted against a hospital heliport as \"venue\" — junk.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "36f98800241d": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Volotea scam-hotline spam.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "65845123cd86": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Ryanair scam-hotline spam.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "419428d000a3": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Eurowings scam-hotline spam.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "9cfe2d0bf194": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Ethiopian Airlines scam-hotline spam.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "45aebc6cd58d": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Air Astana scam-hotline spam.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "c364f7602f99": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Oman Air scam-hotline spam.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "0e43e181a090": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Aegean Airlines scam-hotline spam.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "1452256c135c": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Garuda Indonesia scam-hotline spam.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "5652a9cf6ba7": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Porter Airlines scam-hotline spam.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "a577fde32e56": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Off the house/techno lane but Eartheater is a genuinely singular live act, more avant-garde art-show than club night — worth flagging even outside taste even if not a headline pick.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "6ff494760567": {
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Generic San Diego Pride techno night with no named draw — the distance penalty already does the work here.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "6c8771bdca03": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "TBA-location afters is exactly the format the profile chases, but zero lineup info to size the actual draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "7b39d8dcfe45": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "East Hollywood indie/rock bill near Silver Lake, but the names on it aren't ones with a known draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "9840550972f5": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Sam First is a serious listening room and this trio (Goldings/Piltch/La Barbera) is legit jazz pedigree — outside the electronic lane but a real one for a Friday night out.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "45911ac91b5a": {
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Tech-house/progressive genre is on-taste but this is a San Diego Pride circuit night — the trip isn't worth it for an unnamed lineup.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "b8e9fd987de6": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hard dance / hard techno bill in San Diego — the explicit off-lane genre this profile skips, not just a distance problem.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "a8da16c2e292": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Straight dubstep night — riddim/bass-mega-show energy this profile explicitly avoids, even though it's actually in LA.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "62a225ade96a": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "No real DJ billing, just a free World Cup tie-in party — generic open-format club night.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "e0f7239b7f7e": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Scotty Boy's a genuine house vet (three Billboard Dance #1s) even if his Deep House Brunch format leans festival-polish over digger; JJ Flores fills it out fine.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "3989f2c7dcd2": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Afro-house pool party checks the genre box on paper, but the lineup's a total unknown and it's a drive to San Diego for it.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "0960b1df2e1f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "$65-70 for an unnamed San Diego house night — no lineup info to justify the price or the drive.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "f3cfebab770d": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "John Bryars (A Club Called Rhonda, Boiler Room) plus Etari and Fun2Bjane out of the Lights Down Low/AUNTIE circuit — a legitimately deep underground techno bill, worth the San Diego trek for an all-ni",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "865f2a3d0771": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "TBA pop-up with names I can't place — could be a scene sleeper, could be nothing.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "6878ff61c8af": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tech-house genre's right, but it reads more Pride tea-dance than DJ-digger night, and it's San Diego.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "40b2f697e88b": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Cheap ($5-10), LA-based daytime house pop-up — low risk even with an unfamiliar lineup.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "358e17853e8c": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free dive-bar afterhours set fits the tech/deep/prog-house lane, but San Diego for two unknowns is a stretch.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "e4014fdca943": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No lineup, generic 'hosted by' framing — nothing distinguishes it from any other free club night.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "6ce7f6020b3c": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "'Soul Tribe Revue' reads like a covers/tribute night, not the house-techno lane, with zero lineup detail to argue otherwise.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "b5f01d902511": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Unrecognized electronic lineup with no scene data — filler until proven otherwise.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "fe38352c66df": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Unknown singer-songwriter at a Venice speakeasy — pleasant possibility, no evidence either way.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "57ac905b387e": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Record-release show at Zebulon, blocks from home — exactly the small-venue indie format this profile builds nights around, even with an unfamiliar headliner.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "2975f8ea1408": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Film premiere party at Gold Diggers is more industry mixer than music night — near home but thin on what's actually happening.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "b50fb6d84652": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Jenny O.'s a legit LA indie songwriter (Mexican Summer orbit) playing her home-turf venue — a real small-show pick, not filler.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "390dd0d19ade": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Ambient-leaning electronic booking (Solitaire) at Water & Power — no strong signal either way.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "3f45cae00b45": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Mystery-location LA party — the TBA-warehouse format this profile likes, but zero lineup to size it up.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 3
+    },
+    "8e2b2675c2d6": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Solid jazz combo, but straight jazz sits outside this profile's house/techno/indie-rock lane.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "5d429e813abf": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "San Diego Pride circuit party built around a drag booking (Detox), not a DJ-digger night, plus the drive.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "11096ef6f639": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Another San Diego Pride circuit night with unknown DJs — distance without a clear draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "1584a1da228f": {
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Ray Keith is a genuine jungle pioneer, but old-school DnB isn't the house/techno lane at all, and it's a drive to San Diego for it.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "8be277933ee3": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "World Cup after-party with no real DJ billing — exactly the around-town filler the taste brief flags out.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "fbf7c020ab8f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Dubstep/bass share the bill with the house tag and the DJs (Matt Faulk, Shay De Castro) aren't a known draw — not worth the trip to Santa Ana.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "264a3060d339": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Andre Power co-founded Soulection — this is a real tastemaker's groove/disco/amapiano day party in Boyle Heights, not a generic hip-hop night, and it's an easy trip from Silver Lake.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "b98b5494d61d": {
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Jackin/funky house is squarely your lane, but it's an unrecognized lineup and San Diego isn't a drive an unknown day party earns.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "5294555b3891": {
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Unfamiliar headliner for a San Diego Pride afters — the distance needs a name you know, and this isn't one.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "6b89bd48d476": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Low-key recurring jazz night at Sam First — fine if you're in Westchester, not a pick to build around.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "a9055396893b": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Motown/soul night at a Venice bar could be a great groove set or a generic theme night — nothing in the listing tells you which.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "b1c39ed406ca": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Blues/soul bill at The Mint, adjacent to your groove taste, but McKinley James and co. aren't names with a track record here.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "d2cc8dd2faed": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Brazilian jazz specialists at Sam First — a genuinely niche booking worth a mention even though it's off the house/techno spine.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "f62fe0a5634a": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Billy Vera's actual big band, not a tribute act, in a real jazz room — fine if you're near Bel Air, not a reason to leave the house/techno lane.",
+      "confidence": "med",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "174e6ffda442": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "It's an open mic (Milk Crate Mic) — exactly what the taste brief says to bury.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "dbd70fd622fb": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "No signal on The No Chasers beyond the Harvelle's booking — could be a soul revue worth catching, could be filler.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "55ee05ccaca9": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Solo artist at a Venice bar with zero signal on genre or draw — can't gauge this one.",
+      "confidence": "low",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 2
+    },
+    "de1b07507a78": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "This is a scam listing — an airline customer-service phone number dressed up as an event at a Marine recruiting station, not a real party.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2
+    },
+    "0591c7798897": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Karaoke night, not a DJ booking.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 1
+    },
+    "05bb476fe9d5": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Dubstep/riddim/trap lineup — precisely the brostep penalty the taste brief calls out.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 1
+    },
+    "03c2c3e81e65": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "NGHTMRE is a legit dubstep draw, but that genre is exactly what this profile wants buried, and Costa Mesa is a haul on top of it.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 1
+    },
+    "10cacca102d0": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "A Zoom producer webinar, not an event to attend.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
+      "input_version": 2,
+      "score_at_judge": 1
+    },
+    "45b7ceeabb89": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Fuerza Regida at Dodger Stadium is a massive stadium draw worth knowing about, but regional Mexican is outside the core lane — stay-informed, not a push.",
+      "confidence": "high",
+      "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
       "score_at_judge": 4
     }
