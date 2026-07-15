@@ -1,4 +1,49 @@
-# Taylor's LA Events Digest
-*Digest regenerated Tue 7/14 — picks updated.*
+# Taylor — LA Events Digest
+*Digest regenerated Wed 7/15 — picks updated.*
 
-Honest read first: nothing in this pull actually touches the Arab/Palestinian/Armenian/SWANA or Habibeats boosts you've set — no matching show turned up in the next 24 days, so this isn't really personalized yet, just the generic house/techno/club pool scoring baseline "electronic" points across the board. If you're browsing anyway, the mechanical sort's genuine standouts: Sat 7/18's [Information all-vinyl night](https://ra.co/events/2456585) (TBA DTLA, Luke Mele's Balearic/dub sensibility — the actual top-ranked pick) and that same night's [Nightshift after-hours at The Lexington](https://blindtiger.la/) (Blind Tiger's real secret-lineup speakeasy program, not a bottle-service room) are the deepest bookings; Sat 7/25 brings [FLOAT rooftop w/ Jody Wisternoff](https://ra.co/events/2449781) (Anjunadeep co-curator, daytime melodic house) and [CSW's all-night Nick León set](https://ra.co/events/2475085) (Miami dembow/dancehall fused into club music — one of the more distinctive names in the batch). Closer to a default-night tier: Fri 7/17's [Acts of Service Sounds](https://dice.fm/event/nv6wv8-acts-of-service-sounds-a-night-of-soulful-house-17th-jul-gold-diggers-los-angeles-tickets) and Sat 7/18's [The Hustle](https://dice.fm/event/l8xylp-the-hustle-first-and-third-saturday-disco-party-18th-jul-gold-diggers-los-angeles-tickets) are both reliable, close-to-home Gold Diggers residencies; Sat 7/18's [dublab night at The Airliner](https://ra.co/events/2482750) has four genuinely deep LA selectors; and Fri 7/24's [Stavroz live](https://ra.co/events/2437239) is the melodic/organic-electronic option if you want warmth over a straight club peak. Add a SWANA/Middle Eastern source or two (a promoter, venue, or event series) and this feed will actually start finding what's yours instead of defaulting to the house/techno firehose.
+Profile note: Taylor's taste profile is still mostly a starter — no category preferences set, so
+everything scores at baseline. The one thing that *is* configured is a set of cultural-affinity
+boosts (+1 each): Arab culture, Palestinian culture, Armenian culture, Middle Eastern music, SWANA
+events, plus a tracked artist (Habibeats — no upcoming shows found this window). Below: real
+matches on those boosts first, then a neutral sampler of the broadly highest-signal stuff on the
+calendar (not personalized beyond that — just what's well-formed and notable over the next ~2-3
+weeks).
+
+## Cultural-affinity matches
+
+**Sat 7/25** — [Mahragan Party](https://ra.co/events/2437160) (location TBA, 3pm day party) — a
+SWANA-diaspora party built around mahragan/shaabi, with Mansaf Mama (Syrian-Palestinian DJ playing
+"Global Sha3bi" — Arabic, Armenian, Assyrian, Kurdish music) and BAE BAE. The closest thing to a
+genuine match on the Arab/Palestinian/Armenian/SWANA boosts this window.
+
+**Sat 8/1** — [QUEERVIDEODROMEICEMELTER](https://juniorhighlosangeles.com/calendar/queervideodromeicemelter-2026)
+at Junior High, Glendale (6:30pm, all-ages queer digital-punk showcase) — half the door proceeds
+benefit the Red Crescent Society in Palestine. Not itself a cultural-heritage event, but a direct
+Palestine-solidarity tie-in worth flagging given the Palestinian-culture boost.
+
+*(A few other listings turned up on a keyword scan only because a single lineup name happens to be
+Armenian- or Egyptian-born within an otherwise unrelated house/techno bill — too incidental to
+count as real matches, so left out.)*
+
+## Neutral sampler (highest-signal, not personalized)
+
+**Thu 7/16** — [The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3743?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww),
+Vista Theater — preview screening of Nolan's true-70mm print, the night before wide release.
+
+**Fri 7/17** — [Sunset Sessions presents HOUSE XL Takeover](https://ra.co/events/2490586), Level 8
+DTLA (5pm) — the recurring golden-hour rooftop house night; lineup TBA but the format itself is
+reliably good.
+
+**Sat 7/18** — [Love Long Beach Festival 2026](https://ra.co/events/2386257), Shoreline Aquatic
+Park — a genuinely deep house lineup (Doc Martin, Lee Burridge, Justin Martin, Radio Slave, DJ
+Minx), not festival filler.
+
+**Fri 7/24** — [Stranger Than presents Stavroz (Live)](https://ra.co/events/2437239), The Bridge
+DTLA — Belgian live organic-electronic band, closer to the Bonobo/RÜFÜS Du Sol live lane than a
+straight club night.
+
+**Sat 8/1** — [HARD Summer Music Festival](https://ra.co/events/2378909), Hollywood Park Grounds —
+the annual big one; this year's lineup includes Charlotte de Witte, Shygirl, Tokischa, VTSS.
+
+**Sat 8/1** — [of Montreal](https://www.ticketmaster.com/of-montreal-los-angeles-california-08-01-2026/event/09006470A5716795)
+w/ Sloppy Jane, The Regent Theater, DTLA — touring indie-rock date, all ages.
