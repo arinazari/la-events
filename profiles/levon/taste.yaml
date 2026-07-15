@@ -1,0 +1,19 @@
+# Taste profile — Levon. EMPTY starter: no preferences set yet, so this feed scores every
+# event at baseline (nothing boosted or penalized) until the sections below are filled in.
+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only levon
+# Schema mirrors the root taste.yaml — see it for examples of what each section can hold.
+
+categories:
+  high:    []   # +3 each match — the core "yes, this is for me" buckets
+  medium:  []   # +2 each
+  low:     []   # +1, include only if exceptional
+
+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, …)
+penalties: []   # -2 each (the "not for me" list)
+
+artists_tracked:  []   # lineup match => +2 and a "tracked" badge
+comedians_loved:  []
+venues_loved:     []
+
+feedback:
+  - "New empty profile — taste not configured yet."
