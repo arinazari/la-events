@@ -45,7 +45,11 @@ Run, for the profile feed hash `<HASH>`:
 4. **Refresh the radar (best-effort).** `python scripts/build_radar.py` → `data/radar.json`.
 
 5. **Write the personalized digest (the key deliverable).** Read `dashboard/data.<HASH>.json` (display
-   name in `feed.profile.name`) and write a concise, conversational, **opinionated** narrative digest to
+   name in `feed.profile.name`). **If `feed.profile.owner` is true, copy — never prose, never a
+   stub/pointer:** the owner's taste IS the root taste and the workflow already re-rendered the
+   consolidated digest, so just `cp digests/latest.md digests/<HASH>/latest.md` and skip the rest of
+   this step (the committed per-hash file must always BE the full digest — GitHub and local
+   dashboards read it directly). Otherwise write a concise, conversational, **opinionated** narrative digest to
    `digests/<HASH>/latest.md` (overwrite) — the LA-insider voice, ranked to THIS person: top picks across
    the next ~2–3 weeks + weekends ahead, grouped by day, a one-line *why* each, ⭐ on the editor's
    must-sees. Thin feed → a couple of honest lines, don't pad. The dashboard's digest modal loads this.
