@@ -479,3 +479,5 @@ World Cup final weekend collides with a genuinely deep house/techno stretch: Lov
 - `Thu 11/12` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4)** — The Wiltern · Koreatown  ·  *Bonobo*
 - `Sun 11/22` **[Three Days Grace - Alienation Tour ](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0)** — Intuit Dome · Inglewood  ·  *festival, big-venue*
 
+---
+*Footer: all 10 structured sources fetched clean this run (TM, RA, 19hz, Goldenvoice, Vidiots, Vista, New Beverly, Posh, Eventbrite, DICE). Step-2 layering: squarespace/ics venues + most webfetch venues covered; Alva's Showroom returned no content and Eater LA's WebFetch failed outright — both worth a re-check next run. Gmail "Events" label doesn't exist yet in this account, so that source was skipped.*
