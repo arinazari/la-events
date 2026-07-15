@@ -136,6 +136,13 @@ def test_canonical_location_neighborhood_embedded_in_venue():
     assert geo.canonical_location("Veniceland Arcade", "Los Angeles", PROFILE) == "Los Angeles"
 
 
+def test_canonical_location_bar_franca_is_dtla():
+    # Regression: Bar Franca (438 S Main St, Historic Core) was gazetteered as Silver
+    # Lake, so RA rows got the wrong neighborhood + region tag + near-home boost.
+    assert geo.canonical_location("Bar Franca", "Los Angeles", PROFILE) == "DTLA"
+    assert geo.venue_to_hood("Bar Franca", PROFILE) == "dtla"
+
+
 def test_canonical_location_collapses_or_keeps_blank():
     # Unplaceable city-level collapses to ONE label; a true blank stays blank (the view
     # owns that fallback) — so we never invent a neighborhood we don't know.

@@ -105,7 +105,7 @@ DEFAULT_VENUES = {
     "los globos": "silver lake", "the satellite": "silver lake", "gold room": "echo park",
     "the short stop": "echo park", "club tee gee": "atwater", "footsies": "cypress park",
     "la cita": "dtla", "harvard stone": "east hollywood", "the lash": "dtla",
-    "bar franca": "silver lake", "the bridge": "dtla",
+    "bar franca": "dtla", "the bridge": "dtla",
     "level 8": "dtla", "golden hour at level 8": "dtla",
     # Added in the location-column polish — high-frequency venues that fetchers leave
     # city-level ("Los Angeles") or blank. Keys must be long/distinct enough that the
