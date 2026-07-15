@@ -71,8 +71,9 @@ def test_default_index_and_dated_files():
 
 def test_consolidated_latest_wins_over_dated():
     # When a consolidated digests/latest.md exists (render_digest --consolidated), it is the
-    # default/logged-out digest AND the owner's — not the newest dated ad-hoc file. Dated files
-    # still feed the "past digests" dropdown index.
+    # default/logged-out digest AND the owner's — not the newest dated ad-hoc file. It is also
+    # the index's `latest` entry (with a content-derived dated `file` for the download name);
+    # the dated files still follow as the "past digests" dropdown.
     with tempfile.TemporaryDirectory() as td:
         root = Path(td)
         digests = _scaffold(root)
@@ -82,8 +83,29 @@ def test_consolidated_latest_wins_over_dated():
         assert (dest / "latest.md").read_text().startswith("# LA Events — 2026-06-20")  # consolidated
         h = S.profile_hash("ari", SALT)
         assert (dest / h / "latest.md").read_text().startswith("# LA Events — 2026-06-20")  # owner too
-        idx = json.loads((dest / "index.json").read_text())                # dropdown = dated files
-        assert [e["date"] for e in idx] == ["2026-06-19", "2026-06-12"]
+        idx = json.loads((dest / "index.json").read_text())
+        assert idx[0]["path"] == "latest.md" and idx[0].get("latest") is True
+        assert idx[0]["file"] == "2026-06-20.md" and idx[0]["date"] == "2026-06-20"  # from the H1
+        assert idx[0]["title"] == "LA Events — 2026-06-20"
+        assert [e["date"] for e in idx[1:]] == ["2026-06-19", "2026-06-12"]  # past digests follow
+        assert not any(e.get("latest") for e in idx[1:])
+
+
+def test_index_with_only_consolidated_latest():
+    # No dated root digests at all (fresh setup): index.json is still written, naming the
+    # consolidated doc, so the modal's download has a real dated name instead of nothing.
+    with tempfile.TemporaryDirectory() as td:
+        root = Path(td)
+        digests = root / "digests"
+        digests.mkdir(parents=True)
+        (digests / "latest.md").write_text("# LA Events — 2026-06-20\n\nConsolidated daily.\n")
+        (root / "profiles.yaml").write_text('salt: "la-events/v1:"\nprofiles: []\n')
+        dest = _run(root)
+
+        idx = json.loads((dest / "index.json").read_text())
+        assert len(idx) == 1
+        assert idx[0]["path"] == "latest.md" and idx[0]["file"] == "2026-06-20.md"
+        assert idx[0].get("latest") is True
 
 
 def test_owner_shares_root_index():
@@ -110,8 +132,11 @@ def test_friend_with_own_digest_dir():
         assert (dest / h / "latest.md").read_text().startswith("# Demo digest")
         assert (dest / h / "2026-06-19.md").is_file()
         idx = json.loads((dest / h / "index.json").read_text())
-        assert idx[0]["path"] == h + "/2026-06-19.md"     # hash-prefixed, fetched under the hash
-        assert idx[0]["title"] == "Demo digest — 6/19"
+        assert idx[0]["path"] == h + "/latest.md"         # their latest.md leads the index
+        assert idx[0].get("latest") is True
+        assert idx[0]["file"] == "latest.md"              # no ISO date in the doc -> name kept
+        assert idx[1]["path"] == h + "/2026-06-19.md"     # hash-prefixed, fetched under the hash
+        assert idx[1]["title"] == "Demo digest — 6/19"
 
 
 def test_friend_without_digest_is_skipped():

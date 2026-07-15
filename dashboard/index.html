@@ -1319,8 +1319,8 @@ class Component extends DCLogic {
 
   // ---------- digest doc (most recent digests/YYYY-MM-DD.md) ----------
   DIGEST_FILE = '2026-06-17.md';
-  DIGEST_INDEX = [];      // [{path, date, title, latest}] of selectable past digests (deploy-staged)
-  DIGEST_CURRENT = null;  // path (relative to ./digests/) of the digest currently shown in the modal
+  DIGEST_INDEX = [];      // [{path, file, date, title, latest}] of selectable past digests (deploy-staged)
+  DIGEST_CURRENT = null;  // dated file name of the digest currently shown (names the download)
   DIGEST_MD = `# LA Events — Wednesday 6/17
 
 Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Eastside-weighted, Thu–Sun heavy.
@@ -1607,7 +1607,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   downloadDigest = () => {
     try {
       const md = this.DIGEST_MD || '';
-      const stem = (this.DIGEST_CURRENT && this.DIGEST_CURRENT.split('/').pop()) || this.DIGEST_FILE || 'digest.md';
+      let stem = (this.DIGEST_CURRENT && this.DIGEST_CURRENT.split('/').pop()) || this.DIGEST_FILE || 'digest.md';
+      // 'latest.md' says nothing about WHICH digest — pull the date off the top of the doc
+      // (the consolidated H1 is "# LA Events — YYYY-MM-DD") so the saved file self-dates even
+      // on hosts with no staged index (local serve).
+      if (/^latest\.md$/i.test(stem)) { const m = md.slice(0, 400).match(/\b(\d{4}-\d{2}-\d{2})\b/); if (m) stem = m[1] + '.md'; }
       const name = ('la-events-' + stem).replace(/[^\w.\-]+/g, '-').replace(/(\.md)?$/, '.md');
       const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
       const url = URL.createObjectURL(blob);
@@ -2688,9 +2692,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .catch(() => false);
   }
   // The deploy step (scripts/stage_digests.py) writes ./digests/index.json (and ./digests/<hash>/
-  // index.json per profile), newest first. We only read it to resolve the current digest's path
-  // (DIGEST_CURRENT), which names the download file. Missing off a static host -> empty index -> the
-  // download just falls back to DIGEST_FILE.
+  // index.json per profile), newest first. We only read it to resolve the current digest's dated
+  // name (DIGEST_CURRENT), which names the download file. Missing off a static host -> empty index
+  // -> the download just falls back to DIGEST_FILE (with a date pulled from the doc itself).
   loadDigestIndex(p) {
     const idx = (p && p.hash) ? ('./digests/' + p.hash + '/index.json') : './digests/index.json';
     return fetch(idx, { cache: 'no-store' })
@@ -2698,7 +2702,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .then(list => {
         this.DIGEST_INDEX = Array.isArray(list) ? list : [];
         const cur = this.DIGEST_INDEX.find(e => e.latest) || this.DIGEST_INDEX[0] || null;
-        this.DIGEST_CURRENT = cur ? cur.path : null;
+        // Prefer `file` (the entry's dated name — for the latest entry it's derived from the doc
+        // itself) over `path` ("latest.md"), so the download is named after the digest shown.
+        this.DIGEST_CURRENT = cur ? (cur.file || cur.path) : null;
         this.forceUpdate();
       })
       .catch(() => { this.DIGEST_INDEX = []; this.DIGEST_CURRENT = null; this.forceUpdate(); });

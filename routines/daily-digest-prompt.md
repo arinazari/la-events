@@ -118,6 +118,12 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
 8. **Per-profile digests (regenerate only when picks moved — saves tokens, but always honest):**
    for each profile in `profiles.yaml`, first GATE on whether its picks actually changed:
    `python scripts/digest_gate.py decide --feed dashboard/data.<hash>.json --md digests/<hash>/latest.md`
+   - **Owner profile (`owner: true` / `profile.owner` in the feed) — copy, never prose:** its taste
+     IS the root taste, so on REGENERATE do NOT write new prose and NEVER a stub/pointer ("see
+     digests/latest.md") — run `cp digests/latest.md digests/<hash>/latest.md`, then STAMP as
+     below. The committed file must always BE the full digest: GitHub and locally-served
+     dashboards read it directly (the deploy re-copies the same content for the live site, so a
+     stub hides there but breaks everywhere else).
    - Prints **SKIP** → the profile's top picks haven't moved since the last regeneration, so the
      prose would say the same thing. **Do NOT call the LLM.** The gate has already refreshed the
      digest's one-line freshness stamp to "regenerated <when> · checked <today> · no new picks since",
@@ -132,9 +138,10 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
      (presentation only). The gate already folds these prefs into its signature, so a format change
      triggers exactly one REGENERATE here. Then STAMP so the gate records the new signature + writes the freshness line:
      `python scripts/digest_gate.py stamp --feed dashboard/data.<hash>.json --md digests/<hash>/latest.md`
-   The dashboard's profile popup reads `digests/<hash>/latest.md`. (An `owner: true` profile shares the
-   root taste.yaml, so its digest ≈ the default — expected.) Friends' feeds re-rank within ~1–2 min of a
-   self-edit via CI; their *narrative* digest refreshes here only when their picks actually move.
+   The dashboard's profile popup reads `digests/<hash>/latest.md`. (The `owner: true` profile's file
+   is an exact copy of the consolidated digest — first bullet above — never a stub.) Friends' feeds
+   re-rank within ~1–2 min of a self-edit via CI; their *narrative* digest refreshes here only when
+   their picks actually move.
 9. Commit catalog + **`data/catalog_meta.json`** (the version stamp the dashboard's staleness
    check keys off — written by `run_digest`) + `data/enrichment.json` + `data/verdicts/` +
    **`digests/latest.md`** (the consolidated digest) + `radar-candidates.md`

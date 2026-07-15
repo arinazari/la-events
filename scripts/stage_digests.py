@@ -87,15 +87,43 @@ def digest_title(path: Path) -> str:
     return ""
 
 
-def build_index(dated, prefix: str = ""):
+DATE_RE = re.compile(r"\b(\d{4}-\d{2}-\d{2})\b")
+
+
+def digest_date(path: Path) -> str:
+    """ISO date from the digest's first few lines (the consolidated H1 is
+    '# LA Events — YYYY-MM-DD'). Empty if none — the index entry then keeps `latest.md`."""
+    try:
+        for line in path.read_text(encoding="utf-8").splitlines()[:5]:
+            m = DATE_RE.search(line)
+            if m:
+                return m.group(1)
+    except OSError:
+        pass
+    return ""
+
+
+def build_index(dated, prefix: str = "", latest_src: Path | None = None):
     """[{path, file, date, title, latest}] for `dated` (ascending paths), newest first.
-    `prefix` is prepended to each path so the page can fetch it relative to ./digests/."""
+    `prefix` is prepended to each path so the page can fetch it relative to ./digests/.
+    `latest_src` — the doc actually staged as latest.md — becomes the first, `latest: true`
+    entry; its `file` carries a content-derived dated name so the modal's download isn't
+    named after a stale past digest (the dated files can lag latest.md by weeks)."""
     entries = [
         {"path": prefix + p.name, "file": p.name, "date": p.stem, "title": digest_title(p)}
         for p in sorted(dated)
     ]
     entries.reverse()                  # newest first (the page shows it as "latest")
-    if entries:
+    if latest_src is not None:
+        d = digest_date(latest_src)
+        entries.insert(0, {
+            "path": prefix + "latest.md",
+            "file": (d + ".md") if d else "latest.md",
+            "date": d,
+            "title": digest_title(latest_src),
+            "latest": True,
+        })
+    elif entries:
         entries[0]["latest"] = True
     return entries
 
@@ -129,8 +157,11 @@ def main(argv=None) -> int:
         print(f"staged {default_src.name} -> {dest.name}/latest.md")
     for d in dated:                    # every dated digest, so the modal can show past ones
         shutil.copy(d, dest / d.name)
-    default_index = build_index(dated)        # root-relative paths ("<date>.md") for the dropdown
-    if dated:
+    # Root-relative paths ("<date>.md") for the dropdown. When the consolidated doc is what got
+    # staged as latest.md, IT is the index's `latest` entry — naming the download after the digest
+    # actually displayed, not after a possibly weeks-old dated file.
+    default_index = build_index(dated, latest_src=(default_src if default_src == consolidated else None))
+    if default_index:
         write_json(dest / "index.json", default_index)
         print(f"staged {len(dated)} dated digest(s) + index.json -> {dest.name}/")
     if not default_src:
@@ -168,8 +199,10 @@ def main(argv=None) -> int:
             shutil.copy(src_latest, dest / h / "latest.md")
             for d in d_dated:                          # stage this profile's past digests
                 shutil.copy(d, dest / h / d.name)
-            if d_dated:
-                write_json(dest / h / "index.json", build_index(d_dated, prefix=h + "/"))
+            f_index = build_index(d_dated, prefix=h + "/",
+                                  latest_src=(d_latest if d_latest.is_file() else None))
+            if f_index:
+                write_json(dest / h / "index.json", f_index)
             print(f"staged {p['digest']} -> {dest.name}/{h}/ ({u})")
 
     # Generic sweep: publish any per-profile digest written directly as digests/<hash>/latest.md
@@ -186,8 +219,8 @@ def main(argv=None) -> int:
         d_dated = sorted(d.glob(DATED_GLOB))
         for dd in d_dated:
             shutil.copy(dd, dest / d.name / dd.name)
-        if d_dated:
-            write_json(dest / d.name / "index.json", build_index(d_dated, prefix=d.name + "/"))
+        write_json(dest / d.name / "index.json",
+                   build_index(d_dated, prefix=d.name + "/", latest_src=latest))
         print(f"swept digests/{d.name} -> {dest.name}/{d.name}/")
     return 0
 
