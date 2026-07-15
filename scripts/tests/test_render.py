@@ -75,6 +75,33 @@ def test_collapse_multidate_runs():
     assert "Saturday" not in md                                    # placed once, earliest day
 
 
+def test_collapse_same_film_across_theaters():
+    """A film groups by CORE TITLE across theaters (lib/series): one card, the other venue
+    teased apart with its own ticket link, plus the external LA-showtimes search."""
+    runs = [
+        {"title": "The Odyssey (70mm)", "venue": "Vista Theater", "iso_date": "2026-06-19",
+         "start": "20:00", "score": 6, "rating": 4, "category": "film",
+         "links": [{"source": "vista", "url": "https://tix/vista"}]},
+        {"title": "The Odyssey 70MM", "venue": "Egyptian Theatre", "iso_date": "2026-06-20",
+         "start": "19:30", "score": 5, "rating": 4, "category": "film",
+         "links": [{"source": "jsonld", "url": "https://tix/egyptian"}]},
+    ]
+    md = R.render_markdown({"today": "2026-06-17", "candidates": runs}, runs)
+    assert md.count("The Odyssey") == 1                            # one card, not per-theater
+    assert "Fri 6/19 + Sat 6/20" in md                             # both dates carried
+    assert "also at [Egyptian Theatre](https://tix/egyptian)" in md  # venue teased apart, linked
+    assert "more LA showtimes" in md and "google.com/search" in md   # theaters we don't fetch
+    # …and two DIFFERENT films at one theater stay two cards.
+    two = [
+        {"title": "Starman", "venue": "Vista Theater", "iso_date": "2026-06-19", "score": 5,
+         "rating": 4, "category": "film", "links": []},
+        {"title": "The Petrified Forest", "venue": "Vista Theater", "iso_date": "2026-06-19",
+         "score": 5, "rating": 4, "category": "film", "links": []},
+    ]
+    md2 = R.render_markdown({"today": "2026-06-17", "candidates": two}, two)
+    assert "Starman" in md2 and "The Petrified Forest" in md2
+
+
 def _dm_cands():
     great = {"title": "Great9", "iso_date": "2026-06-20", "venue": "V1", "score": 9,
              "category": "electronic", "links": [], "verdict": {"tier": "great", "why": "strong bill"}}

@@ -475,6 +475,17 @@
                         </sc-for>
                         <span onClick="{{ ev.icsClick }}" title="Download .ics — add to your calendar" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#2b5cd9; background:#f4f7fe; color:#2b5cd9;">Add to calendar ↓</span>
                       </div>
+                      <sc-if value="{{ ev.hasSeries }}" hint-placeholder-val="{{ false }}">
+                        <div style="margin-top:14px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:8px;">ALSO SHOWING</div>
+                        <div style="display:flex; flex-wrap:wrap; gap:6px; max-width:280px;">
+                          <sc-for list="{{ ev.seriesChipRows }}" as="sd">
+                            <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:5px 7px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:2px; text-decoration: {{ sd.deco }};" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ sd.label }}</a>
+                          </sc-for>
+                          <sc-if value="{{ ev.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
+                            <span style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:5px 7px; color:#a7a59b;">{{ ev.seriesMore }}</span>
+                          </sc-if>
+                        </div>
+                      </sc-if>
                     </div>
                   </div>
                 </td>
@@ -527,6 +538,17 @@
                 <div style="font-size:12.5px; line-height:1.5; color:#161512;">{{ ev.lineupStr }}</div>
                 <div style="margin-top:13px; font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.venueLine }}</div>
                 <div style="font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.priceLine }}</div>
+                <sc-if value="{{ ev.hasSeries }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">ALSO SHOWING</div>
+                  <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                    <sc-for list="{{ ev.seriesChipRows }}" as="sd">
+                      <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" style="font:500 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:2px; text-decoration: {{ sd.deco }};">{{ sd.label }}</a>
+                    </sc-for>
+                    <sc-if value="{{ ev.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
+                      <span style="font:500 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; color:#a7a59b;">{{ ev.seriesMore }}</span>
+                    </sc-if>
+                  </div>
+                </sc-if>
                 <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:13px;">
                   <sc-for list="{{ ev.links }}" as="lk">
                     <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:3px; text-decoration:none;">{{ lk.label }} ↗</a>
@@ -1030,6 +1052,10 @@ class Component extends DCLogic {
 
   computedBadges(e) {
     const arr = [];
+    if (e.series && e.series.count > 1) {
+      const nv = (e.series.venues || []).length;
+      arr.push(nv > 1 ? (e.series.count + ' dates · ' + nv + ' theaters') : (e.series.count + ' nights'));
+    }
     if (e.ra) arr.push('RA pick');
     if (e.ah) arr.push('afterhours');
     for (const b of e.xb) arr.push(b);
@@ -1061,7 +1087,29 @@ class Component extends DCLogic {
       out.push({ label: this.linkLabel(l), url: l.url, stop });
     }
     if (!out.length && e.url) out.push({ label: 'Tickets', url: e.url, stop });
+    // Films: an external showtimes search covering the LA theaters that aren't fetch sources.
+    if (e.showtimesUrl) out.push({ label: 'All LA showtimes', url: e.showtimesUrl, stop });
     return out;
+  }
+
+  // "Also showing" chips for a series card: the run's OTHER nights (this row's own night is the
+  // card itself), each linking straight to that night's tickets. Capped so a long run can't
+  // swallow the card; the overflow count is stated rather than silently dropped.
+  SERIES_CHIP_MAX = 10;
+  seriesChips(e) {
+    if (!e.series || !(e.series.entries || []).length) return { chips: [], more: '' };
+    const stop = (ev) => { ev.stopPropagation(); };
+    const multiVenue = (e.series.venues || []).length > 1;
+    const others = e.series.entries.filter(en => !(en.date === e.iso && en.venue === e.venue));
+    const chips = [];
+    for (const en of others.slice(0, this.SERIES_CHIP_MAX)) {
+      let label = this.labelISO(en.date);
+      if (multiVenue && en.venue) label += ' · ' + en.venue;
+      if (en.sold_out) label += ' · sold out';
+      chips.push({ label, url: en.url || e.showtimesUrl || e.url || '#', dim: !!en.sold_out, stop });
+    }
+    const extra = others.length - chips.length;
+    return { chips, more: extra > 0 ? '+' + extra + ' more dates' : '' };
   }
 
   // ---------- ICS export (RFC 5545) ----------
@@ -1157,9 +1205,30 @@ class Component extends DCLogic {
       hood: (a, b) => a.hood.localeCompare(b.hood),
       cat: (a, b) => a.cat.localeCompare(b.cat) || a.genre.localeCompare(b.genre),
       source: (a, b) => a.source.localeCompare(b.source),
-      rank: (a, b) => ((a.final_rank == null ? 1e9 : a.final_rank) - (b.final_rank == null ? 1e9 : b.final_rank)) || (a.sortDate - b.sortDate)
+      rank: (a, b) => (this.effRank(a) - this.effRank(b)) || (a.sortDate - b.sortDate)
     }[sortKey] || ((a, b) => a.sortDate - b.sortDate);
     return [...list].sort((a, b) => cmp(a, b) * dir);
+  }
+
+  // The program's rank: a series rep carries final_rank, its sibling nights carry series_rank
+  // (the same number), so a date filter that clips the rep still sorts the run where it belongs.
+  effRank(e) { return e.final_rank != null ? e.final_rank : (e.seriesRank != null ? e.seriesRank : 1e9); }
+
+  // One row per PROGRAM for rank-ordered surfaces: among the rows in `list`, keep each series'
+  // best member (the rep when visible, else the earliest surviving night). Date-ordered views
+  // keep every night — a calendar should show them; a ranking shouldn't repeat itself.
+  collapseSeries(list) {
+    const best = new Map();
+    for (const e of list) {
+      if (!e.seriesKey) continue;
+      const cur = best.get(e.seriesKey);
+      if (!cur || (e.seriesRep && !cur.seriesRep)
+          || (e.seriesRep === cur.seriesRep && (this.effRank(e) < this.effRank(cur)
+              || (this.effRank(e) === this.effRank(cur) && e.iso < cur.iso)))) {
+        best.set(e.seriesKey, e);
+      }
+    }
+    return list.filter(e => !e.seriesKey || best.get(e.seriesKey) === e);
   }
 
   // ---------- range ----------
@@ -2454,8 +2523,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
   sortForChat(list, spec) {
     const today = this.TODAY;
-    const out = (list || []).filter(e => e.iso >= today);
-    const rk = e => (e.final_rank == null ? 1e9 : e.final_rank);   // global rank; unranked sink, mirrors the table
+    // One row per program (a 15-night film run is one pick, not three of the top three), ranked
+    // by the program's rank — mirrors the table's rank view.
+    const out = this.collapseSeries((list || []).filter(e => e.iso >= today));
+    const rk = e => this.effRank(e);
     out.sort((a, b) => (spec.sortBy === 'date')
       ? (a.iso.localeCompare(b.iso) || rk(a) - rk(b))
       : (rk(a) - rk(b) || a.iso.localeCompare(b.iso)));
@@ -2649,6 +2720,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       source: this.normSource((Array.isArray(r.sources) && r.sources[0]) || r.source || (links[0] && links[0].source)),
       ra, ah, score, rating: (typeof r.rating === 'number' ? r.rating : null),
       final_rank: (typeof r.final_rank === 'number' ? r.final_rank : null),
+      // Series consolidation (lib/series.py): a multi-night run / cross-theater film ranks once.
+      // The rep night carries final_rank; sibling nights carry series_rank (the rep's rank) and
+      // every member carries the run summary so any night can render the full run in its card.
+      seriesKey: r.series_key || null,
+      seriesRep: !!r.series_rep,
+      seriesRank: (typeof r.series_rank === 'number' ? r.series_rank : null),
+      series: (r.series && typeof r.series === 'object') ? r.series : null,
+      showtimesUrl: r.showtimes_url || null,
       verdict: r.verdict || null,
       why,
       detail: r.detail || '',
@@ -2794,6 +2873,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     base = base.filter(e => this.passesColFilters(e));
     const q = (this.state.search || '').trim().toLowerCase();
     if (q) base = base.filter(e => (e.title + ' ' + e.venue + ' ' + e.hood + ' ' + e.cat + ' ' + e.genre + ' ' + e.source + ' ' + e.lineup.join(' ')).toLowerCase().includes(q));
+    if (sortKey === 'rank') base = this.collapseSeries(base);   // a ranking shows each program once
     const sorted = this.sortedRows(base);
 
     const cf = this.state.colFilters;
@@ -2835,6 +2915,13 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       lineupStr: e.lineup.join('  \u00b7  '),
       venueLine: e.venue + ' (' + e.hood + ')',
       priceLine: this.priceLabel(e) + (e.ah ? '  \u00b7  afterhours' : '') + '  \u00b7  ' + e.wd + ' ' + e.md + ' ' + e.t,
+      ...(() => { const sc = this.seriesChips(e); return {
+        hasSeries: sc.chips.length > 0,
+        seriesChipRows: sc.chips.map(c => ({ label: c.label, url: c.url, stop: c.stop,
+          color: c.dim ? '#a29a90' : '#3f3d36', border: c.dim ? '#dedcd4' : '#c9c7bd',
+          deco: c.dim ? 'line-through' : 'none' })),
+        seriesMore: sc.more, hasSeriesMore: !!sc.more,
+      }; })(),
       links: this.linksFor(e),
       expanded: e.id === expandedId,
       caret: e.id === expandedId ? '\u25be' : '\u25b8',

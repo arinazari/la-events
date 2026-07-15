@@ -22,7 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
-from lib.dedupe import normalize  # noqa: E402
+from lib.series import series_key, is_film, showtimes_url  # noqa: E402
 from lib.config import load_taste, load_profile, load_digest_prefs  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
 from lib.affinity import ambiguous_set  # noqa: E402  (gates title-token artist-bio folds)
@@ -173,11 +173,14 @@ def fmt_dates(isos: list) -> str:
 
 
 def collapse_runs(cands: list) -> list:
-    """Collapse the same event across dates (same normalized title+venue) into one entry,
-    carrying all its dates — multi-night runs and recurring weeklies show once, not per day."""
+    """Collapse the same PROGRAM across dates into one entry carrying all its dates — multi-night
+    runs and recurring weeklies show once, not per day. Grouping is lib/series.series_key: films
+    group by core title ACROSS theaters (the movie is the program; '(70mm)' at the Vista and the
+    same film at the Egyptian are one card, venues teased apart via `_venues`/`_links_by_venue`),
+    everything else by title+venue as always. Ungroupable rows (no title) pass through solo."""
     groups, order = {}, []
-    for ev in cands:
-        k = (normalize(ev.get("title", "")), normalize(ev.get("venue", "")))
+    for i, ev in enumerate(cands):
+        k = series_key(ev) or f"solo:{i}"
         if k not in groups:
             groups[k] = []
             order.append(k)
@@ -188,6 +191,14 @@ def collapse_runs(cands: list) -> list:
         rep = dict(evs[0])
         rep["_dates"] = sorted({e.get("iso_date") for e in evs if e.get("iso_date")})
         rep["_earliest"] = rep["_dates"][0] if rep["_dates"] else (rep.get("iso_date") or "")
+        venues, by_venue = [], {}
+        for e in sorted(evs, key=lambda e: e.get("iso_date") or ""):
+            v = e.get("venue")
+            if v and v not in venues:
+                venues.append(v)
+                by_venue[v] = _link(e)
+        rep["_venues"] = venues
+        rep["_links_by_venue"] = by_venue
         rows.append(rep)
     return rows
 
@@ -222,7 +233,16 @@ def event_md(ev: dict) -> str:
     upd_note = f"↻ updated ({', '.join(upd)})" if upd else ""
     title, url = ev.get("title") or "Untitled", _link(ev)
     head = f"[{title}]({url})" if url else title
-    tail = " · ".join(x for x in (_loc(ev), ev.get("price"), upd_note) if x)
+    # A cross-theater film run teases the other venues apart (each linked to ITS tickets), and
+    # any film gets the external showtimes search — the LA theaters that aren't fetch sources.
+    also_at = ""
+    others = [v for v in (ev.get("_venues") or []) if v != ev.get("venue")]
+    if others:
+        by_venue = ev.get("_links_by_venue") or {}
+        also_at = "also at " + ", ".join(
+            f"[{v}]({by_venue[v]})" if by_venue.get(v) else v for v in others[:3])
+    more = f"[more LA showtimes]({showtimes_url(title)})" if is_film(ev) else ""
+    tail = " · ".join(x for x in (_loc(ev), also_at, ev.get("price"), upd_note, more) if x)
     line = f"- `{time}`{span} {pick}{fresh}**{head}**" + (f" — {tail}" if tail else "")
     note = e.get("curator_note") or _gloss(ev)
     if note:
@@ -332,12 +352,13 @@ def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
             uniq.append(ev)
     uniq.sort(key=lambda e: (-_DM_TIER.get((e.get("verdict") or {}).get("tier"), 0),
                              -(e.get("score") or 0), e.get("iso_date") or "9999-12-31"))
-    # Collapse multi-night runs (same normalized title+venue) so one festival/residency can't
-    # eat several of the shelf's slots — the best-ranked night represents the run, matching the
-    # day-by-day body's collapse_runs convention.
+    # Collapse multi-night runs so one festival/residency/film run can't eat several of the
+    # shelf's slots — the best-ranked night represents the program, matching the day-by-day
+    # body's collapse_runs convention (lib/series: films group cross-theater, the rest by
+    # title+venue).
     runs, uniq2 = set(), []
-    for ev in uniq:
-        rk = (normalize(ev.get("title") or ""), normalize(ev.get("venue") or ""))
+    for i, ev in enumerate(uniq):
+        rk = series_key(ev) or f"solo:{i}"
         if rk in runs:
             continue
         runs.add(rk)

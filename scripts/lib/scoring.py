@@ -189,6 +189,26 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         score += 1
         reasons.append("+1 venue you love")
 
+    # Film taste (taste.yaml `film:` block) — the MOVIE, not just the room (venues_loved already
+    # covers the theater). Directors work like tracked artists (+2 each, matched wherever the
+    # listing carries them); loved formats (+1 each) reward the print-and-projector draw ("70mm"
+    # in the title beats a stream). Gated to film-typed events so a director's name in a club
+    # bio or a "35mm slides" art talk can't fire. The same block rides in the event-editor's
+    # taste brief, so the LLM layer can also weigh what it KNOWS about a film (director, rep-canon
+    # status) beyond what the listing text says.
+    film_cfg = taste.get("film") or {}
+    if film_cfg and (cat == "film" or ((ev.get("tags") or {}).get("type")) == "film"):
+        d_hits = [str(d) for d in (film_cfg.get("directors_tracked") or [])
+                  if d and re.search(r"\b" + re.escape(str(d).lower()) + r"\b", hay)]
+        if d_hits:
+            score += 2 * len(d_hits)
+            reasons.append(f"+{2 * len(d_hits)} tracked director ({', '.join(d_hits)})")
+        f_hits = [str(f) for f in (film_cfg.get("formats_loved") or [])
+                  if f and re.search(r"\b" + re.escape(str(f).lower()) + r"\b", hay)]
+        if f_hits:
+            score += len(f_hits)
+            reasons.append(f"+{len(f_hits)} loved film format ({', '.join(f_hits)})")
+
     # Afterhours / warehouse / late start (catalog field is `afterhours`).
     if ev.get("afterhours") or ev.get("afterhours_flag"):
         score += 1
