@@ -223,10 +223,6 @@ def main() -> int:
                          "Lets the rebuild-profile workflow target a profile by its public hash, "
                          "since the dashboard only knows the hash, not the username.")
     ap.add_argument("--skip-default", action="store_true", help="don't rebuild dashboard/data.json")
-    ap.add_argument("--include-default", action="store_true",
-                    help="rebuild dashboard/data.json even when restricted to --only/--only-hash. "
-                         "The nightly routine uses this to build default + owner + the refresh-gate's "
-                         "REFRESH profiles in one pass while skipping unchanged friends.")
     ap.add_argument("--inject-only", action="store_true",
                     help="don't re-score — only (re)inject the profile block (taste/profile YAML + "
                          "self_edit diff) into existing feeds. Safe backfill that preserves the scored "
@@ -243,9 +239,8 @@ def main() -> int:
     failed = []   # usernames whose feed build failed this run (surfaced in the summary; never fatal)
 
     # Default feed (root taste/profile -> data.json), unless restricted to --only(-hash)/--skip-default.
-    # --include-default overrides the restriction. --inject-only never touches the default feed
-    # (it carries no profile block).
-    if not args.skip_default and (not restricted or args.include_default) and not args.inject_only:
+    # --inject-only never touches the default feed (it carries no profile block).
+    if not args.skip_default and not restricted and not args.inject_only:
         print("default -> dashboard/data.json")
         if run_build("taste.yaml", "profile.yaml", DASH / "data.json",
                      editor_pool_out=str(REPO / "data" / "editor_pool.json")):

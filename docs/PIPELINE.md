@@ -12,21 +12,24 @@ price / lineup / door-time / sold-out changes all move it; merely re-seeing an u
 not. So both the automatic (nightly) and on-demand (button) paths are cheap by construction — work
 only happens where something actually changed.
 
-**Per-profile exception (policy 2026-07): for friends' profiles, catalog movement alone is NOT a
-trigger.** A friend's personal layer — feed re-rank, per-profile verdicts, narrative digest — refreshes
-on exactly two signals: (1) **their own config changed** (taste.yaml / profile.yaml / digest.yaml /
-feedback log) since their last enrichment — `scripts/profile_refresh_gate.py` is the nightly decision;
-or (2) **they refresh it themselves** ("Update my ranking & digest"). The dashboard keeps the model
+**Per-profile exception (policy 2026-07): for friends' profiles, catalog movement alone does not
+trigger the LLM layer.** The deterministic feed re-rank stays nightly for **everyone** — it's free
+and keeps every table current (new events in, expired out, cached verdicts folded). But a friend's
+**curated layer** — per-profile event-editor verdicts + the narrative digest — refreshes on exactly
+two signals: (1) **their own config changed** (taste.yaml / profile.yaml / digest.yaml / feedback
+log) since their last enrichment — `scripts/profile_refresh_gate.py` is the nightly decision; or
+(2) **they refresh it themselves** ("Update my ranking & digest"). The dashboard keeps the model
 honest: the staleness badge lights as before, and a **refresh-nudge popup** (once/day max) explains
-how it works and offers the Update whenever a signed-in profile's ranking is 3+ days old or the person
-is back after 3+ days away. The default (logged-out) feed, the owner's feed, and the consolidated
-digest still rebuild nightly — they ARE the canonical product.
+how it works and offers the Update whenever a signed-in profile's curated layer (the git-baked
+`self_edit.enriched_at`) is 3+ days old or the person is back after 3+ days away. The default
+(logged-out) feed, the owner, and the consolidated digest keep the full nightly treatment — they
+ARE the canonical product.
 
 ## Triggers (every entry point)
 
 | Trigger | Fires | Runs | LLM cost | Gate that prevents waste |
 |---|---|---|---|---|
-| **Daily routine** (`routines/daily-digest-prompt.md`) | scheduled (cron) → commits `main` | fetch → dedupe → score → editor → enrich → render consolidated + weekend look-aheads → build default+owner feeds → **taste-change gate** → per-profile pass (REFRESH profiles only) → commit → deploy | editor (delta only), enrich (misses only), consolidated intro, per-profile editor+narrative (taste-gated) | editor=`select_for_verdict`, enrich=`select_for_enrichment` write-once, friends=`profile_refresh_gate` (taste changed since last enrichment — catalog movement doesn't count), subagents pinned Sonnet |
+| **Daily routine** (`routines/daily-digest-prompt.md`) | scheduled (cron) → commits `main` | fetch → dedupe → score → editor → enrich → render consolidated + weekend look-aheads → build ALL feeds (deterministic) → **taste-change gate** → per-profile LLM pass (REFRESH profiles only) → commit → deploy | editor (delta only), enrich (misses only), consolidated intro, per-profile editor+narrative (taste-gated) | editor=`select_for_verdict`, enrich=`select_for_enrichment` write-once, friends' LLM layer=`profile_refresh_gate` (taste changed since last enrichment — catalog movement doesn't count), subagents pinned Sonnet |
 | **Owner "Refresh events DB"** | page → Worker `/refresh-events` → `refresh-events.yml` | deterministic: fetch → catalog → default feed → render consolidated → commit → deploy | **none** | Worker **debounce** (`REFRESH_MIN_MINUTES`, default 15) → 429 if pulled recently |
 | **User "Update my ranking & digest"** | page → Worker `/rebuild-profile` → `rebuild-profile.yml` | deterministic feed (commit), then full LLM pass (editor + enrich + narrative) for **one** profile | medium (1 profile, Sonnet) | client enables only when `feedStale ‖ tasteDirty` + busy-lock; deterministic feed lands even if the LLM step times out |
 | **Concierge taste/profile self-edit** | Worker commits YAML → `build-profiles.yml` (path filter) | deterministic re-score of that one feed → commit → deploy | **none** (defers the narrative to Update) | path-filtered to `profiles/**/taste.yaml` + `profiles.yaml`; client marks the profile "dirty" |
@@ -110,7 +113,7 @@ no backend; the static page just renders it.
 | **blurb-writer** (Tier 2 cheap enrichment, band below head) | routine | event already has a cache record (`select_for_blurb`) | Haiku, gaps only, no web |
 | consolidated voice pass (Tier-3: intro + Don't-miss whys + Around-town gloss, routine step 5b) | every routine run | — (cheap; the slate/sections are deterministic scaffold, the pass fills marked slots only) | small |
 | **per-profile narrative** | routine (gate-REFRESH profiles) + per-user rebuild | `profile_refresh_gate` says SKIP (nightly), i.e. taste unchanged — picks moving with the catalog no longer regenerates it | gated; one narrative per *taste-changed* profile |
-| `build_dashboard` / `build_profiles` | end of routine (default + owner + gate-REFRESH profiles) / on edit / per-user rebuild | SKIP profiles' feeds left byte-identical (their staleness badge + the 3-day nudge hand refresh to the user) | none |
+| `build_dashboard` / `build_profiles` | end of routine (ALL feeds, nightly) / on edit / per-user rebuild | — (deterministic, free; folds each profile's *cached* verdicts — fresh ones only arrive via the gate or an Update) | none |
 | renderers (`render_digest`) | every routine run | — (deterministic) | none |
 
 ## Cost ledger — where tokens go, and the bound on each
@@ -129,11 +132,12 @@ no backend; the static page just renders it.
    band below the head): one description line, write-once, for events with no cache record (events
    carrying source `detail` still get a clean line; raw detail is the display fallback for un-blurbed
    events); Haiku, no web. Both amortize to the daily delta.
-3. **Per-profile passes (friends)** — the whole per-profile slice (feed rebuild + editor verdicts +
-   narrative) runs nightly only for profiles whose OWN config changed since their last enrichment
-   (`profile_refresh_gate`); catalog movement doesn't count. On a night with no taste edits this is
-   **0 LLM calls and 0 feed rebuilds** across all friends; it scales with *edited* profiles, not all
-   profiles. Everyone still has the on-demand Update, and the dashboard nudges them after 3 days.
+3. **Per-profile LLM passes (friends)** — the editor verdicts + narrative run nightly only for
+   profiles whose OWN config changed since their last enrichment (`profile_refresh_gate`); catalog
+   movement doesn't count. On a night with no taste edits this is **0 LLM calls** across all
+   friends; it scales with *edited* profiles, not all profiles. (The deterministic feed rebuild
+   stays nightly for everyone — free — so tables never go stale, only the curated layer waits.)
+   Everyone still has the on-demand Update, and the dashboard nudges them after 3 days.
 4. **Consolidated voice pass** (Tier-3, routine step 5b) — small, every run: the intro slot,
    the Don't-miss whys (prefilled deterministically from verdicts/curator notes; the pass
    rewrites for voice), an optional Around-town gloss. Fills marked slots only — never
@@ -149,21 +153,22 @@ no backend; the static page just renders it.
 
 ## On-demand vs automatic — quick guide
 
-- **Happens automatically (nightly):** full fetch, re-rank of the default + owner feeds, shared
-  enrichment, the consolidated digest + weekend look-aheads — plus the full per-profile pass for any
-  friend whose taste/profile/prefs/feedback changed since their last enrichment (the gate). Friends
-  with no change are left byte-identical.
+- **Happens automatically (nightly):** full fetch, deterministic re-rank of EVERY feed (default +
+  all profiles — tables stay current), shared enrichment, the consolidated digest + weekend
+  look-aheads — plus the per-profile LLM pass (verdicts + narrative) for any friend whose
+  taste/profile/prefs/feedback changed since their last enrichment (the gate). Unchanged friends'
+  verdicts + digests are left as-committed.
 - **Owner clicks Refresh:** intra-day catalog refresh for everyone (deterministic; others then see
   their feed flagged stale and self-update). Debounced.
 - **User clicks Update:** that one person's full LLM re-rank + digest, against the latest catalog —
-  the primary way a friend's picks catch up with the catalog.
+  the way their curated layer (verdicts + digest) catches up with the moving catalog.
 - **User edits taste/profile via concierge:** that one feed re-scores in ~1–2 min (deterministic);
   the same edit opens the nightly gate, so the full LLM pass lands the following night even if they
   never click Update.
 - **User connects Spotify:** that one feed re-ranks to their listening.
-- **User goes quiet:** nothing runs for them. Once their ranking is 3+ days old (or they return
-  after 3+ days), the dashboard's refresh-nudge popup explains the model and offers the Update —
-  at most once per day.
+- **User goes quiet:** only the free nightly re-rank runs for them. Once their curated layer is 3+
+  days old (or they return after 3+ days), the dashboard's refresh-nudge popup explains the model
+  and offers the Update — at most once per day.
 
 ## Knobs
 
@@ -177,7 +182,7 @@ no backend; the static page just renders it.
 | `--blurb-window` / `--blurb-top` | `run_digest` | 35d / 0 | blurb (cheap-tier) pool span (the real bound) + optional safety cap (0 = off, cover the whole window) |
 | `refresh_days` | `select_for_verdict` / `select_for_enrichment` | `None` (write-once) | optional periodic re-judge / re-research |
 | `--top-n` | `digest_gate` | 25 | how many picks define a digest's signature |
-| `NUDGE_AFTER_DAYS` | `dashboard/index.html` | 3 | days before the refresh-nudge popup offers a signed-in profile the Update |
+| `NUDGE_AFTER_DAYS` | `dashboard/index.html` | 3 | curated-layer age (or days away) before the refresh-nudge popup offers a signed-in profile the Update |
 
 ## File map
 

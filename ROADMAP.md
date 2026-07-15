@@ -483,18 +483,20 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
     and costs tokens / a few minutes per click; it syncs that profile's Spotify first so a single-profile
     build keeps its music layer. (Owner nuance: the owner's *displayed* digest is the shared consolidated
     one — refreshed nightly / on a full refresh — while their feed ranking updates on click like everyone.)
-- [x] **Per-profile refresh is taste-gated + user-driven, not nightly (2026-07-15)** — friends'
-  personalization (feed re-rank, per-profile verdicts, narrative digest) no longer reapplies every
-  night as the catalog moves. It refreshes on exactly two signals: **their config changed**
-  (taste/profile/digest-prefs/feedback since their last enrichment — `scripts/profile_refresh_gate.py`,
-  the git-derived nightly gate, same content-based bar as the reflected badge) or **they hit Update**
-  (the existing rebuild-profile path, unchanged). SKIP profiles are left byte-identical (honest
-  staleness). The dashboard adds a **refresh-nudge popup**: once a signed-in ranking is 3+ days old
-  (or the person returns after 3+ days away) and an Update would fold something in, it explains the
-  model — DB nightly, personal layer on taste-change/Update — and offers the Update; snoozes a day
-  on "Not now", never fires logged-out or over the first-run tour. Default + owner + consolidated
-  digest still rebuild nightly. (`build_profiles --include-default` lets the routine build
-  default + owner + gate-REFRESH feeds in one pass; docs/PIPELINE.md updated.)
+- [x] **Per-profile LLM refresh is taste-gated + user-driven, not nightly (2026-07-15)** — friends'
+  curated layer (per-profile event-editor verdicts + narrative digest) no longer reruns every night
+  as the catalog moves; the **deterministic feed re-rank stays nightly for everyone** (free — new
+  events in, expired out, cached verdicts folded), so only the paid layer waits. It refreshes on
+  exactly two signals: **their config changed** (taste/profile/digest-prefs/feedback since their
+  last enrichment — `scripts/profile_refresh_gate.py`, the git-derived nightly gate, same
+  content-based bar as the reflected badge) or **they hit Update** (the existing rebuild-profile
+  path, unchanged). SKIP profiles' verdicts/digests stay as-committed (honest "last refreshed"
+  dates). The dashboard adds a **refresh-nudge popup**: once a signed-in profile's curated layer
+  (`self_edit.enriched_at`) is 3+ days old — or the person returns after 3+ days away with an
+  Update pending — it explains the model (table nightly; curated layer on taste-change/Update) and
+  offers the Update; snoozes a day on "Not now", never fires logged-out or over the first-run
+  tour. Default + owner + consolidated digest keep the full nightly treatment. (docs/PIPELINE.md
+  is the reference.)
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).

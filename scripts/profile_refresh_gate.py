@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """Per-profile nightly refresh gate — friends' LLM passes run on TASTE change, not catalog change.
 
-Policy (2026-07): a friend's personalized layer — their deterministic feed rebuild, per-profile
-event-editor verdicts, and narrative digest — is NOT reapplied every night just because the events
-catalog moved. It refreshes only when:
+Policy (2026-07): a friend's per-profile LLM pass — event-editor verdicts + the narrative digest —
+is NOT rerun every night just because the events catalog moved. (The deterministic feed re-rank IS
+still nightly for everyone — it's free and keeps every table current; only the paid layer is
+gated.) The LLM pass runs when:
 
   1. that profile's own config changed since its last enrichment — taste.yaml / profile.yaml /
      digest.yaml (format prefs) / their feedback log — i.e. the person's taste, not the world; or
   2. the person clicks "Update my ranking & digest" on the dashboard (rebuild-profile.yml — the
      manual path, unchanged and always available); the dashboard nudges them with a popup when
-     their ranking is 3+ days old.
+     their curated layer is 3+ days old.
 
 This gate is the deterministic decision for (1): the nightly routine runs it once and only spends
-feed rebuilds + LLM calls on the profiles it prints REFRESH for. "Changed since last enrichment"
+LLM calls on the profiles it prints REFRESH for. "Changed since last enrichment"
 is the same git-derived bar as the dashboard's reflected/pending badge (build_profiles.py
 selfedit_block): content-based against the last commit that touched the profile's enrichment
 artifacts (digests/<hash>/latest.md + data/verdicts/<hash>.json), so an edit-then-revert reads

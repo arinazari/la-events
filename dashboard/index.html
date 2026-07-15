@@ -799,8 +799,9 @@
   </sc-if>
 
   <!-- ===================== REFRESH NUDGE (3-day popup) ===================== -->
-  <!-- Signed-in profiles' rankings/digests refresh on taste change or manual Update, not nightly;
-       this explains that model and offers the Update when the ranking is 3+ days behind. -->
+  <!-- A signed-in profile's curated layer (editor verdicts + written digest) refreshes on taste
+       change or manual Update, not nightly (the table itself re-ranks nightly); this explains
+       that model and offers the Update when the layer is 3+ days behind. -->
   <sc-if value="{{ nudgeOpen }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
       <div onClick="{{ closeNudge }}" style="position:absolute; inset:0;"></div>
@@ -1595,7 +1596,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "Once you're signed in, the same icon becomes your **☰ settings** menu:",
     "",
-    "- **Ranks & Digest** — re-rank against the newest events; its title shows the state and reads **Update available** when there's fresh data (or a concierge taste/profile edit) to fold in. **This button (or a taste edit) is what refreshes you:** the events database updates nightly, but your personal ranking and digest are rebuilt only when your taste changes or when you hit Update — after a few days without one, a popup offers to run it for you.",
+    "- **Ranks & Digest** — re-rank against the newest events; its title shows the state and reads **Update available** when there's fresh data (or a concierge taste/profile edit) to fold in. **This button (or a taste edit) is what refreshes your curated layer:** the events database and your table update nightly, but the editorial pass behind your final ranks and your written digest rebuild only when your taste changes or when you hit Update — after a few days without one, a popup offers to run it for you.",
     "- **Connect Spotify** — let your listening history shape the picks.",
     "- **Claude API key** — optionally run the concierge on your own key.",
     "- **View taste & profile** — see the config behind your ranking, including any edits the concierge made and whether they're live yet.",
@@ -1615,7 +1616,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
-    "- **You control your refresh.** Signed-in rankings and digests no longer silently rebuild every night — yours refreshes when your **taste changes** (a concierge edit folds in overnight) or when **you hit Update**. If it's been 3+ days, a popup explains what's new and offers to refresh right there. The events database itself still updates nightly for everyone.",
+    "- **You control your refresh.** Your table still picks up new events nightly, but your curated layer — the editorial pass behind your final ranks, and your written digest — no longer silently rebuilds every night. It refreshes when your **taste changes** (a concierge edit folds in overnight) or when **you hit Update**; after 3+ days, a popup explains what's waiting and offers to refresh right there.",
     "",
     "## June 2026",
     "",
@@ -1672,7 +1673,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       "Your **taste, neighborhood and Spotify don't change your list until you fold them in.**",
       "",
       "- Open **Settings** (the **☰** icon, bottom-right) and hit **Ranks & Digest → Update** to re-rank against everything you just set up, plus the latest events. Takes a minute or two.",
-      "- **Your list doesn't re-rank itself.** New events land in the database nightly, but *your* ranking and digest rebuild only when your taste changes or when you hit **Update** — the button reads **Update available** whenever there's something to fold in, and after a few days a popup will offer to do it for you."
+      "- **The curated layer doesn't refresh itself.** New events flow into your table nightly, but the editorial pass behind your final ranks and your written digest rebuild only when your taste changes or when you hit **Update** — the button reads **Update available** whenever there's something to fold in, and after a few days a popup will offer to do it for you."
     ].join('\n'),
     [
       "# Where everything else lives",
@@ -1698,14 +1699,33 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   toggleWelcomeDismiss = () => this.setState({ welcomeDismiss: !this.state.welcomeDismiss });
 
   // ---------- refresh nudge (the 3-day popup) ----------
-  // A profile's ranking + digest do NOT refresh nightly anymore (docs/PIPELINE.md): they rebuild
-  // only when that person's taste changes, or when they hit Update themselves. This popup keeps the
-  // model honest: for a signed-in profile whose ranking is NUDGE_AFTER_DAYS+ old — or who's back
-  // after NUDGE_AFTER_DAYS+ away — and for whom an Update would actually fold something in, it
-  // explains how refresh works and offers the Update right there. Shown at most once per day per
-  // profile ("Not now" snoozes to tomorrow); never for the logged-out default view (that feed IS
-  // rebuilt nightly), never on top of the first-run welcome, never while an Update is in flight.
+  // A profile's CURATED layer — the per-profile editor verdicts + the written digest — does NOT
+  // refresh nightly anymore (docs/PIPELINE.md): it rebuilds only when that person's taste changes,
+  // or when they hit Update themselves. (The deterministic table re-rank IS still nightly for
+  // everyone.) This popup keeps the model honest: for a signed-in profile whose curated layer is
+  // NUDGE_AFTER_DAYS+ old — or who's back after NUDGE_AFTER_DAYS+ away — it explains how refresh
+  // works and offers the Update right there. Shown at most once per day per profile ("Not now"
+  // snoozes to tomorrow); never for the logged-out default view (fully rebuilt nightly), never on
+  // top of the first-run welcome, never while an Update is in flight.
   NUDGE_AFTER_DAYS = 3;
+  // When this profile's curated layer (verdicts + narrative digest) last rebuilt — the thing the
+  // nudge measures. The feed bakes it from git (self_edit.*.enriched_at, date-granular; re-baked by
+  // every nightly deterministic rebuild); the digest's own self-reported date is the fallback for a
+  // feed built before self_edit existed. The feed's generated_at is deliberately NOT used: the free
+  // nightly re-rank bumps it — the LLM pass is what actually goes stale.
+  lastEnrichedAt() {
+    const se = this.META && this.META.profile && this.META.profile.self_edit;
+    const d = (se && (((se.taste || {}).enriched_at) || ((se.profile || {}).enriched_at))) || null;
+    if (d) return d;
+    const reg = this.digestRegenDate();
+    return (reg && reg.date) ? reg.date.toISOString() : null;
+  }
+  // "2026-07-12…" -> "7/12" (Ari's convention). Date-granular stamps shouldn't go through fmtStamp,
+  // whose local-time rendering would shift a UTC midnight to the previous PT evening.
+  fmtDay(iso) {
+    const m = String(iso || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+    return m ? (+m[2] + '/' + +m[3]) : null;
+  }
   visitKey(hash) { return 'la-last-visit-' + (hash || 'default'); }
   nudgeSnoozeKey(hash) { return 'la-nudge-shown-' + (hash || 'default'); }
   // Whole days since an ISO stamp (UTC-stamped feeds parse fine); null when absent/unparseable.
@@ -1731,12 +1751,15 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (!this.hasOnboarded(p)) return;                       // first-run welcome owns this session
     if (this.getUpdating(p.hash)) return;                    // an Update is already running
     try { if (localStorage.getItem(this.nudgeSnoozeKey(p.hash)) === this.todayKey()) return; } catch (e) {}
-    const staleDays = this.daysSince(this.META && this.META.generated_at);
+    const llmDays = this.daysSince(this.lastEnrichedAt());   // the curated layer's age
     const awayDays = this.daysSince(prevVisit);              // null on the first visit ever
-    const trip = (staleDays != null && staleDays >= this.NUDGE_AFTER_DAYS)
-              || (awayDays != null && awayDays >= this.NUDGE_AFTER_DAYS);
-    if (!trip) return;
-    if (!this.needsUpdate()) return;                         // an Update would be a no-op — don't nag
+    const layerOld = llmDays != null && llmDays >= this.NUDGE_AFTER_DAYS;
+    const away = awayDays != null && awayDays >= this.NUDGE_AFTER_DAYS;
+    if (!layerOld && !away) return;
+    // A 3+ day-old curated layer is itself proof an Update would fold something in (the catalog
+    // moves nightly, and none of it has had this profile's editorial pass). An away-only trip
+    // still defers to needsUpdate() so we never nag someone whose layer refreshed while away.
+    if (!layerOld && !this.needsUpdate()) return;
     try { localStorage.setItem(this.nudgeSnoozeKey(p.hash), this.todayKey()); } catch (e) {}
     this.setState({ nudgeOpen: true });
   }
@@ -1744,20 +1767,21 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   nudgeUpdateNow = () => { this.setState({ nudgeOpen: false, settingsOpen: false }); this.updateMyDigest(); };
   // The popup body: what's stale, and the how-it-works instruction (the model in three lines).
   nudgeBodyMd() {
-    const staleDays = this.daysSince(this.META && this.META.generated_at);
-    const when = this.fmtStamp((this.META && this.META.generated_at) || null);
-    const ageLine = (staleDays != null && staleDays >= 1)
-      ? 'Your ranking and digest were last refreshed **' + when + '** — ' + staleDays + ' day' + (staleDays === 1 ? '' : 's') + ' ago. New events have landed since.'
-      : 'New events have landed since your ranking and digest were last refreshed.';
+    const enr = this.lastEnrichedAt();
+    const llmDays = this.daysSince(enr);
+    const day = this.fmtDay(enr);
+    const ageLine = (day && llmDays != null && llmDays >= 1)
+      ? 'Your curated layer was last refreshed **' + day + '** — ' + llmDays + ' day' + (llmDays === 1 ? '' : 's') + ' ago. Events added since are already in your table, but they haven\'t had your editorial pass yet.'
+      : 'New events are in your table that haven\'t had your editorial pass yet.';
     return [
       ageLine,
       '',
-      "Here's how it works: the **events database updates every night** for everyone, but your **personal layer** — the custom ranking and your written digest — is yours, and it only rebuilds when:",
+      "Here's how it works: the **events database and your ranked table update every night**. The **curated layer on top** — the editor's verdicts behind your final rank and ⭐ picks, and your written digest — is yours, and it only rebuilds when:",
       '',
       '- **your taste changes** — tell the concierge things like `more techno, less comedy` or `I moved to Highland Park`, and your layer refolds automatically overnight;',
-      '- **you refresh it yourself** — the **Update** button (Settings → Ranks & Digest), which re-ranks you against the latest events and rewrites your digest in ~2–3 minutes.',
+      '- **you refresh it yourself** — the **Update** button (Settings → Ranks & Digest), which re-runs the editorial pass against the latest events and rewrites your digest in ~2–3 minutes.',
       '',
-      'Nothing is broken — your picks are just as you left them. Refresh now to fold in the newest events, or find **Update** under Settings whenever.'
+      'Nothing is broken — this is just your cue. Refresh now, or find **Update** under Settings whenever.'
     ].join('\n');
   }
 
