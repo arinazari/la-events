@@ -19,11 +19,13 @@ and keeps every table current (new events in, expired out, cached verdicts folde
 two signals: (1) **their own config changed** (taste.yaml / profile.yaml / digest.yaml / feedback
 log) since their last enrichment — `scripts/profile_refresh_gate.py` is the nightly decision; or
 (2) **they refresh it themselves** ("Update my ranking & digest"). The dashboard keeps the model
-honest: the staleness badge lights as before, and a **refresh-nudge popup** (once/day max) explains
-how it works and offers the Update whenever a signed-in profile's curated layer (the git-baked
-`self_edit.enriched_at`) is 3+ days old or the person is back after 3+ days away. The default
-(logged-out) feed, the owner, and the consolidated digest keep the full nightly treatment — they
-ARE the canonical product.
+honest with two signals keyed to the curated layer's age (the git-baked `self_edit.enriched_at` —
+`layerBehind()`; the nightly deterministic rebuild keeps the plain feed-version check reading in
+sync, so it can't carry this): a **persistent badge** — a dot on the ☰ settings icon + an "update
+available" chip in the digest modal — whenever an LLM pass would fold something in, and a
+**refresh-nudge popup** (once/day max, short, with a "How this works" expander) once the layer is
+3+ days old or the person is back after 3+ days away. The default (logged-out) feed, the owner,
+and the consolidated digest keep the full nightly treatment — they ARE the canonical product.
 
 ## Triggers (every entry point)
 
@@ -147,8 +149,10 @@ no backend; the static page just renders it.
    Tier-3 voice layer with a fresh deterministic scaffold (whys stay prefilled; the intro slot
    marker is an invisible HTML comment) — data freshness wins intra-day; the nightly voice
    pass restores the prose.
-6. **Per-user rebuild** — Sonnet; gated client-side to "stale or taste-dirty"; the deterministic feed
-   commits first so a timed-out LLM step still leaves the ranking fresh.
+6. **Per-user rebuild** — Sonnet, on the repo's `ANTHROPIC_API_KEY` (BYOK does NOT apply to CI —
+   a browser-held key is never forwarded into a GitHub Actions run); gated client-side to
+   actionable-only; the deterministic feed commits first so a timed-out LLM step still leaves the
+   ranking fresh.
 7. **BYOK concierge chat** — the friend's own key/spend; may opt into Opus per request.
 
 ## On-demand vs automatic — quick guide
@@ -198,5 +202,5 @@ no backend; the static page just renders it.
 - `scripts/build_profiles.py` — per-profile feeds + the `profile.self_edit` diff/reflected block (from git).
 - `backend/concierge-worker.js` — `/refresh-events` (debounced) + `/rebuild-profile` + BYOK model.
 - `.github/workflows/{refresh-events,rebuild-profile,build-profiles,spotify-sync,deploy-dashboard}.yml`.
-- `dashboard/index.html` — staleness badge, "what changed" readout, refresh/update buttons, taste/profile diff modal, the 3-day refresh-nudge popup + per-profile visit stamps.
+- `dashboard/index.html` — staleness badge, "what changed" readout, refresh/update buttons, taste/profile diff modal, the 3-day refresh-nudge popup + per-profile visit stamps, the persistent update dot (☰) + digest-modal chip.
 - `routines/daily-digest-prompt.md` — the nightly orchestration.

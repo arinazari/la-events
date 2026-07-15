@@ -495,8 +495,13 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   (`self_edit.enriched_at`) is 3+ days old — or the person returns after 3+ days away with an
   Update pending — it explains the model (table nightly; curated layer on taste-change/Update) and
   offers the Update; snoozes a day on "Not now", never fires logged-out or over the first-run
-  tour. Default + owner + consolidated digest keep the full nightly treatment. (docs/PIPELINE.md
-  is the reference.)
+  tour. The popup is deliberately short, with a "How this works" expander for the detail; a
+  **persistent** blue dot on the ☰ settings icon + an "update available" chip in the digest modal
+  (both keyed to `layerBehind()` — curated layer older than the latest events) show whenever a
+  pass is waiting, no snooze. Default + owner + consolidated digest keep the full nightly
+  treatment. (docs/PIPELINE.md is the reference. Note: the Update's LLM pass runs on the repo's
+  `ANTHROPIC_API_KEY`, not a friend's BYOK key — BYOK covers the Worker paths (chat, self-edit);
+  forwarding a browser-held key into public-repo CI would risk exposure. Revisit after Track A.)
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
