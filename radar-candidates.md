@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/14/2026 deterministically (no API). 341 candidates. Signals: big-venue 291, festival 49, tracked 4._
+_Generated 7/15/2026 deterministically (no API). 343 candidates. Signals: big-venue 293, festival 49, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -28,6 +28,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 9/5 | 4 | Hypnotique Presents: Sway Festival - 2 DAY PASS | Teragram Ballroom | festival | [link](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE) |
 | Fri 9/11 | 4 | Cold Waves 2-Day (9/11/26-9/12/26) | Pacific Electric | festival | [link](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76) |
 | Sat 9/19 | 4 | Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustB | Echoplex | festival | [link](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA) |
+
+## October 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 10/9 | 4 | Parrotfish | The Moroccan Lounge | festival | [link](https://www.ticketmaster.com/parrotfish-los-angeles-california-10-09-2026/event/090064E905D61695) |
 
 ## November 2026
 
@@ -110,7 +116,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 8/18 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJK) |
 | Wed 8/19 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJf) |
 | Thu 8/20 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ4) |
 | Sun 8/23 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJb) |
@@ -184,6 +189,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Thu 10/8 | 4 | Empire of the Sun - Ask That God: Afterlife North American | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/empire-of-the-sun-ask-that-hollywood-california-10-08-2026/event/0B006465E365551D) |
 | Fri 10/9 | 4 | for KING & COUNTRY | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/for-king-country-los-angeles-california-10-09-2026/event/090064AEDD6E900E) |
 | Fri 10/9 | 4 | Mac DeMarco | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/mac-demarco-hollywood-california-10-09-2026/event/0B006444D4704F5D) |
+| Fri 10/9 | 4 | Los Horoscopos de Durango | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 10/10 | 4 | Jack Johnson: SURFILMUSIC Tour 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jack-johnson-surfilmusic-tour-2026-hollywood-california-10-10-2026/event/0B0063640AC5639F) |
 | Sat 10/10 | 4 | Elefante | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 10/10 | 4 | Jungle | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
@@ -210,7 +216,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 8/18 | 3 | NEEDTOBREATHE: The Long Surrender Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/needtobreathe-the-long-surrender-tour-los-angeles-california-08-18-2026/event/09006465B2CECE2B) |
 | Wed 8/19 | 3 | The Guess Who: Takin' It Back Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/the-guess-who-takin-it-back-los-angeles-california-08-19-2026/event/09006458F47DD28E) |
 | Wed 8/19 | 3 | Herbie Hancock | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Fri 8/21 | 3 | NE-YO & AKON: Nights Like This Tour 2026 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/neyo-akon-nights-like-this-tour-inglewood-california-08-21-2026/event/09006436072615A9) |
@@ -474,6 +479,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
 | Mon 12/14 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-14-2026/event/090064B49319A5BE) |
 | Sun 12/20 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-20-2026/event/090064BBE49DEE4D) |
@@ -500,6 +506,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 |---|---|---|---|---|---|
 | Fri 10/2 | 1 | Thomas Rhett: The Soundtrack to Life Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/thomas-rhett-the-soundtrack-to-life-anaheim-california-10-02-2026/event/0900646409D672A2) |
 | Sat 10/3 | 1 | Breaking Benjamin | Honda Center | big-venue | [link](https://www.ticketmaster.com/breaking-benjamin-anaheim-california-10-03-2026/event/0900644BB38E9BE4) |
+| Thu 10/8 | 1 | Insecure: The 10th Anniversary Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/insecure-the-10th-anniversary-tour-inglewood-california-10-08-2026/event/0A0064DA9DF5740E) |
 | Fri 10/9 | 1 | SOMBR - You Are The Reason Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/sombr-you-are-the-reason-tour-anaheim-california-10-09-2026/event/090064891741C9C1) |
 | Sat 10/17 | 1 | Los Tigres Del Norte: Los Tigres Del Mundo Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-los-tigres-anaheim-california-10-17-2026/event/09006458A0D5CC52) |
 | Sat 10/24 | 1 | Intocable: Cultura Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/intocable-cultura-tour-2026-anaheim-california-10-24-2026/event/090064E1B08C886A) |
