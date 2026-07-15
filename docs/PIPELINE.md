@@ -12,11 +12,21 @@ price / lineup / door-time / sold-out changes all move it; merely re-seeing an u
 not. So both the automatic (nightly) and on-demand (button) paths are cheap by construction — work
 only happens where something actually changed.
 
+**Per-profile exception (policy 2026-07): for friends' profiles, catalog movement alone is NOT a
+trigger.** A friend's personal layer — feed re-rank, per-profile verdicts, narrative digest — refreshes
+on exactly two signals: (1) **their own config changed** (taste.yaml / profile.yaml / digest.yaml /
+feedback log) since their last enrichment — `scripts/profile_refresh_gate.py` is the nightly decision;
+or (2) **they refresh it themselves** ("Update my ranking & digest"). The dashboard keeps the model
+honest: the staleness badge lights as before, and a **refresh-nudge popup** (once/day max) explains
+how it works and offers the Update whenever a signed-in profile's ranking is 3+ days old or the person
+is back after 3+ days away. The default (logged-out) feed, the owner's feed, and the consolidated
+digest still rebuild nightly — they ARE the canonical product.
+
 ## Triggers (every entry point)
 
 | Trigger | Fires | Runs | LLM cost | Gate that prevents waste |
 |---|---|---|---|---|
-| **Daily routine** (`routines/daily-digest-prompt.md`) | scheduled (cron) → commits `main` | fetch → dedupe → score → editor → enrich → render consolidated + weekend look-aheads → build all feeds → per-profile narratives → commit → deploy | editor (delta only), enrich (misses only), consolidated intro, per-profile narratives (gated) | editor=`select_for_verdict`, enrich=`select_for_enrichment` write-once, narratives=`digest_gate`, both subagents pinned Sonnet |
+| **Daily routine** (`routines/daily-digest-prompt.md`) | scheduled (cron) → commits `main` | fetch → dedupe → score → editor → enrich → render consolidated + weekend look-aheads → build default+owner feeds → **taste-change gate** → per-profile pass (REFRESH profiles only) → commit → deploy | editor (delta only), enrich (misses only), consolidated intro, per-profile editor+narrative (taste-gated) | editor=`select_for_verdict`, enrich=`select_for_enrichment` write-once, friends=`profile_refresh_gate` (taste changed since last enrichment — catalog movement doesn't count), subagents pinned Sonnet |
 | **Owner "Refresh events DB"** | page → Worker `/refresh-events` → `refresh-events.yml` | deterministic: fetch → catalog → default feed → render consolidated → commit → deploy | **none** | Worker **debounce** (`REFRESH_MIN_MINUTES`, default 15) → 429 if pulled recently |
 | **User "Update my ranking & digest"** | page → Worker `/rebuild-profile` → `rebuild-profile.yml` | deterministic feed (commit), then full LLM pass (editor + enrich + narrative) for **one** profile | medium (1 profile, Sonnet) | client enables only when `feedStale ‖ tasteDirty` + busy-lock; deterministic feed lands even if the LLM step times out |
 | **Concierge taste/profile self-edit** | Worker commits YAML → `build-profiles.yml` (path filter) | deterministic re-score of that one feed → commit → deploy | **none** (defers the narrative to Update) | path-filtered to `profiles/**/taste.yaml` + `profiles.yaml`; client marks the profile "dirty" |
@@ -94,12 +104,13 @@ no backend; the static page just renders it.
 | Stage | Runs | No-ops when | Cost tier |
 |---|---|---|---|
 | fetch + dedupe + expire + score (`run_digest`) | every routine run / refresh | — (always; deterministic, cheap). Merge is **freshest-wins** for price/time/lineup/status, so in-place updates land | none |
-| **event-editor** (Tier 1 verdicts) | routine + per-user rebuild | event already judged at this score AND editor-input version unchanged (`select_for_verdict`) | Sonnet, delta only |
+| **event-editor** (Tier 1 verdicts, default profile) | routine + per-user rebuild | event already judged at this score AND editor-input version unchanged (`select_for_verdict`) | Sonnet, delta only |
+| **event-editor** (per-friend verdicts) | routine (gate-REFRESH profiles only) + per-user rebuild | `profile_refresh_gate` says SKIP — that profile's taste/profile/prefs/feedback unchanged since its last enrichment | Sonnet, taste-gated |
 | **scene-researcher** (Tier 1 full enrichment, top-100 head) | routine + per-user rebuild | event already full-tier in `enrichment.json` (write-once; a blurb-tier event in the head is *re-selected* to upgrade) | Sonnet, misses + upgrades only |
 | **blurb-writer** (Tier 2 cheap enrichment, band below head) | routine | event already has a cache record (`select_for_blurb`) | Haiku, gaps only, no web |
 | consolidated voice pass (Tier-3: intro + Don't-miss whys + Around-town gloss, routine step 5b) | every routine run | — (cheap; the slate/sections are deterministic scaffold, the pass fills marked slots only) | small |
-| **per-profile narrative** | routine + per-user rebuild | feed signature unchanged (`digest_gate decide` → SKIP) | gated; one narrative per *changed* feed |
-| `build_dashboard` / `build_profiles` | end of routine / on edit | — (deterministic) | none |
+| **per-profile narrative** | routine (gate-REFRESH profiles) + per-user rebuild | `profile_refresh_gate` says SKIP (nightly), i.e. taste unchanged — picks moving with the catalog no longer regenerates it | gated; one narrative per *taste-changed* profile |
+| `build_dashboard` / `build_profiles` | end of routine (default + owner + gate-REFRESH profiles) / on edit / per-user rebuild | SKIP profiles' feeds left byte-identical (their staleness badge + the 3-day nudge hand refresh to the user) | none |
 | renderers (`render_digest`) | every routine run | — (deterministic) | none |
 
 ## Cost ledger — where tokens go, and the bound on each
@@ -118,8 +129,11 @@ no backend; the static page just renders it.
    band below the head): one description line, write-once, for events with no cache record (events
    carrying source `detail` still get a clean line; raw detail is the display fallback for un-blurbed
    events); Haiku, no web. Both amortize to the daily delta.
-3. **Per-profile narratives** — regenerated only when that feed's top-N picks moved (`digest_gate`).
-   On a quiet day this is **0 LLM calls**; it scales with *changed* friends, not all friends.
+3. **Per-profile passes (friends)** — the whole per-profile slice (feed rebuild + editor verdicts +
+   narrative) runs nightly only for profiles whose OWN config changed since their last enrichment
+   (`profile_refresh_gate`); catalog movement doesn't count. On a night with no taste edits this is
+   **0 LLM calls and 0 feed rebuilds** across all friends; it scales with *edited* profiles, not all
+   profiles. Everyone still has the on-demand Update, and the dashboard nudges them after 3 days.
 4. **Consolidated voice pass** (Tier-3, routine step 5b) — small, every run: the intro slot,
    the Don't-miss whys (prefilled deterministically from verdicts/curator notes; the pass
    rewrites for voice), an optional Around-town gloss. Fills marked slots only — never
@@ -135,13 +149,21 @@ no backend; the static page just renders it.
 
 ## On-demand vs automatic — quick guide
 
-- **Happens automatically (nightly):** full fetch, re-rank, enrichment, all digests, all feeds.
+- **Happens automatically (nightly):** full fetch, re-rank of the default + owner feeds, shared
+  enrichment, the consolidated digest + weekend look-aheads — plus the full per-profile pass for any
+  friend whose taste/profile/prefs/feedback changed since their last enrichment (the gate). Friends
+  with no change are left byte-identical.
 - **Owner clicks Refresh:** intra-day catalog refresh for everyone (deterministic; others then see
   their feed flagged stale and self-update). Debounced.
-- **User clicks Update:** that one person's full LLM re-rank + digest, against the latest catalog.
+- **User clicks Update:** that one person's full LLM re-rank + digest, against the latest catalog —
+  the primary way a friend's picks catch up with the catalog.
 - **User edits taste/profile via concierge:** that one feed re-scores in ~1–2 min (deterministic);
-  the narrative refreshes on their next Update (or the nightly gate, when picks move).
+  the same edit opens the nightly gate, so the full LLM pass lands the following night even if they
+  never click Update.
 - **User connects Spotify:** that one feed re-ranks to their listening.
+- **User goes quiet:** nothing runs for them. Once their ranking is 3+ days old (or they return
+  after 3+ days), the dashboard's refresh-nudge popup explains the model and offers the Update —
+  at most once per day.
 
 ## Knobs
 
@@ -155,6 +177,7 @@ no backend; the static page just renders it.
 | `--blurb-window` / `--blurb-top` | `run_digest` | 35d / 0 | blurb (cheap-tier) pool span (the real bound) + optional safety cap (0 = off, cover the whole window) |
 | `refresh_days` | `select_for_verdict` / `select_for_enrichment` | `None` (write-once) | optional periodic re-judge / re-research |
 | `--top-n` | `digest_gate` | 25 | how many picks define a digest's signature |
+| `NUDGE_AFTER_DAYS` | `dashboard/index.html` | 3 | days before the refresh-nudge popup offers a signed-in profile the Update |
 
 ## File map
 
@@ -164,9 +187,11 @@ no backend; the static page just renders it.
 - `scripts/lib/dedupe.py` — `merge` (freshest-wins volatile fields).
 - `scripts/lib/editor.py` / `enrich.py` — the delta/write-once selection that bounds LLM cost.
 - `scripts/render_digest.py` — the freshness line + 🆕/↻ markers.
-- `scripts/digest_gate.py` — per-profile regen gate + honest freshness stamp.
+- `scripts/digest_gate.py` — per-profile digest signature + honest freshness stamp.
+- `scripts/profile_refresh_gate.py` — the nightly taste-change gate: REFRESH/SKIP/OWNER per profile
+  (config changed since last enrichment, from git — same bar as the reflected badge).
 - `scripts/build_profiles.py` — per-profile feeds + the `profile.self_edit` diff/reflected block (from git).
 - `backend/concierge-worker.js` — `/refresh-events` (debounced) + `/rebuild-profile` + BYOK model.
 - `.github/workflows/{refresh-events,rebuild-profile,build-profiles,spotify-sync,deploy-dashboard}.yml`.
-- `dashboard/index.html` — staleness badge, "what changed" readout, refresh/update buttons, taste/profile diff modal.
+- `dashboard/index.html` — staleness badge, "what changed" readout, refresh/update buttons, taste/profile diff modal, the 3-day refresh-nudge popup + per-profile visit stamps.
 - `routines/daily-digest-prompt.md` — the nightly orchestration.

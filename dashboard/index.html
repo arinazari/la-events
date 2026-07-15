@@ -798,6 +798,26 @@
     </div>
   </sc-if>
 
+  <!-- ===================== REFRESH NUDGE (3-day popup) ===================== -->
+  <!-- Signed-in profiles' rankings/digests refresh on taste change or manual Update, not nightly;
+       this explains that model and offers the Update when the ranking is 3+ days behind. -->
+  <sc-if value="{{ nudgeOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
+      <div onClick="{{ closeNudge }}" style="position:absolute; inset:0;"></div>
+      <div style="position:relative; z-index:1; width:100%; max-width:500px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 14px 13px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:3px 3px 0 0;">
+          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; text-transform:uppercase; color:#a7a59b;">Your picks are a few days old</span>
+          <button onClick="{{ closeNudge }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+        </div>
+        <div class="scry" style="flex:1; overflow-y:auto; padding:20px 24px 22px;">{{ nudgeBody }}</div>
+        <div style="flex:none; display:flex; align-items:center; justify-content:flex-end; gap:8px; padding:11px 18px; border-top:1px solid #e2e0d8; background:#faf9f5; border-radius:0 0 3px 3px;">
+          <button onClick="{{ closeNudge }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#1b1a17; color:#161512;">Not now</button>
+          <button onClick="{{ nudgeUpdateNow }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 16px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; cursor:pointer;" style-hover="background:#2450bd;">↻ Update now</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
   <!-- ===================== SPOTIFY STATUS ===================== -->
   <sc-if value="{{ spotifyModalOpen }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
@@ -990,6 +1010,7 @@ class Component extends DCLogic {
     spotifyModalOpen: false,
     guideOpen: false, guideTab: 'how',
     welcomeOpen: false, welcomeStep: 0, welcomeDismiss: false,   // first-run onboarding (auto-opens once per profile)
+    nudgeOpen: false,        // the 3-day refresh nudge (auto-opens for a signed-in profile whose ranking is behind)
     phIndex: 0, phFade: false,   // rotating example placeholder (logged-in, pre-first-use hint) + its cross-fade flag
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
@@ -1566,7 +1587,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## Open your digest",
     "",
-    "Click your name in the header — **curated digest for <you> ↗** — for a written rundown: the top picks with a sentence each, grouped by day. It refreshes as new events come in.",
+    "Click your name in the header — **curated digest for <you> ↗** — for a written rundown: the top picks with a sentence each, grouped by day. Signed in, it refreshes when your taste changes or when you hit **Update** (the default digest refreshes nightly).",
     "",
     "## Sign in — make it yours",
     "",
@@ -1574,7 +1595,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "Once you're signed in, the same icon becomes your **☰ settings** menu:",
     "",
-    "- **Ranks & Digest** — re-rank against the newest events; its title shows the state and reads **Update available** when there's fresh data (or a concierge taste/profile edit) to fold in.",
+    "- **Ranks & Digest** — re-rank against the newest events; its title shows the state and reads **Update available** when there's fresh data (or a concierge taste/profile edit) to fold in. **This button (or a taste edit) is what refreshes you:** the events database updates nightly, but your personal ranking and digest are rebuilt only when your taste changes or when you hit Update — after a few days without one, a popup offers to run it for you.",
     "- **Connect Spotify** — let your listening history shape the picks.",
     "- **Claude API key** — optionally run the concierge on your own key.",
     "- **View taste & profile** — see the config behind your ranking, including any edits the concierge made and whether they're live yet.",
@@ -1591,6 +1612,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "# What's new",
     "",
     "Recent upgrades to the site. See **how it works** (Settings → About) any time for the full tour.",
+    "",
+    "## July 2026",
+    "",
+    "- **You control your refresh.** Signed-in rankings and digests no longer silently rebuild every night — yours refreshes when your **taste changes** (a concierge edit folds in overnight) or when **you hit Update**. If it's been 3+ days, a popup explains what's new and offers to refresh right there. The events database itself still updates nightly for everyone.",
     "",
     "## June 2026",
     "",
@@ -1647,7 +1672,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       "Your **taste, neighborhood and Spotify don't change your list until you fold them in.**",
       "",
       "- Open **Settings** (the **☰** icon, bottom-right) and hit **Ranks & Digest → Update** to re-rank against everything you just set up, plus the latest events. Takes a minute or two.",
-      "- Anytime there's something new to fold in — a taste edit, fresh events — that button lights up as **Update available**, so you always know when your list is behind."
+      "- **Your list doesn't re-rank itself.** New events land in the database nightly, but *your* ranking and digest rebuild only when your taste changes or when you hit **Update** — the button reads **Update available** whenever there's something to fold in, and after a few days a popup will offer to do it for you."
     ].join('\n'),
     [
       "# Where everything else lives",
@@ -1671,6 +1696,70 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   welcomeBack = () => this.setState({ welcomeStep: Math.max(0, this.state.welcomeStep - 1) });
   welcomeNext = () => { if (this.state.welcomeStep >= this.WELCOME.length - 1) this.closeWelcome(); else this.setState({ welcomeStep: this.state.welcomeStep + 1 }); };
   toggleWelcomeDismiss = () => this.setState({ welcomeDismiss: !this.state.welcomeDismiss });
+
+  // ---------- refresh nudge (the 3-day popup) ----------
+  // A profile's ranking + digest do NOT refresh nightly anymore (docs/PIPELINE.md): they rebuild
+  // only when that person's taste changes, or when they hit Update themselves. This popup keeps the
+  // model honest: for a signed-in profile whose ranking is NUDGE_AFTER_DAYS+ old — or who's back
+  // after NUDGE_AFTER_DAYS+ away — and for whom an Update would actually fold something in, it
+  // explains how refresh works and offers the Update right there. Shown at most once per day per
+  // profile ("Not now" snoozes to tomorrow); never for the logged-out default view (that feed IS
+  // rebuilt nightly), never on top of the first-run welcome, never while an Update is in flight.
+  NUDGE_AFTER_DAYS = 3;
+  visitKey(hash) { return 'la-last-visit-' + (hash || 'default'); }
+  nudgeSnoozeKey(hash) { return 'la-nudge-shown-' + (hash || 'default'); }
+  // Whole days since an ISO stamp (UTC-stamped feeds parse fine); null when absent/unparseable.
+  daysSince(iso) {
+    if (!iso) return null;
+    if (typeof iso === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/.test(iso)) iso = iso + 'Z';
+    const t = new Date(iso).getTime();
+    if (isNaN(t)) return null;
+    return Math.floor((Date.now() - t) / 86400000);
+  }
+  todayKey() { const d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+  // Called after the feed + live catalog meta have loaded for a signed-in profile. Reads the
+  // PREVIOUS visit stamp before writing today's, so "away 3+ days" means the gap since the last
+  // time this profile was actually opened in this browser.
+  maybeNudge() {
+    const p = this.state.profile;
+    if (!(p && p.hash)) return;
+    let prevVisit = null;
+    try {
+      prevVisit = localStorage.getItem(this.visitKey(p.hash));
+      localStorage.setItem(this.visitKey(p.hash), new Date().toISOString());
+    } catch (e) {}
+    if (!this.hasOnboarded(p)) return;                       // first-run welcome owns this session
+    if (this.getUpdating(p.hash)) return;                    // an Update is already running
+    try { if (localStorage.getItem(this.nudgeSnoozeKey(p.hash)) === this.todayKey()) return; } catch (e) {}
+    const staleDays = this.daysSince(this.META && this.META.generated_at);
+    const awayDays = this.daysSince(prevVisit);              // null on the first visit ever
+    const trip = (staleDays != null && staleDays >= this.NUDGE_AFTER_DAYS)
+              || (awayDays != null && awayDays >= this.NUDGE_AFTER_DAYS);
+    if (!trip) return;
+    if (!this.needsUpdate()) return;                         // an Update would be a no-op — don't nag
+    try { localStorage.setItem(this.nudgeSnoozeKey(p.hash), this.todayKey()); } catch (e) {}
+    this.setState({ nudgeOpen: true });
+  }
+  closeNudge = () => this.setState({ nudgeOpen: false });
+  nudgeUpdateNow = () => { this.setState({ nudgeOpen: false, settingsOpen: false }); this.updateMyDigest(); };
+  // The popup body: what's stale, and the how-it-works instruction (the model in three lines).
+  nudgeBodyMd() {
+    const staleDays = this.daysSince(this.META && this.META.generated_at);
+    const when = this.fmtStamp((this.META && this.META.generated_at) || null);
+    const ageLine = (staleDays != null && staleDays >= 1)
+      ? 'Your ranking and digest were last refreshed **' + when + '** — ' + staleDays + ' day' + (staleDays === 1 ? '' : 's') + ' ago. New events have landed since.'
+      : 'New events have landed since your ranking and digest were last refreshed.';
+    return [
+      ageLine,
+      '',
+      "Here's how it works: the **events database updates every night** for everyone, but your **personal layer** — the custom ranking and your written digest — is yours, and it only rebuilds when:",
+      '',
+      '- **your taste changes** — tell the concierge things like `more techno, less comedy` or `I moved to Highland Park`, and your layer refolds automatically overnight;',
+      '- **you refresh it yourself** — the **Update** button (Settings → Ranks & Digest), which re-ranks you against the latest events and rewrites your digest in ~2–3 minutes.',
+      '',
+      'Nothing is broken — your picks are just as you left them. Refresh now to fold in the newest events, or find **Update** under Settings whenever.'
+    ].join('\n');
+  }
 
   // ---------- digest modal toolbar (download / email) ----------
   downloadDigest = () => {
@@ -1988,10 +2077,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
-    this.checkCatalogFreshness();
+    await this.checkCatalogFreshness();
     this.reattachJobs();   // resume this profile's Update spinner if its rebuild is still in flight
     // "First time entering their profile" — show the welcome on sign-in (not on logout), once.
     if (profileObj) this.maybeOnboard(profileObj);
+    // Then the refresh nudge (skips itself while the welcome owns the session, and stamps the visit).
+    if (profileObj) this.maybeNudge();
   }
 
   // ---------- per-profile Spotify (the music layer) ----------
@@ -2803,7 +2894,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (p && p.hash) {
       return this._tryDigest('./digests/' + p.hash + '/latest.md').then(ok => {
         if (!ok) {
-          this.DIGEST_MD = '# ' + (p.name || 'Your') + ' digest\n\nNo personalized digest has been generated for this profile yet — your taste-ranked picks are live in the table. (Per-profile digests come from the scheduled run.)';
+          this.DIGEST_MD = '# ' + (p.name || 'Your') + ' digest\n\nNo personalized digest has been written for this profile yet — your taste-ranked picks are live in the table. Hit **Update** (Settings → Ranks & Digest) to generate it; after that it refreshes whenever your taste changes or you Update again.';
           this.DIGEST_FILE = null; this.forceUpdate();
         }
       });
@@ -2821,7 +2912,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
     else if (ds === 'score') this.setState({ sortKey: 'score', sortDir: 'desc' });
     else if (ds === 'rank') this.setState({ sortKey: 'rank', sortDir: 'asc' });
-    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); if (this.state.welcomeOpen) this.closeWelcome(); } };
+    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); if (this.state.welcomeOpen) this.closeWelcome(); if (this.state.nudgeOpen) this.setState({ nudgeOpen: false }); } };
     window.addEventListener('keydown', this._onKeyDown);
     // Track viewport width so the layout can switch between the desktop table and the
     // mobile card/overlay layout live (rAF-coalesced to avoid setState churn on resize).
@@ -2835,9 +2926,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     window.addEventListener('resize', this._onResize);
     this.migrateLegacyConn();                          // fold any legacy global connection into this profile
     this.BACKEND_TOKEN = this.readConn().token || '';  // authoritative load: post-migration, TTL-checked
-    this.loadCatalog();
+    const feedReady = this.loadCatalog();
     this.loadDigest();
-    this.checkCatalogFreshness();
+    const freshReady = this.checkCatalogFreshness();
+    // Refresh nudge for a persisted sign-in (a fresh sign-in runs it from applyProfile): needs the
+    // feed's generated_at + the live catalog meta before it can judge staleness. Best-effort.
+    Promise.all([feedReady, freshReady]).then(() => { if (this.state.profile) this.maybeNudge(); }).catch(() => {});
     if (this.BACKEND_URL) this.pingBackend();
     this.reattachJobs();   // a rebuild/refresh kicked off before a reload keeps its spinner + polling
     // Rotate the placeholder hint (cross-fade) while it's relevant — guarded so it never re-renders
@@ -3231,6 +3325,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       welcomeCheckBorder: this.state.welcomeDismiss ? '#1b1a17' : '#cdcbc3',
       welcomeCheckBg: this.state.welcomeDismiss ? '#1b1a17' : '#fff',
       welcomeCheckMark: this.state.welcomeDismiss ? '✓' : '',
+      nudgeOpen: !!this.state.nudgeOpen,
+      closeNudge: this.closeNudge, nudgeUpdateNow: this.nudgeUpdateNow,
+      nudgeBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.state.nudgeOpen ? this.nudgeBodyMd() : '') } }),
       digestFile: this.DIGEST_FILE, digestUser,
       downloadDigest: this.downloadDigest,
       digestEmailOpen: !!this.state.digestEmailOpen, toggleEmailDigest: this.toggleEmailDigest,
