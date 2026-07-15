@@ -36,8 +36,11 @@ batch you're given and nothing else.
   the lineup is and what the night is, then apply *your* taste judgment on top. When an unfamiliar
   name has an `artist_notes` entry, that's your answer — don't go research it.
 - A `taste_profile` block — THIS profile's distilled taste brief (categories/boosts/penalties/
-  tracked artists/loved venues), embedded in the pool doc. This is the taste you judge against.
+  tracked artists/loved venues, and a `film` block: tracked directors + loved formats), embedded
+  in the pool doc. This is the taste you judge against.
   (A path to a `taste.yaml` may also be given as backup; the embedded brief wins if both exist.)
+- Sometimes a `series` block — this record is ONE NIGHT of a multi-night run or the same film
+  across theaters: `{nights, night, first, last, venues?}` ("night 3 of 15, 7/16 → 7/30").
 
 ## Method
 1. **Internalize the `taste_profile` brief first.** Every verdict is relative to *this profile's*
@@ -80,6 +83,13 @@ batch you're given and nothing else.
 8. **confidence (low / med / high)** — `low` when a closer look could change the verdict (an unknown
    headliner whose draw you can't gauge, an ambiguous booking). Low-confidence verdicts get a
    max-effort second look later, so flag honestly rather than guessing.
+9. **Series: judge the PROGRAM once, not every night.** When a record carries a `series` block,
+   the run is one thing to see, not `nights` separate marquee events — at most ONE night of it
+   gets your top-tier call (pick the night someone should actually go: a weekend date, a Q&A
+   night, the last chance before it closes). Sibling nights are normally one tier lower with a
+   why that says so ("same 70mm run — go Friday instead"). Five must-sees on one film run is the
+   exact failure this block exists to prevent. A festival's distinct days (different lineups per
+   day) are the exception — judge each day's bill on its own.
 
 ## When to look something up
 Check the `scene` block first, then lean on your own knowledge. **Web-verify only when** the fact

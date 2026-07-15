@@ -161,6 +161,24 @@ def test_pool_doc_carries_affinity_and_summary():
     assert rec["affinity"]["artists"][0]["name"] == "Antal"
 
 
+def test_pool_doc_marks_series_nights():
+    """A multi-night run's records carry `series` (night i of n + span) so the editor judges the
+    PROGRAM once instead of must-seeing every night; one-off events carry no series block."""
+    run = [{"title": "The Odyssey (70mm)", "date": f"2026-07-{d}", "iso_date": f"2026-07-{d}",
+            "venue": "Vista Theater", "score": 6, "category": "film", "tags": {"type": "film"}}
+           for d in (16, 17, 18)]
+    solo = {"title": "Antal All Night", "date": "2026-07-17", "iso_date": "2026-07-17",
+            "venue": "Warehouse", "lineup": ["Antal"], "score": 9, "tags": {"type": "club"}}
+    doc = ED.pool_doc(run + [solo], today=date(2026, 7, 15), window_days=28, per_lane=0, floor=4)
+    recs = {r["title"] + r["date"]: r for r in doc["events"]}
+    first = recs["The Odyssey (70mm)2026-07-16"]["series"]
+    assert (first["nights"], first["night"]) == (3, 1)
+    assert (first["first"], first["last"]) == ("2026-07-16", "2026-07-18")
+    assert "venues" not in first                       # single theater -> no venue list
+    assert recs["The Odyssey (70mm)2026-07-18"]["series"]["night"] == 3
+    assert "series" not in recs["Antal All Night2026-07-17"]
+
+
 def test_record_folds_scene_facts_but_never_curator_note():
     """The enrich->editor handoff: factual scene block in, taste-flavored curator_note/energy out."""
     ev = {"title": "Antal All Night", "date": "2026-07-04", "venue": "Warehouse",
