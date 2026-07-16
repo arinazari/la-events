@@ -229,9 +229,12 @@ def _resolve_type(ev: dict, hay: str, cfg: dict = None) -> str:
     if cat == "arts & theatre":
         if tm_genre in TM_STAGE_GENRES:
             return "stage"
-        if "pageant of the masters" in hay:
+        # Two title-only micro-rules (TITLE, not the full blob — a detail merely mentioning
+        # the fair must not retype a genre-less A&T event).
+        title_l = str(ev.get("title") or "").lower()
+        if "pageant of the masters" in title_l:
             return "art"
-        if "oc fair" in hay:
+        if "oc fair" in title_l:
             return "community"
         if _STAGE_KW.search(hay):
             return "stage"

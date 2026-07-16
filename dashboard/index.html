@@ -62,10 +62,24 @@
     border-radius:3px; padding:11px 12px; cursor:pointer; display:flex; flex-direction:column; gap:7px; }
   .fp-card:hover { border-color:#a7a59b; }
   .fp-card:active { background:#f7f6f1; }
-  .fp-hero { display:grid; grid-template-columns:repeat(auto-fill,minmax(236px,1fr)); gap:10px; }
+  .fp-hero { display:grid; grid-template-columns:repeat(auto-fill,minmax(236px,1fr)); gap:10px; margin-bottom:14px; }
   .fp-hero .fp-card { width:auto; flex:auto; border-color:#c9c7bd; }
   .fp-clamp2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
   .fp-clamp3 { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  /* one card template everywhere; the hero row's size bumps live here, not in a second template */
+  .fpc-date { font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b; }
+  .fpc-tier { font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; padding:3px 5px; border-radius:2px; color:#fff; }
+  .fpc-title { font:600 13px/1.3 -apple-system,system-ui,sans-serif; color:#161512; }
+  .fpc-venue { font:500 10px/1.35 ui-monospace,Menlo,monospace; color:#76746b; }
+  .fpc-why { font:400 11px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36; }
+  .fpc-price { font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; }
+  .fpc-new { font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#1f7a4d; }
+  .fp-hero .fpc-date { font-size:10.5px; }
+  .fp-hero .fpc-tier { font-size:8.5px; }
+  .fp-hero .fpc-title { font-size:14.5px; }
+  .fp-hero .fpc-venue { font-size:10.5px; }
+  .fp-hero .fpc-why { font-size:11.5px; line-height:1.5; }
+  .fp-hero .fpc-price { font-size:10px; }
 </style>
 </helmet>
 
@@ -283,44 +297,26 @@
           <span onClick="{{ l.onClick }}" style="cursor:pointer; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 12px; border:1px solid {{ l.border }}; background: {{ l.bg }}; color: {{ l.color }}; border-radius:999px;">{{ l.label }}</span>
         </sc-for>
       </div>
-      <sc-if value="{{ fpHasHero }}" hint-placeholder-val="{{ false }}">
-        <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:9px;">DON'T MISS</div>
-        <div class="fp-hero" style="margin-bottom:24px;">
-          <sc-for list="{{ fpHero }}" as="c" hint-placeholder-count="5">
-            <div class="fp-card" onClick="{{ c.onClick }}">
-              <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.date }}</span>
-                <sc-if value="{{ c.tier }}" hint-placeholder-val="{{ false }}"><span style="font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; padding:3px 5px; border-radius:2px; color:#fff; background: {{ c.tierBg }};">{{ c.tier }}</span></sc-if>
-              </div>
-              <div class="fp-clamp2" style="font:600 14.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">{{ c.title }}</div>
-              <div class="fp-clamp2" style="font:500 10.5px/1.35 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.venue }}</div>
-              <sc-if value="{{ c.why }}" hint-placeholder-val="{{ false }}"><div class="fp-clamp3" style="font:400 11.5px/1.5 -apple-system,system-ui,sans-serif; color:#3f3d36;">{{ c.why }}</div></sc-if>
-              <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ c.price }}</span>
-                <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#1f7a4d;">NEW</span></sc-if>
-              </div>
-            </div>
-          </sc-for>
-        </div>
-      </sc-if>
       <sc-for list="{{ fpShelves }}" as="sh" hint-placeholder-count="4">
         <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin:4px 0 8px;">
           <span style="font:600 12.5px/1 -apple-system,system-ui,sans-serif; letter-spacing:0.01em; color:#161512;">{{ sh.label }}</span>
-          <span onClick="{{ sh.seeAll }}" style="cursor:pointer; flex:none; font:600 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">see all {{ sh.total }} →</span>
+          <sc-if value="{{ sh.seeAll }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ sh.seeAll }}" style="cursor:pointer; flex:none; font:600 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">see all {{ sh.total }} →</span>
+          </sc-if>
         </div>
-        <div class="fp-shelf">
+        <div class="{{ sh.rowClass }}">
           <sc-for list="{{ sh.cards }}" as="c" hint-placeholder-count="6">
             <div class="fp-card" onClick="{{ c.onClick }}">
               <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.date }}</span>
-                <sc-if value="{{ c.tier }}" hint-placeholder-val="{{ false }}"><span style="font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; padding:3px 5px; border-radius:2px; color:#fff; background: {{ c.tierBg }};">{{ c.tier }}</span></sc-if>
+                <span class="fpc-date">{{ c.date }}</span>
+                <sc-if value="{{ c.tier }}" hint-placeholder-val="{{ false }}"><span class="fpc-tier" style="background: {{ c.tierBg }};">{{ c.tier }}</span></sc-if>
               </div>
-              <div class="fp-clamp2" style="font:600 13px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">{{ c.title }}</div>
-              <div class="fp-clamp2" style="font:500 10px/1.35 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.venue }}</div>
-              <sc-if value="{{ c.why }}" hint-placeholder-val="{{ false }}"><div class="fp-clamp3" style="font:400 11px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36;">{{ c.why }}</div></sc-if>
+              <div class="fp-clamp2 fpc-title">{{ c.title }}</div>
+              <div class="fp-clamp2 fpc-venue">{{ c.venue }}</div>
+              <sc-if value="{{ c.why }}" hint-placeholder-val="{{ false }}"><div class="fp-clamp3 fpc-why">{{ c.why }}</div></sc-if>
               <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                <span style="font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ c.price }}</span>
-                <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span style="font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#1f7a4d;">NEW</span></sc-if>
+                <span class="fpc-price">{{ c.price }}</span>
+                <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span class="fpc-new">NEW</span></sc-if>
               </div>
             </div>
           </sc-for>
@@ -654,7 +650,7 @@
     </sc-if>
 
     <footer style="flex:none; padding:9px 22px; padding-bottom:calc(9px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#f4f3ef; display:flex; align-items:center; justify-content:space-between; gap:16px; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; letter-spacing:0.02em;">
-      <span><span style="color:#3f3d36; font-weight:600;">{{ shownCount }}</span> shown · <span style="color:#3f3d36; font-weight:600;">{{ totalCount }}</span> entries in catalog</span>
+      <span><sc-if value="{{ isExplore }}" hint-placeholder-val="{{ true }}"><span style="color:#3f3d36; font-weight:600;">{{ shownCount }}</span> shown · </sc-if><span style="color:#3f3d36; font-weight:600;">{{ totalCount }}</span> entries in catalog</span>
       <span style="display:inline-flex; align-items:center; gap:14px;">
         <sc-if value="{{ anyActive }}" hint-placeholder-val="{{ false }}">
           <span onClick="{{ onReset }}" style="cursor:pointer; color:#76746b; text-decoration:underline; text-underline-offset:2px;" style-hover="color:#161512;">reset · show all</span>
@@ -1430,27 +1426,32 @@ class Component extends DCLogic {
   // id-list mechanism the concierge chat uses), full upcoming range, rank order. The header's
   // filter chip (×) or reset clears it.
   fpSeeAll = (label, ids) => {
+    this.setView('explore');                       // one door for view switches (persists la-view)
     this.setState({
-      view: 'explore', filtered: ids, filterSummary: String(label || '').toLowerCase(),
+      filtered: ids, filterSummary: String(label || '').toLowerCase(),
       range: 'all', rangeStart: this.TODAY, rangeEnd: this.maxEventISO(),
-      sortKey: 'rank', sortDir: 'asc', search: '', expandedId: null, fpDetailKey: null,
+      sortKey: 'rank', sortDir: 'asc', search: '',
       digestPicks: false, colFilters: JSON.parse(JSON.stringify(this.EMPTY_COLS)),
     });
-    try { if (typeof localStorage !== 'undefined') localStorage.setItem('la-view', 'explore'); } catch (e) {}
   };
   fpOpenExplore = (e) => { this.fpSeeAll(this.trim(e.title, 40), [e.id]); this.setState({ expandedId: e.id }); };
   // "The Take" — the digest's voice-pass lede, lifted for the front page: the first real prose
   // paragraph of DIGEST_MD (skips the H1, the *meta* lines, banners, and unfilled slot markers).
   digestLede() {
     const md = this.DIGEST_MD || '';
+    if (this._ledeSrc === md) return this._lede;   // memoized — renderVals runs per keystroke
+    let lede = '';
     for (const block of md.split(/\n\s*\n/)) {
       const t = block.trim();
-      if (!t || t.startsWith('#') || t.startsWith('*') || t.startsWith('>') ||
-          t.startsWith('<!--') || t.startsWith('-')) continue;
-      if (t.startsWith('##')) break;
-      return t.replace(/<!--[\s\S]*?-->/g, '').trim();
+      if (!t) continue;
+      if (t.startsWith('##')) break;               // first section reached — no lede in this doc
+      if (t.startsWith('# ') || t.startsWith('>') || t.startsWith('<!--') || t.startsWith('-')) continue;
+      if (/^\*[^*]/.test(t) && t.endsWith('*')) continue;  // *meta lines* (italic), not a **bold** lede
+      lede = t.replace(/<!--[\s\S]*?-->/g, '').trim();
+      break;
     }
-    return '';
+    this._ledeSrc = md; this._lede = lede;
+    return lede;
   }
 
   // custom calendar popover (native showPicker is blocked in the iframe)
@@ -1664,7 +1665,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .replace(/\*(.+?)\*/g, '<em style="color:#76746b; font-style:normal; font:600 11px ui-monospace,Menlo,monospace; letter-spacing:0.02em;">$1</em>')
       .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:#1b1a17; text-decoration:underline; text-underline-offset:2px;">$1</a>');
   }
-  renderDigestHtml() { return this.renderMarkdown(this.DIGEST_MD || ''); }
+  renderDigestHtml() {
+    // The digest doc links its weekend files relative to ITSELF (digests/latest.md ->
+    // weekends/<Fri>.md), but the modal's html resolves hrefs against the PAGE — re-root them.
+    return this.renderMarkdown(this.DIGEST_MD || '')
+      .replace(/href="weekends\//g, 'href="digests/weekends/');
+  }
   // Shared Markdown → styled HTML — used by the digest modal AND the guide / what's-new modal.
   // Supports #/## headings, "- " bullets (with indented wrapped continuations), `---` rules, and
   // the inlineMd spans (bold / code / links). Keeps both surfaces visually identical.
@@ -3185,15 +3191,28 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     const { range, rangeStart, rangeEnd, bubbleOpen } = this.state;
 
+    // View determination first: when the Front page is showing, the whole Explore pipeline
+    // below (filter + sort + row-map over ~3.6k events) is skipped — it used to re-run on
+    // every keystroke for a table that wasn't rendered. No front_page in the feed (e.g. the
+    // bundled sample) -> Explore only, switch hidden.
+    const FP = (this.META && this.META.front_page) || null;
+    const hasFront = !!(FP && FP.shelves && this.state.dataSource === 'live');
+    const isFront = hasFront && (this.state.view || 'front') === 'front';
+    const isExplore = !isFront;
+
     const digestPicks = this.state.digestPicks;
-    let base = filtered ? this.ALL.filter(e => filtered.includes(e.id)) : this.ALL;
-    base = base.filter(e => e.iso >= rangeStart && e.iso <= rangeEnd);
-    if (digestPicks) base = base.filter(e => e.score >= this.DIGEST_MIN);
-    base = base.filter(e => this.passesColFilters(e));
-    const q = (this.state.search || '').trim().toLowerCase();
-    if (q) base = base.filter(e => (e.title + ' ' + e.venue + ' ' + e.hood + ' ' + e.cat + ' ' + e.genre + ' ' + e.source + ' ' + e.lineup.join(' ')).toLowerCase().includes(q));
-    if (sortKey === 'rank') base = this.collapseSeries(base);   // a ranking shows each program once
-    const sorted = this.sortedRows(base);
+    let sorted = [];
+    if (isExplore) {
+      const fset = filtered ? new Set(filtered) : null;   // Set: shelf see-all lists are 40 long
+      let base = fset ? this.ALL.filter(e => fset.has(e.id)) : this.ALL;
+      base = base.filter(e => e.iso >= rangeStart && e.iso <= rangeEnd);
+      if (digestPicks) base = base.filter(e => e.score >= this.DIGEST_MIN);
+      base = base.filter(e => this.passesColFilters(e));
+      const q = (this.state.search || '').trim().toLowerCase();
+      if (q) base = base.filter(e => (e.title + ' ' + e.venue + ' ' + e.hood + ' ' + e.cat + ' ' + e.genre + ' ' + e.source + ' ' + e.lineup.join(' ')).toLowerCase().includes(q));
+      if (sortKey === 'rank') base = this.collapseSeries(base);   // a ranking shows each program once
+      sorted = this.sortedRows(base);
+    }
 
     const cf = this.state.colFilters;
     const dv = this.distinctVals();
@@ -3468,60 +3487,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // Everything is precomputed server-side (build_dashboard front_page: rank-ordered shelf/hero
     // keys). Here we only join keys -> events, date-window by the active lens, and slice — the
     // page never re-ranks. No front_page in the feed (e.g. the bundled sample) -> Explore only.
-    const FP = (this.META && this.META.front_page) || null;
-    const hasFront = !!(FP && FP.shelves && this.state.dataSource === 'live');
-    const isFront = hasFront && (this.state.view || 'front') === 'front';
-    const isExplore = !isFront;
+    // ---- front page (editorial home; FP/hasFront/isFront hoisted above the table pipeline) ----
     const lens = this.state.lens || 'twoweeks';
-    const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
-    const TIER_BG = { 'must-see': '#1b1a17', 'great': '#2b5cd9' };
-    const mkCard = (e) => ({
-      date: e.wd + ' ' + e.md + ' · ' + e.t,
-      title: e.title,
-      venue: e.venue + ' · ' + e.hood,
-      why: e.why || '',
-      price: e.price || '',
-      tier: (e.verdict && TIER_BG[e.verdict.tier]) ? e.verdict.tier.toUpperCase() : '',
-      tierBg: TIER_BG[(e.verdict || {}).tier] || '#76746b',
-      isNew: !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef),
-      onClick: () => this.openFpDetail(e.key),
-    });
-    let fpHero = [], fpShelves = [], fpLenses = [], fpLedeText = '', fpEmpty = false;
+    let fpShelves = [], fpLenses = [], fpLedeText = '', fpEmpty = false;
     let fpDetail = {}, fpDetailOpen = false;
-    if (hasFront) {
-      const W = FP.windows || {};
-      const win = W[lens] || null;
-      const inWin = (e) => !win || (e.iso >= win[0] && e.iso <= win[1]);
-      const resolve = (keys) => (keys || []).map(k => this.byKey(k)).filter(Boolean);
-      fpLenses = [['today', 'TONIGHT'], ['weekend', 'THIS WEEKEND'], ['twoweeks', 'NEXT 2 WEEKS'], ['ahead', 'PLAN AHEAD']].map(([k, label]) => ({
-        label, onClick: () => this.setLens(k),
-        border: lens === k ? '#1b1a17' : '#d2d0c7',
-        bg: lens === k ? '#1b1a17' : '#fff',
-        color: lens === k ? '#fff' : '#76746b',
-      }));
-      fpHero = resolve((FP.hero || {})[lens]).map(mkCard);
-      const SHELF_N = 12;
-      const heroKeys = new Set((FP.hero || {})[lens] || []);
-      fpShelves = (FP.shelves || []).map(sh => {
-        const evs = resolve(sh.keys).filter(inWin).filter(e => !heroKeys.has(e.key));
-        return {
-          label: sh.label, total: evs.length,
-          cards: evs.slice(0, SHELF_N).map(mkCard),
-          seeAll: () => this.fpSeeAll(sh.label, evs.map(e => e.id)),
-        };
-      }).filter(sh => sh.cards.length);
-      // Around town + On the radar ride as fixed shelves: around is the near city-pulse,
-      // radar is inherently plan-ahead — neither follows the lens window.
-      for (const [keys, label] of [[FP.around, 'Around town'], [FP.radar, 'On the radar']]) {
-        const evs = resolve(keys);
-        if (evs.length) fpShelves.push({
-          label, total: evs.length, cards: evs.slice(0, SHELF_N).map(mkCard),
-          seeAll: () => this.fpSeeAll(label, evs.map(e => e.id)),
-        });
-      }
-      fpEmpty = !fpHero.length && !fpShelves.length;
-      fpLedeText = this.digestLede();
-      const de = this.state.fpDetailKey ? this.byKey(this.state.fpDetailKey) : null;
+    if (hasFront && this.state.fpDetailKey) {
+      const de = this.byKey(this.state.fpDetailKey);
       if (de) {
         fpDetailOpen = true;
         fpDetail = {
@@ -3538,6 +3509,72 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         };
       }
     }
+    if (isFront) {
+      // Lens windows are computed LIVE from the page's date (same math as Explore's presets),
+      // never read from the feed — a feed built last night viewed tonight windows correctly,
+      // and anything already past just drops out. The feed contributes only the rank order.
+      const w = this.weekendRange();
+      const WIN = {
+        today: [this.TODAY, this.TODAY],
+        weekend: [w.start, w.end],
+        twoweeks: [this.TODAY, this.addDaysISO(this.TODAY, 13)],
+        ahead: [this.addDaysISO(this.TODAY, 14), this.addDaysISO(this.TODAY, 60)],
+      };
+      const win = WIN[lens] || WIN.twoweeks;
+      const inWin = (e) => e.iso >= win[0] && e.iso <= win[1];
+      const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
+      const TIER_BG = { 'must-see': '#1b1a17', 'great': '#2b5cd9' };
+      const mkCard = (e) => ({
+        date: e.wd + ' ' + e.md + ' · ' + e.t,
+        title: e.title,
+        venue: e.venue + ' · ' + e.hood,
+        why: e.why || '',
+        price: e.price || '',
+        tier: (e.verdict && TIER_BG[e.verdict.tier]) ? e.verdict.tier.toUpperCase() : '',
+        tierBg: TIER_BG[(e.verdict || {}).tier] || '#76746b',
+        isNew: !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef),
+        onClick: () => this.openFpDetail(e.key),
+      });
+      const resolve = (keys) => (keys || []).map(k => this.byKey(k)).filter(Boolean);
+      fpLenses = [['today', 'TONIGHT'], ['weekend', 'THIS WEEKEND'], ['twoweeks', 'NEXT 2 WEEKS'], ['ahead', 'PLAN AHEAD']].map(([k, label]) => ({
+        label, onClick: () => this.setLens(k),
+        border: lens === k ? '#1b1a17' : '#d2d0c7',
+        bg: lens === k ? '#1b1a17' : '#fff',
+        color: lens === k ? '#fff' : '#76746b',
+      }));
+      const SHELF_N = 12;
+      const heroEvs = resolve((FP.hero || {})[lens]).filter(inWin);
+      const heroKeys = new Set(heroEvs.map(e => e.key));
+      // The hero row is just the first shelf (rowClass fp-hero renders it as a grid) — ONE
+      // card template for every surface, size deltas live in CSS (.fp-hero .fp-card).
+      if (heroEvs.length) fpShelves.push({
+        label: "Don't miss", rowClass: 'fp-hero', total: heroEvs.length,
+        cards: heroEvs.map(mkCard), seeAll: null,
+      });
+      // Lane shelves window the near (days 0–13) or ahead (14–60) key-list per the lens —
+      // the split exists server-side so the two-zone rank can't starve plan-ahead.
+      for (const sh of (FP.shelves || [])) {
+        const evs = resolve((lens === 'ahead' ? sh.ahead : sh.near) || sh.keys)
+          .filter(inWin).filter(e => !heroKeys.has(e.key));
+        if (evs.length) fpShelves.push({
+          label: sh.label, rowClass: 'fp-shelf', total: evs.length,
+          cards: evs.slice(0, SHELF_N).map(mkCard),
+          seeAll: () => this.fpSeeAll(sh.label, evs.map(e => e.id)),
+        });
+      }
+      // Around town + On the radar ride as fixed shelves: around is the near city-pulse,
+      // radar is inherently plan-ahead — neither follows the lens window (past drops out).
+      for (const [keys, label] of [[FP.around, 'Around town'], [FP.radar, 'On the radar']]) {
+        const evs = resolve(keys).filter(e => e.iso >= this.TODAY);
+        if (evs.length) fpShelves.push({
+          label, rowClass: 'fp-shelf', total: evs.length,
+          cards: evs.slice(0, SHELF_N).map(mkCard),
+          seeAll: () => this.fpSeeAll(label, evs.map(e => e.id)),
+        });
+      }
+      fpEmpty = !fpShelves.length;
+      fpLedeText = this.digestLede();
+    }
     const fpLede = fpLedeText
       ? React.createElement('div', { dangerouslySetInnerHTML: { __html: this.inlineMd(fpLedeText) } })
       : '';
@@ -3547,8 +3584,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       viewFront: () => this.setView('front'), viewExplore: () => this.setView('explore'),
       frontTabBg: isFront ? '#1b1a17' : '#fff', frontTabColor: isFront ? '#fff' : '#76746b',
       exploreTabBg: (isExplore && hasFront) ? '#1b1a17' : '#fff', exploreTabColor: (isExplore && hasFront) ? '#fff' : '#76746b',
-      fpLenses, fpHero, fpHasHero: fpHero.length > 0, fpShelves, fpEmpty,
-      fpLede, fpHasLede: !!fpLedeText, fpDate: this.TODAY_MD,
+      fpLenses, fpShelves, fpEmpty,
+      fpLede, fpHasLede: !!fpLedeText, fpDate: this.labelISO(this.TODAY),
       fpDetailOpen, fpDetail, closeFpDetail: this.closeFpDetail, fpStop: this.fpStopClick,
       messages: msgs, loading,
       phText, phOpacity: this.state.phFade ? '0' : '1',

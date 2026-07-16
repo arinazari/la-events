@@ -139,7 +139,7 @@ FP_SHELVES = [
     ("stage", "Comedy & stage", ("comedy", "stage")),
     ("more", "Elsewhere", None),                 # catch-all: market/art/community/…
 ]
-FP_SHELF_CAP = 40      # keys per shelf — deep enough for every lens window to fill
+FP_SHELF_CAP = 40      # keys per shelf list (near + ahead each) — deep enough for a lens to fill
 FP_HERO_N = 6
 FP_HERO_LANE_CAP = 2   # per exact lane within a hero row …
 FP_HERO_FAM_CAP = 3    # … and per lane family (club:*), so The Five can't be five club nights
@@ -169,7 +169,10 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None)
             if not e.get("is_past") and e.get("iso_date") and (e.get("score") or 0) >= 0
             and (e.get("verdict") or {}).get("tier") != "skip"
             and (e.get("series_rep") or "series_key" not in e)]
-    ranked = sorted(pool, key=lambda e: (rank_key(e, verdicts), event_key(e)), reverse=True)
+    # THE ordering is final_rank itself — stamped in main() from rank_key over these same rep
+    # units — so the front page can never disagree with the Explore table's rank column (no
+    # second copy of the ranking expression to drift).
+    ranked = sorted(pool, key=lambda e: e.get("final_rank") or 10 ** 9)
 
     hero = {}
     for lens, (lo, hi) in _fp_windows(today).items():
@@ -188,6 +191,12 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None)
                 break
         hero[lens] = picks
 
+    # Shelf key-lists split NEAR (days 0–13: the today/weekend/two-weeks lenses) vs AHEAD
+    # (14–60: plan-ahead). One global-rank cut would starve plan-ahead by construction —
+    # rank_key is two-zone (judged/near events sort structurally above the unjudged far tail),
+    # so a busy lane's top-40 can sit entirely inside the near window. The client windows each
+    # list with its LIVE date (a stale feed thins honestly rather than showing yesterday).
+    near_end = (today + timedelta(days=13)).isoformat()
     shelves = []
     claimed = {ln for _, _, lanes in FP_SHELVES if lanes for ln in lanes}
     for sid, label, lanes in FP_SHELVES:
@@ -195,9 +204,11 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None)
             rows = [e for e in ranked if (e.get("lane") or "other") in lanes]
         else:
             rows = [e for e in ranked if (e.get("lane") or "other") not in claimed]
-        if rows:
+        near = [e["key"] for e in rows if e["iso_date"] <= near_end][:FP_SHELF_CAP]
+        ahead = [e["key"] for e in rows if e["iso_date"] > near_end][:FP_SHELF_CAP]
+        if near or ahead:
             shelves.append({"id": sid, "label": label, "lanes": list(lanes or ()),
-                            "keys": [e["key"] for e in rows[:FP_SHELF_CAP]]})
+                            "near": near, "ahead": ahead})
 
     feed_keys = {e["key"] for e in events if not e.get("is_past")}
     def join(rows, cap):

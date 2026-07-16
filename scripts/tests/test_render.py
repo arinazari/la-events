@@ -287,6 +287,10 @@ def test_changes_section_lists_new_and_updated():
         assert "**Updated**" in md and "MovedShow" in md and "lineup" in md
         assert "OldShow" not in md
         assert R._changes_md([quiet]) == []                        # quiet day -> omitted
+        # a newly announced multi-night run is ONE row (+N more dates), not one per night
+        run = [dict(new, iso_date=d, date=d) for d in ("2026-06-19", "2026-06-20", "2026-06-21")]
+        md2 = "\n".join(R._changes_md(run))
+        assert md2.count("BrandNew") == 1 and "(+2 more dates)" in md2
     finally:
         R.FETCH_REF = old_ref
 
@@ -313,14 +317,6 @@ def test_radar_rows_carry_gloss_slots():
              "signals": ["festival"], "link": None}]
     md = "\n".join(R._radar_md(rows))
     assert "<!-- tier3:gloss rk1 -->" in md
-
-
-def test_tidy_why_repairs_hard_sliced_whys():
-    cut = "x" * 150 + " word another" + "y" * 37                   # 200 chars, ends mid-word
-    assert len(cut) == 200
-    out = R._tidy_why(cut)
-    assert out.endswith("…") and "another" not in out
-    assert R._tidy_why("short and sweet.") == "short and sweet."
 
 
 if __name__ == "__main__":

@@ -251,14 +251,6 @@ def _note_of(ev: dict) -> str:
     return e.get("curator_note") or _gloss(ev) or e.get("description") or ""
 
 
-def _tidy_why(why: str) -> str:
-    """Verdicts stored before the word-boundary clamp (lib/editor WHY_MAX) were hard-sliced at
-    200 chars mid-word; trim those to the last whole word so the digest never prints a cut."""
-    if len(why) >= 200 and why[-1] not in ".!?)…\"'":
-        return why[:200].rsplit(" ", 1)[0].rstrip(" ,;—-") + " …"
-    return why
-
-
 def event_md(ev: dict, style: str = "full", note_seen: frozenset = frozenset(),
              lead: str = "time") -> str:
     """One slate entry. `style` is the tier-scaled treatment (_style_of): "full" = headline line
@@ -294,7 +286,7 @@ def event_md(ev: dict, style: str = "full", note_seen: frozenset = frozenset(),
     tail = " · ".join(x for x in (_loc(ev), also_at, chip, ev.get("price"), upd_note, more) if x)
     line = f"- `{head_chip}`{span} {pick}{fresh}**{head}**" + (f" — {tail}" if tail else "")
     if style == "compact":
-        why = _tidy_why((ev.get("verdict") or {}).get("why") or "")
+        why = (ev.get("verdict") or {}).get("why") or ""
         if why and event_key(ev) not in note_seen:
             line += f" — *{why}*"
         return line
@@ -455,17 +447,13 @@ def _tonight_md(cands: list, today_iso: str) -> list:
 def _changes_md(cands: list) -> list:
     """What changed on the latest pull, pulled out of the inline 🆕/↻ scatter into one place:
     events new to the slate, and updated ones with the fields that moved. Omitted entirely on
-    a no-change day — the freshness line already says so."""
-    seen, new, upd = set(), [], []
-    for ev in cands:
-        k = event_key(ev)
-        if k in seen:
-            continue
-        seen.add(k)
-        if _is_new(ev):
-            new.append(ev)
-        elif _updated_fields(ev):
-            upd.append(ev)
+    a no-change day — the freshness line already says so. Runs collapse (collapse_runs — one
+    PROGRAM per row, films cross-theater) so a newly announced 4-night residency is one row
+    with (+3 more dates), not four."""
+    new = collapse_runs([e for e in cands if _is_new(e)])
+    upd_pool = [e for e in cands if not _is_new(e) and _updated_fields(e)]
+    new_keys = {event_key(e) for e in new}
+    upd = [e for e in collapse_runs(upd_pool) if event_key(e) not in new_keys]
     if not (new or upd):
         return []
     out = ["## What changed\n"]
@@ -525,11 +513,13 @@ def _dont_miss_events(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
     return [e for e in uniq2[:limit] if e.get("iso_date")]
 
 
-def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
+def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT, picked: list = None) -> list:
     """The editorial shelf (Track B4) rendered: each pick dated, priced, urgency-chipped, with
     its why prefilled from the curator note / verdict why; the Tier-3 voice pass may rewrite the
-    why text at its slot marker but never the picks themselves (the slate stays deterministic)."""
-    picked = _dont_miss_events(cands, limit)
+    why text at its slot marker but never the picks themselves (the slate stays deterministic).
+    Pass `picked` (a _dont_miss_events result) to reuse an already-computed pick set."""
+    if picked is None:
+        picked = _dont_miss_events(cands, limit)
     if not picked:
         return []
     out = ["## Don't miss\n"]
@@ -802,8 +792,9 @@ def main() -> int:
         sections = [("Next two weeks", enr1)]
         weekends = _weekends_md(enr2)
         slate_keys = {event_key(e) for e in enr1 + enr2}
-        dont_miss = _dont_miss_md(enr1 + enr2)
-        dm_keys = frozenset(event_key(e) for e in _dont_miss_events(enr1 + enr2))
+        dm_events = _dont_miss_events(enr1 + enr2)
+        dont_miss = _dont_miss_md(enr1 + enr2, picked=dm_events)
+        dm_keys = frozenset(event_key(e) for e in dm_events)
         around = _around_md(around_rows, slate_keys)
         notice = posh_notice()  # proactive Posh-token banner (no-email nudge), if warn/expired
         tonight = _tonight_md(enr1, doc["today"])
