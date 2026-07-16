@@ -129,6 +129,109 @@ def test_consolidated_sections_follow_prefs_order():
     assert "## Next two weeks" in md2
 
 
+def test_day_groups_key_off_lane_not_source_category():
+    """The fix for the 'Other' misfile: an RA warehouse bill arrives with a useless source
+    category but must land under Electronic & dance (lane club:*), with its sub-lane chip;
+    a verdict lane override beats the tags."""
+    ra = {"title": "WORK presents: Ken Ishii", "iso_date": "2026-06-19", "start": "23:00",
+          "score": 8, "rating": 4, "venue": "TBA - Los Angeles", "category": "Event",
+          "sources": ["ra"], "links": [], "afterhours": True}
+    misc = {"title": "Some Expo", "iso_date": "2026-06-19", "start": "10:00", "score": 4,
+            "rating": 4, "venue": "Convention Center", "category": "Miscellaneous",
+            "sources": ["ticketmaster"], "links": []}
+    md = R.render_markdown({"today": "2026-06-17", "candidates": []}, [ra, misc])
+    assert "**Electronic & dance**" in md and "**Elsewhere**" in md
+    assert md.index("**Electronic & dance**") < md.index("Ken Ishii") < md.index("**Elsewhere**")
+    assert "· afters ·" in md or "· afters\n" in md or "afters" in md.split("Ken Ishii")[1].split("\n")[0]
+    # verdict lane override wins over tags
+    lm = {"title": "Secret Rave", "iso_date": "2026-06-20", "start": "22:00", "score": 6,
+          "rating": 4, "venue": "Somewhere", "category": "music", "sources": ["dice"],
+          "links": [], "verdict": {"tier": "great", "lane": "club:afters", "why": "x"}}
+    md2 = R.render_markdown({"today": "2026-06-17", "candidates": []}, [lm])
+    assert "**Electronic & dance**" in md2 and "**Live music**" not in md2
+
+
+def test_tier_scaled_rendering_and_also_row():
+    """rating>=4 gets the two-line entry; rating 3 gets one line with the verdict why inline;
+    rating<=2 collapses into the day's Also: row."""
+    full = {"title": "Headliner", "iso_date": "2026-06-19", "start": "21:00", "score": 9,
+            "rating": 5, "venue": "V", "category": "electronic", "links": [],
+            "enrichment": {"curator_note": "The one to build the night around."}}
+    comp = {"title": "SolidPick", "iso_date": "2026-06-19", "start": "22:00", "score": 5,
+            "rating": 3, "venue": "V2", "category": "electronic", "links": [],
+            "verdict": {"tier": "solid", "why": "fine bill, nothing rare"},
+            "enrichment": {"curator_note": "Should not print — compact drops the note."}}
+    tail = {"title": "TailEvent", "iso_date": "2026-06-19", "start": "20:00", "score": 1,
+            "rating": 2, "venue": "V3", "category": "electronic",
+            "links": [{"source": "ra", "url": "https://ra.co/e/9"}]}
+    md = R.render_markdown({"today": "2026-06-17", "candidates": []}, [full, comp, tail])
+    assert "The one to build the night around." in md
+    assert "— *fine bill, nothing rare*" in md                     # inline why, same line
+    assert "Should not print" not in md                            # compact = one line only
+    assert "*Also:* [TailEvent](https://ra.co/e/9) (V3)" in md     # collapsed tail
+    # a day of ONLY tail picks still promotes its best to a real line
+    md2 = R.render_markdown({"today": "2026-06-17", "candidates": []}, [tail])
+    assert "*Also:*" not in md2 and "TailEvent" in md2
+
+
+def test_dont_miss_blurbs_not_repeated_in_day_body():
+    """A Don't-miss pick appears in the day body starred but note-free (cross-reference,
+    not verbatim repetition)."""
+    ev = {"title": "BigNight", "iso_date": "2026-06-19", "start": "21:00", "score": 9,
+          "rating": 5, "venue": "V", "category": "electronic", "links": [],
+          "enrichment": {"curator_note": "Once-a-year booking."}}
+    dm = R._dont_miss_md([ev])
+    keys = frozenset(R.event_key(e) for e in R._dont_miss_events([ev]))
+    md = R.render_consolidated_md("2026-06-17", [("Next two weeks", [ev])], [],
+                                  {"today": "2026-06-17", "meta": {}},
+                                  dont_miss=dm, dm_keys=keys)
+    assert md.count("Once-a-year booking.") == 1                   # shelf only
+    assert md.count("BigNight") == 2                               # shelf + day body
+
+
+def test_weekends_ahead_compressed_with_pointer():
+    evs = [{"title": f"Ev{i}", "iso_date": "2026-06-27", "start": "20:00", "score": 10 - i,
+            "rating": 3, "venue": "V", "category": "electronic", "links": []}
+           for i in range(6)]
+    out = R._weekends_md(evs)
+    md = "\n".join(out)
+    assert "### Weekend of Fri 6/26" in md                         # Sat 6/27 anchors to Fri 6/26
+    assert md.count("- `") == R.WEEKEND_TOP                        # top picks only
+    assert "plus 2 more that weekend" in md
+    assert "weekends/2026-06-26.md" in md                          # pointer to the full file
+    assert "(+" not in md.split("\n")[1]                           # single-date: no dates suffix
+
+
+def test_ops_banner_lives_in_footer_not_lede():
+    md = R.render_consolidated_md("2026-06-17", [("Next two weeks", _dm_cands())], [],
+                                  {"today": "2026-06-17", "meta": {}},
+                                  notice={"status": "expired", "days": 0},
+                                  dont_miss=R._dont_miss_md(_dm_cands()))
+    assert "Posh token expired" in md
+    assert md.index("## Don't miss") < md.index("Posh token expired")   # after the content
+    assert md.index("\n---\n") < md.index("Posh token expired")         # in the footer block
+
+
+def test_dont_miss_urgency_chips():
+    tiered = {"title": "TieredShow", "iso_date": "2026-06-19", "venue": "V", "score": 9,
+              "price": "$35 b4 11 / $47", "category": "electronic", "links": [],
+              "verdict": {"tier": "must-see", "why": "w"}}
+    tba = {"title": "TbaShow", "iso_date": "2026-06-20", "venue": "TBA - Los Angeles",
+           "score": 8, "category": "electronic", "links": [],
+           "verdict": {"tier": "must-see", "why": "w"}}
+    md = "\n".join(R._dont_miss_md([tiered, tba]))
+    assert "🎟 tiered pricing — buy early" in md
+    assert "📍 location TBA — watch for the drop" in md
+
+
+def test_tidy_why_repairs_hard_sliced_whys():
+    cut = "x" * 150 + " word another" + "y" * 37                   # 200 chars, ends mid-word
+    assert len(cut) == 200
+    out = R._tidy_why(cut)
+    assert out.endswith("…") and "another" not in out
+    assert R._tidy_why("short and sweet.") == "short and sweet."
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

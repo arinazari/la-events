@@ -27,7 +27,7 @@ from lib.config import load_taste, load_profile, load_digest_prefs  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
 from lib.affinity import ambiguous_set  # noqa: E402  (gates title-token artist-bio folds)
 from lib.pipeline import score_pool, today_la  # noqa: E402
-from lib.assemble import assemble  # noqa: E402
+from lib.assemble import assemble, event_lane  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from posh_token_status import evaluate as posh_evaluate  # noqa: E402
@@ -38,18 +38,31 @@ FULLDOW = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "
 MONTHS = ["January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"]
 
-# Within-day display groups, in priority order. Leads with the dance lane, then live, film…
+# Within-day display groups, in priority order — keyed by the slate LANE (lib/assemble.event_lane:
+# the editor's lane override wins, else the multi-axis tags), NOT the raw source category. The raw
+# category misfiled the core lane: an RA warehouse bill arrives category "Event"/"general" and used
+# to land under "Other" while "Electronic & dance" sat near-empty. Groups match on the lane family
+# (the part before ":"); the last group is the catch-all.
 GROUPS = [
-    ("Electronic & dance", {"electronic", "party"}),
-    ("Live music", {"music", "live_music"}),
-    ("Film", {"film"}),
-    ("Theater", {"theater"}),
-    ("Comedy", {"comedy"}),
-    ("Food & drink", {"beer_food"}),
-    ("Other", {"art", "general"}),
+    ("Electronic & dance", ("club",)),           # club:* — underground / afters / day / big room
+    ("Live music", ("live-music",)),
+    ("Film", ("film",)),
+    ("Comedy & stage", ("comedy", "stage")),
+    ("Elsewhere", ()),                           # art / market / workshop / community / other …
 ]
 
+# Sub-lane chips, shown inline so the one dance heading keeps the afters/day/big-room distinction.
+LANE_CHIP = {"club:afters": "afters", "club:day": "day party", "club:mainstream": "big room"}
+
 PICK_MIN_RATING = 5   # rating at/above this gets an "editor's pick" flag inline
+
+# Tier-scaled display: the editor's verdict decides how much page an event gets (build_slate_cands
+# maps must-see/great/solid onto rating 5/4/3, so unjudged high-scorers keep the full treatment
+# their deterministic stars earn). rating >= FULL gets the two-line entry with a note; rating ==
+# COMPACT gets one line with the verdict's why inline; anything below collapses into the day's
+# closing "Also:" row — listed, linked, but not given a paragraph it didn't earn.
+FULL_MIN_RATING = 4
+COMPACT_RATING = 3
 
 
 def stars(rating) -> str:
@@ -93,17 +106,26 @@ def fmt_time(t) -> str:
     return ""
 
 
-def _type_of(ev: dict) -> str:
-    e = ev.get("enrichment") or {}
-    return (e.get("type") or ev.get("category") or "general").lower()
+def _lane_of(ev: dict) -> str:
+    """Slate lane at render time. The editor verdict's lane override (folded onto the event by
+    build_slate_cands) wins — it can see headliner draw; otherwise derive from the multi-axis
+    tags via lib/assemble (tag_event fallback included)."""
+    v = ev.get("verdict") or {}
+    return v.get("lane") or event_lane(ev)
 
 
 def _group_of(ev: dict) -> str:
-    t = _type_of(ev)
-    for label, cats in GROUPS:
-        if t in cats:
+    fam = _lane_of(ev).split(":")[0]
+    for label, fams in GROUPS:
+        if fams and fam in fams:
             return label
-    return "Other"
+    return GROUPS[-1][0]
+
+
+def _style_of(ev: dict) -> str:
+    """full | compact | also — how much page this event gets (see the constants above)."""
+    r = int(ev.get("rating") or 0)
+    return "full" if r >= FULL_MIN_RATING else ("compact" if r == COMPACT_RATING else "also")
 
 
 def _link(ev: dict):
@@ -211,23 +233,87 @@ def _day_groups(day_evs: list):
 
 
 # ── Markdown ────────────────────────────────────────────────────────────────
-def event_md(ev: dict) -> str:
+def _note_of(ev: dict) -> str:
+    """The event's one-line why, richest-first: the curator's take, else the artist gloss,
+    else the (blurb-tier) factual description — every full entry gets SOME context."""
     e = ev.get("enrichment") or {}
+    return e.get("curator_note") or _gloss(ev) or e.get("description") or ""
+
+
+def _tidy_why(why: str) -> str:
+    """Verdicts stored before the word-boundary clamp (lib/editor WHY_MAX) were hard-sliced at
+    200 chars mid-word; trim those to the last whole word so the digest never prints a cut."""
+    if len(why) >= 200 and why[-1] not in ".!?)…\"'":
+        return why[:200].rsplit(" ", 1)[0].rstrip(" ,;—-") + " …"
+    return why
+
+
+def event_md(ev: dict, style: str = "full", note_seen: frozenset = frozenset(),
+             lead: str = "time") -> str:
+    """One slate entry. `style` is the tier-scaled treatment (_style_of): "full" = headline line
+    + an indented note; "compact" = one line with the verdict's why inline. `note_seen` = event
+    keys whose full note already ran (the Don't-miss shelf) — suppressed here so the day body
+    cross-references instead of repeating the blurb verbatim. `lead` = "time" (within a day
+    section) or "date" (cross-day lists like the weekends block)."""
     time = fmt_time(ev.get("start")) or "time TBA"
     dates = ev.get("_dates") or []
-    span = f" ({fmt_dates(dates)})" if len(dates) > 1 else ""
+    if lead == "date" and (ev.get("iso_date") or dates):
+        head_chip = day_label(ev.get("_earliest") or ev["iso_date"])
+        n_more = len(dates) - 1
+        span = f" (+{n_more} more date{'s' if n_more != 1 else ''})" if n_more > 0 else ""
+    else:
+        head_chip = time
+        span = f" ({fmt_dates(dates)})" if len(dates) > 1 else ""
     pick = "⭐ " if _is_pick(ev) else ""
     fresh = "🆕 " if _is_new(ev) else ""
     upd = _updated_fields(ev)
     upd_note = f"↻ updated ({', '.join(upd)})" if upd else ""
     title, url = ev.get("title") or "Untitled", _link(ev)
     head = f"[{title}]({url})" if url else title
-    tail = " · ".join(x for x in (_loc(ev), ev.get("price"), upd_note) if x)
-    line = f"- `{time}`{span} {pick}{fresh}**{head}**" + (f" — {tail}" if tail else "")
-    note = e.get("curator_note") or _gloss(ev)
-    if note:
+    chip = LANE_CHIP.get(_lane_of(ev))
+    tail = " · ".join(x for x in (_loc(ev), chip, ev.get("price"), upd_note) if x)
+    line = f"- `{head_chip}`{span} {pick}{fresh}**{head}**" + (f" — {tail}" if tail else "")
+    if style == "compact":
+        why = _tidy_why((ev.get("verdict") or {}).get("why") or "")
+        if why and event_key(ev) not in note_seen:
+            line += f" — *{why}*"
+        return line
+    note = _note_of(ev)
+    if note and event_key(ev) not in note_seen:
         line += f"  \n  {note}"
     return line
+
+
+def _also_md(evs: list) -> str:
+    """The day's collapsed tail — every below-the-line slate pick, linked but not blurbed."""
+    bits = []
+    for ev in evs:
+        title, url = ev.get("title") or "Untitled", _link(ev)
+        head = f"[{title}]({url})" if url else title
+        fresh = "🆕 " if _is_new(ev) else ""
+        bits.append(f"{fresh}{head}" + (f" ({ev['venue']})" if ev.get("venue") else ""))
+    return "- *Also:* " + " · ".join(bits)
+
+
+def _day_body(day_evs: list, note_seen: frozenset = frozenset()) -> list:
+    """One day's entries: lane groups in priority order, tier-scaled within — full entries and
+    compact one-liners in place, the rest collapsed into a single closing "Also:" row. A day of
+    nothing but tail picks still promotes its best to a real line (no header over an empty day)."""
+    styled = {event_key(e): _style_of(e) for e in day_evs}
+    if day_evs and all(s == "also" for s in styled.values()):
+        top = max(day_evs, key=lambda e: ((e.get("rating") or 0), (e.get("score") or 0)))
+        styled[event_key(top)] = "compact"
+    out, also = [], []
+    for label, evs in _day_groups(day_evs):
+        keep = [e for e in evs if styled[event_key(e)] != "also"]
+        also += [e for e in evs if styled[event_key(e)] == "also"]
+        if keep:
+            out.append(f"\n**{label}**")
+            out.extend(event_md(e, styled[event_key(e)], note_seen) for e in keep)
+    if also:
+        out.append("")
+        out.append(_also_md(sorted(also, key=lambda e: -(e.get("score") or 0))))
+    return out
 
 
 def _footer_notes(doc: dict) -> list:
@@ -263,9 +349,7 @@ def render_markdown(doc: dict, cands: list) -> str:
            f"*{freshness_line(doc.get('meta') or {}, doc.get('today',''))}*", ""]
     for iso in sorted(days):
         out.append(f"## {day_header(iso)}")
-        for label, evs in _day_groups(days[iso]):
-            out.append(f"\n**{label}**")
-            out.extend(event_md(ev) for ev in evs)
+        out.extend(_day_body(days[iso]))
         out.append("")
     notes = _footer_notes(doc)
     if notes:
@@ -319,11 +403,28 @@ _DM_TIER = {"must-see": 3, "great": 2, "solid": 1}
 DEFAULT_SECTIONS = ["dont_miss", "day_by_day", "around_town", "radar"]
 
 
-def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
-    """The editorial shelf (Track B4): the highest-ranked picks across the WHOLE window pulled
-    to the top — tier-primary (the editor's call), then adjusted score. Each line prefills its
-    why from the curator note / verdict why; the Tier-3 voice pass may rewrite the why text at
-    its slot marker but never the picks themselves (the slate stays deterministic)."""
+# Deterministic ticket-urgency read on a Don't-miss pick — decision info, not clairvoyance:
+# presale tiers in the price string mean the cost of waiting is real; free means RSVP; a TBA
+# venue means watch for the address drop. Sell-out *risk* is the editor/voice-pass's call.
+_PRESALE_RE = re.compile(r"\b(b4|bb4|before|presale|pre|tier|early\s?bird|adv)\b", re.I)
+
+
+def _urgency(ev: dict) -> str:
+    price = str(ev.get("price") or "")
+    if _PRESALE_RE.search(price):
+        return "🎟 tiered pricing — buy early"
+    if "tba" in str(ev.get("venue") or "").lower():
+        return "📍 location TBA — watch for the drop"
+    if "free" in price.lower():
+        return "free — just RSVP"
+    return ""
+
+
+def _dont_miss_events(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
+    """The Don't-miss pick set: highest-ranked across the WHOLE window — tier-primary (the
+    editor's call), then adjusted score — with multi-night runs collapsed (one festival or
+    residency can't eat several of the shelf's slots; the best-ranked night represents it,
+    matching the day-by-day body's collapse_runs convention)."""
     seen, uniq = set(), []
     for ev in cands:
         k = event_key(ev)
@@ -332,9 +433,6 @@ def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
             uniq.append(ev)
     uniq.sort(key=lambda e: (-_DM_TIER.get((e.get("verdict") or {}).get("tier"), 0),
                              -(e.get("score") or 0), e.get("iso_date") or "9999-12-31"))
-    # Collapse multi-night runs (same normalized title+venue) so one festival/residency can't
-    # eat several of the shelf's slots — the best-ranked night represents the run, matching the
-    # day-by-day body's collapse_runs convention.
     runs, uniq2 = set(), []
     for ev in uniq:
         rk = (normalize(ev.get("title") or ""), normalize(ev.get("venue") or ""))
@@ -342,7 +440,14 @@ def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
             continue
         runs.add(rk)
         uniq2.append(ev)
-    picked = [e for e in uniq2[:limit] if e.get("iso_date")]
+    return [e for e in uniq2[:limit] if e.get("iso_date")]
+
+
+def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
+    """The editorial shelf (Track B4) rendered: each pick dated, priced, urgency-chipped, with
+    its why prefilled from the curator note / verdict why; the Tier-3 voice pass may rewrite the
+    why text at its slot marker but never the picks themselves (the slate stays deterministic)."""
+    picked = _dont_miss_events(cands, limit)
     if not picked:
         return []
     out = ["## Don't miss\n"]
@@ -353,9 +458,12 @@ def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
         e = ev.get("enrichment") or {}
         why = e.get("curator_note") or (ev.get("verdict") or {}).get("why") or ""
         line = f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}**"
-        loc = _loc(ev)
-        if loc:
-            line += f" — {loc}"
+        tail = " · ".join(x for x in (_loc(ev), ev.get("price")) if x)
+        if tail:
+            line += f" — {tail}"
+        urg = _urgency(ev)
+        if urg:
+            line += f" · *{urg}*"
         out.append(line + f"  \n  {why} <!-- tier3:why {event_key(ev)} -->")
     return out + [""]
 
@@ -378,6 +486,41 @@ def _around_md(rows: list, slate_keys: set, limit: int = AROUND_LIMIT) -> list:
                    + (f" — {loc}" if loc else "") + (f"  ·  *{sig}*" if sig else "")
                    + f" <!-- tier3:gloss {r.get('key', '')} -->")
     return out + [""]
+
+
+WEEKEND_TOP = 4      # picks printed per future weekend; the rest is a count + file pointer
+
+
+def _weekend_anchor(iso: str) -> str:
+    """The Friday anchoring the weekend this date belongs to (Thu–Sun cluster — matches the
+    per-weekend files' Friday keying in digests/weekends/)."""
+    d = date.fromisoformat(iso)
+    return (d + timedelta(days=4 - d.weekday())).isoformat()
+
+
+def _weekends_md(cands: list) -> list:
+    """Weekends ahead, compressed: the slate still ranks everything, but the consolidated doc
+    prints each future weekend as its top picks + a count — the full day-by-day for a far
+    weekend lives in its own digests/weekends/<Fri>.md (refreshed daily), so duplicating the
+    whole list here just made the doc a wall."""
+    out = []
+    wk = {}
+    for ev in collapse_runs(cands):
+        iso = ev.get("_earliest")
+        if iso:
+            wk.setdefault(_weekend_anchor(iso), []).append(ev)
+    for anchor in sorted(wk):
+        evs = sorted(wk[anchor], key=lambda e: (-(e.get("rating") or 0), -(e.get("score") or 0)))
+        d = date.fromisoformat(anchor)
+        out.append(f"### Weekend of Fri {d.month}/{d.day}")
+        for ev in evs[:WEEKEND_TOP]:
+            out.append(event_md(ev, "compact", lead="date"))
+        more = len(evs) - WEEKEND_TOP
+        if more > 0:
+            out.append(f"- *…plus {more} more that weekend — full list: "
+                       f"[weekend digest](weekends/{anchor}.md)*")
+        out.append("")
+    return out
 
 
 def _radar_md(rows: list, limit: int = 18) -> list:
@@ -427,18 +570,22 @@ def _posh_banner_md(notice: dict) -> str:
 
 
 def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dict, notice=None,
-                           dont_miss: list = None, around: list = None, order: list = None) -> str:
+                           dont_miss: list = None, around: list = None, order: list = None,
+                           weekends: list = None, dm_keys: frozenset = frozenset()) -> str:
     """The consolidated scaffold. Section inclusion + order follow digest.yaml `sections`
     (Track B4 — the renderer finally honors it); day_by_day is the body and is never droppable.
     The `<!-- tier3:… -->` markers are the Tier-3 voice pass's slots: it fills the intro and may
-    rewrite a why/gloss, but never adds, removes, or reorders events."""
+    rewrite a why/gloss, but never adds, removes, or reorders events.
+
+    `dm_keys` = the Don't-miss picks' event keys: their blurbs run once (in the shelf), and the
+    day body shows them starred but note-free instead of repeating the same paragraph verbatim.
+    Ops warnings (the Posh-token banner) live in the FOOTER with the other operational notes —
+    the top of the doc is editorial, the bottom is ops."""
     out = [f"# LA Events — {today_iso[:10]}",
            "*Your week ahead, the weekends after, and what's on the radar — "
            "ranked for your taste · ⭐ = top pick*",
            f"*{freshness_line(doc.get('meta') or {}, today_iso)}*", "",
            "<!-- tier3:intro -->", ""]
-    if notice:
-        out += [_posh_banner_md(notice), ""]
     order = [s for s in (order or DEFAULT_SECTIONS) if s in DEFAULT_SECTIONS]
     if "day_by_day" not in order:
         order.append("day_by_day")
@@ -453,10 +600,11 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
                 out.append(f"## {title}\n")
                 for iso in sorted(days):
                     out.append(f"### {day_header(iso)}")
-                    for label, evs in _day_groups(days[iso]):
-                        out.append(f"\n**{label}**")
-                        out.extend(event_md(ev) for ev in evs)
+                    out.extend(_day_body(days[iso], dm_keys))
                     out.append("")
+            if weekends:
+                out.append("## Weekends ahead\n")
+                out.extend(weekends)
         elif sec == "around_town" and around:
             out.extend(around)
         elif sec == "radar":
@@ -464,6 +612,8 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
             out.extend(_radar_md(radar))
             out.append("")
     notes = _footer_notes(doc)
+    if notice:
+        notes = [_posh_banner_md(notice)] + notes
     if notes:
         out.append("---")
         out.extend(notes)
@@ -556,14 +706,17 @@ def main() -> int:
                 pass
         amb = ambiguous_set(profile, taste)
         enr1, enr2 = merge_enrichment(sec1, cache, amb), merge_enrichment(sec2, cache, amb)
-        sections = [("Next two weeks", enr1), ("Weekends ahead", enr2)]
+        sections = [("Next two weeks", enr1)]
+        weekends = _weekends_md(enr2)
         slate_keys = {event_key(e) for e in enr1 + enr2}
         dont_miss = _dont_miss_md(enr1 + enr2)
+        dm_keys = frozenset(event_key(e) for e in _dont_miss_events(enr1 + enr2))
         around = _around_md(around_rows, slate_keys)
         notice = posh_notice()  # proactive Posh-token banner (no-email nudge), if warn/expired
         Path(args.md).write_text(render_consolidated_md(
             doc["today"], sections, radar, doc, notice,
-            dont_miss=dont_miss, around=around, order=prefs.get("sections")))
+            dont_miss=dont_miss, around=around, order=prefs.get("sections"),
+            weekends=weekends, dm_keys=dm_keys))
         print(f"rendered consolidated digest: {max(len(dont_miss) - 2, 0)} don't-miss + "
               f"{len(sec1)} + {len(sec2)} picks + {max(len(around) - 3, 0)} around town + "
               f"{min(len(radar), 18)} on the radar -> {args.md}")

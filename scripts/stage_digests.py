@@ -157,6 +157,14 @@ def main(argv=None) -> int:
         print(f"staged {default_src.name} -> {dest.name}/latest.md")
     for d in dated:                    # every dated digest, so the modal can show past ones
         shutil.copy(d, dest / d.name)
+    # Per-weekend look-ahead files: the consolidated digest's "Weekends ahead" section links each
+    # weekend's full list as weekends/<Fri>.md (relative to the digest doc), so publish them too.
+    weekends = sorted((digests / "weekends").glob(DATED_GLOB))
+    if weekends:
+        (dest / "weekends").mkdir(parents=True, exist_ok=True)
+        for w in weekends:
+            shutil.copy(w, dest / "weekends" / w.name)
+        print(f"staged {len(weekends)} weekend digest(s) -> {dest.name}/weekends/")
     # Root-relative paths ("<date>.md") for the dropdown. When the consolidated doc is what got
     # staged as latest.md, IT is the index's `latest` entry — naming the download after the digest
     # actually displayed, not after a possibly weeks-old dated file.
