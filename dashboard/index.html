@@ -1677,8 +1677,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // Shared Markdown → styled HTML — used by the digest modal AND the guide / what's-new modal.
   // Supports #/## headings, "- " bullets (with indented wrapped continuations), `---` rules, and
   // the inlineMd spans (bold / code / links). Keeps both surfaces visually identical.
+  // HTML comments are stripped FIRST: the digest carries permanent slot markers (take:start/end,
+  // any unfilled tier3 slots) that inlineMd's escaping would otherwise render as literal text.
   renderMarkdown(md) {
-    const lines = String(md || '').split('\n');
+    const lines = String(md || '').replace(/<!--[\s\S]*?-->/g, '').split('\n');
     let html = '';
     let items = null;   // array of <li> inner-HTML while inside a bullet list (else null)
     const flush = () => {

@@ -148,9 +148,11 @@ no backend; the static page just renders it.
    markers into `front_page.take`, so the dashboard reads it structurally.
 5. **Owner refresh** — **no LLM**, and debounced so a rapid re-click doesn't re-sweep sources.
    Known tradeoff: its best-effort re-render of `digests/latest.md` replaces the morning's
-   Tier-3 voice layer with a fresh deterministic scaffold (whys stay prefilled; the intro slot
-   marker is an invisible HTML comment) — data freshness wins intra-day; the nightly voice
-   pass restores the prose.
+   Tier-3 voice layer with a fresh deterministic scaffold (whys stay prefilled; the slot
+   markers are stripped by the page's renderer) — data freshness wins intra-day; the nightly
+   voice pass restores the prose. The feed rebuild runs AFTER the re-render, so
+   `front_page.take` honestly goes null with it (the two surfaces never show different intros)
+   until the nightly pass refills the slot.
 6. **Per-user rebuild** — Sonnet, on the repo's `ANTHROPIC_API_KEY` (BYOK does NOT apply to CI —
    a browser-held key is never forwarded into a GitHub Actions run); gated client-side to
    actionable-only; the deterministic feed commits first so a timed-out LLM step still leaves the

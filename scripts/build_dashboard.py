@@ -460,9 +460,11 @@ def main() -> int:
                     around_rows = rows
             except (json.JSONDecodeError, OSError):
                 pass
+    # Sample builds skip the lift — a demo feed must not carry the real digest's voice-pass
+    # intro over sample events (same gate the catalog_meta publish uses).
     take = None
     dpath = resolve(args.digest)
-    if dpath.exists():
+    if not is_sample and dpath.exists():
         try:
             take = digest_take(dpath.read_text(encoding="utf-8"))
         except OSError:
