@@ -39,6 +39,31 @@ sources.yaml ───────┘
 table, and renders. If `data.json` is unreachable (e.g. opened over `file://`) it falls back
 to its bundled sample data, so it never renders blank.
 
+## Views: Front (default) ⇄ Explore
+
+The page opens on the **Front page** — an editorial home rendered from the feed's
+`front_page` block (built server-side by `build_dashboard.build_front_page` with the SAME
+`rank_key` that orders the table's final rank — the page never re-ranks):
+
+- **The Take** — the consolidated digest's voice-pass lede, lifted from
+  `./digests/latest.md`, with a link into the full digest modal.
+- A **time lens** (*tonight · this weekend · next 2 weeks · plan ahead*) that re-scopes
+  everything below. The feed ships each lens's hero list plus rank-ordered shelf key-lists;
+  the client only date-windows and slices — selection, never re-sorting.
+- **Don't miss** — the hero row, tier-badged (must-see / great), lane-capped server-side so
+  it can't be five club nights.
+- **Shelves per lane** — warehouse & underground / afters / day parties / big rooms / live
+  music / film / comedy & stage / elsewhere, plus fixed **Around town** and **On the radar**
+  shelves when the runtime sets exist. Card click → a detail modal (what/why/lineup/links/
+  add-to-calendar); *see all →* jumps into Explore pre-filtered via the same `filtered`
+  id-list mechanism the chat uses.
+
+**Explore** is the original table (search, facets, date range, rank/score sort), one click
+away in the header switch; the choice persists per device (`la-view` in localStorage). A feed
+without `front_page` (e.g. the bundled sample) opens straight in Explore and hides the switch.
+Events carry a stable `key` (server `event_key`) — the front-page join id, and the anchor for
+future feedback reactions.
+
 ## The chat: Concierge (LLM) ⇄ Fast filter
 
 The chat has two modes, toggled in its header (default **Concierge**):
