@@ -146,6 +146,41 @@ def test_tm_fetcher_normalize_prefers_local_date():
     assert parse_event_date(rec) == date(2026, 6, 17)
 
 
+def test_film_taste_scores_the_movie_not_just_the_room():
+    """taste.yaml `film:` block — a tracked director is +2 and a loved format (70mm/35mm print)
+    is +1 each, on top of the venue/category signals. Uses the real taste.yaml (which seeds
+    Nolan + 70mm), so this also proves the block is wired through config."""
+    base = {"category": "film", "venue": "Vista Theater", "neighborhood": "Los Feliz",
+            "date": "2026-07-17", "tags": {"type": "film"}}
+    plain = score_event({**base, "title": "The Odyssey"}, TASTE, PROFILE)
+    fmt = score_event({**base, "title": "The Odyssey (70mm)"}, TASTE, PROFILE)
+    directed = score_event({**base, "title": "The Odyssey (70mm)",
+                            "detail": "Christopher Nolan's epic, in true 70mm."}, TASTE, PROFILE)
+    assert fmt["score"] == plain["score"] + 1
+    assert any("loved film format" in x for x in fmt["reasons"])
+    assert directed["score"] == fmt["score"] + 2
+    assert any("tracked director" in x for x in directed["reasons"])
+
+
+def test_film_taste_is_gated_to_film_events():
+    """A club night whose blurb mentions '70mm' or a tracked director's name must not collect
+    film-taste points — the block only fires on film-typed events."""
+    ev = {"title": "Warehouse night — visuals on 70mm loops", "category": "electronic",
+          "venue": "TBA", "date": "2026-07-18",
+          "detail": "Inspired by Christopher Nolan soundtracks."}
+    r = score_event(ev, TASTE, PROFILE)
+    assert not any("film format" in x or "tracked director" in x for x in r["reasons"])
+
+
+def test_film_block_absent_is_a_noop():
+    """Profiles without a `film:` block (all friends today) score films exactly as before."""
+    taste_nofilm = {k: v for k, v in TASTE.items() if k != "film"}
+    ev = {"title": "The Odyssey (70mm)", "category": "film", "venue": "Vista Theater",
+          "date": "2026-07-17", "detail": "Christopher Nolan"}
+    r = score_event(ev, taste_nofilm, PROFILE)
+    assert not any("film format" in x or "tracked director" in x for x in r["reasons"])
+
+
 def test_tm_date_windows_defeat_the_1000_cap():
     # The far-horizon sweep windows the TM query so no single slice hits the 1000-result cap.
     import fetch_ticketmaster as tm

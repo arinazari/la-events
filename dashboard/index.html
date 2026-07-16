@@ -561,6 +561,17 @@
                         </sc-for>
                         <span onClick="{{ ev.icsClick }}" title="Download .ics — add to your calendar" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#2b5cd9; background:#f4f7fe; color:#2b5cd9;">Add to calendar ↓</span>
                       </div>
+                      <sc-if value="{{ ev.hasSeries }}" hint-placeholder-val="{{ false }}">
+                        <div style="margin-top:14px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:8px;">ALSO SHOWING</div>
+                        <div style="display:flex; flex-wrap:wrap; gap:6px; max-width:280px;">
+                          <sc-for list="{{ ev.seriesChipRows }}" as="sd">
+                            <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:5px 7px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:2px; text-decoration: {{ sd.deco }};" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ sd.label }}</a>
+                          </sc-for>
+                          <sc-if value="{{ ev.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
+                            <span style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:5px 7px; color:#a7a59b;">{{ ev.seriesMore }}</span>
+                          </sc-if>
+                        </div>
+                      </sc-if>
                     </div>
                   </div>
                 </td>
@@ -613,6 +624,17 @@
                 <div style="font-size:12.5px; line-height:1.5; color:#161512;">{{ ev.lineupStr }}</div>
                 <div style="margin-top:13px; font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.venueLine }}</div>
                 <div style="font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.priceLine }}</div>
+                <sc-if value="{{ ev.hasSeries }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">ALSO SHOWING</div>
+                  <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                    <sc-for list="{{ ev.seriesChipRows }}" as="sd">
+                      <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" style="font:500 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:2px; text-decoration: {{ sd.deco }};">{{ sd.label }}</a>
+                    </sc-for>
+                    <sc-if value="{{ ev.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
+                      <span style="font:500 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; color:#a7a59b;">{{ ev.seriesMore }}</span>
+                    </sc-if>
+                  </div>
+                </sc-if>
                 <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:13px;">
                   <sc-for list="{{ ev.links }}" as="lk">
                     <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:3px; text-decoration:none;">{{ lk.label }} ↗</a>
@@ -638,7 +660,7 @@
           <span onClick="{{ onReset }}" style="cursor:pointer; color:#76746b; text-decoration:underline; text-underline-offset:2px;" style-hover="color:#161512;">reset · show all</span>
         </sc-if>
         <span style="position:relative; display:inline-flex;">
-          <span onClick="{{ toggleSettings }}" title="{{ settingsTitle }}" style="cursor:pointer; display:inline-flex; align-items:center; color:#a7a59b; padding:2px;" style-hover="color:#161512;"><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}"><span style="font-size:16px; line-height:1;">⚷</span></sc-if><sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px; line-height:1;">☰</span></sc-if></span>
+          <span onClick="{{ toggleSettings }}" title="{{ settingsTitle }}" style="cursor:pointer; position:relative; display:inline-flex; align-items:center; color:#a7a59b; padding:2px;" style-hover="color:#161512;"><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}"><span style="font-size:16px; line-height:1;">⚷</span></sc-if><sc-if value="{{ profileActive }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px; line-height:1;">☰</span></sc-if><sc-if value="{{ updateBadge }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:-2px; right:-3px; width:8px; height:8px; border-radius:50%; background: {{ updateBadgeColor }}; border:1.5px solid #fdfcf9; box-sizing:content-box;"></span></sc-if></span>
           <sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
             <span onClick="{{ closeSettings }}" style="position:fixed; inset:0; z-index:60;"></span>
             <div style="position:absolute; bottom:calc(100% + 7px); right:0; z-index:61; width:256px; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:12px;">
@@ -738,6 +760,10 @@
         <div style="flex:none; position:relative; display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:9px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:3px 3px 0 0;">
           <span onClick="{{ downloadDigest }}" title="Download this digest as a Markdown file" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">↓ download</span>
           <span onClick="{{ toggleEmailDigest }}" title="Email this digest — your address is typed each time and never stored" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid {{ emailTogBorder }}; background: {{ emailTogBg }}; color: {{ emailTogColor }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">✉ email</span>
+          <!-- persistent update signal: this digest can be re-curated against newer events -->
+          <sc-if value="{{ digestUpdateChip }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ digestUpdateClick }}" title="{{ digestUpdateTitle }}" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid #2b5cd9; background:#eaf0fe; color:#2b5cd9; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="background:#2b5cd9; color:#fff;">{{ digestUpdateLabel }}</span>
+          </sc-if>
         </div>
         <sc-if value="{{ digestEmailOpen }}" hint-placeholder-val="{{ false }}">
           <div style="flex:none; display:flex; align-items:center; gap:8px; padding:10px 20px; border-bottom:1px solid #e2e0d8; background:#f1f5ff;">
@@ -891,6 +917,30 @@
               <button onClick="{{ welcomeBack }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#1b1a17; color:#161512;">Back</button>
             </sc-if>
             <button onClick="{{ welcomeNext }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 16px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:2px; cursor:pointer;" style-hover="background:#000;">{{ welcomeNextLabel }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===================== REFRESH NUDGE (3-day popup) ===================== -->
+  <!-- A signed-in profile's curated layer (editor verdicts + written digest) refreshes on taste
+       change or manual Update, not nightly (the table itself re-ranks nightly); this explains
+       that model and offers the Update when the layer is 3+ days behind. -->
+  <sc-if value="{{ nudgeOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
+      <div onClick="{{ closeNudge }}" style="position:absolute; inset:0;"></div>
+      <div style="position:relative; z-index:1; width:100%; max-width:500px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 14px 13px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:3px 3px 0 0;">
+          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; text-transform:uppercase; color:#a7a59b;">Your picks are a few days old</span>
+          <button onClick="{{ closeNudge }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+        </div>
+        <div class="scry" style="flex:1; overflow-y:auto; padding:20px 24px 22px;">{{ nudgeBody }}</div>
+        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 18px; border-top:1px solid #e2e0d8; background:#faf9f5; border-radius:0 0 3px 3px;">
+          <span onClick="{{ toggleNudgeMore }}" style="cursor:pointer; font:600 11px/1.4 -apple-system,system-ui,sans-serif; color:#2b5cd9;" style-hover="text-decoration:underline;">{{ nudgeMoreLabel }}</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button onClick="{{ closeNudge }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer;" style-hover="border-color:#1b1a17; color:#161512;">Not now</button>
+            <button onClick="{{ nudgeUpdateNow }}" style="flex:none; font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 16px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; cursor:pointer;" style-hover="background:#2450bd;">↻ Update now</button>
           </div>
         </div>
       </div>
@@ -1094,6 +1144,7 @@ class Component extends DCLogic {
     spotifyModalOpen: false,
     guideOpen: false, guideTab: 'how',
     welcomeOpen: false, welcomeStep: 0, welcomeDismiss: false,   // first-run onboarding (auto-opens once per profile)
+    nudgeOpen: false, nudgeMore: false,   // the 3-day refresh nudge (auto-opens when the curated layer is behind) + its "how this works" expander
     phIndex: 0, phFade: false,   // rotating example placeholder (logged-in, pre-first-use hint) + its cross-fade flag
     profile: (() => { try { return JSON.parse((typeof localStorage !== 'undefined' && localStorage.getItem('la-profile')) || 'null'); } catch (e) { return null; } })(),
     profileInput: '',
@@ -1156,6 +1207,10 @@ class Component extends DCLogic {
 
   computedBadges(e) {
     const arr = [];
+    if (e.series && e.series.count > 1) {
+      const nv = (e.series.venues || []).length;
+      arr.push(nv > 1 ? (e.series.count + ' dates · ' + nv + ' theaters') : (e.series.count + ' nights'));
+    }
     if (e.ra) arr.push('RA pick');
     if (e.ah) arr.push('afterhours');
     for (const b of e.xb) arr.push(b);
@@ -1187,7 +1242,29 @@ class Component extends DCLogic {
       out.push({ label: this.linkLabel(l), url: l.url, stop });
     }
     if (!out.length && e.url) out.push({ label: 'Tickets', url: e.url, stop });
+    // Films: an external showtimes search covering the LA theaters that aren't fetch sources.
+    if (e.showtimesUrl) out.push({ label: 'All LA showtimes', url: e.showtimesUrl, stop });
     return out;
+  }
+
+  // "Also showing" chips for a series card: the run's OTHER nights (this row's own night is the
+  // card itself), each linking straight to that night's tickets. Capped so a long run can't
+  // swallow the card; the overflow count is stated rather than silently dropped.
+  SERIES_CHIP_MAX = 10;
+  seriesChips(e) {
+    if (!e.series || !(e.series.entries || []).length) return { chips: [], more: '' };
+    const stop = (ev) => { ev.stopPropagation(); };
+    const multiVenue = (e.series.venues || []).length > 1;
+    const others = e.series.entries.filter(en => !(en.date === e.iso && en.venue === e.venue));
+    const chips = [];
+    for (const en of others.slice(0, this.SERIES_CHIP_MAX)) {
+      let label = this.labelISO(en.date);
+      if (multiVenue && en.venue) label += ' · ' + en.venue;
+      if (en.sold_out) label += ' · sold out';
+      chips.push({ label, url: en.url || e.showtimesUrl || e.url || '#', dim: !!en.sold_out, stop });
+    }
+    const extra = others.length - chips.length;
+    return { chips, more: extra > 0 ? '+' + extra + ' more dates' : '' };
   }
 
   // ---------- ICS export (RFC 5545) ----------
@@ -1283,9 +1360,30 @@ class Component extends DCLogic {
       hood: (a, b) => a.hood.localeCompare(b.hood),
       cat: (a, b) => a.cat.localeCompare(b.cat) || a.genre.localeCompare(b.genre),
       source: (a, b) => a.source.localeCompare(b.source),
-      rank: (a, b) => ((a.final_rank == null ? 1e9 : a.final_rank) - (b.final_rank == null ? 1e9 : b.final_rank)) || (a.sortDate - b.sortDate)
+      rank: (a, b) => (this.effRank(a) - this.effRank(b)) || (a.sortDate - b.sortDate)
     }[sortKey] || ((a, b) => a.sortDate - b.sortDate);
     return [...list].sort((a, b) => cmp(a, b) * dir);
+  }
+
+  // The program's rank: a series rep carries final_rank, its sibling nights carry series_rank
+  // (the same number), so a date filter that clips the rep still sorts the run where it belongs.
+  effRank(e) { return e.final_rank != null ? e.final_rank : (e.seriesRank != null ? e.seriesRank : 1e9); }
+
+  // One row per PROGRAM for rank-ordered surfaces: among the rows in `list`, keep each series'
+  // best member (the rep when visible, else the earliest surviving night). Date-ordered views
+  // keep every night — a calendar should show them; a ranking shouldn't repeat itself.
+  collapseSeries(list) {
+    const best = new Map();
+    for (const e of list) {
+      if (!e.seriesKey) continue;
+      const cur = best.get(e.seriesKey);
+      if (!cur || (e.seriesRep && !cur.seriesRep)
+          || (e.seriesRep === cur.seriesRep && (this.effRank(e) < this.effRank(cur)
+              || (this.effRank(e) === this.effRank(cur) && e.iso < cur.iso)))) {
+        best.set(e.seriesKey, e);
+      }
+    }
+    return list.filter(e => !e.seriesKey || best.get(e.seriesKey) === e);
   }
 
   // ---------- range ----------
@@ -1664,7 +1762,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## Open your digest",
     "",
-    "Click your name in the header — **curated digest for <you> ↗** — for a written rundown: the top picks with a sentence each, grouped by day. It refreshes as new events come in.",
+    "Click your name in the header — **curated digest for <you> ↗** — for a written rundown: the top picks with a sentence each, grouped by day. Signed in, it refreshes when your taste changes or when you hit **Update** (the default digest refreshes nightly).",
     "",
     "## Sign in — make it yours",
     "",
@@ -1672,7 +1770,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "Once you're signed in, the same icon becomes your **☰ settings** menu:",
     "",
-    "- **Ranks & Digest** — re-rank against the newest events; its title shows the state and reads **Update available** when there's fresh data (or a concierge taste/profile edit) to fold in.",
+    "- **Ranks & Digest** — re-rank against the newest events; its title shows the state and reads **Update available** when there's fresh data (or a concierge taste/profile edit) to fold in. **This button (or a taste edit) is what refreshes your curated layer:** the events database and your table update nightly, but the editorial pass behind your final ranks and your written digest rebuild only when your taste changes or when you hit Update — after a few days without one, a popup offers to run it for you. A blue dot on the **☰** icon and an *update available* chip in your digest show whenever a pass is waiting.",
     "- **Connect Spotify** — let your listening history shape the picks.",
     "- **Claude API key** — optionally run the concierge on your own key.",
     "- **View taste & profile** — see the config behind your ranking, including any edits the concierge made and whether they're live yet.",
@@ -1694,6 +1792,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "- **A front page.** The site now opens on an editorial home: the day's *take*, a **Don't miss** hero row, and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
     "- **Cleaner categories.** A large batch of events (mostly Ticketmaster's) were sitting in an 'other' bucket — they're now properly typed as live music, stage, comedy and film, so lane filters and shelves actually cover the catalog.",
+    "- **You control your refresh.** Your table still picks up new events nightly, but your curated layer — the editorial pass behind your final ranks, and your written digest — no longer silently rebuilds every night. It refreshes when your **taste changes** (a concierge edit folds in overnight) or when **you hit Update**; after 3+ days, a popup explains what's waiting and offers to refresh right there.",
     "",
     "## June 2026",
     "",
@@ -1750,7 +1849,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       "Your **taste, neighborhood and Spotify don't change your list until you fold them in.**",
       "",
       "- Open **Settings** (the **☰** icon, bottom-right) and hit **Ranks & Digest → Update** to re-rank against everything you just set up, plus the latest events. Takes a minute or two.",
-      "- Anytime there's something new to fold in — a taste edit, fresh events — that button lights up as **Update available**, so you always know when your list is behind."
+      "- **The curated layer doesn't refresh itself.** New events flow into your table nightly, but the editorial pass behind your final ranks and your written digest rebuild only when your taste changes or when you hit **Update** — the button reads **Update available** whenever there's something to fold in, and after a few days a popup will offer to do it for you."
     ].join('\n'),
     [
       "# Where everything else lives",
@@ -1774,6 +1873,111 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   welcomeBack = () => this.setState({ welcomeStep: Math.max(0, this.state.welcomeStep - 1) });
   welcomeNext = () => { if (this.state.welcomeStep >= this.WELCOME.length - 1) this.closeWelcome(); else this.setState({ welcomeStep: this.state.welcomeStep + 1 }); };
   toggleWelcomeDismiss = () => this.setState({ welcomeDismiss: !this.state.welcomeDismiss });
+
+  // ---------- refresh nudge (the 3-day popup) ----------
+  // A profile's CURATED layer — the per-profile editor verdicts + the written digest — does NOT
+  // refresh nightly anymore (docs/PIPELINE.md): it rebuilds only when that person's taste changes,
+  // or when they hit Update themselves. (The deterministic table re-rank IS still nightly for
+  // everyone.) This popup keeps the model honest: for a signed-in profile whose curated layer is
+  // NUDGE_AFTER_DAYS+ old — or who's back after NUDGE_AFTER_DAYS+ away — it explains how refresh
+  // works and offers the Update right there. Shown at most once per day per profile ("Not now"
+  // snoozes to tomorrow); never for the logged-out default view (fully rebuilt nightly), never on
+  // top of the first-run welcome, never while an Update is in flight.
+  NUDGE_AFTER_DAYS = 3;
+  // When this profile's curated layer (verdicts + narrative digest) last rebuilt — the thing the
+  // nudge measures. The feed bakes it from git (self_edit.*.enriched_at, date-granular; re-baked by
+  // every nightly deterministic rebuild); the digest's own self-reported date is the fallback for a
+  // feed built before self_edit existed. The feed's generated_at is deliberately NOT used: the free
+  // nightly re-rank bumps it — the LLM pass is what actually goes stale.
+  lastEnrichedAt() {
+    const se = this.META && this.META.profile && this.META.profile.self_edit;
+    const d = (se && (((se.taste || {}).enriched_at) || ((se.profile || {}).enriched_at))) || null;
+    if (d) return d;
+    const reg = this.digestRegenDate();
+    return (reg && reg.date) ? reg.date.toISOString() : null;
+  }
+  // "2026-07-12…" -> "7/12" (Ari's convention). Date-granular stamps shouldn't go through fmtStamp,
+  // whose local-time rendering would shift a UTC midnight to the previous PT evening.
+  fmtDay(iso) {
+    const m = String(iso || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+    return m ? (+m[2] + '/' + +m[3]) : null;
+  }
+  // The curated layer (verdicts + digest) predates the last catalog movement — an Update would fold
+  // newer events through this profile's editorial pass. This is what keeps "Update available" honest
+  // now that the deterministic nightly rebuild keeps isFeedStale() reading false each morning.
+  // Day-granular (enriched_at is a date); false for a never-enriched profile (the nightly gate gives
+  // those their first pass within a day anyway).
+  layerBehind() {
+    if (!(this.state.profile && this.state.profile.hash)) return false;
+    const d = this.daysSince(this.lastEnrichedAt());
+    return d != null && d >= 1;
+  }
+  visitKey(hash) { return 'la-last-visit-' + (hash || 'default'); }
+  nudgeSnoozeKey(hash) { return 'la-nudge-shown-' + (hash || 'default'); }
+  // Whole days since an ISO stamp (UTC-stamped feeds parse fine); null when absent/unparseable.
+  daysSince(iso) {
+    if (!iso) return null;
+    if (typeof iso === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/.test(iso)) iso = iso + 'Z';
+    const t = new Date(iso).getTime();
+    if (isNaN(t)) return null;
+    return Math.floor((Date.now() - t) / 86400000);
+  }
+  todayKey() { const d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+  // Called after the feed + live catalog meta have loaded for a signed-in profile. Reads the
+  // PREVIOUS visit stamp before writing today's, so "away 3+ days" means the gap since the last
+  // time this profile was actually opened in this browser.
+  maybeNudge() {
+    const p = this.state.profile;
+    if (!(p && p.hash)) return;
+    let prevVisit = null;
+    try {
+      prevVisit = localStorage.getItem(this.visitKey(p.hash));
+      localStorage.setItem(this.visitKey(p.hash), new Date().toISOString());
+    } catch (e) {}
+    if (!this.hasOnboarded(p)) return;                       // first-run welcome owns this session
+    if (this.getUpdating(p.hash)) return;                    // an Update is already running
+    try { if (localStorage.getItem(this.nudgeSnoozeKey(p.hash)) === this.todayKey()) return; } catch (e) {}
+    const llmDays = this.daysSince(this.lastEnrichedAt());   // the curated layer's age
+    const awayDays = this.daysSince(prevVisit);              // null on the first visit ever
+    const layerOld = llmDays != null && llmDays >= this.NUDGE_AFTER_DAYS;
+    const away = awayDays != null && awayDays >= this.NUDGE_AFTER_DAYS;
+    if (!layerOld && !away) return;
+    // A 3+ day-old curated layer is itself proof an Update would fold something in (the catalog
+    // moves nightly, and none of it has had this profile's editorial pass). An away-only trip
+    // still defers to needsUpdate() so we never nag someone whose layer refreshed while away.
+    if (!layerOld && !this.needsUpdate()) return;
+    try { localStorage.setItem(this.nudgeSnoozeKey(p.hash), this.todayKey()); } catch (e) {}
+    this.setState({ nudgeOpen: true, nudgeMore: false });
+  }
+  closeNudge = () => this.setState({ nudgeOpen: false });
+  nudgeUpdateNow = () => { this.setState({ nudgeOpen: false, settingsOpen: false }); this.updateMyDigest(); };
+  toggleNudgeMore = () => this.setState(s => ({ nudgeMore: !s.nudgeMore }));
+  // The popup body: short by default — what's stale + what Update does. The full how-it-works
+  // detail lives behind the "How this works" expander (nudgeMore) for those who want it.
+  nudgeBodyMd() {
+    const enr = this.lastEnrichedAt();
+    const llmDays = this.daysSince(enr);
+    const day = this.fmtDay(enr);
+    const ageLine = (day && llmDays != null && llmDays >= 1)
+      ? 'Your curated picks were last refreshed **' + day + '** — ' + llmDays + ' day' + (llmDays === 1 ? '' : 's') + ' ago.'
+      : 'New events have landed since your picks were last curated.';
+    const short = [
+      ageLine,
+      '',
+      'Events added since are in your table, but they haven\'t had your editorial pass yet. **Update now** re-ranks them to your taste and rewrites your digest — takes ~2–3 minutes.'
+    ];
+    if (!this.state.nudgeMore) return short.join('\n');
+    return short.concat([
+      '',
+      '---',
+      "**How refreshing works.** The events database and your ranked table update every night. The **curated layer** on top — the editor's verdicts behind your final rank and ⭐ picks, plus your written digest — is yours, and it only rebuilds when:",
+      '',
+      '- **your taste changes** — tell the concierge things like `more techno, less comedy` or `I moved to Highland Park`; your layer refolds automatically overnight;',
+      '- **you refresh it yourself** — this Update, also under **Settings → Ranks & Digest**.',
+      '',
+      'Nothing is broken — your picks are just waiting on you. This reminder appears at most once a day; the blue dot on the **☰** menu (and the chip in your digest) shows whenever an update is available.'
+    ]).join('\n');
+  }
 
   // ---------- digest modal toolbar (download / email) ----------
   downloadDigest = () => {
@@ -2091,10 +2295,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
-    this.checkCatalogFreshness();
+    await this.checkCatalogFreshness();
     this.reattachJobs();   // resume this profile's Update spinner if its rebuild is still in flight
     // "First time entering their profile" — show the welcome on sign-in (not on logout), once.
     if (profileObj) this.maybeOnboard(profileObj);
+    // Then the refresh nudge (skips itself while the welcome owns the session, and stamps the visit).
+    if (profileObj) this.maybeNudge();
   }
 
   // ---------- per-profile Spotify (the music layer) ----------
@@ -2370,8 +2576,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   }
   setTasteDirtyFor(hash, v) { try { v ? localStorage.setItem(this.dirtyKeyFor(hash), '1') : localStorage.removeItem(this.dirtyKeyFor(hash)); } catch (e) {} this.forceUpdate(); }
   setTasteDirty(v) { this.setTasteDirtyFor(this.state.profile && this.state.profile.hash, v); }
-  // The "Update" button lights up when the feed is behind the catalog OR a taste edit needs a digest.
-  needsUpdate() { return this.isFeedStale() || this.isTasteDirty() || this.digestBehindFeed(); }
+  // The "Update" button lights up when the feed is behind the catalog, a taste edit needs a digest,
+  // or the curated layer predates the latest events (layerBehind — the usual case, since the nightly
+  // deterministic rebuild keeps the feed itself in sync).
+  needsUpdate() { return this.isFeedStale() || this.isTasteDirty() || this.digestBehindFeed() || this.layerBehind(); }
 
   // The digest's OWN self-reported regeneration date, parsed from the markdown the digest modal
   // renders (this.DIGEST_MD) — the same artifact, so the "Ranks & Digest" row can't claim a date the
@@ -2627,8 +2835,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
   sortForChat(list, spec) {
     const today = this.TODAY;
-    const out = (list || []).filter(e => e.iso >= today);
-    const rk = e => (e.final_rank == null ? 1e9 : e.final_rank);   // global rank; unranked sink, mirrors the table
+    // One row per program (a 15-night film run is one pick, not three of the top three), ranked
+    // by the program's rank — mirrors the table's rank view.
+    const out = this.collapseSeries((list || []).filter(e => e.iso >= today));
+    const rk = e => this.effRank(e);
     out.sort((a, b) => (spec.sortBy === 'date')
       ? (a.iso.localeCompare(b.iso) || rk(a) - rk(b))
       : (rk(a) - rk(b) || a.iso.localeCompare(b.iso)));
@@ -2822,6 +3032,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       source: this.normSource((Array.isArray(r.sources) && r.sources[0]) || r.source || (links[0] && links[0].source)),
       ra, ah, score, rating: (typeof r.rating === 'number' ? r.rating : null),
       final_rank: (typeof r.final_rank === 'number' ? r.final_rank : null),
+      // Series consolidation (lib/series.py): a multi-night run / cross-theater film ranks once.
+      // The rep night carries final_rank; sibling nights carry series_rank (the rep's rank) and
+      // every member carries the run summary so any night can render the full run in its card.
+      seriesKey: r.series_key || null,
+      seriesRep: !!r.series_rep,
+      seriesRank: (typeof r.series_rank === 'number' ? r.series_rank : null),
+      series: (r.series && typeof r.series === 'object') ? r.series : null,
+      showtimesUrl: r.showtimes_url || null,
       verdict: r.verdict || null,
       key: r.key || null,              // stable server id (event_key) — front_page join
       lane: r.lane || null,            // slate lane (club:afters / live-music / …)
@@ -2901,7 +3119,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (p && p.hash) {
       return this._tryDigest('./digests/' + p.hash + '/latest.md').then(ok => {
         if (!ok) {
-          this.DIGEST_MD = '# ' + (p.name || 'Your') + ' digest\n\nNo personalized digest has been generated for this profile yet — your taste-ranked picks are live in the table. (Per-profile digests come from the scheduled run.)';
+          this.DIGEST_MD = '# ' + (p.name || 'Your') + ' digest\n\nNo personalized digest has been written for this profile yet — your taste-ranked picks are live in the table. Hit **Update** (Settings → Ranks & Digest) to generate it; after that it refreshes whenever your taste changes or you Update again.';
           this.DIGEST_FILE = null; this.forceUpdate();
         }
       });
@@ -2919,7 +3137,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
     else if (ds === 'score') this.setState({ sortKey: 'score', sortDir: 'desc' });
     else if (ds === 'rank') this.setState({ sortKey: 'rank', sortDir: 'asc' });
-    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); if (this.state.welcomeOpen) this.closeWelcome(); if (this.state.fpDetailKey) this.setState({ fpDetailKey: null }); } };
+    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); if (this.state.welcomeOpen) this.closeWelcome(); if (this.state.nudgeOpen) this.setState({ nudgeOpen: false }); if (this.state.fpDetailKey) this.setState({ fpDetailKey: null }); } };
     window.addEventListener('keydown', this._onKeyDown);
     // Track viewport width so the layout can switch between the desktop table and the
     // mobile card/overlay layout live (rAF-coalesced to avoid setState churn on resize).
@@ -2933,9 +3151,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     window.addEventListener('resize', this._onResize);
     this.migrateLegacyConn();                          // fold any legacy global connection into this profile
     this.BACKEND_TOKEN = this.readConn().token || '';  // authoritative load: post-migration, TTL-checked
-    this.loadCatalog();
+    const feedReady = this.loadCatalog();
     this.loadDigest();
-    this.checkCatalogFreshness();
+    const freshReady = this.checkCatalogFreshness();
+    // Refresh nudge for a persisted sign-in (a fresh sign-in runs it from applyProfile): needs the
+    // feed's generated_at + the live catalog meta before it can judge staleness. Best-effort.
+    Promise.all([feedReady, freshReady]).then(() => { if (this.state.profile) this.maybeNudge(); }).catch(() => {});
     if (this.BACKEND_URL) this.pingBackend();
     this.reattachJobs();   // a rebuild/refresh kicked off before a reload keeps its spinner + polling
     // Rotate the placeholder hint (cross-fade) while it's relevant — guarded so it never re-renders
@@ -2971,6 +3192,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     base = base.filter(e => this.passesColFilters(e));
     const q = (this.state.search || '').trim().toLowerCase();
     if (q) base = base.filter(e => (e.title + ' ' + e.venue + ' ' + e.hood + ' ' + e.cat + ' ' + e.genre + ' ' + e.source + ' ' + e.lineup.join(' ')).toLowerCase().includes(q));
+    if (sortKey === 'rank') base = this.collapseSeries(base);   // a ranking shows each program once
     const sorted = this.sortedRows(base);
 
     const cf = this.state.colFilters;
@@ -3012,6 +3234,13 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       lineupStr: e.lineup.join('  \u00b7  '),
       venueLine: e.venue + ' (' + e.hood + ')',
       priceLine: this.priceLabel(e) + (e.ah ? '  \u00b7  afterhours' : '') + '  \u00b7  ' + e.wd + ' ' + e.md + ' ' + e.t,
+      ...(() => { const sc = this.seriesChips(e); return {
+        hasSeries: sc.chips.length > 0,
+        seriesChipRows: sc.chips.map(c => ({ label: c.label, url: c.url, stop: c.stop,
+          color: c.dim ? '#a29a90' : '#3f3d36', border: c.dim ? '#dedcd4' : '#c9c7bd',
+          deco: c.dim ? 'line-through' : 'none' })),
+        seriesMore: sc.more, hasSeriesMore: !!sc.more,
+      }; })(),
       links: this.linksFor(e),
       expanded: e.id === expandedId,
       caret: e.id === expandedId ? '\u25be' : '\u25b8',
@@ -3211,7 +3440,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // regenerate the digest (startUpdatePoll already waits on the digest's own content signature).
     const digestBehind = this.digestBehindFeed();
     const digestReg = digestBehind ? this.digestRegenDate() : null;
-    const updateActive = (feedStale || tasteDirty || digestBehind) && !updateBusy;
+    const layerBehind = this.layerBehind();   // curated layer older than the latest events (the common case)
+    const updateActive = (feedStale || tasteDirty || digestBehind || layerBehind) && !updateBusy;
     const updateTitle = 'Ranks & Digest: ' + (updateBusy ? 'Updating…' : updateActive ? 'Update available' : 'Current');
     const updateStatus = updateBusy
       ? (updateElapsed + ' elapsed · a few min')
@@ -3406,6 +3636,20 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       welcomeCheckBorder: this.state.welcomeDismiss ? '#1b1a17' : '#cdcbc3',
       welcomeCheckBg: this.state.welcomeDismiss ? '#1b1a17' : '#fff',
       welcomeCheckMark: this.state.welcomeDismiss ? '✓' : '',
+      nudgeOpen: !!this.state.nudgeOpen,
+      closeNudge: this.closeNudge, nudgeUpdateNow: this.nudgeUpdateNow,
+      nudgeBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.state.nudgeOpen ? this.nudgeBodyMd() : '') } }),
+      toggleNudgeMore: this.toggleNudgeMore,
+      nudgeMoreLabel: this.state.nudgeMore ? 'Hide the detail ▴' : 'How this works ▸',
+      // Persistent "an LLM refresh is available" signal: a dot on the ☰/⚷ icon + a chip in the
+      // digest modal, lit whenever the Update would be actionable (or is in flight) — unlike the
+      // popup, these never snooze.
+      updateBadge: profileActive && (updateActive || updateBusy),
+      updateBadgeColor: updateBusy ? '#a7a59b' : '#2b5cd9',
+      digestUpdateChip: profileActive && (updateActive || updateBusy),
+      digestUpdateLabel: updateBusy ? '◌ updating… ' + updateElapsed : '↻ update available',
+      digestUpdateTitle: updateBusy ? 'Update in flight — your digest reloads here when it lands (a few minutes)' : 'New events since your last editorial pass — re-rank + rewrite your digest (~2–3 min)',
+      digestUpdateClick: updateBusy ? (() => {}) : this.updateMyDigest,
       digestFile: this.DIGEST_FILE, digestUser,
       downloadDigest: this.downloadDigest,
       digestEmailOpen: !!this.state.digestEmailOpen, toggleEmailDigest: this.toggleEmailDigest,
@@ -3415,7 +3659,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       emailTogBg: this.state.digestEmailOpen ? '#eaf0fe' : '#fff',
       emailTogColor: this.state.digestEmailOpen ? '#161512' : '#3f3d36',
       settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, closeSettings: this.closeSettings,
-      settingsTitle: loggedOut ? 'Log in' : 'Settings',
+      settingsTitle: loggedOut ? 'Log in' : (updateActive ? 'Settings — update available' : 'Settings'),
       loggedOut, lastDataPull, lastSiteUpdate, claudeKeyState,
       lastChangeLabel, lastChangeColor, changeCursor, showChanges: this.showChanges,
       isOwner, feedStale, updateBusy, refreshBusy, updateStatus, updateTitle, updateActive, liveDataPull,

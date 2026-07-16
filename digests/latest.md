@@ -64,7 +64,7 @@ World Cup final weekend collides with a genuinely deep house/techno stretch: Lov
 - `7pm` **[Exhibition Opening | Catharsis by Clumsy World](https://juniorhighlosangeles.com/calendar/catharsis-clumsyworld-exhibit-2026)** — Junior High, Glendale
 
 **Other**
-- `8am` **[Time Tourist x Bar Franca](https://ra.co/events/2487292)** — Bar Franca, Silver Lake  
+- `8am` **[Time Tourist x Bar Franca](https://ra.co/events/2487292)** — Bar Franca, DTLA  
   Bar Franca's actual selling point is its hi-fi sound system, so a Time Tourist takeover with Kana Hishiya's melodic house range is a solid excuse to hear it properly — Andër, Pily and Oboe don't have enough of a public footprint to say much beyond that.
 - `11pm-6am` **[Auntie presents: Plush Managements Inc., D. Tiffany, Regularfantasy, Tottie](https://ra.co/events/2464860)** — TBA, Los Angeles · $29-34  
   Auntie's queer, femme-forward warehouse series pulling in the whole Plush Managements crew — D. Tiffany and Regularfantasy's soft, breaks-leaning house plus Tottie's scene-building resume makes this a genuinely well-curated afterhours, not just a TBA placeholder with a high price tag.

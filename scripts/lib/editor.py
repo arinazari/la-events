@@ -33,6 +33,7 @@ from pathlib import Path
 from .enrich import event_key, scene_facts
 from .assemble import event_lane
 from .affinity import _token_pat
+from .series import group_series
 
 REPO = Path(__file__).resolve().parent.parent.parent
 VERDICTS_DIR = REPO / "data" / "verdicts"
@@ -191,12 +192,37 @@ def _record(ev: dict, affinity: dict, enrichment: dict = None) -> dict:
 # deliberately NOT part of EDITOR_INPUT_VERSION (prior verdicts were judged by an agent that Read
 # taste.yaml itself; a bump would re-judge ~1,000 cached verdicts for near-zero delta).
 _TASTE_BRIEF_KEYS = ("narrative", "categories", "boosts", "penalties", "artists_tracked",
-                     "venues_loved", "comedians_loved")
+                     "venues_loved", "comedians_loved", "film")
 
 
 def taste_brief(taste: dict) -> dict:
     """The distilled taste profile embedded in the editor's pool doc."""
     return {k: (taste or {}).get(k) for k in _TASTE_BRIEF_KEYS if (taste or {}).get(k)}
+
+
+def _series_context(judge: list) -> dict:
+    """{event_key: series note} for pool events that are one night of a multi-night run (or the
+    same film across theaters — lib/series grouping). The editor needs this to spend its top
+    tiers on PROGRAMS, not nights: without it, every night of a 15-night 70mm run reads as a
+    fresh marquee event and five of them come back must-see. Additive record context — like the
+    taste brief, deliberately NOT an EDITOR_INPUT_VERSION bump (film-score changes re-select the
+    affected verdicts via score drift anyway)."""
+    out = {}
+    for members in group_series(judge).values():
+        ms = sorted(members, key=lambda e: str(e.get("iso_date") or e.get("date") or ""))
+        venues = []
+        for m in ms:
+            v = m.get("venue")
+            if v and v not in venues:
+                venues.append(v)
+        for i, e in enumerate(ms, 1):
+            note = {"nights": len(ms), "night": i,
+                    "first": str(ms[0].get("iso_date") or ms[0].get("date") or "")[:10],
+                    "last": str(ms[-1].get("iso_date") or ms[-1].get("date") or "")[:10]}
+            if len(venues) > 1:
+                note["venues"] = venues
+            out[event_key(e)] = note
+    return out
 
 
 def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict = None,
@@ -205,7 +231,16 @@ def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict
     Includes the profile's Spotify lane (`profile_affinity`) so the editor judges with it, the
     profile's `taste_profile` brief (Track B3 — the editor is the ranker; this is its brief),
     and — when `enrichment` (the shared scene cache) is passed — a per-event factual `scene`
-    block."""
+    block. Records that are one night of a series carry a `series` note (night i of n, span,
+    venues) so the editor judges the program once instead of must-seeing every night."""
+    sctx = _series_context(judge)
+    records = []
+    for e in judge:
+        rec = _record(e, affinity, enrichment)
+        s = sctx.get(rec["id"])
+        if s:
+            rec["series"] = s
+        records.append(rec)
     doc = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "today": today.isoformat() if hasattr(today, "isoformat") else today,
@@ -213,7 +248,7 @@ def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict
         "per_lane": per_lane,
         "floor": floor,
         "count": len(judge),
-        "events": [_record(e, affinity, enrichment) for e in judge],
+        "events": records,
     }
     brief = taste_brief(taste)
     if brief:

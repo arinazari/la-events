@@ -40,9 +40,9 @@ from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: 
 from lib.feedback import merged_affinity  # noqa: E402
 from lib import affinity as AF  # noqa: E402  (ambiguous_set gates title-token bio folds)
 from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
-from lib.dedupe import normalize  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib.assemble import rank_key, event_lane  # noqa: E402
+from lib.series import group_series, series_summary, is_film, showtimes_url  # noqa: E402
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
@@ -105,6 +105,7 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
             "artists_tracked": taste.get("artists_tracked") or [],
             "comedians_loved": taste.get("comedians_loved") or [],
             "venues_loved": taste.get("venues_loved") or [],
+            "film": taste.get("film") or {},
         },
         "scoring": {
             "category_weights": scoring.get("category_weights") or {},
@@ -159,26 +160,16 @@ def _fp_windows(today):
     }
 
 
-def _fp_dedupe_runs(evs):
-    """One entry per real-world run (same normalized title+venue) — the best-ranked night
-    represents it, matching the digest's collapse_runs convention."""
-    seen, out = set(), []
-    for e in evs:
-        rk = (normalize(e.get("title") or ""), normalize(e.get("venue") or ""))
-        if rk in seen:
-            continue
-        seen.add(rk)
-        out.append(e)
-    return out
-
-
 def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None) -> dict:
-    """The front_page block: hero keys per lens + shelf keys per lane (+ radar/around joins)."""
+    """The front_page block: hero keys per lens + shelf keys per lane (+ radar/around joins).
+    One card per PROGRAM: series members (lib/series — multi-night runs, cross-theater film
+    programs, stamped by the consolidation pass in main()) enter only via their rep night, the
+    same unit final_rank ranks."""
     pool = [e for e in events
             if not e.get("is_past") and e.get("iso_date") and (e.get("score") or 0) >= 0
-            and (e.get("verdict") or {}).get("tier") != "skip"]
-    ranked = _fp_dedupe_runs(
-        sorted(pool, key=lambda e: (rank_key(e, verdicts), event_key(e)), reverse=True))
+            and (e.get("verdict") or {}).get("tier") != "skip"
+            and (e.get("series_rep") or "series_key" not in e)]
+    ranked = sorted(pool, key=lambda e: (rank_key(e, verdicts), event_key(e)), reverse=True)
 
     hero = {}
     for lens, (lo, hi) in _fp_windows(today).items():
@@ -359,16 +350,43 @@ def main() -> int:
 
         events.append(out)
 
-    # Final rank — each UPCOMING event's position by the two-zone rank_key (Track B2, LLM-first):
+    # Series consolidation (lib/series) — a multi-night run (and, for films, the same movie
+    # across theaters) is ONE program, not N competitors: without this the 15-night Odyssey run
+    # takes 5 of the top-15 rank slots (each night judged must-see). Every member carries the run
+    # summary (dates/venues/per-night links + sold-out flags) so whichever night survives a date
+    # filter can render the whole run; film events also get the external "all LA showtimes" link
+    # (the theaters that aren't fetch sources). The catalog itself stays one-row-per-night.
+    upcoming = [e for e in events if not e["is_past"]]
+    series_groups = group_series(upcoming)
+    for key, members in series_groups.items():
+        summ = series_summary(members)
+        rep = max(members, key=lambda e: (rank_key(e, verdicts), event_key(e)))
+        for m in members:
+            m["series_key"] = key
+            m["series"] = summ
+            m["series_rep"] = m is rep
+    for e in upcoming:
+        if is_film(e):
+            e["showtimes_url"] = showtimes_url(e.get("title") or "")
+
+    # Final rank — each UPCOMING program's position by the two-zone rank_key (Track B2, LLM-first):
     # judged non-skip events tier-primary (the editor's call IS the ranking; score orders within a
     # tier), then the unjudged tail (far-out / junk lanes) by raw score, judged skips last. The
     # near window is fully judged (B1), so the default view leads with the LLM's ranking and the
     # far tail sorts below it (date filters cover plan-ahead). The dashboard shows final_rank
-    # beside the deterministic score and sorts by either. Past events stay unranked.
-    upcoming = [e for e in events if not e["is_past"]]
+    # beside the deterministic score and sorts by either. Past events stay unranked. A series
+    # ranks ONCE via its rep (the night the ranking itself leads with); the other nights carry
+    # `series_rank` (the rep's rank) so a rank-sorted, date-filtered view that clipped the rep
+    # still orders the surviving night where the program belongs.
+    rank_units = [e for e in upcoming if e.get("series_rep") or "series_key" not in e]
     for rank, e in enumerate(
-            sorted(upcoming, key=lambda e: (rank_key(e, verdicts), event_key(e)), reverse=True), 1):
+            sorted(rank_units, key=lambda e: (rank_key(e, verdicts), event_key(e)), reverse=True), 1):
         e["final_rank"] = rank
+    for members in series_groups.values():
+        rep_rank = next((m.get("final_rank") for m in members if m.get("series_rep")), None)
+        for m in members:
+            if not m.get("series_rep") and rep_rank is not None:
+                m["series_rank"] = rep_rank
 
     # Sort: upcoming first by date, then by rating desc within a date.
     events.sort(key=lambda e: (e["iso_date"] or "9999-12-31", -e["rating"]))

@@ -117,53 +117,57 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    `emphasis`. One pass, a few K tokens (see docs/PIPELINE.md cost ledger).
 6. Maintain `digests/weekends/index.md`: one row per weekend (date range, # events, top pick),
    soonest first; drop past weekends.
-7. **Sync per-profile Spotify, then rebuild the dashboard feeds.** First, if the per-profile
-   music layer is configured (env `SPOTIFY_SYNC_URL` + `SPOTIFY_SYNC_TOKEN` — the concierge
-   Worker), `python scripts/sync_profiles_spotify.py`: pulls each friend who connected Spotify
-   into `data/spotify/<hash>.json` (gitignored; the token stays in the Worker). SKIPs cleanly if
-   unset. Then `python scripts/build_profiles.py` — builds the default `dashboard/data.json` (root
-   taste + Ari's Spotify/feedback) AND every per-profile feed `dashboard/data.<hash>.json` (one per
-   entry in `profiles.yaml`), each scored against **its own** music layer, so friends' feeds stay
-   fresh as the catalog changes. Each feed folds in that profile's verdicts (`data/verdicts/<hash>.json`) → each event's verdict + **final rank** beside its score, and emits the profile's editor pool `data/editor_pool.<hash>.json`. To give friends the full editor treatment, judge those per profile (`event-editor` → `merge_verdicts.py --profile-hash <hash>`) and re-run build_profiles; otherwise their feeds rank deterministically against their own music and pick up verdicts next run.
-   Each feed also carries a `profile.self_edit` block (baked from git by `build_profiles`): a diff of
-   the concierge's taste/profile edits + whether they're **reflected** in that profile's latest committed
-   verdicts/narrative. The dashboard renders it (diff + reflected/pending badge); nothing to hand-edit
-   here. The flag is "as of this build" — a friend's same-day edit reads *pending* until their next
-   Update (the per-user rebuild re-bakes it to *reflected*) or the following night; that's expected.
-8. **Per-profile digests (regenerate only when picks moved — saves tokens, but always honest):**
-   for each profile in `profiles.yaml`, first GATE on whether its picks actually changed:
-   `python scripts/digest_gate.py decide --feed dashboard/data.<hash>.json --md digests/<hash>/latest.md`
-   - **Owner profile (`owner: true` / `profile.owner` in the feed) — copy, never prose:** its taste
-     IS the root taste, so on REGENERATE do NOT write new prose and NEVER a stub/pointer ("see
-     digests/latest.md") — run `cp digests/latest.md digests/<hash>/latest.md`, then STAMP as
-     below. The committed file must always BE the full digest: GitHub and locally-served
-     dashboards read it directly (the deploy re-copies the same content for the live site, so a
-     stub hides there but breaks everywhere else).
-   - Prints **SKIP** → the profile's top picks haven't moved since the last regeneration, so the
-     prose would say the same thing. **Do NOT call the LLM.** The gate has already refreshed the
-     digest's one-line freshness stamp to "regenerated <when> · checked <today> · no new picks since",
-     so the reader still sees clearly that it was checked and nothing changed.
-   - Prints **REGENERATE** (picks changed, or no prior digest) → read the feed `dashboard/data.<hash>.json`
-     (the `<hash>` is also in `feed.profile.hash`) and write a concise personalized digest to
-     `digests/<hash>/latest.md` — same conversational, opinionated voice as the consolidated digest,
-     ranked to THAT person's taste: their top picks across the next ~2–3 weekends, grouped by day, a
-     one-line *why* each. Keep it tight; if their feed is thin, a couple of honest lines is fine
-     (don't pad). **Honor `feed.profile.digest_prefs`** if present (`length` · `group_by` · `sections`
-     · `max_picks_per_day` · `emphasis` · `tone` · `notes`) — HOW this person wants it to read
-     (presentation only). The gate already folds these prefs into its signature, so a format change
-     triggers exactly one REGENERATE here. Then STAMP so the gate records the new signature + writes the freshness line:
+7. **Sync Spotify, rebuild ALL dashboard feeds (deterministic — free), then gate the LLM layer.**
+   - First, if the per-profile music layer is configured (env `SPOTIFY_SYNC_URL` +
+     `SPOTIFY_SYNC_TOKEN` — the concierge Worker), `python scripts/sync_profiles_spotify.py`
+     (SKIPs cleanly if unset).
+   - Then `python scripts/build_profiles.py` — the default `dashboard/data.json` AND every
+     per-profile feed `dashboard/data.<hash>.json`, each scored against **its own** music layer,
+     folding in that profile's **cached** verdicts (`data/verdicts/<hash>.json`) → verdict + final
+     rank beside each score, emitting per-profile editor pools `data/editor_pool.<hash>.json` and
+     the `profile.self_edit` diff/reflected block. The deterministic re-rank is free and runs
+     nightly for **everyone**, so every table stays current (new events in, expired out).
+   - Then gate the expensive layer: `python scripts/profile_refresh_gate.py --json
+     data/refresh_gate.json` — one decision per profile: **REFRESH** (their taste.yaml /
+     profile.yaml / digest.yaml / feedback log changed since their last enrichment, or never
+     enriched), **SKIP** (config unchanged — the catalog moving does NOT count), or **OWNER**.
+     **Policy (2026-07): the per-profile LLM pass — event-editor verdicts + the narrative digest —
+     does not rerun nightly on catalog movement.** It runs tonight only for REFRESH profiles;
+     everyone else refreshes it themselves via the dashboard's **Update** button
+     (`rebuild-profile.yml`; the page nudges with a popup once their curated layer is 3+ days old).
+8. **Per-profile LLM pass — ONLY the gate's REFRESH profiles (plus the owner copy).**
+   - **Owner (OWNER decision) — copy, never prose, never a stub:** its taste IS the root taste, so
+     run `cp digests/latest.md digests/<hash>/latest.md` (the committed file must always BE the
+     full digest — GitHub and locally-served dashboards read it directly), then STAMP:
      `python scripts/digest_gate.py stamp --feed dashboard/data.<hash>.json --md digests/<hash>/latest.md`
-   The dashboard's profile popup reads `digests/<hash>/latest.md`. (The `owner: true` profile's file
-   is an exact copy of the consolidated digest — first bullet above — never a stub.) Friends' feeds
-   re-rank within ~1–2 min of a self-edit via CI; their *narrative* digest refreshes here only when
-   their picks actually move.
+   - **Each REFRESH profile — the single-profile slice** (same contract and caps as
+     `routines/profile-digest-prompt.md`): judge its editor pool `data/editor_pool.<hash>.json`
+     (top ~40 by score, `editor.select_for_verdict` against `data/verdicts/<hash>.json`, ≤2
+     `event-editor` batches) → `python scripts/merge_verdicts.py <results.json> --profile-hash
+     <hash>` → re-fold with `python scripts/build_profiles.py --only-hash <hash>` → write the
+     personalized narrative digest to `digests/<hash>/latest.md` — conversational, opinionated,
+     ranked to THAT person: top picks across the next ~2–3 weekends, grouped by day, a one-line
+     *why* each; thin feed → a couple of honest lines, don't pad. **Honor
+     `feed.profile.digest_prefs`** if present (`length` · `group_by` · `sections` ·
+     `max_picks_per_day` · `emphasis` · `tone` · `notes`). Then STAMP with digest_gate as above.
+   - **SKIP profiles: no LLM work.** No editor batches, no narrative rewrite, no digest_gate
+     decide/freshness-line rewrite — their verdicts + digest stay as-committed so their "last
+     refreshed" dates stay truthful. Their feed was already re-ranked deterministically in step 7;
+     new events simply carry no verdict until their taste changes or they hit Update — that's the
+     designed behavior, not staleness to fix.
+   The dashboard's profile popup reads `digests/<hash>/latest.md`. Friends' feeds still re-rank
+   within ~1–2 min of a concierge self-edit via CI (build-profiles.yml), and that same edit opens
+   this gate on the following night, so an edited taste always gets the full LLM treatment within
+   a day even if they never click Update.
 9. Commit catalog + **`data/catalog_meta.json`** (the version stamp the dashboard's staleness
-   check keys off — written by `run_digest`) + `data/enrichment.json` + `data/verdicts/` +
-   **`digests/latest.md`** (the consolidated digest) + `radar-candidates.md`
-   + the changed weekend `.md` + index + **all `dashboard/data*.json`** (default + profile
-   feeds) + **`dashboard/catalog_meta.json`** (published by `build_dashboard`) +
-   **`digests/<hash>/latest.md`** + the digest-gate sidecars **`digests/<hash>/latest.md.meta.json`**
-   (signature/regenerated/checked stamps), message "digest: YYYY-MM-DD (N events, M new, K updated)".
+   check keys off — written by `run_digest`) + `data/enrichment.json` + `data/verdicts/` (only the
+   refreshed profiles' files change) + **`digests/latest.md`** (the consolidated digest) +
+   `radar-candidates.md` + the changed weekend `.md` + index + **all `dashboard/data*.json`** feeds
+   (the deterministic re-rank touches every one nightly)
+   + **`dashboard/catalog_meta.json`** (published by `build_dashboard`) + the refreshed
+   **`digests/<hash>/latest.md`** files + their digest-gate sidecars
+   **`digests/<hash>/latest.md.meta.json`** (signature/regenerated/checked stamps), message
+   "digest: YYYY-MM-DD (N events, M new, K updated; P profiles refreshed)".
 10. If a source failed twice in a row, mark it `flaky` in sources.yaml and note it in the nearest
    weekend footer.
 11. Do NOT run discover mode here (separate / manual).

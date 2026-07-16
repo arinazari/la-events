@@ -14,7 +14,10 @@ narrative: >
   festival/big-room headliners (Chris Lake, FISHER, etc. ARE priority, not noise). A recurring
   favorite — one kind of event he likes, not the be-all: "Sunset Sessions at Golden Hour DTLA" —
   chill rooftop, vinyl, house, European feel. But don't let "tasteful" exclude the big fun
-  mainstream sets.
+  mainstream sets. Film is a real lane, not filler: a rep/arthouse regular (Vidiots, Vista,
+  New Bev, Cinematheque) where the format is part of the draw — 70mm/35mm prints, restorations,
+  Q&As — and a director-event (Nolan, PTA, Tarantino, Lynch tier) is worth building a night
+  around; judge the movie and the print, not just the room (see the `film:` block).
 
 categories:
   high:    # weight +3 each match
@@ -152,6 +155,21 @@ artists_tracked:
 
 comedians_loved: [Stavros Halkias, Chris D'Elia, Larry David, Conan O'Bryan]   # the comedy exception — these get surfaced; others don't
 venues_loved: [Vista, Lodge Room, 2220 Arts, The Greek, Pantages, Hollywood Bowl, Landmark Pasadena, Old Sears, Sid the Cat]   # +1
+
+# Film taste — the MOVIE, not just the theater (venues_loved already boosts the Vista etc.).
+# Deterministic layer: directors_tracked = +2 per match (like artists_tracked), formats_loved =
+# +1 per match (the print/format draw — a 70mm title tag beats a stream). Gated to film-typed
+# events. The event-editor also reads this whole block in its brief, so the LLM layer can weigh
+# what it KNOWS about a film (director, rep-canon status, restoration buzz) even when the
+# listing text doesn't say it. SEEDED from the rep/arthouse line above — edit freely.
+film:
+  directors_tracked:
+    - Christopher Nolan
+    - Paul Thomas Anderson
+    - Quentin Tarantino
+    - David Lynch
+    - Denis Villeneuve
+  formats_loved: [70mm, 35mm, 16mm, nitrate]
 
 # Feedback log — append reactions here ("more like X", "never show Y");
 # periodically fold them into the weights above.

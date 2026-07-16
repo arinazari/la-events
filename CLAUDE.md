@@ -80,6 +80,8 @@ scripts/lib/                        # shared modules: scoring, dedupe, pipeline,
                                     #     a read-only taste-neutral `scene` block folded from the shared enrichment),
                                     #   assemble (the digest slate: lanes + elastic fill/cliff/diversity-floor) — tested
 scripts/merge_verdicts.py           # fold event-editor results JSON → per-profile data/verdicts/<hash>.json
+scripts/profile_refresh_gate.py     # nightly taste-change gate: per profile REFRESH/SKIP/OWNER — friends' LLM
+                                    #   passes run on taste change or manual Update, never on catalog movement alone
 scripts/build_radar.py              # deterministic "on the radar" set (festival/big-venue/tracked/editorial) → data/radar.json
 scripts/render_digest.py            # scored pool + verdicts → digest slate (Markdown). `--consolidated` = one daily doc
                                     #   (next 2 wks + weekends ahead + radar); `--from/--to` = per-weekend look-ahead

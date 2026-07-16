@@ -502,6 +502,25 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
     and costs tokens / a few minutes per click; it syncs that profile's Spotify first so a single-profile
     build keeps its music layer. (Owner nuance: the owner's *displayed* digest is the shared consolidated
     one — refreshed nightly / on a full refresh — while their feed ranking updates on click like everyone.)
+- [x] **Per-profile LLM refresh is taste-gated + user-driven, not nightly (2026-07-15)** — friends'
+  curated layer (per-profile event-editor verdicts + narrative digest) no longer reruns every night
+  as the catalog moves; the **deterministic feed re-rank stays nightly for everyone** (free — new
+  events in, expired out, cached verdicts folded), so only the paid layer waits. It refreshes on
+  exactly two signals: **their config changed** (taste/profile/digest-prefs/feedback since their
+  last enrichment — `scripts/profile_refresh_gate.py`, the git-derived nightly gate, same
+  content-based bar as the reflected badge) or **they hit Update** (the existing rebuild-profile
+  path, unchanged). SKIP profiles' verdicts/digests stay as-committed (honest "last refreshed"
+  dates). The dashboard adds a **refresh-nudge popup**: once a signed-in profile's curated layer
+  (`self_edit.enriched_at`) is 3+ days old — or the person returns after 3+ days away with an
+  Update pending — it explains the model (table nightly; curated layer on taste-change/Update) and
+  offers the Update; snoozes a day on "Not now", never fires logged-out or over the first-run
+  tour. The popup is deliberately short, with a "How this works" expander for the detail; a
+  **persistent** blue dot on the ☰ settings icon + an "update available" chip in the digest modal
+  (both keyed to `layerBehind()` — curated layer older than the latest events) show whenever a
+  pass is waiting, no snooze. Default + owner + consolidated digest keep the full nightly
+  treatment. (docs/PIPELINE.md is the reference. Note: the Update's LLM pass runs on the repo's
+  `ANTHROPIC_API_KEY`, not a friend's BYOK key — BYOK covers the Worker paths (chat, self-edit);
+  forwarding a browser-held key into public-repo CI would risk exposure. Revisit after Track A.)
 
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
