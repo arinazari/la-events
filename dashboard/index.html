@@ -95,10 +95,12 @@
   .sec-slug { font:700 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.13em; text-transform:uppercase; color:var(--ink); }
   .sec-all { cursor:pointer; flex:none; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:var(--blue); }
   .sec-all:hover { color:#1d49b8; }
-  /* briefs: flex lattice (1px gaps over hairline bg) — every row fills edge-to-edge, no dead cells */
-  .bf-grid { display:flex; flex-wrap:wrap; gap:1px; background:var(--hair); border:1px solid var(--hair); }
-  .bf { flex:1 1 236px; min-width:0; background:var(--hi); border-left:3px solid var(--blue); padding:11px 13px 10px; cursor:pointer; display:flex; flex-direction:column; gap:6px; }
+  /* the 1px-hairline lattice shared by brief grids + ledger grids — rows fill edge-to-edge, no dead cells */
+  .bf-grid, .lg-grid { display:flex; flex-wrap:wrap; gap:1px; background:var(--hair); border:1px solid var(--hair); }
+  /* spine = tier: red+ink must-see, blue great, neutral for unjudged events forced into card shape (hero) */
+  .bf { flex:1 1 236px; min-width:0; background:var(--hi); border-left:3px solid var(--ink4); padding:11px 13px 10px; cursor:pointer; display:flex; flex-direction:column; gap:6px; }
   .bf:hover { background:#ffffff; }
+  .bf.great { border-left-color:var(--blue); }
   .bf.must { background:var(--ink); border-left-color:var(--red); }
   .bf.must:hover { background:#231f18; }
   .bf-grid.lead .bf:first-child { flex:2.2 1 300px; }
@@ -129,7 +131,6 @@
   .bf-grid.lead .bf:first-child .bf-title { font-size:19px; line-height:1.22; }
   .bf-grid.lead .bf:first-child .bf-body { font-size:12.5px; -webkit-line-clamp:4; }
   /* ledger rows: one line per event — the density bed under the briefs */
-  .lg-grid { display:flex; flex-wrap:wrap; gap:1px; background:var(--hair); border:1px solid var(--hair); }
   .lg-grid.after-bf { margin-top:-1px; }
   .lg { flex:1 1 320px; min-width:0; display:flex; align-items:center; gap:9px; background:var(--paper); padding:0 11px; height:38px; cursor:pointer; }
   .lg:hover { background:var(--paper2); }
@@ -142,7 +143,6 @@
   .lg-p.free { color:var(--red); font-weight:600; }
   .lg-new { flex:none; width:5px; height:5px; border-radius:50%; background:var(--green); }
   .lg.ghost { justify-content:center; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:var(--blue); }
-  .lg.ghost:hover { background:var(--paper2); }
   @media (max-width: 860px) {
     .np-band { grid-template-columns:minmax(0,1fr); }
     .np-wire { border-left:none; border-top:1px solid var(--hair); margin-top:12px; padding:10px 0 0; }
@@ -158,7 +158,7 @@
 </style>
 </helmet>
 
-<div class="app-shell" style="display:flex; width:100%; overflow:hidden; font-family:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif; color:#1b1a17; background:#f4f3ef;">
+<div class="app-shell" style="display:flex; width:100%; overflow:hidden; font-family:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif; color:#1b1a17; background:#f3f0e9;">
 
   <!-- ===================== CHAT SIDEBAR (desktop) ===================== -->
   <sc-if value="{{ desktopChatStrip }}" hint-placeholder-val="{{ false }}">
@@ -452,7 +452,7 @@
     <div class="scry" style="flex:1; overflow:auto;">
       <!-- ===== mobile sort / filter toolbar ===== -->
       <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-        <div style="position:sticky; top:0; z-index:6; display:flex; align-items:center; gap:7px; padding:7px 12px; background:#f4f3ef; border-bottom:1px solid #e0ded5;">
+        <div style="position:sticky; top:0; z-index:6; display:flex; align-items:center; gap:7px; padding:7px 12px; background:#f3f0e9; border-bottom:1px solid #e0ded5;">
           <span style="flex:1; min-width:0; display:inline-flex; align-items:center; gap:6px; padding:6px 9px; border:1px solid #d2d0c7; background:#fff; border-radius:3px;" style-focus-within="border-color:#a7a59b;">
             <span style="flex:none; color:#bdbbb1; font-size:13px;">⌕</span>
             <input value="{{ search }}" onChange="{{ onSearch }}" placeholder="search" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 16px/1.1 ui-monospace,Menlo,monospace; color:#1b1a17;" />
@@ -769,7 +769,7 @@
     </div>
     </sc-if>
 
-    <footer style="flex:none; padding:9px 22px; padding-bottom:calc(9px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#f4f3ef; display:flex; align-items:center; justify-content:space-between; gap:16px; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; letter-spacing:0.02em;">
+    <footer style="flex:none; padding:9px 22px; padding-bottom:calc(9px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#f3f0e9; display:flex; align-items:center; justify-content:space-between; gap:16px; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; letter-spacing:0.02em;">
       <span><sc-if value="{{ isExplore }}" hint-placeholder-val="{{ true }}"><span style="color:#3f3d36; font-weight:600;">{{ shownCount }}</span> shown · </sc-if><span style="color:#3f3d36; font-weight:600;">{{ totalCount }}</span> entries in catalog</span>
       <span style="display:inline-flex; align-items:center; gap:14px;">
         <sc-if value="{{ anyActive }}" hint-placeholder-val="{{ false }}">
@@ -1522,6 +1522,55 @@ class Component extends DCLogic {
     if (dow >= 5) return { start: this.TODAY, end: this.addDaysISO(this.TODAY, 6 - dow + 1) };     // Fri/Sat — through Sunday
     const start = this.addDaysISO(this.TODAY, 5 - dow);                                            // Mon–Thu — the coming Friday
     return { start, end: this.addDaysISO(start, 2) };                                              // Fri → Sun
+  }
+
+  // Front-page lens date-windows, computed LIVE from the page's date (same math as Explore's
+  // presets) — shared by the render-time shelf windowing and the cached rail counts below.
+  lensWindows() {
+    const w = this.weekendRange();
+    return {
+      today: [this.TODAY, this.TODAY],
+      weekend: [w.start, w.end],
+      twoweeks: [this.TODAY, this.addDaysISO(this.TODAY, 13)],
+      ahead: [this.addDaysISO(this.TODAY, 14), this.addDaysISO(this.TODAY, 60)],
+    };
+  }
+  // Feed-static front-page derivations — the rail counts, the masthead stamp, and the wire —
+  // computed once per feed load (invalidated in _applyFeed, like _keyMap). render() runs on
+  // every keystroke; none of this depends on state, so none of it belongs there.
+  fpStatic() {
+    if (this._fpStatic) return this._fpStatic;
+    const FP = (this.META && this.META.front_page) || null;
+    const WIN = this.lensWindows();
+    const upcoming = this.ALL.reduce((n, e) => n + (e.iso >= this.TODAY ? 1 : 0), 0);
+    const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
+    const stamp = upcoming.toLocaleString() + ' UPCOMING' + (fetchedRef ? ' · AS OF ' + this.labelISO(fetchedRef).toUpperCase() : '');
+    const counts = { today: 0, weekend: 0, twoweeks: 0, ahead: 0 };
+    let wire = [], wireLabel = '';
+    if (FP) {
+      // The slate pool: every event reachable from a front_page key list — the SAME population
+      // the sections render, so a tab count can never promise events the page won't show
+      // (this.ALL would count skip-tier verdicts and every night of a series run).
+      const keys = new Set();
+      for (const l of Object.values(FP.hero || {})) (l || []).forEach(k => keys.add(k));
+      for (const sh of (FP.shelves || [])) for (const l of [sh.near, sh.ahead, sh.keys]) (l || []).forEach(k => keys.add(k));
+      for (const l of [FP.around, FP.radar]) (l || []).forEach(k => keys.add(k));
+      const pool = [];
+      keys.forEach(k => { const e = this.byKey(k); if (e) pool.push(e); });
+      for (const e of pool) for (const lk in WIN) { if (e.iso >= WIN[lk][0] && e.iso <= WIN[lk][1]) counts[lk]++; }
+      // The wire: tonight's slate in the server's rank order (effRank = final_rank, series
+      // siblings via series_rank) — selection, never a second client-side rank policy. Falls
+      // back to the weekend when tonight is dry (rows then carry a day prefix).
+      const byRank = (a, b) => this.effRank(a) - this.effRank(b);
+      wire = pool.filter(e => e.iso === this.TODAY).sort(byRank).slice(0, 6);
+      wireLabel = "TONIGHT'S WIRE";
+      if (!wire.length) {
+        wire = pool.filter(e => e.iso >= WIN.weekend[0] && e.iso <= WIN.weekend[1]).sort(byRank).slice(0, 6);
+        wireLabel = 'WEEKEND WIRE';
+      }
+    }
+    this._fpStatic = { stamp, counts, wire, wireLabel, wireDay: wireLabel === 'WEEKEND WIRE' };
+    return this._fpStatic;
   }
 
   setRange = (k) => this.setState(s => {
@@ -3214,6 +3263,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.DINING = (this.META && Array.isArray(this.META.dining)) ? this.META.dining : [];
     this._distinct = null;
     this._keyMap = null;               // front-page key->event join, rebuilt lazily
+    this._fpStatic = null;             // cached rail counts / stamp / wire, rebuilt lazily
     this.setState({ dataSource: 'live', fpDetailKey: null });
     return true;
   }
@@ -3653,63 +3703,72 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // Lens windows are computed LIVE from the page's date (same math as Explore's presets),
       // never read from the feed — a feed built last night viewed tonight windows correctly,
       // and anything already past just drops out. The feed contributes only the rank order.
-      const w = this.weekendRange();
-      const WIN = {
-        today: [this.TODAY, this.TODAY],
-        weekend: [w.start, w.end],
-        twoweeks: [this.TODAY, this.addDaysISO(this.TODAY, 13)],
-        ahead: [this.addDaysISO(this.TODAY, 14), this.addDaysISO(this.TODAY, 60)],
-      };
+      const WIN = this.lensWindows();
       const win = WIN[lens] || WIN.twoweeks;
       const inWin = (e) => e.iso >= win[0] && e.iso <= win[1];
       const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
       const isNew = (e) => !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef);
       const tierOf = (e) => (e.verdict && e.verdict.tier) || '';
-      const isFree = (p) => /^free/i.test(p || '');
+      // The tier→shape vocabulary, in ONE place: which verdict tiers earn a brief card (and
+      // its spine class). An unknown/renamed tier degrades to a ledger row, never crashes.
+      const SHAPE = { 'must-see': 'must', 'great': 'great' };
+      // Free-ness comes from the structured pmin (parsePrice already folds "free b4 11" /
+      // "no cover" into pmin 0) — one source of truth with Explore's free filter.
+      const freeEv = (e) => e.pmin === 0;
       // Two card species (tier = shape): judged must-see/great render as BRIEFS (inverted ink
       // card / blue-spine card, with the curated prose), everything else as one-line LEDGER
       // rows. Raw scoring reasons never reach a card — they live in the popover's SIGNAL block.
       const mkBrief = (e) => {
-        const must = tierOf(e) === 'must-see';
+        const shape = SHAPE[tierOf(e)] || '';
         return {
-          klass: must ? 'bf must' : 'bf',
+          klass: shape ? 'bf ' + shape : 'bf',
           date: e.wd + ' ' + e.md + ' · ' + e.t,
           title: e.title,
           venue: e.venue + ' · ' + e.hood,
           body: e.prose || e.desc || '',
           price: e.price || '',
-          priceKlass: isFree(e.price) ? 'bf-price free' : 'bf-price',
+          priceKlass: freeEv(e) ? 'bf-price free' : 'bf-price',
           genre: (e.genres || []).slice(0, 2).join(' · '),
-          tier: must ? 'MUST-SEE' : (tierOf(e) === 'great' ? 'GREAT' : ''),
-          tierKlass: must ? 'bf-tier must' : 'bf-tier',
+          tier: shape === 'must' ? 'MUST-SEE' : (shape === 'great' ? 'GREAT' : ''),
+          tierKlass: shape === 'must' ? 'bf-tier must' : 'bf-tier',
           isNew: isNew(e),
           onClick: () => this.openFpDetail(e.key),
         };
       };
-      // Ledger rows get a compact price ($23+ / FREE) — the full "b4 11 / tier" strings
-      // would eat the one-line row; the detail popover keeps the full breakdown.
+      // Ledger rows get a compact price ($23+ / FREE, FREE+ when a paid tier follows) — the
+      // full "b4 11 / tier" strings would eat the one-line row; the popover keeps the breakdown.
       const rowPrice = (e) => {
-        if (e.pmin === 0 || isFree(e.price)) return 'FREE';
+        if (freeEv(e)) return (e.pmax && e.pmax > 0) ? 'FREE+' : 'FREE';
         if (e.pmin == null) return '';
         return '$' + Math.round(e.pmin) + (e.pmax && e.pmax > e.pmin ? '+' : '');
       };
-      const mkRow = (e) => ({
-        klass: 'lg' + (tierOf(e) === 'great' ? ' great' : tierOf(e) === 'must-see' ? ' must' : ''),
-        date: e.wd + ' ' + e.md,
-        title: e.title,
-        venue: e.venue,
-        price: rowPrice(e),
-        priceKlass: rowPrice(e) === 'FREE' ? 'lg-p free' : 'lg-p',
-        isNew: isNew(e),
-        onClick: () => this.openFpDetail(e.key),
-      });
+      const mkRow = (e) => {
+        const shape = SHAPE[tierOf(e)] || '';
+        const p = rowPrice(e);
+        return {
+          klass: shape ? 'lg ' + shape : 'lg',
+          date: e.wd + ' ' + e.md,
+          title: e.title,
+          venue: e.venue,
+          price: p,
+          priceKlass: freeEv(e) ? 'lg-p free' : 'lg-p',
+          isNew: isNew(e),
+          onClick: () => this.openFpDetail(e.key),
+        };
+      };
       const BRIEF_N = 6, ROW_N = 9;
       const mkShelf = (label, evs, opts = {}) => {
         const total = evs.length;
-        const briefEvs = opts.allBriefs ? evs.slice(0, BRIEF_N)
-          : evs.filter(e => tierOf(e) === 'must-see' || tierOf(e) === 'great').slice(0, BRIEF_N);
-        const bk = new Set(briefEvs.map(e => e.key));
-        const rowEvs = opts.allBriefs ? [] : evs.filter(e => !bk.has(e.key)).slice(0, ROW_N);
+        // One-pass partition: judged tiers become briefs (up to BRIEF_N), the rest ledger rows,
+        // rank order preserved in both. The hero (allBriefs) renders EVERYTHING it was shipped —
+        // its cap is server policy (FP_HERO_N), and heroKeys excludes these from every lane, so
+        // slicing here would silently vanish top-ranked picks.
+        const briefEvs = [], rowEvs = [];
+        for (const e of evs) {
+          if (opts.allBriefs || (SHAPE[tierOf(e)] && briefEvs.length < BRIEF_N)) briefEvs.push(e);
+          else rowEvs.push(e);
+        }
+        rowEvs.length = Math.min(rowEvs.length, ROW_N);
         const shown = briefEvs.length + rowEvs.length;
         const more = (opts.seeAll && total > shown) ? total - shown : 0;
         return {
@@ -3724,35 +3783,20 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         };
       };
       const resolve = (keys) => (keys || []).map(k => this.byKey(k)).filter(Boolean);
-      const lensCount = (k) => { const wv = WIN[k]; let n = 0; for (const e of this.ALL) { if (e.iso >= wv[0] && e.iso <= wv[1]) n++; } return n; };
+      // Rail counts / stamp / wire are feed-static — cached per feed load (fpStatic), not
+      // recomputed on every keystroke's render.
+      const ST = this.fpStatic();
       fpLenses = [['today', 'TONIGHT'], ['weekend', 'THIS WEEKEND'], ['twoweeks', 'NEXT 2 WEEKS'], ['ahead', 'PLAN AHEAD']].map(([k, label]) => ({
-        label, count: String(lensCount(k)),
+        label, count: String(ST.counts[k]),
         klass: lens === k ? 'rail-tab on' : 'rail-tab',
         onClick: () => this.setLens(k),
       }));
-      fpStamp = this.ALL.length.toLocaleString() + ' EVENTS' + (fetchedRef ? ' · AS OF ' + this.labelISO(fetchedRef).toUpperCase() : '');
-      // THE WIRE: tonight's rank-ordered agate (hero.today first, padded from the lane lists);
-      // falls back to the weekend when tonight is dry. Fills the lede band's dead right half.
-      let wireEvs = resolve((FP.hero || {}).today).filter(e => e.iso === this.TODAY);
-      if (wireEvs.length < 6) {
-        const seen = new Set(wireEvs.map(e => e.key));
-        outer: for (const sh of (FP.shelves || [])) {
-          for (const k of (sh.near || sh.keys || [])) {
-            const e = this.byKey(k);
-            if (e && e.iso === this.TODAY && !seen.has(e.key)) {
-              wireEvs.push(e); seen.add(e.key);
-              if (wireEvs.length >= 6) break outer;
-            }
-          }
-        }
-      }
-      fpWireLabel = "TONIGHT'S WIRE";
-      if (!wireEvs.length) {
-        wireEvs = resolve((FP.hero || {}).weekend).filter(e => e.iso >= w.start && e.iso <= w.end);
-        fpWireLabel = 'WEEKEND WIRE';
-      }
-      fpWire = wireEvs.slice(0, 6).map(e => ({
-        time: (e.t || '').replace(' ', ''), title: e.title, venue: e.venue,
+      fpStamp = ST.stamp;
+      fpWireLabel = ST.wireLabel;
+      fpWire = ST.wire.map(e => ({
+        // Weekend fallback spans Fri–Sun, so those rows carry a day prefix; tonight's don't.
+        time: (ST.wireDay ? e.wd.toUpperCase() + ' ' : '') + (e.t || '').replace(' ', ''),
+        title: e.title, venue: e.venue,
         must: tierOf(e) === 'must-see',
         onClick: () => this.openFpDetail(e.key),
       }));
