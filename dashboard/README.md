@@ -45,18 +45,26 @@ The page opens on the **Front page** — an editorial home rendered from the fee
 `front_page` block (built server-side by `build_dashboard.build_front_page` with the SAME
 `rank_key` that orders the table's final rank — the page never re-ranks):
 
-- **The Take** — the consolidated digest's voice-pass lede, lifted from
-  `./digests/latest.md`, with a link into the full digest modal.
-- A **time lens** (*tonight · this weekend · next 2 weeks · plan ahead*) that re-scopes
-  everything below. The feed ships each lens's hero list plus rank-ordered shelf key-lists;
-  the client only date-windows and slices — selection, never re-sorting.
-- **Don't miss** — the hero row, tier-badged (must-see / great), lane-capped server-side so
-  it can't be five club nights.
-- **Shelves per lane** — warehouse & underground / afters / day parties / big rooms / live
+- **The nameplate band** — **The Take** (the consolidated digest's voice-pass lede, lifted
+  from `./digests/latest.md`, linking into the full digest modal) beside **The Wire**, a
+  clickable agate list of tonight's top-ranked picks (falls back to the weekend when tonight
+  is dry). The whole band is collapsible (*hide ×*), persisted per device (`la-take`).
+- A sticky **time lens rail** (*tonight · this weekend · next 2 weeks · plan ahead*) with
+  live event counts, that re-scopes everything below. The feed ships each lens's hero list
+  plus rank-ordered shelf key-lists; the client only date-windows and slices — selection,
+  never re-sorting.
+- **Don't miss** — the hero block, with the lead story promoted to double width.
+- **Sections per lane** — warehouse & underground / afters / day parties / big rooms / live
   music / film / comedy & stage / elsewhere, plus fixed **Around town** and **On the radar**
-  shelves when the runtime sets exist. Card click → a detail modal (what/why/lineup/links/
-  add-to-calendar); *see all →* jumps into Explore pre-filtered via the same `filtered`
-  id-list mechanism the chat uses.
+  sections when the runtime sets exist. Layout is a broadsheet, not a carousel — nothing
+  scrolls sideways. Tier is encoded as *shape*: judged **must-see** events render as inverted
+  ink-black feature cards and **great** as blue-spined cards (both carrying the curator's
+  why-line, falling back to the factual blurb — raw scoring reasons never reach a card; they
+  live in the detail modal's mono `SIGNAL` block), while everything else compacts into
+  one-line ledger rows so each section reads features-over-listings. Card/row click → a
+  detail modal (what/why/signal/lineup/links/add-to-calendar); *see all →* and the ledger's
+  ghost *+N more* cell jump into Explore pre-filtered via the same `filtered` id-list
+  mechanism the chat uses.
 
 **Explore** is the original table (search, facets, date range, rank/score sort), one click
 away in the header switch; the choice persists per device (`la-view` in localStorage). A feed

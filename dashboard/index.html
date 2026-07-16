@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LA Events — your scene concierge</title>
 <meta name="description" content="Taste-ranked LA events, filtered to your scene. Fed by the la-events catalog.">
-<meta name="theme-color" content="#f4f3ef">
+<meta name="theme-color" content="#f3f0e9">
 <link rel="icon" href="./icon.svg">
 <link rel="manifest" href="./manifest.webmanifest">
 <script src="./support.js"></script>
@@ -19,7 +19,7 @@
 <x-dc>
 <helmet>
 <style>
-  html, body { margin: 0; padding: 0; height: 100%; background: #f4f3ef; }
+  html, body { margin: 0; padding: 0; height: 100%; background: #f3f0e9; }
   * { box-sizing: border-box; }
   ::selection { background: #2b5cd9; color: #fff; }
   .scry::-webkit-scrollbar { width: 9px; height: 9px; }
@@ -53,33 +53,108 @@
   /* greeting examples (the blue `code` spans) are tap-to-fill the concierge box */
   .chat-intro code { cursor: pointer; }
   .chat-intro code:hover { background: #dde4fb !important; color: #1d49b8 !important; }
-  /* ---- front page (editorial home view) ---- */
-  .fp-shelf { display:flex; gap:10px; overflow-x:auto; padding:2px 2px 12px; scroll-snap-type:x proximity; }
-  .fp-shelf::-webkit-scrollbar { height:8px; }
-  .fp-shelf::-webkit-scrollbar-thumb { background:#cdcbc3; }
-  .fp-shelf::-webkit-scrollbar-track { background:transparent; }
-  .fp-card { flex:0 0 216px; width:216px; scroll-snap-align:start; background:#fff; border:1px solid #dedcd4;
-    border-radius:3px; padding:11px 12px; cursor:pointer; display:flex; flex-direction:column; gap:7px; }
-  .fp-card:hover { border-color:#a7a59b; }
-  .fp-card:active { background:#f7f6f1; }
-  .fp-hero { display:grid; grid-template-columns:repeat(auto-fill,minmax(236px,1fr)); gap:10px; margin-bottom:14px; }
-  .fp-hero .fp-card { width:auto; flex:auto; border-color:#c9c7bd; }
+  /* ---- front page (editorial broadsheet) ----
+     Two accent inks only: --red (must-see / active lens / free) and --blue (great / interactive).
+     Tier is encoded as SHAPE: inverted ink card (must-see) > spine card (great) > one-line
+     ledger row (everything else). No horizontal scrolling, no white cards, no radius. */
+  :root {
+    --paper:#f3f0e9; --paper2:#ebe7db; --hi:#fbfaf5;
+    --ink:#161410; --ink2:#45413a; --ink3:#6e695e; --ink4:#9d968a;
+    --hair:#d9d4c7; --red:#c73e1d; --blue:#2b5cd9; --green:#1f7a4d;
+  }
   .fp-clamp2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
   .fp-clamp3 { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-  /* one card template everywhere; the hero row's size bumps live here, not in a second template */
-  .fpc-date { font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b; }
-  .fpc-tier { font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; padding:3px 5px; border-radius:2px; color:#fff; }
-  .fpc-title { font:600 13px/1.3 -apple-system,system-ui,sans-serif; color:#161512; }
-  .fpc-venue { font:500 10px/1.35 ui-monospace,Menlo,monospace; color:#76746b; }
-  .fpc-why { font:400 11px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36; }
-  .fpc-price { font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; }
-  .fpc-new { font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#1f7a4d; }
-  .fp-hero .fpc-date { font-size:10.5px; }
-  .fp-hero .fpc-tier { font-size:8.5px; }
-  .fp-hero .fpc-title { font-size:14.5px; }
-  .fp-hero .fpc-venue { font-size:10.5px; }
-  .fp-hero .fpc-why { font-size:11.5px; line-height:1.5; }
-  .fp-hero .fpc-price { font-size:10px; }
+  .fp-scroll { --pad:24px; padding:0 var(--pad) 44px; background:var(--paper); }
+  /* nameplate band: THE TAKE (lede) + THE WIRE (tonight agate), closed by a double rule */
+  .np-band { display:grid; grid-template-columns:minmax(0,1fr) 296px; gap:0 22px; padding-top:15px; }
+  .np-band.solo { grid-template-columns:minmax(0,1fr); }
+  .np-wire { border-left:1px solid var(--hair); padding-left:20px; min-width:0; }
+  .np-kick { font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:var(--ink3); text-transform:uppercase; display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
+  .np-lede { margin-top:9px; font:400 15px/1.6 -apple-system,system-ui,sans-serif; color:var(--ink); max-width:640px; }
+  .np-link { display:inline-block; margin-top:8px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:var(--blue); cursor:pointer; }
+  .np-link:hover { color:#1d49b8; }
+  .np-toggle { cursor:pointer; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:var(--ink4); text-transform:none; flex:none; }
+  .np-toggle:hover { color:var(--ink); }
+  .wire-row { display:flex; align-items:baseline; gap:7px; padding:5.5px 0; border-bottom:1px solid var(--hair); cursor:pointer; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:var(--ink2); min-width:0; }
+  .wire-row:hover { color:var(--ink); }
+  .wire-row:last-child { border-bottom:none; }
+  .wire-dot { flex:none; color:var(--red); font-size:8px; }
+  .wire-t { flex:none; color:var(--ink4); }
+  .wire-x { flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .dbl-rule { height:0; border-bottom:4px double var(--ink); margin:14px calc(-1 * var(--pad)) 0; }
+  /* sticky lens rail: text tabs + live counts, red underline = active */
+  .fp-rail { position:sticky; top:0; z-index:5; display:flex; align-items:baseline; gap:24px; margin:0 calc(-1 * var(--pad)); padding:12px var(--pad) 0; background:var(--paper); border-bottom:1px solid var(--hair); overflow-x:auto; scrollbar-width:none; }
+  .fp-rail::-webkit-scrollbar { display:none; }
+  .rail-tab { cursor:pointer; flex:none; font:700 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:var(--ink3); padding-bottom:9px; border-bottom:2px solid transparent; margin-bottom:-1px; }
+  .rail-tab:hover { color:var(--ink); }
+  .rail-tab.on { color:var(--ink); border-bottom-color:var(--red); }
+  .rail-tab b { font-weight:600; color:var(--ink4); margin-left:5px; letter-spacing:0; }
+  .rail-stamp { margin-left:auto; flex:none; font:500 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:var(--ink4); align-self:center; padding-bottom:8px; }
+  /* section furniture */
+  .sec-head { display:flex; align-items:baseline; justify-content:space-between; gap:12px; border-top:2px solid var(--ink); margin-top:22px; padding-top:7px; margin-bottom:9px; }
+  .sec-slug { font:700 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.13em; text-transform:uppercase; color:var(--ink); }
+  .sec-all { cursor:pointer; flex:none; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:var(--blue); }
+  .sec-all:hover { color:#1d49b8; }
+  /* briefs: flex lattice (1px gaps over hairline bg) — every row fills edge-to-edge, no dead cells */
+  .bf-grid { display:flex; flex-wrap:wrap; gap:1px; background:var(--hair); border:1px solid var(--hair); }
+  .bf { flex:1 1 236px; min-width:0; background:var(--hi); border-left:3px solid var(--blue); padding:11px 13px 10px; cursor:pointer; display:flex; flex-direction:column; gap:6px; }
+  .bf:hover { background:#ffffff; }
+  .bf.must { background:var(--ink); border-left-color:var(--red); }
+  .bf.must:hover { background:#231f18; }
+  .bf-grid.lead .bf:first-child { flex:2.2 1 300px; }
+  .bf-top { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .bf-date { font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em; color:var(--ink3); text-transform:uppercase; }
+  .bf-tier { flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:var(--blue); }
+  .bf-tier.must { color:#fff; background:var(--red); padding:3px 5px; }
+  .bf-title { font:700 14px/1.25 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em; color:var(--ink); }
+  .bf-venue { font:500 10px/1.4 ui-monospace,Menlo,monospace; color:var(--ink3); }
+  .bf-body { font:400 11.5px/1.5 -apple-system,system-ui,sans-serif; color:var(--ink2); }
+  .bf-meta { margin-top:auto; padding-top:5px; display:flex; align-items:baseline; gap:9px; }
+  .bf-price { flex:none; max-width:58%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font:500 9.5px/1 ui-monospace,Menlo,monospace; color:var(--ink4); }
+  .bf-price.free { color:var(--red); font-weight:600; }
+  .bf-genre { flex:1; min-width:0; font:500 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em; color:var(--ink4); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bf-new { flex:none; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:var(--green); }
+  .bf.must .bf-date { color:#aaa294; }
+  .bf.must .bf-title { color:#faf7f0; }
+  .bf.must .bf-venue { color:#9c9484; }
+  .bf.must .bf-body { color:#d9d3c5; }
+  .bf.must .bf-price { color:#9c9484; }
+  .bf.must .bf-price.free { color:#ff8f75; }
+  .bf.must .bf-genre { color:#8a8274; }
+  .bf.must .bf-new { color:#5bc78f; }
+  /* hero ("Don't miss") size bumps */
+  .bf-grid.lead .bf { padding:13px 15px 12px; }
+  .bf-grid.lead .bf-title { font-size:15px; }
+  .bf-grid.lead .bf-body { font-size:12px; }
+  .bf-grid.lead .bf:first-child .bf-title { font-size:19px; line-height:1.22; }
+  .bf-grid.lead .bf:first-child .bf-body { font-size:12.5px; -webkit-line-clamp:4; }
+  /* ledger rows: one line per event — the density bed under the briefs */
+  .lg-grid { display:flex; flex-wrap:wrap; gap:1px; background:var(--hair); border:1px solid var(--hair); }
+  .lg-grid.after-bf { margin-top:-1px; }
+  .lg { flex:1 1 320px; min-width:0; display:flex; align-items:center; gap:9px; background:var(--paper); padding:0 11px; height:38px; cursor:pointer; }
+  .lg:hover { background:var(--paper2); }
+  .lg.great { box-shadow:inset 3px 0 0 var(--blue); }
+  .lg.must { box-shadow:inset 3px 0 0 var(--red); }
+  .lg-d { flex:none; width:56px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.02em; color:var(--ink3); text-transform:uppercase; }
+  .lg-t { flex:1 1 auto; min-width:0; font:600 12px/1.25 -apple-system,system-ui,sans-serif; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .lg-v { flex:0 4 auto; min-width:36px; font:500 9.5px/1 ui-monospace,Menlo,monospace; color:var(--ink4); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .lg-p { flex:none; font:500 9.5px/1 ui-monospace,Menlo,monospace; color:var(--ink4); }
+  .lg-p.free { color:var(--red); font-weight:600; }
+  .lg-new { flex:none; width:5px; height:5px; border-radius:50%; background:var(--green); }
+  .lg.ghost { justify-content:center; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:var(--blue); }
+  .lg.ghost:hover { background:var(--paper2); }
+  @media (max-width: 860px) {
+    .np-band { grid-template-columns:minmax(0,1fr); }
+    .np-wire { border-left:none; border-top:1px solid var(--hair); margin-top:12px; padding:10px 0 0; }
+    .np-wire .wire-row:nth-child(n+5) { display:none; }  /* phones get 4 wire rows, not 6 */
+  }
+  @media (max-width: 560px) {
+    .fp-scroll { --pad:14px; }
+    .lg-v { display:none; }
+    .lg { height:42px; }
+    .bf-grid.lead .bf:first-child { flex:1 1 236px; }
+    .bf-grid.lead .bf:first-child .bf-title { font-size:16.5px; }
+  }
 </style>
 </helmet>
 
@@ -282,48 +357,93 @@
       </sc-if>
     </header>
 
-    <!-- ===================== FRONT PAGE (editorial home) ===================== -->
+    <!-- ===================== FRONT PAGE (editorial broadsheet) ===================== -->
     <sc-if value="{{ isFront }}" hint-placeholder-val="{{ false }}">
-    <div class="scry" style="flex:1; overflow-y:auto; padding:18px 22px 26px;">
-      <sc-if value="{{ fpHasLede }}" hint-placeholder-val="{{ false }}">
-        <div style="max-width:760px; margin-bottom:18px;">
-          <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:8px;">THE TAKE · {{ fpDate }}</div>
-          <div style="font:400 14.5px/1.65 -apple-system,system-ui,sans-serif; color:#1b1a17;">{{ fpLede }}</div>
-          <span onClick="{{ openDigest }}" style="display:inline-block; margin-top:8px; font:600 11px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; cursor:pointer;" style-hover="color:#1d49b8;">read the full digest →</span>
-        </div>
-      </sc-if>
-      <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:18px;">
-        <sc-for list="{{ fpLenses }}" as="l" hint-placeholder-count="4">
-          <span onClick="{{ l.onClick }}" style="cursor:pointer; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 12px; border:1px solid {{ l.border }}; background: {{ l.bg }}; color: {{ l.color }}; border-radius:999px;">{{ l.label }}</span>
-        </sc-for>
-      </div>
-      <sc-for list="{{ fpShelves }}" as="sh" hint-placeholder-count="4">
-        <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin:4px 0 8px;">
-          <span style="font:600 12.5px/1 -apple-system,system-ui,sans-serif; letter-spacing:0.01em; color:#161512;">{{ sh.label }}</span>
-          <sc-if value="{{ sh.seeAll }}" hint-placeholder-val="{{ false }}">
-            <span onClick="{{ sh.seeAll }}" style="cursor:pointer; flex:none; font:600 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">see all {{ sh.total }} →</span>
-          </sc-if>
-        </div>
-        <div class="{{ sh.rowClass }}">
-          <sc-for list="{{ sh.cards }}" as="c" hint-placeholder-count="6">
-            <div class="fp-card" onClick="{{ c.onClick }}">
-              <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                <span class="fpc-date">{{ c.date }}</span>
-                <sc-if value="{{ c.tier }}" hint-placeholder-val="{{ false }}"><span class="fpc-tier" style="background: {{ c.tierBg }};">{{ c.tier }}</span></sc-if>
-              </div>
-              <div class="fp-clamp2 fpc-title">{{ c.title }}</div>
-              <div class="fp-clamp2 fpc-venue">{{ c.venue }}</div>
-              <sc-if value="{{ c.why }}" hint-placeholder-val="{{ false }}"><div class="fp-clamp3 fpc-why">{{ c.why }}</div></sc-if>
-              <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                <span class="fpc-price">{{ c.price }}</span>
-                <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span class="fpc-new">NEW</span></sc-if>
+    <div class="scry fp-scroll" style="flex:1; overflow-y:auto;">
+      <!-- nameplate: THE TAKE (lede) + THE WIRE (tonight, clickable agate) — collapsible, persisted -->
+      <sc-if value="{{ fpBandOpen }}" hint-placeholder-val="{{ true }}">
+        <div class="{{ npBandClass }}">
+          <div style="min-width:0;">
+            <div class="np-kick"><span>THE TAKE · {{ fpDate }}</span><span onClick="{{ toggleTake }}" class="np-toggle" title="Tuck the take + wire away (per device)">hide ×</span></div>
+            <sc-if value="{{ fpHasLede }}" hint-placeholder-val="{{ true }}">
+              <div class="np-lede">{{ fpLede }}</div>
+              <span onClick="{{ openDigest }}" class="np-link">read the full digest →</span>
+            </sc-if>
+          </div>
+          <sc-if value="{{ fpHasWire }}" hint-placeholder-val="{{ true }}">
+            <div class="np-wire">
+              <div class="np-kick"><span>{{ fpWireLabel }}</span></div>
+              <div style="margin-top:6px;">
+                <sc-for list="{{ fpWire }}" as="w" hint-placeholder-count="5">
+                  <div class="wire-row" onClick="{{ w.onClick }}">
+                    <sc-if value="{{ w.must }}" hint-placeholder-val="{{ false }}"><span class="wire-dot">●</span></sc-if>
+                    <span class="wire-t">{{ w.time }}</span>
+                    <span class="wire-x">{{ w.title }} <span style="color:var(--ink4);">— {{ w.venue }}</span></span>
+                  </div>
+                </sc-for>
               </div>
             </div>
-          </sc-for>
+          </sc-if>
         </div>
+      </sc-if>
+      <sc-if value="{{ fpBandClosed }}" hint-placeholder-val="{{ false }}">
+        <div class="np-kick" style="padding-top:15px;"><span>THE TAKE · {{ fpDate }}</span><span onClick="{{ toggleTake }}" class="np-toggle">show the take + the wire ▾</span></div>
+      </sc-if>
+      <div class="dbl-rule"></div>
+      <!-- sticky lens rail with live counts -->
+      <div class="fp-rail">
+        <sc-for list="{{ fpLenses }}" as="l" hint-placeholder-count="4">
+          <span onClick="{{ l.onClick }}" class="{{ l.klass }}">{{ l.label }}<b>{{ l.count }}</b></span>
+        </sc-for>
+        <span class="rail-stamp">{{ fpStamp }}</span>
+      </div>
+      <!-- sections: judged briefs (cards) over a ledger of one-line rows -->
+      <sc-for list="{{ fpShelves }}" as="sh" hint-placeholder-count="4">
+        <div class="sec-head">
+          <span class="sec-slug">{{ sh.label }}</span>
+          <sc-if value="{{ sh.seeAll }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ sh.seeAll }}" class="sec-all">{{ sh.allLabel }}</span>
+          </sc-if>
+        </div>
+        <sc-if value="{{ sh.hasBriefs }}" hint-placeholder-val="{{ true }}">
+          <div class="{{ sh.gridClass }}">
+            <sc-for list="{{ sh.briefs }}" as="c" hint-placeholder-count="4">
+              <div class="{{ c.klass }}" onClick="{{ c.onClick }}">
+                <div class="bf-top">
+                  <span class="bf-date">{{ c.date }}</span>
+                  <sc-if value="{{ c.tier }}" hint-placeholder-val="{{ false }}"><span class="{{ c.tierKlass }}">{{ c.tier }}</span></sc-if>
+                </div>
+                <div class="fp-clamp2 bf-title">{{ c.title }}</div>
+                <div class="fp-clamp2 bf-venue">{{ c.venue }}</div>
+                <sc-if value="{{ c.body }}" hint-placeholder-val="{{ false }}"><div class="fp-clamp3 bf-body">{{ c.body }}</div></sc-if>
+                <div class="bf-meta">
+                  <span class="{{ c.priceKlass }}">{{ c.price }}</span>
+                  <span class="bf-genre">{{ c.genre }}</span>
+                  <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span class="bf-new">NEW</span></sc-if>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ sh.hasRows }}" hint-placeholder-val="{{ false }}">
+          <div class="{{ sh.rowsClass }}">
+            <sc-for list="{{ sh.rows }}" as="r" hint-placeholder-count="6">
+              <div class="{{ r.klass }}" onClick="{{ r.onClick }}">
+                <span class="lg-d">{{ r.date }}</span>
+                <span class="lg-t">{{ r.title }}</span>
+                <sc-if value="{{ r.isNew }}" hint-placeholder-val="{{ false }}"><span class="lg-new"></span></sc-if>
+                <span class="lg-v">{{ r.venue }}</span>
+                <span class="{{ r.priceKlass }}">{{ r.price }}</span>
+              </div>
+            </sc-for>
+            <sc-if value="{{ sh.more }}" hint-placeholder-val="{{ false }}">
+              <div class="lg ghost" onClick="{{ sh.seeAll }}">+{{ sh.more }} more →</div>
+            </sc-if>
+          </div>
+        </sc-if>
       </sc-for>
       <sc-if value="{{ fpEmpty }}" hint-placeholder-val="{{ false }}">
-        <div style="padding:40px 0; font:500 13px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">Quiet in this window — try a wider lens, or <span onClick="{{ viewExplore }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">open Explore</span>.</div>
+        <div style="padding:40px 0; font:500 13px/1.5 ui-monospace,Menlo,monospace; color:#9d968a;">Quiet in this window — try a wider lens, or <span onClick="{{ viewExplore }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">open Explore</span>.</div>
       </sc-if>
     </div>
     </sc-if>
@@ -792,6 +912,10 @@
           <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">WHY IT'S RANKED</div>
           <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ fpDetail.why }}</div>
         </sc-if>
+        <sc-if value="{{ fpDetail.signal }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">SIGNAL</div>
+          <div style="font:500 10.5px/1.6 ui-monospace,Menlo,monospace; color:#6e695e; background:#efece2; border-left:2px solid #d9d4c7; padding:8px 10px;">{{ fpDetail.signal }}</div>
+        </sc-if>
         <sc-if value="{{ fpDetail.lineupStr }}" hint-placeholder-val="{{ false }}">
           <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">LINEUP</div>
           <div style="font-size:12.5px; line-height:1.5; color:#161512;">{{ fpDetail.lineupStr }}</div>
@@ -1113,6 +1237,9 @@ class Component extends DCLogic {
     // Persisted per device; falls back to Explore whenever the loaded feed has no front_page.
     view: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-view')) || 'front'),
     lens: 'twoweeks',          // front-page time lens: today | weekend | twoweeks | ahead
+    // nameplate band (THE TAKE + THE WIRE): collapsible per device — a day-30 daily driver
+    // has read the lede; collapsing buys a row of events on every visit.
+    takeOpen: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-take')) !== '0'),
     fpDetailKey: null,         // front-page card detail modal (event key)
     sortKey: 'rank', sortDir: 'asc',
     range: 'ten', rangeStart: this.TODAY, rangeEnd: this.TEN_END, bubbleOpen: false,
@@ -1414,6 +1541,11 @@ class Component extends DCLogic {
     this.setState({ view: v, expandedId: null, fpDetailKey: null });
   };
   setLens = (k) => this.setState({ lens: k });
+  toggleTake = () => this.setState(s => {
+    const v = !s.takeOpen;
+    try { localStorage.setItem('la-take', v ? '1' : '0'); } catch (e) {}
+    return { takeOpen: v };
+  });
   openFpDetail = (key) => this.setState({ fpDetailKey: key });
   closeFpDetail = () => this.setState({ fpDetailKey: null });
   fpStopClick = (e) => { e.stopPropagation(); };
@@ -1796,6 +1928,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
+    "- **A denser, sharper front page.** The editorial home got a broadsheet redesign: no more sideways-scrolling card rows — every lane now lays out edge-to-edge, with **must-see** events as bold ink-black features, **great** picks as blue-spined cards, and everything else as compact one-line rows (so roughly twice as many events fit on screen). New up top: **the wire**, a click-through list of tonight's picks beside the day's take (tap *hide ×* to tuck the whole band away), and the time lenses now show live event counts and stay pinned while you scroll.",
     "- **A front page.** The site now opens on an editorial home: the day's *take*, a **Don't miss** hero row, and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
     "- **Cleaner categories.** A large batch of events (mostly Ticketmaster's) were sitting in an 'other' bucket — they're now properly typed as live music, stage, comedy and film, so lane filters and shelves actually cover the catalog.",
     "- **You control your refresh.** Your table still picks up new events nightly, but your curated layer — the editorial pass behind your final ranks, and your written digest — no longer silently rebuilds every night. It refreshes when your **taste changes** (a concierge edit folds in overnight) or when **you hit Update**; after 3+ days, a popup explains what's waiting and offers to refresh right there.",
@@ -3015,7 +3148,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // else the event-editor's per-profile verdict rationale (judged pool — far wider than the
     // enrichment head, and the curated taste "why"), else the deterministic scoring reasons.
     const verdictWhy = (r.verdict && typeof r.verdict.why === 'string') ? r.verdict.why : '';
-    const why = enr.curator_note || verdictWhy || (Array.isArray(r.reasons) && r.reasons.length ? r.reasons.join(' · ') : (r.why || r.blurb || r.note || ''));
+    // prose = human curation only (curator note / verdict why); signal = the deterministic
+    // scoring reasons (diagnostic, mono — shown in the detail popover's SIGNAL block, never on
+    // cards); why keeps the legacy prose→signal fallback for Explore/chat surfaces.
+    const prose = enr.curator_note || verdictWhy || '';
+    const signal = (Array.isArray(r.reasons) && r.reasons.length) ? r.reasons.join(' · ') : '';
+    const why = prose || signal || (r.why || r.blurb || r.note || '');
     return {
       id: (r.id != null ? String(r.id) : this.slugId(r, i)),
       iso: d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()),
@@ -3050,7 +3188,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       key: r.key || null,              // stable server id (event_key) — front_page join
       lane: r.lane || null,            // slate lane (club:afters / live-music / …)
       firstSeen: r.first_seen || null, // vs META.catalog_fetched_at -> NEW badge
-      why,
+      why, prose, signal,
       detail: r.detail || '',
       // Factual one-line description for the card: the enrichment blurb (full or cheap tier)
       // if researched, else the sanitized raw source detail. Distinct from `why` (the curator's
@@ -3490,6 +3628,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // ---- front page (editorial home; FP/hasFront/isFront hoisted above the table pipeline) ----
     const lens = this.state.lens || 'twoweeks';
     let fpShelves = [], fpLenses = [], fpLedeText = '', fpEmpty = false;
+    let fpWire = [], fpWireLabel = '', fpStamp = '';
     let fpDetail = {}, fpDetailOpen = false;
     if (hasFront && this.state.fpDetailKey) {
       const de = this.byKey(this.state.fpDetailKey);
@@ -3500,7 +3639,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           title: de.title,
           venueLine: de.venue + ' (' + de.hood + ')',
           priceLine: this.priceLabel(de) + (de.ah ? '  ·  afterhours' : ''),
-          why: de.why || '',
+          why: de.prose || '',
+          signal: de.signal || '',
           desc: de.desc, hasDesc: de.hasDesc,
           lineupStr: de.lineup.join('  ·  '),
           links: this.linksFor(de),
@@ -3523,54 +3663,119 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const win = WIN[lens] || WIN.twoweeks;
       const inWin = (e) => e.iso >= win[0] && e.iso <= win[1];
       const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
-      const TIER_BG = { 'must-see': '#1b1a17', 'great': '#2b5cd9' };
-      const mkCard = (e) => ({
-        date: e.wd + ' ' + e.md + ' · ' + e.t,
+      const isNew = (e) => !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef);
+      const tierOf = (e) => (e.verdict && e.verdict.tier) || '';
+      const isFree = (p) => /^free/i.test(p || '');
+      // Two card species (tier = shape): judged must-see/great render as BRIEFS (inverted ink
+      // card / blue-spine card, with the curated prose), everything else as one-line LEDGER
+      // rows. Raw scoring reasons never reach a card — they live in the popover's SIGNAL block.
+      const mkBrief = (e) => {
+        const must = tierOf(e) === 'must-see';
+        return {
+          klass: must ? 'bf must' : 'bf',
+          date: e.wd + ' ' + e.md + ' · ' + e.t,
+          title: e.title,
+          venue: e.venue + ' · ' + e.hood,
+          body: e.prose || e.desc || '',
+          price: e.price || '',
+          priceKlass: isFree(e.price) ? 'bf-price free' : 'bf-price',
+          genre: (e.genres || []).slice(0, 2).join(' · '),
+          tier: must ? 'MUST-SEE' : (tierOf(e) === 'great' ? 'GREAT' : ''),
+          tierKlass: must ? 'bf-tier must' : 'bf-tier',
+          isNew: isNew(e),
+          onClick: () => this.openFpDetail(e.key),
+        };
+      };
+      // Ledger rows get a compact price ($23+ / FREE) — the full "b4 11 / tier" strings
+      // would eat the one-line row; the detail popover keeps the full breakdown.
+      const rowPrice = (e) => {
+        if (e.pmin === 0 || isFree(e.price)) return 'FREE';
+        if (e.pmin == null) return '';
+        return '$' + Math.round(e.pmin) + (e.pmax && e.pmax > e.pmin ? '+' : '');
+      };
+      const mkRow = (e) => ({
+        klass: 'lg' + (tierOf(e) === 'great' ? ' great' : tierOf(e) === 'must-see' ? ' must' : ''),
+        date: e.wd + ' ' + e.md,
         title: e.title,
-        venue: e.venue + ' · ' + e.hood,
-        why: e.why || '',
-        price: e.price || '',
-        tier: (e.verdict && TIER_BG[e.verdict.tier]) ? e.verdict.tier.toUpperCase() : '',
-        tierBg: TIER_BG[(e.verdict || {}).tier] || '#76746b',
-        isNew: !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef),
+        venue: e.venue,
+        price: rowPrice(e),
+        priceKlass: rowPrice(e) === 'FREE' ? 'lg-p free' : 'lg-p',
+        isNew: isNew(e),
         onClick: () => this.openFpDetail(e.key),
       });
+      const BRIEF_N = 6, ROW_N = 9;
+      const mkShelf = (label, evs, opts = {}) => {
+        const total = evs.length;
+        const briefEvs = opts.allBriefs ? evs.slice(0, BRIEF_N)
+          : evs.filter(e => tierOf(e) === 'must-see' || tierOf(e) === 'great').slice(0, BRIEF_N);
+        const bk = new Set(briefEvs.map(e => e.key));
+        const rowEvs = opts.allBriefs ? [] : evs.filter(e => !bk.has(e.key)).slice(0, ROW_N);
+        const shown = briefEvs.length + rowEvs.length;
+        const more = (opts.seeAll && total > shown) ? total - shown : 0;
+        return {
+          label,
+          briefs: briefEvs.map(mkBrief), hasBriefs: briefEvs.length > 0,
+          rows: rowEvs.map(mkRow), hasRows: rowEvs.length > 0 || more > 0,
+          gridClass: opts.lead ? 'bf-grid lead' : 'bf-grid',
+          rowsClass: briefEvs.length ? 'lg-grid after-bf' : 'lg-grid',
+          seeAll: opts.seeAll || null,
+          allLabel: total > shown ? shown + ' OF ' + total + ' · SEE ALL →' : 'SEE ALL →',
+          more,
+        };
+      };
       const resolve = (keys) => (keys || []).map(k => this.byKey(k)).filter(Boolean);
+      const lensCount = (k) => { const wv = WIN[k]; let n = 0; for (const e of this.ALL) { if (e.iso >= wv[0] && e.iso <= wv[1]) n++; } return n; };
       fpLenses = [['today', 'TONIGHT'], ['weekend', 'THIS WEEKEND'], ['twoweeks', 'NEXT 2 WEEKS'], ['ahead', 'PLAN AHEAD']].map(([k, label]) => ({
-        label, onClick: () => this.setLens(k),
-        border: lens === k ? '#1b1a17' : '#d2d0c7',
-        bg: lens === k ? '#1b1a17' : '#fff',
-        color: lens === k ? '#fff' : '#76746b',
+        label, count: String(lensCount(k)),
+        klass: lens === k ? 'rail-tab on' : 'rail-tab',
+        onClick: () => this.setLens(k),
       }));
-      const SHELF_N = 12;
+      fpStamp = this.ALL.length.toLocaleString() + ' EVENTS' + (fetchedRef ? ' · AS OF ' + this.labelISO(fetchedRef).toUpperCase() : '');
+      // THE WIRE: tonight's rank-ordered agate (hero.today first, padded from the lane lists);
+      // falls back to the weekend when tonight is dry. Fills the lede band's dead right half.
+      let wireEvs = resolve((FP.hero || {}).today).filter(e => e.iso === this.TODAY);
+      if (wireEvs.length < 6) {
+        const seen = new Set(wireEvs.map(e => e.key));
+        outer: for (const sh of (FP.shelves || [])) {
+          for (const k of (sh.near || sh.keys || [])) {
+            const e = this.byKey(k);
+            if (e && e.iso === this.TODAY && !seen.has(e.key)) {
+              wireEvs.push(e); seen.add(e.key);
+              if (wireEvs.length >= 6) break outer;
+            }
+          }
+        }
+      }
+      fpWireLabel = "TONIGHT'S WIRE";
+      if (!wireEvs.length) {
+        wireEvs = resolve((FP.hero || {}).weekend).filter(e => e.iso >= w.start && e.iso <= w.end);
+        fpWireLabel = 'WEEKEND WIRE';
+      }
+      fpWire = wireEvs.slice(0, 6).map(e => ({
+        time: (e.t || '').replace(' ', ''), title: e.title, venue: e.venue,
+        must: tierOf(e) === 'must-see',
+        onClick: () => this.openFpDetail(e.key),
+      }));
       const heroEvs = resolve((FP.hero || {})[lens]).filter(inWin);
       const heroKeys = new Set(heroEvs.map(e => e.key));
-      // The hero row is just the first shelf (rowClass fp-hero renders it as a grid) — ONE
-      // card template for every surface, size deltas live in CSS (.fp-hero .fp-card).
-      if (heroEvs.length) fpShelves.push({
-        label: "Don't miss", rowClass: 'fp-hero', total: heroEvs.length,
-        cards: heroEvs.map(mkCard), seeAll: null,
-      });
+      // The hero is a shelf of briefs only, with the lead story promoted (CSS .lead :first-child).
+      if (heroEvs.length) fpShelves.push(mkShelf("Don't miss", heroEvs, { lead: true, allBriefs: true }));
       // Lane shelves window the near (days 0–13) or ahead (14–60) key-list per the lens —
       // the split exists server-side so the two-zone rank can't starve plan-ahead.
       for (const sh of (FP.shelves || [])) {
         const evs = resolve((lens === 'ahead' ? sh.ahead : sh.near) || sh.keys)
           .filter(inWin).filter(e => !heroKeys.has(e.key));
-        if (evs.length) fpShelves.push({
-          label: sh.label, rowClass: 'fp-shelf', total: evs.length,
-          cards: evs.slice(0, SHELF_N).map(mkCard),
+        if (evs.length) fpShelves.push(mkShelf(sh.label, evs, {
           seeAll: () => this.fpSeeAll(sh.label, evs.map(e => e.id)),
-        });
+        }));
       }
       // Around town + On the radar ride as fixed shelves: around is the near city-pulse,
       // radar is inherently plan-ahead — neither follows the lens window (past drops out).
       for (const [keys, label] of [[FP.around, 'Around town'], [FP.radar, 'On the radar']]) {
         const evs = resolve(keys).filter(e => e.iso >= this.TODAY);
-        if (evs.length) fpShelves.push({
-          label, rowClass: 'fp-shelf', total: evs.length,
-          cards: evs.slice(0, SHELF_N).map(mkCard),
+        if (evs.length) fpShelves.push(mkShelf(label, evs, {
           seeAll: () => this.fpSeeAll(label, evs.map(e => e.id)),
-        });
+        }));
       }
       fpEmpty = !fpShelves.length;
       fpLedeText = this.digestLede();
@@ -3586,6 +3791,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       exploreTabBg: (isExplore && hasFront) ? '#1b1a17' : '#fff', exploreTabColor: (isExplore && hasFront) ? '#fff' : '#76746b',
       fpLenses, fpShelves, fpEmpty,
       fpLede, fpHasLede: !!fpLedeText, fpDate: this.labelISO(this.TODAY),
+      fpWire, fpHasWire: fpWire.length > 0, fpWireLabel, fpStamp,
+      fpBandOpen: this.state.takeOpen && (!!fpLedeText || fpWire.length > 0),
+      fpBandClosed: !this.state.takeOpen && (!!fpLedeText || fpWire.length > 0),
+      npBandClass: fpWire.length > 0 ? 'np-band' : 'np-band solo',
+      toggleTake: this.toggleTake,
       fpDetailOpen, fpDetail, closeFpDetail: this.closeFpDetail, fpStop: this.fpStopClick,
       messages: msgs, loading,
       phText, phOpacity: this.state.phFade ? '0' : '1',
