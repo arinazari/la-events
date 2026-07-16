@@ -87713,6 +87713,10 @@
       {
         "source": "ticketmaster",
         "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7P3qe"
+      },
+      {
+        "source": "ticketmaster",
+        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7Pwbd"
       }
     ],
     "sources": [
@@ -87939,46 +87943,6 @@
       "setting": [],
       "vibe": [],
       "region": "far",
-      "near_home": false
-    }
-  },
-  {
-    "title": "Dane Cook",
-    "date": "2026-09-11",
-    "start": "20:00",
-    "venue": "Yaamava Resort & Casino at San Manuel",
-    "neighborhood": "Highland",
-    "category": "Arts & Theatre",
-    "genre": null,
-    "lineup": [
-      "Dane Cook"
-    ],
-    "links": [
-      {
-        "source": "venue",
-        "url": "https://yaamava.com/yaamava-theater"
-      },
-      {
-        "source": "ticketmaster",
-        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7Pwbd"
-      }
-    ],
-    "sources": [
-      "ticketmaster"
-    ],
-    "organizers": null,
-    "detail": null,
-    "price": null,
-    "ra_pick": false,
-    "afterhours": false,
-    "first_seen": "2026-07-04",
-    "last_seen": "2026-07-15",
-    "tags": {
-      "type": "other",
-      "genre": [],
-      "setting": [],
-      "vibe": [],
-      "region": null,
       "near_home": false
     }
   },
