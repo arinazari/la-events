@@ -434,7 +434,9 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   `digests/latest.md` with string heuristics (`digestLede()` in the dashboard). Robust enough
   for now (bold/italic openers handled), but the clean fix is the voice pass writing the intro
   to a structured slot the feed carries (e.g. `front_page.take`), so the page never parses
-  markdown conventions.
+  markdown conventions. Note the lede now has TWO consumers (2026-07-16: the take is presented
+  as a concierge message — the front-page card and the seeded chat-thread message, `seedTake()`);
+  a structural emit should feed both.
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by

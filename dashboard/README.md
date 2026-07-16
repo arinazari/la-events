@@ -46,7 +46,10 @@ The page opens on the **Front page** — an editorial home rendered from the fee
 `rank_key` that orders the table's final rank — the page never re-ranks):
 
 - **The Take** — the consolidated digest's voice-pass lede, lifted from
-  `./digests/latest.md`, with a link into the full digest modal.
+  `./digests/latest.md` and presented as a **message from the concierge** (tagged like a chat
+  reply, with *reply →* into the chat and a link into the full digest modal). The same take is
+  seeded into the chat thread as the concierge's own message when a real digest loads, so a
+  reply reaches the backend with the take already in history.
 - A **time lens** (*tonight · this weekend · next 2 weeks · plan ahead*) that re-scopes
   everything below. The feed ships each lens's hero list plus rank-ordered shelf key-lists;
   the client only date-windows and slices — selection, never re-sorting.
