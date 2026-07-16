@@ -406,6 +406,22 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   (`localSpec`), Discover → copy-to-Claude-Code hand-off. React/ReactDOM/`@babel/standalone` vendored
   locally (off unpkg); PWA + deploy workflow carried over (deploy stages `digests/latest.md`).
 
+- [x] **Digest + landing-page redesign (2026-07-16, branch `claude/digest-landing-page-redesign`)** —
+  the consolidated digest restructured (day sections group by slate LANE with afters/day-party/big-room
+  chips — the raw source category had been filing warehouse bills under "Other"; tier-scaled entries:
+  full / compact / collapsed "Also:" row per the verdict; Don't-miss priced + urgency-chipped, blurbs
+  no longer repeated verbatim in the day body; NEW sections **Tonight & tomorrow** (tier3:call slot)
+  and **What changed**; Fri/Sat **tier3:blueprint** night-sketch slots; radar rows carry tier3:gloss
+  slots; "Weekends ahead" compressed to top-4 + a link to the per-weekend file (now staged/published);
+  ops banners moved to the footer). Root cause fixes underneath: Ticketmaster's capitalized segment
+  names never matched the tagger ("other" was 65% of the catalog → now ~1%), and detail-blob keywords
+  could retype concerts. AND the dashboard now opens on a **Front page** — The Take (digest lede) +
+  a time lens (tonight/weekend/2wk/ahead) + a tier-badged Don't-miss hero row + per-lane shelves, all
+  computed server-side (`build_dashboard.build_front_page`, same rank_key as final_rank; the page
+  never re-ranks); the table demoted to **Explore** (header switch, per-device persistence). Every
+  feed event now carries its stable `key` (event_key) — the join id, and the anchor for feedback
+  reactions when that lands.
+
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
   `@babel/standalone` (~3 MB vendored). Add a build step that compiles `index.html` ahead of time and
@@ -416,10 +432,13 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   all-day fallback, lineup/curator-note/price/rating/link in the description).
 - [ ] **Save / bookmark events** — let Ari star events to a personal shortlist (localStorage; the seed
   for "plan around these"). Was `save-for-plan` in the prior front end; not in the new design yet.
+  The front page's card detail modal is the natural surface, and events now carry a stable `key`.
 - [ ] **Like → learn taste** — per-event 👍/👎 (or "more like this" / "never show") that feeds the
   existing feedback loop (`data/feedback.jsonl` → `lib/feedback.py` → affinity, Phase C). Closes the
   implicit-signal-capture gap noted in Phase C (emitting reactions waited on a dashboard surface); on
   static Pages it rides the hand-off seam — compose the `feedback.jsonl` append for the agent to commit.
+  Groundwork shipped (2026-07-16): the front-page cards/detail modal are the surface, and every feed
+  event carries `key` = the server `event_key` that `log_feedback.py` / `lib/feedback.py` key off.
 - [ ] **In-app taste editing (direct YAML)** — the profile popup is now slim (signed-in · log out +
   a "View your taste profile →" link) and opens a dedicated **read-only** taste modal (2026-06-20).
   Making it *editable in-page* means a Worker save path: POST the full YAML → validate (re-parses +
