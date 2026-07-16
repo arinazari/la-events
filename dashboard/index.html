@@ -3603,7 +3603,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const win = WIN[lens] || WIN.twoweeks;
       const inWin = (e) => e.iso >= win[0] && e.iso <= win[1];
       const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
-      const TIER_BG = { 'must-see': '#1b1a17', 'great': '#2b5cd9' };
+      // Badge ONLY the editor's rare must-see flag. The page is the top of the ranking, so
+      // 'great' is every shelf-head's baseline — badging it too made the badge a constant
+      // (no signal). Full tier still reads in Explore's rank-column tooltip.
+      const TIER_BG = { 'must-see': '#1b1a17' };
       const mkCard = (e) => ({
         date: e.wd + ' ' + e.md + ' · ' + e.t,
         title: e.title,

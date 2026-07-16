@@ -48,8 +48,10 @@ The page opens on the **Front page** — an editorial home rendered from the fee
 - A **time lens** (*tonight · this weekend · next 2 weeks · plan ahead*) that re-scopes
   everything below. The feed ships each lens's hero list plus rank-ordered shelf key-lists;
   the client only date-windows and slices — selection, never re-sorting.
-- **Don't miss** — the hero row, tier-badged (must-see / great), lane-capped server-side so
-  it can't be five club nights.
+- **Don't miss** — the hero row, lane-capped server-side so it can't be five club nights.
+  Cards across the page badge only the editor's rare **must-see** flag: the front page IS
+  the top of the ranking, so "great" is the baseline there and goes unbadged (a badge on
+  every card is no badge at all). Full tiers remain visible in Explore's rank tooltip.
 - **Shelves per lane** — warehouse & underground / afters / day parties / big rooms / live
   music / film / comedy & stage / elsewhere, plus fixed **Around town** and **On the radar**
   shelves when the runtime sets exist. Card click → a detail modal (what/why/lineup/links/
