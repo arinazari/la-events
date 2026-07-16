@@ -66,8 +66,8 @@ Write a JSON array to the cache path (one object per event) **and** return a one
 ```json
 {
   "id": "...",
-  "type": "electronic",
-  "subgenres": ["disco", "deep house"],
+  "type": "club",
+  "subgenres": ["disco", "deep-house"],
   "label_orbit": ["Rush Hour"],
   "energy": "groove / daytime",
   "setting": "rooftop",

@@ -51,8 +51,10 @@ GROUPS = [
     ("Elsewhere", ()),                           # art / market / workshop / community / other …
 ]
 
-# Sub-lane chips, shown inline so the one dance heading keeps the afters/day/big-room distinction.
-LANE_CHIP = {"club:afters": "afters", "club:day": "day party", "club:mainstream": "big room"}
+# Sub-lane chips, shown inline so the one dance heading keeps the afters/day/big-room distinction
+# (and the one live heading keeps small rooms apart from arena/hall shows).
+LANE_CHIP = {"club:afters": "afters", "club:day": "day party", "club:mainstream": "big room",
+             "live-music:big": "big venue"}
 
 PICK_MIN_RATING = 5   # rating at/above this gets an "editor's pick" flag inline
 

@@ -108,6 +108,13 @@ def normalize(ev: dict) -> dict:
         genre = None
     start = ev.get("dates", {}).get("start", {})
     attractions = (ev.get("_embedded") or {}).get("attractions") or []
+    # Attraction-level genre: for bare-name comedians/speakers TM files the EVENT as a useless
+    # "Arts & Theatre"/Miscellaneous but the ATTRACTION as genre "Comedy" — the tagger's only
+    # honest signal for those rows (lib/tagging reads it as `lineup_genre`).
+    attr_cls = (attractions[0].get("classifications") or [{}])[0] if attractions else {}
+    lineup_genre = (attr_cls.get("genre") or {}).get("name")
+    if lineup_genre and lineup_genre.strip().lower() in ("undefined", "other"):
+        lineup_genre = None
     # Prefer venue-LOCAL date (+ time). TM's `dateTime` is UTC, which rolls an evening LA show past
     # midnight into the next calendar day; `localDate`/`localTime` are venue-local. Then undo TM's
     # own post-midnight roll (a 3am set filed on the next day) using the night-of date in the URL slug.
@@ -128,6 +135,7 @@ def normalize(ev: dict) -> dict:
         "lng": (venue.get("location") or {}).get("longitude"),
         "category": seg,
         "genre": genre,
+        **({"lineup_genre": lineup_genre} if lineup_genre else {}),
         "price_min": prices.get("min"),
         "price_max": prices.get("max"),
         "detail": ev.get("info"),  # TM event blurb (pleaseNote is logistics fine-print — skip; sanitized on normalize)

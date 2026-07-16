@@ -144,6 +144,9 @@ def normalize_record(raw: dict, source=None) -> dict:
         "neighborhood": raw.get("neighborhood"),
         "category": raw.get("category") or SOURCE_CATEGORY.get(source, "general"),
         "genre": raw.get("genre"),  # finer classification (TM segment->category, genre->genre); dashboard's CATEGORY / GENRE line
+        # attraction-level TM genre — only present when the fetcher found one (kept sparse so
+        # 3,600 records don't each grow a null field); tagging._resolve_type reads it.
+        **({"lineup_genre": raw["lineup_genre"]} if raw.get("lineup_genre") else {}),
         "lineup": lineup,
         "links": _links(raw, source),
         "sources": _as_list(raw.get("sources") or source),

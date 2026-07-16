@@ -34,6 +34,14 @@ def test_validate_verdict_coerces_and_rejects():
     assert ED.validate_verdict({"tier": "skip"})["adjust"] == 0        # adjust defaults to 0
 
 
+def test_validate_verdict_whitelists_lane_vocab():
+    """An off-vocab lane string is dropped (the verdict survives) — it would otherwise flow
+    verbatim into assemble/render/dashboard; new sub-lanes are legal."""
+    v = ED.validate_verdict({"tier": "great", "lane": "club:mega-underground"})
+    assert v is not None and "lane" not in v
+    assert ED.validate_verdict({"tier": "great", "lane": "live-music:big"})["lane"] == "live-music:big"
+
+
 def test_editor_pool_per_lane_includes_thin_lane_below_floor():
     """The per-lane floor: a lane's best gets judged even when it scores below the global floor;
     sub-floor events in a flooded lane are dropped."""

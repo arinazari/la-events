@@ -192,6 +192,175 @@ def test_tm_genre_maps_into_live_vocab():
     assert g3[0] == "jazz" and "rock" in g3
 
 
+# ── watch parties, live-room guard, A&T ordering (the type-leak fixes) ────────────
+def test_watch_party_is_community_not_music():
+    """World Cup finals at a music venue is a sports event — from ANY branch."""
+    assert T.tag_event(ev(category="electronic", sources=["ra"], venue="The Redwood Bar",
+                          title="World Cup Final Watch Party"))["type"] == "community"
+    assert T.tag_event(ev(category="Music", venue="Zebulon",
+                          title="FIFA World Cup 2026 - Semi-Finals"))["type"] == "community"
+
+
+def test_live_room_guard_beats_club_source_forcing():
+    """RA lists every event at rock dives: a band bill at a known live room is live-music
+    even via the ra/19hz/posh short-circuit — unless the title carries a real club signal."""
+    band = ev(category="electronic", sources=["ra"], venue="The Redwood Bar And Grill",
+              title="Boozewa, Jr Juggernaut")
+    assert T.tag_event(band)["type"] == "live-music"
+    dj = ev(category="electronic", sources=["ra"], venue="The Redwood Bar And Grill",
+            title="The Hustle ~ Disco Party!")
+    assert T.tag_event(dj)["type"] == "club"
+    # …and an electronic genre keyword (incl. the 19hz annotation) also keeps it club
+    tech = ev(category="electronic", sources=["19hz"],
+              venue="The Mint (Los Angeles) tech house", title="Some Night")
+    assert T.tag_event(tech)["type"] == "club"
+
+
+def test_stage_genre_beats_comedy_blurb():
+    """Oklahoma!'s detail calls it 'a comedy' — TM genre Theatre wins; a TITLE-level comedy
+    signal still takes the comedy lane (JVN's tour is filed under Theatre)."""
+    ok = ev(category="Arts & Theatre", genre="Theatre", title="Rodgers + Hammerstein's Oklahoma!",
+            detail="This classic comedy is a triumph")
+    assert T.tag_event(ok)["type"] == "stage"
+    jvn = ev(category="Arts & Theatre", genre="Theatre",
+             title="Jonathan Van Ness: Hot & Healed Comedy Tour")
+    assert T.tag_event(jvn)["type"] == "comedy"
+
+
+def test_lineup_genre_rescues_bare_name_comedians():
+    """TM ships bare-name comedians as A&T/None at the event level but genre Comedy at the
+    attraction level (fetch_ticketmaster's lineup_genre)."""
+    e = ev(category="Arts & Theatre", lineup_genre="Comedy", title="Trevor Noah",
+           lineup=["Trevor Noah"])
+    assert T.tag_event(e)["type"] == "comedy"
+    s = ev(category="Arts & Theatre", lineup_genre="Theatre", title="Some Touring Play")
+    assert T.tag_event(s)["type"] == "stage"
+
+
+def test_music_category_never_keyword_matches_market():
+    """'TECHNO NIGHT MARKET' is a club night, not a flea market (the lone old market row)."""
+    e = ev(category="party", sources=["posh"], title="TECHNO NIGHT MARKET | HEIDILICIOUS")
+    assert T.tag_event(e)["type"] == "club"
+
+
+def test_at_fallthrough_rescues_stage_and_regional_mexican():
+    assert T.tag_event(ev(category="Arts & Theatre", title="BalletNow"))["type"] == "stage"
+    assert T.tag_event(ev(category="Miscellaneous", title="The Nutcracker"))["type"] == "stage"
+    e = ev(category="Arts & Theatre", title="HERENCIA DE PATRONES ft. BANDA MAGUEY")
+    assert T.tag_event(e)["type"] == "live-music"
+
+
+def test_edm_headliner_gazetteer_types_club():
+    e = ev(category="Music", genre="Dance/Electronic", title="Marshmello",
+           lineup=["Marshmello"], venue="Ventura County Fairgrounds")
+    assert T.tag_event(e)["type"] == "club"
+    # a live electronic band on the same TM genre stays live-music
+    assert T.tag_event(ev(category="Music", genre="Dance/Electronic",
+                          title="Tortoise"))["type"] == "live-music"
+
+
+# ── genre: venue names no longer mint genres; penalty lanes detectable ────────────
+def test_venue_name_does_not_mint_genre():
+    """'House of Blues' minted 82 false blues tags (65% of all blues) via the venue field."""
+    g = T.tag_event(ev(category="Music", genre="Rock", venue="House of Blues Anaheim",
+                       title="The Green - Titles Tour"))["genre"]
+    assert "blues" not in g and "house" not in g and "rock" in g
+    # intentional venue-derived genre still flows via the explicit gazetteer
+    g2 = T.tag_event(ev(category="live_music", venue="Harvelle's", title="Some Band"))["genre"]
+    assert "blues" in g2
+
+
+def test_19hz_venue_annotation_feeds_genre():
+    e = ev(category="electronic", sources=["19hz"],
+           venue="The Lexington (Los Angeles) tech house, minimal", title="Some Night")
+    g = T.tag_event(e)["genre"]
+    assert "tech-house" in g and "minimal" in g and "house" not in g
+
+
+def test_hard_dance_penalty_lanes_detectable():
+    g = T.tag_event(ev(category="electronic", title="GIRLS NIGHT OUT HARD TECHNO"))["genre"]
+    assert "hard-techno" in g and "techno" not in g
+    g2 = T.tag_event(ev(category="electronic", title="Candyland: hardstyle takeover"))["genre"]
+    assert "hard-dance" in g2
+
+
+def test_dub_split_from_dubstep_and_reggae():
+    assert "dubstep" in T.tag_event(ev(category="electronic", title="riddim & dubstep night"))["genre"]
+    assert "reggae" in T.tag_event(ev(category="electronic", title="dancehall party"))["genre"]
+    g = T.tag_event(ev(category="electronic", title="dub techno all night"))["genre"]
+    assert "dub" in g and "dubstep" not in g
+
+
+def test_stage_and_comedy_subtypes():
+    assert "theater" in T.tag_event(ev(category="Arts & Theatre", genre="Theatre",
+                                       title="Hamilton (Touring)"))["genre"]
+    assert "family" in T.tag_event(ev(category="Arts & Theatre", genre="Children's Theatre",
+                                      title="Bluey's Big Play"))["genre"]
+    assert "improv" in T.tag_event(ev(category="comedy", title="Improv Night"))["genre"]
+
+
+# ── scale (the venue-tier fact axis) ──────────────────────────────────────────────
+def test_scale_tiers():
+    assert T.tag_event(ev(category="Music", venue="Hollywood Bowl", title="x"))["scale"] == "arena"
+    assert T.tag_event(ev(category="Music", venue="The Wiltern", title="x"))["scale"] == "hall"
+    assert T.tag_event(ev(category="Music", venue="Troubadour", title="x"))["scale"] == "room"
+    assert T.tag_event(ev(category="jazz", venue="Sam First", title="x"))["scale"] == "bar"
+    assert T.tag_event(ev(category="Music", venue="Somewhere New", title="x"))["scale"] is None
+
+
+# ── vibe fixes ────────────────────────────────────────────────────────────────────
+def test_all_night_set_vibe_with_nostalgia_guard():
+    v = T.tag_event(ev(category="electronic", title="Markus Schulz (Open To Close)"))["vibe"]
+    assert "all-night-set" in v
+    v2 = T.tag_event(ev(category="electronic",
+                        title="SATISFACTION (2010-2017 EDM bangers All Night Long!)"))["vibe"]
+    assert "all-night-set" not in v2
+
+
+def test_festival_vibe_is_title_only():
+    v = T.tag_event(ev(category="electronic", title="HARD Summer Music Festival"))["vibe"]
+    assert "festival" in v
+    # venue names ('Festival of Arts') and bio prose no longer mint the vibe
+    v2 = T.tag_event(ev(category="Arts & Theatre", genre="Theatre", title="Pageant Show",
+                        venue="Festival of Arts", detail="a festival awaits them"))["vibe"]
+    assert "festival" not in v2
+
+
+def test_residency_regex_anchored():
+    assert "residency" in T.tag_event(ev(category="electronic",
+                                         title="Sirens del Sol: Poolside Residency"))["vibe"]
+    assert "residency" not in T.tag_event(ev(category="Music", genre="Rock",
+                                             title="PRESIDENT: North American Campaign"))["vibe"]
+
+
+def test_qa_gated_to_screen_and_stage():
+    f = ev(category="film", venue="Vidiots", title="The Princess Bride", detail="Q&A with Cary Elwes")
+    v = T.tag_event(f)["vibe"]
+    assert "q&a" in v and "guest-in-person" in v
+    m = ev(category="Music", title="vaultboy", detail="VIP includes Q&A with the artist")
+    assert "q&a" not in T.tag_event(m)["vibe"]
+
+
+def test_matinee_derived_from_start_time():
+    assert "matinee" in T.tag_event(ev(category="film", venue="Vista", start="14:00",
+                                       title="Godzilla (1954)"))["vibe"]
+    assert "matinee" not in T.tag_event(ev(category="film", venue="Vista", start="19:30",
+                                           title="Godzilla (1954)"))["vibe"]
+
+
+def test_free_rsvp_vibe_from_price():
+    v = T.tag_event(ev(category="electronic", price="free w/rsvp b4 1 / $23-28", title="x"))["vibe"]
+    assert "free" in v and "free-rsvp" in v
+
+
+# ── region additions ──────────────────────────────────────────────────────────────
+def test_region_additions():
+    assert T.tag_event(ev(neighborhood="Koreatown"))["region"] == "hollywood"
+    assert T.tag_event(ev(neighborhood="Palm Springs"))["region"] == "far"
+    assert T.tag_event(ev(neighborhood="Westchester"))["region"] == "westside"
+    assert T.tag_event(ev(neighborhood="Elysian Park"))["region"] == "eastside"
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
