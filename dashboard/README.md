@@ -84,8 +84,10 @@ The chat has two modes, toggled in its header (default **Concierge**):
 
 **The thread opens with the take** — the consolidated digest's voice-pass lede (parsed out of
 `./digests/latest.md`), seeded as the concierge's first message (dated, ahead of the greeting)
-once a real digest loads. It's a live message, not chrome: replies carry it in the history sent
-to the backend, so "what's the move tonight then?" has context. A thread you've typed into is
+once a real digest loads. It's a live message, not chrome — but note it can't ride the message
+history (the Worker strips leading assistant turns, since the API needs a user-first
+conversation): the page sends it as `opener` alongside the history and the Worker folds it into
+the system prompt, so "what's the move tonight then?" has context. A thread you've typed into is
 never touched, and a profile with no digest yet gets no take.
 
 **Discover new sources** → a **copy-to-Claude-Code hand-off** (composes a Discover-mode prompt,

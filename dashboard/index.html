@@ -1816,7 +1816,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "## July 2026",
     "",
     "- **The concierge opens with the take.** The chat now starts with the day's *take* — the digest's opening read, dated, as the concierge's first message — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. It moved off the front page, which gets straight to the cards.",
-    "- **A front page.** The site now opens on an editorial home: the day's *take*, a **Don't miss** hero row, and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
+    "- **A front page.** The site now opens on an editorial home: a **Don't miss** hero row and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
     "- **Taste strength on every card.** The transparent taste score — the number with the little strength bar from the Explore table — now sits on each front-page card and mobile card too, so you can see *how strongly* something matched, not just that it made the cut.",
     "- **Cleaner categories.** A large batch of events (mostly Ticketmaster's) were sitting in an 'other' bucket — they're now properly typed as live music, stage, comedy and film, so lane filters and shelves actually cover the catalog.",
     "- **You control your refresh.** Your table still picks up new events nightly, but your curated layer — the editorial pass behind your final ranks, and your written digest — no longer silently rebuilds every night. It refreshes when your **taste changes** (a concierge edit folds in overnight) or when **you hit Update**; after 3+ days, a popup explains what's waiting and offers to refresh right there.",
@@ -2240,6 +2240,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
     const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // BYOK: your key pays for this request
     const body = { messages: history };
+    // The seeded take is a LEADING assistant turn, which the Worker must strip for the API
+    // (conversations start with a user turn) — so it rides its own field and the Worker folds
+    // it into the system prompt instead. That's what keeps "what's the move tonight then?" grounded.
+    const take = (this.state.messages || []).find(m => m.take);
+    if (take && take.text) body.opener = String(take.text).slice(0, 1500);
     if (key && this.useOpus()) body.model = 'opus';   // BYOK only: upgrade the executor to Opus on your spend
     const p = this.state.profile;
     if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
@@ -3117,9 +3122,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .catch(() => false);
   }
   // The take IS a message from the concierge: when a real digest arrives, its lede OPENS the
-  // chat thread — the concierge's first message (take: true), dated, ahead of the greeting —
-  // and the backend sees it in history, so a follow-up ("what's the move tonight then?") has
-  // context. A thread the user has written into is never touched; otherwise a stale take
+  // chat thread — the concierge's first message (take: true), dated, ahead of the greeting.
+  // Context for replies does NOT ride the history (the Worker strips leading assistant turns
+  // for the API, and slice(-7) drops it as the thread grows): askBackend sends it as `opener`
+  // and the Worker folds it into the system prompt, so "what's the move tonight then?" stays
+  // grounded. A thread the user has written into is never touched; otherwise a stale take
   // (profile switch, digest reload) is swapped out — or dropped, on '' (no digest).
   seedTake(lede) {
     this.setState(s => {
