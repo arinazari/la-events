@@ -123,6 +123,113 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
     }
 
 
+# ── Front page (editorial home view) ────────────────────────────────────────────
+# The dashboard's default view is a rendered SLATE, not a filtered table: hero picks per
+# time-lens + per-lane shelves, all computed HERE with the same rank_key the final_rank column
+# uses — the page does zero ranking of its own (the drift rule). Events are referenced by their
+# stable `key` (event_key, also stamped on every feed row); the client date-windows the
+# pre-ranked lists and slices — selection, never re-sorting.
+FP_SHELVES = [
+    ("underground", "Warehouse & underground", ("club:underground",)),
+    ("afters", "Afters", ("club:afters",)),
+    ("day", "Day parties & rooftops", ("club:day",)),
+    ("bigroom", "Big rooms", ("club:mainstream",)),
+    ("live", "Live music", ("live-music",)),
+    ("film", "Film & rep cinema", ("film",)),
+    ("stage", "Comedy & stage", ("comedy", "stage")),
+    ("more", "Elsewhere", None),                 # catch-all: market/art/community/…
+]
+FP_SHELF_CAP = 40      # keys per shelf list (near + ahead each) — deep enough for a lens to fill
+FP_HERO_N = 6
+FP_HERO_LANE_CAP = 2   # per exact lane within a hero row …
+FP_HERO_FAM_CAP = 3    # … and per lane family (club:*), so The Five can't be five club nights
+
+
+def _fp_windows(today):
+    """The four time-lens windows (inclusive ISO bounds). weekend = the next Fri–Sun cluster
+    (today-inclusive when already inside one)."""
+    t = today
+    fri = t + timedelta(days=(4 - t.weekday()) % 7)
+    start_wknd = t if t.weekday() in (4, 5, 6) else fri
+    sun = start_wknd + timedelta(days=6 - start_wknd.weekday())
+    return {
+        "today": (t.isoformat(), t.isoformat()),
+        "weekend": (start_wknd.isoformat(), sun.isoformat()),
+        "twoweeks": (t.isoformat(), (t + timedelta(days=13)).isoformat()),
+        "ahead": ((t + timedelta(days=14)).isoformat(), (t + timedelta(days=60)).isoformat()),
+    }
+
+
+def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None) -> dict:
+    """The front_page block: hero keys per lens + shelf keys per lane (+ radar/around joins).
+    One card per PROGRAM: series members (lib/series — multi-night runs, cross-theater film
+    programs, stamped by the consolidation pass in main()) enter only via their rep night, the
+    same unit final_rank ranks."""
+    pool = [e for e in events
+            if not e.get("is_past") and e.get("iso_date") and (e.get("score") or 0) >= 0
+            and (e.get("verdict") or {}).get("tier") != "skip"
+            and (e.get("series_rep") or "series_key" not in e)]
+    # THE ordering is final_rank itself — stamped in main() from rank_key over these same rep
+    # units — so the front page can never disagree with the Explore table's rank column (no
+    # second copy of the ranking expression to drift).
+    ranked = sorted(pool, key=lambda e: e.get("final_rank") or 10 ** 9)
+
+    hero = {}
+    for lens, (lo, hi) in _fp_windows(today).items():
+        lane_n, fam_n, picks = Counter(), Counter(), []
+        for e in ranked:
+            if not (lo <= e["iso_date"] <= hi):
+                continue
+            lane = e.get("lane") or "other"
+            fam = lane.split(":")[0]
+            if lane_n[lane] >= FP_HERO_LANE_CAP or fam_n[fam] >= FP_HERO_FAM_CAP:
+                continue
+            picks.append(e["key"])
+            lane_n[lane] += 1
+            fam_n[fam] += 1
+            if len(picks) >= FP_HERO_N:
+                break
+        hero[lens] = picks
+
+    # Shelf key-lists split NEAR (days 0–13: the today/weekend/two-weeks lenses) vs AHEAD
+    # (14–60: plan-ahead). One global-rank cut would starve plan-ahead by construction —
+    # rank_key is two-zone (judged/near events sort structurally above the unjudged far tail),
+    # so a busy lane's top-40 can sit entirely inside the near window. The client windows each
+    # list with its LIVE date (a stale feed thins honestly rather than showing yesterday).
+    near_end = (today + timedelta(days=13)).isoformat()
+    shelves = []
+    claimed = {ln for _, _, lanes in FP_SHELVES if lanes for ln in lanes}
+    for sid, label, lanes in FP_SHELVES:
+        if lanes:
+            rows = [e for e in ranked if (e.get("lane") or "other") in lanes]
+        else:
+            rows = [e for e in ranked if (e.get("lane") or "other") not in claimed]
+        near = [e["key"] for e in rows if e["iso_date"] <= near_end][:FP_SHELF_CAP]
+        ahead = [e["key"] for e in rows if e["iso_date"] > near_end][:FP_SHELF_CAP]
+        if near or ahead:
+            shelves.append({"id": sid, "label": label, "lanes": list(lanes or ()),
+                            "near": near, "ahead": ahead})
+
+    feed_keys = {e["key"] for e in events if not e.get("is_past")}
+    def join(rows, cap):
+        out = []
+        for r in (rows or []):
+            k = r.get("key") or event_key(r)
+            if k in feed_keys and k not in out:
+                out.append(k)
+            if len(out) >= cap:
+                break
+        return out
+
+    return {
+        "windows": _fp_windows(today),
+        "hero": hero,
+        "shelves": shelves,
+        "radar": join(radar_rows, 16),
+        "around": join(around_rows, 12),
+    }
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("-i", "--input", default="data/catalog.json",
@@ -250,6 +357,7 @@ def main() -> int:
         if v:
             out["verdict"] = v                       # {tier, lane?, adjust, why, confidence}
         out["lane"] = event_lane(out, verdicts)      # verdict lane override else tag-derived
+        out["key"] = event_key(ev)                   # stable id — front_page joins + feedback
 
         events.append(out)
 
@@ -317,6 +425,23 @@ def main() -> int:
         "vocab": TAG_VOCAB,
     }
 
+    # Front page — hero per time-lens + per-lane shelves (+ radar/around when the runtime sets
+    # exist; graceful when absent). Same rank the final_rank column shows; per-profile for free
+    # since this whole build already runs per profile.
+    radar_rows, around_rows = [], []
+    for p, target in ((REPO / "data" / "radar.json", "radar"),
+                      (REPO / "data" / "around_town.json", "around")):
+        if p.exists():
+            try:
+                rows = json.loads(p.read_text()).get("events", [])
+                if target == "radar":
+                    radar_rows = rows
+                else:
+                    around_rows = rows
+            except (json.JSONDecodeError, OSError):
+                pass
+    front_page = build_front_page(events, verdicts, today, radar_rows, around_rows)
+
     # The catalog version this feed was scored against — the dashboard compares it to the live
     # dashboard/catalog_meta.json to decide if this profile's ranking/digest is stale. Prefer the
     # stamp written by run_digest; fall back to recomputing from the catalog we just read.
@@ -342,6 +467,7 @@ def main() -> int:
         "neighborhoods": neighborhoods,
         "categories": categories,
         "tag_facets": tag_facets,
+        "front_page": front_page,
         "dining": dining,
         "taste": {
             "venues_loved": taste.get("venues_loved") or [],

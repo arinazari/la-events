@@ -41,6 +41,7 @@ VERDICTS_DIR = REPO / "data" / "verdicts"
 TIERS = ("must-see", "great", "solid", "skip")
 CONFIDENCE = ("low", "med", "high")
 ADJUST_MIN, ADJUST_MAX = -3, 3
+WHY_MAX = 280            # verdict `why` budget — rendered verbatim in compact digest lines
 _VERDICT_FIELDS = ("tier", "lane", "adjust", "why", "confidence")
 
 # Lanes that never surface in the going-out slate — judged only if they clear the floor, never
@@ -318,7 +319,13 @@ def validate_verdict(v: dict):
         adj = 0
     out["adjust"] = max(ADJUST_MIN, min(ADJUST_MAX, adj))
     if v.get("why"):
-        out["why"] = str(v["why"])[:200]
+        # Word-boundary clamp: the why is now rendered verbatim in compact digest lines, so a
+        # hard slice that cuts mid-word ("badly undersco") reads as a bug. Cut at the last space
+        # inside the budget and mark the elision.
+        why = str(v["why"])
+        if len(why) > WHY_MAX:
+            why = why[:WHY_MAX].rsplit(" ", 1)[0].rstrip(" ,;—-") + " …"
+        out["why"] = why
     out["confidence"] = v["confidence"] if v.get("confidence") in CONFIDENCE else "med"
     return out
 

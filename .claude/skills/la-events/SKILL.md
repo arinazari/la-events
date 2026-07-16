@@ -134,8 +134,12 @@ The dashboard card surfaces this as **"WHAT IT IS"** (`enrichment.description`, 
 ### Step 6 — Render + synthesize
 
 `python scripts/render_digest.py --consolidated` is the **primary** invocation: ONE daily digest
-(`digests/latest.md`) with three sections — **Next two weeks** (days 0–13, day-by-day),
-**Weekends ahead** (days 14–35, Thu–Sun only), and **On the radar** (festivals / big shows /
+(`digests/latest.md`) with the sections (in digest.yaml order) — **Tonight & tomorrow** (the
+next-48h actionable slice, compact), **Don't miss** (top ~6 across the window, priced +
+urgency-chipped), **What changed** (new/updated since the last pull; auto-omitted on quiet days),
+**Next two weeks** (days 0–13, day-by-day, lane-grouped + tier-scaled), **Weekends ahead**
+(days 14–35 compressed to top-4 per weekend + a pointer to its digests/weekends/<Fri>.md file),
+**Around town**, and **On the radar** (festivals / big shows /
 tracked far-out). Run `python scripts/build_radar.py --md radar-candidates.md` first; it writes
 `data/radar.json` (a deterministic signal heuristic — editorial / festival / tracked-artist /
 arena), which `--consolidated` reads for the radar tier. The first two sections are the editor
@@ -158,14 +162,22 @@ offer a bounded version rather than silently ballooning the run; small/structura
 **Organize PRIMARILY BY DATE** (a day-by-day agenda is
 the spine — it answers "what's on tonight / this weekend" at a glance). Structure:
 
-1. **Don't-miss** (3–6, cross-date) — the few worth building a week around; each with its date
-   and a one-line *why*. This is the only non-chronological section.
-2. **Day-by-day** — the body. One subsection per day in the window (`### Tonight — Tue 6/16`,
+1. **Tonight & tomorrow** — the next-48h index: top picks per night, one compact line each,
+   with the voice pass's one-line *call* (what the move is — or an honest "stay in").
+2. **Don't-miss** (3–6, cross-date) — the few worth building a week around; each with its date,
+   price, a deterministic urgency chip (tiered pricing / TBA venue / free-RSVP), and a one-line
+   *why*. Cross-date, non-chronological.
+3. **What changed** — new-to-the-slate and updated events since the last pull, in one place
+   (the scaffold omits it automatically when nothing moved).
+4. **Day-by-day** — the body. One subsection per day in the window (`### Tonight — Tue 6/16`,
    `### Fri 6/19`, …). Under each day, list that day's on-taste events, best first, each:
    `[Event](link) — Venue (neighborhood) — time — price — short why/artist gloss`.
    - Collapse quiet days and runs ("### Mon 6/22–Thu 6/25 — quieter midweek").
-   - On busy days (Pride weekend), lightly group within the day using **bold inline labels**
-     (**Electronic**, **Film**, **Live**, etc.) — but keep the day as the top-level unit.
+   - Group within the day by **slate lane** (the renderer already does: **Electronic & dance**,
+     **Live music**, **Film**, **Comedy & stage**, **Elsewhere**, with afters/day-party/big-room
+     chips inline) — the day stays the top-level unit.
+   - Tier-scaled: must-see/great get the full two-line entry, solid a compact one-liner, the
+     tail one collapsed "Also:" row — the verdict decides how much page an event gets.
    - Lead each day with the electronic/house/techno (the priority lane); film/live/etc. follow.
    - Comedy appears inline on its day ONLY if a `comedians_loved` name is playing.
    - **Daytime/lifestyle on its day too**: recurring markets (from `recurring.yaml` — compute
@@ -173,15 +185,16 @@ the spine — it answers "what's on tonight / this weekend" at a glance). Struct
      any one-off pop-ups / brand activations / block parties surfaced by the editorial sources
      (Eater LA, UncoverLA). A weekend day might end with a **Daytime/markets** label.
    - Mark warehouse/TBA-location and "lineup TBA"; note 35mm/70mm for film.
-3. **Around town** — GENERAL LA context, not ticketed picks: what's in the air citywide
+5. **Around town** — GENERAL LA context, not ticketed picks: what's in the air citywide
    (e.g. FIFA World Cup 26 matches at SoFi + watch parties, big sports, street fairs, museum
    free days). From the DiscoverLA weekend roundup + LAist. 2–5 short lines.
-4. **On the radar** — big events months out, from `festivals.yaml` + a quick live web lookup
+6. **On the radar** — big events months out, from `festivals.yaml` + a quick live web lookup
    each run. SHORT and plain (no bold/hype), **relevance-driven, not list-driven**: surface an
    item only when there's an actual ticket-timing reason (on-sale/presale opening, prices
    climbing, low stock, selling out, sold out, lineup just dropped). If nothing's time-sensitive,
    a line or two is plenty; dormant entries stay in `festivals.yaml`. Lead most on-taste + urgent.
-5. Footer: sources that failed/were skipped this run.
+7. Footer: ops only — sources that failed/were skipped this run, plus any token-expiry banner
+   (the renderer already places these; never restate them in the intro).
 
 **ALWAYS hyperlink the event** to its ticket/info URL when the catalog has one (it usually
 does — links live on each record). Keep editorial-mention badges inline, e.g. "(LAist pick)".

@@ -91,6 +91,11 @@ jobs:
             latest="$(ls -1 digests/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md 2>/dev/null | sort | tail -n1)"
             if [ -n "$latest" ]; then cp "$latest" dashboard/digests/latest.md; fi
           fi
+          # Per-weekend look-ahead files — the consolidated digest's "Weekends ahead" links them.
+          if ls digests/weekends/*.md >/dev/null 2>&1; then
+            mkdir -p dashboard/digests/weekends
+            cp digests/weekends/*.md dashboard/digests/weekends/
+          fi
           # Per-profile digests: digests/<hash>/latest.md -> dashboard/digests/<hash>/latest.md
           for d in digests/*/; do
             h="$(basename "$d")"
