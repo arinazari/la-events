@@ -165,6 +165,23 @@ def test_venue_last_resort_only_for_signal_less_categories():
     assert T.tag_event(ev(category="Arts & Theatre", venue="The Fonda", title="A Comedian"))["type"] == "other"
 
 
+def test_detail_blob_noise_cannot_retype_a_concert():
+    """A music-category event only retypes off its TITLE/venue: a stray 'screening' or 'dj set'
+    buried in the detail must not flip a concert to film/club (Bad Brains' real detail mentions
+    a 'partial film screening' between sets)."""
+    e = ev(category="Music", title="Bad Brains - 50th Anniversary Celebration",
+           venue="The Regent Theater",
+           detail="Guest of honor HR. DJ set by Mario C. Partial afro punk film screening.")
+    assert T.tag_event(e)["type"] == "live-music"
+    # …but a title-level cinema signal still wins (the original rescue case)
+    e2 = ev(category="music", title="Acropolis Cinema: a screening", venue="2220 Arts")
+    assert T.tag_event(e2)["type"] == "film"
+    # and non-music categories keep the broad full-text guard
+    e3 = ev(category="general", title="Community Evening",
+            detail="a rooftop screening of a classic")
+    assert T.tag_event(e3)["type"] == "film"
+
+
 def test_tm_genre_maps_into_live_vocab():
     g = T.tag_event(ev(category="Music", genre="Hip-Hop/Rap", title="Yeat"))["genre"]
     assert "hip-hop" in g

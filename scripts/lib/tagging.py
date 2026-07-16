@@ -83,6 +83,10 @@ TM_STAGE_GENRES = {
 }
 _STAGE_KW = re.compile(r"\(touring\)|\b(ballet|circus|stage show|the musical)\b", re.I)
 
+# Categories that explicitly say "this is a music event" — keyword type-guards for these scan
+# only title+venue (see _resolve_type), so detail-blob noise can't retype a concert.
+MUSIC_CATS = frozenset(("music", "live_music", "jazz", "electronic", "party"))
+
 # ── Axis 3: SETTING & Axis 2 hints by venue — high-confidence venues only.
 #    Eclectic rooms (Zebulon, Gold Diggers) are deliberately LEFT to enrichment. ──
 VENUE_GENRE = {
@@ -210,9 +214,15 @@ def _resolve_type(ev: dict, hay: str, cfg: dict = None) -> str:
     cat = str(ev.get("category") or "").strip().lower()
     tm_genre = str(ev.get("genre") or "").strip().lower()
     srcs = set(ev.get("sources") or [])
-    if cat == "film" or _CINEMA_KW.search(hay):
+    # An explicit music category narrows the keyword guards to TITLE+VENUE: a stray mention in
+    # the DETAIL blob must not retype a concert (Bad Brains' detail mentions a "partial film
+    # screening" between sets; club-night blurbs mention alley night markets). Everything else
+    # keeps the broad full-text guard — that's what rescues a mislabeled screening.
+    kw_hay = (" ".join([str(ev.get("title") or ""), str(ev.get("venue") or "")]).lower()
+              if cat in MUSIC_CATS else hay)
+    if cat == "film" or _CINEMA_KW.search(kw_hay):
         return "film"
-    if cat == "comedy" or tm_genre == "comedy" or _COMEDY_KW.search(hay):
+    if cat == "comedy" or tm_genre == "comedy" or _COMEDY_KW.search(kw_hay):
         return "comedy"
     if cat in ("theater", "dance"):
         return "stage"
@@ -226,11 +236,11 @@ def _resolve_type(ev: dict, hay: str, cfg: dict = None) -> str:
         if _STAGE_KW.search(hay):
             return "stage"
         return "other"                       # bare-name comedians hide here — honest null
-    if _MARKET_KW.search(hay):
+    if _MARKET_KW.search(kw_hay):
         return "market"
-    if _WORKSHOP_KW.search(hay):
+    if _WORKSHOP_KW.search(kw_hay):
         return "workshop"
-    if cat in ("electronic", "party") or (srcs & {"ra", "19hz", "posh"}) or _DJ_KW.search(hay):
+    if cat in ("electronic", "party") or (srcs & {"ra", "19hz", "posh"}) or _DJ_KW.search(kw_hay):
         return "club"
     if cat in ("music", "live_music", "jazz"):
         return "live-music"
