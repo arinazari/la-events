@@ -285,21 +285,7 @@
     <!-- ===================== FRONT PAGE (editorial home) ===================== -->
     <sc-if value="{{ isFront }}" hint-placeholder-val="{{ false }}">
     <div class="scry" style="flex:1; overflow-y:auto; padding:18px 22px 26px;">
-      <sc-if value="{{ fpHasLede }}" hint-placeholder-val="{{ false }}">
-        <!-- The take is a message FROM the concierge — the same message seeded into the chat
-             thread (seedTake), tagged like a chat reply, with a reply→ into the conversation. -->
-        <div style="max-width:760px; margin-bottom:18px; padding:13px 16px 12px; background:#fff; border:1px solid #e0ded5; border-radius:8px;">
-          <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:7px;">
-            <span style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#2b5cd9;">✦ CONCIERGE</span>
-            <span style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">· THE TAKE · {{ fpDate }}</span>
-          </div>
-          <div style="font:400 14.5px/1.65 -apple-system,system-ui,sans-serif; color:#1b1a17;">{{ fpLede }}</div>
-          <div style="display:flex; align-items:center; gap:16px; margin-top:9px;">
-            <span onClick="{{ fpReply }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; cursor:pointer;" style-hover="color:#1d49b8;">reply →</span>
-            <span onClick="{{ openDigest }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; color:#76746b; cursor:pointer;" style-hover="color:#161512;">read the full digest →</span>
-          </div>
-        </div>
-      </sc-if>
+      <!-- The take lives in the concierge chat (seedTake) — the front page gets straight to the cards. -->
       <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:18px;">
         <sc-for list="{{ fpLenses }}" as="l" hint-placeholder-count="4">
           <span onClick="{{ l.onClick }}" style="cursor:pointer; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 12px; border:1px solid {{ l.border }}; background: {{ l.bg }}; color: {{ l.color }}; border-radius:999px;">{{ l.label }}</span>
@@ -1467,16 +1453,9 @@ class Component extends DCLogic {
     });
   };
   fpOpenExplore = (e) => { this.fpSeeAll(this.trim(e.title, 40), [e.id]); this.setState({ expandedId: e.id }); };
-  // "reply →" on the front-page take: the take is the concierge's message, so replying is just
-  // opening the conversation — uncollapse the chat (sidebar / mobile panel) and focus the box.
-  // The thread already carries the take (seedTake), so the follow-up lands with context.
-  replyToTake = () => {
-    if (this.state.collapsed) this.toggleCollapse();
-    setTimeout(() => { try { const el = document.getElementById('chatbox'); if (el) el.focus(); } catch (e) {} }, 80);
-  };
-  // "The Take" — the digest's voice-pass lede, spoken by the concierge: rendered on the front
-  // page as a concierge message and seeded into the chat thread (seedTake). It's the first real
-  // prose paragraph of DIGEST_MD (skips the H1, the *meta* lines, banners, and unfilled slot markers).
+  // "The Take" — the digest's voice-pass lede, spoken by the concierge: seeded into the chat
+  // thread as its opening message (seedTake). It's the first real prose paragraph of DIGEST_MD
+  // (skips the H1, the *meta* lines, banners, and unfilled slot markers).
   digestLede() {
     const md = this.DIGEST_MD || '';
     if (this._ledeSrc === md) return this._lede;   // memoized — renderVals runs per keystroke
@@ -1836,7 +1815,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
-    "- **The take comes from the concierge.** The front page's daily *take* is now a message from your concierge — it also opens the chat thread, so you can tap **reply →** and ask a follow-up (`what's the move tonight then?`) with the take already in the conversation.",
+    "- **The concierge opens with the take.** The chat now starts with the day's *take* — the digest's opening read, dated, as the concierge's first message — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. It moved off the front page, which gets straight to the cards.",
     "- **A front page.** The site now opens on an editorial home: the day's *take*, a **Don't miss** hero row, and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
     "- **Taste strength on every card.** The transparent taste score — the number with the little strength bar from the Explore table — now sits on each front-page card and mobile card too, so you can see *how strongly* something matched, not just that it made the cut.",
     "- **Cleaner categories.** A large batch of events (mostly Ticketmaster's) were sitting in an 'other' bucket — they're now properly typed as live music, stage, comedy and film, so lane filters and shelves actually cover the catalog.",
@@ -3137,16 +3116,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       }) : false)
       .catch(() => false);
   }
-  // The take IS a message from the concierge: when a real digest arrives, its lede joins the
-  // chat thread as the concierge's own message (take: true). The front page surfaces the same
-  // message, so "reply →" drops the follow-up into a thread that already carries it — and the
-  // backend sees it in history. A thread the user has written into is never touched; otherwise
-  // a stale take (profile switch, digest reload) is swapped out — or dropped, on '' (no digest).
+  // The take IS a message from the concierge: when a real digest arrives, its lede OPENS the
+  // chat thread — the concierge's first message (take: true), dated, ahead of the greeting —
+  // and the backend sees it in history, so a follow-up ("what's the move tonight then?") has
+  // context. A thread the user has written into is never touched; otherwise a stale take
+  // (profile switch, digest reload) is swapped out — or dropped, on '' (no digest).
   seedTake(lede) {
     this.setState(s => {
       if ((s.messages || []).some(m => m.role === 'user')) return null;
       const msgs = (s.messages || []).filter(m => !m.take);
-      if (lede) msgs.push({ role: 'assistant', take: true, text: '**The take — ' + this.labelISO(this.TODAY) + ':** ' + lede });
+      if (lede) msgs.unshift({ role: 'assistant', take: true, text: '**' + this.labelISO(this.TODAY) + ':** ' + lede });
       return { messages: msgs };
     });
   }
@@ -3548,7 +3527,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // page never re-ranks. No front_page in the feed (e.g. the bundled sample) -> Explore only.
     // ---- front page (editorial home; FP/hasFront/isFront hoisted above the table pipeline) ----
     const lens = this.state.lens || 'twoweeks';
-    let fpShelves = [], fpLenses = [], fpLedeText = '', fpEmpty = false;
+    let fpShelves = [], fpLenses = [], fpEmpty = false;
     let fpDetail = {}, fpDetailOpen = false;
     if (hasFront && this.state.fpDetailKey) {
       const de = this.byKey(this.state.fpDetailKey);
@@ -3634,11 +3613,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         });
       }
       fpEmpty = !fpShelves.length;
-      fpLedeText = this.digestLede();
     }
-    const fpLede = fpLedeText
-      ? React.createElement('div', { dangerouslySetInnerHTML: { __html: this.inlineMd(fpLedeText) } })
-      : '';
 
     return {
       hasFront, isFront, isExplore, exploreDesktop: isExplore && !isMobile,
@@ -3646,7 +3621,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       frontTabBg: isFront ? '#1b1a17' : '#fff', frontTabColor: isFront ? '#fff' : '#76746b',
       exploreTabBg: (isExplore && hasFront) ? '#1b1a17' : '#fff', exploreTabColor: (isExplore && hasFront) ? '#fff' : '#76746b',
       fpLenses, fpShelves, fpEmpty,
-      fpLede, fpHasLede: !!fpLedeText, fpDate: this.labelISO(this.TODAY), fpReply: this.replyToTake,
       fpDetailOpen, fpDetail, closeFpDetail: this.closeFpDetail, fpStop: this.fpStopClick,
       messages: msgs, loading,
       phText, phOpacity: this.state.phFade ? '0' : '1',

@@ -430,13 +430,12 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   read identically, extract one shared top-picks helper into `lib/assemble` (next to
   `slate_fill`/`rank_key`) and give both surfaces the same diversity knobs. Decision: same or
   deliberately different?
-- [ ] **Emit "The Take" structurally** — the front page lifts the digest lede by parsing
+- [ ] **Emit "The Take" structurally** — the take is the digest lede parsed out of
   `digests/latest.md` with string heuristics (`digestLede()` in the dashboard). Robust enough
   for now (bold/italic openers handled), but the clean fix is the voice pass writing the intro
   to a structured slot the feed carries (e.g. `front_page.take`), so the page never parses
-  markdown conventions. Note the lede now has TWO consumers (2026-07-16: the take is presented
-  as a concierge message — the front-page card and the seeded chat-thread message, `seedTake()`);
-  a structural emit should feed both.
+  markdown conventions. (2026-07-16 follow-up: the take moved off the front page entirely —
+  it now opens the concierge chat thread as the concierge's first message, `seedTake()`.)
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by

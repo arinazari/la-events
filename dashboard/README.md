@@ -45,11 +45,6 @@ The page opens on the **Front page** — an editorial home rendered from the fee
 `front_page` block (built server-side by `build_dashboard.build_front_page` with the SAME
 `rank_key` that orders the table's final rank — the page never re-ranks):
 
-- **The Take** — the consolidated digest's voice-pass lede, lifted from
-  `./digests/latest.md` and presented as a **message from the concierge** (tagged like a chat
-  reply, with *reply →* into the chat and a link into the full digest modal). The same take is
-  seeded into the chat thread as the concierge's own message when a real digest loads, so a
-  reply reaches the backend with the take already in history.
 - A **time lens** (*tonight · this weekend · next 2 weeks · plan ahead*) that re-scopes
   everything below. The feed ships each lens's hero list plus rank-ordered shelf key-lists;
   the client only date-windows and slices — selection, never re-sorting.
@@ -86,6 +81,12 @@ The chat has two modes, toggled in its header (default **Concierge**):
   "free house show this weekend near me" into a filter over the loaded catalog, instantly and
   offline; also fuses events × dining into a rough plan and a night-planner hand-off prompt. This
   is the fallback whenever the backend is unset/unreachable, so the chat never dead-ends.
+
+**The thread opens with the take** — the consolidated digest's voice-pass lede (parsed out of
+`./digests/latest.md`), seeded as the concierge's first message (dated, ahead of the greeting)
+once a real digest loads. It's a live message, not chrome: replies carry it in the history sent
+to the backend, so "what's the move tonight then?" has context. A thread you've typed into is
+never touched, and a profile with no digest yet gets no take.
 
 **Discover new sources** → a **copy-to-Claude-Code hand-off** (composes a Discover-mode prompt,
 copies it; you paste it into Claude Code, which proposes sources — approval still happens in the
