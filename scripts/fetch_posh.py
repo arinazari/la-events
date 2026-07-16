@@ -18,8 +18,11 @@ web client), so it must be re-captured by hand roughly monthly. When it expires 
 to an empty result AND exits non-zero, so run_digest files Posh under `failed` and the digest
 footer flags it ("Coverage gaps: posh (POSH_TOKEN expired — re-capture it)"). It never blocks
 the digest — run_digest catches each fetcher's failure per-source. Re-capture from a logged-in
-browser's network tab (events.fetchMarketplaceEvents request, x-jwt-token header), update
-POSH_TOKEN, and the flag clears on the next run.
+posh.vip browser session: the fastest grab is `copy(localStorage.getItem('token'))` in the
+DevTools console (that value IS the x-jwt-token) — or read the x-jwt-token header off any
+events.fetchMarketplaceEvents request in the Network tab. Update POSH_TOKEN and the flag clears
+on the next run. Login itself is OTP email code + a Cloudflare Turnstile CAPTCHA on sendLoginCode,
+so the re-capture can't be scripted headlessly — it has to originate from a real browser.
 
 Usage:
     export POSH_TOKEN=...    # session JWT

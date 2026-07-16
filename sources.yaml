@@ -640,9 +640,11 @@ sources:
       "revealed after RSVP" locations) and the promoter on every event. Authenticated tRPC API:
       scripts/fetch_posh.py replicates the logged-in explore search (sort=Trending,
       when=Today|This Week|This Month|Right Now, location preset LA). AUTH: needs POSH_TOKEN
-      env var = a Posh session JWT (~30-day lifespan). Capture from a logged-in browser's
-      network tab (events.fetchMarketplaceEvents request → x-jwt-token header). When it 401s,
-      it's expired — re-capture and update POSH_TOKEN. Broad feed (some watch-party/webinar
+      env var = a Posh session JWT (~30-day lifespan). Capture from a logged-in posh.vip browser:
+      `copy(localStorage.getItem('token'))` in the DevTools console (== the x-jwt-token), or read
+      the x-jwt-token header off any events.fetchMarketplaceEvents request. Login is OTP + a
+      Cloudflare Turnstile CAPTCHA, so it can't be re-captured headlessly — it must come from a real
+      browser. When it 401s, it's expired — re-capture and update POSH_TOKEN. Broad feed (some watch-party/webinar
       noise) — lean on taste.yaml ranking. Overlaps RA/19hz on afterhours — dedupe expected.
 
   # ── Discovered 2026-06-16 — live-music bar/restaurant/listening lane ──────
