@@ -422,19 +422,23 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   feed event now carries its stable `key` (event_key) — the join id, and the anchor for feedback
   reactions when that lands.
 
-### Redesign follow-ups (TODO — from the 2026-07-16 review; both need Ari's call)
-- [ ] **One "Don't miss" policy across surfaces** — the digest's shelf (`_dont_miss_events`,
-  tier-primary, run-collapsed, NO lane cap) and the front page's hero (`build_front_page`,
-  same rank but lane-capped 2-per-lane/3-per-family for diversity) can legitimately disagree —
-  five club nights can top the digest shelf while the hero forces a film in. If the two should
-  read identically, extract one shared top-picks helper into `lib/assemble` (next to
-  `slate_fill`/`rank_key`) and give both surfaces the same diversity knobs. Decision: same or
-  deliberately different?
-- [ ] **Emit "The Take" structurally** — the front page lifts the digest lede by parsing
-  `digests/latest.md` with string heuristics (`digestLede()` in the dashboard). Robust enough
-  for now (bold/italic openers handled), but the clean fix is the voice pass writing the intro
-  to a structured slot the feed carries (e.g. `front_page.take`), so the page never parses
-  markdown conventions.
+### Redesign follow-ups (from the 2026-07-16 review) — ✅ both shipped 2026-07-16
+- [x] **One "Don't miss" policy across surfaces** — resolved as SAME (the "one policy" reading):
+  `lib/assemble.top_picks` (next to `slate_fill`/`rank_key`) is now THE shelf definition —
+  rank_key order (the exact expression `final_rank` is stamped from), judged skips out, one
+  night per program, and the shared `TOP_PICKS_*` diversity knobs (2-per-lane / 3-per-family,
+  N=6). Both `render_digest._dont_miss_events` and `build_front_page`'s hero run it, so the
+  digest shelf now gets the hero's diversity too (five club nights can't fill it; live-music/
+  film picks displace the 4th-best club bill). If Ari prefers the shelves deliberately
+  different, the knobs are per-call args — change one caller, not the policy.
+- [x] **Emit "The Take" structurally** — the renderer wraps the intro slot in
+  `<!-- take:start/end -->` markers (the voice pass fills between them and leaves them in
+  place — routine step 5b documents this); `build_dashboard --digest` lifts the filled intro
+  into each feed as `front_page.take`, and `build_profiles` points each friend's build at
+  their OWN `digests/<hash>/latest.md` (free-form, no markers → `take: null`; never Ari's
+  intro). The page prefers `front_page.take`; `digestLede()`'s markdown heuristic survives
+  only as the fallback (per-profile digests, pre-take feeds, the bundled sample) and now
+  strips comment markers before testing blocks so a marker-wrapped intro can't hide from it.
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by

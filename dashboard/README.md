@@ -45,13 +45,18 @@ The page opens on the **Front page** — an editorial home rendered from the fee
 `front_page` block (built server-side by `build_dashboard.build_front_page` with the SAME
 `rank_key` that orders the table's final rank — the page never re-ranks):
 
-- **The Take** — the consolidated digest's voice-pass lede, lifted from
-  `./digests/latest.md`, with a link into the full digest modal.
+- **The Take** — the consolidated digest's voice-pass lede. The feed carries it
+  structurally as `front_page.take` (build_dashboard lifts it from between the digest's
+  `<!-- take:start/end -->` markers); the page's old first-prose-paragraph heuristic over
+  `./digests/latest.md` remains only as the fallback for feeds without it (free-form
+  per-profile digests, the bundled sample). Links into the full digest modal.
 - A **time lens** (*tonight · this weekend · next 2 weeks · plan ahead*) that re-scopes
   everything below. The feed ships each lens's hero list plus rank-ordered shelf key-lists;
   the client only date-windows and slices — selection, never re-sorting.
-- **Don't miss** — the hero row, tier-badged (must-see / great), lane-capped server-side so
-  it can't be five club nights.
+- **Don't miss** — the hero row, tier-badged (must-see / great), selected server-side by the
+  ONE shared top-picks policy (`lib/assemble.top_picks` — the same helper, order, and
+  lane/family diversity caps as the flagship digest's "Don't miss" shelf), so it can't be
+  five club nights and can't disagree with the digest on policy.
 - **Shelves per lane** — warehouse & underground / afters / day parties / big rooms / live
   music / film / comedy & stage / elsewhere, plus fixed **Around town** and **On the radar**
   shelves when the runtime sets exist. Card click → a detail modal (what/why/lineup/links/

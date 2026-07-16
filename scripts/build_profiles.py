@@ -202,15 +202,18 @@ def selfedit_block(repo, file_rel, enrich_paths):
 
 
 def run_build(taste: str, profile: str, out: Path, profile_hash: str = None,
-              editor_pool_out: str = None) -> bool:
+              editor_pool_out: str = None, digest: str = None) -> bool:
     cmd = [sys.executable, str(BUILD), "--taste", taste, "--profile", profile, "-o", str(out)]
     if profile_hash:                       # load this profile's OWN music layer (per-profile Spotify)
         cmd += ["--profile-hash", profile_hash]
     if editor_pool_out:                    # emit this profile's editor judging pool for the LLM pass
         cmd += ["--editor-pool-out", editor_pool_out]
+    if digest:                             # lift "The Take" from THIS profile's digest, never Ari's
+        cmd += ["--digest", digest]
     print("  $ build_dashboard.py", "--taste", taste, "--profile", profile, "-o", out.name,
           *(["--profile-hash", profile_hash] if profile_hash else []),
-          *(["--editor-pool-out", Path(editor_pool_out).name] if editor_pool_out else []))
+          *(["--editor-pool-out", Path(editor_pool_out).name] if editor_pool_out else []),
+          *(["--digest", digest] if digest else []))
     return subprocess.run(cmd, cwd=str(REPO)).returncode == 0
 
 
@@ -270,14 +273,20 @@ def main() -> int:
                 continue
             ok = True
         elif is_owner:
+            # Owner keeps build_dashboard's default --digest (digests/latest.md, the flagship):
+            # digests/<hash>/latest.md is a copy of it made AFTER feeds build in the routine, so
+            # reading the flagship directly avoids lifting yesterday's Take from the stale copy.
             ok = run_build("taste.yaml", "profile.yaml", out)
         else:
             # Friend: their OWN profiles/<name>/profile.yaml if present, else ABSENT — the scorer
             # then falls back to their taste.yaml's `scoring` block (then DEFAULT_*). Friends do NOT
             # inherit the root (Ari's) profile.yaml, so a friend's taste.yaml fully drives their feed.
+            # --digest points at THEIR digest: free-form (no take markers) today, so front_page.take
+            # stays null and the page falls back to its lede heuristic — but never Ari's intro.
             profile = p.get("profile") or f"profiles/{u}/profile.yaml"
             ok = run_build(taste, profile, out, profile_hash=h,
-                           editor_pool_out=str(REPO / "data" / f"editor_pool.{h}.json"))
+                           editor_pool_out=str(REPO / "data" / f"editor_pool.{h}.json"),
+                           digest=f"digests/{h}/latest.md")
         if not ok:
             print(f"  ERROR: build failed for {u}", file=sys.stderr)
             failed.append(u)

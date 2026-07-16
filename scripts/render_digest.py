@@ -27,7 +27,7 @@ from lib.config import load_taste, load_profile, load_digest_prefs  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
 from lib.affinity import ambiguous_set  # noqa: E402  (gates title-token artist-bio folds)
 from lib.pipeline import score_pool, today_la  # noqa: E402
-from lib.assemble import assemble, event_lane  # noqa: E402
+from lib.assemble import assemble, event_lane, top_picks, TOP_PICKS_N  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from posh_token_status import evaluate as posh_evaluate  # noqa: E402
@@ -409,11 +409,12 @@ def build_slate_cands(catalog, taste, profile, today, verdicts, *, window=None,
 #    on the radar) ────────────────────────────────────────────────────────────────────────
 # Display sizes for the two Track-B4 sections. These cap what's PRINTED, never the ranking —
 # the full verdict store ranks everything; Don't-miss is just its top slice pulled forward.
-DONT_MISS_LIMIT = 6
+# The Don't-miss size is the shared top-picks policy's (one shelf definition with the
+# dashboard front page's hero row — lib/assemble.top_picks).
+DONT_MISS_LIMIT = TOP_PICKS_N
 AROUND_LIMIT = 12
 TONIGHT_TOP = 3      # picks listed per day in Tonight & tomorrow
 CHANGES_TOP = 8      # rows per list in What changed
-_DM_TIER = {"must-see": 3, "great": 2, "solid": 1}
 DEFAULT_SECTIONS = ["tonight", "dont_miss", "changes", "day_by_day", "around_town", "radar"]
 
 
@@ -487,30 +488,16 @@ def _urgency(ev: dict) -> str:
 
 
 def _dont_miss_events(cands: list, limit: int = DONT_MISS_LIMIT) -> list:
-    """The Don't-miss pick set: highest-ranked across the WHOLE window — tier-primary (the
-    editor's call), then adjusted score — with multi-night runs collapsed (one festival or
-    residency can't eat several of the shelf's slots; the best-ranked night represents it,
-    matching the day-by-day body's collapse_runs convention)."""
-    seen, uniq = set(), []
-    for ev in cands:
-        k = event_key(ev)
-        if k not in seen:
-            seen.add(k)
-            uniq.append(ev)
-    uniq.sort(key=lambda e: (-_DM_TIER.get((e.get("verdict") or {}).get("tier"), 0),
-                             -(e.get("score") or 0), e.get("iso_date") or "9999-12-31"))
-    # Collapse multi-night runs so one festival/residency/film run can't eat several of the
-    # shelf's slots — the best-ranked night represents the program, matching the day-by-day
-    # body's collapse_runs convention (lib/series: films group cross-theater, the rest by
-    # title+venue).
-    runs, uniq2 = set(), []
-    for i, ev in enumerate(uniq):
-        rk = series_key(ev) or f"solo:{i}"
-        if rk in runs:
-            continue
-        runs.add(rk)
-        uniq2.append(ev)
-    return [e for e in uniq2[:limit] if e.get("iso_date")]
+    """The Don't-miss pick set — ONE policy with the dashboard front page's hero row
+    (lib/assemble.top_picks): rank_key order (tier-primary, the editor's call), one night per
+    program (lib/series: films group cross-theater, the rest by title+venue — matching the
+    day-by-day body's collapse_runs convention), and the shared lane/family diversity caps so
+    five club nights can't fill the shelf. Slate cands arrive with the verdict's `adjust`
+    already folded into `score` (build_slate_cands), so the map handed to the ranker carries
+    tier/lane only — re-adding adjust would double-count it."""
+    vmap = {event_key(e): {"tier": e["verdict"].get("tier"), "lane": e["verdict"].get("lane")}
+            for e in cands if e.get("verdict")}
+    return top_picks(cands, vmap, n=limit, series_of=series_key)
 
 
 def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT, picked: list = None) -> list:
@@ -649,7 +636,10 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
     """The consolidated scaffold. Section inclusion + order follow digest.yaml `sections`
     (Track B4 — the renderer finally honors it); day_by_day is the body and is never droppable.
     The `<!-- tier3:… -->` markers are the Tier-3 voice pass's slots: it fills the intro and may
-    rewrite a why/gloss, but never adds, removes, or reorders events.
+    rewrite a why/gloss, but never adds, removes, or reorders events. The intro slot is wrapped
+    in `<!-- take:start/end -->` markers the voice pass must leave in place — build_dashboard
+    lifts the filled intro from between them into the feed as `front_page.take` ("The Take"),
+    so the page reads the lede structurally instead of parsing markdown conventions.
 
     `dm_keys` = the Don't-miss picks' event keys: their blurbs run once (in the shelf), and the
     day body shows them starred but note-free instead of repeating the same paragraph verbatim.
@@ -659,7 +649,9 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
            "*Your week ahead, the weekends after, and what's on the radar — "
            "ranked for your taste · ⭐ = top pick*",
            f"*{freshness_line(doc.get('meta') or {}, today_iso)}*", "",
-           "<!-- tier3:intro -->", ""]
+           "<!-- take:start -->",
+           "<!-- tier3:intro -->",
+           "<!-- take:end -->", ""]
     order = [s for s in (order or DEFAULT_SECTIONS) if s in DEFAULT_SECTIONS]
     if "day_by_day" not in order:
         order.append("day_by_day")

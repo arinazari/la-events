@@ -98,7 +98,10 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    - replace `<!-- tier3:intro -->` with a 2–4 sentence intro in the LA-insider voice — the
      week's shape, what kind of stretch it is, where the heat is. When two must-sees collide on
      the same night, make the call here ("if you can only do one: …"). NEVER restate ops
-     warnings (token expiry, failed sources) — those live in the footer;
+     warnings (token expiry, failed sources) — those live in the footer. **Leave the
+     `<!-- take:start -->` / `<!-- take:end -->` markers wrapping the slot in place**: the feed
+     build (step 7) lifts the intro from between them into `front_page.take` — "The Take" on
+     the dashboard's front page reads it structurally, no markdown parsing;
    - replace `<!-- tier3:call -->` (Tonight & tomorrow) with ONE sentence: what the move is for
      the next 48h — including an honest "quiet night, save it for Friday" when that's true;
    - fill each `<!-- tier3:blueprint <date> -->` (Fri/Sat day headers, near section) with a

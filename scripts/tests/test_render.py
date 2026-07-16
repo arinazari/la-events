@@ -123,6 +123,24 @@ def test_dont_miss_is_tier_primary_with_why_slots():
     assert "<!-- tier3:why" in md
 
 
+def test_dont_miss_shares_the_front_page_diversity_policy():
+    """One Don't-miss policy across surfaces (2026-07-16 follow-up): the digest shelf runs the
+    same lib/assemble.top_picks as the dashboard hero, so five club nights can't fill it and a
+    judged skip never makes it."""
+    clubs = [{"title": f"Club{i}", "iso_date": "2026-06-20", "venue": f"V{i}", "score": 9 - i,
+              "category": "electronic", "links": [],
+              "verdict": {"tier": "must-see", "why": "w"}} for i in range(5)]
+    film = {"title": "RepFilm", "iso_date": "2026-06-21", "venue": "Vista", "score": 3,
+            "category": "film", "links": [], "verdict": {"tier": "great", "why": "w"}}
+    skip = {"title": "SkipMe", "iso_date": "2026-06-22", "venue": "V9", "score": 12,
+            "category": "film", "links": [], "verdict": {"tier": "skip", "why": "w"}}
+    picked = R._dont_miss_events(clubs + [film, skip])
+    titles = [e["title"] for e in picked]
+    assert "RepFilm" in titles                          # diversity: the film outlives lower clubs
+    assert "SkipMe" not in titles                       # judged skip excluded
+    assert sum(1 for t in titles if t.startswith("Club")) <= 3   # club family cap
+
+
 def test_around_md_excludes_slate_and_caps():
     rows = [{"key": f"k{i}", "title": f"Civic{i}", "venue": "City", "iso_date": "2026-06-2" + str(i % 8),
              "signals": ["civic"], "link": None} for i in range(15)]
@@ -146,6 +164,10 @@ def test_consolidated_sections_follow_prefs_order():
                                                         "signals": ["civic"], "link": None,
                                                         "venue": "DTLA"}], set()))
     assert "<!-- tier3:intro -->" in md
+    # the intro slot is wrapped in take markers so the feed build can lift the filled intro
+    # structurally (front_page.take) — and the unfilled scaffold yields no take
+    assert md.index("<!-- take:start -->") < md.index("<!-- tier3:intro -->") \
+        < md.index("<!-- take:end -->")
     assert md.index("## Don't miss") < md.index("## Next two weeks") \
         < md.index("## Around town") < md.index("## On the radar")
     # a prefs list that drops everything optional still renders the body
