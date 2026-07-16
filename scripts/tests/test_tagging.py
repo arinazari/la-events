@@ -359,6 +359,73 @@ def test_region_additions():
     assert T.tag_event(ev(neighborhood="Palm Springs"))["region"] == "far"
     assert T.tag_event(ev(neighborhood="Westchester"))["region"] == "westside"
     assert T.tag_event(ev(neighborhood="Elysian Park"))["region"] == "eastside"
+    assert T.tag_event(ev(neighborhood="Commerce"))["region"] == "eastside"   # not far
+
+
+# ── review-pass regressions ───────────────────────────────────────────────────────
+def test_watch_guard_spares_club_events():
+    """A tournament word alone is not a watch party: DJ brunches, post-match club nights, and
+    an EDM act's fan-zone set all stay club; explicit watch/match signals still move."""
+    assert T.tag_event(ev(category="party", sources=["posh"],
+                          title="Deep House Brunch: World Cup Edition - JJ Flores"))["type"] == "club"
+    assert T.tag_event(ev(category="party", sources=["posh"],
+                          title="Pisos Sobre Mesas: World Cup After Party"))["type"] == "club"
+    assert T.tag_event(ev(category="electronic",
+                          title="Loud Luxury - World Cup Fan Zone"))["type"] == "club"
+    assert T.tag_event(ev(category="Music",
+                          title="FIFA World Cup 2026 - Final"))["type"] == "community"
+
+
+def test_comedy_subtype_not_from_venue_name():
+    g = T.tag_event(ev(category="comedy", venue="Improv Comedy Club-Irvine",
+                       title="Joe Comic Live"))["genre"]
+    assert "improv" not in g
+
+
+def test_scale_parish_beats_house_of_blues():
+    assert T.tag_event(ev(category="Music", venue="House of Blues Anaheim", title="x"))["scale"] == "hall"
+    assert T.tag_event(ev(category="Music", venue="The Parish at House of Blues Anaheim",
+                          title="x"))["scale"] == "room"
+
+
+def test_scale_casino_pool_party_not_arena():
+    plain = ev(category="Music", venue="Morongo Casino Resort and Spa", title="Snoop Dogg")
+    assert T.tag_event(plain)["scale"] == "arena"
+    pool = ev(category="Music", venue="Morongo Casino Resort and Spa", title="Flamingo Friday",
+              detail="Pool Parties are back at the Oasis pool featuring the hottest DJs")
+    assert T.tag_event(pool)["scale"] is None
+
+
+def test_live_room_guard_respects_tm_dance_genre():
+    """A Dance/Electronic-classified record at a gazetteer live room is still a club act."""
+    e = ev(category="Music", sources=["ticketmaster", "ra"], venue="The Fonda",
+           genre="Dance/Electronic", title="jigitz (18 and Over)")
+    assert T.tag_event(e)["type"] == "club"
+
+
+def test_standup_podcast_detail_beats_tm_theatre_genre():
+    e = ev(category="Arts & Theatre", genre="Theatre", venue="Teragram Ballroom",
+           title="The Downside with Gianmarco Soresi",
+           detail="Stand-up comedian and lifelong cynic Gianmarco Soresi. This is a podcast.")
+    assert T.tag_event(e)["type"] == "comedy"
+
+
+def test_festival_vibe_gated_off_stage_lanes():
+    e = ev(category="Arts & Theatre", genre="Dance", title="The Nutcracker",
+           organizers="Pacific Festival Ballet")
+    assert "festival" not in T.tag_event(e)["vibe"]
+
+
+def test_block_party_vibe_not_for_comedy():
+    assert "block-party" not in T.tag_event(ev(category="comedy",
+                                               title="COMEDY BLOCK PARTY"))["vibe"]
+
+
+def test_dub_not_from_hyphenated_artist_or_venue_leak():
+    e = ev(category="electronic", sources=["ra"], venue="Jungle Hollywood",
+           title="Marques Wyatt, Colette at Jungle", lineup=["J-Dub", "Derrick Wize"])
+    g = T.tag_event(e)["genre"]
+    assert "dub" not in g and "dnb" not in g
 
 
 if __name__ == "__main__":

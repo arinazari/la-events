@@ -58,10 +58,12 @@ GENRE_ELECTRONIC = [
     ("techno", r"techno"), ("minimal", r"minimal"), ("acid", r"acid"),
     ("electro", r"electro(?!nic)"), ("disco", r"disco|italo|nu-?disco"),
     ("psytrance", r"psy[\s-]?trance"), ("trance", r"trance"),
-    ("dnb", r"dnb|drum[\s&]?and[\s&]?bass|drum ?& ?bass|jungle"),
+    # `(?<!at )jungle` — a promoter title ending "…at Jungle" is the VENUE (Jungle Hollywood)
+    # leaking back into the scan; `(?<![\w-])dub` — hyphen-adjacent artist names (J-Dub).
+    ("dnb", r"dnb|drum[\s&]?and[\s&]?bass|drum ?& ?bass|(?<!at )jungle"),
     ("dubstep", r"dubstep|riddim|brostep"),      # penalized lane — split from boosted dub
     ("reggae", r"reggae|dancehall"),
-    ("dub", r"dub"),
+    ("dub", r"(?<![\w-])dub(?![\w-])"),
     ("ambient", r"ambient|downtempo"),
     ("amapiano", r"amapiano"), ("garage", r"ukg|uk garage|speed garage|garage"),
     ("breakbeat", r"breakbeat|breaks"), ("bass", r"bass music|bassline"),
@@ -162,11 +164,12 @@ VENUE_SETTING = {
     "greek theatre": ["amphitheater"], "hollywood bowl": ["amphitheater"],
     "ford theatre": ["amphitheater"],
     # clubs (big-room and small) — before this tier the `club` setting was emitted 0 times
+    # (The Echo/Echoplex deliberately absent: their default booking is live bands, so a
+    # blanket 'club' setting would be the House-of-Blues effect on the setting axis.)
     "sound nightclub": ["club"], "exchange la": ["club"], "academy la": ["club"],
     "avalon": ["club"], "catch one": ["club"], "the circle oc": ["club"],
     "time nightclub": ["club"], "dragonfly": ["club"], "kiss kiss bang bang": ["club"],
-    "jungle hollywood": ["club"], "grand star": ["club"], "the echo": ["club"],
-    "echoplex": ["club"], "1720": ["warehouse"],
+    "jungle hollywood": ["club"], "grand star": ["club"], "1720": ["warehouse"],
     # listening bars (a HIGH taste lane that previously matched ONCE, by keyword)
     "sam first": ["listening-bar"], "bar franca": ["listening-bar"],
     "only the wild ones": ["listening-bar"], "gold line": ["listening-bar"],
@@ -210,6 +213,9 @@ VENUE_SCALE = {
         "the theatre at ace", "dolby theatre", "pantages", "ahmanson", "dorothy chandler",
         "royce hall", "saban", "exchange la", "academy la", "time nightclub",
         "the circle oc", "hollywood park grounds")},
+    # more-specific keys that must beat a broader substring (matched longest-key-first):
+    # HOB's ~250-cap upstairs room is the small-room tier, not the hall it sits inside.
+    "the parish at house of blues": "room",
     **{v: "room" for v in (
         "troubadour", "fonda", "el rey", "the regent", "roxy", "whisky a go go",
         "the echo", "echoplex", "zebulon", "moroccan lounge", "teragram", "lodge room",
@@ -250,7 +256,7 @@ REGIONS = {
         "atwater village", "atwater", "frogtown", "elysian valley", "elysian park",
         "highland park", "eagle rock", "glassell park", "cypress park", "lincoln heights",
         "virgil village", "historic filipinotown", "mount washington", "boyle heights",
-        "thai town"},
+        "thai town", "commerce"},   # Commerce borders Boyle Heights (The Compound raves) — not far
     "dtla": {"dtla", "downtown", "downtown la", "arts district", "chinatown",
         "little tokyo", "westlake", "university park", "exposition park", "pico-union"},
     "hollywood": {"hollywood", "west hollywood", "weho",
@@ -270,7 +276,7 @@ REGIONS = {
         "laguna beach", "palm springs", "rancho mirage", "cabazon", "coachella", "indio",
         "cerritos", "la mirada", "garden grove", "fullerton", "san juan capistrano",
         "mission viejo", "dana point", "san bernardino", "highland", "rancho cucamonga",
-        "ontario", "fontana", "corona", "pomona", "commerce", "pico rivera",
+        "ontario", "fontana", "corona", "pomona", "pico rivera",
         "santa barbara", "paso robles", "san luis obispo", "palmdale", "bakersfield"},
 }
 
@@ -304,8 +310,24 @@ _DJ_KW = re.compile(r"\b(dj set|b2b|warehouse|rave|afters|after[\s-]?part(?:y|ie
                     re.I)
 # Sports watch parties (title-only): a World Cup final at a warehouse is still not a rave.
 # The pattern recurs every Super Bowl/Dodgers run, scattering rows across the music lanes.
-_WATCH_KW = re.compile(r"\bwatch part(y|ies)\b|\bworld cup\b|\bfifa\b|\bfan zone\b|"
-                       r"\bsemi-?finals?\b|\bquarter-?finals?\b", re.I)
+# Deliberately NOT a bare tournament-word match — "Deep House Brunch: World Cup Edition" (a
+# billed DJ brunch), "World Cup After Party" (a post-match club night), and "Loud Luxury -
+# World Cup Fan Zone" (an EDM act performing) are all club events; community requires an
+# explicit watch/viewing signal OR tournament word + a match-like token.
+_WATCH_EXPLICIT = re.compile(r"\b(watch|viewing) part(y|ies)\b|"
+                             r"\bsemi-?finals?\b|\bquarter-?finals?\b", re.I)
+_WATCH_TOURNEY = re.compile(r"\bworld cup\b|\bfifa\b", re.I)
+_WATCH_MATCH = re.compile(r"\bfinals?\b|\bsemi\b|\bplay-?offs?\b|\bvs\.?\b|\bmatch(es)?\b|"
+                          r"\bweek\b", re.I)
+_AFTER_PARTY = re.compile(r"\bafter[\s-]?part(y|ies)\b", re.I)
+
+
+def _is_watch_party(title_l: str) -> bool:
+    if _AFTER_PARTY.search(title_l):
+        return False
+    if _WATCH_EXPLICIT.search(title_l):
+        return True
+    return bool(_WATCH_TOURNEY.search(title_l) and _WATCH_MATCH.search(title_l))
 # Title-level club signals — used by the live-room guard: an RA/19hz listing at a rock dive
 # is a band bill UNLESS the title itself says club night.
 _CLUB_TITLE_KW = re.compile(r"^\s*dj\b|\bdj (set|night)\b|\b(with|w/)\s+dj\b|"
@@ -416,15 +438,19 @@ def _resolve_type(ev: dict, hay: str, cfg: dict = None) -> str:
     # screening" between sets; club-night blurbs mention alley night markets). Everything else
     # keeps the broad full-text guard — that's what rescues a mislabeled screening.
     kw_hay = (" ".join([title_l, venue_l]) if cat in MUSIC_CATS else hay)
-    if _WATCH_KW.search(title_l):
+    if _is_watch_party(title_l):
         return "community"
     if cat == "film" or _CINEMA_KW.search(kw_hay):
         return "film"
     # A&T rows WITH an authoritative TM stage genre: the genre outranks blurb keywords —
     # Oklahoma!'s detail calls it "a comedy" but it is Theatre. A TITLE-level comedy signal
-    # still wins (JVN's "Comedy Tour" is filed under Theatre).
+    # still wins (JVN's "Comedy Tour" is filed under Theatre), as does an explicit stand-up/
+    # podcast detail (TM files live comedy podcasts under 'Theatre' too — Gianmarco Soresi).
     if cat == "arts & theatre" and tm_genre in TM_STAGE_GENRES:
-        return "comedy" if _COMEDY_KW.search(title_l) else "stage"
+        detail_l = str(ev.get("detail") or "").lower()
+        if _COMEDY_KW.search(title_l) or re.search(r"stand[\s-]?up|\bpodcast\b", detail_l):
+            return "comedy"
+        return "stage"
     if (cat == "comedy" or tm_genre == "comedy" or lu_genre == "comedy"
             or _COMEDY_KW.search(kw_hay)):
         return "comedy"
@@ -453,9 +479,11 @@ def _resolve_type(ev: dict, hay: str, cfg: dict = None) -> str:
     if cat in ("electronic", "party") or (srcs & {"ra", "19hz", "posh"}) or _DJ_KW.search(kw_hay):
         # Live-room guard: RA/19hz list every event at rock dives (The Redwood: 40 band bills
         # typed club before this), and the source short-circuit made them all "club". A known
-        # live room stays live-music unless the TITLE carries a club signal or any electronic
-        # genre keyword appears (incl. 19hz's embedded genre annotation).
+        # live room stays live-music unless the TITLE carries a club signal, any electronic
+        # genre keyword appears (incl. 19hz's embedded genre annotation), or the record's own
+        # TM genre says Dance/Electronic (a bass-house DJ at the Fonda is still a club act).
         if (any(v in venue_l for v in _live_rooms(cfg))
+                and "dance/electronic" not in (tm_genre, lu_genre)
                 and not _CLUB_TITLE_KW.search(title_l)
                 and not _ELECTRONIC_KW.search(_genre_hay(ev))):
             return "live-music"
@@ -518,8 +546,8 @@ def _genre(ev: dict, typ: str, hay: str, cfg: dict) -> list:
                 out.append(tag)
     elif typ == "comedy":
         for tag, pat in GENRE_COMEDY:
-            if re.search(pat, hay):
-                out.append(tag)
+            if re.search(pat, ghay):     # NOT hay — 'Hollywood Improv' the VENUE must not
+                out.append(tag)          # mint an 'improv' subtype on a standup show
     elif typ == "film":
         if any(r in venue for r in REP_CINEMA):
             out.append("rep/arthouse")
@@ -549,11 +577,19 @@ def _setting(ev: dict, hay: str, cfg: dict) -> list:
     return _uniq(out)
 
 
+# Casino RESORT names in the arena tier: TM lists everything on the property under the resort
+# name, so a poolside DJ party must not inherit the headliner theater's arena tier.
+_CASINO_KEYS = frozenset(("morongo", "pechanga", "agua caliente", "fantasy springs", "yaamava"))
+
+
 def _scale(ev: dict, setting: list, cfg: dict):
-    """The venue tier — explicit gazetteer, else amphitheater-setting => arena, else None."""
+    """The venue tier — explicit gazetteer (longest key wins, so 'the parish at house of
+    blues' beats 'house of blues'), else amphitheater-setting => arena, else None."""
     venue = (ev.get("venue") or "").lower()
-    for vk, tier in cfg["venue_scale"].items():
+    for vk, tier in sorted(cfg["venue_scale"].items(), key=lambda kv: -len(kv[0])):
         if vk in venue:
+            if tier == "arena" and vk in _CASINO_KEYS and "pool" in (setting or []):
+                return None            # casino pool party, not the headliner theater
             return tier
     if "amphitheater" in (setting or []):
         return "arena"
@@ -597,7 +633,10 @@ def _vibe(ev: dict, typ: str, hay: str) -> list:
         out.append("album-release")
     # TITLE/organizer only: 75% of the old full-hay matches were venue-name noise
     # ("Festival of Arts" minted 52 Pageant-of-the-Masters festival vibes) or bio prose.
-    if re.search(r"\bfestival\b", title_l + " " + str(ev.get("organizers") or "").lower()):
+    # Gated off the stage/art lanes, where company names ("Pacific Festival Ballet") re-mint it.
+    if (typ in ("club", "live-music", "community", "market", "food-drink")
+            and re.search(r"\bfestival\b",
+                          title_l + " " + str(ev.get("organizers") or "").lower())):
         out.append("festival")
     if re.search(r"\b(35mm|70mm|16mm)\b", hay):
         out.append("analog-film")
@@ -610,8 +649,9 @@ def _vibe(ev: dict, typ: str, hay: str) -> list:
         out.append("guest-in-person")
     if typ == "film" and hour is not None and 9 <= hour < 17:
         out.append("matinee")
-    if re.search(r"\bblock party\b", hay):
-        out.append("block-party")
+    if typ != "comedy" and re.search(r"\bblock party\b", hay):
+        out.append("block-party")       # "COMEDY BLOCK PARTY" is a standup showcase, not a street
+
     if re.search(r"\bpop[\s-]?up\b", hay):
         out.append("pop-up")
     if re.search(r"\bboat party\b|\byacht party\b|catalina classic cruises", hay):

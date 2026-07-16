@@ -109,11 +109,12 @@ def fmt_time(t) -> str:
 
 
 def _lane_of(ev: dict) -> str:
-    """Slate lane at render time. The editor verdict's lane override (folded onto the event by
-    build_slate_cands) wins — it can see headliner draw; otherwise derive from the multi-axis
-    tags via lib/assemble (tag_event fallback included)."""
+    """Slate lane at render time — delegate to THE resolver (lib/assemble.event_lane) with the
+    event's folded verdict, so the digest applies the same off-vocab whitelist and bare-family
+    refinement as the slate and the dashboard (a cached bare 'live-music' override on a Greek
+    Theatre show must still render the 'big venue' chip)."""
     v = ev.get("verdict") or {}
-    return v.get("lane") or event_lane(ev)
+    return event_lane(ev, {event_key(ev): v} if v.get("lane") else None)
 
 
 def _group_of(ev: dict) -> str:

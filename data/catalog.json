@@ -399,9 +399,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -677,9 +675,7 @@
       "genre": [],
       "setting": [],
       "scale": null,
-      "vibe": [
-        "block-party"
-      ],
+      "vibe": [],
       "region": "south-bay",
       "near_home": false
     }
@@ -3676,9 +3672,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -6247,7 +6241,7 @@
       "vibe": [
         "afterhours"
       ],
-      "region": "far",
+      "region": "eastside",
       "near_home": false
     }
   },
@@ -6686,9 +6680,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -7380,7 +7372,7 @@
       "setting": [
         "pool"
       ],
-      "scale": "arena",
+      "scale": null,
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -7470,9 +7462,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [
         "21+"
@@ -12209,8 +12199,10 @@
     "first_seen": "2026-07-14",
     "last_seen": "2026-07-14",
     "tags": {
-      "type": "community",
-      "genre": [],
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
       "setting": [],
       "scale": null,
       "vibe": [
@@ -12246,8 +12238,10 @@
     "first_seen": "2026-07-14",
     "last_seen": "2026-07-14",
     "tags": {
-      "type": "community",
-      "genre": [],
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
       "setting": [],
       "scale": null,
       "vibe": [
@@ -12708,8 +12702,10 @@
     "first_seen": "2026-06-19",
     "last_seen": "2026-07-15",
     "tags": {
-      "type": "community",
-      "genre": [],
+      "type": "club",
+      "genre": [
+        "deep-house"
+      ],
       "setting": [
         "club"
       ],
@@ -13299,9 +13295,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -13389,7 +13383,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -15794,8 +15788,11 @@
     "first_seen": "2026-07-04",
     "last_seen": "2026-07-15",
     "tags": {
-      "type": "community",
-      "genre": [],
+      "type": "club",
+      "genre": [
+        "house",
+        "edm"
+      ],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -19260,7 +19257,7 @@
       "vibe": [
         "afterhours"
       ],
-      "region": "far",
+      "region": "eastside",
       "near_home": false
     }
   },
@@ -20053,9 +20050,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -21225,8 +21220,7 @@
     "tags": {
       "type": "club",
       "genre": [
-        "dnb",
-        "dub"
+        "electronic"
       ],
       "setting": [
         "club"
@@ -25562,9 +25556,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -26987,9 +26979,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -29303,7 +29293,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -29661,9 +29651,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -29935,7 +29923,7 @@
       "setting": [
         "pool"
       ],
-      "scale": "arena",
+      "scale": null,
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -33427,7 +33415,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -33474,9 +33462,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -34717,9 +34703,7 @@
       "genre": [
         "electronic"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [
         "21+"
@@ -36367,7 +36351,7 @@
       "vibe": [
         "afterhours"
       ],
-      "region": "far",
+      "region": "eastside",
       "near_home": false
     }
   },
@@ -38182,9 +38166,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -38316,9 +38298,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -39913,9 +39893,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -41488,9 +41466,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -42830,9 +42806,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -44736,9 +44710,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -45199,7 +45171,7 @@
       "setting": [
         "pool"
       ],
-      "scale": "arena",
+      "scale": null,
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -45471,9 +45443,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -46622,9 +46592,7 @@
       "genre": [
         "electronic"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -48012,9 +47980,7 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [
-        "festival"
-      ],
+      "vibe": [],
       "region": "far",
       "near_home": false
     },
@@ -48366,9 +48332,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [
         "all-ages"
@@ -48774,9 +48738,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -50475,9 +50437,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -50830,9 +50790,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -51892,9 +51850,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -52369,9 +52325,10 @@
     "first_seen": "2026-06-19",
     "last_seen": "2026-07-15",
     "tags": {
-      "type": "stage",
+      "type": "comedy",
       "genre": [
-        "theater"
+        "standup",
+        "podcast"
       ],
       "setting": [],
       "scale": "room",
@@ -53523,9 +53480,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -54250,9 +54205,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -55275,9 +55228,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [
         "sunset"
@@ -55409,7 +55360,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -55982,7 +55933,7 @@
       "setting": [
         "pool"
       ],
-      "scale": "arena",
+      "scale": null,
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -56217,9 +56168,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -57848,9 +57797,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -58113,7 +58060,7 @@
         "pop"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [
         "18+"
       ],
@@ -58487,9 +58434,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -59451,9 +59396,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -59915,9 +59858,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -60769,9 +60710,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -61366,9 +61305,7 @@
       "genre": [
         "funk-soul"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -62293,9 +62230,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -63787,7 +63722,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -63875,9 +63810,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -64322,7 +64255,7 @@
       "setting": [
         "pool"
       ],
-      "scale": "arena",
+      "scale": null,
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -64513,9 +64446,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -64931,9 +64862,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -66167,9 +66096,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -66932,9 +66859,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -67170,7 +67095,7 @@
         "metal"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -68034,9 +67959,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -68488,9 +68411,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -69112,9 +69033,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -69274,9 +69193,7 @@
       "genre": [],
       "setting": [],
       "scale": null,
-      "vibe": [
-        "block-party"
-      ],
+      "vibe": [],
       "region": "south-bay",
       "near_home": false
     }
@@ -69660,9 +69577,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -70494,9 +70409,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -70662,9 +70575,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -70982,9 +70893,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [
         "21+"
@@ -71430,9 +71339,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -72278,9 +72185,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -72768,7 +72673,7 @@
       "setting": [
         "pool"
       ],
-      "scale": "arena",
+      "scale": null,
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -72856,9 +72761,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [
@@ -73304,9 +73207,7 @@
       "genre": [
         "electronic"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [
         "21+"
@@ -74471,7 +74372,7 @@
         "electronic"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [
         "18+"
       ],
@@ -74613,9 +74514,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -75591,9 +75490,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -75851,9 +75748,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -77422,9 +77317,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -77470,7 +77363,7 @@
         "pop"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -78359,9 +78252,7 @@
       "genre": [
         "latin"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -78533,9 +78424,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -79926,7 +79815,7 @@
       "setting": [
         "pool"
       ],
-      "scale": "arena",
+      "scale": null,
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -82378,7 +82267,7 @@
     "tags": {
       "type": "club",
       "genre": [
-        "dub"
+        "electronic"
       ],
       "setting": [],
       "scale": null,
@@ -82632,9 +82521,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -84910,9 +84797,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -85134,9 +85019,7 @@
       "genre": [
         "metal"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -85748,9 +85631,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -85839,7 +85720,7 @@
         "latin"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -85976,9 +85857,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [
         "21+"
@@ -86026,7 +85905,7 @@
       "setting": [
         "pool"
       ],
-      "scale": "arena",
+      "scale": null,
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -86941,9 +86820,7 @@
       "genre": [
         "funk-soul"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -88279,9 +88156,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -89300,9 +89175,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -89399,7 +89272,7 @@
         "hip-hop"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -90795,9 +90668,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -91241,7 +91112,7 @@
       "setting": [
         "pool"
       ],
-      "scale": "arena",
+      "scale": null,
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -91940,7 +91811,7 @@
         "electronic"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [
         "18+"
       ],
@@ -92203,9 +92074,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -92550,9 +92419,7 @@
       "genre": [
         "funk-soul"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -93737,9 +93604,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -94356,9 +94221,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -94566,9 +94429,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -96279,9 +96140,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -96786,7 +96645,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -97307,7 +97166,7 @@
       "setting": [
         "pool"
       ],
-      "scale": "arena",
+      "scale": null,
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -99650,9 +99509,7 @@
         "funk-soul",
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -99987,9 +99844,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -100821,9 +100676,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -101206,9 +101059,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -102812,7 +102663,7 @@
     "first_seen": "2026-06-19",
     "last_seen": "2026-07-15",
     "tags": {
-      "type": "live-music",
+      "type": "club",
       "genre": [
         "electronic"
       ],
@@ -103437,7 +103288,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -103475,9 +103326,7 @@
       "genre": [
         "funk-soul"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -103517,9 +103366,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -104978,9 +104825,7 @@
       "genre": [
         "funk-soul"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -105144,7 +104989,7 @@
         "metal"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -105970,7 +105815,7 @@
         "country"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -106524,9 +106369,7 @@
       "genre": [
         "country"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -106808,7 +106651,7 @@
         "hip-hop"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -108755,7 +108598,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -109562,7 +109405,7 @@
         "metal"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -109767,9 +109610,7 @@
       "genre": [
         "metal"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -109849,9 +109690,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -110951,7 +110790,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -111597,9 +111436,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -111991,9 +111828,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -112469,7 +112304,7 @@
         "metal"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -112589,9 +112424,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -114633,9 +114466,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -114674,9 +114505,7 @@
       "genre": [
         "funk-soul"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -115366,9 +115195,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -115959,9 +115786,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -116701,9 +116526,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -117922,9 +117745,7 @@
       "genre": [
         "funk-soul"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -118174,9 +117995,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -118961,9 +118780,7 @@
       "genre": [
         "metal"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -119923,9 +119740,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -120362,9 +120177,7 @@
       "genre": [
         "latin"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -120405,7 +120218,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -120987,9 +120800,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -121449,9 +121260,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -122290,9 +122099,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -122745,7 +122552,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -123255,9 +123062,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -123424,9 +123229,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -123590,9 +123393,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -124175,9 +123976,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -124474,9 +124273,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -124515,9 +124312,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -125353,9 +125148,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -125397,7 +125190,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -125717,9 +125510,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -126305,9 +126096,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -126439,9 +126228,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -126480,9 +126267,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -127013,9 +126798,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -127265,9 +127048,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -128359,9 +128140,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -129146,7 +128925,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -129480,9 +129259,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -131316,7 +131093,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -133166,9 +132943,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -133330,9 +133105,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -134023,9 +133796,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -134154,7 +133925,7 @@
         "country"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -134942,7 +134713,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -136231,9 +136002,7 @@
       "genre": [
         "latin"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -136520,9 +136289,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -136898,9 +136665,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -137645,9 +137410,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -137823,9 +137586,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -138315,7 +138076,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -138358,9 +138119,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -139425,9 +139184,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -140918,9 +140675,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -141589,9 +141344,7 @@
       "genre": [
         "folk"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -141671,9 +141424,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -141711,7 +141462,7 @@
       "type": "comedy",
       "genre": [],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -141950,9 +141701,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -143002,7 +142751,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -143040,9 +142789,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -143122,9 +142869,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -143168,9 +142913,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -143953,9 +143696,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -145295,9 +145036,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -145790,9 +145529,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -145875,9 +145612,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -146640,9 +146375,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -147219,9 +146952,7 @@
       "genre": [
         "hip-hop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -147522,9 +147253,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -148220,7 +147949,7 @@
         "metal"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -149758,9 +149487,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -150220,7 +149947,7 @@
         "rock"
       ],
       "setting": [],
-      "scale": "hall",
+      "scale": "room",
       "vibe": [],
       "region": "far",
       "near_home": false
@@ -150421,9 +150148,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -150748,9 +150473,7 @@
       "genre": [
         "rock"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [],
       "region": "eastside",
@@ -150956,9 +150679,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -151647,9 +151368,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -152303,9 +152022,7 @@
     "last_seen": "2026-07-15",
     "tags": {
       "type": "comedy",
-      "genre": [
-        "improv"
-      ],
+      "genre": [],
       "setting": [],
       "scale": null,
       "vibe": [],
@@ -153304,9 +153021,7 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [
-        "festival"
-      ],
+      "vibe": [],
       "region": "far",
       "near_home": false
     }
@@ -153642,9 +153357,7 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [
-        "festival"
-      ],
+      "vibe": [],
       "region": "far",
       "near_home": false
     }
@@ -153964,9 +153677,7 @@
       "genre": [
         "pop"
       ],
-      "setting": [
-        "club"
-      ],
+      "setting": [],
       "scale": "room",
       "vibe": [
         "21+"
@@ -154097,9 +153808,7 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [
-        "festival"
-      ],
+      "vibe": [],
       "region": "far",
       "near_home": false
     }
