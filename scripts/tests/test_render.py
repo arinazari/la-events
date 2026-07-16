@@ -126,9 +126,10 @@ def test_dont_miss_is_tier_primary_with_why_slots():
 def test_dont_miss_shares_the_front_page_diversity_policy():
     """One Don't-miss policy across surfaces (2026-07-16 follow-up): the digest shelf runs the
     same lib/assemble.top_picks as the dashboard hero, so five club nights can't fill it and a
-    judged skip never makes it."""
+    judged skip never makes it. Clubs mix sub-lanes (3 underground + 2 afters) so the FAMILY
+    cap is what binds: 2 underground (lane cap) + 1 afters exhausts club:* at 3."""
     clubs = [{"title": f"Club{i}", "iso_date": "2026-06-20", "venue": f"V{i}", "score": 9 - i,
-              "category": "electronic", "links": [],
+              "category": "electronic", "links": [], "afterhours": i in (2, 3),
               "verdict": {"tier": "must-see", "why": "w"}} for i in range(5)]
     film = {"title": "RepFilm", "iso_date": "2026-06-21", "venue": "Vista", "score": 3,
             "category": "film", "links": [], "verdict": {"tier": "great", "why": "w"}}
@@ -138,7 +139,20 @@ def test_dont_miss_shares_the_front_page_diversity_policy():
     titles = [e["title"] for e in picked]
     assert "RepFilm" in titles                          # diversity: the film outlives lower clubs
     assert "SkipMe" not in titles                       # judged skip excluded
-    assert sum(1 for t in titles if t.startswith("Club")) <= 3   # club family cap
+    assert sum(1 for t in titles if t.startswith("Club")) == 3   # family cap binds at 3
+
+
+def test_dont_miss_collapses_multi_night_runs():
+    """A residency/run enters the shelf ONCE via its best night (series_of=series_key wiring —
+    title+venue for non-film), so a 15-night run can't eat several shelf slots."""
+    run = [{"title": "Warehouse Residency", "iso_date": f"2026-06-{19 + i}", "venue": "Vault",
+            "score": 9 - i, "category": "electronic", "links": [],
+            "verdict": {"tier": "must-see", "why": "w"}} for i in range(3)]
+    other = {"title": "OtherNight", "iso_date": "2026-06-20", "venue": "Elsewhere", "score": 2,
+             "category": "live music", "links": [], "verdict": {"tier": "solid", "why": "w"}}
+    picked = R._dont_miss_events(run + [other])
+    assert [e["iso_date"] for e in picked if e["title"] == "Warehouse Residency"] == ["2026-06-19"]
+    assert any(e["title"] == "OtherNight" for e in picked)
 
 
 def test_around_md_excludes_slate_and_caps():

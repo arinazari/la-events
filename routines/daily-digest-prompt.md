@@ -81,8 +81,10 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    **primary consolidated daily digest**: `python scripts/render_digest.py --consolidated --md
    digests/latest.md` — ONE doc whose sections follow the root **`digest.yaml`** `sections:` list
    (Track B4, the renderer now honors it): **Tonight & tomorrow** (the next-48h slice, compact),
-   **Don't miss** (the top ~6 across the window, tier-primary, whys prefilled from curator
-   notes/verdicts, priced + urgency-chipped), **What changed** (new/updated since the last pull;
+   **Don't miss** (the top ~6 across the window via the shared top-picks policy —
+   `lib/assemble.top_picks`, tier-primary with lane/family diversity caps, same as the
+   dashboard hero, so lower-ranked same-lane picks are displaced by design; whys prefilled
+   from curator notes/verdicts, priced + urgency-chipped), **What changed** (new/updated since the last pull;
    auto-omitted on quiet days), the day-by-day body (next 14 days, lane-grouped + tier-scaled) +
    **Weekends ahead** (days 15–35 compressed to top-4 per weekend + a link to its
    digests/weekends/<Fri>.md), **Around town** (city-pulse, NOT taste-ranked, de-duped

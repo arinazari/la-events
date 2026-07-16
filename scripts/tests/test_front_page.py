@@ -58,12 +58,16 @@ def test_shelves_split_near_vs_ahead():
 
 
 def test_hero_is_lane_capped_for_diversity():
-    evs = [ev(f"club{i}", "2026-07-17", "club:underground", i + 1, tier="must-see")
-           for i in range(5)]
-    evs += [ev("film1", "2026-07-17", "film", 10, tier="great")]
-    fp = B.build_front_page(evs, {}, TODAY)
+    """The hero runs the shared top-picks policy over the REAL verdicts map (the production
+    path in main()): tier-primary rank, then the lane cap displaces lower clubs for the film."""
+    evs = [ev(f"club{i}", "2026-07-17", "club:underground", i + 1, tier="must-see",
+              score=9 - i) for i in range(5)]
+    evs += [ev("film1", "2026-07-17", "film", 10, tier="great", score=3)]
+    vmap = {B.event_key(e): e["verdict"] for e in evs}
+    fp = B.build_front_page(evs, vmap, TODAY)
     hero = fp["hero"]["twoweeks"]
     assert sum(1 for k in hero if k.startswith("club")) <= B.TOP_PICKS_LANE_CAP
+    assert hero[:2] == ["club0", "club1"]  # tier-primary rank order, best clubs first
     assert "film1" in hero               # diversity: the film outlives lower-ranked club picks
 
 
@@ -78,6 +82,7 @@ def test_take_lifted_between_markers_only_when_filled():
     assert B.digest_take(unfilled) is None
     assert B.digest_take("# Free-form profile digest\n\nJust prose.\n") is None
     assert B.digest_take("") is None
+    assert B.digest_take("<!-- take:start -->\nprose\n") is None   # end marker lost -> no take
     fp = B.build_front_page([], {}, TODAY, take="the take")
     assert fp["take"] == "the take"
     assert B.build_front_page([], {}, TODAY)["take"] is None

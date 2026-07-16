@@ -196,9 +196,10 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
     ranked = sorted(pool, key=lambda e: e.get("final_rank") or 10 ** 9)
 
     # The hero row is the shared Don't-miss policy (lib/assemble.top_picks — one shelf
-    # definition with the flagship digest's shelf), applied per time-lens window. The pool is
-    # reps-only, so program collapse is upstream; skips were filtered above (top_picks would
-    # re-check both harmlessly).
+    # definition with the flagship digest's shelf), applied per time-lens window. Skips are
+    # re-checked harmlessly (top_picks reads the same verdicts map), but program collapse is
+    # NOT re-applied here (no series_of) — the reps-only pool filter above is the only thing
+    # keeping a multi-night run to one hero card.
     hero = {}
     for lens, (lo, hi) in _fp_windows(today).items():
         window = [e for e in ranked if lo <= e["iso_date"] <= hi]

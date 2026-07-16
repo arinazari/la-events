@@ -118,6 +118,15 @@ def test_top_picks_one_night_per_program():
     picks = A.top_picks([n1, n2, other], {}, series_of=lambda e: e.get("title"))
     assert [p["iso_date"] for p in picks if p["title"] == "Residency"] == ["2026-07-03"]
     assert other in picks
+    # consumed-not-deferred: the program's BEST night hits the underground lane cap, so the
+    # program is out entirely — its later film-lane night must not sneak in as a substitute
+    u1, u2 = _ev("u1", UG, 9), _ev("u2", UG, 8)
+    p1 = _ev("Roving Run", UG, 7, d="2026-07-03")
+    p2 = _ev("Roving Run", FILM, 6, d="2026-07-04")
+    f = _ev("f", FILM, 5)
+    picks = A.top_picks([u1, u2, p1, p2, f], {}, series_of=lambda e: e.get("title"))
+    titles = [p["title"] for p in picks]
+    assert "Roving Run" not in titles and "f" in titles
 
 
 def test_top_picks_family_cap_spans_sublanes():
