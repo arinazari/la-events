@@ -132,6 +132,49 @@ def test_idempotent():
     assert once == twice
 
 
+# ── TM-cased categories + the Arts & Theatre split (the 65%-"other" fix) ─────────
+def test_tm_cased_categories_resolve():
+    """TM Discovery segments arrive capitalized and used to miss every branch → other."""
+    assert T.tag_event(ev(category="Music", sources=["ticketmaster"], title="Osees"))["type"] == "live-music"
+    assert T.tag_event(ev(category="Film", title="Some Screening"))["type"] == "film"
+    assert T.tag_event(ev(category="jazz", venue="Sam First", title="Trio"))["type"] == "live-music"
+    assert T.tag_event(ev(category="dance", title="A Dance Piece"))["type"] == "stage"
+
+
+def test_tm_music_with_club_signal_still_clubs():
+    # The club branch (source/keyword signal) outranks the live-music category mapping.
+    assert T.tag_event(ev(category="Music", title="A DJ set in a warehouse"))["type"] == "club"
+
+
+def test_arts_and_theatre_splits_on_tm_genre():
+    assert T.tag_event(ev(category="Arts & Theatre", genre="Comedy", title="Ali Wong"))["type"] == "comedy"
+    assert T.tag_event(ev(category="Arts & Theatre", genre="Theatre", title="Hamilton (Touring)"))["type"] == "stage"
+    assert T.tag_event(ev(category="Arts & Theatre", genre="Performance Art", title="X"))["type"] == "stage"
+    # genre-less A&T: keyword rescue, else honest other (bare-name comedians hide there)
+    assert T.tag_event(ev(category="Arts & Theatre", title="The Phantom of the Opera (Touring)"))["type"] == "stage"
+    assert T.tag_event(ev(category="Arts & Theatre", title="Trevor Noah"))["type"] == "other"
+    assert T.tag_event(ev(category="Arts & Theatre", title="Pageant of the Masters"))["type"] == "art"
+    assert T.tag_event(ev(category="Arts & Theatre", title="OC Fair: Concert Series"))["type"] == "community"
+
+
+def test_venue_last_resort_only_for_signal_less_categories():
+    # Undefined/empty category at a music-only room → live-music …
+    assert T.tag_event(ev(category="Undefined", venue="The Fonda", title="Ninajirachi"))["type"] == "live-music"
+    assert T.tag_event(ev(category="", venue="Zebulon", title="Some Band"))["type"] == "live-music"
+    # … but a REAL category never defers to the venue (A&T comedy at a music room stays honest).
+    assert T.tag_event(ev(category="Arts & Theatre", venue="The Fonda", title="A Comedian"))["type"] == "other"
+
+
+def test_tm_genre_maps_into_live_vocab():
+    g = T.tag_event(ev(category="Music", genre="Hip-Hop/Rap", title="Yeat"))["genre"]
+    assert "hip-hop" in g
+    g2 = T.tag_event(ev(category="Music", genre="Dance/Electronic", title="Tortoise"))["genre"]
+    assert "electronic" in g2
+    # keyword hits still lead; the TM call appends
+    g3 = T.tag_event(ev(category="Music", genre="Rock", title="a jazz evening"))["genre"]
+    assert g3[0] == "jazz" and "rock" in g3
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

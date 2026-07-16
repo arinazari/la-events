@@ -63,6 +63,26 @@ GENRE_FILM = [
     ("rep/arthouse", r"vidiots|new bev|cinematheque|brain dead|aero|egyptian"),
 ]
 
+# Ticketmaster Discovery `genre` names → the controlled live vocab. TM's taxonomy arrives
+# capitalized ("Rock", "Hip-Hop/Rap"); an explicit map is safer than folding the field into
+# the keyword haystack (which would also expose those words to the vibe/setting regexes).
+TM_GENRE_LIVE = {
+    "rock": "rock", "pop": "pop", "hip-hop/rap": "hip-hop", "latin": "latin",
+    "country": "country", "r&b": "funk-soul", "metal": "metal", "alternative": "indie",
+    "folk": "folk", "jazz": "jazz", "classical": "classical", "blues": "blues",
+    "reggae": "dub", "dance/electronic": "electronic",
+}
+
+# TM "Arts & Theatre" genres that are unambiguously stage acts. The genre-less remainder is
+# contaminated (bare-name comedians next to touring musicals), so it does NOT blanket-map —
+# unmatched A&T stays `other` (honest null) unless a stage keyword rescues it.
+TM_STAGE_GENRES = {
+    "theatre", "children's theatre", "miscellaneous theatre", "dance", "classical",
+    "opera", "performance art", "magic & illusion", "circus & specialty acts",
+    "variety", "multimedia", "puppetry",
+}
+_STAGE_KW = re.compile(r"\(touring\)|\b(ballet|circus|stage show|the musical)\b", re.I)
+
 # ── Axis 3: SETTING & Axis 2 hints by venue — high-confidence venues only.
 #    Eclectic rooms (Zebulon, Gold Diggers) are deliberately LEFT to enrichment. ──
 VENUE_GENRE = {
@@ -83,6 +103,13 @@ VENUE_SETTING = {
 }
 REP_CINEMA = ("vidiots", "new beverly", "vista", "cinematheque", "brain dead",
               "aero", "egyptian", "academy museum")
+
+# Last-resort TYPE signal: rooms that only ever host live music, consulted ONLY when the
+# category says nothing at all (Undefined / general / empty) — theaters that also host comedy
+# arrive as "Arts & Theatre" and must never leak in. Profile-extensible (`tagging.venue_type_live`).
+VENUE_TYPE_LIVE = ("troubadour", "fonda", "pappy", "el rey", "pacific amphitheatre",
+                   "alva's showroom", "zebulon", "the smell", "2220 arts", "gold diggers",
+                   "moroccan lounge", "teragram", "the echo")
 
 # ── Axis 5: REGION — coarse buckets over the messy neighborhood field ─────────────
 REGIONS = {
@@ -165,30 +192,54 @@ def _cfg(profile: dict) -> dict:
     for k, v in (tg.get("regions") or {}).items():
         regions.setdefault(k, set()).update(x.lower() for x in v)
     near = {n.lower() for n in ((profile.get("scoring") or {}).get("near_home_neighborhoods") or [])}
+    venue_type_live = tuple(VENUE_TYPE_LIVE) + tuple(
+        v.lower() for v in (tg.get("venue_type_live") or []))
     return {"venue_genre": venue_genre, "venue_setting": venue_setting,
-            "regions": regions, "near_home": near}
+            "regions": regions, "near_home": near, "venue_type_live": venue_type_live}
 
 
-def _resolve_type(ev: dict, hay: str) -> str:
+def _resolve_type(ev: dict, hay: str, cfg: dict = None) -> str:
     """The one MECE kind. Keyword guards override a mislabeled source category
-    (e.g. an Acropolis Cinema 'screening' that Ticketmaster tagged `music`)."""
-    cat = ev.get("category")
+    (e.g. an Acropolis Cinema 'screening' that Ticketmaster tagged `music`).
+
+    Category matching is case-NORMALIZED: Ticketmaster's Discovery segments arrive capitalized
+    ("Music", "Arts & Theatre", "Film") and used to miss every branch — ~65% of the catalog fell
+    to `other` on that alone. TM's separate `genre` field disambiguates "Arts & Theatre" (comedy
+    vs stage); its "Music" rows stay live-music (even genre Dance/Electronic is ~half live acts —
+    club still needs a real club signal, which the club branch below already checks first)."""
+    cat = str(ev.get("category") or "").strip().lower()
+    tm_genre = str(ev.get("genre") or "").strip().lower()
     srcs = set(ev.get("sources") or [])
     if cat == "film" or _CINEMA_KW.search(hay):
         return "film"
-    if cat == "comedy" or _COMEDY_KW.search(hay):
+    if cat == "comedy" or tm_genre == "comedy" or _COMEDY_KW.search(hay):
         return "comedy"
-    if cat == "theater":
+    if cat in ("theater", "dance"):
         return "stage"
+    if cat == "arts & theatre":
+        if tm_genre in TM_STAGE_GENRES:
+            return "stage"
+        if "pageant of the masters" in hay:
+            return "art"
+        if "oc fair" in hay:
+            return "community"
+        if _STAGE_KW.search(hay):
+            return "stage"
+        return "other"                       # bare-name comedians hide here — honest null
     if _MARKET_KW.search(hay):
         return "market"
     if _WORKSHOP_KW.search(hay):
         return "workshop"
     if cat in ("electronic", "party") or (srcs & {"ra", "19hz", "posh"}) or _DJ_KW.search(hay):
         return "club"
-    if cat in ("music", "live_music"):
+    if cat in ("music", "live_music", "jazz"):
         return "live-music"
-    return {"art": "art", "general": "other"}.get(cat, "other")
+    if cat in ("", "undefined", "general", "miscellaneous", "event"):
+        venue = (ev.get("venue") or "").lower()
+        rooms = (cfg or {}).get("venue_type_live") or VENUE_TYPE_LIVE
+        if any(v in venue for v in rooms):
+            return "live-music"
+    return {"art": "art"}.get(cat, "other")
 
 
 def _genre(ev: dict, typ: str, hay: str, cfg: dict) -> list:
@@ -206,6 +257,9 @@ def _genre(ev: dict, typ: str, hay: str, cfg: dict) -> list:
         for tag, pat in GENRE_LIVE:
             if re.search(r"\b(" + pat + r")\b", hay):
                 out.append(tag)
+        tm = TM_GENRE_LIVE.get(str(ev.get("genre") or "").strip().lower())
+        if tm:
+            out.append(tm)                     # TM's own genre call, after any keyword hits
         if not out:                            # bare artist-name title -> fall back to the venue gazetteer
             for vk, gs in cfg["venue_genre"].items():
                 if vk in venue:
@@ -301,7 +355,7 @@ def tag_event(ev: dict, profile: dict = None) -> dict:
     """Derive the five-axis `tags` block for one catalog record. Pure; deterministic."""
     cfg = _cfg(profile)
     hay = _hay(ev)
-    typ = _resolve_type(ev, hay)
+    typ = _resolve_type(ev, hay, cfg)
     region, near_home = _region(ev, cfg)
     return {
         "type": typ,
