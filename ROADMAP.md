@@ -257,6 +257,12 @@ The ranking-judgment tier (above) made real, plus one daily digest replacing the
       (`data/editor_pool.<hash>.json`); run the editor + `merge_verdicts.py --profile-hash <hash>` per
       friend to give them the full editor treatment (else their feeds rank deterministically against their
       own music and pick up verdicts next run).
+- [ ] **Wire `editor.prune_verdicts` into the routine** — the prune helper exists and is tested
+      (`lib/editor.py`), but nothing operational calls it: the daily routine runs only
+      `prune_enrichment.py`, so orphaned keys accumulate in `data/verdicts/<hash>.json` as merged /
+      expired events leave the catalog. Harmless today (every verdict read is a miss-tolerant
+      `.get()`) — just unbounded growth in a committed file. Surfaced by the 2026-07-16
+      dedupe-fix review.
 
 ## Phase F — Horizon expansion (the 6-month plan-ahead tier)
 **Why now (the canonical miss):** Lori saw on *Bandsintown* that Alanis Morissette plays LA in
