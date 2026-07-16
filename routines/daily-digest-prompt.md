@@ -80,11 +80,15 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    near-window city-pulse set — civic/arena/festival signals regardless of taste score). Then the
    **primary consolidated daily digest**: `python scripts/render_digest.py --consolidated --md
    digests/latest.md` — ONE doc whose sections follow the root **`digest.yaml`** `sections:` list
-   (Track B4, the renderer now honors it): **Don't miss** (the top ~6 across the window,
-   tier-primary, whys prefilled from curator notes/verdicts), the day-by-day body (next 14 days +
-   the weekends in days 15–35, Thu–Sun), **Around town** (city-pulse, NOT taste-ranked, de-duped
+   (Track B4, the renderer now honors it): **Tonight & tomorrow** (the next-48h slice, compact),
+   **Don't miss** (the top ~6 across the window, tier-primary, whys prefilled from curator
+   notes/verdicts, priced + urgency-chipped), **What changed** (new/updated since the last pull;
+   auto-omitted on quiet days), the day-by-day body (next 14 days, lane-grouped + tier-scaled) +
+   **Weekends ahead** (days 15–35 compressed to top-4 per weekend + a link to its
+   digests/weekends/<Fri>.md), **Around town** (city-pulse, NOT taste-ranked, de-duped
    against the slate), and **on the radar**. All slate content is the editor slate (assemble over
-   the scored pool + verdicts); ⭐ = the editor's must-sees. Also keep the
+   the scored pool + verdicts); ⭐ = the editor's must-sees. Ops notices (Posh-token expiry,
+   coverage gaps) render in the FOOTER — never restate them in the intro. Also keep the
    **per-weekend look-ahead** (backend option for the dashboard's per-weekend view): for each of the
    next ~16 weekends keyed by the **Friday**, `python scripts/render_digest.py --from <Fri> --to <Sun>
    --md digests/weekends/<Fri>.md`. Near weekends fill out; far
@@ -92,11 +96,22 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
 5b. **Voice pass (Tier-3) on the consolidated digest — the insider layer.** Edit
    `digests/latest.md` in place, filling ONLY the marked slots:
    - replace `<!-- tier3:intro -->` with a 2–4 sentence intro in the LA-insider voice — the
-     week's shape, what kind of stretch it is, where the heat is;
+     week's shape, what kind of stretch it is, where the heat is. When two must-sees collide on
+     the same night, make the call here ("if you can only do one: …"). NEVER restate ops
+     warnings (token expiry, failed sources) — those live in the footer;
+   - replace `<!-- tier3:call -->` (Tonight & tomorrow) with ONE sentence: what the move is for
+     the next 48h — including an honest "quiet night, save it for Friday" when that's true;
+   - fill each `<!-- tier3:blueprint <date> -->` (Fri/Sat day headers, near section) with a
+     one-line night sketch — sequence what's already on that day's slate, dinner → show →
+     afters style, with rough timing ("Bodzin at the pier till 10, then WORK's afters from 11").
+     Draw a dinner suggestion from data/dining.json when one fits the geography; point at the
+     concierge for the full plan. Delete the marker on days with no real sequence to sketch;
    - tighten each **Don't miss** why at its `<!-- tier3:why <key> -->` marker (the scaffold
      prefills verdict/curator text — rewrite for voice and brevity, don't template);
-   - optionally give an **Around town** item a one-line gloss at its `<!-- tier3:gloss -->`
-     marker, only where you genuinely have something to say.
+   - optionally give an **Around town** or **On the radar** item a one-line gloss at its
+     `<!-- tier3:gloss <key> -->` marker, only where you genuinely have something to say — for
+     radar items the useful gloss is ticket-timing (on-sale/presale/selling-fast) or who the
+     act is; leave the rest of the markers in place (they render invisibly).
    **HARD RULE: never add, remove, or reorder events or sections** — the slate is deterministic
    and diffable; this pass adds voice, not selection. Honor `digest.yaml` `length`/`tone`/
    `emphasis`. One pass, a few K tokens (see docs/PIPELINE.md cost ledger).

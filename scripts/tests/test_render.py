@@ -224,6 +224,70 @@ def test_dont_miss_urgency_chips():
     assert "📍 location TBA — watch for the drop" in md
 
 
+def test_tonight_and_tomorrow_section():
+    ev_today = {"title": "TonightShow", "iso_date": "2026-06-17", "start": "21:00", "score": 8,
+                "rating": 4, "venue": "V", "category": "electronic", "links": []}
+    ev_tom = {"title": "TomorrowShow", "iso_date": "2026-06-18", "start": "20:00", "score": 7,
+              "rating": 3, "venue": "V2", "category": "electronic", "links": []}
+    ev_far = {"title": "FarShow", "iso_date": "2026-06-25", "start": "20:00", "score": 9,
+              "rating": 5, "venue": "V3", "category": "electronic", "links": []}
+    out = R._tonight_md([ev_today, ev_tom, ev_far], "2026-06-17")
+    md = "\n".join(out)
+    assert "## Tonight & tomorrow" in md and "<!-- tier3:call -->" in md
+    assert "`Today 9pm`" in md and "`Tomorrow 8pm`" in md
+    assert "FarShow" not in md                                     # 48h window only
+    # a run spanning both nights lists once (today), and no events -> no section
+    run = [dict(ev_today, title="Run"), dict(ev_today, title="Run", iso_date="2026-06-18")]
+    md2 = "\n".join(R._tonight_md(run, "2026-06-17"))
+    assert md2.count("Run") == 1 and "`Today" in md2
+    assert R._tonight_md([ev_far], "2026-06-17") == []
+
+
+def test_changes_section_lists_new_and_updated():
+    old_ref = R.FETCH_REF
+    R.FETCH_REF = "2026-06-17"
+    try:
+        new = {"title": "BrandNew", "iso_date": "2026-06-19", "venue": "V", "score": 6,
+               "rating": 3, "category": "electronic", "links": [], "first_seen": "2026-06-17"}
+        upd = {"title": "MovedShow", "iso_date": "2026-06-20", "venue": "V2", "score": 5,
+               "rating": 3, "category": "electronic", "links": [], "first_seen": "2026-06-01",
+               "updated_at": "2026-06-17", "changed_fields": ["lineup"]}
+        quiet = {"title": "OldShow", "iso_date": "2026-06-21", "venue": "V3", "score": 5,
+                 "rating": 3, "category": "electronic", "links": [], "first_seen": "2026-06-01"}
+        md = "\n".join(R._changes_md([new, upd, quiet]))
+        assert "## What changed" in md
+        assert "**New to the slate**" in md and "🆕" in md and "BrandNew" in md
+        assert "**Updated**" in md and "MovedShow" in md and "lineup" in md
+        assert "OldShow" not in md
+        assert R._changes_md([quiet]) == []                        # quiet day -> omitted
+    finally:
+        R.FETCH_REF = old_ref
+
+
+def test_consolidated_carries_new_sections_and_blueprint_slots():
+    cands = _dm_cands()   # both events fall on 2026-06-19/20 (Fri/Sat)
+    doc = {"today": "2026-06-17", "meta": {}}
+    md = R.render_consolidated_md("2026-06-17", [("Next two weeks", cands)], [], doc,
+                                  dont_miss=R._dont_miss_md(cands),
+                                  tonight=["## Tonight & tomorrow\n", "<!-- tier3:call -->", ""],
+                                  changes=["## What changed\n", "- x", ""])
+    assert md.index("## Tonight & tomorrow") < md.index("## Don't miss") \
+        < md.index("## What changed") < md.index("## Next two weeks")
+    assert "<!-- tier3:blueprint 2026-06-19 -->" in md             # Friday gets a slot
+    assert "<!-- tier3:blueprint 2026-06-20 -->" in md             # Saturday too
+    # weekday days don't (shift the events to a Tuesday)
+    tue = [dict(c, iso_date="2026-06-16") for c in cands]
+    md2 = R.render_consolidated_md("2026-06-15", [("Next two weeks", tue)], [], doc)
+    assert "tier3:blueprint" not in md2
+
+
+def test_radar_rows_carry_gloss_slots():
+    rows = [{"key": "rk1", "title": "Fest", "venue": "Park", "iso_date": "2026-08-22",
+             "signals": ["festival"], "link": None}]
+    md = "\n".join(R._radar_md(rows))
+    assert "<!-- tier3:gloss rk1 -->" in md
+
+
 def test_tidy_why_repairs_hard_sliced_whys():
     cut = "x" * 150 + " word another" + "y" * 37                   # 200 chars, ends mid-word
     assert len(cut) == 200

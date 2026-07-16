@@ -399,8 +399,66 @@ def build_slate_cands(catalog, taste, profile, today, verdicts, *, window=None,
 # the full verdict store ranks everything; Don't-miss is just its top slice pulled forward.
 DONT_MISS_LIMIT = 6
 AROUND_LIMIT = 12
+TONIGHT_TOP = 3      # picks listed per day in Tonight & tomorrow
+CHANGES_TOP = 8      # rows per list in What changed
 _DM_TIER = {"must-see": 3, "great": 2, "solid": 1}
-DEFAULT_SECTIONS = ["dont_miss", "day_by_day", "around_town", "radar"]
+DEFAULT_SECTIONS = ["tonight", "dont_miss", "changes", "day_by_day", "around_town", "radar"]
+
+
+def _tonight_md(cands: list, today_iso: str) -> list:
+    """Tonight & tomorrow — the next-48h actionable slice of the same slate, best-first and
+    compact (the day-by-day body carries the full entries; this is the index you act on).
+    The tier3:call slot is the voice pass's one-line verdict on what the move actually is —
+    including an honest "stay in, Friday's the night"."""
+    tod = today_iso[:10]
+    tom = (date.fromisoformat(tod) + timedelta(days=1)).isoformat()
+    by = {tod: [], tom: []}
+    seen = set()
+    for ev in cands:
+        d0 = ev.get("iso_date")
+        rk = (normalize(ev.get("title") or ""), normalize(ev.get("venue") or ""))
+        if d0 in by and rk not in seen:         # a run spanning both nights lists once, tonight
+            by[d0].append(ev)
+            seen.add(rk)
+    if not (by[tod] or by[tom]):
+        return []
+    out = ["## Tonight & tomorrow\n", "<!-- tier3:call -->", ""]
+    for label, iso in (("Today", tod), ("Tomorrow", tom)):
+        evs = sorted(by[iso], key=lambda e: (-(e.get("rating") or 0), -(e.get("score") or 0)))
+        for ev in evs[:TONIGHT_TOP]:
+            line = event_md(ev, "compact")
+            t = fmt_time(ev.get("start")) or "time TBA"
+            out.append(line.replace(f"- `{t}`", f"- `{label} {t}`", 1))
+    return out + [""]
+
+
+def _changes_md(cands: list) -> list:
+    """What changed on the latest pull, pulled out of the inline 🆕/↻ scatter into one place:
+    events new to the slate, and updated ones with the fields that moved. Omitted entirely on
+    a no-change day — the freshness line already says so."""
+    seen, new, upd = set(), [], []
+    for ev in cands:
+        k = event_key(ev)
+        if k in seen:
+            continue
+        seen.add(k)
+        if _is_new(ev):
+            new.append(ev)
+        elif _updated_fields(ev):
+            upd.append(ev)
+    if not (new or upd):
+        return []
+    out = ["## What changed\n"]
+    for intro, rows in (("New to the slate", new), ("Updated", upd)):
+        if not rows:
+            continue
+        out.append(f"\n**{intro}**")
+        rows.sort(key=lambda e: (e.get("iso_date") or "9999", -(e.get("score") or 0)))
+        for ev in rows[:CHANGES_TOP]:
+            out.append(event_md(ev, "compact", lead="date"))
+        if len(rows) > CHANGES_TOP:
+            out.append(f"- *…plus {len(rows) - CHANGES_TOP} more*")
+    return out + [""]
 
 
 # Deterministic ticket-urgency read on a Don't-miss pick — decision info, not clairvoyance:
@@ -538,7 +596,8 @@ def _radar_md(rows: list, limit: int = 18) -> list:
         head = f"[{r['title']}]({r['link']})" if r.get("link") else (r.get("title") or "Untitled")
         loc = " · ".join(x for x in (r.get("venue"), r.get("neighborhood")) if x)
         out.append(f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}**"
-                   + (f" — {loc}" if loc else "") + (f"  ·  *{sig}*" if sig else ""))
+                   + (f" — {loc}" if loc else "") + (f"  ·  *{sig}*" if sig else "")
+                   + f" <!-- tier3:gloss {r.get('key', '')} -->")
     return out
 
 
@@ -571,7 +630,8 @@ def _posh_banner_md(notice: dict) -> str:
 
 def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dict, notice=None,
                            dont_miss: list = None, around: list = None, order: list = None,
-                           weekends: list = None, dm_keys: frozenset = frozenset()) -> str:
+                           weekends: list = None, dm_keys: frozenset = frozenset(),
+                           tonight: list = None, changes: list = None) -> str:
     """The consolidated scaffold. Section inclusion + order follow digest.yaml `sections`
     (Track B4 — the renderer finally honors it); day_by_day is the body and is never droppable.
     The `<!-- tier3:… -->` markers are the Tier-3 voice pass's slots: it fills the intro and may
@@ -590,16 +650,25 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
     if "day_by_day" not in order:
         order.append("day_by_day")
     for sec in order:
-        if sec == "dont_miss" and dont_miss:
+        if sec == "tonight" and tonight:
+            out.extend(tonight)
+        elif sec == "dont_miss" and dont_miss:
             out.extend(dont_miss)
+        elif sec == "changes" and changes:
+            out.extend(changes)
         elif sec == "day_by_day":
-            for title, cands in sections:
+            for si, (title, cands) in enumerate(sections):
                 days = _by_day(cands)
                 if not days:
                     continue
                 out.append(f"## {title}\n")
                 for iso in sorted(days):
                     out.append(f"### {day_header(iso)}")
+                    # Fri/Sat in the near section carry a blueprint slot: the voice pass may
+                    # sketch the night (dinner → show → afters, via the night-planner sense)
+                    # in one line, or delete the marker. Never a new event — a sequence.
+                    if si == 0 and date.fromisoformat(iso).weekday() in (4, 5):
+                        out.append(f"<!-- tier3:blueprint {iso} -->")
                     out.extend(_day_body(days[iso], dm_keys))
                     out.append("")
             if weekends:
@@ -713,11 +782,15 @@ def main() -> int:
         dm_keys = frozenset(event_key(e) for e in _dont_miss_events(enr1 + enr2))
         around = _around_md(around_rows, slate_keys)
         notice = posh_notice()  # proactive Posh-token banner (no-email nudge), if warn/expired
+        tonight = _tonight_md(enr1, doc["today"])
+        changes = _changes_md(enr1 + enr2)
         Path(args.md).write_text(render_consolidated_md(
             doc["today"], sections, radar, doc, notice,
             dont_miss=dont_miss, around=around, order=prefs.get("sections"),
-            weekends=weekends, dm_keys=dm_keys))
-        print(f"rendered consolidated digest: {max(len(dont_miss) - 2, 0)} don't-miss + "
+            weekends=weekends, dm_keys=dm_keys, tonight=tonight, changes=changes))
+        print(f"rendered consolidated digest: {max(len(tonight) - 4, 0)} tonight/tomorrow + "
+              f"{max(len(dont_miss) - 2, 0)} don't-miss + "
+              f"{max(len(changes) - 2, 0)} changed + "
               f"{len(sec1)} + {len(sec2)} picks + {max(len(around) - 3, 0)} around town + "
               f"{min(len(radar), 18)} on the radar -> {args.md}")
         return 0
