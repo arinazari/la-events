@@ -98,6 +98,18 @@ def test_merge_preserves_genre_from_either_record():
     assert merge(tm, base)["genre"] == "Indie"     # kept when the base already carries it
 
 
+def test_merge_preserves_lineup_genre_from_either_record():
+    # Same sparse-field rule for the TM attraction-level genre: the catalog base (always the
+    # merge base `a`) never has it until a fetch backfills — dropping it would strand the
+    # bare-name comedians in type `other` forever.
+    base = {"title": "Trevor Noah", "venue": "Peacock", "date": "2026-08-20", "lineup": []}
+    tm = {"title": "Trevor Noah", "venue": "Peacock", "date": "2026-08-20", "lineup": [],
+          "lineup_genre": "Comedy"}
+    assert merge(base, tm)["lineup_genre"] == "Comedy"
+    assert merge(tm, base)["lineup_genre"] == "Comedy"
+    assert "lineup_genre" not in merge(base, dict(base))    # stays sparse — no null stamping
+
+
 def test_dedupe_collapses_cluster():
     merged, report = dedupe([RA, DICE, TM])
     assert len(merged) == 1, [e["title"] for e in merged]

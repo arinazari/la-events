@@ -22,6 +22,36 @@ sources:
   ticketmaster_dma_id: "324" # LA DMA — fetch_ticketmaster.py
   ra_area_id: 23 # RA's internal LA area number — fetch_ra.py
 
+pipeline:
+  # Out-of-market drop (Ari, 2026-07-17): TM's DMA 324 reaches Palm Springs / Paso Robles /
+  # SD-adjacent venues; rows whose neighborhood is listed here are dropped at merge time
+  # UNLESS radar-worthy (festival title / tracked artist / arena-tier venue — so Coachella,
+  # a tracked name at Pappy's, or a Yaamava headliner still gets captured). This is the
+  # >~80-mile line; day-trip far (Anaheim/OC/Riverside/Ventura/Ojai) stays in-catalog and is
+  # handled by the far scoring penalty instead. Edit freely — it's policy, not code.
+  out_of_market:
+    - palm springs
+    - rancho mirage
+    - palm desert
+    - cabazon
+    - coachella
+    - indio
+    - pioneertown # Pappy & Harriet's — tracked/festival bookings survive via the radar door
+    - yucaipa
+    - san bernardino
+    - highland # Yaamava sits here — its arena headliners survive via the radar door
+    - san diego
+    - santa barbara
+    - paso robles
+    - san luis obispo
+    - bakersfield
+    - palmdale
+    - temecula
+    # out-of-state junk that occasionally rides in via TM/Eventbrite fetcher noise:
+    - bolingbrook
+    - portland
+    - sunrise
+
 scoring:
   # Base category weight, mirroring taste.yaml high/medium/low. Comedy is special-cased in code
   # (suppressed unless a loved comedian). Unknown categories default to 1.

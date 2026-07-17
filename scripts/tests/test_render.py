@@ -319,6 +319,17 @@ def test_radar_rows_carry_gloss_slots():
     assert "<!-- tier3:gloss rk1 -->" in md
 
 
+def test_lane_of_applies_event_lane_guards():
+    """_lane_of delegates to assemble.event_lane: a cached bare-family 'live-music' override on
+    a hall-scale show refines to live-music:big (so the 'big venue' chip fires), and an
+    off-vocab cached lane is ignored instead of flowing into the digest grouping."""
+    base = {"title": "Gipsy Kings", "venue": "Greek Theatre", "date": "2026-08-01",
+            "tags": {"type": "live-music", "scale": "arena", "vibe": [], "setting": [], "genre": []}}
+    assert R._lane_of({**base, "verdict": {"lane": "live-music"}}) == "live-music:big"
+    assert R._lane_of({**base, "verdict": {"lane": "bogus:lane"}}) == "live-music:big"
+    assert R._lane_of({**base, "verdict": {"lane": "club:mainstream"}}) == "club:mainstream"
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
