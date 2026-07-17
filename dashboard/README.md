@@ -71,8 +71,9 @@ The chat has two modes, toggled in its header (default **Concierge**):
 - **Concierge (LLM)** — a real conversational concierge that **answers questions**, recommends,
   and plans a night. Because the page is static (no API key in the browser), it POSTs to a
   `BACKEND_URL` — a small Cloudflare Worker that holds the Anthropic key and grounds the model on
-  the live feed. **Deploy it + connect it** (see `backend/README.md`; tap "connect" in the chat
-  header to set the URL/token). Until then, Concierge mode transparently falls back to ↓.
+  the live feed. **Deploy it + connect it** (see `backend/README.md`; the URL is the `BACKEND_URL`
+  constant in `index.html`, and "connect" in the chat header sets the token). Until then,
+  Concierge mode transparently falls back to ↓.
   Or **bring your own key**: *Settings (☰) → Claude API key* opens a modal with a `sk-ant-…` field +
   an on/off switch (and the shared access token below it). With the switch **on**, your key is stored
   in your browser and sent to the Worker per request — it pays for your messages and connects the
@@ -205,7 +206,8 @@ generated runtime; the only hand-edit is the three `vendor/` paths (originally u
 ## Upgrade path
 
 The LLM **Concierge backend** is the realized version of this (see `backend/`): deploy the
-Worker, set the Anthropic key, connect the URL/token. Still open as future work: streaming
+Worker, set the Anthropic key, point `BACKEND_URL` at it, connect the token. Still open as
+future work: streaming
 responses, auto-committing generated plans back to the repo, and real auth (Cloudflare Access).
 Public/unlisted Pages + the Fast-filter fallback is fine until then (the catalog is public LA
 events).

@@ -316,7 +316,19 @@
               <sc-if value="{{ c.why }}" hint-placeholder-val="{{ false }}"><div class="fp-clamp3 fpc-why">{{ c.why }}</div></sc-if>
               <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px;">
                 <span class="fpc-price">{{ c.price }}</span>
-                <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span class="fpc-new">NEW</span></sc-if>
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                  <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span class="fpc-new">NEW</span></sc-if>
+                  <span title="taste score {{ c.scoreLabel }}" style="display:inline-flex; align-items:center; gap:5px;">
+                    <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color: {{ c.scoreColor }};">{{ c.scoreLabel }}</span>
+                    <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
+                      <span style="display:inline-flex; align-items:flex-end; gap:1.5px; height:7px;">
+                        <sc-for list="{{ c.scoreSegs }}" as="s" hint-placeholder-count="9">
+                          <span style="width:1.5px; height:7px; border-radius:1px; background: {{ s.bg }};"></span>
+                        </sc-for>
+                      </span>
+                    </sc-if>
+                  </span>
+                </span>
               </div>
             </div>
           </sc-for>
@@ -593,6 +605,13 @@
                   <span style="font:600 16px/1 ui-monospace,Menlo,monospace; color: {{ ev.rankColor }};">{{ ev.rankNum }}</span>
                 </span>
                 <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color: {{ ev.scoreColor }};">score {{ ev.scoreLabel }}</span>
+                <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
+                  <span style="display:inline-flex; align-items:flex-end; gap:1.5px; height:7px;">
+                    <sc-for list="{{ ev.scoreSegs }}" as="s" hint-placeholder-count="9">
+                      <span style="width:1.5px; height:7px; border-radius:1px; background: {{ s.bg }};"></span>
+                    </sc-for>
+                  </span>
+                </sc-if>
               </div>
             </div>
             <div style="margin-top:6px; font-size:12.5px; line-height:1.4; color:#76746b;">{{ ev.sub }}</div>
@@ -1154,10 +1173,10 @@ class Component extends DCLogic {
     ]
   };
 
-  // LLM concierge backend (the BACKEND_URL seam). Empty = not wired -> the chat falls back to
-  // the local "Fast filter" engine. Set via the chat header "connect" affordance (localStorage),
-  // or hardcode the URL here. See backend/README.md.
-  BACKEND_URL = (typeof localStorage !== 'undefined' && localStorage.getItem('la-backend-url')) || 'https://la-events-concierge.arinazari.workers.dev';
+  // LLM concierge backend (the BACKEND_URL seam). Self-hosting? Edit this constant to your own
+  // Worker (see backend/README.md). Empty = not wired -> the chat falls back to the local
+  // "Fast filter" engine. The chat-header "connect" modal manages the token/key only, never the URL.
+  BACKEND_URL = 'https://la-events-concierge.arinazari.workers.dev';
   // Per-profile connection (token/key/Opus) — see the CONN store below. This prefill is the active
   // profile's saved token; componentDidMount re-reads it authoritatively (after migration + TTL check).
   BACKEND_TOKEN = (() => { try { return this.readConn().token || ''; } catch (e) { return ''; } })();
@@ -1188,6 +1207,11 @@ class Component extends DCLogic {
     const L = [0.560, 0.573, 0.586, 0.599, 0.612, 0.625][i];
     const C = [0.122, 0.118, 0.113, 0.112, 0.114, 0.116][i];
     return 'oklch(' + L.toFixed(3) + ' ' + C.toFixed(3) + ' ' + H + ')';
+  }
+
+  scoreSegsFor(s) {
+    // the little strength bar: 9 segments filled to the score, one tint per event
+    return Array.from({ length: 9 }, (_, k) => ({ bg: k < s ? this.scoreColorFor(s) : '#dedcd4' }));
   }
 
   badgeStyle(text) {
@@ -1797,6 +1821,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "## July 2026",
     "",
     "- **A front page.** The site now opens on an editorial home: the day's *take*, a **Don't miss** hero row, and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
+    "- **Taste strength on every card.** The transparent taste score — the number with the little strength bar from the Explore table — now sits on each front-page card and mobile card too, so you can see *how strongly* something matched, not just that it made the cut.",
     "- **Cleaner categories.** A large batch of events (mostly Ticketmaster's) were sitting in an 'other' bucket — they're now properly typed as live music, stage, comedy and film, so lane filters and shelves actually cover the catalog.",
     "- **You control your refresh.** Your table still picks up new events nightly, but your curated layer — the editorial pass behind your final ranks, and your written digest — no longer silently rebuilds every night. It refreshes when your **taste changes** (a concierge edit folds in overnight) or when **you hit Update**; after 3+ days, a popup explains what's waiting and offers to refresh right there.",
     "",
@@ -2110,6 +2135,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   migrateLegacyConn() {
     try {
       if (typeof localStorage === 'undefined') return;
+      // The retired prompt()-era connect flow saved a per-user Worker URL under this key, and it
+      // silently overrode BACKEND_URL with no UI to see or clear it. Nothing writes or reads it
+      // anymore — drop any stale value.
+      try { localStorage.removeItem('la-backend-url'); } catch (e) {}
       const legacy = ['la-concierge-token', 'la-claude-api-key', 'la-claude-api-enabled', 'la-claude-use-opus'];
       if (legacy.every(k => localStorage.getItem(k) == null)) return;
       const patch = {};
@@ -3241,7 +3270,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       hood: e.hood,
       cat: e.cat, genre: e.genre, catColor: this.CAT_COLOR[e.cat] || '#3f3d36',
       score: e.score, scoreLabel: String(e.score), scoreColor: this.scoreColorFor(e.score),
-      scoreSegs: Array.from({ length: 9 }, (_, k) => ({ bg: k < e.score ? this.scoreColorFor(e.score) : '#dedcd4' })),
+      scoreSegs: this.scoreSegsFor(e.score),
       hasRank: !!e.final_rank,
       rankNum: (e.final_rank ? String(e.final_rank) : '—'),
       rankColor: (e.final_rank ? '#161512' : '#cfcdc4'),
@@ -3532,6 +3561,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         price: e.price || '',
         tier: (e.verdict && TIER_BG[e.verdict.tier]) ? e.verdict.tier.toUpperCase() : '',
         tierBg: TIER_BG[(e.verdict || {}).tier] || '#76746b',
+        scoreLabel: String(e.score), scoreColor: this.scoreColorFor(e.score),
+        scoreSegs: this.scoreSegsFor(e.score),
         isNew: !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef),
         onClick: () => this.openFpDetail(e.key),
       });
