@@ -1173,10 +1173,10 @@ class Component extends DCLogic {
     ]
   };
 
-  // LLM concierge backend (the BACKEND_URL seam). Empty = not wired -> the chat falls back to
-  // the local "Fast filter" engine. Set via the chat header "connect" affordance (localStorage),
-  // or hardcode the URL here. See backend/README.md.
-  BACKEND_URL = (typeof localStorage !== 'undefined' && localStorage.getItem('la-backend-url')) || 'https://la-events-concierge.arinazari.workers.dev';
+  // LLM concierge backend (the BACKEND_URL seam). Self-hosting? Edit this constant to your own
+  // Worker (see backend/README.md). Empty = not wired -> the chat falls back to the local
+  // "Fast filter" engine. The chat-header "connect" modal manages the token/key only, never the URL.
+  BACKEND_URL = 'https://la-events-concierge.arinazari.workers.dev';
   // Per-profile connection (token/key/Opus) — see the CONN store below. This prefill is the active
   // profile's saved token; componentDidMount re-reads it authoritatively (after migration + TTL check).
   BACKEND_TOKEN = (() => { try { return this.readConn().token || ''; } catch (e) { return ''; } })();
@@ -2135,6 +2135,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   migrateLegacyConn() {
     try {
       if (typeof localStorage === 'undefined') return;
+      // The retired prompt()-era connect flow saved a per-user Worker URL under this key, and it
+      // silently overrode BACKEND_URL with no UI to see or clear it. Nothing writes or reads it
+      // anymore — drop any stale value.
+      try { localStorage.removeItem('la-backend-url'); } catch (e) {}
       const legacy = ['la-concierge-token', 'la-claude-api-key', 'la-claude-api-enabled', 'la-claude-use-opus'];
       if (legacy.every(k => localStorage.getItem(k) == null)) return;
       const patch = {};

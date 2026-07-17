@@ -121,8 +121,9 @@ npx wrangler secret put GITHUB_TOKEN       # optional — enables taste self-edi
 npx wrangler deploy                        # prints https://la-events-concierge.<you>.workers.dev
 ```
 
-Then point the dashboard at it: open the page, tap **connect** in the chat header, paste the
-Worker URL + (if set) the token. Stored in your browser's localStorage — no redeploy needed.
+Then point the dashboard at it: set the `BACKEND_URL` constant in `dashboard/index.html` to the
+printed Worker URL and redeploy Pages. Visitors connect from the page itself — **connect** in the
+chat header stores the token / personal key (per profile, in that browser's localStorage).
 
 ## Config
 
