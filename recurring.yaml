@@ -7,6 +7,7 @@
 # sources (Eater LA, UncoverLA, Secret LA, DiscoverLA) at digest time.
 #
 # cadence: weekly:<DOW> | monthly:<Nth>:<DOW> (e.g. monthly:2:Sun = 2nd Sunday)
+# except_months: [12] — months the cadence skips (optional)
 # start: HH:MM (24h) — the row's start time; `when` stays the human-readable hours line.
 # Last reviewed: 2026-07-17
 
@@ -55,8 +56,35 @@ markets:
     cadence: [monthly:2:Sun]
     when: 2nd Sun, 9am GA (5am VIP)
     start: "09:00"
-    where: Rose Bowl, Pasadena
+    where: Rose Bowl Stadium, Pasadena   # matches the Eventbrite rows' venue so dedupe merges
     neighborhood: Pasadena
     category: flea
     url: https://www.rgcshows.com/rose-bowl/
-    note: The big one — 2,500+ vendors. Tickets via Eventbrite in advance. Worth the drive.
+    note: >
+      The big one — 2,500+ vendors. Worth the drive. Also covered by the R.G. Canning
+      Eventbrite organizer (sources.yaml, Discover 2026-07-17) whose rows carry real ticket
+      links + sold-out state — dedupe merges the two; this entry is the cadence fallback.
+
+  # ── Added 2026-07-17 (source-scout Discover pass; approved by Ari) ─────────────
+  - name: Silverlake Flea
+    cadence: [weekly:Fri, weekly:Sat, weekly:Sun]
+    when: Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm
+    start: "10:00"
+    where: 4561 W Colorado Blvd (Atwater Village)
+    neighborhood: Atwater Village
+    category: flea
+    url: https://www.silverlakeflea.com/
+    note: >
+      Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from
+      Micheltorena to Atwater — verify post-move hours on first surfacing.
+
+  - name: Topanga Vintage Market
+    cadence: [monthly:4:Sun]
+    except_months: [12]
+    when: 4th Sun (except Dec), 7am–2pm
+    start: "07:00"
+    where: Pierce College, Victory @ Mason (Woodland Hills)
+    neighborhood: Woodland Hills
+    category: flea
+    url: https://topangavintagemarket.com/
+    note: $5 admission. Strictly the 4th Sunday, not the last — watch 5-Sunday months.

@@ -60,7 +60,10 @@ FETCHERS = [
     {"name": "New Beverly Cinema", "source": "newbev", "script": "fetch_veezi.py",
      "args": ["--token", "fmtswb0qqbym3de6c4bbsqj89m", "--venue", "New Beverly Cinema", "--days", "{days}"]},
     {"name": "Posh", "source": "posh", "script": "fetch_posh.py", "args": [], "needs": ["POSH_TOKEN"]},
-    {"name": "Eventbrite", "source": "eventbrite", "script": "fetch_eventbrite.py", "args": []},
+    # --days threaded through (was stuck on the fetcher's internal 14-day default, so advance-
+    # ticketed events — Rose Bowl Flea sells months out — could never enter until 2 weeks before).
+    {"name": "Eventbrite", "source": "eventbrite", "script": "fetch_eventbrite.py",
+     "args": ["--days", "{days}"]},
     {"name": "DICE", "source": "dice", "script": "fetch_dice.py", "args": []},
 ]
 

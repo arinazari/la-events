@@ -541,6 +541,18 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
 - [ ] Flyer-forwarding bot + Twilio SMS/MMS intake (`sms-ingestion.md`). Capture-by-hand still works.
 - [ ] On-sale sniper / price tracking across ticket links (DICE vs TM fees). Nice-to-have.
 - [ ] SQLite instead of `catalog.json` if volume ever demands it.
+- [ ] **Shared lane corrections** (surfaced by the 2026-07-17 taxonomy revamp; Ari wants lanes
+      standardized across profiles). Tags + deterministic lanes are already one shared, taste-neutral
+      vocabulary — but the event-editor's *lane override* is stored per profile
+      (`data/verdicts/<hash>.json`, ~165 overrides), so the same event can sit in different lanes on
+      different profiles' feeds when their editors disagree. A lane correction is a FACT call
+      (headliner draw, a nostalgia night's character), not taste — so move it into the shared
+      enrichment layer (`data/enrichment.json` scene facts, cross-profile by design): the editor
+      still *proposes* a lane, `merge_verdicts` folds it into enrichment instead of the verdict
+      store, `event_lane` reads it as a deterministic input, and per-profile verdicts keep only the
+      taste fields (tier/adjust/why). Migration: one pass folding existing verdict-lane overrides
+      into enrichment (conflicts → most-recent judged_at wins), then strip `lane` from the verdict
+      contract + event-editor.md. Small, contained; do it alongside the next editor-contract bump.
 
 ---
 

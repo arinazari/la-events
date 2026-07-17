@@ -268,7 +268,7 @@ REGIONS = {
         "westchester", "beverly hills", "malibu"},
     "valley": {"glendale", "burbank", "north hollywood", "noho", "studio city",
         "sherman oaks", "van nuys", "tarzana", "pasadena", "south pasadena", "encino",
-        "san fernando", "alhambra", "temple city", "arcadia"},
+        "san fernando", "alhambra", "temple city", "arcadia", "woodland hills"},
     "south-bay": {"long beach", "san pedro", "torrance", "redondo beach", "inglewood"},
     "far": {"anaheim", "santa ana", "irvine", "san diego", "temecula", "ventura",
         "riverside", "costa mesa", "huntington beach", "oxnard", "yucaipa",
@@ -503,7 +503,7 @@ def _resolve_type(ev: dict, hay: str, cfg: dict = None) -> str:
             if re.search(r"\brave\b|\b(dance|disco) party\b|\bdisko\b", title_l):
                 return "club"
         return "live-music"
-    if cat in ("", "undefined", "general", "miscellaneous", "event"):
+    if cat in ("", "undefined", "general", "miscellaneous", "event", "festival"):
         rooms = (cfg or {}).get("venue_type_live") or VENUE_TYPE_LIVE
         if any(v in venue_l for v in rooms):
             return "live-music"

@@ -351,8 +351,11 @@ def materialize_recurring(doc: dict, today: date = None, days: int = 35) -> list
     today = today or today_la()
     out = []
     for entry in (doc or {}).get("markets") or []:
+        skip_months = {int(m) for m in entry.get("except_months") or []}
         for token in entry.get("cadence") or []:
             for d in _cadence_dates(token, today, days):
+                if d.month in skip_months:
+                    continue                  # e.g. Topanga Vintage skips December
                 out.append(normalize_record({
                     "title": entry.get("name"),
                     "date": d.isoformat(),

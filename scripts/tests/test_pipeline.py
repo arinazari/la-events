@@ -307,6 +307,14 @@ def test_materialize_recurring_tags_as_market():
     assert all(tag_event(r)["type"] == "market" for r in rows)   # flea/food_market categories too
 
 
+def test_materialize_recurring_except_months():
+    doc = {"markets": [{"name": "Topanga Vintage Market", "cadence": ["monthly:4:Sun"],
+                        "except_months": [12], "category": "flea"}]}
+    rows = P.materialize_recurring(doc, date(2026, 11, 25), days=61)
+    # 4th Sundays in window (end-exclusive, so 61d reaches 1/24): 12/27 skipped, 1/24 kept
+    assert [r["date"] for r in rows] == ["2027-01-24"]
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

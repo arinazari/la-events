@@ -6095,7 +6095,7 @@
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -8480,6 +8480,41 @@
     }
   },
   {
+    "title": "Silverlake Flea",
+    "date": "2026-07-17",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
     "title": "Matilda the Musical",
     "date": "2026-07-18",
     "start": "14:00",
@@ -8730,7 +8765,7 @@
   {
     "title": "Deep House Brunch: World Cup Edition - JJ Flores, Scotty Boy, Sweet P, Christian Bradford, iAMME",
     "date": "2026-07-18",
-    "start": "7pm-8pm",
+    "start": "14:00",
     "venue": "Jungle Hollywood",
     "neighborhood": "Hollywood",
     "category": "electronic",
@@ -8760,11 +8795,11 @@
     ],
     "organizers": "Orlove Entertainment",
     "detail": "House Music and Bar Olympics Collide!",
-    "price": "$17.25",
+    "price": "free",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-19",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -8774,12 +8809,16 @@
         "club"
       ],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "day-party",
+        "free"
+      ],
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-07-08",
+    "updated_at": "2026-07-16",
     "changed_fields": [
+      "price",
       "start"
     ]
   },
@@ -14761,7 +14800,7 @@
     }
   },
   {
-    "title": "FIFA Watch Party | Third Place Play-Off | TBA x TBA | World Cup 2026",
+    "title": "FIFA Watch Party | Third Place Play-Off | France x England | World Cup 2026",
     "date": "2026-07-18",
     "start": "13:00",
     "venue": "Golden Hour",
@@ -14773,6 +14812,10 @@
       {
         "source": "eventbrite",
         "url": "https://www.eventbrite.com/e/fifa-watch-party-third-place-play-off-tba-x-tba-world-cup-2026-tickets-1993875150248"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/fifa-watch-party-third-place-play-off-france-x-england-world-cup-2026-tickets-1993875150248"
       }
     ],
     "sources": [
@@ -14784,7 +14827,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "community",
       "genre": [],
@@ -14794,7 +14837,6 @@
       "scale": null,
       "vibe": [
         "sunset",
-        "tba-location",
         "free"
       ],
       "region": null,
@@ -15249,6 +15291,41 @@
       "vibe": [
         "sunset"
       ],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "Silverlake Flea",
+    "date": "2026-07-18",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
       "region": "eastside",
       "near_home": true
     }
@@ -16438,6 +16515,10 @@
       {
         "source": "eventbrite",
         "url": "https://www.eventbrite.com/e/the-breakfast-club-with-marques-wyatt-colette-patricio-j-dub-mark-lewis-tickets-1992783733792"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/marques-wyatt-colette-patricio-j-dub-mark-lewis-derrick-wize-at-jungle-tickets-1992783733792"
       }
     ],
     "sources": [
@@ -16447,11 +16528,11 @@
     ],
     "organizers": "Candy Talk Records",
     "detail": "Breakfast Club presents the World Cup Final viewing party with Marques Wyatt, Colette, Patricio, Mark Lewis, Danny B, J-Dub & Derrick Wize.",
-    "price": "$12.51",
+    "price": "$9.85",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-30",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -16467,10 +16548,9 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-07-08",
+    "updated_at": "2026-07-16",
     "changed_fields": [
-      "price",
-      "start"
+      "price"
     ]
   },
   {
@@ -18121,7 +18201,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -18531,7 +18611,7 @@
     }
   },
   {
-    "title": "FIFA Watch Party | Final | TBA x TBA | World Cup 2026",
+    "title": "FIFA Watch Party | Final | Argentina x Spain | World Cup 2026",
     "date": "2026-07-19",
     "start": "11:00",
     "venue": "Golden Hour",
@@ -18543,6 +18623,10 @@
       {
         "source": "eventbrite",
         "url": "https://www.eventbrite.com/e/fifa-watch-party-final-tba-x-tba-world-cup-2026-tickets-1993875577526"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/fifa-watch-party-final-argentina-x-spain-world-cup-2026-tickets-1993875577526"
       }
     ],
     "sources": [
@@ -18554,7 +18638,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "community",
       "genre": [],
@@ -18564,7 +18648,6 @@
       "scale": null,
       "vibe": [
         "sunset",
-        "tba-location",
         "free"
       ],
       "region": null,
@@ -18754,6 +18837,41 @@
       "scale": null,
       "vibe": [],
       "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "title": "Silverlake Flea",
+    "date": "2026-07-19",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
       "near_home": true
     }
   },
@@ -20149,7 +20267,7 @@
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -21255,9 +21373,9 @@
     }
   },
   {
-    "title": "Clinic",
+    "title": "Clinic x The 900 Block",
     "date": "2026-07-22",
-    "start": "10pm-2:30am",
+    "start": "22:00",
     "venue": "Jungle Hollywood (Los Angeles) techno, tech house, deep house",
     "neighborhood": "Hollywood",
     "category": "electronic",
@@ -21267,18 +21385,23 @@
       {
         "source": "19hz",
         "url": "https://www.facebook.com/clinicwednesdays/events"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/clinic-x-the-900-block-tickets-1994240973435"
       }
     ],
     "sources": [
-      "19hz"
+      "19hz",
+      "eventbrite"
     ],
     "organizers": "Underrated, Clinic",
     "detail": null,
-    "price": "21+",
+    "price": "free",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-07-08",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -21291,7 +21414,8 @@
       ],
       "scale": null,
       "vibe": [
-        "afterhours"
+        "afterhours",
+        "free"
       ],
       "region": "hollywood",
       "near_home": false
@@ -23334,7 +23458,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-09",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -26571,7 +26695,7 @@
   {
     "title": "Project Nightfall | Vermont Hollywood | 21+",
     "date": "2026-07-24",
-    "start": "9pm-2am",
+    "start": "21:00",
     "venue": "Vermont Hollywood (Los Angeles) dubstep",
     "neighborhood": "Hollywood",
     "category": "electronic",
@@ -26593,11 +26717,11 @@
     ],
     "organizers": null,
     "detail": "Get ready to drop into some heavy dubstep vibes with Project Nightfall lighting up the night!",
-    "price": "free w/rsvp b4 10:30pm / $12+",
+    "price": "free",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -26608,13 +26732,12 @@
       "vibe": [
         "afterhours",
         "free",
-        "free-rsvp",
         "21+"
       ],
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-07-11",
+    "updated_at": "2026-07-16",
     "changed_fields": [
       "price",
       "start"
@@ -26775,7 +26898,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -27445,6 +27568,41 @@
     }
   },
   {
+    "title": "Silverlake Flea",
+    "date": "2026-07-24",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
     "title": "Music Stage at Lexus US Open: G. Love & Special Sauce // Matt Costa",
     "date": "2026-07-25",
     "start": "18:00",
@@ -27690,7 +27848,7 @@
   {
     "title": "FLOAT Rooftop Pool Party ft. Jody Wisternoff [2-8 PM]",
     "date": "2026-07-25",
-    "start": "2pm-8pm",
+    "start": "14:00",
     "venue": "Level 8 DTLA",
     "neighborhood": "DTLA",
     "category": "electronic",
@@ -27719,11 +27877,11 @@
     ],
     "organizers": "Underrated, Minimal Effort",
     "detail": "Poolside beats, curated cocktails, and skyline views above the city.",
-    "price": "$29.62 pre",
+    "price": "$30.73",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-19",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -27734,11 +27892,13 @@
         "pool"
       ],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "day-party"
+      ],
       "region": "dtla",
       "near_home": true
     },
-    "updated_at": "2026-07-12",
+    "updated_at": "2026-07-16",
     "changed_fields": [
       "price",
       "start"
@@ -30982,7 +31142,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-11",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "other",
       "genre": [],
@@ -31020,7 +31180,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-11",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "other",
       "genre": [],
@@ -32002,6 +32162,41 @@
       "vibe": [
         "sunset"
       ],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "Silverlake Flea",
+    "date": "2026-07-25",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
       "region": "eastside",
       "near_home": true
     }
@@ -33984,6 +34179,76 @@
     }
   },
   {
+    "title": "Silverlake Flea",
+    "date": "2026-07-26",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "Topanga Vintage Market",
+    "date": "2026-07-26",
+    "start": "07:00",
+    "venue": "Pierce College, Victory @ Mason (Woodland Hills)",
+    "neighborhood": "Woodland Hills",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://topangavintagemarket.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "4th Sun (except Dec), 7am–2pm · $5 admission. Strictly the 4th Sunday, not the last — watch 5-Sunday months.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
     "title": "Ella Mai w/ AMA",
     "date": "2026-07-28",
     "start": "19:30",
@@ -34790,7 +35055,7 @@
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -38365,6 +38630,43 @@
     }
   },
   {
+    "title": "⚽️ 7/30 — DRUM AND BASS⚽️  We’re closing out July with high-speed energ",
+    "date": "2026-07-30",
+    "start": "21:00",
+    "venue": "Banana Bay Restaurant",
+    "neighborhood": "Rowland Heights",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/730-drum-and-bass-were-closing-out-july-with-high-speed-energ-tickets-1993083984851"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "⚽️ 7/30 — DRUM AND BASS⚽️ We’re closing out July with high-speed energy, heavy bass, and World Cup festival vibes at EDM Thursday Night",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "far",
+      "near_home": false
+    }
+  },
+  {
     "title": "Dancing With The Stars Con 2026 - Three Day Ticket",
     "date": "2026-07-31",
     "start": null,
@@ -41031,6 +41333,83 @@
     }
   },
   {
+    "title": "MUZIQUE Fridays @ Kiss Kiss Bang Bang w/ Special Guest DJS",
+    "date": "2026-07-31",
+    "start": "22:00",
+    "venue": "Kiss Kiss Bang Bang",
+    "neighborhood": "Koreatown",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/muzique-fridays-kiss-kiss-bang-bang-w-special-guest-djs-tickets-1993470717579"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "FRIDAY NIGHT DANCE PARTY! **FREE ALL NIGHT w/ RSVP**",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": null,
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Silverlake Flea",
+    "date": "2026-07-31",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
     "title": "Inertia 'Emerald Whisper' Australian Tour",
     "date": "2026-08-01",
     "start": "19:00",
@@ -41419,18 +41798,23 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2449786"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/float-rooftop-pool-party-ft-chambord-2-8-pm-tickets-1989212940453"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "eventbrite"
     ],
     "organizers": null,
-    "detail": null,
-    "price": null,
+    "detail": "Poolside beats, curated cocktails, and skyline views above the city.",
+    "price": "$30.73",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-19",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -41446,7 +41830,11 @@
       ],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-07-16",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Paradisco",
@@ -42471,7 +42859,7 @@
     ]
   },
   {
-    "title": "DEADHEAD DISCO: JERRY GARCIA'S BIRTHDAY CELEBRATION",
+    "title": "Deadhead Disco: Jerry's Birthday Celebration [Los Angeles]",
     "date": "2026-08-01",
     "start": "21:00",
     "venue": "Teragram Ballroom",
@@ -42485,18 +42873,23 @@
       {
         "source": "ticketmaster",
         "url": "https://www.ticketmaster.com/deadhead-disco-jerry-garcias-birthday-celebration-los-angeles-california-08-01-2026/event/090064A5B278E816"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/deadhead-disco-jerrys-birthday-celebration-los-angeles-tickets-1988570051555"
       }
     ],
     "sources": [
-      "ticketmaster"
+      "ticketmaster",
+      "eventbrite"
     ],
     "organizers": null,
     "detail": "Orlove by Night Presents: DEADHEAD DISCO JERRY GARCIA'S BIRTHDAY CELEBRATION Take another trip.... Deadhead Disco reimagines the spirit of the Grateful Dead through the lens of the dance floor - a hypnotic blend of live edits, deep grooves, and house energy woven from the band's most timeless jams. Curated by Colin Johnson [L.A.], this five-hour journey blends the improvisational heart of Scarlet…",
-    "price": null,
+    "price": "free",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-19",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -42504,7 +42897,9 @@
       ],
       "setting": [],
       "scale": "room",
-      "vibe": [],
+      "vibe": [
+        "free"
+      ],
       "region": "dtla",
       "near_home": true
     },
@@ -43884,6 +44279,308 @@
       ],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "title": "Silverlake Flea",
+    "date": "2026-08-01",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "KIDS RAVE - KIDTOPIA",
+    "date": "2026-08-01",
+    "start": "15:00",
+    "venue": "The Compound by Dirt Dog",
+    "neighborhood": "Commerce",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/kids-rave-kidtopia-tickets-1992600446575"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "A high-energy kids dance party with live DJs, colorful lights, bubbles, photo moments, and a full indoor sound & lighting experience.",
+    "price": "$17.85",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "day-party"
+      ],
+      "region": "eastside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "La Cumbia Vive - Noche de Cumbiaaaaa",
+    "date": "2026-08-01",
+    "start": "21:00",
+    "venue": "The Compound by Dirt Dog",
+    "neighborhood": "Commerce",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/la-cumbia-vive-noche-de-cumbiaaaaa-tickets-1993716762506"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "cumbia de la buena",
+    "price": "$12.51",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "latin"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Daft Disko: Lansing",
+    "date": "2026-08-01",
+    "start": "20:00",
+    "venue": "The Green Door",
+    "neighborhood": "Lansing",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/daft-disko-lansing-tickets-1992294826457"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Daft Disko makes it's Lansing debut!",
+    "price": "$19.25",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "Daft Disko: Vancouver",
+    "date": "2026-08-01",
+    "start": "22:00",
+    "venue": "Hollywood Theatre",
+    "neighborhood": "Vancouver",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/daft-disko-vancouver-tickets-1989427999701"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Daft Disko returns to Vancouver!",
+    "price": "$19.25",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "House Party x Zipp",
+    "date": "2026-08-01",
+    "start": "22:30",
+    "venue": "1720",
+    "neighborhood": "Arts District",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/house-party-x-zipp-tickets-1994255601187"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "A sweaty love-letter to the 2010s rager.",
+    "price": "$19.25",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house"
+      ],
+      "setting": [
+        "warehouse"
+      ],
+      "scale": "room",
+      "vibe": [
+        "afterhours"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "title": "Party Peas presents Beach Pod",
+    "date": "2026-08-01",
+    "start": "12:00",
+    "venue": "Sahara SandBar and Pizza",
+    "neighborhood": "Huntington Beach",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/party-peas-presents-beach-pod-tickets-1993544557436"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Get ready to chill with Party Peas and soak up some serious summer beach vibes at the ultimate pod party.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "far",
+      "near_home": false
+    }
+  },
+  {
+    "title": "DJ DDub",
+    "date": "2026-08-01",
+    "start": "12:00",
+    "venue": "The Huntington Beach House",
+    "neighborhood": "Huntington Beach",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/dj-ddub-tickets-1983893383515"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Come enjoy DJ DDub at noon at Huntington Beach House. All ages are welcome. For VIP reservations email reservations@prjktgroup.com",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "day-party",
+        "free",
+        "all-ages"
+      ],
+      "region": "far",
+      "near_home": false
     }
   },
   {
@@ -45599,6 +46296,79 @@
     }
   },
   {
+    "title": "Silverlake Flea",
+    "date": "2026-08-02",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "Party Pupils",
+    "date": "2026-08-02",
+    "start": "12:00",
+    "venue": "The Huntington Beach House",
+    "neighborhood": "Huntington Beach",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/party-pupils-tickets-1984578977144"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Come join us at HB House on to listen to Party Pupils at noon. All ages welcome. For VIP reservations email reservations@prjktgroup.com",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free",
+        "all-ages"
+      ],
+      "region": "far",
+      "near_home": false
+    }
+  },
+  {
     "title": "clipping.",
     "date": "2026-08-03",
     "start": "19:00",
@@ -46715,6 +47485,46 @@
       ],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "title": "PARIS AT NIGHT House Tuesdays at the Iconic Keys Los Angeles",
+    "date": "2026-08-04",
+    "start": "23:00",
+    "venue": "Keys",
+    "neighborhood": "West Hollywood",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/paris-at-night-house-tuesdays-at-the-iconic-keys-los-angeles-tickets-1994237713685"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Great Vibes, Best Music EVERY TUESDAY at Keys Los Angeles, Upstair!",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
     }
   },
   {
@@ -48703,7 +49513,7 @@
     }
   },
   {
-    "title": "MixMagLA: What So Not",
+    "title": "Mixmag LAB: Los Angeles ft. What So Not",
     "date": "2026-08-06",
     "start": "20:00",
     "venue": "1720",
@@ -48717,18 +49527,23 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2489261"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/mixmag-lab-los-angeles-ft-what-so-not-tickets-1993491149692"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "eventbrite"
     ],
     "organizers": null,
-    "detail": null,
-    "price": null,
+    "detail": "Mixmag LAB is recording live in L.A. with What So Not",
+    "price": "$25.67",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -50865,6 +51680,83 @@
     }
   },
   {
+    "title": "Silverlake Flea",
+    "date": "2026-08-07",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "MUZIQUE Fridays @ Kiss Kiss Bang Bang w/ BARRETT +  Special Guest DJS",
+    "date": "2026-08-07",
+    "start": "22:00",
+    "venue": "Kiss Kiss Bang Bang",
+    "neighborhood": "Koreatown",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/muzique-fridays-kiss-kiss-bang-bang-w-barrett-special-guest-djs-tickets-1993470875050"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "FRIDAY NIGHT DANCE PARTY! **FREE ALL NIGHT w/ RSVP**",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": null,
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
     "date": "2026-08-08",
     "start": "14:30",
@@ -52864,6 +53756,113 @@
     }
   },
   {
+    "title": "Silverlake Flea",
+    "date": "2026-08-08",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "NACHTURNAL EVENTS PRESENTS \" MIDNIGHT RITUAL\"",
+    "date": "2026-08-08",
+    "start": "23:59",
+    "venue": "DTLA",
+    "neighborhood": "DTLA",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/nachturnal-events-presents-midnight-ritual-tickets-1993977398074"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Get ready to dive into a mysterious night full of dark vibes and unforgettable rituals with NACHTURNAL EVENTS.",
+    "price": "$33.85",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "title": "FIT AND FLOURISHING AFRO ZUMBA “AFFIRMATION WORKOUT”",
+    "date": "2026-08-08",
+    "start": "10:30",
+    "venue": "Venice Beach",
+    "neighborhood": "Venice Beach",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/fit-and-flourishing-afro-zumba-affirmation-workout-tickets-1993625072258"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Get ready to dance, sweat, and boost your vibes with an Afro Zumba workout that’s all about positive affirmations and fun!",
+    "price": "$12.51",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "Dialogue: Shonky (extended set) - Day Party",
     "date": "2026-08-09",
     "start": "16:00",
@@ -54018,26 +55017,66 @@
     }
   },
   {
-    "title": "Rose Bowl Flea Market",
+    "title": "Silverlake Flea",
     "date": "2026-08-09",
-    "start": "09:00",
-    "venue": "Rose Bowl, Pasadena",
-    "neighborhood": "Pasadena",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
     "category": "flea",
     "genre": null,
     "lineup": [],
     "links": [
       {
         "source": "recurring",
-        "url": "https://www.rgcshows.com/rose-bowl/"
+        "url": "https://www.silverlakeflea.com/"
       }
     ],
     "sources": [
       "recurring"
     ],
     "organizers": null,
-    "detail": "2nd Sun, 9am GA (5am VIP) · The big one — 2,500+ vendors. Tickets via Eventbrite in advance. Worth the drive.",
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
     "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "Rose Bowl Flea Market Sunday, August 9, 2026",
+    "date": "2026-08-09",
+    "start": "09:00",
+    "venue": "Rose Bowl Stadium",
+    "neighborhood": "Pasadena",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-august-9-2026-tickets-1977731728840"
+      },
+      {
+        "source": "recurring",
+        "url": "https://www.rgcshows.com/rose-bowl/"
+      }
+    ],
+    "sources": [
+      "eventbrite",
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "2nd Sun, 9am GA (5am VIP) · The big one — 2,500+ vendors. Worth the drive. Also covered by the R.G. Canning Eventbrite organizer (sources.yaml, Discover 2026-07-17) whose rows carry real ticket links + sold-out state — dedupe merges the two; this entry is the cadence fallback.",
+    "price": "$15.83",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-16",
@@ -54050,7 +55089,11 @@
       "vibe": [],
       "region": "valley",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-07-16",
+    "changed_fields": [
+      "start"
+    ]
   },
   {
     "title": "Friendlyjordies Presents: Alien Hunter",
@@ -54947,6 +55990,46 @@
       ],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "title": "PARIS AT NIGHT House Tuesdays at the Iconic Keys Los Angeles",
+    "date": "2026-08-11",
+    "start": "23:00",
+    "venue": "Keys",
+    "neighborhood": "West Hollywood",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/paris-at-night-house-tuesdays-at-the-iconic-keys-los-angeles-tickets-1994237760826"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Great Vibes, Best Music EVERY TUESDAY at Keys Los Angeles, Upstair!",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
     }
   },
   {
@@ -59087,6 +60170,156 @@
     }
   },
   {
+    "title": "Silverlake Flea",
+    "date": "2026-08-14",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "MUZIQUE Fridays @ Kiss Kiss Bang Bang w/ Special Guest DJS",
+    "date": "2026-08-14",
+    "start": "22:00",
+    "venue": "Kiss Kiss Bang Bang",
+    "neighborhood": "Koreatown",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/muzique-fridays-kiss-kiss-bang-bang-w-special-guest-djs-tickets-1993471079662"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "FRIDAY NIGHT DANCE PARTY! **FREE ALL NIGHT w/ RSVP**",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": null,
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "AFROBEATS TAKEOVER THE LINGERIE EXPERIENCE",
+    "date": "2026-08-14",
+    "start": "22:00",
+    "venue": "THE TRIBE ENTERTAINMENT CENTER",
+    "neighborhood": "Inglewood",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/afrobeats-takeover-the-lingerie-experience-tickets-1993214391902"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Get ready to vibe all night with the hottest Afrobeats spinning and a lingerie twist you won’t forget!",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": "south-bay",
+      "near_home": false
+    }
+  },
+  {
+    "title": "626 Night Market - Arcadia | August 14-16, 2026",
+    "date": "2026-08-14",
+    "start": "15:00",
+    "venue": "Santa Anita Park",
+    "neighborhood": "Arcadia",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/626-night-market-arcadia-august-14-16-2026-tickets-1977106329253"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Experience 626 Night Market, the original Asian night market in the U.S., with iconic street food, handcrafted merch, and live performances.",
+    "price": "$8",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
     "title": "KCON",
     "date": "2026-08-15",
     "start": "10:00",
@@ -59235,18 +60468,23 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2449788"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/float-rooftop-pool-party-ft-massane-2-8-pm-tickets-1989219502079"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "eventbrite"
     ],
     "organizers": null,
-    "detail": null,
-    "price": null,
+    "detail": "Poolside beats, curated cocktails, and skyline views above the city.",
+    "price": "$30.73",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-19",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -59262,7 +60500,11 @@
       ],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-07-16",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Ferry Corsten",
@@ -61256,6 +62498,41 @@
     }
   },
   {
+    "title": "Silverlake Flea",
+    "date": "2026-08-15",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
     "title": "KCON",
     "date": "2026-08-16",
     "start": "10:00",
@@ -62797,6 +64074,41 @@
     }
   },
   {
+    "title": "Silverlake Flea",
+    "date": "2026-08-16",
+    "start": "10:00",
+    "venue": "4561 W Colorado Blvd (Atwater Village)",
+    "neighborhood": "Atwater Village",
+    "category": "flea",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "recurring",
+        "url": "https://www.silverlakeflea.com/"
+      }
+    ],
+    "sources": [
+      "recurring"
+    ],
+    "organizers": null,
+    "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
     "title": "The Black Crowes, Tedeschi Trucks Band, Whiskey Myers",
     "date": "2026-08-17",
     "start": "18:00",
@@ -63924,6 +65236,46 @@
       ],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "title": "PARIS AT NIGHT House Tuesdays at the Iconic Keys Los Angeles",
+    "date": "2026-08-18",
+    "start": "23:00",
+    "venue": "Keys",
+    "neighborhood": "West Hollywood",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/paris-at-night-house-tuesdays-at-the-iconic-keys-los-angeles-tickets-1994237888207"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Great Vibes, Best Music EVERY TUESDAY at Keys Los Angeles, Upstair!",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
     }
   },
   {
@@ -66688,7 +68040,7 @@
     }
   },
   {
-    "title": "Ameega, XL Middleton, & Moniquea - Live at Indeed Indeed",
+    "title": "Ameega, XL Middleton, & Moniquea performing live @ Indeed Indeed",
     "date": "2026-08-21",
     "start": "21:00",
     "venue": "Hello Stranger",
@@ -66700,18 +68052,23 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2485041"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/ameega-xl-middleton-moniquea-performing-live-indeed-indeed-tickets-1993370222997"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "eventbrite"
     ],
     "organizers": null,
-    "detail": null,
-    "price": null,
+    "detail": "Special edition of Indeed Indeed w/ live performances by French modern funk band Ameega + LA locals XL Middleton & Moniquea",
+    "price": "$17.85",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-08",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -66968,6 +68325,48 @@
         "tribute"
       ],
       "region": "far",
+      "near_home": false
+    }
+  },
+  {
+    "title": "MUZIQUE Fridays @ Kiss Kiss Bang Bang w/ Special Guest DJS",
+    "date": "2026-08-21",
+    "start": "22:00",
+    "venue": "Kiss Kiss Bang Bang",
+    "neighborhood": "Koreatown",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/muzique-fridays-kiss-kiss-bang-bang-w-special-guest-djs-tickets-1993930743529"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "FRIDAY NIGHT DANCE PARTY! **FREE ALL NIGHT w/ RSVP**",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": null,
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": "hollywood",
       "near_home": false
     }
   },
@@ -68421,18 +69820,23 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2480989"
+      },
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/float-rooftop-pool-party-ft-durante-2-8-pm-tickets-1989219333575"
       }
     ],
     "sources": [
-      "ra"
+      "ra",
+      "eventbrite"
     ],
     "organizers": null,
-    "detail": null,
-    "price": null,
+    "detail": "Poolside beats, curated cocktails, and skyline views above the city.",
+    "price": "$30.73",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-07-15",
+    "last_seen": "2026-07-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -68448,7 +69852,11 @@
       ],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-07-16",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "I LOVE DNB: Voltage + AC13",
@@ -68882,6 +70290,83 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "title": "SUBMISSION EVENTS & SOFLA TOG PRESENTS \"FLORIDA MUSIC COLLECTIVE\"",
+    "date": "2026-08-22",
+    "start": "20:00",
+    "venue": "The Banyan Live",
+    "neighborhood": "West Palm Beach",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/submission-events-sofla-tog-presents-florida-music-collective-tickets-1989965407101"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Get ready to vibe with the freshest Florida sounds brought to you by Submission Events and SoFla TOG!",
+    "price": "$36.05",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "KINGDOM LA  | THE RAVE",
+    "date": "2026-08-22",
+    "start": "21:00",
+    "venue": "Catch One",
+    "neighborhood": "Mid-City",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/kingdom-la-the-rave-tickets-1984913899907"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Get ready to lose yourself in the wildest rave vibes and non-stop beats all night long.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": "room",
+      "vibe": [
+        "all-night-set",
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
     }
   },
   {
@@ -71035,6 +72520,46 @@
     }
   },
   {
+    "title": "Copy of PARIS AT NIGHT House Tuesdays at the Iconic Keys Los Angeles",
+    "date": "2026-08-25",
+    "start": "23:00",
+    "venue": "Keys",
+    "neighborhood": "West Hollywood",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/copy-of-paris-at-night-house-tuesdays-at-the-iconic-keys-los-angeles-tickets-1994237808970"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Great Vibes, Best Music EVERY TUESDAY at Keys Los Angeles, Upstair!",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
     "title": "Disney's Beauty and the Beast (Touring)",
     "date": "2026-08-26",
     "start": "19:30",
@@ -72308,6 +73833,41 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
+    }
+  },
+  {
+    "title": "Taqueando After Dark at Level 8",
+    "date": "2026-08-27",
+    "start": "18:00",
+    "venue": "LEVEL 8",
+    "neighborhood": "DTLA",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/taqueando-after-dark-at-level-8-tickets-1989438988569"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "An immersive taco food festival spanning the entire Level 8 universe.",
+    "price": "$44.52",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
     }
   },
   {
@@ -81287,6 +82847,84 @@
     }
   },
   {
+    "title": "Afrobeats Day Party ( Beverly Hills ) LABOR DAY WEEKEND",
+    "date": "2026-09-06",
+    "start": "14:00",
+    "venue": "Sofitel Los Angeles at Beverly Hills",
+    "neighborhood": "Beverly Hills",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/afrobeats-day-party-beverly-hills-labor-day-weekend-tickets-1993620944913"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Afrobeats Day Party ( Beverly Hills ) LABOR DAY WEEKEND",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "day-party",
+        "free"
+      ],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "AFROBEATS TAKEOVER X ENJOYMENT WORLDWIDE LABOR DAY WEEKEND EDITION",
+    "date": "2026-09-06",
+    "start": "22:00",
+    "venue": "820 S Santa Fe Ave",
+    "neighborhood": "Los Angeles",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/afrobeats-takeover-x-enjoyment-worldwide-labor-day-weekend-edition-tickets-1992795929269"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Get ready to vibe all day in your freshest all-white fit with nonstop Afrobeats and good vibes this Labor Day weekend!",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours",
+        "free"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "J. Cole: The Fall-Off Tour",
     "date": "2026-09-07",
     "start": "20:00",
@@ -86016,6 +87654,41 @@
       "scale": "bar",
       "vibe": [],
       "region": "south-bay",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Rose Bowl Flea Market Sunday, September 13, 2026",
+    "date": "2026-09-13",
+    "start": "05:00",
+    "venue": "Rose Bowl Stadium",
+    "neighborhood": "Pasadena",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-september-13-2026-tickets-1977731831146"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "The world famous Rose Bowl Flea Market takes place the second Sunday of every month! Come shop from over 2,500 vendors.",
+    "price": "$15.83",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": "arena",
+      "vibe": [],
+      "region": "valley",
       "near_home": false
     }
   },
