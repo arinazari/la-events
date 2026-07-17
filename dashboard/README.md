@@ -45,8 +45,6 @@ The page opens on the **Front page** — an editorial home rendered from the fee
 `front_page` block (built server-side by `build_dashboard.build_front_page` with the SAME
 `rank_key` that orders the table's final rank — the page never re-ranks):
 
-- **The Take** — the consolidated digest's voice-pass lede, lifted from
-  `./digests/latest.md`, with a link into the full digest modal.
 - A **time lens** (*tonight · this weekend · next 2 weeks · plan ahead*) that re-scopes
   everything below. The feed ships each lens's hero list plus rank-ordered shelf key-lists;
   the client only date-windows and slices — selection, never re-sorting.
@@ -84,6 +82,16 @@ The chat has two modes, toggled in its header (default **Concierge**):
   "free house show this weekend near me" into a filter over the loaded catalog, instantly and
   offline; also fuses events × dining into a rough plan and a night-planner hand-off prompt. This
   is the fallback whenever the backend is unset/unreachable, so the chat never dead-ends.
+
+**The welcome wraps the take** — the thread opens on ONE concierge message: the greeting, then
+the day's take ("For Fri 7/17: …" — the consolidated digest's voice-pass lede, parsed out of
+`./digests/latest.md`), then the how-to with its tap-to-fill examples. The how-to renders
+full-size until this device sends its first message, then tucks behind a *see what I can do ▸*
+toggle (`chatGuideOpen` / `la-chat-used`). The welcome is client-side chrome: it *looks* like
+the LLM's first message but is never sent to it — `askBackend` drops it from the history
+(saving tokens); only the take rides along, as the `opener` field the Worker folds into the
+system prompt, so "what's the move tonight then?" still has context. A profile with no digest
+yet just gets no take line.
 
 **Discover new sources** → a **copy-to-Claude-Code hand-off** (composes a Discover-mode prompt,
 copies it; you paste it into Claude Code, which proposes sources — approval still happens in the
