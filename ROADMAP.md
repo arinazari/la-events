@@ -119,6 +119,14 @@ portability.
 - [x] First live digests (RA AREA_ID 23 confirmed; 6/16 windowed + 6/19 weekend shipped)
 - [x] Static dashboard live (build feed + PWA-lite + per-event "why?" + ICS export)
 - [ ] Gmail "Events" label created; first promoter lists joined (6AM, Dirty Epic first)
+- [ ] **HIGH PRIORITY — KCRW via the newsletter loophole (Ari, 2026-07-17).** kcrw.com is
+      hard-bot-walled (Vercel checkpoint, 429s every datacenter fetch — re-verified 7/17), but its
+      events coverage rides its newsletter: subscribe **"5 Things to Do in LA"** (kcrw.com/newsletters)
+      with the digest Gmail account and route it to the **"Events" label** — the existing Gmail
+      intake parses it like a promoter blast, no scraping, immune to the wall. Unique value: the
+      free cultural long tail (Summer Nights @ CAAM/The Broad, Grand Performances) TM/Goldenvoice
+      miss. Needs Ari (one signup + a Gmail filter); registry entry `KCRW Presents` stays
+      `candidate` with the residential-IP probe documented as the secondary unlock path.
 
 ## Phase A — Foundation (the unlock — almost everything stands on this)
 - [x] **Shared scoring + dedupe module** — `scripts/lib/{scoring,dedupe,config}.py`, both tested
