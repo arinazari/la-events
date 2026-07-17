@@ -82,17 +82,15 @@ The chat has two modes, toggled in its header (default **Concierge**):
   offline; also fuses events × dining into a rough plan and a night-planner hand-off prompt. This
   is the fallback whenever the backend is unset/unreachable, so the chat never dead-ends.
 
-**The thread opens with the take** — the consolidated digest's voice-pass lede (parsed out of
-`./digests/latest.md`), seeded as the concierge's first message (dated, ahead of the greeting)
-once a real digest loads. It's a live message, not chrome — but note it can't ride the message
-history (the Worker strips leading assistant turns, since the API needs a user-first
-conversation): the page sends it as `opener` alongside the history and the Worker folds it into
-the system prompt, so "what's the move tonight then?" has context. A thread you've typed into is
-never touched, and a profile with no digest yet gets no take. The **capabilities greeting**
-(what to ask, with tap-to-fill examples) sits under the take — full-size until this device
-sends its first message, then collapsed to a one-liner with a *see what I can do ▸* toggle
-(`chatGuideOpen` / `la-chat-used`), so the take owns the top of the pane without losing the
-how-to.
+**The welcome wraps the take** — the thread opens on ONE concierge message: the greeting, then
+the day's take ("For Fri 7/17: …" — the consolidated digest's voice-pass lede, parsed out of
+`./digests/latest.md`), then the how-to with its tap-to-fill examples. The how-to renders
+full-size until this device sends its first message, then tucks behind a *see what I can do ▸*
+toggle (`chatGuideOpen` / `la-chat-used`). The welcome is client-side chrome: it *looks* like
+the LLM's first message but is never sent to it — `askBackend` drops it from the history
+(saving tokens); only the take rides along, as the `opener` field the Worker folds into the
+system prompt, so "what's the move tonight then?" still has context. A profile with no digest
+yet just gets no take line.
 
 **Discover new sources** → a **copy-to-Claude-Code hand-off** (composes a Discover-mode prompt,
 copies it; you paste it into Claude Code, which proposes sources — approval still happens in the

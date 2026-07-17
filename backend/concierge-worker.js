@@ -107,9 +107,9 @@ export default {
     const messages = sanitizeMessages(body && body.messages);
     if (!messages.length) return json({ error: "no messages" }, 400, cors);
     const profileHash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
-    // The page's seeded opener (the day's take) — an assistant line the user may be replying to.
-    // It can't ride `messages` (sanitizeMessages strips leading assistant turns for the API, and
-    // the page's history window drops it as the thread grows), so it arrives as its own field
+    // The page's opener (the day's take) — a concierge line the user may be replying to. The
+    // page keeps its welcome chrome out of `messages` entirely (token save; and a leading
+    // assistant turn would be stripped below anyway), so the take arrives as its own field
     // and grounds the system prompt instead.
     const opener = (body && typeof body.opener === "string") ? body.opener.trim().slice(0, 1500) : "";
 

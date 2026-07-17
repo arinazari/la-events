@@ -1165,10 +1165,20 @@ class Component extends DCLogic {
     spotifyStatus: null,   // per-profile Spotify: null=unknown/checking, true=connected, false=not
     spotifyName: '',
     loading: false,
+    takeText: '',   // the day's take (digest lede) — rendered inside the welcome message; reaches the LLM only as `opener`
     messages: [
-      { role: 'assistant', intro: true, text: "I'm your LA concierge — the best of what's on in LA, ranked to your taste. Tell me a vibe, a price, a neighborhood, or a date and I'll pull picks (the table filters to match). A few things I can do:\n- **Find shows** — `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n- **Point you to food** — `what's the hot new restaurant`, a spot near Silver Lake, popups & food trucks.\n- **Plan a whole night** — say `plan my Saturday: dinner then a show` and I'll fuse events + dining into one sequenced, travel-timed itinerary (dinner → show → afters).\n- **Tune your taste** — `more techno, less comedy` or `I moved to Highland Park`, and I'll re-rank you.\nTap any blue example to drop it in the box — or just start typing." }
+      // The welcome: ONE synthetic concierge message wrapping greeting + take + how-to, composed
+      // at render from GREET_HEAD / takeText / GREET_GUIDE. Chrome only — never sent as history.
+      { role: 'assistant', intro: true, text: '' }
     ]
   };
+
+  // The concierge welcome, composed at render into one message: GREET_HEAD (+ the day's take,
+  // "For <date>: …", when takeText is set) + GREET_GUIDE (the collapsible how-to). It LOOKS like
+  // the LLM's first message but askBackend never sends it — the take alone reaches the model,
+  // as the `opener` system-prompt field.
+  GREET_HEAD = "I'm your LA concierge — the best of what's on in LA, ranked to your taste.";
+  GREET_GUIDE = "A few things I can do:\n- **Find shows** — `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n- **Point you to food** — `what's the hot new restaurant`, a spot near Silver Lake, popups & food trucks.\n- **Plan a whole night** — say `plan my Saturday: dinner then a show` and I'll fuse events + dining into one sequenced, travel-timed itinerary (dinner → show → afters).\n- **Tune your taste** — `more techno, less comedy` or `I moved to Highland Park`, and I'll re-rank you.\nTap any blue example to drop it in the box — or just start typing.";
 
   // LLM concierge backend (the BACKEND_URL seam). Empty = not wired -> the chat falls back to
   // the local "Fast filter" engine. Set via the chat header "connect" affordance (localStorage),
@@ -1456,9 +1466,9 @@ class Component extends DCLogic {
     });
   };
   fpOpenExplore = (e) => { this.fpSeeAll(this.trim(e.title, 40), [e.id]); this.setState({ expandedId: e.id }); };
-  // "The Take" — the digest's voice-pass lede, spoken by the concierge: seeded into the chat
-  // thread as its opening message (seedTake). It's the first real prose paragraph of DIGEST_MD
-  // (skips the H1, the *meta* lines, banners, and unfilled slot markers).
+  // "The Take" — the digest's voice-pass lede, spoken by the concierge: slotted into the chat's
+  // welcome message (seedTake → takeText, "For <date>: …"). It's the first real prose paragraph
+  // of DIGEST_MD (skips the H1, the *meta* lines, banners, and unfilled slot markers).
   digestLede() {
     const md = this.DIGEST_MD || '';
     if (this._ledeSrc === md) return this._lede;   // memoized — renderVals runs per keystroke
@@ -1818,7 +1828,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
-    "- **The concierge opens with the take.** The chat now starts with the day's *take* — the digest's opening read, dated, as the concierge's first message — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. It moved off the front page, which gets straight to the cards. The how-to greeting still follows it: full-size on your first visit, then tucked behind a *see what I can do ▸* line once you've chatted.",
+    "- **The concierge opens with the take.** The chat's welcome now folds in the day's *take* — the digest's opening read (`For Fri 7/17: …`) — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. The how-to is part of the same message: full-size on your first visit, tucked behind *see what I can do ▸* once you've chatted. (The take moved off the front page, which gets straight to the cards.)",
     "- **A front page.** The site now opens on an editorial home: a **Don't miss** hero row and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
     "- **Taste strength on every card.** The transparent taste score — the number with the little strength bar from the Explore table — now sits on each front-page card and mobile card too, so you can see *how strongly* something matched, not just that it made the cut.",
     "- **Cleaner categories.** A large batch of events (mostly Ticketmaster's) were sitting in an 'other' bucket — they're now properly typed as live music, stage, comedy and film, so lane filters and shelves actually cover the catalog.",
@@ -2200,8 +2210,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // (with a cross-fade) while nobody's used the concierge yet and the box is empty — logged in or out.
   PH_EXAMPLES = ['techno this weekend','where to eat in silver lake','plan saturday — dinner then a show','more deep house, less comedy',"what's the hot new restaurant",'free shows this weekend','afterhours warehouse','track Peggy Gou'];
   rotationActive() {
-    // the seeded take (take: true) is the concierge talking, not someone using the chat
-    return (this.state.messages.filter(m => !m.take).length <= 1) && !((this.state.input || '').trim());
+    return (this.state.messages.length <= 1) && !((this.state.input || '').trim());
   }
 
   // ---------- concierge mode + backend wiring ----------
@@ -2236,18 +2245,19 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.pingBackend();
   };
   async askBackend(text) {
-    const history = (this.state.messages || []).slice(-7)
+    // The welcome message (intro) is client-side chrome — excluded here so the greeting/how-to
+    // never cost wire or model tokens; the take alone rides as `opener` below.
+    const history = (this.state.messages || []).filter(m => !m.intro).slice(-7)
       .map(m => ({ role: m.role === 'user' ? 'user' : 'assistant', content: String(m.text || '') }))
       .filter(m => m.content.trim());
     const headers = { 'content-type': 'application/json' };
     if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
     const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // BYOK: your key pays for this request
     const body = { messages: history };
-    // The seeded take is a LEADING assistant turn, which the Worker must strip for the API
-    // (conversations start with a user turn) — so it rides its own field and the Worker folds
-    // it into the system prompt instead. That's what keeps "what's the move tonight then?" grounded.
-    const take = (this.state.messages || []).find(m => m.take);
-    if (take && take.text) body.opener = String(take.text).slice(0, 1500);
+    // The take never rides the history (the welcome is dropped above) — it goes as its own field
+    // and the Worker folds it into the system prompt. That's what keeps "what's the move tonight
+    // then?" grounded, at the cost of the take alone rather than the whole welcome.
+    if (this.state.takeText) body.opener = String(this.state.takeText).slice(0, 1500);
     if (key && this.useOpus()) body.model = 'opus';   // BYOK only: upgrade the executor to Opus on your spend
     const p = this.state.profile;
     if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
@@ -3127,21 +3137,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       }) : false)
       .catch(() => false);
   }
-  // The take IS a message from the concierge: when a real digest arrives, its lede OPENS the
-  // chat thread — the concierge's first message (take: true), dated, ahead of the greeting.
-  // Context for replies does NOT ride the history (the Worker strips leading assistant turns
-  // for the API, and slice(-7) drops it as the thread grows): askBackend sends it as `opener`
-  // and the Worker folds it into the system prompt, so "what's the move tonight then?" stays
-  // grounded. A thread the user has written into is never touched; otherwise a stale take
-  // (profile switch, digest reload) is swapped out — or dropped, on '' (no digest).
-  seedTake(lede) {
-    this.setState(s => {
-      if ((s.messages || []).some(m => m.role === 'user')) return null;
-      const msgs = (s.messages || []).filter(m => !m.take);
-      if (lede) msgs.unshift({ role: 'assistant', take: true, text: '**' + this.labelISO(this.TODAY) + ':** ' + lede });
-      return { messages: msgs };
-    });
-  }
+  // The take rides INSIDE the welcome message ("For <date>: …") — state, not a thread message,
+  // so it can't collide with a live conversation and never costs history tokens. '' clears it
+  // (profile with no digest). askBackend sends it as `opener` and the Worker folds it into the
+  // system prompt — that's how "what's the move tonight then?" stays grounded.
+  seedTake(lede) { this.setState({ takeText: lede || '' }); }
   // The deploy step (scripts/stage_digests.py) writes ./digests/index.json (and ./digests/<hash>/
   // index.json per profile), newest first. We only read it to resolve the current digest's dated
   // name (DIGEST_CURRENT), which names the download file. Missing off a static host -> empty index
@@ -3322,29 +3322,29 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const arrow = (k) => sortKey === k ? (sortDir === 'asc' ? '\u2191' : '\u2193') : '';
 
     const msgs = messages.map(m => {
-      // The how-to greeting: full-size until this device's first message, then a one-liner with a
-      // toggle — the take (above it) owns the top of the pane, the guide stays one tap away.
+      // The welcome — ONE concierge message wrapping the greeting, the day's take ("For Fri
+      // 7/17: …"), and the how-to. Pure chrome: it reads as the LLM's first message but is never
+      // sent to it (askBackend drops it; the take alone goes as `opener`). The how-to renders
+      // full-size until this device's first message, then tucks behind "see what I can do ▸".
       if (m.intro) {
         const gOpen = !!this.state.chatGuideOpen;
+        const md = this.GREET_HEAD
+          + (this.state.takeText ? '\nFor **' + this.labelISO(this.TODAY) + '**: ' + this.state.takeText : '')
+          + (gOpen ? '\n' + this.GREET_GUIDE : '');
         const gLink = React.createElement('span', {
           onClick: this.toggleChatGuide,
           style: { cursor: 'pointer', font: '600 10.5px/1 ui-monospace,Menlo,monospace', color: '#2b5cd9' }
         }, gOpen ? 'got it — hide ▴' : 'see what I can do ▸');
-        const gBody = gOpen
-          ? React.createElement('div', {
+        return {
+          tag: 'CONCIERGE', tagColor: '#2b5cd9', text: md,
+          html: React.createElement('div', null,
+            React.createElement('div', {
               className: 'chat-intro',
               onClick: (e) => { const c = e.target && e.target.closest && e.target.closest('code'); if (c && c.textContent) this.useExample(c.textContent); },
               style: { fontSize: '12.5px', lineHeight: 1.5, color: '#3f3d36', wordBreak: 'break-word' },
-              dangerouslySetInnerHTML: { __html: this.renderChatHtml(m.text) }
-            })
-          : React.createElement('div', {
-              style: { fontSize: '12px', lineHeight: 1.5, color: '#76746b' }
-            }, 'Shows, food, or a whole night — ask like you’d ask a friend. ', gLink);
-        return {
-          tag: 'CONCIERGE', tagColor: '#2b5cd9', text: m.text,
-          html: gOpen
-            ? React.createElement('div', null, gBody, React.createElement('div', { style: { marginTop: '5px' } }, gLink))
-            : gBody
+              dangerouslySetInnerHTML: { __html: this.renderChatHtml(md) }
+            }),
+            React.createElement('div', { style: { marginTop: '5px' } }, gLink))
         };
       }
       return {

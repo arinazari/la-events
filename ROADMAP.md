@@ -435,7 +435,8 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   for now (bold/italic openers handled), but the clean fix is the voice pass writing the intro
   to a structured slot the feed carries (e.g. `front_page.take`), so the page never parses
   markdown conventions. (2026-07-16 follow-up: the take moved off the front page entirely —
-  it now opens the concierge chat thread as the concierge's first message, `seedTake()`.)
+  it renders inside the concierge chat's welcome message (`seedTake()`), and reaches the model
+  as the Worker's `opener` system-prompt field, never as history.)
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
