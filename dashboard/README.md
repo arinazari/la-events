@@ -88,7 +88,11 @@ once a real digest loads. It's a live message, not chrome — but note it can't 
 history (the Worker strips leading assistant turns, since the API needs a user-first
 conversation): the page sends it as `opener` alongside the history and the Worker folds it into
 the system prompt, so "what's the move tonight then?" has context. A thread you've typed into is
-never touched, and a profile with no digest yet gets no take.
+never touched, and a profile with no digest yet gets no take. The **capabilities greeting**
+(what to ask, with tap-to-fill examples) sits under the take — full-size until this device
+sends its first message, then collapsed to a one-liner with a *see what I can do ▸* toggle
+(`chatGuideOpen` / `la-chat-used`), so the take owns the top of the pane without losing the
+how-to.
 
 **Discover new sources** → a **copy-to-Claude-Code hand-off** (composes a Discover-mode prompt,
 copies it; you paste it into Claude Code, which proposes sources — approval still happens in the
