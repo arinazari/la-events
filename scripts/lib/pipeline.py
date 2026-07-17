@@ -13,6 +13,8 @@ from .scoring import score_event, score_to_rating, parse_event_date
 from .dedupe import dedupe
 from .enrich import event_key
 from .catalog_meta import VOLATILE_FIELDS, _lineup_sig
+from .affinity import ambiguous_set, tracked_hits
+from .tagging import VENUE_SCALE
 from . import geo
 
 try:
@@ -260,6 +262,108 @@ def expire_past(catalog: list, today: date = None) -> tuple:
         else:
             kept.append(ev)
     return kept, expired
+
+
+# ── Out-of-market drop (catalog policy, Ari 2026-07-17) ───────────────────────────────
+# The TM DMA query reaches Palm Springs / Paso Robles / San Diego-adjacent venues; those rows
+# used to travel the whole pipeline (catalog, diffs, editor pool) and then rank at the bottom
+# forever under the far penalty. Now they're dropped at merge time UNLESS radar-worthy —
+# festival bills, tracked artists, and arena headliners keep the "genuinely worth the trip"
+# door open (same signals build_radar keys on). The list is profile config
+# (`pipeline.out_of_market`), so the day-trip boundary is a YAML edit, not code.
+
+_FEST_TITLE_KW = re.compile(r"\bfestival\b|\bfest\b", re.I)
+_ARENA_KEYS = tuple(k for k, v in VENUE_SCALE.items() if v == "arena")
+
+
+def radar_worthy(ev: dict, tracked: list, ambiguous=frozenset()) -> bool:
+    """Would the plan-ahead radar want this event regardless of distance? Festival bills,
+    arena/amphitheater-tier venues, and tracked artists (lineup-first, whole-token —
+    lib/affinity.tracked_hits, same matcher the radar uses)."""
+    title = str(ev.get("title") or "")
+    if _FEST_TITLE_KW.search(title):
+        return True
+    venue = str(ev.get("venue") or "").lower()
+    if any(k in venue for k in _ARENA_KEYS):
+        return True
+    return bool(tracked and tracked_hits(tracked, title, ev.get("lineup"), ambiguous))
+
+
+def drop_out_of_market(catalog: list, taste: dict = None, profile: dict = None) -> tuple:
+    """Drop rows whose neighborhood is on the profile's `pipeline.out_of_market` list and
+    that carry no radar signal. Runs over the merged catalog (cleans pre-existing rows too;
+    re-fetched rows re-drop idempotently). Returns (kept, n_dropped). No list => no-op."""
+    hoods = {str(h).lower().strip()
+             for h in (((profile or {}).get("pipeline") or {}).get("out_of_market") or [])}
+    if not hoods:
+        return catalog, 0
+    tracked = [a for a in ((taste or {}).get("artists_tracked") or []) if a]
+    amb = ambiguous_set(profile, taste)
+    kept, dropped = [], 0
+    for ev in catalog:
+        nb = str(ev.get("neighborhood") or "").lower().strip()
+        if nb in hoods and not radar_worthy(ev, tracked, amb):
+            dropped += 1
+        else:
+            kept.append(ev)
+    return kept, dropped
+
+
+# ── Recurring markets/fleas → dated catalog rows (recurring.yaml materializer) ─────────
+# The known weeklies/monthlies (Silver Lake Farmers Market, Melrose Trading Post, Rose Bowl
+# Flea…) used to exist only as digest-render prose, so the market lane, dashboard shelves,
+# and editor pool never saw them. This expands the cadence rules into normal dated records
+# (source `recurring`); merge_new dedupes them, so re-running is idempotent.
+
+_DOW = {"mon": 0, "tue": 1, "wed": 2, "thu": 3, "fri": 4, "sat": 5, "sun": 6}
+
+
+def _cadence_dates(token: str, today: date, days: int) -> list:
+    """Dates in [today, today+days) for one cadence token: weekly:<DOW> or monthly:<N>:<DOW>
+    (monthly:2:Sun = 2nd Sunday). Unknown tokens yield [] (never block a run)."""
+    parts = str(token or "").strip().lower().split(":")
+    out, end = [], today + timedelta(days=days)
+    if len(parts) == 2 and parts[0] == "weekly" and parts[1][:3] in _DOW:
+        d = today + timedelta(days=(_DOW[parts[1][:3]] - today.weekday()) % 7)
+        while d < end:
+            out.append(d)
+            d += timedelta(days=7)
+    elif len(parts) == 3 and parts[0] == "monthly" and parts[2][:3] in _DOW:
+        try:
+            nth = int(parts[1])
+        except ValueError:
+            return []
+        y, m = today.year, today.month
+        while date(y, m, 1) < end:
+            first = date(y, m, 1)
+            d = first + timedelta(days=(_DOW[parts[2][:3]] - first.weekday()) % 7
+                                        + 7 * (nth - 1))
+            if d.month == m and today <= d < end:
+                out.append(d)
+            y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+    return out
+
+
+def materialize_recurring(doc: dict, today: date = None, days: int = 35) -> list:
+    """Expand recurring.yaml's `markets` into normalized records for the next `days` days.
+    Each occurrence is a normal catalog row (title/venue/date/category/start), so dedupe,
+    expiry, tagging, and scoring treat it like any fetched event."""
+    today = today or today_la()
+    out = []
+    for entry in (doc or {}).get("markets") or []:
+        for token in entry.get("cadence") or []:
+            for d in _cadence_dates(token, today, days):
+                out.append(normalize_record({
+                    "title": entry.get("name"),
+                    "date": d.isoformat(),
+                    "start": entry.get("start"),
+                    "venue": entry.get("where"),
+                    "neighborhood": entry.get("neighborhood"),
+                    "category": entry.get("category") or "market",
+                    "detail": " · ".join(x for x in (entry.get("when"), entry.get("note")) if x),
+                    "url": entry.get("url"),
+                }, source="recurring"))
+    return out
 
 
 def _volatile_snapshot(ev: dict) -> dict:

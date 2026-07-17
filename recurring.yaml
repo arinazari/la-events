@@ -1,17 +1,22 @@
 # Recurring markets & happenings — predictable daytime/lifestyle events that don't need
-# scraping (fixed cadence). The digest computes the next occurrence(s) inside the window and
-# drops them onto the right day in the day-by-day agenda. Eastside/Silver Lake-local ones are
-# the priority (walkable). One-off pop-ups / brand activations are NOT here — those come from
-# editorial sources (Eater LA, UncoverLA, Secret LA, DiscoverLA) at digest time.
+# scraping (fixed cadence). scripts/lib/pipeline.materialize_recurring expands these into
+# dated CATALOG rows each run (source `recurring`, ~35-day window, deduped/expired like any
+# fetched event), so the market lane exists on the dashboard/editor too — the digest used to
+# be the only surface that saw them. Eastside/Silver Lake-local ones are the priority
+# (walkable). One-off pop-ups / brand activations are NOT here — those come from editorial
+# sources (Eater LA, UncoverLA, Secret LA, DiscoverLA) at digest time.
 #
 # cadence: weekly:<DOW> | monthly:<Nth>:<DOW> (e.g. monthly:2:Sun = 2nd Sunday)
-# Last reviewed: 2026-06-16
+# start: HH:MM (24h) — the row's start time; `when` stays the human-readable hours line.
+# Last reviewed: 2026-07-17
 
 markets:
   - name: Silver Lake Farmers Market
     cadence: [weekly:Tue, weekly:Sat]
     when: Tue 1:30–7pm · Sat 8am–1:30pm
+    start: "09:00"   # Sat morning is the marquee session; Tue runs 1:30–7pm
     where: 3700 Sunset Blvd (Silver Lake)
+    neighborhood: Silver Lake
     category: market
     url: https://www.instagram.com/silverlakefarmersmarket/
     note: Walkable from home (Hyperion/Del Mar). Highest priority — surface every week.
@@ -19,7 +24,9 @@ markets:
   - name: Atwater Village Farmers Market
     cadence: [weekly:Sun]
     when: Sun 10am–2pm
+    start: "10:00"
     where: 3528 Larga Ave (Atwater Village)
+    neighborhood: Atwater Village
     category: market
     url: https://www.seela.org/atwater-village
     note: Eastside, close to home.
@@ -27,7 +34,9 @@ markets:
   - name: Melrose Trading Post
     cadence: [weekly:Sun]
     when: Sun 10am–4pm
+    start: "10:00"
     where: Fairfax High, 7850 Melrose Ave
+    neighborhood: Fairfax
     category: flea
     url: https://melrosetradingpost.org/
     note: Vintage / design / home goods flea.
@@ -35,7 +44,9 @@ markets:
   - name: Smorgasburg LA
     cadence: [weekly:Sun]
     when: Sun 10am–4pm
+    start: "10:00"
     where: ROW DTLA, 777 S Alameda St
+    neighborhood: DTLA
     category: food_market
     url: https://www.smorgasburg.com/
     note: Big open-air food-vendor market; food-with-a-scene.
@@ -43,7 +54,9 @@ markets:
   - name: Rose Bowl Flea Market
     cadence: [monthly:2:Sun]
     when: 2nd Sun, 9am GA (5am VIP)
+    start: "09:00"
     where: Rose Bowl, Pasadena
+    neighborhood: Pasadena
     category: flea
     url: https://www.rgcshows.com/rose-bowl/
     note: The big one — 2,500+ vendors. Tickets via Eventbrite in advance. Worth the drive.

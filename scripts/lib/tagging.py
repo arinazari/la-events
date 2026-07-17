@@ -440,6 +440,10 @@ def _resolve_type(ev: dict, hay: str, cfg: dict = None) -> str:
     kw_hay = (" ".join([title_l, venue_l]) if cat in MUSIC_CATS else hay)
     if _is_watch_party(title_l):
         return "community"
+    # recurring.yaml / market-source categories are authoritative — "Melrose Trading Post"
+    # and "Smorgasburg" carry no market KEYWORD, only the category.
+    if cat in ("market", "flea", "food_market", "farmers_market"):
+        return "market"
     if cat == "film" or _CINEMA_KW.search(kw_hay):
         return "film"
     # A&T rows WITH an authoritative TM stage genre: the genre outranks blurb keywords —
