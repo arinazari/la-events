@@ -5,9 +5,11 @@ dashboard depends on it; never mutated here). Three jobs raw `sort by -score` ca
 
   1. LANES, not the muddy `category`. "electronic" lumps a mainstream headliner room in with a
      warehouse afters and a rooftop day party — so the headliner crowds out the afters. We slate
-     on a finer LANE derived from the existing multi-axis tags (tags.type/vibe/setting): club
-     splits into mainstream / afters / day / underground. Mood knob falls out for free: `mute`
-     a lane (e.g. "no mainstream this weekend") and it drops without touching anything else.
+     on a finer LANE derived from the existing multi-axis tags (tags.type/vibe/setting/scale):
+     club splits into mainstream / afters / day / underground, and live-music splits big
+     (hall/arena — taste.yaml's "mostly to stay informed" tier) vs. the rest, so the Bowl can't
+     crowd Zebulon out of the live floor. Mood knob falls out for free: `mute` a lane (e.g.
+     "no mainstream this weekend", "no arena shows") and it drops without touching anything else.
   2. Diversity by construction (slate-fill) — counts per lane emerge from merit (no firm
      numbers): fill to a per-day ceiling, cut at score-gap cliffs, with a diversity FLOOR that
      guarantees a taste of afters/day/live-music/film/stage without capping the strong lanes.
@@ -27,15 +29,25 @@ from collections import Counter, defaultdict
 from datetime import date
 
 from .enrich import event_key
-from .tagging import tag_event
+from .tagging import TYPES, tag_event
 
 # Arena/amphitheater/stadium gazetteer — a booking here signals a mainstream-scale act. Pairs
 # with the `amphitheater` setting tag and a high-price proxy; the editor's lane override is the
 # real fix for headliner-draw the venue can't reveal (a big name in a small warehouse).
+# tagging.VENUE_SCALE ('arena') supersets this list; it stays as a safety net for records
+# tagged before the scale axis existed.
 BIG_VENUE = ("hollywood bowl", "kia forum", "the forum", "crypto.com arena", "bmo stadium",
              "sofi stadium", "greek theatre", "intuit dome", "microsoft theater",
              "peacock theater", "honda center", "youtube theater", "toyota arena", "acrisure",
              "yaamava", "shrine", "dodger stadium", "rose bowl", "banc of california")
+
+# THE canonical lane vocabulary (family = the part before ':'). Every non-club type is its
+# own lane; club splits four ways; live-music splits big vs. the rest. This tuple is the one
+# source of truth the other surfaces must agree with (editor.validate_verdict whitelists
+# against it; render GROUPS family-match it; build_dashboard FP_SHELVES enumerate from it;
+# .claude/agents/event-editor.md quotes it).
+LANES = tuple(t for t in TYPES if t != "club") + (
+    "live-music:big", "club:mainstream", "club:afters", "club:day", "club:underground")
 
 # Per-day slate policy. NO firm per-lane numbers — how many afters vs. day vs. live-music
 # emerges from the events' effective scores (which the editor's tier/adjust shape). Knobs:
@@ -46,6 +58,9 @@ BIG_VENUE = ("hollywood bowl", "kia forum", "the forum", "crypto.com arena", "bm
 #   caps       optional hard ceilings; empty by default (the firm-number knob, off).
 # `club:mainstream` is intentionally NOT capped — a stacked-mainstream night can take several;
 # the `mute` arg drops the lane when you're not feeling it.
+# `live-music` in the guarantee is deliberately the BARE lane (exact match): since the
+# live-music:big split, the floor guarantees a small/mid-room live pick — arena/hall shows
+# enter on merit only, exactly matching taste.yaml's "mostly to stay informed".
 DEFAULT_SLATE = {
     "gap": 3,
     "guarantee": ["club:afters", "club:day", "live-music", "film", "stage", "art"],
@@ -61,32 +76,55 @@ def _max_price(ev: dict):
     return max((int(n) for n in nums), default=None)
 
 
+def _big_scale(ev: dict, tags: dict) -> bool:
+    """Hall/arena-tier venue: the tags.scale fact axis, with the legacy amphitheater-setting
+    and BIG_VENUE checks as the safety net for pre-scale-axis tag blocks."""
+    if tags.get("scale") in ("hall", "arena"):
+        return True
+    if "amphitheater" in (tags.get("setting") or []):
+        return True
+    venue = (ev.get("venue") or "").lower()
+    return any(b in venue for b in BIG_VENUE)
+
+
 def event_lane(ev: dict, verdicts: dict = None) -> str:
-    """The slate lane for an event. An editor verdict's `lane` wins (it can see headliner draw);
-    otherwise derive deterministically from the multi-axis tags, splitting `club` into sub-lanes.
+    """The slate lane for an event. An editor verdict's `lane` wins (it can see headliner draw
+    and CHARACTER the venue can't reveal — an 80s night at Zebulon is club:mainstream); with
+    two carve-outs: an off-vocab lane string is ignored (the cache is LLM-written and
+    unvalidated historically), and a bare-FAMILY override ('live-music', from the pre-split
+    vocab) defers to the more specific deterministic sub-lane in the same family — the editor
+    meant "this is live music, not club", never "not big". Cross-family overrides always win.
 
-    Lanes: club:{mainstream,afters,day,underground}, live-music, film, stage, comedy, market,
-    art, food-drink, community, other."""
-    v = (verdicts or {}).get(event_key(ev)) if verdicts else None
-    if v and v.get("lane"):
-        return v["lane"]
+    Otherwise derive from the multi-axis tags: club splits on vibe first (a 10pm-4am Exchange
+    mainstage IS afters), then scale — hall/arena bookings and festival bills are mainstream-
+    draw; live-music splits big (hall/arena — the "stay informed" tier) vs. the rest.
 
+    Lanes (see LANES): club:{mainstream,afters,day,underground}, live-music[:big], film,
+    stage, comedy, market, workshop, art, food-drink, community, other."""
     tags = ev.get("tags") or tag_event(ev)
     typ = tags.get("type") or "other"
-    if typ != "club":
-        return typ
+    if typ == "club":
+        vibe = set(tags.get("vibe") or [])
+        setting = set(tags.get("setting") or [])
+        price = _max_price(ev)
+        if "afterhours" in vibe:
+            det = "club:afters"
+        elif "day-party" in vibe or "sunset" in vibe or (setting & {"rooftop", "pool", "outdoor"}):
+            det = "club:day"
+        elif "festival" in vibe or _big_scale(ev, tags) or (price and price >= 70):
+            det = "club:mainstream"
+        else:
+            det = "club:underground"
+    elif typ == "live-music" and _big_scale(ev, tags):
+        det = "live-music:big"
+    else:
+        det = typ
 
-    vibe = set(tags.get("vibe") or [])
-    setting = set(tags.get("setting") or [])
-    venue = (ev.get("venue") or "").lower()
-    price = _max_price(ev)
-    if "afterhours" in vibe:
-        return "club:afters"
-    if "day-party" in vibe or "sunset" in vibe or (setting & {"rooftop", "pool", "outdoor"}):
-        return "club:day"
-    if "amphitheater" in setting or any(b in venue for b in BIG_VENUE) or (price and price >= 70):
-        return "club:mainstream"
-    return "club:underground"
+    v = (verdicts or {}).get(event_key(ev)) if verdicts else None
+    vl = str(v.get("lane")) if v and v.get("lane") else None
+    if vl and vl in LANES and not (":" in det and vl == det.split(":")[0]):
+        return vl
+    return det
 
 
 def _resolve_per_day(per_day, iso_date: str) -> int:

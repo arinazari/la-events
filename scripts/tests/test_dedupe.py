@@ -98,6 +98,18 @@ def test_merge_preserves_genre_from_either_record():
     assert merge(tm, base)["genre"] == "Indie"     # kept when the base already carries it
 
 
+def test_merge_preserves_lineup_genre_from_either_record():
+    # Same sparse-field rule for the TM attraction-level genre: the catalog base (always the
+    # merge base `a`) never has it until a fetch backfills — dropping it would strand the
+    # bare-name comedians in type `other` forever.
+    base = {"title": "Trevor Noah", "venue": "Peacock", "date": "2026-08-20", "lineup": []}
+    tm = {"title": "Trevor Noah", "venue": "Peacock", "date": "2026-08-20", "lineup": [],
+          "lineup_genre": "Comedy"}
+    assert merge(base, tm)["lineup_genre"] == "Comedy"
+    assert merge(tm, base)["lineup_genre"] == "Comedy"
+    assert "lineup_genre" not in merge(base, dict(base))    # stays sparse — no null stamping
+
+
 def test_dedupe_collapses_cluster():
     merged, report = dedupe([RA, DICE, TM])
     assert len(merged) == 1, [e["title"] for e in merged]
@@ -238,6 +250,92 @@ def test_real_venue_unaffected_by_placeholder_path():
     a = {"title": "FRA VS SEN", "venue": "Dom Futbola", "date": "2026-06-16", "lineup": []}
     b = {"title": "ARG VS BRA", "venue": "Dom Futbola", "date": "2026-06-16", "lineup": []}
     assert not is_duplicate(a, b)
+
+
+# ── Shared-URL venue identity (the Yaamava / Dane Cook shape) ─────────────────────
+# TM registers one room as two venue records and lists the same show once under each: two resale
+# records with DIFFERENT Z ids (no shared per-event id) and venue strings the fuzzy path can't
+# bridge — but both carry the same venueBoxOffice URL. Real 9/11 catalog pair.
+
+YAAMAVA_THEATER = {"title": "Dane Cook (21+)", "venue": "Yaamava Theater", "date": "2026-09-11",
+                   "lineup": ["Dane Cook"],
+                   "links": [{"source": "venue", "url": "https://yaamava.com/yaamava-theater"},
+                             {"source": "ticketmaster", "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7P3qe"}],
+                   "sources": ["ticketmaster"]}
+YAAMAVA_RESORT = {"title": "Dane Cook", "venue": "Yaamava Resort & Casino at San Manuel",
+                  "date": "2026-09-11", "lineup": ["Dane Cook"],
+                  "links": [{"source": "venue", "url": "https://yaamava.com/yaamava-theater"},
+                            {"source": "ticketmaster", "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7Pwbd"}],
+                  "sources": ["ticketmaster"]}
+
+
+def test_shared_venue_url_bridges_divergent_venue_names():
+    assert is_duplicate(YAAMAVA_THEATER, YAAMAVA_RESORT)
+    merged, _ = dedupe([YAAMAVA_THEATER, YAAMAVA_RESORT])
+    assert len(merged) == 1, [e["title"] for e in merged]
+    m = merged[0]
+    assert len({l["url"] for l in m["links"]}) == 3          # box office + both Z links kept
+    assert m["links"][0]["url"] == "https://yaamava.com/yaamava-theater"  # resale links demoted
+
+
+def test_shared_venue_url_needs_title_match():
+    # Two different shows selling through the same box office the same night must NOT merge.
+    other = dict(YAAMAVA_RESORT, title="Chayanne", lineup=["Chayanne"])
+    assert not is_duplicate(YAAMAVA_THEATER, other)
+
+
+def test_shared_venue_url_needs_same_date():
+    # A two-night run shares the box-office URL across both nights; each night stays its own row.
+    night2 = dict(YAAMAVA_RESORT, date="2026-09-12")
+    assert not is_duplicate(YAAMAVA_THEATER, night2)
+
+
+def test_shared_editorial_url_is_not_venue_identity():
+    # A roundup URL names a LIST of events across venues (real shape: six 7/18 rows at six venues
+    # share one discoverlosangeles.com page) — two similarly-titled items must NOT merge on it.
+    roundup = "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+    a = {"title": "Jazz on the Lawn", "venue": "Burton Chace Park", "date": "2026-07-18",
+         "lineup": [], "links": [{"source": "editorial", "url": roundup}], "sources": ["editorial"]}
+    b = {"title": "Jazz on the Lawn (Santa Monica)", "venue": "Gandara Park", "date": "2026-07-18",
+         "lineup": [], "links": [{"source": "editorial", "url": roundup}], "sources": ["editorial"]}
+    assert not is_duplicate(a, b)
+    # Same page as bare-string links (an accepted link shape) — still not identity.
+    assert not is_duplicate(dict(a, links=[roundup]), dict(b, links=[roundup]))
+
+
+def test_shared_tracking_or_profile_url_is_not_venue_identity():
+    # A promoter's tracking link / Instagram profile is carried by EVERY event they run — a festival
+    # and its same-day pre-party share one, and must stay two rows.
+    fg = {"title": "HARD Summer 2026", "venue": "Hollywood Park Grounds", "date": "2026-08-01",
+          "lineup": [], "links": [{"source": "goldenvoice", "url": "https://on.fgtix.com/trk/5oHm"}]}
+    pre = {"title": "HARD Summer 2026 Pre Party", "venue": "Academy LA", "date": "2026-08-01",
+           "lineup": [], "links": [{"source": "goldenvoice", "url": "https://on.fgtix.com/trk/5oHm"}]}
+    assert not is_duplicate(fg, pre)
+
+
+def test_shared_bare_domain_box_office_is_not_venue_identity():
+    # A campus box office (ocfair.com, scfta.org) sells for every hall on the grounds — the same
+    # act billed in two rooms the same night must NOT merge on the bare domain.
+    amp = {"title": "Queen Nation - A Tribute to Queen", "venue": "Pacific Amphitheatre",
+           "date": "2026-08-08", "lineup": ["Queen Nation"],
+           "links": [{"source": "venue", "url": "https://ocfair.com"}]}
+    hangar = {"title": "Queen Nation", "venue": "The Hangar", "date": "2026-08-08",
+              "lineup": ["Queen Nation"], "links": [{"source": "venue", "url": "https://ocfair.com"}]}
+    assert not is_duplicate(amp, hangar)
+    # Junk URLs that normalize to nothing ('/', whitespace) are not identity either.
+    assert not is_duplicate(dict(amp, links=[{"source": "venue", "url": "/"}]),
+                            dict(hangar, links=[{"source": "venue", "url": " / "}]))
+
+
+def test_shared_venue_page_companion_pair_stays_two_rows():
+    # Same room's page on both rows, but "X" / "X Afterhours" are two gatherings — the companion
+    # guard applies to the venue-page arm just as it does to the placeholder path.
+    main = {"title": "Dirty Epic: Hard Techno", "venue": "Catch One", "date": "2026-08-15",
+            "lineup": [], "links": [{"source": "venue", "url": "https://catch.one/events/dirty-epic"}]}
+    afters = {"title": "Dirty Epic: Hard Techno Afterhours", "venue": "The Basement",
+              "date": "2026-08-15", "lineup": [],
+              "links": [{"source": "venue", "url": "https://catch.one/events/dirty-epic"}]}
+    assert not is_duplicate(main, afters)
 
 
 # ── One-sided placeholder + shared-headliner escapes (the Recollect Underground shapes) ──────────
