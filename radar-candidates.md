@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/17/2026 deterministically (no API). 341 candidates. Signals: big-venue 292, festival 47, tracked 4._
+_Generated 7/18/2026 deterministically (no API). 334 candidates. Signals: big-venue 286, festival 46, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -93,7 +93,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/21 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJp) |
 | Sat 8/22 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ9) |
 | Thu 8/27 | 2 | Taqueando After Dark at Level 8 | LEVEL 8 | festival | [link](https://www.eventbrite.com/e/taqueando-after-dark-at-level-8-tickets-1989438988569) |
 | Fri 8/28 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZd) |
@@ -171,8 +170,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/21 | 4 | Mt. Joy 2026: Celebrating 10 Years Of Mt. Joy | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/mt-joy-2026-celebrating-10-years-los-angeles-california-08-21-2026/event/09006379E448BED8) |
-| Fri 8/21 | 4 | Ricardo Montaner | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 8/22 | 4 | 90s Corridos Tour (Lineup Subject to Change) | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 8/28 | 4 | UNDERTALE: The Determination Symphony | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/undertale-the-determination-symphony-los-angeles-california-08-28-2026/event/0900646CE1A7DFED) |
 | Sat 8/29 | 4 | Robby Krieger's Spanish Caravan - The Doors En Español | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/robby-kriegers-spanish-caravan-the-doors-los-angeles-california-08-29-2026/event/090064B4E5F69EAE) |
@@ -229,10 +226,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/21 | 3 | NE-YO & AKON: Nights Like This Tour 2026 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/neyo-akon-nights-like-this-tour-inglewood-california-08-21-2026/event/09006436072615A9) |
-| Fri 8/21 | 3 | OMAR COURTZ - POR SI MAÑANA NO ESTOY USA TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/omar-courtz-por-si-manana-no-inglewood-california-08-21-2026/event/090064A584DA6A76) |
-| Fri 8/21 | 3 | OMAR COURTZ - POR SI MAÑANA NO ESTOY USA TOUR | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/omar-courtz-por-si-manana-no-inglewood-california-08-21-2026/event/0A006472A9B795F9) |
-| Fri 8/21 | 3 | Real 92.3 Presents: The REAL Show w/ Sexyy Red, Key Glock, | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/real-923-presents-the-real-show-inglewood-california-08-21-2026/event/0A0064E2E1B1AD87) |
 | Sat 8/22 | 3 | Noizu | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sun 8/23 | 3 | Tucker Wetmore w/ William Beckmann | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Mon 8/24 | 3 | TRAIN - Drops of Jupiter: 25 Years in the Atmosphere | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/train-drops-of-jupiter-25-years-los-angeles-california-08-24-2026/event/09006365C9B35530) |

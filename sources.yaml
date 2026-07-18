@@ -791,8 +791,10 @@ sources:
     method: webfetch
     url: https://harvardandstone.com/events/
     priority: 2
-    status: active
+    status: flaky
     notes: Free nightly local garage/punk/R&B + burlesque. WordPress + Events Manager; no JSON-LD. Close to Silver Lake.
+      Marked flaky 2026-07-18 — the /events/ page has served a stale cached month (dates already
+      past by fetch time) two runs in a row (2026-07-17, 2026-07-18).
   - name: Highland Park Bowl
     category: live_music
     method: webfetch
