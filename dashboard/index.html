@@ -3063,6 +3063,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // enrichment head, and the curated taste "why"), else the deterministic scoring reasons.
     const verdictWhy = (r.verdict && typeof r.verdict.why === 'string') ? r.verdict.why : '';
     const why = enr.curator_note || verdictWhy || (Array.isArray(r.reasons) && r.reasons.length ? r.reasons.join(' · ') : (r.why || r.blurb || r.note || ''));
+    // The CURATED why alone (no scoring-reasons fallback) — surfaces that speak in the
+    // editorial voice (front-page cards) show this or the factual `desc`, never "+1 …" internals.
+    const whyCurated = enr.curator_note || verdictWhy || '';
     return {
       id: (r.id != null ? String(r.id) : this.slugId(r, i)),
       iso: d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()),
@@ -3097,7 +3100,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       key: r.key || null,              // stable server id (event_key) — front_page join
       lane: r.lane || null,            // slate lane (club:afters / live-music / …)
       firstSeen: r.first_seen || null, // vs META.catalog_fetched_at -> NEW badge
-      why,
+      why, whyCurated,
       detail: r.detail || '',
       // Factual one-line description for the card: the enrichment blurb (full or cheap tier)
       // if researched, else the sanitized raw source detail. Distinct from `why` (the curator's
@@ -3603,14 +3606,21 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const win = WIN[lens] || WIN.twoweeks;
       const inWin = (e) => e.iso >= win[0] && e.iso <= win[1];
       const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
-      const TIER_BG = { 'must-see': '#1b1a17', 'great': '#2b5cd9' };
-      const mkCard = (e) => ({
+      // Badge ONLY the editor's rare must-see flag — and never inside the hero row, whose
+      // "Don't miss" label already says it. The page is the top of the ranking, so 'great'
+      // is every shelf-head's baseline — badging it too made the badge a constant (no
+      // signal). Full tier still reads in Explore's rank-column tooltip.
+      const TIER_BG = { 'must-see': '#1b1a17' };
+      const mkCard = (e, inHero) => ({
         date: e.wd + ' ' + e.md + ' · ' + e.t,
         title: e.title,
         venue: e.venue + ' · ' + e.hood,
-        why: e.why || '',
+        // Editorial voice or plain fact — the curated why (curator note / editor's line),
+        // else the factual desc (blurb / sanitized source detail). Never the scorer's
+        // "+1 …" reasons; those stay in Explore, where a rank table is the context.
+        why: e.whyCurated || e.desc || '',
         price: e.price || '',
-        tier: (e.verdict && TIER_BG[e.verdict.tier]) ? e.verdict.tier.toUpperCase() : '',
+        tier: (!inHero && e.verdict && TIER_BG[e.verdict.tier]) ? e.verdict.tier.toUpperCase() : '',
         tierBg: TIER_BG[(e.verdict || {}).tier] || '#76746b',
         scoreLabel: String(e.score), scoreColor: this.scoreColorFor(e.score),
         scoreSegs: this.scoreSegsFor(e.score),
@@ -3631,7 +3641,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // card template for every surface, size deltas live in CSS (.fp-hero .fp-card).
       if (heroEvs.length) fpShelves.push({
         label: "Don't miss", rowClass: 'fp-hero', total: heroEvs.length,
-        cards: heroEvs.map(mkCard), seeAll: null,
+        cards: heroEvs.map(e => mkCard(e, true)), seeAll: null,
       });
       // Lane shelves window the near (days 0–13) or ahead (14–60) key-list per the lens —
       // the split exists server-side so the two-zone rank can't starve plan-ahead.
@@ -3640,7 +3650,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           .filter(inWin).filter(e => !heroKeys.has(e.key));
         if (evs.length) fpShelves.push({
           label: sh.label, rowClass: 'fp-shelf', total: evs.length,
-          cards: evs.slice(0, SHELF_N).map(mkCard),
+          cards: evs.slice(0, SHELF_N).map(e => mkCard(e)),   // not .map(mkCard): index ≠ inHero
           seeAll: () => this.fpSeeAll(sh.label, evs.map(e => e.id)),
         });
       }
@@ -3650,7 +3660,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         const evs = resolve(keys).filter(e => e.iso >= this.TODAY);
         if (evs.length) fpShelves.push({
           label, rowClass: 'fp-shelf', total: evs.length,
-          cards: evs.slice(0, SHELF_N).map(mkCard),
+          cards: evs.slice(0, SHELF_N).map(e => mkCard(e)),   // not .map(mkCard): index ≠ inHero
           seeAll: () => this.fpSeeAll(label, evs.map(e => e.id)),
         });
       }
