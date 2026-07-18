@@ -77,7 +77,13 @@ Add these to `data/catalog.json` yourself, then re-score in Step 3:
    `sources.yaml`, tier: editorial): LAist "Best Things To Do," Time Out LA, We Like LA, Secret LA,
    6AM, Dirty Epic. Do NOT treat them as a catalog — add an `editorial_mentions` entry to matching
    records (the scorer gives +1 each). Only add a NEW event when no structured source has it
-   (`source: editorial`).
+   (`source: editorial`). EXCEPTION that should actually fire, not just be permitted: dated
+   **market / street-fair / pop-up / block-party / community** finds (a night market in an Eater
+   or Secret LA roundup, a one-off flea, a street festival) almost never have a structured source
+   — WRITE THOSE BACK as catalog rows (`source: editorial`, category `market`/`community`/
+   `food-drink`) so the market lane, dashboard shelves, and editor pool see them. The fixed
+   weeklies are already materialized from `recurring.yaml` by `run_digest` — don't duplicate
+   those; this is for the one-offs.
 
 ### Step 3 — Re-score (`run_digest.py --no-fetch`)
 

@@ -119,6 +119,14 @@ portability.
 - [x] First live digests (RA AREA_ID 23 confirmed; 6/16 windowed + 6/19 weekend shipped)
 - [x] Static dashboard live (build feed + PWA-lite + per-event "why?" + ICS export)
 - [ ] Gmail "Events" label created; first promoter lists joined (6AM, Dirty Epic first)
+- [ ] **HIGH PRIORITY — KCRW via the newsletter loophole (Ari, 2026-07-17).** kcrw.com is
+      hard-bot-walled (Vercel checkpoint, 429s every datacenter fetch — re-verified 7/17), but its
+      events coverage rides its newsletter: subscribe **"5 Things to Do in LA"** (kcrw.com/newsletters)
+      with the digest Gmail account and route it to the **"Events" label** — the existing Gmail
+      intake parses it like a promoter blast, no scraping, immune to the wall. Unique value: the
+      free cultural long tail (Summer Nights @ CAAM/The Broad, Grand Performances) TM/Goldenvoice
+      miss. Needs Ari (one signup + a Gmail filter); registry entry `KCRW Presents` stays
+      `candidate` with the residential-IP probe documented as the secondary unlock path.
 
 ## Phase A — Foundation (the unlock — almost everything stands on this)
 - [x] **Shared scoring + dedupe module** — `scripts/lib/{scoring,dedupe,config}.py`, both tested
@@ -257,6 +265,12 @@ The ranking-judgment tier (above) made real, plus one daily digest replacing the
       (`data/editor_pool.<hash>.json`); run the editor + `merge_verdicts.py --profile-hash <hash>` per
       friend to give them the full editor treatment (else their feeds rank deterministically against their
       own music and pick up verdicts next run).
+- [ ] **Wire `editor.prune_verdicts` into the routine** — the prune helper exists and is tested
+      (`lib/editor.py`), but nothing operational calls it: the daily routine runs only
+      `prune_enrichment.py`, so orphaned keys accumulate in `data/verdicts/<hash>.json` as merged /
+      expired events leave the catalog. Harmless today (every verdict read is a miss-tolerant
+      `.get()`) — just unbounded growth in a committed file. Surfaced by the 2026-07-16
+      dedupe-fix review.
 
 ## Phase F — Horizon expansion (the 6-month plan-ahead tier)
 **Why now (the canonical miss):** Lori saw on *Bandsintown* that Alanis Morissette plays LA in
@@ -430,11 +444,13 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   read identically, extract one shared top-picks helper into `lib/assemble` (next to
   `slate_fill`/`rank_key`) and give both surfaces the same diversity knobs. Decision: same or
   deliberately different?
-- [ ] **Emit "The Take" structurally** — the front page lifts the digest lede by parsing
+- [ ] **Emit "The Take" structurally** — the take is the digest lede parsed out of
   `digests/latest.md` with string heuristics (`digestLede()` in the dashboard). Robust enough
   for now (bold/italic openers handled), but the clean fix is the voice pass writing the intro
   to a structured slot the feed carries (e.g. `front_page.take`), so the page never parses
-  markdown conventions.
+  markdown conventions. (2026-07-16 follow-up: the take moved off the front page entirely —
+  it renders inside the concierge chat's welcome message (`seedTake()`), and reaches the model
+  as the Worker's `opener` system-prompt field, never as history.)
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
@@ -541,6 +557,18 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
 - [ ] Flyer-forwarding bot + Twilio SMS/MMS intake (`sms-ingestion.md`). Capture-by-hand still works.
 - [ ] On-sale sniper / price tracking across ticket links (DICE vs TM fees). Nice-to-have.
 - [ ] SQLite instead of `catalog.json` if volume ever demands it.
+- [ ] **Shared lane corrections** (surfaced by the 2026-07-17 taxonomy revamp; Ari wants lanes
+      standardized across profiles). Tags + deterministic lanes are already one shared, taste-neutral
+      vocabulary — but the event-editor's *lane override* is stored per profile
+      (`data/verdicts/<hash>.json`, ~165 overrides), so the same event can sit in different lanes on
+      different profiles' feeds when their editors disagree. A lane correction is a FACT call
+      (headliner draw, a nostalgia night's character), not taste — so move it into the shared
+      enrichment layer (`data/enrichment.json` scene facts, cross-profile by design): the editor
+      still *proposes* a lane, `merge_verdicts` folds it into enrichment instead of the verdict
+      store, `event_lane` reads it as a deterministic input, and per-profile verdicts keep only the
+      taste fields (tier/adjust/why). Migration: one pass folding existing verdict-lane overrides
+      into enrichment (conflicts → most-recent judged_at wins), then strip `lane` from the verdict
+      contract + event-editor.md. Small, contained; do it alongside the next editor-contract bump.
 
 ---
 

@@ -45,12 +45,12 @@ The page opens on the **Front page** — an editorial home rendered from the fee
 `front_page` block (built server-side by `build_dashboard.build_front_page` with the SAME
 `rank_key` that orders the table's final rank — the page never re-ranks):
 
-- **The nameplate band** — **The Take** (the consolidated digest's voice-pass lede, lifted
-  from `./digests/latest.md`, linking into the full digest modal) beside **The Wire**, a
-  clickable agate list of tonight's top-ranked picks (falls back to the weekend when tonight
-  is dry). The whole band is collapsible (*hide ×*), persisted per device (`la-take`).
+- **The Wire** — a clickable agate band of tonight's top-ranked picks (falls back to the
+  weekend when tonight is dry), ordered by the same `effRank` the table uses. Collapsible
+  (*hide ×*), persisted per device (`la-take`). The day's *take* itself lives in the
+  concierge chat's welcome — see below.
 - A sticky **time lens rail** (*tonight · this weekend · next 2 weeks · plan ahead*) with
-  live event counts, that re-scopes everything below. The feed ships each lens's hero list
+  live slate counts, that re-scopes everything below. The feed ships each lens's hero list
   plus rank-ordered shelf key-lists; the client only date-windows and slices — selection,
   never re-sorting.
 - **Don't miss** — the hero block, with the lead story promoted to double width.
@@ -79,8 +79,9 @@ The chat has two modes, toggled in its header (default **Concierge**):
 - **Concierge (LLM)** — a real conversational concierge that **answers questions**, recommends,
   and plans a night. Because the page is static (no API key in the browser), it POSTs to a
   `BACKEND_URL` — a small Cloudflare Worker that holds the Anthropic key and grounds the model on
-  the live feed. **Deploy it + connect it** (see `backend/README.md`; tap "connect" in the chat
-  header to set the URL/token). Until then, Concierge mode transparently falls back to ↓.
+  the live feed. **Deploy it + connect it** (see `backend/README.md`; the URL is the `BACKEND_URL`
+  constant in `index.html`, and "connect" in the chat header sets the token). Until then,
+  Concierge mode transparently falls back to ↓.
   Or **bring your own key**: *Settings (☰) → Claude API key* opens a modal with a `sk-ant-…` field +
   an on/off switch (and the shared access token below it). With the switch **on**, your key is stored
   in your browser and sent to the Worker per request — it pays for your messages and connects the
@@ -91,6 +92,16 @@ The chat has two modes, toggled in its header (default **Concierge**):
   "free house show this weekend near me" into a filter over the loaded catalog, instantly and
   offline; also fuses events × dining into a rough plan and a night-planner hand-off prompt. This
   is the fallback whenever the backend is unset/unreachable, so the chat never dead-ends.
+
+**The welcome wraps the take** — the thread opens on ONE concierge message: the greeting, then
+the day's take ("For Fri 7/17: …" — the consolidated digest's voice-pass lede, parsed out of
+`./digests/latest.md`), then the how-to with its tap-to-fill examples. The how-to renders
+full-size until this device sends its first message, then tucks behind a *see what I can do ▸*
+toggle (`chatGuideOpen` / `la-chat-used`). The welcome is client-side chrome: it *looks* like
+the LLM's first message but is never sent to it — `askBackend` drops it from the history
+(saving tokens); only the take rides along, as the `opener` field the Worker folds into the
+system prompt, so "what's the move tonight then?" still has context. A profile with no digest
+yet just gets no take line.
 
 **Discover new sources** → a **copy-to-Claude-Code hand-off** (composes a Discover-mode prompt,
 copies it; you paste it into Claude Code, which proposes sources — approval still happens in the
@@ -213,7 +224,8 @@ generated runtime; the only hand-edit is the three `vendor/` paths (originally u
 ## Upgrade path
 
 The LLM **Concierge backend** is the realized version of this (see `backend/`): deploy the
-Worker, set the Anthropic key, connect the URL/token. Still open as future work: streaming
+Worker, set the Anthropic key, point `BACKEND_URL` at it, connect the token. Still open as
+future work: streaming
 responses, auto-committing generated plans back to the repo, and real auth (Cloudflare Access).
 Public/unlisted Pages + the Fast-filter fallback is fine until then (the catalog is public LA
 events).

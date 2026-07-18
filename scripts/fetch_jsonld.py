@@ -59,9 +59,11 @@ def fetch(url: str) -> str:
 
 
 def is_event(obj: dict) -> bool:
+    # Schema.org Event subtypes mostly contain "Event" (MusicEvent, TheaterEvent…) — but not
+    # all: Eventbrite marks the Rose Bowl Flea / 626 Night Market pages @type "Festival".
     t = obj.get("@type", "")
     types = t if isinstance(t, list) else [t]
-    return any("Event" in str(x) for x in types)
+    return any("Event" in str(x) or str(x) == "Festival" for x in types)
 
 
 def walk(node, out: list):

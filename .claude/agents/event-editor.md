@@ -23,7 +23,8 @@ batch you're given and nothing else.
 
 ## Input (the orchestrator gives you, in the prompt)
 - A JSON array of event records, each: `id, title, venue, neighborhood, date, start, lineup[],
-  category, price, score, reasons[], lane, tags{type,genre,setting,vibe,region}`, plus — when this
+  category, price, score, reasons[], lane, tags{type,genre,setting,scale,vibe,region}` (`scale` =
+  venue tier bar/room/hall/arena, null when unknown), plus — when this
   lineup/genre intersects the user's listening — an `affinity` block:
   `{artists:[{name,tier,weight}], genres:[...]}` (tier ∈ core/strong/light; weight = summed
   Spotify+feedback signal).
@@ -70,12 +71,17 @@ batch you're given and nothing else.
    integer scores. Within a night, don't stamp everything +2 — spread the values so the final sort
    is meaningful and a real quality cliff shows up (the slate cuts filler past a gap). Leave it 0
    when the score's relative position is already right.
-6. **lane (optional override)** — only when the deterministic lane is wrong. The classic case: a big
-   mainstream headliner the tags filed as `club:underground` because the venue/price didn't reveal
-   the draw → set `club:mainstream`. Or an afters mislabeled, a "live-music" that's really a club
-   night, etc. Use the lane vocab: `club:mainstream` / `club:afters` / `club:day` / `club:underground`,
-   `live-music`, `film`, `stage`, `comedy`, `market`, `art`, `food-drink`, `community`, `other`.
-   Omit the field when the lane is already right.
+6. **lane (optional override)** — only when the deterministic lane is wrong. The classic case:
+   CHARACTER the venue can't reveal — a big mainstream headliner the tags filed as
+   `club:underground`, or a Top-40/nostalgia club night at a small room (that's `club:mainstream`
+   too: mainstream is a character call, not a venue-size call). Or an afters mislabeled, a
+   "live-music" that's really a club night, etc. Use the lane vocab: `club:mainstream` /
+   `club:afters` / `club:day` / `club:underground`, `live-music` (small/mid rooms) /
+   `live-music:big` (arena- or hall-scale concerts), `film`, `stage`, `comedy`, `market`,
+   `workshop`, `art`, `food-drink`, `community`, `other` — off-vocab strings are dropped on
+   merge. Omit the field when the lane is already right. Note a bare `live-music` override on
+   an event the tags already place in `live-music:big` is treated as family-confirming (the
+   sub-lane stands) — to force the small-room lane, say so in `why` and use `adjust` instead.
 7. **why** — one line, specific, in a natural insider voice (why the verdict, especially when you
    diverge from the score). Same anti-fluff bar as the digest: never "north star", "on-taste",
    "dead-center of the lane", "squarely in the lane", or templated openers. A reader should learn

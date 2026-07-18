@@ -31,7 +31,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from .enrich import event_key, scene_facts
-from .assemble import event_lane
+from .assemble import LANES, event_lane
 from .affinity import _token_pat
 from .series import group_series
 
@@ -307,11 +307,13 @@ def verdict_map(cache: dict) -> dict:
 
 def validate_verdict(v: dict):
     """Coerce one raw LLM verdict to the contract; return None if unusable (bad/missing tier).
-    Clamps `adjust` to [-3, 3], defaults `confidence` to 'med', keeps `lane`/`why` if present."""
+    Clamps `adjust` to [-3, 3], defaults `confidence` to 'med', keeps `why` if present, and
+    keeps `lane` only when it's in the canonical assemble.LANES vocabulary — an off-vocab lane
+    string would flow verbatim into every surface (assemble/render/dashboard use it raw)."""
     if not isinstance(v, dict) or v.get("tier") not in TIERS:
         return None
     out = {"tier": v["tier"]}
-    if v.get("lane"):
+    if v.get("lane") and str(v["lane"]) in LANES:
         out["lane"] = str(v["lane"])
     try:
         adj = int(v.get("adjust") or 0)
