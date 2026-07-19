@@ -44,6 +44,23 @@ def profile_hash(username: str, salt: str) -> str:
     return hashlib.sha256((salt + username.strip().lower()).encode("utf-8")).hexdigest()[:16]
 
 
+def enrich_paths_for(feed_hash: str, owner: bool = False) -> list:
+    """The artifacts only this profile's LLM pass commits — their last commit IS its most
+    recent enrichment (the freshness bar behind reflected/pending, enriched_at, and the
+    dashboard's "Update available"). Shared with profile_refresh_gate.py so the two can't
+    drift. LLM-only artifacts on purpose: the consolidated digests/latest.md is excluded
+    because a cheap deterministic Refresh re-renders it without re-running the LLM.
+
+    The owner's nightly verdicts land in data/verdicts/default.json (their taste IS the root
+    taste.yaml — lib/editor.py's default store), and their per-hash digest copy is committed
+    only AFTER the nightly feed bake. Without watching default.json the owner's enriched_at
+    reads a day old in every deployed feed, keeping "Update available" lit permanently."""
+    paths = [f"digests/{feed_hash}/latest.md", f"data/verdicts/{feed_hash}.json"]
+    if owner:
+        paths.append("data/verdicts/default.json")
+    return paths
+
+
 # ---------------------------------------------------------------------------
 # Self-edit visibility (baked at build time, static-first)
 # ---------------------------------------------------------------------------
@@ -305,11 +322,12 @@ def main() -> int:
                 block["profile_yaml"] = None
             # How the concierge adjusted each file + whether that's reflected in this profile's
             # most recent enrichment. "Reflected" gates on the FULL LLM pass — the per-profile
-            # narrative digest + verdicts — and uses the same bar for everyone, owner included. We
+            # narrative digest + verdicts — and uses the same bar for everyone, owner included
+            # (the owner's nightly verdicts land in default.json; see enrich_paths_for). We
             # deliberately do NOT count the consolidated digest (digests/latest.md): a cheap
             # deterministic Refresh re-renders that without re-running the LLM, which would flip the
             # owner green before the AI actually reprocessed their taste.
-            enrich_paths = [f"digests/{h}/latest.md", f"data/verdicts/{h}.json"]
+            enrich_paths = enrich_paths_for(h, owner=is_owner)
             block["self_edit"] = {
                 "taste": selfedit_block(REPO, taste, enrich_paths),
                 "profile": selfedit_block(REPO, profile_rel, enrich_paths),

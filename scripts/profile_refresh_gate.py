@@ -41,7 +41,8 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "scripts"))
-from build_profiles import DEFAULT_SALT, _commit_date, _git, _last_commit, profile_hash  # noqa: E402
+from build_profiles import (DEFAULT_SALT, _commit_date, _git, _last_commit,  # noqa: E402
+                            enrich_paths_for, profile_hash)
 from lib.config import load_yaml  # noqa: E402
 
 
@@ -59,12 +60,6 @@ def watched_paths(p: dict, feed_hash: str) -> list:
     ]
 
 
-def enrich_paths(feed_hash: str) -> list:
-    """The artifacts only a per-profile LLM pass commits — their last commit IS the most recent
-    enrichment. Keep in sync with build_profiles.py (the reflected/pending badge uses the same)."""
-    return [f"digests/{feed_hash}/latest.md", f"data/verdicts/{feed_hash}.json"]
-
-
 def decide(repo: Path, p: dict, salt: str) -> dict:
     """One profile's decision: {username, hash, decision, reason, enriched_at, changed[]}."""
     u = p["username"]
@@ -75,7 +70,9 @@ def decide(repo: Path, p: dict, salt: str) -> dict:
         out.update(decision="OWNER",
                    reason="owner — rides the nightly default feed + consolidated digest")
         return out
-    enr_sha = _last_commit(repo, enrich_paths(h))
+    # Shared with build_profiles.py (the reflected/pending badge) so the two bars can't drift.
+    # Owner never reaches here (exempted above), so no owner= flag needed.
+    enr_sha = _last_commit(repo, enrich_paths_for(h))
     out["enriched_at"] = _commit_date(repo, enr_sha)
     if not enr_sha:
         out.update(decision="REFRESH", reason="never enriched — first pass")

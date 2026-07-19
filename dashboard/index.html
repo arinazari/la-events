@@ -1955,8 +1955,20 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   visitKey(hash) { return 'la-last-visit-' + (hash || 'default'); }
   nudgeSnoozeKey(hash) { return 'la-nudge-shown-' + (hash || 'default'); }
   // Whole days since an ISO stamp (UTC-stamped feeds parse fine); null when absent/unparseable.
+  // Date-only stamps (enriched_at is a bare YYYY-MM-DD) are calendar days, not instants: diff
+  // them against today in LOCAL calendar days. new Date('YYYY-MM-DD') would anchor at UTC
+  // midnight — 5pm PT the evening BEFORE — so a layer refreshed at 5:30am read "1 day old" from
+  // 5pm the same day, flipping layerBehind()/the nudge to "Update available" every evening.
   daysSince(iso) {
     if (!iso) return null;
+    let m;
+    if (typeof iso === 'string' && (m = iso.match(/^(\d{4})-(\d{2})-(\d{2})$/))) {
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+      const then = new Date(+m[1], +m[2] - 1, +m[3]).getTime();
+      if (isNaN(then)) return null;
+      return Math.round((today - then) / 86400000);   // round, not floor: DST days are 23/25h
+    }
     if (typeof iso === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/.test(iso)) iso = iso + 'Z';
     const t = new Date(iso).getTime();
     if (isNaN(t)) return null;
