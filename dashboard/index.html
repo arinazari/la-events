@@ -2467,6 +2467,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     return fetch(path, { cache: 'no-store' }).then(res => res.ok ? res.text() : null)
       .then(md => (md && md.trim().length >= 20) ? this.strSig(md) : null).catch(() => null);
   }
+  // The rebuild-profile workflow's completion receipt (./rebuilt.<hash>.json), stamped on EVERY
+  // run — even one whose LLM pass leaves the digest byte-identical (nothing new to judge). That's
+  // the deterministic "the paid run finished" signal the digest-content probe above can't give
+  // (see startUpdatePoll). Null until a first rebuild lands (or on a deploy predating receipts).
+  fetchRebuildStamp(hash) {
+    const path = './rebuilt.' + hash + '.json?t=' + Date.now();
+    return fetch(path, { cache: 'no-store' }).then(res => res.ok ? res.json() : null)
+      .then(j => (j && (j.rebuilt_at || j.run_id)) ? ((j.rebuilt_at || '') + ':' + (j.run_id || '')) : null)
+      .catch(() => null);
+  }
   // Resume polling for any job already in flight (after a reload, or a switch back to its profile).
   // The active profile's Update is the only spinner that matters; another profile's job reconciles
   // lazily when you switch back to it (its feed is fetched fresh on return either way).
@@ -2475,25 +2485,33 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (active && this.getUpdating(active) && !this._freshPoll) this.startUpdatePoll(active);
     if (this.getRefreshing() && !this._refreshPoll) this.startRefreshPoll();
   }
-  // Poll until THIS profile's rebuilt DIGEST deploys (its content changes vs the click-time baseline)
-  // — that, not the feed's generated_at, is what the paid LLM pass actually produces (see fetchDigestSig).
+  // Poll until THIS profile's rebuild lands. Primary signal: the workflow's rebuilt.<hash>.json
+  // receipt, stamped on EVERY run — a run whose LLM pass finds nothing new to judge redeploys the
+  // SAME digest, so keying on digest content alone left the button spinning to its cap on a
+  // no-change rebuild (the same trap startRefreshPoll's fetched_at fix closed for Refresh). The
+  // digest signature stays as a fallback (deploys predating receipts) and picks the toast wording.
   startUpdatePoll(hash) {
     clearInterval(this._freshPoll); this._freshPoll = null;
     const job = this.getUpdating(hash);
     if (!job) return;
     const baseDigest = job.baseDigest || null;
+    const baseStamp = job.baseStamp || null;
     let n = 0;
     this.startJobTick();
     this._freshPoll = setInterval(async () => {
       if (((this.state.profile && this.state.profile.hash) || null) !== hash) {   // switched away → reattach owns it
         clearInterval(this._freshPoll); this._freshPoll = null; return;
       }
-      const sig = await this.fetchDigestSig(hash);
+      const [sig, stamp] = await Promise.all([this.fetchDigestSig(hash), this.fetchRebuildStamp(hash)]);
       await this.checkCatalogFreshness();
-      // Done when the digest is present AND differs from the baseline (null→present for a first-ever
-      // digest, or a changed signature) — i.e. the LLM pass re-rendered it. A no-LLM re-rank can't.
-      const landed = !!(sig && sig !== baseDigest);
-      if (++n > 120 || landed) {                                                  // ~30 min cap (full LLM pass is slow)
+      // Digest present AND changed vs baseline (null→present counts, for a first-ever digest) —
+      // the LLM pass re-rendered it. Receipt changed/appeared — the run finished either way.
+      const digestChanged = !!(sig && sig !== baseDigest);
+      const landed = digestChanged || !!(stamp && stamp !== baseStamp);
+      // Cap on wall clock from the click, not just this session's poll count — reattachJobs used to
+      // reset the counter on every reload, so a never-landing job could spin forever across reloads.
+      const expired = ++n > 120 || (job.startedAt && Date.now() - job.startedAt > 35 * 60 * 1000);
+      if (landed || expired) {
         clearInterval(this._freshPoll); this._freshPoll = null;
         this.setUpdating(hash, null);
         if (landed) {
@@ -2502,7 +2520,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
             await this.loadFeedFor(this.state.profile);                           // refresh the ranked rows (fresh verdicts) …
             await this.loadDigestFor(this.state.profile);                         // … and show the freshly rebuilt digest
           }
-          this.flashToast('Your picks + digest are up to date.');
+          this.flashToast(digestChanged
+            ? 'Your picks + digest are up to date.'
+            : 'Re-ranked against the latest events — your digest was already current.');
+        } else {
+          this.flashToast('The update is taking longer than expected — it may still land in the background; check back in a few minutes.');
         }
         this.forceUpdate();
       }
@@ -2574,15 +2596,15 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (!this.BACKEND_URL) { this.flashToast('Connect the concierge backend first (chat → connect).'); return; }
     const hash = p.hash;
     // Claim the in-flight slot synchronously (before the await below) so a double-click can't launch
-    // two rebuilds. Baseline = THIS profile's current DIGEST signature; the rebuild is "done" only when
-    // the digest CHANGES — i.e. the LLM pass re-rendered it. Keying on the feed's generated_at instead
-    // let the cheap deterministic re-rank (build-profiles CI / rebuild-profile's first step) end the
-    // poll in ~1 min with nothing charged and the digest still empty. null = no digest yet (new profile).
+    // two rebuilds. Baselines = this profile's current rebuild receipt + digest signature; the job is
+    // "done" when either moves (see startUpdatePoll). Keying on the feed's generated_at instead let
+    // the cheap deterministic re-rank (build-profiles CI / rebuild-profile's first step) end the
+    // poll in ~1 min with nothing charged and the digest still empty. null = none yet (new profile).
     this.setUpdating(hash, { startedAt: Date.now() });
     this.forceUpdate();
     this.startJobTick();
-    const baseDigest = await this.fetchDigestSig(hash);
-    this.setUpdating(hash, { ...(this.getUpdating(hash) || { startedAt: Date.now() }), baseDigest });
+    const [baseDigest, baseStamp] = await Promise.all([this.fetchDigestSig(hash), this.fetchRebuildStamp(hash)]);
+    this.setUpdating(hash, { ...(this.getUpdating(hash) || { startedAt: Date.now() }), baseDigest, baseStamp });
     try {
       const headers = { 'content-type': 'application/json' };
       if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;

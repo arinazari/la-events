@@ -62,6 +62,10 @@ Who reads it:
   identity version for a feed built before content_version existed — reads stale once, self-heals.)
 - **Refresh completion poll** — keys off `fetched_at` advancing (a refresh always republishes it),
   not the version (which wouldn't move on a no-change refresh — that was the spinning-button bug).
+- **Update completion poll** — keys off `dashboard/rebuilt.<hash>.json`, the per-profile receipt
+  `rebuild-profile.yml` stamps on **every** run, with the digest's content signature as a fallback
+  (and to pick the toast wording). Digest content alone doesn't move on a nothing-new-to-judge
+  rebuild — the Update-button variant of the same spinning-button trap.
 - **"What changed" readout** — `added`/`updated`/`changes`, tap to itemize.
 - **Digest freshness line** — `render_digest` prints "Updated <when> · N new · M updated" or
   "Checked <when> · no new or changed events", and badges events 🆕 new / ↻ updated inline.
