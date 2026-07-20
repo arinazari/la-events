@@ -494,10 +494,10 @@
     },
     "6752c300c13f": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Loved venue, but hip-hop live show sits at the periphery of her core genre interests.",
-      "confidence": "med",
-      "judged_at": "2026-07-12T04:46:30",
+      "adjust": -2,
+      "why": "Hip-hop showcase at a loved venue on a Friday — the boosts explain the 7, but hip-hop is genuinely off Lori's map and nothing in the lineup connects to her taste.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -632,10 +632,10 @@
     },
     "4dd13aaa260f": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "60-act EDC-adjacent festival is the wrong context for a live-music head.",
+      "adjust": -2,
+      "why": "Charlotte de Witte and Amelie Lens are legitimate techno names but they're buried in a $282+ Inglewood EDM festival alongside DJ Snake and Zedd — the context is exactly the big-room festival she avoids.",
       "confidence": "high",
-      "judged_at": "2026-07-12T04:46:30",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -688,11 +688,10 @@
     },
     "2fb03fcba54b": {
       "tier": "solid",
-      "lane": "live-music",
-      "adjust": -1,
-      "why": "Tony Seltzer is a hip-hop beatmaker — adjacent but not her core guitar lane.",
-      "confidence": "med",
-      "judged_at": "2026-07-12T04:46:30",
+      "adjust": -2,
+      "why": "Tagged rock but Tony Seltzer is a hip-hop producer and Alexander Spit is an Oakland rapper — this is underground rap dressed in the wrong genre tag. The Echo on a Saturday doesn't fix the lane mismatch.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -708,41 +707,37 @@
     },
     "481c780bbca9": {
       "tier": "solid",
-      "lane": "live-music",
-      "adjust": 0,
-      "why": "Underdocumented indie bill at The Echo Friday; format is right, draw unknown.",
+      "adjust": -2,
+      "why": "Electronic show with no artist intel; low-interest genre for Lori and a bare description offers nothing to bridge the gap.",
       "confidence": "low",
-      "judged_at": "2026-07-12T04:46:30",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 6
     },
     "550253539834": {
       "tier": "solid",
-      "lane": "live-music",
-      "adjust": 1,
-      "why": "All-ages rock at The Echo Saturday — right format, draw unknown.",
+      "adjust": -1,
+      "why": "Local rock at The Echo on a Saturday is a reasonable floor, but Los Aptos is a complete unknown and the all-ages scene description offers nothing to go on.",
       "confidence": "low",
-      "judged_at": "2026-07-12T04:46:30",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 6
     },
     "d240aa4d35ce": {
       "tier": "must-see",
-      "lane": "live-music",
       "adjust": 2,
-      "why": "Meridian Brothers (loved) + Mexican Institute of Sound is the Latin alt double-bill of the month.",
+      "why": "Tracked artist in her highest-interest genre — Meridian Brothers' Colombian experimental-cumbia-meets-psychedelia is the exact global/diaspora lane she cares most about, and Mexican Institute of Sound is a strong pairing. The score of 6 badly undersells a tracked-artist show …",
       "confidence": "high",
-      "judged_at": "2026-07-12T04:46:30",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 6
     },
     "d95b156bb459": {
-      "tier": "solid",
-      "lane": "live-music",
-      "adjust": 0,
-      "why": "Three-band rock bill at The Echo Saturday — genre unclear, right format.",
-      "confidence": "low",
-      "judged_at": "2026-07-12T04:46:30",
+      "tier": "great",
+      "adjust": -1,
+      "why": "Album release energy at The Echo on a Saturday, KROQ alt-rock airplay, and 8+ years of road-tested SoCal gigging — the right genre in the right room, just not a name she'd know to seek out.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -932,27 +927,27 @@
     "0ace2b0c753f": {
       "tier": "great",
       "adjust": 2,
-      "why": "DIY folk-punk/tape-loop songwriter with a new album imminent, KCRW-presented, at a loved venue on a Friday — the score undersells this substantially for a listener who wants craft and punk-adjacency in the same artist.",
+      "why": "KCRW-presented folk-punk/tape-loop songwriter in the Billy Bragg lineage, new Bar/None album dropping that summer — squarely in her DIY-punk-meets-songwriter lane, with the editorial stamp she values, at The Echo on a Saturday. Sleeper the score missed.",
       "confidence": "high",
-      "judged_at": "2026-07-19T02:00:12",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 6
     },
     "d0ab8baa3577": {
       "tier": "solid",
       "adjust": 1,
-      "why": "PRR plus punk/rock plus Saturday night is the ideal format match for this taste; the only gap is zero artist detail to confirm the draw.",
+      "why": "Punk/rock at Permanent Records Roadhouse on a Saturday — the venue alone earns the look, but Queen Serene is unknown and the scene block is bare.",
       "confidence": "low",
-      "judged_at": "2026-07-19T02:00:12",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 6
     },
     "8926af10ee3c": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "The Echo is a loved venue and Friday is right, but 'pop artist' with no supporting detail is too vague to judge — could be craft singer-songwriter territory or filler.",
+      "adjust": -1,
+      "why": "Pop at The Echo on a Friday is the venue and day doing all the work; with no scene intel on Will Swinton there's nothing to distinguish this from generic pop.",
       "confidence": "low",
-      "judged_at": "2026-07-19T02:00:12",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -1091,6 +1086,280 @@
       "why": "Bare-knuckle boxing — this is a sports event that landed in the music catalog by mistake; the scorer gave it '+3 music high interest' off a bad categorization, and the profile lists no sports interest.",
       "confidence": "high",
       "judged_at": "2026-07-19T02:00:12",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "3d4e02e22d6e": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Pop, Wednesday, no profile on any of the three artists — midweek and low-signal genre for Lori.",
+      "confidence": "low",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "1d601286aed0": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Rock at The Echo on a Thursday with nothing in the scene description to distinguish it — the name could be interesting or could be generic local rock; Thursday without a draw isn't the night to find out.",
+      "confidence": "low",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "82d7f9abb6cc": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Suki Waterhouse's indie/dream-pop sits in the alt lane Lori cares about, and Hollywood Forever on a summer Thursday is one of LA's better atmospheric settings; the outdoor cemetery show is a genuine LA experience even without the weekend boost.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "2145646bdb95": {
+      "tier": "solid",
+      "lane": "live-music",
+      "adjust": 1,
+      "why": "Misfiled as comedy because of the venue name — Prince Daddy & the Hyena are a legit emo-punk band that fits her punk/alternative taste. Friday helps; North Hollywood is a stretch from Glendale but not a dealbreaker.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "66a16855b568": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Stavroz is a genuine live band (not a DJ), which matters, but the organic-electronic/Bonobo-adjacent sound and the late-club setting at The Bridge aren't really Lori's world even at its most musical.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "6d3831998a40": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "The original artists, not tribute bands, but A Flock of Seagulls and Animotion in a Totally Tubular package lands exactly in the decade-nostalgia territory she penalizes.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "f870e8caec0c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Grateful Dead adjacency gives some pull and the Orpheum is a beautiful room, but Southern jam rock isn't Lori's primary lane; night 1 of 2 — no urgency to pick this night over the other.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "ca49f5c82071": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Cormega is a respected underground lyricist and The Realness is a real record, but hip-hop isn't Lori's genre and the anniversary-performance framing pushes toward nostalgia on top of that mismatch.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "86dea18472b0": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "The Greek is a loved venue and Friday is right, but Treaty Oak Revival is mainstream Texas country — a genre that doesn't appear anywhere in Lori's profile; the setting earns a look, the music can't close it.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "0f978aca7ba1": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Two genuine soul legends sharing a bill at the Bowl on a Friday — soul is high-interest for Lori and this pairing is legitimately rare; score of 5 undersells it. Night 1 of 2, both nights identical, so either works.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "570f511d469c": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "VILENA is a solid underground booking but not a marquee name, and driving techno isn't close to Lori's electronic interest — exactly the not-the-main-thing case her profile carves out.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "dc5b4d403e6e": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "No lineup, no genre signal — can't tell if this is a live band or a bar-night DJ set; The Virgil is a decent room but there's no reason to walk in the door without a name on the bill.",
+      "confidence": "low",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "45649aae48e2": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Gold Diggers is reliable and funk/soul is solidly in her lane, but no lineup and an ambiguous billing make this a contingency at best.",
+      "confidence": "low",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "6a2678139a03": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "All-ages open-mic feature night with an unknown act — community programming, not a headliner she'd build a Friday evening around.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "6076c7e280f1": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "The Smell on a Friday with three punk and experimental acts is the exact DIY-room format her taste is built around — this is also the fullest version of the bill across several overlapping Smell entries for tonight.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "fc9d9ded895f": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Sold out — nothing to act on here regardless of how good El Rayo-X is at McCabe's.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "08f6322b23b5": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Parts & Labor is a legit noise-rock act with a decade of critical cred in the experimental/indie space, and Zebulon is one of her named venues — the kind of Friday bill she builds plans around.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "eb73d98273c1": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -1,
+      "why": "A themed party spinning Bad Bunny records — Zebulon is a loved room but this is a DJ dance night, not the live bookings that make Zebulon worth showing up for.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "561c53c7de75": {
+      "tier": "solid",
+      "lane": "club:afters",
+      "adjust": -1,
+      "why": "River Moon has Boiler Room pedigree and the queer underground context is real, but afterhours electronic is firmly low-priority for Lori even when the booking has credibility.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "ebf5f4fea4b2": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Unknown acts, TBA DTLA location, pure club electronic — nothing here connects to her taste.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "a4237fd4d08a": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Permanent Records Roadhouse (a loved venue) plus Tone Ranger's live Americana-electronic hybrid is the kind of genre-blurring set that earns a visit — more interesting than a straight DJ night, and it's right in her neighborhood.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "b0cba4d994d9": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "The scene labels this a tribute night — Crystal Castles and The Cure are goth-adjacent source material she'd like on record, but the tribute format is a hard penalty no matter how cool the originals are.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "b1128a27987b": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Big-room EDM fest in Burbank with house, dubstep, and happy hardstyle — wrong genre, wrong neighborhood, wrong vibe on every axis; skip both nights.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "b0a9f5fcadef": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Generic dubstep night with no billing at a Hollywood club — nothing here connects to what Lori actually goes out for.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "b84e6ffc5156": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Tech/afro house at Sound is a real booking, but Lori's electronic interest requires a marquee name to clear the bar — Grossomoddo doesn't register at that level.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "665b261322e5": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Looks like a partial listing of the same DIY night at The Smell — catch it via the fuller Minerva Hoyt bill (6076c7e280f1).",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "73a06e501243": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No billing, late-night electronic at a bar — nothing to evaluate, and the format doesn't fit her taste regardless.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "0831ff8b370a": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Another partial listing of the DIY Smell night — the fuller entry (6076c7e280f1) is the canonical bill; use that one.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "ee79ee6dffb8": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Free Friday jazz at The Dresden — the Old Hollywood crooner format is more traditional than the jazz she tracks but The Dresden is a genuine LA institution, not a nostalgia gimmick.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "444d30deec2c": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Night 5 of a 7-night afterhours run with no billing — generic late-night electronic at the wrong end of a depleted series, and not her genre in any case.",
+      "confidence": "high",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
       "score_at_judge": 5
     }

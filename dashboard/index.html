@@ -74,8 +74,6 @@
   .fpc-why { font:400 11px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36; }
   .fpc-price { font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; }
   .fpc-new { font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#1f7a4d; }
-  .fpc-listen { font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; text-decoration:none; }
-  .fpc-listen:hover { color:#1d49b8; text-decoration:underline; }
   /* a tag chip that jumps into Explore filtered to that tag (exploreByTag) */
   .tag-link { cursor:pointer; }
   .tag-link:hover { text-decoration:underline; }
@@ -327,12 +325,7 @@
               </sc-if>
               <sc-if value="{{ c.why }}" hint-placeholder-val="{{ false }}"><div class="fp-clamp3 fpc-why">{{ c.why }}</div></sc-if>
               <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                <span style="display:inline-flex; align-items:center; gap:8px; min-width:0;">
-                  <span class="fpc-price">{{ c.price }}</span>
-                  <sc-if value="{{ c.hasListen }}" hint-placeholder-val="{{ false }}">
-                    <a class="fpc-listen" href="{{ c.listenUrl }}" target="_blank" rel="noopener" onClick="{{ c.listenStop }}" title="{{ c.listenTitle }}">▶ listen</a>
-                  </sc-if>
-                </span>
+                <span class="fpc-price">{{ c.price }}</span>
                 <span style="display:inline-flex; align-items:center; gap:6px;">
                   <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span class="fpc-new">NEW</span></sc-if>
                   <span title="taste score {{ c.scoreLabel }}" style="display:inline-flex; align-items:center; gap:5px;">
@@ -669,10 +662,6 @@
               <span style="font:500 11px/1 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.hood }}</span>
               <span style="color:#cdcbc3;">·</span>
               <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ ev.source }}</span>
-              <sc-if value="{{ ev.hasListen }}" hint-placeholder-val="{{ false }}">
-                <span style="color:#cdcbc3;">·</span>
-                <a href="{{ ev.listenUrl }}" target="_blank" rel="noopener" onClick="{{ ev.listenStop }}" title="{{ ev.listenTitle }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; text-decoration:none; padding:2px 0;">▶ listen</a>
-              </sc-if>
             </div>
             <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:8px;">
               <sc-for list="{{ ev.badges }}" as="b">
@@ -1508,22 +1497,6 @@ class Component extends DCLogic {
     return direct ? { url: direct, title: 'Open "' + this._searchName(name) + '" on Spotify' }
                   : { url: this.spotifySearch(name), title: 'Search "' + this._searchName(name) + '" on Spotify' };
   }
-  // The name a card-level ▶ listen targets: top billing on a MUSIC event, else the first
-  // scene-graph-verified artist (any category). Never derived from the title — the venue feeds'
-  // catch-all categories file watch parties and trivia nights under 'music', and TM's theater
-  // rows put the show title in lineup, so an unverified name is a junk search waiting to happen.
-  headlinerFor(e) {
-    if (this.musicish(e) && e.lineup && e.lineup.length) return String(e.lineup[0]).trim();
-    const n = (e.artistNotes || [])[0];
-    return (n && n.name) ? String(n.name).trim() : '';
-  }
-  listenFor(e) {
-    const a = this.headlinerFor(e);
-    if (!a) return { hasListen: false, listenUrl: '', listenTitle: '', listenStop: null };
-    const sp = this.spotifyFor(a);
-    return { hasListen: true, listenUrl: sp.url, listenTitle: sp.title,
-      listenStop: (ev) => ev.stopPropagation() };
-  }
   // Billing names carry parenthetical qualifiers the note cache doesn't ('EMBRZ (IE)' vs the
   // cached 'EMBRZ') — normalize them away so the bio lands on the billed row instead of
   // rendering the same artist twice.
@@ -2157,7 +2130,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "## July 2026",
     "",
     "- **Tags on every card — tap one to explore.** Cards now wear their tags (genre + vibe: *techno*, *queer*, *warehouse*, …) right on the front — on the front page, the Explore table, and mobile cards — and every tag is a link: tap it to jump into Explore filtered to exactly that tag, ready to refine or clear like any other filter.",
-    "- **Listen + artist intel.** Music cards now carry a **▶ listen** link — one tap to the headliner on Spotify. Opening an event shows its lineup as artist rows: quiet **Spotify / SoundCloud** glyphs per name (music bills, plus anyone the scene graph has verified) — straight to the artist's Spotify page once the nightly resolver has matched them, a search otherwise — and, where the research exists, a one-line bio of who that artist is. **✦ Artist intel** hands the bill to the concierge for the full LLM rundown — who they are, what they sound like, who to show up early for.",
+    "- **Listen + artist intel.** Opening an event shows its lineup as artist rows: quiet **Spotify / SoundCloud** glyphs per name (music bills, plus anyone the scene graph has verified) — straight to the artist's Spotify page once the nightly resolver has matched them, a search otherwise — and, where the research exists, a one-line bio of who that artist is. **✦ Artist intel** hands the bill to the concierge for the full LLM rundown — who they are, what they sound like, who to show up early for.",
     "- **The concierge opens with the take.** The chat's welcome now folds in the day's *take* — the digest's opening read (`For Fri 7/17: …`) — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. The how-to is part of the same message: full-size on your first visit, tucked behind *see what I can do ▸* once you've chatted. (The take moved off the front page, which gets straight to the cards.)",
     "- **A front page.** The site now opens on an editorial home: a **Don't miss** hero row and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
     "- **Taste strength on every card.** The transparent taste score — the number with the little strength bar from the Explore table — now sits on each front-page card and mobile card too, so you can see *how strongly* something matched, not just that it made the cut.",
@@ -3771,7 +3744,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         seriesMore: sc.more, hasSeriesMore: !!sc.more,
       }; })(),
       ...this.ticketFields(e),
-      ...this.listenFor(e),
       ...this.intelFor(e),
       expanded: e.id === expandedId,
       caret: e.id === expandedId ? '\u25be' : '\u25b8',
@@ -3786,6 +3758,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // The welcome — ONE concierge message wrapping the greeting, the day's take ("For Fri
       // 7/17: …"), and the how-to. Pure chrome: it reads as the LLM's first message but NONE of
       // it is ever sent (askBackend drops the whole thing — no history turn, no side field).
+      // The take CONTINUES the greeting sentence (same paragraph, not its own block), with the
+      // "For <date>:" prefix in the muted mono label style (*…*) rather than bold — a quiet
+      // inline marker, not a shouted date.
       // The take's date is the DIGEST's date (takeDate — front_page.take, or the doc's H1 for
       // the lede fallback), never today's-by-default: it visibly reads as today's take when it
       // is, honestly dated when stale, and an undated take shows no "For <date>:" claim at all.
@@ -3795,7 +3770,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         const gOpen = !!this.state.chatGuideOpen;
         const md = this.GREET_HEAD
           + (this.state.takeText
-              ? '\n' + (this.state.takeDate ? 'For **' + this.labelISO(this.state.takeDate) + '**: ' : '') + this.state.takeText
+              ? ' ' + (this.state.takeDate ? '*For ' + this.labelISO(this.state.takeDate) + ':* ' : '') + this.state.takeText
               : '')
           + (gOpen ? '\n' + this.GREET_GUIDE : '');
         const gLink = React.createElement('span', {
@@ -4101,7 +4076,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           scoreLabel: String(e.score), scoreColor: this.scoreColorFor(e.score),
           scoreSegs: this.scoreSegsFor(e.score),
           isNew: !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef),
-          ...this.listenFor(e),
           onClick: () => this.openFpDetail(e.key),
         };
       };
