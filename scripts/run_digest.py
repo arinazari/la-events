@@ -36,7 +36,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # scripts/ on path
-from lib.config import load_taste, load_profile  # noqa: E402
+from lib.config import load_taste, load_profile, load_yaml  # noqa: E402
 from lib import pipeline as P  # noqa: E402
 from lib import feedback as FB  # noqa: E402
 from lib import editor as ED  # noqa: E402
@@ -60,7 +60,10 @@ FETCHERS = [
     {"name": "New Beverly Cinema", "source": "newbev", "script": "fetch_veezi.py",
      "args": ["--token", "fmtswb0qqbym3de6c4bbsqj89m", "--venue", "New Beverly Cinema", "--days", "{days}"]},
     {"name": "Posh", "source": "posh", "script": "fetch_posh.py", "args": [], "needs": ["POSH_TOKEN"]},
-    {"name": "Eventbrite", "source": "eventbrite", "script": "fetch_eventbrite.py", "args": []},
+    # --days threaded through (was stuck on the fetcher's internal 14-day default, so advance-
+    # ticketed events — Rose Bowl Flea sells months out — could never enter until 2 weeks before).
+    {"name": "Eventbrite", "source": "eventbrite", "script": "fetch_eventbrite.py",
+     "args": ["--days", "{days}"]},
     {"name": "DICE", "source": "dice", "script": "fetch_dice.py", "args": []},
 ]
 
@@ -195,6 +198,15 @@ def main() -> int:
     # an older fetcher or re-seeded by a stale source. BEFORE dedupe so a duplicate the bug split across
     # two calendar days (TM on the rolled day, RA/19hz on the real night) re-aligns and merges this pass.
     redated = P.reconcile_tm_dates(catalog)
+    # Recurring markets/fleas (recurring.yaml) materialize into dated rows so the market lane
+    # exists in the CATALOG (dashboard/editor/lanes), not just the digest prose. Deterministic
+    # and idempotent (merge_new dedupes repeat runs); a bad/missing file never blocks the run.
+    try:
+        rec_doc = load_yaml(REPO / "recurring.yaml")
+        recurring = P.materialize_recurring(rec_doc, today)
+    except Exception as ex:  # noqa: BLE001
+        recurring, report["recurring_error"] = [], str(ex).splitlines()[0][:100]
+    incoming = list(incoming) + recurring
     # Always dedupe (idempotent) — collapses incoming AND any pre-existing catalog dupes.
     catalog, stats = P.merge_new(catalog, incoming, today)
     # Re-pin after the merge too: incoming is already venue-local from the fixed fetcher, but this keeps
@@ -204,6 +216,12 @@ def main() -> int:
     P.stamp_seen(catalog, today)
     # Canonicalize the location column (venue-resolve city-level/blank neighborhoods).
     P.normalize_locations(catalog, profile)
+    # Out-of-market drop (profile pipeline.out_of_market): beyond-day-trip rows leave the
+    # catalog unless radar-worthy (festival / tracked artist / arena venue) — they'd only
+    # ever rank at the bottom under the far penalty while costing catalog/diff/editor-pool
+    # weight. AFTER normalize_locations so venue-resolved neighborhoods count; runs over the
+    # merged catalog so pre-existing rows clean up too.
+    catalog, oom = P.drop_out_of_market(catalog, taste, profile)
     # Stamp the deterministic multi-axis tags (type/genre/setting/vibe/region) onto every
     # record — recomputed each run, so re-tagging only needs a --no-fetch pass (lib/tagging.py).
     # Runs AFTER normalize_locations so the region tag reflects the canonicalized neighborhood.
@@ -294,7 +312,8 @@ def main() -> int:
     # Run report.
     print(f"run_digest {today}: catalog {len(catalog)} (v{cat_meta['version']}/c{cat_meta['content_version']}) "
           f"(+{delta['added']} new, {delta['updated']} updated, {stale_n} unlisted, {stats['merged']} merged, "
-          f"{expired} expired, {redated} TM dates pinned) "
+          f"{expired} expired, {oom} out-of-market, {redated} TM dates pinned"
+          f"{f', +{len(recurring)} recurring' if recurring else ''}) "
           f"-> {len(candidates)} candidates, {len(judge)} to judge, {len(blurb_cands)} blurb pool"
           f"{f' (+{blurb_overflow} overflow)' if blurb_overflow else ''}")
     if report["ok"]:

@@ -1,72 +1,80 @@
-# Lori's LA Digest — Jul 17 through early Aug
-*Digest regenerated Wed 7/15 — picks updated.*
+# Lori's LA Digest — Jul 19 through early Aug
 
-Three weekends of actual bands, plus two shows in early August worth locking in now because
-they're the two best-scored things on your whole feed. Skewing this toward live sets over
-DJ nights, and toward the garage/post-punk/world stuff you're actually here for — I left out
-the generic hip-hop and house-night filler that scored fine on the deterministic pass but
-doesn't match your taste profile.
+*Digest regenerated Sun 7/19 — picks updated.*
 
-One quick flag before the weekend: **CA7RIEL & Paco Amoroso** bring their Latin alt/urban
-*Free Spirits* tour to the **[Greek Theatre](https://www.ticketmaster.com/ca7riel-paco-amoroso-free-spirits-world-los-angeles-california-07-16-2026/event/09006475293F370C)** Thu 7/16 — short notice, but it's the kind of Latin-alt booking you don't get often at that size room.
+Solid three-week stretch of actual bands. The headline is two must-sees: **Meridian Brothers + Mexican Institute of Sound** (8/5 Wed) is still your highest-ranked pick, and **DakhaBrakha** turned up this weekend at The Bellwether — Ukrainian folk-ethno quartet that belongs squarely in your world-music core, and Desert Daze curating the bill means the night has editorial weight behind it. The electronic filler has been buried. What's left is bands.
 
-## Weekend One — Fri 7/17 to Sun 7/19
+---
 
-**Fri 7/17**
-- **[Alex Lahey](https://dice.fm/event/l8dnal-alex-lahey-17th-jul-permanent-records-roadhouse-los-angeles-tickets)** — Permanent Records Roadhouse, Cypress Park, 9pm. Top-ranked pick of the weekend: Australian power-pop/indie-rock songwriter at a venue you already love, and an easy trip from the eastside.
-- **[Luella EP Release Show](https://dice.fm/event/92rbd7-luella-ep-release-show-17th-jul-permanent-records-roadhouse-los-angeles-tickets)** — same room, 6pm doors, so you could double up before Lahey.
-- **[8RO8](https://www.ticketmaster.com/8ro8-los-angeles-california-07-17-2026/event/090064C5DC4B7126)** — The Echo, Echo Park, 7pm. Another live band night at a venue you love; no other info on the act beyond that.
-- **[Inara George, Van Dyke Parks](https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend)** — Blue Note LA, Hollywood. Craft-songwriter pairing right in your wheelhouse — George is a genuine pop songwriter, Parks is the legendary Americana/orchestral-pop arranger (Beach Boys' *Smile*, Ry Cooder). Linked via the roundup that flagged it; check Blue Note's site for tickets.
-- **Eartheater** — Masonic Lodge at Hollywood Forever (multi-night run through 7/17), 7pm. Genuine curveball: Brooklyn art-pop/industrial artist (think Björk/Arca/SOPHIE) on PAN Records, more art-show than club night — closer to your goth/art-rock lane than the house/techno crowd it usually gets filed under. [Ticketweb link](https://www.ticketweb.com/event/eartheater-the-masonic-lodge-at-hollywood-tickets/14915853).
-- **[Sexbeat: DJ 49aliens](https://www.eventbrite.com/e/sexbeat-tickets-1991157837693)** — Catch One, Mid-City, 9pm–2am. If you want an actual goth/darkwave night out rather than a live show, this is the one on the board — goth/euro-trance/hi-NRG.
-- **[Low Cut Connie](https://www.ticketmaster.com/event/Z7r9jZ1A7x4uK)** — Troubadour, WeHo, 7pm. Bar-band/roots-rock outfit, if you're up for a trip west.
+## Tonight — Sun 7/19
 
-**Sat 7/18**
-- **[Los Lobos — free outdoor show](https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend)** — Burton Chace Park, Marina del Rey. East LA roots-rock legends, and free — worth the drive west for this one if classic rock/roots is your mood.
-- **[moondoggy with Sun Casino](https://www.ticketmaster.com/moondoggy-with-sun-casino-los-angeles-california-07-18-2026/event/090064492D4ED292)** — The Echo, 7pm. Another Echo Park pick at a venue you love.
-- **[Wonder-Full](https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend)** — Grand Performances, DTLA. Free outdoor music series, close and easy.
-- **[Desert Daze Presents: The Big Micro ft. DakhaBrakha w/ Brainstory](https://www.ticketmaster.com/desert-daze-presents-the-big-micro-los-angeles-california-07-18-2026/event/0900647B1DB0BE0F)** — The Bellwether, DTLA, 8pm. This is the one for your "global/traditional" side: DakhaBrakha are the Ukrainian folk quartet in the tall fur hats who turn ancient Ukrainian vocal traditions into something closer to trip-hop/post-punk — a real "world music" booking, not a DJ dressed up as one. Brainstory (jazz-inflected neo-soul/psych trio) support.
-- **[Blues Traveler w/ Gin Blossoms](https://www.ticketmaster.com/event/Z7r9jZ1A7x71F)** — Hollywood Bowl, 8pm. '90s rock-radio double bill if you want a big-venue night.
-- **Buckingham Ween** — Gold Diggers, East Hollywood, 7pm. Odd enough a name I won't guess what it actually is — no other detail in the listing, so check before committing. [Dice link](https://dice.fm/event/2wy92m-buckingham-ween-18th-jul-gold-diggers-los-angeles-tickets).
+- **[John Beasley](https://www.fordtheatres.org)** — The Ford, Hollywood, 7:30pm. Jazz pianist with a serious LA pedigree — the outdoor summer amphitheater setting earns this a boost over a standard club jazz booking. A good low-key Sunday if you want to be out.
+- **[Grand Ole Echo](https://www.ticketmaster.com/grand-ole-echo-los-angeles-california-07-19-2026/event/0900646425B5A875)** — The Echo, 5:30pm. Weekly country/Americana Sunday residency at a venue you love — recurs most Sundays through summer if tonight doesn't work (also 7/26, 8/2).
 
-**Sun 7/19**
-- **[Grand Ole Echo](https://www.ticketmaster.com/grand-ole-echo-los-angeles-california-07-19-2026/event/0900646425B5A875)** — The Echo, 5:30pm. Weekly country/Americana Sunday residency at a venue you love — recurs most Sundays through the summer (also 7/26, 8/2, 8/9) if this one doesn't work.
+---
 
-## Weekend Two — Fri 7/24 to Sun 7/26
+## This week — Mon 7/20 to Thu 7/23
+
+**Wed 7/22**
+- **[Gary Wilson](https://dice.fm/event/av58pd-gary-wilson-the-soul-family-band-kenny-matuucci-22nd-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood, 7pm. Genuinely cult booking: Wilson's 1977 record *You Think You Really Know Me* is one of those outsider-pop oddities that's influenced half of indie lo-fi. If you've never caught him live, this is the room and the moment.
 
 **Thu 7/23**
-- **[Norwood Fisher's Blackened Sabbath, w/ The Lolly Bombs](https://dice.fm/event/av5wwq-norwood-fishers-blackened-sabbath-the-lolly-bombs-23rd-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood, 7pm. Fishbone's bassist reworking Black Sabbath's catalog through a funk/metal lens — a genuine curiosity, not a lane-defining pick, but a fun small-room night if you're in the neighborhood.
+- **[Suki Waterhouse](https://www.ticketmaster.com/event/Z7r9jZ1A7Pe_N)** — Hollywood Forever Cemetery, 7:30pm. She's built an actual songwriting voice since *I Can't Let Go* — more confessional indie-pop than her earlier work, somewhere between Sharon Van Etten and Lana Del Rey in setting. Hollywood Forever outdoor is the right frame for it.
+
+---
+
+## Weekend One — Fri 7/24 to Sun 7/26
 
 **Fri 7/24**
-- **[El Rayo-X](https://www.mccabes.com/product/el-rayo-x/)** — McCabe's Guitar Shop, Santa Monica, 8pm. This is David Lindley's old roots-rock/slide-guitar outfit (he played with Jackson Browne) — a rare live booking at one of the best small listening rooms in LA, if you're willing to go west.
-- **[Widespread Panic](https://www.ticketmaster.com/widespread-panic-los-angeles-california-07-24-2026/event/0900646CA6AD9272)** — Orpheum Theatre, DTLA, 8pm (also Sat 7/25). Jam-band/Southern-rock lineage rather than a tight garage set, but a big, well-loved live act if that scratches your classic-rock itch.
+- **[El Rayo-X](https://www.mccabes.com/concerts-landing/)** — McCabe's Guitar Shop, Santa Monica, 8pm. David Lindley's roots-rock/slide-guitar outfit, one of the best small listening rooms in LA — westside haul but worth it if you love the classic-rock/roots end of your taste.
+- **[Parts & Labor, HLLLYH, Molly Horses](https://dice.fm/event/eomgyd-parts-labor-hlllyh-molly-horses-24th-jul-zebulon-los-angeles-tickets)** — Zebulon, Atwater Village, 7pm. Parts & Labor are a Canadian noise-rock/post-punk outfit — loud, drum-heavy, right in the post-punk lane. Zebulon is the right room.
+- **[Anysia Kym & Tony Seltzer with Alexander Spit](https://www.ticketmaster.com/anysia-kym-tony-seltzer-with-alexander-spit-los-angeles-california-07-24-2026/event/0900649A8E8C6E0E)** — The Echo, 8pm. Beat-forward hip-hop night at a loved venue — adjacent to your core guitar lane, worth a look if the bill clicks.
 
 **Sat 7/25**
-- **[KCRW Presents: Emperor X w/ clovers daughter & Citrus Jr.](https://www.ticketmaster.com/kcrw-presents-emperor-x-los-angeles-california-07-25-2026/event/0900648FBB408D7A)** — The Echo, 7pm. Probably the sharpest pick of this weekend for you: Emperor X (Chad Matheny) is a long-running DIY folk-punk/tape-loop songwriter closer to Billy Bragg-with-a-laptop than a straight rock act; clovers daughter is Noor Shami's raw, lyric-forward indie-pop project (American-Palestinian singer-songwriter).
-- **[Meatbodies](https://dice.fm/event/avwkbx-meatbodies-25th-jul-sid-the-cat-auditorium-south-pasadena-tickets)** — Sid The Cat Auditorium, South Pasadena, 8pm. Straight garage-psych from Chad Ubovich (also of Fuzz, with Ty Segall and Charles Moothart) on In The Red Records — loud, fuzzed-out, riff-first, exactly your garage lane, in one of the better small rooms around.
+- ⭐ **[KCRW Presents: Emperor X w/ clovers daughter & Citrus Jr.](https://www.ticketmaster.com/kcrw-presents-emperor-x-los-angeles-california-07-25-2026/event/0900648FBB408D7A)** — The Echo, 7pm. Best pick of the weekend. Emperor X (Chad Matheny) has been doing Billy Bragg-meets-tape-loop DIY folk-punk since 1998 with a new album imminent — the kind of songwriter-as-nerd-project you don't get at many venues, and The Echo is exactly the room. clovers daughter (Noor Shami) is a raw, lyric-forward indie-pop opener.
+- **[Bass Drum of Death, MEMO PST](https://dice.fm/event/xea8qk-bass-drum-of-death-memo-pst-25th-jul-zebulon-los-angeles-tickets)** — Zebulon, 7:30pm. Mississippi garage-punk duo, fuzz-forward and loud. Good alternative if you want a straight guitar-rock Saturday night over a songwriter set.
+- **[Meatbodies](https://dice.fm/event/avwkbx-meatbodies-25th-jul-sid-the-cat-auditorium-south-pasadena-tickets)** — Sid The Cat Auditorium, South Pasadena, 8pm. Chad Ubovich's garage-psych project (also of Fuzz, alongside Ty Segall) on In The Red Records — riff-first, fuzz-heavy, and in one of the better small rooms around.
 
-## Weekend Three — Fri 7/31 to Sun 8/2
+---
+
+## Mid-week — Mon 7/28 to Thu 7/31
+
+**Tue 7/28**
+- **[Bad Brains — 50th Anniversary Celebration](https://www.ticketmaster.com/bad-brains-50th-anniversary-celebration-los-angeles-california-07-28-2026/event/09006461EE017E74)** — The Regent Theater, DTLA, 8pm. This is the headline of the week: Bad Brains invented hardcore-reggae fusion and influenced every punk band that came after them. A 50th anniversary show from a band this influential is genuinely rare — don't sleep on it.
+
+**Thu 7/30**
+- **[DJ Ty Segall](https://dice.fm/event/yowxqp-dj-ty-segall-30th-jul-sid-the-cat-auditorium-south-pasadena-tickets)** — Sid The Cat Auditorium, South Pasadena, 5pm (early show). It's a DJ set, not a band set — but it's Ty Segall, who you track, doing his record-collector crate-dig side in one of the better small rooms in the area. The early start makes it easy to double up.
+
+---
+
+## Weekend Two — Fri 7/31 to Sun 8/3
 
 **Fri 7/31**
-- **[PBW presents: Joey Cash w/ Babe Dylan](https://www.ticketmaster.com/pbw-presents-joey-cash-w-babe-los-angeles-california-07-31-2026/event/090064E70FDDDE16)** — The Echo, 8pm. Another Echo Park night at a venue you love; no further detail available so worth a quick look before buying.
-- **[Black Moth Super Rainbow](https://www.ticketmaster.com/black-moth-super-rainbow-los-angeles-california-07-31-2026/event/09006473E312DAC6)** — The Belasco, DTLA, 8pm (all-ages), w/ Giant Day. Psych-pop with vocoder-heavy, hazy production — more electronic-adjacent than most of this list, but a distinctive live band, not a DJ set.
+- **[Black Moth Super Rainbow](https://www.ticketmaster.com/black-moth-super-rainbow-los-angeles-california-07-31-2026/event/09006473E312DAC6)** — The Belasco, DTLA, 8pm (all-ages). Psychedelic noise-pop with vocoder-heavy, tape-saturated production — hazy and strange, more live-band-with-electronics than a DJ set. They're a distinctive act with a real aesthetic.
+- **[PBW presents: Joey Cash w/ Babe Dylan](https://www.ticketmaster.com/pbw-presents-joey-cash-w-babe-los-angeles-california-07-31-2026/event/090064E70FDDDE16)** — The Echo, 8pm. Indie bill at a loved venue; limited info but the format is right.
 
 **Sat 8/1**
-- **[Los Aptos](https://www.ticketmaster.com/los-aptos-los-angeles-california-08-01-2026/event/090064AD7ED3549C)** — The Echo, 9pm (all-ages, 8pm doors). Live rock at a venue you love.
-- **[of Montreal](https://www.ticketmaster.com/of-montreal-los-angeles-california-08-01-2026/event/09006470A5716795)** — The Regent Theater, DTLA, 9pm (all-ages), w/ Sloppy Jane. Indie/art-rock institution — theatrical, glam-adjacent, and squarely in your art-rock lane.
-- **[Kim Gordon — Play Me Tour](https://www.ticketmaster.com/kim-gordon-play-me-tour-los-angeles-california-08-01-2026/event/09006482BE637FB6)** — Pacific Electric, DTLA, 8pm, w/ SASAMI. Sonic Youth's Kim Gordon on a genuinely strange, industrial-tinged noise-rock solo run — not a nostalgia lap — with SASAMI (LA multi-instrumentalist, ex-Cherry Glazerr) opening. A strong post-punk pick for you.
+- **[Kim Gordon — Play Me Tour](https://www.ticketmaster.com/kim-gordon-play-me-tour-los-angeles-california-08-01-2026/event/09006482BE637FB6)** — Pacific Electric, DTLA, 8pm, w/ SASAMI. Sonic Youth's Kim Gordon on a genuinely strange industrial/noise-rock solo run — not a nostalgia lap. SASAMI (ex-Cherry Glazerr, now doing layered art-pop) opens. One of the stronger post-punk picks of the month.
+- **[of Montreal](https://www.ticketmaster.com/of-montreal-los-angeles-california-08-01-2026/event/09006470A5716795)** — The Regent Theater, DTLA, 9pm (all-ages), w/ Sloppy Jane. Art-rock institution, theatrical and glam-adjacent. Worth seeing live if you haven't — they're one of those bands that's more fun in a room than on record.
+- **[Los Aptos](https://www.ticketmaster.com/los-aptos-los-angeles-california-08-01-2026/event/090064AD7ED3549C)** — The Echo, 9pm (all-ages). Live rock at a venue you love; worth checking the bill.
 
 **Sun 8/2**
-- **[Grand Ole Echo](https://www.ticketmaster.com/grand-ole-echo-los-angeles-california-08-02-2026/event/0900646425BFA886)** — The Echo, 5:30pm. Same Sunday country/Americana residency as above, if you missed it earlier.
+- **[Tortoise, Tara Jane O'Neil](https://dice.fm/event/bb23xo-tortoise-tara-jane-oneil-2nd-aug-zebulon-los-angeles-tickets)** — Zebulon, 8pm. Chicago post-rock institution (the band that more or less defined the genre in the '90s) alongside Tara Jane O'Neil, a quiet indie/folk-rock songwriter. At Zebulon, which is the right room. This is the pick of the Sunday.
+- **[St. Vincent](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl, 7pm. Annie Clark's live show is one of the best in rock — the Hollywood Bowl summer residency format suits her. Bigger and more expensive than the above, but this is a marquee live-rock event.
 
-## On the radar — early August, worth locking in now
+**Mon 8/3**
+- **[Death Cab for Cutie — I Built You A Tower World Tour](https://www.ticketmaster.com/death-cab-for-cutie-i-built-los-angeles-california-08-02-2026/event/09006437F1A20EDE)** — Greek Theatre, Los Feliz, 7:30pm. A loved venue and a band in your indie/alternative lane — the Greek is the rare arena-scale room that doesn't feel like a production.
 
-These two are the single best-scored shows on your whole feed, both a bit further out:
+---
 
-- **[Meridian Brothers + Mexican Institute of Sound](https://www.ticketmaster.com/meridian-brothers-mexican-institute-of-sound-los-angeles-california-08-05-2026/event/0900648DEE27B236)** — The Regent Theater, DTLA, Wed 8/5, doors 8pm (18+). Your #1 pick overall — Colombian cumbia/tropical-psych (Meridian Brothers) paired with Mexican electro-cumbia (Mexican Institute of Sound). This is exactly the Latin-alt/cumbia lane you're here for.
-- **[Osees](https://www.ticketmaster.com/event/Z7r9jZ1A7xv0k)** — Pappy & Harriet's, Pioneertown, Sat 8/8, 7pm, w/ Brigid Dawson. #2 overall — the garage/psych-punk band you already track, in the desert roadhouse room that suits them best. It's a real drive from Glendale, but worth planning the night around.
-- **[Juan De Marcos w/ Afro-Cuban All Stars](https://www.ticketmaster.com/event/Z7r9jZ1A7-PGk)** — The United Theater on Broadway, DTLA, Fri 8/7, 8pm. Afro-Cuban son/salsa legends — another strong global/traditional pick if you want a Friday DTLA night before the Osees trip.
-- **[Strange Case w/ Windows & Eighth Ball](https://www.ticketmaster.com/strange-case-los-angeles-california-08-08-2026/event/090064CF0291E197)** — The Echo, Sat 8/8, 7pm. A rock-trio bill at a venue you love, if Pioneertown's too far that Saturday.
+## Early August — lock these in
 
-Skipped: a wave of scam listings posing as airline "Terminal"/customer-service events at random LA
-addresses (Delta/Ethiopian/Frontier/etc. "Philadelphia Office" spam) — none of that made the cut.
+⭐ **[Meridian Brothers + Mexican Institute of Sound](https://www.ticketmaster.com/meridian-brothers-mexican-institute-of-sound-los-angeles-california-08-05-2026/event/0900648DEE27B236)** — The Regent Theater, DTLA, **Wed 8/5**, 8pm (18+). Your #1 pick overall. Colombian cumbia/tropical-psych (Meridian Brothers, who you track) paired with Mexican electro-cumbia (Mexican Institute of Sound). This is the exact Latin-alt/cumbia/tropical-psych lane you're here for. Don't miss it.
+
+**Thu 8/6** — Two good post-punk options on the same night:
+- **[Yard Act](https://www.ticketmaster.com/yard-act-los-angeles-california-08-06-2026/event/090064D03D2AF4CB)** — Teragram Ballroom, 7pm. Leeds post-punk band with sharp, sardonic lyrics — closer to the Fall or Sleaford Mods than to stadium rock. A genuine post-punk pick.
+- **[Wunderhorse](https://www.fondatheatre.com/)** — The Fonda Theatre, 9pm. UK rock band with a rawer, more classic-rock energy — pick your room.
+
+**Sat 8/8**
+- **[Queen Serene](https://dice.fm/event/mxdyvr-queen-serene-8th-aug-permanent-records-roadhouse-los-angeles-tickets)** — Permanent Records Roadhouse, Cypress Park, 9pm. Punk/rock at a venue you love on a Saturday — right format, worth checking the act.
+- **[Strange Case w/ Windows & Eighth Ball](https://www.ticketmaster.com/strange-case-los-angeles-california-08-08-2026/event/090064CF0291E197)** — The Echo, 7pm. Rock bill at a loved venue — solid alternative or addition if you're out that Saturday.

@@ -22,6 +22,9 @@ def _ev(title, tags, score, d="2026-07-04", venue=None, price=None):
             "score": score, "iso_date": d, "tags": tags}
 
 
+LIVE = {"type": "live-music", "vibe": [], "setting": [], "genre": []}
+
+
 def test_event_lane_splits_club():
     assert A.event_lane(_ev("a", AFTERS, 5)) == "club:afters"
     assert A.event_lane(_ev("d", DAY, 5)) == "club:day"
@@ -30,10 +33,56 @@ def test_event_lane_splits_club():
     assert A.event_lane(_ev("s", STAGE, 5)) == "stage"                       # non-club -> type
 
 
+def test_event_lane_splits_live_music_on_scale():
+    """Hall/arena live shows take the :big sub-lane; everything else stays the bare lane
+    (which the guarantee floor exact-matches — so the floor is the small/mid-room floor)."""
+    assert A.event_lane(_ev("small", LIVE, 5)) == "live-music"
+    assert A.event_lane(_ev("hall", {**LIVE, "scale": "hall"}, 5)) == "live-music:big"
+    assert A.event_lane(_ev("bowl", LIVE, 5, venue="Hollywood Bowl")) == "live-music:big"
+    # scale=room/bar is NOT big
+    assert A.event_lane(_ev("bar", {**LIVE, "scale": "bar"}, 5)) == "live-music"
+
+
+def test_club_scale_after_vibes():
+    """Venue scale reads AFTER the vibe rules: a hall-venue afters stays afters (a 10pm-4am
+    Exchange mainstage is not mainstream-by-venue), but a plain hall club night is."""
+    hall_afters = _ev("x", {**AFTERS, "scale": "hall"}, 5)
+    assert A.event_lane(hall_afters) == "club:afters"
+    hall_plain = _ev("y", {**UG, "scale": "hall"}, 5)
+    assert A.event_lane(hall_plain) == "club:mainstream"
+    fest = _ev("z", {**UG, "vibe": ["festival"]}, 5)
+    assert A.event_lane(fest) == "club:mainstream"       # festival bills are mainstream-draw
+
+
 def test_event_lane_verdict_override():
     ev = _ev("u", UG, 5)
     v = {A.event_key(ev): {"lane": "club:mainstream"}}
     assert A.event_lane(ev, v) == "club:mainstream"   # editor sees headliner draw the tags can't
+
+
+def test_verdict_lane_family_refinement_and_vocab_guard():
+    # a bare-family override (pre-split vocab) defers to the same-family deterministic sub-lane
+    big = _ev("b", {**LIVE, "scale": "hall"}, 5)
+    v = {A.event_key(big): {"lane": "live-music"}}
+    assert A.event_lane(big, v) == "live-music:big"
+    # …but a cross-family correction always wins (the editor fixing a type leak)
+    club_band = _ev("c", UG, 5)
+    v2 = {A.event_key(club_band): {"lane": "live-music"}}
+    assert A.event_lane(club_band, v2) == "live-music"
+    # a SPECIFIC same-family override wins too (mainstream character at a small venue)
+    ug = _ev("n", UG, 5)
+    v3 = {A.event_key(ug): {"lane": "club:mainstream"}}
+    assert A.event_lane(ug, v3) == "club:mainstream"
+    # off-vocab strings from the unvalidated cache are ignored
+    v4 = {A.event_key(ug): {"lane": "clubz:mega"}}
+    assert A.event_lane(ug, v4) == "club:underground"
+
+
+def test_lanes_vocab_covers_types_and_sublanes():
+    assert set(A.LANES) >= {"live-music", "live-music:big", "club:mainstream", "club:afters",
+                            "club:day", "club:underground", "film", "stage", "comedy",
+                            "market", "workshop", "art", "food-drink", "community", "other"}
+    assert "club" not in A.LANES                       # club only exists as sub-lanes
 
 
 def test_effective_key_tier_primary():

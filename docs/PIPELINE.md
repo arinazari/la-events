@@ -62,6 +62,10 @@ Who reads it:
   identity version for a feed built before content_version existed — reads stale once, self-heals.)
 - **Refresh completion poll** — keys off `fetched_at` advancing (a refresh always republishes it),
   not the version (which wouldn't move on a no-change refresh — that was the spinning-button bug).
+- **Update completion poll** — keys off `dashboard/rebuilt.<hash>.json`, the per-profile receipt
+  `rebuild-profile.yml` stamps on **every** run, with the digest's content signature as a fallback
+  (and to pick the toast wording). Digest content alone doesn't move on a nothing-new-to-judge
+  rebuild — the Update-button variant of the same spinning-button trap.
 - **"What changed" readout** — `added`/`updated`/`changes`, tap to itemize.
 - **Digest freshness line** — `render_digest` prints "Updated <when> · N new · M updated" or
   "Checked <when> · no new or changed events", and badges events 🆕 new / ↻ updated inline.
@@ -108,7 +112,7 @@ no backend; the static page just renders it.
 
 | Stage | Runs | No-ops when | Cost tier |
 |---|---|---|---|
-| fetch + dedupe + expire + score (`run_digest`) | every routine run / refresh | — (always; deterministic, cheap). Merge is **freshest-wins** for price/time/lineup/status, so in-place updates land | none |
+| fetch + dedupe + expire + score (`run_digest`) | every routine run / refresh | — (always; deterministic, cheap). Merge is **freshest-wins** for price/time/lineup/status, so in-place updates land. Also each run: `recurring.yaml` markets materialize into dated rows (idempotent), and out-of-market rows (profile `pipeline.out_of_market`) drop unless radar-worthy (festival / tracked artist / arena venue) | none |
 | **event-editor** (Tier 1 verdicts, default profile) | routine + per-user rebuild | event already judged at this score AND editor-input version unchanged (`select_for_verdict`) | Sonnet, delta only |
 | **event-editor** (per-friend verdicts) | routine (gate-REFRESH profiles only) + per-user rebuild | `profile_refresh_gate` says SKIP — that profile's taste/profile/prefs/feedback unchanged since its last enrichment | Sonnet, taste-gated |
 | **scene-researcher** (Tier 1 full enrichment, top-100 head) | routine + per-user rebuild | event already full-tier in `enrichment.json` (write-once; a blurb-tier event in the head is *re-selected* to upgrade) | Sonnet, misses + upgrades only |

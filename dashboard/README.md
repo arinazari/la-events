@@ -45,18 +45,19 @@ The page opens on the **Front page** — an editorial home rendered from the fee
 `front_page` block (built server-side by `build_dashboard.build_front_page` with the SAME
 `rank_key` that orders the table's final rank — the page never re-ranks):
 
-- **The Take** — the consolidated digest's voice-pass lede. The feed carries it
-  structurally as `front_page.take` (build_dashboard lifts it from between the digest's
-  `<!-- take:start/end -->` markers); the page's old first-prose-paragraph heuristic over
-  `./digests/latest.md` remains only as the fallback for feeds without it (free-form
-  per-profile digests, the bundled sample). Links into the full digest modal.
 - A **time lens** (*tonight · this weekend · next 2 weeks · plan ahead*) that re-scopes
   everything below. The feed ships each lens's hero list plus rank-ordered shelf key-lists;
   the client only date-windows and slices — selection, never re-sorting.
-- **Don't miss** — the hero row, tier-badged (must-see / great), selected server-side by the
-  ONE shared top-picks policy (`lib/assemble.top_picks` — the same helper, order, and
-  lane/family diversity caps as the flagship digest's "Don't miss" shelf), so it can't be
-  five club nights and can't disagree with the digest on policy.
+- **Don't miss** — the hero row, selected server-side by the ONE shared top-picks policy
+  (`lib/assemble.top_picks` — the same helper, order, and lane/family diversity caps as the
+  flagship digest's "Don't miss" shelf), so it can't be five club nights and can't disagree
+  with the digest on policy.
+  Shelf cards badge only the editor's rare **must-see** flag: the front page IS the top of
+  the ranking, so "great" is the baseline there and goes unbadged (a badge on every card is
+  no badge at all) — and the hero row badges nothing, since its own label already says it.
+  Full tiers remain visible in Explore's rank tooltip. Card copy follows the same rule:
+  the curated why (curator note / editor's line), else the factual blurb — never the
+  scorer's "+1 …" reasons, which live in Explore and the detail modal's WHY IT'S RANKED.
 - **Shelves per lane** — warehouse & underground / afters / day parties / big rooms / live
   music / film / comedy & stage / elsewhere, plus fixed **Around town** and **On the radar**
   shelves when the runtime sets exist. Card click → a detail modal (what/why/lineup/links/
@@ -76,8 +77,9 @@ The chat has two modes, toggled in its header (default **Concierge**):
 - **Concierge (LLM)** — a real conversational concierge that **answers questions**, recommends,
   and plans a night. Because the page is static (no API key in the browser), it POSTs to a
   `BACKEND_URL` — a small Cloudflare Worker that holds the Anthropic key and grounds the model on
-  the live feed. **Deploy it + connect it** (see `backend/README.md`; tap "connect" in the chat
-  header to set the URL/token). Until then, Concierge mode transparently falls back to ↓.
+  the live feed. **Deploy it + connect it** (see `backend/README.md`; the URL is the `BACKEND_URL`
+  constant in `index.html`, and "connect" in the chat header sets the token). Until then,
+  Concierge mode transparently falls back to ↓.
   Or **bring your own key**: *Settings (☰) → Claude API key* opens a modal with a `sk-ant-…` field +
   an on/off switch (and the shared access token below it). With the switch **on**, your key is stored
   in your browser and sent to the Worker per request — it pays for your messages and connects the
@@ -88,6 +90,16 @@ The chat has two modes, toggled in its header (default **Concierge**):
   "free house show this weekend near me" into a filter over the loaded catalog, instantly and
   offline; also fuses events × dining into a rough plan and a night-planner hand-off prompt. This
   is the fallback whenever the backend is unset/unreachable, so the chat never dead-ends.
+
+**The welcome wraps the take** — the thread opens on ONE concierge message: the greeting, then
+the day's take ("For Fri 7/17: …" — the consolidated digest's voice-pass lede, parsed out of
+`./digests/latest.md`), then the how-to with its tap-to-fill examples. The how-to renders
+full-size until this device sends its first message, then tucks behind a *see what I can do ▸*
+toggle (`chatGuideOpen` / `la-chat-used`). The welcome is client-side chrome: it *looks* like
+the LLM's first message but is never sent to it — `askBackend` drops it from the history
+(saving tokens); only the take rides along, as the `opener` field the Worker folds into the
+system prompt, so "what's the move tonight then?" still has context. A profile with no digest
+yet just gets no take line.
 
 **Discover new sources** → a **copy-to-Claude-Code hand-off** (composes a Discover-mode prompt,
 copies it; you paste it into Claude Code, which proposes sources — approval still happens in the
@@ -210,7 +222,8 @@ generated runtime; the only hand-edit is the three `vendor/` paths (originally u
 ## Upgrade path
 
 The LLM **Concierge backend** is the realized version of this (see `backend/`): deploy the
-Worker, set the Anthropic key, connect the URL/token. Still open as future work: streaming
+Worker, set the Anthropic key, point `BACKEND_URL` at it, connect the token. Still open as
+future work: streaming
 responses, auto-committing generated plans back to the repo, and real auth (Cloudflare Access).
 Public/unlisted Pages + the Fast-filter fallback is fine until then (the catalog is public LA
 events).

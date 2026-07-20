@@ -15,6 +15,7 @@ contract; this file is the scoped version.
 > connected, and (b) made the catalog + `data/catalog_meta.json` current. You start from there.
 > **Do NOT `git commit` or `git push`** — leave every changed file in the working tree; the workflow
 > commits and deploys. Degrade gracefully: if a step has nothing to do, skip it; never block the run.
+> The one exception is step 5 — the digest is ALWAYS rewritten, even when steps 1–4 were all no-ops.
 
 Run, for the profile feed hash `<HASH>`:
 
@@ -44,7 +45,12 @@ Run, for the profile feed hash `<HASH>`:
 
 4. **Refresh the radar (best-effort).** `python scripts/build_radar.py` → `data/radar.json`.
 
-5. **Write the personalized digest (the key deliverable).** Read `dashboard/data.<HASH>.json` (display
+5. **Write the personalized digest (the key deliverable — NEVER skip this step).** Even if steps 1–4
+   all had nothing to do (verdict cache warm, no enrichment misses), rewrite the digest against the
+   current feed with a fresh regenerated-date line (e.g. `*Digest regenerated <Day M/D> — …*`): the
+   person clicked Update and the dashboard reads that date to decide whether their digest is current —
+   a stale stamp re-lights the Update button and invites another paid click that changes nothing.
+   Read `dashboard/data.<HASH>.json` (display
    name in `feed.profile.name`). **If `feed.profile.owner` is true, copy — never prose, never a
    stub/pointer:** the owner's taste IS the root taste and the workflow already re-rendered the
    consolidated digest, so just `cp digests/latest.md digests/<HASH>/latest.md` and skip the rest of

@@ -138,12 +138,16 @@ jobs:
             --model ${{ steps.target.outputs.model }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash,Task,WebSearch,WebFetch"
 
-      # Best-effort: durably commit the LLM digest + verdicts too (warm cache => cheaper next click).
+      # Best-effort: durably commit the LLM digest + verdicts (warm cache => cheaper next click), and
+      # ALWAYS stamp dashboard/rebuilt.<hash>.json — the completion receipt the dashboard's Update
+      # poll watches. Without the receipt, a run whose LLM pass leaves the digest byte-identical
+      # (nothing new to judge) is invisible to the page and the button spins to its 30-min cap.
       # The action hijacks git (claude[bot], rewrites origin, its own local commit), so don't fight it
       # in place — copy the artifacts aside, hard-reset to the feed commit we already pushed (clean,
-      # conflict-proof), drop them back, and push. If this can't land, the digest still deployed live
-      # below and the nightly routine persists it — the feed is already durably on main regardless.
-      - name: Commit the LLM digest + verdicts (best-effort)
+      # conflict-proof), drop them back, and push. If this can't land, the receipt + digest still
+      # deploy live below (this run's Pages artifact carries them) — the feed is already durably on
+      # main regardless, and the nightly routine persists the rest.
+      - name: Commit the LLM artifacts + rebuild receipt (best-effort)
         continue-on-error: true
         env:
           HASH: ${{ steps.target.outputs.hash }}
@@ -161,21 +165,24 @@ jobs:
           [ -f "$tmp/digest.md" ] && mkdir -p "digests/$HASH" && cp "$tmp/digest.md" "digests/$HASH/latest.md" || true
           [ -f "$tmp/verdicts.json" ] && mkdir -p data/verdicts && cp "$tmp/verdicts.json" "data/verdicts/$HASH.json" || true
           [ -f "$tmp/enrichment.json" ] && cp "$tmp/enrichment.json" data/enrichment.json || true
-          git add -- "data/verdicts/$HASH.json" data/enrichment.json "digests/$HASH/latest.md" 2>/dev/null || true
-          if git diff --cached --quiet; then
-            echo "No LLM artifacts to commit for $HASH."
-          else
-            git commit -m "rebuild: LLM digest + verdicts for profile $HASH [skip ci]"
-            # The fresh enrichment is now in HEAD. Rebuild this feed once more so its baked
-            # self_edit diff/reflected flag sees it (otherwise the feed would keep showing
-            # the user's last edit as "pending" until the next nightly build). Fold the
-            # corrected feed into the same commit; best-effort so it never blocks the push.
-            if python scripts/build_profiles.py --only-hash "$HASH"; then
-              git add -- "dashboard/data.$HASH.json" 2>/dev/null || true
-              git diff --cached --quiet || git commit --amend --no-edit
-            fi
-            git push origin HEAD:main || echo "digest push skipped (nightly routine will persist it)"
+          printf '{"rebuilt_at":"%s","run_id":"%s"}\n' "$(date -u +%FT%TZ)" "$GITHUB_RUN_ID" > "dashboard/rebuilt.$HASH.json"
+          # One add per path: a single multi-path `git add` stages NOTHING if any pathspec is
+          # missing (new profile with no digest/verdicts yet), silently dropping the rest.
+          for f in "data/verdicts/$HASH.json" data/enrichment.json "digests/$HASH/latest.md" "dashboard/rebuilt.$HASH.json"; do
+            [ -f "$f" ] && git add -- "$f" || true
+          done
+          # The receipt is unique per run, so this commit always lands — that's the point: the
+          # page needs a completion signal even when the LLM pass produced nothing new.
+          git commit -m "rebuild: LLM artifacts + receipt for profile $HASH [skip ci]"
+          # The fresh enrichment is now in HEAD. Rebuild this feed once more so its baked
+          # self_edit diff/reflected flag sees it (otherwise the feed would keep showing
+          # the user's last edit as "pending" until the next nightly build). Fold the
+          # corrected feed into the same commit; best-effort so it never blocks the push.
+          if python scripts/build_profiles.py --only-hash "$HASH"; then
+            git add -- "dashboard/data.$HASH.json" 2>/dev/null || true
+            git diff --cached --quiet || git commit --amend --no-edit
           fi
+          git push origin HEAD:main || echo "push skipped (this run's deploy still ships the receipt; nightly persists the rest)"
 
       - uses: actions/configure-pages@v5
       - name: Stage digests for the dashboard

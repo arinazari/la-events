@@ -3,7 +3,7 @@
 # Schema per source:
 #   name:      display name
 #   category:  electronic | live_music | comedy | film | theater | editorial |
-#              general | beer_food | multi
+#              general | beer_food | market | multi
 #   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | dice | veezi | seetickets | squarespace | rss | ics | gmail | manual
 #              (webfetch = read at digest time via the WebFetch tool; for bot-walled/JS pages)
 #   url:       endpoint or calendar page (or IG handle for manual)
@@ -14,7 +14,7 @@
 # last_discovery: updated whenever Discover mode runs
 # ---------------------------------------------------------------------------
 
-last_discovery: 2026-07-07
+last_discovery: 2026-07-17
 
 sources:
 
@@ -220,6 +220,10 @@ sources:
       - https://www.eventbrite.com/o/blakcircle-108339115091   # Blakcircle
       - https://www.eventbrite.com/o/afrobeats-takeover-17508767406   # AFROBEATS TAKEOVER
       - https://www.eventbrite.com/o/we-love-kandy-tour-11369190113   # hard techno / rave promoter
+      # market lane (Discover 2026-07-17 — the first non-music organizers; rows arrive
+      # category 'general' and the tagger types them `market` off the flea/market keywords):
+      - https://www.eventbrite.com/o/rg-canning-enterprises-16808362654   # R.G. Canning — Rose Bowl Flea (2nd Sun; dated rows + sold-out state; recurring.yaml keeps the cadence fallback)
+      - https://www.eventbrite.com/o/626-night-market-2520237026   # 626 Night Market — seasonal Arcadia/OC weekend runs (Bay Area rows dropped by the NON_LA filter)
     notes: >
       Open browse (/d/...) is behind an AWS WAF CAPTCHA — not scrapeable; public search API is
       retired. WORKAROUND (verified 2026-06-16): individual event + organizer pages are NOT walled
@@ -233,6 +237,24 @@ sources:
       Both extract the event's *own* organizer from JSON-LD and append it here, deduped.
       FUTURE: retry open browse discovery if the AWS WAF CAPTCHA is ever lifted, or via a
       headless/authed path — would replace the need to hand-curate organizers.
+
+  # ── Markets / fleas — Discover 2026-07-17 (source-scout; approved by Ari) ──────
+  # The fixed weeklies/monthlies live in recurring.yaml (materialized into catalog rows by
+  # run_digest); rows here only exist where a source adds dated/ticketed/venue-flux value.
+  - name: Los Feliz Flea (ex-Odd Market)
+    category: market
+    method: webfetch
+    url: https://losfelizflea.com/events
+    priority: 2
+    status: candidate
+    notes: >
+      Weekly Sat+Sun 10am–4pm vintage/maker flea, free entry — the Odd Market operator
+      (theoddmarket.com 301s here; 30-yr lineage incl. the old Melrose Flea). Verified
+      2026-07-17: /events is SERVER-RENDERED (Nuxt) with dated event cards in the initial
+      HTML (7/18, 7/19, 7/25, 7/26) + per-event pages. VENUE IN FLUX — grand reopening
+      7/4/26; site says 1030 Alpine St, event cards say "Echo Park" — which is why this is
+      a fetched source rather than a recurring.yaml hard-code. Re-verify location on the
+      first digest pull; if it stabilizes, consider demoting to recurring.yaml.
 
   - name: Hollywood Pantages / Broadway in Hollywood
     category: theater
@@ -769,8 +791,10 @@ sources:
     method: webfetch
     url: https://harvardandstone.com/events/
     priority: 2
-    status: active
+    status: flaky
     notes: Free nightly local garage/punk/R&B + burlesque. WordPress + Events Manager; no JSON-LD. Close to Silver Lake.
+      Marked flaky 2026-07-18 — the /events/ page has served a stale cached month (dates already
+      past by fetch time) two runs in a row (2026-07-17, 2026-07-18).
   - name: Highland Park Bowl
     category: live_music
     method: webfetch
@@ -947,9 +971,14 @@ sources:
       ticketed shows ride partner venues already covered (Hollywood Bowl, Troubadour via TM, Permanent
       Records Roadhouse, Sam First); unique value is the FREE cultural/museum-concert long tail (Summer
       Nights @ CAAM/The Broad/Grand Performances) TM & Goldenvoice miss. UNLOCK CHECK: kcrw.com hard-429'd
-      every fetch 2026-06-19 — confirm https://www.kcrw.com/wp-json/tribe/events/v1/events (WordPress +
-      The Events Calendar) from a non-throttled IP; if present, promote to method:api/ics (active).
-      Harvest its free events; use ticketed listings only as a rank boost.
+      every fetch 2026-06-19 AND 2026-07-17 (now a Vercel Security Checkpoint — JS challenge, blocks
+      datacenter IPs; curl with a real UA still 429s). Two unlock paths: (1) from a RESIDENTIAL IP
+      (Ari's laptop) probe https://www.kcrw.com/wp-json/tribe/events/v1/events?per_page=5 and
+      https://www.kcrw.com/events/?ical=1 — if either returns data the site is only IP-gating bots;
+      note the cloud routine would likely STILL be challenged, so promote to active only if the
+      fetch also works from CI, else keep as an Ari-side capture. (2) The robust path needing no
+      scraping: subscribe KCRW's events newsletter ("5 Things to Do") to the Gmail "Events" label —
+      rides the existing Gmail source, immune to the bot wall.
 
   - name: Landmark Theatres Pasadena
     category: film

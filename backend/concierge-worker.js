@@ -107,6 +107,11 @@ export default {
     const messages = sanitizeMessages(body && body.messages);
     if (!messages.length) return json({ error: "no messages" }, 400, cors);
     const profileHash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
+    // The page's opener (the day's take) — a concierge line the user may be replying to. The
+    // page keeps its welcome chrome out of `messages` entirely (token save; and a leading
+    // assistant turn would be stripped below anyway), so the take arrives as its own field
+    // and grounds the system prompt instead.
+    const opener = (body && typeof body.opener === "string") ? body.opener.trim().slice(0, 1500) : "";
 
     // Ground on the live feed — the profile's feed when one is attached (best-effort).
     const dataUrl = env.DATA_URL || DEFAULTS.DATA_URL;
@@ -124,7 +129,7 @@ export default {
     // Worker can trigger a (revertible) commit to a profile's file; keep GITHUB_TOKEN a single-repo,
     // Contents-only PAT.
     const canEdit = !!(profileHash && env.GITHUB_TOKEN);
-    const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name });
+    const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name, opener });
     // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
     // set ADVISOR_MODEL to "" to disable. Plus the two self-edit tools when this profile can edit.
     const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
@@ -133,10 +138,10 @@ export default {
       PLAN_TOOL,                                  // read-only group planning — available to any authed caller
       ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL, DIGEST_TOOL] : []),
     ];
-    // BYOK callers may upgrade the executor on their OWN spend (Q3: "Opus if they bring a key"):
-    // `model: "opus"` in the body is honored only when a personal key is present — shared-token spend
-    // (the owner's key) always stays on the default, so a friend can't run up Ari's bill on Opus.
-    const execModel = (userKey && body && body.model) ? resolveModel(env, body.model) : null;
+    // Any authed caller may upgrade the executor via `model: "opus"` in the body — Ari's call:
+    // shared-token users get Opus too (the token already gates who can spend at all; per-message
+    // cost is an accepted tradeoff). BYOK callers pay on their own key as before.
+    const execModel = (body && body.model) ? resolveModel(env, body.model) : null;
 
     // The advisor is a SERVER-side tool; its sampling loop can return stop_reason "pause_turn" — when
     // it does, re-send the conversation to let it continue (don't inject a user turn). Cap re-sends.
@@ -203,8 +208,8 @@ export default {
 
 /* ----- Anthropic ----- */
 /* Map a friendly model choice to a configured id — reuses the existing executor/advisor constants
- * (no new hardcoded ids), and passes through an explicit, well-formed `claude-*` id. Used only for a
- * BYOK caller's optional upgrade (Q3: "Opus if they bring a key"); shared-token spend stays default. */
+ * (no new hardcoded ids), and passes through an explicit, well-formed `claude-*` id. Any authed
+ * caller (shared token or BYOK) may request the upgrade; junk falls back to the default executor. */
 function resolveModel(env, m) {
   const k = String(m || "").trim().toLowerCase();
   if (k === "opus") return env.ADVISOR_MODEL || DEFAULTS.ADVISOR_MODEL;
@@ -213,6 +218,12 @@ function resolveModel(env, m) {
   return env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL;
 }
 
+/* STREAMING is load-bearing here, not cosmetic. At EFFORT=max with adaptive thinking + an Opus
+ * advisor consult, a single generation can run well past a minute — and a non-streaming Messages
+ * call sends ZERO bytes until it finishes, so the Worker's outbound fetch gives up waiting for the
+ * first byte and the whole chat 502s ("concierge backend error"). With stream:true bytes flow
+ * immediately and the connection stays alive for the full generation; accumulateSSE folds the
+ * event stream back into the non-streaming shape the rest of the Worker consumes. */
 async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
   const resp = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
@@ -225,6 +236,7 @@ async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
     body: JSON.stringify({
       model: model || env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL,
       max_tokens: Number(env.MAX_TOKENS) || DEFAULTS.MAX_TOKENS,
+      stream: true,                                            // see the block comment above
       // Cache the (large, stable) persona + grounded feed: turns 2+ of a conversation read it at ~0.1x.
       system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }],
       thinking: { type: "adaptive" },                          // adaptive thinking for quality planning
@@ -234,7 +246,52 @@ async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
     }),
   });
   if (!resp.ok) throw new Error(resp.status + " " + (await resp.text().catch(() => "")).slice(0, 300));
-  return resp.json();
+  return accumulateSSE(resp.body);
+}
+
+/* Fold a Messages-API SSE stream back into the non-streaming response shape ({content,
+ * stop_reason, ...}). Handles every block kind we can receive: text (text_delta), thinking
+ * (thinking_delta + signature_delta — the signature must survive so a pause_turn / tool-round
+ * re-send can pass the block back unchanged), tool_use / server_tool_use (input_json_delta
+ * accumulated, parsed at content_block_stop), and complete server-result blocks (advisor/tool
+ * results arrive whole in content_block_start). A mid-stream `error` event throws so callers
+ * surface the API's real reason instead of a generic failure. Exported for tests. */
+export async function accumulateSSE(body) {
+  const msg = { content: [], stop_reason: null };
+  const partial = {};                       // block index -> accumulated tool-input JSON string
+  const reader = body.getReader();
+  const decoder = new TextDecoder();
+  let buf = "";
+  for (;;) {
+    const { done, value } = await reader.read();
+    buf += done ? decoder.decode() + "\n" : decoder.decode(value, { stream: true });
+    let nl;
+    while ((nl = buf.indexOf("\n")) !== -1) {
+      const line = buf.slice(0, nl).replace(/\r$/, "");
+      buf = buf.slice(nl + 1);
+      if (!line.startsWith("data:")) continue;       // skip event:/heartbeat/comment lines
+      let ev;
+      try { ev = JSON.parse(line.slice(5).trim()); } catch { continue; }
+      if (ev.type === "error") throw new Error("stream: " + String((ev.error && ev.error.message) || "unknown").slice(0, 300));
+      if (ev.type === "message_start" && ev.message) { msg.model = ev.message.model; msg.usage = ev.message.usage; }
+      else if (ev.type === "content_block_start") msg.content[ev.index] = { ...ev.content_block };
+      else if (ev.type === "content_block_delta") {
+        const b = msg.content[ev.index] || (msg.content[ev.index] = {});
+        const d = ev.delta || {};
+        if (d.type === "text_delta") b.text = (b.text || "") + d.text;
+        else if (d.type === "thinking_delta") b.thinking = (b.thinking || "") + d.thinking;
+        else if (d.type === "signature_delta") b.signature = d.signature;
+        else if (d.type === "input_json_delta") partial[ev.index] = (partial[ev.index] || "") + d.partial_json;
+      } else if (ev.type === "content_block_stop" && partial[ev.index] !== undefined) {
+        try { msg.content[ev.index].input = JSON.parse(partial[ev.index] || "{}"); } catch { /* keep the start block's input */ }
+        delete partial[ev.index];
+      } else if (ev.type === "message_delta" && ev.delta && ev.delta.stop_reason) {
+        msg.stop_reason = ev.delta.stop_reason;
+      }
+    }
+    if (done) break;
+  }
+  return msg;
 }
 function textOf(data) {
   return (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
@@ -412,6 +469,12 @@ export function buildSystem(feed, opts = {}) {
     "not a generic chatbot. Voice: conversational, opinionated, concise; no sycophancy, no padding.",
     `Today is ${today} (America/Los_Angeles).`,
     opts.profileName ? `You're talking to ${opts.profileName}; the picks below are ranked to THEIR taste.` : "",
+    // The take: the page opens the chat thread with the digest's lede as YOUR first message —
+    // it reaches you here (not in the turn history), so replies to it stay grounded.
+    opts.opener
+      ? "\nYou opened this thread with today's take (they've read it — a reply like \"what's the" +
+        " move tonight then?\" refers to it):\n" + opts.opener
+      : "",
     "",
     "You can do four things with the data below: (1) ANSWER questions about events, venues,",
     "restaurants, artists, neighborhoods; (2) RECOMMEND with a one-line 'why' per pick; (3) PLAN a",

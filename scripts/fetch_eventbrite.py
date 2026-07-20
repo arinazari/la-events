@@ -63,7 +63,7 @@ def primary_organizer(html: str):
         except json.JSONDecodeError:
             continue
         for obj in (d if isinstance(d, list) else [d]):
-            if isinstance(obj, dict) and "Event" in str(obj.get("@type", "")):
+            if isinstance(obj, dict) and lj.is_event(obj):
                 org = obj.get("organizer") or {}
                 if isinstance(org, list):
                     org = org[0] if org else {}

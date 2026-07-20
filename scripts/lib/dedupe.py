@@ -287,6 +287,45 @@ def _conflicting_link_ids(a: dict, b: dict) -> bool:
     return bool(plat(ia) & plat(ib))
 
 
+# ── Shared venue-page identity ─────────────────────────────────────────────────
+# The Yaamava / Dane Cook shape: Ticketmaster registers one room under TWO venue records
+# ("Yaamava Theater" and "Yaamava Resort & Casino at San Manuel") and lists the same show once
+# under each — two resale records with two DIFFERENT Z ids, so no shared per-event id, and venue
+# strings too far apart for the fuzzy path. But both records carry TM's own venueBoxOffice URL,
+# and it's the SAME page — the platform's statement that both listings sell through one room. A
+# shared venue-page URL therefore counts as the VENUE leg of the predicate; title/headliner and
+# same-date still required, so a two-night casino run (same box-office URL, both nights) stays two
+# rows, and two different shows at that room the same night don't merge. Deliberately NOT vetoed by
+# conflicting per-event ids: the TMR double-listing IS two tm ids for one show — that's the bug.
+# Three guards keep "shared URL" meaning "same room", because plenty of URLs are shared by rows
+# that are genuinely different events:
+#   • Only `source: "venue"` links qualify (the tag _resale_links and the venue fetchers use for a
+#     box-office/venue page). Editorial roundup URLs name a LIST of events across venues (six 7/18
+#     rows at six venues share one discoverlosangeles.com page), promoter tracking links
+#     (on.fgtix.com/trk/…) and 19hz's Instagram-profile links are shared by every event the
+#     promoter runs — none of them identify a room.
+#   • A bare domain doesn't either: scfta.org / ocfair.com-style campus box offices sell for every
+#     hall on the grounds, so the URL must carry a real path (yaamava.com/yaamava-theater does).
+#     In the current catalog the ONLY pathed venue URL spanning two venue strings is the Yaamava
+#     page — this signal is precisely as narrow as intended.
+#   • A companion-title pair ("X" / "X Afterparty") never merges on it — same room, two gatherings
+#     (the same guard the placeholder path uses).
+def _venue_page_urls(ev: dict) -> set:
+    out = set()
+    for link in (ev.get("links") or []):
+        if not isinstance(link, dict) or link.get("source") != "venue":
+            continue
+        u = str(link.get("url") or "").strip().rstrip("/")
+        path = u.split("://", 1)[-1].partition("/")[2]   # everything after the host
+        if path:
+            out.add(u)
+    return out
+
+
+def _shared_venue_page(a: dict, b: dict) -> bool:
+    return bool(_venue_page_urls(a) & _venue_page_urls(b))
+
+
 def _headliner_tie(a: dict, b: dict) -> bool:
     """Same headliner: lineup[0] agreement, or one side's headliner billed in the other's title.
     Min-length guard so a short name can't land in an unrelated title by accident."""
@@ -307,7 +346,8 @@ def is_duplicate(a: dict, b: dict) -> bool:
     da, db = parse_event_date(a), parse_event_date(b)
     if da is None or db is None or da != db:
         return False  # conservative: no date match, no merge
-    if _venue_match(a, b) and _title_or_headliner_match(a, b):
+    if ((_venue_match(a, b) or (_shared_venue_page(a, b) and not _companion_disagree(a, b)))
+            and _title_or_headliner_match(a, b)):
         return True
     pa, pb = _is_placeholder_venue(a.get("venue", "")), _is_placeholder_venue(b.get("venue", ""))
     if (pa or pb) and not _companion_disagree(a, b):
@@ -384,6 +424,8 @@ def merge(a: dict, b: dict) -> dict:
     out["organizers"] = _richest(a.get("organizers"), b.get("organizers"))
     out["neighborhood"] = a.get("neighborhood") or b.get("neighborhood")
     out["genre"] = a.get("genre") or b.get("genre")  # sparse (only some sources classify); don't lose it if the base lacks one
+    if a.get("lineup_genre") or b.get("lineup_genre"):  # sparse TM attraction genre — the catalog
+        out["lineup_genre"] = a.get("lineup_genre") or b.get("lineup_genre")  # base (a) never has it until a fetch backfills
     out["ra_pick"] = bool(a.get("ra_pick") or b.get("ra_pick"))
     out["afterhours"] = bool(a.get("afterhours") or b.get("afterhours"))
     # Volatile fields: the fresher side's non-null reading wins, so a re-fetch updates them in place.

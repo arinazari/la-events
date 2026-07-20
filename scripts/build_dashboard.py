@@ -135,7 +135,8 @@ FP_SHELVES = [
     ("afters", "Afters", ("club:afters",)),
     ("day", "Day parties & rooftops", ("club:day",)),
     ("bigroom", "Big rooms", ("club:mainstream",)),
-    ("live", "Live music", ("live-music",)),
+    ("live", "Bands & small rooms", ("live-music",)),   # bare lane = the sub-hall live tier
+    ("bigstage", "Big stages", ("live-music:big",)),    # arena/hall concerts — "stay informed"
     ("film", "Film & rep cinema", ("film",)),
     ("stage", "Comedy & stage", ("comedy", "stage")),
     ("more", "Elsewhere", None),                 # catch-all: market/art/community/…
@@ -440,6 +441,7 @@ def main() -> int:
         "type": facet("type"),
         "genre": facet("genre", listish=True),
         "setting": facet("setting", listish=True),
+        "scale": facet("scale"),
         "vibe": facet("vibe", listish=True),
         "region": facet("region"),
         "vocab": TAG_VOCAB,

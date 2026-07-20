@@ -119,6 +119,14 @@ portability.
 - [x] First live digests (RA AREA_ID 23 confirmed; 6/16 windowed + 6/19 weekend shipped)
 - [x] Static dashboard live (build feed + PWA-lite + per-event "why?" + ICS export)
 - [ ] Gmail "Events" label created; first promoter lists joined (6AM, Dirty Epic first)
+- [ ] **HIGH PRIORITY — KCRW via the newsletter loophole (Ari, 2026-07-17).** kcrw.com is
+      hard-bot-walled (Vercel checkpoint, 429s every datacenter fetch — re-verified 7/17), but its
+      events coverage rides its newsletter: subscribe **"5 Things to Do in LA"** (kcrw.com/newsletters)
+      with the digest Gmail account and route it to the **"Events" label** — the existing Gmail
+      intake parses it like a promoter blast, no scraping, immune to the wall. Unique value: the
+      free cultural long tail (Summer Nights @ CAAM/The Broad, Grand Performances) TM/Goldenvoice
+      miss. Needs Ari (one signup + a Gmail filter); registry entry `KCRW Presents` stays
+      `candidate` with the residential-IP probe documented as the secondary unlock path.
 
 ## Phase A — Foundation (the unlock — almost everything stands on this)
 - [x] **Shared scoring + dedupe module** — `scripts/lib/{scoring,dedupe,config}.py`, both tested
@@ -257,6 +265,12 @@ The ranking-judgment tier (above) made real, plus one daily digest replacing the
       (`data/editor_pool.<hash>.json`); run the editor + `merge_verdicts.py --profile-hash <hash>` per
       friend to give them the full editor treatment (else their feeds rank deterministically against their
       own music and pick up verdicts next run).
+- [ ] **Wire `editor.prune_verdicts` into the routine** — the prune helper exists and is tested
+      (`lib/editor.py`), but nothing operational calls it: the daily routine runs only
+      `prune_enrichment.py`, so orphaned keys accumulate in `data/verdicts/<hash>.json` as merged /
+      expired events leave the catalog. Harmless today (every verdict read is a miss-tolerant
+      `.get()`) — just unbounded growth in a committed file. Surfaced by the 2026-07-16
+      dedupe-fix review.
 
 ## Phase F — Horizon expansion (the 6-month plan-ahead tier)
 **Why now (the canonical miss):** Lori saw on *Bandsintown* that Alanis Morissette plays LA in
@@ -422,7 +436,7 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   feed event now carries its stable `key` (event_key) — the join id, and the anchor for feedback
   reactions when that lands.
 
-### Redesign follow-ups (from the 2026-07-16 review) — ✅ both shipped 2026-07-16
+### Redesign follow-ups (from the 2026-07-16 review) — ✅ both shipped 2026-07-20
 - [x] **One "Don't miss" policy across surfaces** — resolved as SAME (the "one policy" reading):
   `lib/assemble.top_picks` (next to `slate_fill`/`rank_key`) is now THE shelf definition —
   rank_key order (the exact expression `final_rank` is stamped from), judged skips out, one
@@ -430,15 +444,20 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   N=6). Both `render_digest._dont_miss_events` and `build_front_page`'s hero run it, so the
   digest shelf now gets the hero's diversity too (five club nights can't fill it; live-music/
   film picks displace the 4th-best club bill). If Ari prefers the shelves deliberately
-  different, the knobs are per-call args — change one caller, not the policy.
-- [x] **Emit "The Take" structurally** — the renderer wraps the intro slot in
-  `<!-- take:start/end -->` markers (the voice pass fills between them and leaves them in
-  place — routine step 5b documents this); `build_dashboard --digest` lifts the filled intro
-  into each feed as `front_page.take`, and `build_profiles` points each friend's build at
-  their OWN `digests/<hash>/latest.md` (free-form, no markers → `take: null`; never Ari's
-  intro). The page prefers `front_page.take`; `digestLede()`'s markdown heuristic survives
-  only as the fallback (per-profile digests, pre-take feeds, the bundled sample) and now
-  strips comment markers before testing blocks so a marker-wrapped intro can't hide from it.
+  different, the knobs are per-call args — change one caller, not the policy. Composes with
+  the taxonomy revamp: the family cap spans `live-music:*` exactly like `club:*`.
+- [x] **Emit "The Take" structurally** — revised per Ari (2026-07-20): the take is NOT the
+  digest intro lifted verbatim — it's a dedicated **one-sentence, high-level teaser** the
+  voice pass writes into an invisible `<!-- take: … -->` slot under the digest header
+  (distinct from the 2–4 sentence `tier3:intro`). `build_dashboard --digest` lifts it into
+  each feed as `front_page.take = {text, date}` — the date is the digest's own date, so the
+  chat welcome shows it's genuinely today's read, honestly stale otherwise; `build_profiles`
+  points each friend's build at their OWN `digests/<hash>/latest.md` (no slot → `take: null`;
+  never Ari's teaser). The page prefers the structural take for the chat welcome
+  (`seedTake`); the `digestLede()` heuristic survives only as the fallback, clipped to one
+  sentence. **Display-only by design**: the take renders as if the concierge said it but is
+  NEVER sent to the model — the `opener` system-prompt field is removed (page + Worker); the
+  concierge stays grounded on the feed data alone.
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
@@ -545,6 +564,18 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
 - [ ] Flyer-forwarding bot + Twilio SMS/MMS intake (`sms-ingestion.md`). Capture-by-hand still works.
 - [ ] On-sale sniper / price tracking across ticket links (DICE vs TM fees). Nice-to-have.
 - [ ] SQLite instead of `catalog.json` if volume ever demands it.
+- [ ] **Shared lane corrections** (surfaced by the 2026-07-17 taxonomy revamp; Ari wants lanes
+      standardized across profiles). Tags + deterministic lanes are already one shared, taste-neutral
+      vocabulary — but the event-editor's *lane override* is stored per profile
+      (`data/verdicts/<hash>.json`, ~165 overrides), so the same event can sit in different lanes on
+      different profiles' feeds when their editors disagree. A lane correction is a FACT call
+      (headliner draw, a nostalgia night's character), not taste — so move it into the shared
+      enrichment layer (`data/enrichment.json` scene facts, cross-profile by design): the editor
+      still *proposes* a lane, `merge_verdicts` folds it into enrichment instead of the verdict
+      store, `event_lane` reads it as a deterministic input, and per-profile verdicts keep only the
+      taste fields (tier/adjust/why). Migration: one pass folding existing verdict-lane overrides
+      into enrichment (conflicts → most-recent judged_at wins), then strip `lane` from the verdict
+      contract + event-editor.md. Small, contained; do it alongside the next editor-contract bump.
 
 ---
 

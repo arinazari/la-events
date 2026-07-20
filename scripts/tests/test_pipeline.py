@@ -236,6 +236,85 @@ def test_stale_sources_sees_through_crosslisted_fresh_outliers():
     assert stale.get("ticketmaster") == 7            # median is still 2026-06-19, not the fresh max
 
 
+# ── out-of-market drop (radar-exempt) ────────────────────────────────────────────
+_OOM_PROFILE = {"pipeline": {"out_of_market": ["palm springs", "pioneertown"]}}
+_OOM_TASTE = {"artists_tracked": ["Peggy Gou"]}
+
+
+def _oom_ev(title, hood, venue="Some Bar", lineup=None):
+    return {"title": title, "venue": venue, "neighborhood": hood, "date": "2026-08-01",
+            "lineup": lineup or []}
+
+
+def test_out_of_market_drops_plain_far_rows_only():
+    cat = [_oom_ev("Cover Band Night", "Palm Springs"),
+           _oom_ev("Indie Bill", "Silver Lake")]
+    kept, n = P.drop_out_of_market(cat, _OOM_TASTE, _OOM_PROFILE)
+    assert n == 1 and [e["neighborhood"] for e in kept] == ["Silver Lake"]
+
+
+def test_out_of_market_exempts_radar_signals():
+    cat = [_oom_ev("Desert Air Festival", "Palm Springs"),                       # festival title
+           _oom_ev("Peggy Gou", "Pioneertown", lineup=["Peggy Gou"]),            # tracked artist
+           _oom_ev("Big Headliner", "Palm Springs", venue="Acrisure Arena"),     # arena tier
+           _oom_ev("Local Trio", "Palm Springs")]                                # no signal
+    kept, n = P.drop_out_of_market(cat, _OOM_TASTE, _OOM_PROFILE)
+    assert n == 1 and all(e["title"] != "Local Trio" for e in kept)
+
+
+def test_out_of_market_noop_without_config():
+    cat = [_oom_ev("Anything", "Palm Springs")]
+    kept, n = P.drop_out_of_market(cat, _OOM_TASTE, {})
+    assert n == 0 and len(kept) == 1
+
+
+# ── recurring.yaml materializer ──────────────────────────────────────────────────
+_REC_DOC = {"markets": [
+    {"name": "Silver Lake Farmers Market", "cadence": ["weekly:Tue", "weekly:Sat"],
+     "start": "09:00", "where": "3700 Sunset Blvd (Silver Lake)", "neighborhood": "Silver Lake",
+     "category": "market", "url": "https://example.com/slfm", "when": "Sat 8am-1:30pm",
+     "note": "walkable"},
+    {"name": "Rose Bowl Flea Market", "cadence": ["monthly:2:Sun"], "start": "09:00",
+     "where": "Rose Bowl, Pasadena", "neighborhood": "Pasadena", "category": "flea",
+     "url": "https://example.com/rbf"},
+]}
+
+
+def test_materialize_recurring_weekly_and_monthly():
+    today = date(2026, 7, 1)   # a Wednesday
+    rows = P.materialize_recurring(_REC_DOC, today, days=14)
+    slfm = [r for r in rows if "Farmers" in r["title"]]
+    # Tue: 7/7, 7/14; Sat: 7/4, 7/11 — four occurrences in 14 days
+    assert sorted(r["date"] for r in slfm) == ["2026-07-04", "2026-07-07", "2026-07-11", "2026-07-14"]
+    rbf = [r for r in rows if "Rose Bowl" in r["title"]]
+    assert [r["date"] for r in rbf] == ["2026-07-12"]      # 2nd Sunday of July 2026
+    assert all(r["category"] in ("market", "flea") and r["start"] == "09:00"
+               and r["sources"] == ["recurring"] and r["links"] for r in rows)
+
+
+def test_materialize_recurring_is_idempotent_through_merge():
+    today = date(2026, 7, 1)
+    rows = P.materialize_recurring(_REC_DOC, today, days=14)
+    catalog, _ = P.merge_new([], rows, today)
+    n1 = len(catalog)
+    catalog, stats = P.merge_new(catalog, P.materialize_recurring(_REC_DOC, today, days=14), today)
+    assert len(catalog) == n1 and stats["merged"] == n1     # re-run merges, never duplicates
+
+
+def test_materialize_recurring_tags_as_market():
+    from lib.tagging import tag_event
+    rows = P.materialize_recurring(_REC_DOC, date(2026, 7, 1), days=7)
+    assert all(tag_event(r)["type"] == "market" for r in rows)   # flea/food_market categories too
+
+
+def test_materialize_recurring_except_months():
+    doc = {"markets": [{"name": "Topanga Vintage Market", "cadence": ["monthly:4:Sun"],
+                        "except_months": [12], "category": "flea"}]}
+    rows = P.materialize_recurring(doc, date(2026, 11, 25), days=61)
+    # 4th Sundays in window (end-exclusive, so 61d reaches 1/24): 12/27 skipped, 1/24 kept
+    assert [r["date"] for r in rows] == ["2027-01-24"]
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
