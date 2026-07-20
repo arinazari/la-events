@@ -138,10 +138,10 @@ export default {
       PLAN_TOOL,                                  // read-only group planning — available to any authed caller
       ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL, DIGEST_TOOL] : []),
     ];
-    // BYOK callers may upgrade the executor on their OWN spend (Q3: "Opus if they bring a key"):
-    // `model: "opus"` in the body is honored only when a personal key is present — shared-token spend
-    // (the owner's key) always stays on the default, so a friend can't run up Ari's bill on Opus.
-    const execModel = (userKey && body && body.model) ? resolveModel(env, body.model) : null;
+    // Any authed caller may upgrade the executor via `model: "opus"` in the body — Ari's call:
+    // shared-token users get Opus too (the token already gates who can spend at all; per-message
+    // cost is an accepted tradeoff). BYOK callers pay on their own key as before.
+    const execModel = (body && body.model) ? resolveModel(env, body.model) : null;
 
     // The advisor is a SERVER-side tool; its sampling loop can return stop_reason "pause_turn" — when
     // it does, re-send the conversation to let it continue (don't inject a user turn). Cap re-sends.
@@ -208,8 +208,8 @@ export default {
 
 /* ----- Anthropic ----- */
 /* Map a friendly model choice to a configured id — reuses the existing executor/advisor constants
- * (no new hardcoded ids), and passes through an explicit, well-formed `claude-*` id. Used only for a
- * BYOK caller's optional upgrade (Q3: "Opus if they bring a key"); shared-token spend stays default. */
+ * (no new hardcoded ids), and passes through an explicit, well-formed `claude-*` id. Any authed
+ * caller (shared token or BYOK) may request the upgrade; junk falls back to the default executor. */
 function resolveModel(env, m) {
   const k = String(m || "").trim().toLowerCase();
   if (k === "opus") return env.ADVISOR_MODEL || DEFAULTS.ADVISOR_MODEL;

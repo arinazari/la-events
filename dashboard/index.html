@@ -1008,12 +1008,12 @@
           <span style="font:600 11px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Use Opus <span style="font-weight:500; color:#a7a59b;">(sharper, slower)</span></span>
           <span style="display:inline-flex; align-items:center; gap:7px;">
             <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">{{ opusTogLabel }}</span>
-            <span onClick="{{ toggleUseOpusDraft }}" title="On = run the concierge on Opus — only applies when your own key is ON (Opus runs on your key)" style="position:relative; flex:none; width:32px; height:18px; border-radius:9px; background:{{ opusTogTrackBg }}; cursor:pointer; transition:background .15s;">
+            <span onClick="{{ toggleUseOpusDraft }}" title="On = run the concierge on Opus — works with the shared token or your own key" style="position:relative; flex:none; width:32px; height:18px; border-radius:9px; background:{{ opusTogTrackBg }}; cursor:pointer; transition:background .15s;">
               <span style="position:absolute; top:1px; left:1px; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.3); transform:translateX({{ opusTogKnobX }}); transition:transform .15s;"></span>
             </span>
           </span>
         </div>
-        <div style="margin-top:6px; font:500 9.5px/1.45 ui-monospace,Menlo,monospace; color:#a7a59b;">Only applies when your own key is ON — Opus runs on your key. Otherwise the concierge uses the default model.</div>
+        <div style="margin-top:6px; font:500 9.5px/1.45 ui-monospace,Menlo,monospace; color:#a7a59b;">Works with either connection — the shared token or your own key. Off = the default model. Opus replies are sharper but slower and pricier.</div>
 
         <div style="margin-top:14px; font:600 11px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Shared access token <span style="font-weight:500; color:#a7a59b;">(from Ari)</span></div>
         <span style="margin-top:7px; display:flex; align-items:center; gap:6px; padding:8px 10px; border:1px solid #c9c7bd; background:#fff; border-radius:2px;" style-focus-within="border-color:#2b5cd9;">
@@ -2162,7 +2162,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
   rawClaudeKey = () => { try { return (this.readConn().key || '').trim(); } catch (e) { return ''; } };
   apiEnabled = () => { try { return !!this.readConn().enabled; } catch (e) { return false; } };
-  // Opus upgrade for the concierge chat — only honored by the Worker for a BYOK caller (their spend).
+  // Opus upgrade for the concierge chat — the Worker honors it on any connection (token or key).
   useOpus = () => { try { return !!this.readConn().opus; } catch (e) { return false; } };
   // The key actually sent on a request: only when switched ON *and* present. Empty -> the token is used.
   byokKey = () => { const k = this.rawClaudeKey(); return (this.apiEnabled() && k) ? k : ''; };
@@ -2262,7 +2262,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // and the Worker folds it into the system prompt. That's what keeps "what's the move tonight
     // then?" grounded, at the cost of the take alone rather than the whole welcome.
     if (this.state.takeText) body.opener = String(this.state.takeText).slice(0, 1500);
-    if (key && this.useOpus()) body.model = 'opus';   // BYOK only: upgrade the executor to Opus on your spend
+    if (this.useOpus()) body.model = 'opus';   // upgrade the executor to Opus — honored on any connection (token or key)
     const p = this.state.profile;
     if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
     this._abort = new AbortController();       // so the user can stop a slow reply
