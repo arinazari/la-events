@@ -370,12 +370,23 @@ def _is_resale_link(link) -> bool:
 
 
 def _merge_links(a, b):
-    seen, out = set(), []
+    """Union of both sides' links, first occurrence keeping its position (links[0] is THE ticket
+    link). A repeat of a known url no longer just drops: its NEW keys fold into the kept dict
+    (kept values win on conflict), so a fetcher that starts emitting richer link dicts — e.g.
+    fetch_veezi's per-showtime `label` — upgrades the long-lived catalog rows on the next pull.
+    Kept-wins matters: a re-emitted link must not clobber `source` ("venue"-sourced links are a
+    dedupe identity signal in _venue_page_urls) or an already-good label."""
+    by_url, out = {}, []
     for link in (a.get("links") or []) + (b.get("links") or []):
         url = link.get("url") if isinstance(link, dict) else link
-        if url and url not in seen:
-            seen.add(url)
+        if not url:
+            continue
+        i = by_url.get(url)
+        if i is None:
+            by_url[url] = len(out)
             out.append(link)
+        elif isinstance(link, dict) and isinstance(out[i], dict):
+            out[i] = {**link, **out[i]}
     # Stable demote: any working link outranks a TM resale-marketplace URL.
     return [l for l in out if not _is_resale_link(l)] + [l for l in out if _is_resale_link(l)]
 

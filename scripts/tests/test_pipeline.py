@@ -71,6 +71,19 @@ def test_normalize_passes_through_canonical_links():
     assert rec["category"] == "live_music"
 
 
+def test_normalize_attaches_url_label_to_primary_link():
+    """fetch_veezi emits url_label (the showtime, e.g. '7:30pm') beside url; normalize folds it
+    onto the primary link dict so a folded run's accumulated purchase links stay tellable-apart.
+    Absent/empty label -> plain link, exactly as before."""
+    raw = {"title": "The Odyssey (70mm)", "date": "2026-07-24", "venue": "Vista Theater",
+           "url": "https://tix/3859", "url_label": "7:30pm"}
+    rec = P.normalize_record(raw, "vista")
+    assert rec["links"] == [{"source": "vista", "url": "https://tix/3859", "label": "7:30pm"}]
+    plain = P.normalize_record({"title": "X", "date": "2026-07-24", "venue": "V",
+                                "url": "https://tix/1", "url_label": None}, "vista")
+    assert plain["links"] == [{"source": "vista", "url": "https://tix/1"}]
+
+
 def test_merge_new_dedupes_and_stamps():
     catalog = [{"title": "Midnight Lovers w/ Bradley Zero", "venue": "The Bridge",
                 "date": "2026-06-20", "lineup": ["Bradley Zero"],

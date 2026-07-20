@@ -878,6 +878,17 @@
             </div>
           </sc-for>
         </sc-if>
+        <sc-if value="{{ fpDetail.hasSeries }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">ALSO SHOWING</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <sc-for list="{{ fpDetail.seriesChipRows }}" as="sd">
+              <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" style="font:500 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:2px; text-decoration: {{ sd.deco }};">{{ sd.label }}</a>
+            </sc-for>
+            <sc-if value="{{ fpDetail.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
+              <span style="font:500 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; color:#a7a59b;">{{ fpDetail.seriesMore }}</span>
+            </sc-if>
+          </div>
+        </sc-if>
         <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;">
           <sc-for list="{{ fpDetail.links }}" as="lk" hint-placeholder-count="2">
             <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:3px; text-decoration:none;">{{ lk.label }} ↗</a>
@@ -1325,7 +1336,7 @@ class Component extends DCLogic {
     return out.slice(0, 7).map(text => ({ text, ...this.badgeStyle(text) }));
   }
 
-  LINK_LABELS = { ra:'Resident Advisor', dice:'DICE', ticketmaster:'Ticketmaster', tm:'Ticketmaster', posh:'Posh', eventbrite:'Eventbrite', filmbot:'Showtimes', goldenvoice:'Goldenvoice', squarespace:'Venue site', jsonld:'Venue site', ics:'Add to calendar', '19hz':'19hz' };
+  LINK_LABELS = { ra:'Resident Advisor', dice:'DICE', ticketmaster:'Ticketmaster', tm:'Ticketmaster', posh:'Posh', eventbrite:'Eventbrite', filmbot:'Showtimes', goldenvoice:'Goldenvoice', squarespace:'Venue site', jsonld:'Venue site', ics:'Add to calendar', '19hz':'19hz', vista:'Vista', newbev:'New Beverly' };
   linkLabel(l) {
     if (!l) return 'Tickets';
     const u = String(l.url || '');
@@ -1336,11 +1347,18 @@ class Component extends DCLogic {
   linksFor(e) {
     const stop = (ev) => { ev.stopPropagation(); };
     const list = Array.isArray(e.links) ? e.links : [];
-    const seen = new Set(); const out = [];
+    const seen = new Set(); const labels = new Set(); const out = [];
     for (const l of list) {
       if (!l || !l.url || seen.has(l.url)) continue;
       seen.add(l.url);
-      out.push({ label: this.linkLabel(l), url: l.url, stop });
+      // A link may carry its own display label (fetch_veezi's per-showtime "7:30pm") — compose
+      // "Vista · 7:30pm". Buttons whose display text would be identical collapse to the first:
+      // N indistinguishable "Vista" buttons (a run's unlabeled showtime links) tell the user
+      // nothing the first doesn't.
+      const label = this.linkLabel(l) + (l.label ? ' · ' + l.label : '');
+      if (labels.has(label)) continue;
+      labels.add(label);
+      out.push({ label, url: l.url, stop });
     }
     if (!out.length && e.url) out.push({ label: 'Tickets', url: e.url, stop });
     // Films: an external showtimes search covering the LA theaters that aren't fetch sources.
@@ -3835,6 +3853,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const de = this.byKey(this.state.fpDetailKey);
       if (de) {
         fpDetailOpen = true;
+        const fpSc = this.seriesChips(de);   // a run's other nights, same chips as the table card
         fpDetail = {
           date: de.wd + ' ' + de.md + ' · ' + de.t,
           title: de.title,
@@ -3843,6 +3862,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           why: de.why || '',
           desc: de.desc, hasDesc: de.hasDesc,
           links: this.linksFor(de),
+          hasSeries: fpSc.chips.length > 0,
+          seriesChipRows: fpSc.chips.map(c => ({ label: c.label, url: c.url, stop: c.stop,
+            color: c.dim ? '#a29a90' : '#3f3d36', border: c.dim ? '#dedcd4' : '#c9c7bd',
+            deco: c.dim ? 'line-through' : 'none' })),
+          seriesMore: fpSc.more, hasSeriesMore: !!fpSc.more,
           ...this.intelFor(de),
           icsClick: (domEv) => this.downloadICS(de, domEv),
         };
