@@ -32,6 +32,11 @@ It does **a few** things, depending on what the POST body carries:
    "what would me + Lori be into" ─► worker ─► Claude calls plan_with_friends(["lori"])
        ─► worker fetches each named PUBLIC feed + the caller's, returns a per-person rating matrix
              ◄──────────── { reply } ────────────   profiles aren't private; a username is permission
+
+6. CALENDAR FEED (GET, no auth, no LLM — Google/Apple Calendar poll this)
+   GET /calendar.ics?p=<hash>&min=&perday=&horizon=&days=&types=&xtypes=&genres=&xgenres=
+       ─► worker fetches the PUBLIC feed (data[.<hash>].json), filters + builds iCalendar
+             ◄──────── text/calendar ────────   dashboard/calendar-core.js does the work
 ```
 
 Both self-edits keep the **single deterministic scorer**: the Worker only edits the YAML;
@@ -79,6 +84,16 @@ POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<
 Auth: optional  Authorization: Bearer <CONCIERGE_TOKEN>
 GET / (no auth) -> { ok, service, v }   deploy fingerprint — `curl https://<worker>/` answers
                                         "which build is live?" (wrangler deploys are manual)
+GET /calendar.ics (no auth) -> text/calendar   the calendar-subscription feed. Settings ride the
+    query string (parsed by dashboard/calendar-core.js — the SAME file the page's calendar modal
+    uses for its preview/snapshot, imported at bundle time, so they can't drift):
+      p=<feed-hash>        whose feed (omit = the default data.json)
+      min=1..5             minimum rating (default 4)         perday=1..10  max events/day (default 3)
+      horizon=7..120       days ahead (default 60)            days=fri,sat  weekdays (empty = all)
+      types= / xtypes=     include/exclude tags.type          genres= / xgenres=  include/exclude genres
+    UNAUTHENTICATED BY DESIGN: calendar clients poll server-side and can't send Bearer headers,
+    and the route spends nothing — no LLM call, no commit; it only re-serves the already-public
+    Pages feed reshaped. Same obfuscation-not-security model as the feed hashes themselves.
 ```
 
 The page opts into `stream` and falls back by response content-type, so old page ↔ new Worker and
@@ -138,10 +153,13 @@ Then point the dashboard at it: set the `BACKEND_URL` constant in `dashboard/ind
 printed Worker URL and redeploy Pages. Visitors connect from the page itself — **connect** in the
 chat header stores the token / personal key (per profile, in that browser's localStorage).
 
-> Re-run `npx wrangler deploy` after Worker-code changes in this repo. Current pending change
+> Re-run `npx wrangler deploy` after Worker-code changes in this repo. Current pending changes
 > (2026-07-20): the `opener` field is retired — the chat's take is display-only and the page no
 > longer sends it, so a stale deployed Worker is harmless (its opener plumbing just receives
-> nothing); redeploy is cleanup, not correctness.
+> nothing) — and the **calendar feed** (`GET /calendar.ics`, build `2026-07-20-cal1`) ships. The
+> calendar modal probes the live route when opened and shows a "redeploy" note (subscribe links
+> hidden, snapshot download still works) until the deploy lands, so a stale Worker degrades
+> gracefully — but the subscribe feature doesn't exist until you redeploy.
 
 ### "I redeployed but it still fails" — verify the deploy actually landed
 

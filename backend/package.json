@@ -6,7 +6,7 @@
   "type": "module",
   "main": "concierge-worker.js",
   "scripts": {
-    "test": "node test-edits.mjs"
+    "test": "node test-edits.mjs && node test-calendar.mjs"
   },
   "dependencies": {
     "yaml": "^2.5.0"
