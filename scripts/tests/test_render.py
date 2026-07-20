@@ -158,18 +158,23 @@ def test_consolidated_sections_follow_prefs_order():
 
 def test_day_groups_key_off_lane_not_source_category():
     """The fix for the 'Other' misfile: an RA warehouse bill arrives with a useless source
-    category but must land under Electronic & dance (lane club:*), with its sub-lane chip;
-    a verdict lane override beats the tags."""
+    category but must land under Electronic & dance (lane club:*). A TBA warehouse MAIN
+    event (11pm doors) is underground — the default club lane, no sub-lane chip — while a
+    genuine post-close party gets the afters chip; a verdict lane override beats the tags."""
     ra = {"title": "WORK presents: Ken Ishii", "iso_date": "2026-06-19", "start": "23:00",
           "score": 8, "rating": 4, "venue": "TBA - Los Angeles", "category": "Event",
           "sources": ["ra"], "links": [], "afterhours": True}
+    afters = {"title": "Nightshift After Hours", "iso_date": "2026-06-19", "start": "11pm-6am",
+              "score": 7, "rating": 4, "venue": "The Lexington", "category": "Event",
+              "sources": ["ra"], "links": [], "afterhours": True}
     misc = {"title": "Some Expo", "iso_date": "2026-06-19", "start": "10:00", "score": 4,
             "rating": 4, "venue": "Convention Center", "category": "Miscellaneous",
             "sources": ["ticketmaster"], "links": []}
-    md = R.render_markdown({"today": "2026-06-17", "candidates": []}, [ra, misc])
+    md = R.render_markdown({"today": "2026-06-17", "candidates": []}, [ra, afters, misc])
     assert "**Electronic & dance**" in md and "**Elsewhere**" in md
     assert md.index("**Electronic & dance**") < md.index("Ken Ishii") < md.index("**Elsewhere**")
-    assert "· afters ·" in md or "· afters\n" in md or "afters" in md.split("Ken Ishii")[1].split("\n")[0]
+    assert "afters" not in md.split("Ken Ishii")[1].split("\n")[0]
+    assert "afters" in md.split("Nightshift")[1].split("\n")[0]
     # verdict lane override wins over tags
     lm = {"title": "Secret Rave", "iso_date": "2026-06-20", "start": "22:00", "score": 6,
           "rating": 4, "venue": "Somewhere", "category": "music", "sources": ["dice"],
