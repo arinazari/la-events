@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/19/2026 deterministically (no API). 330 candidates. Signals: big-venue 283, festival 44, tracked 4._
+_Generated 7/20/2026 deterministically (no API). 326 candidates. Signals: big-venue 280, festival 43, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -124,7 +124,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/23 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJb) |
 | Mon 8/24 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xvJ_) |
 | Tue 8/25 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZZ) |
 | Wed 8/26 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZv) |
@@ -218,7 +217,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/23 | 3 | Tucker Wetmore w/ William Beckmann | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Mon 8/24 | 3 | TRAIN - Drops of Jupiter: 25 Years in the Atmosphere | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/train-drops-of-jupiter-25-years-los-angeles-california-08-24-2026/event/09006365C9B35530) |
 | Tue 8/25 | 3 | Tori Amos: In Times of Dragons Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/tori-amos-in-times-of-dragons-los-angeles-california-08-25-2026/event/09006382EBCBB72A) |
 | Tue 8/25 | 3 | Mamamoo | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
@@ -370,7 +368,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/23 | 2 | Slayyyter w/ Pearly Drops | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Mon 8/24 | 2 | Slayyyter w/ Pearly Drops | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Mon 8/24 | 2 | Roger Daltrey (18+) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 8/27 | 2 | Third Eye Blind - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -523,7 +520,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/23 | 0 | Premium Club Seats - Daniel Caesar - Son Of Spergy Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/daniel-caesar-son-of-spergy-tour-anaheim-california-08-23-2026/event/0900647BCBC1F780) |
 | Mon 8/24 | 0 | Premium Club Seats - Daniel Caesar - Son Of Spergy Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/daniel-caesar-son-of-spergy-tour-anaheim-california-08-24-2026/event/0900647BCBBDF77A) |
 
 ## September 2026
