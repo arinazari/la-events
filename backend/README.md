@@ -152,6 +152,16 @@ Tuned for **multi-step, high-quality planning**:
 - **Max effort + adaptive thinking** — `EFFORT=max` + `thinking: adaptive` for the deepest reasoning.
 - **Prompt caching** — the persona + grounded feed (the big, stable prefix) is sent as a cache block,
   so turns 2+ of a conversation read it at ~0.1× input cost.
+- **Streaming upstream** — the Worker calls Anthropic with `stream: true` and folds the SSE back
+  into one JSON reply for the page. This is load-bearing, not cosmetic: a non-streaming Messages
+  call sends **zero bytes until the whole generation finishes**, and at max effort with the Opus
+  advisor (or an Opus executor) that can exceed the Worker's outbound first-byte window — the
+  chat then dies with `concierge backend error 502` even though nothing is misconfigured. With
+  streaming, bytes flow immediately and the connection stays alive for the full generation.
+
+**Executor upgrade:** the page's **Use Opus** toggle sends `model: "opus"` in the body, and the
+Worker honors it for **any authed caller** — shared-token users included (Ari's call: the token
+already gates who can spend at all). BYOK callers pay on their own key as before.
 
 **Tradeoff:** max effort + adaptive thinking + an Opus advisor is **slower and pricier per message**
 (a complex "plan my Saturday" can take tens of seconds — the page shows a spinner and a stop button).
