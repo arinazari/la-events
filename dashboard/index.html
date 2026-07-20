@@ -820,7 +820,6 @@
             <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:3px; text-decoration:none;">{{ lk.label }} ↗</a>
           </sc-for>
           <span onClick="{{ fpDetail.icsClick }}" title="Download .ics — add to your calendar" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">Add to calendar ↓</span>
-          <span onClick="{{ fpDetail.openExplore }}" title="Open in the Explore table" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">Open in Explore →</span>
         </div>
       </div>
     </div>
@@ -1458,7 +1457,6 @@ class Component extends DCLogic {
       digestPicks: false, colFilters: JSON.parse(JSON.stringify(this.EMPTY_COLS)),
     });
   };
-  fpOpenExplore = (e) => { this.fpSeeAll(this.trim(e.title, 40), [e.id]); this.setState({ expandedId: e.id }); };
   // "The Take" — the digest's voice-pass lede, lifted for the front page: the first real prose
   // paragraph of DIGEST_MD (skips the H1, the *meta* lines, banners, and unfilled slot markers).
   digestLede() {
@@ -3530,7 +3528,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           lineupStr: de.lineup.join('  ·  '),
           links: this.linksFor(de),
           icsClick: (domEv) => this.downloadICS(de, domEv),
-          openExplore: () => this.fpOpenExplore(de),
         };
       }
     }
