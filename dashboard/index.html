@@ -2272,7 +2272,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     } finally { this._abort = null; }
     if (res.status === 401) { this.setState({ backendStatus: 'err' }); const e = new Error('unauthorized'); e.code = 401; throw e; }
     if (!res.ok) {
-      this.setState({ backendStatus: 'err' });
+      // NOT a connection problem: the worker answered (it's reachable, the token worked) — this one
+      // generation failed. Leave backendStatus alone so the pill stays connected and the NEXT message
+      // still tries the concierge; flipping to 'err' here made every LLM hiccup stick the chat on
+      // Fast filter until a reload ("connection issues").
       // Surface the worker's own error body ({error, detail}) instead of swallowing it — otherwise a
       // self-edit 502/timeout or a missing-secret 500 reads as a generic "backend unreachable" and we
       // silently drop to Fast filter with no clue why (the Alexa case). Best-effort: ignore non-JSON.
@@ -2283,6 +2286,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       throw e;
     }
     this.setState({ backendStatus: 'ok' });
+    this._backendHinted = false;   // a real reconnect re-arms the one-time "not connected" hint
+    this.touchConn();              // a successful chat keeps the stored connection from TTL-ing out (long-lived tabs)
     const data = await res.json();
     this._lastTasteChanged = !!(data && (data.taste_changed || data.profile_changed));   // worker committed a taste/profile edit -> CI re-ranks
     const reply = data && (data.reply || (Array.isArray(data.content) && data.content.map(b => b && b.text).filter(Boolean).join('\n')));
@@ -2299,7 +2304,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // a personal key alone can connect
       const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify({ ping: true }) });
       this.setState({ backendStatus: res.ok ? 'ok' : 'err' });
-      if (res.ok) this.touchConn();   // keep an actively-used connection from aging out
+      if (res.ok) { this.touchConn(); this._backendHinted = false; }   // keep the conn fresh + re-arm the hint
     } catch (e) { this.setState({ backendStatus: 'err' }); }
   }
   stopLLM = () => { if (this._abort) { try { this._abort.abort(); } catch (e) {} } this.setState({ loading: false }); };
@@ -2840,7 +2845,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const profileActive = !!(this.state.profile && this.state.profile.hash);
     // Concierge (LLM) is gated on being logged into a profile (the "connect" affordance only shows
     // then). Logged out, or in Fast-filter mode, we answer locally. Falls back to local on any error.
-    if (mode === 'llm' && profileActive && this.state.backendStatus === 'ok') {
+    // Status null + saved credentials = the startup/profile-switch ping hasn't resolved yet — try
+    // the LLM anyway (askBackend sets the real status from the response) instead of silently
+    // dropping the first message to Fast filter and burning the one-time "not connected" hint.
+    const backendUsable = this.state.backendStatus === 'ok' ||
+      (this.state.backendStatus == null && !!(this.BACKEND_TOKEN || this.byokKey()));
+    if (mode === 'llm' && profileActive && backendUsable) {
       try {
         const reply = await this.askBackend(text);
         this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: reply }] }));
@@ -2848,14 +2858,19 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         return;
       } catch (e) {
         if (e && e.name === 'AbortError') { this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: '■ stopped.' }] })); return; }
+        // No HTTP code = fetch itself rejected (network blip, or a no-CORS Cloudflare error page,
+        // e.g. a CPU-limit kill). Re-ping so the indicator reflects reality: a transient failure
+        // heals back to connected, a genuinely-down worker flips the pill red instead of staying
+        // silently green while every message fails.
+        if (!(e && e.code)) this.pingBackend();
         const detail = (e && e.detail) ? (' — ' + e.detail) : '';   // the worker's real reason, if any
         const note = (e && e.code === 401)
           ? '⚠︎ Concierge needs your own Claude API key or an access token — open settings (☰). Falling back to fast filter:'
           : this.byokKey()
             ? '⚠︎ That failed on your Claude API key' + detail + ' (it may be invalid, rate-limited, or out of credit). Switch it off in settings (☰) to fall back to the shared token. Using fast filter:'
             : (e && e.code)
-              ? '⚠︎ Concierge backend error ' + e.code + detail + ' — falling back to fast filter:'
-              : '⚠︎ Concierge backend unreachable — falling back to fast filter:';
+              ? '⚠︎ Concierge backend error ' + e.code + detail + ' — using fast filter for this one; your next message will try the concierge again:'
+              : '⚠︎ Concierge backend unreachable — using fast filter for this one; your next message will try the concierge again:';
         this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: note }] }));
         // fall through to the local engine
       }
