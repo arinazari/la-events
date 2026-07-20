@@ -74,6 +74,11 @@
   .fpc-why { font:400 11px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36; }
   .fpc-price { font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; }
   .fpc-new { font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#1f7a4d; }
+  .fpc-listen { font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; text-decoration:none; }
+  .fpc-listen:hover { color:#1d49b8; text-decoration:underline; }
+  /* per-artist streaming-search links in the detail surfaces (lineup rows) */
+  .ar-link { font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; text-decoration:none; }
+  .ar-link:hover { color:#1d49b8; text-decoration:underline; }
   .fp-hero .fpc-date { font-size:10.5px; }
   .fp-hero .fpc-tier { font-size:8.5px; }
   .fp-hero .fpc-title { font-size:14.5px; }
@@ -309,7 +314,12 @@
               <div class="fp-clamp2 fpc-venue">{{ c.venue }}</div>
               <sc-if value="{{ c.why }}" hint-placeholder-val="{{ false }}"><div class="fp-clamp3 fpc-why">{{ c.why }}</div></sc-if>
               <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                <span class="fpc-price">{{ c.price }}</span>
+                <span style="display:inline-flex; align-items:center; gap:8px; min-width:0;">
+                  <span class="fpc-price">{{ c.price }}</span>
+                  <sc-if value="{{ c.hasListen }}" hint-placeholder-val="{{ false }}">
+                    <a class="fpc-listen" href="{{ c.listenUrl }}" target="_blank" rel="noopener" onClick="{{ c.listenStop }}" title="{{ c.listenTitle }}">▶ listen</a>
+                  </sc-if>
+                </span>
                 <span style="display:inline-flex; align-items:center; gap:6px;">
                   <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span class="fpc-new">NEW</span></sc-if>
                   <span title="taste score {{ c.scoreLabel }}" style="display:inline-flex; align-items:center; gap:5px;">
@@ -550,8 +560,28 @@
                       </sc-if>
                       <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">WHY IT'S RANKED</div>
                       <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ ev.why }}</div>
-                      <div style="margin-top:14px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">LINEUP</div>
-                      <div style="font-size:12.5px; line-height:1.55; color:#161512;">{{ ev.lineupStr }}</div>
+                      <sc-if value="{{ ev.hasArtists }}" hint-placeholder-val="{{ false }}">
+                        <div style="margin-top:14px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:2px;">LINEUP</div>
+                        <sc-for list="{{ ev.artists }}" as="ar" hint-placeholder-count="3">
+                          <div style="padding:6px 0 5px; border-bottom:1px solid #e8e6de;">
+                            <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+                              <span style="font:600 12.5px/1.35 -apple-system,system-ui,sans-serif; color:#161512;">{{ ar.name }}</span>
+                              <sc-if value="{{ ar.hasLinks }}" hint-placeholder-val="{{ true }}">
+                                <span style="display:inline-flex; gap:9px;">
+                                  <a class="ar-link" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on Spotify">Spotify ↗</a>
+                                  <a class="ar-link" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud">SoundCloud ↗</a>
+                                </span>
+                              </sc-if>
+                            </div>
+                            <sc-if value="{{ ar.note }}" hint-placeholder-val="{{ false }}">
+                              <div style="margin-top:3px; font-size:11.5px; line-height:1.5; color:#76746b;">{{ ar.note }}</div>
+                            </sc-if>
+                          </div>
+                        </sc-for>
+                        <sc-if value="{{ ev.hasIntel }}" hint-placeholder-val="{{ true }}">
+                          <span onClick="{{ ev.askArtists }}" title="Ask the concierge for a rundown on this bill" style="display:inline-block; margin-top:9px; font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#2b5cd9; background:#f4f7fe; color:#2b5cd9;">✦ Artist intel</span>
+                        </sc-if>
+                      </sc-if>
                     </div>
                     <div style="flex:none; min-width:180px;">
                       <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:8px;">DETAILS</div>
@@ -615,6 +645,10 @@
               <span style="font:500 11px/1 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.hood }}</span>
               <span style="color:#cdcbc3;">·</span>
               <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ ev.source }}</span>
+              <sc-if value="{{ ev.hasListen }}" hint-placeholder-val="{{ false }}">
+                <span style="color:#cdcbc3;">·</span>
+                <a href="{{ ev.listenUrl }}" target="_blank" rel="noopener" onClick="{{ ev.listenStop }}" title="{{ ev.listenTitle }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; text-decoration:none; padding:2px 0;">▶ listen</a>
+              </sc-if>
             </div>
             <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:8px;">
               <sc-for list="{{ ev.badges }}" as="b">
@@ -629,8 +663,28 @@
                 </sc-if>
                 <div style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">WHY IT'S RANKED</div>
                 <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ ev.why }}</div>
-                <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">LINEUP</div>
-                <div style="font-size:12.5px; line-height:1.5; color:#161512;">{{ ev.lineupStr }}</div>
+                <sc-if value="{{ ev.hasArtists }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:1px;">LINEUP</div>
+                  <sc-for list="{{ ev.artists }}" as="ar" hint-placeholder-count="3">
+                    <div style="padding:7px 0 6px; border-bottom:1px solid #e8e6de;">
+                      <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+                        <span style="font:600 13px/1.35 -apple-system,system-ui,sans-serif; color:#161512;">{{ ar.name }}</span>
+                        <sc-if value="{{ ar.hasLinks }}" hint-placeholder-val="{{ true }}">
+                          <span style="display:inline-flex; gap:11px;">
+                            <a class="ar-link" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on Spotify" style="font-size:10.5px; padding:2px 0;">Spotify ↗</a>
+                            <a class="ar-link" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud" style="font-size:10.5px; padding:2px 0;">SoundCloud ↗</a>
+                          </span>
+                        </sc-if>
+                      </div>
+                      <sc-if value="{{ ar.note }}" hint-placeholder-val="{{ false }}">
+                        <div style="margin-top:3px; font-size:12px; line-height:1.5; color:#76746b;">{{ ar.note }}</div>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                  <sc-if value="{{ ev.hasIntel }}" hint-placeholder-val="{{ true }}">
+                    <span onClick="{{ ev.askArtists }}" title="Ask the concierge for a rundown on this bill" style="display:inline-block; margin-top:10px; font:600 11px/1 ui-monospace,Menlo,monospace; padding:9px 12px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">✦ Artist intel</span>
+                  </sc-if>
+                </sc-if>
                 <div style="margin-top:13px; font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.venueLine }}</div>
                 <div style="font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.priceLine }}</div>
                 <sc-if value="{{ ev.hasSeries }}" hint-placeholder-val="{{ false }}">
@@ -805,14 +859,32 @@
           <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">WHY IT'S RANKED</div>
           <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ fpDetail.why }}</div>
         </sc-if>
-        <sc-if value="{{ fpDetail.lineupStr }}" hint-placeholder-val="{{ false }}">
-          <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">LINEUP</div>
-          <div style="font-size:12.5px; line-height:1.5; color:#161512;">{{ fpDetail.lineupStr }}</div>
+        <sc-if value="{{ fpDetail.hasArtists }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:1px;">LINEUP</div>
+          <sc-for list="{{ fpDetail.artists }}" as="ar" hint-placeholder-count="3">
+            <div style="padding:7px 0 6px; border-bottom:1px solid #e8e6de;">
+              <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+                <span style="font:600 13px/1.35 -apple-system,system-ui,sans-serif; color:#161512;">{{ ar.name }}</span>
+                <sc-if value="{{ ar.hasLinks }}" hint-placeholder-val="{{ true }}">
+                  <span style="display:inline-flex; gap:11px;">
+                    <a class="ar-link" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on Spotify" style="font-size:10px; padding:2px 0;">Spotify ↗</a>
+                    <a class="ar-link" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud" style="font-size:10px; padding:2px 0;">SoundCloud ↗</a>
+                  </span>
+                </sc-if>
+              </div>
+              <sc-if value="{{ ar.note }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:3px; font-size:12px; line-height:1.5; color:#76746b;">{{ ar.note }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
         </sc-if>
         <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;">
           <sc-for list="{{ fpDetail.links }}" as="lk" hint-placeholder-count="2">
             <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:3px; text-decoration:none;">{{ lk.label }} ↗</a>
           </sc-for>
+          <sc-if value="{{ fpDetail.hasIntel }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ fpDetail.askArtists }}" title="Ask the concierge for a rundown on this bill" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">✦ Artist intel</span>
+          </sc-if>
           <span onClick="{{ fpDetail.icsClick }}" title="Download .ics — add to your calendar" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">Add to calendar ↓</span>
         </div>
       </div>
@@ -1294,6 +1366,91 @@ class Component extends DCLogic {
     }
     const extra = others.length - chips.length;
     return { chips, more: extra > 0 ? '+' + extra + ' more dates' : '' };
+  }
+
+  // ---------- listen + artist intel ----------
+  // Per-artist streaming links are plain web searches (no API, no auth): Spotify's search page
+  // scoped to artists, SoundCloud's people search — exactly as resolvable as the name itself.
+  // The search query drops a trailing parenthetical qualifier — billing style writes
+  // 'EMBRZ (IE)' / 'Stavroz (Live)'; the qualifier only hurts the search.
+  MUSIC_CATS = new Set(['Electronic', 'Live Music']);
+  musicish(e) { return this.MUSIC_CATS.has(e.cat); }
+  _searchName(name) { const s = String(name).trim(); return s.replace(/\s*\([^)]*\)\s*$/, '').trim() || s; }
+  spotifySearch(name) { return 'https://open.spotify.com/search/' + encodeURIComponent(this._searchName(name)) + '/artists'; }
+  soundcloudSearch(name) { return 'https://soundcloud.com/search/people?q=' + encodeURIComponent(this._searchName(name)); }
+  // The name a card-level ▶ listen searches: top billing on a MUSIC event, else the first
+  // scene-graph-verified artist (any category). Never derived from the title — the venue feeds'
+  // catch-all categories file watch parties and trivia nights under 'music', and TM's theater
+  // rows put the show title in lineup, so an unverified name is a junk search waiting to happen.
+  headlinerFor(e) {
+    if (this.musicish(e) && e.lineup && e.lineup.length) return String(e.lineup[0]).trim();
+    const n = (e.artistNotes || [])[0];
+    return (n && n.name) ? String(n.name).trim() : '';
+  }
+  listenFor(e) {
+    const a = this.headlinerFor(e);
+    if (!a) return { hasListen: false, listenUrl: '', listenTitle: '', listenStop: null };
+    return { hasListen: true, listenUrl: this.spotifySearch(a),
+      listenTitle: 'Search "' + a + '" on Spotify', listenStop: (ev) => ev.stopPropagation() };
+  }
+  // Billing names carry parenthetical qualifiers the note cache doesn't ('EMBRZ (IE)' vs the
+  // cached 'EMBRZ') — normalize them away so the bio lands on the billed row instead of
+  // rendering the same artist twice.
+  _artistNorm(s) { return String(s || '').toLowerCase().replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+/g, ' ').trim(); }
+  // Unified artist rows for the detail surfaces: the lineup in billing order (every category —
+  // this is the LINEUP display), plus any note-only artists the scene graph matched. Streaming
+  // links only where the name is trustworthy as an ARTIST: a music-category billing, or any name
+  // with an LLM-written bio (data/enrichment.json, folded into the feed by build_dashboard) —
+  // a theater row's "lineup" is the show title and must not link.
+  artistRowsFor(e) {
+    const stop = (ev) => ev.stopPropagation();
+    const music = this.musicish(e);
+    const notes = new Map();
+    for (const n of (e.artistNotes || [])) {
+      const k = this._artistNorm(n.name);
+      if (k && !notes.has(k)) notes.set(k, n.note || '');
+    }
+    const seen = new Set(); const rows = [];
+    const push = (name) => {
+      const k = this._artistNorm(name);
+      if (!k || seen.has(k)) return;
+      seen.add(k);
+      const note = notes.get(k) || '';
+      rows.push({ name: String(name).trim(), note, hasLinks: music || !!note,
+        spUrl: this.spotifySearch(name), scUrl: this.soundcloudSearch(name), stop });
+    };
+    for (const a of (e.lineup || [])) push(a);
+    for (const n of (e.artistNotes || [])) if (n && n.name) push(n.name);
+    return rows;
+  }
+  // Intel only where the ask makes sense: a music bill, or names the scene graph verified.
+  intelFor(e) {
+    const rows = this.artistRowsFor(e);
+    return { artists: rows, hasArtists: rows.length > 0,
+      hasIntel: rows.length > 0 && (this.musicish(e) || rows.some(r => r.note)),
+      askArtists: (domEv) => this.askArtists(e, domEv) };
+  }
+  // "✦ Artist intel" — hand the bill to the concierge. Auto-send ONLY on a verified connection
+  // (ping said ok) with no reply in flight: an optimistic send that fails falls back to the
+  // local filter engine, which answers a who-is question with a garbage table filter, and
+  // runQuery silently drops input while loading. Anything less certain stages the text in the
+  // box instead — and never over a draft the user already typed.
+  askArtists(e, domEv) {
+    if (domEv && domEv.stopPropagation) domEv.stopPropagation();
+    const names = this.artistRowsFor(e).map(r => r.name);
+    const extra = names.length - 6;
+    const who = names.slice(0, 6).join(', ') + (extra > 0 ? ' (+' + extra + ' more)' : '');
+    const q = names.length
+      ? 'Give me the rundown on ' + who + ' — the bill for "' + e.title + '" at ' + e.venue + ' (' + e.wd + ' ' + e.md + '): who they are, what they sound like, notable releases, who to show up early for.'
+      : 'Tell me more about "' + e.title + '" at ' + e.venue + ' (' + e.wd + ' ' + e.md + ') — who is behind it and what is the sound?';
+    const draft = (this.state.input || '').trim();
+    const live = (this.state.chatMode || 'llm') === 'llm' && !this.state.loading &&
+      !!(this.state.profile && this.state.profile.hash) && this.state.backendStatus === 'ok';
+    this.setState({ collapsed: false, fpDetailKey: null }, () => {
+      if (live) { this.runQuery(q); if (draft) this.setState({ input: draft }); }
+      else if (draft) this.flashToast('You have an unsent message — send or clear it, then tap Artist intel again.');
+      else this.useExample(q);
+    });
   }
 
   // ---------- ICS export (RFC 5545) ----------
@@ -1837,6 +1994,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
+    "- **Listen + artist intel.** Music cards now carry a **▶ listen** link — one tap to the headliner on Spotify. Opening an event shows its lineup as artist rows: **Spotify / SoundCloud** search links per name (music bills, plus anyone the scene graph has verified) and, where the research exists, a one-line bio of who that artist is. **✦ Artist intel** hands the bill to the concierge for the full LLM rundown — who they are, what they sound like, who to show up early for.",
     "- **The concierge opens with the take.** The chat's welcome now folds in the day's *take* — the digest's opening read (`For Fri 7/17: …`) — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. The how-to is part of the same message: full-size on your first visit, tucked behind *see what I can do ▸* once you've chatted. (The take moved off the front page, which gets straight to the cards.)",
     "- **A front page.** The site now opens on an editorial home: a **Don't miss** hero row and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
     "- **Taste strength on every card.** The transparent taste score — the number with the little strength bar from the Explore table — now sits on each front-page card and mobile card too, so you can see *how strongly* something matched, not just that it made the cut.",
@@ -3143,6 +3301,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       region: tags.region || '',
       nearHome: !!tags.near_home,
       lineup: Array.isArray(r.lineup) ? r.lineup : [],
+      // LLM-written artist bios from the scene graph (enrichment.artist_notes) — [{name, note}].
+      artistNotes: Array.isArray(enr.artist_notes) ? enr.artist_notes.filter(n => n && n.name) : [],
       pmin: pr.pmin, pmax: pr.pmax, price: pr.display,
       source: this.normSource((Array.isArray(r.sources) && r.sources[0]) || r.source || (links[0] && links[0].source)),
       ra, ah, score, rating: (typeof r.rating === 'number' ? r.rating : null),
@@ -3398,7 +3558,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       badges: this.computedBadges(e),
       why: e.why,
       desc: e.desc, hasDesc: e.hasDesc,
-      lineupStr: e.lineup.join('  \u00b7  '),
       venueLine: e.venue + ' (' + e.hood + ')',
       priceLine: this.priceLabel(e) + (e.ah ? '  \u00b7  afterhours' : '') + '  \u00b7  ' + e.wd + ' ' + e.md + ' ' + e.t,
       ...(() => { const sc = this.seriesChips(e); return {
@@ -3409,6 +3568,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         seriesMore: sc.more, hasSeriesMore: !!sc.more,
       }; })(),
       links: this.linksFor(e),
+      ...this.listenFor(e),
+      ...this.intelFor(e),
       expanded: e.id === expandedId,
       caret: e.id === expandedId ? '\u25be' : '\u25b8',
       rowBg: e.id === expandedId ? '#f3f1ea' : 'transparent',
@@ -3681,8 +3842,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           priceLine: this.priceLabel(de) + (de.ah ? '  ·  afterhours' : ''),
           why: de.why || '',
           desc: de.desc, hasDesc: de.hasDesc,
-          lineupStr: de.lineup.join('  ·  '),
           links: this.linksFor(de),
+          ...this.intelFor(de),
           icsClick: (domEv) => this.downloadICS(de, domEv),
         };
       }
@@ -3720,6 +3881,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         scoreLabel: String(e.score), scoreColor: this.scoreColorFor(e.score),
         scoreSegs: this.scoreSegsFor(e.score),
         isNew: !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef),
+        ...this.listenFor(e),
         onClick: () => this.openFpDetail(e.key),
       });
       const resolve = (keys) => (keys || []).map(k => this.byKey(k)).filter(Boolean);
