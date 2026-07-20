@@ -58,7 +58,7 @@ import { parse as yamlParse, parseDocument } from "yaml";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-07-20-stream2";
+const VERSION = "2026-07-20-stream3";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
@@ -164,18 +164,68 @@ async function handleRequest(request, env, cors) {
   // cost is an accepted tradeoff). BYOK callers pay on their own key as before.
   const execModel = (body && body.model) ? resolveModel(env, body.model) : null;
 
+  const chatOpts = { system, tools, apiKey, model: execModel, canEdit, profileHash };
+
+  // STREAM-TO-BROWSER (page opt-in via body.stream): the same pipeline, but emitting NDJSON
+  // progress lines as it runs — text deltas appear in the chat as they generate instead of
+  // behind one long spinner. The page falls back by content-type, so an old page (no stream
+  // flag) or an old Worker (ignores the flag, returns JSON) still interoperate. Events:
+  //   {t:"hello",v}      first line, sent immediately (fast first byte + deploy fingerprint)
+  //   {t:"delta",text}   user-visible reply text as it generates
+  //   {t:"reset"}        discard accumulated text (it was tool-round preamble, not the reply)
+  //   {t:"status",msg}   phase note while tools run ("updating your taste profile…")
+  //   {t:"tick"}         heartbeat while thinking produces no visible text
+  //   {t:"done",reply,taste_changed,profile_changed,digest_changed}   authoritative final
+  //   {t:"error",code,error,detail}   in-band failure (HTTP is already 200 by then)
+  if (body.stream) {
+    const enc = new TextEncoder();
+    const ts = new TransformStream();
+    const writer = ts.writable.getWriter();
+    const emit = (obj) => { writer.write(enc.encode(JSON.stringify(obj) + "\n")).catch(() => {}); };
+    (async () => {
+      try {
+        emit({ t: "hello", v: VERSION });
+        emit({ t: "done", ...(await runChat(env, { ...chatOpts, messages }, emit)) });
+      } catch (e) {
+        emit({ t: "error", code: 502, error: "anthropic", detail: String(e && e.message || e).slice(0, 400) });
+      }
+      try { await writer.close(); } catch { /* page went away mid-stream */ }
+    })();
+    return new Response(ts.readable, {
+      status: 200,
+      headers: { "content-type": "application/x-ndjson; charset=utf-8", "cache-control": "no-store", ...cors },
+    });
+  }
+
+  // Legacy single-JSON path (old pages, curl) — same pipeline, no emitter.
+  try {
+    return json(await runChat(env, { ...chatOpts, messages }, null), 200, cors);
+  } catch (e) {
+    return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors);
+  }
+}
+
+/* The chat pipeline (generation → optional tool round → confirmation), shared by the streaming
+ * and legacy paths. `emit` is the NDJSON progress writer or null. Throws on Anthropic failure;
+ * returns { reply, taste_changed, profile_changed, digest_changed }. */
+async function runChat(env, { system, messages, tools, apiKey, model, canEdit, profileHash }, emit) {
+  // Forward user-visible text deltas to the page; anything else becomes a throttled heartbeat so
+  // long thinking stretches still move bytes (kept > sub-100s so no proxy first-byte/idle window
+  // is ever in play — hello already covered first byte).
+  let lastTick = 0;
+  const onEvent = emit && ((ev) => {
+    if (ev.type === "content_block_delta" && ev.delta && ev.delta.type === "text_delta") emit({ t: "delta", text: ev.delta.text });
+    else { const now = Date.now(); if (now - lastTick > 10000) { lastTick = now; emit({ t: "tick" }); } }
+  });
+
   // The advisor is a SERVER-side tool; its sampling loop can return stop_reason "pause_turn" — when
   // it does, re-send the conversation to let it continue (don't inject a user turn). Cap re-sends.
   let convo = messages;
   let data;
-  try {
-    for (let i = 0; i < 4; i++) {
-      data = await callAnthropic(env, { system, messages: convo, tools, apiKey, model: execModel });
-      if (data.stop_reason !== "pause_turn") break;
-      convo = [...convo, { role: "assistant", content: data.content }];
-    }
-  } catch (e) {
-    return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors);
+  for (let i = 0; i < 4; i++) {
+    data = await callAnthropic(env, { system, messages: convo, tools, apiKey, model, onEvent });
+    if (data.stop_reason !== "pause_turn") break;
+    convo = [...convo, { role: "assistant", content: data.content }];
   }
 
   // Tool-use round: the model may PLAN WITH FRIENDS (read-only, any authed caller) and/or change
@@ -185,6 +235,12 @@ async function handleRequest(request, env, cors) {
     const known = [PLAN_TOOL.name, TASTE_TOOL.name, PROFILE_TOOL.name, DIGEST_TOOL.name];
     const uses = (data.content || []).filter((b) => b.type === "tool_use" && known.includes(b.name));
     if (uses.length) {
+      if (emit) {
+        // Whatever streamed so far was preamble to the tool call, not the reply — the reply is
+        // the post-tool confirmation (legacy behavior discards the preamble too; see the return).
+        emit({ t: "reset" });
+        emit({ t: "status", msg: toolStatusLine(uses) });
+      }
       let tasteChanged = false, profileChanged = false, digestChanged = false;
       const results = [];
       for (const use of uses) {
@@ -212,27 +268,42 @@ async function handleRequest(request, env, cors) {
         { role: "assistant", content: data.content },
         { role: "user", content: results },
       ];
+      // The follow-up after a PURE EDIT round is a one-line confirmation ("updated — re-ranks in
+      // a minute") — it doesn't need max-effort thinking, and dropping it to low cuts taste-edit
+      // latency roughly in half. A round that ran plan_with_friends keeps full effort: the actual
+      // reasoning over the group matrix happens HERE, in the follow-up.
+      const effort = uses.every((u) => u.name !== PLAN_TOOL.name) ? "low" : undefined;
       // Same bounded pause_turn resume as the first call: the advisor is plausibly consulted
       // right here (planning over the tool results), and without the loop a paused follow-up
       // would silently serve the canned fallback line instead of the model's actual answer.
       let data2;
-      try {
-        for (let i = 0; i < 3; i++) {
-          data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey, model: execModel });
-          if (data2.stop_reason !== "pause_turn") break;
-          follow.push({ role: "assistant", content: data2.content });
-        }
+      for (let i = 0; i < 3; i++) {
+        data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey, model, effort, onEvent });
+        if (data2.stop_reason !== "pause_turn") break;
+        follow.push({ role: "assistant", content: data2.content });
       }
-      catch (e) { return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors); }
       const changed = tasteChanged || profileChanged || digestChanged;
-      return json({
+      return {
         reply: textOf(data2) || (changed ? "Updated — re-ranking, refresh in ~a minute." : textOf(data) || "Done."),
         taste_changed: tasteChanged, profile_changed: profileChanged, digest_changed: digestChanged,
-      }, 200, cors);
+      };
     }
   }
 
-  return json({ reply: textOf(data) || "(no answer)" }, 200, cors);
+  return { reply: textOf(data) || "(no answer)", taste_changed: false, profile_changed: false, digest_changed: false };
+}
+
+/* One short human line for the streaming status while tools run, from which tools the round used. */
+function toolStatusLine(uses) {
+  const labels = [];
+  const add = (l) => { if (!labels.includes(l)) labels.push(l); };
+  for (const u of uses) {
+    if (u.name === PLAN_TOOL.name) add("checking your friends' feeds");
+    else if (u.name === PROFILE_TOOL.name) add("updating your ranking mechanism");
+    else if (u.name === DIGEST_TOOL.name) add("updating your digest format");
+    else add("updating your taste profile");
+  }
+  return labels.join(" + ") + "…";
 }
 
 /* ----- Anthropic ----- */
@@ -252,7 +323,7 @@ function resolveModel(env, m) {
  * first byte and the whole chat 502s ("concierge backend error"). With stream:true bytes flow
  * immediately and the connection stays alive for the full generation; accumulateSSE folds the
  * event stream back into the non-streaming shape the rest of the Worker consumes. */
-async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
+async function callAnthropic(env, { system, messages, tools, apiKey, model, effort, onEvent }) {
   const resp = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
@@ -268,13 +339,15 @@ async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
       // Cache the (large, stable) persona + grounded feed: turns 2+ of a conversation read it at ~0.1x.
       system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }],
       thinking: { type: "adaptive" },                          // adaptive thinking for quality planning
-      output_config: { effort: env.EFFORT || DEFAULTS.EFFORT },
+      // Per-call effort override (e.g. "low" for the post-edit confirmation round) over the
+      // configured default.
+      output_config: { effort: effort || env.EFFORT || DEFAULTS.EFFORT },
       messages,
       ...(tools && tools.length ? { tools } : {}),
     }),
   });
   if (!resp.ok) throw new Error(resp.status + " " + (await resp.text().catch(() => "")).slice(0, 300));
-  return accumulateSSE(resp.body);
+  return accumulateSSE(resp.body, onEvent);
 }
 
 /* Fold a Messages-API SSE stream back into the non-streaming response shape ({content,
@@ -283,8 +356,11 @@ async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
  * re-send can pass the block back unchanged), tool_use / server_tool_use (input_json_delta
  * accumulated, parsed at content_block_stop), and complete server-result blocks (advisor/tool
  * results arrive whole in content_block_start). A mid-stream `error` event throws so callers
- * surface the API's real reason instead of a generic failure. Exported for tests. */
-export async function accumulateSSE(body) {
+ * surface the API's real reason instead of a generic failure. Exported for tests.
+ * `onEvent(ev)` — optional, called once per well-formed event (after the index bound check):
+ * the browser-streaming path taps it for live text deltas + heartbeats. Failures inside the
+ * callback must not corrupt accumulation, so it's wrapped. */
+export async function accumulateSSE(body, onEvent) {
   const msg = { content: [], stop_reason: null };
   const partial = {};                       // block index -> accumulated tool-input JSON string
   const reader = body.getReader();
@@ -310,6 +386,7 @@ export async function accumulateSSE(body) {
         // Bound the block index before using it: a corrupt index like 1e9 would make content a
         // giant sparse array that the later filter/stringify walks — a guaranteed CPU kill.
         if (ev.index !== undefined && (!Number.isInteger(ev.index) || ev.index < 0 || ev.index > 256)) continue;
+        if (onEvent) { try { onEvent(ev); } catch { /* a tap failure never breaks accumulation */ } }
         if (ev.type === "message_start" && ev.message) { msg.model = ev.message.model; msg.usage = ev.message.usage; }
         else if (ev.type === "content_block_start") msg.content[ev.index] = { ...ev.content_block };
         else if (ev.type === "content_block_delta") {

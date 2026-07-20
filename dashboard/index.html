@@ -1255,6 +1255,7 @@ class Component extends DCLogic {
     chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
     backendStatus: null,
     backendVer: null,    // live Worker build from the ping's `v` ('' = a build too old to report one; null = no ping yet)
+    liveReply: null,     // streaming concierge reply in progress (markdown string; null = none) — see _readChatStream
     profileOpen: false,
     tasteModalOpen: false,
     tasteTab: 'taste',       // which file the taste/profile modal is showing (taste | profile)
@@ -2526,39 +2527,93 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const headers = { 'content-type': 'application/json' };
     if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
     const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // BYOK: your key pays for this request
-    const body = { messages: history };
+    const body = { messages: history, stream: true };   // stream: worker sends NDJSON progress (old workers ignore it and answer JSON)
     if (this.useOpus()) body.model = 'opus';   // upgrade the executor to Opus — honored on any connection (token or key)
     const p = this.state.profile;
     if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
-    this._abort = new AbortController();       // so the user can stop a slow reply
-    let res;
+    // The abort controller must outlive fetch(): with a streamed response, ■ stop has to be able
+    // to cancel mid-BODY (reader.read() then rejects with AbortError), not just mid-headers.
+    this._abort = new AbortController();
     try {
-      res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify(body), signal: this._abort.signal });
+      const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify(body), signal: this._abort.signal });
+      if (res.status === 401) { this.setState({ backendStatus: 'err' }); const e = new Error('unauthorized'); e.code = 401; throw e; }
+      if (!res.ok) {
+        // NOT a connection problem: the worker answered (it's reachable, the token worked) — this one
+        // generation failed. Leave backendStatus alone so the pill stays connected and the NEXT message
+        // still tries the concierge; flipping to 'err' here made every LLM hiccup stick the chat on
+        // Fast filter until a reload ("connection issues").
+        // Surface the worker's own error body ({error, detail}) instead of swallowing it — otherwise a
+        // self-edit 502/timeout or a missing-secret 500 reads as a generic "backend unreachable" and we
+        // silently drop to Fast filter with no clue why (the Alexa case). Best-effort: ignore non-JSON.
+        let detail = '';
+        try { const ed = await res.json(); detail = String((ed && (ed.detail || ed.error)) || '').slice(0, 180); } catch (_) {}
+        const e = new Error('backend ' + res.status + (detail ? (': ' + detail) : ''));
+        e.code = res.status; e.detail = detail;
+        throw e;
+      }
+      this.setState({ backendStatus: 'ok' });
+      this._backendHinted = false;   // a real reconnect re-arms the one-time "not connected" hint
+      this.touchConn();              // a successful chat keeps the stored connection from TTL-ing out (long-lived tabs)
+      const ct = (res.headers.get('content-type') || '').toLowerCase();
+      if (ct.indexOf('ndjson') === -1) {
+        // Legacy JSON worker (pre-stream3): one blob at the end, exactly as before.
+        const data = await res.json();
+        this._lastTasteChanged = !!(data && (data.taste_changed || data.profile_changed));   // worker committed a taste/profile edit -> CI re-ranks
+        const reply = data && (data.reply || (Array.isArray(data.content) && data.content.map(b => b && b.text).filter(Boolean).join('\n')));
+        if (!reply) throw new Error('empty');
+        return reply;
+      }
+      return await this._readChatStream(res);
     } finally { this._abort = null; }
-    if (res.status === 401) { this.setState({ backendStatus: 'err' }); const e = new Error('unauthorized'); e.code = 401; throw e; }
-    if (!res.ok) {
-      // NOT a connection problem: the worker answered (it's reachable, the token worked) — this one
-      // generation failed. Leave backendStatus alone so the pill stays connected and the NEXT message
-      // still tries the concierge; flipping to 'err' here made every LLM hiccup stick the chat on
-      // Fast filter until a reload ("connection issues").
-      // Surface the worker's own error body ({error, detail}) instead of swallowing it — otherwise a
-      // self-edit 502/timeout or a missing-secret 500 reads as a generic "backend unreachable" and we
-      // silently drop to Fast filter with no clue why (the Alexa case). Best-effort: ignore non-JSON.
-      let detail = '';
-      try { const ed = await res.json(); detail = String((ed && (ed.detail || ed.error)) || '').slice(0, 180); } catch (_) {}
-      const e = new Error('backend ' + res.status + (detail ? (': ' + detail) : ''));
-      e.code = res.status; e.detail = detail;
-      throw e;
-    }
-    this.setState({ backendStatus: 'ok' });
-    this._backendHinted = false;   // a real reconnect re-arms the one-time "not connected" hint
-    this.touchConn();              // a successful chat keeps the stored connection from TTL-ing out (long-lived tabs)
-    const data = await res.json();
-    this._lastTasteChanged = !!(data && (data.taste_changed || data.profile_changed));   // worker committed a taste/profile edit -> CI re-ranks
-    const reply = data && (data.reply || (Array.isArray(data.content) && data.content.map(b => b && b.text).filter(Boolean).join('\n')));
+  }
+  // Consume the Worker's NDJSON progress stream (see the worker's event list): deltas grow a live
+  // reply bubble as the model writes, status lines narrate the tool round, `done` carries the
+  // authoritative reply (it REPLACES the accumulated text — pause_turn chains can make them differ),
+  // in-band `error` maps onto the same {code, detail} shape as an HTTP failure. `hello` doubles as
+  // a fresh deploy fingerprint. The caller's catch paths clear the live bubble.
+  async _readChatStream(res) {
+    const reader = res.body.getReader();
+    const dec = new TextDecoder();
+    let tail = '', live = '', isStatus = false, fin = null;
+    try {
+      for (;;) {
+        const { done: eof, value } = await reader.read();
+        const lines = (tail + (eof ? dec.decode() : dec.decode(value, { stream: true }))).split('\n');
+        tail = eof ? '' : lines.pop();
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          let ev; try { ev = JSON.parse(line); } catch (_) { continue; }
+          if (ev.t === 'delta') {
+            if (isStatus) { live = ''; isStatus = false; }   // real text supersedes the status line
+            live += String(ev.text || '');
+            this._setLive(live);
+          } else if (ev.t === 'reset') { live = ''; isStatus = false; this._setLive(''); }
+          else if (ev.t === 'status') { live = ''; isStatus = true; this._setLive('*' + String(ev.msg || 'working') + '*'); }
+          else if (ev.t === 'hello') { if (ev.v) this.setState({ backendVer: String(ev.v) }); }
+          else if (ev.t === 'error') {
+            const detail = String(ev.detail || ev.error || '').slice(0, 180);
+            const e = new Error('backend ' + (ev.code || 502) + (detail ? (': ' + detail) : ''));
+            e.code = ev.code || 502; e.detail = detail;
+            throw e;
+          } else if (ev.t === 'done') fin = ev;
+          // t === 'tick': heartbeat only — keeps bytes flowing while the model thinks
+        }
+        if (eof) break;
+      }
+    } finally { this._clearLiveTimer(); }
+    if (!fin) throw new Error('stream ended early');   // no code → runQuery re-pings, like a dropped connection
+    this._lastTasteChanged = !!(fin.taste_changed || fin.profile_changed);
+    const reply = String(fin.reply || '');
     if (!reply) throw new Error('empty');
     return reply;
   }
+  // Throttled live-bubble updates: deltas arrive far faster than re-rendering markdown is worth.
+  _setLive(text) {
+    this._liveText = text;
+    if (this._liveTimer) return;
+    this._liveTimer = setTimeout(() => { this._liveTimer = null; this.setState({ liveReply: this._liveText }); }, 80);
+  }
+  _clearLiveTimer() { if (this._liveTimer) { clearTimeout(this._liveTimer); this._liveTimer = null; } }
   // Health ping: validates the backend is reachable + the token works, no LLM call. Drives the
   // connection indicator so "connected" reflects reality, not just "a URL is set".
   async pingBackend() {
@@ -3145,11 +3200,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         // A chat succeeded while we think the build is stale — re-read the fingerprint, so a
         // redeploy that landed mid-session clears the amber "old build" without a page reload.
         if (this.backendStale()) this.pingBackend();
-        this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: reply }] }));
+        this.setState(s => ({ loading: false, liveReply: null, messages: [...s.messages, { role: 'assistant', text: reply }] }));
         if (this._lastTasteChanged) { this._lastTasteChanged = false; this.setTasteDirty(true); this.flashToast('Taste updated — re-ranking. Open Settings → “Ranks & Digest” to regenerate your digest.'); }
         return;
       } catch (e) {
-        if (e && e.name === 'AbortError') { this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: '■ stopped.' }] })); return; }
+        this._clearLiveTimer();   // no stray flush may resurrect the live bubble after a terminal state
+        if (e && e.name === 'AbortError') { this.setState(s => ({ loading: false, liveReply: null, messages: [...s.messages, { role: 'assistant', text: '■ stopped.' }] })); return; }
         // No HTTP code = fetch itself rejected (network blip, or a no-CORS Cloudflare error page,
         // e.g. a CPU-limit kill). Re-ping so the indicator reflects reality: a transient failure
         // heals back to connected, a genuinely-down worker flips the pill red instead of staying
@@ -3173,7 +3229,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
             : (e && e.code)
               ? '⚠︎ Concierge backend error ' + e.code + detail + stale + ' using fast filter for this one; your next message will try the concierge again:'
               : '⚠︎ Concierge backend unreachable' + stale + ' using fast filter for this one; your next message will try the concierge again:';
-        this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: note }] }));
+        this.setState(s => ({ liveReply: null, messages: [...s.messages, { role: 'assistant', text: note }] }));
         // fall through to the local engine
       }
     } else if (mode === 'llm' && profileActive && this.state.backendStatus !== 'ok' && !this._backendHinted) {
@@ -3749,6 +3805,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           dangerouslySetInnerHTML: { __html: this.renderChatHtml(m.text) }
         })
       };
+    });
+    // The in-flight STREAMED reply renders as one more concierge bubble below the history (the
+    // THINKING dots stay beneath it while generation continues). On done/stop/error the terminal
+    // setState clears liveReply and appends the final message in the same state change — no gap.
+    if (this.state.liveReply) msgs.push({
+      tag: 'CONCIERGE', tagColor: '#2b5cd9', text: this.state.liveReply,
+      html: React.createElement('div', {
+        style: { fontSize: '12.5px', lineHeight: 1.5, color: '#3f3d36', wordBreak: 'break-word' },
+        dangerouslySetInnerHTML: { __html: this.renderChatHtml(this.state.liveReply) }
+      })
     });
 
     // The text box is the example surface now: a placeholder that cycles through prompts (pre-first-use,

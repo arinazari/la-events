@@ -69,12 +69,23 @@ And one **read-only** tool (no commit, no GitHub token, available to any authed 
 ## Contract
 
 ```
-POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<feed-hash>" }
-->    { reply: string, taste_changed?: boolean, profile_changed?: boolean, digest_changed?: boolean }
+POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<feed-hash>",
+        stream?: true }
+->    without stream: { reply, taste_changed?, profile_changed?, digest_changed? }   (application/json)
+->    with stream:    application/x-ndjson progress lines, one JSON object each:
+        {t:"hello",v}  {t:"delta",text}  {t:"reset"}  {t:"status",msg}  {t:"tick"}
+        {t:"done", reply, taste_changed, profile_changed, digest_changed}   <- authoritative final
+        {t:"error", code, error, detail}                                    <- in-band failure
 Auth: optional  Authorization: Bearer <CONCIERGE_TOKEN>
 GET / (no auth) -> { ok, service, v }   deploy fingerprint — `curl https://<worker>/` answers
                                         "which build is live?" (wrangler deploys are manual)
 ```
+
+The page opts into `stream` and falls back by response content-type, so old page ↔ new Worker and
+new page ↔ old Worker both keep working (an old Worker ignores the flag and answers JSON). With
+streaming, reply text appears in the chat as it generates; `reset` marks streamed text as tool-round
+preamble (not the reply), `status` narrates the tool round ("updating your taste profile…"), and
+`done.reply` replaces whatever accumulated (pause_turn chains can make them differ).
 
 `profile` is the feed hash the page already computes from the username (it's what `data.<hash>.json`
 is named after). The Worker resolves it back to the profile via `profiles.yaml` and edits that
@@ -189,6 +200,14 @@ Tuned for **multi-step, high-quality planning**:
   advisor (or an Opus executor) that can exceed the Worker's outbound first-byte window — the
   chat then dies with `concierge backend error 502` even though nothing is misconfigured. With
   streaming, bytes flow immediately and the connection stays alive for the full generation.
+- **Streaming downstream** (2026-07-20-stream3) — with `stream: true` in the body, the same text
+  deltas are forwarded to the page as NDJSON (see Contract), so words appear in the chat as they
+  generate instead of behind one long THINKING spinner. Perceived latency drops massively; total
+  latency is unchanged.
+- **Cheap confirmation round** — the follow-up generation after a pure taste/profile/digest edit
+  runs at `effort: low` (it's a one-line confirmation, not planning), roughly halving taste-edit
+  latency. A round that ran `plan_with_friends` keeps full effort — the real reasoning over the
+  group matrix happens in that follow-up.
 
 **Executor upgrade:** the page's **Use Opus** toggle sends `model: "opus"` in the body, and the
 Worker honors it for **any authed caller** — shared-token users included (Ari's call: the token

@@ -163,6 +163,20 @@ const SSE_OK = [
   ok("sse: truncated stream (no message_stop) throws instead of passing as complete");
 }
 {
+  // onEvent tap: the browser-streaming path reads text deltas live off the same accumulation —
+  // and a throwing tap must never corrupt the fold (it's wrapped per event).
+  const seen = [];
+  const out = await accumulateSSE(sseStream(SSE_OK), (ev) => {
+    if (ev.type === "content_block_delta" && ev.delta.type === "text_delta") seen.push(ev.delta.text);
+    if (ev.type === "message_start") throw new Error("tap failure");
+  });
+  assert.deepEqual(seen, ["Go see ", "Kelela."], "text deltas tapped in order");
+  assert.equal(out.model, "claude-sonnet-4-6", "message_start still folded despite the tap throwing on it");
+  assert.equal(out.content[1].text, "Go see Kelela.");
+  assert.equal(out.stop_reason, "tool_use");
+  ok("sse: onEvent taps text deltas; a throwing tap never corrupts accumulation");
+}
+{
   // Signature deltas concatenate (must survive byte-exact for the pause_turn/tool-round echo),
   // a delta for an index that never got a start leaves no typeless fragment in content, and an
   // absurd index is ignored rather than creating a giant sparse array.
