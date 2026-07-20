@@ -47,6 +47,7 @@ from lib.series import group_series, series_summary, is_film, showtimes_url  # n
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
+from lib import artist_links as ALINK  # noqa: E402  (direct ▶ listen links for the feed)
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -480,6 +481,12 @@ def main() -> int:
             pass
     front_page = build_front_page(events, verdicts, today, radar_rows, around_rows, take=take)
 
+    # Direct ▶ listen links (data/artist_links.json, resolved during run_digest): normalized
+    # name -> Spotify artist URL for exactly the artists this feed's upcoming events carry.
+    # The dashboard's _artistNorm() mirrors ALINK.norm_name() and falls back to a search URL
+    # on any miss, so an absent/stale cache just means search links — never a broken feed.
+    artist_links = ALINK.feed_map(ALINK.load(REPO / "data" / "artist_links.json"), events)
+
     # The catalog version this feed was scored against — the dashboard compares it to the live
     # dashboard/catalog_meta.json to decide if this profile's ranking/digest is stale. Prefer the
     # stamp written by run_digest; fall back to recomputing from the catalog we just read.
@@ -506,6 +513,7 @@ def main() -> int:
         "categories": categories,
         "tag_facets": tag_facets,
         "front_page": front_page,
+        "artist_links": artist_links,
         "dining": dining,
         "taste": {
             "venues_loved": taste.get("venues_loved") or [],

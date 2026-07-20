@@ -67,7 +67,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -- data/catalog.json data/catalog_meta.json \
+          git add -- data/catalog.json data/catalog_meta.json data/artist_links.json \
             dashboard/data.json dashboard/catalog_meta.json \
             digests/latest.md 2>/dev/null || true
           if git diff --cached --quiet; then

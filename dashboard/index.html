@@ -76,9 +76,12 @@
   .fpc-new { font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#1f7a4d; }
   .fpc-listen { font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; text-decoration:none; }
   .fpc-listen:hover { color:#1d49b8; text-decoration:underline; }
-  /* per-artist streaming-search links in the detail surfaces (lineup rows) */
-  .ar-link { font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; text-decoration:none; }
-  .ar-link:hover { color:#1d49b8; text-decoration:underline; }
+  /* per-artist streaming links in the detail surfaces (lineup rows): dimmed brand glyphs,
+     brand color on hover — quiet next to the name instead of a blue text link */
+  .ar-ic { color:#c3c1b7; display:inline-flex; align-items:center; padding:2px; transition:color .12s ease; }
+  .ar-ic svg { display:block; }
+  .ar-sp:hover { color:#1DB954; }
+  .ar-sc:hover { color:#f50; }
   .fp-hero .fpc-date { font-size:10.5px; }
   .fp-hero .fpc-tier { font-size:8.5px; }
   .fp-hero .fpc-title { font-size:14.5px; }
@@ -567,9 +570,9 @@
                             <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
                               <span style="font:600 12.5px/1.35 -apple-system,system-ui,sans-serif; color:#161512;">{{ ar.name }}</span>
                               <sc-if value="{{ ar.hasLinks }}" hint-placeholder-val="{{ true }}">
-                                <span style="display:inline-flex; gap:9px;">
-                                  <a class="ar-link" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on Spotify">Spotify ↗</a>
-                                  <a class="ar-link" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud">SoundCloud ↗</a>
+                                <span style="display:inline-flex; gap:5px; align-items:center; transform:translateY(2px);">
+                                  <a class="ar-ic ar-sp" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="{{ ar.spTitle }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+                                  <a class="ar-ic ar-sc" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="0" y="11.5" width="1.9" height="7.5" rx="0.95"/><rect x="3.2" y="9.5" width="1.9" height="9.5" rx="0.95"/><rect x="6.4" y="8" width="1.9" height="11" rx="0.95"/><circle cx="13.4" cy="12.6" r="4.6"/><circle cx="19.2" cy="15.2" r="3.8"/><rect x="9.6" y="12.6" width="13.4" height="6.4" rx="3.2"/></svg></a>
                                 </span>
                               </sc-if>
                             </div>
@@ -670,9 +673,9 @@
                       <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
                         <span style="font:600 13px/1.35 -apple-system,system-ui,sans-serif; color:#161512;">{{ ar.name }}</span>
                         <sc-if value="{{ ar.hasLinks }}" hint-placeholder-val="{{ true }}">
-                          <span style="display:inline-flex; gap:11px;">
-                            <a class="ar-link" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on Spotify" style="font-size:10.5px; padding:2px 0;">Spotify ↗</a>
-                            <a class="ar-link" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud" style="font-size:10.5px; padding:2px 0;">SoundCloud ↗</a>
+                          <span style="display:inline-flex; gap:8px; align-items:center; transform:translateY(2px);">
+                            <a class="ar-ic ar-sp" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="{{ ar.spTitle }}" style="padding:4px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+                            <a class="ar-ic ar-sc" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud" style="padding:4px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="0" y="11.5" width="1.9" height="7.5" rx="0.95"/><rect x="3.2" y="9.5" width="1.9" height="9.5" rx="0.95"/><rect x="6.4" y="8" width="1.9" height="11" rx="0.95"/><circle cx="13.4" cy="12.6" r="4.6"/><circle cx="19.2" cy="15.2" r="3.8"/><rect x="9.6" y="12.6" width="13.4" height="6.4" rx="3.2"/></svg></a>
                           </span>
                         </sc-if>
                       </div>
@@ -866,9 +869,9 @@
               <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
                 <span style="font:600 13px/1.35 -apple-system,system-ui,sans-serif; color:#161512;">{{ ar.name }}</span>
                 <sc-if value="{{ ar.hasLinks }}" hint-placeholder-val="{{ true }}">
-                  <span style="display:inline-flex; gap:11px;">
-                    <a class="ar-link" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on Spotify" style="font-size:10px; padding:2px 0;">Spotify ↗</a>
-                    <a class="ar-link" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud" style="font-size:10px; padding:2px 0;">SoundCloud ↗</a>
+                  <span style="display:inline-flex; gap:7px; align-items:center; transform:translateY(2px);">
+                    <a class="ar-ic ar-sp" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="{{ ar.spTitle }}" style="padding:3px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+                    <a class="ar-ic ar-sc" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud" style="padding:3px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="0" y="11.5" width="1.9" height="7.5" rx="0.95"/><rect x="3.2" y="9.5" width="1.9" height="9.5" rx="0.95"/><rect x="6.4" y="8" width="1.9" height="11" rx="0.95"/><circle cx="13.4" cy="12.6" r="4.6"/><circle cx="19.2" cy="15.2" r="3.8"/><rect x="9.6" y="12.6" width="13.4" height="6.4" rx="3.2"/></svg></a>
                   </span>
                 </sc-if>
               </div>
@@ -1387,16 +1390,24 @@ class Component extends DCLogic {
   }
 
   // ---------- listen + artist intel ----------
-  // Per-artist streaming links are plain web searches (no API, no auth): Spotify's search page
-  // scoped to artists, SoundCloud's people search — exactly as resolvable as the name itself.
-  // The search query drops a trailing parenthetical qualifier — billing style writes
-  // 'EMBRZ (IE)' / 'Stavroz (Live)'; the qualifier only hurts the search.
+  // Spotify links go STRAIGHT to the artist page when the build-side resolver has one
+  // (feed `artist_links`, from data/artist_links.json — keyed by _artistNorm's Python twin,
+  // lib/artist_links.norm_name), else fall back to Spotify's search page scoped to artists.
+  // SoundCloud has no keyless lookup API, so it stays a people search by design. The search
+  // query drops a trailing parenthetical qualifier — billing style writes 'EMBRZ (IE)' /
+  // 'Stavroz (Live)'; the qualifier only hurts the search.
   MUSIC_CATS = new Set(['Electronic', 'Live Music']);
+  ARTIST_LINKS = {};
   musicish(e) { return this.MUSIC_CATS.has(e.cat); }
   _searchName(name) { const s = String(name).trim(); return s.replace(/\s*\([^)]*\)\s*$/, '').trim() || s; }
   spotifySearch(name) { return 'https://open.spotify.com/search/' + encodeURIComponent(this._searchName(name)) + '/artists'; }
   soundcloudSearch(name) { return 'https://soundcloud.com/search/people?q=' + encodeURIComponent(this._searchName(name)); }
-  // The name a card-level ▶ listen searches: top billing on a MUSIC event, else the first
+  spotifyFor(name) {
+    const direct = this.ARTIST_LINKS[this._artistNorm(name)];
+    return direct ? { url: direct, title: 'Open "' + this._searchName(name) + '" on Spotify' }
+                  : { url: this.spotifySearch(name), title: 'Search "' + this._searchName(name) + '" on Spotify' };
+  }
+  // The name a card-level ▶ listen targets: top billing on a MUSIC event, else the first
   // scene-graph-verified artist (any category). Never derived from the title — the venue feeds'
   // catch-all categories file watch parties and trivia nights under 'music', and TM's theater
   // rows put the show title in lineup, so an unverified name is a junk search waiting to happen.
@@ -1408,8 +1419,9 @@ class Component extends DCLogic {
   listenFor(e) {
     const a = this.headlinerFor(e);
     if (!a) return { hasListen: false, listenUrl: '', listenTitle: '', listenStop: null };
-    return { hasListen: true, listenUrl: this.spotifySearch(a),
-      listenTitle: 'Search "' + a + '" on Spotify', listenStop: (ev) => ev.stopPropagation() };
+    const sp = this.spotifyFor(a);
+    return { hasListen: true, listenUrl: sp.url, listenTitle: sp.title,
+      listenStop: (ev) => ev.stopPropagation() };
   }
   // Billing names carry parenthetical qualifiers the note cache doesn't ('EMBRZ (IE)' vs the
   // cached 'EMBRZ') — normalize them away so the bio lands on the billed row instead of
@@ -1434,8 +1446,9 @@ class Component extends DCLogic {
       if (!k || seen.has(k)) return;
       seen.add(k);
       const note = notes.get(k) || '';
+      const sp = this.spotifyFor(name);
       rows.push({ name: String(name).trim(), note, hasLinks: music || !!note,
-        spUrl: this.spotifySearch(name), scUrl: this.soundcloudSearch(name), stop });
+        spUrl: sp.url, spTitle: sp.title, scUrl: this.soundcloudSearch(name), stop });
     };
     for (const a of (e.lineup || [])) push(a);
     for (const n of (e.artistNotes || [])) if (n && n.name) push(n.name);
@@ -1455,12 +1468,24 @@ class Component extends DCLogic {
   // box instead — and never over a draft the user already typed.
   askArtists(e, domEv) {
     if (domEv && domEv.stopPropagation) domEv.stopPropagation();
-    const names = this.artistRowsFor(e).map(r => r.name);
+    const rows = this.artistRowsFor(e);
+    const names = rows.map(r => r.name);
     const extra = names.length - 6;
     const who = names.slice(0, 6).join(', ') + (extra > 0 ? ' (+' + extra + ' more)' : '');
-    const q = names.length
-      ? 'Give me the rundown on ' + who + ' — the bill for "' + e.title + '" at ' + e.venue + ' (' + e.wd + ' ' + e.md + '): who they are, what they sound like, notable releases, who to show up early for.'
-      : 'Tell me more about "' + e.title + '" at ' + e.venue + ' (' + e.wd + ' ' + e.md + ') — who is behind it and what is the sound?';
+    // Ground the ask in what THIS page already knows — the concierge's own feed slice is the
+    // near window only, so an event past its edge (or a name it can't verify) made it decline.
+    // Handing it the event snapshot + the scene graph's bios turns "can't confirm" into depth.
+    const known = rows.filter(r => r.note).slice(0, 5)
+      .map(r => r.name + ': ' + String(r.note).slice(0, 240)).join('\n');
+    const where = '"' + e.title + '" at ' + e.venue + ' (' + e.wd + ' ' + e.md + (e.genre ? ' · ' + e.genre : '') + ')';
+    let q;
+    if (names.length) {
+      q = 'Artist intel on ' + who + ' — the bill for ' + where + '.';
+      if (known) q += '\nMy feed’s scene notes on this bill:\n' + known + '\nTreat those as verified and go deeper.';
+      q += '\nWhat I want: the sound, notable releases/labels, and who to catch early. This event may sit past your feed window — answer from the context above plus what you know rather than declining. Keep it to a chat answer; don’t filter or reset my table.';
+    } else {
+      q = 'Artist intel on ' + where + ' — who is behind it and what is the sound? Answer from what you know even if it’s past your feed window; keep it to a chat answer, don’t filter my table.';
+    }
     const draft = (this.state.input || '').trim();
     const live = (this.state.chatMode || 'llm') === 'llm' && !this.state.loading &&
       !!(this.state.profile && this.state.profile.hash) && this.state.backendStatus === 'ok';
@@ -2012,7 +2037,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
-    "- **Listen + artist intel.** Music cards now carry a **▶ listen** link — one tap to the headliner on Spotify. Opening an event shows its lineup as artist rows: **Spotify / SoundCloud** search links per name (music bills, plus anyone the scene graph has verified) and, where the research exists, a one-line bio of who that artist is. **✦ Artist intel** hands the bill to the concierge for the full LLM rundown — who they are, what they sound like, who to show up early for.",
+    "- **Listen + artist intel.** Music cards now carry a **▶ listen** link — one tap to the headliner on Spotify. Opening an event shows its lineup as artist rows: quiet **Spotify / SoundCloud** glyphs per name (music bills, plus anyone the scene graph has verified) — straight to the artist's Spotify page once the nightly resolver has matched them, a search otherwise — and, where the research exists, a one-line bio of who that artist is. **✦ Artist intel** hands the bill to the concierge for the full LLM rundown — who they are, what they sound like, who to show up early for.",
     "- **The concierge opens with the take.** The chat's welcome now folds in the day's *take* — the digest's opening read (`For Fri 7/17: …`) — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. The how-to is part of the same message: full-size on your first visit, tucked behind *see what I can do ▸* once you've chatted. (The take moved off the front page, which gets straight to the cards.)",
     "- **A front page.** The site now opens on an editorial home: a **Don't miss** hero row and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
     "- **Taste strength on every card.** The transparent taste score — the number with the little strength bar from the Explore table — now sits on each front-page card and mobile card too, so you can see *how strongly* something matched, not just that it made the cut.",
@@ -3361,6 +3386,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.ALL = mapped;
     this.META = (raw && !Array.isArray(raw)) ? raw : {};
     this.DINING = (this.META && Array.isArray(this.META.dining)) ? this.META.dining : [];
+    // Resolved Spotify artist pages (build-side, data/artist_links.json) — direct ▶ listen
+    // links; anything not in the map falls back to a search URL (spotifyFor).
+    this.ARTIST_LINKS = (this.META && this.META.artist_links && typeof this.META.artist_links === 'object')
+      ? this.META.artist_links : {};
     this._distinct = null;
     this._keyMap = null;               // front-page key->event join, rebuilt lazily
     this.setState({ dataSource: 'live', fpDetailKey: null });
