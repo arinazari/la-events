@@ -79,7 +79,9 @@ scripts/lib/                        # shared modules: scoring, dedupe, pipeline,
                                     #   editor (event-editor verdict store + judging pool + Spotify affinity hints +
                                     #     a read-only taste-neutral `scene` block folded from the shared enrichment),
                                     #   assemble (the digest slate: lanes + elastic fill/cliff/diversity-floor +
-                                    #     top_picks, the ONE Don't-miss policy shared by digest shelf & front-page hero) — tested
+                                    #     top_picks, the ONE Don't-miss policy shared by digest shelf & front-page hero),
+                                    #   artist_links (Spotify artist-page resolver → data/artist_links.json — the
+                                    #     dashboard's direct ▶ listen links; creds-gated, runs inside run_digest) — tested
 scripts/merge_verdicts.py           # fold event-editor results JSON → per-profile data/verdicts/<hash>.json
 scripts/profile_refresh_gate.py     # nightly taste-change gate: per profile REFRESH/SKIP/OWNER — friends' LLM
                                     #   passes run on taste change or manual Update, never on catalog movement alone
@@ -105,6 +107,7 @@ data/editor_pool*.json              # event-editor judging pool, per profile (ru
 data/radar.json                     # "on the radar" set for the consolidated digest (runtime; gitignored)
 data/verdicts/<hash>.json           # event-editor verdicts, per profile (committed; only the delta is judged each run)
 data/enrichment.json                # scene-graph cache: per-event enrichment (full + blurb tiers) + artist notes (committed; grows each run)
+data/artist_links.json              # Spotify artist-page cache (lib/artist_links; committed) → feed `artist_links` = direct ▶ listen links
 data/spotify_affinity.json          # Spotify music-affinity artifact (runtime; gitignored)
 data/feedback.jsonl                 # append-only reaction log (committed); folds into scoring each run
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)

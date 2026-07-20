@@ -247,6 +247,17 @@ def main() -> int:
     stale = P.stale_sources(catalog, today)   # sources gone dark (frozen last_seen) → meta + report
     cat_meta = CM.write_meta(meta_path, catalog, delta, stale)
 
+    # Best-effort: resolve NEW lineup / scene-graph artists to their Spotify artist pages
+    # (data/artist_links.json — the dashboard's direct ▶ listen links; search-URL fallback
+    # covers anything unresolved). Creds-gated + capped; a dead Spotify never blocks a digest.
+    if not args.no_fetch:
+        try:
+            from lib import artist_links as AL
+            print(f"  artist links: {AL.refresh(REPO)}")
+        except Exception as ex:  # noqa: BLE001
+            print(f"  WARN: artist-link resolve failed: {str(ex).splitlines()[0][:100]}",
+                  file=sys.stderr)
+
     affinity = load_affinity_layer(args.no_fetch, report, profile)
     # Track B2: the enrichment head is ordered by the editor's cached judgment (rank_score =
     # score + adjust + bounded tier bonus), not raw keyword score. Brand-new events fall back
