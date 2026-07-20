@@ -587,6 +587,17 @@
                       <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:8px;">DETAILS</div>
                       <div style="font:500 11.5px/1.9 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.venueLine }}</div>
                       <div style="font:500 11.5px/1.9 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.priceLine }}</div>
+                      <sc-if value="{{ ev.hasShowtimes }}" hint-placeholder-val="{{ false }}">
+                        <div style="margin-top:12px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">SHOWTIMES</div>
+                        <sc-for list="{{ ev.showtimeGroups }}" as="sg">
+                          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:6px;">
+                            <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ sg.venue }}</span>
+                            <sc-for list="{{ sg.times }}" as="st">
+                              <a href="{{ st.url }}" target="_blank" rel="noopener" onClick="{{ st.stop }}" title="{{ st.title }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 8px; border:1px solid {{ st.border }}; color: {{ st.color }}; border-radius:2px; text-decoration: {{ st.deco }};" style-hover="border-color:#2b5cd9; background:#f4f7fe;">{{ st.label }}</a>
+                            </sc-for>
+                          </div>
+                        </sc-for>
+                      </sc-if>
                       <div style="display:flex; flex-wrap:wrap; gap:7px; margin-top:10px;">
                         <sc-for list="{{ ev.links }}" as="lk">
                           <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:2px; text-decoration:none; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="background:#e9f0fd; border-color:#234bb3; color:#234bb3;">{{ lk.label }} ↗</a>
@@ -687,6 +698,17 @@
                 </sc-if>
                 <div style="margin-top:13px; font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.venueLine }}</div>
                 <div style="font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.priceLine }}</div>
+                <sc-if value="{{ ev.hasShowtimes }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">SHOWTIMES</div>
+                  <sc-for list="{{ ev.showtimeGroups }}" as="sg">
+                    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:7px;">
+                      <span style="font:600 11px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ sg.venue }}</span>
+                      <sc-for list="{{ sg.times }}" as="st">
+                        <a href="{{ st.url }}" target="_blank" rel="noopener" onClick="{{ st.stop }}" title="{{ st.title }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:8px 10px; border:1px solid {{ st.border }}; color: {{ st.color }}; border-radius:2px; text-decoration: {{ st.deco }};">{{ st.label }}</a>
+                      </sc-for>
+                    </div>
+                  </sc-for>
+                </sc-if>
                 <sc-if value="{{ ev.hasSeries }}" hint-placeholder-val="{{ false }}">
                   <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">ALSO SHOWING</div>
                   <div style="display:flex; flex-wrap:wrap; gap:6px;">
@@ -875,6 +897,17 @@
               <sc-if value="{{ ar.note }}" hint-placeholder-val="{{ false }}">
                 <div style="margin-top:3px; font-size:12px; line-height:1.5; color:#76746b;">{{ ar.note }}</div>
               </sc-if>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ fpDetail.hasShowtimes }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">SHOWTIMES</div>
+          <sc-for list="{{ fpDetail.showtimeGroups }}" as="sg">
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:7px;">
+              <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ sg.venue }}</span>
+              <sc-for list="{{ sg.times }}" as="st">
+                <a href="{{ st.url }}" target="_blank" rel="noopener" onClick="{{ st.stop }}" title="{{ st.title }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; border:1px solid {{ st.border }}; color: {{ st.color }}; border-radius:2px; text-decoration: {{ st.deco }};" style-hover="border-color:#2b5cd9; background:#f4f7fe;">{{ st.label }}</a>
+              </sc-for>
             </div>
           </sc-for>
         </sc-if>
@@ -1344,27 +1377,54 @@ class Component extends DCLogic {
     for (const [re,lab] of dom) if (re.test(u)) return lab;
     return this.LINK_LABELS[String(l.source||'').toLowerCase()] || (l.source ? (l.source.charAt(0).toUpperCase()+l.source.slice(1)) : 'Tickets');
   }
-  linksFor(e) {
+  // Ticket links, split for display: LABELED links (fetch_veezi's per-showtime "7:30pm") group
+  // into a compact SHOWTIMES row — the venue named ONCE, times as small chips — instead of N
+  // near-identical full-size buttons ("Vista · 4:30pm ↗ Vista · 7:30pm ↗ …"). Unlabeled links
+  // stay full-size buttons, collapsed when their display text would be identical (N
+  // indistinguishable "Vista" buttons tell the user nothing the first doesn't), and a venue
+  // that has showtime chips drops its bare button (the chips ARE its buy links).
+  ticketLinks(e) {
     const stop = (ev) => { ev.stopPropagation(); };
     const list = Array.isArray(e.links) ? e.links : [];
-    const seen = new Set(); const labels = new Set(); const out = [];
+    const seen = new Set(); const labels = new Set();
+    const buttons = []; const groups = new Map();    // base label (venue) -> [{label,url,dim}]
     for (const l of list) {
       if (!l || !l.url || seen.has(l.url)) continue;
       seen.add(l.url);
-      // A link may carry its own display label (fetch_veezi's per-showtime "7:30pm") — compose
-      // "Vista · 7:30pm". Buttons whose display text would be identical collapse to the first:
-      // N indistinguishable "Vista" buttons (a run's unlabeled showtime links) tell the user
-      // nothing the first doesn't.
-      const label = this.linkLabel(l) + (l.label ? ' · ' + l.label : '');
-      if (labels.has(label)) continue;
-      labels.add(label);
-      out.push({ label, url: l.url, stop });
+      const base = this.linkLabel(l);
+      if (l.label) {
+        const dim = /sold out/i.test(l.label);
+        if (!groups.has(base)) groups.set(base, []);
+        groups.get(base).push({ label: l.label.replace(/\s*·\s*sold out\s*$/i, ''), url: l.url, dim, stop });
+      } else {
+        if (labels.has(base)) continue;
+        labels.add(base);
+        buttons.push({ label: base, url: l.url, stop });
+      }
     }
-    if (!out.length && e.url) out.push({ label: 'Tickets', url: e.url, stop });
+    const out = buttons.filter(b => !groups.has(b.label));
+    if (!out.length && !groups.size && e.url) out.push({ label: 'Tickets', url: e.url, stop });
     // Films: an external showtimes search covering the LA theaters that aren't fetch sources.
     if (e.showtimesUrl) out.push({ label: 'All LA showtimes', url: e.showtimesUrl, stop });
-    return out;
+    return { buttons: out, showtimes: [...groups].map(([venue, times]) => ({ venue, times })) };
   }
+  // Display-ready fields for the SHOWTIMES row + button list, shared by the table cards and the
+  // front-page popup (same interpolated-style convention as the ALSO SHOWING chips).
+  ticketFields(e) {
+    const tk = this.ticketLinks(e);
+    return {
+      links: tk.buttons,
+      hasShowtimes: tk.showtimes.length > 0,
+      showtimeGroups: tk.showtimes.map(g => ({
+        venue: g.venue,
+        times: g.times.map(t => ({ label: t.label, url: t.url, stop: t.stop,
+          color: t.dim ? '#a29a90' : '#2b5cd9', border: t.dim ? '#dedcd4' : '#b9c9f2',
+          deco: t.dim ? 'line-through' : 'none',
+          title: t.dim ? t.label + ' — sold out' : t.label + ' — buy tickets' })),
+      })),
+    };
+  }
+  linksFor(e) { return this.ticketLinks(e).buttons; }
 
   // "Also showing" chips for a series card: the run's OTHER nights (this row's own night is the
   // card itself), each linking straight to that night's tickets. Capped so a long run can't
@@ -3585,7 +3645,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           deco: c.dim ? 'line-through' : 'none' })),
         seriesMore: sc.more, hasSeriesMore: !!sc.more,
       }; })(),
-      links: this.linksFor(e),
+      ...this.ticketFields(e),
       ...this.listenFor(e),
       ...this.intelFor(e),
       expanded: e.id === expandedId,
@@ -3861,7 +3921,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           priceLine: this.priceLabel(de) + (de.ah ? '  ·  afterhours' : ''),
           why: de.why || '',
           desc: de.desc, hasDesc: de.hasDesc,
-          links: this.linksFor(de),
+          ...this.ticketFields(de),
           hasSeries: fpSc.chips.length > 0,
           seriesChipRows: fpSc.chips.map(c => ({ label: c.label, url: c.url, stop: c.stop,
             color: c.dim ? '#a29a90' : '#3f3d36', border: c.dim ? '#dedcd4' : '#c9c7bd',
