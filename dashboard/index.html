@@ -597,8 +597,28 @@
                     </div>
                     <div style="flex:none; min-width:180px;">
                       <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:8px;">DETAILS</div>
-                      <div style="font:500 11.5px/1.9 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.venueLine }}</div>
-                      <div style="font:500 11.5px/1.9 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.priceLine }}</div>
+                      <div style="display:flex; align-items:baseline; gap:7px; flex-wrap:wrap; min-width:0; font:500 11.5px/1.6 ui-monospace,Menlo,monospace;">
+                        <sc-if value="{{ ev.mapsUrl }}" hint-placeholder-val="{{ true }}">
+                          <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener" onClick="{{ ev.mapsStop }}" title="{{ ev.mapsTitle }}" style="color:#2b5cd9; font-weight:600; text-decoration:none; border-bottom:1px solid #c3d2f4; transition:border-color 0.12s ease; min-width:0; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" style-hover="border-bottom-color:#2b5cd9;">⌖ {{ ev.venueName }}</a>
+                        </sc-if>
+                        <sc-if value="{{ ev.noMap }}" hint-placeholder-val="{{ false }}">
+                          <span style="color:#3f3d36; font-weight:600;">{{ ev.venueName }}</span>
+                        </sc-if>
+                        <sc-if value="{{ ev.imgUrl }}" hint-placeholder-val="{{ false }}">
+                          <a href="{{ ev.imgUrl }}" target="_blank" rel="noopener" onClick="{{ ev.mapsStop }}" title="{{ ev.imgTitle }}" style="flex:none; color:#a7a59b; text-decoration:none; font-size:12px; padding:3px 4px; margin:-3px -1px; transition:color 0.12s ease;" style-hover="color:#2b5cd9;">▣</a>
+                        </sc-if>
+                        <sc-if value="{{ ev.venueHood }}" hint-placeholder-val="{{ false }}">
+                          <span style="color:#cdcbc3;">·</span><span style="color:#76746b;">{{ ev.venueHood }}</span>
+                        </sc-if>
+                      </div>
+                      <div style="margin-top:6px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; font:500 11.5px/1.6 ui-monospace,Menlo,monospace;">
+                        <span style="color:#161512; font-weight:600;">{{ ev.priceText }}</span>
+                        <span style="color:#cdcbc3;">·</span>
+                        <span style="color:#76746b;">{{ ev.whenText }}</span>
+                        <sc-if value="{{ ev.isAh }}" hint-placeholder-val="{{ false }}">
+                          <span style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color:#6d3fb3; background:rgba(109,63,179,0.10);">afterhours</span>
+                        </sc-if>
+                      </div>
                       <sc-if value="{{ ev.hasShowtimes }}" hint-placeholder-val="{{ false }}">
                         <div style="margin-top:12px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">SHOWTIMES</div>
                         <sc-for list="{{ ev.showtimeGroups }}" as="sg">
@@ -704,8 +724,28 @@
                     <span onClick="{{ ev.askArtists }}" title="Ask the concierge for a rundown on this bill" style="display:inline-block; margin-top:10px; font:600 11px/1 ui-monospace,Menlo,monospace; padding:9px 12px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">✦ Artist intel</span>
                   </sc-if>
                 </sc-if>
-                <div style="margin-top:13px; font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.venueLine }}</div>
-                <div style="font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.priceLine }}</div>
+                <div style="margin-top:13px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; min-width:0; font:500 12px/1.6 ui-monospace,Menlo,monospace;">
+                  <sc-if value="{{ ev.mapsUrl }}" hint-placeholder-val="{{ true }}">
+                    <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener" onClick="{{ ev.mapsStop }}" title="{{ ev.mapsTitle }}" style="color:#2b5cd9; font-weight:600; text-decoration:none; border-bottom:1px solid #c3d2f4; min-width:0; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">⌖ {{ ev.venueName }}</a>
+                  </sc-if>
+                  <sc-if value="{{ ev.noMap }}" hint-placeholder-val="{{ false }}">
+                    <span style="color:#3f3d36; font-weight:600;">{{ ev.venueName }}</span>
+                  </sc-if>
+                  <sc-if value="{{ ev.imgUrl }}" hint-placeholder-val="{{ false }}">
+                    <a href="{{ ev.imgUrl }}" target="_blank" rel="noopener" onClick="{{ ev.mapsStop }}" title="{{ ev.imgTitle }}" style="flex:none; color:#a7a59b; text-decoration:none; font-size:13px; padding:8px 9px; margin:-8px -3px;">▣</a>
+                  </sc-if>
+                  <sc-if value="{{ ev.venueHood }}" hint-placeholder-val="{{ false }}">
+                    <span style="color:#cdcbc3;">·</span><span style="color:#76746b;">{{ ev.venueHood }}</span>
+                  </sc-if>
+                </div>
+                <div style="margin-top:6px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; font:500 12px/1.6 ui-monospace,Menlo,monospace;">
+                  <span style="color:#161512; font-weight:600;">{{ ev.priceText }}</span>
+                  <span style="color:#cdcbc3;">·</span>
+                  <span style="color:#76746b;">{{ ev.whenText }}</span>
+                  <sc-if value="{{ ev.isAh }}" hint-placeholder-val="{{ false }}">
+                    <span style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:4px 6px; border-radius:2px; color:#6d3fb3; background:rgba(109,63,179,0.10);">afterhours</span>
+                  </sc-if>
+                </div>
                 <sc-if value="{{ ev.hasShowtimes }}" hint-placeholder-val="{{ false }}">
                   <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">SHOWTIMES</div>
                   <sc-for list="{{ ev.showtimeGroups }}" as="sg">
@@ -904,8 +944,29 @@
           <span onClick="{{ closeFpDetail }}" style="cursor:pointer; color:#76746b; font-weight:700; font-size:14px;" style-hover="color:#161512;">✕</span>
         </div>
         <div style="margin-top:7px; font:700 18px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ fpDetail.title }}</div>
-        <div style="margin-top:7px; font:500 11.5px/1.7 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ fpDetail.venueLine }}</div>
-        <div style="font:500 11.5px/1.7 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ fpDetail.priceLine }}</div>
+        <div style="margin-top:9px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; min-width:0; font:500 11.5px/1.5 ui-monospace,Menlo,monospace;">
+          <sc-if value="{{ fpDetail.mapsUrl }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ fpDetail.mapsUrl }}" target="_blank" rel="noopener" title="{{ fpDetail.mapsTitle }}" style="color:#2b5cd9; font-weight:600; text-decoration:none; border-bottom:1px solid #c3d2f4; transition:border-color 0.12s ease; min-width:0; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" style-hover="border-bottom-color:#2b5cd9;">⌖ {{ fpDetail.venueName }}</a>
+          </sc-if>
+          <sc-if value="{{ fpDetail.noMap }}" hint-placeholder-val="{{ false }}">
+            <span style="color:#3f3d36; font-weight:600;">{{ fpDetail.venueName }}</span>
+          </sc-if>
+          <sc-if value="{{ fpDetail.imgUrl }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ fpDetail.imgUrl }}" target="_blank" rel="noopener" title="{{ fpDetail.imgTitle }}" style="flex:none; color:#a7a59b; text-decoration:none; font-size:12px; padding:3px 4px; margin:-3px -1px; transition:color 0.12s ease;" style-hover="color:#2b5cd9;">▣</a>
+          </sc-if>
+          <sc-if value="{{ fpDetail.venueHood }}" hint-placeholder-val="{{ false }}">
+            <span style="color:#cdcbc3;">·</span><span style="color:#76746b;">{{ fpDetail.venueHood }}</span>
+          </sc-if>
+        </div>
+        <div style="margin-top:5px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; font:500 11.5px/1.5 ui-monospace,Menlo,monospace;">
+          <span style="color:#161512; font-weight:600;">{{ fpDetail.priceText }}</span>
+          <sc-if value="{{ fpDetail.genreText }}" hint-placeholder-val="{{ false }}">
+            <span style="color:#cdcbc3;">·</span><span style="color:#76746b;">{{ fpDetail.genreText }}</span>
+          </sc-if>
+          <sc-if value="{{ fpDetail.isAh }}" hint-placeholder-val="{{ false }}">
+            <span style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color:#6d3fb3; background:rgba(109,63,179,0.10);">afterhours</span>
+          </sc-if>
+        </div>
         <sc-if value="{{ fpDetail.hasDesc }}" hint-placeholder-val="{{ false }}">
           <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">WHAT IT IS</div>
           <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ fpDetail.desc }}</div>
@@ -3719,6 +3780,57 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   whenLabel(e) { return e.wd + ' ' + e.md + (e.t ? ' · ' + e.t : ''); }
   placeLabel(e) { return e.venue + (e.hood && e.hood !== 'Los Angeles' ? ', ' + e.hood : ''); }
 
+  // Display label for a venue LINK: the full string stays in the maps query + tooltip, but
+  // an RA-style address tail ("… 550 S Mission Rd, Los Angeles, CA 90033") comes off the
+  // label — a two-line word-wrapped hyperlink reads terribly. Conservative, tail-anchored
+  // rules: the city/state strip only fires behind a zip (a zip is the address signature;
+  // a bare ", Thousand Oaks" in a theater's NAME survives), and the street strip only when
+  // a real name precedes the street number (an address-ONLY venue keeps its address).
+  venueDisplay(v) {
+    let s = String(v || '').trim();
+    const zipped = /,?\s*CA\s+\d{5}(?:-\d{4})?$/i.test(s);
+    if (zipped) s = s.replace(/,?\s*CA\s+\d{5}(?:-\d{4})?$/i, '').replace(/,\s*[A-Za-z .']+$/, '');
+    const m = s.match(/^(.+?[^\s,\-–—])[,\s]+\d{2,5}\s+[A-Za-z0-9 .']*\b(?:St|Street|Ave|Avenue|Blvd|Boulevard|Rd|Road|Dr|Drive|Way|Ln|Lane|Hwy|Pkwy)\.?$/i);
+    return (m ? m[1] : s).trim() || String(v || '').trim();
+  }
+
+  // Structured venue/price fields for the detail surfaces (expanded row, mobile card, fp
+  // modal) — ONE rule everywhere: the venue links out to Google Maps (label shortened via
+  // venueDisplay, never wrapped), a known venue gets a "see inside" Google Images link, the
+  // neighborhood is its own muted piece (suppressed when it's the generic city label or
+  // already part of the venue string — no more "… (Los Angeles) … (Los Angeles)"), and
+  // price / when / afterhours render as distinct pieces instead of one glued-together line.
+  detailFields(e) {
+    const v = e.venue || '';
+    const disp = this.venueDisplay(v);
+    const hoodInVenue = !!(e.hood && v.toLowerCase().includes(e.hood.toLowerCase()));
+    const hood = (e.hood && e.hood !== 'Los Angeles' && !hoodInVenue) ? e.hood : '';
+    const mappable = !!v && !/^tba$/i.test(v.trim());   // a bare placeholder maps to nothing
+    // "Known" venue = a real named room (any TBA-prefixed placeholder isn't one yet) —
+    // those get the interior-photos image search.
+    const known = mappable && !/^tba\b/i.test(v.trim());
+    return {
+      venueName: disp,
+      venueHood: hood,
+      mapsUrl: mappable
+        ? 'https://www.google.com/maps/search/?api=1&query='
+          + encodeURIComponent(v + (hoodInVenue ? '' : ', ' + (hood || e.hood || 'Los Angeles')) + ', CA')
+        : '',
+      noMap: !mappable,
+      mapsTitle: 'Open in Google Maps — ' + v,
+      imgUrl: known
+        ? 'https://www.google.com/search?udm=2&q='
+          + encodeURIComponent(disp + ' ' + (hood || e.hood || 'Los Angeles') + ' interior')
+        : '',
+      imgTitle: 'See inside ' + disp + ' — Google Images',
+      mapsStop: (domEv) => domEv.stopPropagation(),
+      priceText: this.priceLabel(e),
+      whenText: e.wd + ' ' + e.md + ' · ' + e.t,
+      genreText: String(e.genre || '').replace(/-/g, ' '),
+      isAh: !!e.ah,
+    };
+  }
+
   sortForChat(list, spec) {
     const today = this.TODAY;
     // One row per program (a 15-night film run is one pick, not three of the top three), ranked
@@ -3848,7 +3960,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (raw == null || raw === '') return { pmin: null, pmax: null, display: '' };
     const s = String(raw).trim();
     const free = /\bfree\b|no cover/i.test(s);
-    const nums = (s.match(/\$\s?\d+(?:\.\d+)?/g) || []).map(x => parseFloat(x.replace(/[^0-9.]/g, '')));
+    // ranges write the $ once ("$95-105") — take both ends, not just the anchored number
+    const nums = (s.match(/\$\s?\d+(?:\.\d+)?(?:\s*[-–—]\s*\d+(?:\.\d+)?)?/g) || [])
+      .flatMap(x => (x.match(/\d+(?:\.\d+)?/g) || []).map(parseFloat));
     if (free) return { pmin: 0, pmax: nums.length ? Math.max(...nums) : 0, display: s };
     if (!nums.length) return { pmin: null, pmax: null, display: s };
     return { pmin: Math.min(...nums), pmax: Math.max(...nums), display: s };
@@ -4186,8 +4300,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       badges: this.computedBadges(e),
       why: e.why,
       desc: e.desc, hasDesc: e.hasDesc,
-      venueLine: e.venue + ' (' + e.hood + ')',
-      priceLine: this.priceLabel(e) + (e.ah ? '  \u00b7  afterhours' : '') + '  \u00b7  ' + e.wd + ' ' + e.md + ' ' + e.t,
+      ...this.detailFields(e),
       ...(() => { const sc = this.seriesChips(e); return {
         hasSeries: sc.chips.length > 0,
         seriesChipRows: sc.chips.map(c => ({ label: c.label, url: c.url, stop: c.stop,
@@ -4485,8 +4598,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         fpDetail = {
           date: de.wd + ' ' + de.md + ' · ' + de.t,
           title: de.title,
-          venueLine: de.venue + ' (' + de.hood + ')',
-          priceLine: this.priceLabel(de) + (de.ah ? '  ·  afterhours' : ''),
+          ...this.detailFields(de),
           why: de.why || '',
           desc: de.desc, hasDesc: de.hasDesc,
           ...this.ticketFields(de),
@@ -4526,7 +4638,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         return {
           date: e.wd + ' ' + e.md + ' · ' + e.t,
           title: e.title,
-          venue: e.venue + ' · ' + e.hood,
+          // venue + a REAL neighborhood only — the generic city label (or a hood already in
+          // the venue string) reads as noise on a card this small.
+          venue: e.venue + (e.hood && e.hood !== 'Los Angeles'
+                            && !e.venue.toLowerCase().includes(e.hood.toLowerCase())
+                            ? ' · ' + e.hood : ''),
           hasTags: tags.length > 0, tags,
           // Editorial voice or plain fact — the curated why (curator note / editor's line),
           // else the factual desc (blurb / sanitized source detail). Never the scorer's
