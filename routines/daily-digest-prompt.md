@@ -100,10 +100,14 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    - replace `<!-- tier3:intro -->` with a 2–4 sentence intro in the LA-insider voice — the
      week's shape, what kind of stretch it is, where the heat is. When two must-sees collide on
      the same night, make the call here ("if you can only do one: …"). NEVER restate ops
-     warnings (token expiry, failed sources) — those live in the footer. **Leave the
-     `<!-- take:start -->` / `<!-- take:end -->` markers wrapping the slot in place**: the feed
-     build (step 7) lifts the intro from between them into `front_page.take` — "The Take" on
-     the dashboard's front page reads it structurally, no markdown parsing;
+     warnings (token expiry, failed sources) — those live in the footer;
+   - write **the take** into the `<!-- take: -->` slot (INSIDE the comment — it stays
+     invisible everywhere): **ONE sentence**, a high-level teaser of the day — hooky, no event
+     list, no prices, not a compressed intro; think "the one line that makes you open the
+     digest" ("Deep-house weekend — the pier and Long Beach both go off Saturday."). The feed
+     build (step 7) lifts it + the doc's date into `front_page.take`; the dashboard's concierge
+     chat opens with it ("For <date>: …") as display chrome only — it is never sent to the
+     model, so write it to be read by a person, not to prime an LLM;
    - replace `<!-- tier3:call -->` (Tonight & tomorrow) with ONE sentence: what the move is for
      the next 48h — including an honest "quiet night, save it for Friday" when that's true;
    - fill each `<!-- tier3:blueprint <date> -->` (Fri/Sat day headers, near section) with a

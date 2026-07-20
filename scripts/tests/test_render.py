@@ -178,10 +178,9 @@ def test_consolidated_sections_follow_prefs_order():
                                                         "signals": ["civic"], "link": None,
                                                         "venue": "DTLA"}], set()))
     assert "<!-- tier3:intro -->" in md
-    # the intro slot is wrapped in take markers so the feed build can lift the filled intro
-    # structurally (front_page.take) — and the unfilled scaffold yields no take
-    assert md.index("<!-- take:start -->") < md.index("<!-- tier3:intro -->") \
-        < md.index("<!-- take:end -->")
+    # the invisible one-sentence take slot precedes the intro slot — the feed build lifts the
+    # filled teaser (+ the doc date) into front_page.take; the unfilled scaffold yields no take
+    assert md.index("<!-- take: -->") < md.index("<!-- tier3:intro -->")
     assert md.index("## Don't miss") < md.index("## Next two weeks") \
         < md.index("## Around town") < md.index("## On the radar")
     # a prefs list that drops everything optional still renders the body

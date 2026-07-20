@@ -639,10 +639,12 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
     """The consolidated scaffold. Section inclusion + order follow digest.yaml `sections`
     (Track B4 — the renderer finally honors it); day_by_day is the body and is never droppable.
     The `<!-- tier3:… -->` markers are the Tier-3 voice pass's slots: it fills the intro and may
-    rewrite a why/gloss, but never adds, removes, or reorders events. The intro slot is wrapped
-    in `<!-- take:start/end -->` markers the voice pass must leave in place — build_dashboard
-    lifts the filled intro from between them into the feed as `front_page.take` ("The Take"),
-    so the page reads the lede structurally instead of parsing markdown conventions.
+    rewrite a why/gloss, but never adds, removes, or reorders events. The `<!-- take: -->` line
+    is a separate, INVISIBLE slot (an HTML comment start to finish — it never renders anywhere):
+    the voice pass writes a one-sentence, high-level teaser of the day inside the comment, and
+    build_dashboard lifts it (plus the doc's date) into the feed as `front_page.take` — the
+    dated one-liner the dashboard's concierge chat opens with. Display chrome only; it is
+    never sent to the model.
 
     `dm_keys` = the Don't-miss picks' event keys: their blurbs run once (in the shelf), and the
     day body shows them starred but note-free instead of repeating the same paragraph verbatim.
@@ -652,9 +654,8 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
            "*Your week ahead, the weekends after, and what's on the radar — "
            "ranked for your taste · ⭐ = top pick*",
            f"*{freshness_line(doc.get('meta') or {}, today_iso)}*", "",
-           "<!-- take:start -->",
-           "<!-- tier3:intro -->",
-           "<!-- take:end -->", ""]
+           "<!-- take: -->",
+           "<!-- tier3:intro -->", ""]
     order = [s for s in (order or DEFAULT_SECTIONS) if s in DEFAULT_SECTIONS]
     if "day_by_day" not in order:
         order.append("day_by_day")

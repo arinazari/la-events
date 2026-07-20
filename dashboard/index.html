@@ -1165,7 +1165,9 @@ class Component extends DCLogic {
     spotifyStatus: null,   // per-profile Spotify: null=unknown/checking, true=connected, false=not
     spotifyName: '',
     loading: false,
-    takeText: '',   // the day's take (digest lede) — rendered inside the welcome message; reaches the LLM only as `opener`
+    takeText: '',   // the day's take — a one-sentence teaser rendered inside the welcome message. Display
+    takeDate: '',   // chrome ONLY: it never reaches the model (no history, no opener). takeDate = the
+                    // digest date the take was written for, shown so it's visibly today's read (or honestly not).
     messages: [
       // The welcome: ONE synthetic concierge message wrapping greeting + take + how-to, composed
       // at render from GREET_HEAD / takeText / GREET_GUIDE. Chrome only — never sent as history.
@@ -1175,8 +1177,9 @@ class Component extends DCLogic {
 
   // The concierge welcome, composed at render into one message: GREET_HEAD (+ the day's take,
   // "For <date>: …", when takeText is set) + GREET_GUIDE (the collapsible how-to). It LOOKS like
-  // the LLM's first message but askBackend never sends it — the take alone reaches the model,
-  // as the `opener` system-prompt field.
+  // the LLM's first message but none of it is ever sent — not as history and not as any side
+  // field; the model answers from the feed grounding alone (Ari's call: the take just shows up
+  // as if the concierge said it).
   GREET_HEAD = "I'm your LA concierge — the best of what's on in LA, ranked to your taste.";
   GREET_GUIDE = "A few things I can do:\n- **Find shows** — `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n- **Point you to food** — `what's the hot new restaurant`, a spot near Silver Lake, popups & food trucks.\n- **Plan a whole night** — say `plan my Saturday: dinner then a show` and I'll fuse events + dining into one sequenced, travel-timed itinerary (dinner → show → afters).\n- **Tune your taste** — `more techno, less comedy` or `I moved to Highland Park`, and I'll re-rank you.\nTap any blue example to drop it in the box — or just start typing.";
 
@@ -1708,8 +1711,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // Shared Markdown → styled HTML — used by the digest modal AND the guide / what's-new modal.
   // Supports #/## headings, "- " bullets (with indented wrapped continuations), `---` rules, and
   // the inlineMd spans (bold / code / links). Keeps both surfaces visually identical.
-  // HTML comments are stripped FIRST: the digest carries permanent slot markers (take:start/end,
-  // any unfilled tier3 slots) that inlineMd's escaping would otherwise render as literal text.
+  // HTML comments are stripped FIRST: the digest carries permanent invisible slots (the
+  // `<!-- take: … -->` teaser, unfilled tier3 slots) that inlineMd's escaping would otherwise
+  // render as literal text.
   renderMarkdown(md) {
     const lines = String(md || '').replace(/<!--[\s\S]*?-->/g, '').split('\n');
     let html = '';
@@ -2266,7 +2270,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   };
   async askBackend(text) {
     // The welcome message (intro) is client-side chrome — excluded here so the greeting/how-to
-    // never cost wire or model tokens; the take alone rides as `opener` below.
+    // never cost wire or model tokens. The take is chrome too: it is deliberately NOT sent in
+    // any form (no history turn, no side field) — the model grounds on the feed data alone.
     const history = (this.state.messages || []).filter(m => !m.intro).slice(-7)
       .map(m => ({ role: m.role === 'user' ? 'user' : 'assistant', content: String(m.text || '') }))
       .filter(m => m.content.trim());
@@ -2274,10 +2279,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
     const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // BYOK: your key pays for this request
     const body = { messages: history };
-    // The take never rides the history (the welcome is dropped above) — it goes as its own field
-    // and the Worker folds it into the system prompt. That's what keeps "what's the move tonight
-    // then?" grounded, at the cost of the take alone rather than the whole welcome.
-    if (this.state.takeText) body.opener = String(this.state.takeText).slice(0, 1500);
     if (this.useOpus()) body.model = 'opus';   // upgrade the executor to Opus — honored on any connection (token or key)
     const p = this.state.profile;
     if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
@@ -3165,6 +3166,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this._distinct = null;
     this._keyMap = null;               // front-page key->event join, rebuilt lazily
     this.setState({ dataSource: 'live', fpDetailKey: null });
+    this.reseedTake();                 // the feed carries the structural take — re-derive on either load
     return true;
   }
   _tryFeed(path) {
@@ -3177,16 +3179,36 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .then(res => res.ok ? res.text().then(md => {
         if (!md || md.trim().length < 20) return false;
         this.DIGEST_MD = md; this.DIGEST_FILE = label || 'latest.md'; this.forceUpdate();
-        this.seedTake(this.digestLede());   // the take rides the chat thread as a concierge message
+        this.DIGEST_PLACEHOLDER = false;   // a real digest doc — its lede may serve as the fallback take
+        this.reseedTake();   // the take rides the chat thread as a concierge message
         return true;
       }) : false)
       .catch(() => false);
   }
   // The take rides INSIDE the welcome message ("For <date>: …") — state, not a thread message,
-  // so it can't collide with a live conversation and never costs history tokens. '' clears it
-  // (profile with no digest). askBackend sends it as `opener` and the Worker folds it into the
-  // system prompt — that's how "what's the move tonight then?" stays grounded.
-  seedTake(lede) { this.setState({ takeText: lede || '' }); }
+  // so it can't collide with a live conversation and never costs history tokens; it is display
+  // chrome only and is NEVER sent to the model. Preferred source: the feed's structural
+  // front_page.take {text, date} (the voice pass's one-sentence teaser + the digest date it was
+  // written for). Fallback: the digest lede heuristic, clipped to ONE sentence so every surface
+  // obeys the teaser contract. Re-derived on both feed load and digest load (either can land
+  // first); the DIGEST_PLACEHOLDER flag keeps the no-digest placeholder text from ever leaking
+  // in as a take, whichever load wins the race.
+  reseedTake() {
+    const fp = (this.META && this.META.front_page) || null;
+    const t = fp && fp.take && typeof fp.take.text === 'string' && fp.take.text.trim() ? fp.take : null;
+    if (t) return this.seedTake(t.text.trim(), typeof t.date === 'string' ? t.date : '');
+    this.seedTake(this.DIGEST_PLACEHOLDER ? '' : this.teaserOf(this.digestLede()));
+  }
+  // First sentence, bounded — the deterministic clip that keeps the heuristic fallback to a
+  // teaser (the structural take is already written as one sentence and passes through whole).
+  teaserOf(text) {
+    const t = String(text || '').trim();
+    if (!t) return '';
+    const m = t.match(/^[\s\S]*?[.!?](?=\s|$)/);
+    const s = (m ? m[0] : t).trim();
+    return s.length > 200 ? s.slice(0, 197).trimEnd() + '…' : s;
+  }
+  seedTake(lede, date) { this.setState({ takeText: lede || '', takeDate: date || '' }); }
   // The deploy step (scripts/stage_digests.py) writes ./digests/index.json (and ./digests/<hash>/
   // index.json per profile), newest first. We only read it to resolve the current digest's dated
   // name (DIGEST_CURRENT), which names the download file. Missing off a static host -> empty index
@@ -3221,8 +3243,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       return this._tryDigest('./digests/' + p.hash + '/latest.md').then(ok => {
         if (!ok) {
           this.DIGEST_MD = '# ' + (p.name || 'Your') + ' digest\n\nNo personalized digest has been written for this profile yet — your taste-ranked picks are live in the table. Hit **Update** (Settings → Ranks & Digest) to generate it; after that it refreshes whenever your taste changes or you Update again.';
-          this.DIGEST_FILE = null; this.forceUpdate();
-          this.seedTake('');   // no digest for this profile -> drop any take left from the last one
+          this.DIGEST_FILE = null; this.DIGEST_PLACEHOLDER = true; this.forceUpdate();
+          this.reseedTake();   // no digest -> structural take if the feed has one, else clear
         }
       });
     }
@@ -3368,13 +3390,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     const msgs = messages.map(m => {
       // The welcome — ONE concierge message wrapping the greeting, the day's take ("For Fri
-      // 7/17: …"), and the how-to. Pure chrome: it reads as the LLM's first message but is never
-      // sent to it (askBackend drops it; the take alone goes as `opener`). The how-to renders
-      // full-size until this device's first message, then tucks behind "see what I can do ▸".
+      // 7/17: …"), and the how-to. Pure chrome: it reads as the LLM's first message but NONE of
+      // it is ever sent (askBackend drops the whole thing — no history turn, no side field).
+      // The take's date is the DIGEST's date (takeDate, from front_page.take), not today's —
+      // so it visibly reads as today's take when it is, and honestly dated when it's stale.
+      // The how-to renders full-size until this device's first message, then tucks behind
+      // "see what I can do ▸".
       if (m.intro) {
         const gOpen = !!this.state.chatGuideOpen;
         const md = this.GREET_HEAD
-          + (this.state.takeText ? '\nFor **' + this.labelISO(this.TODAY) + '**: ' + this.state.takeText : '')
+          + (this.state.takeText ? '\nFor **' + this.labelISO(this.state.takeDate || this.TODAY) + '**: ' + this.state.takeText : '')
           + (gOpen ? '\n' + this.GREET_GUIDE : '');
         const gLink = React.createElement('span', {
           onClick: this.toggleChatGuide,

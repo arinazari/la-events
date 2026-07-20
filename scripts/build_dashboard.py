@@ -146,24 +146,27 @@ FP_SHELF_CAP = 40      # keys per shelf list (near + ahead each) — deep enough
 # Don't-miss policy (assemble.top_picks — one shelf definition with the digest's "Don't miss").
 
 
-# "The Take" — the voice pass's intro on the consolidated digest, lifted from between the
-# renderer's explicit markers so the feed can carry it structurally (front_page.take) and the
-# page never parses markdown conventions (the 2026-07-16 redesign follow-up).
-TAKE_START, TAKE_END = "<!-- take:start -->", "<!-- take:end -->"
+# "The Take" — the one-sentence teaser the voice pass writes into the consolidated digest's
+# invisible `<!-- take: … -->` slot, lifted here with the doc's own date so the feed carries it
+# structurally (front_page.take = {text, date}) and the page never parses markdown conventions.
+# The date rides along so the chat welcome can honestly show WHICH day's read this is (a stale
+# digest shows its real date, never today's). Display chrome only — never sent to the model.
+TAKE_RE = re.compile(r"<!--\s*take:(?!start\b|end\b)(.*?)-->", re.S)
+DOC_DATE_RE = re.compile(r"^# .*?(\d{4}-\d{2}-\d{2})", re.M)
 
 
 def digest_take(md: str):
-    """Text between the take markers, HTML comments stripped (an unfilled `tier3:intro` slot
-    strips to empty). None when the doc has no markers (a free-form per-profile digest, or a
-    pre-marker flagship) or the slot is unfilled — the page then falls back to its digestLede()
-    heuristic over the digest it loads."""
-    md = md or ""
-    i = md.find(TAKE_START)
-    j = md.find(TAKE_END, i + len(TAKE_START)) if i >= 0 else -1
-    if i < 0 or j < 0:
+    """{text, date} from the digest's take slot, or None when the doc has no slot (a free-form
+    per-profile digest, a pre-take flagship) or the slot is unfilled — the page then falls back
+    to its clipped digestLede() heuristic over the digest it loads."""
+    m = TAKE_RE.search(md or "")
+    if not m:
         return None
-    body = re.sub(r"<!--.*?-->", "", md[i + len(TAKE_START):j], flags=re.S).strip()
-    return body or None
+    text = " ".join(m.group(1).split())
+    if not text:
+        return None
+    d = DOC_DATE_RE.search(md)
+    return {"text": text, "date": d.group(1) if d else None}
 
 
 def _fp_windows(today):
@@ -184,7 +187,8 @@ def _fp_windows(today):
 def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
                      take=None) -> dict:
     """The front_page block: hero keys per lens + shelf keys per lane (+ radar/around joins,
-    + "The Take" — the digest lede, carried structurally). One card per PROGRAM: series members
+    + "The Take" — the digest's dated one-sentence teaser, {text, date}, carried structurally
+    for the concierge chat's welcome). One card per PROGRAM: series members
     (lib/series — multi-night runs, cross-theater film programs, stamped by the consolidation
     pass in main()) enter only via their rep night, the same unit final_rank ranks."""
     pool = [e for e in events
@@ -257,10 +261,10 @@ def main() -> int:
     ap.add_argument("--enrichment", default="data/enrichment.json",
                     help="scene-graph cache to fold in (optional; skipped if absent)")
     ap.add_argument("--digest", default="digests/latest.md",
-                    help="digest doc to lift 'The Take' (the voice-pass intro) from into "
-                         "front_page.take — build_profiles points each friend's feed at their "
-                         "own digests/<hash>/latest.md (no markers there -> no take; the page "
-                         "falls back to its lede heuristic)")
+                    help="digest doc to lift 'The Take' (the voice pass's dated one-sentence "
+                         "teaser) from into front_page.take — build_profiles points each "
+                         "friend's feed at their own digests/<hash>/latest.md (no take slot "
+                         "there -> null; the page falls back to its clipped lede heuristic)")
     ap.add_argument("--profile-hash", default=None,
                     help="feed hash of the profile being built — loads its OWN per-person music "
                          "layer (data/spotify/<hash>.json + data/feedback.<hash>.jsonl) instead of "

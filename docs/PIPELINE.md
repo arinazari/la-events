@@ -147,9 +147,11 @@ no backend; the static page just renders it.
 4. **Consolidated voice pass** (Tier-3, routine step 5b) — small, every run: the intro slot,
    the Don't-miss whys (prefilled deterministically from verdicts/curator notes; the pass
    rewrites for voice), an optional Around-town gloss. Fills marked slots only — never
-   selection (the body is deterministic slate). The intro doubles as "The Take": the feed
-   build (step 7, after this pass) lifts it from between the digest's `take:start/end`
-   markers into `front_page.take`, so the dashboard reads it structurally.
+   selection (the body is deterministic slate). The pass also writes "The Take" — a
+   ONE-sentence teaser in the digest's invisible `<!-- take: -->` slot, distinct from the
+   intro; the feed build (step 7, after this pass) lifts it + the doc's date into
+   `front_page.take = {text, date}`, and the dashboard's concierge chat opens with it as
+   display chrome only (never sent to the model — the retired `opener` field).
 5. **Owner refresh** — **no LLM**, and debounced so a rapid re-click doesn't re-sweep sources.
    Known tradeoff: its best-effort re-render of `digests/latest.md` replaces the morning's
    Tier-3 voice layer with a fresh deterministic scaffold (whys stay prefilled; the slot

@@ -158,11 +158,12 @@ plugs into it). Either mode emits a canonical Markdown agenda (committable). The
 **curator notes + artist glosses come from Step-4 enrichment**, so the insider voice is baked in;
 scoring is **precomputed** (read `score`/`rating`/
 `reasons` — never hand-score; the taste profile below is just orientation for *why* things rank). On
-top of the renderer you add a short conversational intro (fill the `<!-- tier3:intro -->` slot,
-leaving the `<!-- take:start/end -->` markers around it in place — the feed build lifts the intro
-from between them into `front_page.take`, the dashboard's "The Take") and the sections it doesn't
-generate (**Around town**, **On the radar**) plus pinning/judgment. The full digest — NOT a wall
-of every event.
+top of the renderer you add a short conversational intro (fill the `<!-- tier3:intro -->` slot)
+plus **the take** — a ONE-sentence high-level teaser written inside the invisible
+`<!-- take: -->` comment slot (the feed build lifts it + the doc's date into
+`front_page.take`; the dashboard's concierge chat opens with it, display-only — never sent to
+the model) — and the sections the renderer doesn't generate (**Around town**, **On the
+radar**) plus pinning/judgment. The full digest — NOT a wall of every event.
 **Honor `digest.yaml` when present** — the reader's format prefs (`length` · `group_by` · `sections` ·
 `max_picks_per_day` · `emphasis` · `tone` · `notes`). They reshape the structure below to taste
 (presentation only; ranking is unchanged). `render_digest` already applies the `max_picks_per_day` cap

@@ -71,20 +71,26 @@ def test_hero_is_lane_capped_for_diversity():
     assert "film1" in hero               # diversity: the film outlives lower-ranked club picks
 
 
-def test_take_lifted_between_markers_only_when_filled():
-    """The Take rides the feed structurally: text between the take markers, comments stripped;
-    an unfilled slot or a free-form (marker-less) doc yields None so the page falls back to its
-    lede heuristic."""
-    filled = ("# LA Events — 2026-07-15\n*meta*\n\n<!-- take:start -->\n"
-              "A deep house weekend, and the Vista's 70mm run peaks.\n<!-- take:end -->\n\n## Don't miss\n")
-    assert B.digest_take(filled) == "A deep house weekend, and the Vista's 70mm run peaks."
-    unfilled = "<!-- take:start -->\n<!-- tier3:intro -->\n<!-- take:end -->\n"
-    assert B.digest_take(unfilled) is None
+def test_take_lifted_from_slot_with_doc_date():
+    """The Take rides the feed structurally as {text, date}: the one-sentence teaser inside the
+    invisible `<!-- take: … -->` comment slot, plus the doc's own date (so the chat welcome can
+    honestly show WHICH day's read it is). An unfilled slot or a free-form (slot-less) doc
+    yields None so the page falls back to its clipped lede heuristic."""
+    filled = ("# LA Events — 2026-07-15\n*meta*\n\n"
+              "<!-- take: Deep-house weekend — the pier goes off Saturday. -->\n"
+              "The 2-4 sentence intro paragraph.\n\n## Don't miss\n")
+    assert B.digest_take(filled) == {"text": "Deep-house weekend — the pier goes off Saturday.",
+                                     "date": "2026-07-15"}
+    assert B.digest_take("<!-- take: -->\n<!-- tier3:intro -->\n") is None   # unfilled scaffold
     assert B.digest_take("# Free-form profile digest\n\nJust prose.\n") is None
     assert B.digest_take("") is None
-    assert B.digest_take("<!-- take:start -->\nprose\n") is None   # end marker lost -> no take
-    fp = B.build_front_page([], {}, TODAY, take="the take")
-    assert fp["take"] == "the take"
+    # a multi-line teaser normalizes to one line; a doc with no dated H1 still yields the text
+    assert B.digest_take("<!-- take: two\n   lines -->")["text"] == "two lines"
+    assert B.digest_take("<!-- take: x -->")["date"] is None
+    # the retired start/end markers never read as a take
+    assert B.digest_take("<!-- take:start -->\nprose\n<!-- take:end -->\n") is None
+    fp = B.build_front_page([], {}, TODAY, take={"text": "the take", "date": "2026-07-15"})
+    assert fp["take"] == {"text": "the take", "date": "2026-07-15"}
     assert B.build_front_page([], {}, TODAY)["take"] is None
 
 

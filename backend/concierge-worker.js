@@ -107,11 +107,9 @@ export default {
     const messages = sanitizeMessages(body && body.messages);
     if (!messages.length) return json({ error: "no messages" }, 400, cors);
     const profileHash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
-    // The page's opener (the day's take) — a concierge line the user may be replying to. The
-    // page keeps its welcome chrome out of `messages` entirely (token save; and a leading
-    // assistant turn would be stripped below anyway), so the take arrives as its own field
-    // and grounds the system prompt instead.
-    const opener = (body && typeof body.opener === "string") ? body.opener.trim().slice(0, 1500) : "";
+    // NOTE: the page's welcome chrome (greeting + the day's take + how-to) never reaches this
+    // Worker in any form — no history turn, no side field (the old `opener` is retired by
+    // design: the take is display-only; replies ground on the feed data below).
 
     // Ground on the live feed — the profile's feed when one is attached (best-effort).
     const dataUrl = env.DATA_URL || DEFAULTS.DATA_URL;
@@ -129,7 +127,7 @@ export default {
     // Worker can trigger a (revertible) commit to a profile's file; keep GITHUB_TOKEN a single-repo,
     // Contents-only PAT.
     const canEdit = !!(profileHash && env.GITHUB_TOKEN);
-    const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name, opener });
+    const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name });
     // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
     // set ADVISOR_MODEL to "" to disable. Plus the two self-edit tools when this profile can edit.
     const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
@@ -469,12 +467,6 @@ export function buildSystem(feed, opts = {}) {
     "not a generic chatbot. Voice: conversational, opinionated, concise; no sycophancy, no padding.",
     `Today is ${today} (America/Los_Angeles).`,
     opts.profileName ? `You're talking to ${opts.profileName}; the picks below are ranked to THEIR taste.` : "",
-    // The take: the page opens the chat thread with the digest's lede as YOUR first message —
-    // it reaches you here (not in the turn history), so replies to it stay grounded.
-    opts.opener
-      ? "\nYou opened this thread with today's take (they've read it — a reply like \"what's the" +
-        " move tonight then?\" refers to it):\n" + opts.opener
-      : "",
     "",
     "You can do four things with the data below: (1) ANSWER questions about events, venues,",
     "restaurants, artists, neighborhoods; (2) RECOMMEND with a one-line 'why' per pick; (3) PLAN a",

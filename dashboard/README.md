@@ -92,14 +92,16 @@ The chat has two modes, toggled in its header (default **Concierge**):
   is the fallback whenever the backend is unset/unreachable, so the chat never dead-ends.
 
 **The welcome wraps the take** — the thread opens on ONE concierge message: the greeting, then
-the day's take ("For Fri 7/17: …" — the consolidated digest's voice-pass lede, parsed out of
-`./digests/latest.md`), then the how-to with its tap-to-fill examples. The how-to renders
-full-size until this device sends its first message, then tucks behind a *see what I can do ▸*
-toggle (`chatGuideOpen` / `la-chat-used`). The welcome is client-side chrome: it *looks* like
-the LLM's first message but is never sent to it — `askBackend` drops it from the history
-(saving tokens); only the take rides along, as the `opener` field the Worker folds into the
-system prompt, so "what's the move tonight then?" still has context. A profile with no digest
-yet just gets no take line.
+the day's take ("For Fri 7/17: …" — the voice pass's ONE-sentence teaser, carried structurally
+as `front_page.take = {text, date}`; the date shown is the digest's own date, so it visibly
+reads as today's take when it is and honestly dated when stale), then the how-to with its
+tap-to-fill examples. Feeds without a structural take fall back to the digest-lede heuristic
+(`digestLede()`), clipped to one sentence. The how-to renders full-size until this device
+sends its first message, then tucks behind a *see what I can do ▸* toggle (`chatGuideOpen` /
+`la-chat-used`). The welcome is ALL client-side chrome: it *looks* like the LLM's first
+message but none of it is ever sent — not as history and not as any side field (the old
+`opener` is retired by design; the model grounds on the feed data alone). A profile with no
+digest yet just gets no take line.
 
 **Discover new sources** → a **copy-to-Claude-Code hand-off** (composes a Discover-mode prompt,
 copies it; you paste it into Claude Code, which proposes sources — approval still happens in the
