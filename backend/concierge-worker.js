@@ -78,7 +78,7 @@ const DEFAULTS = {
 };
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const origin = env.ALLOWED_ORIGIN || DEFAULTS.ALLOWED_ORIGIN;
     const cors = {
       "Access-Control-Allow-Origin": origin,
@@ -91,14 +91,14 @@ export default {
     // Everything below runs behind a catch-all: an uncaught error would otherwise surface as a
     // no-CORS Cloudflare error page the browser can only report as "backend unreachable" —
     // return the real reason (with CORS) so the page can show it instead.
-    try { return await handleRequest(request, env, cors); }
+    try { return await handleRequest(request, env, cors, ctx); }
     catch (e) { return json({ error: "internal", detail: String((e && e.message) || e).slice(0, 300) }, 500, cors); }
   },
 };
 
 /* The whole request path (spotify + pipeline routing + the chat proxy) — split out of fetch()
- * so the catch-all above wraps every branch. */
-async function handleRequest(request, env, cors) {
+ * so the catch-all above wraps every branch. `ctx` anchors the detached streaming pipeline. */
+async function handleRequest(request, env, cors, ctx) {
   // Per-profile Spotify (browser OAuth + KV token store + an authed sync the routine/CI calls)
   // is path-routed here; every other request is the chat proxy below. One Worker, one deploy.
   const url = new URL(request.url);
@@ -182,7 +182,7 @@ async function handleRequest(request, env, cors) {
     const ts = new TransformStream();
     const writer = ts.writable.getWriter();
     const emit = (obj) => { writer.write(enc.encode(JSON.stringify(obj) + "\n")).catch(() => {}); };
-    (async () => {
+    const pipeline = (async () => {
       try {
         emit({ t: "hello", v: VERSION });
         emit({ t: "done", ...(await runChat(env, { ...chatOpts, messages }, emit)) });
@@ -191,6 +191,11 @@ async function handleRequest(request, env, cors) {
       }
       try { await writer.close(); } catch { /* page went away mid-stream */ }
     })();
+    // ANCHOR the detached pipeline: without waitUntil its only lifeline is the open response
+    // stream, so a stop-button abort or tab close mid-TOOL-ROUND could kill the invocation
+    // between two GitHub commits ("I moved to Glendale and stop showing me comedy" → profile.yaml
+    // lands, taste.yaml silently doesn't). With it, an in-flight edit round always completes.
+    if (ctx && typeof ctx.waitUntil === "function") ctx.waitUntil(pipeline);
     return new Response(ts.readable, {
       status: 200,
       headers: { "content-type": "application/x-ndjson; charset=utf-8", "cache-control": "no-store", ...cors },
@@ -268,11 +273,17 @@ async function runChat(env, { system, messages, tools, apiKey, model, canEdit, p
         { role: "assistant", content: data.content },
         { role: "user", content: results },
       ];
-      // The follow-up after a PURE EDIT round is a one-line confirmation ("updated — re-ranks in
-      // a minute") — it doesn't need max-effort thinking, and dropping it to low cuts taste-edit
-      // latency roughly in half. A round that ran plan_with_friends keeps full effort: the actual
-      // reasoning over the group matrix happens HERE, in the follow-up.
-      const effort = uses.every((u) => u.name !== PLAN_TOOL.name) ? "low" : undefined;
+      // The follow-up after a BARE preference change ("track Peggy Gou", "I moved to Glendale")
+      // is a one-line confirmation — it doesn't need max-effort thinking, and dropping it to low
+      // cuts taste-edit latency roughly in half. But a MIXED ask ("more techno now — what should
+      // I hit this weekend?") generates its real answer here in the follow-up, so anything that
+      // smells like a question keeps the configured effort — as do plan_with_friends rounds (the
+      // group-matrix reasoning happens here). Heuristic bias: misreading a bare edit as mixed
+      // only costs speed; the reverse would cost answer quality, so the ask-detection is greedy.
+      const lastUser = [...messages].reverse().find((m) => m.role === "user");
+      const asksMore = !lastUser || lastUser.content.length > 160 || /\?/.test(lastUser.content) ||
+        /\b(what|which|where|when|how|who|plan|recommend|suggest|should|ideas?|options?|go(ing)? out|tonight|weekend|this (week|month)|friday|saturday|sunday|monday|tuesday|wednesday|thursday)\b/i.test(lastUser.content);
+      const effort = (!asksMore && uses.every((u) => u.name !== PLAN_TOOL.name)) ? "low" : undefined;
       // Same bounded pause_turn resume as the first call: the advisor is plausibly consulted
       // right here (planning over the tool results), and without the loop a paused follow-up
       // would silently serve the canned fallback line instead of the model's actual answer.

@@ -204,10 +204,13 @@ Tuned for **multi-step, high-quality planning**:
   deltas are forwarded to the page as NDJSON (see Contract), so words appear in the chat as they
   generate instead of behind one long THINKING spinner. Perceived latency drops massively; total
   latency is unchanged.
-- **Cheap confirmation round** — the follow-up generation after a pure taste/profile/digest edit
-  runs at `effort: low` (it's a one-line confirmation, not planning), roughly halving taste-edit
-  latency. A round that ran `plan_with_friends` keeps full effort — the real reasoning over the
-  group matrix happens in that follow-up.
+- **Cheap confirmation round** — the follow-up generation after a **bare** taste/profile/digest
+  edit ("track Peggy Gou", short message, no question) runs at `effort: low` — it's a one-line
+  confirmation, not planning — roughly halving taste-edit latency. A mixed ask ("more techno —
+  what's good this weekend?") keeps full effort, because its real answer is generated in that
+  follow-up; so do `plan_with_friends` rounds (the group-matrix reasoning happens there). The
+  ask-detection heuristic is deliberately greedy: misreading a bare edit only costs speed,
+  never answer quality.
 
 **Executor upgrade:** the page's **Use Opus** toggle sends `model: "opus"` in the body, and the
 Worker honors it for **any authed caller** — shared-token users included (Ari's call: the token
