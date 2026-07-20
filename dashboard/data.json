@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-19T12:32:05+00:00",
+  "generated_at": "2026-07-20T06:02:45+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "c03526418a4b",
   "catalog_content_version": "3f5ea88ea1ba",
-  "catalog_fetched_at": "2026-07-19T12:19:16+00:00",
+  "catalog_fetched_at": "2026-07-20T06:02:42+00:00",
   "count": 3172,
   "enriched_count": 1403,
   "music": {
@@ -439,10 +439,6 @@
         "count": 212
       },
       {
-        "value": "afterhours",
-        "count": 202
-      },
-      {
         "value": "21+",
         "count": 118
       },
@@ -460,7 +456,7 @@
       },
       {
         "value": "day-party",
-        "count": 56
+        "count": 70
       },
       {
         "value": "tribute",
@@ -485,6 +481,10 @@
       {
         "value": "free-rsvp",
         "count": 19
+      },
+      {
+        "value": "afterhours",
+        "count": 16
       },
       {
         "value": "analog-film",
@@ -748,7 +748,7 @@
       "twoweeks": [
         "177f79bbe0c6",
         "8a3d95d9db16",
-        "40092dd2af6c",
+        "66a16855b568",
         "981ec1e26eb6",
         "d991f971640b",
         "f5b82221f3da"
@@ -770,52 +770,67 @@
           "club:underground"
         ],
         "near": [
+          "8a3d95d9db16",
+          "66a16855b568",
           "40092dd2af6c",
+          "239305f0c2bd",
+          "a4c21a0657c3",
+          "7210967968cd",
+          "5294c2135331",
+          "ebf5f4fea4b2",
           "8d59ebbed1a8",
+          "0a6027d386d0",
           "e2c08cc61e38",
           "e0899913b815",
+          "a98bbece1105",
           "9b1f1434ffe9",
+          "7c650dc81dc0",
           "5c97b05e45ab",
-          "3557104a3c7e",
+          "0b1def74b526",
           "ead4e9a991a9",
           "cbe9b65bd238",
           "369c551f8631",
           "36596366e35c",
-          "264a3060d339",
+          "73a06e501243",
+          "1c8c064e1849",
+          "fc43cc2a4f7e",
+          "b78b2baafefd",
+          "b674f7041949",
+          "99dad68671e5",
+          "8212444d82c3",
+          "7e22ce3805ff",
+          "748778f02d7b",
+          "6f8d76827115",
+          "64d34b4fdb46",
+          "561c53c7de75",
+          "1d01b7faf66d",
+          "fef669cf8ca3",
           "f00226ae28ac",
-          "600c847c4500",
-          "534b9ea9cab3",
-          "ab3f6a3f7f6e",
-          "605ca0cfdbca",
-          "55807877a1a1",
-          "4d9ad0f3f3e4",
-          "41c9ff7b0584",
-          "40b2f697e88b",
-          "3353ff49a680",
-          "26d886ad3c49",
-          "184abb486524",
-          "15b4661d9ae4",
-          "10a67894d0e4",
-          "cce113facd31",
-          "8fe81522096d",
-          "6f9ba3bde39e",
-          "541ba4081457",
-          "28096c76cc90",
-          "22d295843fcb",
-          "0bcac8b65ebd",
-          "ce8b2326ed11",
-          "b5f01d902511",
-          "865f2a3d0771",
-          "56130280be48",
-          "4debbfe632eb"
+          "c5011a0ac951",
+          "b84e6ffc5156",
+          "af2a15d7c38e",
+          "8c49c112bd93"
         ],
         "ahead": [
+          "6a22d168fab3",
+          "984fe4bfb4d4",
+          "9111f44bad10",
           "837aa3bf27e0",
+          "1e743c3f1597",
+          "1c5658a19b7d",
           "996d9306b51e",
+          "5bd7f81cf3e4",
           "58322d41c1a1",
+          "7de9287d2683",
+          "9851924f54a8",
+          "f04617235664",
           "dea0859f51eb",
           "7b479b4668da",
+          "669799304969",
+          "54658d545a38",
+          "36aa6be5efaf",
           "227ab6a2cb23",
+          "1fd920712f60",
           "0b7aa08a4004",
           "d8955d9bec86",
           "c1277c000c36",
@@ -823,33 +838,20 @@
           "b988021abd5d",
           "86dfaf8f2a46",
           "7bf614ae31fe",
+          "5c0551af6dd5",
           "6ad73832c2e6",
+          "425c0519625d",
           "3f45cae00b45",
           "390dd0d19ade",
+          "956e5fc378e0",
+          "3061917831bd",
+          "62d4bf82db4b",
+          "3311cff0ac9d",
+          "2c126d230d6c",
           "f32e99937543",
-          "ea0b8717a302",
-          "e7d6828b3c26",
-          "d49eb8554c26",
-          "a919a8bcf1ce",
-          "99b3c7d33792",
-          "8a862e604d08",
-          "84882da12558",
-          "59f5933da774",
-          "4b408a85f3df",
-          "2423ea535ca4",
-          "f5fd172081e4",
-          "c643884f6423",
-          "c2f94b0ab23e",
-          "baa078451075",
-          "89e8e569e874",
-          "4fa5d629c853",
-          "43dde915b0ab",
-          "29a6936fd7c7",
-          "2252a27fe9b9",
-          "145fe9813772",
-          "11ae969dacf0",
-          "0b7831cf8922",
-          "de894e29d2d7"
+          "f186fc15abc3",
+          "f0b763d61806",
+          "ea0b8717a302"
         ]
       },
       {
@@ -859,89 +861,11 @@
           "club:afters"
         ],
         "near": [
-          "177f79bbe0c6",
-          "8a3d95d9db16",
-          "66a16855b568",
-          "239305f0c2bd",
           "82c5013339e2",
-          "a4c21a0657c3",
-          "7210967968cd",
-          "5294c2135331",
-          "ebf5f4fea4b2",
-          "0a6027d386d0",
-          "a98bbece1105",
-          "7c650dc81dc0",
-          "0b1def74b526",
-          "73a06e501243",
-          "1c8c064e1849",
-          "fc43cc2a4f7e",
-          "b78b2baafefd",
-          "b674f7041949",
           "b4399b0846d1",
-          "99dad68671e5",
-          "8212444d82c3",
-          "7e22ce3805ff",
-          "748778f02d7b",
-          "6f8d76827115",
-          "64d34b4fdb46",
-          "561c53c7de75",
-          "306e63bffa16",
-          "1d01b7faf66d",
-          "fef669cf8ca3",
-          "c5011a0ac951",
-          "b84e6ffc5156",
-          "af2a15d7c38e",
-          "8c49c112bd93",
-          "855b43121b39",
-          "854f5385c844",
-          "75ec53b4dd2e",
-          "71d5708e8031",
-          "6f778db15c94",
-          "570f511d469c",
-          "448282a6513e"
+          "71d5708e8031"
         ],
-        "ahead": [
-          "6a22d168fab3",
-          "984fe4bfb4d4",
-          "9111f44bad10",
-          "1e743c3f1597",
-          "1c5658a19b7d",
-          "5bd7f81cf3e4",
-          "7de9287d2683",
-          "9851924f54a8",
-          "46fd23deaf71",
-          "f04617235664",
-          "669799304969",
-          "54658d545a38",
-          "36aa6be5efaf",
-          "1fd920712f60",
-          "5c0551af6dd5",
-          "425c0519625d",
-          "956e5fc378e0",
-          "3061917831bd",
-          "d6d919ad1b86",
-          "a4fbb098114f",
-          "62d4bf82db4b",
-          "3311cff0ac9d",
-          "2c126d230d6c",
-          "f186fc15abc3",
-          "f0b763d61806",
-          "e37fb1d2d8c0",
-          "dffe00986575",
-          "b81b738c54bf",
-          "b368b043c331",
-          "8a34951dcd50",
-          "8679879cf19b",
-          "6f3b45e0c905",
-          "623a61c809c9",
-          "5b6f07e2314e",
-          "5798da5dde04",
-          "5451edca01a3",
-          "46262ef3c094",
-          "43b0fbb29a65",
-          "38fb45a7c54c",
-          "32e506bb3cfe"
-        ]
+        "ahead": []
       },
       {
         "id": "day",
@@ -952,22 +876,29 @@
         "near": [
           "d91d029d98b5",
           "dd2fa322c507",
+          "f3d70e5e197d",
           "b84ee43d56a7",
           "6a9787c5dd2d",
           "5a81badca99c",
           "47bb6d2ac6af",
+          "3557104a3c7e",
           "9788d7bfb47e",
+          "264a3060d339",
           "425ea1314810",
           "308d8c70e03c",
           "f2553c28d65b",
           "8adff6eec84e",
           "6797af528454",
+          "235c618a99b3",
           "06e7fc318687",
+          "40b2f697e88b",
           "e803c259bf03",
+          "cce113facd31",
           "9e34fed96d6d",
           "85e9b7ff2e7b",
           "2d6c34e73f13",
-          "2b6650875de2"
+          "2b6650875de2",
+          "865f2a3d0771"
         ],
         "ahead": [
           "feb06e67be72",
@@ -980,6 +911,7 @@
           "468788d42a20",
           "f66877e21936",
           "efabc7dd6d6a",
+          "46fd23deaf71",
           "f45740099378",
           "4ca35970ef98",
           "2ff332dee36f",
@@ -1008,8 +940,7 @@
           "bfbc71b3e946",
           "b55dc359c0e1",
           "3624ee12f41e",
-          "116afa716e6e",
-          "d82a64c61f96"
+          "116afa716e6e"
         ]
       },
       {
@@ -1019,10 +950,11 @@
           "club:mainstream"
         ],
         "near": [
+          "177f79bbe0c6",
           "32763255ec80",
-          "f3d70e5e197d",
           "16d1cd0d334f",
-          "d11a4dd68388"
+          "d11a4dd68388",
+          "306e63bffa16"
         ],
         "ahead": [
           "52241f8a3d48",
@@ -1030,6 +962,9 @@
           "d88055842815",
           "684b17af4b4c",
           "edab80bd44cb",
+          "d6d919ad1b86",
+          "a4fbb098114f",
+          "dffe00986575",
           "d1f48078ca56",
           "f2d7bb8d3c2e",
           "d1d4ddffc311",
@@ -1039,7 +974,6 @@
           "84ae8f1f727b",
           "3866d7b8c918",
           "f9ce91dd5b3b",
-          "a585932a1720",
           "a3e7d4b912fd",
           "93c3fd52eab0",
           "7ad3c93a4a98",
@@ -1386,33 +1320,8 @@
         ]
       }
     ],
-    "radar": [
-      "a275d78b3f74",
-      "d535a0dbfe40",
-      "edab80bd44cb",
-      "84882da12558",
-      "d49eb8554c26",
-      "78e0f4057e8b",
-      "1edb63fd2e80",
-      "fb68efb436c1",
-      "33c2216d15dc",
-      "3d1950382c1d",
-      "5cfd176b0544",
-      "cf6cd35ddcc5",
-      "11457438b017",
-      "233fd1bfe94c",
-      "d5ab2f4bfacc",
-      "5900ac0a20b0"
-    ],
-    "around": [
-      "8d8f319c34f5",
-      "7ee51542900a",
-      "20ce0d23a2ec",
-      "d826d3e1946a",
-      "e842a53b8a0b",
-      "d05097bd1801",
-      "48fff5ac07e8"
-    ]
+    "radar": [],
+    "around": []
   },
   "dining": [
     {
@@ -3379,7 +3288,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location",
           "free"
         ],
@@ -3405,7 +3313,7 @@
         "why": "Open-air TBA party with no lineup \u2014 nice setting, nothing to actually vouch for it.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:day",
       "key": "235c618a99b3",
       "final_rank": 249
     },
@@ -3846,7 +3754,9 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [],
+        "vibe": [
+          "day-party"
+        ],
         "region": "westside",
         "near_home": false
       },
@@ -3888,7 +3798,7 @@
         "why": "Mousse T is a legit disco-house veteran (Defected/Peppermint Jam orbit) the score can't recognize by name \u2014 this is a sleeper the '+1 rooftop' bump badly undersells.",
         "confidence": "med"
       },
-      "lane": "club:underground",
+      "lane": "club:day",
       "key": "3557104a3c7e",
       "final_rank": 87
     },
@@ -5805,6 +5715,7 @@
         "setting": [],
         "scale": null,
         "vibe": [
+          "day-party",
           "residency",
           "tba-location",
           "ra-pick"
@@ -5830,7 +5741,7 @@
         "why": "RA-pick day party but the lineup reads more hip-hop/DJ-collective than a house selector he'd recognize, and TBA location adds friction \u2014 worth a look, not a lock.",
         "confidence": "low"
       },
-      "lane": "club:underground",
+      "lane": "club:day",
       "key": "865f2a3d0771",
       "final_rank": 478
     },
@@ -5875,6 +5786,7 @@
         "setting": [],
         "scale": null,
         "vibe": [
+          "day-party",
           "tba-location"
         ],
         "region": null,
@@ -5900,7 +5812,7 @@
         "why": "Strange House reopening party, unfamiliar single-name headliner \u2014 house-tagged and TBA, same tier as the other day-party stubs.",
         "confidence": "low"
       },
-      "lane": "club:underground",
+      "lane": "club:day",
       "key": "cce113facd31",
       "final_rank": 368
     },
@@ -6388,9 +6300,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -6683,7 +6593,9 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [],
+        "vibe": [
+          "day-party"
+        ],
         "region": "far",
         "near_home": false
       },
@@ -6711,7 +6623,7 @@
         "why": "Huntington Beach day party with an unknown headliner \u2014 the far-flung penalty is doing the right thing here.",
         "confidence": "high"
       },
-      "lane": "club:underground",
+      "lane": "club:day",
       "key": "4a52c2315b3b",
       "final_rank": 2341
     },
@@ -7115,6 +7027,7 @@
         "setting": [],
         "scale": null,
         "vibe": [
+          "afterhours",
           "free"
         ],
         "region": null,
@@ -7320,6 +7233,7 @@
         "setting": [],
         "scale": null,
         "vibe": [
+          "day-party",
           "pop-up"
         ],
         "region": null,
@@ -7341,7 +7255,7 @@
         "why": "Cheap ($5-10), LA-based daytime house pop-up \u2014 low risk even with an unfamiliar lineup.",
         "confidence": "low"
       },
-      "lane": "club:underground",
+      "lane": "club:day",
       "key": "40b2f697e88b",
       "final_rank": 323
     },
@@ -7379,7 +7293,9 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [],
+        "vibe": [
+          "day-party"
+        ],
         "region": "eastside",
         "near_home": false
       },
@@ -7401,7 +7317,7 @@
         "why": "Andre Power co-founded Soulection \u2014 this is a real tastemaker's groove/disco/amapiano day party in Boyle Heights, not a generic hip-hop night, and it's an easy trip from Silver Lake.",
         "confidence": "med"
       },
-      "lane": "club:underground",
+      "lane": "club:day",
       "key": "264a3060d339",
       "final_rank": 167
     },
@@ -11631,7 +11547,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free",
           "free-rsvp"
         ],
@@ -11655,7 +11570,7 @@
         "why": "Pomona on a Tuesday for an unbilled local house night isn't worth the drive without a name to chase.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "fb5601f64001",
       "final_rank": 2129
     },
@@ -11694,7 +11609,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -11717,7 +11631,7 @@
         "why": "Free weekly WeHo night with no DJ billed \u2014 the generic no-real-billing club night the taste flags to bury, not a proper booking.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "1223eb89eca5",
       "series_key": "run:paris at night house tuesdays at the iconic keys los angeles|keys nightclub west hollywood house tech house edm",
       "series": {
@@ -12033,7 +11947,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": null,
@@ -12056,7 +11969,7 @@
         "why": "Generic recurring Tuesday club night, no lineup, weeknight \u2014 nothing distinguishes it from the dozens like it.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b36057c456eb",
       "final_rank": 2100
     },
@@ -12869,9 +12782,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -14479,9 +14390,7 @@
           "club"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -14508,7 +14417,7 @@
         "why": "Techno/tech-house/deep-house club night hits the genre lane but no names are billed to gauge the room.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "6f778db15c94",
       "final_rank": 227
     },
@@ -15331,9 +15240,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -16619,9 +16526,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -16967,7 +16872,7 @@
         "why": "TBA warehouse afters with a real house/deep-tech local lineup (Lavenge, Max Rush) \u2014 fits the lane, just not headliner-level draw.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "2e3bcf816b88",
       "final_rank": 331
     },
@@ -17193,9 +17098,7 @@
           "club"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -17216,7 +17119,7 @@
         "why": "Weekly drum & bass night with no named lineup \u2014 off the house/techno spine this profile runs on.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "6bb9d8dcb46f",
       "series_key": "run:respect thursdays|jungle hollywood los angeles drum and bass",
       "series": {
@@ -17337,7 +17240,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free",
           "18+"
         ],
@@ -17361,7 +17263,7 @@
         "why": "House/tech-house genre tags are a real match but this reads as a generic branded promo night with no billed DJs.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b1f4a937fa49",
       "final_rank": 282
     },
@@ -17579,7 +17481,6 @@
         ],
         "scale": "room",
         "vibe": [
-          "afterhours",
           "free",
           "free-rsvp"
         ],
@@ -17603,7 +17504,7 @@
         "why": "Tech house/minimal is dead-center genre, but no lineup listed to confirm who's actually behind the decks.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "a5ed33f2683a",
       "final_rank": 286
     },
@@ -19105,9 +19006,7 @@
           "club"
         ],
         "scale": "hall",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "far",
         "near_home": false
       },
@@ -19129,7 +19028,7 @@
         "why": "K-pop/EDM mashup club night in Costa Mesa \u2014 mainstream open-format bill, not a DJ-driven house/techno pick, and the drive isn't worth it.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:mainstream",
       "key": "56b4dd4028ed",
       "final_rank": 2337
     },
@@ -20825,7 +20724,6 @@
         ],
         "scale": "bar",
         "vibe": [
-          "afterhours",
           "tribute"
         ],
         "region": "westside",
@@ -21204,9 +21102,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "dtla",
         "near_home": true
       },
@@ -21254,7 +21150,7 @@
         "why": "Stavroz live is a genuine draw \u2014 Belgian live-electronic band in the organic/melodic Innervisions-adjacent lane, and a live-band set is a rarer booking than another DJ night.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "66a16855b568",
       "final_rank": 5
     },
@@ -21299,7 +21195,6 @@
         ],
         "scale": "room",
         "vibe": [
-          "afterhours",
           "free",
           "free-rsvp"
         ],
@@ -21341,7 +21236,7 @@
         "why": "2010s pop/EDM nostalgia night at Catch One \u2014 exactly the 'decade night' nostalgia format taste.yaml penalizes, not a real DJ booking.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "43fef8a9bc07",
       "final_rank": 2113
     },
@@ -21454,7 +21349,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "dtla",
@@ -21492,7 +21386,7 @@
         "why": "VILENA is unverified, TBA location \u2014 generic afters until proven otherwise.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "570f511d469c",
       "final_rank": 233
     },
@@ -21533,7 +21427,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "eastside",
@@ -21583,7 +21476,7 @@
         "why": "TBA Silver Lake afterhours with names I don't recognize \u2014 could be a genuine underground night, can't confirm.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "561c53c7de75",
       "final_rank": 193
     },
@@ -21623,7 +21516,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "dtla",
@@ -21654,7 +21546,7 @@
         "why": "Spotify flags Juice at a strong-listen tier and it's a TBA-location afters, the format you like, but the billed name (MISS BRICKS) is otherwise unverified.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "ebf5f4fea4b2",
       "final_rank": 25
     },
@@ -21856,9 +21748,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -21881,7 +21771,7 @@
         "why": "Airliner's the old Low End Theory room and still books house/techno/funk seriously, but no lineup listed here to confirm this specific night's draw.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "73a06e501243",
       "final_rank": 173
     },
@@ -22041,7 +21931,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -22069,7 +21958,7 @@
         "why": "TBA-location night on an unrecognizable name (BLOODHOUND) with no other signal \u2014 too thin to chase.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "1efc2ecf90d3",
       "final_rank": 2117
     },
@@ -22955,9 +22844,7 @@
           "cinema"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -23048,7 +22935,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location",
           "free"
         ],
@@ -23088,7 +22974,7 @@
         "why": "Rich NXT, Nu Zau, and the Dialed Records roster are legit fabric/European-orbit techno names on a free TBA-location night \u2014 the exact underground-warehouse sweet spot the flat score of 5 buried.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "8a3d95d9db16",
       "final_rank": 4
     },
@@ -23353,9 +23239,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -23649,9 +23533,7 @@
           "bar"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -23864,9 +23746,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -23927,9 +23807,7 @@
           "club"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -23951,7 +23829,7 @@
         "why": "Tech-house/afro-house night at Sound with names I can't vouch for either way.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b84e6ffc5156",
       "final_rank": 213
     },
@@ -23988,7 +23866,7 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "day-party",
+          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -24011,7 +23889,7 @@
         "why": "Hard techno at an Inland Empire TBA running to 4:30am \u2014 wrong subgenre (not the melodic/groove lane) and a real drive on top of it.",
         "confidence": "med"
       },
-      "lane": "club:day",
+      "lane": "club:underground",
       "key": "2f581f6e9b25",
       "final_rank": 2220
     },
@@ -24050,7 +23928,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -24074,7 +23951,7 @@
         "why": "Weekly night with unnamed \"special guest DJs\" \u2014 no real billing to hang a recommendation on.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "5785320a1fbd",
       "series_key": "run:muzique fridays kiss kiss bang bang w special guest djs|kiss kiss bang bang",
       "series": {
@@ -24450,9 +24327,7 @@
           "cinema"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -24855,7 +24730,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": null,
@@ -24879,7 +24753,7 @@
         "why": "No billed lineup on a small free late-night party \u2014 nothing distinguishes it from filler.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "085544fa581e",
       "final_rank": 2092
     },
@@ -24918,7 +24792,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": null,
@@ -24942,7 +24815,7 @@
         "why": "A 'US debut' billing for Marian (BR) hints at some underground pedigree, but there's no scene data to confirm it.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "748778f02d7b",
       "final_rank": 190
     },
@@ -27215,7 +27088,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free",
           "free-rsvp",
           "21+"
@@ -27247,7 +27119,7 @@
         "why": "Dubstep night at Vermont Hollywood \u2014 squarely the genre this profile penalizes; score dinged it but this is a full bury.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b0a9f5fcadef",
       "final_rank": 2290
     },
@@ -28692,9 +28564,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -28756,7 +28626,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "valley",
@@ -28782,7 +28651,7 @@
         "why": "Candyland's built on hardstyle and dubstep with house as an afterthought \u2014 exactly the mix that gets docked, and a TBA Burbank warehouse doesn't save it.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b1128a27987b",
       "series_key": "run:candyland|tba burbank edm house hyperpop dubstep bass house happy hardstyle",
       "series": {
@@ -28857,7 +28726,9 @@
           "pool"
         ],
         "scale": null,
-        "vibe": [],
+        "vibe": [
+          "day-party"
+        ],
         "region": "dtla",
         "near_home": true
       },
@@ -28946,7 +28817,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "all-night-set",
           "tba-location"
         ],
@@ -28997,7 +28867,7 @@
         "why": "Nick Le\u00f3n is a legit rising name in the Latin/club-fusion techno space with real label cosigns \u2014 an all-night set close to home is worth building around.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "a4c21a0657c3",
       "final_rank": 18
     },
@@ -29112,9 +28982,7 @@
           "cinema"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -29266,9 +29134,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -29310,7 +29176,7 @@
         "why": "VLTRA is unverified and there's no scene data \u2014 a generic Venice afters.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "7e22ce3805ff",
       "final_rank": 188
     },
@@ -29576,7 +29442,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "all-night-set",
           "tba-location"
         ],
@@ -29626,7 +29491,7 @@
         "why": "Certified Groovers is a real RA-listed LA promoter running genuine all-night warehouse afters \u2014 this is the groove-house afters lane, not a random TBA rave.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "7210967968cd",
       "final_rank": 19
     },
@@ -29664,9 +29529,7 @@
           "warehouse"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "dtla",
         "near_home": true
       },
@@ -29689,7 +29552,7 @@
         "why": "Warehouse setting and Friday-night timing check the boxes, but \"LA debut\" with no known names on the bill means the draw is unproven.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "8212444d82c3",
       "final_rank": 187
     },
@@ -30744,9 +30607,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -30768,7 +30629,7 @@
         "why": "Unknown lineup at an afters price point \u2014 no way to gauge the draw beyond the score's baseline credit for the format.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "c5011a0ac951",
       "final_rank": 211
     },
@@ -30912,9 +30773,7 @@
           "cinema"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -30975,7 +30834,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -30999,7 +30857,7 @@
         "why": "No lineup, but a proper warehouse rave is the format this list rewards \u2014 worth a flier if the location drops.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "af2a15d7c38e",
       "final_rank": 214
     },
@@ -31035,9 +30893,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "far",
         "near_home": false
       },
@@ -31059,7 +30915,7 @@
         "why": "Pomona's a real haul for a no-lineup brewery takeover \u2014 hard to justify over closer options.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "dda89cb1660d",
       "final_rank": 269
     },
@@ -31155,9 +31011,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -31270,9 +31124,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -31335,9 +31187,7 @@
           "club"
         ],
         "scale": "hall",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -31389,7 +31239,7 @@
         "why": "Darude is a 2000s trance one-hit-wonder nostalgia booking at a bottle-service big room, not the house/tech-house lane this profile actually wants.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:mainstream",
       "key": "c0280e879181",
       "final_rank": 2097
     },
@@ -31661,7 +31511,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "b2b",
           "queer",
           "tba-location"
@@ -31707,7 +31556,7 @@
         "why": "Carlos Souffront is Detroit/Interdimensional Transmissions techno royalty \u2014 a deep, eclectic selector worth building a night around even at a TBA spot.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "0a6027d386d0",
       "final_rank": 42
     },
@@ -31800,9 +31649,7 @@
           "bar"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -31861,7 +31708,9 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [],
+        "vibe": [
+          "day-party"
+        ],
         "region": "westside",
         "near_home": false
       },
@@ -31940,9 +31789,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": false
       },
@@ -31964,7 +31811,7 @@
         "why": "Venue listing flags this as hard dance/hard techno, which is an explicit penalty category, not the refined house/techno lane.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "ac9d3be1f0bb",
       "final_rank": 2101
     },
@@ -32002,7 +31849,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free",
           "free-rsvp"
         ],
@@ -32029,7 +31875,7 @@
         "why": "Dubstep/bass mega-show \u2014 explicitly off-lane regardless of the free-RSVP hook.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "85d80b17f466",
       "final_rank": 2185
     },
@@ -32065,9 +31911,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -32089,7 +31933,7 @@
         "why": "Tech-house at a Venice food-and-DJ spot fits the core lane, but Vltra isn't a name with a known draw here.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "0fde97538869",
       "final_rank": 253
     },
@@ -32126,7 +31970,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "b2b"
         ],
         "region": null,
@@ -32150,7 +31993,7 @@
         "why": "House b2b booking on-genre for the core lane, but neither name is one you'd recognize or that shows up in the listening data.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "855b43121b39",
       "final_rank": 220
     },
@@ -32187,9 +32030,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -32767,9 +32608,7 @@
           "cinema"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -33466,7 +33305,6 @@
         ],
         "scale": "room",
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -33490,7 +33328,7 @@
         "why": "R&B theme night at Catch One \u2014 good venue history, but off the house/techno lane and no DJ names given.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "f610663754b8",
       "final_rank": 2086
     },
@@ -33527,7 +33365,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": null,
@@ -33551,7 +33388,7 @@
         "why": "No lineup or real genre signal beyond auto-tagging \u2014 generic afters listing.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "44afb3b7a267",
       "final_rank": 2090
     },
@@ -33594,9 +33431,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -33632,7 +33467,7 @@
         "why": "Hazy's vinyl-only house sets are a legit Sunday Sessions r\u00e9sum\u00e9 line, even buried in an otherwise unknown afters bill.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b78b2baafefd",
       "final_rank": 181
     },
@@ -33962,7 +33797,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -33990,7 +33824,7 @@
         "why": "TBA-location Saturday afterhours ticks the boxes, but UNITYCHECK alone isn't enough to call it a must.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "fc43cc2a4f7e",
       "final_rank": 176
     },
@@ -35755,9 +35589,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -36037,7 +35869,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -36062,7 +35893,7 @@
         "why": "Hardstyle headliner \u2014 off the house/techno spine by design.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "8ad19020468e",
       "final_rank": 2182
     },
@@ -36103,9 +35934,7 @@
           "club"
         ],
         "scale": "hall",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "far",
         "near_home": false
       },
@@ -36128,7 +35957,7 @@
         "why": "Gareth Emery's more mainstage trance than the house/tech-house/melodic lane, and Costa Mesa is a schlep for a set that isn't a must.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:mainstream",
       "key": "3eeb1e910e72",
       "final_rank": 2216
     },
@@ -36221,7 +36050,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": null,
@@ -36453,9 +36281,7 @@
           "speakeasy"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -37520,7 +37346,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "valley",
@@ -37546,7 +37371,7 @@
         "why": "Happy hardstyle/dubstep/hyperpop mega-rave at a TBA Burbank warehouse \u2014 the penalized bass/hardstyle lane, not the house-techno spine.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "c020b75e2c32",
       "series_key": "run:candyland|tba burbank edm house hyperpop dubstep bass house happy hardstyle",
       "series": {
@@ -38153,7 +37978,9 @@
           "rooftop"
         ],
         "scale": null,
-        "vibe": [],
+        "vibe": [
+          "day-party"
+        ],
         "region": "far",
         "near_home": false
       },
@@ -39553,9 +39380,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -43705,7 +43530,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free",
           "free-rsvp"
         ],
@@ -43729,7 +43553,7 @@
         "why": "Tech-house is the core genre here, but it's a Tuesday bar night out in Pomona, not a destination booking.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "707209d8a25b",
       "final_rank": 400
     },
@@ -43768,7 +43592,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -43791,7 +43614,7 @@
         "why": "WeHo bottle-service room, no DJ billed \u2014 reads like the Vegas-style night this profile explicitly steers away from.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "5280da93865a",
       "series_key": "run:paris at night house tuesdays at the iconic keys los angeles|keys nightclub west hollywood house tech house edm",
       "series": {
@@ -44699,9 +44522,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -45948,9 +45769,7 @@
           "club"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -45972,7 +45791,7 @@
         "why": "Tech-house/deep-house/techno tags line up squarely with the core lane even without named DJs \u2014 worth a look over the generic afters filler tonight.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "1d01b7faf66d",
       "final_rank": 198
     },
@@ -47080,9 +46899,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -49061,7 +48878,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -49113,7 +48929,7 @@
         "why": "Maceo Plex (Ellum Audio) is a legit dark, groove-driven tech-house/techno crossover name \u2014 real headliner even buried in a pre-party slot; score undersells him.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "a98bbece1105",
       "final_rank": 59
     },
@@ -49371,9 +49187,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -49422,7 +49236,7 @@
         "why": "Maceo Plex is a real tech-house/techno headliner \u2014 Ellum Audio boss, with Raxon off Diynamic/Cocoon underneath \u2014 and the score buried this one at a 4; it's one of the stronger bookings in the batch.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "239305f0c2bd",
       "final_rank": 9
     },
@@ -49460,9 +49274,7 @@
           "club"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -49483,7 +49295,7 @@
         "why": "Drum and bass isn't really your lane and there's no lineup listed to make the case otherwise.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "d7e690088560",
       "series_key": "run:respect thursdays|jungle hollywood los angeles drum and bass",
       "series": {
@@ -49543,9 +49355,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -49566,7 +49376,7 @@
         "why": "Fullerton is a real haul for a no-name house night with nothing to justify the drive.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "6311491819b5",
       "final_rank": 2201
     },
@@ -50454,9 +50264,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "far",
         "near_home": false
       },
@@ -50586,9 +50394,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -51052,7 +50858,6 @@
         ],
         "scale": "hall",
         "vibe": [
-          "afterhours",
           "free",
           "free-rsvp"
         ],
@@ -51077,7 +50882,7 @@
         "why": "No DJ billing behind the 'rave' branding and it's Costa Mesa \u2014 pass.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:mainstream",
       "key": "74141a088ac0",
       "final_rank": 2321
     },
@@ -52884,9 +52689,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -52916,7 +52719,7 @@
         "why": "Akbar's a real Silver Lake queer institution but the DJs are unknowns \u2014 fine local Friday, not a special one.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "99dad68671e5",
       "final_rank": 185
     },
@@ -53019,9 +52822,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "dtla",
         "near_home": true
       },
@@ -53044,7 +52845,7 @@
         "why": "Exchange LA runs bigger and more production-forward than selection-forward, and Space Yacht hasn't posted a lineup yet \u2014 watch for names before committing.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "015b9515d8a6",
       "final_rank": 258
     },
@@ -53787,9 +53588,7 @@
           "cinema"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -53936,7 +53735,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -53960,7 +53758,7 @@
         "why": "Lineup literally TBA \u2014 nothing to judge yet.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "39f30dbdb22b",
       "final_rank": 325
     },
@@ -53987,7 +53785,6 @@
         ],
         "scale": "hall",
         "vibe": [
-          "afterhours",
           "free",
           "free-rsvp"
         ],
@@ -54035,7 +53832,7 @@
         "why": "Reads as a reggaeton/Latin-urbano branded night at Avalon, not the house/techno lane this profile wants.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:mainstream",
       "key": "951bac6c75f1",
       "final_rank": 2104
     },
@@ -54077,7 +53874,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -54101,7 +53897,7 @@
         "why": "Local afters DJs with no track record in your rotation \u2014 plausible underground night but nothing to build a plan around.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "fef669cf8ca3",
       "final_rank": 199
     },
@@ -54141,9 +53937,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "far",
         "near_home": false
       },
@@ -54194,7 +53988,7 @@
         "why": "Luke Mele's the real thing \u2014 an NTS Balearic/dub-techno digger, exactly your vinyl lane \u2014 worth the trek to Pomona for that alone.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "0b1def74b526",
       "final_rank": 96
     },
@@ -54528,9 +54322,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -54648,9 +54440,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -54672,7 +54462,7 @@
         "why": "Zero Lounge afters with one unverified name (Adrenaline) and a generic rave-y title \u2014 no pedigree signal to lift it above the pack.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "701fac48121f",
       "final_rank": 303
     },
@@ -54768,9 +54558,7 @@
           "bar"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -54792,7 +54580,7 @@
         "why": "A dance night at Zebulon, a spot you already trust \u2014 DJ Shelby Jacobson is unfamiliar so can't vouch for the draw specifically.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b674f7041949",
       "final_rank": 182
     },
@@ -54834,7 +54622,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "hollywood",
@@ -54892,7 +54679,7 @@
         "why": "Jacques Greene and LuckyMe carry real electronic pedigree \u2014 a tastier TBA-afters booking than the score credits.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "7c650dc81dc0",
       "final_rank": 67
     },
@@ -55090,7 +54877,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -55114,7 +54900,7 @@
         "why": "Free Friday night at KKBB but 'special guest DJs' is unnamed - fine low-stakes option, not a standout.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "75ec53b4dd2e",
       "series_key": "run:muzique fridays kiss kiss bang bang w special guest djs|kiss kiss bang bang",
       "series": {
@@ -55249,9 +55035,7 @@
           "club"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -55273,7 +55057,7 @@
         "why": "House night at Sound with no billed lineup - on-genre but nothing to distinguish it from any other Friday club night.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "381f11a5a87e",
       "final_rank": 244
     },
@@ -55536,9 +55320,7 @@
           "cinema"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -55639,9 +55421,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -55764,9 +55544,7 @@
           "speakeasy"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -57296,9 +57074,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -57604,9 +57380,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -57863,9 +57637,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "south-bay",
         "near_home": false
       },
@@ -57888,7 +57660,7 @@
         "why": "Que Sera afters with an unfamiliar name and a genuine haul out to Long Beach \u2014 the distance penalty already does the work.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "230672820ca4",
       "final_rank": 505
     },
@@ -58167,7 +57939,9 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [],
+        "vibe": [
+          "afterhours"
+        ],
         "region": "far",
         "near_home": false
       },
@@ -59073,7 +58847,7 @@
         "why": "TBA dubstep/riddim warehouse night \u2014 the score already correctly tanked it for genre; confirming skip.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b7d4a42d3088",
       "final_rank": 2285
     },
@@ -59188,6 +58962,7 @@
         ],
         "scale": "hall",
         "vibe": [
+          "day-party",
           "festival",
           "ra-pick"
         ],
@@ -59418,7 +59193,7 @@
         "why": "DJ Slugo is Dance Mania royalty \u2014 genuine house history \u2014 but ghetto-house/footwork sits a step outside the core lane, so it's more curiosity than must.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "1c8c064e1849",
       "final_rank": 175
     },
@@ -59457,7 +59232,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "dtla",
@@ -59509,7 +59283,7 @@
         "why": "Demuir is the producer who coined the 'jacking house' tag \u2014 funky, groove-first, TBA-location afters is exactly your Saturday lane.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "5294c2135331",
       "final_rank": 21
     },
@@ -59560,7 +59334,9 @@
           "pool"
         ],
         "scale": null,
-        "vibe": [],
+        "vibe": [
+          "day-party"
+        ],
         "region": "dtla",
         "near_home": true
       },
@@ -59642,9 +59418,7 @@
           "club"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -59681,7 +59455,7 @@
         "why": "Scotty Boy is more festival-polish crowd-pleaser than digger \u2014 fine for a disco night, not a special one.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "e1b7f6d3e828",
       "series_key": "run:paradisco|kiss kiss bang bang",
       "series": {
@@ -59839,7 +59613,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "dtla",
@@ -59867,7 +59640,7 @@
         "why": "Generic TBA-location club night, no lineup to judge.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "6f8d76827115",
       "final_rank": 191
     },
@@ -59907,9 +59680,7 @@
           "club"
         ],
         "scale": "hall",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "dtla",
         "near_home": true
       },
@@ -59949,7 +59720,7 @@
         "why": "Pegassi's genre-fluid trance/techno/house/eurodance style has hard-dance roots but isn't squarely hardstyle now \u2014 can't confirm the draw either way.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:mainstream",
       "key": "306e63bffa16",
       "final_rank": 197
     },
@@ -59985,9 +59756,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -60031,7 +59800,7 @@
         "why": "Mau P is a legit festival-tier tech-house headliner, not a support-slot placeholder \u2014 pick of this batch even at $95-105.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:mainstream",
       "key": "177f79bbe0c6",
       "final_rank": 3
     },
@@ -60069,9 +59838,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -60094,7 +59861,7 @@
         "why": "Recurring monthly disco night \u2014 this is the second date in the run, so lower priority than the earlier occurrence.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "448282a6513e",
       "final_rank": 239
     },
@@ -60134,7 +59901,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -60158,7 +59924,7 @@
         "why": "Live-billed underground night, but none of these names are ones I can size up.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "3ec977b83081",
       "final_rank": 240
     },
@@ -60201,6 +59967,7 @@
         "setting": [],
         "scale": null,
         "vibe": [
+          "day-party",
           "tba-location"
         ],
         "region": null,
@@ -60248,7 +60015,7 @@
         "why": "Adam Ten is a legitimate name in the organic/melodic house scene with real festival pedigree \u2014 best lineup of the day-into-night parties in this batch, TBA location and steep price aside.",
         "confidence": "med"
       },
-      "lane": "club:mainstream",
+      "lane": "club:day",
       "key": "f3d70e5e197d",
       "final_rank": 45
     },
@@ -61281,9 +61048,7 @@
           "bar"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -61407,9 +61172,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -61431,7 +61194,7 @@
         "why": "Unfamiliar underground showcase lineup (ELIF, Niki Sadeki, Numen) with no scene facts to confirm the draw \u2014 plausible but unverified.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "854f5385c844",
       "final_rank": 221
     },
@@ -61928,9 +61691,7 @@
           "warehouse"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "dtla",
         "near_home": true
       },
@@ -61952,7 +61713,7 @@
         "why": "1720's warehouse setting, house genre, near home on a Saturday - solid on-lane pick even with no names attached.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "64d34b4fdb46",
       "final_rank": 192
     },
@@ -61990,9 +61751,7 @@
           "club"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -62014,7 +61773,7 @@
         "why": "Tagged 'minimal' by keyword match but this is actually darkwave/EBM/synthpop \u2014 off the house-techno lane entirely.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "3463144f179b",
       "final_rank": 2116
     },
@@ -62051,9 +61810,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -62075,7 +61832,7 @@
         "why": "Progressive house night with no billed names to gauge the draw against.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "8c49c112bd93",
       "final_rank": 217
     },
@@ -62448,9 +62205,7 @@
           "cinema"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -62570,9 +62325,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -64409,9 +64162,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -64998,9 +64749,7 @@
         "genre": [],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -65116,6 +64865,7 @@
         "setting": [],
         "scale": null,
         "vibe": [
+          "day-party",
           "free"
         ],
         "region": "far",
@@ -65140,7 +64890,7 @@
         "why": "Bass-house/DnB day party in Huntington Beach \u2014 closer to the mega-rave bass-music lane the brief actively steers away from, plus it's a haul.",
         "confidence": "med"
       },
-      "lane": "club:underground",
+      "lane": "club:day",
       "key": "9be9454256bb",
       "final_rank": 2178
     },
@@ -66470,7 +66220,6 @@
         ],
         "scale": "bar",
         "vibe": [
-          "afterhours",
           "tribute"
         ],
         "region": "westside",
@@ -66755,7 +66504,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "dtla",
@@ -66779,7 +66527,7 @@
         "why": "TBA-location afterhours techno hits the format you like, but KX CHR / Nina J / nat the f*kn rat are unverified draws so it's a floor-level include, not a pull-up.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "f04617235664",
       "final_rank": 201
     },
@@ -66827,6 +66575,7 @@
         ],
         "scale": null,
         "vibe": [
+          "day-party",
           "residency"
         ],
         "region": "hollywood",
@@ -67377,9 +67126,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -67400,7 +67147,7 @@
         "why": "Afterhours house lineup and $59+ suggests a real ticketed room, but none of these names ring a bell to size up the draw.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "54658d545a38",
       "final_rank": 235
     },
@@ -68231,9 +67978,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -69192,7 +68937,9 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [],
+        "vibe": [
+          "day-party"
+        ],
         "region": "far",
         "near_home": false
       },
@@ -69220,7 +68967,7 @@
         "why": "Azure's a real diaspora-sounds selector per the scene note, but this is a Huntington Beach day party \u2014 the distance penalty is doing its job here.",
         "confidence": "med"
       },
-      "lane": "club:underground",
+      "lane": "club:day",
       "key": "dc10fcc3a892",
       "final_rank": 2264
     },
@@ -72128,9 +71875,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -72899,7 +72644,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -72921,7 +72665,7 @@
         "why": "Weekly free house Tuesday at a WeHo hotel lounge \u2014 genre's right, but no lineup to confirm it's selector-driven rather than a tourist room.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "425c0519625d",
       "series_key": "run:paris at night house tuesdays at the iconic keys los angeles|keys",
       "series": {
@@ -74171,9 +73915,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -76905,9 +76647,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -78313,7 +78053,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "dtla",
@@ -78364,7 +78103,7 @@
         "why": "Nikki Nair is a genuine Dirtybird/Lobster Theremin talent and Lights Down Low is a real long-running afters \u2014 George Daniel's the curiosity here, not the draw.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "1e743c3f1597",
       "final_rank": 39
     },
@@ -78402,9 +78141,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -78427,7 +78164,7 @@
         "why": "\"House and Hits\" branding suggests a crowd-pleaser mix rather than a real DJ set \u2014 fine at Gold Diggers, not a priority until a lineup lands.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "669799304969",
       "final_rank": 229
     },
@@ -79214,7 +78951,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -79267,7 +79003,7 @@
         "why": "Warehouse afters with a French and UK selector \u2014 the open-to-close European-leaning night this profile chases; the flat score can't credit the FR/UK cue.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "1c5658a19b7d",
       "final_rank": 40
     },
@@ -79896,7 +79632,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -79920,7 +79655,7 @@
         "why": "Same free KKBB Friday series but this one actually names a headliner (BARRETT) over 'special guest DJs' - modestly better bet than the 7/31 date.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "9851924f54a8",
       "final_rank": 186
     },
@@ -80136,9 +79871,7 @@
           "bar"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -81778,9 +81511,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -83237,7 +82968,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "dtla",
@@ -83280,7 +83010,7 @@
         "why": "DTLA warehouse afters with Isaac Carter \u2014 UK deep-house lineage co-signed by Ben UFO and Seth Troxler \u2014 a real sleeper the score's missing since none of these names carry Spotify weight yet.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "6a22d168fab3",
       "final_rank": 20
     },
@@ -84121,7 +83851,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -84145,7 +83874,7 @@
         "why": "Banoffee's a real name, but the rest of the bill and the TBA location keep the actual draw a guess.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "1fd920712f60",
       "final_rank": 252
     },
@@ -84241,9 +83970,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -84384,9 +84111,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -84412,7 +84137,7 @@
         "why": "No scene data on this bill and none of the names ring a bell \u2014 reads as a generic afters listing.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "5c0551af6dd5",
       "final_rank": 312
     },
@@ -85343,9 +85068,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -85472,9 +85195,7 @@
           "bar"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "eastside",
         "near_home": true
       },
@@ -87243,9 +86964,7 @@
         "genre": [],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "dtla",
         "near_home": true
       },
@@ -90931,7 +90650,6 @@
         ],
         "scale": "bar",
         "vibe": [
-          "afterhours",
           "tribute"
         ],
         "region": "westside",
@@ -93063,7 +92781,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -93085,7 +92802,7 @@
         "why": "Same weekly Paris at Night series as 8/4 \u2014 already covered, no reason to flag this date too.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b25e8d71b48c",
       "series_key": "run:paris at night house tuesdays at the iconic keys los angeles|keys",
       "series": {
@@ -98642,7 +98359,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -98674,7 +98390,7 @@
         "why": "Colette's a legit 2000s vocal-house name, but it's a TBA Redondo Beach room \u2014 a real schlep for a nice-not-essential set.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "36aa6be5efaf",
       "final_rank": 245
     },
@@ -98811,7 +98527,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -98864,7 +98579,7 @@
         "why": "Alan Fitzpatrick is a legit international techno name (Drumcode/We Are The Brave orbit) - a TBA-location Friday afterhours with him headlining is a real one, not just generic afters filler.",
         "confidence": "high"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "9111f44bad10",
       "final_rank": 30
     },
@@ -100528,7 +100243,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -100552,7 +100266,7 @@
         "why": "Generic \"special guest DJs\" weekly at a Koreatown afters spot \u2014 free and fine, but nothing named to build a night around, and it's the last night of this residency's run.",
         "confidence": "low"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "c4f74a9a8100",
       "series_key": "run:muzique fridays kiss kiss bang bang w special guest djs|kiss kiss bang bang",
       "series": {
@@ -102303,7 +102017,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "south-bay",
@@ -103208,9 +102921,7 @@
           "club"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -103246,7 +102957,7 @@
         "why": "Recurring disco/nu-disco night that sounds like the Eddie C end of your groove taste \u2014 fine pick if the Saturday's open.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "7de9287d2683",
       "series_key": "run:paradisco|kiss kiss bang bang",
       "series": {
@@ -103322,7 +103033,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "sunset"
         ],
         "region": null,
@@ -103347,7 +103057,7 @@
         "why": "EDITION rooftop skews scene-y/see-and-be-seen more than digger's-house, and Zen Freeman is competent but not a deep selector.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:day",
       "key": "46fd23deaf71",
       "final_rank": 194
     },
@@ -103387,7 +103097,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "dtla",
@@ -103437,7 +103146,7 @@
         "why": "Andrey Pushkarev has real credibility in the melodic/dub-techno underground \u2014 a TBA midnight slot that actually fits the afters lane.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "984fe4bfb4d4",
       "final_rank": 29
     },
@@ -103586,9 +103295,7 @@
           "club"
         ],
         "scale": "hall",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -104253,7 +103960,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -104301,7 +104007,7 @@
         "why": "Randomer's a recognizable name in the UK electro/techno underground (Trilogy Tapes-adjacent) \u2014 a real step up from the average TBA afters bill.",
         "confidence": "med"
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "5bd7f81cf3e4",
       "final_rank": 76
     },
@@ -107745,7 +107451,6 @@
         ],
         "scale": "bar",
         "vibe": [
-          "afterhours",
           "tribute"
         ],
         "region": "westside",
@@ -113465,7 +113170,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -113481,7 +113185,7 @@
       "enrichment": {
         "description": "PARIS AT NIGHT house music Tuesdays at Keys, West Hollywood, 11pm, free."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "dcccbd50010e",
       "series_key": "run:paris at night house tuesdays at the iconic keys los angeles|keys",
       "series": {
@@ -117758,7 +117462,6 @@
         "setting": [],
         "scale": "hall",
         "vibe": [
-          "afterhours",
           "21+"
         ],
         "region": "hollywood",
@@ -117798,7 +117501,7 @@
         "curator_note": "This is festival-mainstage techno-trance at the Palladium, not a selector's night \u2014 fun if you want a big, hard-hitting 18+/21+ room, but it's not the fabric-style end of things.",
         "description": "Big-room techno/trance set from Dutch producer Maddix at Hollywood Palladium, 10pm, 18+/21+."
       },
-      "lane": "club:afters",
+      "lane": "club:mainstream",
       "key": "d6d919ad1b86",
       "final_rank": 526
     },
@@ -118670,7 +118373,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -118688,7 +118390,7 @@
       "enrichment": {
         "description": "Free all-night electronic dance party at Kiss Kiss Bang Bang (Koreatown), 10pm w/RSVP."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "286c8de5e5c2",
       "series_key": "run:muzique fridays kiss kiss bang bang w special guest djs|kiss kiss bang bang",
       "series": {
@@ -118765,7 +118467,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -118789,7 +118490,7 @@
         ],
         "description": "DJ Bone, Stacey Hotwaxx Hale, and Mapamota DJ set presented by INCOGNITO and Dirty Epic (11pm)."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "623a61c809c9",
       "final_rank": 560
     },
@@ -120951,9 +120652,7 @@
           "club"
         ],
         "scale": "hall",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "dtla",
         "near_home": true
       },
@@ -120987,7 +120686,7 @@
         "curator_note": "Straight peak-time techno at Exchange LA's Mutate series \u2014 no groove or daytime softness here, this is a full-tempo club night for when that's the mood.",
         "description": "Mutate techno night at Exchange LA featuring Dutch-Turkish techno DJ Oguz."
       },
-      "lane": "club:afters",
+      "lane": "club:mainstream",
       "key": "a4fbb098114f",
       "final_rank": 529
     },
@@ -121605,7 +121304,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -121623,7 +121321,7 @@
       "enrichment": {
         "description": "Joris Voorn, LUIS MIRANDA, and Materielle DJ set presented by RE/FORM (11pm)."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "8a34951dcd50",
       "final_rank": 554
     },
@@ -121720,7 +121418,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "all-night-set",
           "tba-location"
         ],
@@ -121739,7 +121436,7 @@
       "enrichment": {
         "description": "Paolo Ferrara makes his LA debut with Elise Ember and KriStyle at an INCOGNITO warehouse party (11pm)."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "32e506bb3cfe",
       "final_rank": 573
     },
@@ -121779,7 +121476,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -121797,7 +121493,7 @@
       "enrichment": {
         "description": "Drum and bass night with Voltage and AC13 (10pm)."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "e37fb1d2d8c0",
       "final_rank": 540
     },
@@ -121840,7 +121536,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "residency",
           "tba-location"
         ],
@@ -121870,7 +121565,7 @@
         ],
         "description": "Boris, John Bryars, and Kittamami at an SWXCH warehouse party (10pm)."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "38fb45a7c54c",
       "final_rank": 572
     },
@@ -122137,9 +121832,7 @@
         ],
         "setting": [],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -122155,7 +121848,7 @@
       "enrichment": {
         "description": "Oliver Koletzki DJ set at Berlin in Los Angeles (10pm)."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "6f3b45e0c905",
       "final_rank": 557
     },
@@ -123936,9 +123629,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -124748,9 +124439,7 @@
           "club"
         ],
         "scale": "hall",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "far",
         "near_home": false
       },
@@ -129261,7 +128950,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -129274,7 +128962,7 @@
       ],
       "iso_date": "2026-08-25",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "ebad96eabc30",
       "final_rank": 866
     },
@@ -133738,7 +133426,6 @@
         "setting": [],
         "scale": "room",
         "vibe": [
-          "afterhours",
           "21+"
         ],
         "region": "dtla",
@@ -133757,7 +133444,7 @@
       ],
       "iso_date": "2026-08-28",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "712cd471434c",
       "final_rank": 717
     },
@@ -133903,7 +133590,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -133918,7 +133604,7 @@
       ],
       "iso_date": "2026-08-28",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b368b043c331",
       "final_rank": 548
     },
@@ -136336,7 +136022,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -136351,7 +136036,7 @@
       ],
       "iso_date": "2026-08-29",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "5798da5dde04",
       "final_rank": 566
     },
@@ -145501,9 +145186,7 @@
           "theater"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -145938,7 +145621,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -145953,7 +145635,7 @@
       ],
       "iso_date": "2026-09-04",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "b81b738c54bf",
       "final_rank": 546
     },
@@ -147423,9 +147105,7 @@
           "club"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -147450,7 +147130,7 @@
         "curator_note": "No lineup posted yet for this one \u2014 it's the same Paradisco disco-house residency at Kiss Kiss Bang Bang that brings Scotty Boy back two weeks later, so probably the house DJs, but worth a lineup check before committing a Saturday night to it.",
         "description": "Late-night (10pm) disco/house party in the Paradisco series at Kiss Kiss Bang Bang, Koreatown \u2014 lineup TBA."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "d8703a4e567c",
       "series_key": "run:paradisco|kiss kiss bang bang",
       "series": {
@@ -147525,7 +147205,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "all-night-set",
           "tba-location"
         ],
@@ -147551,7 +147230,7 @@
           }
         ]
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "956e5fc378e0",
       "final_rank": 521
     },
@@ -147662,7 +147341,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -147685,7 +147363,7 @@
           }
         ]
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "43b0fbb29a65",
       "final_rank": 570
     },
@@ -149644,9 +149322,7 @@
           "theater"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -151165,7 +150841,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": null,
@@ -162825,9 +162500,7 @@
           "warehouse"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "dtla",
         "near_home": true
       },
@@ -162861,7 +162534,7 @@
         "curator_note": "This reads as a Y2K/'scene'-revival night built around Bayymack's hip-hop-pop, not a house or techno booking \u2014 fun if you're into that throwback-emo-rap aesthetic, but it's not really your lane despite the late-night 1720 slot.",
         "description": "Late-night (10pm) Y2K-themed 'scene' party at 1720 in the Arts District with alt-hip-hop artist Bayymack."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "3311cff0ac9d",
       "final_rank": 531
     },
@@ -163422,7 +163095,6 @@
         ],
         "scale": null,
         "vibe": [
-          "afterhours",
           "free"
         ],
         "region": "hollywood",
@@ -163437,7 +163109,7 @@
       ],
       "iso_date": "2026-09-18",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "f186fc15abc3",
       "final_rank": 535
     },
@@ -164339,9 +164011,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "westside",
         "near_home": false
       },
@@ -165191,9 +164861,7 @@
           "club"
         ],
         "scale": null,
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -165224,7 +164892,7 @@
         "curator_note": "Same Scotty Boy energy you'd expect from him anywhere \u2014 reliable jackin'-house-and-disco-edits, but it's closer to populist brunch-party polish than a proper selector's after-hours set.",
         "description": "Late-night (10pm) disco/house party at Kiss Kiss Bang Bang in Koreatown headlined by house DJ/producer Scotty Boy."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "307344a761b7",
       "series_key": "run:paradisco|kiss kiss bang bang",
       "series": {
@@ -165767,7 +165435,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "b2b",
           "tba-location"
         ],
@@ -165783,7 +165450,7 @@
       ],
       "iso_date": "2026-09-19",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "283e90d889cf",
       "final_rank": 574
     },
@@ -166015,9 +165682,7 @@
           "club"
         ],
         "scale": "hall",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -166038,7 +165703,7 @@
           }
         ]
       },
-      "lane": "club:afters",
+      "lane": "club:mainstream",
       "key": "dffe00986575",
       "final_rank": 541
     },
@@ -173683,7 +173348,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "dtla",
@@ -173725,7 +173389,7 @@
         "curator_note": "Certified Groovers landing Gene On Earth is a nice get \u2014 his Limousine Dream sound is more minimal-and-breaks-leaning than most of the TBA-warehouse bills this month, worth it if you want something a shade weirder than straight house.",
         "description": "Certified Groovers presents Gene On Earth at a TBA downtown LA location, 10pm."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "3061917831bd",
       "final_rank": 522
     },
@@ -173848,7 +173512,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -173863,7 +173526,7 @@
       ],
       "iso_date": "2026-09-25",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "5b6f07e2314e",
       "final_rank": 561
     },
@@ -173906,7 +173569,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -173921,7 +173583,7 @@
       ],
       "iso_date": "2026-09-25",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "10e8dbe40b5c",
       "final_rank": 578
     },
@@ -173972,7 +173634,6 @@
         ],
         "scale": "room",
         "vibe": [
-          "afterhours",
           "18+"
         ],
         "region": "hollywood",
@@ -173991,7 +173652,7 @@
       ],
       "iso_date": "2026-09-25",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "f0b763d61806",
       "final_rank": 536
     },
@@ -174511,9 +174172,7 @@
         ],
         "setting": [],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -174526,7 +174185,7 @@
       ],
       "iso_date": "2026-09-25",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "8679879cf19b",
       "final_rank": 555
     },
@@ -176419,9 +176078,7 @@
           "bar"
         ],
         "scale": "bar",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": null,
         "near_home": false
       },
@@ -176453,7 +176110,7 @@
         "curator_note": "An open-to-close Rich Medina set billed explicitly as house/rare-groove/garage is exactly the deep-crate education worth clearing a whole Saturday night for at a tiki bar like High Tide.",
         "description": "All-night open-to-close set (10pm) from Philly selector Rich Medina \u2014 house, rare groove and garage classics \u2014 at High Tide's Little Tokyo/Arts District bar."
       },
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "2c126d230d6c",
       "final_rank": 532
     },
@@ -176815,7 +176472,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -176834,7 +176490,7 @@
       ],
       "iso_date": "2026-09-26",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "46262ef3c094",
       "final_rank": 569
     },
@@ -194533,9 +194189,7 @@
           "theater"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -194551,7 +194205,7 @@
       ],
       "iso_date": "2026-10-07",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "abeef173993f",
       "final_rank": 1015
     },
@@ -201489,7 +201143,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "21+"
         ],
         "region": "hollywood",
@@ -215887,7 +215540,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -215902,7 +215554,7 @@
       ],
       "iso_date": "2026-10-23",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "02c5ca0760e3",
       "final_rank": 580
     },
@@ -217471,7 +217123,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -217486,7 +217137,7 @@
       ],
       "iso_date": "2026-10-24",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "5451edca01a3",
       "final_rank": 567
     },
@@ -219177,9 +218828,7 @@
           "theater"
         ],
         "scale": "room",
-        "vibe": [
-          "afterhours"
-        ],
+        "vibe": [],
         "region": "hollywood",
         "near_home": false
       },
@@ -223346,7 +222995,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": null,
@@ -223361,7 +223009,7 @@
       ],
       "iso_date": "2026-10-30",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "2330f035fdee",
       "final_rank": 577
     },
@@ -236157,7 +235805,6 @@
         "setting": [],
         "scale": null,
         "vibe": [
-          "afterhours",
           "tba-location"
         ],
         "region": "dtla",
@@ -236173,7 +235820,7 @@
       ],
       "iso_date": "2026-11-14",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "62d4bf82db4b",
       "final_rank": 530
     },
@@ -242779,7 +242426,6 @@
         "setting": [],
         "scale": "room",
         "vibe": [
-          "afterhours",
           "18+"
         ],
         "region": "dtla",
@@ -242794,7 +242440,7 @@
       ],
       "iso_date": "2026-11-21",
       "is_past": false,
-      "lane": "club:afters",
+      "lane": "club:underground",
       "key": "919225edae85",
       "final_rank": 683
     },
@@ -248457,7 +248103,7 @@
       ],
       "iso_date": "2026-12-04",
       "is_past": false,
-      "lane": "club:mainstream",
+      "lane": "club:underground",
       "key": "a585932a1720",
       "final_rank": 1029
     },
