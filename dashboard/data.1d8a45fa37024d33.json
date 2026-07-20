@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T12:32:08+00:00",
+  "generated_at": "2026-07-20T04:30:04+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "c03526418a4b",
@@ -1386,33 +1386,8 @@
         ]
       }
     ],
-    "radar": [
-      "a275d78b3f74",
-      "d535a0dbfe40",
-      "edab80bd44cb",
-      "84882da12558",
-      "d49eb8554c26",
-      "78e0f4057e8b",
-      "1edb63fd2e80",
-      "fb68efb436c1",
-      "33c2216d15dc",
-      "3d1950382c1d",
-      "5cfd176b0544",
-      "cf6cd35ddcc5",
-      "11457438b017",
-      "233fd1bfe94c",
-      "d5ab2f4bfacc",
-      "5900ac0a20b0"
-    ],
-    "around": [
-      "8d8f319c34f5",
-      "7ee51542900a",
-      "20ce0d23a2ec",
-      "d826d3e1946a",
-      "e842a53b8a0b",
-      "d05097bd1801",
-      "48fff5ac07e8"
-    ]
+    "radar": [],
+    "around": []
   },
   "dining": [
     {
@@ -258064,14 +258039,14 @@
             "summary": "Series consolidation (movie ranking dupes) + film taste (#83)"
           },
           {
-            "date": "2026-07-15",
-            "summary": "digest: 2026-07-15 \u2014 consolidated + weekend digests rendered, voice pass applied"
+            "date": "2026-07-14",
+            "summary": "Add blank-slate profile \"levon\" (#81)"
           }
         ],
         "diff": "diff --git a/taste.yaml b/taste.yaml\nindex a0c9b5d..20825c5 100644\n--- a/taste.yaml\n+++ b/taste.yaml\n@@ -153,7 +153,7 @@ artists_tracked:\n   - Robert Hood\n   - Tini Gessler\n \n-comedians_loved: [Stavros Halkias, Chris D'Elia, Larry David, Conan O'Bryan]   # the comedy exception \u2014 these get surfaced; others don't\n+comedians_loved: [Stavros Halkias, Chris D'Elia, Larry David, Conan O'Brien]   # the comedy exception \u2014 these get surfaced; others don't\n venues_loved: [Vista, Lodge Room, 2220 Arts, The Greek, Pantages, Hollywood Bowl, Landmark Pasadena, Old Sears, Sid the Cat]   # +1\n \n # Film taste \u2014 the MOVIE, not just the theater (venues_loved already boosts the Vista etc.).",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-07-18"
+        "enriched_at": "2026-07-19"
       },
       "profile": {
         "file": "profile.yaml",
@@ -258082,14 +258057,14 @@
             "summary": "Catalog taxonomy revamp: scale axis, live-music:big lane, market lane goes live, out-of-market drop (#91)"
           },
           {
-            "date": "2026-07-15",
-            "summary": "digest: 2026-07-15 \u2014 consolidated + weekend digests rendered, voice pass applied"
+            "date": "2026-07-14",
+            "summary": "Add blank-slate profile \"levon\" (#81)"
           }
         ],
         "diff": "diff --git a/profile.yaml b/profile.yaml\nindex da19f09..7e43607 100644\n--- a/profile.yaml\n+++ b/profile.yaml\n@@ -22,6 +22,36 @@ sources:\n   ticketmaster_dma_id: \"324\" # LA DMA \u2014 fetch_ticketmaster.py\n   ra_area_id: 23 # RA's internal LA area number \u2014 fetch_ra.py\n \n+pipeline:\n+  # Out-of-market drop (Ari, 2026-07-17): TM's DMA 324 reaches Palm Springs / Paso Robles /\n+  # SD-adjacent venues; rows whose neighborhood is listed here are dropped at merge time\n+  # UNLESS radar-worthy (festival title / tracked artist / arena-tier venue \u2014 so Coachella,\n+  # a tracked name at Pappy's, or a Yaamava headliner still gets captured). This is the\n+  # >~80-mile line; day-trip far (Anaheim/OC/Riverside/Ventura/Ojai) stays in-catalog and is\n+  # handled by the far scoring penalty instead. Edit freely \u2014 it's policy, not code.\n+  out_of_market:\n+    - palm springs\n+    - rancho mirage\n+    - palm desert\n+    - cabazon\n+    - coachella\n+    - indio\n+    - pioneertown # Pappy & Harriet's \u2014 tracked/festival bookings survive via the radar door\n+    - yucaipa\n+    - san bernardino\n+    - highland # Yaamava sits here \u2014 its arena headliners survive via the radar door\n+    - san diego\n+    - santa barbara\n+    - paso robles\n+    - san luis obispo\n+    - bakersfield\n+    - palmdale\n+    - temecula\n+    # out-of-state junk that occasionally rides in via TM/Eventbrite fetcher noise:\n+    - bolingbrook\n+    - portland\n+    - sunrise\n+\n scoring:\n   # Base category weight, mirroring taste.yaml high/medium/low. Comedy is special-cased in code\n   # (suppressed unless a loved comedian). Unknown categories default to 1.",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-07-18"
+        "enriched_at": "2026-07-19"
       }
     },
     "digest_prefs": {
