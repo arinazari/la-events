@@ -60,6 +60,38 @@ def test_event_lane_verdict_override():
     assert A.event_lane(ev, v) == "club:mainstream"   # editor sees headliner draw the tags can't
 
 
+WH = {"type": "club", "vibe": ["afterhours", "tba-location"], "setting": ["warehouse"], "genre": []}
+
+
+def test_event_lane_warehouse_main_event_stays_underground():
+    """An 11pm-6am TBA warehouse bill is the MAIN event — doors before midnight keeps it
+    underground even though its run past 4am earns the afterhours vibe."""
+    e = _ev("thermal", WH, 8)
+    e["start"] = "11pm-6am"
+    assert A.event_lane(e) == "club:underground"
+
+
+def test_event_lane_post_close_is_afters():
+    """Dead-hours doors = genuinely post-close: afters wins even with warehouse signals."""
+    e = _ev("renegade", WH, 8)
+    e["start"] = "2am"
+    assert A.event_lane(e) == "club:afters"
+
+
+def test_event_lane_billed_afters_beats_main_event_exception():
+    """An explicit afters BILLING is the promoter's own claim — it lands in afters even
+    with warehouse signals and doors before midnight (e.g. a festival's TBA afterparty)."""
+    e = _ev("Saturday HARDfest Afters", WH, 8)
+    e["start"] = "22:00"
+    assert A.event_lane(e) == "club:afters"
+
+
+def test_event_lane_pricey_warehouse_not_mainstream():
+    """Underground signals beat the $70+ price proxy — a stacked warehouse bill isn't a big room."""
+    wh = {"type": "club", "vibe": [], "setting": ["warehouse"], "genre": []}
+    assert A.event_lane(_ev("big bill", wh, 8, price="$85")) == "club:underground"
+
+
 def test_verdict_lane_family_refinement_and_vocab_guard():
     # a bare-family override (pre-split vocab) defers to the same-family deterministic sub-lane
     big = _ev("b", {**LIVE, "scale": "hall"}, 5)

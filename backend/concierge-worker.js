@@ -52,6 +52,11 @@
  */
 import { parse as yamlParse, parseDocument } from "yaml";
 
+// Deploy fingerprint, surfaced by GET / (unauthenticated) and the authed ping. Bump on every
+// change that ships: wrangler deploys are MANUAL, so "is the fix actually live?" must be
+// checkable from outside — `curl https://<worker>/` — instead of guessed.
+const VERSION = "2026-07-20-stream2";
+
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
   ADVISOR_MODEL: "claude-opus-4-8",        // advisor — consulted for multi-step planning (must be >= executor)
@@ -80,139 +85,161 @@ export default {
     };
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
 
-    // Per-profile Spotify (browser OAuth + KV token store + an authed sync the routine/CI calls)
-    // is path-routed here; every other request is the chat proxy below. One Worker, one deploy.
-    const url = new URL(request.url);
-    if (url.pathname.startsWith("/spotify/")) return handleSpotify(url, request, env, cors);
-    if (url.pathname === "/refresh-events" || url.pathname === "/rebuild-profile")
-      return handlePipeline(url, request, env, cors);
-
-    if (request.method !== "POST") return json({ error: "POST only" }, 405, cors);
-
-    // Auth + bring-your-own-key. The shared CONCIERGE_TOKEN normally gates the proxy (it guards the
-    // owner's Anthropic spend). But a caller may instead bring their OWN Anthropic key via the
-    // x-anthropic-key header — that key pays for the request, so it's its own entry ticket: a valid
-    // personal key satisfies the gate even without the shared token. (Self-edit commits still use the
-    // owner's GitHub token; by Ari's call those are open to own-key callers too — see canEdit below.)
-    const userKey = parseUserKey(request.headers.get("x-anthropic-key"));
-    const tokenOk = !env.CONCIERGE_TOKEN || (request.headers.get("authorization") || "") === "Bearer " + env.CONCIERGE_TOKEN;
-    if (!tokenOk && !userKey) return json({ error: "unauthorized" }, 401, cors);
-    const apiKey = userKey || env.ANTHROPIC_API_KEY;
-    if (!apiKey) return json({ error: "server missing ANTHROPIC_API_KEY" }, 500, cors);
-
-    let body;
-    try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
-    // Health ping (the page's connection indicator): validates reachability + the token, no LLM call.
-    if (body && body.ping) return json({ ok: true, taste: !!env.GITHUB_TOKEN, byok: !!userKey }, 200, cors);
-    const messages = sanitizeMessages(body && body.messages);
-    if (!messages.length) return json({ error: "no messages" }, 400, cors);
-    const profileHash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
-    // NOTE: the page's welcome chrome (greeting + the day's take + how-to) never reaches this
-    // Worker in any form — no history turn, no side field (the old `opener` is retired by
-    // design: the take is display-only; replies ground on the feed data below).
-
-    // Ground on the live feed — the profile's feed when one is attached (best-effort).
-    const dataUrl = env.DATA_URL || DEFAULTS.DATA_URL;
-    const feedUrl = profileHash ? dataUrl.replace(/data\.json(\?.*)?$/, `data.${profileHash}.json$1`) : dataUrl;
-    let feed = null;
-    try {
-      const r = await fetch(feedUrl, { cf: { cacheTtl: 120 } });
-      if (r.ok) feed = await r.json();
-    } catch { /* degrade gracefully */ }
-
-    // Self-edit (taste CONTENT + profile MECHANISM) is available to any logged-in profile, as long as
-    // commits are configured. It commits to the owner's repo using the owner's GITHUB_TOKEN — by Ari's
-    // call a bring-your-own-key caller can self-edit too (the GitHub write is the owner's setup, not
-    // something the caller needs a shared token for). Accepted tradeoff: any valid key reaching the
-    // Worker can trigger a (revertible) commit to a profile's file; keep GITHUB_TOKEN a single-repo,
-    // Contents-only PAT.
-    const canEdit = !!(profileHash && env.GITHUB_TOKEN);
-    const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name });
-    // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
-    // set ADVISOR_MODEL to "" to disable. Plus the two self-edit tools when this profile can edit.
-    const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
-    const tools = [
-      ...(advisorModel ? [{ type: "advisor_20260301", name: "advisor", model: advisorModel }] : []),
-      PLAN_TOOL,                                  // read-only group planning — available to any authed caller
-      ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL, DIGEST_TOOL] : []),
-    ];
-    // Any authed caller may upgrade the executor via `model: "opus"` in the body — Ari's call:
-    // shared-token users get Opus too (the token already gates who can spend at all; per-message
-    // cost is an accepted tradeoff). BYOK callers pay on their own key as before.
-    const execModel = (body && body.model) ? resolveModel(env, body.model) : null;
-
-    // The advisor is a SERVER-side tool; its sampling loop can return stop_reason "pause_turn" — when
-    // it does, re-send the conversation to let it continue (don't inject a user turn). Cap re-sends.
-    let convo = messages;
-    let data;
-    try {
-      for (let i = 0; i < 4; i++) {
-        data = await callAnthropic(env, { system, messages: convo, tools, apiKey, model: execModel });
-        if (data.stop_reason !== "pause_turn") break;
-        convo = [...convo, { role: "assistant", content: data.content }];
-      }
-    } catch (e) {
-      return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors);
-    }
-
-    // Tool-use round: the model may PLAN WITH FRIENDS (read-only, any authed caller) and/or change
-    // this profile's taste (CONTENT) / profile (MECHANISM) / digest (FORMAT) — the edit tools commit a
-    // YAML file and need canEdit. All are client-handled here in one round-trip.
-    if (data.stop_reason === "tool_use") {
-      const known = [PLAN_TOOL.name, TASTE_TOOL.name, PROFILE_TOOL.name, DIGEST_TOOL.name];
-      const uses = (data.content || []).filter((b) => b.type === "tool_use" && known.includes(b.name));
-      if (uses.length) {
-        let tasteChanged = false, profileChanged = false, digestChanged = false;
-        const results = [];
-        for (const use of uses) {
-          if (use.name === PLAN_TOOL.name) {
-            const result = await groupFeedMatrix(env, use.input || {}, profileHash).catch((e) => ({ ok: false, error: String(e && e.message || e) }));
-            results.push({ type: "tool_result", tool_use_id: use.id, content: JSON.stringify(result) });
-            continue;
-          }
-          if (!canEdit) {                          // the edit tools need a profile + GITHUB_TOKEN
-            results.push({ type: "tool_result", tool_use_id: use.id, content: JSON.stringify({ ok: false, error: "editing isn't enabled for this session" }) });
-            continue;
-          }
-          const apply = use.name === PROFILE_TOOL.name ? applyProfileEdit
-            : use.name === DIGEST_TOOL.name ? applyDigestEdit : applyTasteEdit;
-          const result = await apply(env, profileHash, use.input).catch((e) => ({ ok: false, error: String(e && e.message || e) }));
-          if (result.ok) {
-            if (use.name === PROFILE_TOOL.name) profileChanged = true;
-            else if (use.name === DIGEST_TOOL.name) digestChanged = true;
-            else tasteChanged = true;
-          }
-          results.push({ type: "tool_result", tool_use_id: use.id, content: JSON.stringify(result) });
-        }
-        const follow = [
-          ...convo,
-          { role: "assistant", content: data.content },
-          { role: "user", content: results },
-        ];
-        let data2;
-        try { data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey, model: execModel }); }
-        catch (e) { return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors); }
-        const changed = tasteChanged || profileChanged || digestChanged;
-        return json({
-          reply: textOf(data2) || (changed ? "Updated — re-ranking, refresh in ~a minute." : textOf(data) || "Done."),
-          taste_changed: tasteChanged, profile_changed: profileChanged, digest_changed: digestChanged,
-        }, 200, cors);
-      }
-    }
-
-    return json({ reply: textOf(data) || "(no answer)" }, 200, cors);
+    // Everything below runs behind a catch-all: an uncaught error would otherwise surface as a
+    // no-CORS Cloudflare error page the browser can only report as "backend unreachable" —
+    // return the real reason (with CORS) so the page can show it instead.
+    try { return await handleRequest(request, env, cors); }
+    catch (e) { return json({ error: "internal", detail: String((e && e.message) || e).slice(0, 300) }, 500, cors); }
   },
 };
 
+/* The whole request path (spotify + pipeline routing + the chat proxy) — split out of fetch()
+ * so the catch-all above wraps every branch. */
+async function handleRequest(request, env, cors) {
+  // Per-profile Spotify (browser OAuth + KV token store + an authed sync the routine/CI calls)
+  // is path-routed here; every other request is the chat proxy below. One Worker, one deploy.
+  const url = new URL(request.url);
+  if (url.pathname.startsWith("/spotify/")) return handleSpotify(url, request, env, cors);
+  if (url.pathname === "/refresh-events" || url.pathname === "/rebuild-profile")
+    return handlePipeline(url, request, env, cors);
+
+  // Unauthenticated deploy fingerprint: which build is live (no secrets — see VERSION).
+  if (request.method === "GET" && url.pathname === "/")
+    return json({ ok: true, service: "la-events-concierge", v: VERSION }, 200, cors);
+
+  if (request.method !== "POST") return json({ error: "POST only" }, 405, cors);
+
+  // Auth + bring-your-own-key. The shared CONCIERGE_TOKEN normally gates the proxy (it guards the
+  // owner's Anthropic spend). But a caller may instead bring their OWN Anthropic key via the
+  // x-anthropic-key header — that key pays for the request, so it's its own entry ticket: a valid
+  // personal key satisfies the gate even without the shared token. (Self-edit commits still use the
+  // owner's GitHub token; by Ari's call those are open to own-key callers too — see canEdit below.)
+  const userKey = parseUserKey(request.headers.get("x-anthropic-key"));
+  const tokenOk = !env.CONCIERGE_TOKEN || (request.headers.get("authorization") || "") === "Bearer " + env.CONCIERGE_TOKEN;
+  if (!tokenOk && !userKey) return json({ error: "unauthorized" }, 401, cors);
+  const apiKey = userKey || env.ANTHROPIC_API_KEY;
+  if (!apiKey) return json({ error: "server missing ANTHROPIC_API_KEY" }, 500, cors);
+
+  let body;
+  try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
+  // Health ping (the page's connection indicator): validates reachability + the token, no LLM call.
+  if (body && body.ping) return json({ ok: true, v: VERSION, taste: !!env.GITHUB_TOKEN, byok: !!userKey }, 200, cors);
+  const messages = sanitizeMessages(body && body.messages);
+  if (!messages.length) return json({ error: "no messages" }, 400, cors);
+  const profileHash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
+  // NOTE: the page's welcome chrome (greeting + the day's take + how-to) never reaches this
+  // Worker in any form — no history turn, no side field (the old `opener` is retired by
+  // design: the take is display-only; replies ground on the feed data below).
+
+  // Ground on the live feed — the profile's feed when one is attached (best-effort).
+  const dataUrl = env.DATA_URL || DEFAULTS.DATA_URL;
+  const feedUrl = profileHash ? dataUrl.replace(/data\.json(\?.*)?$/, `data.${profileHash}.json$1`) : dataUrl;
+  let feed = null;
+  try {
+    const r = await fetch(feedUrl, { cf: { cacheTtl: 120 } });
+    if (r.ok) feed = await r.json();
+  } catch { /* degrade gracefully */ }
+
+  // Self-edit (taste CONTENT + profile MECHANISM) is available to any logged-in profile, as long as
+  // commits are configured. It commits to the owner's repo using the owner's GITHUB_TOKEN — by Ari's
+  // call a bring-your-own-key caller can self-edit too (the GitHub write is the owner's setup, not
+  // something the caller needs a shared token for). Accepted tradeoff: any valid key reaching the
+  // Worker can trigger a (revertible) commit to a profile's file; keep GITHUB_TOKEN a single-repo,
+  // Contents-only PAT.
+  const canEdit = !!(profileHash && env.GITHUB_TOKEN);
+  const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name });
+  // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
+  // set ADVISOR_MODEL to "" to disable. Plus the two self-edit tools when this profile can edit.
+  const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
+  const tools = [
+    ...(advisorModel ? [{ type: "advisor_20260301", name: "advisor", model: advisorModel }] : []),
+    PLAN_TOOL,                                  // read-only group planning — available to any authed caller
+    ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL, DIGEST_TOOL] : []),
+  ];
+  // Any authed caller may upgrade the executor via `model: "opus"` in the body — Ari's call:
+  // shared-token users get Opus too (the token already gates who can spend at all; per-message
+  // cost is an accepted tradeoff). BYOK callers pay on their own key as before.
+  const execModel = (body && body.model) ? resolveModel(env, body.model) : null;
+
+  // The advisor is a SERVER-side tool; its sampling loop can return stop_reason "pause_turn" — when
+  // it does, re-send the conversation to let it continue (don't inject a user turn). Cap re-sends.
+  let convo = messages;
+  let data;
+  try {
+    for (let i = 0; i < 4; i++) {
+      data = await callAnthropic(env, { system, messages: convo, tools, apiKey, model: execModel });
+      if (data.stop_reason !== "pause_turn") break;
+      convo = [...convo, { role: "assistant", content: data.content }];
+    }
+  } catch (e) {
+    return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors);
+  }
+
+  // Tool-use round: the model may PLAN WITH FRIENDS (read-only, any authed caller) and/or change
+  // this profile's taste (CONTENT) / profile (MECHANISM) / digest (FORMAT) — the edit tools commit a
+  // YAML file and need canEdit. All are client-handled here in one round-trip.
+  if (data.stop_reason === "tool_use") {
+    const known = [PLAN_TOOL.name, TASTE_TOOL.name, PROFILE_TOOL.name, DIGEST_TOOL.name];
+    const uses = (data.content || []).filter((b) => b.type === "tool_use" && known.includes(b.name));
+    if (uses.length) {
+      let tasteChanged = false, profileChanged = false, digestChanged = false;
+      const results = [];
+      for (const use of uses) {
+        if (use.name === PLAN_TOOL.name) {
+          const result = await groupFeedMatrix(env, use.input || {}, profileHash).catch((e) => ({ ok: false, error: String(e && e.message || e) }));
+          results.push({ type: "tool_result", tool_use_id: use.id, content: JSON.stringify(result) });
+          continue;
+        }
+        if (!canEdit) {                          // the edit tools need a profile + GITHUB_TOKEN
+          results.push({ type: "tool_result", tool_use_id: use.id, content: JSON.stringify({ ok: false, error: "editing isn't enabled for this session" }) });
+          continue;
+        }
+        const apply = use.name === PROFILE_TOOL.name ? applyProfileEdit
+          : use.name === DIGEST_TOOL.name ? applyDigestEdit : applyTasteEdit;
+        const result = await apply(env, profileHash, use.input).catch((e) => ({ ok: false, error: String(e && e.message || e) }));
+        if (result.ok) {
+          if (use.name === PROFILE_TOOL.name) profileChanged = true;
+          else if (use.name === DIGEST_TOOL.name) digestChanged = true;
+          else tasteChanged = true;
+        }
+        results.push({ type: "tool_result", tool_use_id: use.id, content: JSON.stringify(result) });
+      }
+      const follow = [
+        ...convo,
+        { role: "assistant", content: data.content },
+        { role: "user", content: results },
+      ];
+      // Same bounded pause_turn resume as the first call: the advisor is plausibly consulted
+      // right here (planning over the tool results), and without the loop a paused follow-up
+      // would silently serve the canned fallback line instead of the model's actual answer.
+      let data2;
+      try {
+        for (let i = 0; i < 3; i++) {
+          data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey, model: execModel });
+          if (data2.stop_reason !== "pause_turn") break;
+          follow.push({ role: "assistant", content: data2.content });
+        }
+      }
+      catch (e) { return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors); }
+      const changed = tasteChanged || profileChanged || digestChanged;
+      return json({
+        reply: textOf(data2) || (changed ? "Updated — re-ranking, refresh in ~a minute." : textOf(data) || "Done."),
+        taste_changed: tasteChanged, profile_changed: profileChanged, digest_changed: digestChanged,
+      }, 200, cors);
+    }
+  }
+
+  return json({ reply: textOf(data) || "(no answer)" }, 200, cors);
+}
+
 /* ----- Anthropic ----- */
 /* Map a friendly model choice to a configured id — reuses the existing executor/advisor constants
- * (no new hardcoded ids), and passes through an explicit, well-formed `claude-*` id. Any authed
- * caller (shared token or BYOK) may request the upgrade; junk falls back to the default executor. */
+ * (no new hardcoded ids). Aliases ONLY, no arbitrary `claude-*` passthrough: the advisor tool
+ * requires advisor >= executor, so an id above the Opus advisor (e.g. claude-fable-5) would 400
+ * EVERY request — a bad parameter masquerading as an outage. Junk falls back to the default. */
 function resolveModel(env, m) {
   const k = String(m || "").trim().toLowerCase();
   if (k === "opus") return env.ADVISOR_MODEL || DEFAULTS.ADVISOR_MODEL;
-  if (k === "sonnet") return env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL;
-  if (/^claude-[a-z0-9.\-]+$/.test(k)) return k;
   return env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL;
 }
 
@@ -259,36 +286,57 @@ export async function accumulateSSE(body) {
   const partial = {};                       // block index -> accumulated tool-input JSON string
   const reader = body.getReader();
   const decoder = new TextDecoder();
-  let buf = "";
-  for (;;) {
-    const { done, value } = await reader.read();
-    buf += done ? decoder.decode() + "\n" : decoder.decode(value, { stream: true });
-    let nl;
-    while ((nl = buf.indexOf("\n")) !== -1) {
-      const line = buf.slice(0, nl).replace(/\r$/, "");
-      buf = buf.slice(nl + 1);
-      if (!line.startsWith("data:")) continue;       // skip event:/heartbeat/comment lines
-      let ev;
-      try { ev = JSON.parse(line.slice(5).trim()); } catch { continue; }
-      if (ev.type === "error") throw new Error("stream: " + String((ev.error && ev.error.message) || "unknown").slice(0, 300));
-      if (ev.type === "message_start" && ev.message) { msg.model = ev.message.model; msg.usage = ev.message.usage; }
-      else if (ev.type === "content_block_start") msg.content[ev.index] = { ...ev.content_block };
-      else if (ev.type === "content_block_delta") {
-        const b = msg.content[ev.index] || (msg.content[ev.index] = {});
-        const d = ev.delta || {};
-        if (d.type === "text_delta") b.text = (b.text || "") + d.text;
-        else if (d.type === "thinking_delta") b.thinking = (b.thinking || "") + d.thinking;
-        else if (d.type === "signature_delta") b.signature = d.signature;
-        else if (d.type === "input_json_delta") partial[ev.index] = (partial[ev.index] || "") + d.partial_json;
-      } else if (ev.type === "content_block_stop" && partial[ev.index] !== undefined) {
-        try { msg.content[ev.index].input = JSON.parse(partial[ev.index] || "{}"); } catch { /* keep the start block's input */ }
-        delete partial[ev.index];
-      } else if (ev.type === "message_delta" && ev.delta && ev.delta.stop_reason) {
-        msg.stop_reason = ev.delta.stop_reason;
+  // CPU matters here: on the Workers free tier a request gets ~10ms of CPU, and a long
+  // generation is 0.5-2MB of SSE. Split each chunk ONCE and carry the trailing partial line
+  // over — never re-slice a rolling buffer per line (that's quadratic and can blow the budget,
+  // which kills the Worker with a no-CORS 1102 the page can only report as "unreachable").
+  let tail = "";
+  let stopped = false;                      // saw message_stop — anything less is a truncated stream
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      const lines = (tail + (done ? decoder.decode() : decoder.decode(value, { stream: true }))).split("\n");
+      tail = done ? "" : lines.pop();          // last element is an incomplete line mid-stream
+      // Assumes single-line, LF/CRLF-terminated `data:` payloads — true for the Messages API.
+      for (let line of lines) {
+        if (line.endsWith("\r")) line = line.slice(0, -1);
+        if (!line.startsWith("data:")) continue;       // skip event:/heartbeat/comment lines
+        let ev;
+        try { ev = JSON.parse(line.slice(5).trim()); } catch { continue; }
+        if (ev.type === "error") throw new Error("stream: " + String((ev.error && ev.error.message) || "unknown").slice(0, 300));
+        // Bound the block index before using it: a corrupt index like 1e9 would make content a
+        // giant sparse array that the later filter/stringify walks — a guaranteed CPU kill.
+        if (ev.index !== undefined && (!Number.isInteger(ev.index) || ev.index < 0 || ev.index > 256)) continue;
+        if (ev.type === "message_start" && ev.message) { msg.model = ev.message.model; msg.usage = ev.message.usage; }
+        else if (ev.type === "content_block_start") msg.content[ev.index] = { ...ev.content_block };
+        else if (ev.type === "content_block_delta") {
+          const b = msg.content[ev.index] || (msg.content[ev.index] = {});
+          const d = ev.delta || {};
+          if (d.type === "text_delta") b.text = (b.text || "") + d.text;
+          else if (d.type === "thinking_delta") b.thinking = (b.thinking || "") + d.thinking;
+          else if (d.type === "signature_delta") b.signature = (b.signature || "") + d.signature;   // must survive byte-exact for the echo
+          else if (d.type === "input_json_delta") partial[ev.index] = (partial[ev.index] || "") + d.partial_json;
+        } else if (ev.type === "content_block_stop" && partial[ev.index] !== undefined) {
+          try { msg.content[ev.index].input = JSON.parse(partial[ev.index] || "{}"); } catch { /* keep the start block's input */ }
+          delete partial[ev.index];
+        } else if (ev.type === "message_delta" && ev.delta && ev.delta.stop_reason) {
+          msg.stop_reason = ev.delta.stop_reason;
+        } else if (ev.type === "message_stop") stopped = true;
       }
+      if (done) break;
     }
-    if (done) break;
+    // A cleanly-closed partial stream must NOT pass as a complete answer: served as-is it reads
+    // as a silently truncated reply — or worse, a tool_use whose input JSON never finished
+    // commits an EMPTY taste/profile patch. Fail loudly; callers surface it as a 502 + detail.
+    if (!stopped) throw new Error("stream truncated (no message_stop)");
+  } catch (e) {
+    try { reader.cancel(); } catch { /* already closed */ }
+    throw e;
   }
+  // Never hand callers a holey or typeless array: downstream filters (b.type === ...) and the
+  // assistant-echo JSON.stringify would crash / 400 on an undefined slot or a {}-fragment left
+  // by a dropped content_block_start.
+  msg.content = msg.content.filter((b) => b && b.type);
   return msg;
 }
 function textOf(data) {
@@ -556,7 +604,7 @@ export function buildSystem(feed, opts = {}) {
 
   const dining = (feed.dining || []).map((r) =>
     `- ${r.name} — ${r.neighborhood || "LA"}${r.price ? " · " + r.price : ""}` +
-    `${r.cuisine && r.cuisine.length ? " · " + r.cuisine.join("/") : ""}` +
+    `${Array.isArray(r.cuisine) && r.cuisine.length ? " · " + r.cuisine.join("/") : ""}` +
     `${r.notes ? " — " + r.notes : ""}${r.reservation_url ? " [" + r.reservation_url + "]" : ""}`
   ).join("\n");
 

@@ -72,6 +72,8 @@ And one **read-only** tool (no commit, no GitHub token, available to any authed 
 POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<feed-hash>" }
 ->    { reply: string, taste_changed?: boolean, profile_changed?: boolean, digest_changed?: boolean }
 Auth: optional  Authorization: Bearer <CONCIERGE_TOKEN>
+GET / (no auth) -> { ok, service, v }   deploy fingerprint — `curl https://<worker>/` answers
+                                        "which build is live?" (wrangler deploys are manual)
 ```
 
 `profile` is the feed hash the page already computes from the username (it's what `data.<hash>.json`

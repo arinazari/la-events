@@ -79,13 +79,31 @@ def test_rep_cinema_venue_sets_cinema():
 
 
 # ── vibe (the "afterhours"-style cross-cutting flags) ─────────────────────────────
-def test_afterhours_from_flag_and_from_late_start():
-    assert "afterhours" in T.tag_event(ev(category="electronic", afterhours=True, title="x"))["vibe"]
-    assert "afterhours" in T.tag_event(ev(category="electronic", start="23:30", title="x"))["vibe"]
+def test_afterhours_is_post_close_not_merely_late():
+    # a 10pm+ start is a normal club night, and the fetchers' crude flag (same rule)
+    # no longer grants the tag — that combination routed every warehouse party to afters
+    assert "afterhours" not in T.tag_event(ev(category="electronic", start="23:30", title="x"))["vibe"]
+    assert "afterhours" not in T.tag_event(ev(category="electronic", afterhours=True, start="22:00", title="x"))["vibe"]
+    # what DOES count: a run past 4am, dead-hours doors, or being billed as afters
+    assert "afterhours" in T.tag_event(ev(category="electronic", start="11pm-6am", title="x"))["vibe"]
+    assert "afterhours" in T.tag_event(ev(category="electronic", start="2:00", title="x"))["vibe"]
+    assert "afterhours" in T.tag_event(ev(category="electronic", start="23:00", title="Nightshift After Hours"))["vibe"]
+    # ends-by-3am is a late night, not afters
+    assert "afterhours" not in T.tag_event(ev(category="electronic", start="10pm-3am", title="x"))["vibe"]
+
+
+def test_parse_hours_formats():
+    assert T.parse_hours({"start": "23:00"}) == (23, None)
+    assert T.parse_hours({"start": "8:30pm"}) == (20, None)
+    assert T.parse_hours({"start": "10pm-3am"}) == (22, 3)
+    assert T.parse_hours({"start": "Sat: 2pm-Sun: 10pm"}) == (14, 22)
+    assert T.parse_hours({"start": "12am"}) == (0, None)
+    assert T.parse_hours({"start": None}) == (None, None)
 
 
 def test_day_party_only_for_daytime_club():
     assert "day-party" in T.tag_event(ev(category="electronic", start="14:00", title="x"))["vibe"]
+    assert "day-party" in T.tag_event(ev(category="electronic", start="3pm-10pm", title="x"))["vibe"]
     assert "day-party" not in T.tag_event(ev(category="music", sources=["tm"], start="14:00", title="x"))["vibe"]
 
 
