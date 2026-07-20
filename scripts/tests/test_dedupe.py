@@ -70,6 +70,29 @@ def test_merge_keeps_all_links_and_richest_fields():
     assert len(m["lineup"]) == 2                        # richest lineup
 
 
+def test_merge_upgrades_known_link_with_new_keys_old_wins_conflicts():
+    """A re-fetched link carrying NEW keys (fetch_veezi's per-showtime `label`) upgrades the
+    long-lived catalog dict for the same url — but the KEPT side wins shared keys, so a
+    re-emitted link can't clobber `source` (the "venue"-sourced shared-page dedupe signal) or
+    an already-good label. Position is preserved (links[0] is THE ticket link)."""
+    cat = {"title": "The Odyssey (70mm)", "venue": "Vista Theater", "date": "2026-07-24",
+           "lineup": [], "links": [
+               {"source": "vista", "url": "https://tix/3859"},
+               {"source": "venue", "url": "https://tix/shared"}]}
+    inc = {"title": "The Odyssey (70mm)", "venue": "Vista Theater", "date": "2026-07-24",
+           "lineup": [], "links": [
+               {"source": "vista", "url": "https://tix/3859", "label": "7:30pm"},
+               {"source": "19hz", "url": "https://tix/shared", "label": "x"},
+               {"source": "vista", "url": "https://tix/3866", "label": "10:30pm"}]}
+    m = merge(cat, inc)
+    assert [l["url"] for l in m["links"]] == ["https://tix/3859", "https://tix/shared",
+                                              "https://tix/3866"]   # order kept, new url appended
+    assert m["links"][0]["label"] == "7:30pm"          # new key lands on the kept dict
+    assert m["links"][1]["source"] == "venue"          # kept side wins the shared key
+    assert m["links"][1]["label"] == "x"               # ...but still gains the new key
+    assert m["links"][2]["label"] == "10:30pm"
+
+
 def test_merge_demotes_tm_resale_link():
     # TM resale-marketplace URLs (/event/Z…) routinely dead-end — after a merge a working link
     # must sit at links[0] (the digest + dashboard surface the first link as THE ticket link).

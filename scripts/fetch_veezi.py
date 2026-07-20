@@ -95,6 +95,14 @@ def parse_time(raw: str):
     return None
 
 
+def fmt_hm(hm: str) -> str:
+    """'19:30' -> '7:30pm' (the digest's compact time style) for the per-showtime link label."""
+    h, m = (int(x) for x in hm.split(":"))
+    ap = "am" if h < 12 else "pm"
+    h12 = h % 12 or 12
+    return f"{h12}:{m:02d}{ap}" if m else f"{h12}{ap}"
+
+
 def parse_date(raw: str, today: _date):
     """'Thursday 25, June' -> date. No year in the markup; Veezi lists only upcoming
     sessions, so pick the nearest forward year (handles the Dec->Jan boundary)."""
@@ -165,6 +173,12 @@ def parse(doc: str, venue: str, token: str, days: int) -> list:
                 # Fold format into detail so the cinema/analog-film tagging (and the digest)
                 # see the print gauge; format/rating/sold_out also ride as extras.
                 detail = " · ".join(x for x in (fmt, desc) if x) or None
+                # Per-showtime link label ("7:30pm", "10:30pm · sold out"): when dedupe folds a
+                # night's showtimes into one record, the accumulated purchase links stay
+                # tellable-apart instead of rendering as N identical venue buttons. Only real
+                # per-session hrefs get one — the no-href fallback is the venue's generic
+                # schedule page, shared across sessions, and a session-specific label on it
+                # would lie once a second session hits the same fallback.
                 events.append({
                     "source": "veezi",
                     "id": f"veezi-{tok8}-{pid or key}",
@@ -178,6 +192,7 @@ def parse(doc: str, venue: str, token: str, days: int) -> list:
                     "sold_out": sold_out,
                     "detail": detail,
                     "url": url,
+                    "url_label": (fmt_hm(start) + (" · sold out" if sold_out else "")) if hm else None,
                 })
     events.sort(key=lambda e: (e["date"], e["start"], e["title"]))
     return events
