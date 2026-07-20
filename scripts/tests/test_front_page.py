@@ -58,13 +58,42 @@ def test_shelves_split_near_vs_ahead():
 
 
 def test_hero_is_lane_capped_for_diversity():
-    evs = [ev(f"club{i}", "2026-07-17", "club:underground", i + 1, tier="must-see")
-           for i in range(5)]
-    evs += [ev("film1", "2026-07-17", "film", 10, tier="great")]
-    fp = B.build_front_page(evs, {}, TODAY)
+    """The hero runs the shared top-picks policy over the REAL verdicts map (the production
+    path in main()): tier-primary rank, then the lane cap displaces lower clubs for the film."""
+    evs = [ev(f"club{i}", "2026-07-17", "club:underground", i + 1, tier="must-see",
+              score=9 - i) for i in range(5)]
+    evs += [ev("film1", "2026-07-17", "film", 10, tier="great", score=3)]
+    vmap = {B.event_key(e): e["verdict"] for e in evs}
+    fp = B.build_front_page(evs, vmap, TODAY)
     hero = fp["hero"]["twoweeks"]
-    assert sum(1 for k in hero if k.startswith("club")) <= B.FP_HERO_LANE_CAP
+    assert sum(1 for k in hero if k.startswith("club")) <= B.TOP_PICKS_LANE_CAP
+    assert hero[:2] == ["club0", "club1"]  # tier-primary rank order, best clubs first
     assert "film1" in hero               # diversity: the film outlives lower-ranked club picks
+
+
+def test_take_lifted_from_slot_with_doc_date():
+    """The Take rides the feed structurally as {text, date}: the one-sentence teaser inside the
+    invisible `<!-- take: … -->` comment slot, plus the doc's own date (so the chat welcome can
+    honestly show WHICH day's read it is). An unfilled slot or a free-form (slot-less) doc
+    yields None so the page falls back to its clipped lede heuristic."""
+    filled = ("# LA Events — 2026-07-15\n*meta*\n\n"
+              "<!-- take: Deep-house weekend — the pier goes off Saturday. -->\n"
+              "The 2-4 sentence intro paragraph.\n\n## Don't miss\n")
+    assert B.digest_take(filled) == {"text": "Deep-house weekend — the pier goes off Saturday.",
+                                     "date": "2026-07-15"}
+    assert B.digest_take("<!-- take: -->\n<!-- tier3:intro -->\n") is None   # unfilled scaffold
+    assert B.digest_take("# Free-form profile digest\n\nJust prose.\n") is None
+    assert B.digest_take("") is None
+    # a multi-line teaser normalizes to one line; a doc with no dated H1 still yields the text
+    assert B.digest_take("<!-- take: two\n   lines -->")["text"] == "two lines"
+    assert B.digest_take("<!-- take: x -->")["date"] is None
+    # the retired start/end markers never read as a take
+    assert B.digest_take("<!-- take:start -->\nprose\n<!-- take:end -->\n") is None
+    # an UNCLOSED take comment (LLM fill dropped its -->) must not swallow the next comment
+    assert B.digest_take("<!-- take: forgot to close\n<!-- tier3:intro -->\n") is None
+    fp = B.build_front_page([], {}, TODAY, take={"text": "the take", "date": "2026-07-15"})
+    assert fp["take"] == {"text": "the take", "date": "2026-07-15"}
+    assert B.build_front_page([], {}, TODAY)["take"] is None
 
 
 def test_windows_shape_and_radar_join():

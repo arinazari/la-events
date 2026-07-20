@@ -74,6 +74,11 @@
   .fpc-why { font:400 11px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36; }
   .fpc-price { font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; }
   .fpc-new { font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#1f7a4d; }
+  .fpc-listen { font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; text-decoration:none; }
+  .fpc-listen:hover { color:#1d49b8; text-decoration:underline; }
+  /* per-artist streaming-search links in the detail surfaces (lineup rows) */
+  .ar-link { font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; text-decoration:none; }
+  .ar-link:hover { color:#1d49b8; text-decoration:underline; }
   .fp-hero .fpc-date { font-size:10.5px; }
   .fp-hero .fpc-tier { font-size:8.5px; }
   .fp-hero .fpc-title { font-size:14.5px; }
@@ -309,7 +314,12 @@
               <div class="fp-clamp2 fpc-venue">{{ c.venue }}</div>
               <sc-if value="{{ c.why }}" hint-placeholder-val="{{ false }}"><div class="fp-clamp3 fpc-why">{{ c.why }}</div></sc-if>
               <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                <span class="fpc-price">{{ c.price }}</span>
+                <span style="display:inline-flex; align-items:center; gap:8px; min-width:0;">
+                  <span class="fpc-price">{{ c.price }}</span>
+                  <sc-if value="{{ c.hasListen }}" hint-placeholder-val="{{ false }}">
+                    <a class="fpc-listen" href="{{ c.listenUrl }}" target="_blank" rel="noopener" onClick="{{ c.listenStop }}" title="{{ c.listenTitle }}">▶ listen</a>
+                  </sc-if>
+                </span>
                 <span style="display:inline-flex; align-items:center; gap:6px;">
                   <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span class="fpc-new">NEW</span></sc-if>
                   <span title="taste score {{ c.scoreLabel }}" style="display:inline-flex; align-items:center; gap:5px;">
@@ -550,8 +560,28 @@
                       </sc-if>
                       <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">WHY IT'S RANKED</div>
                       <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ ev.why }}</div>
-                      <div style="margin-top:14px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">LINEUP</div>
-                      <div style="font-size:12.5px; line-height:1.55; color:#161512;">{{ ev.lineupStr }}</div>
+                      <sc-if value="{{ ev.hasArtists }}" hint-placeholder-val="{{ false }}">
+                        <div style="margin-top:14px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:2px;">LINEUP</div>
+                        <sc-for list="{{ ev.artists }}" as="ar" hint-placeholder-count="3">
+                          <div style="padding:6px 0 5px; border-bottom:1px solid #e8e6de;">
+                            <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+                              <span style="font:600 12.5px/1.35 -apple-system,system-ui,sans-serif; color:#161512;">{{ ar.name }}</span>
+                              <sc-if value="{{ ar.hasLinks }}" hint-placeholder-val="{{ true }}">
+                                <span style="display:inline-flex; gap:9px;">
+                                  <a class="ar-link" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on Spotify">Spotify ↗</a>
+                                  <a class="ar-link" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud">SoundCloud ↗</a>
+                                </span>
+                              </sc-if>
+                            </div>
+                            <sc-if value="{{ ar.note }}" hint-placeholder-val="{{ false }}">
+                              <div style="margin-top:3px; font-size:11.5px; line-height:1.5; color:#76746b;">{{ ar.note }}</div>
+                            </sc-if>
+                          </div>
+                        </sc-for>
+                        <sc-if value="{{ ev.hasIntel }}" hint-placeholder-val="{{ true }}">
+                          <span onClick="{{ ev.askArtists }}" title="Ask the concierge for a rundown on this bill" style="display:inline-block; margin-top:9px; font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#2b5cd9; background:#f4f7fe; color:#2b5cd9;">✦ Artist intel</span>
+                        </sc-if>
+                      </sc-if>
                     </div>
                     <div style="flex:none; min-width:180px;">
                       <div style="font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:8px;">DETAILS</div>
@@ -615,6 +645,10 @@
               <span style="font:500 11px/1 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.hood }}</span>
               <span style="color:#cdcbc3;">·</span>
               <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ ev.source }}</span>
+              <sc-if value="{{ ev.hasListen }}" hint-placeholder-val="{{ false }}">
+                <span style="color:#cdcbc3;">·</span>
+                <a href="{{ ev.listenUrl }}" target="_blank" rel="noopener" onClick="{{ ev.listenStop }}" title="{{ ev.listenTitle }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; text-decoration:none; padding:2px 0;">▶ listen</a>
+              </sc-if>
             </div>
             <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:8px;">
               <sc-for list="{{ ev.badges }}" as="b">
@@ -629,8 +663,28 @@
                 </sc-if>
                 <div style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">WHY IT'S RANKED</div>
                 <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ ev.why }}</div>
-                <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">LINEUP</div>
-                <div style="font-size:12.5px; line-height:1.5; color:#161512;">{{ ev.lineupStr }}</div>
+                <sc-if value="{{ ev.hasArtists }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:13px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:1px;">LINEUP</div>
+                  <sc-for list="{{ ev.artists }}" as="ar" hint-placeholder-count="3">
+                    <div style="padding:7px 0 6px; border-bottom:1px solid #e8e6de;">
+                      <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+                        <span style="font:600 13px/1.35 -apple-system,system-ui,sans-serif; color:#161512;">{{ ar.name }}</span>
+                        <sc-if value="{{ ar.hasLinks }}" hint-placeholder-val="{{ true }}">
+                          <span style="display:inline-flex; gap:11px;">
+                            <a class="ar-link" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on Spotify" style="font-size:10.5px; padding:2px 0;">Spotify ↗</a>
+                            <a class="ar-link" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud" style="font-size:10.5px; padding:2px 0;">SoundCloud ↗</a>
+                          </span>
+                        </sc-if>
+                      </div>
+                      <sc-if value="{{ ar.note }}" hint-placeholder-val="{{ false }}">
+                        <div style="margin-top:3px; font-size:12px; line-height:1.5; color:#76746b;">{{ ar.note }}</div>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                  <sc-if value="{{ ev.hasIntel }}" hint-placeholder-val="{{ true }}">
+                    <span onClick="{{ ev.askArtists }}" title="Ask the concierge for a rundown on this bill" style="display:inline-block; margin-top:10px; font:600 11px/1 ui-monospace,Menlo,monospace; padding:9px 12px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">✦ Artist intel</span>
+                  </sc-if>
+                </sc-if>
                 <div style="margin-top:13px; font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.venueLine }}</div>
                 <div style="font:500 11.5px/1.85 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ ev.priceLine }}</div>
                 <sc-if value="{{ ev.hasSeries }}" hint-placeholder-val="{{ false }}">
@@ -805,14 +859,43 @@
           <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">WHY IT'S RANKED</div>
           <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ fpDetail.why }}</div>
         </sc-if>
-        <sc-if value="{{ fpDetail.lineupStr }}" hint-placeholder-val="{{ false }}">
-          <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">LINEUP</div>
-          <div style="font-size:12.5px; line-height:1.5; color:#161512;">{{ fpDetail.lineupStr }}</div>
+        <sc-if value="{{ fpDetail.hasArtists }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:1px;">LINEUP</div>
+          <sc-for list="{{ fpDetail.artists }}" as="ar" hint-placeholder-count="3">
+            <div style="padding:7px 0 6px; border-bottom:1px solid #e8e6de;">
+              <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+                <span style="font:600 13px/1.35 -apple-system,system-ui,sans-serif; color:#161512;">{{ ar.name }}</span>
+                <sc-if value="{{ ar.hasLinks }}" hint-placeholder-val="{{ true }}">
+                  <span style="display:inline-flex; gap:11px;">
+                    <a class="ar-link" href="{{ ar.spUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on Spotify" style="font-size:10px; padding:2px 0;">Spotify ↗</a>
+                    <a class="ar-link" href="{{ ar.scUrl }}" target="_blank" rel="noopener" onClick="{{ ar.stop }}" title="Search {{ ar.name }} on SoundCloud" style="font-size:10px; padding:2px 0;">SoundCloud ↗</a>
+                  </span>
+                </sc-if>
+              </div>
+              <sc-if value="{{ ar.note }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:3px; font-size:12px; line-height:1.5; color:#76746b;">{{ ar.note }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ fpDetail.hasSeries }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:6px;">ALSO SHOWING</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <sc-for list="{{ fpDetail.seriesChipRows }}" as="sd">
+              <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" style="font:500 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:2px; text-decoration: {{ sd.deco }};">{{ sd.label }}</a>
+            </sc-for>
+            <sc-if value="{{ fpDetail.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
+              <span style="font:500 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; color:#a7a59b;">{{ fpDetail.seriesMore }}</span>
+            </sc-if>
+          </div>
         </sc-if>
         <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;">
           <sc-for list="{{ fpDetail.links }}" as="lk" hint-placeholder-count="2">
             <a href="{{ lk.url }}" target="_blank" rel="noopener" onClick="{{ lk.stop }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:3px; text-decoration:none;">{{ lk.label }} ↗</a>
           </sc-for>
+          <sc-if value="{{ fpDetail.hasIntel }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ fpDetail.askArtists }}" title="Ask the concierge for a rundown on this bill" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">✦ Artist intel</span>
+          </sc-if>
           <span onClick="{{ fpDetail.icsClick }}" title="Download .ics — add to your calendar" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">Add to calendar ↓</span>
         </div>
       </div>
@@ -1165,7 +1248,9 @@ class Component extends DCLogic {
     spotifyStatus: null,   // per-profile Spotify: null=unknown/checking, true=connected, false=not
     spotifyName: '',
     loading: false,
-    takeText: '',   // the day's take (digest lede) — rendered inside the welcome message; reaches the LLM only as `opener`
+    takeText: '',   // the day's take — a one-sentence teaser rendered inside the welcome message. Display
+    takeDate: '',   // chrome ONLY: it never reaches the model (no history, no opener). takeDate = the
+                    // digest date the take was written for, shown so it's visibly today's read (or honestly not).
     messages: [
       // The welcome: ONE synthetic concierge message wrapping greeting + take + how-to, composed
       // at render from GREET_HEAD / takeText / GREET_GUIDE. Chrome only — never sent as history.
@@ -1175,8 +1260,9 @@ class Component extends DCLogic {
 
   // The concierge welcome, composed at render into one message: GREET_HEAD (+ the day's take,
   // "For <date>: …", when takeText is set) + GREET_GUIDE (the collapsible how-to). It LOOKS like
-  // the LLM's first message but askBackend never sends it — the take alone reaches the model,
-  // as the `opener` system-prompt field.
+  // the LLM's first message but none of it is ever sent — not as history and not as any side
+  // field; the model answers from the feed grounding alone (Ari's call: the take just shows up
+  // as if the concierge said it).
   GREET_HEAD = "I'm your LA concierge — the best of what's on in LA, ranked to your taste.";
   GREET_GUIDE = "A few things I can do:\n- **Find shows** — `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n- **Point you to food** — `what's the hot new restaurant`, a spot near Silver Lake, popups & food trucks.\n- **Plan a whole night** — say `plan my Saturday: dinner then a show` and I'll fuse events + dining into one sequenced, travel-timed itinerary (dinner → show → afters).\n- **Tune your taste** — `more techno, less comedy` or `I moved to Highland Park`, and I'll re-rank you.\nTap any blue example to drop it in the box — or just start typing.";
 
@@ -1260,7 +1346,7 @@ class Component extends DCLogic {
     return out.slice(0, 7).map(text => ({ text, ...this.badgeStyle(text) }));
   }
 
-  LINK_LABELS = { ra:'Resident Advisor', dice:'DICE', ticketmaster:'Ticketmaster', tm:'Ticketmaster', posh:'Posh', eventbrite:'Eventbrite', filmbot:'Showtimes', goldenvoice:'Goldenvoice', squarespace:'Venue site', jsonld:'Venue site', ics:'Add to calendar', '19hz':'19hz' };
+  LINK_LABELS = { ra:'Resident Advisor', dice:'DICE', ticketmaster:'Ticketmaster', tm:'Ticketmaster', posh:'Posh', eventbrite:'Eventbrite', filmbot:'Showtimes', goldenvoice:'Goldenvoice', squarespace:'Venue site', jsonld:'Venue site', ics:'Add to calendar', '19hz':'19hz', vista:'Vista', newbev:'New Beverly' };
   linkLabel(l) {
     if (!l) return 'Tickets';
     const u = String(l.url || '');
@@ -1271,11 +1357,18 @@ class Component extends DCLogic {
   linksFor(e) {
     const stop = (ev) => { ev.stopPropagation(); };
     const list = Array.isArray(e.links) ? e.links : [];
-    const seen = new Set(); const out = [];
+    const seen = new Set(); const labels = new Set(); const out = [];
     for (const l of list) {
       if (!l || !l.url || seen.has(l.url)) continue;
       seen.add(l.url);
-      out.push({ label: this.linkLabel(l), url: l.url, stop });
+      // A link may carry its own display label (fetch_veezi's per-showtime "7:30pm") — compose
+      // "Vista · 7:30pm". Buttons whose display text would be identical collapse to the first:
+      // N indistinguishable "Vista" buttons (a run's unlabeled showtime links) tell the user
+      // nothing the first doesn't.
+      const label = this.linkLabel(l) + (l.label ? ' · ' + l.label : '');
+      if (labels.has(label)) continue;
+      labels.add(label);
+      out.push({ label, url: l.url, stop });
     }
     if (!out.length && e.url) out.push({ label: 'Tickets', url: e.url, stop });
     // Films: an external showtimes search covering the LA theaters that aren't fetch sources.
@@ -1301,6 +1394,91 @@ class Component extends DCLogic {
     }
     const extra = others.length - chips.length;
     return { chips, more: extra > 0 ? '+' + extra + ' more dates' : '' };
+  }
+
+  // ---------- listen + artist intel ----------
+  // Per-artist streaming links are plain web searches (no API, no auth): Spotify's search page
+  // scoped to artists, SoundCloud's people search — exactly as resolvable as the name itself.
+  // The search query drops a trailing parenthetical qualifier — billing style writes
+  // 'EMBRZ (IE)' / 'Stavroz (Live)'; the qualifier only hurts the search.
+  MUSIC_CATS = new Set(['Electronic', 'Live Music']);
+  musicish(e) { return this.MUSIC_CATS.has(e.cat); }
+  _searchName(name) { const s = String(name).trim(); return s.replace(/\s*\([^)]*\)\s*$/, '').trim() || s; }
+  spotifySearch(name) { return 'https://open.spotify.com/search/' + encodeURIComponent(this._searchName(name)) + '/artists'; }
+  soundcloudSearch(name) { return 'https://soundcloud.com/search/people?q=' + encodeURIComponent(this._searchName(name)); }
+  // The name a card-level ▶ listen searches: top billing on a MUSIC event, else the first
+  // scene-graph-verified artist (any category). Never derived from the title — the venue feeds'
+  // catch-all categories file watch parties and trivia nights under 'music', and TM's theater
+  // rows put the show title in lineup, so an unverified name is a junk search waiting to happen.
+  headlinerFor(e) {
+    if (this.musicish(e) && e.lineup && e.lineup.length) return String(e.lineup[0]).trim();
+    const n = (e.artistNotes || [])[0];
+    return (n && n.name) ? String(n.name).trim() : '';
+  }
+  listenFor(e) {
+    const a = this.headlinerFor(e);
+    if (!a) return { hasListen: false, listenUrl: '', listenTitle: '', listenStop: null };
+    return { hasListen: true, listenUrl: this.spotifySearch(a),
+      listenTitle: 'Search "' + a + '" on Spotify', listenStop: (ev) => ev.stopPropagation() };
+  }
+  // Billing names carry parenthetical qualifiers the note cache doesn't ('EMBRZ (IE)' vs the
+  // cached 'EMBRZ') — normalize them away so the bio lands on the billed row instead of
+  // rendering the same artist twice.
+  _artistNorm(s) { return String(s || '').toLowerCase().replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+/g, ' ').trim(); }
+  // Unified artist rows for the detail surfaces: the lineup in billing order (every category —
+  // this is the LINEUP display), plus any note-only artists the scene graph matched. Streaming
+  // links only where the name is trustworthy as an ARTIST: a music-category billing, or any name
+  // with an LLM-written bio (data/enrichment.json, folded into the feed by build_dashboard) —
+  // a theater row's "lineup" is the show title and must not link.
+  artistRowsFor(e) {
+    const stop = (ev) => ev.stopPropagation();
+    const music = this.musicish(e);
+    const notes = new Map();
+    for (const n of (e.artistNotes || [])) {
+      const k = this._artistNorm(n.name);
+      if (k && !notes.has(k)) notes.set(k, n.note || '');
+    }
+    const seen = new Set(); const rows = [];
+    const push = (name) => {
+      const k = this._artistNorm(name);
+      if (!k || seen.has(k)) return;
+      seen.add(k);
+      const note = notes.get(k) || '';
+      rows.push({ name: String(name).trim(), note, hasLinks: music || !!note,
+        spUrl: this.spotifySearch(name), scUrl: this.soundcloudSearch(name), stop });
+    };
+    for (const a of (e.lineup || [])) push(a);
+    for (const n of (e.artistNotes || [])) if (n && n.name) push(n.name);
+    return rows;
+  }
+  // Intel only where the ask makes sense: a music bill, or names the scene graph verified.
+  intelFor(e) {
+    const rows = this.artistRowsFor(e);
+    return { artists: rows, hasArtists: rows.length > 0,
+      hasIntel: rows.length > 0 && (this.musicish(e) || rows.some(r => r.note)),
+      askArtists: (domEv) => this.askArtists(e, domEv) };
+  }
+  // "✦ Artist intel" — hand the bill to the concierge. Auto-send ONLY on a verified connection
+  // (ping said ok) with no reply in flight: an optimistic send that fails falls back to the
+  // local filter engine, which answers a who-is question with a garbage table filter, and
+  // runQuery silently drops input while loading. Anything less certain stages the text in the
+  // box instead — and never over a draft the user already typed.
+  askArtists(e, domEv) {
+    if (domEv && domEv.stopPropagation) domEv.stopPropagation();
+    const names = this.artistRowsFor(e).map(r => r.name);
+    const extra = names.length - 6;
+    const who = names.slice(0, 6).join(', ') + (extra > 0 ? ' (+' + extra + ' more)' : '');
+    const q = names.length
+      ? 'Give me the rundown on ' + who + ' — the bill for "' + e.title + '" at ' + e.venue + ' (' + e.wd + ' ' + e.md + '): who they are, what they sound like, notable releases, who to show up early for.'
+      : 'Tell me more about "' + e.title + '" at ' + e.venue + ' (' + e.wd + ' ' + e.md + ') — who is behind it and what is the sound?';
+    const draft = (this.state.input || '').trim();
+    const live = (this.state.chatMode || 'llm') === 'llm' && !this.state.loading &&
+      !!(this.state.profile && this.state.profile.hash) && this.state.backendStatus === 'ok';
+    this.setState({ collapsed: false, fpDetailKey: null }, () => {
+      if (live) { this.runQuery(q); if (draft) this.setState({ input: draft }); }
+      else if (draft) this.flashToast('You have an unsent message — send or clear it, then tap Artist intel again.');
+      else this.useExample(q);
+    });
   }
 
   // ---------- ICS export (RFC 5545) ----------
@@ -1474,20 +1652,22 @@ class Component extends DCLogic {
       digestPicks: false, colFilters: JSON.parse(JSON.stringify(this.EMPTY_COLS)),
     });
   };
-  // "The Take" — the digest's voice-pass lede, spoken by the concierge: slotted into the chat's
-  // welcome message (seedTake → takeText, "For <date>: …"). It's the first real prose paragraph
-  // of DIGEST_MD (skips the H1, the *meta* lines, banners, and unfilled slot markers).
+  // The take's FALLBACK — heuristic lede lift from DIGEST_MD: the first real prose paragraph
+  // (skips the H1, the *meta* lines, banners; comments are stripped so slot markers never hide
+  // the prose). The PREFERRED source is the feed's structural front_page.take (build_dashboard
+  // lifts it from the digest's take slot server-side); this heuristic covers digests without
+  // one — free-form per-profile digests, pre-take feeds, the bundled sample.
   digestLede() {
     const md = this.DIGEST_MD || '';
     if (this._ledeSrc === md) return this._lede;   // memoized — renderVals runs per keystroke
     let lede = '';
     for (const block of md.split(/\n\s*\n/)) {
-      const t = block.trim();
-      if (!t) continue;
+      const t = block.replace(/<!--[\s\S]*?-->/g, '').trim();  // markers never hide the prose
+      if (!t) continue;                            // blank / markers-only (unfilled slots)
       if (t.startsWith('##')) break;               // first section reached — no lede in this doc
-      if (t.startsWith('# ') || t.startsWith('>') || t.startsWith('<!--') || t.startsWith('-')) continue;
+      if (t.startsWith('# ') || t.startsWith('>') || t.startsWith('-')) continue;
       if (/^\*[^*]/.test(t) && t.endsWith('*')) continue;  // *meta lines* (italic), not a **bold** lede
-      lede = t.replace(/<!--[\s\S]*?-->/g, '').trim();
+      lede = t;
       break;
     }
     this._ledeSrc = md; this._lede = lede;
@@ -1627,6 +1807,9 @@ class Component extends DCLogic {
   DIGEST_FILE = '2026-06-17.md';
   DIGEST_INDEX = [];      // [{path, file, date, title, latest}] of selectable past digests (deploy-staged)
   DIGEST_CURRENT = null;  // dated file name of the digest currently shown (names the download)
+  // Placeholder-class until a REAL digest doc loads (_tryDigest flips this false): the bundled
+  // June sample below must never seed the chat take, even if the live digest fetch fails.
+  DIGEST_PLACEHOLDER = true;
   DIGEST_MD = `# LA Events — Wednesday 6/17
 
 Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Eastside-weighted, Thu–Sun heavy.
@@ -1714,8 +1897,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // Shared Markdown → styled HTML — used by the digest modal AND the guide / what's-new modal.
   // Supports #/## headings, "- " bullets (with indented wrapped continuations), `---` rules, and
   // the inlineMd spans (bold / code / links). Keeps both surfaces visually identical.
+  // HTML comments are stripped FIRST: the digest carries permanent invisible slots (the
+  // `<!-- take: … -->` teaser, unfilled tier3 slots) that inlineMd's escaping would otherwise
+  // render as literal text.
   renderMarkdown(md) {
-    const lines = String(md || '').split('\n');
+    const lines = String(md || '').replace(/<!--[\s\S]*?-->/g, '').split('\n');
     let html = '';
     let items = null;   // array of <li> inner-HTML while inside a bullet list (else null)
     const flush = () => {
@@ -1836,6 +2022,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
+    "- **Listen + artist intel.** Music cards now carry a **▶ listen** link — one tap to the headliner on Spotify. Opening an event shows its lineup as artist rows: **Spotify / SoundCloud** search links per name (music bills, plus anyone the scene graph has verified) and, where the research exists, a one-line bio of who that artist is. **✦ Artist intel** hands the bill to the concierge for the full LLM rundown — who they are, what they sound like, who to show up early for.",
     "- **The concierge opens with the take.** The chat's welcome now folds in the day's *take* — the digest's opening read (`For Fri 7/17: …`) — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. The how-to is part of the same message: full-size on your first visit, tucked behind *see what I can do ▸* once you've chatted. (The take moved off the front page, which gets straight to the cards.)",
     "- **A front page.** The site now opens on an editorial home: a **Don't miss** hero row and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
     "- **Taste strength on every card.** The transparent taste score — the number with the little strength bar from the Explore table — now sits on each front-page card and mobile card too, so you can see *how strongly* something matched, not just that it made the cut.",
@@ -2273,7 +2460,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   };
   async askBackend(text) {
     // The welcome message (intro) is client-side chrome — excluded here so the greeting/how-to
-    // never cost wire or model tokens; the take alone rides as `opener` below.
+    // never cost wire or model tokens. The take is chrome too: it is deliberately NOT sent in
+    // any form (no history turn, no side field) — the model grounds on the feed data alone.
     const history = (this.state.messages || []).filter(m => !m.intro).slice(-7)
       .map(m => ({ role: m.role === 'user' ? 'user' : 'assistant', content: String(m.text || '') }))
       .filter(m => m.content.trim());
@@ -2281,10 +2469,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
     const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // BYOK: your key pays for this request
     const body = { messages: history };
-    // The take never rides the history (the welcome is dropped above) — it goes as its own field
-    // and the Worker folds it into the system prompt. That's what keeps "what's the move tonight
-    // then?" grounded, at the cost of the take alone rather than the whole welcome.
-    if (this.state.takeText) body.opener = String(this.state.takeText).slice(0, 1500);
     if (this.useOpus()) body.model = 'opus';   // upgrade the executor to Opus — honored on any connection (token or key)
     const p = this.state.profile;
     if (p && p.hash) body.profile = p.hash;   // ground on — and allow self-edit of — this profile's taste
@@ -2390,6 +2574,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
       spotifyStatus: null, spotifyName: '', backendStatus: null, backendVer: null },
       () => { if (this.BACKEND_URL) this.pingBackend(); });
+    // The digest on hand belongs to the profile we're LEAVING — never let its lede seed the
+    // incoming profile's take (the new feed applies before the new digest arrives). The digest
+    // load below re-enables the fallback and reseeds.
+    this.DIGEST_PLACEHOLDER = true; this.seedTake('');
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
@@ -3177,6 +3365,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       region: tags.region || '',
       nearHome: !!tags.near_home,
       lineup: Array.isArray(r.lineup) ? r.lineup : [],
+      // LLM-written artist bios from the scene graph (enrichment.artist_notes) — [{name, note}].
+      artistNotes: Array.isArray(enr.artist_notes) ? enr.artist_notes.filter(n => n && n.name) : [],
       pmin: pr.pmin, pmax: pr.pmax, price: pr.display,
       source: this.normSource((Array.isArray(r.sources) && r.sources[0]) || r.source || (links[0] && links[0].source)),
       ra, ah, score, rating: (typeof r.rating === 'number' ? r.rating : null),
@@ -3220,6 +3410,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this._distinct = null;
     this._keyMap = null;               // front-page key->event join, rebuilt lazily
     this.setState({ dataSource: 'live', fpDetailKey: null });
+    this.reseedTake();                 // the feed carries the structural take — re-derive on either load
     return true;
   }
   _tryFeed(path) {
@@ -3232,16 +3423,46 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       .then(res => res.ok ? res.text().then(md => {
         if (!md || md.trim().length < 20) return false;
         this.DIGEST_MD = md; this.DIGEST_FILE = label || 'latest.md'; this.forceUpdate();
-        this.seedTake(this.digestLede());   // the take rides the chat thread as a concierge message
+        this.DIGEST_PLACEHOLDER = false;   // a real digest doc — its lede may serve as the fallback take
+        this.reseedTake();   // the take rides the chat thread as a concierge message
         return true;
       }) : false)
       .catch(() => false);
   }
   // The take rides INSIDE the welcome message ("For <date>: …") — state, not a thread message,
-  // so it can't collide with a live conversation and never costs history tokens. '' clears it
-  // (profile with no digest). askBackend sends it as `opener` and the Worker folds it into the
-  // system prompt — that's how "what's the move tonight then?" stays grounded.
-  seedTake(lede) { this.setState({ takeText: lede || '' }); }
+  // so it can't collide with a live conversation and never costs history tokens; it is display
+  // chrome only and is NEVER sent to the model. Preferred source: the feed's structural
+  // front_page.take {text, date} (the voice pass's one-sentence teaser + the digest date it was
+  // written for). Fallback: the digest lede heuristic, clipped to ONE sentence so every surface
+  // obeys the teaser contract. Re-derived on both feed load and digest load (either can land
+  // first); the DIGEST_PLACEHOLDER flag keeps the no-digest placeholder text from ever leaking
+  // in as a take, whichever load wins the race.
+  reseedTake() {
+    const fp = (this.META && this.META.front_page) || null;
+    const t = fp && fp.take && typeof fp.take.text === 'string' && fp.take.text.trim() ? fp.take : null;
+    // Bounded even on the structural path — the slot is LLM-filled daily, so a malformed fill
+    // must not dump a wall of text (or worse) into the welcome.
+    if (t) return this.seedTake(t.text.trim().slice(0, 300), typeof t.date === 'string' ? t.date : '');
+    const lede = this.DIGEST_PLACEHOLDER ? '' : this.teaserOf(this.digestLede());
+    // Date the fallback from the digest's own H1 (same pattern the server lift uses) — an
+    // undated lede seeds no date, and the welcome then shows no "For <date>:" claim at all,
+    // rather than stamping today's date on a doc that may be days old.
+    const dm = lede ? String(this.DIGEST_MD || '').match(/^# .*?(\d{4}-\d{2}-\d{2})/m) : null;
+    this.seedTake(lede, dm ? dm[1] : '');
+  }
+  // The fallback teaser clip: normalize the lede to PLAIN text (unwrap [links], drop
+  // emphasis/code markers — a clip must never sever markdown mid-pair and leak raw syntax into
+  // the welcome), then cut at a word boundary. Deliberately no sentence detection —
+  // abbreviations ("St. Vincent", "Mulholland Dr.") make it unwinnable; a bounded word-cut
+  // reads as the teaser it is. Structural takes pass through whole (already one sentence).
+  teaserOf(text) {
+    const t = String(text || '').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+      .replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
+    if (t.length <= 160) return t;
+    const cut = t.lastIndexOf(' ', 157);
+    return t.slice(0, cut > 80 ? cut : 157).trimEnd() + '…';
+  }
+  seedTake(lede, date) { this.setState({ takeText: lede || '', takeDate: date || '' }); }
   // The deploy step (scripts/stage_digests.py) writes ./digests/index.json (and ./digests/<hash>/
   // index.json per profile), newest first. We only read it to resolve the current digest's dated
   // name (DIGEST_CURRENT), which names the download file. Missing off a static host -> empty index
@@ -3276,8 +3497,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       return this._tryDigest('./digests/' + p.hash + '/latest.md').then(ok => {
         if (!ok) {
           this.DIGEST_MD = '# ' + (p.name || 'Your') + ' digest\n\nNo personalized digest has been written for this profile yet — your taste-ranked picks are live in the table. Hit **Update** (Settings → Ranks & Digest) to generate it; after that it refreshes whenever your taste changes or you Update again.';
-          this.DIGEST_FILE = null; this.forceUpdate();
-          this.seedTake('');   // no digest for this profile -> drop any take left from the last one
+          this.DIGEST_FILE = null; this.DIGEST_PLACEHOLDER = true; this.forceUpdate();
+          this.reseedTake();   // no digest -> structural take if the feed has one, else clear
         }
       });
     }
@@ -3401,7 +3622,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       badges: this.computedBadges(e),
       why: e.why,
       desc: e.desc, hasDesc: e.hasDesc,
-      lineupStr: e.lineup.join('  \u00b7  '),
       venueLine: e.venue + ' (' + e.hood + ')',
       priceLine: this.priceLabel(e) + (e.ah ? '  \u00b7  afterhours' : '') + '  \u00b7  ' + e.wd + ' ' + e.md + ' ' + e.t,
       ...(() => { const sc = this.seriesChips(e); return {
@@ -3412,6 +3632,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         seriesMore: sc.more, hasSeriesMore: !!sc.more,
       }; })(),
       links: this.linksFor(e),
+      ...this.listenFor(e),
+      ...this.intelFor(e),
       expanded: e.id === expandedId,
       caret: e.id === expandedId ? '\u25be' : '\u25b8',
       rowBg: e.id === expandedId ? '#f3f1ea' : 'transparent',
@@ -3423,13 +3645,19 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
 
     const msgs = messages.map(m => {
       // The welcome — ONE concierge message wrapping the greeting, the day's take ("For Fri
-      // 7/17: …"), and the how-to. Pure chrome: it reads as the LLM's first message but is never
-      // sent to it (askBackend drops it; the take alone goes as `opener`). The how-to renders
-      // full-size until this device's first message, then tucks behind "see what I can do ▸".
+      // 7/17: …"), and the how-to. Pure chrome: it reads as the LLM's first message but NONE of
+      // it is ever sent (askBackend drops the whole thing — no history turn, no side field).
+      // The take's date is the DIGEST's date (takeDate — front_page.take, or the doc's H1 for
+      // the lede fallback), never today's-by-default: it visibly reads as today's take when it
+      // is, honestly dated when stale, and an undated take shows no "For <date>:" claim at all.
+      // The how-to renders full-size until this device's first message, then tucks behind
+      // "see what I can do ▸".
       if (m.intro) {
         const gOpen = !!this.state.chatGuideOpen;
         const md = this.GREET_HEAD
-          + (this.state.takeText ? '\nFor **' + this.labelISO(this.TODAY) + '**: ' + this.state.takeText : '')
+          + (this.state.takeText
+              ? '\n' + (this.state.takeDate ? 'For **' + this.labelISO(this.state.takeDate) + '**: ' : '') + this.state.takeText
+              : '')
           + (gOpen ? '\n' + this.GREET_GUIDE : '');
         const gLink = React.createElement('span', {
           onClick: this.toggleChatGuide,
@@ -3677,6 +3905,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const de = this.byKey(this.state.fpDetailKey);
       if (de) {
         fpDetailOpen = true;
+        const fpSc = this.seriesChips(de);   // a run's other nights, same chips as the table card
         fpDetail = {
           date: de.wd + ' ' + de.md + ' · ' + de.t,
           title: de.title,
@@ -3684,8 +3913,13 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           priceLine: this.priceLabel(de) + (de.ah ? '  ·  afterhours' : ''),
           why: de.why || '',
           desc: de.desc, hasDesc: de.hasDesc,
-          lineupStr: de.lineup.join('  ·  '),
           links: this.linksFor(de),
+          hasSeries: fpSc.chips.length > 0,
+          seriesChipRows: fpSc.chips.map(c => ({ label: c.label, url: c.url, stop: c.stop,
+            color: c.dim ? '#a29a90' : '#3f3d36', border: c.dim ? '#dedcd4' : '#c9c7bd',
+            deco: c.dim ? 'line-through' : 'none' })),
+          seriesMore: fpSc.more, hasSeriesMore: !!fpSc.more,
+          ...this.intelFor(de),
           icsClick: (domEv) => this.downloadICS(de, domEv),
         };
       }
@@ -3723,6 +3957,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         scoreLabel: String(e.score), scoreColor: this.scoreColorFor(e.score),
         scoreSegs: this.scoreSegsFor(e.score),
         isNew: !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef),
+        ...this.listenFor(e),
         onClick: () => this.openFpDetail(e.key),
       });
       const resolve = (keys) => (keys || []).map(k => this.byKey(k)).filter(Boolean);

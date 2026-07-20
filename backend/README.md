@@ -127,6 +127,11 @@ Then point the dashboard at it: set the `BACKEND_URL` constant in `dashboard/ind
 printed Worker URL and redeploy Pages. Visitors connect from the page itself — **connect** in the
 chat header stores the token / personal key (per profile, in that browser's localStorage).
 
+> Re-run `npx wrangler deploy` after Worker-code changes in this repo. Current pending change
+> (2026-07-20): the `opener` field is retired — the chat's take is display-only and the page no
+> longer sends it, so a stale deployed Worker is harmless (its opener plumbing just receives
+> nothing); redeploy is cleanup, not correctness.
+
 ### "I redeployed but it still fails" — verify the deploy actually landed
 
 `curl https://<worker>/` — every build since 2026-07-20 answers `GET /` with its deploy

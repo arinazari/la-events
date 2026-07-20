@@ -101,7 +101,13 @@ def _links(raw: dict, source) -> list:
     for key in ("url", "ticket_url", "link", "event_url", "tickets"):
         v = raw.get(key)
         if isinstance(v, str) and v:
-            out.append({"source": source or "?", "url": v})
+            link = {"source": source or "?", "url": v}
+            # Optional display label for the primary url (fetch_veezi's per-showtime "7:30pm"):
+            # when dedupe folds a run's showtimes into one record, the accumulated links stay
+            # distinguishable instead of rendering as N identical venue buttons.
+            if key == "url" and isinstance(raw.get("url_label"), str) and raw["url_label"]:
+                link["label"] = raw["url_label"]
+            out.append(link)
     return out
 
 

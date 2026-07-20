@@ -172,6 +172,53 @@ def test_slate_gap_cuts_filler():
     assert len(picks) == 2          # 12, 11, then a 7-point drop to 4 cuts the rest
 
 
+def test_top_picks_is_rank_key_ordered_and_diverse():
+    """The shared Don't-miss policy (2026-07-16 follow-up): tier-primary order, judged skips
+    out, lane/family diversity caps — five club nights can't fill the shelf."""
+    clubs = [_ev(f"c{i}", UG, 9 - i) for i in range(5)]
+    film = _ev("film1", FILM, 3)
+    v = {A.event_key(e): {"tier": "must-see"} for e in clubs}
+    v[A.event_key(film)] = {"tier": "great"}
+    picks = A.top_picks(clubs + [film], v)
+    lanes = [A.event_lane(p, v) for p in picks]
+    assert lanes.count("club:underground") == A.TOP_PICKS_LANE_CAP
+    assert "film" in lanes                       # diversity: the great film outlives lower must-see clubs
+    assert picks[0]["title"] == "c0"             # within a lane, rank order holds
+    # a judged skip never makes the shelf, however high its score
+    sk = _ev("sk", FILM, 12)
+    assert sk not in A.top_picks([sk, film], {A.event_key(sk): {"tier": "skip"},
+                                              A.event_key(film): {"tier": "great"}})
+
+
+def test_top_picks_one_night_per_program():
+    """A multi-night run enters once via its best-ranked night (series_of keys the program);
+    a cap-blocked program is consumed, not deferred to a worse night."""
+    n1 = _ev("Residency", UG, 8, d="2026-07-03")
+    n2 = _ev("Residency", UG, 7, d="2026-07-04")
+    other = _ev("other", FILM, 5)
+    picks = A.top_picks([n1, n2, other], {}, series_of=lambda e: e.get("title"))
+    assert [p["iso_date"] for p in picks if p["title"] == "Residency"] == ["2026-07-03"]
+    assert other in picks
+    # consumed-not-deferred: the program's BEST night hits the underground lane cap, so the
+    # program is out entirely — its later film-lane night must not sneak in as a substitute
+    u1, u2 = _ev("u1", UG, 9), _ev("u2", UG, 8)
+    p1 = _ev("Roving Run", UG, 7, d="2026-07-03")
+    p2 = _ev("Roving Run", FILM, 6, d="2026-07-04")
+    f = _ev("f", FILM, 5)
+    picks = A.top_picks([u1, u2, p1, p2, f], {}, series_of=lambda e: e.get("title"))
+    titles = [p["title"] for p in picks]
+    assert "Roving Run" not in titles and "f" in titles
+
+
+def test_top_picks_family_cap_spans_sublanes():
+    """club:* is one family: 2 underground + 1 afters exhausts it; the 4th club pick is out."""
+    evs = [_ev("u1", UG, 9), _ev("u2", UG, 8), _ev("a1", AFTERS, 7), _ev("a2", AFTERS, 6),
+           _ev("f1", FILM, 5)]
+    lanes = [A.event_lane(p) for p in A.top_picks(evs, {})]
+    assert sum(1 for ln in lanes if ln.startswith("club")) == A.TOP_PICKS_FAM_CAP
+    assert "film" in lanes
+
+
 def test_assemble_mute_drops_lane():
     days = A.assemble([_ev("m", UG, 9, price="$80"), _ev("u", UG, 8)],
                       mute={"club:mainstream"}, per_day=5)

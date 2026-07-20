@@ -205,6 +205,57 @@ def rank_key(ev: dict, verdicts: dict):
     return (1, 0, ev.get("score") or 0)
 
 
+# ── One Don't-miss policy across surfaces (2026-07-16 redesign follow-up) ────────────────────
+# The flagship digest's "Don't miss" shelf and the dashboard front page's hero row are the same
+# product surface — the top handful across a window — so they select through ONE policy: walk in
+# rank_key order (tier-primary, the editor's call; the exact expression final_rank is stamped
+# from), one pick per program, and diversity caps so five club nights can't fill the shelf.
+# Callers window their own pool (the digest spans its whole window; the hero picks per time
+# lens) — the ordering, collapse rule, and knobs are what's shared.
+TOP_PICKS_N = 6
+TOP_PICKS_LANE_CAP = 2   # per exact lane within one pick set …
+TOP_PICKS_FAM_CAP = 3    # … and per lane family (club:*)
+
+
+def top_picks(pool: list, verdicts: dict = None, *, n: int = TOP_PICKS_N,
+              lane_cap: int = TOP_PICKS_LANE_CAP, fam_cap: int = TOP_PICKS_FAM_CAP,
+              series_of=None) -> list:
+    """THE top-picks selection (digest Don't-miss shelf + front-page hero row): rank the pool
+    by (rank_key, event_key) — identical to how the dashboard's final_rank is stamped, so the
+    two surfaces can never disagree on order — then pick until `n`, skipping judged skips,
+    duplicate keys, extra nights of an already-seen program (`series_of` keys a multi-night
+    run/film program; its best-ranked night represents it, and a cap-blocked program is
+    consumed, not deferred to a worse night), and anything past the lane/family diversity
+    caps. A pre-stamped `lane` field is honored (feed rows carry event_lane's own output);
+    otherwise the lane derives here."""
+    verdicts = verdicts or {}
+    ranked = sorted((e for e in pool if e.get("iso_date")),
+                    key=lambda e: (rank_key(e, verdicts), event_key(e)), reverse=True)
+    seen, programs, lane_n, fam_n, picks = set(), set(), Counter(), Counter(), []
+    for e in ranked:
+        k = event_key(e)
+        if k in seen:
+            continue
+        seen.add(k)
+        if (verdicts.get(k) or {}).get("tier") == "skip":
+            continue
+        prog = series_of(e) if series_of else None
+        if prog:
+            if prog in programs:
+                continue
+            programs.add(prog)
+        lane = e.get("lane") or event_lane(e, verdicts)
+        fam = lane.split(":")[0]
+        if lane_n[lane] >= lane_cap or fam_n[fam] >= fam_cap:
+            continue
+        picks.append(e)
+        lane_n[lane] += 1
+        fam_n[fam] += 1
+        if len(picks) >= n:
+            break
+    return picks
+
+
 def slate_fill(day_evs: list, per_day: int, slate: dict, verdicts: dict,
                min_guarantee_score: int = 2) -> list:
     """One day's slate: merit-fill to per_day, cut at a score-gap cliff, then a diversity FLOOR.

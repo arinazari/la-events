@@ -429,28 +429,38 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   slots; "Weekends ahead" compressed to top-4 + a link to the per-weekend file (now staged/published);
   ops banners moved to the footer). Root cause fixes underneath: Ticketmaster's capitalized segment
   names never matched the tagger ("other" was 65% of the catalog → now ~1%), and detail-blob keywords
-  could retype concerts. AND the dashboard now opens on a **Front page** — The Take (digest lede) +
-  a time lens (tonight/weekend/2wk/ahead) + a tier-badged Don't-miss hero row + per-lane shelves, all
-  computed server-side (`build_dashboard.build_front_page`, same rank_key as final_rank; the page
-  never re-ranks); the table demoted to **Explore** (header switch, per-device persistence). Every
+  could retype concerts. AND the dashboard now opens on a **Front page** — a time lens
+  (tonight/weekend/2wk/ahead) + a Don't-miss hero row + per-lane shelves, all computed
+  server-side (`build_dashboard.build_front_page`, same rank_key as final_rank; the page
+  never re-ranks); the table demoted to **Explore** (header switch, per-device persistence).
+  (As first shipped this page also opened with a "The Take" lede card and tier-badged the hero;
+  since revised — the take moved into the concierge chat as a dated one-sentence teaser (#92 +
+  the follow-ups below), and the hero unbadged (#93).) Every
   feed event now carries its stable `key` (event_key) — the join id, and the anchor for feedback
   reactions when that lands.
 
-### Redesign follow-ups (TODO — from the 2026-07-16 review; both need Ari's call)
-- [ ] **One "Don't miss" policy across surfaces** — the digest's shelf (`_dont_miss_events`,
-  tier-primary, run-collapsed, NO lane cap) and the front page's hero (`build_front_page`,
-  same rank but lane-capped 2-per-lane/3-per-family for diversity) can legitimately disagree —
-  five club nights can top the digest shelf while the hero forces a film in. If the two should
-  read identically, extract one shared top-picks helper into `lib/assemble` (next to
-  `slate_fill`/`rank_key`) and give both surfaces the same diversity knobs. Decision: same or
-  deliberately different?
-- [ ] **Emit "The Take" structurally** — the take is the digest lede parsed out of
-  `digests/latest.md` with string heuristics (`digestLede()` in the dashboard). Robust enough
-  for now (bold/italic openers handled), but the clean fix is the voice pass writing the intro
-  to a structured slot the feed carries (e.g. `front_page.take`), so the page never parses
-  markdown conventions. (2026-07-16 follow-up: the take moved off the front page entirely —
-  it renders inside the concierge chat's welcome message (`seedTake()`), and reaches the model
-  as the Worker's `opener` system-prompt field, never as history.)
+### Redesign follow-ups (from the 2026-07-16 review) — ✅ both shipped 2026-07-20
+- [x] **One "Don't miss" policy across surfaces** — resolved as SAME (the "one policy" reading):
+  `lib/assemble.top_picks` (next to `slate_fill`/`rank_key`) is now THE shelf definition —
+  rank_key order (the exact expression `final_rank` is stamped from), judged skips out, one
+  night per program, and the shared `TOP_PICKS_*` diversity knobs (2-per-lane / 3-per-family,
+  N=6). Both `render_digest._dont_miss_events` and `build_front_page`'s hero run it, so the
+  digest shelf now gets the hero's diversity too (five club nights can't fill it; live-music/
+  film picks displace the 4th-best club bill). If Ari prefers the shelves deliberately
+  different, the knobs are per-call args — change one caller, not the policy. Composes with
+  the taxonomy revamp: the family cap spans `live-music:*` exactly like `club:*`.
+- [x] **Emit "The Take" structurally** — revised per Ari (2026-07-20): the take is NOT the
+  digest intro lifted verbatim — it's a dedicated **one-sentence, high-level teaser** the
+  voice pass writes into an invisible `<!-- take: … -->` slot under the digest header
+  (distinct from the 2–4 sentence `tier3:intro`). `build_dashboard --digest` lifts it into
+  each feed as `front_page.take = {text, date}` — the date is the digest's own date, so the
+  chat welcome shows it's genuinely today's read, honestly stale otherwise; `build_profiles`
+  points each friend's build at their OWN `digests/<hash>/latest.md` (no slot → `take: null`;
+  never Ari's teaser). The page prefers the structural take for the chat welcome
+  (`seedTake`); the `digestLede()` heuristic survives only as the fallback, clipped to one
+  sentence. **Display-only by design**: the take renders as if the concierge said it but is
+  NEVER sent to the model — the `opener` system-prompt field is removed (page + Worker); the
+  concierge stays grounded on the feed data alone.
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
