@@ -218,6 +218,12 @@ function resolveModel(env, m) {
   return env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL;
 }
 
+/* STREAMING is load-bearing here, not cosmetic. At EFFORT=max with adaptive thinking + an Opus
+ * advisor consult, a single generation can run well past a minute — and a non-streaming Messages
+ * call sends ZERO bytes until it finishes, so the Worker's outbound fetch gives up waiting for the
+ * first byte and the whole chat 502s ("concierge backend error"). With stream:true bytes flow
+ * immediately and the connection stays alive for the full generation; accumulateSSE folds the
+ * event stream back into the non-streaming shape the rest of the Worker consumes. */
 async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
   const resp = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
@@ -230,6 +236,7 @@ async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
     body: JSON.stringify({
       model: model || env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL,
       max_tokens: Number(env.MAX_TOKENS) || DEFAULTS.MAX_TOKENS,
+      stream: true,                                            // see the block comment above
       // Cache the (large, stable) persona + grounded feed: turns 2+ of a conversation read it at ~0.1x.
       system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }],
       thinking: { type: "adaptive" },                          // adaptive thinking for quality planning
@@ -239,7 +246,52 @@ async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
     }),
   });
   if (!resp.ok) throw new Error(resp.status + " " + (await resp.text().catch(() => "")).slice(0, 300));
-  return resp.json();
+  return accumulateSSE(resp.body);
+}
+
+/* Fold a Messages-API SSE stream back into the non-streaming response shape ({content,
+ * stop_reason, ...}). Handles every block kind we can receive: text (text_delta), thinking
+ * (thinking_delta + signature_delta — the signature must survive so a pause_turn / tool-round
+ * re-send can pass the block back unchanged), tool_use / server_tool_use (input_json_delta
+ * accumulated, parsed at content_block_stop), and complete server-result blocks (advisor/tool
+ * results arrive whole in content_block_start). A mid-stream `error` event throws so callers
+ * surface the API's real reason instead of a generic failure. Exported for tests. */
+export async function accumulateSSE(body) {
+  const msg = { content: [], stop_reason: null };
+  const partial = {};                       // block index -> accumulated tool-input JSON string
+  const reader = body.getReader();
+  const decoder = new TextDecoder();
+  let buf = "";
+  for (;;) {
+    const { done, value } = await reader.read();
+    buf += done ? decoder.decode() + "\n" : decoder.decode(value, { stream: true });
+    let nl;
+    while ((nl = buf.indexOf("\n")) !== -1) {
+      const line = buf.slice(0, nl).replace(/\r$/, "");
+      buf = buf.slice(nl + 1);
+      if (!line.startsWith("data:")) continue;       // skip event:/heartbeat/comment lines
+      let ev;
+      try { ev = JSON.parse(line.slice(5).trim()); } catch { continue; }
+      if (ev.type === "error") throw new Error("stream: " + String((ev.error && ev.error.message) || "unknown").slice(0, 300));
+      if (ev.type === "message_start" && ev.message) { msg.model = ev.message.model; msg.usage = ev.message.usage; }
+      else if (ev.type === "content_block_start") msg.content[ev.index] = { ...ev.content_block };
+      else if (ev.type === "content_block_delta") {
+        const b = msg.content[ev.index] || (msg.content[ev.index] = {});
+        const d = ev.delta || {};
+        if (d.type === "text_delta") b.text = (b.text || "") + d.text;
+        else if (d.type === "thinking_delta") b.thinking = (b.thinking || "") + d.thinking;
+        else if (d.type === "signature_delta") b.signature = d.signature;
+        else if (d.type === "input_json_delta") partial[ev.index] = (partial[ev.index] || "") + d.partial_json;
+      } else if (ev.type === "content_block_stop" && partial[ev.index] !== undefined) {
+        try { msg.content[ev.index].input = JSON.parse(partial[ev.index] || "{}"); } catch { /* keep the start block's input */ }
+        delete partial[ev.index];
+      } else if (ev.type === "message_delta" && ev.delta && ev.delta.stop_reason) {
+        msg.stop_reason = ev.delta.stop_reason;
+      }
+    }
+    if (done) break;
+  }
+  return msg;
 }
 function textOf(data) {
   return (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();

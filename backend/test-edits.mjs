@@ -8,6 +8,7 @@ import { readFileSync } from "node:fs";
 import { parse as yamlParse, parseDocument } from "yaml";
 import {
   applyDigestPatchDoc, newDigestDoc, applyProfilePatchDoc, applyPatchDoc, buildSystem, profileHash,
+  accumulateSSE,
 } from "./concierge-worker.js";
 
 let passed = 0;
@@ -62,7 +63,9 @@ const ok = (name) => { console.log("ok  " + name); passed++; };
   const s = String(doc);
   assert.ok(s.includes("#"), "comments survive the round-trip");
   assert.equal(yamlParse(s).length, "detailed");
-  assert.deepEqual(yamlParse(s).sections, ["dont_miss", "day_by_day", "around_town", "radar"]);
+  // untouched keys survive verbatim — compare against the file's own pre-edit value,
+  // not a hardcoded list (the root digest.yaml grows sections over time)
+  assert.deepEqual(yamlParse(s).sections, yamlParse(text).sections);
   ok("digest: editing the real root file preserves comments + untouched keys");
 }
 
@@ -100,6 +103,57 @@ const ok = (name) => { console.log("ok  " + name); passed++; };
   assert.equal(await profileHash("ari", "la-events/v1:"), "1d8a45fa37024d33");
   assert.equal(await profileHash("ARI", "la-events/v1:"), await profileHash("ari", "la-events/v1:"));
   ok("profileHash matches the Python/page hashing");
+}
+
+/* ---- SSE accumulation (the streaming Anthropic call folds back to one response) ---- */
+const sseStream = (text, chunkAt) => new ReadableStream({
+  start(c) {
+    const enc = new TextEncoder();
+    if (chunkAt) { c.enqueue(enc.encode(text.slice(0, chunkAt))); c.enqueue(enc.encode(text.slice(chunkAt))); }
+    else c.enqueue(enc.encode(text));
+    c.close();
+  },
+});
+const SSE_OK = [
+  "event: message_start",
+  'data: {"type":"message_start","message":{"model":"claude-sonnet-4-6","usage":{"input_tokens":10}}}',
+  "",
+  'data: {"type":"content_block_start","index":0,"content_block":{"type":"thinking","thinking":"","signature":""}}',
+  'data: {"type":"content_block_delta","index":0,"delta":{"type":"thinking_delta","thinking":"hm"}}',
+  'data: {"type":"content_block_delta","index":0,"delta":{"type":"signature_delta","signature":"SIG"}}',
+  'data: {"type":"content_block_stop","index":0}',
+  'data: {"type":"content_block_start","index":1,"content_block":{"type":"text","text":""}}',
+  'data: {"type":"content_block_delta","index":1,"delta":{"type":"text_delta","text":"Go see "}}',
+  'data: {"type":"content_block_delta","index":1,"delta":{"type":"text_delta","text":"Kelela."}}',
+  'data: {"type":"content_block_stop","index":1}',
+  'data: {"type":"content_block_start","index":2,"content_block":{"type":"tool_use","id":"tu_1","name":"propose_taste_change","input":{}}}',
+  'data: {"type":"content_block_delta","index":2,"delta":{"type":"input_json_delta","partial_json":"{\\"summary\\":"}}',
+  'data: {"type":"content_block_delta","index":2,"delta":{"type":"input_json_delta","partial_json":"\\"more techno\\"}"}}',
+  'data: {"type":"content_block_stop","index":2}',
+  'data: {"type":"message_delta","delta":{"stop_reason":"tool_use"},"usage":{"output_tokens":5}}',
+  'data: {"type":"message_stop"}',
+].join("\n") + "\n";
+{
+  const out = await accumulateSSE(sseStream(SSE_OK));
+  assert.equal(out.stop_reason, "tool_use");
+  assert.equal(out.model, "claude-sonnet-4-6");
+  assert.equal(out.content[0].thinking, "hm");
+  assert.equal(out.content[0].signature, "SIG", "thinking signature survives (pause_turn re-send needs it)");
+  assert.equal(out.content[1].text, "Go see Kelela.");
+  assert.deepEqual(out.content[2].input, { summary: "more techno" }, "tool input JSON reassembled");
+  ok("sse: full stream folds back to the non-streaming shape");
+}
+{
+  // Chunk boundary mid-line (network chunks don't respect SSE framing).
+  const out = await accumulateSSE(sseStream(SSE_OK, SSE_OK.indexOf("Kelela") + 3));
+  assert.equal(out.content[1].text, "Go see Kelela.");
+  ok("sse: survives a chunk split mid-line");
+}
+{
+  // A mid-stream error event throws with the API's real reason.
+  const errStream = sseStream('data: {"type":"error","error":{"type":"overloaded_error","message":"Overloaded"}}\n');
+  await assert.rejects(() => accumulateSSE(errStream), /Overloaded/);
+  ok("sse: mid-stream error event throws with the reason");
 }
 
 console.log(`\nall ${passed} worker edit tests passed`);
