@@ -75,7 +75,10 @@ batch you're given and nothing else.
    CHARACTER the venue can't reveal — a big mainstream headliner the tags filed as
    `club:underground`, or a Top-40/nostalgia club night at a small room (that's `club:mainstream`
    too: mainstream is a character call, not a venue-size call). Or an afters mislabeled, a
-   "live-music" that's really a club night, etc. Use the lane vocab: `club:mainstream` /
+   "live-music" that's really a club night, etc. Club-split semantics: `club:underground` is the
+   warehouse/TBA/DIY MAIN event at any hour — a 10pm-doors warehouse rave lives here, not in
+   afters; `club:afters` is genuinely post-close (billed as afters, dead-hours doors, or a run
+   past ~4am — the party after the party). Use the lane vocab: `club:mainstream` /
    `club:afters` / `club:day` / `club:underground`, `live-music` (small/mid rooms) /
    `live-music:big` (arena- or hall-scale concerts), `film`, `stage`, `comedy`, `market`,
    `workshop`, `art`, `food-drink`, `community`, `other` — off-vocab strings are dropped on
@@ -113,7 +116,7 @@ overriding; include `adjust` always (0 if no nudge).
   {"id": "ca395d166036", "tier": "skip", "adjust": -2,
    "why": "Big-room mainstream night — fine, just not the warehouse energy you want this weekend.",
    "confidence": "high"},
-  {"id": "a1aee8bcdfae", "tier": "must-see", "lane": "club:afters", "adjust": 3,
+  {"id": "a1aee8bcdfae", "tier": "must-see", "adjust": 3,
    "why": "Antal open-to-close at a warehouse — the exact rooftop-into-night groove you build a Saturday around.",
    "confidence": "high"},
   {"id": "918a63422186", "tier": "great", "adjust": 1,

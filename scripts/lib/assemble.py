@@ -29,7 +29,7 @@ from collections import Counter, defaultdict
 from datetime import date
 
 from .enrich import event_key
-from .tagging import TYPES, tag_event
+from .tagging import TYPES, billed_afters, parse_hours, tag_event
 
 # Arena/amphitheater/stadium gazetteer — a booking here signals a mainstream-scale act. Pairs
 # with the `amphitheater` setting tag and a high-price proxy; the editor's lane override is the
@@ -95,9 +95,21 @@ def event_lane(ev: dict, verdicts: dict = None) -> str:
     vocab) defers to the more specific deterministic sub-lane in the same family — the editor
     meant "this is live music, not club", never "not big". Cross-family overrides always win.
 
-    Otherwise derive from the multi-axis tags: club splits on vibe first (a 10pm-4am Exchange
-    mainstage IS afters), then scale — hall/arena bookings and festival bills are mainstream-
-    draw; live-music splits big (hall/arena — the "stay informed" tier) vs. the rest.
+    Otherwise derive from the multi-axis tags. The club split is semantic, not chronological
+    (the old afters-on-any-10pm-start rule routed every real warehouse party to `afters` and
+    left `underground` holding the residue):
+      afters      — genuinely post-close (the semantic `afterhours` vibe: billed as afters,
+                    dead-hours doors, or a run past 4am — a 10pm-4am Exchange mainstage IS
+                    afters). An underground MAIN event (doors before midnight + warehouse-
+                    grade signals) keeps its lane when the vibe is merely inferred from
+                    hours — but an explicit afters BILLING (the promoter's own claim, e.g.
+                    "HARDfest Afters") always lands here; afters is the party after the party.
+      day         — day-party/sunset vibe or a rooftop/pool/outdoor room.
+      underground — warehouse/diy room or a TBA-location drop, at any start time. Checked
+                    BEFORE the scale/price rules so a stacked warehouse bill can't drift
+                    into big rooms. Also the residual for ordinary small-room club nights.
+      mainstream  — festival bills, hall/arena bookings, or the $70+ price proxy.
+    live-music splits big (hall/arena — the "stay informed" tier) vs. the rest.
 
     Lanes (see LANES): club:{mainstream,afters,day,underground}, live-music[:big], film,
     stage, comedy, market, workshop, art, food-drink, community, other."""
@@ -107,10 +119,15 @@ def event_lane(ev: dict, verdicts: dict = None) -> str:
         vibe = set(tags.get("vibe") or [])
         setting = set(tags.get("setting") or [])
         price = _max_price(ev)
-        if "afterhours" in vibe:
+        underground = bool({"warehouse", "diy"} & setting) or "tba-location" in vibe
+        start, _end = parse_hours(ev)
+        main_event = start is not None and 9 <= start <= 23      # doors before midnight
+        if "afterhours" in vibe and (billed_afters(ev) or not (underground and main_event)):
             det = "club:afters"
         elif "day-party" in vibe or "sunset" in vibe or (setting & {"rooftop", "pool", "outdoor"}):
             det = "club:day"
+        elif underground:
+            det = "club:underground"
         elif "festival" in vibe or _big_scale(ev, tags) or (price and price >= 70):
             det = "club:mainstream"
         else:
