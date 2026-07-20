@@ -2,14 +2,12 @@
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Mon 7/20 · no new or changed events since the last pull*
 
-<!-- take: A quiet rep-cinema week gives way to a real Sunday: Boris Brejcha and the Hollywood Bowl Orchestra. -->
+<!-- take: -->
 <!-- tier3:intro -->
-This is a low-key stretch on paper — Monday through Thursday is mostly Vidiots and the Vista running their rep programming, with nothing dance-related until Friday. But the weekend earns it: Friday's Utopia x Dialed techno bill is worth chasing blind before the TBA location even drops, Stavroz play live at The Bridge the same night for the warmer melodic-electronic end, and Sunday's Boris Brejcha-with-orchestra at the Bowl is a genuine novelty booking, not just another DJ set with strings tacked on. Look past this week too — Kim Gordon and Mau P collide with HARD Summer on 8/1, and Moodymann playing Prince at the Regent on 8/14 is quietly one of the better bookings on the whole calendar right now.
 
 ## Tonight & tomorrow
 
 <!-- tier3:call -->
-Quiet tonight and tomorrow — this is Vidiots and the Vista's week, so make it a rep-cinema double (Jamón Jamón or The Last Dragon tonight, Rope or Cries and Whispers tomorrow) and save the going-out energy for Friday.
 
 - `Today 7:30pm` **[Jamón Jamón](https://vidiotsfoundation.org/showtimes/jamon-jamon-7-20-26-700-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22jam%C3%B3n+jam%C3%B3n%22+showtimes+Los+Angeles) — *Jamón Jamón (Bigas Luna, the Bardem/Cruz breakout) is a genuine arthouse pick — exactly the Vidiots lane.*
 - `Today 1pm` **[The Last Dragon (1985)](https://vidiotsfoundation.org/showtimes/the-last-dragon-7-20-26-100-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22the+last+dragon%22+showtimes+Los+Angeles) — *A stone-cold cult classic at Vidiots — rep cinema is core lane and the score is underrating a straightforward pick.*
@@ -22,8 +20,8 @@ Quiet tonight and tomorrow — this is Vidiots and the Vista's week, so make it 
 
 - `Fri 7/24` **[Utopia x Dialed Records presents RICH NXT, NU ZAU, TXHLDEM](https://ra.co/events/2481171)** — TBA, Los Angeles · free · *📍 location TBA — watch for the drop*  
   Dialed's own TXHLDEM going alongside a genuine FUSE-scene UK vet in Rich NXT plus Bucharest's Nu Zau is a real techno bill hiding behind a bare TBA address — worth chasing down even before the location drops. <!-- tier3:why 8a3d95d9db16 -->
-- `Sat 8/1` **[Mau P, Dreya V](https://hard.frontgatetickets.com/event/mxqewxz783v0qzfu)** — Ace Mission Studios (Los Angeles) tech house · $95-105  
-  Mau P's raw, jacking tech-house translates well to a real warehouse room — Ace Mission is a legit converted industrial space in Boyle Heights, not a generic club — and Dreya V's vocal-driven tech house is a solid, not-just-filler support slot. <!-- tier3:why 177f79bbe0c6 -->
+- `Sat 8/1` **[A Club Called Rhonda with TEED, Jacques Greene, Kindness (DJ), Shaun Ross & more](https://ra.co/events/2456742)** — Los Globos, Silver Lake  
+  Rhonda's queer disco blowout stacks a real one in TEED next to Jacques Greene's woozier garage, plus the party's own residents (Goddollars, Bianca Lexis) — this is the spectacle-and-groove reputation the night is known for, not a niche DJ booking. <!-- tier3:why 40092dd2af6c -->
 - `Sat 8/1` **[Kim Gordon - Play Me Tour](https://www.ticketmaster.com/kim-gordon-play-me-tour-los-angeles-california-08-01-2026/event/09006482BE637FB6)** — Pacific Electric, DTLA  
   Kim Gordon's solo records are weirder and more interesting than a Sonic Youth nostalgia lap, and SASAMI opening makes this a real bill rather than a legacy cash-in. <!-- tier3:why 981ec1e26eb6 -->
 - `Sun 8/2` **[HARD Summer Music Festival](https://on.fgtix.com/trk/5oHm)** — Hollywood Park Grounds, Inglewood  
@@ -77,9 +75,6 @@ Quiet tonight and tomorrow — this is Vidiots and the Vista's week, so make it 
 
 ### Wednesday · July 22
 
-**Electronic & dance**
-- `10pm-2:30am` **[Clinic x The 900 Block](https://www.facebook.com/clinicwednesdays/events)** — Jungle Hollywood (Los Angeles) techno, tech house, deep house, Hollywood · 21+ — *Techno/tech-house/deep-house club night hits the genre lane but no names are billed to gauge the room.*
-
 **Live music**
 - `7pm` **[Gary Wilson, The Soul Family Band, Kenny Matuucci](https://dice.fm/event/av58pd-gary-wilson-the-soul-family-band-kenny-matuucci-22nd-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood  
   Gary Wilson, The Soul Family Band, and Kenny Matuucci perform funk and soul at Gold Diggers, East Hollywood (7pm).
@@ -87,6 +82,8 @@ Quiet tonight and tomorrow — this is Vidiots and the Vista's week, so make it 
 **Film**
 - `2pm` **[The Computer Wore Tennis Shoes](https://ticketing.uswest.veezi.com/purchase/3848?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+computer+wore+tennis+shoes%22+showtimes+Los+Angeles)  
   A 1969 Disney matinee curio, not really an evening pick — nice if you're already in Los Feliz and want a light afternoon at the Vista.
+- `1pm` **[Don’t Tell Mom the Babysitter’s Dead](https://vidiotsfoundation.org/showtimes/dont-tell-mom-the-babysitters-dead-7-22-26-100-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22don+t+tell+mom+the+babysitter+s+dead%22+showtimes+Los+Angeles)  
+  Film screening of Don't Tell Mom the Babysitter's Dead at Vidiots in Eagle Rock.
 
 ### Thursday · July 23
 
@@ -100,14 +97,13 @@ Quiet tonight and tomorrow — this is Vidiots and the Vista's week, so make it 
 
 ### Friday · July 24
 <!-- tier3:blueprint 2026-07-24 -->
-Golden-hour at Level 8's Sunset Sessions (5pm) into dinner in DTLA, then Stavroz's live set at The Bridge (10-3) for the warm, cinematic version of the night — swap in the Utopia/Dialed TBA techno bill instead if the location drops early enough to make the trip.
 
 **Electronic & dance**
 - `11pm` ⭐ **[Utopia x Dialed Records presents RICH NXT, NU ZAU, TXHLDEM](https://ra.co/events/2481171)** — TBA, Los Angeles · free
-- `10pm-3am` ⭐ **[STRANGER THAN presents: Stavroz (Live)](https://ra.co/events/2437239)** — The Bridge, DTLA · $35 b4 11 / $47  
-  Stavroz play live rather than DJ, so this is closer to the Bonobo/RÜFÜS Du Sol live-electronic lane than a club night — warm, cinematic, built for a room that wants to feel rather than peak. A good pick if you want the melodic-organic end of the taste without the warehouse chase.
 - `5pm` 🆕 **[SUNSET SESSIONS X JUPTR X RECOLLECT UNDERGROUND](https://ra.co/events/2493120)** — Level 8 DTLA, DTLA · day party  
   Lavenge — West LA house DJ/producer (real name-ish alias, 'Love & Revenge') and CEO of JUPTR events — plays open-format but leans house on the local club circuit.
+- `time TBA` **[Black V Neck, Dillon Nathaniel, Sorry Not Jomari | MFP](https://avalonhollywood.com/event/black-v-neck-dillon-nathaniel-nightclub-near-me-discover-avalon-hollywood-2026-july-24-best-night-club-near-me-hollywood-los-angeles/)** — Avalon Hollywood, Hollywood · big room  
+  Dillon Nathaniel has real pedigree here — he's the one behind John Summit's 'Esa Boca' — and Black V Neck bring legit festival energy, but this is still Avalon's mainstream bottle-service room, not a selector's night.
 
 **Live music**
 - `9:30pm` **[Orion 224 with Cannon the Dealers & American Woman](https://www.ticketmaster.com/orion-224-with-cannon-the-dealers-los-angeles-california-07-24-2026/event/0900649DE2A156D5)** — The Moroccan Lounge, Arts District  
@@ -121,7 +117,6 @@ Golden-hour at Level 8's Sunset Sessions (5pm) into dinner in DTLA, then Stavroz
 
 ### Saturday · July 25
 <!-- tier3:blueprint 2026-07-25 -->
-FLOAT's daytime pool party at Level 8 (2-8) bleeds straight into a TBA all-nighter afterward — Nick León if you want something rhythmically stranger than everything else on the calendar, Certified Groovers if you just want straight vinyl deep house.
 
 **Electronic & dance**
 - `2pm-8pm` **[FLOAT Rooftop Pool Party ft. Jody Wisternoff [2-8 PM]](https://ra.co/events/2449781)** — Level 8 DTLA, DTLA · day party · $29.62 pre  
@@ -192,8 +187,8 @@ FLOAT's daytime pool party at Level 8 (2-8) bleeds straight into a TBA all-night
 ### Thursday · July 30
 
 **Electronic & dance**
-- `10pm-2am` ⭐ **[Maceo Plex, Raxon, John Bryars](https://hard.frontgatetickets.com/event/1rwjgjvadal8kc14)** — Ace Mission Studios (Los Angeles) tech house · $54+  
-  Same three names that've been doing the TBA-warehouse rounds lately, just with a real address this time — Maceo Plex's Ellum-Audio-honed tech-house/techno crossover carries a 10pm-2am night on its own.
+- `5pm` **[DJ Ty Segall](https://dice.fm/event/yowxqp-dj-ty-segall-30th-jul-sid-the-cat-auditorium-south-pasadena-tickets)** — Sid The Cat Auditorium, South Pasadena  
+  Not a Ty Segall show, a Ty Segall DJ set — fun if you're curious what's actually in his crates, but don't walk in expecting the band.
 - `6pm` **[CSW - DJ SWISHA b2b Mapamota [All Night]](https://ra.co/events/2480186)** — TBA - Downtown, DTLA  
   An all-night back-to-back between DJ Swisha's juke/footwork bounce and Mapamota's house-meets-global-club sets — more rhythmically restless than the average TBA warehouse night, worth it if you like your house music with some Jersey club bounce mixed in.
 
@@ -207,7 +202,6 @@ FLOAT's daytime pool party at Level 8 (2-8) bleeds straight into a TBA all-night
 
 ### Friday · July 31
 <!-- tier3:blueprint 2026-07-31 -->
-Two good Fridays that don't sequence together: lovetempo's warm disco-house set at the Airliner for the rooftop-groove mood, or Black Moth Super Rainbow's vocoder psych-pop at the Belasco if you want a stranger, warmer room instead — pick one rather than trying to do both.
 
 **Electronic & dance**
 - `8pm` **[Social Lovers & lovetempo with Xica Soul](https://ra.co/events/2487851)** — The Airliner, Lincoln Heights  
@@ -231,15 +225,12 @@ Two good Fridays that don't sequence together: lovetempo's warm disco-house set 
 
 ### Saturday · August 1
 <!-- tier3:blueprint 2026-08-01 -->
-The stacked Saturday: if you're skipping HARD Summer, it's Kim Gordon at Pacific Electric (8pm) into Mau P's tech-house set at Ace Mission (10-2) — or trade Mau P for A Club Called Rhonda's queer-disco blowout at Los Globos if you want spectacle over warehouse grind.
 
 **Electronic & dance**
-- `10pm-2am` ⭐ **[Mau P, Dreya V](https://hard.frontgatetickets.com/event/mxqewxz783v0qzfu)** — Ace Mission Studios (Los Angeles) tech house · big room · $95-105
-- `9:30pm` ⭐ **[A Club Called Rhonda with TEED, Jacques Greene, Kindness (DJ), Shaun Ross & more](https://ra.co/events/2456742)** — Los Globos, Silver Lake  
-  Rhonda's queer disco blowout stacks a real one in TEED next to Jacques Greene's woozier garage, plus the party's own residents (Goddollars, Bianca Lexis) — this is the spectacle-and-groove reputation the night is known for, not a niche DJ booking.
+- `9:30pm` ⭐ **[A Club Called Rhonda with TEED, Jacques Greene, Kindness (DJ), Shaun Ross & more](https://ra.co/events/2456742)** — Los Globos, Silver Lake
 - `Sat:2pm-Sun:10pm` (Sat 8/1 + Sun 8/2) **[HARD Summer Music Festival](https://on.fgtix.com/trk/5oHm)** — Hollywood Park Grounds, Inglewood · day party · $282+  
   This is the maximalist, 68-name-deep HARD Summer bill — Charlotte de Witte, VTSS and Amelie Lens give the techno stage real weight, but the day is mostly festival-scale bass/electro/hyperpop stuff outside the lane. Go for a handful of sets, not the whole grounds.
-- `10pm` **[Saturday HARDfest Afters (Mau P, Dreya V)](https://ra.co/events/2479700)** — TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033, Los Angeles · afters  
+- `10pm-2am` **[Saturday HARDfest Afters (Mau P, Dreya V)](https://ra.co/events/2479700)** — TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033, Los Angeles · afters · $95-105  
   A tracked-name afters booking at a proper industrial event space — this is the kind of late-night tech-house afters worth actually staying out for, Dreya V support notwithstanding (no read on her).
 
 **Live music**
@@ -284,9 +275,9 @@ The stacked Saturday: if you're skipping HARD Summer, it's Kim Gordon at Pacific
 ### Weekend of Fri 8/21
 - `Fri 8/21` **[Hollywood Palladium](https://ra.co/events/2391675)** — Hollywood Palladium, Hollywood · big room
 - `Fri 8/21` (+2 more dates) **[The Fast and the Furious (25th Anniversary)](https://ticketing.uswest.veezi.com/purchase/3791?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+fast+and+the+furious%22+showtimes+Los+Angeles)
+- `Sat 8/22` **[Noizu](http://www.shrineauditorium.com/)** — Shrine Expo Hall, University Park · big venue
 - `Sat 8/22` **[FLOAT Rooftop Pool Party feat. Durante [2-8 PM]](https://ra.co/events/2480989)** — Level 8 DTLA, DTLA · day party · $30.73
-- `Sat 8/22` **[Mutate: Oguz](https://ra.co/events/2461046)** — Exchange LA, DTLA · big room
-- *…plus 12 more that weekend — full list: [weekend digest](weekends/2026-08-21.md)*
+- *…plus 13 more that weekend — full list: [weekend digest](weekends/2026-08-21.md)*
 
 ## Around town
 
@@ -298,7 +289,7 @@ The stacked Saturday: if you're skipping HARD Summer, it's Kim Gordon at Pacific
 - `Sat 7/25` **[BeeHive Block Party](https://www.universe.com/Beehiveblockparty2026)** — The Beehive · Los Angeles  ·  *festival* <!-- tier3:gloss 0c7ef6e3e9a9 -->
 - `Sun 7/26` **[El Festival Colombiano](https://www.lanoria.tv/)** — Pico Rivera Sports Arena · Pico Rivera  ·  *festival* <!-- tier3:gloss 473f4a9eebc0 -->
 - `Thu 7/30` **[Thursday HARDfest Pre-Party (Maceo Plex, Raxon, John Bryars)](https://ra.co/events/2479623)** — TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033 · Los Angeles  ·  *festival* <!-- tier3:gloss a98bbece1105 -->
-- `Thu 7/30` **[⚽️ 7/30 — DRUM AND BASS⚽️  We’re closing out July with high-speed energ](https://www.eventbrite.com/e/730-drum-and-bass-were-closing-out-july-with-high-speed-energ-tickets-1993083984851)** — Banana Bay Restaurant (Rowland Heights) drum and bass · Rowland Heights  ·  *festival* <!-- tier3:gloss df51d7b907f4 -->
+- `Thu 7/30` **[⚽️ 7/30 — DRUM AND BASS⚽️  We’re closing out July with high-speed energ](https://www.eventbrite.com/e/730-drum-and-bass-were-closing-out-july-with-high-speed-energ-tickets-1993083984851)** — Banana Bay Restaurant (Rowland Heights) · Rowland Heights  ·  *festival* <!-- tier3:gloss 396fd2049034 -->
 - `Fri 7/31` **[Friday HARDfest Pre-Party (Live From Earth: lineup tba)](https://ra.co/events/2479696)** — TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033 · Los Angeles  ·  *festival* <!-- tier3:gloss 39f30dbdb22b -->
 - `Fri 7/31` **[Tchaikovsky Spectacular](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *big-venue* <!-- tier3:gloss e5ab9e3ca172 -->
 - `Sat 8/1` **[Pacific Festival Ballet presents Charlotte's Web](https://www.ticketmaster.com/pacific-festival-ballet-presents-charlottes-web-thousand-oaks-california-08-01-2026/event/0B00648703EA7AF6)** — Scherr Forum- B of A Performing Arts Center, Thousand Oaks · Thousand Oaks  ·  *festival* <!-- tier3:gloss 2583786ee7b3 -->
@@ -321,19 +312,17 @@ The stacked Saturday: if you're skipping HARD Summer, it's Kim Gordon at Pacific
 - `Sat 9/19` **[Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustBowlChampion](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA)** — Echoplex · Echo Park  ·  *festival* <!-- tier3:gloss  -->
 - `Sat 9/19` **[AFI](https://www.ticketmaster.com/afi-santa-ana-california-09-19-2026/event/09006494A5578640)** — Observatory Festival Grounds · Santa Ana  ·  *festival* <!-- tier3:gloss  -->
 - `Thu 9/24` **[Laurie Anderson](https://www.ticketmaster.com/laurie-anderson-los-angeles-california-09-24-2026/event/090064CAD9E9F3B2)** — Orpheum Theatre · DTLA  ·  *festival* <!-- tier3:gloss  -->
-- `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono* <!-- tier3:gloss --> — Tom & Ed Russell's crunchy, rave-nostalgic UK dance-pop, one of the more legit arena-scale bookings on this list.
-- `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park · DTLA  ·  *Amelie Lens* <!-- tier3:gloss --> — genuine big-room techno headliner, outdoor DTLA rather than a warehouse — a different flavor than her usual HARD/Factory 93 slot.
+- `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono* <!-- tier3:gloss  -->
+- `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park · DTLA  ·  *Amelie Lens* <!-- tier3:gloss  -->
 
 **October 2026**
 - `Fri 10/9` **[Parrotfish](https://www.ticketmaster.com/parrotfish-los-angeles-california-10-09-2026/event/090064E905D61695)** — The Moroccan Lounge · Arts District  ·  *festival* <!-- tier3:gloss  -->
 - `Sat 10/31` **[THE MAZE Halloween: Arts District Block Party](https://ra.co/events/2491883)** — TBA - Arts District Los Angeles · Arts District  ·  *festival* <!-- tier3:gloss  -->
 
 **November 2026**
-- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* <!-- tier3:gloss --> — a real live band, not a DJ set; Simon Green's downtempo/organic-electronic lane is close to the Stavroz/melodic end of the taste.
-- `Thu 11/12` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4)** — The Wiltern · Koreatown  ·  *Bonobo* <!-- tier3:gloss --> — a real live band, not a DJ set; Simon Green's downtempo/organic-electronic lane is close to the Stavroz/melodic end of the taste.
+- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* <!-- tier3:gloss  -->
+- `Thu 11/12` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4)** — The Wiltern · Koreatown  ·  *Bonobo* <!-- tier3:gloss  -->
 - `Sun 11/22` **[Three Days Grace - Alienation Tour ](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0)** — Intuit Dome · Inglewood  ·  *festival, big-venue* <!-- tier3:gloss  -->
 
 ---
-> ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
 *⚠️ Stale sources (not refreshed — these events may be out of date): posh 5d (28 events), ticketmaster 4d (2186 events), alvas 4d (25 events)*
-*⚠️ Also this run: `TM_API_KEY` is unset (Ticketmaster skipped entirely, not just stale — 2186 catalog events are aging with no fresh pull); Eater LA (editorial) was unreachable; the Sam First and UncoverLA webfetch pages returned no usable current-window content.*
