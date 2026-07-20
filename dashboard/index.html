@@ -50,6 +50,9 @@
   @media (max-width: 720px) {
     input, textarea { font-size: 16px !important; }  /* stop iOS zoom-on-focus */
   }
+  /* digest modal overlay: generous frame on desktop, near-full-bleed on phones */
+  .dg-overlay { padding: 40px; }
+  @media (max-width: 720px) { .dg-overlay { padding: 10px; } }
   /* greeting examples (the blue `code` spans) are tap-to-fill the concierge box */
   .chat-intro code { cursor: pointer; }
   .chat-intro code:hover { background: #dde4fb !important; color: #1d49b8 !important; }
@@ -814,7 +817,7 @@
 
   <!-- ===================== DIGEST MODAL ===================== -->
   <sc-if value="{{ digestModalOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
+    <div class="dg-overlay" style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; background:rgba(27,26,23,0.42);">
       <div onClick="{{ closeDigest }}" style="position:absolute; inset:0;"></div>
       <div style="position:relative; z-index:1; width:100%; max-width:680px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
         <!-- no title bar (maximizes the reading area): the close button floats in the top-right corner -->
@@ -823,6 +826,23 @@
         <div style="flex:none; position:relative; display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:9px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:3px 3px 0 0;">
           <span onClick="{{ downloadDigest }}" title="Download this digest as a Markdown file" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">↓ download</span>
           <span onClick="{{ toggleEmailDigest }}" title="Email this digest — your address is typed each time and never stored" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid {{ emailTogBorder }}; background: {{ emailTogBg }}; color: {{ emailTogColor }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">✉ email</span>
+          <!-- past-digest archive (digests/index.json, staged at deploy — hidden on hosts without it) -->
+          <sc-if value="{{ digestArchShow }}" hint-placeholder-val="{{ false }}">
+            <span style="position:relative; display:inline-flex;">
+              <span onClick="{{ toggleDigestMenu }}" title="Read a past digest" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">{{ digestArchLabel }}</span>
+              <sc-if value="{{ digestMenuOpen }}" hint-placeholder-val="{{ false }}">
+                <div class="scry" style="position:absolute; top:calc(100% + 5px); left:0; z-index:6; min-width:250px; max-width:320px; max-height:290px; overflow-y:auto; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 32px rgba(0,0,0,0.18); padding:4px;">
+                  <sc-for list="{{ digestArchItems }}" as="d" hint-placeholder-count="6">
+                    <div onClick="{{ d.onClick }}" style="display:flex; align-items:baseline; gap:8px; padding:7px 9px; cursor:pointer; border-radius:2px; background:{{ d.bg }};" style-hover="background:#f1f5ff;">
+                      <span style="flex:none; min-width:52px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:{{ d.dateColor }};">{{ d.date }}</span>
+                      <span style="flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font:500 11px/1.3 -apple-system,system-ui,sans-serif; color:#3f3d36;">{{ d.title }}</span>
+                      <span style="flex:none; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#2b5cd9;">{{ d.mark }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </span>
+          </sc-if>
           <!-- persistent update signal: this digest can be re-curated against newer events -->
           <sc-if value="{{ digestUpdateChip }}" hint-placeholder-val="{{ false }}">
             <span onClick="{{ digestUpdateClick }}" title="{{ digestUpdateTitle }}" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid #2b5cd9; background:#eaf0fe; color:#2b5cd9; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="background:#2b5cd9; color:#fff;">{{ digestUpdateLabel }}</span>
@@ -835,7 +855,15 @@
             <button onClick="{{ toggleEmailDigest }}" title="Cancel" style="flex:none; width:30px; height:30px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 13px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
           </div>
         </sc-if>
-        <div class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 28px;">{{ digestBody }}</div>
+        <!-- section jump-nav: one chip per ## section, scrolls the body to its anchor -->
+        <sc-if value="{{ digestNavShow }}" hint-placeholder-val="{{ false }}">
+          <div class="scry" style="flex:none; display:flex; align-items:center; gap:6px; overflow-x:auto; padding:7px 20px; border-bottom:1px solid #e2e0d8; background:#fdfcf9;">
+            <sc-for list="{{ digestNav }}" as="n" hint-placeholder-count="7">
+              <span onClick="{{ n.onClick }}" style="flex:none; white-space:nowrap; cursor:pointer; padding:4px 10px; border:1px solid #e2e0d8; border-radius:999px; background:#fff; color:#5f5d54; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ n.title }}</span>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div id="dg-scroll" class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 28px;">{{ digestBody }}</div>
       </div>
     </div>
   </sc-if>
@@ -1221,7 +1249,7 @@ class Component extends DCLogic {
     expandedId: null,
     filtered: null,            // array of ids or null (=all)
     filterSummary: '', digestPicks: false,
-    digestMenuOpen: false, digestEmailOpen: false, digestEmail: '',
+    digestMenuOpen: false, digestEmailOpen: false, digestEmail: '', digestPast: null,
     colFilters: { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} }, openFilter: null,
     search: '', digestPrevState: null,
     settingsOpen: false, toast: null, connectModalOpen: false, tokenInput: '',
@@ -1875,59 +1903,127 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     return this.escHtml(s)
       .replace(/`([^`]+)`/g, '<code style="font:600 11.5px/1.4 ui-monospace,Menlo,monospace; color:#2b5cd9; background:#eef1fb; padding:1px 5px; border-radius:3px;">$1</code>')
       .replace(/\*\*(.+?)\*\*/g, '<strong style="color:#161512; font-weight:700;">$1</strong>')
-      .replace(/\*(.+?)\*/g, '<em style="color:#76746b; font-style:normal; font:600 11px ui-monospace,Menlo,monospace; letter-spacing:0.02em;">$1</em>')
+      // *emphasis* carries two different things: short scene tags (*RA pick · afterhours*,
+      // *editorial*) that read as mono chips, and full-sentence curator notes that must read
+      // as prose — split on the visible length so sentences never render as cramped monospace.
+      .replace(/\*(.+?)\*/g, (m0, inner) => {
+        const plain = inner.replace(/<[^>]+>/g, '');
+        return plain.length <= 40
+          ? '<em style="color:#76746b; font-style:normal; font:600 11px ui-monospace,Menlo,monospace; letter-spacing:0.02em;">' + inner + '</em>'
+          : '<em style="color:#6b695f; font-style:italic;">' + inner + '</em>';
+      })
       .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:#1b1a17; text-decoration:underline; text-underline-offset:2px;">$1</a>');
   }
+  // The digest shown in the modal: the live doc, or the archived one picked from the dropdown.
+  shownDigestMd() {
+    const p = this.state.digestPast;
+    return (p && p.md) || this.DIGEST_MD || '';
+  }
+  // The modal's jump-nav — one entry per `##` section, ids matching renderMarkdown's digest-mode
+  // anchors (both walk the same comment-stripped doc in order, so the Nth ## is dg-s<N> in both).
+  digestSections(md) {
+    const out = [];
+    for (const line of String(md || '').replace(/<!--[\s\S]*?-->/g, '').split('\n')) {
+      const m = /^##(?!#)\s+(.+?)\s*$/.exec(line.trim());
+      if (m) out.push({ id: 'dg-s' + out.length, title: m[1] });
+    }
+    return out;
+  }
+  jumpDigest = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   renderDigestHtml() {
     // The digest doc links its weekend files relative to ITSELF (digests/latest.md ->
     // weekends/<Fri>.md), but the modal's html resolves hrefs against the PAGE — re-root them.
-    return this.renderMarkdown(this.DIGEST_MD || '')
+    return this.renderMarkdown(this.shownDigestMd(), { digest: true })
       .replace(/href="weekends\//g, 'href="digests/weekends/');
   }
   // Shared Markdown → styled HTML — used by the digest modal AND the guide / what's-new modal.
-  // Supports #/## headings, "- " bullets (with indented wrapped continuations), `---` rules, and
-  // the inlineMd spans (bold / code / links). Keeps both surfaces visually identical.
+  // Supports #/## headings, "- " bullets (with indented wrapped continuations), `---` rules,
+  // `>` callouts, and the inlineMd spans (bold / code / links). Digest mode (opts.digest) adds
+  // the modal-only chrome: anchor ids on ## sections, sticky ### day headers scoped to their own
+  // day <div>, ⭐ top-pick highlighting, and the H1's ISO date rendered as "Weekday M/D".
   // HTML comments are stripped FIRST: the digest carries permanent invisible slots (the
   // `<!-- take: … -->` teaser, unfilled tier3 slots) that inlineMd's escaping would otherwise
   // render as literal text.
-  renderMarkdown(md) {
+  renderMarkdown(md, opts) {
+    const dg = !!(opts && opts.digest);
     const lines = String(md || '').replace(/<!--[\s\S]*?-->/g, '').split('\n');
     let html = '';
-    let items = null;   // array of <li> inner-HTML while inside a bullet list (else null)
+    let items = null;   // array of {html, hot} while inside a bullet list (else null)
+    let quote = null;   // array of line-HTML while inside a `>` callout (else null)
+    let day = false;    // a digest-mode ### day-section wrapper <div> is open
+    let secN = 0;       // ## counter -> the dg-s<N> anchors the jump-nav targets
     const flush = () => {
+      if (quote) {
+        html += '<div style="margin:12px 0; padding:10px 13px; background:#fdf4e3; border:1px solid #ecd9ae; border-left:3px solid #c8973f; border-radius:3px; font-size:12.5px; line-height:1.55; color:#5f5347;">' + quote.join('<br>') + '</div>';
+        quote = null;
+      }
       if (!items) return;
-      html += '<ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:7px;">'
-        + items.map(it => '<li style="font-size:13px; line-height:1.5; color:#3f3d36; padding-left:15px; position:relative;"><span style="position:absolute; left:0; color:#cdcbc3;">·</span>' + it + '</li>').join('')
+      html += '<ul style="list-style:none; margin:0 0 8px; padding:0; display:flex; flex-direction:column; gap:8px;">'
+        + items.map(it => it.hot
+          ? '<li style="font-size:13px; line-height:1.55; color:#3f3d36; padding:8px 11px; background:#fcf7e6; border:1px solid #eee0b4; border-radius:3px;">' + it.html + '</li>'
+          : '<li style="font-size:13px; line-height:1.55; color:#3f3d36; padding-left:15px; position:relative;"><span style="position:absolute; left:0; color:#cdcbc3;">·</span>' + it.html + '</li>').join('')
         + '</ul>';
       items = null;
     };
+    // Close the open day section (sticky headers are scoped to these wrappers, so a day's
+    // header unsticks when its OWN content ends instead of pinning to the bottom of the doc).
+    const closeDay = () => { flush(); if (day) { html += '</div>'; day = false; } };
     for (const raw of lines) {
       const line = raw.replace(/\s+$/, '');       // trimEnd, but keep leading indent on `raw`
       const t = line.trim();
       if (t === '') { flush(); continue; }
-      if (t === '---') { flush(); html += '<hr style="border:none; border-top:1px solid #e2e0d8; margin:18px 0;" />'; continue; }
+      if (t === '---') { closeDay(); html += '<hr style="border:none; border-top:1px solid #e2e0d8; margin:18px 0;" />'; continue; }
+      const q = t.match(/^>\s?(.*)$/);            // `>` callout (the digest's footer warnings)
+      if (q) { if (!quote) { flush(); quote = []; } quote.push(this.inlineMd(q[1])); continue; }
       const hd = t.match(/^(#{1,6})\s+(.*)$/);    // headings (#..######)
       if (hd) {
-        flush();
-        if (hd[1].length === 1) html += '<h1 style="font:700 21px/1.2 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em; color:#161512; margin:0 0 6px;">' + this.inlineMd(hd[2]) + '</h1>';
-        else html += '<h2 style="font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; text-transform:uppercase; color:#a7a59b; margin:22px 0 9px;">' + this.inlineMd(hd[2]) + '</h2>';
+        closeDay();
+        if (hd[1].length === 1) {
+          // Digest H1s carry an ISO date ("LA Events — 2026-07-19") — render it in the standing
+          // Day M/D convention (display only; download/email keep the raw doc).
+          let txt = hd[2];
+          if (dg) txt = txt.replace(/(\d{4})-(\d{2})-(\d{2})/, (m0, y, mo, d) => {
+            const dt = new Date(+y, +mo - 1, +d);
+            return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][dt.getDay()] + ' ' + (+mo) + '/' + (+d);
+          });
+          html += '<h1 style="font:700 21px/1.2 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em; color:#161512; margin:0 0 7px;">' + this.inlineMd(txt) + '</h1>';
+        } else if (hd[1].length === 2) {
+          const id = dg ? ' id="dg-s' + (secN++) + '"' : '';
+          html += '<h2' + id + ' style="display:flex; align-items:center; gap:10px; font:700 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.09em; text-transform:uppercase; color:#161512; margin:26px 0 12px; scroll-margin-top:8px;">' + this.inlineMd(hd[2]) + '<span style="flex:1; height:1px; background:#e2e0d8;"></span></h2>';
+        } else {
+          // ### — the digest's day headings; sticky within their own day section while it scrolls.
+          // Sticky headers must be margin-free (margins pin transparent, letting scrolled text
+          // bleed through above/below the bar) — the spacing lives in opaque padding instead.
+          if (dg) { html += '<div style="position:relative;">'; day = true; }
+          html += '<h3 style="' + (dg
+            ? 'position:sticky; top:0; z-index:2; background:#fdfcf9; box-shadow:0 1px 0 #eceae2; margin:0; padding:16px 0 7px; '
+            : 'margin:18px 0 9px; padding:7px 0 6px; ')
+            + 'font:600 13.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; scroll-margin-top:8px;">' + this.inlineMd(hd[2]) + '</h3>';
+        }
         continue;
       }
       if (/^[-*]\s+/.test(t)) {                   // new bullet
         if (!items) items = [];
-        items.push(this.inlineMd(t.replace(/^[-*]\s+/, '')));
+        const body = t.replace(/^[-*]\s+/, '');
+        items.push({ html: this.inlineMd(body), hot: dg && body.includes('⭐') });
         continue;
       }
       // An indented line directly under a bullet is a wrapped continuation of that item — the
       // daily-digest routine hard-wraps long bullets, so without this the tail rendered as a
       // stray full-width paragraph that broke out of the list.
       if (items && items.length && /^\s/.test(raw)) {
-        items[items.length - 1] += ' ' + this.inlineMd(t);
+        items[items.length - 1].html += ' ' + this.inlineMd(t);
         continue;
       }
       flush();
-      html += '<p style="font-size:13px; line-height:1.55; color:#76746b; margin:0 0 4px;">' + this.inlineMd(t) + '</p>';
+      const lbl = t.match(/^\*\*([^*]+)\*\*$/);   // standalone bold line -> category micro-label
+      if (lbl) { html += '<div style="font:700 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; text-transform:uppercase; color:#8a8880; margin:14px 0 7px;">' + this.escHtml(lbl[1]) + '</div>'; continue; }
+      html += '<p style="font-size:13px; line-height:1.6; color:#4d4b42; margin:0 0 6px;">' + this.inlineMd(t) + '</p>';
     }
+    closeDay();
     flush();
     return html;
   }
@@ -1952,8 +2048,38 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     closeList();
     return html;
   }
-  openDigest = () => this.setState({ digestModalOpen: true, digestMenuOpen: false, digestEmailOpen: false });
-  closeDigest = () => this.setState({ digestModalOpen: false, digestMenuOpen: false, digestEmailOpen: false });
+  openDigest = () => this.setState({ digestModalOpen: true, digestMenuOpen: false, digestEmailOpen: false, digestPast: null });
+  closeDigest = () => this.setState({ digestModalOpen: false, digestMenuOpen: false, digestEmailOpen: false, digestPast: null });
+  toggleDigestMenu = () => this.setState(s => ({ digestMenuOpen: !s.digestMenuOpen, digestEmailOpen: false }));
+  // Pick a digest from the archive dropdown (digests/index.json — staged at deploy time by
+  // scripts/stage_digests.py; every path in it is relative to ./digests/). Viewing a past doc
+  // only touches state.digestPast — DIGEST_MD (and the chat take seeded from it) stays the
+  // live digest, so browsing the archive never rewrites the concierge's read of today.
+  selectDigestEntry = (entry) => {
+    if (!entry || !entry.path) return;
+    const toTop = () => { const el = document.getElementById('dg-scroll'); if (el) el.scrollTop = 0; };
+    if (entry.latest) {   // back to the live doc — already loaded, nothing to fetch
+      this.setState({ digestPast: null, digestMenuOpen: false }, toTop);
+      return;
+    }
+    fetch('./digests/' + entry.path, { cache: 'no-store' })
+      .then(res => res.ok ? res.text() : null)
+      .then(md => {
+        if (!md || md.trim().length < 20) return;
+        this.setState({
+          digestPast: { md, file: entry.file || entry.path.split('/').pop(), date: entry.date || '' },
+          digestMenuOpen: false,
+        }, toTop);
+      })
+      .catch(() => {});
+  };
+  // 'YYYY-MM-DD' -> 'Sun 7/19' (the archive dropdown's date column, Day M/D convention)
+  fmtArchDate(iso) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));
+    if (!m) return '';
+    const d = new Date(+m[1], +m[2] - 1, +m[3]);
+    return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()] + ' ' + (+m[2]) + '/' + (+m[3]);
+  }
 
   // ---------- Guide / What's-new modal (opened manually from Settings → ABOUT) ----------
   GUIDE_HOW = [
@@ -2219,8 +2345,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // ---------- digest modal toolbar (download / email) ----------
   downloadDigest = () => {
     try {
-      const md = this.DIGEST_MD || '';
-      let stem = (this.DIGEST_CURRENT && this.DIGEST_CURRENT.split('/').pop()) || this.DIGEST_FILE || 'digest.md';
+      const past = this.state.digestPast;
+      const md = this.shownDigestMd();
+      let stem = past
+        ? (past.file || 'digest.md')
+        : ((this.DIGEST_CURRENT && this.DIGEST_CURRENT.split('/').pop()) || this.DIGEST_FILE || 'digest.md');
       // 'latest.md' says nothing about WHICH digest — pull the date off the top of the doc
       // (the consolidated H1 is "# LA Events — YYYY-MM-DD") so the saved file self-dates even
       // on hosts with no staged index (local serve).
@@ -2245,7 +2374,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   sendDigestEmail = () => {
     const to = (this.state.digestEmail || '').trim();
     if (!to || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) { this.flashToast('Enter a valid email address.'); return; }
-    const md = this.DIGEST_MD || '';
+    const md = this.shownDigestMd();   // email whichever digest is on screen (live or archived)
     const m = md.match(/^#\s+(.*)$/m);
     const subject = (m && m[1].trim()) || 'LA Events digest';
     const href = 'mailto:' + encodeURIComponent(to) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(md);
@@ -4051,12 +4180,36 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // popup, these never snooze.
       updateBadge: profileActive && (updateActive || updateBusy),
       updateBadgeColor: updateBusy ? '#a7a59b' : '#2b5cd9',
-      digestUpdateChip: profileActive && (updateActive || updateBusy),
+      // The update chip speaks about the LIVE digest — hide it while an archived one is shown.
+      digestUpdateChip: profileActive && (updateActive || updateBusy) && !this.state.digestPast,
       digestUpdateLabel: updateBusy ? '◌ updating… ' + updateElapsed : '↻ update available',
       digestUpdateTitle: updateBusy ? 'Update in flight — your digest reloads here when it lands (a few minutes)' : 'New events since your last editorial pass — re-rank + rewrite your digest (~2–3 min)',
       digestUpdateClick: updateBusy ? (() => {}) : this.updateMyDigest,
       digestFile: this.DIGEST_FILE, digestUser,
       downloadDigest: this.downloadDigest,
+      // Jump-nav: one chip per ## section of the digest on screen (ids match renderMarkdown's).
+      digestNav: this.state.digestModalOpen
+        ? this.digestSections(this.shownDigestMd()).map(sec => ({ title: sec.title, onClick: () => this.jumpDigest(sec.id) }))
+        : [],
+      digestNavShow: this.state.digestModalOpen && this.digestSections(this.shownDigestMd()).length > 1,
+      // Archive dropdown: the staged digests/index.json (absent on local serves -> chip hidden).
+      digestMenuOpen: !!this.state.digestMenuOpen, toggleDigestMenu: this.toggleDigestMenu,
+      digestArchShow: (this.DIGEST_INDEX || []).length > 1,
+      digestArchLabel: this.state.digestPast
+        ? ('☷ ' + (this.fmtArchDate(this.state.digestPast.date) || 'past digest') + ' ▾')
+        : '☷ archive ▾',
+      digestArchItems: (this.DIGEST_INDEX || []).map(e => {
+        const past = this.state.digestPast;
+        const cur = past ? (!e.latest && (e.file || e.path) === past.file) : !!e.latest;
+        return {
+          date: e.latest ? 'latest' : (this.fmtArchDate(e.date) || (e.file || e.path || '').replace(/\.md$/, '')),
+          title: e.title || '',
+          mark: cur ? '✓' : '',
+          bg: cur ? '#f1f5ff' : 'transparent',
+          dateColor: e.latest ? '#1f7a4d' : '#2b5cd9',
+          onClick: () => this.selectDigestEntry(e),
+        };
+      }),
       digestEmailOpen: !!this.state.digestEmailOpen, toggleEmailDigest: this.toggleEmailDigest,
       digestEmail: this.state.digestEmail || '', onDigestEmailInput: this.onDigestEmailInput,
       onDigestEmailKey: this.onDigestEmailKey, sendDigestEmail: this.sendDigestEmail,
