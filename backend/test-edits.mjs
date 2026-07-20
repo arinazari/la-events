@@ -155,5 +155,33 @@ const SSE_OK = [
   await assert.rejects(() => accumulateSSE(errStream), /Overloaded/);
   ok("sse: mid-stream error event throws with the reason");
 }
+{
+  // A cleanly-closed stream with no message_stop is TRUNCATED — must throw, never be served
+  // as a complete reply (or commit a tool patch whose input never finished).
+  const cut = SSE_OK.replace('data: {"type":"message_stop"}\n', "");
+  await assert.rejects(() => accumulateSSE(sseStream(cut)), /truncated/);
+  ok("sse: truncated stream (no message_stop) throws instead of passing as complete");
+}
+{
+  // Signature deltas concatenate (must survive byte-exact for the pause_turn/tool-round echo),
+  // a delta for an index that never got a start leaves no typeless fragment in content, and an
+  // absurd index is ignored rather than creating a giant sparse array.
+  const s = [
+    'data: {"type":"content_block_start","index":0,"content_block":{"type":"thinking","thinking":"","signature":""}}',
+    'data: {"type":"content_block_delta","index":0,"delta":{"type":"signature_delta","signature":"AA"}}',
+    'data: {"type":"content_block_delta","index":0,"delta":{"type":"signature_delta","signature":"BB"}}',
+    'data: {"type":"content_block_delta","index":7,"delta":{"type":"text_delta","text":"orphan"}}',
+    'data: {"type":"content_block_delta","index":1000000000,"delta":{"type":"text_delta","text":"boom"}}',
+    'data: {"type":"content_block_start","index":1,"content_block":{"type":"text","text":""}}',
+    'data: {"type":"content_block_delta","index":1,"delta":{"type":"text_delta","text":"hi"}}',
+    'data: {"type":"message_delta","delta":{"stop_reason":"end_turn"}}',
+    'data: {"type":"message_stop"}',
+  ].join("\n") + "\n";
+  const out = await accumulateSSE(sseStream(s));
+  assert.equal(out.content[0].signature, "AABB");
+  assert.deepEqual(out.content.map((b) => b.type), ["thinking", "text"], "orphan/absurd-index fragments dropped");
+  assert.equal(out.content[1].text, "hi");
+  ok("sse: signature accumulates, orphan + absurd-index fragments are dropped");
+}
 
 console.log(`\nall ${passed} worker edit tests passed`);
