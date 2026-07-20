@@ -74,6 +74,9 @@
   .fpc-why { font:400 11px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36; }
   .fpc-price { font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; }
   .fpc-new { font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#1f7a4d; }
+  /* a tag chip that jumps into Explore filtered to that tag (exploreByTag) */
+  .tag-link { cursor:pointer; }
+  .tag-link:hover { text-decoration:underline; }
   /* per-artist streaming links in the detail surfaces (lineup rows): dimmed brand glyphs,
      brand color on hover — quiet next to the name instead of a blue text link */
   .ar-ic { color:#c3c1b7; display:inline-flex; align-items:center; padding:2px; transition:color .12s ease; }
@@ -313,6 +316,13 @@
               </div>
               <div class="fp-clamp2 fpc-title">{{ c.title }}</div>
               <div class="fp-clamp2 fpc-venue">{{ c.venue }}</div>
+              <sc-if value="{{ c.hasTags }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; flex-wrap:wrap; gap:4px;">
+                  <sc-for list="{{ c.tags }}" as="tg" hint-placeholder-count="3">
+                    <span class="tag-link" onClick="{{ tg.onClick }}" title="{{ tg.title }}" style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ tg.color }}; background: {{ tg.bg }};">{{ tg.text }}</span>
+                  </sc-for>
+                </div>
+              </sc-if>
               <sc-if value="{{ c.why }}" hint-placeholder-val="{{ false }}"><div class="fp-clamp3 fpc-why">{{ c.why }}</div></sc-if>
               <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px;">
                 <span class="fpc-price">{{ c.price }}</span>
@@ -510,7 +520,7 @@
                 <div style="margin-top:3px; font-size:11.5px; line-height:1.4; color:#76746b;">{{ ev.sub }}</div>
                 <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:5px;">
                   <sc-for list="{{ ev.badges }}" as="b">
-                    <span style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ b.color }}; background: {{ b.bg }};">{{ b.text }}</span>
+                    <span class="{{ b.cls }}" onClick="{{ b.onClick }}" title="{{ b.title }}" style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ b.color }}; background: {{ b.bg }};">{{ b.text }}</span>
                   </sc-for>
                 </div>
               </td>
@@ -655,7 +665,7 @@
             </div>
             <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:8px;">
               <sc-for list="{{ ev.badges }}" as="b">
-                <span style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ b.color }}; background: {{ b.bg }};">{{ b.text }}</span>
+                <span class="{{ b.cls }}" onClick="{{ b.onClick }}" title="{{ b.title }}" style="font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ b.color }}; background: {{ b.bg }};">{{ b.text }}</span>
               </sc-for>
             </div>
             <sc-if value="{{ ev.expanded }}" hint-placeholder-val="{{ false }}">
@@ -1352,23 +1362,44 @@ class Component extends DCLogic {
     return { color:'#76746b', bg:'rgba(0,0,0,0.045)' };
   }
 
+  // Multi-axis tag chips (lib/tagging.py): the vibe flags then a couple genre chips — the
+  // same signals the column filters expose. Each keeps the MACHINE value + filter axis
+  // alongside the readable label so the chip can drive exploreByTag.
+  tagChips(e) {
+    const arr = [];
+    for (const v of (e.vibe || [])) arr.push({ text: String(v).replace(/-/g, ' '), axis: 'vibe', val: v });
+    for (const g of (e.genres || []).slice(0, 2)) arr.push({ text: String(g).replace(/-/g, ' '), axis: 'genre', val: g });
+    const seen = new Set(); const out = [];
+    for (const t of arr) { const k = t.text.toLowerCase(); if (!seen.has(k)) { seen.add(k); out.push(t); } }
+    return out;
+  }
+  // Click bindings for a chip: tag chips get the Explore jump (+ the pointer/hover class);
+  // the non-tag badges (series / RA pick / afterhours / xb) stay inert.
+  tagClickProps(b) {
+    if (!b.axis) return { cls: '', title: '', onClick: null };
+    return { cls: 'tag-link', title: 'See all ' + b.text + ' in Explore',
+             onClick: (ev) => this.exploreByTag(b.axis, b.val, ev) };
+  }
   computedBadges(e) {
     const arr = [];
     if (e.series && e.series.count > 1) {
       const nv = (e.series.venues || []).length;
-      arr.push(nv > 1 ? (e.series.count + ' dates · ' + nv + ' theaters') : (e.series.count + ' nights'));
+      arr.push({ text: nv > 1 ? (e.series.count + ' dates · ' + nv + ' theaters') : (e.series.count + ' nights') });
     }
-    if (e.ra) arr.push('RA pick');
-    if (e.ah) arr.push('afterhours');
-    for (const b of e.xb) arr.push(b);
-    // Multi-axis tags (lib/tagging.py): the vibe flags then a couple genre chips, so the
-    // card shows the same signals the column filters expose. Machine tags -> readable.
-    for (const v of (e.vibe || [])) arr.push(String(v).replace(/-/g, ' '));
-    for (const g of (e.genres || []).slice(0, 2)) arr.push(String(g).replace(/-/g, ' '));
-    // dedupe (case-insensitive; 'ra pick'/'afterhours' collapse with the booleans above)
-    const seen = new Set(); const out = [];
-    for (const b of arr) { const k = b.toLowerCase(); if (!seen.has(k)) { seen.add(k); out.push(b); } }
-    return out.slice(0, 7).map(text => ({ text, ...this.badgeStyle(text) }));
+    if (e.ra) arr.push({ text: 'RA pick' });
+    if (e.ah) arr.push({ text: 'afterhours' });
+    for (const b of e.xb) arr.push({ text: b });
+    for (const t of this.tagChips(e)) arr.push(t);
+    // dedupe (case-insensitive; 'ra pick'/'afterhours' collapse with the booleans above).
+    // When an inert badge and a real tag share a label (e.g. the afterhours boolean vs the
+    // afterhours vibe tag), keep the slot but adopt the tag's axis — same chip, clickable.
+    const seen = new Map(); const out = [];
+    for (const b of arr) {
+      const k = b.text.toLowerCase(); const prev = seen.get(k);
+      if (!prev) { seen.set(k, b); out.push(b); }
+      else if (b.axis && !prev.axis) { prev.axis = b.axis; prev.val = b.val; }
+    }
+    return out.slice(0, 7).map(b => ({ text: b.text, ...this.badgeStyle(b.text), ...this.tagClickProps(b) }));
   }
 
   LINK_LABELS = { ra:'Resident Advisor', dice:'DICE', ticketmaster:'Ticketmaster', tm:'Ticketmaster', posh:'Posh', eventbrite:'Eventbrite', filmbot:'Showtimes', goldenvoice:'Goldenvoice', squarespace:'Venue site', jsonld:'Venue site', ics:'Add to calendar', '19hz':'19hz', vista:'Vista', newbev:'New Beverly' };
@@ -1708,6 +1739,24 @@ class Component extends DCLogic {
       range: 'all', rangeStart: this.TODAY, rangeEnd: this.maxEventISO(),
       sortKey: 'rank', sortDir: 'asc', search: '',
       digestPicks: false, colFilters: JSON.parse(JSON.stringify(this.EMPTY_COLS)),
+    });
+  };
+  // Tag chip click (front-page cards + Explore rows): jump into Explore showing everything
+  // with that tag. Uses the REAL column-filter mechanism (colFilters.in), not the id-list,
+  // so the landing state is visible + refinable in the filter menus (desktop columns and
+  // the mobile sheet) and clears like any other filter. Otherwise the same landing as
+  // fpSeeAll: full upcoming range, rank order, everything else reset.
+  exploreByTag = (axis, val, domEv) => {
+    if (domEv && domEv.stopPropagation) domEv.stopPropagation();
+    const cols = JSON.parse(JSON.stringify(this.EMPTY_COLS));
+    if (cols[axis]) cols[axis].in = [val];
+    this.setView('explore');
+    this.setState({
+      filtered: null, filterSummary: '', colFilters: cols, search: '',
+      range: 'all', rangeStart: this.TODAY, rangeEnd: this.maxEventISO(),
+      sortKey: 'rank', sortDir: 'asc',
+      digestPicks: false, digestPrevState: null, expandedId: null,
+      mobileFilterOpen: false, mobileSortOpen: false, openFilter: null,
     });
   };
   // The take's FALLBACK — heuristic lede lift from DIGEST_MD: the first real prose paragraph
@@ -2080,6 +2129,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
+    "- **Tags on every card — tap one to explore.** Cards now wear their tags (genre + vibe: *techno*, *queer*, *warehouse*, …) right on the front — on the front page, the Explore table, and mobile cards — and every tag is a link: tap it to jump into Explore filtered to exactly that tag, ready to refine or clear like any other filter.",
     "- **Listen + artist intel.** Opening an event shows its lineup as artist rows: quiet **Spotify / SoundCloud** glyphs per name (music bills, plus anyone the scene graph has verified) — straight to the artist's Spotify page once the nightly resolver has matched them, a search otherwise — and, where the research exists, a one-line bio of who that artist is. **✦ Artist intel** hands the bill to the concierge for the full LLM rundown — who they are, what they sound like, who to show up early for.",
     "- **The concierge opens with the take.** The chat's welcome now folds in the day's *take* — the digest's opening read (`For Fri 7/17: …`) — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. The how-to is part of the same message: full-size on your first visit, tucked behind *see what I can do ▸* once you've chatted. (The take moved off the front page, which gets straight to the cards.)",
     "- **A front page.** The site now opens on an editorial home: a **Don't miss** hero row and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
@@ -4007,22 +4057,28 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // is every shelf-head's baseline — badging it too made the badge a constant (no
       // signal). Full tier still reads in Explore's rank-column tooltip.
       const TIER_BG = { 'must-see': '#1b1a17' };
-      const mkCard = (e, inHero) => ({
-        date: e.wd + ' ' + e.md + ' · ' + e.t,
-        title: e.title,
-        venue: e.venue + ' · ' + e.hood,
-        // Editorial voice or plain fact — the curated why (curator note / editor's line),
-        // else the factual desc (blurb / sanitized source detail). Never the scorer's
-        // "+1 …" reasons; those stay in Explore, where a rank table is the context.
-        why: e.whyCurated || e.desc || '',
-        price: e.price || '',
-        tier: (!inHero && e.verdict && TIER_BG[e.verdict.tier]) ? e.verdict.tier.toUpperCase() : '',
-        tierBg: TIER_BG[(e.verdict || {}).tier] || '#76746b',
-        scoreLabel: String(e.score), scoreColor: this.scoreColorFor(e.score),
-        scoreSegs: this.scoreSegsFor(e.score),
-        isNew: !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef),
-        onClick: () => this.openFpDetail(e.key),
-      });
+      const mkCard = (e, inHero) => {
+        // Tag chips on the card face — same vocab as Explore's badges (vibe then genre),
+        // capped tighter for the small card; each jumps into Explore filtered to its tag.
+        const tags = this.tagChips(e).slice(0, 3).map(t => ({ text: t.text, ...this.badgeStyle(t.text), ...this.tagClickProps(t) }));
+        return {
+          date: e.wd + ' ' + e.md + ' · ' + e.t,
+          title: e.title,
+          venue: e.venue + ' · ' + e.hood,
+          hasTags: tags.length > 0, tags,
+          // Editorial voice or plain fact — the curated why (curator note / editor's line),
+          // else the factual desc (blurb / sanitized source detail). Never the scorer's
+          // "+1 …" reasons; those stay in Explore, where a rank table is the context.
+          why: e.whyCurated || e.desc || '',
+          price: e.price || '',
+          tier: (!inHero && e.verdict && TIER_BG[e.verdict.tier]) ? e.verdict.tier.toUpperCase() : '',
+          tierBg: TIER_BG[(e.verdict || {}).tier] || '#76746b',
+          scoreLabel: String(e.score), scoreColor: this.scoreColorFor(e.score),
+          scoreSegs: this.scoreSegsFor(e.score),
+          isNew: !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef),
+          onClick: () => this.openFpDetail(e.key),
+        };
+      };
       const resolve = (keys) => (keys || []).map(k => this.byKey(k)).filter(Boolean);
       fpLenses = [['today', 'TONIGHT'], ['weekend', 'THIS WEEKEND'], ['twoweeks', 'NEXT 2 WEEKS'], ['ahead', 'PLAN AHEAD']].map(([k, label]) => ({
         label, onClick: () => this.setLens(k),
