@@ -3601,6 +3601,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // The welcome — ONE concierge message wrapping the greeting, the day's take ("For Fri
       // 7/17: …"), and the how-to. Pure chrome: it reads as the LLM's first message but NONE of
       // it is ever sent (askBackend drops the whole thing — no history turn, no side field).
+      // The take CONTINUES the greeting sentence (same paragraph, not its own block), with the
+      // "For <date>:" prefix in the muted mono label style (*…*) rather than bold — a quiet
+      // inline marker, not a shouted date.
       // The take's date is the DIGEST's date (takeDate — front_page.take, or the doc's H1 for
       // the lede fallback), never today's-by-default: it visibly reads as today's take when it
       // is, honestly dated when stale, and an undated take shows no "For <date>:" claim at all.
@@ -3610,7 +3613,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         const gOpen = !!this.state.chatGuideOpen;
         const md = this.GREET_HEAD
           + (this.state.takeText
-              ? '\n' + (this.state.takeDate ? 'For **' + this.labelISO(this.state.takeDate) + '**: ' : '') + this.state.takeText
+              ? ' ' + (this.state.takeDate ? '*For ' + this.labelISO(this.state.takeDate) + ':* ' : '') + this.state.takeText
               : '')
           + (gOpen ? '\n' + this.GREET_GUIDE : '');
         const gLink = React.createElement('span', {
