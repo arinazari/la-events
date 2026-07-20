@@ -50,6 +50,12 @@
   @media (max-width: 720px) {
     input, textarea { font-size: 16px !important; }  /* stop iOS zoom-on-focus */
   }
+  /* digest modal overlay: generous frame on desktop, near-full-bleed on phones */
+  .dg-overlay { padding: 40px; }
+  @media (max-width: 720px) { .dg-overlay { padding: 10px; } }
+  /* digest prose event mentions — tap to open the event's card popup */
+  .dg-ev { cursor: pointer; text-decoration: underline dotted; text-decoration-color: #b9b7ac; text-underline-offset: 3px; }
+  .dg-ev:hover { color: #2b5cd9; text-decoration-color: #2b5cd9; }
   /* greeting examples (the blue `code` spans) are tap-to-fill the concierge box */
   .chat-intro code { cursor: pointer; }
   .chat-intro code:hover { background: #dde4fb !important; color: #1d49b8 !important; }
@@ -838,7 +844,7 @@
 
   <!-- ===================== DIGEST MODAL ===================== -->
   <sc-if value="{{ digestModalOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:40px; background:rgba(27,26,23,0.42);">
+    <div class="dg-overlay" style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; background:rgba(27,26,23,0.42);">
       <div onClick="{{ closeDigest }}" style="position:absolute; inset:0;"></div>
       <div style="position:relative; z-index:1; width:100%; max-width:680px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
         <!-- no title bar (maximizes the reading area): the close button floats in the top-right corner -->
@@ -847,6 +853,23 @@
         <div style="flex:none; position:relative; display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:9px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:3px 3px 0 0;">
           <span onClick="{{ downloadDigest }}" title="Download this digest as a Markdown file" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">↓ download</span>
           <span onClick="{{ toggleEmailDigest }}" title="Email this digest — your address is typed each time and never stored" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid {{ emailTogBorder }}; background: {{ emailTogBg }}; color: {{ emailTogColor }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">✉ email</span>
+          <!-- past-digest archive (digests/index.json, staged at deploy — hidden on hosts without it) -->
+          <sc-if value="{{ digestArchShow }}" hint-placeholder-val="{{ false }}">
+            <span style="position:relative; display:inline-flex;">
+              <span onClick="{{ toggleDigestMenu }}" title="Read a past digest" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">{{ digestArchLabel }}</span>
+              <sc-if value="{{ digestMenuOpen }}" hint-placeholder-val="{{ false }}">
+                <div class="scry" style="position:absolute; top:calc(100% + 5px); left:0; z-index:6; min-width:250px; max-width:320px; max-height:290px; overflow-y:auto; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 32px rgba(0,0,0,0.18); padding:4px;">
+                  <sc-for list="{{ digestArchItems }}" as="d" hint-placeholder-count="6">
+                    <div onClick="{{ d.onClick }}" style="display:flex; align-items:baseline; gap:8px; padding:7px 9px; cursor:pointer; border-radius:2px; background:{{ d.bg }};" style-hover="background:#f1f5ff;">
+                      <span style="flex:none; min-width:52px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:{{ d.dateColor }};">{{ d.date }}</span>
+                      <span style="flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font:500 11px/1.3 -apple-system,system-ui,sans-serif; color:#3f3d36;">{{ d.title }}</span>
+                      <span style="flex:none; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#2b5cd9;">{{ d.mark }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </span>
+          </sc-if>
           <!-- persistent update signal: this digest can be re-curated against newer events -->
           <sc-if value="{{ digestUpdateChip }}" hint-placeholder-val="{{ false }}">
             <span onClick="{{ digestUpdateClick }}" title="{{ digestUpdateTitle }}" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:5px 10px; border-radius:2px; border:1px solid #2b5cd9; background:#eaf0fe; color:#2b5cd9; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="background:#2b5cd9; color:#fff;">{{ digestUpdateLabel }}</span>
@@ -859,7 +882,15 @@
             <button onClick="{{ toggleEmailDigest }}" title="Cancel" style="flex:none; width:30px; height:30px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 13px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
           </div>
         </sc-if>
-        <div class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 28px;">{{ digestBody }}</div>
+        <!-- section jump-nav: one chip per ## section, scrolls the body to its anchor -->
+        <sc-if value="{{ digestNavShow }}" hint-placeholder-val="{{ false }}">
+          <div class="scry" style="flex:none; display:flex; align-items:center; gap:6px; overflow-x:auto; padding:7px 20px; border-bottom:1px solid #e2e0d8; background:#fdfcf9;">
+            <sc-for list="{{ digestNav }}" as="n" hint-placeholder-count="7">
+              <span onClick="{{ n.onClick }}" style="flex:none; white-space:nowrap; cursor:pointer; padding:4px 10px; border:1px solid #e2e0d8; border-radius:999px; background:#fff; color:#5f5d54; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ n.title }}</span>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div id="dg-scroll" class="scry" style="flex:1; overflow-y:auto; padding:22px 26px 28px;">{{ digestBody }}</div>
       </div>
     </div>
   </sc-if>
@@ -1256,7 +1287,7 @@ class Component extends DCLogic {
     expandedId: null,
     filtered: null,            // array of ids or null (=all)
     filterSummary: '', digestPicks: false,
-    digestMenuOpen: false, digestEmailOpen: false, digestEmail: '',
+    digestMenuOpen: false, digestEmailOpen: false, digestEmail: '', digestPast: null,
     colFilters: { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} }, openFilter: null,
     search: '', digestPrevState: null,
     settingsOpen: false, toast: null, connectModalOpen: false, tokenInput: '',
@@ -2007,59 +2038,369 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     return this.escHtml(s)
       .replace(/`([^`]+)`/g, '<code style="font:600 11.5px/1.4 ui-monospace,Menlo,monospace; color:#2b5cd9; background:#eef1fb; padding:1px 5px; border-radius:3px;">$1</code>')
       .replace(/\*\*(.+?)\*\*/g, '<strong style="color:#161512; font-weight:700;">$1</strong>')
-      .replace(/\*(.+?)\*/g, '<em style="color:#76746b; font-style:normal; font:600 11px ui-monospace,Menlo,monospace; letter-spacing:0.02em;">$1</em>')
+      // *emphasis* carries two different things: short scene tags (*RA pick · afterhours*,
+      // *editorial*) that read as mono chips, and full-sentence curator notes that must read
+      // as prose — split on the visible length so sentences never render as cramped monospace.
+      .replace(/\*(.+?)\*/g, (m0, inner) => {
+        const plain = inner.replace(/<[^>]+>/g, '');
+        return plain.length <= 40
+          ? '<em style="color:#76746b; font-style:normal; font:600 11px ui-monospace,Menlo,monospace; letter-spacing:0.02em;">' + inner + '</em>'
+          : '<em style="color:#6b695f; font-style:italic;">' + inner + '</em>';
+      })
       .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:#1b1a17; text-decoration:underline; text-underline-offset:2px;">$1</a>');
   }
+  // ---------- digest entity links: prose mentions -> the event's card popup ----------
+  // The digest's blurb and day-blueprint paragraphs name events in running prose ("Mau P's
+  // tech-house set at Ace Mission …") with no ids attached. At render time we match those
+  // mentions against the loaded feed — lineup names plus title segments — and wrap them as
+  // tappable spans that open the same detail card a front-page card click opens. Matching is
+  // display-only and precision-first: longest phrase wins, names need a capitalized mention
+  // (so the band Cannons never claims the word "cannons"), phrases can't cross clause
+  // punctuation, place names never link, and nothing links inside an existing <a>.
+  DG_STOP = new Set(['the','and','los','angeles','dtla','hollywood','live','tour','night','party','show','with','presents','records','music','festival','open','air','all','long','day','after','afters','hours','tonight','today','tomorrow','weekend','tba','dj','set','friday','saturday','sunday','monday','tuesday','wednesday','thursday','world','anniversary','celebration','release','vs','la','at','pm','am','free','rsvp','more','dates','block','evening','one','lineup']);
+  DG_STOP_LEAD = new Set(['the','a','an','at','all','and','with','in','on','of','for','los','la']);
+  // Trailing venue-type words, stripped so "Vista Theater" also blocks the bare "Vista".
+  DG_VENUE_TAIL = /\s+(theatre|theater|cinema|hall|ballroom|auditorium|lounge|club|bar|room|studios?|records|shop|park|grounds|stage|rooftop|hotel|center|centre|arena|amphitheatre|amphitheater|palladium|forum|dome|gallery|warehouse)$/;
+  // Shared normalizer — aliases and prose n-grams must reduce identically: tokenize (dots
+  // are separators, so a sentence boundary never hides inside a token), lowercase, strip
+  // possessives, join with single spaces.
+  dgNormTok(t) { return t.toLowerCase().replace(/[’']s$/, '').replace(/[’']+$/, ''); }
+  dgNorm(s) {
+    const toks = String(s || '').match(/[\p{L}\p{N}][\p{L}\p{N}'’\-]*/gu) || [];
+    return toks.map(t => this.dgNormTok(t)).join(' ');
+  }
+  // Candidate name strings for one event, with claim strength: headline billing (title,
+  // title segments, first lineup name) is `strong`; a deep lineup slot is `weak`, so a
+  // festival's 60-name undercard can't hijack an artist's own show. Parenthesized/
+  // bracketed qualifiers ((70mm), [2-8 PM]) are dropped before splitting.
+  dgAliasSources(e) {
+    const out = (e.lineup || []).map((a, i) => ({ s: String(a), strong: i === 0 }));
+    const t = String(e.title || '').replace(/\([^)]*\)|\[[^\]]*\]/g, ' ');
+    out.push({ s: t, strong: true });
+    for (const seg of t.split(/\s*(?:,|:|\||—|–|\s-\s|\bw\/|\bwith\b|&|\+|\bx\b|\bb2b\b|\bpresents?\b|\bfeat\.?\b|\bft\.?\b|\bvs\.?\b)\s*/i)) out.push({ s: seg, strong: true });
+    return out;
+  }
+  // alias (normalized phrase) -> [candidates {key, iso, strong}]. Resolution happens per
+  // mention (dgResolve) so the surrounding day section can steer contested names. Rebuilt
+  // only when the feed or the day changes; empty on sample/front-less feeds (there the
+  // card popup can't open, so mentions must not render as links).
+  digestEntityMap() {
+    const live = !!(this.state.dataSource === 'live' && this.META && this.META.front_page);
+    if (this._dgEnt && this._dgEnt.all === this.ALL && this._dgEnt.today === this.TODAY && this._dgEnt.live === live) return this._dgEnt.map;
+    const map = new Map();
+    if (live) {
+      // Place names must never read as event mentions ("…a short walk in Silver Lake",
+      // "at the Vista") — block every neighborhood and venue the feed knows about, venues
+      // both whole and with their type-word tail stripped, with and without a leading "the".
+      const blocked = new Set();
+      const blockPlace = (name) => {
+        let v = this.dgNorm(name);
+        for (let pass = 0; v && pass < 2; pass++) {
+          blocked.add(v);
+          if (v.startsWith('the ')) blocked.add(v.slice(4));
+          const s = v.replace(this.DG_VENUE_TAIL, '');
+          if (s === v) break;
+          v = s;
+        }
+      };
+      for (const h of (this.META.neighborhoods || [])) blockPlace(h);
+      for (const e of this.ALL) { if (e.hood) blockPlace(e.hood); if (e.venue) blockPlace(e.venue); }
+      const claim = (norm, e, strong) => {
+        if (blocked.has(norm)) return;
+        let cands = map.get(norm);
+        if (!cands) map.set(norm, cands = []);
+        const dup = cands.find(c => c.key === e.key);
+        if (dup) { dup.strong = dup.strong || strong; return; }
+        if (cands.length < 12) cands.push({ key: e.key, iso: e.iso, strong });
+      };
+      for (const e of this.ALL) {
+        if (!e.key || e.iso < this.TODAY) continue;
+        for (const src of this.dgAliasSources(e)) {
+          const norm = this.dgNorm(src.s);
+          const toks = norm.split(' ');
+          if (norm.length < 3 || toks.length > 6) continue;
+          if (!/\p{L}/u.test(norm)) continue;               // pure numbers/dates are never names
+          // Every alias needs at least one substantive token — kills generic segments
+          // like "a night of r b" or "in los angeles" that the digest prose echoes.
+          if (!toks.some(tk => tk.length >= 3 && !this.DG_STOP.has(tk) && !this.DG_STOP_LEAD.has(tk))) continue;
+          if (toks.length === 1 && (norm.length < 4 || this.DG_STOP.has(norm))) continue;
+          claim(norm, e, src.strong);
+          // Short-prefix aliases so "HARD Summer" finds "HARD Summer Music Festival" — only
+          // from the front of a longer name, never starting or ending on a stopword.
+          for (const L of [2, 3]) {
+            if (toks.length <= L) break;
+            const pre = toks.slice(0, L);
+            if (this.DG_STOP_LEAD.has(pre[0]) || this.DG_STOP.has(pre[L - 1])) continue;
+            const p = pre.join(' ');
+            if (p.length >= 8 && !blocked.has(p)) claim(p, e, src.strong);
+          }
+        }
+      }
+    }
+    this._dgEnt = { all: this.ALL, today: this.TODAY, live, map };
+    return map;
+  }
+  // Pick one event for a mention: an event on the surrounding day section's date beats all
+  // (the Sat 8/1 blueprint's "Jacques Greene" means the 8/1 party, not his 7/31 show), then
+  // headline billing beats a deep lineup slot, then the earliest upcoming date.
+  dgResolve(cands, prefIso) {
+    let best = null, bestR = '';
+    for (const c of cands) {
+      // lexicographic rank: on-section-date, then headline billing, then earliest date
+      const r = (prefIso && c.iso === prefIso ? '0' : '1') + (c.strong ? '0' : '1') + c.iso;
+      if (!best || r < bestR) { best = c; bestR = r; }
+    }
+    return best;
+  }
+  // Wrap event mentions in one paragraph's rendered HTML. Operates on text between tags,
+  // skipping anything inside <a> — titles the digest already links keep their ticket link.
+  // `prefIso` is the surrounding day section's date; `tail` carries sentence context across
+  // inline-tag boundaries so a mention right after </strong> isn't treated as sentence-start.
+  linkDigestEntities(html, prefIso) {
+    const map = this.digestEntityMap();
+    if (!map.size) return html;
+    let inA = 0, tail = '';
+    return String(html).split(/(<[^>]+>)/).map(part => {
+      if (!part) return part;
+      if (part[0] === '<') {
+        if (/^<a[\s>]/i.test(part)) inA++;
+        else if (/^<\/a>/i.test(part)) inA = Math.max(0, inA - 1);
+        return part;
+      }
+      const out = inA ? part : this.dgLinkText(part, map, prefIso, tail);
+      if (part.trim()) tail = part.replace(/\s+$/, '');
+      return out;
+    }).join('');
+  }
+  dgLinkText(text, map, prefIso, prevTail) {
+    const re = /[\p{L}\p{N}][\p{L}\p{N}'’\-]*/gu;
+    const T = [];
+    let m;
+    while ((m = re.exec(text))) {
+      // escHtml left &amp;/&lt;/&gt; in the text — their bodies are not words ("R&amp;B"
+      // must tokenize as [R, B], matching how dgNorm reduced the "R&B" alias).
+      if ((m[0] === 'amp' || m[0] === 'lt' || m[0] === 'gt') && text[m.index - 1] === '&' && text[m.index + m[0].length] === ';') continue;
+      T.push({ s: m.index, e: m.index + m[0].length, n: this.dgNormTok(m[0]) });
+    }
+    // A phrase may only span whitespace and name-glue characters — never clause or
+    // sentence punctuation ("…with Salute. Nothing else…" is not a two-word name).
+    const GLUE = /^[\s'’&+\/]*$/;
+    const glueOk = (a, b) => GLUE.test(text.slice(a.e, b.s).replace(/&(amp|lt|gt);/g, ' '));
+    const hits = [];
+    let i = 0;
+    while (i < T.length) {
+      let hit = null;
+      for (let L = Math.min(6, T.length - i); L >= 1; L--) {
+        const cands = map.get(T.slice(i, i + L).map(tk => tk.n).join(' '));
+        if (!cands) continue;
+        let ok = true;
+        for (let j = i; j < i + L - 1; j++) if (!glueOk(T[j], T[j + 1])) { ok = false; break; }
+        if (!ok) continue;
+        const span = text.slice(T[i].s, T[i + L - 1].e);
+        if (!/\p{Lu}/u.test(span)) continue;              // names need a capitalized mention
+        if (L === 1) {
+          // A lone word proves little. Skip it at sentence start (bands named Nothing,
+          // Clinic … collide with ordinary sentence openers) and when it's glued to an
+          // adjacent capitalized word — "John" in "John Summit" is not the band JOHN.
+          const before = text.slice(0, T[i].s).replace(/\s+$/, '');
+          const ctx = before || String(prevTail || '');
+          if (!ctx || /[.!?]$/.test(ctx)) continue;
+          const nb = T[i + 1], pb = T[i - 1];
+          if (nb && /^\s*$/.test(text.slice(T[i].e, nb.s)) && /\p{Lu}/u.test(text[nb.s])) continue;
+          if (pb && /^\s*$/.test(text.slice(pb.e, T[i].s)) && /\p{Lu}/u.test(text[pb.s])) continue;
+        }
+        const ent = this.dgResolve(cands, prefIso);
+        if (!ent) continue;
+        hit = { s: T[i].s, e: T[i + L - 1].e, key: ent.key, L };
+        break;
+      }
+      if (hit) { hits.push(hit); i += hit.L; } else i++;
+    }
+    if (!hits.length) return text;
+    let res = '', pos = 0;
+    for (const h of hits) {
+      res += text.slice(pos, h.s) + '<span class="dg-ev" data-ev="' + String(h.key).replace(/[^\w-]/g, '') + '" title="Open the event card">' + text.slice(h.s, h.e) + '</span>';
+      pos = h.e;
+    }
+    return res + text.slice(pos);
+  }
+  // Delegated click for the linked mentions (the digest body is set via innerHTML, so the
+  // spans can't carry React handlers themselves). Opens the front-page detail card, which
+  // renders above the digest modal — closing it drops you back into the digest.
+  onDigestBodyClick = (e) => {
+    const t = e.target && e.target.closest ? e.target.closest('[data-ev]') : null;
+    if (!t) return;
+    const key = t.getAttribute('data-ev');
+    if (key && this.byKey(key)) this.openFpDetail(key);
+  };
+  // "Saturday · August 1" / "Weekend of Fri 7/31" -> ISO date, for steering contested
+  // entity mentions toward the day being written about. Year comes from TODAY; a month far
+  // behind today's is next year's (digests look forward, so Dec docs mention Jan dates).
+  dgDayIso(txt) {
+    const MO = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
+    let mo, d, m = String(txt).match(/\b(january|february|march|april|may|june|july|august|september|october|november|december)\s+(\d{1,2})\b/i);
+    if (m) { mo = MO[m[1].toLowerCase()]; d = +m[2]; }
+    else { m = String(txt).match(/\b(\d{1,2})\/(\d{1,2})\b/); if (m) { mo = +m[1]; d = +m[2]; } }
+    if (!mo || !d || mo > 12 || d > 31) return '';
+    const y = +this.TODAY.slice(0, 4) + ((+this.TODAY.slice(5, 7)) - mo > 6 ? 1 : 0);
+    return y + '-' + String(mo).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+  }
+  // The digest shown in the modal: the live doc, or the archived one picked from the dropdown.
+  shownDigestMd() {
+    const p = this.state.digestPast;
+    return (p && p.md) || this.DIGEST_MD || '';
+  }
+  // The modal's jump-nav — one entry per `##` section, ids matching renderMarkdown's digest-mode
+  // anchors (both walk the same comment-stripped doc in order, so the Nth ## is dg-s<N> in both).
+  digestSections(md) {
+    const out = [];
+    for (const line of String(md || '').replace(/<!--[\s\S]*?-->/g, '').split('\n')) {
+      const m = /^##(?!#)\s+(.+?)\s*$/.exec(line.trim());
+      if (m) out.push({ id: 'dg-s' + out.length, title: m[1] });
+    }
+    return out;
+  }
+  jumpDigest = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   renderDigestHtml() {
     // The digest doc links its weekend files relative to ITSELF (digests/latest.md ->
     // weekends/<Fri>.md), but the modal's html resolves hrefs against the PAGE — re-root them.
-    return this.renderMarkdown(this.DIGEST_MD || '')
+    // Cached against (doc, feed, day): this runs on every React render, and entity-linking
+    // every paragraph against the full alias index is too much work to redo per keystroke.
+    const src = this.shownDigestMd();
+    const c = this._dgHtml;
+    if (c && c.md === src && c.all === this.ALL && c.today === this.TODAY && c.live === (this.state.dataSource === 'live')) return c.html;
+    const html = this.renderMarkdown(src, { digest: true })
       .replace(/href="weekends\//g, 'href="digests/weekends/');
+    this._dgHtml = { md: src, all: this.ALL, today: this.TODAY, live: this.state.dataSource === 'live', html };
+    return html;
   }
   // Shared Markdown → styled HTML — used by the digest modal AND the guide / what's-new modal.
-  // Supports #/## headings, "- " bullets (with indented wrapped continuations), `---` rules, and
-  // the inlineMd spans (bold / code / links). Keeps both surfaces visually identical.
+  // Supports #/## headings, "- " bullets (with indented wrapped continuations), `---` rules,
+  // `>` callouts, and the inlineMd spans (bold / code / links). Digest mode (opts.digest) adds
+  // the modal-only chrome: anchor ids on ## sections, sticky ### day headers scoped to their own
+  // day <div>, ⭐ top-pick highlighting, and the H1's ISO date rendered as "Weekday M/D".
   // HTML comments are stripped FIRST: the digest carries permanent invisible slots (the
   // `<!-- take: … -->` teaser, unfilled tier3 slots) that inlineMd's escaping would otherwise
   // render as literal text.
-  renderMarkdown(md) {
+  renderMarkdown(md, opts) {
+    const dg = !!(opts && opts.digest);
     const lines = String(md || '').replace(/<!--[\s\S]*?-->/g, '').split('\n');
     let html = '';
-    let items = null;   // array of <li> inner-HTML while inside a bullet list (else null)
+    let items = null;   // array of {html, hot} while inside a bullet list (else null)
+    let quote = null;   // array of line-HTML while inside a `>` callout (else null)
+    let day = false;    // a digest-mode ### day-section wrapper <div> is open
+    let secN = 0;       // ## counter -> the dg-s<N> anchors the jump-nav targets
+    // Digest-mode header compaction: the doc opens with the H1 plus italic-only meta lines
+    // (a boilerplate tagline + a "Checked …" freshness line). Collect them instead of
+    // rendering: the freshness line becomes one small meta row, the tagline is dropped —
+    // it says the same thing every day and was costing three wrapped lines of italics.
+    let hdrMeta = null; // array while collecting the digest header's italic meta lines
+    let h1MD = '';      // the digest H1's M/D — dedupes the "Checked <same day>" prefix below
+    let dayIso = '';    // current ### day section's date — steers contested entity mentions
+    const flushHdr = () => {
+      if (!hdrMeta) return;
+      let checked = hdrMeta.find(x => /^Checked\b/i.test(x));
+      if (checked) {
+        // "Checked Sun 7/19 · …" right under a "Sunday 7/19" title says the date twice — drop
+        // the prefix only when it matches the title, so a stale check date stays visible.
+        checked = checked.replace(/^Checked\s+\w+\s+(\d+\/\d+)\s*·\s*/i, (m0, md) => md === h1MD ? '' : m0);
+        html += '<div style="margin:1px 0 6px; font:500 10.5px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">' + this.inlineMd(checked) + '</div>';
+      }
+      hdrMeta = null;
+    };
     const flush = () => {
+      if (quote) {
+        html += '<div style="margin:12px 0; padding:10px 13px; background:#fdf4e3; border:1px solid #ecd9ae; border-left:3px solid #c8973f; border-radius:3px; font-size:12.5px; line-height:1.55; color:#5f5347;">' + quote.join('<br>') + '</div>';
+        quote = null;
+      }
       if (!items) return;
-      html += '<ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:7px;">'
-        + items.map(it => '<li style="font-size:13px; line-height:1.5; color:#3f3d36; padding-left:15px; position:relative;"><span style="position:absolute; left:0; color:#cdcbc3;">·</span>' + it + '</li>').join('')
+      html += '<ul style="list-style:none; margin:0 0 8px; padding:0; display:flex; flex-direction:column; gap:8px;">'
+        + items.map(it => it.hot
+          ? '<li style="font-size:13px; line-height:1.55; color:#3f3d36; padding:8px 11px; background:#fcf7e6; border:1px solid #eee0b4; border-radius:3px;">' + it.html + '</li>'
+          : '<li style="font-size:13px; line-height:1.55; color:#3f3d36; padding-left:15px; position:relative;"><span style="position:absolute; left:0; color:#cdcbc3;">·</span>' + it.html + '</li>').join('')
         + '</ul>';
       items = null;
     };
+    // Close the open day section (sticky headers are scoped to these wrappers, so a day's
+    // header unsticks when its OWN content ends instead of pinning to the bottom of the doc).
+    const closeDay = () => { flush(); if (day) { html += '</div>'; day = false; } };
     for (const raw of lines) {
       const line = raw.replace(/\s+$/, '');       // trimEnd, but keep leading indent on `raw`
       const t = line.trim();
-      if (t === '') { flush(); continue; }
-      if (t === '---') { flush(); html += '<hr style="border:none; border-top:1px solid #e2e0d8; margin:18px 0;" />'; continue; }
+      if (t === '') { if (hdrMeta) continue; flush(); continue; }
+      if (hdrMeta) {                              // collecting the header's italic meta lines
+        const im = t.match(/^\*([^*].*)\*$/);
+        if (im) { hdrMeta.push(im[1]); continue; }
+        flushHdr();                               // first real content line — header is over
+      }
+      if (t === '---') { closeDay(); html += '<hr style="border:none; border-top:1px solid #e2e0d8; margin:18px 0;" />'; continue; }
+      const q = t.match(/^>\s?(.*)$/);            // `>` callout (the digest's footer warnings)
+      if (q) { if (!quote) { flush(); quote = []; } quote.push(this.inlineMd(q[1])); continue; }
       const hd = t.match(/^(#{1,6})\s+(.*)$/);    // headings (#..######)
       if (hd) {
-        flush();
-        if (hd[1].length === 1) html += '<h1 style="font:700 21px/1.2 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em; color:#161512; margin:0 0 6px;">' + this.inlineMd(hd[2]) + '</h1>';
-        else html += '<h2 style="font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; text-transform:uppercase; color:#a7a59b; margin:22px 0 9px;">' + this.inlineMd(hd[2]) + '</h2>';
+        closeDay();
+        if (hd[1].length === 1) {
+          // Digest H1s carry an ISO date ("LA Events — 2026-07-19") — render it in the standing
+          // Day M/D convention (display only; download/email keep the raw doc).
+          let txt = hd[2];
+          if (dg) txt = txt.replace(/(\d{4})-(\d{2})-(\d{2})/, (m0, y, mo, d) => {
+            const dt = new Date(+y, +mo - 1, +d);
+            h1MD = (+mo) + '/' + (+d);
+            return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][dt.getDay()] + ' ' + h1MD;
+          });
+          // Digest header: "LA Events — <date>" splits into a small kicker + the date as the
+          // title, and the italic meta lines that follow are collected (see flushHdr above).
+          if (dg) {
+            const parts = txt.split(' — ');
+            if (parts.length >= 2) {
+              html += '<div style="font:700 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; text-transform:uppercase; color:#a7a59b; margin:0 0 6px;">' + this.inlineMd(parts[0]) + '</div>';
+              txt = parts.slice(1).join(' — ');
+            }
+            hdrMeta = [];
+          }
+          html += '<h1 style="font:700 21px/1.2 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em; color:#161512; margin:0 0 4px;">' + this.inlineMd(txt) + '</h1>';
+        } else if (hd[1].length === 2) {
+          dayIso = '';                              // a new ## section leaves day context
+          const id = dg ? ' id="dg-s' + (secN++) + '"' : '';
+          html += '<h2' + id + ' style="display:flex; align-items:center; gap:10px; font:700 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.09em; text-transform:uppercase; color:#161512; margin:26px 0 12px; scroll-margin-top:8px;">' + this.inlineMd(hd[2]) + '<span style="flex:1; height:1px; background:#e2e0d8;"></span></h2>';
+        } else {
+          // ### — the digest's day headings; sticky within their own day section while it scrolls.
+          // Sticky headers must be margin-free (margins pin transparent, letting scrolled text
+          // bleed through above/below the bar) — the spacing lives in opaque padding instead.
+          if (dg) { html += '<div style="position:relative;">'; day = true; dayIso = this.dgDayIso(hd[2]); }
+          html += '<h3 style="' + (dg
+            ? 'position:sticky; top:0; z-index:2; background:#fdfcf9; box-shadow:0 1px 0 #eceae2; margin:0; padding:16px 0 7px; '
+            : 'margin:18px 0 9px; padding:7px 0 6px; ')
+            + 'font:600 13.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; scroll-margin-top:8px;">' + this.inlineMd(hd[2]) + '</h3>';
+        }
         continue;
       }
       if (/^[-*]\s+/.test(t)) {                   // new bullet
         if (!items) items = [];
-        items.push(this.inlineMd(t.replace(/^[-*]\s+/, '')));
+        const body = t.replace(/^[-*]\s+/, '');
+        items.push({ html: this.inlineMd(body), hot: dg && body.includes('⭐') });
         continue;
       }
       // An indented line directly under a bullet is a wrapped continuation of that item — the
       // daily-digest routine hard-wraps long bullets, so without this the tail rendered as a
       // stray full-width paragraph that broke out of the list.
       if (items && items.length && /^\s/.test(raw)) {
-        items[items.length - 1] += ' ' + this.inlineMd(t);
+        items[items.length - 1].html += ' ' + this.inlineMd(t);
         continue;
       }
       flush();
-      html += '<p style="font-size:13px; line-height:1.55; color:#76746b; margin:0 0 4px;">' + this.inlineMd(t) + '</p>';
+      const lbl = t.match(/^\*\*([^*]+)\*\*$/);   // standalone bold line -> category micro-label
+      if (lbl) { html += '<div style="font:700 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; text-transform:uppercase; color:#8a8880; margin:14px 0 7px;">' + this.escHtml(lbl[1]) + '</div>'; continue; }
+      // Digest prose paragraphs (the lede, section intros, day blueprints) get event-mention
+      // links — bullets don't (their titles already carry ticket links).
+      const para = this.inlineMd(t);
+      html += '<p style="font-size:13px; line-height:1.6; color:#4d4b42; margin:0 0 6px;">' + (dg ? this.linkDigestEntities(para, dayIso) : para) + '</p>';
     }
+    flushHdr();
+    closeDay();
     flush();
     return html;
   }
@@ -2084,8 +2425,38 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     closeList();
     return html;
   }
-  openDigest = () => this.setState({ digestModalOpen: true, digestMenuOpen: false, digestEmailOpen: false });
-  closeDigest = () => this.setState({ digestModalOpen: false, digestMenuOpen: false, digestEmailOpen: false });
+  openDigest = () => this.setState({ digestModalOpen: true, digestMenuOpen: false, digestEmailOpen: false, digestPast: null });
+  closeDigest = () => this.setState({ digestModalOpen: false, digestMenuOpen: false, digestEmailOpen: false, digestPast: null });
+  toggleDigestMenu = () => this.setState(s => ({ digestMenuOpen: !s.digestMenuOpen, digestEmailOpen: false }));
+  // Pick a digest from the archive dropdown (digests/index.json — staged at deploy time by
+  // scripts/stage_digests.py; every path in it is relative to ./digests/). Viewing a past doc
+  // only touches state.digestPast — DIGEST_MD (and the chat take seeded from it) stays the
+  // live digest, so browsing the archive never rewrites the concierge's read of today.
+  selectDigestEntry = (entry) => {
+    if (!entry || !entry.path) return;
+    const toTop = () => { const el = document.getElementById('dg-scroll'); if (el) el.scrollTop = 0; };
+    if (entry.latest) {   // back to the live doc — already loaded, nothing to fetch
+      this.setState({ digestPast: null, digestMenuOpen: false }, toTop);
+      return;
+    }
+    fetch('./digests/' + entry.path, { cache: 'no-store' })
+      .then(res => res.ok ? res.text() : null)
+      .then(md => {
+        if (!md || md.trim().length < 20) return;
+        this.setState({
+          digestPast: { md, file: entry.file || entry.path.split('/').pop(), date: entry.date || '' },
+          digestMenuOpen: false,
+        }, toTop);
+      })
+      .catch(() => {});
+  };
+  // 'YYYY-MM-DD' -> 'Sun 7/19' (the archive dropdown's date column, Day M/D convention)
+  fmtArchDate(iso) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));
+    if (!m) return '';
+    const d = new Date(+m[1], +m[2] - 1, +m[3]);
+    return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()] + ' ' + (+m[2]) + '/' + (+m[3]);
+  }
 
   // ---------- Guide / What's-new modal (opened manually from Settings → ABOUT) ----------
   GUIDE_HOW = [
@@ -2352,8 +2723,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   // ---------- digest modal toolbar (download / email) ----------
   downloadDigest = () => {
     try {
-      const md = this.DIGEST_MD || '';
-      let stem = (this.DIGEST_CURRENT && this.DIGEST_CURRENT.split('/').pop()) || this.DIGEST_FILE || 'digest.md';
+      const past = this.state.digestPast;
+      const md = this.shownDigestMd();
+      let stem = past
+        ? (past.file || 'digest.md')
+        : ((this.DIGEST_CURRENT && this.DIGEST_CURRENT.split('/').pop()) || this.DIGEST_FILE || 'digest.md');
       // 'latest.md' says nothing about WHICH digest — pull the date off the top of the doc
       // (the consolidated H1 is "# LA Events — YYYY-MM-DD") so the saved file self-dates even
       // on hosts with no staged index (local serve).
@@ -2378,7 +2752,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   sendDigestEmail = () => {
     const to = (this.state.digestEmail || '').trim();
     if (!to || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) { this.flashToast('Enter a valid email address.'); return; }
-    const md = this.DIGEST_MD || '';
+    const md = this.shownDigestMd();   // email whichever digest is on screen (live or archived)
     const m = md.match(/^#\s+(.*)$/m);
     const subject = (m && m[1].trim()) || 'LA Events digest';
     const href = 'mailto:' + encodeURIComponent(to) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(md);
@@ -3705,7 +4079,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
     else if (ds === 'score') this.setState({ sortKey: 'score', sortDir: 'desc' });
     else if (ds === 'rank') this.setState({ sortKey: 'rank', sortDir: 'asc' });
-    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); if (this.state.welcomeOpen) this.closeWelcome(); if (this.state.nudgeOpen) this.setState({ nudgeOpen: false }); if (this.state.fpDetailKey) this.setState({ fpDetailKey: null }); } };
+    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.fpDetailKey) { this.setState({ fpDetailKey: null }); return; } /* card sits above the digest — dismiss layers one Escape at a time */ if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); if (this.state.welcomeOpen) this.closeWelcome(); if (this.state.nudgeOpen) this.setState({ nudgeOpen: false }); } };
     window.addEventListener('keydown', this._onKeyDown);
     // Track viewport width so the layout can switch between the desktop table and the
     // mobile card/overlay layout live (rAF-coalesced to avoid setState churn on resize).
@@ -4310,12 +4684,36 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // popup, these never snooze.
       updateBadge: profileActive && (updateActive || updateBusy),
       updateBadgeColor: updateBusy ? '#a7a59b' : '#2b5cd9',
-      digestUpdateChip: profileActive && (updateActive || updateBusy),
+      // The update chip speaks about the LIVE digest — hide it while an archived one is shown.
+      digestUpdateChip: profileActive && (updateActive || updateBusy) && !this.state.digestPast,
       digestUpdateLabel: updateBusy ? '◌ updating… ' + updateElapsed : '↻ update available',
       digestUpdateTitle: updateBusy ? 'Update in flight — your digest reloads here when it lands (a few minutes)' : 'New events since your last editorial pass — re-rank + rewrite your digest (~2–3 min)',
       digestUpdateClick: updateBusy ? (() => {}) : this.updateMyDigest,
       digestFile: this.DIGEST_FILE, digestUser,
       downloadDigest: this.downloadDigest,
+      // Jump-nav: one chip per ## section of the digest on screen (ids match renderMarkdown's).
+      digestNav: this.state.digestModalOpen
+        ? this.digestSections(this.shownDigestMd()).map(sec => ({ title: sec.title, onClick: () => this.jumpDigest(sec.id) }))
+        : [],
+      digestNavShow: this.state.digestModalOpen && this.digestSections(this.shownDigestMd()).length > 1,
+      // Archive dropdown: the staged digests/index.json (absent on local serves -> chip hidden).
+      digestMenuOpen: !!this.state.digestMenuOpen, toggleDigestMenu: this.toggleDigestMenu,
+      digestArchShow: (this.DIGEST_INDEX || []).length > 1,
+      digestArchLabel: this.state.digestPast
+        ? ('☷ ' + (this.fmtArchDate(this.state.digestPast.date) || 'past digest') + ' ▾')
+        : '☷ archive ▾',
+      digestArchItems: (this.DIGEST_INDEX || []).map(e => {
+        const past = this.state.digestPast;
+        const cur = past ? (!e.latest && (e.file || e.path) === past.file) : !!e.latest;
+        return {
+          date: e.latest ? 'latest' : (this.fmtArchDate(e.date) || (e.file || e.path || '').replace(/\.md$/, '')),
+          title: e.title || '',
+          mark: cur ? '✓' : '',
+          bg: cur ? '#f1f5ff' : 'transparent',
+          dateColor: e.latest ? '#1f7a4d' : '#2b5cd9',
+          onClick: () => this.selectDigestEntry(e),
+        };
+      }),
       digestEmailOpen: !!this.state.digestEmailOpen, toggleEmailDigest: this.toggleEmailDigest,
       digestEmail: this.state.digestEmail || '', onDigestEmailInput: this.onDigestEmailInput,
       onDigestEmailKey: this.onDigestEmailKey, sendDigestEmail: this.sendDigestEmail,
@@ -4354,7 +4752,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       saveApiSettings: this.saveApiSettings, backendHost,
       dataSourceLabel: this.state.dataSource === 'live' ? 'live · data.json' : 'bundled sample',
       toast: this.state.toast, hasToast: !!this.state.toast,
-      digestBody: React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } }),
+      digestBody: React.createElement('div', { onClick: this.onDigestBodyClick, dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } }),
       closeFilterMenu: this.closeFilterMenu,
       openHood: () => this.openFilterMenu('hood'), openCat: () => this.openFilterMenu('cat'), openSource: () => this.openFilterMenu('source'),
       hoodMenu: mkMenu('hood'), catMenu: mkMenu('cat'), genreMenu: mkMenu('genre', prettyTag), sourceMenu: mkMenu('source'),
