@@ -62,6 +62,22 @@ def test_club_with_no_subgenre_gets_family_tag():
     assert T.tag_event(ev(category="party", sources=["posh"], title="Friday Night"))["genre"] == ["electronic"]
 
 
+def test_19hz_genre_field_feeds_genre_scan():
+    # fetch_19hz emits the tags column as `genre` (venue stays clean) — the note must reach
+    # the genre scan even though venue names are excluded from it.
+    e = ev(category="electronic", sources=["19hz"], genre="tech house, minimal",
+           venue="The Lexington (Los Angeles)", title="Nightshift After Hours")
+    assert "tech-house" in T.tag_event(e)["genre"]
+
+
+def test_19hz_legacy_glued_venue_genre_still_read():
+    # Pre-fix catalog rows carry the annotation glued to the venue string; the fallback keeps
+    # reading it there.
+    e = ev(category="electronic", sources=["19hz"],
+           venue="The Lexington (Los Angeles) tech house, minimal", title="Nightshift After Hours")
+    assert "tech-house" in T.tag_event(e)["genre"]
+
+
 def test_live_music_genre_from_venue_gazetteer():
     # Bare artist-name title -> venue gazetteer supplies the genre.
     g = T.tag_event(ev(category="live_music", venue="Vibrato Grill Jazz", title="Some Quartet"))["genre"]

@@ -337,8 +337,10 @@ _CLUB_TITLE_KW = re.compile(r"^\s*dj\b|\bdj (set|night)\b|\b(with|w/)\s+dj\b|"
 # Any electronic-genre keyword (the GENRE_ELECTRONIC patterns, \b-bounded) — the other half
 # of the live-room guard.
 _ELECTRONIC_KW = re.compile(r"\b(" + "|".join(p for _, p in GENRE_ELECTRONIC) + r")\b", re.I)
-# 19hz leaves its genre annotation in the venue string ("The Lexington (Los Angeles) tech
-# house, minimal") — extract it so genre scanning can use it WITHOUT scanning venue names
+# 19hz's genre annotation. fetch_19hz now emits it as the `genre` field; rows written
+# before it split the swallowed tags <td> out of the venue cell carry it glued to the
+# venue string instead ("The Lexington (Los Angeles) tech house, minimal") — the regex
+# recovers those. Either way it feeds genre scanning WITHOUT scanning venue names
 # (which mint false genres: "House of Blues" was 65% of all blues tags).
 _19HZ_VENUE_NOTE = re.compile(r"\([^)]*\)\s+([a-z0-9 ,&/+'-]+)$")
 
@@ -352,9 +354,13 @@ def _hay(ev: dict) -> str:
 
 
 def _venue_genre_note(ev: dict) -> str:
-    """The 19hz genre annotation embedded in the venue string, if any ('' otherwise)."""
+    """A 19hz row's genre annotation: the `genre` field, else the legacy embedded-in-venue
+    form ('' otherwise)."""
     if "19hz" not in (ev.get("sources") or []):
         return ""
+    g = str(ev.get("genre") or "").strip().lower()
+    if g:
+        return g
     m = _19HZ_VENUE_NOTE.search(str(ev.get("venue") or "").lower())
     return m.group(1) if m else ""
 

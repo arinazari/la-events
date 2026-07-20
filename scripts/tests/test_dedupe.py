@@ -449,6 +449,37 @@ def test_afterparty_does_not_merge_into_main_event():
     assert not is_duplicate(main, afters)
 
 
+# HARD-week afters, the real 8/1 pair: RA bills the room as a TBA alias-with-address
+# ("TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd…"), 19hz as the plain venue.
+# The venue leg only pairs through containment of the shared core "ace mission studios";
+# the title leg only through containment ("Mau P, Dreya V" ⊂ RA's billed title).
+AFTERS_RA = {"title": "Saturday HARDfest Afters (Mau P, Dreya V)",
+             "venue": "TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033",
+             "date": "2026-08-01", "lineup": ["Mau P"],
+             "links": [{"source": "ra", "url": "https://ra.co/events/2479700"}], "sources": ["ra"]}
+AFTERS_19HZ = {"title": "Mau P, Dreya V", "venue": "Ace Mission Studios (Los Angeles)",
+               "date": "2026-08-01", "lineup": [], "genre": "tech house",
+               "links": [{"source": "19hz",
+                          "url": "https://hard.frontgatetickets.com/event/mxqewxz783v0qzfu"}],
+               "sources": ["19hz"]}
+
+
+def test_tba_alias_venue_vs_plain_venue_merges():
+    assert is_duplicate(AFTERS_RA, AFTERS_19HZ)
+
+
+def test_19hz_genre_glued_to_venue_defeats_the_venue_leg():
+    # The dupe Ari caught on the dashboard: fetch_19hz used to leave 19hz's genre tags glued
+    # to the venue ("Ace Mission Studios (Los Angeles) tech house"), pushing the venue pair
+    # past ratio AND containment — two cards, one of them the Don't-miss hero. The fix lives
+    # in the fetcher (split the swallowed tags <td>), NOT in loosening the venue predicate:
+    # a shared-token venue rule would pair different venues that share a neighborhood word
+    # ("Highland Park Bowl" / "The Lodge Room (Highland Park)"). This documents the known-bad
+    # shape staying unmerged so nobody re-fixes it at the wrong layer.
+    dirty = dict(AFTERS_19HZ, venue="Ace Mission Studios (Los Angeles) tech house")
+    assert not is_duplicate(AFTERS_RA, dirty)
+
+
 def test_dedupe_collapses_recollect_cluster():
     # All four 7/10 rows fold into one live record: links from every source kept, and the two
     # ghost-flagged (stale) rows must NOT carry their `unlisted` status onto the live merge.
