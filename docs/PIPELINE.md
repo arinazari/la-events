@@ -157,8 +157,8 @@ no backend; the static page just renders it.
    Tier-3 voice layer with a fresh deterministic scaffold (whys stay prefilled; the slot
    markers are stripped by the page's renderer) — data freshness wins intra-day; the nightly
    voice pass restores the prose. The feed rebuild runs AFTER the re-render, so
-   `front_page.take` honestly goes null with it (the two surfaces never show different intros)
-   until the nightly pass refills the slot.
+   `front_page.take` honestly goes null with it (never yesterday's teaser, with yesterday's
+   date, presented over today's refreshed data) until the nightly pass refills the slot.
 6. **Per-user rebuild** — Sonnet, on the repo's `ANTHROPIC_API_KEY` (BYOK does NOT apply to CI —
    a browser-held key is never forwarded into a GitHub Actions run); gated client-side to
    actionable-only; the deterministic feed commits first so a timed-out LLM step still leaves the

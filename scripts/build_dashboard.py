@@ -151,7 +151,10 @@ FP_SHELF_CAP = 40      # keys per shelf list (near + ahead each) — deep enough
 # structurally (front_page.take = {text, date}) and the page never parses markdown conventions.
 # The date rides along so the chat welcome can honestly show WHICH day's read this is (a stale
 # digest shows its real date, never today's). Display chrome only — never sent to the model.
-TAKE_RE = re.compile(r"<!--\s*take:(?!start\b|end\b)(.*?)-->", re.S)
+# The body excludes '<' so an unclosed take comment (an LLM fill that dropped its `-->`) fails
+# to match rather than lazily swallowing up to the NEXT comment's closer and shipping literal
+# markup into the feed. Malformed slot -> None -> the page's lede fallback.
+TAKE_RE = re.compile(r"<!--\s*take:(?!start\b|end\b)([^<]*?)-->", re.S)
 DOC_DATE_RE = re.compile(r"^# .*?(\d{4}-\d{2}-\d{2})", re.M)
 
 

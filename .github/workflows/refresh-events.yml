@@ -47,11 +47,12 @@ jobs:
           SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
         run: python scripts/run_digest.py
 
-      # Digest FIRST, feed second: build_dashboard lifts "The Take" (front_page.take) from
-      # digests/latest.md, so the feed must read the doc this run deploys — re-rendering after
-      # the feed build would ship a take whose text no longer exists in the digest modal. The
-      # fresh scaffold's intro slot is unfilled (take -> null, restored by the nightly voice
-      # pass), and if the render fails the committed doc stands — consistent either way.
+      # Digest FIRST, feed second: build_dashboard lifts "The Take" (front_page.take, the
+      # voice pass's dated one-sentence teaser) from digests/latest.md, so the feed must read
+      # the doc this run deploys — lifting before the re-render would ship yesterday's teaser
+      # stamped with yesterday's date over today's refreshed data. The fresh scaffold's
+      # `<!-- take: -->` slot is unfilled (take -> null, restored by the nightly voice pass),
+      # and if the render fails the committed doc stands — consistent either way.
       - name: Re-render the default consolidated digest (best-effort)
         continue-on-error: true
         run: |

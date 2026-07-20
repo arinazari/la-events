@@ -1624,6 +1624,9 @@ class Component extends DCLogic {
   DIGEST_FILE = '2026-06-17.md';
   DIGEST_INDEX = [];      // [{path, file, date, title, latest}] of selectable past digests (deploy-staged)
   DIGEST_CURRENT = null;  // dated file name of the digest currently shown (names the download)
+  // Placeholder-class until a REAL digest doc loads (_tryDigest flips this false): the bundled
+  // June sample below must never seed the chat take, even if the live digest fetch fails.
+  DIGEST_PLACEHOLDER = true;
   DIGEST_MD = `# LA Events — Wednesday 6/17
 
 Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Eastside-weighted, Thu–Sun heavy.
@@ -2359,6 +2362,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
       spotifyStatus: null, spotifyName: '', backendStatus: null },
       () => { if (this.BACKEND_URL) this.pingBackend(); });
+    // The digest on hand belongs to the profile we're LEAVING — never let its lede seed the
+    // incoming profile's take (the new feed applies before the new digest arrives). The digest
+    // load below re-enables the fallback and reseeds.
+    this.DIGEST_PLACEHOLDER = true; this.seedTake('');
     if (raw) this._applyFeed(raw); else await this.loadFeedFor(profileObj);
     this.loadDigestIndex(profileObj);
     await this.loadDigestFor(profileObj);
@@ -3196,17 +3203,27 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   reseedTake() {
     const fp = (this.META && this.META.front_page) || null;
     const t = fp && fp.take && typeof fp.take.text === 'string' && fp.take.text.trim() ? fp.take : null;
-    if (t) return this.seedTake(t.text.trim(), typeof t.date === 'string' ? t.date : '');
-    this.seedTake(this.DIGEST_PLACEHOLDER ? '' : this.teaserOf(this.digestLede()));
+    // Bounded even on the structural path — the slot is LLM-filled daily, so a malformed fill
+    // must not dump a wall of text (or worse) into the welcome.
+    if (t) return this.seedTake(t.text.trim().slice(0, 300), typeof t.date === 'string' ? t.date : '');
+    const lede = this.DIGEST_PLACEHOLDER ? '' : this.teaserOf(this.digestLede());
+    // Date the fallback from the digest's own H1 (same pattern the server lift uses) — an
+    // undated lede seeds no date, and the welcome then shows no "For <date>:" claim at all,
+    // rather than stamping today's date on a doc that may be days old.
+    const dm = lede ? String(this.DIGEST_MD || '').match(/^# .*?(\d{4}-\d{2}-\d{2})/m) : null;
+    this.seedTake(lede, dm ? dm[1] : '');
   }
-  // First sentence, bounded — the deterministic clip that keeps the heuristic fallback to a
-  // teaser (the structural take is already written as one sentence and passes through whole).
+  // The fallback teaser clip: normalize the lede to PLAIN text (unwrap [links], drop
+  // emphasis/code markers — a clip must never sever markdown mid-pair and leak raw syntax into
+  // the welcome), then cut at a word boundary. Deliberately no sentence detection —
+  // abbreviations ("St. Vincent", "Mulholland Dr.") make it unwinnable; a bounded word-cut
+  // reads as the teaser it is. Structural takes pass through whole (already one sentence).
   teaserOf(text) {
-    const t = String(text || '').trim();
-    if (!t) return '';
-    const m = t.match(/^[\s\S]*?[.!?](?=\s|$)/);
-    const s = (m ? m[0] : t).trim();
-    return s.length > 200 ? s.slice(0, 197).trimEnd() + '…' : s;
+    const t = String(text || '').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+      .replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
+    if (t.length <= 160) return t;
+    const cut = t.lastIndexOf(' ', 157);
+    return t.slice(0, cut > 80 ? cut : 157).trimEnd() + '…';
   }
   seedTake(lede, date) { this.setState({ takeText: lede || '', takeDate: date || '' }); }
   // The deploy step (scripts/stage_digests.py) writes ./digests/index.json (and ./digests/<hash>/
@@ -3392,14 +3409,17 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // The welcome — ONE concierge message wrapping the greeting, the day's take ("For Fri
       // 7/17: …"), and the how-to. Pure chrome: it reads as the LLM's first message but NONE of
       // it is ever sent (askBackend drops the whole thing — no history turn, no side field).
-      // The take's date is the DIGEST's date (takeDate, from front_page.take), not today's —
-      // so it visibly reads as today's take when it is, and honestly dated when it's stale.
+      // The take's date is the DIGEST's date (takeDate — front_page.take, or the doc's H1 for
+      // the lede fallback), never today's-by-default: it visibly reads as today's take when it
+      // is, honestly dated when stale, and an undated take shows no "For <date>:" claim at all.
       // The how-to renders full-size until this device's first message, then tucks behind
       // "see what I can do ▸".
       if (m.intro) {
         const gOpen = !!this.state.chatGuideOpen;
         const md = this.GREET_HEAD
-          + (this.state.takeText ? '\nFor **' + this.labelISO(this.state.takeDate || this.TODAY) + '**: ' + this.state.takeText : '')
+          + (this.state.takeText
+              ? '\n' + (this.state.takeDate ? 'For **' + this.labelISO(this.state.takeDate) + '**: ' : '') + this.state.takeText
+              : '')
           + (gOpen ? '\n' + this.GREET_GUIDE : '');
         const gLink = React.createElement('span', {
           onClick: this.toggleChatGuide,

@@ -89,6 +89,8 @@ def test_take_lifted_from_slot_with_doc_date():
     assert B.digest_take("<!-- take: x -->")["date"] is None
     # the retired start/end markers never read as a take
     assert B.digest_take("<!-- take:start -->\nprose\n<!-- take:end -->\n") is None
+    # an UNCLOSED take comment (LLM fill dropped its -->) must not swallow the next comment
+    assert B.digest_take("<!-- take: forgot to close\n<!-- tier3:intro -->\n") is None
     fp = B.build_front_page([], {}, TODAY, take={"text": "the take", "date": "2026-07-15"})
     assert fp["take"] == {"text": "the take", "date": "2026-07-15"}
     assert B.build_front_page([], {}, TODAY)["take"] is None

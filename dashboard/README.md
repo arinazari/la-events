@@ -30,8 +30,9 @@ icon.svg              app icon
 data/catalog.json ──┐
 data/enrichment.json├─► scripts/build_dashboard.py ─► dashboard/data.json ─► index.html
 taste.yaml          │     (scores each event the SAME way the digest does,        (pure viewer)
-profile.yaml        │      folds in enrichment, emits config + facets)
-sources.yaml ───────┘
+profile.yaml        │      folds in enrichment, emits config + facets,
+sources.yaml        │      lifts front_page.take from the digest's take slot —
+digests/latest.md ──┘      why the workflows render the digest BEFORE the feed)
 ```
 
 `index.html` fetches `./data.json` at startup, normalizes the real catalog schema

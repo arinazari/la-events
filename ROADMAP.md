@@ -429,10 +429,13 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   slots; "Weekends ahead" compressed to top-4 + a link to the per-weekend file (now staged/published);
   ops banners moved to the footer). Root cause fixes underneath: Ticketmaster's capitalized segment
   names never matched the tagger ("other" was 65% of the catalog → now ~1%), and detail-blob keywords
-  could retype concerts. AND the dashboard now opens on a **Front page** — The Take (digest lede) +
-  a time lens (tonight/weekend/2wk/ahead) + a tier-badged Don't-miss hero row + per-lane shelves, all
-  computed server-side (`build_dashboard.build_front_page`, same rank_key as final_rank; the page
-  never re-ranks); the table demoted to **Explore** (header switch, per-device persistence). Every
+  could retype concerts. AND the dashboard now opens on a **Front page** — a time lens
+  (tonight/weekend/2wk/ahead) + a Don't-miss hero row + per-lane shelves, all computed
+  server-side (`build_dashboard.build_front_page`, same rank_key as final_rank; the page
+  never re-ranks); the table demoted to **Explore** (header switch, per-device persistence).
+  (As first shipped this page also opened with a "The Take" lede card and tier-badged the hero;
+  since revised — the take moved into the concierge chat as a dated one-sentence teaser (#92 +
+  the follow-ups below), and the hero unbadged (#93).) Every
   feed event now carries its stable `key` (event_key) — the join id, and the anchor for feedback
   reactions when that lands.
 
