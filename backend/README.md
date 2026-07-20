@@ -132,13 +132,16 @@ chat header stores the token / personal key (per profile, in that browser's loca
 `curl https://<worker>/` — every build since 2026-07-20 answers `GET /` with its deploy
 fingerprint `{ok, service, v}` (`VERSION` in concierge-worker.js). Two outcomes matter:
 
-- **`{"error":"POST only"}`** → the live build predates the fingerprint (and the streaming fix):
-  your deploy did **not** land on the URL the page calls. Usual causes: `wrangler deploy` run from
-  a stale checkout (`git pull` first — fixes land on `main` via PRs, so a laptop clone lags), or
-  wrangler logged into a different Cloudflare account / worker name, so it deployed *somewhere
-  else* — compare the URL wrangler prints against the page's `BACKEND_URL`.
-- **`v` older than the page's `MIN_BACKEND_VERSION`** (dashboard/index.html) → same story, newer
-  flavor. The page checks this on every ping and shows **old build** (amber) in the chat's connect
+- **`{"error":"POST only"}`** → the live build predates the fingerprint (2026-07-20, PR #96) —
+  it might be the one-PR-older #95 build (which already streams but can't say so), or anything
+  older. Either way, a deploy of the latest `main` did **not** land on the URL the page calls.
+  Usual causes: `wrangler deploy` run from a stale checkout (`git pull` first — fixes land on
+  `main` via PRs, so a laptop clone lags), or wrangler logged into a different Cloudflare
+  account / worker name, so it deployed *somewhere else* — compare the URL wrangler prints
+  against the page's `BACKEND_URL`.
+- **`v` with an older DATE than the page's `MIN_BACKEND_VERSION`** (dashboard/index.html;
+  compared at day granularity — same-day suffixes are free-form) → same story, newer flavor.
+  The page checks this on every ping and shows **old build** (amber) in the chat's connect
   pill and modal, and names the stale build in chat error messages.
 
 Signature worth knowing: a chat error of `502 — 524 error code: 524` is the Worker relaying
