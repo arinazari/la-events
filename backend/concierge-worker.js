@@ -54,7 +54,10 @@ import { parse as yamlParse, parseDocument } from "yaml";
 
 // Deploy fingerprint, surfaced by GET / (unauthenticated) and the authed ping. Bump on every
 // change that ships: wrangler deploys are MANUAL, so "is the fix actually live?" must be
-// checkable from outside — `curl https://<worker>/` — instead of guessed.
+// checkable from outside — `curl https://<worker>/` — instead of guessed. Keep the YYYY-MM-DD
+// prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
+// MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
+// (same-day suffixes don't sort: "-stream10" < "-stream2").
 const VERSION = "2026-07-20-stream2";
 
 const DEFAULTS = {

@@ -132,6 +132,30 @@ chat header stores the token / personal key (per profile, in that browser's loca
 > longer sends it, so a stale deployed Worker is harmless (its opener plumbing just receives
 > nothing); redeploy is cleanup, not correctness.
 
+### "I redeployed but it still fails" — verify the deploy actually landed
+
+`curl https://<worker>/` — every build since 2026-07-20 answers `GET /` with its deploy
+fingerprint `{ok, service, v}` (`VERSION` in concierge-worker.js). Two outcomes matter:
+
+- **`{"error":"POST only"}`** → the live build predates the fingerprint (2026-07-20, PR #96) —
+  it might be the one-PR-older #95 build (which already streams but can't say so), or anything
+  older. Either way, a deploy of the latest `main` did **not** land on the URL the page calls.
+  Usual causes: `wrangler deploy` run from a stale checkout (`git pull` first — fixes land on
+  `main` via PRs, so a laptop clone lags), or wrangler logged into a different Cloudflare
+  account / worker name, so it deployed *somewhere else* — compare the URL wrangler prints
+  against the page's `BACKEND_URL`.
+- **`v` with an older DATE than the page's `MIN_BACKEND_VERSION`** (dashboard/index.html;
+  compared at day granularity — same-day suffixes are free-form) → same story, newer flavor.
+  The page checks this on every ping and shows **old build** (amber) in the chat's connect
+  pill and modal, and names the stale build in chat error messages.
+
+Signature worth knowing: a chat error of `502 — 524 error code: 524` is the Worker relaying
+Cloudflare's timeout page from api.anthropic.com — the **non-streaming** call blowing the ~100s
+first-byte window on a long generation (a profile self-edit is the worst case: two max-effort
+generations plus a tool round). The streaming build can't produce that status (bytes flow
+immediately), so seeing it after a "redeploy" means the old build is still live — check the
+fingerprint before debugging anything else.
+
 ## Config
 
 | Env | Where | Purpose |

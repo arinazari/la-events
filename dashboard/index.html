@@ -1262,6 +1262,7 @@ class Component extends DCLogic {
     input: '',
     chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
     backendStatus: null,
+    backendVer: null,    // live Worker build from the ping's `v` ('' = a build too old to report one; null = no ping yet)
     profileOpen: false,
     tasteModalOpen: false,
     tasteTab: 'taste',       // which file the taste/profile modal is showing (taste | profile)
@@ -1302,6 +1303,15 @@ class Component extends DCLogic {
   // Worker (see backend/README.md). Empty = not wired -> the chat falls back to the local
   // "Fast filter" engine. The chat-header "connect" modal manages the token/key only, never the URL.
   BACKEND_URL = 'https://la-events-concierge.arinazari.workers.dev';
+  // The minimum Worker build this page is written against — the Worker's VERSION fingerprint.
+  // Compared by DATE PREFIX only (backendStale: v.slice(0,10)) — same-day suffixes don't sort
+  // ('…-stream10' < '…-stream2'), so day granularity is the whole contract. The ping returns the
+  // live build's `v`; builds older than 2026-07-20 return none. When the live build's date falls
+  // behind this one's, the chat error + connect modal say "old build — redeploy" instead of
+  // surfacing a bare 502: wrangler deploys are MANUAL, and a redeploy that silently didn't land
+  // (stale checkout, wrong account) otherwise reads as an Anthropic outage. Bump only when the
+  // page starts DEPENDING on newer Worker behavior — a newer Worker than this is always fine.
+  MIN_BACKEND_VERSION = '2026-07-20-stream2';
   // Per-profile connection (token/key/Opus) — see the CONN store below. This prefill is the active
   // profile's saved token; componentDidMount re-reads it authoritatively (after migration + TTL check).
   BACKEND_TOKEN = (() => { try { return this.readConn().token || ''; } catch (e) { return ''; } })();
@@ -2482,6 +2492,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
   connectBackend = () => {
     this.setState({ connectModalOpen: true, settingsOpen: false,
       apiKeyInput: this.rawClaudeKey(), apiEnabledDraft: this.apiEnabled(), useOpusDraft: this.useOpus(), tokenInput: this.BACKEND_TOKEN || '' });
+    // The modal is where the deploy-fingerprint heads-up shows — re-read it on open, so the
+    // status (incl. a just-landed redeploy clearing "old build") reflects now, not the last ping.
+    if (this.BACKEND_URL) this.pingBackend();
     setTimeout(() => { const el = document.getElementById('la-api-key-input'); if (el) el.focus(); }, 30);
   };
   closeConnectModal = () => this.setState({ connectModalOpen: false });
@@ -2557,9 +2570,29 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
       const key = this.byokKey(); if (key) headers['x-anthropic-key'] = key;   // a personal key alone can connect
       const res = await fetch(this.BACKEND_URL, { method: 'POST', headers, body: JSON.stringify({ ping: true }) });
-      this.setState({ backendStatus: res.ok ? 'ok' : 'err' });
+      // Read the deploy fingerprint out of the ping: `v` names the live build; a build from
+      // before the fingerprint existed answers the ping without one ('' = provably old).
+      let ver = null;
+      if (res.ok) { try { const j = await res.json(); ver = String((j && j.v) || ''); } catch (e) { ver = ''; } }
+      this.setState({ backendStatus: res.ok ? 'ok' : 'err', backendVer: ver });
       if (res.ok) { this.touchConn(); this._backendHinted = false; }   // keep the conn fresh + re-arm the hint
     } catch (e) { this.setState({ backendStatus: 'err' }); }
+  }
+  // Is the live Worker older than what this page is written against? DAY-granular on purpose:
+  // versions are date-prefixed but same-day suffixes don't sort ('…-stream10' < '…-stream2'), so
+  // only the YYYY-MM-DD prefix is compared — a same-day sibling build is never flagged (fine: the
+  // drift this catches is a redeploy that missed days of fixes), a day-older one always is.
+  // (null = never pinged → unknown, treated as fine; '' = pre-fingerprint build, older than everything.)
+  backendStale() {
+    const v = this.state.backendVer;
+    return v !== null && v.slice(0, 10) < this.MIN_BACKEND_VERSION.slice(0, 10);
+  }
+  backendStaleNote() {
+    // The remedy differs by who's reading: the owner can redeploy; a friend can only flag it.
+    const owner = !!(this.META && this.META.profile && this.META.profile.owner);
+    return 'the Worker is an old build (' + (this.state.backendVer || 'pre-2026-07-20') +
+      '; this page expects ' + this.MIN_BACKEND_VERSION + ' or newer — ' +
+      (owner ? 'redeploy backend/ from the latest main, see backend/README.md' : 'tell Ari the concierge backend needs a redeploy') + ')';
   }
   stopLLM = () => { if (this._abort) { try { this._abort.abort(); } catch (e) {} } this.setState({ loading: false }); };
   onGoStop = () => { if (this.state.loading) this.stopLLM(); else this.send(); };
@@ -2599,7 +2632,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // still fresh), then re-check it so the indicator reflects THIS profile, not the one we just left.
     this.BACKEND_TOKEN = this.readConn(profileObj).token || '';
     this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
-      spotifyStatus: null, spotifyName: '', backendStatus: null },
+      spotifyStatus: null, spotifyName: '', backendStatus: null, backendVer: null },
       () => { if (this.BACKEND_URL) this.pingBackend(); });
     // The digest on hand belongs to the profile we're LEAVING — never let its lede seed the
     // incoming profile's take (the new feed applies before the new digest arrives). The digest
@@ -3111,6 +3144,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (mode === 'llm' && profileActive && backendUsable) {
       try {
         const reply = await this.askBackend(text);
+        // A chat succeeded while we think the build is stale — re-read the fingerprint, so a
+        // redeploy that landed mid-session clears the amber "old build" without a page reload.
+        if (this.backendStale()) this.pingBackend();
         this.setState(s => ({ loading: false, messages: [...s.messages, { role: 'assistant', text: reply }] }));
         if (this._lastTasteChanged) { this._lastTasteChanged = false; this.setTasteDirty(true); this.flashToast('Taste updated — re-ranking. Open Settings → “Ranks & Digest” to regenerate your digest.'); }
         return;
@@ -3120,15 +3156,25 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         // e.g. a CPU-limit kill). Re-ping so the indicator reflects reality: a transient failure
         // heals back to connected, a genuinely-down worker flips the pill red instead of staying
         // silently green while every message fails.
-        if (!(e && e.code)) this.pingBackend();
+        // Also re-ping while flagged STALE: the flag is a last-ping snapshot, so without this a
+        // coded error after a real redeploy would keep blaming the pre-redeploy build forever.
+        if (!(e && e.code) || this.backendStale()) this.pingBackend();
         const detail = (e && e.detail) ? (' — ' + e.detail) : '';   // the worker's real reason, if any
+        // A backend error while the ping said the Worker is an OLD build: the build is the top
+        // suspect (e.g. pre-streaming builds 502 with "524" on any long generation) — say so,
+        // instead of letting the raw code read as an Anthropic outage.
+        const stale = this.backendStale() ? '. Likely cause: ' + this.backendStaleNote() + ' —' : ' —';
         const note = (e && e.code === 401)
           ? '⚠︎ Concierge needs your own Claude API key or an access token — open settings (☰). Falling back to fast filter:'
           : this.byokKey()
-            ? '⚠︎ That failed on your Claude API key' + detail + ' (it may be invalid, rate-limited, or out of credit). Switch it off in settings (☰) to fall back to the shared token. Using fast filter:'
+            // A stale build fails identically on ANY key — blaming the key (and advising a switch
+            // to the shared token through the same stale Worker) would misdirect; name the build.
+            ? (this.backendStale()
+                ? '⚠︎ That failed on your Claude API key' + detail + '. Likely cause: ' + this.backendStaleNote() + ' — the key is probably fine. Using fast filter for this one:'
+                : '⚠︎ That failed on your Claude API key' + detail + ' (it may be invalid, rate-limited, or out of credit). Switch it off in settings (☰) to fall back to the shared token. Using fast filter:')
             : (e && e.code)
-              ? '⚠︎ Concierge backend error ' + e.code + detail + ' — using fast filter for this one; your next message will try the concierge again:'
-              : '⚠︎ Concierge backend unreachable — using fast filter for this one; your next message will try the concierge again:';
+              ? '⚠︎ Concierge backend error ' + e.code + detail + stale + ' using fast filter for this one; your next message will try the concierge again:'
+              : '⚠︎ Concierge backend unreachable' + stale + ' using fast filter for this one; your next message will try the concierge again:';
         this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: note }] }));
         // fall through to the local engine
       }
@@ -3733,18 +3779,24 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const keyOn = this.apiEnabled() && !!rawKey;        // === byokKey() is non-empty
     const viaKey = backendReady && keyOn;
     const viaAdmin = backendReady && !keyOn;
-    const backendLabel = viaKey ? 'your key' : viaAdmin ? 'connected' : (bstat === 'err' ? 'reconnect' : 'connect');
-    const backendColor = backendReady ? '#1f9d57' : (bstat === 'err' ? '#b4453a' : '#76746b');
+    // Connected-but-STALE: the ping's fingerprint says the live Worker predates what this page is
+    // written against (a redeploy that didn't land — stale checkout, wrong account). Still usable,
+    // but long asks hit the old build's failure modes (e.g. the pre-streaming 502/524s), so flag it
+    // amber here — "did my redeploy actually take?" becomes a glance instead of a 502 post-mortem.
+    const backendOld = backendReady && this.backendStale();
+    const backendLabel = backendOld ? 'old build' : viaKey ? 'your key' : viaAdmin ? 'connected' : (bstat === 'err' ? 'reconnect' : 'connect');
+    const backendColor = backendOld ? '#a8781c' : backendReady ? '#1f9d57' : (bstat === 'err' ? '#b4453a' : '#76746b');
     let backendHost = ''; try { backendHost = new URL(this.BACKEND_URL).host; } catch (e) { backendHost = this.BACKEND_URL || '—'; }
     // Status line at the top of the connection modal (and what "connected"/"disconnected" mean).
-    const apiStatusColor = backendReady ? '#1f9d57' : (bstat === 'err' ? '#b4453a' : '#a7a59b');
-    const apiStatusLine = viaKey
+    const apiStatusColor = backendOld ? '#a8781c' : backendReady ? '#1f9d57' : (bstat === 'err' ? '#b4453a' : '#a7a59b');
+    let apiStatusLine = viaKey
       ? 'Connected — using your Claude API key (' + rawKey.slice(0, 11) + '…). It pays for each message; if it errors or hits a limit, switch it off below and the shared access token takes over. (Anthropic doesn’t expose your balance here — check console.anthropic.com.)'
       : viaAdmin
         ? 'Connected — using the shared access token (Ari’s key pays).'
         : (bstat === 'err'
             ? 'Couldn’t connect — check the API key or access token below. The concierge uses Fast filter until one connects.'
             : 'Disconnected — switch on your Claude API key, or paste Ari’s access token below. The concierge uses Fast filter until one connects.');
+    if (backendOld) apiStatusLine += ' ⚠︎ Heads-up: ' + this.backendStaleNote() + '.';
     // The on/off switch shows the modal's DRAFT state (applied on Save).
     const apiTogOn = !!this.state.apiEnabledDraft;
     const apiTogTrackBg = apiTogOn ? '#1f9d57' : '#d2d0c7';
