@@ -351,7 +351,7 @@
     </sc-if>
 
     <sc-if value="{{ isExplore }}" hint-placeholder-val="{{ true }}">
-    <div class="scry" style="flex:1; overflow:auto;">
+    <div id="explore-scroll" class="scry" style="flex:1; overflow:auto;">
       <!-- ===== mobile sort / filter toolbar ===== -->
       <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
         <div style="position:sticky; top:0; z-index:6; display:flex; align-items:center; gap:7px; padding:7px 12px; background:#f4f3ef; border-bottom:1px solid #e0ded5;">
@@ -1757,6 +1757,10 @@ class Component extends DCLogic {
       sortKey: 'rank', sortDir: 'asc',
       digestPicks: false, digestPrevState: null, expandedId: null,
       mobileFilterOpen: false, mobileSortOpen: false, openFilter: null,
+    }, () => {
+      // A chip clicked INSIDE Explore swaps the row set in the same mounted scroller — snap
+      // to the top of the new ranking (the from-front-page path remounts and lands at 0 anyway).
+      const el = document.getElementById('explore-scroll'); if (el) el.scrollTop = 0;
     });
   };
   // The take's FALLBACK — heuristic lede lift from DIGEST_MD: the first real prose paragraph
@@ -1854,15 +1858,25 @@ class Component extends DCLogic {
   distinctVals() {
     if (this._distinct) return this._distinct;
     const uniq = (arr) => [...new Set(arr)];
-    // Prefer the feed's tag_facets for the tag axes — already deduped and ordered by
-    // frequency (build_dashboard.py). Fall back to deriving from the loaded events.
+    // The feed's tag_facets (deduped, frequency-ordered by build_dashboard.py) lead each tag
+    // axis, but they cover only the CATALOG vocab — the loaded events also fold in enrichment
+    // tags (parseEvent's union), and every one of those can ride a card chip into a filter.
+    // Union the event-derived values in (canonical form, alphabetical tail) so each chip
+    // value has a menu row that shows its ✓ and can be re-toggled/cleared.
     const facet = (ax) => (this.META && this.META.tag_facets && Array.isArray(this.META.tag_facets[ax]))
       ? this.META.tag_facets[ax].map(f => f.value) : null;
+    const canonTag = (x) => String(x).trim().toLowerCase().replace(/[\s_]+/g, '-');
+    const tagAxis = (ax, pick) => {
+      const out = []; const seen = new Set();
+      for (const v of (facet(ax) || []).map(canonTag)) if (v && !seen.has(v)) { seen.add(v); out.push(v); }
+      const tail = uniq(this.ALL.flatMap(pick).filter(Boolean).map(canonTag)).filter(v => !seen.has(v)).sort((a, b) => a.localeCompare(b));
+      return [...out, ...tail];
+    };
     const hood = uniq(this.ALL.map(e => e.hood)).sort((a, b) => a.localeCompare(b));
     const cat = this.CATS.filter(c => this.ALL.some(e => e.cat === c));
-    const genre = facet('genre') || uniq(this.ALL.flatMap(e => e.genres || [])).sort((a, b) => a.localeCompare(b));
-    const vibe = facet('vibe') || uniq(this.ALL.flatMap(e => e.vibe || [])).sort((a, b) => a.localeCompare(b));
-    const setting = facet('setting') || uniq(this.ALL.flatMap(e => e.setting || [])).sort((a, b) => a.localeCompare(b));
+    const genre = tagAxis('genre', e => e.genres || []);
+    const vibe = tagAxis('vibe', e => e.vibe || []);
+    const setting = tagAxis('setting', e => e.setting || []);
     const region = facet('region') || uniq(this.ALL.map(e => e.region).filter(Boolean)).sort((a, b) => a.localeCompare(b));
     const source = uniq(this.ALL.map(e => e.source)).sort((a, b) => a.localeCompare(b));
     this._distinct = { hood, cat, genre, vibe, setting, region, source };
@@ -3442,10 +3456,18 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // filters. The deterministic baseline and the scene-researcher overlay share one vocab,
     // so we UNION them — enrichment sharpens (e.g. adds a subgenre) without replacing. `genre`
     // (string) is the display/search value; `genres` (array) is what the column filter toggles.
-    const uniqLow = (arr) => { const s = new Set(), o = []; for (const x of arr) { const k = String(x).toLowerCase(); if (x && !s.has(k)) { s.add(k); o.push(x); } } return o; };
-    const genreArr = uniqLow([...(Array.isArray(enr.subgenres) ? enr.subgenres : []), ...(Array.isArray(tags.genre) ? tags.genre : [])]);
-    const settingArr = uniqLow([...(Array.isArray(tags.setting) ? tags.setting : []), ...(enr.setting ? [enr.setting] : [])]);
-    const vibeArr = uniqLow([...(Array.isArray(tags.vibe) ? tags.vibe : []), ...(Array.isArray(enr.vibe) ? enr.vibe : [])]);
+    // Every value is CANONICALIZED to the machine form (lowercase, whitespace->hyphen): the
+    // enrichment side arrives free-cased ('EDM', 'deep house') and passesColFilters matches
+    // with exact includes, so without one shared form a chip click or menu ✓ silently misses
+    // the identically-labeled variants ('edm' x15, 'deep-house' x7 in a real feed).
+    const canonTag = (x) => String(x).trim().toLowerCase().replace(/[\s_]+/g, '-');
+    const uniqTags = (arr) => { const s = new Set(), o = []; for (const x of arr) { if (!x) continue; const k = canonTag(x); if (k && !s.has(k)) { s.add(k); o.push(k); } } return o; };
+    const genreArr = uniqTags([...(Array.isArray(enr.subgenres) ? enr.subgenres : []), ...(Array.isArray(tags.genre) ? tags.genre : [])]);
+    const settingArr = uniqTags([...(Array.isArray(tags.setting) ? tags.setting : []), ...(enr.setting ? [enr.setting] : [])]);
+    const vibeArr = uniqTags([...(Array.isArray(tags.vibe) ? tags.vibe : []), ...(Array.isArray(enr.vibe) ? enr.vibe : [])]);
+    // The afterhours boolean IS the afterhours vibe — fold it in so the chip reads (and
+    // clicks) the same on every card, and a vibe=afterhours filter catches every ah event.
+    if (ah && !vibeArr.includes('afterhours')) vibeArr.push('afterhours');
     const genre = genreArr.length ? genreArr.join(', ') : (enr.type || r.genre || '');
     // "Why it's ranked", richest-first: the scene-researcher's curator note (full-enriched head),
     // else the event-editor's per-profile verdict rationale (judged pool — far wider than the
