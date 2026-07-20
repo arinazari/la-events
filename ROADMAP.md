@@ -469,6 +469,13 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   static Pages it rides the hand-off seam — compose the `feedback.jsonl` append for the agent to commit.
   Groundwork shipped (2026-07-16): the front-page cards/detail modal are the surface, and every feed
   event carries `key` = the server `event_key` that `log_feedback.py` / `lib/feedback.py` key off.
+- [ ] **Bare-bones profile page — "events I've liked" (Ari, 2026-07-20)** — every signed-in user gets a
+  very minimal profile view: just the list of events they've liked, nothing else (no stats, no editing,
+  no taste UI — that all lives elsewhere). Reads the person's reaction log
+  (`data/feedback.jsonl` / `data/feedback.<hash>.jsonl`) filtered to positive reactions, joined against
+  the catalog by the stable `key` each feed event already carries. Depends on the Like→learn surface
+  above (that's what writes the reactions); this is the deliberately minimal cut of the tabled
+  "reactions / feedback history from settings" item (2026-06-20, below).
 - [ ] **In-app taste editing (direct YAML)** — the profile popup is now slim (signed-in · log out +
   a "View your taste profile →" link) and opens a dedicated **read-only** taste modal (2026-06-20).
   Making it *editable in-page* means a Worker save path: POST the full YAML → validate (re-parses +
@@ -509,6 +516,7 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   - [ ] **Tabled (Ari's call, 2026-06-20):** also let a signed-in friend **view their profile
     details** and **their reactions / feedback history** from settings. Deferred until the feedback
     surface (👍/👎 → `data/feedback.jsonl`, the Like→learn item above) lands so there's a history to show.
+    The liked-events half is now scheduled — see the bare-bones profile page item above (2026-07-20).
 - [x] **Live refresh / per-user re-rank with staleness indicator (2026-06-20)** — the catalog is now
   *versioned* (`scripts/lib/catalog_meta.py`): `run_digest` writes `data/catalog_meta.json`
   (a stable hash over each event's venue|date|title — ignores volatile seen-stamps), `build_dashboard`
