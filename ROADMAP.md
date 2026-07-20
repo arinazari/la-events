@@ -463,6 +463,13 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
 - [ ] **Save / bookmark events** — let Ari star events to a personal shortlist (localStorage; the seed
   for "plan around these"). Was `save-for-plan` in the prior front end; not in the new design yet.
   The front page's card detail modal is the natural surface, and events now carry a stable `key`.
+- [ ] **User-adjustable category order in modular layouts** — wherever event types/categories render
+  as modular blocks (today: the front page's per-lane shelves; tomorrow: any lane-grouped view), each
+  user should be able to choose which category shows first / at the top. The order is currently
+  hardcoded for everyone (`FP_SHELVES` in `build_dashboard.py`). Ordering is *presentation*, not
+  ranking — it must not touch the scorer or `final_rank`; the natural mechanism is a per-person
+  shelf-order preference (localStorage reorder on the page for instant effect, and/or a per-profile
+  pref in `taste.yaml` so it follows you across devices and the digest's lane groupings can honor it).
 - [ ] **Like → learn taste** — per-event 👍/👎 (or "more like this" / "never show") that feeds the
   existing feedback loop (`data/feedback.jsonl` → `lib/feedback.py` → affinity, Phase C). Closes the
   implicit-signal-capture gap noted in Phase C (emitting reactions waited on a dashboard surface); on
