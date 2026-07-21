@@ -53,7 +53,11 @@ FETCHERS = [
      "args": ["--days", "{days}"], "needs": ["TM_API_KEY"], "far": True},
     {"name": "Resident Advisor", "source": "ra", "script": "fetch_ra.py", "args": ["--days", "{days}"]},
     {"name": "19hz", "source": "19hz", "script": "fetch_19hz.py", "args": []},
-    {"name": "Goldenvoice", "source": "goldenvoice", "script": "fetch_goldenvoice.py", "args": []},
+    # far: True + threaded --days (mirrors Ticketmaster) — GV carries festivals/big tours that sell
+    # months out (e.g. the Ocean Way Festival ~2mo ahead); left on the fetcher's internal 14-day
+    # default it could never reach the catalog/radar until 2 weeks before, same bug Eventbrite hit.
+    {"name": "Goldenvoice", "source": "goldenvoice", "script": "fetch_goldenvoice.py",
+     "args": ["--days", "{days}"], "far": True},
     {"name": "Vidiots", "source": "vidiots", "script": "fetch_filmbot.py", "args": []},
     {"name": "Vista Theater", "source": "vista", "script": "fetch_veezi.py",
      "args": ["--token", "20xhpa3yt2hhkwt4zjvfcwsaww", "--venue", "Vista Theater", "--days", "{days}"]},
