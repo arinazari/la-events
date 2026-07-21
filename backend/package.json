@@ -1,6 +1,7 @@
 {
   "name": "la-events-concierge",
   "version": "1.0.0",
+  "packageManager": "npm@10.9.7",
   "private": true,
   "description": "Cloudflare Worker: la-events concierge (chat) + taste self-edit. Deploy with `npm i && npx wrangler deploy`.",
   "type": "module",
