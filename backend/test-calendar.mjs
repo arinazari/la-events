@@ -20,7 +20,7 @@ const TODAY = "2026-07-20";
 /* ---- settings: normalize / params round-trip ---- */
 {
   const s = Cal.normSettings({});
-  assert.deepEqual(s, { min: 4, perday: 3, horizon: 60, days: [], types: [], xtypes: [], genres: [], xgenres: [], keys: [] });
+  assert.deepEqual(s, { min: 4, perday: 3, horizon: 60, days: [], types: [], xtypes: [], genres: [], xgenres: [], saved: false, savedHash: "", keys: [] });
   ok("settings: empty input yields the documented defaults");
 }
 {
@@ -184,9 +184,40 @@ const TODAY = "2026-07-20";
 {
   const f = feed([row({ key: "aaaaaaaaaaaa" })], { profile: { name: "Lori", hash: "feedbeeffeedbeef" } });
   const ics = Cal.buildIcs(f, { keys: ["aaaaaaaaaaaa"] }, { todayISO: TODAY });
-  assert.ok(ics.includes("X-WR-CALNAME:LA Events — Lori’s saved"));
+  assert.ok(ics.includes("X-WR-CALNAME:LA Events — Lori’s starred"));
   assert.ok(ics.includes("UID:aaaaaaaaaaaa@la-events"));
   ok("saved: calendar named after the person + built from the starred set");
+}
+
+/* ---- server-stars mode (saved=1 / savedHash) ---- */
+{
+  const s = Cal.settingsFromParams(new URLSearchParams("saved=1"));
+  assert.equal(s.saved, true);
+  assert.equal(Cal.paramsFromSettings({ saved: true }), "saved=1");
+  assert.equal(Cal.paramsFromSettings({ savedHash: "feedbeeffeedbeef" }), "saved=1");   // hash rides p=, not repeated
+  ok("stars: saved=1 param round-trips, savedHash mints a stable saved url");
+}
+{
+  const mine = "feedbeeffeedbeef", other = "0011223344556677";
+  const f = feed([
+    row({ title: "i-starred", key: "aaaaaaaaaaaa", stars: [{ name: "Me", hash: mine }] }),
+    row({ title: "friend-only", key: "bbbbbbbbbbbb", stars: [{ name: "Lori", hash: other }] }),
+    row({ title: "both", key: "cccccccccccc", stars: [{ name: "Lori", hash: other }, { name: "Me", hash: mine }] }),
+    row({ title: "none", key: "dddddddddddd" }),
+    row({ title: "mine-but-past", key: "eeeeeeeeeeee", iso_date: "2026-07-19", stars: [{ name: "Me", hash: mine }] }),
+  ]);
+  const got = Cal.selectEvents(f, { savedHash: mine }, TODAY);
+  assert.deepEqual(got.map(e => e.title), ["both", "i-starred"]);   // only my stars, upcoming, date-ordered
+  ok("stars: selectEvents(savedHash) picks exactly my upcoming starred events");
+}
+{
+  const mine = "feedbeeffeedbeef";
+  const f = feed([row({ key: "aaaaaaaaaaaa", stars: [{ name: "Ari", hash: mine }] })],
+    { profile: { name: "Ari", hash: mine } });
+  const ics = Cal.buildIcs(f, { savedHash: mine }, { todayISO: TODAY });
+  assert.ok(ics.includes("X-WR-CALNAME:LA Events — Ari’s starred"));
+  assert.ok(ics.includes("UID:aaaaaaaaaaaa@la-events"));
+  ok("stars: savedHash builds the starred calendar, named for the person");
 }
 {
   const many = Array.from({ length: 400 }, (_, i) => "f" + String(i).padStart(11, "0"));  // hex keys

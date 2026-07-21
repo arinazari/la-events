@@ -41,6 +41,8 @@ from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: 
 from lib.feedback import merged_affinity  # noqa: E402
 from lib import affinity as AF  # noqa: E402  (ambiguous_set gates title-token bio folds)
 from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
+from lib.reactions import load_reactions, star_map, stars_for  # noqa: E402  (stars — the social fold)
+from lib.profiles import hash_names  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib.assemble import rank_key, event_lane, top_picks, TOP_PICKS_LANE_CAP  # noqa: E402
 from lib.series import group_series, series_summary, is_film, showtimes_url  # noqa: E402
@@ -356,6 +358,13 @@ def main() -> int:
     vpath = resolve(args.verdicts) if args.verdicts else ED.verdict_path(args.profile_hash)
     verdicts = ED.verdict_map(ED.load_verdicts(vpath))
 
+    # Stars — the shared reaction log (data/reactions.jsonl, committed by the Worker's POST /react)
+    # folded onto events as display names. The one social feature and it's MUTUAL: the same fold in
+    # every feed, so everyone sees who starred what. Graceful: no log -> no stars, no profiles.yaml
+    # read.
+    smap = star_map(load_reactions(REPO / "data" / "reactions.jsonl"))
+    star_names = hash_names(load_yaml(REPO / "profiles.yaml") or {}) if smap else {}
+
     is_sample = "sample" in catalog_path.name
     # LA-local today (NOT the runner's UTC date) — otherwise, in CI (UTC) past midnight UTC, events
     # still happening tonight in LA get marked is_past and lose their final_rank / highlight.
@@ -386,7 +395,12 @@ def main() -> int:
         if v:
             out["verdict"] = v                       # {tier, lane?, adjust, why, confidence}
         out["lane"] = event_lane(out, verdicts)      # verdict lane override else tag-derived
-        out["key"] = event_key(ev)                   # stable id — front_page joins + feedback
+        k = event_key(ev)
+        out["key"] = k                               # stable id — front_page joins + feedback + stars
+
+        starred = stars_for(smap, star_names, k)
+        if starred:
+            out["stars"] = starred                   # [{name, hash}] — who starred it (social)
 
         events.append(out)
 

@@ -18,6 +18,8 @@ on:
       - "profiles/**/taste.yaml"   # friend taste self-edit
       - "profiles/**/profile.yaml" # friend profile self-edit
       - "profiles.yaml"            # registry change (names/hashes)
+      - "data/reactions.jsonl"     # a star lands -> re-fold `stars` onto the feeds (the social display)
+      - "data/feedback.*.jsonl"    # a star's learning line -> re-rank the starrer's feed
   workflow_dispatch:
 
 permissions:

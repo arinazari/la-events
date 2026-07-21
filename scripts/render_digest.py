@@ -22,6 +22,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
+from lib.reactions import load_reactions, star_map, stars_for  # noqa: E402  (stars — the social fold)
+from lib.profiles import hash_names  # noqa: E402
+from lib.config import load_yaml  # noqa: E402
 from lib.series import series_key, is_film, showtimes_url  # noqa: E402
 from lib.config import load_taste, load_profile, load_digest_prefs  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
@@ -140,6 +143,13 @@ def _link(ev: dict):
 
 FETCH_REF = ""      # the latest catalog fetch date (YYYY-MM-DD); events first_seen/updated on or
                     # after it are flagged 🆕 new / ↻ updated in the digest (set by main from meta)
+STARS = {}          # event_key -> ["Lori", ...] — who starred it (set by main from
+                    # data/reactions.jsonl). Stars are mutual, so every digest shows them.
+
+
+def _stars_note(ev: dict) -> str:
+    names = STARS.get(event_key(ev)) or []
+    return " · ".join(f"★ {n}" for n in names)
 
 
 def freshness_line(meta: dict, today_iso: str) -> str:
@@ -286,7 +296,7 @@ def event_md(ev: dict, style: str = "full", note_seen: frozenset = frozenset(),
             f"[{v}]({by_venue[v]})" if by_venue.get(v) else v for v in others[:3])
     more = f"[more LA showtimes]({showtimes_url(title)})" if is_film(ev) else ""
     chip = LANE_CHIP.get(_lane_of(ev))
-    tail = " · ".join(x for x in (_loc(ev), also_at, chip, ev.get("price"), upd_note, more) if x)
+    tail = " · ".join(x for x in (_loc(ev), also_at, chip, ev.get("price"), _stars_note(ev), upd_note, more) if x)
     line = f"- `{head_chip}`{span} {pick}{fresh}**{head}**" + (f" — {tail}" if tail else "")
     if style == "compact":
         why = (ev.get("verdict") or {}).get("why") or ""
@@ -700,7 +710,7 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
 
 
 def main() -> int:
-    global FETCH_REF
+    global FETCH_REF, STARS
     ap = argparse.ArgumentParser()
     ap.add_argument("--catalog", default="data/catalog.json")
     ap.add_argument("--candidates", default="data/candidates.json",
@@ -742,6 +752,11 @@ def main() -> int:
     vpath = resolve(args.verdicts) if args.verdicts else ED.verdict_path(args.profile_hash)
     verdicts = ED.verdict_map(ED.load_verdicts(vpath))
     cache = load_cache(resolve(args.enrichment))
+
+    # Stars: "★ Lori" beside starred events. Mutual by design — every digest shows them.
+    _smap = star_map(load_reactions(REPO / "data" / "reactions.jsonl"))
+    _names = hash_names(load_yaml(REPO / "profiles.yaml") or {}) if _smap else {}
+    STARS = {k: [s["name"] for s in stars_for(_smap, _names, k)] for k in _smap}
 
     # Coverage footer: pull `sources` from candidates.json if present.
     doc = {"today": today.isoformat(), "meta": meta}

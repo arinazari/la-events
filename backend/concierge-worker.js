@@ -62,7 +62,7 @@ import CalendarCore from "../dashboard/calendar-core.js";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-07-21-cal2";
+const VERSION = "2026-07-21-star1";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
@@ -111,6 +111,8 @@ async function handleRequest(request, env, cors, ctx) {
     return handlePipeline(url, request, env, cors);
   // Calendar-subscription feed (GET, unauthenticated — see handleCalendar for why).
   if (url.pathname === "/calendar.ics") return handleCalendar(url, request, env, cors);
+  // Stars — the one social save signal, committed to the shared reactions log (see handleReact).
+  if (url.pathname === "/react") return handleReact(request, env, cors);
 
   // Unauthenticated deploy fingerprint: which build is live (no secrets — see VERSION).
   if (request.method === "GET" && url.pathname === "/")
@@ -1438,6 +1440,100 @@ async function lastFetchAgeMinutes(env) {
   } catch { return null; }
 }
 
+/* ================================== STARS (social saves) ==================================
+ * POST /react { profile, event_key, kind: star|unstar|hide, title?, artists? }
+ *
+ * A star is double-duty: the social signal (everyone sees "★ Lori" on cards + in digests, folded
+ * from data/reactions.jsonl at the next feed rebuild) and the first real input to the feedback loop
+ * (star→loved / hide→hide into that profile's data/feedback.<hash>.jsonl — the existing tested fold
+ * ranks with it, zero new scoring code). The saved-events calendar (GET /calendar.ics?saved=1) reads
+ * the same stars.
+ *
+ * Gate = a valid profile hash (name-derived on this build; a capability token once Track A lands) +
+ * GITHUB_TOKEN. NO CONCIERGE_TOKEN: that guards LLM spend and this spends none, so a friend who never
+ * set up the concierge can still star. resolveProfile() mapping the hash to a real profile IS the
+ * check. (Ported from Track A "A4: stars"; the reactions.jsonl schema is kept identical so the
+ * eventual Track A merge is a clean overlap.) */
+
+function appendJsonl(text, rec) {
+  const line = JSON.stringify(rec);
+  const t = String(text || "");
+  if (!t) return line + "\n";
+  return t + (t.endsWith("\n") ? "" : "\n") + line + "\n";
+}
+function jsonlRecords(text) {
+  const out = [];
+  for (const raw of String(text || "").split("\n")) {
+    const s = raw.trim();
+    if (!s || s.startsWith("#")) continue;
+    try { out.push(JSON.parse(s)); } catch { /* tolerate junk lines */ }
+  }
+  return out;
+}
+/* Append a star/unstar/hide to the shared reactions log — unless the profile's last recorded state
+ * for that event already equals rec.kind (idempotent taps). Returns {text, changed}. Exported for tests. */
+export function foldReaction(text, rec) {
+  let last = null;
+  for (const r of jsonlRecords(text)) {
+    if (r && r.profile === rec.profile && r.event_key === rec.event_key) last = r.kind;
+  }
+  if (last === rec.kind) return { text, changed: false };
+  return { text: appendJsonl(text, rec), changed: true };
+}
+/* Append a loved/hide line to a profile's feedback log — once per (event_key, kind), so repeat stars
+ * never stack weight. Returns {text, changed}. Exported for tests. */
+export function foldFeedback(text, rec) {
+  for (const r of jsonlRecords(text)) {
+    if (r && r.event_key === rec.event_key && r.kind === rec.kind) return { text, changed: false };
+  }
+  return { text: appendJsonl(text, rec), changed: true };
+}
+
+async function handleReact(request, env, cors) {
+  if (request.method !== "POST") return json({ error: "POST only" }, 405, cors);
+  if (!env.GITHUB_TOKEN) return json({ error: "reactions not enabled (no GITHUB_TOKEN)" }, 501, cors);
+  let body;
+  try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
+  const hash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
+  const key = typeof body.event_key === "string" && /^[0-9a-f]{12}$/.test(body.event_key) ? body.event_key : null;
+  const kind = ["star", "unstar", "hide"].includes(body.kind) ? body.kind : null;
+  if (!hash || !key || !kind) return json({ error: "need profile, event_key, kind (star|unstar|hide)" }, 400, cors);
+  const prof = await resolveProfile(env, hash);
+  if (!prof) return json({ error: "unknown profile" }, 403, cors);
+
+  const title = String(body.title || "").replace(/\s+/g, " ").trim().slice(0, 120);
+  const artists = (Array.isArray(body.artists) ? body.artists : [])
+    .map((a) => String(a).replace(/\s+/g, " ").trim()).filter(Boolean).slice(0, 12);
+  const ts = new Date().toISOString().slice(0, 10);
+
+  // 1) the shared social log (drives the "★ Lori" display for everyone, next rebuild)
+  const rfile = await ghGetFile(env, "data/reactions.jsonl");
+  const rec = { ts, profile: hash, name: prof.name, event_key: key, kind, ...(title ? { title } : {}) };
+  const folded = foldReaction(rfile ? rfile.text : "", rec);
+  if (folded.changed) {
+    const msg = `react(${prof.name}): ${kind}${title ? " — " + title.slice(0, 60) : ""}`;
+    const ok = await ghPutFile(env, "data/reactions.jsonl", folded.text, rfile ? rfile.sha : undefined, msg);
+    if (!ok) return json({ error: "commit failed" }, 502, cors);
+  }
+
+  // 2) the learning loop — star→loved / hide→hide into that profile's own feedback log. Needs
+  //    artists to teach anything (lib/feedback consumes artists/genres only); an unstar never
+  //    touches it (a past star still meant interest).
+  let learned = false;
+  if ((kind === "star" || kind === "hide") && artists.length) {
+    const fpath = `data/feedback.${hash}.jsonl`;
+    const ffile = await ghGetFile(env, fpath);
+    const frec = { ts, kind: kind === "star" ? "loved" : "hide", artists,
+                   event_key: key, ...(title ? { note: `${kind}: ${title}` } : {}) };
+    const ff = foldFeedback(ffile ? ffile.text : "", frec);
+    if (ff.changed) {
+      const msg = `react(${prof.name}): ${frec.kind} ${artists[0]}${artists.length > 1 ? " +" + (artists.length - 1) : ""}`;
+      learned = await ghPutFile(env, fpath, ff.text, ffile ? ffile.sha : undefined, msg);
+    }
+  }
+  return json({ ok: true, changed: folded.changed, learned }, 200, cors);
+}
+
 /* ============================== CALENDAR-SUBSCRIPTION FEED ==============================
  * GET /calendar.ics[?p=<feed-hash>&min=&perday=&horizon=&days=&types=&xtypes=&genres=&xgenres=]
  *
@@ -1470,7 +1566,12 @@ async function handleCalendar(url, request, env, cors) {
 
   // LA-today anchors the date window — the events' own timezone, wherever the subscriber is.
   const todayISO = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles" }).format(new Date());
-  const ics = CalendarCore.buildIcs(feed, CalendarCore.settingsFromParams(url.searchParams), { todayISO });
+  // Saved mode (?saved=1): the calendar is this profile's STARRED events, resolved server-side from
+  // the feed's `stars` field — a STABLE url (no baked-in keys), so it auto-picks up new stars on the
+  // next poll. Needs a profile to know whose stars; `savedHash` tells calendar-core to match on it.
+  const settings = CalendarCore.settingsFromParams(url.searchParams);
+  if (settings.saved) settings.savedHash = hash || "";
+  const ics = CalendarCore.buildIcs(feed, settings, { todayISO });
   const headers = {
     ...cors,
     "content-type": "text/calendar; charset=utf-8",
