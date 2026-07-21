@@ -19,6 +19,9 @@ from datetime import datetime, timedelta, timezone
 from urllib.parse import urlencode
 from urllib.request import urlopen
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (deterministic image-URL pick from the TM images[] array — free)
+
 BASE = "https://app.ticketmaster.com/discovery/v2/events.json"
 
 # TM marketing URLs embed the night-of date in the slug: .../<name>-<city>-<state>-MM-DD-YYYY/event/<id>
@@ -139,6 +142,7 @@ def normalize(ev: dict) -> dict:
         "price_min": prices.get("min"),
         "price_max": prices.get("max"),
         "detail": ev.get("info"),  # TM event blurb (pleaseNote is logistics fine-print — skip; sanitized on normalize)
+        "image": images.from_tm(ev.get("images")),  # TM ships an images[] array on every event — free
         "url": url,
         **({"links": links} if links else {}),
         "onsale": (ev.get("sales", {}).get("public") or {}).get("startDateTime"),

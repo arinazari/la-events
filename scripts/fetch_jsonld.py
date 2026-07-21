@@ -19,6 +19,7 @@ fetcher. This script reports "0 events" cleanly in that case; it never blocks a 
 
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -27,6 +28,9 @@ from datetime import date, datetime, timedelta
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (schema.org `image` -> a clean URL; also feeds fetch_eventbrite)
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 LDJSON = re.compile(r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.S | re.I)
@@ -118,6 +122,7 @@ def normalize(ev: dict, source: str) -> dict:
         "category": (ev.get("@type") if isinstance(ev.get("@type"), str) else None),
         "price_min": offers.get("lowPrice") or offers.get("price"),
         "detail": ev.get("description"),  # schema.org Event description (sanitized on normalize)
+        "image": images.from_jsonld(ev.get("image")),  # schema.org `image` (str | ImageObject | list) — free
         "url": text(ev.get("url")),
     }
 

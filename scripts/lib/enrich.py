@@ -1,8 +1,10 @@
 """Enrichment layer — the scene-researcher's deterministic data plumbing.
 
 scene-researcher (Tier 1) turns a ranked candidate into scene intelligence: type/sub-genre
-tags, artist notes, a curator's note, a clean description, and (top picks) an image. The LLM
-does that; THIS module is the side-effect-free glue around it:
+tags, artist notes, a curator's note, and a clean description. The LLM does that; THIS module
+is the side-effect-free glue around it. (Event photos are NOT the LLM's job — they're captured
+for free from the structured source responses by the fetch layer, lib/images.py, so the
+dashboard's top-events row costs zero enrichment tokens):
 
   event_key(ev)                    -> stable cache key (title+date+venue), no schema mutation
   load_cache / save_cache          -> the accumulating scene graph (data/enrichment.json)

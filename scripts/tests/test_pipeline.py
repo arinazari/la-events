@@ -328,6 +328,19 @@ def test_materialize_recurring_except_months():
     assert [r["date"] for r in rows] == ["2027-01-24"]
 
 
+def test_normalize_record_forwards_and_cleans_image():
+    # A fetcher's `image` survives the canonical-schema map (the whitelist chokepoint)…
+    r = P.normalize_record({"title": "T", "date": "2026-08-01", "venue": "V",
+                            "image": "https://cdn/a.jpg"}, "ra")
+    assert r["image"] == "https://cdn/a.jpg"
+    # …re-cleaned here as the single final gate (an http:// / mixed-content URL is dropped)…
+    r2 = P.normalize_record({"title": "T", "date": "2026-08-01", "venue": "V",
+                             "image": "http://cdn/bad.jpg"}, "ra")
+    assert "image" not in r2
+    # …and kept SPARSE: an image-less record grows no null `image` key.
+    assert "image" not in P.normalize_record({"title": "T", "date": "2026-08-01", "venue": "V"}, "ra")
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

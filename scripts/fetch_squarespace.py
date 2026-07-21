@@ -15,12 +15,16 @@ Usage:
 import argparse
 import html
 import json
+import os
 import re
 import sys
 from datetime import datetime, timedelta, timezone
 from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (Squarespace item assetUrl -> the primary image, free)
 
 try:
     from zoneinfo import ZoneInfo
@@ -80,6 +84,7 @@ def fetch_site(venue, url, hood, category, now, hi):
             "lineup": [],
             "category": category,
             "price": None,
+            "image": images.clean(it.get("assetUrl")),  # Squarespace item primary image — free
             "url": (origin + full) if full.startswith("/") else (full or url),
             "detail": detail[:300] or None,
         })

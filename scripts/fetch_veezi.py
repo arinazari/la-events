@@ -41,10 +41,14 @@ Usage:
 import argparse
 import html
 import json
+import os
 import re
 import sys
 from datetime import date as _date, datetime, timedelta, timezone
 from urllib.request import Request, urlopen
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (per-film <img class="poster"> src -> a clean absolute URL, free)
 
 try:
     from zoneinfo import ZoneInfo
@@ -54,6 +58,7 @@ except Exception:  # pragma: no cover - fallback if tzdata missing
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 BASE = "https://ticketing.uswest.veezi.com/sessions"  # NO trailing slash (slash -> Cloudflare cf_bm)
+POSTER_ORIGIN = BASE.rsplit("/", 1)[0]  # https://ticketing.uswest.veezi.com — posters are root-relative (/Media/Poster?...)
 
 FORMAT = re.compile(r"\b(70mm|35mm|16mm|nitrate|DCP|IMAX)\b", re.I)
 MONTHS = {m: i for i, m in enumerate(
@@ -66,6 +71,10 @@ FILM_SPLIT = re.compile(r'<div\s+class="film\s*"')
 TITLE_RE = re.compile(r'<h3 class="title">\s*(.*?)\s*</h3>', re.S)
 CENSOR_RE = re.compile(r'<span class="censor">\s*(.*?)\s*</span>', re.S)
 DESC_RE = re.compile(r'<p class="film-desc">\s*(.*?)\s*</p>', re.S)
+# Per-film poster inside the block: <img class="poster" src="/Media/Poster?siteToken=…&code=…">.
+# (The page-background <img class="body-background film-poster"> has no src and sits outside any
+# film block, so this only ever matches the real per-film artwork.)
+POSTER_RE = re.compile(r'<img[^>]*class="poster"[^>]*src="([^"]+)"', re.I)
 # A date-container = its date header + the session list that immediately follows.
 DATECTR_RE = re.compile(
     r'<h4 class="date">\s*(.*?)\s*</h4>\s*<ul class="session-times">(.*?)</ul>', re.S)
@@ -150,6 +159,12 @@ def parse(doc: str, venue: str, token: str, days: int) -> list:
         desc = clean(dm.group(1)) if dm else None
         fmt_m = FORMAT.search(title) or (FORMAT.search(desc) if desc else None)
         fmt = fmt_m.group(1).upper() if fmt_m else None
+        # Poster (dashboard's top-events row): the film block's own artwork, root-relative -> absolute.
+        pm = POSTER_RE.search(blk)
+        poster = None
+        if pm:
+            src = html.unescape(pm.group(1))
+            poster = images.clean(POSTER_ORIGIN + src if src.startswith("/") else src)
 
         for dc in DATECTR_RE.finditer(blk):
             d = parse_date(dc.group(1), today)
@@ -190,6 +205,7 @@ def parse(doc: str, venue: str, token: str, days: int) -> list:
                     "format": fmt,
                     "rating": rating,
                     "sold_out": sold_out,
+                    "image": poster,  # per-film Veezi poster — free from the same page
                     "detail": detail,
                     "url": url,
                     "url_label": (fmt_hm(start) + (" · sold out" if sold_out else "")) if hm else None,
