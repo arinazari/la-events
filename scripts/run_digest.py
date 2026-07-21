@@ -21,7 +21,7 @@ Usage:
   python scripts/run_digest.py                     # fetch all, update catalog, emit candidates
   python scripts/run_digest.py --no-fetch          # re-run pipeline on the existing catalog only
   python scripts/run_digest.py --sources ra,dice   # fetch a subset
-  python scripts/run_digest.py --window 7 --top 40 --images 10
+  python scripts/run_digest.py --window 7 --top 40
 
 The daily routine chains `build_dashboard.py` after this to refresh the dashboard feed.
 """

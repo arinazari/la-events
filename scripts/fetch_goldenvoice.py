@@ -19,10 +19,14 @@ Usage:
 import argparse
 import html
 import json
+import os
 import re
 import sys
 from datetime import datetime, timedelta
 from urllib.request import Request, urlopen
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (AXS `media` dict -> the event's largest image, free)
 
 try:
     from zoneinfo import ZoneInfo
@@ -127,6 +131,7 @@ def main() -> int:
             "status": tk.get("status"),
             "onsale": e.get("onsaleDateTime"),
             "presale": e.get("presaleDateTime"),
+            "image": images.from_axs_media(e.get("media")),  # AXS media (largest by area) — free
             "url": tk.get("eventUrl") or tk.get("url") or tk.get("ticketURL"),
         })
 

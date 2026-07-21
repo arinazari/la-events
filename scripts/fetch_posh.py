@@ -35,6 +35,9 @@ from datetime import datetime, timedelta, timezone
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (Posh already carries a flyer URL — just clean it)
+
 try:
     from zoneinfo import ZoneInfo
     LA = ZoneInfo("America/Los_Angeles")
@@ -93,7 +96,7 @@ def normalize(ev):
         "price": min_price(ev.get("tickets")),
         "afterhours_flag": hour is not None and (hour >= 22 or hour < 6),
         "promoter": ev.get("groupName"),
-        "flyer": ev.get("flyer"),
+        "image": images.clean(ev.get("flyer")),  # Posh event flyer — already in the response, free
         "url": f"https://posh.vip/e/{ev.get('url')}" if ev.get("url") else None,
     }
 

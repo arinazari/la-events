@@ -435,6 +435,9 @@ def merge(a: dict, b: dict) -> dict:
     out["organizers"] = _richest(a.get("organizers"), b.get("organizers"))
     out["neighborhood"] = a.get("neighborhood") or b.get("neighborhood")
     out["genre"] = a.get("genre") or b.get("genre")  # sparse (only some sources classify); don't lose it if the base lacks one
+    img = a.get("image") or b.get("image")  # event art is stable; keep whichever source carried it (backfills a pre-feature row)
+    if img:
+        out["image"] = img
     if a.get("lineup_genre") or b.get("lineup_genre"):  # sparse TM attraction genre — the catalog
         out["lineup_genre"] = a.get("lineup_genre") or b.get("lineup_genre")  # base (a) never has it until a fetch backfills
     out["ra_pick"] = bool(a.get("ra_pick") or b.get("ra_pick"))

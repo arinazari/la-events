@@ -81,6 +81,15 @@
   .fpc-why { font:400 11px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36; }
   .fpc-price { font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; }
   .fpc-new { font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#1f7a4d; }
+  /* Event photo — ONLY the hero ("Don't miss" / top events) cards carry one (mkCard gates on
+     inHero). A background-image on a fixed-height block, full-bleed to the card edges (negative
+     margins cancel the .fp-card padding), rounded to sit inside the card's top corners. Using
+     background-image (not <img>) means a dead/blocked URL just shows the neutral fill — never a
+     broken-image glyph — with no per-card error handler. Kept out of the smaller shelf cards on
+     purpose: photos are the top row's signal, and repeating them everywhere is visual noise. */
+  .fpc-image { display:block; height:132px; margin:-11px -12px 1px; border-radius:2px 2px 0 0;
+    background:#e9e7e0 center/cover no-repeat; }
+  .fp-hero .fpc-image { height:150px; }
   /* a tag chip that jumps into Explore filtered to that tag (exploreByTag) */
   .tag-link { cursor:pointer; }
   .tag-link:hover { text-decoration:underline; }
@@ -317,6 +326,7 @@
         <div class="{{ sh.rowClass }}">
           <sc-for list="{{ sh.cards }}" as="c" hint-placeholder-count="6">
             <div class="fp-card" onClick="{{ c.onClick }}">
+              <sc-if value="{{ c.hasImage }}" hint-placeholder-val="{{ false }}"><div class="fpc-image" style="background-image:url('{{ c.image }}');"></div></sc-if>
               <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
                 <span class="fpc-date">{{ c.date }}</span>
                 <sc-if value="{{ c.tier }}" hint-placeholder-val="{{ false }}"><span class="fpc-tier" style="background: {{ c.tierBg }};">{{ c.tier }}</span></sc-if>
@@ -4445,6 +4455,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // opinion / ranking reasons) — this is the plain "what it is".
       desc: (enr.description || r.detail || ''),
       hasDesc: !!(enr.description || r.detail),
+      // Event photo URL (from the structured source, captured deterministically server-side —
+      // lib/images.py). Rendered only on the top-events/hero cards (mkCard gates on inHero).
+      image: (typeof r.image === 'string' ? r.image : ''),
       xb: Array.isArray(r.badges) ? r.badges : (Array.isArray(r.xb) ? r.xb : []),
       url: r.url || (links[0] && links[0].url) || null,
       links
@@ -5029,7 +5042,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         // Tag chips on the card face — same vocab as Explore's badges (vibe then genre),
         // capped tighter for the small card; each jumps into Explore filtered to its tag.
         const tags = this.tagChips(e).slice(0, 3).map(t => ({ text: t.text, ...this.badgeStyle(t.text), ...this.tagClickProps(t) }));
+        // Photo ONLY on the top-events (hero) row. Defense-in-depth over the server-side
+        // lib/images.clean(): require an https URL with no characters that could break out of the
+        // background-image url('…') context, so even a hand-edited catalog can't inject via a card.
+        const img = (inHero && typeof e.image === 'string'
+                     && /^https:\/\//.test(e.image) && !/['"<>`\\\s]/.test(e.image)) ? e.image : '';
         return {
+          hasImage: !!img,
+          image: img,
           date: e.wd + ' ' + e.md + ' · ' + e.t,
           title: e.title,
           // venue + a REAL neighborhood only — the generic city label (or a hood already in

@@ -15,9 +15,13 @@ scraping the JSON-LD embedded in ra.co event pages.
 
 import argparse
 import json
+import os
 import sys
 from datetime import date, timedelta
 from urllib.request import Request, urlopen
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (RA flyerFront -> a clean image URL, free on the same GraphQL POST)
 
 ENDPOINT = "https://ra.co/graphql"
 
@@ -50,6 +54,7 @@ query GET_EVENT_LISTINGS($filters: FilterInputDtoInput, $pageSize: Int, $page: I
         startTime
         endTime
         contentUrl
+        flyerFront
         attending
         venue { id name contentUrl area { name } }
         artists { name }
@@ -103,6 +108,7 @@ def normalize(listing: dict) -> dict:
         "ra_pick": bool(ev.get("pick")),
         "detail": (ev.get("pick") or {}).get("blurb"),  # RA editorial pick blurb (sanitized on normalize)
         "afterhours_flag": afterhours,
+        "image": images.clean(ev.get("flyerFront")),  # RA event flyer (imgproxy CDN) — free on the same query
         "url": f"https://ra.co{ev.get('contentUrl', '')}",
     }
 
