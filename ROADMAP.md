@@ -492,12 +492,18 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   existing fold). The Starred calendar reads server stars via a stable `?saved=1` (no re-subscribe).
   Ported from Track A "A4: stars" (`claude/track-a-execution-vu3gif`), reactions.jsonl schema kept
   identical for a clean merge; the tokenization/private-repo parts of Track A stay out of scope.
-- [~] **Like → learn taste** — largely shipped via **stars** (2026-07-21): the ☆ Star's server commit
-  also appends a `loved`/`hide` line to `data/feedback.<hash>.jsonl` (`POST /react`), which the existing
-  `lib/feedback.py` → affinity fold ranks with — the star IS the "more like this" signal, no separate
-  👍/👎 needed. Remaining: an explicit **👎 / never-show** surface (the `hide` kind exists in `/react`
-  but the dashboard only sends `star`/`unstar`; wire a hide affordance if wanted). No hand-off seam
-  needed anymore — the Worker commits directly.
+- [x] **Like → learn taste** — shipped via **stars** (2026-07-21) + **"show less like this" hides**
+  (2026-07-22). The ☆ Star's server commit appends a `loved` line to `data/feedback.<hash>.jsonl`
+  (`POST /react`), ranked by the existing `lib/feedback.py` → affinity fold — the star IS the "more
+  like this" signal. The **👎 / never-show** surface is now wired too: a **− Show less** button on
+  every card (Explore row / mobile / front-page detail) POSTs `kind:hide`, which (a) drops the event
+  from that profile's front page + picks + default Explore list — `build_dashboard --hidden-hash`
+  folds `hidden:true` per profile from the same `data/reactions.jsonl` — and (b) down-ranks similar
+  events (`hide→hide` into the feedback log). It's **per-profile** (unlike social stars) and **fully
+  reversible**: the event still shows under an Explore **◌ Hidden (N)** filter with a "hidden" badge,
+  and **show again** POSTs `kind:unhide` to bring it back AND undo the ranking nudge (event-scoped
+  reversal in `lib/feedback.aggregate` + `foldFeedback` hide/unhide last-state; star ⟂ hide). Worker
+  `VERSION 2026-07-22-hide1` — **needs redeploy** (`npx wrangler deploy`) for the `unhide` kind.
 - [ ] **In-app taste editing (direct YAML)** — the profile popup is now slim (signed-in · log out +
   a "View your taste profile →" link) and opens a dedicated **read-only** taste modal (2026-06-20).
   Making it *editable in-page* means a Worker save path: POST the full YAML → validate (re-parses +
