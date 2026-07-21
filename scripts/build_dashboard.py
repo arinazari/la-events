@@ -41,7 +41,7 @@ from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: 
 from lib.feedback import merged_affinity  # noqa: E402
 from lib import affinity as AF  # noqa: E402  (ambiguous_set gates title-token bio folds)
 from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
-from lib.reactions import load_reactions, star_map, stars_for  # noqa: E402  (stars — the social fold)
+from lib.reactions import load_reactions, star_map, stars_for, hidden_map, is_hidden  # noqa: E402  (stars — social fold; hides — per-profile)
 from lib.profiles import hash_names  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib.assemble import rank_key, event_lane, top_picks, TOP_PICKS_LANE_CAP  # noqa: E402
@@ -197,8 +197,13 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
     for the concierge chat's welcome). One card per PROGRAM: series members
     (lib/series — multi-night runs, cross-theater film programs, stamped by the consolidation
     pass in main()) enter only via their rep night, the same unit final_rank ranks."""
+    # Hidden events ("show less like this") never reach the editorial home — hero, lane shelves,
+    # radar, or around-town. They still ship in events[] (carrying hidden:true) so the Explore
+    # "Hidden" filter can surface them for review / un-hiding; this is the "make it disappear" half.
+    hidden_keys = {e["key"] for e in events if e.get("hidden") and e.get("key")}
     pool = [e for e in events
             if not e.get("is_past") and e.get("iso_date") and (e.get("score") or 0) >= 0
+            and not e.get("hidden")
             and (e.get("verdict") or {}).get("tier") != "skip"
             and (e.get("series_rep") or "series_key" not in e)]
     # THE ordering is rank_key + event_key — the exact expression final_rank is stamped from in
@@ -240,7 +245,7 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
         out = []
         for r in (rows or []):
             k = r.get("key") or event_key(r)
-            if k in feed_keys and k not in out:
+            if k in feed_keys and k not in hidden_keys and k not in out:
                 out.append(k)
             if len(out) >= cap:
                 break
@@ -275,6 +280,13 @@ def main() -> int:
                     help="feed hash of the profile being built — loads its OWN per-person music "
                          "layer (data/spotify/<hash>.json + data/feedback.<hash>.jsonl) instead of "
                          "the default/owner one. Omit for the canonical (Ari's) feed.")
+    ap.add_argument("--hidden-hash", default=None,
+                    help="feed hash whose 'show less like this' hides (data/reactions.jsonl) apply "
+                         "to THIS feed — the hidden events drop from the front page and carry "
+                         "hidden:true for the Explore filter. Defaults to --profile-hash; set it "
+                         "separately for the OWNER feed (which keeps the canonical music layer, so "
+                         "--profile-hash stays unset but hides are still theirs). Omit both on the "
+                         "logged-out default feed (no personal hides).")
     ap.add_argument("--verdicts", default=None,
                     help="editor verdict store to fold in (default: data/verdicts/<hash>.json for "
                          "this profile). Adds each event's verdict + final_rank to the feed.")
@@ -362,8 +374,14 @@ def main() -> int:
     # folded onto events as display names. The one social feature and it's MUTUAL: the same fold in
     # every feed, so everyone sees who starred what. Graceful: no log -> no stars, no profiles.yaml
     # read.
-    smap = star_map(load_reactions(REPO / "data" / "reactions.jsonl"))
+    reactions = load_reactions(REPO / "data" / "reactions.jsonl")
+    smap = star_map(reactions)
     star_names = hash_names(load_yaml(REPO / "profiles.yaml") or {}) if smap else {}
+    # Hides ("show less like this") — PER-PROFILE (unlike social stars). This feed applies only its
+    # own profile's hidden set: --hidden-hash, defaulting to --profile-hash (friends), set explicitly
+    # for the owner feed, and absent for the logged-out default (no personal hides there).
+    hidden_hash = args.hidden_hash or args.profile_hash
+    hmap = hidden_map(reactions) if hidden_hash else {}
 
     is_sample = "sample" in catalog_path.name
     # LA-local today (NOT the runner's UTC date) — otherwise, in CI (UTC) past midnight UTC, events
@@ -401,6 +419,9 @@ def main() -> int:
         starred = stars_for(smap, star_names, k)
         if starred:
             out["stars"] = starred                   # [{name, hash}] — who starred it (social)
+
+        if hidden_hash and is_hidden(hmap, k, hidden_hash):
+            out["hidden"] = True                     # this profile chose "show less like this"
 
         events.append(out)
 

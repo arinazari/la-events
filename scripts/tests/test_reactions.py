@@ -9,7 +9,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from lib.reactions import load_reactions, star_map, stars_for  # noqa: E402
+from lib.reactions import load_reactions, star_map, stars_for, hidden_map, is_hidden  # noqa: E402
 from lib.profiles import profile_hash, hash_names  # noqa: E402
 
 
@@ -41,6 +41,32 @@ def test_star_map_drops_fully_unstarred_events_and_junk():
         "junk",
     ]
     assert star_map(rs) == {}
+
+
+def test_hidden_map_last_wins_and_is_per_profile():
+    rs = [
+        _r("aaa", "k1", "hide"),
+        _r("bbb", "k1", "hide"),
+        _r("aaa", "k1", "unhide"),      # aaa took their hide back
+        _r("bbb", "k2", "hide"),
+        _r("bbb", "k2", "star"),        # starring clears bbb's hide on k2
+    ]
+    m = hidden_map(rs)
+    assert m["k1"] == {"bbb"}           # aaa un-hid; bbb still hides k1
+    assert "k2" not in m                # bbb's later star cleared the hide
+    assert is_hidden(m, "k1", "bbb") is True
+    assert is_hidden(m, "k1", "aaa") is False
+    assert is_hidden(m, "k1", None) is False   # logged-out has no hides
+
+
+def test_star_and_hide_are_mutually_exclusive():
+    # A hide clears a star; a later star clears the hide — never both at once for one person.
+    rs = [_r("aaa", "k1", "star"), _r("aaa", "k1", "hide")]
+    assert star_map(rs) == {}                   # the hide cleared the star
+    assert hidden_map(rs)["k1"] == {"aaa"}
+    rs2 = [_r("aaa", "k1", "hide"), _r("aaa", "k1", "star")]
+    assert hidden_map(rs2) == {}                # the star cleared the hide
+    assert star_map(rs2)["k1"] == {"aaa"}
 
 
 def test_stars_for_names_and_order():

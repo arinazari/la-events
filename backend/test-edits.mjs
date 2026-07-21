@@ -224,5 +224,21 @@ const SSE_OK = [
   assert.equal(foldFeedback("not json\n" + f.text, frec).changed, false);  // junk lines tolerated
   ok("react: foldFeedback appends once per (event, kind)");
 }
+{
+  // hide/unhide are a reversible pair: append only on a state CHANGE, and a re-hide after an
+  // unhide must land (a naive per-(event,kind) dedupe would swallow it and leave it un-hidden).
+  const ek = "ddddeeeeffff";
+  const hide = { ts: "2026-07-21", kind: "hide", artists: ["Bro DJ"], event_key: ek };
+  const unhide = { ...hide, kind: "unhide" };
+  let f = foldFeedback("", hide);
+  assert.ok(f.changed);
+  assert.equal(foldFeedback(f.text, hide).changed, false);         // already hidden -> no-op
+  f = foldFeedback(f.text, unhide);
+  assert.ok(f.changed);                                            // hidden -> unhidden lands
+  assert.equal(foldFeedback(f.text, unhide).changed, false);       // already unhidden -> no-op
+  f = foldFeedback(f.text, hide);
+  assert.ok(f.changed && f.text.trim().split("\n").length === 3);  // re-hide appends a 3rd line
+  ok("react: foldFeedback hide/unhide is reversible (re-hide after unhide lands)");
+}
 
 console.log(`\nall ${passed} worker edit tests passed`);

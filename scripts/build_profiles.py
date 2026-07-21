@@ -219,16 +219,19 @@ def selfedit_block(repo, file_rel, enrich_paths):
 
 
 def run_build(taste: str, profile: str, out: Path, profile_hash: str = None,
-              editor_pool_out: str = None, digest: str = None) -> bool:
+              editor_pool_out: str = None, digest: str = None, hidden_hash: str = None) -> bool:
     cmd = [sys.executable, str(BUILD), "--taste", taste, "--profile", profile, "-o", str(out)]
     if profile_hash:                       # load this profile's OWN music layer (per-profile Spotify)
         cmd += ["--profile-hash", profile_hash]
+    if hidden_hash:                        # apply THIS profile's "show less like this" hides
+        cmd += ["--hidden-hash", hidden_hash]
     if editor_pool_out:                    # emit this profile's editor judging pool for the LLM pass
         cmd += ["--editor-pool-out", editor_pool_out]
     if digest:                             # lift "The Take" from THIS profile's digest, never Ari's
         cmd += ["--digest", digest]
     print("  $ build_dashboard.py", "--taste", taste, "--profile", profile, "-o", out.name,
           *(["--profile-hash", profile_hash] if profile_hash else []),
+          *(["--hidden-hash", hidden_hash] if hidden_hash else []),
           *(["--editor-pool-out", Path(editor_pool_out).name] if editor_pool_out else []),
           *(["--digest", digest] if digest else []))
     return subprocess.run(cmd, cwd=str(REPO)).returncode == 0
@@ -293,7 +296,10 @@ def main() -> int:
             # Owner keeps build_dashboard's default --digest (digests/latest.md, the flagship):
             # digests/<hash>/latest.md is a copy of it made AFTER feeds build in the routine, so
             # reading the flagship directly avoids lifting yesterday's Take from the stale copy.
-            ok = run_build("taste.yaml", "profile.yaml", out)
+            # --hidden-hash (NOT --profile-hash): the owner's hides are theirs, but their feed keeps
+            # the canonical music/verdict layer (data/feedback.jsonl etc.), so only the hide set is
+            # scoped to their hash here.
+            ok = run_build("taste.yaml", "profile.yaml", out, hidden_hash=h)
         else:
             # Friend: their OWN profiles/<name>/profile.yaml if present, else ABSENT — the scorer
             # then falls back to their taste.yaml's `scoring` block (then DEFAULT_*). Friends do NOT

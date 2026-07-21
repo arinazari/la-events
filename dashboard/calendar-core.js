@@ -203,6 +203,7 @@
     for (var i = 0; i < rows.length; i++) {
       var r = rows[i];
       if (!r || !r.title || !isISODate(r.iso_date)) continue;
+      if (r.hidden) continue;                                         // "show less like this" — not in your picks
       if (r.iso_date < todayISO || r.iso_date > lastISO) continue;    // recompute vs today — is_past is build-time
       var rating = typeof r.rating === "number" ? r.rating : 0;
       if (rating < s.min) continue;

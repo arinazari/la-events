@@ -34,6 +34,8 @@ DEFAULT_WEIGHTS = {
     "hide": -10.0,
 }
 HIDE_KINDS = {"hide", "never", "block"}
+# "show less like this", taken back: an unhide cancels a prior hide of the same event (see aggregate).
+UNHIDE_KINDS = {"unhide", "show", "unblock"}
 
 
 def _weights(profile: dict) -> dict:
@@ -61,11 +63,42 @@ def load_feedback(path) -> list:
 
 
 def aggregate(reactions: list, profile: dict = None) -> dict:
-    """Collapse reactions into per-artist / per-genre weight deltas + the hide set."""
+    """Collapse reactions into per-artist / per-genre weight deltas + the hide set.
+
+    A `hide` ("show less like this") is REVERSIBLE per event: a later `unhide` of the same
+    event_key cancels that hide's penalty AND its hide-set membership, so the ranking nudge is
+    undone when the user takes the hide back. Event-scoped and last-wins — an artist stays hidden
+    while ANY still-hidden event hid them. A hide carrying no event_key (older/manual lines) is
+    irreversible, matching the pre-reversal behavior.
+    """
     w = _weights(profile)
-    artist_delta, genre_delta, hide, names = {}, {}, set(), {}
+    # Pass 1: resolve each event's current hide state (last hide/unhide wins) for reversibility.
+    event_hidden = {}
     for r in reactions:
         kind = (r.get("kind") or "").lower()
+        ek = r.get("event_key")
+        if not ek:
+            continue
+        if kind in HIDE_KINDS:
+            event_hidden[ek] = True
+        elif kind in UNHIDE_KINDS:
+            event_hidden[ek] = False
+    # Pass 2: accumulate — skip pure-toggle unhides, any hide the user later took back, and any
+    # duplicate hide line for an event whose penalty was already counted (a hide→unhide→hide flap
+    # logs two hide lines but must down-rank the event ONCE, not twice).
+    artist_delta, genre_delta, hide, names = {}, {}, set(), {}
+    counted_hide_events = set()
+    for r in reactions:
+        kind = (r.get("kind") or "").lower()
+        if kind in UNHIDE_KINDS:
+            continue                                        # a state toggle, no weight of its own
+        ek = r.get("event_key")
+        if kind in HIDE_KINDS and ek:
+            if event_hidden.get(ek) is False:
+                continue                                    # reversed -> contributes nothing
+            if ek in counted_hide_events:
+                continue                                    # count each hidden event's penalty once
+            counted_hide_events.add(ek)
         delta = w.get(kind, 0.0)
         for a in (r.get("artists") or []):
             key = normalize_name(a)

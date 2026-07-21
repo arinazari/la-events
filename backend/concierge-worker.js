@@ -62,7 +62,7 @@ import CalendarCore from "../dashboard/calendar-core.js";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-07-21-star1";
+const VERSION = "2026-07-22-hide1";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
@@ -1440,14 +1440,20 @@ async function lastFetchAgeMinutes(env) {
   } catch { return null; }
 }
 
-/* ================================== STARS (social saves) ==================================
- * POST /react { profile, event_key, kind: star|unstar|hide, title?, artists? }
+/* ============================== STARS (social saves) + HIDES ==============================
+ * POST /react { profile, event_key, kind: star|unstar|hide|unhide, title?, artists? }
  *
  * A star is double-duty: the social signal (everyone sees "★ Lori" on cards + in digests, folded
  * from data/reactions.jsonl at the next feed rebuild) and the first real input to the feedback loop
  * (star→loved / hide→hide into that profile's data/feedback.<hash>.jsonl — the existing tested fold
  * ranks with it, zero new scoring code). The saved-events calendar (GET /calendar.ics?saved=1) reads
  * the same stars.
+ *
+ * hide = "show less like this": PER-PROFILE (not social). It drops the event from that profile's
+ * front page / picks (build_dashboard folds hidden:true from this same log) AND down-ranks similar
+ * events (hide→hide into feedback.<hash>.jsonl). unhide takes it back and reverses BOTH: the event
+ * reappears and the ranking nudge is undone (lib/feedback aggregates hide/unhide event-scoped). star
+ * and hide are mutually exclusive in the fold — the last of {star,unstar,hide,unhide} wins per event.
  *
  * Gate = a valid profile hash (name-derived on this build; a capability token once Track A lands) +
  * GITHUB_TOKEN. NO CONCIERGE_TOKEN: that guards LLM spend and this spends none, so a friend who never
@@ -1480,9 +1486,20 @@ export function foldReaction(text, rec) {
   if (last === rec.kind) return { text, changed: false };
   return { text: appendJsonl(text, rec), changed: true };
 }
-/* Append a loved/hide line to a profile's feedback log — once per (event_key, kind), so repeat stars
- * never stack weight. Returns {text, changed}. Exported for tests. */
+/* Append a loved/hide/unhide line to a profile's feedback log. loved/went are append-once per
+ * (event_key, kind) so repeat stars never stack weight. hide/unhide are a REVERSIBLE pair: append
+ * only when the event's current hide-state in the log differs from this record's — so a hide after
+ * an unhide re-hides (unlike a naive per-(event,kind) dedupe, which would swallow it), and lib/feedback
+ * reverses the ranking nudge on the matching unhide. Returns {text, changed}. Exported for tests. */
 export function foldFeedback(text, rec) {
+  if (rec.kind === "hide" || rec.kind === "unhide") {
+    let last = null;
+    for (const r of jsonlRecords(text)) {
+      if (r && r.event_key === rec.event_key && (r.kind === "hide" || r.kind === "unhide")) last = r.kind;
+    }
+    if (last === rec.kind) return { text, changed: false };
+    return { text: appendJsonl(text, rec), changed: true };
+  }
   for (const r of jsonlRecords(text)) {
     if (r && r.event_key === rec.event_key && r.kind === rec.kind) return { text, changed: false };
   }
@@ -1496,8 +1513,8 @@ async function handleReact(request, env, cors) {
   try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
   const hash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
   const key = typeof body.event_key === "string" && /^[0-9a-f]{12}$/.test(body.event_key) ? body.event_key : null;
-  const kind = ["star", "unstar", "hide"].includes(body.kind) ? body.kind : null;
-  if (!hash || !key || !kind) return json({ error: "need profile, event_key, kind (star|unstar|hide)" }, 400, cors);
+  const kind = ["star", "unstar", "hide", "unhide"].includes(body.kind) ? body.kind : null;
+  if (!hash || !key || !kind) return json({ error: "need profile, event_key, kind (star|unstar|hide|unhide)" }, 400, cors);
   const prof = await resolveProfile(env, hash);
   if (!prof) return json({ error: "unknown profile" }, 403, cors);
 
@@ -1516,14 +1533,15 @@ async function handleReact(request, env, cors) {
     if (!ok) return json({ error: "commit failed" }, 502, cors);
   }
 
-  // 2) the learning loop — star→loved / hide→hide into that profile's own feedback log. Needs
-  //    artists to teach anything (lib/feedback consumes artists/genres only); an unstar never
-  //    touches it (a past star still meant interest).
+  // 2) the learning loop — star→loved / hide→hide / unhide→unhide into that profile's own feedback
+  //    log. Needs artists to teach anything (lib/feedback consumes artists/genres only); an unstar
+  //    never touches it (a past star still meant interest). An unhide REVERSES a prior hide — the
+  //    fold cancels that event's down-rank when it sees the matching unhide.
   let learned = false;
-  if ((kind === "star" || kind === "hide") && artists.length) {
+  if ((kind === "star" || kind === "hide" || kind === "unhide") && artists.length) {
     const fpath = `data/feedback.${hash}.jsonl`;
     const ffile = await ghGetFile(env, fpath);
-    const frec = { ts, kind: kind === "star" ? "loved" : "hide", artists,
+    const frec = { ts, kind: kind === "star" ? "loved" : kind, artists,
                    event_key: key, ...(title ? { note: `${kind}: ${title}` } : {}) };
     const ff = foldFeedback(ffile ? ffile.text : "", frec);
     if (ff.changed) {

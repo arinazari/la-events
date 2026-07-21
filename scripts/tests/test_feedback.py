@@ -32,6 +32,33 @@ def test_aggregate_collects_deltas_and_hide():
     assert agg["genre_delta"]["disco"] == 2.0
 
 
+def test_unhide_reverses_a_prior_hide():
+    # "show less like this" then taken back: the hide penalty + hide-set membership are cancelled
+    # for that event, so the artist scores as if never hidden.
+    hidden = aggregate([{"kind": "hide", "artists": ["Bro DJ"], "event_key": "e1"}], PROFILE)
+    assert "bro dj" in hidden["hide"] and round(hidden["artist_delta"]["bro dj"], 2) == -10.0
+    taken_back = aggregate([{"kind": "hide", "artists": ["Bro DJ"], "event_key": "e1"},
+                            {"kind": "unhide", "artists": ["Bro DJ"], "event_key": "e1"}], PROFILE)
+    assert "bro dj" not in taken_back["hide"]
+    assert taken_back["artist_delta"].get("bro dj", 0.0) == 0.0
+
+
+def test_unhide_only_cancels_the_matching_event():
+    # Hidden by two different events; un-hiding one leaves the artist hidden by the other.
+    agg = aggregate([{"kind": "hide", "artists": ["X"], "event_key": "e1"},
+                     {"kind": "hide", "artists": ["X"], "event_key": "e2"},
+                     {"kind": "unhide", "artists": ["X"], "event_key": "e1"}], PROFILE)
+    assert "x" in agg["hide"]                       # e2 still hides X
+    assert round(agg["artist_delta"]["x"], 2) == -10.0   # one hide's penalty remains, not two
+
+
+def test_rehide_after_unhide_hides_again():
+    agg = aggregate([{"kind": "hide", "artists": ["X"], "event_key": "e1"},
+                     {"kind": "unhide", "artists": ["X"], "event_key": "e1"},
+                     {"kind": "hide", "artists": ["X"], "event_key": "e1"}], PROFILE)
+    assert "x" in agg["hide"] and round(agg["artist_delta"]["x"], 2) == -10.0
+
+
 def test_apply_to_empty_affinity_creates_feedback_layer():
     agg = aggregate([{"kind": "loved", "artists": ["Chris Lake"]}], PROFILE)
     aff = apply_feedback(None, agg)
