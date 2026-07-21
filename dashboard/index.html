@@ -740,6 +740,9 @@
                         <sc-if value="{{ ev.canSave }}" hint-placeholder-val="{{ true }}">
                           <span onClick="{{ ev.saveClick }}" title="{{ ev.saveTitle }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; background:#fff; color:{{ ev.saveColor }}; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#9a6a1a; background:#fbf3e2;">{{ ev.saveStar }} Star</span>
                         </sc-if>
+                        <sc-if value="{{ ev.canHide }}" hint-placeholder-val="{{ true }}">
+                          <span onClick="{{ ev.hideClick }}" title="{{ ev.hideTitle }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid {{ ev.hideBorder }}; background:{{ ev.hideBg }}; color:{{ ev.hideColor }}; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#6d3fb3; background:#f2ecfb;">{{ ev.hideLabel }}</span>
+                        </sc-if>
                       </div>
                       <sc-if value="{{ ev.hasSeries }}" hint-placeholder-val="{{ false }}">
                         <div style="margin-top:14px; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:8px;">ALSO SHOWING</div>
@@ -881,6 +884,9 @@
                   <sc-if value="{{ ev.canSave }}" hint-placeholder-val="{{ true }}">
                     <span onClick="{{ ev.saveClick }}" title="{{ ev.saveTitle }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:{{ ev.saveColor }}; border-radius:3px; cursor:pointer;">{{ ev.saveStar }} Star</span>
                   </sc-if>
+                  <sc-if value="{{ ev.canHide }}" hint-placeholder-val="{{ true }}">
+                    <span onClick="{{ ev.hideClick }}" title="{{ ev.hideTitle }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid {{ ev.hideBorder }}; background:{{ ev.hideBg }}; color:{{ ev.hideColor }}; border-radius:3px; cursor:pointer;">{{ ev.hideLabel }}</span>
+                  </sc-if>
                 </div>
               </div>
             </sc-if>
@@ -897,6 +903,9 @@
     <footer style="flex:none; padding:9px 22px; padding-bottom:calc(9px + env(safe-area-inset-bottom)); border-top:1px solid #d9d7cf; background:#f4f3ef; display:flex; align-items:center; justify-content:space-between; gap:16px; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; letter-spacing:0.02em;">
       <span><sc-if value="{{ isExplore }}" hint-placeholder-val="{{ true }}"><span style="color:#3f3d36; font-weight:600;">{{ shownCount }}</span> shown · </sc-if><span style="color:#3f3d36; font-weight:600;">{{ totalCount }}</span> entries in catalog</span>
       <span style="display:inline-flex; align-items:center; gap:14px;">
+        <sc-if value="{{ hiddenToggleShow }}" hint-placeholder-val="{{ false }}">
+          <span onClick="{{ toggleShowHidden }}" title="{{ hiddenToggleTitle }}" style="cursor:pointer; padding:3px 8px; border:1px solid {{ hiddenToggleBorder }}; background:{{ hiddenToggleBg }}; color:{{ hiddenToggleColor }}; border-radius:2px; letter-spacing:0.02em;" style-hover="border-color:#161512;">{{ hiddenToggleLabel }}</span>
+        </sc-if>
         <sc-if value="{{ anyActive }}" hint-placeholder-val="{{ false }}">
           <span onClick="{{ onReset }}" style="cursor:pointer; color:#76746b; text-decoration:underline; text-underline-offset:2px;" style-hover="color:#161512;">reset · show all</span>
         </sc-if>
@@ -1142,6 +1151,9 @@
           <span onClick="{{ fpDetail.icsClick }}" title="Download .ics — add to your calendar" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">Add to calendar ↓</span>
           <sc-if value="{{ fpDetail.canSave }}" hint-placeholder-val="{{ true }}">
             <span onClick="{{ fpDetail.saveClick }}" title="Star it — everyone sees your star, it teaches your ranking, and it builds your starred calendar (Settings → Calendar feed)" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid {{ fpDetail.saveBorder }}; background:{{ fpDetail.saveBg }}; color:{{ fpDetail.saveColor }}; border-radius:3px; cursor:pointer;">{{ fpDetail.saveLabel }}</span>
+          </sc-if>
+          <sc-if value="{{ fpDetail.canHide }}" hint-placeholder-val="{{ true }}">
+            <span onClick="{{ fpDetail.hideClick }}" title="{{ fpDetail.hideTitle }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid {{ fpDetail.hideBorder }}; background:{{ fpDetail.hideBg }}; color:{{ fpDetail.hideColor }}; border-radius:3px; cursor:pointer;">{{ fpDetail.hideLabel }}</span>
           </sc-if>
         </div>
       </div>
@@ -1555,6 +1567,7 @@ class Component extends DCLogic {
     mobileFilterOpen: false, mobileSortOpen: false,
     expandedId: null,
     filtered: null,            // array of ids or null (=all)
+    showHidden: false,         // Explore: show ONLY "show less like this" hidden events (else exclude them)
     filterSummary: '', digestPicks: false,
     digestMenuOpen: false, digestEmailOpen: false, digestEmail: '', digestPast: null,
     colFilters: { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} }, openFilter: null,
@@ -1665,6 +1678,7 @@ class Component extends DCLogic {
 
   badgeStyle(text) {
     const t = text.toLowerCase();
+    if (t === 'hidden') return { color:'#6d3fb3', bg:'rgba(109,63,179,0.10)' };            // "show less like this"
     if (text.charAt(0) === '★') return { color:'#b06a00', bg:'rgba(176,106,0,0.12)' };   // friends' stars
     if (t.includes('ra pick')) return { color:'#1f7a4d', bg:'rgba(31,122,77,0.10)' };
     if (t.includes('afterhours') || t.includes('tba')) return { color:'#8a3ffb'.replace('8a3ffb','6d3fb3'), bg:'rgba(109,63,179,0.10)' };
@@ -1695,6 +1709,9 @@ class Component extends DCLogic {
   }
   computedBadges(e) {
     const arr = [];
+    // A "hidden" chip leads when this profile chose "show less like this" — the visible tag that
+    // (with the Explore Hidden filter) lets you find + reverse it.
+    if (e.hidden) arr.push({ text: 'hidden' });
     // Friends' stars lead the row — the mutual social signal. Everyone sees them, logged in or not.
     if (e.stars && e.stars.length) arr.push({ text: '★ ' + e.stars.map(s => s.name).join(', ') });
     if (e.series && e.series.count > 1) {
@@ -1997,6 +2014,7 @@ class Component extends DCLogic {
     if (!this.BACKEND_URL) { this.flashToast('Starring needs the concierge backend'); return; }
     const next = !this.starOn(e);
     this.STAR_LOCAL = { ...this.STAR_LOCAL, [e.key]: next };   // optimistic
+    if (next) this.HIDE_LOCAL = { ...this.HIDE_LOCAL, [e.key]: false };  // star ⟂ hide: starring un-hides
     this.forceUpdate();
     try {
       const headers = { 'content-type': 'application/json' };
@@ -2014,6 +2032,67 @@ class Component extends DCLogic {
       this.flashToast('Couldn’t save that star — try again');
     }
   };
+
+  // ---------- hides ("show less like this" — per-profile, reversible) ----------
+  // A hide POSTs kind:hide to the same /react endpoint; the Worker drops it from this profile's
+  // front page / picks (build folds hidden:true from data/reactions.jsonl) AND down-ranks similar
+  // events (hide→hide in feedback.<hash>.jsonl). An unhide reverses BOTH. HIDE_LOCAL holds this
+  // session's optimistic taps (the feed's hidden flag lags a rebuild), reverted if the commit fails.
+  HIDE_LOCAL = {};   // event key -> bool (optimistic); reset on profile switch, alongside STAR_LOCAL
+  hiddenOn(e) {
+    if (e && e.key && Object.prototype.hasOwnProperty.call(this.HIDE_LOCAL, e.key)) return !!this.HIDE_LOCAL[e.key];
+    return !!(e && e.hidden);
+  }
+  // Count of currently-hidden events in the active date range — drives the Explore "Hidden (N)" toggle.
+  hiddenCountInRange(startISO, endISO) {
+    return (this.ALL || []).filter(e => this.hiddenOn(e) && (!startISO || (e.iso >= startISO && e.iso <= endISO))).length;
+  }
+  toggleShowHidden = () => this.setState(s => ({ showHidden: !s.showHidden, expandedId: null }));
+  toggleHide = async (e, domEv) => {
+    if (domEv && domEv.stopPropagation) domEv.stopPropagation();
+    const p = this.state.profile;
+    if (!p || !p.hash) { this.flashToast('Log in to hide events'); return; }
+    if (!e || !e.key) return;
+    if (!this.BACKEND_URL) { this.flashToast('Hiding needs the concierge backend'); return; }
+    const next = !this.hiddenOn(e);   // next === true -> hide; false -> show again (unhide)
+    this.HIDE_LOCAL = { ...this.HIDE_LOCAL, [e.key]: next };   // optimistic
+    if (next) this.STAR_LOCAL = { ...this.STAR_LOCAL, [e.key]: false };  // hide ⟂ star: hiding un-stars
+    this.forceUpdate();
+    try {
+      const headers = { 'content-type': 'application/json' };
+      if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+      const res = await fetch(this.workerUrl('/react'), {
+        method: 'POST', headers,
+        body: JSON.stringify({ profile: p.hash, event_key: e.key, kind: next ? 'hide' : 'unhide',
+          title: e.title, artists: (e.lineup || []).slice(0, 12) }),
+      });
+      if (!res.ok) throw new Error('react ' + res.status);
+      this.flashToast(next ? 'Hidden — you’ll see less like this; find it under “Hidden” in Explore'
+                           : 'Back in your feed — “show less” undone');
+    } catch (err) {
+      this.HIDE_LOCAL = { ...this.HIDE_LOCAL, [e.key]: !next };   // revert on failure
+      this.forceUpdate();
+      this.flashToast('Couldn’t save that — try again');
+    }
+  };
+  // The "show less like this" / "show again" button props for a card (Explore rows, mobile cards,
+  // front-page detail). Same gate as Star (a logged-in profile + backend). When already hidden the
+  // button reverses it (un-hide → the event returns + the ranking nudge is undone).
+  hideFields(e) {
+    const on = this.hiddenOn(e);
+    return {
+      canHide: !!(e.key && this.myHash() && this.BACKEND_URL),
+      isHidden: on,
+      hideLabel: on ? '◌ Hidden · show again' : '− Show less',
+      hideTitle: on
+        ? 'You hid this ("show less like this"). Click to bring it back and undo the ranking nudge.'
+        : 'Show less like this — hides it from your feed + picks and ranks similar events lower (reversible)',
+      hideColor: on ? '#6d3fb3' : '#a7a59b',
+      hideBg: on ? '#f2ecfb' : '#fff',
+      hideBorder: on ? '#cdb8ec' : '#c9c7bd',
+      hideClick: (domEv) => this.toggleHide(e, domEv),
+    };
+  }
 
   // ---------- calendar-subscription feed ----------
   // The auto-updating counterpart of the one-shot export above: the modal mints a Worker
@@ -2523,7 +2602,7 @@ class Component extends DCLogic {
   EMPTY_COLS = { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} };
   reset = () => this.setState(s => ({
     filtered: null, filterSummary: '', exploreLane: null, digestPicks: false, digestPrevState: null,
-    colFilters: this.EMPTY_COLS, search: '', expandedId: null,
+    colFilters: this.EMPTY_COLS, search: '', expandedId: null, showHidden: false,
     messages: [...s.messages, { role: 'assistant', text: 'Cleared — showing all ' + this.ALL.length + ' events.' }]
   }));
   onSearch = (e) => this.setState({ search: e.target.value, expandedId: null });
@@ -3698,9 +3777,10 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // Connection is per-profile: drop the profile we're leaving and load the target's saved token (if
     // still fresh), then re-check it so the indicator reflects THIS profile, not the one we just left.
     this.BACKEND_TOKEN = this.readConn(profileObj).token || '';
-    // Stars are server-side + per-profile: drop this session's optimistic taps so the incoming
-    // profile's own stars (from its feed) show, not the one we're leaving.
+    // Stars + hides are server-side + per-profile: drop this session's optimistic taps so the incoming
+    // profile's own stars/hides (from its feed) show, not the one we're leaving.
     this.STAR_LOCAL = {};
+    this.HIDE_LOCAL = {};
     this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, exploreLane: null, search: '', digestPicks: false, expandedId: null,
       calModalOpen: false, calSource: 'picks',
       spotifyStatus: null, spotifyName: '', backendStatus: null, backendVer: null },
@@ -4574,8 +4654,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       series: (r.series && typeof r.series === 'object') ? r.series : null,
       showtimesUrl: r.showtimes_url || null,
       verdict: r.verdict || null,
-      key: r.key || null,              // stable server id (event_key) — front_page join + stars
+      key: r.key || null,              // stable server id (event_key) — front_page join + stars/hides
       stars: Array.isArray(r.stars) ? r.stars.filter(s => s && s.name && s.hash) : [],   // [{name,hash}] who starred it
+      hidden: !!r.hidden,              // this profile chose "show less like this" (per-profile, server-folded)
       lane: r.lane || null,            // slate lane (club:afters / live-music / …)
       firstSeen: r.first_seen || null, // vs META.catalog_fetched_at -> NEW badge
       why, whyCurated,
@@ -4781,6 +4862,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const fset = filtered ? new Set(filtered) : null;   // Set: shelf see-all lists are 40 long
       let base = fset ? this.ALL.filter(e => fset.has(e.id)) : this.ALL;
       if (laneM) base = base.filter(laneM.test);          // "all →" lane scope (clearable pill)
+      // "Show less like this": hidden events are excluded from the normal list; the Hidden toggle
+      // flips to showing ONLY them (so you can review / un-hide). This is the Explore filter half.
+      base = this.state.showHidden ? base.filter(e => this.hiddenOn(e)) : base.filter(e => !this.hiddenOn(e));
       base = base.filter(e => e.iso >= rangeStart && e.iso <= rangeEnd);
       if (digestPicks) base = base.filter(e => e.score >= this.DIGEST_MIN);
       base = base.filter(e => this.passesColFilters(e));
@@ -4823,7 +4907,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       rankColor: (e.final_rank ? '#161512' : '#cfcdc4'),
       rankTitle: (e.verdict ? (String(e.verdict.tier || '').toUpperCase() + (e.verdict.why ? ' — ' + e.verdict.why : '')) : 'deterministic rank'),
       source: e.source,
-      badges: this.computedBadges({ ...e, stars: this.adjustedStars(e) }),
+      badges: this.computedBadges({ ...e, stars: this.adjustedStars(e), hidden: this.hiddenOn(e) }),
       why: e.why,
       desc: e.desc, hasDesc: e.hasDesc,
       ...this.detailFields(e),
@@ -4845,7 +4929,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       saveStar: this.starOn(e) ? '★' : '☆',
       saveColor: this.starOn(e) ? '#b06a00' : '#a7a59b',
       saveTitle: this.starOn(e) ? 'Starred — click to unstar (everyone sees this)' : 'Star it — everyone sees it, it teaches your ranking, and it builds your calendar',
-      saveClick: (domEv) => this.toggleStar(e, domEv)
+      saveClick: (domEv) => this.toggleStar(e, domEv),
+      ...this.hideFields(e)
     }));
 
     const arrow = (k) => sortKey === k ? (sortDir === 'asc' ? '\u2191' : '\u2193') : '';
@@ -5111,7 +5196,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       weight: range === key ? '700' : '500',
       onClick: () => this.setRange(key)
     }));
-    const anyActive = !!filtered || !!laneM || nsel('hood') || nsel('cat') || nsel('genre') || nsel('vibe') || nsel('setting') || nsel('region') || nsel('source') || (this.state.search || '').trim() || digestPicks;
+    const anyActive = !!filtered || !!laneM || nsel('hood') || nsel('cat') || nsel('genre') || nsel('vibe') || nsel('setting') || nsel('region') || nsel('source') || (this.state.search || '').trim() || digestPicks || this.state.showHidden;
+    // The Explore "Hidden (N)" toggle: shown once this profile has hidden anything in range (or while
+    // the filter is already active, so it can be switched back off). "show less like this" lives here.
+    const hiddenCount = this.hiddenCountInRange(rangeStart, rangeEnd);
+    const showingHidden = !!this.state.showHidden;
 
     // ---- front page (editorial home) ----
     // Everything is precomputed server-side (build_dashboard front_page: rank-ordered shelf/hero
@@ -5149,6 +5238,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           saveBg: this.starOn(de) ? '#fbf3e2' : '#fff',
           saveClick: (domEv) => this.toggleStar(de, domEv),
           starsLine: (de.stars && de.stars.length) ? '★ Starred by ' + de.stars.map(s => s.name).join(', ') : '',
+          ...this.hideFields(de),
         };
       }
     }
@@ -5204,7 +5294,9 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           onClick: () => this.openFpDetail(e.key),
         };
       };
-      const resolve = (keys) => (keys || []).map(k => this.byKey(k)).filter(Boolean);
+      // Drop just-hidden events client-side too — the feed already excludes committed hides, this
+      // catches a tap made this session before the rebuild lands.
+      const resolve = (keys) => (keys || []).map(k => this.byKey(k)).filter(Boolean).filter(e => !this.hiddenOn(e));
       fpLenses = [['today', 'TONIGHT'], ['weekend', 'THIS WEEKEND'], ['twoweeks', 'NEXT 2 WEEKS'], ['ahead', 'PLAN AHEAD']].map(([k, label]) => ({
         label, onClick: () => this.setLens(k),
         border: lens === k ? '#1b1a17' : '#d2d0c7',
@@ -5249,7 +5341,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // everything else wears its category quietly.
       const rEnd = win[1];
       fpRadar = this.ALL
-        .filter(e => e.iso > rEnd && (e.seriesRep || !e.seriesKey))
+        .filter(e => e.iso > rEnd && (e.seriesRep || !e.seriesKey) && !this.hiddenOn(e))
         .sort((a, b) => (a.iso < b.iso ? -1 : a.iso > b.iso ? 1 : 0) || (a.time < b.time ? -1 : a.time > b.time ? 1 : 0) || (a.title < b.title ? -1 : 1))
         .slice(0, 8)
         .map(e => {
@@ -5467,6 +5559,16 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       search: this.state.search, onSearch: this.onSearch, clearSearch: this.clearSearch,
       hasSearch: !!(this.state.search || '').trim(),
       anyActive: !!anyActive,
+      hiddenToggleShow: isExplore && (hiddenCount > 0 || showingHidden),
+      showingHidden,
+      toggleShowHidden: this.toggleShowHidden,
+      hiddenToggleLabel: showingHidden ? '☰ Showing hidden' : ('◌ Hidden (' + hiddenCount + ')'),
+      hiddenToggleTitle: showingHidden
+        ? 'Back to your normal feed — open any hidden event to show it again'
+        : 'Show the events you hid ("show less like this") — open one to bring it back',
+      hiddenToggleColor: showingHidden ? '#6d3fb3' : '#76746b',
+      hiddenToggleBg: showingHidden ? '#f2ecfb' : '#fff',
+      hiddenToggleBorder: showingHidden ? '#cdb8ec' : '#d2d0c7',
       sortDate: () => this.setSort('date'), sortTitle: () => this.setSort('title'),
       sortHood: () => this.setSort('hood'), sortCat: () => this.setSort('cat'),
       sortScore: () => this.setSort('score'), sortRank: () => this.setSort('rank'), sortSource: () => this.setSort('source'),
