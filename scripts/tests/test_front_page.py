@@ -42,8 +42,8 @@ def test_orders_by_final_rank_skips_skips_and_series_members():
     fp = B.build_front_page(evs, {}, TODAY)
     ug = next(s for s in fp["shelves"] if s["id"] == "underground")
     assert ug["near"] == ["b", "a"]      # THE feed rank orders; judged skip excluded
-    fl = next(s for s in fp["shelves"] if s["id"] == "film")
-    assert fl["near"] == ["d"]           # a series enters via its rep night only
+    cu = next(s for s in fp["shelves"] if s["id"] == "culture")
+    assert cu["near"] == ["d"]           # a series enters via its rep night only
 
 
 def test_shelves_split_near_vs_ahead():
@@ -65,6 +65,53 @@ def test_hero_is_lane_capped_for_diversity():
     hero = fp["hero"]["twoweeks"]
     assert sum(1 for k in hero if k.startswith("club")) <= B.FP_HERO_LANE_CAP
     assert "film1" in hero               # diversity: the film outlives lower-ranked club picks
+
+
+def test_long_runs_move_to_nowrunning_and_leave_dated_surfaces():
+    """A series rep whose remaining span >= FP_RUN_MIN_DAYS holds the fixed Now-running
+    shelf instead of squatting a lane shelf (or the hero) for weeks; a short run stays."""
+    run = ev("run", "2026-07-16", "stage", 1, tier="must-see", series="s1", rep=True)
+    run["series"] = {"count": 20, "first": "2026-07-16", "last": "2026-08-30"}
+    short = ev("short", "2026-07-17", "film", 2, series="s2", rep=True)
+    short["series"] = {"count": 3, "first": "2026-07-17", "last": "2026-07-19"}
+    fp = B.build_front_page([run, short], {}, TODAY)
+    assert fp["nowrunning"] == ["run"]
+    cu = next(s for s in fp["shelves"] if s["id"] == "culture")
+    assert "run" not in cu["near"] and "short" in cu["near"]
+    assert "run" not in fp["hero"]["twoweeks"]
+
+
+def test_two_bookings_weeks_apart_are_not_a_run():
+    """Span alone can't make a run — a party booked twice three weeks apart is two dated
+    picks (FP_RUN_MIN_NIGHTS), not a season."""
+    two = ev("two", "2026-07-17", "club:afters", 1, series="s1", rep=True)
+    two["series"] = {"count": 2, "first": "2026-07-17", "last": "2026-08-08"}
+    fp = B.build_front_page([two], {}, TODAY)
+    assert fp["nowrunning"] == []
+    af = next(s for s in fp["shelves"] if s["id"] == "afters")
+    assert af["near"] == ["two"]
+
+
+def test_closing_window_reenters_lane_shelf():
+    """Remaining span under the threshold (the summary spans upcoming nights only) puts a
+    run back on its lane shelf — 'closes Sunday' is dated news again."""
+    closing = ev("closing", "2026-07-16", "stage", 1, series="s1", rep=True)
+    closing["series"] = {"count": 5, "first": "2026-07-16", "last": "2026-07-20"}
+    fp = B.build_front_page([closing], {}, TODAY)
+    assert fp["nowrunning"] == []
+    cu = next(s for s in fp["shelves"] if s["id"] == "culture")
+    assert cu["near"] == ["closing"]
+
+
+def test_culture_shelf_interleaves_lanes():
+    """The merged shelf round-robins film/comedy/stage so the high-volume lane can't
+    monopolize every prefix (the client windows+slices, so only prefix-mixing survives)."""
+    evs = [ev(f"f{i}", "2026-07-16", "film", i + 1) for i in range(6)]
+    evs += [ev("c1", "2026-07-17", "comedy", 20), ev("st1", "2026-07-18", "stage", 30)]
+    fp = B.build_front_page(evs, {}, TODAY)
+    cu = next(s for s in fp["shelves"] if s["id"] == "culture")
+    assert set(cu["near"][:3]) == {"f0", "c1", "st1"}   # one per lane leads the list
+    assert cu["near"][3:] == ["f1", "f2", "f3", "f4", "f5"]
 
 
 def test_windows_shape_and_radar_join():
