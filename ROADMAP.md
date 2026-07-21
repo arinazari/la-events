@@ -452,6 +452,22 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   it renders inside the concierge chat's welcome message (`seedTake()`), and reaches the model
   as the Worker's `opener` system-prompt field, never as history.)
 
+### 2026-07-21 — Front-page shelf reshape (with Ari, in-session)
+Labels standardized for the multi-user audience (taxonomy unchanged — lanes/tags/verdict
+whitelists untouched): **Afters → Afterhours**, **Big rooms → Big-name club nights**, **Big
+stages → Arenas & halls** (kills the Big/Big and stage/stage word collisions), **Elsewhere →
+Markets, art & more**; film+comedy+stage merged into one **Movies, comedy & theater** shelf
+(round-robin lane interleave so film volume can't monopolize the visible row). NEW fixed
+**Now running** shelf: series reps with ≥3 remaining nights spanning ≥14 days leave the dated
+surfaces (hero + lane shelves) — lane shelves answer "what's on a date," Now running answers
+"what's in town for a while." Span is measured over *remaining* nights, so a run re-enters the
+dated shelves for its final fortnight ("closes Sunday" is news again). Run cards show the span
+("Thru Sun 9/6 · 12 nights"); the card detail modal gained a **showtimes board** — every
+remaining night as a chip → that night's tickets, grouped by theater for cross-venue film
+programs, constant curtain time collapsed into the header, sold-out nights dimmed. Note:
+weekly residencies/recurring markets (MUZIQUE Fridays, Silverlake Flea) qualify as "running"
+by construction — deliberate for now ("standing options"), revisit if the shelf reads wrong.
+
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
   `@babel/standalone` (~3 MB vendored). Add a build step that compiles `index.html` ahead of time and
