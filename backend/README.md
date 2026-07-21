@@ -91,6 +91,9 @@ GET /calendar.ics (no auth) -> text/calendar   the calendar-subscription feed. S
       min=1..5             minimum rating (default 4)         perday=1..10  max events/day (default 3)
       horizon=7..120       days ahead (default 60)            days=fri,sat  weekdays (empty = all)
       types= / xtypes=     include/exclude tags.type          genres= / xgenres=  include/exclude genres
+      keys=k1,k2,…         SAVED mode: the calendar is exactly these events (server event_keys). When
+                           present the picks knobs above don't apply — it's the user's starred shortlist,
+                           still upcoming. This is what the dashboard's "Saved" calendar tab subscribes to.
     UNAUTHENTICATED BY DESIGN: calendar clients poll server-side and can't send Bearer headers,
     and the route spends nothing — no LLM call, no commit; it only re-serves the already-public
     Pages feed reshaped. Same obfuscation-not-security model as the feed hashes themselves.
@@ -154,12 +157,15 @@ printed Worker URL and redeploy Pages. Visitors connect from the page itself —
 chat header stores the token / personal key (per profile, in that browser's localStorage).
 
 > Re-run `npx wrangler deploy` after Worker-code changes in this repo. Current pending changes
-> (2026-07-20): the `opener` field is retired — the chat's take is display-only and the page no
+> (2026-07-21): the `opener` field is retired — the chat's take is display-only and the page no
 > longer sends it, so a stale deployed Worker is harmless (its opener plumbing just receives
-> nothing) — and the **calendar feed** (`GET /calendar.ics`, build `2026-07-20-cal1`) ships. The
-> calendar modal probes the live route when opened and shows a "redeploy" note (subscribe links
-> hidden, snapshot download still works) until the deploy lands, so a stale Worker degrades
-> gracefully — but the subscribe feature doesn't exist until you redeploy.
+> nothing) — and the **calendar feed** (`GET /calendar.ics`, build `2026-07-21-cal2`) ships, now
+> covering both the taste-ranked picks and a **saved-events** calendar (`keys=` param). The calendar
+> modal probes the live route when opened and shows a "redeploy" note (subscribe links hidden,
+> snapshot download still works) until the deploy lands; the Saved tab additionally checks the live
+> build via the ping and warns if it's older than `2026-07-21` (a `cal1` build would serve picks for
+> a `keys=` URL). A stale Worker degrades gracefully — but the subscribe feature doesn't exist until
+> you redeploy.
 
 ### "I redeployed but it still fails" — verify the deploy actually landed
 

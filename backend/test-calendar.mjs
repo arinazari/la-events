@@ -20,7 +20,7 @@ const TODAY = "2026-07-20";
 /* ---- settings: normalize / params round-trip ---- */
 {
   const s = Cal.normSettings({});
-  assert.deepEqual(s, { min: 4, perday: 3, horizon: 60, days: [], types: [], xtypes: [], genres: [], xgenres: [] });
+  assert.deepEqual(s, { min: 4, perday: 3, horizon: 60, days: [], types: [], xtypes: [], genres: [], xgenres: [], keys: [] });
   ok("settings: empty input yields the documented defaults");
 }
 {
@@ -156,6 +156,42 @@ const TODAY = "2026-07-20";
   const b = Cal.buildIcs(feed([row()]), {}, { todayISO: TODAY });
   assert.equal(a, b);
   ok("ics: same feed + settings -> byte-identical document");
+}
+
+/* ---- saved-events mode (keys=) ---- */
+{
+  const s = Cal.normSettings({ keys: "ABC123def456, zz, 0011223344, ABC123def456" });
+  assert.deepEqual(s.keys, ["abc123def456", "0011223344"]);   // lowercased, hex-only, deduped, 'zz' dropped
+  ok("saved: keyList sanitizes to hex, lowercases, dedupes");
+}
+{
+  const qs = Cal.paramsFromSettings({ keys: ["a1aaaa", "b2bbbb"], min: 3, days: ["fri"] });
+  assert.equal(qs, "keys=a1aaaa,b2bbbb");                      // saved mode: picks knobs suppressed
+  assert.deepEqual(Cal.settingsFromParams(new URLSearchParams(qs)).keys, ["a1aaaa", "b2bbbb"]);
+  ok("saved: params emit keys only, round-trip");
+}
+{
+  const f = feed([
+    row({ title: "kept", key: "aaaaaaaaaaaa" }),
+    row({ title: "unstarred", key: "bbbbbbbbbbbb" }),
+    row({ title: "starred-but-past", key: "cccccccccccc", iso_date: "2026-07-19" }),
+    row({ title: "low-rated-but-starred", key: "dddddddddddd", rating: 1, iso_date: "2026-07-25" }),
+  ]);
+  const got = Cal.selectEvents(f, { keys: ["aaaaaaaaaaaa", "cccccccccccc", "dddddddddddd"] }, TODAY);
+  assert.deepEqual(got.map(e => e.title), ["kept", "low-rated-but-starred"]);  // past drops; rating ignored
+  ok("saved: selects exactly the starred upcoming events, ignoring rating");
+}
+{
+  const f = feed([row({ key: "aaaaaaaaaaaa" })], { profile: { name: "Lori", hash: "feedbeeffeedbeef" } });
+  const ics = Cal.buildIcs(f, { keys: ["aaaaaaaaaaaa"] }, { todayISO: TODAY });
+  assert.ok(ics.includes("X-WR-CALNAME:LA Events — Lori’s saved"));
+  assert.ok(ics.includes("UID:aaaaaaaaaaaa@la-events"));
+  ok("saved: calendar named after the person + built from the starred set");
+}
+{
+  const many = Array.from({ length: 400 }, (_, i) => "f" + String(i).padStart(11, "0"));  // hex keys
+  assert.equal(Cal.keyList(many).length, 300);                // MAX_KEYS bound
+  ok("saved: keyList caps at MAX_KEYS");
 }
 
 console.log(`\nall ${passed} calendar tests passed`);

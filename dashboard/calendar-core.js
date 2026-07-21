@@ -27,6 +27,7 @@
   var LIMITS = { min: [1, 5], perday: [1, 10], horizon: [7, 120] };
   var WEEKDAYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
   var MAX_EVENTS = 500;      // hard feed cap — keeps the worst-case .ics bounded
+  var MAX_KEYS = 300;        // saved-mode cap — bounds the URL length (~13 chars/key → ~4KB)
   var TZID = "America/Los_Angeles";
 
   // Same canonical form as the page's parseEvent(): lowercase, whitespace/underscore → hyphen,
@@ -70,6 +71,18 @@
     return out;
   }
 
+  // Saved-event keys are the server event_key (sha1(title|date|venue)[:12], hex). Sanitize hard —
+  // these come straight off a URL — and cap so the subscription URL stays a sane length.
+  function keyList(v) {
+    var arr = Array.isArray(v) ? v : String(v == null ? "" : v).split(",");
+    var seen = {}, out = [];
+    for (var i = 0; i < arr.length && out.length < MAX_KEYS; i++) {
+      var k = String(arr[i] == null ? "" : arr[i]).trim().toLowerCase();
+      if (/^[0-9a-f]{6,40}$/.test(k) && !seen[k]) { seen[k] = 1; out.push(k); }
+    }
+    return out;
+  }
+
   // Normalize any partial/untrusted settings object (modal state, URL params) into the
   // full clamped shape every other function takes.
   function normSettings(raw) {
@@ -83,6 +96,9 @@
       xtypes: tokenList(raw.xtypes),
       genres: tokenList(raw.genres),
       xgenres: tokenList(raw.xgenres),
+      // Saved-events mode: when keys is non-empty the calendar is EXACTLY those events (the
+      // rating/weekday/type/genre/per-day knobs above don't apply — you hand-picked them).
+      keys: keyList(raw.keys),
     };
   }
 
@@ -94,7 +110,7 @@
     return normSettings({
       min: get("min"), perday: get("perday"), horizon: get("horizon"),
       days: get("days"), types: get("types"), xtypes: get("xtypes"),
-      genres: get("genres"), xgenres: get("xgenres"),
+      genres: get("genres"), xgenres: get("xgenres"), keys: get("keys"),
     });
   }
 
@@ -102,6 +118,8 @@
   // always mint the same URL — calendar apps treat a changed URL as a brand-new calendar.
   function paramsFromSettings(settings) {
     var s = normSettings(settings);
+    // Saved mode: the keys ARE the selection — emit just them, none of the picks knobs apply.
+    if (s.keys.length) return "keys=" + s.keys.join(",");
     var parts = [];
     if (s.min !== DEFAULTS.min) parts.push("min=" + s.min);
     if (s.perday !== DEFAULTS.perday) parts.push("perday=" + s.perday);
@@ -169,6 +187,7 @@
   function selectEvents(feed, settings, todayISO) {
     var s = normSettings(settings);
     var rows = (feed && Array.isArray(feed.events)) ? feed.events : [];
+    if (s.keys.length) return selectSaved(rows, s, todayISO);
     var lastISO = addDaysISO(todayISO, s.horizon);
     var picked = [];
     for (var i = 0; i < rows.length; i++) {
@@ -208,6 +227,27 @@
         String(a.title).localeCompare(String(b.title));
     });
     return kept;
+  }
+
+  // Saved-events selection: EXACTLY the starred events (by server event_key), still upcoming so
+  // yesterday's starred show drops off on its own. No rating/weekday/type/genre/per-day filtering
+  // — the user hand-picked these. Date-ordered, capped like the picks feed.
+  function selectSaved(rows, s, todayISO) {
+    var want = {};
+    for (var i = 0; i < s.keys.length; i++) want[s.keys[i]] = 1;
+    var kept = [];
+    for (var j = 0; j < rows.length; j++) {
+      var r = rows[j];
+      if (!r || !r.title || !isISODate(r.iso_date)) continue;
+      if (r.iso_date < todayISO) continue;
+      if (r.key && want[r.key]) kept.push(r);
+    }
+    kept.sort(function (a, b) {
+      return String(a.iso_date).localeCompare(String(b.iso_date)) ||
+        String(a.start || "").localeCompare(String(b.start || "")) ||
+        String(a.title).localeCompare(String(b.title));
+    });
+    return kept.slice(0, MAX_EVENTS);
   }
 
   // ---------- iCalendar ----------
@@ -311,8 +351,11 @@
     opts = opts || {};
     var events = selectEvents(feed, settings, opts.todayISO);
     var stamp = opts.stamp || utcStamp(feed && feed.generated_at);
+    var who = feed && feed.profile && feed.profile.name ? feed.profile.name : "";
+    var saved = normSettings(settings).keys.length > 0;
     var name = opts.calname ||
-      (feed && feed.profile && feed.profile.name ? "LA Events — " + feed.profile.name : "LA Events — top picks");
+      (saved ? (who ? "LA Events — " + who + "’s saved" : "LA Events — saved")
+             : (who ? "LA Events — " + who : "LA Events — top picks"));
     var lines = [
       "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//la-events//calendar-feed//EN",
       "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
@@ -341,6 +384,7 @@
     settingsFromParams: settingsFromParams,
     paramsFromSettings: paramsFromSettings,
     selectEvents: selectEvents,
+    keyList: keyList,
     buildIcs: buildIcs,
   };
 });
