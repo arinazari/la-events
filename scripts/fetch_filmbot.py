@@ -23,10 +23,14 @@ Usage:
 import argparse
 import html
 import json
+import os
 import re
 import sys
 from datetime import date, datetime, timedelta, timezone
 from urllib.request import Request, urlopen
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (nj/v1/show featured_media_url -> poster, free from a bulk call)
 
 try:
     from zoneinfo import ZoneInfo
@@ -76,6 +80,25 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001
         print(f"WARN: listings fetch failed: {e}", file=sys.stderr)
 
+    # Posters (dashboard's top-events row): the show CPT carries featured_media_url; a couple of
+    # bulk nj/v1/show pages map show-id -> poster, joined to each showtime via showtime_to_show.
+    # Free (no LLM), a few paginated GETs; any miss just means the card shows no photo.
+    show_base = args.site.rstrip("/") + "/wp-json/nj/v1/show"
+    posters = {}
+    for spage in range(1, 5):  # 100 shows/page; a rep house rarely programs more than a few hundred
+        try:
+            batch = get(f"{show_base}?per_page=100&page={spage}")
+        except Exception:  # noqa: BLE001 — no posters is a graceful degrade, never a block
+            break
+        if not isinstance(batch, list) or not batch:
+            break
+        for s in batch:
+            sid, purl = s.get("id"), images.clean(s.get("featured_media_url"))
+            if sid and purl:
+                posters[sid] = purl
+        if len(batch) < 100:
+            break
+
     lo = datetime.now(LA).replace(hour=0, minute=0, second=0, microsecond=0)
     hi = lo + timedelta(days=args.days)
     lo_ts, hi_ts = lo.timestamp(), hi.timestamp()
@@ -113,6 +136,8 @@ def main() -> int:
         m = meta.get(name.lower(), {})
         fmt = FORMAT.search(raw or "")
         series = r.get("_series") or []
+        rel = r.get("showtime_to_show") or []       # -> the show/movie post id the poster is keyed by
+        show_id = rel[0] if isinstance(rel, list) and rel else None
         events.append({
             "source": "filmbot",
             "id": f"filmbot-{r.get('id')}",
@@ -127,6 +152,7 @@ def main() -> int:
             "year": m.get("year"),
             "series": series if isinstance(series, list) else [series],
             "sold_out": bool(r.get("_sold_out")),
+            "image": posters.get(show_id),  # per-film poster (featured_media_url) — free
             "url": r.get("link"),
         })
 

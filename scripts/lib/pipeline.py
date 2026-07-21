@@ -16,6 +16,7 @@ from .catalog_meta import VOLATILE_FIELDS, _lineup_sig
 from .affinity import ambiguous_set, tracked_hits
 from .tagging import VENUE_SCALE
 from . import geo
+from . import images
 
 try:
     from zoneinfo import ZoneInfo
@@ -144,6 +145,12 @@ def normalize_record(raw: dict, source=None) -> dict:
         raw = NORMALIZERS[source](dict(raw)) or raw
     date_str, start = _split_datetime(raw)
     lineup = [str(a) for a in _as_list(raw.get("lineup") or raw.get("artists") or raw.get("artist")) if a]
+    # Event photo (dashboard's top-events row): the fetchers pull this straight from the source
+    # response they already fetched — zero extra network, zero LLM tokens (see lib/images.py). The
+    # single final gate lives here: re-clean whatever a fetcher put on `image` so one bad/mixed-content
+    # URL can't reach the feed. Kept SPARSE (only when present) so the ~3k image-less rows don't each
+    # grow a null field — same treatment as lineup_genre.
+    image = images.clean(raw.get("image"))
     return {
         "title": raw.get("title") or raw.get("name") or raw.get("event_name"),
         "date": date_str,
@@ -160,6 +167,7 @@ def normalize_record(raw: dict, source=None) -> dict:
         "sources": _as_list(raw.get("sources") or source),
         "organizers": raw.get("organizers") or raw.get("organizer") or raw.get("promoter"),
         "detail": clean_detail(raw.get("detail") or raw.get("description") or raw.get("desc")),
+        **({"image": image} if image else {}),
         "price": _price(raw),
         "ra_pick": bool(raw.get("ra_pick")),
         "afterhours": bool(raw.get("afterhours") or raw.get("afterhours_flag")),

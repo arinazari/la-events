@@ -517,6 +517,17 @@ def test_merge_new_fetch_still_wins_volatiles():
     assert "status" not in merge(dict(old, status="unlisted"), fetched)
 
 
+def test_merge_preserves_image_from_either_record():
+    # Event art is stable and only some sources carry it — the merge must keep it whichever side has it.
+    base = {"title": "Show", "venue": "Zebulon", "date": "2026-07-20", "last_seen": "2026-07-09"}
+    withimg = {"title": "Show", "venue": "Zebulon", "date": "2026-07-20", "last_seen": "2026-07-10",
+               "image": "https://cdn/flyer.jpg"}
+    assert merge(base, withimg)["image"] == "https://cdn/flyer.jpg"   # backfilled from incoming (pre-feature base)
+    assert merge(withimg, base)["image"] == "https://cdn/flyer.jpg"   # kept when the base already carries it
+    # Neither side has art -> no null `image` key leaks into the catalog row.
+    assert "image" not in merge(base, dict(base, last_seen="2026-07-10"))
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
