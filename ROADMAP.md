@@ -470,6 +470,16 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   regressed in the swap). Now an "Add to calendar ↓" button in each event's expanded detail row;
   self-contained RFC 5545 builder on the `Component` class (floating LA-local times, 3-hr default,
   all-day fallback, lineup/curator-note/price/rating/link in the description).
+- [x] **Calendar subscription** (2026-07-20) — Settings → **Calendar feed**: a subscribable
+  iCalendar of the profile's top-rated events, polled by Google/Apple so it stays current. The
+  Worker serves `GET /calendar.ics?p=<hash>&…` (unauthenticated — it only re-serves the public
+  feed) with settings in the query string (min rating, per-day cap, horizon, weekdays,
+  include/exclude type+genre chips); `dashboard/calendar-core.js` is the ONE filter/ICS builder,
+  loaded by the page (live preview + one-shot `.ics` snapshot) and imported by the Worker, so
+  preview and subscription can't drift. Subscription URLs use explicit `TZID=America/Los_Angeles`
+  (+VTIMEZONE) — a deliberate divergence from the floating-local one-shot exports, since polled
+  feeds cross clients. Note for Track A: the URL carries the feed hash; when capability tokens
+  replace hashes, `p=` inherits that swap.
 - [ ] **Save / bookmark events** — let Ari star events to a personal shortlist (localStorage; the seed
   for "plan around these"). Was `save-for-plan` in the prior front end; not in the new design yet.
   The front page's card detail modal is the natural surface, and events now carry a stable `key`.

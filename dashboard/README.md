@@ -11,6 +11,9 @@ The page is a pure viewer: it never scores and never calls an LLM in the browser
 ```
 index.html            the dashboard (design-tool export; edit THIS file directly)
 support.js            the "dc-runtime" that renders index.html (loads vendored React/Babel)
+calendar-core.js      calendar-subscription core (filter + iCalendar builder) — shared VERBATIM
+                      with the Worker's GET /calendar.ics (backend/ imports this file), so the
+                      modal's preview always matches what a subscribed calendar receives
 vendor/               React 18 + ReactDOM + @babel/standalone, vendored locally (no CDN)
 data.json             the feed — built by scripts/build_dashboard.py (committed)
 manifest.webmanifest  installable-PWA metadata

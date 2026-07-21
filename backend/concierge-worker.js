@@ -51,6 +51,10 @@
  *   PROFILE_SALT       (var, optional — must match the page + build_profiles.py; defaults below)
  */
 import { parse as yamlParse, parseDocument } from "yaml";
+// The calendar-subscription core (filter + iCalendar builder) — the SAME file the dashboard
+// loads for its modal preview/snapshot, so GET /calendar.ics can never drift from what the
+// page shows. CommonJS on purpose (dashboard/ has no package.json); esbuild interops it.
+import CalendarCore from "../dashboard/calendar-core.js";
 
 // Deploy fingerprint, surfaced by GET / (unauthenticated) and the authed ping. Bump on every
 // change that ships: wrangler deploys are MANUAL, so "is the fix actually live?" must be
@@ -58,7 +62,7 @@ import { parse as yamlParse, parseDocument } from "yaml";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-07-20-stream3";
+const VERSION = "2026-07-20-cal1";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
@@ -82,7 +86,7 @@ export default {
     const origin = env.ALLOWED_ORIGIN || DEFAULTS.ALLOWED_ORIGIN;
     const cors = {
       "Access-Control-Allow-Origin": origin,
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
       "Access-Control-Allow-Headers": "content-type, authorization, x-anthropic-key",
       "Access-Control-Max-Age": "86400",
     };
@@ -105,6 +109,8 @@ async function handleRequest(request, env, cors, ctx) {
   if (url.pathname.startsWith("/spotify/")) return handleSpotify(url, request, env, cors);
   if (url.pathname === "/refresh-events" || url.pathname === "/rebuild-profile")
     return handlePipeline(url, request, env, cors);
+  // Calendar-subscription feed (GET, unauthenticated — see handleCalendar for why).
+  if (url.pathname === "/calendar.ics") return handleCalendar(url, request, env, cors);
 
   // Unauthenticated deploy fingerprint: which build is live (no secrets — see VERSION).
   if (request.method === "GET" && url.pathname === "/")
@@ -1430,6 +1436,49 @@ async function lastFetchAgeMinutes(env) {
     const t = j && j.fetched_at ? Date.parse(j.fetched_at) : NaN;
     return Number.isFinite(t) ? (Date.now() - t) / 60000 : null;
   } catch { return null; }
+}
+
+/* ============================== CALENDAR-SUBSCRIPTION FEED ==============================
+ * GET /calendar.ics[?p=<feed-hash>&min=&perday=&horizon=&days=&types=&xtypes=&genres=&xgenres=]
+ *
+ * A subscribable iCalendar of the profile's top-rated events — the URL Google Calendar /
+ * Apple Calendar polls, so the calendar keeps itself current as the feed rebuilds. The
+ * dashboard's calendar modal mints these URLs; settings ride entirely in the query string
+ * (dashboard/calendar-core.js is the shared parser/filter/builder), so there's no state here.
+ *
+ * DELIBERATELY UNAUTHENTICATED: calendar clients poll server-side and can't send Bearer
+ * headers. The gate exists to protect Anthropic spend + repo commits — this route does
+ * neither: it only re-serves the already-public Pages feed (data[.<hash>].json), reshaped.
+ * Same threat model as the feeds themselves: hashes are obfuscation, not security (when
+ * Track A swaps hashes for capability tokens, `p` inherits that automatically). */
+async function handleCalendar(url, request, env, cors) {
+  if (request.method !== "GET" && request.method !== "HEAD")
+    return json({ error: "GET only" }, 405, cors);
+  const p = url.searchParams.get("p");
+  const hash = typeof p === "string" && /^[0-9a-f]{8,32}$/.test(p) ? p : null;
+  if (p && !hash) return json({ error: "invalid profile hash" }, 400, cors);
+
+  let feed = null;
+  if (hash) feed = await fetchFeedByHash(env, hash);
+  else {
+    try {
+      const r = await fetch(env.DATA_URL || DEFAULTS.DATA_URL, { cf: { cacheTtl: 120 } });
+      if (r.ok) feed = await r.json();
+    } catch { /* degrade gracefully */ }
+  }
+  if (!feed) return json({ error: "feed unavailable" }, 502, cors);
+
+  // LA-today anchors the date window — the events' own timezone, wherever the subscriber is.
+  const todayISO = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles" }).format(new Date());
+  const ics = CalendarCore.buildIcs(feed, CalendarCore.settingsFromParams(url.searchParams), { todayISO });
+  const headers = {
+    ...cors,
+    "content-type": "text/calendar; charset=utf-8",
+    "content-disposition": 'inline; filename="la-events.ics"',
+    // Pages rebuilds are at most a-few-per-day; calendar apps poll on ~hours anyway.
+    "cache-control": "public, max-age=1800",
+  };
+  return new Response(request.method === "HEAD" ? null : ics, { status: 200, headers });
 }
 
 /* Best-effort: nudge a rebuild of this one profile's feed (the spotify-sync workflow). */

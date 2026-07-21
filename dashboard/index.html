@@ -9,6 +9,7 @@
 <link rel="icon" href="./icon.svg">
 <link rel="manifest" href="./manifest.webmanifest">
 <script src="./support.js"></script>
+<script src="./calendar-core.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
@@ -857,6 +858,14 @@
                   <div style="margin-top:6px; font-size:11px; color:#b4453a;">{{ profileError }}</div>
                 </sc-if>
               </sc-if>
+              <!-- calendar subscription — for everyone (logged-out = the house feed) -->
+              <div onClick="{{ openCalModal }}" title="Subscribe to an auto-updating calendar of the top-rated picks (Google / Apple / iCal)" style="margin-top:7px; display:flex; align-items:flex-start; gap:9px; padding:8px 8px; border:1px solid #e2e0d8; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512;">
+                <span style="flex:none; color:#3f3d36; font-size:16px; transform:translateY(1px);">▦</span>
+                <span style="flex:1;">
+                  <span style="display:block; font:600 12px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">Calendar feed</span>
+                  <span style="display:block; margin-top:2px; font:500 10px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b;">top picks in Google / Apple Calendar</span>
+                </span>
+              </div>
               <div style="margin-top:10px; padding-top:9px; border-top:1px solid #eceae2; display:flex; align-items:center; justify-content:space-between; gap:8px;">
                 <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">DATA</span>
                 <span style="font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ dataSourceLabel }}</span>
@@ -1239,6 +1248,84 @@
     </div>
   </sc-if>
 
+  <!-- ============ CALENDAR FEED — subscribe to your top picks (iCal / Google Calendar) ============ -->
+  <sc-if value="{{ calModalOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dg-overlay" style="position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; background:rgba(27,26,23,0.42);">
+      <div onClick="{{ closeCalModal }}" style="position:absolute; inset:0;"></div>
+      <div style="position:relative; z-index:1; width:460px; max-width:100%; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:4px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+        <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:15px 18px 0;">
+          <span style="display:inline-flex; align-items:center; gap:8px;"><span style="color:#3f3d36; font-size:15px;">▦</span><span style="font:600 12px/1 ui-monospace,'SF Mono',Menlo,monospace; letter-spacing:0.05em; color:#161512;">CALENDAR FEED</span></span>
+          <button onClick="{{ closeCalModal }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+        </div>
+        <div class="scry" style="flex:1; overflow-y:auto; padding:10px 18px 6px;">
+          <div style="font-size:11.5px; line-height:1.5; color:#3f3d36;">{{ calIntro }}</div>
+
+          <div style="margin-top:13px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
+            <span style="flex:none; width:82px; font:600 8.5px/2.4 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">RATED</span>
+            <sc-for list="{{ calMinChips }}" as="c" hint-placeholder-count="4">
+              <span onClick="{{ c.onClick }}" style="cursor:pointer; padding:5px 10px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9;">{{ c.label }}</span>
+            </sc-for>
+          </div>
+          <div style="margin-top:8px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
+            <span style="flex:none; width:82px; font:600 8.5px/2.4 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">MAX / DAY</span>
+            <sc-for list="{{ calPerdayChips }}" as="c" hint-placeholder-count="4">
+              <span onClick="{{ c.onClick }}" style="cursor:pointer; padding:5px 10px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9;">{{ c.label }}</span>
+            </sc-for>
+          </div>
+          <div style="margin-top:8px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
+            <span style="flex:none; width:82px; font:600 8.5px/2.4 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">LOOKAHEAD</span>
+            <sc-for list="{{ calHorizonChips }}" as="c" hint-placeholder-count="4">
+              <span onClick="{{ c.onClick }}" style="cursor:pointer; padding:5px 10px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9;">{{ c.label }}</span>
+            </sc-for>
+          </div>
+          <div style="margin-top:8px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
+            <span style="flex:none; width:82px; font:600 8.5px/2.4 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;" title="No days selected = every day">DAYS</span>
+            <sc-for list="{{ calDayChips }}" as="c" hint-placeholder-count="7">
+              <span onClick="{{ c.onClick }}" style="cursor:pointer; padding:5px 9px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9;">{{ c.label }}</span>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:13px; font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">CATEGORIES <span style="letter-spacing:0.03em; color:#bdbbb1; text-transform:none;">— tap to cycle: ✓ only these → ✕ hide → off</span></div>
+          <div style="margin-top:7px; display:flex; gap:6px; flex-wrap:wrap;">
+            <sc-for list="{{ calTypeChips }}" as="c" hint-placeholder-count="9">
+              <span onClick="{{ c.onClick }}" title="{{ c.title }}" style="cursor:pointer; padding:5px 10px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#161512;">{{ c.label }}</span>
+            </sc-for>
+          </div>
+          <div style="margin-top:12px; font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">GENRES</div>
+          <div style="margin-top:7px; display:flex; gap:6px; flex-wrap:wrap;">
+            <sc-for list="{{ calGenreChips }}" as="c" hint-placeholder-count="14">
+              <span onClick="{{ c.onClick }}" title="{{ c.title }}" style="cursor:pointer; padding:5px 10px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#161512;">{{ c.label }}</span>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:14px; padding:9px 11px; border:1px solid #e2e0d8; background:#faf9f5; border-radius:2px;">
+            <div style="font:600 10.5px/1.4 ui-monospace,Menlo,monospace; color:#161512;">{{ calPreviewCount }}</div>
+            <sc-if value="{{ calPreviewNext }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:3px; font:500 10px/1.4 ui-monospace,Menlo,monospace; color:#76746b; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ calPreviewNext }}</div>
+            </sc-if>
+          </div>
+          <sc-if value="{{ calNote }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:8px; font:500 10px/1.5 ui-monospace,Menlo,monospace; color:{{ calNoteColor }};">{{ calNote }}</div>
+          </sc-if>
+        </div>
+        <div style="flex:none; padding:12px 18px 15px; border-top:1px solid #e2e0d8; background:#faf9f5; border-radius:0 0 4px 4px;">
+          <sc-if value="{{ calCanSubscribe }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <a href="{{ calGcalUrl }}" target="_blank" rel="noopener" title="Add as a subscribed calendar in Google Calendar" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:2px; font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="background:#1f49b8;">Google Calendar ↗</a>
+              <a href="{{ calWebcalUrl }}" title="Opens Calendar on Mac/iPhone and subscribes (webcal)" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">Apple / iCal ↗</a>
+              <span onClick="{{ copyCalUrl }}" title="Copy the feed URL — paste into any calendar app's 'subscribe by URL'" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">copy URL</span>
+            </div>
+            <div style="margin-top:7px; font:500 9.5px/1.45 ui-monospace,Menlo,monospace; color:#a7a59b;">The subscription keeps itself current as events land. Settings ride in the URL — after changing them, subscribe again (and drop the old calendar).</div>
+          </sc-if>
+          <div style="margin-top:9px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <span onClick="{{ downloadCalSnapshot }}" title="One-shot .ics of the picks above — imports anywhere, but won't update itself" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">↓ .ics snapshot</span>
+            <button onClick="{{ closeCalModal }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512; color:#161512;">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
   <!-- ===================== TOAST ===================== -->
   <sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed; left:50%; bottom:26px; transform:translateX(-50%); z-index:120; font:500 11.5px/1.4 ui-monospace,Menlo,monospace; color:#fdfcf9; background:#1b1a17; padding:10px 16px; border-radius:3px; box-shadow:0 10px 28px rgba(0,0,0,0.3); max-width:520px;">{{ toast }}</div>
@@ -1352,6 +1439,7 @@ class Component extends DCLogic {
     colFilters: { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} }, openFilter: null,
     search: '', digestPrevState: null,
     settingsOpen: false, toast: null, connectModalOpen: false, tokenInput: '',
+    calModalOpen: false, calCfg: null, calStatus: null,   // calendar-feed modal: settings + live-route probe ('ok'|'stale'|'down'|'none')
     apiKeyInput: '', apiEnabledDraft: false, useOpusDraft: false,   // drafts for the connection modal (key + on/off switch + Opus)
     input: '',
     chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
@@ -1736,6 +1824,156 @@ class Component extends DCLogic {
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (err) { /* download blocked — no-op, the ticket links still work */ }
   };
+
+  // ---------- calendar-subscription feed ----------
+  // The auto-updating counterpart of the one-shot export above: the modal mints a Worker
+  // /calendar.ics URL (settings ride in the query string) that Google/Apple POLL, so the
+  // calendar stays current as the feed rebuilds. Filtering + ICS building live in
+  // dashboard/calendar-core.js — the SAME file the Worker serves from — so the preview count
+  // here is exactly what a subscriber's calendar gets. Settings persist per profile on this
+  // device; the URL itself is the real contract.
+  calFeed() { return (this.META && Array.isArray(this.META.events)) ? this.META : null; }
+  calStoreKey() { const p = this.state.profile; return 'la-cal:' + ((p && p.hash) || 'default'); }
+  openCalModal = () => {
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(this.calStoreKey()) || 'null'); } catch (e) {}
+    this.setState({ calModalOpen: true, settingsOpen: false, calCfg: CalendarCore.normSettings(saved || {}), calStatus: null },
+      () => this.probeCalFeed());
+  };
+  closeCalModal = () => this.setState({ calModalOpen: false });
+  calPatch(patch) {
+    const calCfg = CalendarCore.normSettings(Object.assign({}, this.state.calCfg, patch));
+    try { localStorage.setItem(this.calStoreKey(), JSON.stringify(calCfg)); } catch (e) {}
+    this.setState({ calCfg });
+  }
+  // Tri-state cycle for a category/genre value — off → ✓ include → ✕ exclude → off, the same
+  // convention as the table's column filters.
+  calCycle(axis, val) {
+    const cfg = this.state.calCfg || CalendarCore.normSettings({});
+    const inc = cfg[axis].slice(), exc = cfg['x' + axis].slice();
+    const i = inc.indexOf(val), o = exc.indexOf(val);
+    if (i === -1 && o === -1) inc.push(val);
+    else if (i !== -1) { inc.splice(i, 1); exc.push(val); }
+    else exc.splice(o, 1);
+    const patch = {}; patch[axis] = inc; patch['x' + axis] = exc;
+    this.calPatch(patch);
+  }
+  calToggleDay(d) {
+    const days = (this.state.calCfg ? this.state.calCfg.days : []).slice();
+    const i = days.indexOf(d);
+    if (i === -1) days.push(d); else days.splice(i, 1);
+    this.calPatch({ days });
+  }
+  calQuery() {
+    const p = this.state.profile;
+    const parts = [];
+    if (p && p.hash) parts.push('p=' + p.hash);
+    const qs = CalendarCore.paramsFromSettings(this.state.calCfg || {});
+    if (qs) parts.push(qs);
+    return parts.length ? '?' + parts.join('&') : '';
+  }
+  calHttpsUrl() { return this.BACKEND_URL ? this.BACKEND_URL + '/calendar.ics' + this.calQuery() : ''; }
+  calWebcalUrl() { return this.calHttpsUrl().replace(/^https?:\/\//, 'webcal://'); }
+  // One probe per open: /calendar.ics ships in Worker builds from 2026-07-20-cal1 and wrangler
+  // deploys are manual, so a 405 here means an older build is live. Surfaced in THIS modal (not
+  // MIN_BACKEND_VERSION — the chat contract doesn't depend on the newer build). The probe also
+  // proves the URL actually serves before we hand it to a calendar app.
+  probeCalFeed() {
+    if (!this.BACKEND_URL) { this.setState({ calStatus: 'none' }); return; }
+    fetch(this.calHttpsUrl(), { cache: 'no-store' })
+      .then(res => this.setState({
+        calStatus: (res.ok && (res.headers.get('content-type') || '').indexOf('text/calendar') !== -1) ? 'ok'
+          : (res.status === 405 ? 'stale' : 'down'),
+      }))
+      .catch(() => this.setState({ calStatus: 'down' }));
+  }
+  copyCalUrl = () => {
+    const url = this.calHttpsUrl();
+    try {
+      navigator.clipboard.writeText(url).then(
+        () => this.flashToast('Feed URL copied — paste it into any calendar app’s “subscribe by URL”.'),
+        () => this.flashToast(url));
+    } catch (e) { this.flashToast(url); }
+  };
+  downloadCalSnapshot = () => {
+    const feed = this.calFeed();
+    if (!feed) { this.flashToast('Feed not loaded yet — try again in a moment.'); return; }
+    try {
+      const ics = CalendarCore.buildIcs(feed, this.state.calCfg || {}, { todayISO: this.toISO(new Date()) });
+      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'la-events.ics';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (err) { /* download blocked — the subscribe links still work */ }
+  };
+  // Bindings for the calendar modal (spread into renderVals). Closed = cheap stubs only.
+  calVals() {
+    const base = { calModalOpen: !!this.state.calModalOpen, openCalModal: this.openCalModal, closeCalModal: this.closeCalModal };
+    if (!this.state.calModalOpen) {
+      return Object.assign(base, {
+        calIntro: '', calMinChips: [], calPerdayChips: [], calHorizonChips: [], calDayChips: [],
+        calTypeChips: [], calGenreChips: [], calPreviewCount: '', calPreviewNext: '',
+        calCanSubscribe: false, calNote: '', calNoteColor: '#76746b', calGcalUrl: '', calWebcalUrl: '',
+        copyCalUrl: this.copyCalUrl, downloadCalSnapshot: this.downloadCalSnapshot,
+      });
+    }
+    const cfg = this.state.calCfg || CalendarCore.normSettings({});
+    const feed = this.calFeed();
+    const p = this.state.profile;
+    const chip = (label, mode, onClick, title) => ({
+      label, onClick, title: title || '',
+      border: mode === 'on' ? '#2b5cd9' : mode === 'in' ? '#1f7a4d' : mode === 'out' ? '#c75146' : '#e2e0d8',
+      bg: mode === 'on' ? '#eaf0fe' : mode === 'in' ? '#eaf6ee' : mode === 'out' ? '#fbeae8' : '#fff',
+      color: mode === 'on' ? '#2b5cd9' : mode === 'in' ? '#1f7a4d' : mode === 'out' ? '#b4453a' : '#5f5d54',
+    });
+    const calMinChips = [2, 3, 4, 5].map(n => chip(n === 5 ? '5★ only' : n + '★+', cfg.min === n ? 'on' : 'off', () => this.calPatch({ min: n })));
+    const calPerdayChips = [1, 2, 3, 5].map(n => chip(String(n), cfg.perday === n ? 'on' : 'off', () => this.calPatch({ perday: n })));
+    const calHorizonChips = [[14, '2 wks'], [30, '1 mo'], [60, '2 mo'], [90, '3 mo']]
+      .map(h => chip(h[1], cfg.horizon === h[0] ? 'on' : 'off', () => this.calPatch({ horizon: h[0] })));
+    const calDayChips = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+      .map(d => chip(d.charAt(0).toUpperCase() + d.slice(1), cfg.days.indexOf(d) !== -1 ? 'on' : 'off', () => this.calToggleDay(d)));
+    // Chip vocab from the live feed's facets (most-common first), plus anything already selected
+    // (a saved pick must stay visible even after it drops out of the facet head).
+    const facet = (ax, cap) => (this.META && this.META.tag_facets && Array.isArray(this.META.tag_facets[ax]))
+      ? this.META.tag_facets[ax].slice(0, cap).map(f => f.value) : [];
+    const withSel = (vals, inc, exc) => {
+      const all = vals.slice();
+      inc.concat(exc).forEach(v => { if (all.indexOf(v) === -1) all.push(v); });
+      return all;
+    };
+    const cycleHint = 'tap to cycle: ✓ only these → ✕ hide → off';
+    const tri = (axis, vals) => vals.map(v => {
+      const mode = cfg[axis].indexOf(v) !== -1 ? 'in' : cfg['x' + axis].indexOf(v) !== -1 ? 'out' : 'off';
+      const mark = mode === 'in' ? '✓ ' : mode === 'out' ? '✕ ' : '';
+      return chip(mark + v, mode, () => this.calCycle(axis, v), cycleHint);
+    });
+    const calTypeChips = tri('types', withSel(facet('type', 12), cfg.types, cfg.xtypes));
+    const calGenreChips = tri('genres', withSel(facet('genre', 16), cfg.genres, cfg.xgenres));
+    let calPreviewCount = 'feed not loaded yet', calPreviewNext = '';
+    if (feed) {
+      const evs = CalendarCore.selectEvents(feed, cfg, this.toISO(new Date()));
+      calPreviewCount = evs.length + (evs.length === 1 ? ' event' : ' events') + ' · next ' + cfg.horizon + ' days';
+      if (evs.length) calPreviewNext = 'next up: ' + this.labelISO(evs[0].iso_date) + ' — ' + evs[0].title + ' · ' + (evs[0].venue || 'TBA');
+    }
+    const st = this.state.calStatus;
+    const calNote = st === 'none' ? 'Live subscription needs the concierge backend — the .ics snapshot below still works (one-shot import, no auto-update).'
+      : st === 'stale' ? 'The live Worker build predates calendar feeds — redeploy it (cd backend && npx wrangler deploy), then reopen this.'
+      : st === 'down' ? 'Couldn’t reach the calendar feed just now — subscribe links hidden; the .ics snapshot below still works.'
+      : st === 'ok' ? '' : 'checking the live feed…';
+    return Object.assign(base, {
+      calIntro: 'An auto-updating calendar of ' + ((p && p.name) ? p.name + '’s' : 'the house') +
+        ' top-rated picks — tune what makes the cut, then subscribe in Google or Apple Calendar.',
+      calMinChips, calPerdayChips, calHorizonChips, calDayChips, calTypeChips, calGenreChips,
+      calPreviewCount, calPreviewNext,
+      calCanSubscribe: st === 'ok', calNote,
+      calNoteColor: st === 'stale' ? '#9a6a1a' : st === 'down' ? '#b4453a' : '#76746b',
+      calGcalUrl: 'https://calendar.google.com/calendar/render?cid=' + encodeURIComponent(this.calWebcalUrl()),
+      calWebcalUrl: this.calWebcalUrl(),
+      copyCalUrl: this.copyCalUrl, downloadCalSnapshot: this.downloadCalSnapshot,
+    });
+  }
 
   // ---------- sorting ----------
   setSort = (key) => {
@@ -2576,6 +2814,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
+    "- **Subscribe to your picks as a calendar.** **Settings → Calendar feed** turns your top-rated events into a calendar that keeps itself current — subscribe in Google or Apple Calendar (or copy the URL into any app). A few knobs decide what makes the cut: minimum rating, max events per day, how far ahead, weekdays, and include/exclude chips for categories + genres. Prefer a one-shot file? The **.ics snapshot** downloads the same picks without the auto-update.",
     "- **Tags on every card — tap one to explore.** Cards now wear their tags (genre + vibe: *techno*, *queer*, *warehouse*, …) right on the front — on the front page, the Explore table, and mobile cards — and every tag is a link: tap it to jump into Explore filtered to exactly that tag, ready to refine or clear like any other filter.",
     "- **Listen + artist intel.** Opening an event shows its lineup as artist rows: quiet **Spotify / SoundCloud** glyphs per name (music bills, plus anyone the scene graph has verified) — straight to the artist's Spotify page once the nightly resolver has matched them, a search otherwise — and, where the research exists, a one-line bio of who that artist is. **✦ Artist intel** hands the bill to the concierge for the full LLM rundown — who they are, what they sound like, who to show up early for.",
     "- **The concierge opens with the take.** The chat's welcome now folds in the day's *take* — the digest's opening read (`For Fri 7/17: …`) — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. The how-to is part of the same message: full-size on your first visit, tucked behind *see what I can do ▸* once you've chatted. (The take moved off the front page, which gets straight to the cards.)",
@@ -4193,7 +4432,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     if (ds === 'date') this.setState({ sortKey: 'date', sortDir: 'asc' });
     else if (ds === 'score') this.setState({ sortKey: 'score', sortDir: 'desc' });
     else if (ds === 'rank') this.setState({ sortKey: 'rank', sortDir: 'asc' });
-    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.fpDetailKey) { this.setState({ fpDetailKey: null }); return; } /* card sits above the digest — dismiss layers one Escape at a time */ if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); if (this.state.welcomeOpen) this.closeWelcome(); if (this.state.nudgeOpen) this.setState({ nudgeOpen: false }); } };
+    this._onKeyDown = (e) => { if (e.key === 'Escape') { if (this.state.fpDetailKey) { this.setState({ fpDetailKey: null }); return; } /* card sits above the digest — dismiss layers one Escape at a time */ if (this.state.digestModalOpen) this.setState({ digestModalOpen: false }); if (this.state.calModalOpen) this.setState({ calModalOpen: false }); if (this.state.tasteModalOpen) this.setState({ tasteModalOpen: false }); if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen: false }); if (this.state.connectModalOpen) this.setState({ connectModalOpen: false }); if (this.state.guideOpen) this.setState({ guideOpen: false }); if (this.state.welcomeOpen) this.closeWelcome(); if (this.state.nudgeOpen) this.setState({ nudgeOpen: false }); } };
     window.addEventListener('keydown', this._onKeyDown);
     // Track viewport width so the layout can switch between the desktop table and the
     // mobile card/overlay layout live (rAF-coalesced to avoid setState churn on resize).
@@ -4866,6 +5105,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       apiTogTrackBg, apiTogKnobX, apiTogLabel, apiStatusLine, apiStatusColor,
       opusTogTrackBg, opusTogKnobX, opusTogLabel, toggleUseOpusDraft: this.toggleUseOpusDraft,
       saveApiSettings: this.saveApiSettings, backendHost,
+      ...this.calVals(),
       dataSourceLabel: this.state.dataSource === 'live' ? 'live · data.json' : 'bundled sample',
       toast: this.state.toast, hasToast: !!this.state.toast,
       digestBody: React.createElement('div', { onClick: this.onDigestBodyClick, dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } }),
