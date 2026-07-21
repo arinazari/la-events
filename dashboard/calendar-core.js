@@ -96,8 +96,14 @@
       xtypes: tokenList(raw.xtypes),
       genres: tokenList(raw.genres),
       xgenres: tokenList(raw.xgenres),
-      // Saved-events mode: when keys is non-empty the calendar is EXACTLY those events (the
-      // rating/weekday/type/genre/per-day knobs above don't apply — you hand-picked them).
+      // Saved-events mode. Two ways to say "the events I starred", both bypassing the picks knobs:
+      //  - saved + savedHash: server-side stars — the calendar is every event whose `stars` list
+      //    contains this profile's hash. A STABLE url (?saved=1), so new stars appear on the next
+      //    poll with no re-subscribe. This is the current path.
+      //  - keys: an explicit event-key list baked into the url. Legacy (the pre-server localStorage
+      //    saves) + what the client snapshot uses; still honored so old subscriptions keep working.
+      saved: !!raw.saved && raw.saved !== "0" && raw.saved !== "false",
+      savedHash: /^[0-9a-f]{8,32}$/.test(String(raw.savedHash || "")) ? String(raw.savedHash) : "",
       keys: keyList(raw.keys),
     };
   }
@@ -111,6 +117,7 @@
       min: get("min"), perday: get("perday"), horizon: get("horizon"),
       days: get("days"), types: get("types"), xtypes: get("xtypes"),
       genres: get("genres"), xgenres: get("xgenres"), keys: get("keys"),
+      saved: get("saved"),   // savedHash is injected by the Worker from `p`, never off the URL itself
     });
   }
 
@@ -118,7 +125,9 @@
   // always mint the same URL — calendar apps treat a changed URL as a brand-new calendar.
   function paramsFromSettings(settings) {
     var s = normSettings(settings);
-    // Saved mode: the keys ARE the selection — emit just them, none of the picks knobs apply.
+    // Saved mode. Server stars -> a stable ?saved=1 (the profile is already `p=` in the url, so the
+    // hash isn't repeated here). Legacy key list -> keys=. Either way the picks knobs don't apply.
+    if (s.saved || s.savedHash) return "saved=1";
     if (s.keys.length) return "keys=" + s.keys.join(",");
     var parts = [];
     if (s.min !== DEFAULTS.min) parts.push("min=" + s.min);
@@ -187,6 +196,7 @@
   function selectEvents(feed, settings, todayISO) {
     var s = normSettings(settings);
     var rows = (feed && Array.isArray(feed.events)) ? feed.events : [];
+    if (s.savedHash) return selectStarred(rows, s.savedHash, todayISO);
     if (s.keys.length) return selectSaved(rows, s, todayISO);
     var lastISO = addDaysISO(todayISO, s.horizon);
     var picked = [];
@@ -227,6 +237,27 @@
         String(a.title).localeCompare(String(b.title));
     });
     return kept;
+  }
+
+  // Server-stars selection: every upcoming event whose feed `stars` list contains this profile's
+  // hash. This is the live saved calendar — no key list to bake into the url, so newly-starred
+  // events just appear on the next poll (after the feed rebuilds the `stars` fold).
+  function selectStarred(rows, hash, todayISO) {
+    var kept = [];
+    for (var i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      if (!r || !r.title || !isISODate(r.iso_date) || r.iso_date < todayISO) continue;
+      var stars = Array.isArray(r.stars) ? r.stars : [];
+      for (var j = 0; j < stars.length; j++) {
+        if (stars[j] && stars[j].hash === hash) { kept.push(r); break; }
+      }
+    }
+    kept.sort(function (a, b) {
+      return String(a.iso_date).localeCompare(String(b.iso_date)) ||
+        String(a.start || "").localeCompare(String(b.start || "")) ||
+        String(a.title).localeCompare(String(b.title));
+    });
+    return kept.slice(0, MAX_EVENTS);
   }
 
   // Saved-events selection: EXACTLY the starred events (by server event_key), still upcoming so
@@ -352,9 +383,10 @@
     var events = selectEvents(feed, settings, opts.todayISO);
     var stamp = opts.stamp || utcStamp(feed && feed.generated_at);
     var who = feed && feed.profile && feed.profile.name ? feed.profile.name : "";
-    var saved = normSettings(settings).keys.length > 0;
+    var ns = normSettings(settings);
+    var saved = ns.savedHash || ns.saved || ns.keys.length > 0;
     var name = opts.calname ||
-      (saved ? (who ? "LA Events — " + who + "’s saved" : "LA Events — saved")
+      (saved ? (who ? "LA Events — " + who + "’s starred" : "LA Events — starred")
              : (who ? "LA Events — " + who : "LA Events — top picks"));
     var lines = [
       "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//la-events//calendar-feed//EN",

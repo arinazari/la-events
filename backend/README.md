@@ -33,6 +33,13 @@ It does **a few** things, depending on what the POST body carries:
        ─► worker fetches each named PUBLIC feed + the caller's, returns a per-person rating matrix
              ◄──────────── { reply } ────────────   profiles aren't private; a username is permission
 
+5b. STARS (POST /react — the one social save, no LLM, no CONCIERGE_TOKEN)
+   ☆ Star on a card ─► worker POST /react {profile, event_key, kind, title?, artists?}
+       ─► commits data/reactions.jsonl (last-wins per person+event) ─► CI re-folds `stars` onto the
+          feeds ─► everyone sees "★ Lori" on that card + in digests; the starrer's saved calendar picks it up
+       ─► star/hide with artists also appends loved/hide to feedback.<hash>.jsonl (teaches ranking)
+             ◄──────── { ok, changed, learned } ────────   gate = valid profile hash + GITHUB_TOKEN
+
 6. CALENDAR FEED (GET, no auth, no LLM — Google/Apple Calendar poll this)
    GET /calendar.ics?p=<hash>&min=&perday=&horizon=&days=&types=&xtypes=&genres=&xgenres=
        ─► worker fetches the PUBLIC feed (data[.<hash>].json), filters + builds iCalendar
@@ -71,6 +78,32 @@ And one **read-only** tool (no commit, no GitHub token, available to any authed 
   (no fixed group rules — Ari's call). **Profiles aren't private**: knowing a username is permission
   enough, there's no opt-out flag. A username with no feed comes back under `unknown`.
 
+## Stars (`POST /react`) — the one social save
+
+```
+POST /react { profile: "<feed-hash>", event_key: "<12-hex>", kind: "star"|"unstar"|"hide",
+              title?: string, artists?: [string] }
+->   200 { ok, changed, learned }
+```
+
+A star is double-duty by design. The Worker commits it to `data/reactions.jsonl` (the shared
+log — star state is **last-wins per person+event**, idempotent taps), and CI folds it onto every
+feed as `stars: [{name, hash}]`, so the star is **visible to everyone**: "★ Lori" on the card and
+beside the event in every digest, and it drives that person's **Starred calendar**
+(`GET /calendar.ics?saved=1`). AND — for `star`/`hide` with `artists` attached — it appends a
+`loved`/`hide` line to that profile's `data/feedback.<hash>.jsonl`, which the existing tested
+feedback→scoring fold picks up with **zero new ranking code** (append-once per event+kind, so
+flapping can't stack weight; `unstar` never teaches — a past star still meant interest).
+
+Gate = a **valid profile hash** (`resolveProfile` maps it via `profiles.yaml` — a name-derived
+feed hash today; a capability token once Track A lands) **+ `GITHUB_TOKEN`**. There is **no
+`CONCIERGE_TOKEN` check**: that token guards LLM spend and `/react` spends none, so a friend who
+never set up the concierge can still star. Blast radius is a revertible commit to the shared
+reactions log — same "obfuscation, not security" model as the feeds. Committing to the repo is
+what makes stars mutual and durable (no per-viewer state); the feeds re-fold on the
+`data/reactions.jsonl` push (`build-profiles.yml`). Ported from Track A "A4: stars" with the
+reactions.jsonl schema kept identical, so that branch's eventual merge is a clean overlap.
+
 ## Contract
 
 ```
@@ -91,9 +124,13 @@ GET /calendar.ics (no auth) -> text/calendar   the calendar-subscription feed. S
       min=1..5             minimum rating (default 4)         perday=1..10  max events/day (default 3)
       horizon=7..120       days ahead (default 60)            days=fri,sat  weekdays (empty = all)
       types= / xtypes=     include/exclude tags.type          genres= / xgenres=  include/exclude genres
-      keys=k1,k2,…         SAVED mode: the calendar is exactly these events (server event_keys). When
-                           present the picks knobs above don't apply — it's the user's starred shortlist,
-                           still upcoming. This is what the dashboard's "Saved" calendar tab subscribes to.
+      saved=1              STARRED mode: the calendar is every event this profile (p=) STARRED,
+                           resolved server-side from the feed's `stars` field. A STABLE url — new
+                           stars appear on the next poll, no re-subscribe. This is what the dashboard's
+                           "Starred" calendar tab subscribes to.
+      keys=k1,k2,…         legacy per-event key list baked into the url (the pre-server saves + the
+                           client snapshot). Still honored so old subscriptions keep working.
+POST /react (no CONCIERGE_TOKEN — see Stars) -> { ok, changed, learned }   star / unstar / hide.
     UNAUTHENTICATED BY DESIGN: calendar clients poll server-side and can't send Bearer headers,
     and the route spends nothing — no LLM call, no commit; it only re-serves the already-public
     Pages feed reshaped. Same obfuscation-not-security model as the feed hashes themselves.
@@ -158,14 +195,14 @@ chat header stores the token / personal key (per profile, in that browser's loca
 
 > Re-run `npx wrangler deploy` after Worker-code changes in this repo. Current pending changes
 > (2026-07-21): the `opener` field is retired — the chat's take is display-only and the page no
-> longer sends it, so a stale deployed Worker is harmless (its opener plumbing just receives
-> nothing) — and the **calendar feed** (`GET /calendar.ics`, build `2026-07-21-cal2`) ships, now
-> covering both the taste-ranked picks and a **saved-events** calendar (`keys=` param). The calendar
-> modal probes the live route when opened and shows a "redeploy" note (subscribe links hidden,
-> snapshot download still works) until the deploy lands; the Saved tab additionally checks the live
-> build via the ping and warns if it's older than `2026-07-21` (a `cal1` build would serve picks for
-> a `keys=` URL). A stale Worker degrades gracefully — but the subscribe feature doesn't exist until
-> you redeploy.
+> longer sends it, so a stale deployed Worker is harmless — the **calendar feed**
+> (`GET /calendar.ics`) ships, and **stars** (`POST /react` + `GET /calendar.ics?saved=1`) at build
+> `2026-07-21-star1`. The calendar modal probes the live route when opened and shows a "redeploy"
+> note (subscribe links hidden, snapshot download still works) until the deploy lands; the Starred
+> tab additionally checks the live build via the ping and warns if it's older than
+> `2026-07-21-star1` (an older calendar build would serve picks for a `saved=1` URL, and `/react`
+> wouldn't exist at all). Stars need `GITHUB_TOKEN` set (else `/react` returns 501). A stale Worker
+> degrades gracefully — but stars + the starred calendar don't exist until you redeploy.
 
 ### "I redeployed but it still fails" — verify the deploy actually landed
 

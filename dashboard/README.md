@@ -14,7 +14,8 @@ support.js            the "dc-runtime" that renders index.html (loads vendored R
 calendar-core.js      calendar-subscription core (filter + iCalendar builder) — shared VERBATIM
                       with the Worker's GET /calendar.ics (backend/ imports this file), so the
                       modal's preview always matches what a subscribed calendar receives. Serves
-                      both the taste-ranked "Top picks" calendar and the starred "Saved" one (keys=)
+                      both the taste-ranked "Top picks" calendar and the "Starred" one (?saved=1,
+                      resolved from the feed's `stars` field — server-side saves via POST /react)
 vendor/               React 18 + ReactDOM + @babel/standalone, vendored locally (no CDN)
 data.json             the feed — built by scripts/build_dashboard.py (committed)
 manifest.webmanifest  installable-PWA metadata

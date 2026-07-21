@@ -475,25 +475,29 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   source toggle — **Top picks** (the profile's taste-ranked events) and **Saved** (the starred
   shortlist). The Worker serves `GET /calendar.ics?p=<hash>&…` (unauthenticated — it only re-serves
   the public feed): picks mode takes min rating / per-day cap / horizon / weekdays / include-exclude
-  type+genre chips in the query string; saved mode takes `keys=<event_keys>` (the picks knobs don't
-  apply). `dashboard/calendar-core.js` is the ONE filter/ICS builder, loaded by the page (live
+  type+genre chips in the query string; the **Starred** calendar takes `saved=1` and resolves the
+  profile's stars server-side from the feed's `stars` field — a stable url (the earlier `keys=`
+  event-list is kept as a legacy/snapshot fallback). `dashboard/calendar-core.js` is the ONE filter/ICS builder, loaded by the page (live
   preview + one-shot `.ics` snapshot) and imported by the Worker, so preview and subscription can't
   drift. Subscription URLs use explicit `TZID=America/Los_Angeles` (+VTIMEZONE) — a deliberate
   divergence from the floating-local one-shot exports, since polled feeds cross clients. Build
   `2026-07-21-cal2`. Track A: the URL carries the feed hash; when capability tokens replace hashes,
   `p=` inherits that swap.
-- [x] **Save / bookmark events** (2026-07-21) — a **☆ Save** star on the Explore expanded row, the
-  mobile card, and the front-page detail modal toggles a per-profile localStorage shortlist
-  (`la-saved:<hash|default>`, keyed by the stable server `key` so a star survives re-ranks). Feeds
-  the **Saved** calendar above; still the seed for a future "plan around these". Not yet a committed
-  cross-device list (it's per-browser, same model as the connection) — that would want the KV/write
-  path the calendar note declined.
-- [ ] **Like → learn taste** — per-event 👍/👎 (or "more like this" / "never show") that feeds the
-  existing feedback loop (`data/feedback.jsonl` → `lib/feedback.py` → affinity, Phase C). Closes the
-  implicit-signal-capture gap noted in Phase C (emitting reactions waited on a dashboard surface); on
-  static Pages it rides the hand-off seam — compose the `feedback.jsonl` append for the agent to commit.
-  Groundwork shipped (2026-07-16): the front-page cards/detail modal are the surface, and every feed
-  event carries `key` = the server `event_key` that `log_feedback.py` / `lib/feedback.py` key off.
+- [x] **Save / bookmark events → server-side stars** (2026-07-21) — shipped first as a per-browser
+  localStorage shortlist, then reworked to **server-side stars** (Ari's call: saves must be shared,
+  not per-device). A **☆ Star** on the Explore row / mobile card / front-page detail POSTs to the
+  Worker's `POST /react`, which commits to `data/reactions.jsonl`; CI folds `stars: [{name,hash}]`
+  onto every feed, so a star is **mutual** — "★ Lori" shows on the card + in digests for everyone —
+  AND it's the seed of the learning loop (star→`loved` into `feedback.<hash>.jsonl`, ranked by the
+  existing fold). The Starred calendar reads server stars via a stable `?saved=1` (no re-subscribe).
+  Ported from Track A "A4: stars" (`claude/track-a-execution-vu3gif`), reactions.jsonl schema kept
+  identical for a clean merge; the tokenization/private-repo parts of Track A stay out of scope.
+- [~] **Like → learn taste** — largely shipped via **stars** (2026-07-21): the ☆ Star's server commit
+  also appends a `loved`/`hide` line to `data/feedback.<hash>.jsonl` (`POST /react`), which the existing
+  `lib/feedback.py` → affinity fold ranks with — the star IS the "more like this" signal, no separate
+  👍/👎 needed. Remaining: an explicit **👎 / never-show** surface (the `hide` kind exists in `/react`
+  but the dashboard only sends `star`/`unstar`; wire a hide affordance if wanted). No hand-off seam
+  needed anymore — the Worker commits directly.
 - [ ] **In-app taste editing (direct YAML)** — the profile popup is now slim (signed-in · log out +
   a "View your taste profile →" link) and opens a dedicated **read-only** taste modal (2026-06-20).
   Making it *editable in-page* means a Worker save path: POST the full YAML → validate (re-parses +

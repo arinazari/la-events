@@ -637,7 +637,7 @@
                         </sc-for>
                         <span onClick="{{ ev.icsClick }}" title="Download .ics — add to your calendar" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#2b5cd9; background:#f4f7fe; color:#2b5cd9;">Add to calendar ↓</span>
                         <sc-if value="{{ ev.canSave }}" hint-placeholder-val="{{ true }}">
-                          <span onClick="{{ ev.saveClick }}" title="{{ ev.saveTitle }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; background:#fff; color:{{ ev.saveColor }}; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#9a6a1a; background:#fbf3e2;">{{ ev.saveStar }} Save</span>
+                          <span onClick="{{ ev.saveClick }}" title="{{ ev.saveTitle }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #c9c7bd; background:#fff; color:{{ ev.saveColor }}; border-radius:2px; cursor:pointer; transition:background 0.12s ease, border-color 0.12s ease;" style-hover="border-color:#9a6a1a; background:#fbf3e2;">{{ ev.saveStar }} Star</span>
                         </sc-if>
                       </div>
                       <sc-if value="{{ ev.hasSeries }}" hint-placeholder-val="{{ false }}">
@@ -778,7 +778,7 @@
                   </sc-for>
                   <span onClick="{{ ev.icsClick }}" title="Download .ics — add to your calendar" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">Add to calendar ↓</span>
                   <sc-if value="{{ ev.canSave }}" hint-placeholder-val="{{ true }}">
-                    <span onClick="{{ ev.saveClick }}" title="{{ ev.saveTitle }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:{{ ev.saveColor }}; border-radius:3px; cursor:pointer;">{{ ev.saveStar }} Save</span>
+                    <span onClick="{{ ev.saveClick }}" title="{{ ev.saveTitle }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:{{ ev.saveColor }}; border-radius:3px; cursor:pointer;">{{ ev.saveStar }} Star</span>
                   </sc-if>
                 </div>
               </div>
@@ -1040,7 +1040,7 @@
           </sc-if>
           <span onClick="{{ fpDetail.icsClick }}" title="Download .ics — add to your calendar" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid #c9c7bd; background:#fff; color:#3f3d36; border-radius:3px; cursor:pointer;">Add to calendar ↓</span>
           <sc-if value="{{ fpDetail.canSave }}" hint-placeholder-val="{{ true }}">
-            <span onClick="{{ fpDetail.saveClick }}" title="Save to your shortlist — build a calendar of your saved events in Settings → Calendar feed" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid {{ fpDetail.saveBorder }}; background:{{ fpDetail.saveBg }}; color:{{ fpDetail.saveColor }}; border-radius:3px; cursor:pointer;">{{ fpDetail.saveLabel }}</span>
+            <span onClick="{{ fpDetail.saveClick }}" title="Star it — everyone sees your star, it teaches your ranking, and it builds your starred calendar (Settings → Calendar feed)" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:10px 13px; border:1px solid {{ fpDetail.saveBorder }}; background:{{ fpDetail.saveBg }}; color:{{ fpDetail.saveColor }}; border-radius:3px; cursor:pointer;">{{ fpDetail.saveLabel }}</span>
           </sc-if>
         </div>
       </div>
@@ -1270,7 +1270,9 @@
           <!-- source toggle: taste-ranked picks vs your starred events -->
           <div style="display:flex; gap:6px; margin-bottom:11px;">
             <span onClick="{{ onCalPicks }}" style="cursor:pointer; padding:6px 12px; border:1px solid {{ calPicksTabBorder }}; background:{{ calPicksTabBg }}; color:{{ calPicksTabColor }}; border-radius:2px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em;">TOP PICKS</span>
-            <span onClick="{{ onCalSaved }}" title="A calendar of the events you starred" style="cursor:pointer; padding:6px 12px; border:1px solid {{ calSavedTabBorder }}; background:{{ calSavedTabBg }}; color:{{ calSavedTabColor }}; border-radius:2px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em;">★ {{ calSavedTabLabel }}</span>
+            <sc-if value="{{ calShowSavedTab }}" hint-placeholder-val="{{ true }}">
+              <span onClick="{{ onCalSaved }}" title="A calendar of the events you starred" style="cursor:pointer; padding:6px 12px; border:1px solid {{ calSavedTabBorder }}; background:{{ calSavedTabBg }}; color:{{ calSavedTabColor }}; border-radius:2px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em;">★ {{ calSavedTabLabel }}</span>
+            </sc-if>
           </div>
           <div style="font-size:11.5px; line-height:1.5; color:#3f3d36;">{{ calIntro }}</div>
 
@@ -1331,8 +1333,9 @@
               <a href="{{ calWebcalUrl }}" title="Opens Calendar on Mac/iPhone and subscribes (webcal)" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">Apple / iCal ↗</a>
               <span onClick="{{ copyCalUrl }}" title="Copy the feed URL — paste into any calendar app's 'subscribe by URL'" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">copy URL</span>
             </div>
-            <div style="margin-top:7px; font:500 9.5px/1.45 ui-monospace,Menlo,monospace; color:#a7a59b;">The subscription keeps itself current as events land. Settings ride in the URL — after changing them, subscribe again (and drop the old calendar).</div>
-          </sc-if>
+            <sc-if value="{{ calShowPicksFilters }}" hint-placeholder-val="{{ true }}">
+              <div style="margin-top:7px; font:500 9.5px/1.45 ui-monospace,Menlo,monospace; color:#a7a59b;">The subscription keeps itself current as events land. Settings ride in the URL — after changing them, subscribe again (and drop the old calendar).</div>
+            </sc-if>
           <div style="margin-top:9px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
             <span onClick="{{ downloadCalSnapshot }}" title="One-shot .ics of the picks above — imports anywhere, but won't update itself" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:2px; font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">↓ .ics snapshot</span>
             <button onClick="{{ closeCalModal }}" style="font:600 11px/1 ui-monospace,Menlo,monospace; padding:7px 12px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:2px; cursor:pointer;" style-hover="border-color:#161512; color:#161512;">Close</button>
@@ -1457,7 +1460,6 @@ class Component extends DCLogic {
     settingsOpen: false, toast: null, connectModalOpen: false, tokenInput: '',
     calModalOpen: false, calCfg: null, calStatus: null,   // calendar-feed modal: settings + live-route probe ('ok'|'stale'|'down'|'none')
     calSource: 'picks',   // which calendar the modal is building: 'picks' (taste-ranked) | 'saved' (starred)
-    saved: (() => { try { const p = JSON.parse(localStorage.getItem('la-profile') || 'null'); const k = 'la-saved:' + ((p && p.hash) || 'default'); const a = JSON.parse(localStorage.getItem(k) || '[]'); const m = {}; (Array.isArray(a) ? a : []).forEach(x => { if (x) m[x] = 1; }); return m; } catch (e) { return {}; } })(),
     apiKeyInput: '', apiEnabledDraft: false, useOpusDraft: false,   // drafts for the connection modal (key + on/off switch + Opus)
     input: '',
     chatMode: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-chat-mode')) || 'llm'),
@@ -1552,6 +1554,7 @@ class Component extends DCLogic {
 
   badgeStyle(text) {
     const t = text.toLowerCase();
+    if (text.charAt(0) === '★') return { color:'#b06a00', bg:'rgba(176,106,0,0.12)' };   // friends' stars
     if (t.includes('ra pick')) return { color:'#1f7a4d', bg:'rgba(31,122,77,0.10)' };
     if (t.includes('afterhours') || t.includes('tba')) return { color:'#8a3ffb'.replace('8a3ffb','6d3fb3'), bg:'rgba(109,63,179,0.10)' };
     if (t === 'free') return { color:'#1f7a4d', bg:'rgba(31,122,77,0.10)' };
@@ -1581,6 +1584,8 @@ class Component extends DCLogic {
   }
   computedBadges(e) {
     const arr = [];
+    // Friends' stars lead the row — the mutual social signal. Everyone sees them, logged in or not.
+    if (e.stars && e.stars.length) arr.push({ text: '★ ' + e.stars.map(s => s.name).join(', ') });
     if (e.series && e.series.count > 1) {
       const nv = (e.series.venues || []).length;
       arr.push({ text: nv > 1 ? (e.series.count + ' dates · ' + nv + ' theaters') : (e.series.count + ' nights') });
@@ -1843,30 +1848,60 @@ class Component extends DCLogic {
     } catch (err) { /* download blocked — no-op, the ticket links still work */ }
   };
 
-  // ---------- saved / starred events ----------
-  // A personal shortlist, per profile, in localStorage (the seed for the saved-events calendar
-  // below and for "plan around these"). Keyed by the server event_key (`key`) so a starred event
-  // survives re-ranks and feed rebuilds. Per-browser by design — same model as the connection.
-  savedStoreKey(p) { const prof = (p === undefined) ? this.state.profile : p; return 'la-saved:' + ((prof && prof.hash) || 'default'); }
-  loadSaved(p) {
-    let m = {};
-    try { const a = JSON.parse(localStorage.getItem(this.savedStoreKey(p)) || '[]'); (Array.isArray(a) ? a : []).forEach(x => { if (x) m[x] = 1; }); } catch (e) {}
-    this.setState({ saved: m });
+  // ---------- stars (server-side saves — the one social signal) ----------
+  // A star is committed to the shared data/reactions.jsonl by the Worker (POST /react), folded onto
+  // events at the next rebuild as `stars: [{name, hash}]` — so EVERYONE sees who starred what, and
+  // it drives your saved-events calendar. Keyed by the server event_key (`key`). STAR_LOCAL holds
+  // this session's optimistic taps (feed stars lag a rebuild), reverted if the commit fails.
+  STAR_LOCAL = {};   // event key -> bool (optimistic); reset on profile switch
+  myHash() { const p = this.state.profile; return (p && p.hash) || ''; }
+  starOn(e) {
+    if (e && e.key && Object.prototype.hasOwnProperty.call(this.STAR_LOCAL, e.key)) return !!this.STAR_LOCAL[e.key];
+    const h = this.myHash();
+    return !!(h && Array.isArray(e && e.stars) && e.stars.some(s => s && s.hash === h));
   }
-  persistSaved(m) { try { localStorage.setItem(this.savedStoreKey(), JSON.stringify(Object.keys(m))); } catch (e) {} }
-  isSaved(key) { return !!(key && this.state.saved && this.state.saved[key]); }
-  savedList() { return Object.keys(this.state.saved || {}); }
-  savedCount() { return this.savedList().length; }
-  // Toggle a star. Events without a stable `key` (the rare keyless row) can't be tracked across
-  // rebuilds, so we don't offer the star on them (see the row bindings).
-  toggleSave = (key, domEv) => {
+  // The stars list with this session's optimistic tap applied, so your own ★ shows/hides instantly
+  // in the "★ Lori, You" badge before the feed catches up.
+  adjustedStars(e) {
+    const h = this.myHash();
+    if (!h || !e || !e.key || !Object.prototype.hasOwnProperty.call(this.STAR_LOCAL, e.key)) return (e && e.stars) || [];
+    const rest = ((e && e.stars) || []).filter(s => s && s.hash !== h);
+    return this.STAR_LOCAL[e.key] ? [{ name: (this.state.profile && this.state.profile.name) || 'You', hash: h }, ...rest] : rest;
+  }
+  // My starred event keys across the loaded feed (feed stars ∪ optimistic taps) — feeds the calendar
+  // preview + .ics snapshot (client-side), reflecting a just-tapped star before the rebuild lands.
+  myStarredKeys() {
+    if (!this.myHash()) return [];
+    const set = {};
+    (this.ALL || []).forEach(e => { if (e.key && this.starOn(e)) set[e.key] = 1; });
+    return Object.keys(set);
+  }
+  savedList() { return this.myStarredKeys(); }
+  savedCount() { return this.myStarredKeys().length; }
+  toggleStar = async (e, domEv) => {
     if (domEv && domEv.stopPropagation) domEv.stopPropagation();
-    if (!key) return;
-    const m = Object.assign({}, this.state.saved);
-    if (m[key]) { delete m[key]; this.flashToast('Removed from saved'); }
-    else { m[key] = 1; this.flashToast('Saved ★ — subscribe to your saved calendar in Settings → Calendar feed'); }
-    this.persistSaved(m);
-    this.setState({ saved: m });
+    const p = this.state.profile;
+    if (!p || !p.hash) { this.flashToast('Log in to star events'); return; }
+    if (!e || !e.key) return;
+    if (!this.BACKEND_URL) { this.flashToast('Starring needs the concierge backend'); return; }
+    const next = !this.starOn(e);
+    this.STAR_LOCAL = { ...this.STAR_LOCAL, [e.key]: next };   // optimistic
+    this.forceUpdate();
+    try {
+      const headers = { 'content-type': 'application/json' };
+      if (this.BACKEND_TOKEN) headers.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+      const res = await fetch(this.workerUrl('/react'), {
+        method: 'POST', headers,
+        body: JSON.stringify({ profile: p.hash, event_key: e.key, kind: next ? 'star' : 'unstar',
+          title: e.title, artists: (e.lineup || []).slice(0, 12) }),
+      });
+      if (!res.ok) throw new Error('react ' + res.status);
+      this.flashToast(next ? '★ Starred — everyone sees it; your starred calendar updates shortly' : 'Star removed');
+    } catch (err) {
+      this.STAR_LOCAL = { ...this.STAR_LOCAL, [e.key]: !next };   // revert on failure
+      this.forceUpdate();
+      this.flashToast('Couldn’t save that star — try again');
+    }
   };
 
   // ---------- calendar-subscription feed ----------
@@ -1886,8 +1921,14 @@ class Component extends DCLogic {
   };
   closeCalModal = () => this.setState({ calModalOpen: false });
   setCalSource = (src) => this.setState({ calSource: src }, () => this.probeCalFeed());
-  // The settings the calendar is actually built from: the starred keys in 'saved' mode (the picks
-  // knobs don't apply), else the tuned picks config.
+  // Two configs for the starred calendar. The SUBSCRIBE url uses savedHash → a stable ?saved=1 the
+  // Worker resolves from server stars (new stars appear on the next poll, no re-subscribe). The
+  // LOCAL preview + .ics snapshot use my starred keys (feed stars ∪ this session's optimistic taps),
+  // so a just-tapped star is reflected immediately even before the feed rebuilds.
+  calUrlCfg() {
+    if (this.state.calSource === 'saved') return { savedHash: this.myHash() };
+    return this.state.calCfg || CalendarCore.normSettings({});
+  }
   calEffectiveCfg() {
     if (this.state.calSource === 'saved') return { keys: this.savedList() };
     return this.state.calCfg || CalendarCore.normSettings({});
@@ -1919,7 +1960,7 @@ class Component extends DCLogic {
     const p = this.state.profile;
     const parts = [];
     if (p && p.hash) parts.push('p=' + p.hash);
-    const qs = CalendarCore.paramsFromSettings(this.calEffectiveCfg());
+    const qs = CalendarCore.paramsFromSettings(this.calUrlCfg());   // stable ?saved=1 for the starred calendar
     if (qs) parts.push(qs);
     return parts.length ? '?' + parts.join('&') : '';
   }
@@ -1951,14 +1992,14 @@ class Component extends DCLogic {
     if (!feed) { this.flashToast('Feed not loaded yet — try again in a moment.'); return; }
     const effCfg = this.calEffectiveCfg();
     if (this.state.calSource === 'saved' && CalendarCore.selectEvents(feed, effCfg, this.toISO(new Date())).length === 0) {
-      this.flashToast('No upcoming saved events to export — star some first.'); return;
+      this.flashToast('No upcoming starred events to export — star some first.'); return;
     }
     try {
       const ics = CalendarCore.buildIcs(feed, effCfg, { todayISO: this.toISO(new Date()) });
       const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = url; a.download = (this.state.calSource === 'saved' ? 'la-events-saved.ics' : 'la-events.ics');
+      a.href = url; a.download = (this.state.calSource === 'saved' ? 'la-events-starred.ics' : 'la-events.ics');
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (err) { /* download blocked — the subscribe links still work */ }
@@ -1969,16 +2010,17 @@ class Component extends DCLogic {
       onCalPicks: () => this.setCalSource('picks'), onCalSaved: () => this.setCalSource('saved') };
     if (!this.state.calModalOpen) {
       return Object.assign(base, {
-        calSourceIsPicks: true, calSourceIsSaved: false, calShowPicksFilters: true,
+        calSourceIsPicks: true, calSourceIsSaved: false, calShowPicksFilters: true, calShowSavedTab: !!this.myHash(),
         calPicksTabBg: '#1b1a17', calPicksTabColor: '#fff', calPicksTabBorder: '#1b1a17',
-        calSavedTabBg: '#fff', calSavedTabColor: '#3f3d36', calSavedTabBorder: '#d2d0c7', calSavedTabLabel: 'Saved',
+        calSavedTabBg: '#fff', calSavedTabColor: '#3f3d36', calSavedTabBorder: '#d2d0c7', calSavedTabLabel: 'Starred',
         calIntro: '', calMinChips: [], calPerdayChips: [], calHorizonChips: [], calDayChips: [],
         calTypeChips: [], calGenreChips: [], calPreviewCount: '', calPreviewNext: '',
         calCanSubscribe: false, calNote: '', calNoteColor: '#76746b', calGcalUrl: '', calWebcalUrl: '',
         copyCalUrl: this.copyCalUrl, downloadCalSnapshot: this.downloadCalSnapshot,
       });
     }
-    const savedMode = this.state.calSource === 'saved';
+    const loggedIn = !!this.myHash();
+    const savedMode = this.state.calSource === 'saved' && loggedIn;
     const cfg = this.state.calCfg || CalendarCore.normSettings({});
     const feed = this.calFeed();
     const p = this.state.profile;
@@ -2020,8 +2062,8 @@ class Component extends DCLogic {
     if (feed) {
       const evs = CalendarCore.selectEvents(feed, effCfg, this.toISO(new Date()));
       if (savedMode) {
-        calPreviewCount = savedN === 0 ? 'No saved events yet'
-          : evs.length + (evs.length === 1 ? ' saved event' : ' saved events') + ' upcoming'
+        calPreviewCount = savedN === 0 ? 'No starred events yet'
+          : evs.length + (evs.length === 1 ? ' starred event' : ' starred events') + ' upcoming'
             + (savedN > evs.length ? ' (' + (savedN - evs.length) + ' already passed)' : '');
       } else {
         calPreviewCount = evs.length + (evs.length === 1 ? ' event' : ' events') + ' · next ' + cfg.horizon + ' days';
@@ -2030,34 +2072,35 @@ class Component extends DCLogic {
     }
 
     const st = this.state.calStatus;
-    // The keys= route only parses from build 2026-07-21 (cal2); an older LIVE Worker would serve
-    // PICKS for a saved URL. The text/calendar probe can't tell them apart, so gate on the ping's
-    // version. Unknown version ('' / null, e.g. a pre-fingerprint build) → don't block; the probe stands.
+    // The starred calendar's ?saved=1 route only parses from build 2026-07-21-star1; a pre-star1
+    // Worker would serve PICKS for a saved URL. Same-day builds don't sort by date prefix, so gate
+    // on the FULL ping version ('…-cal2' < '…-star1' lexically). Unknown version → don't block.
     const ver = this.state.backendVer;
-    const savedNeedsRedeploy = savedMode && typeof ver === 'string' && ver && ver.slice(0, 10) < '2026-07-21';
+    const savedNeedsRedeploy = savedMode && typeof ver === 'string' && ver && ver < '2026-07-21-star1';
 
     let calNote = '', calNoteColor = '#76746b', calCanSubscribe = false;
     if (st === 'none') calNote = 'Live subscription needs the concierge backend — the .ics snapshot below still works (one-shot import, no auto-update).';
     else if (st === 'stale') { calNote = 'The live Worker build predates calendar feeds — redeploy it (cd backend && npx wrangler deploy), then reopen this.'; calNoteColor = '#9a6a1a'; }
     else if (st === 'down') { calNote = 'Couldn’t reach the calendar feed just now — subscribe links hidden; the .ics snapshot below still works.'; calNoteColor = '#b4453a'; }
-    else if (savedMode && savedN === 0) calNote = 'Star events (the ☆ Save button on any event) to build this calendar.';
-    else if (savedNeedsRedeploy) { calNote = 'Saved-event calendars need Worker build 2026-07-21 or newer — redeploy (cd backend && npx wrangler deploy). The .ics snapshot works now.'; calNoteColor = '#9a6a1a'; }
+    else if (savedMode && savedN === 0) calNote = 'Star events (the ☆ Star button on any event) to build this calendar — everyone sees your stars.';
+    else if (savedNeedsRedeploy) { calNote = 'Starred calendars need Worker build 2026-07-21-star1 or newer — redeploy (cd backend && npx wrangler deploy). The .ics snapshot works now.'; calNoteColor = '#9a6a1a'; }
     else if (st === 'ok') {
       calCanSubscribe = true;
       calNote = savedMode
-        ? 'Auto-updates event times/venues and drops past ones. Starring NEW events later means subscribing again — this URL bakes in today’s saved set.'
+        ? 'A stable link: it auto-updates as you star (and unstar) events and drops past ones — no need to re-subscribe. New stars appear within a couple minutes of tapping.'
         : '';
     } else calNote = 'checking the live feed…';
 
     const intro = savedMode
-      ? ('A calendar of the events ' + ((p && p.name) ? p.name : 'you') + ' starred — ' + savedN + ' saved. Subscribe once and their details stay current.')
+      ? ('A calendar of the events ' + ((p && p.name) ? p.name : 'you') + ' starred — ' + savedN + ' starred. Subscribe once; it stays current as you star more.')
       : ('An auto-updating calendar of ' + ((p && p.name) ? p.name + '’s' : 'the house') + ' top-rated picks — tune what makes the cut, then subscribe in Google or Apple Calendar.');
 
     return Object.assign(base, {
       calSourceIsPicks: !savedMode, calSourceIsSaved: savedMode, calShowPicksFilters: !savedMode,
+      calShowSavedTab: loggedIn,   // the starred calendar is per-person — only when signed in
       calPicksTabBg: !savedMode ? '#1b1a17' : '#fff', calPicksTabColor: !savedMode ? '#fff' : '#3f3d36', calPicksTabBorder: !savedMode ? '#1b1a17' : '#d2d0c7',
       calSavedTabBg: savedMode ? '#1b1a17' : '#fff', calSavedTabColor: savedMode ? '#fff' : '#3f3d36', calSavedTabBorder: savedMode ? '#1b1a17' : '#d2d0c7',
-      calSavedTabLabel: 'Saved (' + savedN + ')',
+      calSavedTabLabel: 'Starred (' + savedN + ')',
       calIntro: intro,
       calMinChips, calPerdayChips, calHorizonChips, calDayChips, calTypeChips, calGenreChips,
       calPreviewCount, calPreviewNext,
@@ -2907,7 +2950,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
-    "- **Save events + subscribe to them.** Every event now has a **☆ Save** button (in its detail row and the front-page card) — star the ones you're eyeing into a personal shortlist. Then **Settings → Calendar feed → Saved** gives you a calendar of exactly those, alongside the **Top picks** calendar. Both keep their event details current as things move; for saved, star more and re-subscribe to add them.",
+    "- **Star events — and everyone sees it.** Every event has a **☆ Star** button (its detail row + the front-page card). A star is saved on the server, not just your browser: friends see **★ your name** on that event's card and in digests, it gently teaches your ranking, and it builds your calendar. **Settings → Calendar feed → Starred** subscribes you to a live calendar of exactly your starred events — a stable link that auto-updates as you star more (no re-subscribing), alongside the **Top picks** calendar.",
     "- **Subscribe to your picks as a calendar.** **Settings → Calendar feed** turns your top-rated events into a calendar that keeps itself current — subscribe in Google or Apple Calendar (or copy the URL into any app). A few knobs decide what makes the cut: minimum rating, max events per day, how far ahead, weekdays, and include/exclude chips for categories + genres. Prefer a one-shot file? The **.ics snapshot** downloads the same picks without the auto-update.",
     "- **Tags on every card — tap one to explore.** Cards now wear their tags (genre + vibe: *techno*, *queer*, *warehouse*, …) right on the front — on the front page, the Explore table, and mobile cards — and every tag is a link: tap it to jump into Explore filtered to exactly that tag, ready to refine or clear like any other filter.",
     "- **Listen + artist intel.** Opening an event shows its lineup as artist rows: quiet **Spotify / SoundCloud** glyphs per name (music bills, plus anyone the scene graph has verified) — straight to the artist's Spotify page once the nightly resolver has matched them, a search otherwise — and, where the research exists, a one-line bio of who that artist is. **✦ Artist intel** hands the bill to the concierge for the full LLM rundown — who they are, what they sound like, who to show up early for.",
@@ -3516,11 +3559,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // Connection is per-profile: drop the profile we're leaving and load the target's saved token (if
     // still fresh), then re-check it so the indicator reflects THIS profile, not the one we just left.
     this.BACKEND_TOKEN = this.readConn(profileObj).token || '';
-    // Saved shortlist is per-profile (keyed by hash) — load the target's before rendering.
-    let savedMap = {};
-    try { const a = JSON.parse(localStorage.getItem(this.savedStoreKey(profileObj)) || '[]'); (Array.isArray(a) ? a : []).forEach(x => { if (x) savedMap[x] = 1; }); } catch (e) {}
+    // Stars are server-side + per-profile: drop this session's optimistic taps so the incoming
+    // profile's own stars (from its feed) show, not the one we're leaving.
+    this.STAR_LOCAL = {};
     this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
-      saved: savedMap, calModalOpen: false,
+      calModalOpen: false, calSource: 'picks',
       spotifyStatus: null, spotifyName: '', backendStatus: null, backendVer: null },
       () => { if (this.BACKEND_URL) this.pingBackend(); });
     // The digest on hand belongs to the profile we're LEAVING — never let its lede seed the
@@ -4391,7 +4434,8 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       series: (r.series && typeof r.series === 'object') ? r.series : null,
       showtimesUrl: r.showtimes_url || null,
       verdict: r.verdict || null,
-      key: r.key || null,              // stable server id (event_key) — front_page join
+      key: r.key || null,              // stable server id (event_key) — front_page join + stars
+      stars: Array.isArray(r.stars) ? r.stars.filter(s => s && s.name && s.hash) : [],   // [{name,hash}] who starred it
       lane: r.lane || null,            // slate lane (club:afters / live-music / …)
       firstSeen: r.first_seen || null, // vs META.catalog_fetched_at -> NEW badge
       why, whyCurated,
@@ -4634,7 +4678,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       rankColor: (e.final_rank ? '#161512' : '#cfcdc4'),
       rankTitle: (e.verdict ? (String(e.verdict.tier || '').toUpperCase() + (e.verdict.why ? ' — ' + e.verdict.why : '')) : 'deterministic rank'),
       source: e.source,
-      badges: this.computedBadges(e),
+      badges: this.computedBadges({ ...e, stars: this.adjustedStars(e) }),
       why: e.why,
       desc: e.desc, hasDesc: e.hasDesc,
       ...this.detailFields(e),
@@ -4652,12 +4696,11 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       rowBg: e.id === expandedId ? '#f3f1ea' : 'transparent',
       onClick: () => this.toggle(e.id),
       icsClick: (domEv) => this.downloadICS(e, domEv),
-      canSave: !!e.key,
-      isSaved: this.isSaved(e.key),
-      saveStar: this.isSaved(e.key) ? '★' : '☆',
-      saveColor: this.isSaved(e.key) ? '#9a6a1a' : '#a7a59b',
-      saveTitle: this.isSaved(e.key) ? 'Saved — click to remove' : 'Save to your shortlist (and your saved calendar)',
-      saveClick: (domEv) => this.toggleSave(e.key, domEv)
+      canSave: !!(e.key && this.myHash() && this.BACKEND_URL),
+      saveStar: this.starOn(e) ? '★' : '☆',
+      saveColor: this.starOn(e) ? '#b06a00' : '#a7a59b',
+      saveTitle: this.starOn(e) ? 'Starred — click to unstar (everyone sees this)' : 'Star it — everyone sees it, it teaches your ranking, and it builds your calendar',
+      saveClick: (domEv) => this.toggleStar(e, domEv)
     }));
 
     const arrow = (k) => sortKey === k ? (sortDir === 'asc' ? '\u2191' : '\u2193') : '';
@@ -4952,14 +4995,14 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           seriesMore: fpSc.more, hasSeriesMore: !!fpSc.more,
           ...this.intelFor(de),
           icsClick: (domEv) => this.downloadICS(de, domEv),
-          canSave: !!de.key,
-          isSaved: this.isSaved(de.key),
-          saveStar: this.isSaved(de.key) ? '★' : '☆',
-          saveLabel: this.isSaved(de.key) ? 'Saved ★' : 'Save ☆',
-          saveColor: this.isSaved(de.key) ? '#9a6a1a' : '#3f3d36',
-          saveBorder: this.isSaved(de.key) ? '#e4c98f' : '#c9c7bd',
-          saveBg: this.isSaved(de.key) ? '#fbf3e2' : '#fff',
-          saveClick: (domEv) => this.toggleSave(de.key, domEv),
+          canSave: !!(de.key && this.myHash() && this.BACKEND_URL),
+          saveStar: this.starOn(de) ? '★' : '☆',
+          saveLabel: this.starOn(de) ? 'Starred ★' : 'Star ☆',
+          saveColor: this.starOn(de) ? '#b06a00' : '#3f3d36',
+          saveBorder: this.starOn(de) ? '#e4c98f' : '#c9c7bd',
+          saveBg: this.starOn(de) ? '#fbf3e2' : '#fff',
+          saveClick: (domEv) => this.toggleStar(de, domEv),
+          starsLine: (de.stars && de.stars.length) ? '★ Starred by ' + de.stars.map(s => s.name).join(', ') : '',
         };
       }
     }
