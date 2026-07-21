@@ -351,6 +351,86 @@
           </sc-for>
         </div>
       </sc-for>
+
+      <!-- BY SCENE — full-width lane panels (design_handoff_scene_section, Change 1) -->
+      <sc-if value="{{ hasScenes }}" hint-placeholder-val="{{ true }}">
+      <section style="margin-bottom:28px;">
+        <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:11px;">
+          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Your scenes</span>
+          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">by lane · ranked by match</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:13px;">
+          <sc-for list="{{ fpScenes }}" as="sc" hint-placeholder-count="4">
+            <div style="background:#eeebe3; border-radius:9px; padding:14px 15px 13px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:12px;">
+                <span onClick="{{ sc.onAll }}" style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; min-width:0;" style-hover="color:#2b5cd9;">
+                  <span style="flex:none; width:9px; height:9px; border-radius:50%; background: {{ sc.dot }};"></span>
+                  <span style="font:700 13px/1.1 -apple-system,system-ui,sans-serif; color:#161512;">{{ sc.label }}</span>
+                </span>
+                <span onClick="{{ sc.onAll }}" title="See this lane in Explore" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">all →</span>
+              </div>
+              <div class="scry" style="display:grid; grid-auto-flow:column; grid-template-rows: {{ sc.rowsCss }}; grid-auto-columns: {{ sceneColW }}; gap:11px; overflow-x:auto; padding:2px 2px 9px; scroll-snap-type:x proximity;">
+                <sc-for list="{{ sc.cards }}" as="c" hint-placeholder-count="4">
+                  <article onClick="{{ c.onClick }}" style="scroll-snap-align:start; display:flex; flex-direction:column; gap:7px; background:#fff; border:1px solid #e4e2d9; border-left:3px solid {{ sc.dot }}; border-radius:5px; padding:12px 13px; cursor:pointer; transition:border-color .12s ease;" style-hover="border-color:#a7a59b;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                      <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.date }}</span>
+                      <sc-if value="{{ c.tier }}" hint-placeholder-val="{{ false }}"><span style="flex:none; font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; padding:3px 5px; border-radius:2px; color:#fff; background:#161512;">{{ c.tier }}</span></sc-if>
+                    </div>
+                    <div style="font:600 14px/1.3 -apple-system,system-ui,sans-serif; color:#161512; text-wrap:pretty;">{{ c.title }}</div>
+                    <div style="font:500 10.5px/1.35 ui-monospace,Menlo,monospace; color:#76746b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ c.venue }}</div>
+                    <sc-if value="{{ c.hasTags }}" hint-placeholder-val="{{ true }}">
+                      <div style="display:flex; flex-wrap:wrap; gap:4px;">
+                        <sc-for list="{{ c.tags }}" as="tg" hint-placeholder-count="2">
+                          <span class="tag-link" onClick="{{ tg.onClick }}" title="{{ tg.title }}" style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ tg.color }}; background: {{ tg.bg }};">{{ tg.text }}</span>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ c.why }}" hint-placeholder-val="{{ true }}"><div style="font:400 12px/1.5 -apple-system,system-ui,sans-serif; color:#3f3d36; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;">{{ c.why }}</div></sc-if>
+                    <div style="margin-top:auto; padding-top:4px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                      <span style="display:inline-flex; align-items:center; gap:6px;">
+                        <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ c.price }}</span>
+                        <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span class="fpc-new">NEW</span></sc-if>
+                      </span>
+                      <span title="taste score {{ c.scoreLabel }}" style="flex:none; display:inline-flex; align-items:center; gap:5px;">
+                        <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color: {{ c.scoreColor }};">{{ c.scoreLabel }}</span>
+                        <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
+                          <span style="display:inline-flex; align-items:flex-end; gap:1.5px; height:7px;">
+                            <sc-for list="{{ c.scoreSegs }}" as="s" hint-placeholder-count="9">
+                              <span style="width:1.5px; height:7px; border-radius:1px; background: {{ s.bg }};"></span>
+                            </sc-for>
+                          </span>
+                        </sc-if>
+                      </span>
+                    </div>
+                  </article>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      </sc-if>
+
+      <!-- ON THE RADAR — chronological beyond the lens window (design handoff, Change 3) -->
+      <sc-if value="{{ hasFpRadar }}" hint-placeholder-val="{{ true }}">
+      <section style="margin-bottom:24px;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px;">
+          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">On the radar</span>
+          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">upcoming · by date</span>
+        </div>
+        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
+          <sc-for list="{{ fpRadar }}" as="r" hint-placeholder-count="4">
+            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
+              <span style="flex:0 0 66px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
+              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
+              <span style="flex:none; max-width:34%; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.venue }}</span>
+              <span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color: {{ r.tagColor }}; background: {{ r.tagBg }};">{{ r.tag }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      </sc-if>
+
       <sc-if value="{{ fpEmpty }}" hint-placeholder-val="{{ false }}">
         <div style="padding:40px 0; font:500 13px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">Quiet in this window — try a wider lens, or <span onClick="{{ viewExplore }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">open Explore</span>.</div>
       </sc-if>
@@ -406,6 +486,17 @@
             </div>
           </div>
         </sc-if>
+      </sc-if>
+
+      <!-- lane filter pill (front page "all →" → Explore scoped to one lane; × clears) -->
+      <sc-if value="{{ hasLaneFilter }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; align-items:center; gap:9px; padding:10px 12px 2px; flex-wrap:wrap;">
+        <span style="display:inline-flex; align-items:center; gap:7px; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em; padding:7px 11px; border:1px solid #2b5cd9; background:#eaf0fe; color:#2b5cd9; border-radius:999px;">
+          <span style="width:7px; height:7px; border-radius:50%; background: {{ laneDot }};"></span>{{ laneLabel }}
+          <span onClick="{{ clearLane }}" title="Clear lane filter" style="cursor:pointer; margin-left:2px; font-size:13px; line-height:1;" style-hover="color:#1d49b8;">×</span>
+        </span>
+        <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">this lane only</span>
+      </div>
       </sc-if>
 
       <!-- ===== desktop table ===== -->
@@ -1442,6 +1533,7 @@ class Component extends DCLogic {
     view: ((typeof localStorage !== 'undefined' && localStorage.getItem('la-view')) || 'front'),
     lens: 'twoweeks',          // front-page time lens: today | weekend | twoweeks | ahead
     fpDetailKey: null,         // front-page card detail modal (event key)
+    exploreLane: null,         // Explore scoped to one front-page lane (shelf id) — the "all →" pill
     sortKey: 'rank', sortDir: 'asc',
     range: 'ten', rangeStart: this.TODAY, rangeEnd: this.TEN_END, bubbleOpen: false,
     pickerOpen: null, pickerMonth: this.MONTH1,
@@ -1526,6 +1618,15 @@ class Component extends DCLogic {
     'Electronic':'oklch(0.52 0.14 285)', 'Live Music':'oklch(0.52 0.13 32)',
     'Comedy':'oklch(0.5 0.1 95)', 'Film':'oklch(0.5 0.1 205)',
     'Theater':'oklch(0.5 0.13 350)', 'Food':'oklch(0.48 0.11 145)', 'Arts':'oklch(0.5 0.12 255)'
+  };
+  // Lane accent dots for the "Your scenes" panels + the Explore lane pill, keyed by
+  // front_page shelf id (build_dashboard FP_SHELVES). Same oklch family as CAT_COLOR;
+  // the catch-all lane stays neutral.
+  FP_DOT = {
+    underground: 'oklch(0.52 0.14 285)', afters: 'oklch(0.5 0.14 300)',
+    day: 'oklch(0.48 0.11 145)', bigroom: 'oklch(0.5 0.12 255)',
+    live: 'oklch(0.52 0.13 32)', bigstage: 'oklch(0.5 0.13 350)',
+    film: 'oklch(0.5 0.1 205)', stage: 'oklch(0.5 0.1 95)', more: '#a7a59b',
   };
   TODAY_MD = (() => { const d = new Date(); return (d.getMonth() + 1) + '/' + d.getDate(); })();
 
@@ -2187,7 +2288,7 @@ class Component extends DCLogic {
     try { if (typeof localStorage !== 'undefined') localStorage.setItem('la-view', v); } catch (e) {}
     this.setState({ view: v, expandedId: null, fpDetailKey: null });
   };
-  setLens = (k) => this.setState({ lens: k });
+  setLens = (k) => this.setState({ lens: k, exploreLane: null });
   openFpDetail = (key) => this.setState({ fpDetailKey: key });
   closeFpDetail = () => this.setState({ fpDetailKey: null });
   fpStopClick = (e) => { e.stopPropagation(); };
@@ -2196,13 +2297,40 @@ class Component extends DCLogic {
     if (!this._keyMap) this._keyMap = new Map(this.ALL.filter(e => e.key).map(e => [e.key, e]));
     return k ? this._keyMap.get(k) : null;
   }
+  // Lane panel "all →": Explore filtered LIVE to that shelf's lane(s) — a clearable pill,
+  // not a frozen id-list (fpSeeAll), so later range/search refinements compose with it.
+  exploreInLane = (id) => {
+    this.setView('explore');
+    this.setState({
+      exploreLane: id, filtered: null, filterSummary: '',
+      range: 'all', rangeStart: this.TODAY, rangeEnd: this.maxEventISO(),
+      sortKey: 'rank', sortDir: 'asc', search: '',
+      digestPicks: false, colFilters: JSON.parse(JSON.stringify(this.EMPTY_COLS)),
+    });
+  };
+  clearLane = () => this.setState({ exploreLane: null });
+  // Shelf-id -> {label, test(e)} membership predicate, mirroring build_front_page: exact
+  // lane match on the shelf's lanes; the catch-all shelf (empty lanes) takes every lane no
+  // other shelf claims. Null when the id (or front_page itself) is missing.
+  laneMatcher(id) {
+    const FP = (this.META && this.META.front_page) || {};
+    const sh = (FP.shelves || []).find(s => s.id === id);
+    if (!sh) return null;
+    if (sh.lanes && sh.lanes.length) {
+      const set = new Set(sh.lanes);
+      return { label: sh.label, test: (e) => set.has(e.lane || 'other') };
+    }
+    const claimed = new Set();
+    for (const s of (FP.shelves || [])) for (const ln of (s.lanes || [])) claimed.add(ln);
+    return { label: sh.label, test: (e) => !claimed.has(e.lane || 'other') };
+  }
   // Shelf "see all →": jump into Explore pre-filtered to the shelf's events (the same `filtered`
   // id-list mechanism the concierge chat uses), full upcoming range, rank order. The header's
   // filter chip (×) or reset clears it.
   fpSeeAll = (label, ids) => {
     this.setView('explore');                       // one door for view switches (persists la-view)
     this.setState({
-      filtered: ids, filterSummary: String(label || '').toLowerCase(),
+      filtered: ids, filterSummary: String(label || '').toLowerCase(), exploreLane: null,
       range: 'all', rangeStart: this.TODAY, rangeEnd: this.maxEventISO(),
       sortKey: 'rank', sortDir: 'asc', search: '',
       digestPicks: false, colFilters: JSON.parse(JSON.stringify(this.EMPTY_COLS)),
@@ -2219,7 +2347,7 @@ class Component extends DCLogic {
     if (cols[axis]) cols[axis].in = [val];
     this.setView('explore');
     this.setState({
-      filtered: null, filterSummary: '', colFilters: cols, search: '',
+      filtered: null, filterSummary: '', exploreLane: null, colFilters: cols, search: '',
       range: 'all', rangeStart: this.TODAY, rangeEnd: this.maxEventISO(),
       sortKey: 'rank', sortDir: 'asc',
       digestPicks: false, digestPrevState: null, expandedId: null,
@@ -2384,7 +2512,7 @@ class Component extends DCLogic {
   // ---------- chat / filter ----------
   EMPTY_COLS = { hood: {in:[],out:[]}, cat: {in:[],out:[]}, genre: {in:[],out:[]}, vibe: {in:[],out:[]}, setting: {in:[],out:[]}, region: {in:[],out:[]}, source: {in:[],out:[]} };
   reset = () => this.setState(s => ({
-    filtered: null, filterSummary: '', digestPicks: false, digestPrevState: null,
+    filtered: null, filterSummary: '', exploreLane: null, digestPicks: false, digestPrevState: null,
     colFilters: this.EMPTY_COLS, search: '', expandedId: null,
     messages: [...s.messages, { role: 'assistant', text: 'Cleared — showing all ' + this.ALL.length + ' events.' }]
   }));
@@ -2950,6 +3078,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
+    "- **Your scenes — the front page opens up.** The lane shelves below the hero row are now full-width **scene panels**: each lane gets its own tinted panel of expanded cards (date, tags, a real blurb, price and taste score), scrolling sideways two rows deep — one full card per swipe on a phone. The lane's **all →** drops you into Explore scoped to just that lane, with a clearable pill up top. **On the radar** now reads chronologically — everything coming up *past* your current window, by date, with ON SALE / JUST ANNOUNCED called out.",
     "- **Star events — and everyone sees it.** Every event has a **☆ Star** button (its detail row + the front-page card). A star is saved on the server, not just your browser: friends see **★ your name** on that event's card and in digests, it gently teaches your ranking, and it builds your calendar. **Settings → Calendar feed → Starred** subscribes you to a live calendar of exactly your starred events — a stable link that auto-updates as you star more (no re-subscribing), alongside the **Top picks** calendar.",
     "- **Subscribe to your picks as a calendar.** **Settings → Calendar feed** turns your top-rated events into a calendar that keeps itself current — subscribe in Google or Apple Calendar (or copy the URL into any app). A few knobs decide what makes the cut: minimum rating, max events per day, how far ahead, weekdays, and include/exclude chips for categories + genres. Prefer a one-shot file? The **.ics snapshot** downloads the same picks without the auto-update.",
     "- **Tags on every card — tap one to explore.** Cards now wear their tags (genre + vibe: *techno*, *queer*, *warehouse*, …) right on the front — on the front page, the Explore table, and mobile cards — and every tag is a link: tap it to jump into Explore filtered to exactly that tag, ready to refine or clear like any other filter.",
@@ -3329,12 +3458,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const snap = {
       range: s.range, rangeStart: s.rangeStart, rangeEnd: s.rangeEnd,
       sortKey: s.sortKey, sortDir: s.sortDir,
-      filtered: s.filtered, filterSummary: s.filterSummary,
+      filtered: s.filtered, filterSummary: s.filterSummary, exploreLane: s.exploreLane,
       colFilters: s.colFilters, search: s.search
     };
     return {
       digestPicks: true, digestPrevState: snap,
-      filtered: null, filterSummary: '', colFilters: this.EMPTY_COLS, search: '',
+      filtered: null, filterSummary: '', exploreLane: null, colFilters: this.EMPTY_COLS, search: '',
       bubbleOpen: false, pickerOpen: null, openFilter: null,
       range: 'week', rangeStart: this.TODAY, rangeEnd: this.WEEK_END,
       sortKey: 'rank', sortDir: 'asc', expandedId: null
@@ -3562,7 +3691,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // Stars are server-side + per-profile: drop this session's optimistic taps so the incoming
     // profile's own stars (from its feed) show, not the one we're leaving.
     this.STAR_LOCAL = {};
-    this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, search: '', digestPicks: false, expandedId: null,
+    this.setState({ profile: profileObj, profileOpen: false, settingsOpen: false, filtered: null, exploreLane: null, search: '', digestPicks: false, expandedId: null,
       calModalOpen: false, calSource: 'picks',
       spotifyStatus: null, spotifyName: '', backendStatus: null, backendVer: null },
       () => { if (this.BACKEND_URL) this.pingBackend(); });
@@ -4147,6 +4276,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       };
       if (ids) {
         next.filtered = ids;
+        next.exploreLane = null;       // a chat filter replaces any lane scope
         next.view = 'explore';         // a chat query filters the table — show it
         if (spec.sortBy === 'date') { next.sortKey = 'date'; next.sortDir = 'asc'; }
         else { next.sortKey = 'rank'; next.sortDir = 'asc'; }
@@ -4632,10 +4762,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     const isExplore = !isFront;
 
     const digestPicks = this.state.digestPicks;
+    const laneM = this.state.exploreLane ? this.laneMatcher(this.state.exploreLane) : null;
     let sorted = [];
     if (isExplore) {
       const fset = filtered ? new Set(filtered) : null;   // Set: shelf see-all lists are 40 long
       let base = fset ? this.ALL.filter(e => fset.has(e.id)) : this.ALL;
+      if (laneM) base = base.filter(laneM.test);          // "all →" lane scope (clearable pill)
       base = base.filter(e => e.iso >= rangeStart && e.iso <= rangeEnd);
       if (digestPicks) base = base.filter(e => e.score >= this.DIGEST_MIN);
       base = base.filter(e => this.passesColFilters(e));
@@ -4966,7 +5098,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       weight: range === key ? '700' : '500',
       onClick: () => this.setRange(key)
     }));
-    const anyActive = !!filtered || nsel('hood') || nsel('cat') || nsel('genre') || nsel('vibe') || nsel('setting') || nsel('region') || nsel('source') || (this.state.search || '').trim() || digestPicks;
+    const anyActive = !!filtered || !!laneM || nsel('hood') || nsel('cat') || nsel('genre') || nsel('vibe') || nsel('setting') || nsel('region') || nsel('source') || (this.state.search || '').trim() || digestPicks;
 
     // ---- front page (editorial home) ----
     // Everything is precomputed server-side (build_dashboard front_page: rank-ordered shelf/hero
@@ -4975,6 +5107,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     // ---- front page (editorial home; FP/hasFront/isFront hoisted above the table pipeline) ----
     const lens = this.state.lens || 'twoweeks';
     let fpShelves = [], fpLenses = [], fpEmpty = false;
+    let fpScenes = [], fpRadar = [], sceneColW = '100%';
     let fpDetail = {}, fpDetailOpen = false;
     if (hasFront && this.state.fpDetailKey) {
       const de = this.byKey(this.state.fpDetailKey);
@@ -5058,7 +5191,6 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         bg: lens === k ? '#1b1a17' : '#fff',
         color: lens === k ? '#fff' : '#76746b',
       }));
-      const SHELF_N = 12;
       const heroEvs = resolve((FP.hero || {})[lens]).filter(inWin);
       const heroKeys = new Set(heroEvs.map(e => e.key));
       // The hero row is just the first shelf (rowClass fp-hero renders it as a grid) — ONE
@@ -5067,36 +5199,71 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
         label: "Don't miss", rowClass: 'fp-hero', total: heroEvs.length,
         cards: heroEvs.map(e => mkCard(e, true)), seeAll: null,
       });
-      // Lane shelves window the near (days 0–13) or ahead (14–60) key-list per the lens —
-      // the split exists server-side so the two-zone rank can't starve plan-ahead.
+      // BY SCENE (design_handoff_scene_section): each lane shelf renders as a full-width
+      // panel of expanded cards — up to 6 per lane, busiest lanes first, capped at 6 panels.
+      // The near/ahead key-list split still follows the lens (the two-zone rank can't starve
+      // plan-ahead), and hero events aren't repeated inside the panels.
+      const rowsCssFor = (cards) => cards.length <= 3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)';
       for (const sh of (FP.shelves || [])) {
-        const evs = resolve((lens === 'ahead' ? sh.ahead : sh.near) || sh.keys)
-          .filter(inWin).filter(e => !heroKeys.has(e.key));
-        if (evs.length) fpShelves.push({
-          label: sh.label, rowClass: 'fp-shelf', total: evs.length,
-          cards: evs.slice(0, SHELF_N).map(e => mkCard(e)),   // not .map(mkCard): index ≠ inHero
-          seeAll: () => this.fpSeeAll(sh.label, evs.map(e => e.id)),
+        const evs = resolve((lens === 'ahead' ? sh.ahead : sh.near) || sh.keys).filter(inWin);
+        const cards = evs.filter(e => !heroKeys.has(e.key)).slice(0, 6).map(e => mkCard(e));
+        if (cards.length) fpScenes.push({
+          id: sh.id, label: sh.label, dot: this.FP_DOT[sh.id] || '#a7a59b',
+          count: evs.length, cards, rowsCss: rowsCssFor(cards),
+          onAll: () => this.exploreInLane(sh.id),
         });
       }
-      // Around town + On the radar ride as fixed shelves: around is the near city-pulse,
-      // radar is inherently plan-ahead — neither follows the lens window (past drops out).
-      for (const [keys, label] of [[FP.around, 'Around town'], [FP.radar, 'On the radar']]) {
-        const evs = resolve(keys).filter(e => e.iso >= this.TODAY);
-        if (evs.length) fpShelves.push({
-          label, rowClass: 'fp-shelf', total: evs.length,
-          cards: evs.slice(0, SHELF_N).map(e => mkCard(e)),   // not .map(mkCard): index ≠ inHero
-          seeAll: () => this.fpSeeAll(label, evs.map(e => e.id)),
+      fpScenes = fpScenes.sort((a, b) => b.count - a.count).slice(0, 6);
+      // Around town rides as one more panel (an id-list "see all", not a lane filter — its
+      // events span lanes). Not lens-windowed; past drops out.
+      const aroundEvs = resolve(FP.around).filter(e => e.iso >= this.TODAY);
+      const aroundCards = aroundEvs.filter(e => !heroKeys.has(e.key)).slice(0, 6).map(e => mkCard(e));
+      if (aroundCards.length) fpScenes.push({
+        id: 'around', label: 'Around town', dot: '#a7a59b',
+        count: aroundEvs.length, cards: aroundCards, rowsCss: rowsCssFor(aroundCards),
+        onAll: () => this.fpSeeAll('Around town', aroundEvs.map(e => e.id)),
+      });
+      sceneColW = isMobile ? '100%' : 'calc((100% - 11px) / 2)';
+      // ON THE RADAR — everything past the current lens window, chronological (one row per
+      // program: a series rides via its rep night). ON SALE / JUST ANNOUNCED read amber;
+      // everything else wears its category quietly.
+      const rEnd = win[1];
+      fpRadar = this.ALL
+        .filter(e => e.iso > rEnd && (e.seriesRep || !e.seriesKey))
+        .sort((a, b) => (a.iso < b.iso ? -1 : a.iso > b.iso ? 1 : 0) || (a.time < b.time ? -1 : a.time > b.time ? 1 : 0) || (a.title < b.title ? -1 : 1))
+        .slice(0, 8)
+        .map(e => {
+          const onSale = (e.xb || []).some(x => /on.?sale/i.test(x));
+          const isNew = !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef);
+          const amber = onSale || isNew;
+          return {
+            dateShort: e.wd + ' ' + e.md, title: e.title,
+            venue: e.venue + (e.hood && e.hood !== 'Los Angeles'
+                              && !e.venue.toLowerCase().includes(e.hood.toLowerCase())
+                              ? ' · ' + e.hood : ''),
+            tag: onSale ? 'ON SALE' : (isNew ? 'JUST ANNOUNCED' : String(e.cat || '').toUpperCase()),
+            tagColor: amber ? '#b06a00' : '#76746b',
+            tagBg: amber ? 'rgba(176,106,0,0.1)' : 'rgba(0,0,0,0.05)',
+            onOpen: () => { if (e.key) this.openFpDetail(e.key); },
+          };
         });
-      }
-      fpEmpty = !fpShelves.length;
+      fpEmpty = !fpShelves.length && !fpScenes.length && !fpRadar.length;
     }
 
     return {
       hasFront, isFront, isExplore, exploreDesktop: isExplore && !isMobile,
-      viewFront: () => this.setView('front'), viewExplore: () => this.setView('explore'),
+      viewFront: () => this.setView('front'),
+      // Entering Explore from the header (or the front page's empty-state link) is a fresh
+      // table — drop any lane scope a panel's "all →" left behind.
+      viewExplore: () => { this.setView('explore'); this.setState({ exploreLane: null }); },
       frontTabBg: isFront ? '#1b1a17' : '#fff', frontTabColor: isFront ? '#fff' : '#76746b',
       exploreTabBg: (isExplore && hasFront) ? '#1b1a17' : '#fff', exploreTabColor: (isExplore && hasFront) ? '#fff' : '#76746b',
       fpLenses, fpShelves, fpEmpty,
+      fpScenes, hasScenes: fpScenes.length > 0, sceneColW,
+      fpRadar, hasFpRadar: fpRadar.length > 0,
+      hasLaneFilter: !!laneM, laneLabel: laneM ? laneM.label : '',
+      laneDot: (this.state.exploreLane && this.FP_DOT[this.state.exploreLane]) || '#a7a59b',
+      clearLane: this.clearLane,
       fpDetailOpen, fpDetail, closeFpDetail: this.closeFpDetail, fpStop: this.fpStopClick,
       messages: msgs, loading,
       phText, phOpacity: this.state.phFade ? '0' : '1',

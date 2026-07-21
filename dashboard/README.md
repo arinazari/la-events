@@ -64,11 +64,17 @@ The page opens on the **Front page** — an editorial home rendered from the fee
   Full tiers remain visible in Explore's rank tooltip. Card copy follows the same rule:
   the curated why (curator note / editor's line), else the factual blurb — never the
   scorer's "+1 …" reasons, which live in Explore and the detail modal's WHY IT'S RANKED.
-- **Shelves per lane** — warehouse & underground / afters / day parties / big rooms / live
-  music / film / comedy & stage / elsewhere, plus fixed **Around town** and **On the radar**
-  shelves when the runtime sets exist. Card click → a detail modal (what/why/lineup/links/
-  add-to-calendar); *see all →* jumps into Explore pre-filtered via the same `filtered`
+- **Your scenes** — full-width per-lane panels (warehouse & underground / afters / day
+  parties / big rooms / live music / film / comedy & stage / elsewhere; busiest lanes first,
+  up to six panels, plus **Around town** when its runtime set exists). Each panel is a
+  horizontally-scrolling grid of expanded cards (two columns visible on desktop, one
+  full-width column per swipe on mobile). Card click → a detail modal (what/why/lineup/
+  links/add-to-calendar); a lane's *all →* drops into Explore scoped **live** to that lane
+  (`exploreLane` + a clearable pill), while Around town's *all →* keeps the `filtered`
   id-list mechanism the chat uses.
+- **On the radar** — a chronological list of what's coming *after* the current lens window
+  (by date, capped at 8; series ride via their rep night), with ON SALE / JUST ANNOUNCED
+  called out in amber and the category shown quietly otherwise.
 
 **Explore** is the original table (search, facets, date range, rank/score sort), one click
 away in the header switch; the choice persists per device (`la-view` in localStorage). A feed
