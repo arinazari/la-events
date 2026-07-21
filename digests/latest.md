@@ -1,20 +1,22 @@
-# LA Events — 2026-07-20
+# LA Events — 2026-07-21
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Checked Mon 7/20 · no new or changed events since the last pull*
+*Checked Tue 7/21 · 21 new events layered in from venue calendars + editorial (Avalon Hollywood, McCabe's, Harvelle's, Sam First, The Venice West, Discover LA)*
 
-<!-- take: -->
+<!-- take: Sunset Sessions is back at Level 8 Friday, then Rhonda and Kim Gordon collide the same Saturday HARD Summer takes over Inglewood. -->
 <!-- tier3:intro -->
+A quiet, rep-cinema-heavy stretch through midweek — good news if you need a couple of low-key nights before it gets busy. Friday brings the real Sunset Sessions back to Level 8 at golden hour, plus a TBA techno bill (Rich NXT, Nu Zau) worth chasing once the address drops. The following Saturday is the collision to plan around: A Club Called Rhonda's disco blowout at Los Globos goes head-to-head with Kim Gordon's solo tour at Pacific Electric, while HARD Summer eats the South Bay all weekend — pick Rhonda if you want the room to move, Kim Gordon if you want the room to listen. Sunday closes it out with Boris Brejcha fronting the Hollywood Bowl Orchestra, a genuine novelty booking worth the price of admission alone.
 
 ## Tonight & tomorrow
 
 <!-- tier3:call -->
+Quiet couple of nights — lean into the Vidiots/Vista rep-cinema run (Hitchcock tonight, Bergman tomorrow) rather than waiting on anything bigger; Gary Wilson's outsider-music show at Gold Diggers tomorrow is the one to flag if you want live music instead.
 
-- `Today 7:30pm` **[Jamón Jamón](https://vidiotsfoundation.org/showtimes/jamon-jamon-7-20-26-700-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22jam%C3%B3n+jam%C3%B3n%22+showtimes+Los+Angeles) — *Jamón Jamón (Bigas Luna, the Bardem/Cruz breakout) is a genuine arthouse pick — exactly the Vidiots lane.*
-- `Today 1pm` **[The Last Dragon (1985)](https://vidiotsfoundation.org/showtimes/the-last-dragon-7-20-26-100-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22the+last+dragon%22+showtimes+Los+Angeles) — *A stone-cold cult classic at Vidiots — rep cinema is core lane and the score is underrating a straightforward pick.*
-- `Today 7:30pm` **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3748?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+odyssey%22+showtimes+Los+Angeles) — *Monday of the same 70mm run.*
-- `Tomorrow 1pm` **[Rope](https://vidiotsfoundation.org/showtimes/rope-7-21-26-100-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22rope%22+showtimes+Los+Angeles) — *Hitchcock at Vidiots — the rep-cinema lane at your favorite screen, easy include.*
-- `Tomorrow 7:30pm` **[Cries and Whispers](https://vidiotsfoundation.org/showtimes/cries-and-whispers-7-21-26-730-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22cries+and+whispers%22+showtimes+Los+Angeles) — *Bergman's Cries and Whispers at Vidiots — exactly the rep-cinema lane you want surfaced, not just filler in the category.*
-- `Tomorrow 7:30pm` **[The Grey Between: Island in Between + Colour Ideology Sampling.mov](https://dice.fm/event/92ray9-the-grey-between-island-in-between-colour-ideology-samplingmov-21st-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown — *2220 Arts is a room you trust — worth a flier even blind on the bill.*
+- `Today 1pm` **[Rope](https://vidiotsfoundation.org/showtimes/rope-7-21-26-100-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22rope%22+showtimes+Los+Angeles) — *Hitchcock at Vidiots — the rep-cinema lane at your favorite screen, easy include.*
+- `Today 7:30pm` **[Cries and Whispers](https://vidiotsfoundation.org/showtimes/cries-and-whispers-7-21-26-730-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22cries+and+whispers%22+showtimes+Los+Angeles) — *Bergman's Cries and Whispers at Vidiots — exactly the rep-cinema lane you want surfaced, not just filler in the category.*
+- `Today 7:30pm` **[The Grey Between: Island in Between + Colour Ideology Sampling.mov](https://dice.fm/event/92ray9-the-grey-between-island-in-between-colour-ideology-samplingmov-21st-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown — *2220 Arts is a room you trust — worth a flier even blind on the bill.*
+- `Tomorrow 2pm` **[The Computer Wore Tennis Shoes](https://ticketing.uswest.veezi.com/purchase/3848?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+computer+wore+tennis+shoes%22+showtimes+Los+Angeles) — *Vista matinee rep pick, walkable from Silver Lake — exactly the lane, no reason to sit at a plain 5.*
+- `Tomorrow 1pm` **[Don’t Tell Mom the Babysitter’s Dead](https://vidiotsfoundation.org/showtimes/dont-tell-mom-the-babysitters-dead-7-22-26-100-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22don+t+tell+mom+the+babysitter+s+dead%22+showtimes+Los+Angeles) — *Vidiots matinee of a cult classic — rep cinema is an explicit love, and this is the kind of pick worth carving out a Wednesday afternoon for.*
+- `Tomorrow 7pm` **[Gary Wilson, The Soul Family Band, Kenny Matuucci](https://dice.fm/event/av58pd-gary-wilson-the-soul-family-band-kenny-matuucci-22nd-jul-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood — *Gary Wilson is a genuine outsider-music cult figure (the Beck-championed lo-fi legend) hiding behind a generic funk-soul tag.*
 
 ## Don't miss
 
@@ -35,31 +37,25 @@
 
 
 **New to the slate**
-- `Fri 7/24` 🆕 **[SUNSET SESSIONS X JUPTR X RECOLLECT UNDERGROUND](https://ra.co/events/2493120)** — Level 8 DTLA, DTLA · day party — *Rooftop vinyl house at golden hour with Level 8/Sunset Sessions regular Tamara Lanza on the bill — the exact sunset-groove formula you keep coming back for.*
-- `Sun 7/26` 🆕 **[goyo club presents MATCHA AND GROOVE 004](https://ra.co/events/2492586)** — TBA - DoubleTree DTLA - Kyoto Garden, DTLA · day party — *Sunday day-party in a hotel garden with Xica Soul (In Sheep's Clothing circuit) selecting soul/funk/house — a quieter cousin of the rooftop-groove formula.*
-- `Sun 8/2` 🆕 **[Twin Peaks: The Original Mystery – Episodes 3 + 4](https://vidiotsfoundation.org/showtimes/twin-peaks-the-original-mystery-episodes-3-4-8-2-26-730-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22twin+peaks+the+original+mystery+episodes+3+4%22+showtimes+Los+Angeles) — *Twin Peaks on the big screen is the closest thing to a Lynch night this stretch, and this is the second (last) half of the two-parter — build the evening around this one.*
-- `Thu 8/20` 🆕 **[No Sisig, No Rakenrol 🇵🇭](https://ra.co/events/2493175)** — The Redwood Bar And Grill, DTLA
+- `Mon 8/3` 🆕 **[Lady Bird](https://vidiotsfoundation.org/showtimes/lady-bird-8-3-26-100-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22lady+bird%22+showtimes+Los+Angeles)
+- `Mon 8/3` 🆕 **[Twin Peaks: The Original Mystery – Episodes 5 + 6](https://vidiotsfoundation.org/showtimes/twin-peaks-the-original-mystery-episodes-5-6-8-3-26-730-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22twin+peaks+the+original+mystery+episodes+5+6%22+showtimes+Los+Angeles)
+- `Thu 8/6` (+2 more dates) 🆕 **[Taxi Driver](https://ticketing.uswest.veezi.com/purchase/4853?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax · [more LA showtimes](https://www.google.com/search?q=%22taxi+driver%22+showtimes+Los+Angeles)
+- `Sat 8/8` 🆕 **[Cannibal Holocaust](https://ticketing.uswest.veezi.com/purchase/4860?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax · [more LA showtimes](https://www.google.com/search?q=%22cannibal+holocaust%22+showtimes+Los+Angeles)
+- `Thu 8/13` 🆕 **[Ice Cream Man](https://ticketing.uswest.veezi.com/purchase/4865?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax · [more LA showtimes](https://www.google.com/search?q=%22ice+cream+man%22+showtimes+Los+Angeles)
+- `Sat 8/15` 🆕 **[Cabaret](https://ticketing.uswest.veezi.com/purchase/4868?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax · [more LA showtimes](https://www.google.com/search?q=%22cabaret%22+showtimes+Los+Angeles)
+- `Sun 8/16` 🆕 **[20,000 Leagues Under the Sea (1916)](https://ticketing.uswest.veezi.com/purchase/4873?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax · [more LA showtimes](https://www.google.com/search?q=%2220+000+leagues+under+the+sea%22+showtimes+Los+Angeles)
+- `Thu 8/20` 🆕 **[Moneyball](https://ticketing.uswest.veezi.com/purchase/4878?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax · [more LA showtimes](https://www.google.com/search?q=%22moneyball%22+showtimes+Los+Angeles)
+- *…plus 2 more*
+
+**Updated**
+- `Sun 8/16` **[Terrakroma's Sun-Drenched Beach Ritual](https://ra.co/events/2491210)** — TBA, Los Angeles · ↻ updated (lineup) — *A Balearic-sounding daytime beach party is exactly your sweet spot on paper, but a TBA location and an unfamiliar promoter keep this a guess.*
 
 ## Next two weeks
 
-### Monday · July 20
+### Tuesday · July 21
 
 **Electronic & dance**
-- `11pm-6am` (Mon 7/20 +6 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2491935)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23-28 — *Weekly Lexington afters, Saturday slot — still no lineup listed, but the better of the two nights if you're picking one.*
-
-**Live music**
-- `8:30pm` **[Marshall Live from The Roxy: the Coverups](https://www.axs.com/events/1514787/marshall-live-from-the-roxy-the-coverups-tickets)** — The Roxy, West Hollywood  
-  The Coverups and Ultra Q at The Roxy.
-
-**Film**
-- `9:45pm` (Mon 7/20 +3 more) **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3865?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+odyssey%22+showtimes+Los+Angeles)  
-  Nolan on 70mm at the Vista is basically the format working as intended — if you're going to see The Odyssey theatrically at all, this is the way.
-- `7:30pm` **[Jamón Jamón](https://vidiotsfoundation.org/showtimes/jamon-jamon-7-20-26-700-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22jam%C3%B3n+jam%C3%B3n%22+showtimes+Los+Angeles)  
-  Bigas Luna's deranged, ham-fueled 1992 melodrama that made Bardem and Cruz stars — go in blind and let the pork imagery do its thing.
-- `1pm` **[The Last Dragon (1985)](https://vidiotsfoundation.org/showtimes/the-last-dragon-7-20-26-100-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22the+last+dragon%22+showtimes+Los+Angeles)  
-  A goofy, genuinely beloved 80s cult movie (Motown-backed, Sho'nuff and all) — a matinee like this is exactly what a big screen is for.
-
-### Tuesday · July 21
+- `11pm-6am` (Tue 7/21 +5 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2491935)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23-28 — *Weekly Lexington afters, Saturday slot — still no lineup listed, but the better of the two nights if you're picking one.*
 
 **Live music**
 - `7:30pm` **[The Grey Between: Island in Between + Colour Ideology Sampling.mov](https://dice.fm/event/92ray9-the-grey-between-island-in-between-colour-ideology-samplingmov-21st-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown — *2220 Arts is a room you trust — worth a flier even blind on the bill.*
@@ -92,16 +88,19 @@
   Austyn Gillette record release show with Indigo Sparke at Zebulon on Thu 7/23 (8pm).
 
 **Film**
+- `9:45pm` (Thu 7/23 +2 more) **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3865?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+odyssey%22+showtimes+Los+Angeles)  
+  Nolan on 70mm at the Vista is basically the format working as intended — if you're going to see The Odyssey theatrically at all, this is the way.
 - `8pm` **[The Private Life of Sherlock Holmes](https://ticketing.uswest.veezi.com/purchase/3849?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+private+life+of+sherlock+holmes%22+showtimes+Los+Angeles)  
   Billy Wilder's underseen, melancholy 1970 Holmes picture at the Vista — a rep pick that rewards knowing going in, since it plays nothing like the usual Holmes adaptation.
 
 ### Friday · July 24
 <!-- tier3:blueprint 2026-07-24 -->
+Level 8 for Sunset Sessions from 5pm while the light's still good, dinner somewhere DTLA-adjacent, then chase the Utopia x Dialed Records TBA techno bill once the location drops around 11.
 
 **Electronic & dance**
 - `11pm` ⭐ **[Utopia x Dialed Records presents RICH NXT, NU ZAU, TXHLDEM](https://ra.co/events/2481171)** — TBA, Los Angeles · free
-- `5pm` 🆕 **[SUNSET SESSIONS X JUPTR X RECOLLECT UNDERGROUND](https://ra.co/events/2493120)** — Level 8 DTLA, DTLA · day party  
-  Lavenge — West LA house DJ/producer (real name-ish alias, 'Love & Revenge') and CEO of JUPTR events — plays open-format but leans house on the local club circuit.
+- `5pm` **[SUNSET SESSIONS X JUPTR X RECOLLECT UNDERGROUND](https://ra.co/events/2493120)** — Level 8 DTLA, DTLA · day party  
+  This is the actual Sunset Sessions @ Level 8 recurring night the taste profile calls out by name, and a 5pm start means real golden-hour light on the decks. Tamara Lanza is a series regular for a reason — build the evening around this one.
 - `time TBA` **[Black V Neck, Dillon Nathaniel, Sorry Not Jomari | MFP](https://avalonhollywood.com/event/black-v-neck-dillon-nathaniel-nightclub-near-me-discover-avalon-hollywood-2026-july-24-best-night-club-near-me-hollywood-los-angeles/)** — Avalon Hollywood, Hollywood · big room  
   Dillon Nathaniel has real pedigree here — he's the one behind John Summit's 'Esa Boca' — and Black V Neck bring legit festival energy, but this is still Avalon's mainstream bottle-service room, not a selector's night.
 
@@ -117,6 +116,7 @@
 
 ### Saturday · July 25
 <!-- tier3:blueprint 2026-07-25 -->
+FLOAT's rooftop pool party at Level 8 runs 2–8pm — start the day there, then decide between Nick León's genre-bending all-nighter or Certified Groovers' all-vinyl deep house, both TBA-location downtown.
 
 **Electronic & dance**
 - `2pm-8pm` **[FLOAT Rooftop Pool Party ft. Jody Wisternoff [2-8 PM]](https://ra.co/events/2449781)** — Level 8 DTLA, DTLA · day party · $29.62 pre  
@@ -134,9 +134,9 @@
 
 **Electronic & dance**
 - `7pm` ⭐ **[LA Phil KCRW Festival: Boris Brejcha with the Hollywood Bowl Orchestra](https://ra.co/events/2375675)** — Hollywood Bowl, Hollywood · big room · $18+  
-  Boris Brejcha — German techno institution known for his masked persona and 'high-tech minimal' sound — hyper-precise, cinematic techno on his own Fckng Serious label; this Bowl date pairs his set with a live orchestra, a genuine novelty booking.
-- `2:30pm` 🆕 **[goyo club presents MATCHA AND GROOVE 004](https://ra.co/events/2492586)** — TBA - DoubleTree DTLA - Kyoto Garden, DTLA · day party  
-  Xica Soul — LA DJ and radio host (Artform, KQBH) — soul, funk and house, an In Sheep's Clothing-circuit selector.
+  A masked minimal-techno guy fronting the Hollywood Bowl Orchestra is a stunt booking, but Brejcha's sound is built for exactly this kind of cinematic scale — and it's a venue you already love. Worth it for the novelty alone even if it's not a real club set.
+- `2:30pm` **[goyo club presents MATCHA AND GROOVE 004](https://ra.co/events/2492586)** — TBA - DoubleTree DTLA - Kyoto Garden, DTLA · day party  
+  A matcha-and-groove day party in a hotel garden is a fun format twist on the daytime-house lane, and mad gavs' eclectic house/breaks palette plus Xica Soul's soul-and-funk selection make it worth a wander even at a DoubleTree.
 
 **Live music**
 - `7pm` **[Wu Lyf](https://www.ticketmaster.com/wu-lyf-los-angeles-california-07-26-2026/event/090064C3EA438AA6)** — The Echo, Echo Park  
@@ -187,10 +187,10 @@
 ### Thursday · July 30
 
 **Electronic & dance**
-- `5pm` **[DJ Ty Segall](https://dice.fm/event/yowxqp-dj-ty-segall-30th-jul-sid-the-cat-auditorium-south-pasadena-tickets)** — Sid The Cat Auditorium, South Pasadena  
-  Not a Ty Segall show, a Ty Segall DJ set — fun if you're curious what's actually in his crates, but don't walk in expecting the band.
 - `6pm` **[CSW - DJ SWISHA b2b Mapamota [All Night]](https://ra.co/events/2480186)** — TBA - Downtown, DTLA  
   An all-night back-to-back between DJ Swisha's juke/footwork bounce and Mapamota's house-meets-global-club sets — more rhythmically restless than the average TBA warehouse night, worth it if you like your house music with some Jersey club bounce mixed in.
+- `10pm-2am` **[Thursday HARDfest Pre-Party (Maceo Plex, Raxon, John Bryars)](https://ra.co/events/2479623)** — TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033, Los Angeles · $54+  
+  A TBA-location afterhours pre-party for HARDfest with Maceo Plex on the bill is exactly the kind of thing worth staying up for — real techno pedigree, not festival filler.
 
 **Live music**
 - `8pm` **[Jackie-O Motherfucker, Syko Friend, Cockfighter](https://dice.fm/event/nv5kd3-jackie-o-motherfucker-syko-friend-cockfighter-30th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown  
@@ -202,6 +202,7 @@
 
 ### Friday · July 31
 <!-- tier3:blueprint 2026-07-31 -->
+Two 8pm starts pull in different directions — Social Lovers & lovetempo's disco-leaning bar set at The Airliner if you want groove, Black Moth Super Rainbow at The Belasco if you want something weirder and louder; both are small enough to catch either without much planning.
 
 **Electronic & dance**
 - `8pm` **[Social Lovers & lovetempo with Xica Soul](https://ra.co/events/2487851)** — The Airliner, Lincoln Heights  
@@ -225,6 +226,7 @@
 
 ### Saturday · August 1
 <!-- tier3:blueprint 2026-08-01 -->
+The night's real fork: Rhonda's disco spectacle at Los Globos or Kim Gordon at Pacific Electric — pick Rhonda if the room should move, Kim Gordon if it should listen. Either way, the HARDfest afters with Mau P is a legitimate 10pm-on option if HARD Summer's day-one bill pulled you to Inglewood first.
 
 **Electronic & dance**
 - `9:30pm` ⭐ **[A Club Called Rhonda with TEED, Jacques Greene, Kindness (DJ), Shaun Ross & more](https://ra.co/events/2456742)** — Los Globos, Silver Lake
@@ -251,10 +253,22 @@
   Chicago post-rock royalty in a room the size of Zebulon — this is the instrumental/experimental end of the live-band lane, not a dance night, but exactly the kind of small-venue show worth the drive to Frogtown for.
 
 **Film**
-- `7:30pm` 🆕 **[Twin Peaks: The Original Mystery – Episodes 3 + 4](https://vidiotsfoundation.org/showtimes/twin-peaks-the-original-mystery-episodes-3-4-8-2-26-730-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22twin+peaks+the+original+mystery+episodes+3+4%22+showtimes+Los+Angeles)  
-  Twin Peaks: The Original Mystery episodes 3 & 4 at Vidiots, Eagle Rock, Aug 2 (7:30pm).
+- `7:30pm` **[Twin Peaks: The Original Mystery – Episodes 3 + 4](https://vidiotsfoundation.org/showtimes/twin-peaks-the-original-mystery-episodes-3-4-8-2-26-730-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22twin+peaks+the+original+mystery+episodes+3+4%22+showtimes+Los+Angeles)  
+  It's Twin Peaks, so it's David Lynch — tracked-director territory even though this is TV, not a feature, and even though episodes 3+4 aren't the show's best-known stretch. Worth it on format/pedigree if you're already deep in the run.
 
 - *Also:* [Sunday HARDfest Afters (Omar+, Miguelle & Tons, Fifi)](https://ra.co/events/2479702) (TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033)
+
+### Monday · August 3
+
+**Live music**
+- `8pm` **[Dominique Matelson Record Release](https://dice.fm/event/pynepl-dominique-matelson-record-release-3rd-aug-zebulon-los-angeles-tickets)** — Zebulon, Frogtown  
+  Record release show by Dominique Matelson at Zebulon.
+- `9:30pm` **[Alligator Beach 'New Orleans Funk Party'](https://santamonica.harvelles.com/events/138777)** — Harvelle's Santa Monica, Santa Monica — *Touring New Orleans funk revue is a real groove booking, but Harvelle's funk night isn't the core indie/rock live lane.*
+- `7pm` **[very good mondays](https://dice.fm/event/6dod98-very-good-mondays-3rd-aug-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood — *Gold Diggers' recurring Monday night, third of a run — decent-venue filler more than a destination pick.*
+
+**Film**
+- `1pm` 🆕 **[Lady Bird](https://vidiotsfoundation.org/showtimes/lady-bird-8-3-26-100-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22lady+bird%22+showtimes+Los+Angeles)
+- `7:30pm` 🆕 **[Twin Peaks: The Original Mystery – Episodes 5 + 6](https://vidiotsfoundation.org/showtimes/twin-peaks-the-original-mystery-episodes-5-6-8-3-26-730-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22twin+peaks+the+original+mystery+episodes+5+6%22+showtimes+Los+Angeles)
 
 ## Weekends ahead
 
@@ -263,21 +277,21 @@
 - `Sat 8/8` **[EMBRZ at Harbor House Rooftop](https://ra.co/events/2410366)** — Harbor House DTLA, DTLA · day party — *Sunset rooftop set from a Lane 8 This Never Happened signee — the melodic-house rooftop lane this taste is built around, underrated at a 6 since EMBRZ has no Spotify footprint here.*
 - `Sat 8/8` **[Midnight Lovers with Isaac Carter, Harrison BDP, Lubelski](https://ra.co/events/2467421)** — TBA - Downtown Los Angeles, DTLA — *DTLA warehouse afters with Isaac Carter — UK deep-house lineage co-signed by Ben UFO and Seth Troxler — a real sleeper the score's missing since none of these names carry Spotify weight yet.*
 - `Fri 8/7` **[Lights Down Low feat. dh2 Takeover](https://ra.co/events/2474579)** — TBA - Downtown Los Angeles, DTLA — *Nikki Nair is a genuine Dirtybird/Lobster Theremin talent and Lights Down Low is a real long-running afters — George Daniel's the curiosity here, not the draw.*
-- *…plus 16 more that weekend — full list: [weekend digest](weekends/2026-08-07.md)*
+- *…plus 14 more that weekend — full list: [weekend digest](weekends/2026-08-07.md)*
 
 ### Weekend of Fri 8/14
 - `Fri 8/14` ⭐ **[Moodymann and DJ Rashida Play Prince](https://www.ticketmaster.com/moodymann-and-dj-rashida-play-prince-los-angeles-california-08-14-2026/event/090064BA38058214)** — The Regent Theater, DTLA — *Tracked deep-house legend Moodymann plus DJ Rashida, who was literally Prince's touring DJ, doing a full all-Prince set at a real theater — a one-off pairing the flat 6 score badly undersells.*
 - `Sun 8/16` ⭐ **[Subtract On The Pier Finale - Danny Tenaglia](https://ra.co/events/2479911)** — Belmont Veterans Memorial Pier, Los Angeles · day party — *Danny Tenaglia is a legit house/techno legend and this is the closing party of a genuinely respected SoCal deep-house day-party series — open-air, groove-heavy, exactly the lane, and the score badly underrates it at a 3.*
 - `Sat 8/15` **[FLOAT Rooftop Pool Party feat. Massane [2-8 PM]](https://ra.co/events/2449788)** — Level 8 DTLA, DTLA · day party · $30.73 — *Massane records on Lane 8's own label and sits right in the Lane 8/Yotto lane you track — daytime rooftop pool party nails the setting boost too.*
 - `Fri 8/14` **[WORK x SKULLDUGGERY present: Alan Fitzpatrick, Anastasia Giovani, & Greg Downey](https://ra.co/events/2470130)** — TBA - Los Angeles, Los Angeles — *Alan Fitzpatrick is a legit international techno name (Drumcode/We Are The Brave orbit) - a TBA-location Friday afterhours with him headlining is a real one, not just generic afters filler.*
-- *…plus 15 more that weekend — full list: [weekend digest](weekends/2026-08-14.md)*
+- *…plus 16 more that weekend — full list: [weekend digest](weekends/2026-08-14.md)*
 
 ### Weekend of Fri 8/21
 - `Fri 8/21` **[Hollywood Palladium](https://ra.co/events/2391675)** — Hollywood Palladium, Hollywood · big room
 - `Fri 8/21` (+2 more dates) **[The Fast and the Furious (25th Anniversary)](https://ticketing.uswest.veezi.com/purchase/3791?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+fast+and+the+furious%22+showtimes+Los+Angeles)
-- `Sat 8/22` **[Noizu](http://www.shrineauditorium.com/)** — Shrine Expo Hall, University Park · big venue
 - `Sat 8/22` **[FLOAT Rooftop Pool Party feat. Durante [2-8 PM]](https://ra.co/events/2480989)** — Level 8 DTLA, DTLA · day party · $30.73
-- *…plus 13 more that weekend — full list: [weekend digest](weekends/2026-08-21.md)*
+- `Sat 8/22` **[Mutate: Oguz](https://ra.co/events/2461046)** — Exchange LA, DTLA · big room
+- *…plus 12 more that weekend — full list: [weekend digest](weekends/2026-08-21.md)*
 
 ## Around town
 
@@ -285,10 +299,10 @@
 - `Thu 7/23` **[Widespread Panic: 3-Day Ticket](https://www.ticketmaster.com/widespread-panic-3day-ticket-los-angeles-california-07-23-2026/event/0900646CA6B39282)** — Orpheum Theatre · DTLA  ·  *festival* <!-- tier3:gloss 8489e0302c9f -->
 - `Fri 7/24` **[TOTALLY TUBULAR FESTIVAL](https://www.ticketmaster.com/totally-tubular-festival-hollywood-california-07-24-2026/event/0900648EBB53A004)** — Hollywood Palladium · Hollywood  ·  *festival* <!-- tier3:gloss 6d3831998a40 -->
 - `Fri 7/24` **[Treaty Oak Revival](https://www.lagreektheatre.com/)** — Greek Theatre-Los Angeles · Los Feliz  ·  *big-venue* <!-- tier3:gloss 86dea18472b0 -->
-- `Fri 7/24` **[Smokey Robinson w/ Gladys Knight](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *big-venue* <!-- tier3:gloss 0f978aca7ba1 -->
+- `Fri 7/24` **[Smokey Robinson & Gladys Knight: Just the Two of Us](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *big-venue* <!-- tier3:gloss b1cc3aabc211 -->
 - `Sat 7/25` **[BeeHive Block Party](https://www.universe.com/Beehiveblockparty2026)** — The Beehive · Los Angeles  ·  *festival* <!-- tier3:gloss 0c7ef6e3e9a9 -->
+- `Sat 7/25` **[Smokey Robinson w/ Gladys Knight](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *big-venue* <!-- tier3:gloss 70290d18de29 -->
 - `Sun 7/26` **[El Festival Colombiano](https://www.lanoria.tv/)** — Pico Rivera Sports Arena · Pico Rivera  ·  *festival* <!-- tier3:gloss 473f4a9eebc0 -->
-- `Thu 7/30` **[Thursday HARDfest Pre-Party (Maceo Plex, Raxon, John Bryars)](https://ra.co/events/2479623)** — TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033 · Los Angeles  ·  *festival* <!-- tier3:gloss a98bbece1105 -->
 - `Thu 7/30` **[⚽️ 7/30 — DRUM AND BASS⚽️  We’re closing out July with high-speed energ](https://www.eventbrite.com/e/730-drum-and-bass-were-closing-out-july-with-high-speed-energ-tickets-1993083984851)** — Banana Bay Restaurant (Rowland Heights) · Rowland Heights  ·  *festival* <!-- tier3:gloss 396fd2049034 -->
 - `Fri 7/31` **[Friday HARDfest Pre-Party (Live From Earth: lineup tba)](https://ra.co/events/2479696)** — TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033 · Los Angeles  ·  *festival* <!-- tier3:gloss 39f30dbdb22b -->
 - `Fri 7/31` **[Tchaikovsky Spectacular](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *big-venue* <!-- tier3:gloss e5ab9e3ca172 -->
@@ -311,9 +325,9 @@
 - `Sat 9/19` **[Âme, DJ Tennis, Kaz James - Chinatown Block Party](https://ra.co/events/2487802)** — Gin Ling Way, Chinatown · Chinatown  ·  *festival* <!-- tier3:gloss  -->
 - `Sat 9/19` **[Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustBowlChampion](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA)** — Echoplex · Echo Park  ·  *festival* <!-- tier3:gloss  -->
 - `Sat 9/19` **[AFI](https://www.ticketmaster.com/afi-santa-ana-california-09-19-2026/event/09006494A5578640)** — Observatory Festival Grounds · Santa Ana  ·  *festival* <!-- tier3:gloss  -->
-- `Thu 9/24` **[Laurie Anderson](https://www.ticketmaster.com/laurie-anderson-los-angeles-california-09-24-2026/event/090064CAD9E9F3B2)** — Orpheum Theatre · DTLA  ·  *festival* <!-- tier3:gloss  -->
 - `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono* <!-- tier3:gloss  -->
 - `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park · DTLA  ·  *Amelie Lens* <!-- tier3:gloss  -->
+- `Sat 9/26` **[Ocean Way Festival - 09/26 Saturday](https://www.axs.com/events/1459419/ocean-way-festival-tickets)** — The Beach at Santa Monica · Santa Monica  ·  *festival* <!-- tier3:gloss  -->
 
 **October 2026**
 - `Fri 10/9` **[Parrotfish](https://www.ticketmaster.com/parrotfish-los-angeles-california-10-09-2026/event/090064E905D61695)** — The Moroccan Lounge · Arts District  ·  *festival* <!-- tier3:gloss  -->
@@ -325,4 +339,5 @@
 - `Sun 11/22` **[Three Days Grace - Alienation Tour ](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0)** — Intuit Dome · Inglewood  ·  *festival, big-venue* <!-- tier3:gloss  -->
 
 ---
-*⚠️ Stale sources (not refreshed — these events may be out of date): posh 5d (28 events), ticketmaster 4d (2186 events), alvas 4d (25 events)*
+> ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
+*⚠️ Stale sources (not refreshed — these events may be out of date): posh 6d (28 events), ticketmaster 5d (2183 events), alvas 5d (25 events)*
