@@ -797,6 +797,24 @@
         <div style="margin-top:7px; font:700 18px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ fpDetail.title }}</div>
         <div style="margin-top:7px; font:500 11.5px/1.7 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ fpDetail.venueLine }}</div>
         <div style="font:500 11.5px/1.7 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ fpDetail.priceLine }}</div>
+        <!-- Showtimes board (series only): every remaining night as a chip -> that night's tickets;
+             grouped by theater for cross-venue film programs; constant curtain time lives in the header. -->
+        <sc-if value="{{ fpDetail.hasBoard }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">SHOWTIMES{{ fpDetail.boardHead }}</div>
+          <sc-for list="{{ fpDetail.boardGroups }}" as="bg" hint-placeholder-count="1">
+            <sc-if value="{{ bg.venue }}" hint-placeholder-val="{{ false }}">
+              <div style="margin:7px 0 4px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;">{{ bg.venue }}</div>
+            </sc-if>
+            <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:4px;">
+              <sc-for list="{{ bg.chips }}" as="ch" hint-placeholder-count="6">
+                <a href="{{ ch.url }}" target="_blank" rel="noopener" onClick="{{ ch.stop }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; border:1px solid {{ ch.border }}; color: {{ ch.color }}; border-radius:3px; text-decoration: {{ ch.deco }}; white-space:nowrap;">{{ ch.label }}</a>
+              </sc-for>
+            </div>
+          </sc-for>
+          <sc-if value="{{ fpDetail.boardMore }}" hint-placeholder-val="{{ false }}">
+            <div style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; margin-top:2px;">{{ fpDetail.boardMore }}</div>
+          </sc-if>
+        </sc-if>
         <sc-if value="{{ fpDetail.hasDesc }}" hint-placeholder-val="{{ false }}">
           <div style="margin-top:14px; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b; margin-bottom:5px;">WHAT IT IS</div>
           <div style="font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ fpDetail.desc }}</div>
@@ -1292,6 +1310,64 @@ class Component extends DCLogic {
     }
     const extra = others.length - chips.length;
     return { chips, more: extra > 0 ? '+' + extra + ' more dates' : '' };
+  }
+
+  // "HH:MM" (series entry start) -> "7:30 pm", matching parseEvent's `t` format.
+  fmtTime(s) {
+    const m = /^(\d{1,2}):(\d{2})/.exec(String(s || ''));
+    if (!m) return String(s || '');
+    let h = +m[1]; const ap = h >= 12 ? 'pm' : 'am'; h = h % 12 || 12;
+    return h + (m[2] !== '00' ? ':' + m[2] : '') + ' ' + ap;
+  }
+
+  // Front-page date line: a series card shows the RUN, not its rep night — "Thru Sun 9/6 ·
+  // 12 nights" once started, "Fri 7/24 – Sun 9/6" before, "· 3 showings" when it spans
+  // theaters. One-nighters keep the plain "Fri 7/24 · 8 pm".
+  fpDateLabel(e) {
+    const s = e.series;
+    if (!(s && s.count > 1 && s.first && s.last)) return e.wd + ' ' + e.md + ' · ' + e.t;
+    const unit = (s.venues || []).length > 1 ? 'showings' : 'nights';
+    const span = (s.first === s.last) ? this.labelISO(s.first)
+      : (s.first <= this.TODAY) ? 'Thru ' + this.labelISO(s.last)
+      : this.labelISO(s.first) + ' – ' + this.labelISO(s.last);
+    return span + ' · ' + s.count + ' ' + unit;
+  }
+
+  // The movie-theater board for a series detail: every remaining night as a date chip
+  // linking to that night's tickets, grouped by venue when the program spans theaters.
+  // Times ride the chips only when they VARY — a constant curtain time collapses into the
+  // section header ("all shows 8 pm"), so a uniform theater run reads as pure dates while
+  // a rep-cinema day with a matinee and a late show teases its screenings apart. Sold-out
+  // nights stay on the board, dimmed — "there was a show" is information.
+  BOARD_CHIP_MAX = 24;
+  showtimesBoard(e) {
+    if (!e.series || (e.series.entries || []).length < 2) return { groups: [], head: '', more: '' };
+    const entries = e.series.entries.filter(en => en.date >= this.TODAY);
+    if (entries.length < 2) return { groups: [], head: '', more: '' };
+    const stop = (ev) => { ev.stopPropagation(); };
+    const times = new Set(entries.map(en => en.start || ''));
+    const uniform = times.size === 1 && !times.has('');
+    const head = uniform ? 'all shows ' + this.fmtTime(entries[0].start) : '';
+    const multiVenue = (e.series.venues || []).length > 1;
+    const shown = entries.slice(0, this.BOARD_CHIP_MAX);
+    const byVenue = new Map();
+    for (const en of shown) {
+      const v = multiVenue ? (en.venue || '') : '';
+      if (!byVenue.has(v)) byVenue.set(v, []);
+      byVenue.get(v).push({
+        label: this.labelISO(en.date) + (!uniform && en.start ? ' · ' + this.fmtTime(en.start) : ''),
+        url: en.url || e.showtimesUrl || e.url || '#', stop,
+        color: en.sold_out ? '#a29a90' : '#2b5cd9',
+        border: en.sold_out ? '#dedcd4' : '#b9c9ef',
+        deco: en.sold_out ? 'line-through' : 'none',
+      });
+    }
+    const extra = entries.length - shown.length;
+    return {
+      head,
+      groups: [...byVenue].map(([venue, chips]) => ({ venue, chips })),
+      more: extra > 0 ? '+' + extra + ' more dates' : '',
+    };
   }
 
   // ---------- ICS export (RFC 5545) ----------
@@ -1828,6 +1904,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
     "",
     "## July 2026",
     "",
+    "- **Clearer shelves + a home for long runs.** The front page's lanes got plainer names (**Afterhours**, **Big-name club nights**, **Arenas & halls**, **Markets, art & more**), and movies, comedy and theater now share one **Movies, comedy & theater** shelf. Multi-week runs and seasons — a Pantages musical, a month of rep-cinema showtimes — moved to their own **Now running** shelf (visible under every time lens) instead of squatting a lane for weeks; they rejoin the dated shelves for their final two weeks, when *closes Sunday* is news. Run cards show the span (*Thru Sun 9/6 · 12 nights*), and tapping one opens a **showtimes board**: every remaining date as a chip straight to that night's tickets, grouped by theater, sold-out nights crossed out.",
     "- **The concierge opens with the take.** The chat's welcome now folds in the day's *take* — the digest's opening read (`For Fri 7/17: …`) — so you can ask a follow-up (`what's the move tonight then?`) right where it's said. The how-to is part of the same message: full-size on your first visit, tucked behind *see what I can do ▸* once you've chatted. (The take moved off the front page, which gets straight to the cards.)",
     "- **A front page.** The site now opens on an editorial home: a **Don't miss** hero row and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — each showing its most notable events for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). Tap a card for details + tickets; *see all →* drops you into the full table pre-filtered. The old table lives on as **Explore** (the switch is in the header).",
     "- **Taste strength on every card.** The transparent taste score — the number with the little strength bar from the Explore table — now sits on each front-page card and mobile card too, so you can see *how strongly* something matched, not just that it made the cut.",
@@ -3627,14 +3704,18 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       const de = this.byKey(this.state.fpDetailKey);
       if (de) {
         fpDetailOpen = true;
+        const board = this.showtimesBoard(de);
         fpDetail = {
-          date: de.wd + ' ' + de.md + ' · ' + de.t,
+          date: this.fpDateLabel(de),
           title: de.title,
           venueLine: de.venue + ' (' + de.hood + ')',
           priceLine: this.priceLabel(de) + (de.ah ? '  ·  afterhours' : ''),
           why: de.why || '',
           desc: de.desc, hasDesc: de.hasDesc,
           lineupStr: de.lineup.join('  ·  '),
+          hasBoard: board.groups.length > 0,
+          boardHead: board.head ? ' — ' + board.head : '',
+          boardGroups: board.groups, boardMore: board.more,
           links: this.linksFor(de),
           icsClick: (domEv) => this.downloadICS(de, domEv),
           openExplore: () => this.fpOpenExplore(de),
@@ -3661,7 +3742,7 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
       // signal). Full tier still reads in Explore's rank-column tooltip.
       const TIER_BG = { 'must-see': '#1b1a17' };
       const mkCard = (e, inHero) => ({
-        date: e.wd + ' ' + e.md + ' · ' + e.t,
+        date: this.fpDateLabel(e),
         title: e.title,
         venue: e.venue + ' · ' + e.hood,
         // Editorial voice or plain fact — the curated why (curator note / editor's line),
@@ -3703,10 +3784,12 @@ Next 7 days · Wed 6/17 → Wed 6/24, 2026. 44 events tracked, 8 highlighted. Ea
           seeAll: () => this.fpSeeAll(sh.label, evs.map(e => e.id)),
         });
       }
-      // Around town + On the radar ride as fixed shelves: around is the near city-pulse,
-      // radar is inherently plan-ahead — neither follows the lens window (past drops out).
-      for (const [keys, label] of [[FP.around, 'Around town'], [FP.radar, 'On the radar']]) {
-        const evs = resolve(keys).filter(e => e.iso >= this.TODAY);
+      // Now running + Around town + On the radar ride as fixed shelves: nowrunning holds the
+      // long runs/seasons (a run IS an option under every lens — its lane-shelf slot would
+      // squat for weeks), around is the near city-pulse, radar is inherently plan-ahead —
+      // none follows the lens window (past drops out; a run stays while any night remains).
+      for (const [keys, label] of [[FP.nowrunning, 'Now running'], [FP.around, 'Around town'], [FP.radar, 'On the radar']]) {
+        const evs = resolve(keys).filter(e => e.iso >= this.TODAY || (e.series && e.series.last && e.series.last >= this.TODAY));
         if (evs.length) fpShelves.push({
           label, rowClass: 'fp-shelf', total: evs.length,
           cards: evs.slice(0, SHELF_N).map(e => mkCard(e)),   // not .map(mkCard): index ≠ inHero
