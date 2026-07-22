@@ -6459,13 +6459,14 @@
       "score_at_judge": 4
     },
     "f870e8caec0c": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "A big jam-band draw, but southern-rock/jam isn't your lane — worth knowing about, not worth prioritizing.",
-      "confidence": "med",
-      "judged_at": "2026-07-21T12:31:24",
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Jam-band rock has no foothold in this taste profile — the editorial bump is doing all the lifting here, not the genre fit.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5,
+      "model": "sonnet"
     },
     "ca49f5c82071": {
       "tier": "solid",
@@ -6548,12 +6549,12 @@
     "70290d18de29": {
       "tier": "great",
       "adjust": 1,
-      "why": "Same Smokey Robinson / Gladys Knight double-bill as 7/24 — consistent verdict, real legacy headline.",
+      "why": "Motown royalty at a loved venue on a Friday — worth surfacing even outside the electronic lane; pick this night over Thursday's identical bill.",
       "confidence": "high",
-      "judged_at": "2026-07-01T03:19:17",
+      "judged_at": "2026-07-22T12:28:09",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 5,
+      "model": "sonnet"
     },
     "1a2699ebbb61": {
       "tier": "solid",
@@ -7175,12 +7176,13 @@
     },
     "c0280e879181": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "Darude is a 2000s trance one-hit-wonder nostalgia booking at a bottle-service big room, not the house/tech-house lane this profile actually wants.",
+      "adjust": -3,
+      "why": "Darude is a Sandstorm nostalgia novelty act, not the mainstream house/tech-house energy (Chris Lake/FISHER tier) this profile actually wants big-room.",
       "confidence": "high",
-      "judged_at": "2026-07-11T12:26:43",
+      "judged_at": "2026-07-22T12:28:09",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6,
+      "model": "sonnet"
     },
     "a8c0ad8333d1": {
       "tier": "great",
@@ -7728,12 +7730,13 @@
     },
     "b0fb71a83f8e": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "Themed Bad Bunny dance party is a tribute-night format, not the artist himself — bury it.",
-      "confidence": "high",
-      "judged_at": "2026-07-18T12:30:40",
+      "adjust": -1,
+      "why": "A themed dance party riffing on an album, not a DJ or live booking worth tracking — same energy as the nostalgia nights you skip.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "sonnet"
     },
     "83dcec15601c": {
       "tier": "skip",
@@ -7827,12 +7830,13 @@
     },
     "1c3e42b4a126": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Andre Nickatina's a real Bay Area underground name, but rap at a Venice bar isn't the lane this profile is built around.",
+      "adjust": -1,
+      "why": "Cult Bay Area rap show at a small bar — outside both the dance and indie-rock lanes this profile actually tracks.",
       "confidence": "med",
-      "judged_at": "2026-07-18T12:30:40",
+      "judged_at": "2026-07-22T12:28:09",
       "input_version": 2,
-      "score_at_judge": 0
+      "score_at_judge": 2,
+      "model": "sonnet"
     },
     "87c607344da9": {
       "tier": "skip",
@@ -9910,12 +9914,13 @@
     },
     "08f6322b23b5": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Unknown bands but Zebulon is the room that consistently books the exact post-punk/garage lane you want — trust the venue here.",
-      "confidence": "low",
-      "judged_at": "2026-07-06T12:21:14",
+      "adjust": 2,
+      "why": "Small-room indie/noise bill at Zebulon is precisely the post-punk/garage lane this profile flags as high-interest, not just a generic \"music\" catch-all.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5,
+      "model": "sonnet"
     },
     "eb73d98273c1": {
       "tier": "skip",
@@ -19874,13 +19879,14 @@
       "score_at_judge": 2
     },
     "62022edc3202": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "The Warped Tour revival with a genuinely stacked emo/pop-punk lineup (Jimmy Eat World, Taking Back Sunday, Thrice) — off your electronic lane but a real cultural moment worth flagging.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Pop-punk/emo package-tour nostalgia in Long Beach — not the electronic lane and not the marquee-act tier the medium bucket is meant for.",
       "confidence": "high",
-      "judged_at": "2026-07-16T16:12:47",
+      "judged_at": "2026-07-22T12:28:09",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "sonnet"
     },
     "a9342b341615": {
       "tier": "skip",
@@ -20065,12 +20071,13 @@
     },
     "edb7e344446b": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "Generic late-night DJ set at a Fullerton nightclub, no billed selector worth the drive.",
-      "confidence": "high",
-      "judged_at": "2026-07-16T16:12:47",
+      "adjust": -2,
+      "why": "Fullerton club night with an unknown DJ — squarely in the far-flung-unless-worth-it bucket, and nothing here clears that bar.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 3,
+      "model": "sonnet"
     },
     "37956e4786d1": {
       "tier": "solid",
@@ -24823,11 +24830,12 @@
     "773d5c83a2fd": {
       "tier": "must-see",
       "adjust": 3,
-      "why": "Boris Brejcha's masked high-tech-minimal set paired with a live orchestra at the Bowl is a genuinely rare booking, not a normal DJ night — the score badly underrates this.",
+      "why": "Boris Brejcha with a live orchestra at the Bowl is a genuine one-off novelty booking of a real techno headliner at a venue you love — the score badly underrates this.",
       "confidence": "high",
-      "judged_at": "2026-07-20T12:26:28",
+      "judged_at": "2026-07-22T12:28:09",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5,
+      "model": "sonnet"
     },
     "167e35d4ba18": {
       "tier": "solid",
@@ -25146,13 +25154,14 @@
       "score_at_judge": 4
     },
     "b1cc3aabc211": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Motown royalty pairing at a favorite room — outside the core electronic lane but a legacy-act night worth flagging.",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Same Smokey/Gladys pairing as Friday's show at the same venue — see that one instead, this is the Thursday half of the run.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-07-22T12:28:09",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5,
+      "model": "sonnet"
     },
     "7dd1873cf742": {
       "tier": "solid",
@@ -25549,6 +25558,1317 @@
       "judged_at": "2026-07-21T12:31:54",
       "input_version": 2,
       "score_at_judge": 2
+    },
+    "adf1e264f20e": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "John Tejada is a real electro/minimal-techno name (Palette, Kompakt-orbit) — a TBA warehouse groove night worth building around even with unknown support.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "sonnet"
+    },
+    "7185340c04e5": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Travis Holcombe ran KCRW's underground dance show with a genuine curator's ear (Soulwax/HAAi/Bolis Pupul guest mixes) — a Club Tee Gee sleeper the score is underselling.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "a1d86a241c70": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Midnight Magic on the bill is legit NYC disco-boogie, and disco/groove at a Chinatown rooftop-adjacent spot close to home is exactly the soulful-leaning lane.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "985df8c0f636": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Fun midnight-movie cult pick at a loved venue, but it's B-tier schlock (Clint Howard slasher-comedy), not a format or director event to build a night around.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "f9696d0689d8": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same run as the Friday screening — go that night instead, this is the redundant second showing.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "9f685be76d63": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Tech-house/deep-house/minimal at Gold-Diggers is right in the pocket even with no lineup posted yet.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "538981e4a570": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Multi-genre Burbank EDM festival with hard-dance/dubstep on the bill — the exact production-over-selection mega-rave the profile penalizes.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "915a6fad8562": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Tech-house/afro-house is squarely loved territory; bumping slightly since the genre match is real even though these names are unknown quantities.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "8f67e5a5173d": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Same hard-dance/dubstep EDM festival, day two — bury both nights.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "207ca63c2c4a": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Hard-techno/hard-dance leaning bill of unfamiliar names out in Commerce — not worth the trip on spec.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "46204293c5fd": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "TNT is a hardstyle night — flagged as a non-starter genre regardless of TBA-warehouse mystique.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "3060f2b8720a": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tech-house at Wurstkuche Venice is on-genre but a trek from home with an unknown headliner.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "3d3e0aefaa59": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "House b2b set, fine genre fit, no name recognition to push it further.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "655096836a00": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Sam Feldt is a known tropical/progressive-house name with real radio hits — a legit if not top-shelf mainstream booking.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "99e9296d480b": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Cryptic corporate-parody rave naming (artists literally named after US states) reads like inside-scene DIY branding — could be fun, can't verify the crew.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "e3f695f3253c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free-RSVP queer tech-house night, decent vibe tags but no lineup to gauge the draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "2dd8b783e80b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "House night at Sound, fine on paper, no names to confirm the quality.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "6333985ad9fd": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Dubstep/bass mega-lineup is the exact brostep-adjacent genre this profile rules out.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "df60fbaca74c": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Carpenter's The Thing is a genuine cult classic, not filler rep programming, at a venue in the loved rotation.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "8f4ef54e88ca": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Electronic night close to home, but Michael Fam alone as billed info isn't enough to distinguish it.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "6f95e9645e4d": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Happy hardcore is a named penalty genre outright.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "849dbea866cc": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "This is minimal-synth/darkwave (Das Bunker's lane), not minimal techno — a genre the tags conflated but doesn't actually match the house/techno taste.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "9c6d80327bbf": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Progressive house is explicitly in the loved melodic/organic bucket, nudging this above the generic-underground pack.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "df4363249619": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Generic electronic TBA night with an unfamiliar lineup — nothing here to lift or sink it further.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "cde1c22707d4": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "TBA warehouse rave with just one unfamiliar name on the bill — no way to gauge the draw beyond the queer-rave tag.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "e132a43b89b4": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Vinyl-only all-night set at a DTLA rooftop resident series, five minutes from Silver Lake — the exact rooftop-groove format you build a Sunday around.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "48a3092e5c3b": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Same Sunday Sessions rooftop-vinyl series two weeks later with Dylan Payne, an Inthebagg label head — a shade behind Krane's night but the same winning format.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "d9ef6c695141": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hard-techno afterhours in an Inland Empire TBA warehouse with a no-name lineup — a real trek for a genre that's not your main lane.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "8ca161a7a4f9": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Jungle/DnB, not the house-techno lane — the dub tag here is bass-music dub, not the disco-dub groove you actually chase.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "08f6299fa2d6": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Generic 'electronic' tag, no lineup, no scene notes — nothing distinguishes this from a coin flip.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "cb70d63b0461": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "TBA warehouse anniversary party with no names attached — could be good but nothing here confirms it.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "c33fd998ad2f": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "First of a 4-night New Bev run — pick this Friday date over Saturday's repeat.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "cf1a114b8ef0": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Dor Danino's disco-tinged house is co-signed by Solomun and Dixon — an Innervisions-adjacent day party worth the Malibu drive.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "92b66742d153": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Anniversary night at a bar with an unknown headliner — fine if you're nearby, nothing pulling you out for it.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "60a7ad915b30": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No lineup and no genre specifics beyond 'electronic' — filler.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "be485684c658": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same New Bev run as Thursday's showing — go the earlier date instead.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "440ecb2c9abc": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Outdoor cult-classic screening at Hollywood Forever — a fun atmosphere night, not the format-driven rep pick the film lane rewards.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "ffaeb94bd682": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Joe Hisaishi live at The Ford is a genuinely rare booking for one of film music's greats — build the Friday around this one.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "64c39093b1c1": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Kelman Duran's a real leftfield name but this reads more experimental/reggaeton-inflected than house — a curiosity, not a confirmed draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "bb4c48e9b75b": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Rooftop tech-house/disco day party in its 7th year — right vibe tags, but Pomona's a real haul for an unnamed lineup.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "e54cf2a825d7": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Local house/techno resident Lily Ardalan at a DTLA day party five minutes from home — easy yes for a Saturday afternoon.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "4f4131b3fd58": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Free Tuesday house night out in Pomona with no lineup — too far for a weeknight coin flip.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "78ef37333770": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "Free Tuesday at a WeHo bottle-service room — the EDM tag and the venue read mainstream nightclub, not a real house night.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "bfac3c0c03e6": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Solid tech/deep-house genre mix at Jungle but no names on the bill to confirm the draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "20c5fda37f72": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "DnB Thursday, second night of its run — not the lane and nothing new versus other weeks.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "0de0351467c1": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Phantom of the Paradise at Vidiots — a cult-classic matinee squarely in the rep-house lane you want.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "39aa0c2a5531": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "The Third Man's evening slot at Vidiots is the better print-and-mood pairing than the matinee down the hall.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "02eb76005dd9": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Fabiano do Nascimento and John Carroll Kirby at Zebulon — real jazz/global caliber in the small-room lane you like.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "9ec430fdaaff": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Season-finale billing but no names attached — can't tell if that's a victory lap or a whimper.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "ef25f9517a41": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Taxi Driver on the big New Bev screen — the classic-cinema night worth the trip out to Fairfax.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "8f8318f03358": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Pulp Fiction's midnight slot — a great film, but this is one date of a recurring late show, not a one-off event.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "4fde9ef71293": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "J'cuuzi headlining a Gold Diggers bill close to home — a legit dream-pop draw in the small-venue rock lane.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "9d2fb66a08c7": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "'Zillennial' reads like a 2000s/2010s nostalgia dance night rather than a real band bill — the tired-format booking to skip.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "74ae6281c75e": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Sat-morning cartoon compilation slot — pleasant but the least essential thing on New Bev's calendar this weekend.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "14454d9d629f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Jack Black's still a blast on a rep screen, but it's a straight matinee run, not a format or director event — take the 8/8 date over its Sunday repeat.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "28e77d86da4e": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Scorsese's Taxi Driver at New Bev earns its own trip even without a tracked-director tag — take the Saturday 7:30 slot over Sunday's repeat.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "95134e9c1e0e": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Notorious grindhouse cult classic in the midnight slot — exactly the kind of programming New Bev regulars show up for.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "7855b664c34c": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "All-vinyl, open-to-close set — the exact rooftop/groove format you gravitate to even without a name you recognize.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "cf4f77223011": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Logan Richardson's horns night at a venue you love, but it's niche instrumental jazz, not the core lane — go if you're already at 2220 that week.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "0b33b4b2a300": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Angel Bat Dawid and Georgia Anne Muldrow are real players in the underground jazz/soul crossover world — the stronger of the two Windgrease nights.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "ca39a4d1fab4": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "General Lee's usually books decent underground house/disco and it's an easy trip, but this lineup's unknowns keep it from a bigger bump.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "05387b36cd94": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Fosse's Cabaret is a legit big-screen classic worth building a Friday around — take this date over the Saturday repeat.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "8c0bc4860ba5": {
+      "tier": "great",
+      "adjust": 3,
+      "why": "Tarantino at his own theater, midnight Pulp Fiction — a tracked-director booking even without a special print attached.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "f3c39279dd91": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Legacy soul revue (Blue Magic, The Intruders, Mayer Hawthorne) at the Greek — real acts, not a tribute band, but a nostalgia bill outside your core lane.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "e4cffb8b582f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Regional rap show with no crossover to your house/rock lanes and no signal it's a must-follow name.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "0a4d4a50eba8": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Generic classic-matinee slot in a long-running series — fine filler, nothing that builds a night around it.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "d76b060a0bb0": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same Cabaret run as Friday — go that night instead, this is the redundant second showing.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "c206e52d480a": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Cult mockumentary with a devoted following — a fun oddball pick for the midnight slot.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "4acc33f34f07": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Listing's stripped of the actual booking's name so the real draw is unclear — Redwood usually skews decent rock/punk, but confirm before counting on it.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "3eb9687bdd29": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Legit funk/soul bill at a good East Hollywood room, an easy walk from Silver Lake — groove-leaning taste, just via a band instead of a DJ.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "5c054228e645": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Monophonics doing the new album front-to-back with Kendra Morris support is a genuine psych-soul draw, not just a bar gig.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "bca4b81d9559": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "A rare Italian arthouse screening hosted by Alison Martino in a gorgeous room — the kind of one-off film night that scratches the rep-cinema itch.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "3613e969af75": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Redlands is well past the far-flung line and there's no known lineup pulling you that far east.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "b777e402c70e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Jazz in a speakeasy room fits the listening-bar vibe even if the name's unfamiliar.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "5c223ffdd3d5": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Massive K-pop/hip-hop festival lineup (KATSEYE, XG) — worth knowing about, but a different genre lane entirely from the house/rock taste here.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "06630f857dd3": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Mexican instrumental post-rock outfit with real cult standing — fits the small-room experimental-rock itch better than most of this batch.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "77ffabdc73d9": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Irish folk-rock trio riding a viral wave — pleasant, but folkier and more mainstream than the post-punk/garage lane you lean toward.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "daf291de89d4": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Grateful Dead tribute brunch act — exactly the nostalgia-covers format the taste brief says to bury.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "68fe10ae922e": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same School of Rock run as Saturday — this is the redundant Sunday matinee.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "f812fe6743b9": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same Taxi Driver run as Saturday's 7:30 show — go that date, this is the last-chance repeat.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "735d3bf82b9a": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Cult B-movie horror-comedy touring both Vista and New Bev — good silly midnight-adjacent programming, just one stop of several in the run.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "7e52753ceea5": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Cult Clint Howard oddity, not a tracked director or a print-forward showing — fine rep-house filler, not the night to prioritize.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "d13f30577b08": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Unbilled local blues at a small bar — easy near-home fill, nothing to chase.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "085967d6c728": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Petey's built a real following past a small room like Zebulon — a sleeper the empty-lineup tagging undersells.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "8826c721421c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Same Ice Cream Man run, middle night — the 8/13 closer is the one to actually go to.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "74db50ea0516": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Unknown four-band bill at Gold Diggers — plausible eastside indie fill, no standout name to key on.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "0fbe699b4fe7": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Donzii and Mondo Mundo are exactly the garage/psych-leaning indie this lane wants, and Zebulon's the right room for it.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "3c19b668a111": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Closing night of the six-night Ice Cream Man run — last chance beats the two nights before it, though the film itself is still just a cult curio.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "301ec528a950": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Vague billing (\"Special Guests\") at The Novo — can't gauge the draw either way.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "21dbd6be17ef": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "The Spazmatics are a straight new-wave tribute act — exactly the nostalgia-night format to bury.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "e004ce287bf9": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Unfamiliar rock bill at The Roxy — a fine iconic room, no draw signal on the actual acts.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "2c244d0ec9e4": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Troubadour's a room you trust even without knowing Couch Dog — worth the flyer.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "742405091d0b": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Roy McCurdy's a real jazz-drumming legend (Rollins, Adderley) — take the closing Saturday of this two-night stand over the Friday.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "9e1ede1c2ffb": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Grateful Dead-themed cover brunch — the nostalgia tribute format this taste explicitly wants buried.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "53630a69d501": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Shoegaze-edged LA alt-rock that's opened arena dates for Smashing Pumpkins, at The Echo — a real sleeper the score's flat 3 doesn't reflect.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "f236db6e474c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Classic-rock legacy tour (Guess Who + Don Felder) at a venue you love, but a nostalgia bill, not a dance-forward night to build around.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "ca3f352f1a99": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Passion Pit's a decent indie-synth nostalgia draw, closing this two-night Bellwether stand, but it's adjacent to the lane, not in it.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "961f2edf6693": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Dub Club's a genuinely respected long-running reggae night with Jah9 on the bill — outside the house/techno lane but a real one if you're in a dub mood.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "875a4f371af1": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Herbie Hancock at the Hollywood Bowl — a legend at a venue you love; the score's flat 3 badly undersells this.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "0944cd4b3dff": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Richard Marx adult-contemporary nostalgia — no overlap with anything on this taste sheet.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "23e4ae300145": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "A silent-era classic on the big screen, closing its four-night run — the rare rep-cinema booking actually worth building a night around.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "b56b6929ebee": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Generic Latin-EDM club night in Costa Mesa — the far-flung penalty plus no real DJ billing.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "791623d74ad6": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Azure's a legit diaspora-focused selector (Lemon Pepper, Sinoclub), but a day party in Huntington Beach isn't worth the drive on its own.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "e0c9d7e98606": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free afrobeats day party with no billed names or confirmed location details — plausible groove fit, can't size up the draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "de562c266c3f": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Willow Avalon's country-pop — a hard-penalized genre here regardless of the El Rey booking.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "cd093c80145c": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "All-female Austin punk band on Third Man, opened for Amyl and the Sniffers and Sleater-Kinney — exactly the riotous garage/punk this lane wants at the Fonda.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "b9247cf8589d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tommy Newport reads more mainstream pop than the indie/garage clubs this taste favors — fine fill, no real pull.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "6c94d2452f44": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Unknown jazz/blues trio at a small Mid-City room — low-stakes fill.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "e3025edb2ec2": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Unbilled jazz act at a Venice speakeasy — pleasant if you're nearby, no standout draw.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "7a6401ee4d7c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Same Roy McCurdy run as the Saturday date — go the 15th instead, this is the Friday leg of the same two-night stand.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "1c3f2fd6b3d4": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Local submission-showcase with unfamiliar openers, not a specific-band draw despite genre-fit — second of two nights, no reason to pick this one over the other.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "2fba8660659c": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Loved venue, wrong show — Disney touring musical is family programming even the score's venue bump can't fix; last night of seven, still not the profile's lane.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "423135abab1d": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Scripture-themed symphonic premiere reads as faith programming, off this taste entirely.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "c71222ffc608": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Tribute act — Buddy Rich's own band with his daughter fronting, but still a legacy tribute booking, exactly the format to bury.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "063675b00ba6": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Unremarkable residency act at a blues bar, third of three nights — nothing here pulls this profile off a house night.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "d9321f005d9e": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No lineup context or genre signal beyond a single unfamiliar name at The Roxy — nothing to build a case for.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "3876b1f24828": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Kenny Washington and Josh Nelson are real jazz-scene names, and Sam First is exactly the kind of small listening room this profile likes for a low-key night.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "914ce3777946": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Dubstep/DnB/bass as the main draw is explicitly the wrong lane here, and it's a haul out to Santa Ana besides.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "sonnet"
+    },
+    "baaac90208a4": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "2000s hip-hop nostalgia party with no real DJ billing — the generic open-format club night this taste explicitly skips.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "sonnet"
+    },
+    "61ab4c2ed070": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "KCRW curation is usually a decent signal but there's no lineup to judge and Long Beach is a real trek for an unknown bill.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "sonnet"
+    },
+    "b50d40be88da": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Comedy-adjacent and not a tracked name — this profile wants comedy only for specific favorites.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "sonnet"
+    },
+    "9c79b1f07067": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Marshmello is the production-over-selection mainstream EDM the brief specifically wants filtered out, not the house/tech-house big-room stuff it actually wants — plus a Ventura county-fair trek.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "sonnet"
+    },
+    "396fd2049034": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Free DnB night at a Rowland Heights restaurant — bass-music-as-main-draw penalty plus genuinely far-flung, no upside to chase.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "sonnet"
+    },
+    "10ad1ba801d5": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "The living-pictures pageant is a genuine only-in-LA novelty worth knowing about even if it's not this profile's usual lane; Laguna's a haul but it's a once-a-summer thing.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "sonnet"
+    },
+    "6493e6459529": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Trivia night, explicitly off-taste.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "sonnet"
+    },
+    "f1f38fcb1c20": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Community figure-drawing workshop, not a music or nightlife pick this profile is after.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "sonnet"
+    },
+    "9205dcac7c9c": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Unfamiliar rock bill at a Santa Ana club — no name recognition to justify the drive.",
+      "confidence": "low",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "sonnet"
+    },
+    "5865c928499d": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same trivia series, second instance — still off-taste.",
+      "confidence": "high",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "sonnet"
+    },
+    "a5b16c3b96e0": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Black Joe Lewis has real touring pedigree in the garage-soul lane this brief likes for small rooms, though Santa Ana is out of the way for a name this size.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "sonnet"
+    },
+    "8ac8af71e4c1": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Long-running weekly drag night, fifth instance of the series — pleasant but not this profile's genre or geography, and no reason this particular night stands out.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "sonnet"
+    },
+    "b93d1e71e204": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Hip-hop bill in Santa Ana with no lineup depth beyond the headliner — not the profile's genre or geography.",
+      "confidence": "med",
+      "judged_at": "2026-07-22T12:28:09",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "sonnet"
     }
   }
 }

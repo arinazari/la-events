@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/21/2026 deterministically (no API). 341 candidates. Signals: big-venue 294, festival 44, tracked 4._
+_Generated 7/22/2026 deterministically (no API). 338 candidates. Signals: big-venue 292, festival 43, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -126,7 +126,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 8/25 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZZ) |
 | Wed 8/26 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZv) |
 | Thu 8/27 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZe) |
 | Sun 8/30 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZA) |
@@ -218,8 +217,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 8/25 | 3 | Tori Amos: In Times of Dragons Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/tori-amos-in-times-of-dragons-los-angeles-california-08-25-2026/event/09006382EBCBB72A) |
-| Tue 8/25 | 3 | Mamamoo | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Thu 8/27 | 3 | UNDERTALE: The Determination Symphony | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/undertale-the-determination-symphony-los-angeles-california-08-27-2026/event/09006479CB86B678) |
 | Fri 8/28 | 3 | ZAYN: The Konnakol Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/zayn-the-konnakol-tour-inglewood-california-08-28-2026/event/09006443E08F98F0) |
 | Fri 8/28 | 3 | CRANKDAT - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
