@@ -52,34 +52,23 @@ The page opens on the **Front page** — an editorial home rendered from the fee
 `rank_key` that orders the table's final rank — the page never re-ranks):
 
 - A **time lens** (*tonight · this weekend · next 2 weeks · plan ahead*) that re-scopes
-  everything below, with the **search bar beside it** — typing jumps straight into Explore
-  with the query live. The feed ships each lens's hero list plus rank-ordered shelf
-  key-lists; the client only date-windows and slices — selection, never re-sorting.
-- **The lead + shortlist** — the hero picks, selected server-side by the ONE shared
-  top-picks policy (`lib/assemble.top_picks` — the same helper, order, and lane/family
-  diversity caps as the flagship digest's "Don't miss" shelf), presented per the design
-  handoff: pick #1 as a big **lead card** (event photo or a category-hue art block, match %,
-  tags, the curated why, a straight-to-tickets button), picks #2–#5 as the **"Also high on
-  your list"** shortlist. A **dispatch block** fronts the digest: its dated one-sentence
-  take (the same one the chat welcome carries), *Read the full digest →*, and chips to the
-  day's top picks. Cards wear **star chips** — who starred it (the server-side stars) plus
-  an add-chip that IS the star toggle.
-  Scene-panel cards badge only the editor's rare **must-see** flag; the lead/shortlist badge
-  nothing, since their labels already say it. Full tiers remain visible in Explore's rank
-  tooltip. Card copy follows the same rule: the curated why (curator note / editor's line),
-  else the factual blurb — never the scorer's "+1 …" reasons, which live in Explore and the
-  detail modal's WHY IT'S RANKED.
-- **Your scenes** — full-width per-lane panels (warehouse & underground / afters / day
-  parties / big rooms / live music / film / comedy & stage / elsewhere; busiest lanes first,
-  up to six panels, plus **Around town** when its runtime set exists). Each panel is a
-  horizontally-scrolling grid of expanded cards (two columns visible on desktop, one
-  full-width column per swipe on mobile). Card click → a detail modal (what/why/lineup/
-  links/add-to-calendar); a lane's *all →* drops into Explore scoped **live** to that lane
-  (`exploreLane` + a clearable pill), while Around town's *all →* keeps the `filtered`
+  everything below. The feed ships each lens's hero list plus rank-ordered shelf key-lists;
+  the client only date-windows and slices — selection, never re-sorting.
+- **Don't miss** — the hero row, selected server-side by the ONE shared top-picks policy
+  (`lib/assemble.top_picks` — the same helper, order, and lane/family diversity caps as the
+  flagship digest's "Don't miss" shelf), so it can't be five club nights and can't disagree
+  with the digest on policy.
+  Shelf cards badge only the editor's rare **must-see** flag: the front page IS the top of
+  the ranking, so "great" is the baseline there and goes unbadged (a badge on every card is
+  no badge at all) — and the hero row badges nothing, since its own label already says it.
+  Full tiers remain visible in Explore's rank tooltip. Card copy follows the same rule:
+  the curated why (curator note / editor's line), else the factual blurb — never the
+  scorer's "+1 …" reasons, which live in Explore and the detail modal's WHY IT'S RANKED.
+- **Shelves per lane** — warehouse & underground / afters / day parties / big rooms / live
+  music / film / comedy & stage / elsewhere, plus fixed **Around town** and **On the radar**
+  shelves when the runtime sets exist. Card click → a detail modal (what/why/lineup/links/
+  add-to-calendar); *see all →* jumps into Explore pre-filtered via the same `filtered`
   id-list mechanism the chat uses.
-- **On the radar** — a chronological list of what's coming *after* the current lens window
-  (by date, capped at 8; series ride via their rep night), with ON SALE / JUST ANNOUNCED
-  called out in amber and the category shown quietly otherwise.
 
 **Explore** is the original table (search, facets, date range, rank/score sort), one click
 away in the header switch; the choice persists per device (`la-view` in localStorage). A feed
