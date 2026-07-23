@@ -1,9 +1,15 @@
 # Radar candidates — on the radar
 
-_Generated 7/22/2026 deterministically (no API). 338 candidates. Signals: big-venue 292, festival 43, tracked 4._
+_Generated 7/23/2026 deterministically (no API). 336 candidates. Signals: big-venue 291, festival 42, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
+
+## September 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 9/26 | 6 | Ocean Way Festival - 09/26 Saturday | The Beach at Santa Monica | festival, tracked:DJ Harvey | [link](https://www.axs.com/events/1459419/ocean-way-festival-tickets) |
 
 ## November 2026
 
@@ -38,7 +44,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 9/5 | 4 | Hypnotique Presents: Sway Festival - 2 DAY PASS | Teragram Ballroom | festival | [link](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE) |
 | Fri 9/11 | 4 | Cold Waves 2-Day (9/11/26-9/12/26) | Pacific Electric | festival | [link](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76) |
 | Sat 9/19 | 4 | Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustB | Echoplex | festival | [link](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA) |
-| Sat 9/26 | 4 | Ocean Way Festival - 09/26 Saturday | The Beach at Santa Monica | festival | [link](https://www.axs.com/events/1459419/ocean-way-festival-tickets) |
 
 ## October 2026
 
@@ -126,7 +131,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 8/26 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZv) |
 | Thu 8/27 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZe) |
 | Sun 8/30 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZA) |
 | Mon 8/31 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZk) |
@@ -376,7 +380,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 8/26 | 2 | CRANKDAT - 5th Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1313987/crankdat-5th-night-added-tickets) |
 | Thu 8/27 | 2 | Third Eye Blind - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 8/27 | 2 | Crankdat (18+ Event) | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Fri 8/28 | 2 | Ali Wong Live | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1343758/ali-wong-tickets) |
