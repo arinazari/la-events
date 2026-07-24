@@ -90,6 +90,8 @@
           <sc-for list="{{ sortOpts }}" as="s" hint-placeholder-count="3">
             <span onClick="{{ s.onClick }}" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 12px; border:1px solid {{ s.border }}; background: {{ s.bg }}; color: {{ s.color }}; border-radius:999px;">{{ s.label }}</span>
           </sc-for>
+          <span style="width:1px; height:16px; background:#dedcd4; margin:0 2px;"></span>
+          <span onClick="{{ toggleFilters }}" title="Filter by category, genre, vibe, neighborhood, date and more" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 12px; border:1px solid {{ filtersBtnBorder }}; background: {{ filtersBtnBg }}; color: {{ filtersBtnColor }}; border-radius:999px;">☰ {{ filtersBtnLabel }}</span>
         </div>
       </sc-if>
       <span style="flex:1 1 180px; min-width:150px; display:inline-flex; align-items:center; gap:7px; padding:7px 11px; border:1px solid #d2d0c7; background:#fff; border-radius:999px;" style-focus-within="border-color:#a7a59b;">
@@ -118,6 +120,7 @@
         </div>
         <article onClick="{{ lead.onOpen }}" style="position:relative; display:flex; flex-wrap:wrap; gap:22px; background:#fff; border:1px solid #c9c7bd; border-radius:5px; padding:0; overflow:hidden; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ lead.glow }};" style-hover="border-color:#a7a59b;">
           <div style="position:absolute; top:0; left:0; right:0; height:3px; background: {{ lead.matchColor }};"></div>
+          <sc-if value="{{ lead.photoCol.show }}" hint-placeholder-val="{{ false }}"><div style="{{ lead.photoCol.style }}"></div></sc-if>
           <sc-if value="{{ lead.poster.show }}" hint-placeholder-val="{{ false }}">
             <div style="flex:0 0 210px; align-self:stretch; min-height:230px; background: {{ lead.poster.bg }}; display:flex; flex-direction:column; justify-content:space-between; padding:16px;">
               <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color: {{ lead.poster.fg }}; opacity:0.85;">◍ ART</span>
@@ -150,7 +153,7 @@
             <p style="margin:0; font:400 14.5px/1.55 -apple-system,system-ui,sans-serif; color:#3f3d36; max-width:62ch; text-wrap:pretty;">{{ lead.why }}</p>
             <sc-if value="{{ lead.hasTags }}" hint-placeholder-val="{{ true }}">
               <div style="display:flex; flex-wrap:wrap; gap:5px;">
-                <sc-for list="{{ lead.tags }}" as="t" hint-placeholder-count="4"><span style="font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:4px 6px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};">{{ t.text }}</span></sc-for>
+                <sc-for list="{{ lead.tags }}" as="t" hint-placeholder-count="4"><span onClick="{{ t.onTag }}" title="See more like this in Explore" style="cursor:pointer; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:4px 6px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};" style-hover="text-decoration:underline;">{{ t.text }}</span></sc-for>
               </div>
             </sc-if>
             <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-top:2px;">
@@ -177,6 +180,7 @@
         <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:11px;">
           <sc-for list="{{ shortlist }}" as="c" hint-placeholder-count="4">
             <article onClick="{{ c.onOpen }}" style="display:flex; gap:12px; background:#fff; border:1px solid #dedcd4; border-radius:4px; padding:13px 14px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
+              <sc-if value="{{ c.thumb.show }}" hint-placeholder-val="{{ false }}"><div style="{{ c.thumb.style }}"></div></sc-if>
               <sc-if value="{{ c.poster.show }}" hint-placeholder-val="{{ false }}"><div style="flex:0 0 52px; height:66px; border-radius:3px; background: {{ c.poster.bg }};"></div></sc-if>
               <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:6px;">
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
@@ -197,7 +201,7 @@
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:6px;">
                   <sc-if value="{{ c.hasTags }}" hint-placeholder-val="{{ true }}">
                   <div style="display:flex; flex-wrap:wrap; gap:4px; min-width:0; overflow:hidden;">
-                    <sc-for list="{{ c.miniTags }}" as="t" hint-placeholder-count="2"><span style="white-space:nowrap; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};">{{ t.text }}</span></sc-for>
+                    <sc-for list="{{ c.miniTags }}" as="t" hint-placeholder-count="2"><span onClick="{{ t.onTag }}" title="See more like this in Explore" style="cursor:pointer; white-space:nowrap; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};" style-hover="text-decoration:underline;">{{ t.text }}</span></sc-for>
                   </div>
                   </sc-if>
                   <div style="display:flex; align-items:center; flex:none; margin-left:auto; padding-left:5px;">
@@ -247,6 +251,7 @@
               <div class="scry" style="display:grid; grid-auto-flow:column; grid-template-rows: {{ sc.rowsCss }}; grid-auto-columns: {{ sceneColW }}; gap:11px; overflow-x:auto; padding:2px 2px 9px; scroll-snap-type:x proximity;">
                 <sc-for list="{{ sc.cards }}" as="c" hint-placeholder-count="4">
                   <article onClick="{{ c.onOpen }}" style="scroll-snap-align:start; display:flex; flex-direction:column; gap:7px; background:#fff; border:1px solid #e4e2d9; border-left:3px solid {{ sc.dot }}; border-radius:5px; padding:12px 13px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
+                    <sc-if value="{{ c.photo.show }}" hint-placeholder-val="{{ false }}"><div style="{{ c.photo.style }}"></div></sc-if>
                     <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
                       <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.when }}</span>
                       <sc-if value="{{ c.mustSee }}" hint-placeholder-val="{{ false }}"><span style="flex:none; font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; padding:3px 5px; border-radius:2px; color:#fff; background:#161512;">MUST-SEE</span></sc-if>
@@ -255,7 +260,7 @@
                     <div style="font:500 10.5px/1.35 ui-monospace,Menlo,monospace; color:#76746b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ c.venue }}</div>
                     <sc-if value="{{ c.hasTags }}" hint-placeholder-val="{{ true }}">
                       <div style="display:flex; flex-wrap:wrap; gap:4px;">
-                        <sc-for list="{{ c.miniTags }}" as="t" hint-placeholder-count="2"><span style="font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};">{{ t.text }}</span></sc-for>
+                        <sc-for list="{{ c.miniTags }}" as="t" hint-placeholder-count="2"><span onClick="{{ t.onTag }}" title="See more like this in Explore" style="cursor:pointer; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};" style-hover="text-decoration:underline;">{{ t.text }}</span></sc-for>
                       </div>
                     </sc-if>
                     <div style="font:400 12px/1.5 -apple-system,system-ui,sans-serif; color:#3f3d36; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;">{{ c.why }}</div>
@@ -347,17 +352,46 @@
     <!-- ==================== EXPLORE ==================== -->
     <sc-if value="{{ isExplore }}" hint-placeholder-val="{{ false }}">
     <div style="max-width:1080px; margin:0 auto; padding:16px 22px 40px;">
-      <div style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; margin-bottom:12px;">{{ exploreCountLabel }}</div>
+
+      <!-- FILTER PANEL -->
+      <sc-if value="{{ filtersOpen }}" hint-placeholder-val="{{ false }}">
+      <div id="ex-filter-panel" style="margin-bottom:14px; background:#fdfcf9; border:1px solid #dedcd4; border-radius:6px; padding:14px 16px 15px;">
+        <div style="display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
+          <span style="flex:none; width:96px; font:700 8.5px/2.6 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">DATES</span>
+          <sc-for list="{{ exDateChips }}" as="c" hint-placeholder-count="5"><span onClick="{{ c.onClick }}" style="cursor:pointer; padding:6px 11px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
+          <span style="display:inline-flex; align-items:center; gap:5px; font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">
+            <input type="date" value="{{ exFrom }}" onChange="{{ onExFrom }}" style="border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:5px 7px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;" />
+            –
+            <input type="date" value="{{ exTo }}" onChange="{{ onExTo }}" style="border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:5px 7px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;" />
+          </span>
+        </div>
+        <sc-for list="{{ exRows }}" as="fr" hint-placeholder-count="7">
+          <div style="margin-top:9px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
+            <span style="flex:none; width:96px; font:700 8.5px/2.6 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;" title="tap to cycle: ✓ only these → ✕ hide → off">{{ fr.label }}</span>
+            <sc-for list="{{ fr.chips }}" as="c" hint-placeholder-count="8"><span onClick="{{ c.onClick }}" title="{{ c.title }}" style="cursor:pointer; padding:6px 11px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
+          </div>
+        </sc-for>
+        <div style="margin-top:11px; padding-top:10px; border-top:1px solid #eeece4; display:flex; align-items:center; justify-content:space-between; gap:10px;">
+          <span style="font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#bdbbb1;">tap a value: ✓ only these → ✕ hide → off · tags on any card filter here too</span>
+          <span onClick="{{ exResetFn }}" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#b4453a;" style-hover="text-decoration:underline;">reset all</span>
+        </div>
+      </div>
+      </sc-if>
+
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:12px;">
+        <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreCountLabel }}</span>
+        <sc-if value="{{ exHasActive }}" hint-placeholder-val="{{ false }}"><span onClick="{{ exResetFn }}" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear filters ×</span></sc-if>
+      </div>
       <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden; overflow-x:auto;">
         <table style="width:100%; border-collapse:collapse; font-size:12.5px; min-width:720px;">
           <thead>
             <tr style="position:sticky; top:0; z-index:2; background:#efeee9; box-shadow:0 1px 0 #d9d7cf;">
               <th onClick="{{ sortDateCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:92px;" style-hover="color:#2b5cd9;">DATE <span style="color:#2b5cd9;">{{ arrowDate }}</span></th>
               <th onClick="{{ sortTitleCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; user-select:none;" style-hover="color:#2b5cd9;">EVENT / LINEUP <span style="color:#2b5cd9;">{{ arrowTitle }}</span></th>
-              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:132px;">NEIGHBORHOOD</th>
-              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:148px;">CATEGORY / VIBE</th>
+              <th onClick="{{ sortHoodCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:132px;" style-hover="color:#2b5cd9;">NEIGHBORHOOD <span style="color:#2b5cd9;">{{ arrowHood }}</span></th>
+              <th onClick="{{ sortCatCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:148px;" style-hover="color:#2b5cd9;">CATEGORY / VIBE <span style="color:#2b5cd9;">{{ arrowCat }}</span></th>
               <th onClick="{{ sortScoreCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:116px;" style-hover="color:#2b5cd9;">MATCH <span style="color:#2b5cd9;">{{ arrowScore }}</span></th>
-              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:86px;">SOURCE</th>
+              <th onClick="{{ sortSourceCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:86px;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></th>
               <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:68px;">WHO</th>
             </tr>
           </thead>
@@ -373,7 +407,7 @@
                   <div style="margin-top:3px; font:500 11px/1.4 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.sub }}</div>
                   <sc-if value="{{ c.hasTags }}" hint-placeholder-val="{{ false }}">
                     <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:5px;">
-                      <sc-for list="{{ c.miniTags }}" as="t" hint-placeholder-count="2"><span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};">{{ t.text }}</span></sc-for>
+                      <sc-for list="{{ c.miniTags }}" as="t" hint-placeholder-count="2"><span onClick="{{ t.onTag }}" title="See more like this in Explore" style="cursor:pointer; font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};" style-hover="text-decoration:underline;">{{ t.text }}</span></sc-for>
                     </div>
                   </sc-if>
                 </td>
@@ -429,6 +463,7 @@
   <button onClick="{{ closeDetail }}" title="Close (Esc)" style="position:absolute; top:16px; right:20px; z-index:3; width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,0.28); background:rgba(27,26,23,0.55); color:#fff; cursor:pointer; font-size:16px; line-height:1; display:flex; align-items:center; justify-content:center; -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);" style-hover="background:rgba(27,26,23,0.82);">✕</button>
   <div style="position:relative; z-index:1; width:100%; max-width:600px; max-height:100%; overflow-y:auto; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:5px; box-shadow:0 24px 60px rgba(0,0,0,0.3);" class="scry">
     <div style="height:3px; background: {{ detail.matchColor }};"></div>
+    <sc-if value="{{ detail.photo.show }}" hint-placeholder-val="{{ false }}"><div style="{{ detail.photo.style }}"></div></sc-if>
     <sc-if value="{{ detail.poster.show }}" hint-placeholder-val="{{ false }}"><div style="height:150px; background: {{ detail.poster.bg }}; display:flex; align-items:flex-end; padding:14px;"><span style="font:800 22px/1 -apple-system,system-ui,sans-serif; color: {{ detail.poster.fg }};">{{ detail.poster.label }}</span></div></sc-if>
     <div style="padding:20px 22px 16px;">
       <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
@@ -445,7 +480,7 @@
           </div>
         </div>
       </div>
-      <sc-if value="{{ detail.hasTags }}" hint-placeholder-val="{{ false }}"><div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:14px;"><sc-for list="{{ detail.tags }}" as="t" hint-placeholder-count="4"><span style="font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:4px 6px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};">{{ t.text }}</span></sc-for></div></sc-if>
+      <sc-if value="{{ detail.hasTags }}" hint-placeholder-val="{{ false }}"><div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:14px;"><sc-for list="{{ detail.tags }}" as="t" hint-placeholder-count="4"><span onClick="{{ t.onTag }}" title="See more like this in Explore" style="cursor:pointer; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:4px 6px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};" style-hover="text-decoration:underline;">{{ t.text }}</span></sc-for></div></sc-if>
       <sc-if value="{{ detail.hasDesc }}" hint-placeholder-val="{{ false }}">
         <div style="margin-top:16px;">
           <div style="font:800 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin-bottom:6px;">WHAT IT IS</div>
@@ -470,7 +505,6 @@
 
       <div style="margin-top:18px; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
         <sc-for list="{{ detail.ticketLinks }}" as="tk" hint-placeholder-count="1"><span onClick="{{ tk.onGo }}" style="font:700 11px/1 ui-monospace,Menlo,monospace; padding:11px 16px; background:transparent; color:#2b5cd9; border:1px solid #2b5cd9; border-radius:999px; cursor:pointer;" style-hover="background:#2b5cd9; color:#fff;">{{ tk.label }} ↗</span></sc-for>
-        <button onClick="{{ detail.onIntel }}" style="display:inline-flex; align-items:center; gap:6px; font:700 11px/1 ui-monospace,Menlo,monospace; padding:11px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#a7a59b;">✦ Artist intel</button>
         <button onClick="{{ detail.onCal }}" style="display:inline-flex; align-items:center; gap:6px; font:700 11px/1 ui-monospace,Menlo,monospace; padding:11px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#a7a59b;">Add to calendar ↓</button>
       </div>
       <div style="margin-top:16px; padding-top:14px; border-top:1px solid #eeece4; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
@@ -530,7 +564,7 @@
       <div style="font:700 20px/1.1 -apple-system,system-ui,sans-serif; color:#161512; margin-bottom:6px;">Log in</div>
       <div style="font:400 13px/1.5 ui-monospace,Menlo,monospace; color:#8a887e; margin-bottom:13px;">Type your username to load your taste profile + digest.</div>
       <div style="display:flex; align-items:center; gap:8px; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:11px 13px; margin-bottom:12px;" style-focus-within="border-color:#2b5cd9;">
-        <input value="{{ username }}" onChange="{{ onUsername }}" placeholder="username" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 15px/1.2 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
+        <input value="{{ username }}" onChange="{{ onUsername }}" onKeyDown="{{ onUsernameKey }}" placeholder="username" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 15px/1.2 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
         <span onClick="{{ doLogin }}" title="Log in" style="flex:none; cursor:pointer; color:#2b5cd9; font-size:17px; font-weight:700;" style-hover="color:#1d49b8;">→</span>
       </div>
     </sc-if>
@@ -600,6 +634,7 @@
 
     <div style="height:1px; background:#e4e2d9; margin:15px 0;"></div>
     <div style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:8px;">ABOUT</div>
+    <div onClick="{{ openDigest }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11.5px/2 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>today's digest</span><span style="color:#2b5cd9;">read ↗</span></div>
     <div onClick="{{ openWelcome }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11.5px/2 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>quick start</span><span style="color:#2b5cd9;">welcome ↗</span></div>
     <div onClick="{{ openTour }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11.5px/2 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>how it works</span><span style="color:#2b5cd9;">tour ↗</span></div>
     <div onClick="{{ openChangelog }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11.5px/2 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>what's new</span><span style="color:#2b5cd9;">changelog ↗</span></div>
@@ -769,6 +804,54 @@
 </div>
 </sc-if>
 
+<!-- ==================== GUIDE / WHAT'S NEW ==================== -->
+<sc-if value="{{ guideOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed; inset:0; z-index:117; display:flex; align-items:center; justify-content:center; padding:24px; background:rgba(27,26,23,0.44);">
+  <div onClick="{{ closeGuide }}" style="position:absolute; inset:0;"></div>
+  <div style="position:relative; z-index:1; width:100%; max-width:680px; max-height:calc(100dvh - 48px); display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:5px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+    <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:11px 14px 11px 18px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:5px 5px 0 0;">
+      <div style="display:inline-flex; gap:6px;">
+        <span onClick="{{ guideTabHow }}" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 13px; border:1px solid {{ guideHowBorder }}; background: {{ guideHowBg }}; color: {{ guideHowColor }}; border-radius:999px;">HOW IT WORKS</span>
+        <span onClick="{{ guideTabNew }}" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 13px; border:1px solid {{ guideNewBorder }}; background: {{ guideNewBg }}; color: {{ guideNewColor }}; border-radius:999px;">WHAT'S NEW</span>
+      </div>
+      <button onClick="{{ closeGuide }}" title="Close (Esc)" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:999px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+    </div>
+    <div class="scry" style="flex:1; min-height:0; overflow-y:auto; padding:22px 26px 28px;">{{ guideBody }}</div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ==================== WELCOME / FIRST-RUN ==================== -->
+<sc-if value="{{ welcomeOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed; inset:0; z-index:118; display:flex; align-items:center; justify-content:center; padding:24px; background:rgba(27,26,23,0.44);">
+  <div onClick="{{ closeWelcome }}" style="position:absolute; inset:0;"></div>
+  <div style="position:relative; z-index:1; width:100%; max-width:560px; max-height:calc(100dvh - 48px); display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:5px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+    <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 14px 13px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:5px 5px 0 0;">
+      <div style="display:flex; align-items:center; gap:11px; min-width:0;">
+        <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; text-transform:uppercase; color:#a7a59b;">Quick start</span>
+        <span style="display:inline-flex; gap:5px; align-items:center;">
+          <sc-for list="{{ welcomeDots }}" as="d" hint-placeholder-count="4"><span style="width:6px; height:6px; border-radius:50%; background: {{ d.bg }};"></span></sc-for>
+        </span>
+      </div>
+      <button onClick="{{ closeWelcome }}" title="Close (Esc)" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:999px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+    </div>
+    <div class="scry" style="flex:1; min-height:0; overflow-y:auto; padding:22px 26px 24px;">{{ welcomeBody }}</div>
+    <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 18px; border-top:1px solid #e2e0d8; background:#faf9f5; border-radius:0 0 5px 5px;">
+      <div onClick="{{ toggleWelcomeDismiss }}" title="Tick this once you've read it — otherwise it'll greet you again next time" style="display:inline-flex; align-items:center; gap:8px; cursor:pointer;">
+        <span style="width:15px; height:15px; flex:none; border:1px solid {{ welcomeCheckBorder }}; background: {{ welcomeCheckBg }}; border-radius:3px; display:inline-flex; align-items:center; justify-content:center; font:700 10px/1 ui-monospace,Menlo,monospace; color:#fff;">{{ welcomeCheckMark }}</span>
+        <span style="font:500 11px/1.4 -apple-system,system-ui,sans-serif; color:#76746b;">Don't show this again</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <sc-if value="{{ welcomeHasBack }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ welcomeBack }}" style="flex:none; font:700 11px/1 ui-monospace,Menlo,monospace; padding:9px 15px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#1b1a17; color:#161512;">Back</button>
+        </sc-if>
+        <button onClick="{{ welcomeNext }}" style="flex:none; font:700 11px/1 ui-monospace,Menlo,monospace; padding:9px 17px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:999px; cursor:pointer;" style-hover="background:#000;">{{ welcomeNextLabel }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
 <!-- ==================== TOAST ==================== -->
 <sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
   <div style="position:fixed; left:50%; bottom:26px; transform:translateX(-50%); z-index:200; display:flex; align-items:center; gap:14px; padding:11px 16px; background:#1b1a17; color:#fff; border-radius:999px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
@@ -872,6 +955,7 @@ class Component extends DCLogic {
     const uniqTags = (arr) => { const s = new Set(), o = []; for (const x of arr) { if (!x) continue; const k = canonTag(x); if (k && !s.has(k)) { s.add(k); o.push(k); } } return o; };
     const genreArr = uniqTags([...(Array.isArray(enr.subgenres) ? enr.subgenres : []), ...(Array.isArray(tags.genre) ? tags.genre : [])]);
     const genre = genreArr.length ? genreArr.join(', ') : (enr.type || r.genre || '');
+    const axOf = (k) => uniqTags(Array.isArray(tags[k]) ? tags[k] : []);
     const verdictWhy = (r.verdict && typeof r.verdict.why === 'string') ? r.verdict.why : '';
     const why = enr.curator_note || verdictWhy || (Array.isArray(r.reasons) && r.reasons.length ? r.reasons.join(' · ') : (r.why || r.blurb || r.note || ''));
     const whyCurated = enr.curator_note || verdictWhy || '';
@@ -883,6 +967,8 @@ class Component extends DCLogic {
       venue: r.venue || 'TBA',
       hood: r.neighborhood || r.hood || r.area || 'Los Angeles',
       cat, genre,
+      genres: genreArr, vibes: axOf('vibe'), settings: axOf('setting'), regions: axOf('region'),
+      image: (typeof r.image === 'string' && /^https:\/\//.test(r.image)) ? r.image : '',
       lineup: Array.isArray(r.lineup) ? r.lineup : [],
       artistNotes: Array.isArray(enr.artist_notes) ? enr.artist_notes.filter(n => n && n.name) : [],
       pmin: pr.pmin, pmax: pr.pmax, priceDisplay: pr.display,
@@ -934,7 +1020,10 @@ class Component extends DCLogic {
   }
   fmtStamp(iso) {
     if (!iso) return '—';
-    const d = new Date(iso); if (isNaN(d.getTime())) return '—';
+    // CI writes zone-less ISO stamps that are UTC — coerce so they don't render hours off in PT.
+    const s = String(iso);
+    const d = new Date(/T\d{2}:\d{2}/.test(s) && !/[zZ]|[+-]\d{2}:?\d{2}$/.test(s) ? s + 'Z' : s);
+    if (isNaN(d.getTime())) return '—';
     let h = d.getHours(); const ap = h >= 12 ? 'PM' : 'AM'; h = h % 12; if (h === 0) h = 12;
     return this.WD[d.getDay()] + ' ' + (d.getMonth() + 1) + '/' + d.getDate() + ', ' + h + ':' + String(d.getMinutes()).padStart(2, '0') + ' ' + ap;
   }
@@ -958,15 +1047,18 @@ class Component extends DCLogic {
     settingsOpen:false, loggedIn:false, apiModal:false, tasteModal:false, tasteTab:'taste', username:'',
     apiKeyOn:false, opusOn:false, apiKey:'', sharedToken:'',
     chatOpen:false, chatInput:'', chatMsgs:[], chatBusy:false, updating:null,
-    digestModalOpen:false, spotifyStatus:null, spotifyName:'', chatGuideOpen:false,
-    calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null };
+    digestModalOpen:false, spotifyStatus:null, spotifyName:'',
+    calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null,
+    filtersOpen:false, exFrom:'', exTo:'',
+    exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] },
+    guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, welcomeDismiss:false };
 
   componentDidMount() {
     try { const r = JSON.parse(localStorage.getItem('la-fp-reactions-v1') || '{}'); if (r && typeof r === 'object') this.setState({ reactions:r }); } catch (e) {}
     try { const c = JSON.parse(localStorage.getItem('la-concierge-cfg') || '{}'); if (c && typeof c==='object') this.setState({ apiKey:c.apiKey||'', sharedToken:c.sharedToken||'', apiKeyOn:!!c.apiKeyOn, opusOn:!!c.opusOn }); } catch (e) {}
     let prof = null;
     try { prof = JSON.parse(localStorage.getItem('la-profile') || 'null'); } catch (e) {}
-    if (prof && prof.hash) this.setState({ profile: prof, loggedIn: true, username: prof.u || '' });
+    if (prof && prof.hash) { this.setState({ profile: prof, loggedIn: true, username: prof.u || '' }); this.maybeOnboard(prof); }
     this.loadFeedFor(prof && prof.hash ? prof : null);
     this.loadDigest();
     fetch('./catalog_meta.json?t=' + Date.now(), { cache: 'no-store' })
@@ -975,7 +1067,7 @@ class Component extends DCLogic {
     this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m }); };
     this._onResize(); window.addEventListener('resize', this._onResize);
     try { const m = JSON.parse(localStorage.getItem('la-chat-v1') || '[]'); if (Array.isArray(m) && m.length) this.setState({ chatMsgs: m }); } catch (e) {}
-    this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
+    this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.welcomeOpen) this.closeWelcome(); else if (this.state.guideOpen) this.setState({ guideOpen:false }); else if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
     window.addEventListener('keydown', this._onKey);
   }
   componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._updTick) clearInterval(this._updTick); if (this._updPoll) clearInterval(this._updPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); }
@@ -1002,7 +1094,7 @@ class Component extends DCLogic {
   windowFor(lens) {
     const T = this.TODAY;
     if (lens==='today') return [T,T];
-    if (lens==='weekend') return this.weekendRange();
+    if (lens==='weekend') { const [a,b] = this.weekendRange(); return [a < T ? T : a, b]; }  // clamp: no already-past nights on Sat/Sun
     if (lens==='ahead') return [this.addDays(T,14), this.addDays(T,60)];
     return [T, this.addDays(T,13)];
   }
@@ -1034,7 +1126,7 @@ class Component extends DCLogic {
     for (const g of e.genre.split(/[,/]/).map(s => s.trim())) if (g) out.push(g);
     const seen = new Set(); const res = [];
     for (const t of out) { const k = t.toLowerCase(); if (!seen.has(k)) { seen.add(k); res.push(t); } }
-    return res.slice(0,4).map(t => ({ text:t, ...this.badgeStyle(t) }));
+    return res.slice(0,4).map(t => ({ text:t, ...this.badgeStyle(t), onTag:(ev) => this.tagFilter(t, ev) }));
   }
   hash(s) { let h = 0; for (let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i))|0; return h>>>0; }
   LINK_LABELS = { RA:'Resident Advisor', DICE:'DICE', Ticketmaster:'Ticketmaster', Promoter:'Promoter', Venue:'Venue site', Editorial:'Venue site' };
@@ -1099,6 +1191,8 @@ class Component extends DCLogic {
       tags, hasTags:tags.length>0, miniTags:tags.slice(0,2), ticketLabel:this.ticketLabel(e),
       isNew:(e.xb||[]).some(x => /just announced/i.test(x)) || !!(((this.META||{}).catalog_fetched_at||'') && e.firstSeen && String(e.firstSeen).slice(0,10) >= String(this.META.catalog_fetched_at).slice(0,10)),
       poster:this.posterFor(e),
+      photo:this.photoStyle(e, 'flex:none; width:100%; height:86px; border-radius:4px;'),
+      thumb:this.photoStyle(e, 'flex:0 0 52px; height:66px; border-radius:3px;'),
       onOpen:() => this.openDetail(e.id),
       ...this.chipProps(e),
     };
@@ -1334,6 +1428,7 @@ class Component extends DCLogic {
   toggleSettings = () => { const opening = !this.state.settingsOpen; if (opening && this.state.loggedIn && this.state.spotifyStatus === null) this.checkSpotify(); this.setState({ settingsOpen: opening }); };
   closeSettings = () => this.setState({ settingsOpen:false });
   onUsername = (e) => { const v = e.target.value; this.setState({ username:v }); };
+  onUsernameKey = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.doLogin(); } };
   doLogin = async () => {
     const u = (this.state.username||'').trim();
     if (!u) { this.showToast('Type a username to load your profile', null); return; }
@@ -1346,11 +1441,12 @@ class Component extends DCLogic {
       const prof = { u, hash };
       try { localStorage.setItem('la-profile', JSON.stringify(prof)); } catch (e) {}
       this.setState({ profile:prof, loggedIn:true, settingsOpen:false });
-      this.loadDigest(); this.checkSpotify();
+      this.setReactions({});   // chips/less are per-person — server stars for this profile ride the feed
+      this.loadDigest(); this.checkSpotify(); this.maybeOnboard(prof);
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'' }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'' }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
   updateMyDigest = async () => {
     const p = this.state.profile;
     if (!p || !p.hash) { this.showToast('Sign in first — updates re-rank your own feed', null); return; }
@@ -1593,19 +1689,250 @@ class Component extends DCLogic {
     });
   }
 
+  // ---------- real event photos (feed `image`, https-gated in parseEvent) ----------
+  photoStyle(e, css) {
+    if (!e || !e.image) return { show:false, style:'' };
+    return { show:true, style: css + ' background:#e8e6de url("' + e.image.replace(/"/g, '%22') + '") center/cover no-repeat;' };
+  }
+
+  // ---------- Explore faceted filters ----------
+  EX_AXES = ['cat','genre','vibe','setting','hood','region','source'];
+  toggleFilters = () => this.setState(s => ({ filtersOpen: !s.filtersOpen, view:'explore' }));
+  exCycle(axis, val) {
+    const f = this.state.exFilters;
+    const inc = f[axis].slice(), exc = f['x'+axis].slice();
+    const i = inc.indexOf(val), o = exc.indexOf(val);
+    if (i === -1 && o === -1) inc.push(val);
+    else if (i !== -1) { inc.splice(i, 1); exc.push(val); }
+    else exc.splice(o, 1);
+    const nf = { ...f }; nf[axis] = inc; nf['x'+axis] = exc;
+    this.setState({ exFilters: nf });
+  }
+  exReset = () => this.setState({ exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] }, exFrom:'', exTo:'', exploreSearch:'' });
+  exActiveCount() {
+    const f = this.state.exFilters;
+    let n = this.EX_AXES.reduce((a, ax) => a + f[ax].length + f['x'+ax].length, 0);
+    if (this.state.exFrom || this.state.exTo) n += 1;
+    return n;
+  }
+  onExFrom = (e) => { const v = e.target.value; this.setState({ exFrom:v }); };
+  onExTo = (e) => { const v = e.target.value; this.setState({ exTo:v }); };
+  exPreset(k) {
+    const T = this.TODAY;
+    if (k === 'all') { this.setState({ exFrom:'', exTo:'' }); return; }
+    if (k === 'today') { this.setState({ exFrom:T, exTo:T }); return; }
+    if (k === 'weekend') { const [a,b] = this.weekendRange(); this.setState({ exFrom:a, exTo:b }); return; }
+    if (k === 'twoweeks') { this.setState({ exFrom:T, exTo:this.addDays(T,13) }); return; }
+    if (k === 'month') { this.setState({ exFrom:T, exTo:this.addDays(T,30) }); return; }
+  }
+  // Event's values for a filter axis (scalar axes wrapped as one-element lists).
+  exValsFor(e, axis) {
+    if (axis === 'cat') return [e.cat];
+    if (axis === 'genre') return e.genres;
+    if (axis === 'vibe') return e.vibes;
+    if (axis === 'setting') return e.settings;
+    if (axis === 'hood') return [e.hood];
+    if (axis === 'region') return e.regions;
+    return [e.source];
+  }
+  exPass(e) {
+    const f = this.state.exFilters;
+    if (this.state.exFrom && e.iso < this.state.exFrom) return false;
+    if (this.state.exTo && e.iso > this.state.exTo) return false;
+    for (const ax of this.EX_AXES) {
+      const inc = f[ax], exc = f['x'+ax];
+      if (!inc.length && !exc.length) continue;
+      const vals = this.exValsFor(e, ax);
+      if (exc.length && vals.some(v => exc.indexOf(v) !== -1)) return false;
+      if (inc.length && !vals.some(v => inc.indexOf(v) !== -1)) return false;
+    }
+    return true;
+  }
+  // A tapped tag routes to Explore: a recognized facet value becomes an include filter; anything
+  // else becomes the search text.
+  tagFilter(text, ev) {
+    if (ev && ev.stopPropagation) ev.stopPropagation();
+    const t = String(text || '').trim().toLowerCase().replace(/[\s_]+/g, '-');
+    const upcoming = this.ALL.filter(e => e.iso >= this.TODAY);
+    const axis = ['genre','vibe','setting'].find(ax => upcoming.some(e => this.exValsFor(e, ax).indexOf(t) !== -1));
+    if (axis) {
+      const f = this.state.exFilters;
+      if (f[axis].indexOf(t) === -1) { const nf = { ...f }; nf[axis] = f[axis].concat([t]); nf['x'+axis] = f['x'+axis].filter(v => v !== t); this.setState({ exFilters:nf }); }
+      this.setState({ view:'explore', filtersOpen:true, detailId:null });
+    } else {
+      this.setState({ view:'explore', exploreSearch:String(text||'').trim(), detailId:null });
+    }
+  }
+
+  // ---------- About: how-it-works guide + changelog + first-run welcome ----------
+  GUIDE_HOW = [
+    "# How it works",
+    "",
+    "This is a **taste-ranked digest of what's happening in LA** — electronic, live music, comedy, film, theater, food and arts. Every event is scored against a taste profile, so the best ones float to the top with a one-line reason. It's a curated read, not a full calendar dump.",
+    "",
+    "## Find something to do",
+    "",
+    "- The **front page** opens on your window — *tonight · this weekend · next 2 weeks · plan ahead* — with the lead pick, a shortlist, and a lane per scene. Tap any card for details + tickets.",
+    "- **Explore** (top right) is the full table. **Sort** by tapping the `DATE`, `EVENT`, `NEIGHBORHOOD`, `CATEGORY` or `SOURCE` headers.",
+    "- **Filter** with the `FILTERS` chip next to the sort options: tap a value once to **✓ keep** only matches, again to **✕ hide** it, once more to clear — categories, genres, vibe, setting, neighborhood, region and source, plus a date range with presets.",
+    "- **Tap any tag** on a card (like *techno* or *warehouse*) to jump into Explore filtered to exactly that tag.",
+    "- **Search** everything from the box in the header.",
+    "",
+    "## The match number",
+    "",
+    "Each event's **match %** (with the little bar) is the transparent taste score — deterministic, the same math behind the digest, refined by a light editorial pass.",
+    "",
+    "## Read the digest",
+    "",
+    "The front page's **TODAY'S DIGEST** box opens the written rundown — top picks with a sentence each, grouped by day (also under Settings → About). Signed in, it's your personal digest; it refreshes when your taste changes or when you hit **Update**.",
+    "",
+    "## Ask the concierge",
+    "",
+    "The **✦ concierge** (right rail, or the bottom bar on mobile) is a friend who knows the city:",
+    "",
+    "- `free shows this weekend`",
+    "- `something chill and walkable tonight, no techno`",
+    "- `plan my Saturday — dinner then a show`",
+    "",
+    "It needs a connection — the shared token from Ari, or your own Claude key (its header dot shows which). Tap a starter chip to try it.",
+    "",
+    "## Star what you like",
+    "",
+    "The **+ chip** on any card stars the event: friends see **★ you** on it, it gently **teaches your ranking** (the lineup's artists get a boost), and it builds your **Starred calendar**. In an event's detail, **Show less like this** does the opposite — a soft nudge down for that kind of bill.",
+    "",
+    "## Calendars",
+    "",
+    "**Settings → Calendar feed** subscribes Google/Apple Calendar to your **Top picks** (tunable: rating floor, per-day cap, lookahead, weekdays, category/genre chips) or your **Starred** events — live URLs that stay current. Every event's detail also has one-tap **Add to calendar** (.ics).",
+    "",
+    "## Sign in — make it yours",
+    "",
+    "Open **Settings (☰)** and type your **username** to load your taste profile, ranking and personal digest. No username yet? Ask Ari. Signed in you also get:",
+    "",
+    "- **Ranks & Digest** — re-rank against the newest events; reads **Update available** when there's fresh data or a taste edit to fold in.",
+    "- **Spotify** — connect your listening so picks lean toward what you actually play.",
+    "- **Claude API key** — optionally run the concierge on your own key.",
+    "- **View taste & profile** — the config behind your ranking, with a diff of concierge edits.",
+    "",
+    "## Tune your taste",
+    "",
+    "You never edit settings by hand — tell the concierge: `more techno, less comedy`, `track Peggy Gou`, or `I'm in Echo Park now`. It rewrites your profile and re-ranks you within a minute or two.",
+    "",
+    "## Install it",
+    "",
+    "It's an installable app. Choose **Add to Home Screen** in your browser and it opens full-screen and stays one tap away."
+  ].join('\n');
+  GUIDE_NEW = [
+    "# What's new",
+    "",
+    "Recent upgrades to the site. See **how it works** (Settings → About) any time for the full tour.",
+    "",
+    "## Late July 2026 — the redesign, restored",
+    "",
+    "- **A new front page** — the lead pick, your shortlist, a lane per scene, and the day's digest headline up top, with the detail popup and settings rebuilt to match.",
+    "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, real **event photos** on cards, the **quick start / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
+    "- **Stars teach again, and “less” learns too.** The + chip commits your star server-side (friends see it; the lineup boosts your ranking), and **Show less like this** now files a soft negative signal instead of only hiding locally.",
+    "- **Retired:** the ✦ Artist intel button (the lineup rows' Spotify/SoundCloud links and bios remain).",
+    "",
+    "## July 2026",
+    "",
+    "- **Star events — and everyone sees it.** Every event has a star (the **+ chip** on cards). A star is saved on the server, not just your browser: friends see **★ your name** on that event's card and in digests, it gently teaches your ranking, and it builds your calendar. **Settings → Calendar feed → Starred** subscribes you to a live calendar of exactly your starred events — a stable link that auto-updates as you star more (no re-subscribing), alongside the **Top picks** calendar.",
+    "- **Subscribe to your picks as a calendar.** **Settings → Calendar feed** turns your top-rated events into a calendar that keeps itself current — subscribe in Google or Apple Calendar (or copy the URL into any app). A few knobs decide what makes the cut: minimum rating, max events per day, how far ahead, weekdays, and include/exclude chips for categories + genres. Prefer a one-shot file? The **.ics snapshot** downloads the same picks without the auto-update.",
+    "- **Tags on every card — tap one to explore.** Cards wear their tags (genre + vibe: *techno*, *queer*, *warehouse*, …) right on the front, and every tag is a link: tap it to jump into Explore filtered to exactly that tag.",
+    "- **Listen links.** Opening an event shows its lineup as artist rows: quiet **Spotify / SoundCloud** glyphs per name — straight to the artist's Spotify page once the nightly resolver has matched them, a search otherwise — and, where the research exists, a one-line bio of who that artist is.",
+    "- **The concierge opens with the take.** The chat's welcome folds in the day's *take* — the digest's opening read — so you can ask a follow-up (`what's the move tonight then?`) right where it's said.",
+    "- **A front page.** The site opens on an editorial home: the lead pick and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). The full table lives on as **Explore** (the switch is in the header).",
+    "- **Cleaner categories.** A large batch of events (mostly Ticketmaster's) were sitting in an 'other' bucket — they're now properly typed as live music, stage, comedy and film, so lane filters and shelves actually cover the catalog.",
+    "- **You control your refresh.** Your feed still picks up new events nightly, but your curated layer — the editorial pass behind your final ranks, and your written digest — refreshes when your **taste changes** or when **you hit Update** in Settings.",
+    "",
+    "## June 2026",
+    "",
+    "- **A quick-start welcome.** The first time you sign in, a short four-step tour walks you through how the picks are made and setting yourself up. Tick *don't show this again* to dismiss it; re-open it any time from **Settings → quick start**.",
+    "- **See your taste edits land.** *View taste & profile* (Settings) shows a diff of every change the concierge made to your taste or profile.",
+    "- **Festivals & further ahead.** The digest surfaces big destination festivals and looks up to ~6 months out, so you can catch the major stuff while tickets last.",
+    "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you.",
+    "- **A real concierge.** Ask for a vibe, a price, a neighborhood, or a whole night (`dinner then a show`).",
+    "- **Tune your taste by chatting.** Tell the concierge `more techno, less comedy` or `track Peggy Gou` and it rewrites your profile and re-ranks you — no config files to touch.",
+    "- **Connect Spotify.** Fold your listening history into your ranking so picks lean toward the artists and sounds you already play. (Settings → Spotify.)",
+    "- **Bring your own Claude key.** Optionally run the concierge on your own API key, with an on/off switch and an Opus toggle. (Settings → Claude API key.)",
+    "- **Add to calendar.** Every event's detail has a one-click **Add to calendar** (.ics) export."
+  ].join('\n');
+  WELCOME = [
+    [
+      "# Welcome",
+      "",
+      "This is your **taste-ranked read on LA** — music, clubs, comedy, film, theater and food, scored to what *you* like so the best stuff floats to the top with a one-line *why*. A curated digest, not a full calendar dump.",
+      "",
+      "## How the picks are made",
+      "",
+      "- Events are pulled from dozens of sources every day.",
+      "- Each is **scored against your taste** — that's the **match %** (with the little bar) on every card.",
+      "- A light editorial pass refines the final order, and the day's read lands in your **digest**."
+    ].join('\n'),
+    [
+      "# Set yourself up — about a minute",
+      "",
+      "Three one-time things make the picks truly *yours*. Do them in order, then refresh (next step).",
+      "",
+      "- **1 · Connect the concierge.** Open the **✦ concierge** and tap its connection dot (or Settings → Claude API key): paste the access **token Ari sent you**, or your own Claude key.",
+      "- **2 · Tell it about you.** Talk to it like a local friend — your **neighborhood** and your **tastes**: `I live in Echo Park`, `more techno, less comedy`, `track Peggy Gou`. It **rewrites your taste & profile** for you.",
+      "- **3 · Connect Spotify.** In **Settings** — so your listening history leans the picks toward the artists and sounds you already play."
+    ].join('\n'),
+    [
+      "# Now refresh your ranks",
+      "",
+      "Your **taste, neighborhood and Spotify don't change your list until you fold them in.**",
+      "",
+      "- Open **Settings (☰)** and hit **Ranks & Digest** to re-rank against everything you just set up, plus the latest events. Takes a minute or two.",
+      "- New events still flow in nightly on their own; the button reads **Update available** whenever there's a taste edit or fresh data worth folding in."
+    ].join('\n'),
+    [
+      "# Where everything else lives",
+      "",
+      "- The front page's **TODAY'S DIGEST** box opens your written **digest** — top picks with a sentence each, grouped by day.",
+      "- The **+ chip** on any card stars it — friends see your star, it teaches your ranking, and **Settings → Calendar feed** turns picks or stars into a live calendar.",
+      "- **View taste & profile** (Settings) shows every edit the concierge made.",
+      "- Want this tour again, or the full walkthrough? **Settings → quick start / how it works**. That's it — go find something good."
+    ].join('\n')
+  ];
+  openGuide = (tab) => this.setState({ guideOpen:true, guideTab: tab || 'how', settingsOpen:false });
+  closeGuide = () => this.setState({ guideOpen:false });
+  setGuideTab = (t) => this.setState({ guideTab:t });
+  onboardKey(p) { return 'la-onboarded:' + ((p && p.hash) || 'default'); }
+  hasOnboarded(p) { try { return localStorage.getItem(this.onboardKey(p)) === '1'; } catch (e) { return false; } }
+  maybeOnboard(p) { if (!p || !p.hash || this.hasOnboarded(p)) return; this.setState({ welcomeOpen:true, welcomeStep:0, welcomeDismiss:false }); }
+  openWelcome = () => this.setState({ welcomeOpen:true, welcomeStep:0, welcomeDismiss:this.hasOnboarded(this.state.profile), settingsOpen:false });
+  persistOnboard() { const k = this.onboardKey(this.state.profile); try { this.state.welcomeDismiss ? localStorage.setItem(k, '1') : localStorage.removeItem(k); } catch (e) {} }
+  closeWelcome = () => { this.persistOnboard(); this.setState({ welcomeOpen:false }); };
+  welcomeBack = () => this.setState({ welcomeStep: Math.max(0, this.state.welcomeStep - 1) });
+  welcomeNext = () => { if (this.state.welcomeStep >= this.WELCOME.length - 1) this.closeWelcome(); else this.setState({ welcomeStep: this.state.welcomeStep + 1 }); };
+  toggleWelcomeDismiss = () => this.setState(s => ({ welcomeDismiss: !s.welcomeDismiss }));
+
   setReactions(r) { this.setState({ reactions:r }); try { localStorage.setItem('la-fp-reactions-v1', JSON.stringify(r)); } catch (e) {} }
+  // The learning payload: the fold consumes artists/genres, so a bare {kind} teaches nothing.
+  reactPost(e, kind) {
+    const p = this.state.profile;
+    if (!(e && e.key && p && p.hash && this.BACKEND_URL)) return false;
+    fetch(new URL('/react', this.BACKEND_URL).href, { method:'POST', headers:this.backendHeaders(),
+      body: JSON.stringify({ profile:p.hash, event_key:e.key, kind, title:e.title,
+        artists:(e.lineup || []).slice(0, 12), genres:(e.genres || []).slice(0, 8) }) }).catch(() => {});
+    return true;
+  }
   react(id, kind, ev) {
     if (ev && ev.stopPropagation) ev.stopPropagation();
     const r = { ...this.state.reactions };
+    const e = this.byId(id);
     if (kind==='chip') {
       const next = r[id]!=='chip';
       if (next) r[id]='chip'; else delete r[id];
-      const e = this.byId(id); const p = this.state.profile;
-      if (e && e.key && p && p.hash && this.BACKEND_URL) {
-        fetch(new URL('/react', this.BACKEND_URL).href, { method:'POST', headers:this.backendHeaders(), body: JSON.stringify({ profile:p.hash, event_key:e.key, kind: next?'star':'unstar' }) }).catch(() => {});
-      }
+      this.reactPost(e, next ? 'star' : 'unstar');
     }
-    else { if (r[id]==='less') delete r[id]; else r[id]='less'; }  // soft "show less" — never hides; the deliberate hide is a tag filter
+    else {
+      // soft "show less" — sinks locally (never hides), and files a soft negative signal
+      // (feedback kind `skipped`) so the next re-rank actually learns it. Undo is local-only.
+      const next = r[id]!=='less';
+      if (next) r[id]='less'; else delete r[id];
+      if (next && this.reactPost(e, 'less')) this.showToast('Noted — less like this in your ranking', null);
+    }
     this.setReactions(r);
   }
   showToast(text, onUndo) { if (this._toastT) clearTimeout(this._toastT); this.setState({ toast:{ text, onUndo } }); this._toastT = setTimeout(() => this.clearToast(), 5000); }
@@ -1656,7 +1983,7 @@ class Component extends DCLogic {
     // ---- FRONT ----
     if (view==='front') {
       const pool = this.poolFor(lens);
-      const lead = pool[0] ? { ...this.cardFor(pool[0]), rank:'01' } : null;
+      const lead = pool[0] ? { ...this.cardFor(pool[0]), rank:'01', photoCol:this.photoStyle(pool[0], 'flex:0 0 210px; align-self:stretch; min-height:230px;') } : null;
       out.hasLead = !!lead; out.lead = lead || {};
       out.leadKicker = { today:"TONIGHT'S LEAD", weekend:"THE WEEKEND'S LEAD", twoweeks:'TOP OF THE NEXT TWO WEEKS', ahead:'THE ONE TO PLAN AROUND' }[lens] || 'YOUR LEAD';
       const short = pool.slice(1,5).map((e,i) => ({ ...this.cardFor(e), rank:String(i+2).padStart(2,'0') }));
@@ -1711,16 +2038,65 @@ class Component extends DCLogic {
     // ---- EXPLORE ----
     if (view==='explore') {
       const q = this.state.exploreSearch.trim().toLowerCase();
-      let rows = this.ALL.filter(e => e.iso>=T);
-      if (q) rows = rows.filter(e => (e.title+' '+e.venue+' '+e.hood+' '+e.genre+' '+e.cat+' '+e.lineup.join(' ')).toLowerCase().includes(q));
+      const upcoming = this.ALL.filter(e => e.iso>=T);
+      let rows = upcoming.filter(e => this.exPass(e));
+      if (q) rows = rows.filter(e => (e.title+' '+e.venue+' '+e.hood+' '+e.genre+' '+e.cat+' '+e.source+' '+e.lineup.join(' ')).toLowerCase().includes(q));
       const sk = this.state.exploreSort;
       const lessE = e => this.state.reactions[e.id]==='less' ? 1 : 0;
-      rows.sort((x,y) => sk==='date' ? (x.iso<y.iso?-1:x.iso>y.iso?1:0) : sk==='title' ? x.title.localeCompare(y.title) : (lessE(x)-lessE(y) || y.score-x.score || (x.iso<y.iso?-1:1)));
+      const strSort = (fn) => (x,y) => fn(x).localeCompare(fn(y)) || y.score-x.score || (x.iso<y.iso?-1:1);
+      rows.sort(sk==='date' ? ((x,y) => x.iso<y.iso?-1:x.iso>y.iso?1:0)
+        : sk==='title' ? ((x,y) => x.title.localeCompare(y.title))
+        : sk==='hood' ? strSort(e => e.hood)
+        : sk==='cat' ? strSort(e => e.cat)
+        : sk==='source' ? strSort(e => e.source)
+        : ((x,y) => lessE(x)-lessE(y) || y.score-x.score || (x.iso<y.iso?-1:1)));
       out.exploreRows = rows.slice(0,400).map((e,i) => ({ ...this.cardFor(e), rank:String(i+1) }));
       out.exploreEmpty = rows.length===0;
       out.arrowDate = sk==='date' ? '↓' : ''; out.arrowTitle = sk==='title' ? '↓' : ''; out.arrowScore = sk==='match' ? '↓' : '';
+      out.arrowHood = sk==='hood' ? '↓' : ''; out.arrowCat = sk==='cat' ? '↓' : ''; out.arrowSource = sk==='source' ? '↓' : '';
       out.sortDateCol = () => this.setSort('date'); out.sortTitleCol = () => this.setSort('title'); out.sortScoreCol = () => this.setSort('match');
-      out.exploreCountLabel = rows.length + ' events' + (q ? ' · matching “'+this.state.exploreSearch.trim()+'”' : ' · '+({match:'ranked by match',date:'by date',title:'A–Z'}[sk]));
+      out.sortHoodCol = () => this.setSort('hood'); out.sortCatCol = () => this.setSort('cat'); out.sortSourceCol = () => this.setSort('source');
+      const nAct = this.exActiveCount();
+      out.exploreCountLabel = rows.length + ' events' + (q ? ' · matching “'+this.state.exploreSearch.trim()+'”' : '')
+        + (nAct ? ' · ' + nAct + ' filter' + (nAct===1?'':'s') + ' active' : '')
+        + (!q && !nAct ? ' · '+({match:'ranked by match',date:'by date',title:'A–Z',hood:'by neighborhood',cat:'by category',source:'by source'}[sk]) : '');
+      out.exHasActive = nAct > 0 || !!q;
+      out.exResetFn = this.exReset;
+
+      // ---- filter panel ----
+      const f = this.state.exFilters;
+      const fchip = (label, mode, onClick, title) => ({ label, onClick, title: title || '',
+        border: mode==='in'?'#1f7a4d':mode==='out'?'#c75146':mode==='on'?'#2b5cd9':'#dedcd4',
+        bg: mode==='in'?'#eaf6ee':mode==='out'?'#fbeae8':mode==='on'?'#eaf0fe':'#fff',
+        color: mode==='in'?'#1f7a4d':mode==='out'?'#b4453a':mode==='on'?'#2b5cd9':'#5f5d54' });
+      const counts = (vals) => { const m = new Map(); for (const v of vals) { if (!v || /^undefined$/i.test(v)) continue; m.set(v, (m.get(v)||0)+1); } return [...m.entries()].sort((a,b) => b[1]-a[1]).map(x => x[0]); };
+      const facet = (ax, cap) => (this.META && this.META.tag_facets && Array.isArray(this.META.tag_facets[ax])) ? this.META.tag_facets[ax].slice(0, cap).map(x => x.value) : [];
+      const withSel = (vals, ax) => { const all = vals.slice(); for (const v of f[ax].concat(f['x'+ax])) if (all.indexOf(v)===-1) all.push(v); return all; };
+      const triRow = (label, ax, vals) => ({ label, chips: withSel(vals, ax).map(v => {
+        const mode = f[ax].indexOf(v)!==-1 ? 'in' : f['x'+ax].indexOf(v)!==-1 ? 'out' : 'off';
+        const mark = mode==='in' ? '✓ ' : mode==='out' ? '✕ ' : '';
+        return fchip(mark + v, mode, () => this.exCycle(ax, v), 'tap to cycle: ✓ only these → ✕ hide → off');
+      }) });
+      out.exRows = [
+        triRow('CATEGORY', 'cat', counts(upcoming.map(e => e.cat))),
+        triRow('GENRE', 'genre', facet('genre', 16)),
+        triRow('VIBE', 'vibe', facet('vibe', 12)),
+        triRow('SETTING', 'setting', facet('setting', 10)),
+        triRow('NEIGHBORHOOD', 'hood', counts(upcoming.map(e => e.hood)).slice(0, 18)),
+        triRow('REGION', 'region', facet('region', 10)),
+        triRow('SOURCE', 'source', counts(upcoming.map(e => e.source))),
+      ].filter(r => r.chips.length > 1);
+      const rng = (a, b) => this.state.exFrom===a && this.state.exTo===b;
+      const [wa, wb] = this.weekendRange();
+      out.exDateChips = [
+        fchip('All dates', rng('','')?'on':'off', () => this.exPreset('all')),
+        fchip('Tonight', rng(T,T)?'on':'off', () => this.exPreset('today')),
+        fchip('This weekend', rng(wa,wb)?'on':'off', () => this.exPreset('weekend')),
+        fchip('Next 2 wks', rng(T,this.addDays(T,13))?'on':'off', () => this.exPreset('twoweeks')),
+        fchip('Next month', rng(T,this.addDays(T,30))?'on':'off', () => this.exPreset('month')),
+      ];
+      out.exFrom = this.state.exFrom; out.exTo = this.state.exTo;
+      out.onExFrom = this.onExFrom; out.onExTo = this.onExTo;
     }
 
     // ---- DETAIL ----
@@ -1744,14 +2120,15 @@ class Component extends DCLogic {
         why:de.why, desc, hasDesc:!!desc, matchPct:this.matchPct(de.score)+'%', matchColor:this.scoreColorFor(de.score),
         tags, hasTags:tags.length>0,
         lineup:de.lineup.map(n => { const k = this._artistNorm(n); const direct = (this.META.artist_links || {})[k]; return { name:n, bio:bios[k]||'', hasBio:!!bios[k], spotify: direct || ('https://open.spotify.com/search/'+encodeURIComponent(n)), soundcloud:'https://soundcloud.com/search?q='+encodeURIComponent(n) }; }), hasLineup:de.lineup.length>0,
-        ticketLinks:links, onIntel:() => this.showToast('Artist intel \u2014 the concierge pulls fresh context on this lineup in the full app', null), sceneLabel:sc.label, onScene:() => this.openScene(sc.id), poster:this.posterFor(de),
+        ticketLinks:links, sceneLabel:sc.label, onScene:() => this.openScene(sc.id), poster:this.posterFor(de),
+        photo:this.photoStyle(de, 'height:150px;'),
         onCal:() => { this.downloadIcs(de); this.showToast('Calendar file downloaded — open it to add', null); },
         onLess:(ev) => this.react(de.id,'less',ev),
         lessLabel: this.state.reactions[de.id]==='less' ? '✓ Showing less like this' : 'Show less like this',
         lessColor: this.state.reactions[de.id]==='less' ? '#8a887e' : '#a9a79d',
         ...this.chipProps(de),
       };
-    } else out.detail = { poster:{show:false}, friendChips:[] };
+    } else out.detail = { poster:{show:false}, photo:{show:false}, friendChips:[] };
 
     // ---- SETTINGS + MODALS ----
     const sw = (on) => ({ track:'width:44px; height:24px; border-radius:999px; background:'+(on?'#2b5cd9':'#cfcdc4')+'; position:relative; cursor:pointer; flex:none; transition:background .15s;', knob:'position:absolute; top:2px; left:'+(on?'22px':'2px')+'; width:20px; height:20px; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.3); transition:left .15s;', label:on?'ON':'OFF' });
@@ -1762,7 +2139,7 @@ class Component extends DCLogic {
       settingsOpen:this.state.settingsOpen, toggleSettings:this.toggleSettings, closeSettings:this.closeSettings,
       loggedIn:this.state.loggedIn, loggedOut:!this.state.loggedIn,
       gearBg:this.state.settingsOpen?'#1b1a17':'#fff', gearColor:this.state.settingsOpen?'#fff':'#3f3d36',
-      username:this.state.username, onUsername:this.onUsername, doLogin:this.doLogin, doLogout:this.doLogout,
+      username:this.state.username, onUsername:this.onUsername, onUsernameKey:this.onUsernameKey, doLogin:this.doLogin, doLogout:this.doLogout,
       userName:uname, signedInAs:'signed in as '+uname,
       dataPull:this.fmtStamp(this.META.catalog_fetched_at),
       dataChanged:(this.LIVE_CATALOG && (this.LIVE_CATALOG.added != null || this.LIVE_CATALOG.updated != null)) ? ((this.LIVE_CATALOG.added||0)+' added · '+(this.LIVE_CATALOG.updated||0)+' updated') : 'no changes',
@@ -1783,9 +2160,9 @@ class Component extends DCLogic {
       apiKeyStatus: (this.state.apiKeyOn && (this.state.apiKey||'').trim()) ? 'connected' : ((this.state.sharedToken||'').trim() ? 'shared token' : 'not set'),
       openSync:() => this.updateMyDigest(),
       openPull:() => this.showToast('Events database is current — last pulled ' + this.fmtStamp(this.META.catalog_fetched_at), null),
-      openWelcome:() => this.showToast('Quick-start guide opens here in the app', null),
-      openTour:() => this.showToast('The how-it-works tour opens here in the app', null),
-      openChangelog:() => this.showToast('Changelog opens here in the app', null),
+      openWelcome:this.openWelcome,
+      openTour:() => this.openGuide('how'),
+      openChangelog:() => this.openGuide('new'),
       openApiModal:this.openApiModal, openTasteFn:() => this.openTaste('taste'),
       apiModal:this.state.apiModal, closeApiModal:this.closeApiModal, saveApi:this.saveApi,
       apiKey:this.state.apiKey, sharedToken:this.state.sharedToken, onApiKey:this.onApiKey, onSharedToken:this.onSharedToken,
@@ -1818,6 +2195,36 @@ class Component extends DCLogic {
 
     // ---- CALENDAR FEED ----
     Object.assign(out, this.calVals());
+
+    // ---- FILTERS toggle (explore header) ----
+    const nF = this.exActiveCount();
+    out.toggleFilters = this.toggleFilters;
+    out.filtersBtnLabel = 'FILTERS' + (nF ? ' ('+nF+')' : '');
+    out.filtersBtnBg = this.state.filtersOpen ? '#1b1a17' : (nF ? '#eaf0fe' : '#fff');
+    out.filtersBtnColor = this.state.filtersOpen ? '#fff' : (nF ? '#2b5cd9' : '#76746b');
+    out.filtersBtnBorder = this.state.filtersOpen ? '#1b1a17' : (nF ? '#2b5cd9' : '#d2d0c7');
+    out.filtersOpen = this.state.filtersOpen && view==='explore';
+
+    // ---- ABOUT: guide (how / what's new) + first-run welcome ----
+    out.guideOpen = this.state.guideOpen;
+    out.closeGuide = this.closeGuide;
+    out.guideTabHow = () => this.setGuideTab('how');
+    out.guideTabNew = () => this.setGuideTab('new');
+    const gHow = this.state.guideTab !== 'new';
+    out.guideHowBg = gHow?'#1b1a17':'#fff'; out.guideHowColor = gHow?'#fff':'#3f3d36'; out.guideHowBorder = gHow?'#1b1a17':'#d2d0c7';
+    out.guideNewBg = !gHow?'#1b1a17':'#fff'; out.guideNewColor = !gHow?'#fff':'#3f3d36'; out.guideNewBorder = !gHow?'#1b1a17':'#d2d0c7';
+    out.guideBody = React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(gHow ? this.GUIDE_HOW : this.GUIDE_NEW) } });
+    out.welcomeOpen = this.state.welcomeOpen;
+    out.closeWelcome = this.closeWelcome;
+    out.welcomeBody = React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.WELCOME[Math.min(this.state.welcomeStep, this.WELCOME.length - 1)]) } });
+    out.welcomeDots = this.WELCOME.map((_, i) => ({ bg: i === this.state.welcomeStep ? '#1b1a17' : '#d8d6cd' }));
+    out.welcomeHasBack = this.state.welcomeStep > 0;
+    out.welcomeBack = this.welcomeBack; out.welcomeNext = this.welcomeNext;
+    out.welcomeNextLabel = this.state.welcomeStep >= this.WELCOME.length - 1 ? 'Got it' : 'Next';
+    out.toggleWelcomeDismiss = this.toggleWelcomeDismiss;
+    out.welcomeCheckBg = this.state.welcomeDismiss ? '#2b5cd9' : '#fff';
+    out.welcomeCheckBorder = this.state.welcomeDismiss ? '#2b5cd9' : '#c9c7bd';
+    out.welcomeCheckMark = this.state.welcomeDismiss ? '✓' : '';
 
     out.closeDetail = this.closeDetail;
     out.hasToast = !!this.state.toast;
