@@ -72,7 +72,7 @@
           <span onClick="{{ viewExplore }}" style="cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 13px; background: {{ exploreTabBg }}; color: {{ exploreTabColor }};">EXPLORE</span>
         </div>
         </sc-if>
-        <span onClick="{{ toggleSettings }}" title="Settings" style="position:relative; cursor:pointer; flex:none; width:32px; height:32px; border:1px solid #d2d0c7; background: {{ gearBg }}; color: {{ gearColor }}; border-radius:999px; font-size:14px; line-height:30px; text-align:center;" style-hover="border-color:#a7a59b;">☰<sc-if value="{{ loggedIn }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:-1px; right:-1px; width:9px; height:9px; border-radius:50%; background:#2b5cd9; border:2px solid #f4f3ef;"></span></sc-if></span>
+        <span onClick="{{ toggleSettings }}" title="Settings" style="position:relative; cursor:pointer; flex:none; width:32px; height:32px; border:1px solid #d2d0c7; background: {{ gearBg }}; color: {{ gearColor }}; border-radius:999px; font-size:14px; line-height:30px; text-align:center;" style-hover="border-color:#a7a59b;">☰<sc-if value="{{ updateBadge }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:-1px; right:-1px; width:9px; height:9px; border-radius:50%; background:#2b5cd9; border:2px solid #f4f3ef;"></span></sc-if></span>
       </div>
     </div>
     <!-- row B: lenses (front/scene) or sort (explore) + search -->
@@ -403,6 +403,31 @@
         <sc-if value="{{ hasChatFilter }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearChatFilter }}" title="Clear the concierge's filter" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; padding:5px 10px; border:1px solid #c3d2f4; background:#eaf0fe; border-radius:999px;">✦ {{ chatFilterLabel }} ×</span></sc-if>
         <sc-if value="{{ exHasActive }}" hint-placeholder-val="{{ false }}"><span onClick="{{ exResetFn }}" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear filters ×</span></sc-if>
       </div>
+      <!-- mobile: flat card list (the table is a desktop surface) -->
+      <sc-if value="{{ isMobileCards }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
+          <sc-for list="{{ exploreRows }}" as="c" hint-placeholder-count="8">
+            <div onClick="{{ c.onOpen }}" style="border-bottom:1px solid #e8e6de; padding:13px 15px; cursor:pointer;">
+              <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px;">
+                <div style="min-width:0;">
+                  <div style="font:600 10.5px/1.2 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.dateShort }} · {{ c.t }}</div>
+                  <div style="margin-top:4px; font:600 14.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ c.title }}</div>
+                </div>
+                <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}">
+                  <span style="flex:none; font:700 12px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span>
+                </sc-if>
+              </div>
+              <div style="margin-top:5px; font:500 11px/1.4 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.venue }}</div>
+              <div style="margin-top:7px; display:flex; flex-wrap:wrap; align-items:center; gap:6px;">
+                <span style="font:600 10px/1 -apple-system,system-ui,sans-serif; color: {{ c.catColor }};">{{ c.cat }}</span>
+                <sc-for list="{{ c.miniTags }}" as="t" hint-placeholder-count="2"><span onClick="{{ t.onTag }}" style="cursor:pointer; font:700 8.5px/1 ui-monospace,Menlo,monospace; padding:4px 6px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};">{{ t.text }}</span></sc-for>
+                <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span style="font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 5px; border-radius:2px; color:#1f7a4d; background:rgba(31,122,77,0.12);">NEW</span></sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notMobileCards }}" hint-placeholder-val="{{ true }}">
       <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden; overflow-x:auto;">
         <table style="width:100%; border-collapse:collapse; font-size:12.5px; min-width:720px;">
           <thead>
@@ -450,6 +475,7 @@
           </tbody>
         </table>
       </div>
+      </sc-if>
       <sc-if value="{{ exploreClipped }}" hint-placeholder-val="{{ false }}"><div style="padding:12px 0; text-align:center; font:500 10.5px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreClipped }}</div></sc-if>
       <sc-if value="{{ exploreEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding:40px 0; text-align:center; font:500 12px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">No events match “{{ searchVal }}”.</div></sc-if>
     </div>
@@ -493,7 +519,7 @@
         <div style="min-width:0;">
           <div style="font:600 11px/1 ui-monospace,Menlo,monospace; color:#76746b; margin-bottom:7px;">{{ detail.when }}</div>
           <h2 style="margin:0; font:700 24px/1.15 -apple-system,system-ui,sans-serif; color:#161512; text-wrap:balance;">{{ detail.title }}</h2>
-          <div style="margin-top:6px; font:500 12px/1.5 ui-monospace,Menlo,monospace; color:#76746b;"><sc-if value="{{ detail.hasMap }}" hint-placeholder-val="{{ true }}"><a href="{{ detail.mapUrl }}" target="_blank" rel="noopener" title="Open {{ detail.venue }} in Google Maps" style="display:inline-flex; align-items:center; vertical-align:-2px; margin-right:5px; color:#2b5cd9; line-height:0;" style-hover="color:#1d49b8;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></a></sc-if><span style="color:#3f3d36;">{{ detail.venue }}</span> · {{ detail.hood }} · {{ detail.price }}<sc-if value="{{ detail.hasMap }}" hint-placeholder-val="{{ true }}"> &nbsp;<a href="{{ detail.interiorUrl }}" target="_blank" rel="noopener" title="See photos of {{ detail.venue }}" style="white-space:nowrap; color:#a7a59b; border-bottom:1px solid #dedcd4;" style-hover="color:#2b5cd9; border-color:#2b5cd9;">see venue ↗</a></sc-if></div>
+          <div style="margin-top:6px; font:500 12px/1.5 ui-monospace,Menlo,monospace; color:#76746b;"><sc-if value="{{ detail.hasMap }}" hint-placeholder-val="{{ true }}"><a href="{{ detail.mapUrl }}" target="_blank" rel="noopener" title="Open {{ detail.venue }} in Google Maps" style="display:inline-flex; align-items:center; vertical-align:-2px; margin-right:5px; color:#2b5cd9; line-height:0;" style-hover="color:#1d49b8;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></a></sc-if><span style="color:#3f3d36;">{{ detail.venue }}</span>{{ detail.hoodSep }}{{ detail.hood }} · {{ detail.price }}<sc-if value="{{ detail.seriesBadge }}" hint-placeholder-val="{{ false }}"> · {{ detail.seriesBadge }}</sc-if><sc-if value="{{ detail.hasMap }}" hint-placeholder-val="{{ true }}"> &nbsp;<a href="{{ detail.interiorUrl }}" target="_blank" rel="noopener" title="See photos of {{ detail.venue }}" style="white-space:nowrap; color:#a7a59b; border-bottom:1px solid #dedcd4;" style-hover="color:#2b5cd9; border-color:#2b5cd9;">see venue ↗</a></sc-if></div>
         </div>
         <div style="display:flex; flex-direction:column; align-items:flex-end; gap:11px; flex:none;">
           <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}"><div style="text-align:right;"><div style="font:700 22px/1 ui-monospace,Menlo,monospace; color: {{ detail.matchColor }};">{{ detail.matchPct }}</div><div style="font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin-top:2px;">MATCH</div></div></sc-if>
@@ -523,6 +549,33 @@
         <div style="margin-top:16px; display:flex; align-items:center; gap:10px; padding:11px 13px; background:#f4f3ef; border-radius:4px;">
           <span style="display:inline-flex;"><sc-for list="{{ detail.avatars }}" as="a" hint-placeholder-count="3"><span style="width:24px; height:24px; margin-left:-6px; border-radius:50%; border:2px solid #f4f3ef; background: {{ a.bg }}; color:#3f3d36; font:700 9px/24px ui-monospace,Menlo,monospace; text-align:center;">{{ a.i }}</span></sc-for></span>
           <span style="font:600 11.5px/1.4 ui-monospace,Menlo,monospace; color:#5a584f;">{{ detail.groupFull }}</span>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ detail.hasShowtimes }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:16px;">
+          <div style="font:800 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin-bottom:6px;">SHOWTIMES</div>
+          <sc-for list="{{ detail.showtimeGroups }}" as="sg" hint-placeholder-count="1">
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:6px;">
+              <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ sg.venue }}</span>
+              <sc-for list="{{ sg.times }}" as="st" hint-placeholder-count="4">
+                <a href="{{ st.url }}" target="_blank" rel="noopener" onClick="{{ st.stop }}" title="{{ st.title }}" style="font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 9px; border:1px solid {{ st.border }}; color: {{ st.color }}; border-radius:3px; text-decoration: {{ st.deco }};" style-hover="border-color:#2b5cd9; background:#f4f7fe;">{{ st.label }}</a>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ detail.hasSeries }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:16px;">
+          <div style="font:800 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin-bottom:8px;">ALSO SHOWING</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <sc-for list="{{ detail.seriesChipRows }}" as="sd" hint-placeholder-count="4">
+              <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:3px; text-decoration: {{ sd.deco }};" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ sd.label }}</a>
+            </sc-for>
+            <sc-if value="{{ detail.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
+              <span style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; color:#a7a59b;">{{ detail.seriesMore }}</span>
+            </sc-if>
+          </div>
         </div>
       </sc-if>
 
@@ -605,14 +658,15 @@
         </sc-if>
       </div>
       <div onClick="{{ openPull }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
-        <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">↻ {{ pullTitle }}</div>
-        <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">Last pulled from sources: {{ dataPull }}</div>
+        <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">↻ {{ pullTitle }}<sc-if value="{{ showAdminRows }}" hint-placeholder-val="{{ false }}"> <span style="font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">ADMIN</span></sc-if></div>
+        <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">Last pulled from sources: {{ dataPull }}<sc-if value="{{ showAdminRows }}" hint-placeholder-val="{{ false }}"> · tap to fetch all sources now</sc-if></div>
+        <sc-if value="{{ isRefreshing }}" hint-placeholder-val="{{ false }}"><div class="la-prog" style="background:#dcdad1;"><i style="background:#2b5cd9;"></i></div></sc-if>
       </div>
       <div onClick="{{ openApiModal }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
         <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">◆ Claude API key</div>
         <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">{{ apiKeyStatus }}</div>
       </div>
-      <div style="border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;">
+      <div onClick="{{ openSpotifyModal }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
         <div style="display:flex; align-items:center; gap:10px;">
           <div style="flex:1; min-width:0;">
             <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;"><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#1DB954; vertical-align:1px; margin-right:6px;"></span>Spotify</div>
@@ -620,9 +674,6 @@
           </div>
           <sc-if value="{{ spotifyCanConnect }}" hint-placeholder-val="{{ true }}">
             <span onClick="{{ connectSpotify }}" title="Link Spotify so your picks re-rank to your listening" style="flex:none; cursor:pointer; font:700 11px/1 -apple-system,system-ui,sans-serif; padding:9px 14px; background:#1DB954; color:#fff; border-radius:999px;" style-hover="background:#1aa74a;">Connect</span>
-          </sc-if>
-          <sc-if value="{{ spotifyConnected }}" hint-placeholder-val="{{ false }}">
-            <span onClick="{{ disconnectSpotify }}" style="flex:none; cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; padding:9px 12px; border:1px solid #d2d0c7; background:#fff; color:#b4453a; border-radius:999px;" style-hover="border-color:#b4453a;">Disconnect</span>
           </sc-if>
         </div>
       </div>
@@ -726,13 +777,26 @@
       </span>
       <span onClick="{{ closeTaste }}" title="Close" style="margin-left:auto; cursor:pointer; width:30px; height:30px; border-radius:5px; background:#e8e6de; color:#76746b; font-size:15px; line-height:30px; text-align:center;" style-hover="background:#dcdad1;">✕</span>
     </div>
-    <div style="flex:none; padding:11px 18px; background:#eef5ef; border-bottom:1px solid #dbe8dd; font:700 13px/1.3 -apple-system,system-ui,sans-serif; color:#1f7a4d;">{{ tasteBanner }}</div>
+    <div style="flex:none; display:flex; align-items:center; gap:12px; padding:11px 18px; background:{{ tasteBannerBg }}; border-bottom:1px solid {{ tasteBannerBorder }};">
+      <span style="flex:1; font:700 13px/1.3 -apple-system,system-ui,sans-serif; color:{{ tasteBannerColor }};">{{ tasteBanner }}</span>
+      <sc-if value="{{ tastePending }}" hint-placeholder-val="{{ false }}"><span onClick="{{ tasteUpdateNow }}" style="flex:none; cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; padding:8px 13px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:999px;" style-hover="background:#2450bd;">↻ Update now</span></sc-if>
+    </div>
     <div class="scry" style="flex:1; min-height:0; overflow-y:auto; padding:18px;">
       <sc-if value="{{ isTasteTab }}" hint-placeholder-val="{{ true }}">
-        <div style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#1f7a4d; margin-bottom:11px;">LATEST CHANGE — LIVE</div>
+        <div style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#1f7a4d; margin-bottom:11px;">LATEST CHANGE</div>
         <div style="border:1px solid #e4e2d9; border-radius:5px; overflow:hidden; background:#fbfaf7; padding:8px 0;">
           <sc-for list="{{ diffLines }}" as="d" hint-placeholder-count="14"><div style="font:500 12px/1.7 ui-monospace,Menlo,monospace; white-space:pre-wrap; word-break:break-word; padding:0 12px; background: {{ d.bg }}; color: {{ d.color }};">{{ d.text }}</div></sc-for>
         </div>
+        <sc-if value="{{ hasTasteHistory }}" hint-placeholder-val="{{ false }}">
+          <div style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#a7a59b; margin:16px 0 8px;">RECENT ADJUSTMENTS</div>
+          <div style="border:1px solid #e4e2d9; border-radius:5px; overflow:hidden;">
+            <sc-for list="{{ tasteHistory }}" as="h" hint-placeholder-count="3"><div style="display:flex; gap:12px; padding:9px 13px; border-top:1px solid #f0efe8; background:#fff;"><span style="flex:0 0 44px; font:600 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ h.date }}</span><span style="flex:1; font:500 12px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36;">{{ h.summary }}</span></div></sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ hasRawTasteYaml }}" hint-placeholder-val="{{ false }}">
+          <div style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#a7a59b; margin:16px 0 8px;">TASTE.YAML — READ-ONLY</div>
+          <div class="scry" style="border:1px solid #e4e2d9; border-radius:5px; background:#fbfaf7; padding:10px 12px; max-height:260px; overflow-y:auto; font:500 11px/1.6 ui-monospace,Menlo,monospace; white-space:pre-wrap; word-break:break-word; color:#5a584f;">{{ rawTasteYaml }}</div>
+        </sc-if>
       </sc-if>
       <sc-if value="{{ isProfileTab }}" hint-placeholder-val="{{ false }}">
         <div style="border:1px solid #e4e2d9; border-radius:5px; overflow:hidden;">
@@ -824,8 +888,35 @@
     <button onClick="{{ closeDigest }}" title="Close (Esc)" style="position:absolute; z-index:3; top:9px; right:11px; width:30px; height:30px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:999px; cursor:pointer; font:600 15px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
     <div style="flex:none; display:flex; align-items:center; gap:8px; padding:11px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:5px 5px 0 0;">
       <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.16em; color:#8a887e;">EDITORIAL DIGEST</span>
-      <span onClick="{{ downloadDigest }}" title="Download this digest as Markdown" style="margin-left:auto; margin-right:34px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:6px 11px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">↓ download</span>
+      <span style="margin-left:auto;"></span>
+      <sc-if value="{{ digestArchShow }}" hint-placeholder-val="{{ false }}">
+        <span style="position:relative; display:inline-flex;">
+          <span onClick="{{ toggleDigestMenu }}" title="Read a past digest" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:6px 11px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">{{ digestArchLabel }}</span>
+          <sc-if value="{{ digestMenuOpen }}" hint-placeholder-val="{{ false }}">
+            <div class="scry" style="position:absolute; top:calc(100% + 5px); right:0; z-index:6; min-width:250px; max-width:320px; max-height:290px; overflow-y:auto; background:#fff; border:1px solid #c9c7bd; border-radius:3px; box-shadow:0 12px 32px rgba(0,0,0,0.18); padding:4px;">
+              <sc-for list="{{ digestArchItems }}" as="d" hint-placeholder-count="6">
+                <div onClick="{{ d.onClick }}" style="display:flex; align-items:baseline; gap:8px; padding:7px 9px; cursor:pointer; border-radius:2px; background:{{ d.bg }};" style-hover="background:#f1f5ff;">
+                  <span style="flex:none; min-width:44px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:{{ d.dateColor }};">{{ d.date }}</span>
+                  <span style="flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font:500 11px/1.3 -apple-system,system-ui,sans-serif; color:#3f3d36;">{{ d.title }}</span>
+                  <span style="flex:none; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#2b5cd9;">{{ d.mark }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </span>
+      </sc-if>
+      <span onClick="{{ toggleEmailDigest }}" title="Email this digest — your address is typed each time and never stored" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:6px 11px; border-radius:2px; border:1px solid {{ emailTogBorder }}; background: {{ emailTogBg }}; color: {{ emailTogColor }}; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9;">✉ email</span>
+      <span onClick="{{ downloadDigest }}" title="Download this digest as Markdown" style="margin-right:34px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:6px 11px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">↓ download</span>
     </div>
+    <sc-if value="{{ digestEmailOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="flex:none; display:flex; align-items:center; gap:8px; padding:10px 20px; border-bottom:1px solid #e2e0d8; background:#f1f5ff;">
+        <input value="{{ digestEmail }}" onChange="{{ onDigestEmailInput }}" onKeyDown="{{ onDigestEmailKey }}" type="email" placeholder="you@email.com — typed each time, never stored" style="flex:1; min-width:0; box-sizing:border-box; font:400 12.5px/1.4 -apple-system,system-ui,sans-serif; padding:8px 10px; border:1px solid #c9c7bd; background:#fff; color:#1b1a17; border-radius:2px; outline:none;" style-focus="border-color:#2b5cd9;" />
+        <button onClick="{{ sendDigestEmail }}" style="flex:none; font:700 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:999px; cursor:pointer;" style-hover="background:#1f49b8;">Send →</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ digestPastNote }}" hint-placeholder-val="{{ false }}">
+      <div style="flex:none; padding:8px 20px; border-bottom:1px solid #e2e0d8; background:#fdfcf9; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">{{ digestPastNote }}</div>
+    </sc-if>
     <sc-if value="{{ digestFallbackNote }}" hint-placeholder-val="{{ false }}">
       <div style="flex:none; padding:9px 20px; border-bottom:1px solid #ecd9ae; background:#fdf4e3; font:500 11px/1.5 ui-monospace,Menlo,monospace; color:#8a6d3b;">No personalized digest for your profile yet — this is the house digest. Hit Ranks &amp; Digest in Settings (☰) to write yours.</div>
     </sc-if>
@@ -837,6 +928,27 @@
       </div>
     </sc-if>
     <div id="dg-scroll" class="scry" style="flex:1; min-height:0; overflow-y:auto; padding:22px 26px 30px;">{{ digestBody }}</div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ==================== REFRESH NUDGE (3-day popup) ==================== -->
+<sc-if value="{{ nudgeOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed; inset:0; z-index:116; display:flex; align-items:center; justify-content:center; padding:32px; background:rgba(27,26,23,0.42);">
+  <div onClick="{{ closeNudge }}" style="position:absolute; inset:0;"></div>
+  <div style="position:relative; z-index:1; width:100%; max-width:500px; max-height:100%; display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:5px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+    <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 14px 13px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:5px 5px 0 0;">
+      <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; text-transform:uppercase; color:#a7a59b;">Your picks are a few days old</span>
+      <button onClick="{{ closeNudge }}" title="Close" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:999px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+    </div>
+    <div class="scry" style="flex:1; min-height:0; overflow-y:auto; padding:20px 24px 22px;">{{ nudgeBody }}</div>
+    <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 18px; border-top:1px solid #e2e0d8; background:#faf9f5; border-radius:0 0 5px 5px;">
+      <span onClick="{{ toggleNudgeMore }}" style="cursor:pointer; font:600 11px/1.4 -apple-system,system-ui,sans-serif; color:#2b5cd9;" style-hover="text-decoration:underline;">{{ nudgeMoreLabel }}</span>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button onClick="{{ closeNudge }}" style="flex:none; font:700 11px/1 ui-monospace,Menlo,monospace; padding:9px 15px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#1b1a17; color:#161512;">Not now</button>
+        <button onClick="{{ nudgeUpdateNow }}" style="flex:none; font:700 11px/1 ui-monospace,Menlo,monospace; padding:9px 17px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:999px; cursor:pointer;" style-hover="background:#2450bd;">↻ Update now</button>
+      </div>
+    </div>
   </div>
 </div>
 </sc-if>
@@ -884,6 +996,29 @@
         </sc-if>
         <button onClick="{{ welcomeNext }}" style="flex:none; font:700 11px/1 ui-monospace,Menlo,monospace; padding:9px 17px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:999px; cursor:pointer;" style-hover="background:#000;">{{ welcomeNextLabel }}</button>
       </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ==================== SPOTIFY STATUS ==================== -->
+<sc-if value="{{ spotifyModalOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed; inset:0; z-index:130; display:flex; align-items:center; justify-content:center; padding:32px; background:rgba(27,26,23,0.42);">
+  <div onClick="{{ closeSpotifyModal }}" style="position:absolute; inset:0;"></div>
+  <div style="position:relative; z-index:1; width:360px; max-width:92vw; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:5px; box-shadow:0 24px 60px rgba(0,0,0,0.28); padding:18px;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span style="color:#1f9d57; font-size:15px;">◉</span>
+      <span style="font:800 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#161512;">SPOTIFY</span>
+    </div>
+    <div style="margin-top:11px; font-size:12.5px; line-height:1.55; color:#3f3d36;">{{ spotifyModalStatus }}</div>
+    <div style="display:flex; gap:6px; margin-top:16px; justify-content:flex-end;">
+      <button onClick="{{ closeSpotifyModal }}" style="font:700 11px/1 ui-monospace,Menlo,monospace; padding:8px 13px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:999px; cursor:pointer;" style-hover="border-color:#161512; color:#161512;">Close</button>
+      <sc-if value="{{ spotifyCanConnect }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ connectSpotify }}" style="font:700 11px/1 ui-monospace,Menlo,monospace; padding:8px 15px; border:1px solid #1db954; background:#1db954; color:#fff; border-radius:999px; cursor:pointer;" style-hover="opacity:0.85;">♫ Connect</button>
+      </sc-if>
+      <sc-if value="{{ spotifyConnected }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ disconnectSpotify }}" style="font:700 11px/1 ui-monospace,Menlo,monospace; padding:8px 15px; border:1px solid #c75146; background:#fff; color:#b4453a; border-radius:999px; cursor:pointer;" style-hover="background:#fbeae8;">Disconnect</button>
+      </sc-if>
     </div>
   </div>
 </div>
@@ -1019,6 +1154,9 @@ class Component extends DCLogic {
       lane: r.lane || null,
       firstSeen: r.first_seen || null,
       seriesRep: !!r.series_rep, seriesKey: r.series_key || null,
+      seriesRank: (typeof r.series_rank === 'number' ? r.series_rank : null),
+      series: (r.series && typeof r.series === 'object') ? r.series : null,
+      showtimesUrl: r.showtimes_url || null,
       why, whyCurated,
       desc: (enr.description || r.detail || ''),
       xb: Array.isArray(r.badges) ? r.badges : (Array.isArray(r.xb) ? r.xb : []),
@@ -1029,8 +1167,7 @@ class Component extends DCLogic {
   _applyFeed(raw) {
     const arr = Array.isArray(raw) ? raw : (raw && Array.isArray(raw.events) ? raw.events : null);
     if (!arr || arr.length === 0) return false;
-    const mapped = arr.map((r, i) => this.parseEvent(r, i)).filter(Boolean)
-      .filter(e => !(e.seriesKey && !e.seriesRep));   // one card per program — series ride via their rep night
+    const mapped = arr.map((r, i) => this.parseEvent(r, i)).filter(Boolean);   // every night kept; rank views collapse per program (collapseSeries)
     if (!mapped.length) return false;
     this.ALL = mapped;
     this.BYKEY = new Map();
@@ -1043,10 +1180,25 @@ class Component extends DCLogic {
   resolveKeys(keys) { const out = []; for (const k of (keys || [])) { const e = this.byKey(k); if (e) out.push(e); } return out; }
   // Canonical order = the editor's final_rank (server-stamped, lower is better); events the
   // editor hasn't ranked fall back to the deterministic score. The page never re-ranks.
+  effRank(e) { return e.rank != null ? e.rank : (e.seriesRank != null ? e.seriesRank : 1e9); }
   rankCmp = (x, y) => {
-    const rx = x.rank == null ? 1e9 : x.rank, ry = y.rank == null ? 1e9 : y.rank;
-    return rx - ry || y.score - x.score || (x.iso < y.iso ? -1 : x.iso > y.iso ? 1 : 0) || x.title.localeCompare(y.title);
+    return this.effRank(x) - this.effRank(y) || y.score - x.score || (x.iso < y.iso ? -1 : x.iso > y.iso ? 1 : 0) || x.title.localeCompare(y.title);
   };
+  // One row per PROGRAM for rank-ordered surfaces: keep each series' best member (the rep when
+  // visible, else the earliest surviving night). Date-ordered views keep every night.
+  collapseSeries(list) {
+    const best = new Map();
+    for (const e of list) {
+      if (!e.seriesKey) continue;
+      const cur = best.get(e.seriesKey);
+      if (!cur || (e.seriesRep && !cur.seriesRep)
+          || (e.seriesRep === cur.seriesRep && (this.effRank(e) < this.effRank(cur)
+              || (this.effRank(e) === this.effRank(cur) && e.iso < cur.iso)))) {
+        best.set(e.seriesKey, e);
+      }
+    }
+    return list.filter(e => !e.seriesKey || best.get(e.seriesKey) === e);
+  }
   // The feed is ~7.6MB — never fetch it no-store. catalog_meta.json (tiny, no-store) supplies a
   // content-version cache key: same version → the browser serves its cached copy (or a cheap 304);
   // new version → new URL → fresh fetch. `bust` forces freshness after a per-profile rebuild
@@ -1093,18 +1245,67 @@ class Component extends DCLogic {
     let h = d.getHours(); const ap = h >= 12 ? 'PM' : 'AM'; h = h % 12; if (h === 0) h = 12;
     return this.WD[d.getDay()] + ' ' + (d.getMonth() + 1) + '/' + d.getDate() + ', ' + h + ':' + String(d.getMinutes()).padStart(2, '0') + ' ' + ap;
   }
+  // ---------- ICS export (RFC 5545) — full builder: DTEND (+3h), all-day fallback,
+  // DESCRIPTION (lineup/why/price/rating/link), escaping + 75-octet folding ----------
+  icsEscape(x) {
+    return String(x == null ? '' : x).replace(/\\/g, '\\\\').replace(/;/g, '\\;')
+      .replace(/,/g, '\\,').replace(/\r?\n/g, '\\n');
+  }
+  icsFold(line) {
+    if (line.length <= 75) return line;
+    let out = line.slice(0, 75), rest = line.slice(75);
+    while (rest.length > 74) { out += '\r\n ' + rest.slice(0, 74); rest = rest.slice(74); }
+    return out + '\r\n ' + rest;
+  }
+  icsStamp(iso, time, addHours) {
+    const p = nn => String(nn).padStart(2, '0');
+    const [y, m, d] = iso.split('-').map(Number);
+    let hh = 19, mm = 0;
+    if (time && /^\d{1,2}:\d{2}/.test(time)) { const parts = time.split(':').map(Number); hh = parts[0]; mm = parts[1]; }
+    const dt = new Date(y, m - 1, d, hh + (addHours || 0), mm);
+    return dt.getFullYear() + p(dt.getMonth() + 1) + p(dt.getDate()) + 'T' + p(dt.getHours()) + p(dt.getMinutes()) + '00';
+  }
   icsFor(e) {
-    const dt = e.iso.replace(/-/g, '') + 'T' + e.time.replace(':', '') + '00';
-    const esc = s => String(s || '').replace(/([,;\\])/g, '\\$1');
-    return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//la-events//front//EN', 'BEGIN:VEVENT',
-      'UID:' + (e.key || e.id) + '@la-events', 'DTSTART;TZID=America/Los_Angeles:' + dt,
-      'SUMMARY:' + esc(e.title), 'LOCATION:' + esc(e.venue + ', ' + e.hood),
-      e.url ? 'URL:' + e.url : '', 'END:VEVENT', 'END:VCALENDAR'].filter(Boolean).join('\r\n');
+    const p = nn => String(nn).padStart(2, '0');
+    const now = new Date();
+    const stamp = now.getUTCFullYear() + p(now.getUTCMonth() + 1) + p(now.getUTCDate())
+      + 'T' + p(now.getUTCHours()) + p(now.getUTCMinutes()) + p(now.getUTCSeconds()) + 'Z';
+    const uid = (e.key || (e.title || 'event').replace(/\W+/g, '-').slice(0, 40) + '-' + (e.iso || '')) + '@la-events';
+    const loc = [e.venue, e.hood].filter(Boolean).join(', ');
+    const url = (Array.isArray(e.links) && e.links[0] && e.links[0].url) || e.url || '';
+    const hasTime = !!(e.time && /^\d{1,2}:\d{2}/.test(e.time));
+    const desc = [];
+    if (Array.isArray(e.lineup) && e.lineup.length) desc.push('Lineup: ' + e.lineup.join(', '));
+    const blurb = e.whyCurated || e.why || e.desc;
+    if (blurb) desc.push(blurb);
+    const price = this.priceLabel(e);
+    if (price && price !== '—') desc.push(price);
+    if (typeof e.rating === 'number') desc.push('Recommended for you: ' + e.rating + '/5');
+    if (url) desc.push(url);
+    const lines = [
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//la-events//front//EN',
+      'CALSCALE:GREGORIAN', 'BEGIN:VEVENT', 'UID:' + uid, 'DTSTAMP:' + stamp,
+    ];
+    if (e.iso && hasTime) {
+      lines.push('DTSTART:' + this.icsStamp(e.iso, e.time, 0));
+      lines.push('DTEND:' + this.icsStamp(e.iso, e.time, 3));
+    } else if (e.iso) {
+      const [y, m, d] = e.iso.split('-').map(Number);
+      const nd = new Date(y, m - 1, d + 1);
+      lines.push('DTSTART;VALUE=DATE:' + e.iso.replace(/-/g, ''));
+      lines.push('DTEND;VALUE=DATE:' + nd.getFullYear() + p(nd.getMonth() + 1) + p(nd.getDate()));
+    }
+    lines.push('SUMMARY:' + this.icsEscape(e.title || 'Event'));
+    if (loc) lines.push('LOCATION:' + this.icsEscape(loc));
+    if (desc.length) lines.push('DESCRIPTION:' + this.icsEscape(desc.join('\n')));
+    if (url) lines.push('URL:' + this.icsEscape(url));
+    lines.push('END:VEVENT', 'END:VCALENDAR');
+    return lines.map(l => this.icsFold(l)).join('\r\n');
   }
   downloadIcs(e) {
-    const blob = new Blob([this.icsFor(e)], { type: 'text/calendar' });
+    const blob = new Blob([this.icsFor(e)], { type: 'text/calendar;charset=utf-8' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-    a.download = (e.title || 'event').replace(/[^\w\- ]+/g, '').trim().replace(/\s+/g, '-') + '.ics';
+    a.download = ((e.title || 'event').replace(/[^\w\- ]+/g, '').trim().slice(0, 60) || 'event') + '.ics';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   }
@@ -1118,7 +1319,7 @@ class Component extends DCLogic {
     calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null,
     filtersOpen:false, exFrom:'', exTo:'',
     exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] },
-    guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, welcomeDismiss:false };
+    guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, welcomeDismiss:false, nudgeOpen:false, nudgeMore:false, digestMenuOpen:false, digestEmailOpen:false, digestPast:null, digestEmail:'', spotifyModalOpen:false };
 
   componentDidMount() {
     try { const r = JSON.parse(localStorage.getItem('la-fp-reactions-v1') || '{}'); if (r && typeof r === 'object') this.setState({ reactions:r }); } catch (e) {}
@@ -1128,17 +1329,20 @@ class Component extends DCLogic {
     try { prof = JSON.parse(localStorage.getItem('la-profile') || 'null'); } catch (e) {}
     if (prof && prof.hash) { this.setState({ profile: prof, loggedIn: true, username: prof.u || '' }); this.maybeOnboard(prof); }
     // meta first (161 bytes, no-store) so the big feed fetch can use a content-version cache key
-    this.loadMeta().then(() => this.loadFeedFor(prof && prof.hash ? prof : null));
+    this.loadMeta().then(() => this.loadFeedFor(prof && prof.hash ? prof : null)).then(() => {
+      this.reattachJobs();
+      if (this.state.profile) this.maybeNudge();
+    });
     this.loadDigest();
     if (this.BACKEND_URL) this.pingBackend();
     this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m }); };
     this._onResize(); window.addEventListener('resize', this._onResize);
     try { const m = JSON.parse(localStorage.getItem('la-chat-v1') || '[]'); if (Array.isArray(m) && m.length) this.setState({ chatMsgs: m }); } catch (e) {}
     try { if (localStorage.getItem('la-view') === 'explore') this.setState({ view:'explore' }); } catch (e) {}
-    this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.welcomeOpen) this.closeWelcome(); else if (this.state.guideOpen) this.setState({ guideOpen:false }); else if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
+    this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen:false }); else if (this.state.nudgeOpen) this.setState({ nudgeOpen:false }); else if (this.state.welcomeOpen) this.closeWelcome(); else if (this.state.guideOpen) this.setState({ guideOpen:false }); else if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
     window.addEventListener('keydown', this._onKey);
   }
-  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._updTick) clearInterval(this._updTick); if (this._updPoll) clearInterval(this._updPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
+  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
 
   // ---------- date + format ----------
   fmt(iso, time) {
@@ -1197,6 +1401,64 @@ class Component extends DCLogic {
     return res.slice(0,4).map(t => ({ text:t, ...this.badgeStyle(t), onTag:(ev) => this.tagFilter(t, ev) }));
   }
   hash(s) { let h = 0; for (let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i))|0; return h>>>0; }
+  LINK_SRC_LABELS = { ra:'Resident Advisor', dice:'DICE', ticketmaster:'Ticketmaster', tm:'Ticketmaster', posh:'Posh', eventbrite:'Eventbrite', filmbot:'Showtimes', goldenvoice:'Goldenvoice', squarespace:'Venue site', jsonld:'Venue site', '19hz':'19hz', vista:'Vista', newbev:'New Beverly' };
+  linkLabelFor(l) {
+    if (!l) return 'Tickets';
+    const u = String(l.url || '');
+    const dom = [[/ra\.co/,'Resident Advisor'],[/dice\.fm/,'DICE'],[/eventbrite\./,'Eventbrite'],[/posh\.vip/,'Posh'],[/ticketmaster\./,'Ticketmaster'],[/seetickets/,'See Tickets'],[/ticketweb/,'TicketWeb'],[/goldenvoice/,'Goldenvoice'],[/vidiots/,'Vidiots']];
+    for (const dl of dom) if (dl[0].test(u)) return dl[1];
+    return this.LINK_SRC_LABELS[String(l.source||'').toLowerCase()] || (l.source ? (l.source.charAt(0).toUpperCase()+l.source.slice(1)) : 'Tickets');
+  }
+  // Labeled links (per-showtime "7:30pm") group into a SHOWTIMES row — venue named once, times
+  // as chips; unlabeled links stay buttons, deduped by URL + display text; a venue with chips
+  // drops its bare button. Films add the external "All LA showtimes" search.
+  ticketLinksFor(e) {
+    const seen = new Set(); const labels = new Set();
+    const buttons = []; const groups = new Map();
+    for (const l of (Array.isArray(e.links) ? e.links : [])) {
+      if (!l || !l.url || seen.has(l.url)) continue;
+      seen.add(l.url);
+      const base = this.linkLabelFor(l);
+      const timeLike = /^\s*\d{1,2}(:\d{2})?\s*(am|pm)?\s*(·\s*sold out\s*)?$/i.test(String(l.label || ''));
+      if (l.label && timeLike) {
+        const dim = /sold out/i.test(l.label);
+        if (!groups.has(base)) groups.set(base, []);
+        groups.get(base).push({ label: l.label.replace(/\s*·\s*sold out\s*$/i, ''), url: l.url, dim });
+      } else {
+        const lbl = l.label || base;
+        if (labels.has(lbl)) continue;
+        labels.add(lbl);
+        buttons.push({ label: lbl, url: l.url });
+      }
+    }
+    const out = buttons.filter(b => !groups.has(b.label));
+    if (!out.length && !groups.size && e.url) out.push({ label: this.ticketLabel(e), url: e.url });
+    if (e.showtimesUrl) out.push({ label: 'All LA showtimes', url: e.showtimesUrl });
+    return { buttons: out.slice(0, 6), showtimes: [...groups].map(g => ({ venue: g[0], times: g[1] })) };
+  }
+  SERIES_CHIP_MAX = 10;
+  seriesChips(e) {
+    if (!e.series || !(e.series.entries || []).length) return { chips: [], more: '' };
+    const multiVenue = (e.series.venues || []).length > 1;
+    const others = e.series.entries.filter(en => !(en.date === e.iso && en.venue === e.venue));
+    const chips = [];
+    for (const en of others.slice(0, this.SERIES_CHIP_MAX)) {
+      let label = this.labelISO(en.date);
+      if (multiVenue && en.venue) label += ' · ' + en.venue;
+      if (en.sold_out) label += ' · sold out';
+      chips.push({ label, url: en.url || e.showtimesUrl || e.url || '#', dim: !!en.sold_out });
+    }
+    const extra = others.length - chips.length;
+    return { chips, more: extra > 0 ? '+' + extra + ' more dates' : '' };
+  }
+  // Venue LINK label: strip an RA-style address tail; the full string stays in the maps query.
+  venueDisplay(v) {
+    let x = String(v || '').trim();
+    const zipped = /,?\s*CA\s+\d{5}(?:-\d{4})?$/i.test(x);
+    if (zipped) x = x.replace(/,?\s*CA\s+\d{5}(?:-\d{4})?$/i, '').replace(/,\s*[A-Za-z .']+$/, '');
+    const m = x.match(/^(.+?[^\s,\-–—])[,\s]+\d{2,5}\s+[A-Za-z0-9 .']*\b(?:St|Street|Ave|Avenue|Blvd|Boulevard|Rd|Road|Dr|Drive|Way|Ln|Lane|Hwy|Pkwy)\.?$/i);
+    return (m ? m[1] : x).trim() || String(v || '').trim();
+  }
   LINK_LABELS = { RA:'Resident Advisor', DICE:'DICE', Ticketmaster:'Ticketmaster', Promoter:'Promoter', Venue:'Venue site', Editorial:'Venue site' };
   ticketLabel(e) { return this.LINK_LABELS[e.source] || e.source || 'Tickets'; }
   // Friends who've "chipped" this event — their initials-tokens ride on the card. Count scales
@@ -1284,7 +1546,7 @@ class Component extends DCLogic {
   poolFor(lens) {
     const [a,b] = this.windowFor(lens);
     const less = e => this.state.reactions[e.id]==='less' ? 1 : 0; // downvoted sinks, never hides
-    return this.ALL.filter(e => e.iso>=a && e.iso<=b)
+    return this.collapseSeries(this.ALL.filter(e => e.iso>=a && e.iso<=b))
       .sort((x,y) => less(x)-less(y) || this.rankCmp(x,y));
   }
   // Stable partition that keeps a server-ordered list's order but sinks "less"-downvoted events.
@@ -1401,7 +1663,8 @@ class Component extends DCLogic {
   toggleChat = () => {
     const opening = !this.state.chatOpen;
     if (opening && !this.state.chatMsgs.length) {
-      const take = this.META.front_page && this.META.front_page.take;
+      let take = this.META.front_page && this.META.front_page.take;
+      if (!(take && take.text)) { const lede = this.teaserOf(this.digestLede()); if (lede && !this.DIGEST_FALLBACK) take = { text: lede, date: (this.digestRegenDate() || {}).label ? null : null }; }
       const takeLine = (take && take.text) ? ('\n\n*Today\u2019s read' + (take.date ? ' \u00b7 ' + this.labelISO(take.date) : '') + ':* ' + take.text) : '';
       const hi = 'I\u2019m your LA concierge \u2014 the best of what\u2019s on, ranked to your taste. A few things I can do:\n'
         + '- **Find shows** \u2014 `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n'
@@ -1634,8 +1897,6 @@ class Component extends DCLogic {
     this.setState({ chatBusy:false, chatFiltered: list.length ? list.map(e => e.id) : null, chatFilterLabel: list.length ? label : '', view: list.length ? 'explore' : this.state.view, exploreSort: spec.sortBy === 'date' ? 'date' : 'match', exploreDir: 1 });
   }
   clearChatFilter = () => this.setState({ chatFiltered:null, chatFilterLabel:'' });
-  setTasteDirty(v) { const p = this.state.profile; if (!p || !p.hash) return; try { v ? localStorage.setItem('la-dirty-' + p.hash, '1') : localStorage.removeItem('la-dirty-' + p.hash); } catch (e) {} this.forceUpdate(); }
-  isTasteDirty() { const p = this.state.profile; if (!p || !p.hash) return false; try { return localStorage.getItem('la-dirty-' + p.hash) === '1'; } catch (e) { return false; } }
   resetReactions = () => { this.setState({ reactions:{} }); try { localStorage.removeItem('la-fp-reactions-v1'); } catch (e) {} };
 
   // ---------- digest reader — renders ./digests/<hash>/latest.md (the full editorial digest) ----------
@@ -1761,28 +2022,93 @@ class Component extends DCLogic {
   }
   jumpDigest = (id) => { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
   renderDigestHtml() {
-    const src = this.DIGEST_MD || '';
+    const src = this.shownDigestMd();
     const c = this._dgHtml;
     if (c && c.md === src) return c.html;
     const html = this.renderMarkdown(src, { digest: true }).replace(/href="weekends\//g, 'href="digests/weekends/');
     this._dgHtml = { md: src, html };
     return html;
   }
-  openDigest = () => { if (!this.DIGEST_MD) this.loadDigest(); this.setState({ digestModalOpen: true, settingsOpen: false }); };
-  closeDigest = () => this.setState({ digestModalOpen: false });
-  downloadDigest = () => {
+  openDigest = () => { if (!this.DIGEST_MD) this.loadDigest(); this.loadDigestIndex(this.state.profile); this.setState({ digestModalOpen: true, settingsOpen: false, digestMenuOpen: false, digestEmailOpen: false, digestPast: null }); };
+  closeDigest = () => this.setState({ digestModalOpen: false, digestMenuOpen: false, digestEmailOpen: false, digestPast: null });
+  // Past-digest archive: ./digests[/<hash>]/index.json (deploy-staged; hidden when absent).
+  DIGEST_INDEX = [];
+  DIGEST_CURRENT = null;
+  loadDigestIndex(p) {
+    const idx = (p && p.hash) ? ('./digests/' + p.hash + '/index.json') : './digests/index.json';
+    return fetch(idx, { cache: 'no-store' })
+      .then(res => res.ok ? res.json() : null)
+      .then(list => {
+        this.DIGEST_INDEX = Array.isArray(list) ? list : [];
+        const cur = this.DIGEST_INDEX.find(e => e.latest) || this.DIGEST_INDEX[0] || null;
+        this.DIGEST_CURRENT = cur ? (cur.file || cur.path) : null;
+        this.forceUpdate();
+      })
+      .catch(() => { this.DIGEST_INDEX = []; this.DIGEST_CURRENT = null; this.forceUpdate(); });
+  }
+  shownDigestMd() { const p = this.state.digestPast; return (p && p.md) || this.DIGEST_MD || ''; }
+  toggleDigestMenu = () => this.setState(st => ({ digestMenuOpen: !st.digestMenuOpen, digestEmailOpen: false }));
+  selectDigestEntry(entry) {
+    if (!entry || !entry.path) return;
+    const toTop = () => { const el = document.getElementById('dg-scroll'); if (el) el.scrollTop = 0; };
+    if (entry.latest) { this.setState({ digestPast: null, digestMenuOpen: false }, toTop); return; }
+    fetch('./digests/' + entry.path, { cache: 'no-store' })
+      .then(res => res.ok ? res.text() : null)
+      .then(md => {
+        if (!md || md.trim().length < 20) return;
+        this.setState({ digestPast: { md, file: entry.file || entry.path.split('/').pop(), date: entry.date || '' }, digestMenuOpen: false }, toTop);
+      }).catch(() => {});
+  }
+  fmtArchDate(iso) { const m = String(iso || '').match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? (+m[2] + '/' + +m[3]) : String(iso || ''); }
+  toggleEmailDigest = () => this.setState(st => ({ digestEmailOpen: !st.digestEmailOpen, digestMenuOpen: false }));
+  onDigestEmailInput = (e) => { const v = e.target.value; this.setState({ digestEmail: v }); };
+  onDigestEmailKey = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.sendDigestEmail(); } };
+  sendDigestEmail = () => {
+    const addr = (this.state.digestEmail || '').trim();
+    if (!addr || addr.indexOf('@') === -1) { this.showToast('Type an email address first', null); return; }
+    const md = this.shownDigestMd();
+    const subj = (md.split('\n')[0] || 'LA Events digest').replace(/^#\s*/, '');
+    location.href = 'mailto:' + encodeURIComponent(addr) + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(md.slice(0, 60000));
+    this.setState({ digestEmailOpen: false });
+  };
+  // The take's fallback: the digest's first prose paragraph, clipped to one sentence.
+  digestLede() {
     const md = this.DIGEST_MD || '';
+    if (this._ledeSrc === md) return this._lede;
+    let lede = '';
+    for (const block of md.split(/\n\s*\n/)) {
+      const t = block.replace(/<!--[\s\S]*?-->/g, '').trim();
+      if (!t) continue;
+      if (t.startsWith('##')) break;
+      if (t.startsWith('# ') || t.startsWith('>') || t.startsWith('-')) continue;
+      if (/^\*[^*]/.test(t) && t.endsWith('*')) continue;
+      lede = t;
+      break;
+    }
+    this._ledeSrc = md; this._lede = lede;
+    return lede;
+  }
+  teaserOf(text) {
+    const t = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!t) return '';
+    const m = t.match(/^.{20,200}?[.!?](?=\s|$)/);
+    return (m ? m[0] : t.slice(0, 160)).trim();
+  }
+  downloadDigest = () => {
+    const md = this.shownDigestMd();
     if (!md) { this.showToast('Digest is still loading — try again in a moment', null); return; }
-    const m = md.slice(0, 400).match(/\b(\d{4}-\d{2}-\d{2})\b/);
+    const past = this.state.digestPast;
+    let stem = past ? (past.file || 'digest.md') : (this.DIGEST_CURRENT || '');
+    if (!stem || /^latest\.md$/i.test(stem)) { const m = md.slice(0, 400).match(/\b(\d{4}-\d{2}-\d{2})\b/); stem = (m ? m[1] : 'digest') + '.md'; }
     const blob = new Blob([md], { type: 'text/markdown' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-    a.download = 'la-events-' + (m ? m[1] : 'digest') + '.md';
+    a.download = ('la-events-' + stem).replace(/[^\w.\-]+/g, '-').replace(/(\.md)?$/, '.md');
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   };
 
   // ---- settings / account / concierge / taste ----
-  toggleSettings = () => { const opening = !this.state.settingsOpen; if (opening && this.state.loggedIn && this.state.spotifyStatus === null) this.checkSpotify(); this.setState({ settingsOpen: opening }); };
+  toggleSettings = () => { const opening = !this.state.settingsOpen; if (opening) this.loadMeta(); if (opening && this.state.loggedIn && this.state.spotifyStatus === null) this.checkSpotify(); this.setState({ settingsOpen: opening }); };
   closeSettings = () => this.setState({ settingsOpen:false });
   onUsername = (e) => { const v = e.target.value; this.setState({ username:v }); };
   onUsernameKey = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.doLogin(); } };
@@ -1806,38 +2132,262 @@ class Component extends DCLogic {
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
   doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
+  // ---------- pipeline jobs: per-profile Update + owner Refresh, persisted across reloads ----------
+  workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
+  checkCatalogFreshness() { return this.loadMeta(); }
+  fmtElapsed(since) {
+    if (!since) return '';
+    const secs = Math.max(0, Math.floor((Date.now() - since) / 1000));
+    return Math.floor(secs / 60) + ':' + String(secs % 60).padStart(2, '0');
+  }
+  startJobTick() {
+    if (this._jobTick) return;
+    this._jobTick = setInterval(() => {
+      const active = this.state.profile && this.state.profile.hash;
+      if ((active && this.getUpdating(active)) || this.getRefreshing()) this.forceUpdate();
+      else { clearInterval(this._jobTick); this._jobTick = null; }
+    }, 1000);
+  }
+  updatingKey(hash) { return 'la-updating-' + (hash || 'default'); }
+  getUpdating(hash) { try { return JSON.parse(localStorage.getItem(this.updatingKey(hash)) || 'null'); } catch (e) { return null; } }
+  setUpdating(hash, val) { try { val ? localStorage.setItem(this.updatingKey(hash), JSON.stringify(val)) : localStorage.removeItem(this.updatingKey(hash)); } catch (e) {} }
+  getRefreshing() { try { return JSON.parse(localStorage.getItem('la-refreshing') || 'null'); } catch (e) { return null; } }
+  setRefreshing(val) { try { val ? localStorage.setItem('la-refreshing', JSON.stringify(val)) : localStorage.removeItem('la-refreshing'); } catch (e) {} }
+  strSig(x) {
+    let h = 5381;
+    for (let i = 0; i < x.length; i++) h = ((h << 5) + h + x.charCodeAt(i)) | 0;
+    return x.length + ':' + (h >>> 0).toString(36);
+  }
+  // Update completion probes: the digest's content signature (did the LLM pass re-render it?) and
+  // the rebuild receipt (did the paid run finish at all, even byte-identical?).
+  fetchDigestSig(hash) {
+    return fetch('./digests/' + hash + '/latest.md?t=' + Date.now(), { cache: 'no-store' }).then(res => res.ok ? res.text() : null)
+      .then(md => (md && md.trim().length >= 20) ? this.strSig(md) : null).catch(() => null);
+  }
+  fetchRebuildStamp(hash) {
+    return fetch('./rebuilt.' + hash + '.json?t=' + Date.now(), { cache: 'no-store' }).then(res => res.ok ? res.json() : null)
+      .then(j => (j && (j.rebuilt_at || j.run_id)) ? ((j.rebuilt_at || '') + ':' + (j.run_id || '')) : null)
+      .catch(() => null);
+  }
+  reattachJobs() {
+    const active = this.state.profile && this.state.profile.hash;
+    if (active && this.getUpdating(active) && !this._freshPoll) this.startUpdatePoll(active);
+    if (this.getRefreshing() && !this._refreshPoll) this.startRefreshPoll();
+  }
+  startUpdatePoll(hash) {
+    clearInterval(this._freshPoll); this._freshPoll = null;
+    const job = this.getUpdating(hash);
+    if (!job) return;
+    const baseDigest = job.baseDigest || null;
+    const baseStamp = job.baseStamp || null;
+    let nPolls = 0;
+    this.startJobTick();
+    this._freshPoll = setInterval(async () => {
+      if (((this.state.profile && this.state.profile.hash) || null) !== hash) { clearInterval(this._freshPoll); this._freshPoll = null; return; }
+      const probes = await Promise.all([this.fetchDigestSig(hash), this.fetchRebuildStamp(hash)]);
+      await this.checkCatalogFreshness();
+      const digestChanged = !!(probes[0] && probes[0] !== baseDigest);
+      const landed = digestChanged || !!(probes[1] && probes[1] !== baseStamp);
+      const expired = ++nPolls > 120 || (job.startedAt && Date.now() - job.startedAt > 35 * 60 * 1000);
+      if (landed || expired) {
+        clearInterval(this._freshPoll); this._freshPoll = null;
+        this.setUpdating(hash, null);
+        if (landed) {
+          this.setTasteDirtyFor(hash, false);
+          if (((this.state.profile && this.state.profile.hash) || null) === hash) {
+            await this.loadFeedFor(this.state.profile, { bust: true });
+            this.loadDigest();
+          }
+          this.showToast(digestChanged ? '✓ Your picks + digest are up to date' : 'Re-ranked against the latest events — your digest was already current', null);
+        } else {
+          this.showToast('The update is taking longer than expected — it may still land in the background; check back in a few minutes', null);
+        }
+        this.forceUpdate();
+      }
+    }, 15000);
+  }
   updateMyDigest = async () => {
     const p = this.state.profile;
-    if (!p || !p.hash) { this.showToast('Sign in first — updates re-rank your own feed', null); return; }
-    if (this.state.updating) return;
-    let base = null;
-    try { const r = await fetch('./rebuilt.' + p.hash + '.json?t=' + Date.now(), { cache:'no-store' }); if (r.ok) { const j = await r.json(); base = (j.rebuilt_at || '') + ':' + (j.run_id || ''); } } catch (e) {}
+    if (!(p && p.hash) || this.getUpdating(p.hash)) return;
+    const hash = p.hash;
+    this.setUpdating(hash, { startedAt: Date.now() });   // claim before the await: no double-launch
+    this.forceUpdate();
+    this.startJobTick();
+    const bases = await Promise.all([this.fetchDigestSig(hash), this.fetchRebuildStamp(hash)]);
+    this.setUpdating(hash, { ...(this.getUpdating(hash) || { startedAt: Date.now() }), baseDigest: bases[0], baseStamp: bases[1] });
     try {
-      const res = await fetch(new URL('/rebuild-profile', this.BACKEND_URL).href, { method:'POST', headers:this.backendHeaders(), body: JSON.stringify({ profile: p.hash }) });
-      if (res.status === 401) { this.showToast('Not authorized — add the shared token under Claude API key', null); return; }
-      if (res.status === 429) { this.showToast('Just refreshed — the ranking is already current', null); return; }
-      if (!res.ok) { this.showToast('Update failed (' + res.status + ')', null); return; }
-    } catch (e) { this.showToast('Could not reach the backend', null); return; }
-    this.setState({ updating: { since: Date.now(), base } });
-    this._updTick = setInterval(() => this.forceUpdate(), 1000);
-    this._updPoll = setInterval(async () => {
-      const u = this.state.updating; const pr = this.state.profile;
-      if (!u || !pr) return;
-      try {
-        const r = await fetch('./rebuilt.' + pr.hash + '.json?t=' + Date.now(), { cache:'no-store' });
-        if (r.ok) { const j = await r.json(); const s = (j.rebuilt_at || '') + ':' + (j.run_id || ''); if (s && s !== u.base) { this.finishUpdating(true); return; } }
-      } catch (e) {}
-      if (Date.now() - u.since > 6 * 60 * 1000) this.finishUpdating(false);
-    }, 6000);
+      const res = await fetch(this.workerUrl('/rebuild-profile'), { method: 'POST', headers: this.backendHeaders(), body: JSON.stringify({ profile: hash }) });
+      if (res.status === 401) { this.showToast('Not authorized — add the shared token under Claude API key', null); this.setUpdating(hash, null); this.forceUpdate(); return; }
+      if (res.status === 429) { this.showToast('Just refreshed — the ranking is already current', null); this.setUpdating(hash, null); this.forceUpdate(); return; }
+      if (!res.ok) { this.showToast('Update failed (' + res.status + ') — is the workflow deployed?', null); this.setUpdating(hash, null); this.forceUpdate(); return; }
+      this.showToast('Re-running your editor + digest against the latest events — takes a few minutes', null);
+      this.startUpdatePoll(hash);
+    } catch (e) { this.showToast('Could not reach the backend to update', null); this.setUpdating(hash, null); this.forceUpdate(); }
   };
-  finishUpdating(ok) {
-    if (this._updTick) clearInterval(this._updTick); if (this._updPoll) clearInterval(this._updPoll);
-    this._updTick = this._updPoll = null;
-    this.setState({ updating:null });
-    if (ok) { this.loadMeta().then(() => this.loadFeedFor(this.state.profile, { bust:true })); this.loadDigest(); this.showToast('✓ Re-ranked — fresh ranks and digest are live', null); }
-    else this.showToast('Still building — it will land on the next refresh', null);
+  // ---------- update-available: the 4 honest signals ----------
+  isFeedStale() {
+    const live = this.LIVE_CATALOG;
+    if (!live || !(live.content_version || live.version)) return false;
+    const liveV = live.content_version || live.version;
+    const feedV = this.META && (this.META.catalog_content_version || this.META.catalog_version);
+    return feedV !== liveV;
   }
-  elapsedLabel() { const u = this.state.updating; if (!u) return ''; const s = Math.floor((Date.now() - u.since) / 1000); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+  dirtyKeyFor(hash) { return 'la-dirty-' + (hash || 'default'); }
+  dirtyKey() { return this.dirtyKeyFor(this.state.profile && this.state.profile.hash); }
+  feedPending() {
+    const se = this.META && this.META.profile && this.META.profile.self_edit;
+    return !!(se && (((se.taste || {}).reflected === false) || ((se.profile || {}).reflected === false)));
+  }
+  isTasteDirty() {
+    try {
+      if (!(this.state.profile && this.state.profile.hash)) return false;
+      return this.feedPending() || localStorage.getItem(this.dirtyKey()) === '1';
+    } catch (e) { return false; }
+  }
+  setTasteDirtyFor(hash, v) { try { v ? localStorage.setItem(this.dirtyKeyFor(hash), '1') : localStorage.removeItem(this.dirtyKeyFor(hash)); } catch (e) {} this.forceUpdate(); }
+  setTasteDirty(v) { this.setTasteDirtyFor(this.state.profile && this.state.profile.hash, v); }
+  needsUpdate() { return this.isFeedStale() || this.isTasteDirty() || this.digestBehindFeed() || this.layerBehind(); }
+  digestRegenDate() {
+    const head = String(this.DIGEST_MD || '').split('\n').slice(0, 4).join('\n');
+    if (!head) return null;
+    let m, y = new Date().getFullYear(), mo, d;
+    if ((m = head.match(/(20\d\d)-(\d{1,2})-(\d{1,2})/))) { y = +m[1]; mo = +m[2]; d = +m[3]; }
+    else if ((m = head.match(/\b(\d{1,2})\/(\d{1,2})\b/))) { mo = +m[1]; d = +m[2]; }
+    else if ((m = head.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s+(\d{1,2})(?:,\s*(20\d\d))?/i))) {
+      mo = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(m[1].slice(0, 3).toLowerCase()) + 1;
+      d = +m[2]; if (m[3]) y = +m[3];
+    } else return null;
+    if (!(mo >= 1 && mo <= 12 && d >= 1 && d <= 31)) return null;
+    const date = new Date(y, mo - 1, d);
+    return isNaN(date.getTime()) ? null : { label: mo + '/' + d, date: date };
+  }
+  digestBehindFeed() {
+    try {
+      const reg = this.digestRegenDate();
+      const gen = (this.META && this.META.generated_at) ? new Date(this.META.generated_at) : null;
+      if (!reg || !gen || isNaN(gen.getTime())) return false;
+      const dayOf = (dt) => new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()).getTime();
+      const diffDays = (dayOf(gen) - dayOf(reg.date)) / 86400000;
+      return diffDays >= 1 && diffDays <= 120;
+    } catch (e) { return false; }
+  }
+  NUDGE_AFTER_DAYS = 3;
+  lastEnrichedAt() {
+    const se = this.META && this.META.profile && this.META.profile.self_edit;
+    const d = (se && (((se.taste || {}).enriched_at) || ((se.profile || {}).enriched_at))) || null;
+    if (d) return d;
+    const reg = this.digestRegenDate();
+    return (reg && reg.date) ? reg.date.toISOString() : null;
+  }
+  fmtDay(iso) {
+    const m = String(iso || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+    return m ? (+m[2] + '/' + +m[3]) : null;
+  }
+  layerBehind() {
+    if (!(this.state.profile && this.state.profile.hash)) return false;
+    const d = this.daysSince(this.lastEnrichedAt());
+    return d != null && d >= 1;
+  }
+  daysSince(iso) {
+    if (!iso) return null;
+    let m;
+    if (typeof iso === 'string' && (m = iso.match(/^(\d{4})-(\d{2})-(\d{2})$/))) {
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+      const then = new Date(+m[1], +m[2] - 1, +m[3]).getTime();
+      if (isNaN(then)) return null;
+      return Math.round((today - then) / 86400000);
+    }
+    if (typeof iso === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/.test(iso)) iso = iso + 'Z';
+    const t = new Date(iso).getTime();
+    if (isNaN(t)) return null;
+    return Math.floor((Date.now() - t) / 86400000);
+  }
+  todayKey() { const d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+  // ---------- refresh nudge (3-day popup) ----------
+  visitKey(hash) { return 'la-last-visit-' + (hash || 'default'); }
+  nudgeSnoozeKey(hash) { return 'la-nudge-shown-' + (hash || 'default'); }
+  maybeNudge() {
+    const p = this.state.profile;
+    if (!(p && p.hash)) return;
+    let prevVisit = null;
+    try {
+      prevVisit = localStorage.getItem(this.visitKey(p.hash));
+      localStorage.setItem(this.visitKey(p.hash), new Date().toISOString());
+    } catch (e) {}
+    if (!this.hasOnboarded(p)) return;
+    if (this.getUpdating(p.hash)) return;
+    try { if (localStorage.getItem(this.nudgeSnoozeKey(p.hash)) === this.todayKey()) return; } catch (e) {}
+    const llmDays = this.daysSince(this.lastEnrichedAt());
+    const awayDays = this.daysSince(prevVisit);
+    const layerOld = llmDays != null && llmDays >= this.NUDGE_AFTER_DAYS;
+    const away = awayDays != null && awayDays >= this.NUDGE_AFTER_DAYS;
+    if (!layerOld && !away) return;
+    if (!layerOld && !this.needsUpdate()) return;
+    try { localStorage.setItem(this.nudgeSnoozeKey(p.hash), this.todayKey()); } catch (e) {}
+    this.setState({ nudgeOpen: true, nudgeMore: false });
+  }
+  closeNudge = () => this.setState({ nudgeOpen: false });
+  nudgeUpdateNow = () => { this.setState({ nudgeOpen: false, settingsOpen: false }); this.updateMyDigest(); };
+  toggleNudgeMore = () => this.setState(st => ({ nudgeMore: !st.nudgeMore }));
+  nudgeBodyMd() {
+    const enr = this.lastEnrichedAt();
+    const llmDays = this.daysSince(enr);
+    const day = this.fmtDay(enr);
+    const ageLine = (day && llmDays != null && llmDays >= 1)
+      ? 'Your curated picks were last refreshed **' + day + '** — ' + llmDays + ' day' + (llmDays === 1 ? '' : 's') + ' ago.'
+      : 'New events have landed since your picks were last curated.';
+    const short = [ageLine, '', "Events added since are in your feed, but they haven't had your editorial pass yet. **Update now** re-ranks them to your taste and rewrites your digest — takes ~2–3 minutes."];
+    if (!this.state.nudgeMore) return short.join('\n');
+    return short.concat(['', '---',
+      "**How refreshing works.** The events database and your ranked feed update every night. The **curated layer** on top — the editor's verdicts behind your final rank and ⭐ picks, plus your written digest — is yours, and it only rebuilds when:",
+      '', '- **your taste changes** — tell the concierge things like `more techno, less comedy`; your layer refolds automatically overnight;',
+      '- **you refresh it yourself** — this Update, also under **Settings → Ranks & Digest**.',
+      '', 'Nothing is broken — your picks are just waiting on you. This reminder appears at most once a day.']).join('\n');
+  }
+  // ---------- OWNER: refresh the shared events DB ----------
+  refreshEvents = async () => {
+    if (this.getRefreshing()) return;
+    const baseFetched = (this.LIVE_CATALOG && this.LIVE_CATALOG.fetched_at) || null;
+    const baseV = (this.LIVE_CATALOG && (this.LIVE_CATALOG.content_version || this.LIVE_CATALOG.version)) || null;
+    this.setRefreshing({ startedAt: Date.now(), baseFetched, baseV });
+    this.forceUpdate();
+    this.startJobTick();
+    try {
+      const res = await fetch(this.workerUrl('/refresh-events'), { method: 'POST', headers: this.backendHeaders(), body: JSON.stringify({}) });
+      if (res.status === 401) { this.showToast('Not authorized — add the shared token first', null); this.setRefreshing(null); this.forceUpdate(); return; }
+      if (res.status === 429) { this.showToast('Just refreshed a moment ago — the database is already current', null); this.setRefreshing(null); this.forceUpdate(); return; }
+      if (!res.ok) { this.showToast('Refresh failed (' + res.status + ') — is the Worker redeployed with GITHUB_TOKEN?', null); this.setRefreshing(null); this.forceUpdate(); return; }
+      this.showToast('Refreshing events from sources — rebuilding the database (~2–3 min)', null);
+    } catch (e) { this.showToast('Could not reach the backend to refresh', null); this.setRefreshing(null); this.forceUpdate(); return; }
+    this.startRefreshPoll();
+  };
+  startRefreshPoll() {
+    clearInterval(this._refreshPoll); this._refreshPoll = null;
+    const job = this.getRefreshing();
+    if (!job) return;
+    let baseFetched = job.baseFetched || null;
+    const baseV = job.baseV || null;
+    let nPolls = 0;
+    this.startJobTick();
+    this._refreshPoll = setInterval(async () => {
+      await this.checkCatalogFreshness();
+      const lc = this.LIVE_CATALOG || {};
+      const fetched = lc.fetched_at || null;
+      if (baseFetched == null && fetched) baseFetched = fetched;
+      const done = fetched && baseFetched && fetched !== baseFetched;
+      if (done || ++nPolls > 40) {
+        clearInterval(this._refreshPoll); this._refreshPoll = null;
+        this.setRefreshing(null);
+        if (done) {
+          const v = lc.content_version || lc.version || null;
+          const changed = v && baseV && v !== baseV;
+          this.showToast(changed ? 'Events database updated — hit Ranks & Digest to refresh your picks' : 'Refreshed — no new or changed events right now', null);
+        }
+        this.forceUpdate();
+      }
+    }, 15000);
+  }
   diffLinesVal() {
     const st = { hdr:{bg:'transparent',color:'#a7a59b'}, ctx:{bg:'transparent',color:'#76746b'}, add:{bg:'rgba(31,122,77,0.12)',color:'#1f7a4d'}, del:{bg:'rgba(192,57,43,0.10)',color:'#b23a2e'} };
     const se = (this.META.profile && this.META.profile.self_edit) || this.META.self_edit || null;
@@ -2220,6 +2770,7 @@ class Component extends DCLogic {
     "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, real **event photos** on cards, the **quick start / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
     "- **Stars teach again, and “less” learns too.** The + chip commits your star server-side (friends see it; the lineup boosts your ranking), and **Show less like this** now files a soft negative signal instead of only hiding locally.",
     "- **Retired:** the ✦ Artist intel button (the lineup rows' Spotify/SoundCloud links and bios remain).",
+    "- **The front page is the server's slate again.** The lead, shortlist, scene lanes, radar and the returning **Around town** section render the editorial slate (the same ranking your digest uses) instead of a client-side re-sort; film runs show **showtimes** and **also-showing** nights again; the concierge **streams** its replies (with a ■ stop) and falls back to an instant offline filter; phones get a proper **card list**; and the feed only re-downloads when the catalog actually changed.",
     "",
     "## July 2026",
     "",
@@ -2363,7 +2914,9 @@ class Component extends DCLogic {
       chatRows: (this.state.liveReply ? this.state.chatMsgs.concat([{ role:'assistant', content:this.state.liveReply, live:true }]) : this.state.chatMsgs).map(m => m.role === 'user'
         ? { text:m.content, wrap:'display:flex; justify-content:flex-end; padding:3px 0;', bubble:'max-width:86%; background:#1b1a17; color:#fff; border-radius:14px 14px 4px 14px; padding:10px 13px; font:400 13px/1.5 -apple-system,system-ui,sans-serif; white-space:pre-wrap; word-break:break-word;' }
         : { text: React.createElement('div', { className: m.welcome ? 'chat-intro' : '', onClick: m.welcome ? ((e) => { const c = e.target && e.target.closest && e.target.closest('code'); if (c && c.textContent) this.useStarter(c.textContent); }) : undefined, dangerouslySetInnerHTML: { __html: this.renderChatHtml(m.content) } }), wrap:'display:flex; justify-content:flex-start; padding:3px 0;', bubble:'max-width:92%; background:#fff; border:1px solid #e4e2d9; color:#26251f; border-radius:14px 14px 14px 4px; padding:10px 13px; font:400 13px/1.55 -apple-system,system-ui,sans-serif; word-break:break-word;' }),
-      isUpdating: !!this.state.updating, notUpdating: !this.state.updating, updElapsed: this.elapsedLabel(),
+      isUpdating: (() => { const h = this.state.profile && this.state.profile.hash; return !!(h && this.getUpdating(h)); })(),
+      notUpdating: (() => { const h = this.state.profile && this.state.profile.hash; return !(h && this.getUpdating(h)); })(),
+      updElapsed: (() => { const h = this.state.profile && this.state.profile.hash; const j = h && this.getUpdating(h); return j ? this.fmtElapsed(j.startedAt) : ''; })(),
       showStarters: this.state.chatMsgs.filter(m => m.role === 'user').length === 0,
       chatStarters: this.STARTERS.map(t => ({ label: t, onClick: () => this.useStarter(t) })),
       exploreCount:exploreableCount, resetReactions:this.resetReactions,
@@ -2462,7 +3015,7 @@ class Component extends DCLogic {
       } else {
         const sc = this.SCENES.find(s => s.id===this.state.sceneId) || this.SCENES[0];
         const lessS = e => this.state.reactions[e.id]==='less' ? 1 : 0;
-        const list = this.ALL.filter(e => e.iso>=T && this.sceneOf(e).id===sc.id)
+        const list = this.collapseSeries(this.ALL.filter(e => e.iso>=T && this.sceneOf(e).id===sc.id))
           .sort((x,y) => lessS(x)-lessS(y) || this.rankCmp(x,y)).map(e => this.cardFor(e));
         out.sceneTitle = sc.label; out.sceneDesc = sc.desc; out.sceneDot = sc.dot; out.sceneCount = list.length; out.sceneList = list;
       }
@@ -2486,11 +3039,13 @@ class Component extends DCLogic {
         : sk==='cat' ? strSort(e => e.cat)
         : sk==='source' ? strSort(e => e.source)
         : ((x,y) => lessE(x)-lessE(y) || this.rankCmp(x,y));
+      if (sk === 'match') rows = this.collapseSeries(rows);   // a ranking shows each program once
       rows.sort(dir === 1 ? base : (x,y) => -base(x,y));
       const EX_CAP = 1200;
       out.exploreRows = rows.slice(0, EX_CAP).map((e,i) => ({ ...this.cardFor(e), rank:String(i+1) }));
       out.exploreClipped = rows.length > EX_CAP ? ('showing the first ' + EX_CAP + ' — narrow with filters or search') : '';
       out.exploreEmpty = rows.length===0;
+      out.isMobileCards = mob; out.notMobileCards = !mob;
       const arr = dir === 1 ? '↓' : '↑';
       out.arrowDate = sk==='date' ? arr : ''; out.arrowTitle = sk==='title' ? arr : ''; out.arrowScore = sk==='match' ? arr : '';
       out.arrowHood = sk==='hood' ? arr : ''; out.arrowCat = sk==='cat' ? arr : ''; out.arrowSource = sk==='source' ? arr : '';
@@ -2549,19 +3104,30 @@ class Component extends DCLogic {
       const q = encodeURIComponent(de.venue + ', ' + de.hood + ', Los Angeles');
       const desc = de.desc || '';
       const bios = {}; for (const a of (de.artistNotes || [])) if (a && a.name) bios[this._artistNorm(a.name)] = a.note || '';
-      const timeLike = s => /^\s*\d{1,2}(:\d{2})?\s*(am|pm)?\s*$/i.test(String(s || ''));
-      const siteLinks = (de.links || []).filter(l => l.label && !timeLike(l.label));
-      const rawLinks = siteLinks.length ? siteLinks : [{ label: this.ticketLabel(de), url: de.url }];
-      const links = rawLinks.slice(0, 4).map(l => ({ label: l.label || this.normSource(l.source), onGo: () => { if (l.url) window.open(l.url, '_blank'); else this.showToast('No link in the feed for this listing', null); } }));
+      const tk = this.ticketLinksFor(de);
+      const links = tk.buttons.map(l => ({ label: l.label, onGo: () => { if (l.url) window.open(l.url, '_blank'); else this.showToast('No link in the feed for this listing', null); } }));
+      const showtimeGroups = tk.showtimes.map(g => ({ venue: g.venue, times: g.times.map(tm => ({ label: tm.label, url: tm.url,
+        color: tm.dim ? '#a29a90' : '#2b5cd9', border: tm.dim ? '#dedcd4' : '#b9c9f2', deco: tm.dim ? 'line-through' : 'none',
+        title: tm.dim ? tm.label + ' — sold out' : tm.label + ' — buy tickets', stop:(ev) => ev.stopPropagation() })) }));
+      const scSeries = this.seriesChips(de);
+      const hoodInVenue = !!(de.hood && de.venue.toLowerCase().includes(de.hood.toLowerCase()));
+      const hoodShown = (de.hood && de.hood !== 'Los Angeles' && !hoodInVenue) ? de.hood : '';
       out.detail = {
         title:de.title, when:(de.iso===T?'Tonight · ':'')+f.wd+' · '+f.md+' · '+f.t,
-        venue:de.venue, hood:de.hood, price:this.priceLabel(de)+(de.ah?' · afterhours':''),
+        venue:this.venueDisplay(de.venue), hood:hoodShown, hoodSep:hoodShown ? ' · ' : '', price:this.priceLabel(de)+(de.ah?' · afterhours':''),
         hasMap:!tba, noMap:tba, mapUrl:'https://www.google.com/maps/search/?api=1&query='+q,
         interiorUrl:'https://www.google.com/search?tbm=isch&q='+encodeURIComponent(de.venue+' interior Los Angeles'),
         why:de.why, desc, hasDesc:!!desc, matchPct:this.matchPct(de.score)+'%', matchColor:this.scoreColorFor(de.score),
         tags, hasTags:tags.length>0,
         lineup:de.lineup.map(n => { const k = this._artistNorm(n); const direct = (this.META.artist_links || {})[k]; return { name:n, bio:bios[k]||'', hasBio:!!bios[k], spotify: direct || ('https://open.spotify.com/search/'+encodeURIComponent(n)), soundcloud:'https://soundcloud.com/search?q='+encodeURIComponent(n) }; }), hasLineup:de.lineup.length>0,
-        ticketLinks:links, sceneLabel:(this.shelfOf(de) || sc).label, onScene:() => { const shf = this.shelfOf(de); this.openScene(shf ? shf.id : sc.id); }, poster:this.posterFor(de),
+        ticketLinks:links,
+        hasShowtimes: showtimeGroups.length > 0, showtimeGroups,
+        hasSeries: scSeries.chips.length > 0,
+        seriesChipRows: scSeries.chips.map(c => ({ label: c.label, url: c.url,
+          color: c.dim ? '#a29a90' : '#3f3d36', border: c.dim ? '#dedcd4' : '#c9c7bd', deco: c.dim ? 'line-through' : 'none', stop:(ev) => ev.stopPropagation() })),
+        seriesMore: scSeries.more, hasSeriesMore: !!scSeries.more,
+        seriesBadge: (de.series && de.series.count > 1) ? ((de.series.venues || []).length > 1 ? (de.series.count + ' dates · ' + de.series.venues.length + ' theaters') : (de.series.count + ' nights')) : '',
+        sceneLabel:(this.shelfOf(de) || sc).label, onScene:() => { const shf = this.shelfOf(de); this.openScene(shf ? shf.id : sc.id); }, poster:this.posterFor(de),
         photo:this.photoStyle(de, 'height:150px;'),
         onCal:() => { this.downloadIcs(de); this.showToast('Calendar file downloaded — open it to add', null); },
         onLess:(ev) => this.react(de.id,'less',ev),
@@ -2582,6 +3148,7 @@ class Component extends DCLogic {
       settingsOpen:this.state.settingsOpen, toggleSettings:this.toggleSettings, closeSettings:this.closeSettings,
       loggedIn:this.state.loggedIn, loggedOut:!this.state.loggedIn,
       gearBg:this.state.settingsOpen?'#1b1a17':'#fff', gearColor:this.state.settingsOpen?'#fff':'#3f3d36',
+      updateBadge: this.state.loggedIn && (this.needsUpdate() || (() => { const h = this.state.profile && this.state.profile.hash; return !!(h && this.getUpdating(h)); })()),
       username:this.state.username, onUsername:this.onUsername, onUsernameKey:this.onUsernameKey, doLogin:this.doLogin, doLogout:this.doLogout,
       userName:uname, signedInAs:'signed in as '+uname,
       dataPull:this.fmtStamp((this.LIVE_CATALOG && this.LIVE_CATALOG.fetched_at) || this.META.catalog_fetched_at),
@@ -2593,8 +3160,9 @@ class Component extends DCLogic {
         this.showToast('Moved on the last pull: ' + ch.slice(0,3).map(line).join(' · ') + (ch.length>3 ? ' · +'+(ch.length-3)+' more' : ''), null);
       },
       siteUpdate:this.fmtStamp(document.lastModified), dbSynced:this.fmtStamp(this.META.generated_at),
-      syncTitle:'Ranks & Digest: ' + ((this.LIVE_CATALOG && this.LIVE_CATALOG.content_version && this.META.catalog_content_version && this.LIVE_CATALOG.content_version !== this.META.catalog_content_version) ? 'Update available' : 'Current'),
-      pullTitle:'Events database: Current',
+      syncTitle:'Ranks & Digest: ' + (this.needsUpdate() ? 'Update available' : 'Current'),
+      pullTitle:'Events database: ' + (this.getRefreshing() ? ('Refreshing… ' + this.fmtElapsed((this.getRefreshing()||{}).startedAt)) : 'Current'),
+      isRefreshing: !!this.getRefreshing(),
       dataSourceLabel: this.state.dataSource === 'live' ? 'live · data.json' : (this.state.dataSource === 'loading' ? 'loading…' : 'unavailable'),
       spotifyStatusText: (() => {
         const s = this.state.spotifyStatus;
@@ -2606,6 +3174,18 @@ class Component extends DCLogic {
       spotifyConnected: this.state.spotifyStatus === true,
       spotifyCanConnect: this.state.loggedIn && this.state.spotifyStatus !== true,
       connectSpotify: this.connectSpotify, disconnectSpotify: this.disconnectSpotify,
+      spotifyModalOpen: !!this.state.spotifyModalOpen,
+      openSpotifyModal: () => { if (this.state.loggedIn) { this.setState({ spotifyModalOpen:true, settingsOpen:false }); this.checkSpotify(); } },
+      closeSpotifyModal: () => this.setState({ spotifyModalOpen:false }),
+      spotifyModalStatus: (() => {
+        const st2 = this.state.spotifyStatus;
+        const musicLayer = (this.META && this.META.music) || null;
+        const feedHasSpotify = !!(musicLayer && /spotify/.test(musicLayer.layer || '') && (musicLayer.artists || 0) > 0);
+        const staleHint = ' ⚠︎ But your current ranking was built without it — it may still be syncing (give it a minute), or the last refresh failed. Try Ranks & Digest → Update, or Disconnect and reconnect.';
+        return st2 === true ? ('Connected' + (this.state.spotifyName ? ' as ' + this.state.spotifyName : '') + ' — your feed re-ranks to what you actually listen to.' + (feedHasSpotify ? '' : staleHint))
+          : st2 === null ? 'Checking your Spotify connection…'
+          : 'Not connected. Link your Spotify so your picks re-rank to what you actually listen to.';
+      })(),
       showAdminRows: this.isOwner(),
       photosStatusText: (() => {
         const on = this.photosOn(); const ov = this.photosOverride();
@@ -2622,7 +3202,7 @@ class Component extends DCLogic {
         return idn + (bstat === 'err' ? ' · not connecting' : '');
       })(),
       openSync:() => this.updateMyDigest(),
-      openPull:() => this.showToast('Events database is current — last pulled ' + this.fmtStamp(this.META.catalog_fetched_at), null),
+      openPull:() => { if (this.isOwner()) { this.refreshEvents(); } else this.showToast('Events database is current — last pulled ' + this.fmtStamp((this.LIVE_CATALOG && this.LIVE_CATALOG.fetched_at) || this.META.catalog_fetched_at), null); },
       openWelcome:this.openWelcome,
       openTour:() => this.openGuide('how'),
       openChangelog:() => this.openGuide('new'),
@@ -2648,7 +3228,18 @@ class Component extends DCLogic {
       isTasteTab:this.state.tasteTab==='taste', isProfileTab:this.state.tasteTab==='profile',
       tasteTabBg:this.state.tasteTab==='taste'?'#1b1a17':'#e8e6de', tasteTabColor:this.state.tasteTab==='taste'?'#fff':'#76746b',
       profileTabBg:this.state.tasteTab==='profile'?'#1b1a17':'#e8e6de', profileTabColor:this.state.tasteTab==='profile'?'#fff':'#76746b',
-      tasteBanner: 'In your latest ranking & digest · ' + String(this.META.generated_at || '').slice(0, 10),
+      tastePending: this.isTasteDirty(),
+      tasteBanner: this.isTasteDirty()
+        ? 'NOT YET APPLIED — the latest edit isn\u2019t in your ranking/digest yet. Hit Ranks & Digest (☰) to fold it in.'
+        : 'In your latest ranking & digest · ' + String(this.META.generated_at || '').slice(0, 10),
+      tasteBannerBg: this.isTasteDirty() ? '#fdf4e3' : '#eef5ef',
+      tasteBannerBorder: this.isTasteDirty() ? '#ecd9ae' : '#dbe8dd',
+      tasteBannerColor: this.isTasteDirty() ? '#8a6d3b' : '#1f7a4d',
+      tasteUpdateNow: () => { this.setState({ tasteModal:false }); this.updateMyDigest(); },
+      tasteHistory: (() => { const se = (this.META.profile || {}).self_edit || {}; const h = ((se.taste || {}).history || []).concat((se.profile || {}).history || []); return h.slice(0, 8).map(x => ({ date: this.fmtArchDate(x.date), summary: x.summary || '' })); })(),
+      hasTasteHistory: (() => { const se = (this.META.profile || {}).self_edit || {}; return !!(((se.taste || {}).history || []).length || ((se.profile || {}).history || []).length); })(),
+      rawTasteYaml: ((this.META.profile || {}).taste_yaml) || '',
+      hasRawTasteYaml: !!((this.META.profile || {}).taste_yaml),
       diffLines: this.diffLinesVal(),
       profileRows: this.profileRowsVal(uname),
     });
@@ -2658,11 +3249,31 @@ class Component extends DCLogic {
     out.closeDigest = this.closeDigest;
     out.downloadDigest = this.downloadDigest;
     out.hasDigest = !!this.DIGEST_MD;
+    out.digestArchShow = this.DIGEST_INDEX.length > 1;
+    out.digestMenuOpen = !!this.state.digestMenuOpen;
+    out.toggleDigestMenu = this.toggleDigestMenu;
+    out.digestArchLabel = this.state.digestPast ? ('◷ ' + this.fmtArchDate(this.state.digestPast.date)) : '◷ past digests';
+    out.digestArchItems = this.DIGEST_INDEX.slice(0, 20).map(en => ({
+      date: this.fmtArchDate(en.date || en.file || en.path), title: en.title || (en.latest ? 'Latest digest' : (en.file || en.path)),
+      mark: (en.latest && !this.state.digestPast) || (this.state.digestPast && this.state.digestPast.file === (en.file || en.path)) ? '✓' : '',
+      dateColor: en.latest ? '#2b5cd9' : '#76746b',
+      bg: 'transparent',
+      onClick: () => this.selectDigestEntry(en),
+    }));
+    out.digestEmailOpen = !!this.state.digestEmailOpen;
+    out.toggleEmailDigest = this.toggleEmailDigest;
+    out.digestEmail = this.state.digestEmail;
+    out.onDigestEmailInput = this.onDigestEmailInput; out.onDigestEmailKey = this.onDigestEmailKey;
+    out.sendDigestEmail = this.sendDigestEmail;
+    out.emailTogBorder = this.state.digestEmailOpen ? '#2b5cd9' : '#d2d0c7';
+    out.emailTogBg = this.state.digestEmailOpen ? '#eaf0fe' : '#fff';
+    out.emailTogColor = this.state.digestEmailOpen ? '#2b5cd9' : '#3f3d36';
+    out.digestPastNote = this.state.digestPast ? ('Reading the ' + this.fmtArchDate(this.state.digestPast.date) + ' digest — the live one is a tap away in ◷.') : '';
     out.digestFallbackNote = !!(this.DIGEST_FALLBACK && this.state.loggedIn);
-    const dgSecs = this.digestSections(this.DIGEST_MD);
+    const dgSecs = this.digestSections(this.shownDigestMd());
     out.digestNavShow = dgSecs.length > 1;
     out.digestNav = dgSecs.map(s => ({ title: s.title, onClick: () => this.jumpDigest(s.id) }));
-    out.digestBody = this.DIGEST_MD
+    out.digestBody = this.shownDigestMd()
       ? React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } })
       : React.createElement('div', { style: { padding: '30px 0', textAlign: 'center', font: '500 12px/1.6 ui-monospace,Menlo,monospace', color: '#a7a59b' } }, 'Loading the digest…');
 
@@ -2698,6 +3309,11 @@ class Component extends DCLogic {
     out.welcomeCheckBg = this.state.welcomeDismiss ? '#2b5cd9' : '#fff';
     out.welcomeCheckBorder = this.state.welcomeDismiss ? '#2b5cd9' : '#c9c7bd';
     out.welcomeCheckMark = this.state.welcomeDismiss ? '✓' : '';
+    out.nudgeOpen = !!this.state.nudgeOpen;
+    out.closeNudge = this.closeNudge; out.nudgeUpdateNow = this.nudgeUpdateNow;
+    out.nudgeBody = React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.state.nudgeOpen ? this.nudgeBodyMd() : '') } });
+    out.toggleNudgeMore = this.toggleNudgeMore;
+    out.nudgeMoreLabel = this.state.nudgeMore ? 'Hide the detail ▴' : 'How this works ▸';
 
     out.closeDetail = this.closeDetail;
     out.hasToast = !!this.state.toast;
