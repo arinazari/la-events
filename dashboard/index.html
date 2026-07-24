@@ -38,6 +38,9 @@
   .om-dots > i:nth-child(2) { animation-delay:0.2s; }
   .om-dots > i:nth-child(3) { animation-delay:0.4s; }
   @media (max-width:720px){ input, textarea { font-size:16px !important; } }
+  .chat-intro code { cursor:pointer; }
+  .chat-intro code:hover { background:#dde4fb !important; color:#1d49b8 !important; }
+  #dg-scroll a { color:#1b1a17; }
 </style>
 </helmet>
 
@@ -211,9 +214,9 @@
       <!-- DISPATCH -->
       <sc-if value="{{ hasDispatch }}" hint-placeholder-val="{{ false }}">
       <section style="margin-bottom:28px; background:#fdfcf9; border:1px solid #e2e0d8; border-left:3px solid #1b1a17; border-radius:4px; padding:18px 20px;">
-        <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:8px;">DIGEST · {{ dispatch.kicker }}</div>
-        <h3 style="margin:0 0 7px; font:700 18px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">{{ dispatch.headline }}</h3>
-        <p style="margin:0 0 12px; font:400 13.5px/1.6 -apple-system,system-ui,sans-serif; color:#3f3d36; max-width:74ch; text-wrap:pretty;">{{ dispatch.body }} <span onClick="{{ openDigest }}" style="cursor:pointer; font-weight:600; color:#2b5cd9; white-space:nowrap;" style-hover="color:#1d49b8;">Read the full digest →</span></p>
+        <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:8px;">TODAY'S DIGEST · {{ dispatch.kicker }}</div>
+        <h3 style="margin:0 0 10px; font:700 17px/1.35 -apple-system,system-ui,sans-serif; color:#161512; max-width:74ch; text-wrap:pretty;">{{ dispatch.headline }}</h3>
+        <p style="margin:0 0 12px; font:400 13.5px/1.6 -apple-system,system-ui,sans-serif; color:#3f3d36;"><span onClick="{{ openDigest }}" style="cursor:pointer; font-weight:600; color:#2b5cd9; white-space:nowrap;" style-hover="color:#1d49b8;">Read the full digest →</span></p>
         <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
           <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">IN THIS DIGEST</span>
           <sc-for list="{{ dispatch.chips }}" as="ch" hint-placeholder-count="3">
@@ -498,8 +501,15 @@
       </sc-if>
     </div>
     <div style="flex:none; padding:12px 14px calc(14px + env(safe-area-inset-bottom)); border-top:1px solid #e2e0d8; background:#fdfcf9;">
+      <sc-if value="{{ showStarters }}" hint-placeholder-val="{{ true }}">
+        <div class="lchips" style="display:flex; align-items:center; gap:6px; overflow-x:auto; padding:0 1px 10px;">
+          <sc-for list="{{ chatStarters }}" as="s" hint-placeholder-count="4">
+            <span onClick="{{ s.onClick }}" style="flex:none; white-space:nowrap; cursor:pointer; font:600 10.5px/1 -apple-system,system-ui,sans-serif; padding:8px 11px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ s.label }}</span>
+          </sc-for>
+        </div>
+      </sc-if>
       <div style="display:flex; align-items:center; gap:8px; border:1px solid #cfcdc4; background:#fff; border-radius:999px; padding:10px 8px 10px 15px;" style-focus-within="border-color:#2b5cd9;">
-        <input value="{{ chatInput }}" onChange="{{ onChatInput }}" onKeyDown="{{ onChatKey }}" placeholder="{{ chatPlaceholder }}" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 13px/1.3 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
+        <input id="la-chat-input" value="{{ chatInput }}" onChange="{{ onChatInput }}" onKeyDown="{{ onChatKey }}" placeholder="{{ chatPlaceholder }}" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 13px/1.3 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
         <span onClick="{{ sendChat }}" title="Send" style="flex:none; cursor:pointer; width:30px; height:30px; border-radius:50%; background: {{ chatGoBg }}; color:#fff; font-size:14px; line-height:30px; text-align:center;">→</span>
       </div>
       <div style="margin-top:8px; font:500 9.5px/1.5 ui-monospace,Menlo,monospace; color:#bdbbb1; text-align:center;">plans · recommendations · “more techno, less comedy”</div>
@@ -545,8 +555,18 @@
         <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">{{ apiKeyStatus }}</div>
       </div>
       <div style="border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;">
-        <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;"><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#1DB954; vertical-align:1px; margin-right:6px;"></span>Spotify</div>
-        <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">{{ spotifyStatusText }}</div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="flex:1; min-width:0;">
+            <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;"><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#1DB954; vertical-align:1px; margin-right:6px;"></span>Spotify</div>
+            <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">{{ spotifyStatusText }}</div>
+          </div>
+          <sc-if value="{{ spotifyCanConnect }}" hint-placeholder-val="{{ true }}">
+            <span onClick="{{ connectSpotify }}" title="Link Spotify so your picks re-rank to your listening" style="flex:none; cursor:pointer; font:700 11px/1 -apple-system,system-ui,sans-serif; padding:9px 14px; background:#1DB954; color:#fff; border-radius:999px;" style-hover="background:#1aa74a;">Connect</span>
+          </sc-if>
+          <sc-if value="{{ spotifyConnected }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ disconnectSpotify }}" style="flex:none; cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; padding:9px 12px; border:1px solid #d2d0c7; background:#fff; color:#b4453a; border-radius:999px;" style-hover="border-color:#b4453a;">Disconnect</span>
+          </sc-if>
+        </div>
       </div>
       <div onClick="{{ openTasteFn }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
         <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">✦ View taste &amp; profile</div>
@@ -654,6 +674,28 @@
       <span style="flex:1; min-width:220px; font:400 12px/1.5 -apple-system,system-ui,sans-serif; color:#8a887e;">Read-only. To change it, ask the concierge — e.g. "more techno, less comedy" or "I moved to Highland Park."</span>
       <button onClick="{{ closeTaste }}" style="flex:none; font:700 12px/1 ui-monospace,Menlo,monospace; padding:11px 22px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:5px; cursor:pointer;" style-hover="background:#000;">Done</button>
     </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ==================== DIGEST MODAL ==================== -->
+<sc-if value="{{ digestModalOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed; inset:0; z-index:115; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(27,26,23,0.44);">
+  <div onClick="{{ closeDigest }}" style="position:absolute; inset:0;"></div>
+  <div style="position:relative; z-index:1; width:100%; max-width:680px; max-height:calc(100dvh - 40px); display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:5px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+    <button onClick="{{ closeDigest }}" title="Close (Esc)" style="position:absolute; z-index:3; top:9px; right:11px; width:30px; height:30px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:999px; cursor:pointer; font:600 15px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+    <div style="flex:none; display:flex; align-items:center; gap:8px; padding:11px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:5px 5px 0 0;">
+      <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.16em; color:#8a887e;">EDITORIAL DIGEST</span>
+      <span onClick="{{ downloadDigest }}" title="Download this digest as Markdown" style="margin-left:auto; margin-right:34px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:6px 11px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">↓ download</span>
+    </div>
+    <sc-if value="{{ digestNavShow }}" hint-placeholder-val="{{ true }}">
+      <div class="scry" style="flex:none; display:flex; align-items:center; gap:6px; overflow-x:auto; padding:8px 20px; border-bottom:1px solid #e2e0d8; background:#fdfcf9;">
+        <sc-for list="{{ digestNav }}" as="n" hint-placeholder-count="6">
+          <span onClick="{{ n.onClick }}" style="flex:none; white-space:nowrap; cursor:pointer; padding:5px 11px; border:1px solid #e2e0d8; border-radius:999px; background:#fff; color:#5f5d54; font:600 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ n.title }}</span>
+        </sc-for>
+      </div>
+    </sc-if>
+    <div id="dg-scroll" class="scry" style="flex:1; min-height:0; overflow-y:auto; padding:22px 26px 30px;">{{ digestBody }}</div>
   </div>
 </div>
 </sc-if>
@@ -846,7 +888,9 @@ class Component extends DCLogic {
   state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, isMobile:false, exploreSort:'match', exploreSearch:'', toast:null, dataSource:'loading', profile:null,
     settingsOpen:false, loggedIn:false, apiModal:false, tasteModal:false, tasteTab:'taste', username:'',
     apiKeyOn:false, opusOn:false, apiKey:'', sharedToken:'',
-    chatOpen:false, chatInput:'', chatMsgs:[], chatBusy:false, updating:null };
+    chatOpen:false, chatInput:'', chatMsgs:[], chatBusy:false, updating:null,
+    digestModalOpen:false, spotifyStatus:null, spotifyName:'', chatGuideOpen:false,
+    calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null };
 
   componentDidMount() {
     try { const r = JSON.parse(localStorage.getItem('la-fp-reactions-v1') || '{}'); if (r && typeof r === 'object') this.setState({ reactions:r }); } catch (e) {}
@@ -855,16 +899,17 @@ class Component extends DCLogic {
     try { prof = JSON.parse(localStorage.getItem('la-profile') || 'null'); } catch (e) {}
     if (prof && prof.hash) this.setState({ profile: prof, loggedIn: true, username: prof.u || '' });
     this.loadFeedFor(prof && prof.hash ? prof : null);
+    this.loadDigest();
     fetch('./catalog_meta.json?t=' + Date.now(), { cache: 'no-store' })
       .then(res => res.ok ? res.json() : null)
       .then(j => { this.LIVE_CATALOG = j; this.forceUpdate(); }).catch(() => {});
     this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m }); };
     this._onResize(); window.addEventListener('resize', this._onResize);
     try { const m = JSON.parse(localStorage.getItem('la-chat-v1') || '[]'); if (Array.isArray(m) && m.length) this.setState({ chatMsgs: m }); } catch (e) {}
-    this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
+    this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
     window.addEventListener('keydown', this._onKey);
   }
-  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._updTick) clearInterval(this._updTick); if (this._updPoll) clearInterval(this._updPoll); }
+  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._updTick) clearInterval(this._updTick); if (this._updPoll) clearInterval(this._updPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); }
 
   // ---------- date + format ----------
   fmt(iso, time) {
@@ -1015,6 +1060,10 @@ class Component extends DCLogic {
   onSearch = (e) => { const v = e.target.value; this.setState(s => ({ exploreSearch:v, view: v.trim() ? 'explore' : s.view })); };
   clearSearch = () => this.setState({ exploreSearch:'' });
   pokeConcierge = () => this.toggleChat();
+  // Concierge starter prompts ("template text") — tap to drop into the box.
+  STARTERS = ['techno this weekend', 'what’s worth it tonight', 'plan saturday — dinner then a show', 'free shows near me', 'more deep house, less comedy', 'afterhours warehouse'];
+  useStarter = (t) => { const v = String(t || '').trim(); if (!v) return; this.setState({ chatInput: v }); try { const el = document.getElementById('la-chat-input'); if (el) { el.focus(); el.setSelectionRange(v.length, v.length); } } catch (e) {} };
+  labelISO(iso) { const d = new Date(iso + 'T00:00:00'); if (isNaN(d.getTime())) return String(iso); return this.WD[d.getDay()] + ' ' + (d.getMonth() + 1) + '/' + d.getDate(); }
   // ---- concierge chat (POST BACKEND_URL {messages, profile?, model?} -> {reply, taste_changed, profile_changed}) ----
   backendHeaders() {
     const h = { 'content-type':'application/json' };
@@ -1029,8 +1078,13 @@ class Component extends DCLogic {
     const opening = !this.state.chatOpen;
     if (opening && !this.state.chatMsgs.length) {
       const take = this.META.front_page && this.META.front_page.take;
-      const hi = 'I\u2019m your concierge — ask for plans (\u201cfree house show this weekend near me\u201d), what\u2019s worth it tonight, or tune your taste (\u201cmore techno, less comedy\u201d).'
-        + (take && take.text ? '\n\nFor ' + (take.date || 'today') + ': ' + take.text : '');
+      const takeLine = (take && take.text) ? ('\n\n*Today\u2019s read' + (take.date ? ' \u00b7 ' + this.labelISO(take.date) : '') + ':* ' + take.text) : '';
+      const hi = 'I\u2019m your LA concierge \u2014 the best of what\u2019s on, ranked to your taste. A few things I can do:\n'
+        + '- **Find shows** \u2014 `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n'
+        + '- **Point you to food** \u2014 a spot near Silver Lake, the hot new opening, popups & trucks.\n'
+        + '- **Plan a whole night** \u2014 `plan saturday: dinner then a show` and I\u2019ll sequence dinner \u2192 show \u2192 afters.\n'
+        + '- **Tune your taste** \u2014 `more techno, less comedy` or `I moved to Highland Park`, and I\u2019ll re-rank you.\n'
+        + 'Tap an example below or just start typing.' + takeLine;
       this.setChat([{ role:'assistant', content: hi, welcome:true }]);
     }
     this.setState({ chatOpen: opening });
@@ -1067,11 +1121,148 @@ class Component extends DCLogic {
       this.setState({ chatBusy:false });
     }
   };
-  openDigest = () => this.showToast('Your full editorial digest opens here in the app', null);
   resetReactions = () => { this.setState({ reactions:{} }); try { localStorage.removeItem('la-fp-reactions-v1'); } catch (e) {} };
 
+  // ---------- digest reader — renders ./digests/<hash>/latest.md (the full editorial digest) ----------
+  DIGEST_MD = '';
+  _dgHtml = null;
+  _tryDigest(path) {
+    return fetch(path, { cache: 'no-store' })
+      .then(res => res.ok ? res.text() : null)
+      .then(md => { if (md && md.trim().length > 20) { this.DIGEST_MD = md; this._dgHtml = null; this.forceUpdate(); return true; } return false; })
+      .catch(() => false);
+  }
+  loadDigest() {
+    const p = this.state.profile;
+    if (p && p.hash) return this._tryDigest('./digests/' + p.hash + '/latest.md').then(ok => ok ? true : this._tryDigest('./digests/latest.md'));
+    return this._tryDigest('./digests/latest.md');
+  }
+  escHtml(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  inlineMd(s) {
+    // `code` spans first so their contents skip the */[ ] passes; then bold, emphasis (mono chip vs
+    // prose italic by length), then links.
+    return this.escHtml(s)
+      .replace(/`([^`]+)`/g, '<code style="font:600 11.5px/1.4 ui-monospace,Menlo,monospace; color:#2b5cd9; background:#eef1fb; padding:1px 5px; border-radius:3px;">$1</code>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong style="color:#161512; font-weight:700;">$1</strong>')
+      .replace(/\*(.+?)\*/g, (m0, inner) => {
+        const plain = inner.replace(/<[^>]+>/g, '');
+        return plain.length <= 40
+          ? '<em style="color:#76746b; font-style:normal; font:600 11px ui-monospace,Menlo,monospace; letter-spacing:0.02em;">' + inner + '</em>'
+          : '<em style="color:#6b695f; font-style:italic;">' + inner + '</em>';
+      })
+      .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:#1b1a17; text-decoration:underline; text-underline-offset:2px;">$1</a>');
+  }
+  // Markdown -> styled HTML. Digest mode adds anchor ids on ## sections, sticky ### day headers,
+  // ⭐ top-pick highlighting, and the H1 ISO date rendered as "Weekday M/D". HTML comments are
+  // stripped first so the invisible take/tier3 slots never render as literal text.
+  renderMarkdown(md, opts) {
+    const dg = !!(opts && opts.digest);
+    const lines = String(md || '').replace(/<!--[\s\S]*?-->/g, '').split('\n');
+    let html = '';
+    let items = null, quote = null, day = false, secN = 0, hdrMeta = null, h1MD = '';
+    const flushHdr = () => {
+      if (!hdrMeta) return;
+      let checked = hdrMeta.find(x => /^Checked\b/i.test(x));
+      if (checked) {
+        checked = checked.replace(/^Checked\s+\w+\s+(\d+\/\d+)\s*·\s*/i, (m0, mmdd) => mmdd === h1MD ? '' : m0);
+        html += '<div style="margin:1px 0 6px; font:500 10.5px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">' + this.inlineMd(checked) + '</div>';
+      }
+      hdrMeta = null;
+    };
+    const flush = () => {
+      if (quote) { html += '<div style="margin:12px 0; padding:10px 13px; background:#fdf4e3; border:1px solid #ecd9ae; border-left:3px solid #c8973f; border-radius:3px; font-size:12.5px; line-height:1.55; color:#5f5347;">' + quote.join('<br>') + '</div>'; quote = null; }
+      if (!items) return;
+      html += '<ul style="list-style:none; margin:0 0 8px; padding:0; display:flex; flex-direction:column; gap:8px;">'
+        + items.map(it => it.hot
+          ? '<li style="font-size:13px; line-height:1.55; color:#3f3d36; padding:8px 11px; background:#fcf7e6; border:1px solid #eee0b4; border-radius:3px;">' + it.html + '</li>'
+          : '<li style="font-size:13px; line-height:1.55; color:#3f3d36; padding-left:15px; position:relative;"><span style="position:absolute; left:0; color:#cdcbc3;">·</span>' + it.html + '</li>').join('')
+        + '</ul>';
+      items = null;
+    };
+    const closeDay = () => { flush(); if (day) { html += '</div>'; day = false; } };
+    for (const raw of lines) {
+      const line = raw.replace(/\s+$/, '');
+      const t = line.trim();
+      if (t === '') { if (hdrMeta) continue; flush(); continue; }
+      if (hdrMeta) { const im = t.match(/^\*([^*].*)\*$/); if (im) { hdrMeta.push(im[1]); continue; } flushHdr(); }
+      if (t === '---') { closeDay(); html += '<hr style="border:none; border-top:1px solid #e2e0d8; margin:18px 0;" />'; continue; }
+      const q = t.match(/^>\s?(.*)$/);
+      if (q) { if (!quote) { flush(); quote = []; } quote.push(this.inlineMd(q[1])); continue; }
+      const hd = t.match(/^(#{1,6})\s+(.*)$/);
+      if (hd) {
+        closeDay();
+        if (hd[1].length === 1) {
+          let txt = hd[2];
+          if (dg) txt = txt.replace(/(\d{4})-(\d{2})-(\d{2})/, (m0, y, mo, d) => { const dt = new Date(+y, +mo - 1, +d); h1MD = (+mo) + '/' + (+d); return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][dt.getDay()] + ' ' + h1MD; });
+          if (dg) { const parts = txt.split(' — '); if (parts.length >= 2) { html += '<div style="font:700 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; text-transform:uppercase; color:#a7a59b; margin:0 0 6px;">' + this.inlineMd(parts[0]) + '</div>'; txt = parts.slice(1).join(' — '); } hdrMeta = []; }
+          html += '<h1 style="font:700 21px/1.2 -apple-system,system-ui,sans-serif; letter-spacing:-0.01em; color:#161512; margin:0 0 4px;">' + this.inlineMd(txt) + '</h1>';
+        } else if (hd[1].length === 2) {
+          const id = dg ? ' id="dg-s' + (secN++) + '"' : '';
+          html += '<h2' + id + ' style="display:flex; align-items:center; gap:10px; font:700 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.09em; text-transform:uppercase; color:#161512; margin:26px 0 12px; scroll-margin-top:8px;">' + this.inlineMd(hd[2]) + '<span style="flex:1; height:1px; background:#e2e0d8;"></span></h2>';
+        } else {
+          if (dg) { html += '<div style="position:relative;">'; day = true; }
+          html += '<h3 style="' + (dg ? 'position:sticky; top:0; z-index:2; background:#fdfcf9; box-shadow:0 1px 0 #eceae2; margin:0; padding:16px 0 7px; ' : 'margin:18px 0 9px; padding:7px 0 6px; ') + 'font:600 13.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; scroll-margin-top:8px;">' + this.inlineMd(hd[2]) + '</h3>';
+        }
+        continue;
+      }
+      if (/^[-*]\s+/.test(t)) { if (!items) items = []; const body = t.replace(/^[-*]\s+/, ''); items.push({ html: this.inlineMd(body), hot: dg && body.includes('⭐') }); continue; }
+      if (items && items.length && /^\s/.test(raw)) { items[items.length - 1].html += ' ' + this.inlineMd(t); continue; }
+      flush();
+      const lbl = t.match(/^\*\*([^*]+)\*\*$/);
+      if (lbl) { html += '<div style="font:700 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; text-transform:uppercase; color:#8a8880; margin:14px 0 7px;">' + this.escHtml(lbl[1]) + '</div>'; continue; }
+      html += '<p style="font-size:13px; line-height:1.6; color:#4d4b42; margin:0 0 6px;">' + this.inlineMd(t) + '</p>';
+    }
+    flushHdr(); closeDay(); flush();
+    return html;
+  }
+  // Chat markdown (bold/italic/links/bullets) so concierge replies + the welcome render as prose.
+  renderChatHtml(text) {
+    const lines = String(text || '').split('\n');
+    let html = '', inList = false;
+    const closeList = () => { if (inList) { html += '</ul>'; inList = false; } };
+    for (const raw of lines) {
+      const line = raw.replace(/\s+$/, '');
+      if (line === '') { closeList(); continue; }
+      if (/^#{1,6}\s/.test(line)) { closeList(); html += '<div style="font-weight:700; color:#161512; margin:5px 0 2px;">' + this.inlineMd(line.replace(/^#{1,6}\s/, '')) + '</div>'; continue; }
+      if (/^[-*]\s+/.test(line)) { if (!inList) { html += '<ul style="list-style:none; margin:3px 0; padding:0; display:flex; flex-direction:column; gap:4px;">'; inList = true; } html += '<li style="padding-left:12px; position:relative;"><span style="position:absolute; left:0; color:#b4b2a8;">·</span>' + this.inlineMd(line.replace(/^[-*]\s+/, '')) + '</li>'; continue; }
+      closeList();
+      html += '<div style="margin:0 0 3px;">' + this.inlineMd(line) + '</div>';
+    }
+    closeList();
+    return html;
+  }
+  digestSections(md) {
+    const out = [];
+    for (const line of String(md || '').replace(/<!--[\s\S]*?-->/g, '').split('\n')) {
+      const m = /^##(?!#)\s+(.+?)\s*$/.exec(line.trim());
+      if (m) out.push({ id: 'dg-s' + out.length, title: m[1] });
+    }
+    return out;
+  }
+  jumpDigest = (id) => { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+  renderDigestHtml() {
+    const src = this.DIGEST_MD || '';
+    const c = this._dgHtml;
+    if (c && c.md === src) return c.html;
+    const html = this.renderMarkdown(src, { digest: true }).replace(/href="weekends\//g, 'href="digests/weekends/');
+    this._dgHtml = { md: src, html };
+    return html;
+  }
+  openDigest = () => { if (!this.DIGEST_MD) this.loadDigest(); this.setState({ digestModalOpen: true, settingsOpen: false }); };
+  closeDigest = () => this.setState({ digestModalOpen: false });
+  downloadDigest = () => {
+    const md = this.DIGEST_MD || '';
+    if (!md) { this.showToast('Digest is still loading — try again in a moment', null); return; }
+    const m = md.slice(0, 400).match(/\b(\d{4}-\d{2}-\d{2})\b/);
+    const blob = new Blob([md], { type: 'text/markdown' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = 'la-events-' + (m ? m[1] : 'digest') + '.md';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  };
+
   // ---- settings / account / concierge / taste ----
-  toggleSettings = () => this.setState(s => ({ settingsOpen: !s.settingsOpen }));
+  toggleSettings = () => { const opening = !this.state.settingsOpen; if (opening && this.state.loggedIn && this.state.spotifyStatus === null) this.checkSpotify(); this.setState({ settingsOpen: opening }); };
   closeSettings = () => this.setState({ settingsOpen:false });
   onUsername = (e) => { const v = e.target.value; this.setState({ username:v }); };
   doLogin = async () => {
@@ -1086,10 +1277,11 @@ class Component extends DCLogic {
       const prof = { u, hash };
       try { localStorage.setItem('la-profile', JSON.stringify(prof)); } catch (e) {}
       this.setState({ profile:prof, loggedIn:true, settingsOpen:false });
+      this.loadDigest(); this.checkSpotify();
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'' }); this.loadFeedFor(null); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'' }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
   updateMyDigest = async () => {
     const p = this.state.profile;
     if (!p || !p.hash) { this.showToast('Sign in first — updates re-rank your own feed', null); return; }
@@ -1161,6 +1353,38 @@ class Component extends DCLogic {
   closeTaste = () => this.setState({ tasteModal:false });
   setTasteTab = (t) => this.setState({ tasteTab:t });
 
+  // ---------- Spotify connect (server-side OAuth through the concierge Worker; no localStorage) ----------
+  spotifyUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
+  checkSpotify = () => {
+    const p = this.state.profile;
+    if (!this.BACKEND_URL || !(p && p.hash)) { this.setState({ spotifyStatus:null }); return; }
+    fetch(this.spotifyUrl('/spotify/status?profile=' + p.hash), { cache:'no-store' })
+      .then(res => res.ok ? res.json() : null)
+      .then(j => this.setState(j ? { spotifyStatus:!!j.connected, spotifyName:j.name||'' } : { spotifyStatus:null }))
+      .catch(() => this.setState({ spotifyStatus:null }));
+  };
+  connectSpotify = () => {
+    const p = this.state.profile;
+    if (!(p && p.hash)) { this.showToast('Log in first, then connect Spotify', null); return; }
+    let url = this.spotifyUrl('/spotify/login?profile=' + p.hash);
+    const tok = (this.state.sharedToken||'').trim(); if (tok) url += '&t=' + encodeURIComponent(tok);
+    try { window.open(url, '_blank', 'noopener'); } catch (e) { location.href = url; }
+    this.showToast('Opening Spotify — approve, then come back', null);
+    let n = 0; clearInterval(this._spotifyPoll);
+    this._spotifyPoll = setInterval(() => { if (++n > 20 || this.state.spotifyStatus === true) clearInterval(this._spotifyPoll); else this.checkSpotify(); }, 2000);
+  };
+  disconnectSpotify = async () => {
+    const p = this.state.profile;
+    if (!(p && p.hash)) return;
+    try {
+      const headers = { 'content-type':'application/json' };
+      const tok = (this.state.sharedToken||'').trim(); if (tok) headers.authorization = 'Bearer ' + tok;
+      await fetch(this.spotifyUrl('/spotify/disconnect'), { method:'POST', headers, body: JSON.stringify({ profile:p.hash }) });
+    } catch (e) {}
+    this.setState({ spotifyStatus:false, spotifyName:'' });
+    this.showToast('Spotify disconnected', null);
+  };
+
   setReactions(r) { this.setState({ reactions:r }); try { localStorage.setItem('la-fp-reactions-v1', JSON.stringify(r)); } catch (e) {} }
   react(id, kind, ev) {
     if (ev && ev.stopPropagation) ev.stopPropagation();
@@ -1213,8 +1437,10 @@ class Component extends DCLogic {
       chatGoBg: (this.state.chatInput||'').trim() && !this.state.chatBusy ? '#2b5cd9' : '#c3c1b7',
       chatRows: this.state.chatMsgs.map(m => m.role === 'user'
         ? { text:m.content, wrap:'display:flex; justify-content:flex-end; padding:3px 0;', bubble:'max-width:86%; background:#1b1a17; color:#fff; border-radius:14px 14px 4px 14px; padding:10px 13px; font:400 13px/1.5 -apple-system,system-ui,sans-serif; white-space:pre-wrap; word-break:break-word;' }
-        : { text:m.content, wrap:'display:flex; justify-content:flex-start; padding:3px 0;', bubble:'max-width:92%; background:#fff; border:1px solid #e4e2d9; color:#26251f; border-radius:14px 14px 14px 4px; padding:10px 13px; font:400 13px/1.55 -apple-system,system-ui,sans-serif; white-space:pre-wrap; word-break:break-word;' }),
+        : { text: React.createElement('div', { className: m.welcome ? 'chat-intro' : '', onClick: m.welcome ? ((e) => { const c = e.target && e.target.closest && e.target.closest('code'); if (c && c.textContent) this.useStarter(c.textContent); }) : undefined, dangerouslySetInnerHTML: { __html: this.renderChatHtml(m.content) } }), wrap:'display:flex; justify-content:flex-start; padding:3px 0;', bubble:'max-width:92%; background:#fff; border:1px solid #e4e2d9; color:#26251f; border-radius:14px 14px 14px 4px; padding:10px 13px; font:400 13px/1.55 -apple-system,system-ui,sans-serif; word-break:break-word;' }),
       isUpdating: !!this.state.updating, notUpdating: !this.state.updating, updElapsed: this.elapsedLabel(),
+      showStarters: this.state.chatMsgs.filter(m => m.role === 'user').length === 0,
+      chatStarters: this.STARTERS.map(t => ({ label: t, onClick: () => this.useStarter(t) })),
       exploreCount:exploreableCount, resetReactions:this.resetReactions,
       ...mf,
     };
@@ -1250,7 +1476,10 @@ class Component extends DCLogic {
         const heroKeys = (((this.META.front_page || {}).hero || {})[lens] || []).slice(0, 3);
         const chips = heroKeys.map(k => this.ALL.find(e => e.key === k)).filter(Boolean).map(e => ({ text: e.title, onClick: () => this.openDetail(e.id) }));
         out.hasDispatch = true;
-        out.dispatch = { kicker: take.date || dLabel, headline: 'The take', body: take.text, chips };
+        // Descriptive headline = the day's take sentence itself (not the label "The take") — the
+        // take reads as an editorial deck; the kicker carries the digest's own date.
+        const kf = take.date ? this.fmt(take.date, '') : null;
+        out.dispatch = { kicker: kf ? (kf.wd + ' · ' + kf.md).toUpperCase() : dLabel, headline: take.text, chips };
       } else out.hasDispatch = false;
 
       const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
@@ -1333,7 +1562,16 @@ class Component extends DCLogic {
       syncTitle:'Ranks & Digest: ' + ((this.LIVE_CATALOG && this.LIVE_CATALOG.content_version && this.META.catalog_content_version && this.LIVE_CATALOG.content_version !== this.META.catalog_content_version) ? 'Update available' : 'Current'),
       pullTitle:'Events database: Current',
       dataSourceLabel: this.state.dataSource === 'live' ? 'live · data.json' : (this.state.dataSource === 'loading' ? 'loading…' : 'unavailable'),
-      spotifyStatusText: (this.META.music && this.META.music.layer && this.META.music.layer !== 'none') ? ('connected · ' + this.META.music.layer) : 'not in this ranking yet',
+      spotifyStatusText: (() => {
+        const s = this.state.spotifyStatus;
+        if (!this.state.loggedIn) return 'log in to connect your listening';
+        if (s === null) return 'checking…';
+        if (s === true) return 'connected' + (this.state.spotifyName ? ' · ' + this.state.spotifyName : '') + ' — re-ranks to your listening';
+        return 'not connected — link it to re-rank to your listening';
+      })(),
+      spotifyConnected: this.state.spotifyStatus === true,
+      spotifyCanConnect: this.state.loggedIn && this.state.spotifyStatus !== true,
+      connectSpotify: this.connectSpotify, disconnectSpotify: this.disconnectSpotify,
       apiKeyStatus: (this.state.apiKeyOn && (this.state.apiKey||'').trim()) ? 'connected' : ((this.state.sharedToken||'').trim() ? 'shared token' : 'not set'),
       calendarFeed:() => { const url = this.BACKEND_URL + '/calendar.ics'; try { navigator.clipboard.writeText(url); this.showToast('Calendar feed URL copied — add it in Google / Apple Calendar', null); } catch (e) { this.showToast(url, null); } },
       openSync:() => this.updateMyDigest(),
@@ -1348,7 +1586,7 @@ class Component extends DCLogic {
       apiKeySwTrack:sK.track, apiKeySwKnob:sK.knob, apiKeySwLabel:sK.label,
       opusSwTrack:sO.track, opusSwKnob:sO.knob, opusSwLabel:sO.label,
       conDot: connected?'#1f7a4d':'#c0392b',
-      conStatusText: connected ? 'Connected — the concierge is ready.' : 'Couldn\u2019t connect — check the API key or access token below. The concierge uses Fast filter until one connects.',
+      conStatusText: connected ? 'Connected — the concierge is ready.' : 'Couldn\u2019t connect — check the API key or access token below. Add one below to start chatting — everything else on the page works without it.',
       tasteModal:this.state.tasteModal, closeTaste:this.closeTaste,
       setTasteTabTaste:() => this.setTasteTab('taste'), setTasteTabProfile:() => this.setTasteTab('profile'),
       isTasteTab:this.state.tasteTab==='taste', isProfileTab:this.state.tasteTab==='profile',
@@ -1358,6 +1596,18 @@ class Component extends DCLogic {
       diffLines: this.diffLinesVal(),
       profileRows: this.profileRowsVal(uname),
     });
+
+    // ---- DIGEST READER ----
+    out.digestModalOpen = this.state.digestModalOpen;
+    out.closeDigest = this.closeDigest;
+    out.downloadDigest = this.downloadDigest;
+    out.hasDigest = !!this.DIGEST_MD;
+    const dgSecs = this.digestSections(this.DIGEST_MD);
+    out.digestNavShow = dgSecs.length > 1;
+    out.digestNav = dgSecs.map(s => ({ title: s.title, onClick: () => this.jumpDigest(s.id) }));
+    out.digestBody = this.DIGEST_MD
+      ? React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } })
+      : React.createElement('div', { style: { padding: '30px 0', textAlign: 'center', font: '500 12px/1.6 ui-monospace,Menlo,monospace', color: '#a7a59b' } }, 'Loading the digest…');
 
     out.closeDetail = this.closeDetail;
     out.hasToast = !!this.state.toast;
