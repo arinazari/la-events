@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/23/2026 deterministically (no API). 336 candidates. Signals: big-venue 291, festival 42, tracked 5._
+_Generated 7/24/2026 deterministically (no API). 330 candidates. Signals: big-venue 288, festival 39, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -62,7 +62,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 8/27 | 3 | BKOfest Presents: Underground Rager 2026 (Day 1) | Harvard & Stone | festival | [link](https://www.songkick.com/festivals/3795968-bkofest-presents-underground-rager/id/43320958-bkofest-presents-underground-rager-2026) |
 | Sat 8/29 | 3 | Verizon offer - Daisy Chain Fields | Great Park Live | festival | [link](https://www.daisychainfields.com/tickets) |
 | Sat 8/29 | 3 | Biergarten Blues Festival | The Biergarten at Old World HB | festival | [link](https://www.universe.com/events/biergarten-blues-festival-tickets-YVZ36T?ref=ticketmaster) |
 
@@ -94,7 +93,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 8/27 | 2 | Taqueando After Dark at Level 8 | LEVEL 8 | festival | [link](https://www.eventbrite.com/e/taqueando-after-dark-at-level-8-tickets-1989438988569) |
 | Fri 8/28 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZd) |
 | Sat 8/29 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZ7) |
 
@@ -131,7 +129,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 8/27 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZe) |
 | Sun 8/30 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZA) |
 | Mon 8/31 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZk) |
 
@@ -221,7 +218,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 8/27 | 3 | UNDERTALE: The Determination Symphony | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/undertale-the-determination-symphony-los-angeles-california-08-27-2026/event/09006479CB86B678) |
 | Fri 8/28 | 3 | ZAYN: The Konnakol Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/zayn-the-konnakol-tour-inglewood-california-08-28-2026/event/09006443E08F98F0) |
 | Fri 8/28 | 3 | CRANKDAT - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 8/29 | 3 | Acid Bath | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/acid-bath-ontario-california-08-29-2026/event/0900647AADB19AC7) |
@@ -380,8 +376,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 8/27 | 2 | Third Eye Blind - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Thu 8/27 | 2 | Crankdat (18+ Event) | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Fri 8/28 | 2 | Ali Wong Live | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1343758/ali-wong-tickets) |
 | Sat 8/29 | 2 | Ali Wong Live | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1462644/ali-wong-tickets) |
 | Sun 8/30 | 2 | Avenged Sevenfold, Good Charlotte, and A Day to Remember | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/avenged-sevenfold-good-charlotte-and-a-los-angeles-california-08-30-2026/event/0A0063818F234796) |
