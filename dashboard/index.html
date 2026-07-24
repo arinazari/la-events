@@ -9,6 +9,7 @@
 <link rel="icon" href="./icon.svg">
 <link rel="manifest" href="./manifest.webmanifest">
 <script src="./support.js"></script>
+<script src="./calendar-core.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
@@ -578,7 +579,7 @@
       </div>
     </sc-if>
 
-    <div onClick="{{ calendarFeed }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px;" style-hover="border-color:#a7a59b;">
+    <div onClick="{{ openCalModal }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px;" style-hover="border-color:#a7a59b;">
       <div style="display:flex; align-items:flex-start; gap:11px;">
         <span style="flex:none; width:22px; height:22px; border-radius:3px; background:#161512; color:#fff; font-size:12px; line-height:22px; text-align:center;">▦</span>
         <span style="min-width:0;">
@@ -673,6 +674,74 @@
     <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:14px; padding:13px 18px; border-top:1px solid #e4e2d9; flex-wrap:wrap;">
       <span style="flex:1; min-width:220px; font:400 12px/1.5 -apple-system,system-ui,sans-serif; color:#8a887e;">Read-only. To change it, ask the concierge — e.g. "more techno, less comedy" or "I moved to Highland Park."</span>
       <button onClick="{{ closeTaste }}" style="flex:none; font:700 12px/1 ui-monospace,Menlo,monospace; padding:11px 22px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:5px; cursor:pointer;" style-hover="background:#000;">Done</button>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ==================== CALENDAR FEED MODAL ==================== -->
+<sc-if value="{{ calModalOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed; inset:0; z-index:116; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(27,26,23,0.44);">
+  <div onClick="{{ closeCalModal }}" style="position:absolute; inset:0;"></div>
+  <div style="position:relative; z-index:1; width:460px; max-width:100%; max-height:calc(100dvh - 40px); display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:5px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
+    <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:15px 18px 0;">
+      <span style="display:inline-flex; align-items:center; gap:8px;"><span style="color:#3f3d36; font-size:15px;">▦</span><span style="font:800 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#161512;">CALENDAR FEED</span></span>
+      <button onClick="{{ closeCalModal }}" title="Close (Esc)" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:999px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
+    </div>
+    <div class="scry" style="flex:1; min-height:0; overflow-y:auto; padding:10px 18px 6px;">
+      <div style="display:flex; gap:6px; margin-bottom:11px;">
+        <span onClick="{{ onCalPicks }}" style="cursor:pointer; padding:7px 13px; border:1px solid #d2d0c7; background:{{ calPicksTabBg }}; color:{{ calPicksTabColor }}; border-radius:999px; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em;">TOP PICKS</span>
+        <sc-if value="{{ calShowSavedTab }}" hint-placeholder-val="{{ true }}">
+          <span onClick="{{ onCalSaved }}" title="A calendar of the events you starred" style="cursor:pointer; padding:7px 13px; border:1px solid #d2d0c7; background:{{ calSavedTabBg }}; color:{{ calSavedTabColor }}; border-radius:999px; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.04em;">★ {{ calSavedTabLabel }}</span>
+        </sc-if>
+      </div>
+      <div style="font:400 11.5px/1.5 -apple-system,system-ui,sans-serif; color:#3f3d36;">{{ calIntro }}</div>
+
+      <sc-if value="{{ calShowPicksFilters }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-top:13px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
+          <span style="flex:none; width:82px; font:700 8.5px/2.4 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">RATED</span>
+          <sc-for list="{{ calMinChips }}" as="c" hint-placeholder-count="4"><span onClick="{{ c.onClick }}" style="cursor:pointer; padding:5px 10px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
+        </div>
+        <div style="margin-top:8px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
+          <span style="flex:none; width:82px; font:700 8.5px/2.4 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">MAX / DAY</span>
+          <sc-for list="{{ calPerdayChips }}" as="c" hint-placeholder-count="4"><span onClick="{{ c.onClick }}" style="cursor:pointer; padding:5px 10px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
+        </div>
+        <div style="margin-top:8px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
+          <span style="flex:none; width:82px; font:700 8.5px/2.4 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">LOOKAHEAD</span>
+          <sc-for list="{{ calHorizonChips }}" as="c" hint-placeholder-count="4"><span onClick="{{ c.onClick }}" style="cursor:pointer; padding:5px 10px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
+        </div>
+        <div style="margin-top:8px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
+          <span style="flex:none; width:82px; font:700 8.5px/2.4 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;" title="No days selected = every day">DAYS</span>
+          <sc-for list="{{ calDayChips }}" as="c" hint-placeholder-count="7"><span onClick="{{ c.onClick }}" style="cursor:pointer; padding:5px 9px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
+        </div>
+        <div style="margin-top:13px; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">CATEGORIES <span style="letter-spacing:0.03em; color:#bdbbb1; text-transform:none;">— tap to cycle: ✓ only → ✕ hide → off</span></div>
+        <div style="margin-top:7px; display:flex; gap:6px; flex-wrap:wrap;">
+          <sc-for list="{{ calTypeChips }}" as="c" hint-placeholder-count="9"><span onClick="{{ c.onClick }}" title="{{ c.title }}" style="cursor:pointer; padding:5px 10px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
+        </div>
+        <div style="margin-top:12px; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">GENRES</div>
+        <div style="margin-top:7px; display:flex; gap:6px; flex-wrap:wrap;">
+          <sc-for list="{{ calGenreChips }}" as="c" hint-placeholder-count="14"><span onClick="{{ c.onClick }}" title="{{ c.title }}" style="cursor:pointer; padding:5px 10px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
+        </div>
+      </sc-if>
+
+      <div style="margin-top:14px; padding:9px 11px; border:1px solid #e2e0d8; background:#faf9f5; border-radius:3px;">
+        <div style="font:700 10.5px/1.4 ui-monospace,Menlo,monospace; color:#161512;">{{ calPreviewCount }}</div>
+        <sc-if value="{{ calPreviewNext }}" hint-placeholder-val="{{ false }}"><div style="margin-top:3px; font:500 10px/1.4 ui-monospace,Menlo,monospace; color:#76746b; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ calPreviewNext }}</div></sc-if>
+      </div>
+      <sc-if value="{{ calNote }}" hint-placeholder-val="{{ false }}"><div style="margin-top:8px; font:500 10px/1.5 ui-monospace,Menlo,monospace; color:{{ calNoteColor }};">{{ calNote }}</div></sc-if>
+    </div>
+    <div style="flex:none; padding:12px 18px 15px; border-top:1px solid #e2e0d8; background:#faf9f5; border-radius:0 0 5px 5px;">
+      <sc-if value="{{ calCanSubscribe }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:9px;">
+          <a href="{{ calGcalUrl }}" target="_blank" rel="noopener" title="Add as a subscribed calendar in Google Calendar" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:8px 13px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:999px; font:700 10.5px/1 ui-monospace,Menlo,monospace;" style-hover="background:#1f49b8;">Google Calendar ↗</a>
+          <a href="{{ calWebcalUrl }}" title="Opens Calendar on Mac/iPhone and subscribes (webcal)" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:8px 13px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; font:700 10.5px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">Apple / iCal ↗</a>
+          <span onClick="{{ copyCalUrl }}" title="Copy the feed URL — paste into any calendar app's subscribe-by-URL" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:8px 13px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; font:700 10.5px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">copy URL</span>
+        </div>
+      </sc-if>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+        <span onClick="{{ downloadCalSnapshot }}" title="One-shot .ics of the picks above — imports anywhere, but won't update itself" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:8px 13px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; font:700 10.5px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">↓ .ics snapshot</span>
+        <button onClick="{{ closeCalModal }}" style="font:700 11px/1 ui-monospace,Menlo,monospace; padding:8px 13px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:999px; cursor:pointer;" style-hover="border-color:#161512; color:#161512;">Close</button>
+      </div>
     </div>
   </div>
 </div>
@@ -1385,6 +1454,145 @@ class Component extends DCLogic {
     this.showToast('Spotify disconnected', null);
   };
 
+  // ---------- calendar subscription feed (Top picks / Starred) — CalendarCore is the shared filter+ICS ----------
+  myHash() { const p = this.state.profile; return (p && p.hash) || null; }
+  // My starred event keys = server stars folded into the feed (by my hash) ∪ this session's ☆ taps.
+  savedList() {
+    const h = this.myHash(); const set = new Set();
+    for (const e of this.ALL) {
+      if (!e.key) continue;
+      if (this.state.reactions[e.id] === 'chip') set.add(e.key);
+      else if (h && (e.stars || []).some(s => s.hash === h)) set.add(e.key);
+    }
+    return [...set];
+  }
+  savedCount() { return this.savedList().length; }
+  calFeed() { return (this.META && Array.isArray(this.META.events)) ? this.META : null; }
+  calStoreKey() { return 'la-cal:' + (this.myHash() || 'default'); }
+  openCalModal = () => {
+    const CC = window.CalendarCore;
+    let saved = null; try { saved = JSON.parse(localStorage.getItem(this.calStoreKey()) || 'null'); } catch (e) {}
+    this.setState({ calModalOpen: true, settingsOpen: false, calCfg: CC ? CC.normSettings(saved || {}) : null, calStatus: null }, () => this.probeCalFeed());
+  };
+  closeCalModal = () => this.setState({ calModalOpen: false });
+  setCalSource = (src) => this.setState({ calSource: src }, () => this.probeCalFeed());
+  // SUBSCRIBE url in saved mode uses a stable ?saved=1 (Worker resolves stars server-side); LOCAL
+  // preview + snapshot use my starred keys so a just-tapped star shows immediately.
+  calUrlCfg() { if (this.state.calSource === 'saved') return { savedHash: this.myHash() }; return this.state.calCfg || window.CalendarCore.normSettings({}); }
+  calEffectiveCfg() { if (this.state.calSource === 'saved') return { keys: this.savedList() }; return this.state.calCfg || window.CalendarCore.normSettings({}); }
+  calPatch(patch) {
+    const calCfg = window.CalendarCore.normSettings(Object.assign({}, this.state.calCfg, patch));
+    try { localStorage.setItem(this.calStoreKey(), JSON.stringify(calCfg)); } catch (e) {}
+    this.setState({ calCfg });
+  }
+  calCycle(axis, val) {
+    const cfg = this.state.calCfg || window.CalendarCore.normSettings({});
+    const inc = cfg[axis].slice(), exc = cfg['x' + axis].slice();
+    const i = inc.indexOf(val), o = exc.indexOf(val);
+    if (i === -1 && o === -1) inc.push(val);
+    else if (i !== -1) { inc.splice(i, 1); exc.push(val); }
+    else exc.splice(o, 1);
+    const patch = {}; patch[axis] = inc; patch['x' + axis] = exc;
+    this.calPatch(patch);
+  }
+  calToggleDay(d) {
+    const days = (this.state.calCfg ? this.state.calCfg.days : []).slice();
+    const i = days.indexOf(d); if (i === -1) days.push(d); else days.splice(i, 1);
+    this.calPatch({ days });
+  }
+  calQuery() {
+    const p = this.state.profile; const parts = [];
+    if (p && p.hash) parts.push('p=' + p.hash);
+    const qs = window.CalendarCore.paramsFromSettings(this.calUrlCfg());
+    if (qs) parts.push(qs);
+    return parts.length ? '?' + parts.join('&') : '';
+  }
+  calHttpsUrl() { return this.BACKEND_URL ? this.BACKEND_URL + '/calendar.ics' + this.calQuery() : ''; }
+  calWebcalUrl() { return this.calHttpsUrl().replace(/^https?:\/\//, 'webcal://'); }
+  probeCalFeed() {
+    if (!this.BACKEND_URL) { this.setState({ calStatus: 'none' }); return; }
+    fetch(this.calHttpsUrl(), { cache: 'no-store' })
+      .then(res => this.setState({ calStatus: (res.ok && (res.headers.get('content-type') || '').indexOf('text/calendar') !== -1) ? 'ok' : (res.status === 405 ? 'stale' : 'down') }))
+      .catch(() => this.setState({ calStatus: 'down' }));
+  }
+  copyCalUrl = () => {
+    const url = this.calHttpsUrl();
+    try { navigator.clipboard.writeText(url).then(() => this.showToast('Feed URL copied — paste it into any calendar app’s “subscribe by URL”', null), () => this.showToast(url, null)); }
+    catch (e) { this.showToast(url, null); }
+  };
+  downloadCalSnapshot = () => {
+    const CC = window.CalendarCore; const feed = this.calFeed();
+    if (!feed || !CC) { this.showToast('Feed not loaded yet — try again in a moment', null); return; }
+    const effCfg = this.calEffectiveCfg();
+    if (this.state.calSource === 'saved' && CC.selectEvents(feed, effCfg, this.TODAY).length === 0) { this.showToast('No upcoming starred events to export — star some first', null); return; }
+    try {
+      const ics = CC.buildIcs(feed, effCfg, { todayISO: this.TODAY });
+      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+      a.download = this.state.calSource === 'saved' ? 'la-events-starred.ics' : 'la-events.ics';
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    } catch (err) {}
+  };
+  calVals() {
+    const CC = window.CalendarCore;
+    const base = { calModalOpen: !!this.state.calModalOpen, openCalModal: this.openCalModal, closeCalModal: this.closeCalModal,
+      onCalPicks: () => this.setCalSource('picks'), onCalSaved: () => this.setCalSource('saved'),
+      copyCalUrl: this.copyCalUrl, downloadCalSnapshot: this.downloadCalSnapshot };
+    if (!this.state.calModalOpen || !CC) {
+      return Object.assign(base, { calSourceIsPicks:true, calShowPicksFilters:true, calShowSavedTab:!!this.myHash(),
+        calPicksTabBg:'#1b1a17', calPicksTabColor:'#fff', calSavedTabBg:'#fff', calSavedTabColor:'#3f3d36', calSavedTabLabel:'Starred',
+        calIntro:'', calMinChips:[], calPerdayChips:[], calHorizonChips:[], calDayChips:[], calTypeChips:[], calGenreChips:[],
+        calPreviewCount:'', calPreviewNext:'', calCanSubscribe:false, calNote:'', calNoteColor:'#76746b', calGcalUrl:'', calWebcalUrl:'' });
+    }
+    const loggedIn = !!this.myHash();
+    const savedMode = this.state.calSource === 'saved' && loggedIn;
+    const cfg = this.state.calCfg || CC.normSettings({});
+    const feed = this.calFeed(); const p = this.state.profile; const savedN = this.savedCount();
+    const chip = (label, mode, onClick, title) => ({ label, onClick, title: title || '',
+      border: mode==='on'?'#2b5cd9':mode==='in'?'#1f7a4d':mode==='out'?'#c75146':'#e2e0d8',
+      bg: mode==='on'?'#eaf0fe':mode==='in'?'#eaf6ee':mode==='out'?'#fbeae8':'#fff',
+      color: mode==='on'?'#2b5cd9':mode==='in'?'#1f7a4d':mode==='out'?'#b4453a':'#5f5d54' });
+    const calMinChips = [2,3,4,5].map(n => chip(n===5?'5★ only':n+'★+', cfg.min===n?'on':'off', () => this.calPatch({ min:n })));
+    const calPerdayChips = [1,2,3,5].map(n => chip(String(n), cfg.perday===n?'on':'off', () => this.calPatch({ perday:n })));
+    const calHorizonChips = [[14,'2 wks'],[30,'1 mo'],[60,'2 mo'],[90,'3 mo']].map(hh => chip(hh[1], cfg.horizon===hh[0]?'on':'off', () => this.calPatch({ horizon:hh[0] })));
+    const calDayChips = ['mon','tue','wed','thu','fri','sat','sun'].map(d => chip(d.charAt(0).toUpperCase()+d.slice(1), cfg.days.indexOf(d)!==-1?'on':'off', () => this.calToggleDay(d)));
+    const facet = (ax, cap) => (this.META && this.META.tag_facets && Array.isArray(this.META.tag_facets[ax])) ? this.META.tag_facets[ax].slice(0, cap).map(f => f.value) : [];
+    const withSel = (vals, inc, exc) => { const all = vals.slice(); inc.concat(exc).forEach(v => { if (all.indexOf(v)===-1) all.push(v); }); return all; };
+    const cycleHint = 'tap to cycle: ✓ only these → ✕ hide → off';
+    const tri = (axis, vals) => vals.map(v => { const mode = cfg[axis].indexOf(v)!==-1?'in':cfg['x'+axis].indexOf(v)!==-1?'out':'off'; const mark = mode==='in'?'✓ ':mode==='out'?'✕ ':''; return chip(mark+v, mode, () => this.calCycle(axis, v), cycleHint); });
+    const calTypeChips = tri('types', withSel(facet('type',12), cfg.types, cfg.xtypes));
+    const calGenreChips = tri('genres', withSel(facet('genre',16), cfg.genres, cfg.xgenres));
+    const effCfg = this.calEffectiveCfg();
+    let calPreviewCount = 'feed not loaded yet', calPreviewNext = '';
+    if (feed) {
+      const evs = CC.selectEvents(feed, effCfg, this.TODAY);
+      if (savedMode) calPreviewCount = savedN===0 ? 'No starred events yet' : evs.length + (evs.length===1?' starred event':' starred events') + ' upcoming' + (savedN>evs.length?' ('+(savedN-evs.length)+' already passed)':'');
+      else calPreviewCount = evs.length + (evs.length===1?' event':' events') + ' · next ' + cfg.horizon + ' days';
+      if (evs.length) calPreviewNext = 'next up: ' + this.labelISO(evs[0].iso_date) + ' — ' + evs[0].title + ' · ' + (evs[0].venue || 'TBA');
+    }
+    const st = this.state.calStatus;
+    let calNote = '', calNoteColor = '#76746b', calCanSubscribe = false;
+    if (st === 'none') calNote = 'Live subscription needs the concierge backend — the .ics snapshot below still works (one-shot, no auto-update).';
+    else if (st === 'stale') { calNote = 'The live Worker build predates calendar feeds — redeploy it (cd backend && npx wrangler deploy), then reopen this.'; calNoteColor = '#9a6a1a'; }
+    else if (st === 'down') { calNote = 'Couldn’t reach the calendar feed just now — subscribe links hidden; the .ics snapshot below still works.'; calNoteColor = '#b4453a'; }
+    else if (savedMode && savedN === 0) calNote = 'Star events (the ☆ on any event) to build this calendar — everyone sees your stars.';
+    else if (st === 'ok') { calCanSubscribe = true; calNote = savedMode ? 'A stable link: it auto-updates as you star (and unstar) events and drops past ones — no re-subscribe needed.' : ''; }
+    else calNote = 'checking the live feed…';
+    const who = (p && (p.name || p.u)) || null;
+    const intro = savedMode
+      ? ('A calendar of the events ' + (who || 'you') + ' starred — ' + savedN + ' starred. Subscribe once; it stays current as you star more.')
+      : ('An auto-updating calendar of ' + (who ? who + '’s' : 'the house') + ' top-rated picks — tune what makes the cut, then subscribe in Google or Apple Calendar.');
+    return Object.assign(base, {
+      calSourceIsPicks: !savedMode, calShowPicksFilters: !savedMode, calShowSavedTab: loggedIn,
+      calPicksTabBg: !savedMode?'#1b1a17':'#fff', calPicksTabColor: !savedMode?'#fff':'#3f3d36',
+      calSavedTabBg: savedMode?'#1b1a17':'#fff', calSavedTabColor: savedMode?'#fff':'#3f3d36', calSavedTabLabel: 'Starred (' + savedN + ')',
+      calIntro: intro, calMinChips, calPerdayChips, calHorizonChips, calDayChips, calTypeChips, calGenreChips,
+      calPreviewCount, calPreviewNext, calCanSubscribe, calNote, calNoteColor,
+      calGcalUrl: 'https://calendar.google.com/calendar/render?cid=' + encodeURIComponent(this.calWebcalUrl()),
+      calWebcalUrl: this.calWebcalUrl(),
+    });
+  }
+
   setReactions(r) { this.setState({ reactions:r }); try { localStorage.setItem('la-fp-reactions-v1', JSON.stringify(r)); } catch (e) {} }
   react(id, kind, ev) {
     if (ev && ev.stopPropagation) ev.stopPropagation();
@@ -1573,7 +1781,6 @@ class Component extends DCLogic {
       spotifyCanConnect: this.state.loggedIn && this.state.spotifyStatus !== true,
       connectSpotify: this.connectSpotify, disconnectSpotify: this.disconnectSpotify,
       apiKeyStatus: (this.state.apiKeyOn && (this.state.apiKey||'').trim()) ? 'connected' : ((this.state.sharedToken||'').trim() ? 'shared token' : 'not set'),
-      calendarFeed:() => { const url = this.BACKEND_URL + '/calendar.ics'; try { navigator.clipboard.writeText(url); this.showToast('Calendar feed URL copied — add it in Google / Apple Calendar', null); } catch (e) { this.showToast(url, null); } },
       openSync:() => this.updateMyDigest(),
       openPull:() => this.showToast('Events database is current — last pulled ' + this.fmtStamp(this.META.catalog_fetched_at), null),
       openWelcome:() => this.showToast('Quick-start guide opens here in the app', null),
@@ -1608,6 +1815,9 @@ class Component extends DCLogic {
     out.digestBody = this.DIGEST_MD
       ? React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } })
       : React.createElement('div', { style: { padding: '30px 0', textAlign: 'center', font: '500 12px/1.6 ui-monospace,Menlo,monospace', color: '#a7a59b' } }, 'Loading the digest…');
+
+    // ---- CALENDAR FEED ----
+    Object.assign(out, this.calVals());
 
     out.closeDetail = this.closeDetail;
     out.hasToast = !!this.state.toast;
