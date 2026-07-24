@@ -1463,16 +1463,6 @@
       "score_at_judge": 5,
       "model": "claude-sonnet-5"
     },
-    "c5b8cb092259": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "This is a spam/scam listing (fake 'airline customer service' text scraped into the party category) — not a real event, bury it.",
-      "confidence": "high",
-      "judged_at": "2026-07-01T03:19:17",
-      "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
-    },
     "c76da151b16b": {
       "tier": "skip",
       "adjust": -2,
@@ -7985,16 +7975,6 @@
       "input_version": 2,
       "score_at_judge": 5
     },
-    "ea723d1e02fc": {
-      "tier": "skip",
-      "lane": "other",
-      "adjust": -3,
-      "why": "This is a scraped spam listing (airline-booking phone number dressed as a bar event), not a real party — bury it.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 5
-    },
     "84895eb8a59a": {
       "tier": "solid",
       "adjust": 0,
@@ -8278,115 +8258,6 @@
       "tier": "solid",
       "adjust": 0,
       "why": "Santa Monica hotel day party with an unknown DJ — pleasant enough, nothing pulling you across town for it.",
-      "confidence": "low",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "35385733a5cf": {
-      "tier": "skip",
-      "lane": "other",
-      "adjust": -3,
-      "why": "Another spam listing (airline scam number under a military recruiting venue name) — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "3b6f4d5ff634": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline customer-service phone-spam dressed up as a party listing at a random Army Corps of Engineers address — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "3c751d942f6f": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-hotline spam pattern, just a different fake terminal name — junk listing.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "b616c1f14e08": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline-hotline phone spam attached to a karate dojo's address — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "720186ec5689": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "RyanAir flight-booking spam posing as a party at Casa 0101 — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "389eb5487e48": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-hotline phone-spam pattern attached to USC Village — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "42f4a11743b6": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Air Canada flight-booking spam, junk listing.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "81fcd519f114": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-hotline phone-spam pattern attached to USC's campus — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "40382d896dd8": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline-hotline spam attached to Universal Studios — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "c3f4b35c524e": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline-hotline spam attached to a USACE survey marker — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "b0c454c193fa": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Singapore Airlines customer-service spam — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-04T12:35:53",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "3e2ff1a565db": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Venue and title are identical placeholder text with zero real detail — reads like another junk listing riding the July 4 spam wave.",
       "confidence": "low",
       "judged_at": "2026-07-04T12:35:53",
       "input_version": 2,
@@ -9579,24 +9450,6 @@
       "input_version": 2,
       "score_at_judge": 4
     },
-    "5686cb061805": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "This is a spam listing (airline customer-service phone number dressed as an event) — not a real night out.",
-      "confidence": "high",
-      "judged_at": "2026-07-06T12:21:14",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "f6d3c9605f84": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same spam pattern — airline support-line phone spam mislabeled as a party.",
-      "confidence": "high",
-      "judged_at": "2026-07-06T12:21:14",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
     "675fc7538ec4": {
       "tier": "skip",
       "adjust": -2,
@@ -10059,24 +9912,6 @@
       "input_version": 2,
       "score_at_judge": 4
     },
-    "c1896278f628": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Spam listing — an airline customer-service phone number dressed up as an LAX event, not a real happening.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "2a3aff16ce7b": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same spam pattern — an airline office phone-number listing, not an event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
     "c473c9c3b5ac": {
       "tier": "great",
       "lane": "club:day",
@@ -10349,123 +10184,6 @@
       "input_version": 2,
       "score_at_judge": 5
     },
-    "9f879b7fa677": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Templated airline-call-center SEO spam masquerading as an event listing, not a real party.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "7b8a60118fc7": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office spam template — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "27bc66cbfac9": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office spam template — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "cfb167425c27": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office spam template — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "6e824ad0d3c9": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office spam template — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "03c5d11ec9da": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office spam template — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "30bec268ce9c": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office spam template — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "7f0f8a3840d1": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office spam template — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "64c6ffe0cdb9": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office spam template — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "c518c8a426fe": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office spam template — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "fc1fe01fd08f": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office spam template — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "2ea682970695": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline customer-service FAQ spam, not an event at all.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "76dc626213dd": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Spam listing spoofing an airline customer-service phone number — the venue field is a USACE survey marker, not a real party.",
-      "confidence": "high",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
     "7de7aef98007": {
       "tier": "skip",
       "adjust": -2,
@@ -10535,15 +10253,6 @@
       "adjust": 2,
       "why": "CFCF is a legit ambient/electronic name out of the 1080p orbit — the RSVP-then-TBA-location setup reads like a real underground night, not a placeholder listing.",
       "confidence": "med",
-      "judged_at": "2026-07-07T12:30:02",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "00b8ceb23405": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Emoji-laden TBA party with zero substantive info — spam-tier listing.",
-      "confidence": "high",
       "judged_at": "2026-07-07T12:30:02",
       "input_version": 2,
       "score_at_judge": 4
@@ -11620,26 +11329,6 @@
       "score_at_judge": 5,
       "model": "claude-sonnet-5"
     },
-    "9ebae09a76b7": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline customer-service spam listing, not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-09T12:26:39",
-      "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
-    },
-    "90f0c6448040": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-spam pattern as the Breeze Airways listing, not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-09T12:26:39",
-      "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
-    },
     "73260e3f27ec": {
       "tier": "solid",
       "adjust": 0,
@@ -11849,16 +11538,6 @@
       "score_at_judge": 4,
       "model": "claude-sonnet-5"
     },
-    "bd82ee9ebd1e": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Title's an airline customer-service phone-spam string — this is a junk listing, not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-09T12:26:39",
-      "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
-    },
     "4165dcab305d": {
       "tier": "solid",
       "adjust": 1,
@@ -12052,17 +11731,6 @@
       "lane": "other",
       "adjust": -3,
       "why": "Garbled airline-support-phone-number listing text at a nonsense venue — not a real event, catalog noise.",
-      "confidence": "high",
-      "judged_at": "2026-07-09T12:26:39",
-      "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
-    },
-    "cf686b51282c": {
-      "tier": "skip",
-      "lane": "other",
-      "adjust": -3,
-      "why": "Same spam pattern as the other airline-support listing — venue field reads \"United States Secret Service,\" clearly not a real event.",
       "confidence": "high",
       "judged_at": "2026-07-09T12:26:39",
       "input_version": 2,
@@ -12275,28 +11943,6 @@
       "judged_at": "2026-07-09T12:26:39",
       "input_version": 2,
       "score_at_judge": 5,
-      "model": "claude-sonnet-5"
-    },
-    "ce3dc6a999ef": {
-      "tier": "skip",
-      "lane": "other",
-      "adjust": -3,
-      "why": "This is airline customer-service spam (a phone number, no venue, no lineup) that got swept into the party category — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-09T12:26:39",
-      "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
-    },
-    "81fea3562fb5": {
-      "tier": "skip",
-      "lane": "other",
-      "adjust": -3,
-      "why": "Same airline-spam pattern as the QantasLink listing — a phone number dressed up as a Universal Studios party, not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-09T12:26:39",
-      "input_version": 2,
-      "score_at_judge": 4,
       "model": "claude-sonnet-5"
     },
     "badff38a0113": {
@@ -12650,60 +12296,6 @@
       "judged_at": "2026-07-21T12:31:24",
       "input_version": 2,
       "score_at_judge": 5
-    },
-    "7ef008c811cf": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline customer-service phone-number spam masquerading as an event — venue is a car-rental lot, not a real listing.",
-      "confidence": "high",
-      "judged_at": "2026-07-10T12:34:52",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "2861e9fb2735": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-support phone spam pattern under a fake venue name — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-10T12:34:52",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "4962aa62fa56": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-support phone spam pattern under a fake venue name — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-10T12:34:52",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "ab4cd5c00923": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Arik Air call-center phone spam listed against a tire shop — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-10T12:34:52",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "93738e8f09f6": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Arik Air call-center phone spam listed against a survey marker — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-10T12:34:52",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "69d79f427084": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Arik Air call-center phone spam riding on the Universal Studios venue record — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-10T12:34:52",
-      "input_version": 2,
-      "score_at_judge": 4
     },
     "32d29e5ca5f0": {
       "tier": "skip",
@@ -14597,24 +14189,6 @@
       "input_version": 2,
       "score_at_judge": 5
     },
-    "3c12ea772b70": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Spam listing (airline customer-service phone number scraped into the feed), not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-11T12:26:43",
-      "input_version": 2,
-      "score_at_judge": 5
-    },
-    "6f0df3bd5cd6": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same spam pattern — airline phone-number scam listing, not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-11T12:26:43",
-      "input_version": 2,
-      "score_at_judge": 5
-    },
     "38b5e44d174d": {
       "tier": "solid",
       "adjust": 1,
@@ -15308,15 +14882,6 @@
       "adjust": 1,
       "why": "Calvin Bailey is a legit UK tech-house name for a beach day party — score's underrating this one since the venue location isn't parsed.",
       "confidence": "med",
-      "judged_at": "2026-07-12T12:21:25",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "f9e0ceaf467e": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "This is a scam/spam listing (Expedia customer-service SEO junk), not an event.",
-      "confidence": "high",
       "judged_at": "2026-07-12T12:21:25",
       "input_version": 2,
       "score_at_judge": 4
@@ -16373,22 +15938,6 @@
       "input_version": 2,
       "score_at_judge": 5
     },
-    "401e96aced6b": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "This is a spam listing — an airline customer-service scam number dressed as a party, venue field literally 'Karate Wadō Style.' Not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "257d9b239f2b": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same scam pattern as the Lufthansa listing — junk data, not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
     "54e048547f19": {
       "tier": "skip",
       "adjust": -2,
@@ -16633,150 +16182,6 @@
       "judged_at": "2026-07-14T12:31:13",
       "input_version": 2,
       "score_at_judge": 4
-    },
-    "cf78886f4aea": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "This is a spam listing — an airline customer-service phone number, not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "7d6de3a0124e": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline customer-service scam listing masquerading as a party — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "e4ca13c915d3": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same Lufthansa phone-scam spam template, different fake venue — bury.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "c25d2772e56b": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Gulf Air scam-hotline spam, not an event.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "b83a29342bea": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Virgin Australia scam-hotline spam dressed up as a UCLA party listing.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "50912ecada79": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "China Southern scam-hotline spam, no real event behind it.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "75164350b3c4": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Baggage-fee scam-hotline spam with emoji bait — not an event.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "0b5ff8f22743": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Norse Atlantic scam-hotline spam.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "e84fa900f4c6": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same Lufthansa spam template posted against a hospital heliport as \"venue\" — junk.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "36f98800241d": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Volotea scam-hotline spam.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "65845123cd86": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Ryanair scam-hotline spam.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "419428d000a3": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Eurowings scam-hotline spam.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "9cfe2d0bf194": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Ethiopian Airlines scam-hotline spam.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "45aebc6cd58d": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Air Astana scam-hotline spam.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "c364f7602f99": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Oman Air scam-hotline spam.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "0e43e181a090": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Aegean Airlines scam-hotline spam.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "1452256c135c": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Garuda Indonesia scam-hotline spam.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
-    "5652a9cf6ba7": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Porter Airlines scam-hotline spam.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
     },
     "a577fde32e56": {
       "tier": "solid",
@@ -17165,14 +16570,6 @@
       "input_version": 2,
       "score_at_judge": 2
     },
-    "de1b07507a78": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "This is a scam listing — an airline customer-service phone number dressed up as an event at a Marine recruiting station, not a real party.",
-      "confidence": "high",
-      "judged_at": "2026-07-14T12:31:13",
-      "input_version": 2
-    },
     "0591c7798897": {
       "tier": "skip",
       "adjust": -2,
@@ -17544,177 +16941,6 @@
       "judged_at": "2026-07-15T12:27:23",
       "input_version": 2,
       "score_at_judge": 4
-    },
-    "8f75c03dce4a": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Fake business listing spamming an airline customer-service phone number — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "fff63d99530b": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office phone-spam pattern at a car rental address — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "0cd509c2fb6f": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline call-center spam listing dressed up as a 'party' — bogus.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "22fc8e986410": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline phone-spam listing, not an actual event at Cosm.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "fe62cc98bbb4": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same airline-office scam-listing pattern — bogus.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "7d4e5391c3b8": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline phone-spam listing at a karate studio address — not real.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "0f49f5ca25d2": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline call-center spam attached to USC Village — not a real event.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "d01cf3329fb5": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Same fake airline-office phone-spam pattern.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "8f9159f1d84e": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline phone-spam listing, bogus.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "e3dc5608cf2e": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline phone-spam listing, bogus.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "0af0db4d9186": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline call-center spam attached to a tire shop — not real.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "fec4224ce2cc": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Duplicate airline-office phone-spam pattern.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "9c7eeebc9bfb": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline call-center spam listing, bogus.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "907628c576c2": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline phone-spam listing, bogus.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "8eb5853b2a16": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline call-center spam listing at a marina address — not real.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "190984f6c0f6": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline phone-spam listing, bogus.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "be2e8c7ecea8": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline call-center spam listing attached to Dodger Stadium's address — not a real event there.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "5427697ae41e": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline phone-spam listing at Citadel Outlets — bogus.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "0b4c06a3753f": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Airline call-center spam listing, bogus.",
-      "confidence": "high",
-      "judged_at": "2026-07-15T12:27:23",
-      "input_version": 2,
-      "score_at_judge": 3
     },
     "ce8b2326ed11": {
       "tier": "solid",
@@ -27082,15 +26308,6 @@
       "input_version": 2,
       "score_at_judge": 0
     },
-    "0a680a2e4483": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Listing title reads like an SEO-spam overwrite (an insurance customer-service phone number) with a garbled lineup of country/state-named \"artists\" — too corrupted to trust as a real underground night at 333 Live.",
-      "confidence": "low",
-      "judged_at": "2026-07-23T12:26:57",
-      "input_version": 2,
-      "score_at_judge": 5
-    },
     "34c594b5da84": {
       "tier": "great",
       "adjust": 2,
@@ -27546,33 +26763,6 @@
       "tier": "solid",
       "adjust": 1,
       "why": "Free RSVP deep-house in the right genre lane; lineup's unproven but the format (secret-location warehouse night) is the kind of thing worth a gamble on a free door.",
-      "confidence": "low",
-      "judged_at": "2026-07-24T12:27:39",
-      "input_version": 2,
-      "score_at_judge": 5
-    },
-    "637f89621d6b": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Title is SEO spam junk (\"State Farm Insurance Grace Period\"), not a real event name — can't trust this listing enough to surface it.",
-      "confidence": "low",
-      "judged_at": "2026-07-24T12:27:39",
-      "input_version": 2,
-      "score_at_judge": 5
-    },
-    "70a39d33618d": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Same spam-titled listing pattern and identical odd lineup as the other two \"State Farm\" entries — looks like a scrape artifact, not a distinct real event.",
-      "confidence": "low",
-      "judged_at": "2026-07-24T12:27:39",
-      "input_version": 2,
-      "score_at_judge": 5
-    },
-    "2d52dda8993d": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Third copy of the same spam-titled, identical-lineup listing under yet another venue — bury all three.",
       "confidence": "low",
       "judged_at": "2026-07-24T12:27:39",
       "input_version": 2,
