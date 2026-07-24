@@ -62,7 +62,7 @@ import CalendarCore from "../dashboard/calendar-core.js";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-07-21-star1";
+const VERSION = "2026-07-24-react2";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
@@ -1441,7 +1441,7 @@ async function lastFetchAgeMinutes(env) {
 }
 
 /* ================================== STARS (social saves) ==================================
- * POST /react { profile, event_key, kind: star|unstar|hide, title?, artists? }
+ * POST /react { profile, event_key, kind: star|unstar|hide|less, title?, artists?, genres? }
  *
  * A star is double-duty: the social signal (everyone sees "★ Lori" on cards + in digests, folded
  * from data/reactions.jsonl at the next feed rebuild) and the first real input to the feedback loop
@@ -1496,38 +1496,49 @@ async function handleReact(request, env, cors) {
   try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
   const hash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
   const key = typeof body.event_key === "string" && /^[0-9a-f]{12}$/.test(body.event_key) ? body.event_key : null;
-  const kind = ["star", "unstar", "hide"].includes(body.kind) ? body.kind : null;
-  if (!hash || !key || !kind) return json({ error: "need profile, event_key, kind (star|unstar|hide)" }, 400, cors);
+  const kind = ["star", "unstar", "hide", "less"].includes(body.kind) ? body.kind : null;
+  if (!hash || !key || !kind) return json({ error: "need profile, event_key, kind (star|unstar|hide|less)" }, 400, cors);
   const prof = await resolveProfile(env, hash);
   if (!prof) return json({ error: "unknown profile" }, 403, cors);
 
   const title = String(body.title || "").replace(/\s+/g, " ").trim().slice(0, 120);
   const artists = (Array.isArray(body.artists) ? body.artists : [])
     .map((a) => String(a).replace(/\s+/g, " ").trim()).filter(Boolean).slice(0, 12);
+  const genres = (Array.isArray(body.genres) ? body.genres : [])
+    .map((g) => String(g).replace(/\s+/g, " ").trim().toLowerCase()).filter(Boolean).slice(0, 8);
   const ts = new Date().toISOString().slice(0, 10);
 
-  // 1) the shared social log (drives the "★ Lori" display for everyone, next rebuild)
-  const rfile = await ghGetFile(env, "data/reactions.jsonl");
-  const rec = { ts, profile: hash, name: prof.name, event_key: key, kind, ...(title ? { title } : {}) };
-  const folded = foldReaction(rfile ? rfile.text : "", rec);
-  if (folded.changed) {
-    const msg = `react(${prof.name}): ${kind}${title ? " — " + title.slice(0, 60) : ""}`;
-    const ok = await ghPutFile(env, "data/reactions.jsonl", folded.text, rfile ? rfile.sha : undefined, msg);
-    if (!ok) return json({ error: "commit failed" }, 502, cors);
+  // 1) the shared social log (drives the "★ Lori" display for everyone, next rebuild).
+  //    `less` skips it: "show less like this" is personal taste, not a social signal — it goes
+  //    only to the profile's own feedback log below.
+  let folded = { changed: false };
+  if (kind !== "less") {
+    const rfile = await ghGetFile(env, "data/reactions.jsonl");
+    const rec = { ts, profile: hash, name: prof.name, event_key: key, kind, ...(title ? { title } : {}) };
+    folded = foldReaction(rfile ? rfile.text : "", rec);
+    if (folded.changed) {
+      const msg = `react(${prof.name}): ${kind}${title ? " — " + title.slice(0, 60) : ""}`;
+      const ok = await ghPutFile(env, "data/reactions.jsonl", folded.text, rfile ? rfile.sha : undefined, msg);
+      if (!ok) return json({ error: "commit failed" }, 502, cors);
+    }
   }
 
-  // 2) the learning loop — star→loved / hide→hide into that profile's own feedback log. Needs
-  //    artists to teach anything (lib/feedback consumes artists/genres only); an unstar never
-  //    touches it (a past star still meant interest).
+  // 2) the learning loop — star→loved / hide→hide / less→skipped into that profile's own
+  //    feedback log. Needs artists or genres to teach anything (lib/feedback consumes only
+  //    those); an unstar never touches it (a past star still meant interest).
+  const FEEDBACK_KIND = { star: "loved", hide: "hide", less: "skipped" };
   let learned = false;
-  if ((kind === "star" || kind === "hide") && artists.length) {
+  if (FEEDBACK_KIND[kind] && (artists.length || genres.length)) {
     const fpath = `data/feedback.${hash}.jsonl`;
     const ffile = await ghGetFile(env, fpath);
-    const frec = { ts, kind: kind === "star" ? "loved" : "hide", artists,
+    const frec = { ts, kind: FEEDBACK_KIND[kind],
+                   ...(artists.length ? { artists } : {}), ...(genres.length ? { genres } : {}),
                    event_key: key, ...(title ? { note: `${kind}: ${title}` } : {}) };
     const ff = foldFeedback(ffile ? ffile.text : "", frec);
     if (ff.changed) {
-      const msg = `react(${prof.name}): ${frec.kind} ${artists[0]}${artists.length > 1 ? " +" + (artists.length - 1) : ""}`;
+      const who = artists[0] || genres[0] || "";
+      const n = artists.length + genres.length;
+      const msg = `react(${prof.name}): ${frec.kind} ${who}${n > 1 ? " +" + (n - 1) : ""}`;
       learned = await ghPutFile(env, fpath, ff.text, ffile ? ffile.sha : undefined, msg);
     }
   }
