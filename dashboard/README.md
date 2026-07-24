@@ -16,18 +16,22 @@ calendar-core.js      calendar-subscription core (filter + iCalendar builder) �
                       modal's preview always matches what a subscribed calendar receives. Serves
                       both the taste-ranked "Top picks" calendar and the "Starred" one (?saved=1,
                       resolved from the feed's `stars` field — server-side saves via POST /react)
-vendor/               React 18 + ReactDOM + @babel/standalone, vendored locally (no CDN)
+vendor/               React 18 + ReactDOM, vendored locally (no CDN)
 data.json             the feed — built by scripts/build_dashboard.py (committed)
 manifest.webmanifest  installable-PWA metadata
 sw.js                 offline app-shell cache (PWA)
 icon.svg              app icon
 ```
 
-> **Heads up on the runtime:** this UI is a React app transpiled in the browser by
-> `@babel/standalone` (~3 MB, vendored in `vendor/`). That's the cost of hosting a
-> design-tool artifact as-is — first paint does a client-side transpile. It works offline
-> and needs no CDN, but it is heavier than a hand-written static page. If that ever matters,
-> the long-term cleanup is a build step that pre-transpiles (drops Babel from the client).
+> **Heads up on the runtime:** the 2026-07-24 front end ships plain JS — the dc-runtime
+> (`support.js`, ~66 KB, generated) evaluates the page's template + logic directly; there is
+> **no in-browser Babel transpile anymore** (the old ~3 MB vendored `@babel/standalone` is
+> deleted; the runtime would lazy-load Babel from a CDN only for JSX `x-import` modules,
+> which this page doesn't use). The dominant client cost is now the feed itself:
+> `data.json` is ~7.9 MB raw (~1 MB gzipped over Pages) and is re-fetched with
+> `cache:'no-store'` on every boot. If that ever matters, the cleanup is a slim boot feed
+> (front page + head) with the full catalog lazy-loaded for Explore, or content-versioned
+> feed URLs (`data.json?v=<catalog_content_version>`) with normal HTTP caching.
 
 ## How data flows (backend unchanged)
 

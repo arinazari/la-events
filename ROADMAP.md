@@ -463,9 +463,11 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   concierge stays grounded on the feed data alone.
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
-- [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
-  `@babel/standalone` (~3 MB vendored). Add a build step that compiles `index.html` ahead of time and
-  ships plain JS, dropping Babel + the first-paint transpile cost from the client.
+- [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
+  ships plain JS (dc-runtime `support.js` evaluates the template directly; no in-browser Babel),
+  and the dead ~3 MB vendored `@babel/standalone` is deleted. The surviving client-weight item is
+  the feed: `data.json` (~7.9 MB raw, ~1 MB gzipped) re-fetched `no-store` each boot — fix is a
+  slim boot feed + lazy full catalog, or content-versioned feed URLs with normal caching.
 - [x] **Per-event ICS export** — re-ported the one-click add-to-calendar (was `dashboard/js/ics.js`;
   regressed in the swap). Now an "Add to calendar ↓" button in each event's expanded detail row;
   self-contained RFC 5545 builder on the `Component` class (floating LA-local times, 3-hr default,
