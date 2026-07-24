@@ -63,63 +63,37 @@ external image hosts; they load on Pages).
   content-versioned feed URLs (`data.json?v=<catalog_content_version>`) with normal HTTP
   caching. Also pre-existing repo weight: 11 committed per-profile feeds ≈ 84 MB.
 
-## Still open — prioritized
+## Restore pass 3 (2026-07-24, per Ari's decisions on this audit)
 
-**Flagged for a product decision (structural — not silently changed):**
+| Decision / item | Landed |
+|---|---|
+| **#0 Hero → server slate** | Front page renders `front_page.hero[lens]` in server order (the ONE top_picks policy); scene lanes render the server shelves (near+ahead, slate order) in the lens window; radar uses server `front_page.radar`; **Around town** is back from `front_page.around`; `final_rank` (with `series_rank` for siblings) is the canonical order everywhere — front pool, scene pages, Explore's MATCH sort. Client heuristics survive only as no-slate fallbacks. |
+| **#1 Photos** | Off by default; only a signed-in profile's top picks (lead + shortlist + detail banner); admin-controlled: profile.yaml `dashboard.photos` → feed `config.photos`, plus an owner-only Settings toggle (device override). |
+| **#2 Feed weight** | Content-versioned fetch shipped: catalog_meta first (161 B no-store), then `data[.<hash>].json?v=<content_version>` with normal HTTP caching (cache hit / 304 unless the catalog moved); post-rebuild reloads bust. **Slim boot feed** roadmapped VERY HIGH as the deeper fix. |
+| **#4 Scam listings** | Catalog investigated across full git history: two SEO-spam waves (airline-hotline ~7/14; an ACTIVE "State Farm/Allstate" wave 7/22–24), arriving via **RA** (Posh's events are all real). A title-only deterministic gate now sits in `merge_new()` — the one choke-point all ingest paths cross — validated on ~26k historical rows (exact scam set, zero false positives), self-healing for already-committed junk, 15 new tests. The 91 dead scam skip-verdicts pruned from data/verdicts (3072→2981). |
+| Streaming concierge | NDJSON streaming + live bubble + ■ stop (AbortController mid-body); worker error bodies surfaced. |
+| Honest connection status | Real `{ping:true}` health checks; status = "the Worker answered", with build-fingerprint staleness (`MIN_BACKEND_VERSION 2026-07-24-react2`) → amber "old build" + remedies; Starred-calendar version gate restored. |
+| Per-profile credentials | `la-conn:<hash>` store (45-day TTL) + one-time migration off `la-concierge-cfg`/legacy globals; API modal is draft-based with `sk-ant-` validation + Enter-to-save. |
+| Offline "Fast filter" + chat→table | No/failed connection: local NL parsing (dates/categories/genres/vibes/settings/regions/neighborhoods/free/afterhours/price/top-rated) filters Explore with a dismissable ✦ chip. Dining/plan intents explain they need the live concierge (composers deferred, below). |
+| Mobile card layout | Explore is a card list on phones (table desktop-only); cards open the detail modal. |
+| Showtimes | Venue rows of per-showtime chips (sold-out struck), "All LA showtimes", deduped domain-labeled ticket buttons. |
+| Series | Members kept at parse; rank views collapse one row per program (rep/`series_rank`); date views keep every night; "Also showing" chips + run badge in the detail. |
+| Update flow | Persisted jobs (survive reload/switch), dual-baseline 15s poll, 35-min cap, honest completion toasts; 4-signal "Update available" (catalog version / taste-dirty + `self_edit.reflected` / digest-behind-feed / layer-behind) + live freshness re-check + gear badge; 3-day refresh nudge restored. |
+| Owner tools | "Events database" row fires `/refresh-events` with persisted job + progress (owner-gated, with the photos toggle). |
+| Digest extras | Past-digest archive dropdown, ✉ email composer, dated download names, house-fallback banner, take's digest-lede fallback. |
+| Spotify honesty | Status modal (explicit Disconnect) + "connected but your ranking was built without it" stale-feed hint. |
+| Taste modal | Honest pending/live banner + in-modal Update CTA, recent-adjustments history, raw taste.yaml (read-only). |
+| LOW sweep | View persistence (`la-view`), star-name tooltips, NEW badges on all row surfaces, venue address-trimming + hood suppression, sort direction toggling (↓/↑), row cap 400→1200 with an explicit clipped note, catalog total in the count line, clickable "what changed" (itemizes `catalog_meta.changes`), live "last data pull", real "last site update" (document.lastModified), `fmtStamp` UTC coercion, Enter-to-submit login. |
 
-1. **The front page ignores the server-side slate.** OLD rendered `front_page.shelves`/`hero`
-   (the shared `assemble.top_picks` "ONE Don't-miss policy" from ROADMAP). NEW recomputes
-   everything client-side from raw deterministic `score`; the editor's `final_rank` ordering
-   is honored **nowhere** (rank ⇄ score duality is also gone — only a synthetic match %
-   remains). Rebuilding the front page onto the server slate is a real design decision — needs
-   Ari's call before anyone "fixes" it.
+## Still open (small, documented)
 
-**HIGH (real daily-use losses):**
-
-2. **Mobile card layout** — OLD had a phone card list with inline expand; NEW mobile shows the
-   min-width-720px table with horizontal scroll.
-3. **Concierge streaming + stop + honest status** — replies no longer stream (single POST, no ■
-   stop); the connection dot now means "credentials typed", not "backend answered ping"; the
-   `MIN_BACKEND_VERSION` stale-Worker warnings are gone (incl. the Starred-calendar
-   version gate).
-4. **Concierge offline engine + chat-drives-the-table** — the no-LLM Fast-filter mode, the
-   dining/plan composers, and the chat→Explore filter bridge have no counterpart.
-
-**MEDIUM:**
-
-5. **Rep-cinema showtimes** rows (per-venue time chips, per-showtime ticket links) — gone;
-   time-labeled links are filtered out of the detail's ticket buttons.
-6. **Series "Also showing"** — non-rep series nights are dropped at parse with no recovery
-   affordance (lossy for rep-cinema runs).
-7. **Update-flow robustness** — the re-rank job is in-memory (a reload orphans the spinner);
-   OLD persisted jobs (`la-updating-<hash>`), used digest-signature baselines, 35-min cap, and
-   4-signal Update-available logic (NEW checks only catalog content_version); the 3-day refresh
-   nudge is gone.
-8. **Owner tools** — the owner-only "Refresh events database" (`/refresh-events`) row is a
-   static toast; owner/friend settings gating is flattened.
-9. **Digest extras** — past-digest archive (`digests/index.json`), email-digest composer, and
-   prose **entity links** (event mentions → card popup) are gone; a friend with no personal
-   digest silently reads the house digest.
-10. **Per-profile connection store** — OLD scoped concierge creds per profile
-    (`la-conn:<hash>`, 45-day TTL, legacy-key migration); NEW uses one shared
-    `la-concierge-cfg` for the device — stranded old creds, cross-profile sharing.
-11. **ICS export richness** — per-event .ics lost DTEND (+3h), DESCRIPTION
-    (lineup/why/price/link), all-day fallback, line folding.
-12. **Sample/offline data** — the bundled 56-event demo + sample digest are gone; a failed
-    feed fetch leaves an empty page.
-
-**LOW / cosmetic:** per-device view persistence (`la-view`); "Around town" shelf; full star
-names (avatars only now); NEW-badge only on the lead card; venue-name address trimming; ticket
-links capped at 4 without URL dedupe; direction-toggle on sorts; Explore 400-row cap; total
-catalog count no longer shown; login busy/error states; Enter-to-save in the API modal; toast
-richness details in the appendix.
-
-## Recommendation
-
-Item 1 needs a decision, not code. Items 2–4 are the next real pass (mobile cards and
-streaming are self-contained; the offline engine is the largest). 5–12 are independent,
-mid-size re-ports — 5, 6 and 11 are the cheapest of them. The client-weight follow-up worth
-scheduling is the slim-boot-feed / versioned-URL change.
+- **Digest prose entity-links** (mentions → card popup): the one sizable deliberate deferral — ~200 lines of alias-index/matching code; the digest reads fine without it.
+- **Offline dining/plan composers**: the offline engine handles the filter intent; dining/plan answers require the live concierge (by design for now — the old composers depended on `META.dining` heuristics that the LLM path does better).
+- **Bundled sample data**: not restored — the feed ships with the site, so a failed fetch on Pages means a broken deploy; the empty-state message covers it.
+- **Rank⇄score dual display**: ordering now honors `final_rank` everywhere, but the UI shows one match % rather than the old separate #rank + score columns — a display choice to revisit if wanted.
+- **Chat input**: single-line (Enter sends); the old multiline textarea + rotating placeholder examples were not re-ported (starter chips cover discovery).
+- **Worker redeploy needed** (`cd backend && npx wrangler deploy`) for kind `less` + the react2 fingerprint; until then the page's honest status will show "old build" — which is correct.
+- ROADMAP follow-ups: **slim boot feed** (VERY HIGH), wiring `editor.prune_verdicts` into the routine so dead verdicts self-clean.
 
 ---
 
