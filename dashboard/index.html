@@ -29,6 +29,14 @@
   .lchips::-webkit-scrollbar { height:0; }
   @keyframes la-pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
   @keyframes la-pop { 0%{transform:scale(.5);} 60%{transform:scale(1.2);} 100%{transform:scale(1);} }
+  @keyframes om-scan { 0%{transform:translateX(-100%);} 100%{transform:translateX(300%);} }
+  .la-prog { position:relative; height:3px; margin-top:9px; background:rgba(255,255,255,0.28); border-radius:2px; overflow:hidden; }
+  .la-prog > i { position:absolute; top:0; left:0; height:100%; width:40%; background:#fff; border-radius:2px; animation:om-scan 1.15s ease-in-out infinite; }
+  @keyframes om-blink { 0%,80%,100%{opacity:0.3; transform:translateY(0);} 40%{opacity:1; transform:translateY(-1px);} }
+  .om-dots { display:inline-flex; align-items:center; gap:3px; }
+  .om-dots > i { width:3.5px; height:3.5px; border-radius:50%; background:currentColor; animation:om-blink 1.4s ease-in-out infinite both; }
+  .om-dots > i:nth-child(2) { animation-delay:0.2s; }
+  .om-dots > i:nth-child(3) { animation-delay:0.4s; }
   @media (max-width:720px){ input, textarea { font-size:16px !important; } }
 </style>
 </helmet>
@@ -51,6 +59,7 @@
           <span style="font:600 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#3f3d36;">{{ dateLabel }}</span>
         </span>
         <sc-if value="{{ showProfileLine }}" hint-placeholder-val="{{ true }}"><span style="font:500 11px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ profileLine }}</span></sc-if>
+        <sc-if value="{{ isUpdating }}" hint-placeholder-val="{{ false }}"><span onClick="{{ toggleSettings }}" title="Re-ranking your feed — open settings for details" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; padding:6px 10px; border:1px solid #c3d2f4; border-radius:999px; background:#eaf0fe;"><span style="width:6px; height:6px; border-radius:50%; background:#2b5cd9; animation:la-pulse 1.2s ease-in-out infinite;"></span>re-ranking · {{ updElapsed }}</span></sc-if>
       </div>
       <div style="display:flex; align-items:center; gap:10px; flex:none;">
         <sc-if value="{{ showHeaderTabs }}" hint-placeholder-val="{{ true }}">
@@ -180,6 +189,7 @@
                 </div>
                 <div style="font:600 14px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ c.title }}</div>
                 <div style="font:500 10.5px/1.3 ui-monospace,Menlo,monospace; color:#76746b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ c.venue }}</div>
+                <sc-if value="{{ c.hasWhy }}" hint-placeholder-val="{{ true }}"><div style="font:400 11.5px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;">{{ c.why }}</div></sc-if>
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:6px;">
                   <sc-if value="{{ c.hasTags }}" hint-placeholder-val="{{ true }}">
                   <div style="display:flex; flex-wrap:wrap; gap:4px; min-width:0; overflow:hidden;">
@@ -468,6 +478,36 @@
 </div>
 </sc-if>
 
+<!-- ==================== CONCIERGE PANEL ==================== -->
+<sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed; inset:0; z-index:120;">
+  <div onClick="{{ closeChat }}" style="position:absolute; inset:0; background:rgba(27,26,23,0.18);"></div>
+  <div style="position:absolute; top:0; right:0; bottom:0; width: {{ chatW }}; max-width:100vw; display:flex; flex-direction:column; background:#f7f6f2; border-left:1px solid #c9c7bd; box-shadow:-18px 0 50px rgba(0,0,0,0.16);">
+    <div style="flex:none; display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid #e2e0d8; background:#fdfcf9;">
+      <span style="width:26px; height:26px; border:1px solid #d2d0c7; background:#fff; color:#2b5cd9; border-radius:3px; font:600 13px/24px ui-monospace,Menlo,monospace; text-align:center;">✦</span>
+      <span style="font:800 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#161512;">CONCIERGE</span>
+      <span onClick="{{ openApiModal }}" title="Connection settings" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; font:600 10px/1 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span style="width:7px; height:7px; border-radius:50%; background: {{ conDot }};"></span>{{ chatConnLabel }}</span>
+      <span onClick="{{ closeChat }}" title="Close (Esc)" style="margin-left:auto; cursor:pointer; width:30px; height:30px; border-radius:5px; background:#e8e6de; color:#76746b; font-size:15px; line-height:30px; text-align:center;" style-hover="background:#dcdad1;">✕</span>
+    </div>
+    <div id="la-chat-thread" class="scry" style="flex:1; min-height:0; overflow-y:auto; padding:16px 16px 10px; display:flex; flex-direction:column; gap:4px;">
+      <sc-for list="{{ chatRows }}" as="m" hint-placeholder-count="2">
+        <div style="{{ m.wrap }}"><div style="{{ m.bubble }}">{{ m.text }}</div></div>
+      </sc-for>
+      <sc-if value="{{ chatBusy }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; justify-content:flex-start; padding:3px 0;"><div style="background:#fff; border:1px solid #e4e2d9; color:#76746b; border-radius:14px 14px 14px 4px; padding:11px 14px;"><span class="om-dots"><i></i><i></i><i></i></span></div></div>
+      </sc-if>
+    </div>
+    <div style="flex:none; padding:12px 14px calc(14px + env(safe-area-inset-bottom)); border-top:1px solid #e2e0d8; background:#fdfcf9;">
+      <div style="display:flex; align-items:center; gap:8px; border:1px solid #cfcdc4; background:#fff; border-radius:999px; padding:10px 8px 10px 15px;" style-focus-within="border-color:#2b5cd9;">
+        <input value="{{ chatInput }}" onChange="{{ onChatInput }}" onKeyDown="{{ onChatKey }}" placeholder="{{ chatPlaceholder }}" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 13px/1.3 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
+        <span onClick="{{ sendChat }}" title="Send" style="flex:none; cursor:pointer; width:30px; height:30px; border-radius:50%; background: {{ chatGoBg }}; color:#fff; font-size:14px; line-height:30px; text-align:center;">→</span>
+      </div>
+      <div style="margin-top:8px; font:500 9.5px/1.5 ui-monospace,Menlo,monospace; color:#bdbbb1; text-align:center;">plans · recommendations · “more techno, less comedy”</div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
 <!-- ==================== SETTINGS POPOVER ==================== -->
 <sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
 <div style="position:fixed; inset:0; z-index:110;">
@@ -486,8 +526,15 @@
 
     <sc-if value="{{ loggedIn }}" hint-placeholder-val="{{ false }}">
       <div onClick="{{ openSync }}" style="cursor:pointer; background:#2b5cd9; color:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="background:#2450bf;">
-        <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif;">↻ {{ syncTitle }}</div>
-        <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; opacity:0.85;">Last synced with database: {{ dbSynced }}</div>
+        <sc-if value="{{ notUpdating }}" hint-placeholder-val="{{ true }}">
+          <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif;">↻ {{ syncTitle }}</div>
+          <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; opacity:0.85;">Last synced with database: {{ dbSynced }}</div>
+        </sc-if>
+        <sc-if value="{{ isUpdating }}" hint-placeholder-val="{{ false }}">
+          <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif;">↻ Re-ranking your feed…</div>
+          <div class="la-prog"><i></i></div>
+          <div style="margin-top:7px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; opacity:0.85;">elapsed {{ updElapsed }} · usually 1–2 min · safe to close</div>
+        </sc-if>
       </div>
       <div onClick="{{ openPull }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
         <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">↻ {{ pullTitle }}</div>
@@ -798,7 +845,8 @@ class Component extends DCLogic {
 
   state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, isMobile:false, exploreSort:'match', exploreSearch:'', toast:null, dataSource:'loading', profile:null,
     settingsOpen:false, loggedIn:false, apiModal:false, tasteModal:false, tasteTab:'taste', username:'',
-    apiKeyOn:false, opusOn:false, apiKey:'', sharedToken:'' };
+    apiKeyOn:false, opusOn:false, apiKey:'', sharedToken:'',
+    chatOpen:false, chatInput:'', chatMsgs:[], chatBusy:false, updating:null };
 
   componentDidMount() {
     try { const r = JSON.parse(localStorage.getItem('la-fp-reactions-v1') || '{}'); if (r && typeof r === 'object') this.setState({ reactions:r }); } catch (e) {}
@@ -812,10 +860,11 @@ class Component extends DCLogic {
       .then(j => { this.LIVE_CATALOG = j; this.forceUpdate(); }).catch(() => {});
     this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m }); };
     this._onResize(); window.addEventListener('resize', this._onResize);
-    this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
+    try { const m = JSON.parse(localStorage.getItem('la-chat-v1') || '[]'); if (Array.isArray(m) && m.length) this.setState({ chatMsgs: m }); } catch (e) {}
+    this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
     window.addEventListener('keydown', this._onKey);
   }
-  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); }
+  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._updTick) clearInterval(this._updTick); if (this._updPoll) clearInterval(this._updPoll); }
 
   // ---------- date + format ----------
   fmt(iso, time) {
@@ -930,6 +979,7 @@ class Component extends DCLogic {
     return {
       id:e.id, when:(isToday?'Tonight':f.wd)+' · '+f.t, dateShort:f.wd+' '+f.md, wd:f.wd, md:f.md, t:f.t,
       title:e.title, venue:e.venue+' · '+e.hood, venueName:e.venue, hood:e.hood, genre:e.genre, source:e.source, sub:e.venue+(e.lineup&&e.lineup.length?' · '+e.lineup.join(', '):''), price:this.priceLabel(e), why:(e.whyCurated || e.desc || e.why),
+      hasWhy:!!(e.whyCurated || e.desc || e.why),
       cat:e.cat, catShort:(e.cat==='Live Music'?'LIVE':e.cat).toUpperCase(), catColor:this.CAT_COLOR[e.cat]||'#3f3d36',
       matchPct:this.matchPct(e.score)+'%', matchColor:this.scoreColorFor(e.score), segs:this.segsFor(e.score),
       tags, hasTags:tags.length>0, miniTags:tags.slice(0,2), ticketLabel:this.ticketLabel(e),
@@ -964,7 +1014,59 @@ class Component extends DCLogic {
   setSort = (k) => this.setState({ exploreSort:k });
   onSearch = (e) => { const v = e.target.value; this.setState(s => ({ exploreSearch:v, view: v.trim() ? 'explore' : s.view })); };
   clearSearch = () => this.setState({ exploreSearch:'' });
-  pokeConcierge = () => this.showToast('Concierge lives in the full app — not wired in this prototype', null);
+  pokeConcierge = () => this.toggleChat();
+  // ---- concierge chat (POST BACKEND_URL {messages, profile?, model?} -> {reply, taste_changed, profile_changed}) ----
+  backendHeaders() {
+    const h = { 'content-type':'application/json' };
+    const tok = (this.state.sharedToken||'').trim(); if (tok) h.authorization = 'Bearer ' + tok;
+    const key = (this.state.apiKey||'').trim(); if (this.state.apiKeyOn && key) h['x-anthropic-key'] = key;
+    return h;
+  }
+  chatConnected() { return !!((this.state.apiKeyOn && (this.state.apiKey||'').trim()) || (this.state.sharedToken||'').trim()); }
+  chatScrollDown() { setTimeout(() => { const el = document.getElementById('la-chat-thread'); if (el) el.scrollTop = el.scrollHeight; }, 60); }
+  setChat(msgs) { this.setState({ chatMsgs: msgs }); try { localStorage.setItem('la-chat-v1', JSON.stringify(msgs.slice(-40))); } catch (e) {} this.chatScrollDown(); }
+  toggleChat = () => {
+    const opening = !this.state.chatOpen;
+    if (opening && !this.state.chatMsgs.length) {
+      const take = this.META.front_page && this.META.front_page.take;
+      const hi = 'I\u2019m your concierge — ask for plans (\u201cfree house show this weekend near me\u201d), what\u2019s worth it tonight, or tune your taste (\u201cmore techno, less comedy\u201d).'
+        + (take && take.text ? '\n\nFor ' + (take.date || 'today') + ': ' + take.text : '');
+      this.setChat([{ role:'assistant', content: hi, welcome:true }]);
+    }
+    this.setState({ chatOpen: opening });
+    if (opening) this.chatScrollDown();
+  };
+  closeChat = () => this.setState({ chatOpen:false });
+  onChatInput = (e) => { const v = e.target.value; this.setState({ chatInput:v }); };
+  onChatKey = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.sendChat(); } };
+  sendChat = async () => {
+    const q = (this.state.chatInput||'').trim();
+    if (!q || this.state.chatBusy) return;
+    const msgs = [...this.state.chatMsgs, { role:'user', content:q }];
+    this.setChat(msgs); this.setState({ chatInput:'', chatBusy:true });
+    if (!this.chatConnected()) {
+      this.setChat([...msgs, { role:'assistant', welcome:true, content:'I\u2019m not connected yet — add the shared access token from Ari (or your own Claude key) under the ◆ connection settings up top, then ask again. Everything else on the page works without me.' }]);
+      this.setState({ chatBusy:false }); return;
+    }
+    try {
+      const body = { messages: msgs.filter(m => !m.welcome).slice(-12).map(m => ({ role:m.role, content:m.content })) };
+      const p = this.state.profile; if (p && p.hash) body.profile = p.hash;
+      if (this.state.opusOn) body.model = 'opus';
+      const res = await fetch(this.BACKEND_URL, { method:'POST', headers:this.backendHeaders(), body: JSON.stringify(body) });
+      if (!res.ok) {
+        const why = res.status === 401 ? 'not authorized — check the token or key under ◆' : ('backend error ' + res.status);
+        this.setChat([...msgs, { role:'assistant', welcome:true, content:'⚠︎ That didn\u2019t go through (' + why + '). Try again in a moment.' }]);
+        this.setState({ chatBusy:false }); return;
+      }
+      const j = await res.json();
+      const out = [...msgs, { role:'assistant', content: (j && j.reply) || '(no answer)' }];
+      if (j && (j.taste_changed || j.profile_changed || j.digest_changed)) out.push({ role:'assistant', welcome:true, content:'✓ Saved to your profile. Hit “Ranks & Digest” in Settings (☰) to re-rank with it — takes a minute or two.' });
+      this.setChat(out); this.setState({ chatBusy:false });
+    } catch (e) {
+      this.setChat([...msgs, { role:'assistant', welcome:true, content:'⚠︎ Couldn\u2019t reach the concierge backend — check your connection and try again.' }]);
+      this.setState({ chatBusy:false });
+    }
+  };
   openDigest = () => this.showToast('Your full editorial digest opens here in the app', null);
   resetReactions = () => { this.setState({ reactions:{} }); try { localStorage.removeItem('la-fp-reactions-v1'); } catch (e) {} };
 
@@ -991,15 +1093,35 @@ class Component extends DCLogic {
   updateMyDigest = async () => {
     const p = this.state.profile;
     if (!p || !p.hash) { this.showToast('Sign in first — updates re-rank your own feed', null); return; }
+    if (this.state.updating) return;
+    let base = null;
+    try { const r = await fetch('./rebuilt.' + p.hash + '.json?t=' + Date.now(), { cache:'no-store' }); if (r.ok) { const j = await r.json(); base = (j.rebuilt_at || '') + ':' + (j.run_id || ''); } } catch (e) {}
     try {
-      const headers = { 'content-type':'application/json' };
-      const tok = (this.state.sharedToken||'').trim(); if (tok) headers.authorization = 'Bearer ' + tok;
-      const res = await fetch(new URL('/rebuild-profile', this.BACKEND_URL).href, { method:'POST', headers, body: JSON.stringify({ profile: p.hash }) });
+      const res = await fetch(new URL('/rebuild-profile', this.BACKEND_URL).href, { method:'POST', headers:this.backendHeaders(), body: JSON.stringify({ profile: p.hash }) });
       if (res.status === 401) { this.showToast('Not authorized — add the shared token under Claude API key', null); return; }
+      if (res.status === 429) { this.showToast('Just refreshed — the ranking is already current', null); return; }
       if (!res.ok) { this.showToast('Update failed (' + res.status + ')', null); return; }
-      this.showToast('Re-ranking now — refresh in a minute or two', null);
-    } catch (e) { this.showToast('Could not reach the backend', null); }
+    } catch (e) { this.showToast('Could not reach the backend', null); return; }
+    this.setState({ updating: { since: Date.now(), base } });
+    this._updTick = setInterval(() => this.forceUpdate(), 1000);
+    this._updPoll = setInterval(async () => {
+      const u = this.state.updating; const pr = this.state.profile;
+      if (!u || !pr) return;
+      try {
+        const r = await fetch('./rebuilt.' + pr.hash + '.json?t=' + Date.now(), { cache:'no-store' });
+        if (r.ok) { const j = await r.json(); const s = (j.rebuilt_at || '') + ':' + (j.run_id || ''); if (s && s !== u.base) { this.finishUpdating(true); return; } }
+      } catch (e) {}
+      if (Date.now() - u.since > 6 * 60 * 1000) this.finishUpdating(false);
+    }, 6000);
   };
+  finishUpdating(ok) {
+    if (this._updTick) clearInterval(this._updTick); if (this._updPoll) clearInterval(this._updPoll);
+    this._updTick = this._updPoll = null;
+    this.setState({ updating:null });
+    if (ok) { this.loadFeedFor(this.state.profile); this.showToast('✓ Re-ranked — fresh ranks and digest are live', null); }
+    else this.showToast('Still building — it will land on the next refresh', null);
+  }
+  elapsedLabel() { const u = this.state.updating; if (!u) return ''; const s = Math.floor((Date.now() - u.since) / 1000); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
   diffLinesVal() {
     const st = { hdr:{bg:'transparent',color:'#a7a59b'}, ctx:{bg:'transparent',color:'#76746b'}, add:{bg:'rgba(31,122,77,0.12)',color:'#1f7a4d'}, del:{bg:'rgba(192,57,43,0.10)',color:'#b23a2e'} };
     const se = (this.META.profile && this.META.profile.self_edit) || this.META.self_edit || null;
@@ -1048,9 +1170,7 @@ class Component extends DCLogic {
       if (next) r[id]='chip'; else delete r[id];
       const e = this.byId(id); const p = this.state.profile;
       if (e && e.key && p && p.hash && this.BACKEND_URL) {
-        const headers = { 'content-type':'application/json' };
-        const tok = (this.state.sharedToken||'').trim(); if (tok) headers.authorization = 'Bearer ' + tok;
-        fetch(new URL('/react', this.BACKEND_URL).href, { method:'POST', headers, body: JSON.stringify({ profile:p.hash, event_key:e.key, kind: next?'star':'unstar' }) }).catch(() => {});
+        fetch(new URL('/react', this.BACKEND_URL).href, { method:'POST', headers:this.backendHeaders(), body: JSON.stringify({ profile:p.hash, event_key:e.key, kind: next?'star':'unstar' }) }).catch(() => {});
       }
     }
     else { if (r[id]==='less') delete r[id]; else r[id]='less'; }  // soft "show less" — never hides; the deliberate hide is a tag filter
@@ -1085,6 +1205,16 @@ class Component extends DCLogic {
       showConcierge: !mob, showBottomNav: mob,
       navFrontColor: view==='front'?'#1b1a17':'#a7a59b', navExploreColor: view==='explore'?'#1b1a17':'#a7a59b',
       pokeConcierge:this.pokeConcierge, openDigest:this.openDigest,
+      chatOpen:this.state.chatOpen, closeChat:this.closeChat, sendChat:this.sendChat,
+      chatInput:this.state.chatInput, onChatInput:this.onChatInput, onChatKey:this.onChatKey,
+      chatBusy:this.state.chatBusy, chatW: mob ? '100vw' : '400px',
+      chatConnLabel: this.chatConnected() ? 'connected' : 'not connected',
+      chatPlaceholder: this.chatConnected() ? 'ask for a plan, a rec, a taste tweak…' : 'ask anything — I\u2019ll explain how to connect',
+      chatGoBg: (this.state.chatInput||'').trim() && !this.state.chatBusy ? '#2b5cd9' : '#c3c1b7',
+      chatRows: this.state.chatMsgs.map(m => m.role === 'user'
+        ? { text:m.content, wrap:'display:flex; justify-content:flex-end; padding:3px 0;', bubble:'max-width:86%; background:#1b1a17; color:#fff; border-radius:14px 14px 4px 14px; padding:10px 13px; font:400 13px/1.5 -apple-system,system-ui,sans-serif; white-space:pre-wrap; word-break:break-word;' }
+        : { text:m.content, wrap:'display:flex; justify-content:flex-start; padding:3px 0;', bubble:'max-width:92%; background:#fff; border:1px solid #e4e2d9; color:#26251f; border-radius:14px 14px 14px 4px; padding:10px 13px; font:400 13px/1.55 -apple-system,system-ui,sans-serif; white-space:pre-wrap; word-break:break-word;' }),
+      isUpdating: !!this.state.updating, notUpdating: !this.state.updating, updElapsed: this.elapsedLabel(),
       exploreCount:exploreableCount, resetReactions:this.resetReactions,
       ...mf,
     };
