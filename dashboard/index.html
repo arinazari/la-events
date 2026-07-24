@@ -158,7 +158,7 @@
             </sc-if>
             <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-top:2px;">
               <div style="display:flex; align-items:center; padding-left:5px;">
-                <sc-for list="{{ lead.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:20px; height:20px; margin-left:-5px; border-radius:50%; border:2px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;">{{ ch.i }}</span></sc-for>
+                <sc-for list="{{ lead.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:20px; height:20px; margin-left:-5px; border-radius:50%; border:2px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;" title="{{ ch.t }}">{{ ch.i }}</span></sc-for>
                 <button onClick="{{ lead.onChip }}" title="{{ lead.addTitle }}" style="{{ lead.addStyle }}">{{ lead.addGlyph }}</button>
               </div>
               <div style="display:flex; align-items:center; gap:12px; margin-left:auto;">
@@ -187,6 +187,7 @@
                   <span style="display:inline-flex; align-items:center; gap:8px; min-width:0;">
                     <span style="font:800 14px/1 ui-monospace,Menlo,monospace; color:#c7c5bb;">{{ c.rank }}</span>
                     <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ c.when }}</span>
+                    <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span style="flex:none; font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 5px; border-radius:2px; color:#1f7a4d; background:rgba(31,122,77,0.12);">NEW</span></sc-if>
                   </span>
                   <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}">
                   <span style="display:inline-flex; align-items:center; gap:5px; flex:none;">
@@ -205,7 +206,7 @@
                   </div>
                   </sc-if>
                   <div style="display:flex; align-items:center; flex:none; margin-left:auto; padding-left:5px;">
-                    <sc-for list="{{ c.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:20px; height:20px; margin-left:-5px; border-radius:50%; border:2px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;">{{ ch.i }}</span></sc-for>
+                    <sc-for list="{{ c.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:20px; height:20px; margin-left:-5px; border-radius:50%; border:2px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;" title="{{ ch.t }}">{{ ch.i }}</span></sc-for>
                     <button onClick="{{ c.onChip }}" title="{{ c.addTitle }}" style="{{ c.addStyle }}">{{ c.addGlyph }}</button>
                   </div>
                 </div>
@@ -251,9 +252,9 @@
               <div class="scry" style="display:grid; grid-auto-flow:column; grid-template-rows: {{ sc.rowsCss }}; grid-auto-columns: {{ sceneColW }}; gap:11px; overflow-x:auto; padding:2px 2px 9px; scroll-snap-type:x proximity;">
                 <sc-for list="{{ sc.cards }}" as="c" hint-placeholder-count="4">
                   <article onClick="{{ c.onOpen }}" style="scroll-snap-align:start; display:flex; flex-direction:column; gap:7px; background:#fff; border:1px solid #e4e2d9; border-left:3px solid {{ sc.dot }}; border-radius:5px; padding:12px 13px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
-                    <sc-if value="{{ c.photo.show }}" hint-placeholder-val="{{ false }}"><div style="{{ c.photo.style }}"></div></sc-if>
                     <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
                       <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.when }}</span>
+                      <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span style="flex:none; font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 5px; border-radius:2px; color:#1f7a4d; background:rgba(31,122,77,0.12);">NEW</span></sc-if>
                       <sc-if value="{{ c.mustSee }}" hint-placeholder-val="{{ false }}"><span style="flex:none; font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; padding:3px 5px; border-radius:2px; color:#fff; background:#161512;">MUST-SEE</span></sc-if>
                     </div>
                     <div style="font:600 14px/1.3 -apple-system,system-ui,sans-serif; color:#161512; text-wrap:pretty;">{{ c.title }}</div>
@@ -267,7 +268,7 @@
                     <div style="margin-top:auto; padding-top:4px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
                       <sc-if value="{{ c.hasChips }}" hint-placeholder-val="{{ false }}">
                       <div style="display:flex; align-items:center; padding-left:5px;">
-                        <sc-for list="{{ c.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:19px; height:19px; margin-left:-5px; border-radius:50%; border:2px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;">{{ ch.i }}</span></sc-for>
+                        <sc-for list="{{ c.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:19px; height:19px; margin-left:-5px; border-radius:50%; border:2px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;" title="{{ ch.t }}">{{ ch.i }}</span></sc-for>
                       </div>
                       </sc-if>
                       <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}">
@@ -299,7 +300,26 @@
               <span style="flex:0 0 66px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
               <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
               <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
-              <span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color:#b06a00; background:rgba(176,106,0,0.1);">{{ r.tag }}</span>
+              <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color:#b06a00; background:rgba(176,106,0,0.1);">{{ r.tag }}</span></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      </sc-if>
+
+      <!-- AROUND TOWN -->
+      <sc-if value="{{ hasAround }}" hint-placeholder-val="{{ false }}">
+      <section style="margin-bottom:24px;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px;">
+          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Around town</span>
+          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">the city's pulse beyond your lanes</span>
+        </div>
+        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
+          <sc-for list="{{ around }}" as="r" hint-placeholder-count="4">
+            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
+              <span style="flex:0 0 66px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
+              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
+              <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
             </div>
           </sc-for>
         </div>
@@ -338,7 +358,7 @@
               <div style="font:500 10.5px/1.3 ui-monospace,Menlo,monospace; color:#76746b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ c.venue }}</div>
               <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:4px;">
                 <div style="display:flex; align-items:center; padding-left:5px;">
-                  <sc-for list="{{ c.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:20px; height:20px; margin-left:-5px; border-radius:50%; border:2px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;">{{ ch.i }}</span></sc-for>
+                  <sc-for list="{{ c.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:20px; height:20px; margin-left:-5px; border-radius:50%; border:2px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;" title="{{ ch.t }}">{{ ch.i }}</span></sc-for>
                   <button onClick="{{ c.onChip }}" title="{{ c.addTitle }}" style="{{ c.addStyle }}">{{ c.addGlyph }}</button>
                 </div>
               </div>
@@ -401,6 +421,7 @@
                 <td style="padding:11px 12px; vertical-align:top; white-space:nowrap;">
                   <div style="font:600 12px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17;">{{ c.dateShort }}</div>
                   <div style="margin-top:3px; font:500 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ c.t }}</div>
+                  <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span style="display:inline-block; margin-top:4px; font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 5px; border-radius:2px; color:#1f7a4d; background:rgba(31,122,77,0.12);">NEW</span></sc-if>
                 </td>
                 <td style="padding:11px 12px; vertical-align:top;">
                   <div style="font:600 13px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">{{ c.title }}</div>
@@ -421,7 +442,7 @@
                 </td>
                 <td style="padding:11px 12px; vertical-align:top;"><span style="font:500 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.source }}</span></td>
                 <td style="padding:11px 12px; vertical-align:top;">
-                  <sc-if value="{{ c.hasChips }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex; align-items:center; pointer-events:none; padding-left:5px;"><sc-for list="{{ c.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:16px; height:16px; margin-left:-5px; border-radius:50%; border:1.5px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 7px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;">{{ ch.i }}</span></sc-for><sc-if value="{{ c.youChipped }}" hint-placeholder-val="{{ false }}"><span style="{{ c.youStarStyle }}"></span></sc-if></span></sc-if>
+                  <sc-if value="{{ c.hasChips }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex; align-items:center; pointer-events:none; padding-left:5px;"><sc-for list="{{ c.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:16px; height:16px; margin-left:-5px; border-radius:50%; border:1.5px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 7px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;" title="{{ ch.t }}">{{ ch.i }}</span></sc-for><sc-if value="{{ c.youChipped }}" hint-placeholder-val="{{ false }}"><span style="{{ c.youStarStyle }}"></span></sc-if></span></sc-if>
                 </td>
               </tr>
             </sc-for>
@@ -475,7 +496,7 @@
         <div style="display:flex; flex-direction:column; align-items:flex-end; gap:11px; flex:none;">
           <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}"><div style="text-align:right;"><div style="font:700 22px/1 ui-monospace,Menlo,monospace; color: {{ detail.matchColor }};">{{ detail.matchPct }}</div><div style="font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin-top:2px;">MATCH</div></div></sc-if>
           <div style="display:flex; align-items:center; padding-left:5px;">
-            <sc-for list="{{ detail.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:22px; height:22px; margin-left:-5px; border-radius:50%; border:2px solid #fdfcf9; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;">{{ ch.i }}</span></sc-for>
+            <sc-for list="{{ detail.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:22px; height:22px; margin-left:-5px; border-radius:50%; border:2px solid #fdfcf9; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;" title="{{ ch.t }}">{{ ch.i }}</span></sc-for>
             <button onClick="{{ detail.onChip }}" title="{{ detail.addTitle }}" style="{{ detail.addStyle }}">{{ detail.addGlyph }}</button>
           </div>
         </div>
@@ -603,6 +624,17 @@
           </sc-if>
         </div>
       </div>
+      <sc-if value="{{ showAdminRows }}" hint-placeholder-val="{{ false }}">
+      <div style="border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="flex:1; min-width:0;">
+            <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">◍ Event photos <span style="font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">ADMIN</span></div>
+            <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">{{ photosStatusText }}</div>
+          </div>
+          <span onClick="{{ togglePhotos }}" style="{{ photosSwTrack }}"><span style="{{ photosSwKnob }}"></span></span>
+        </div>
+      </div>
+      </sc-if>
       <div onClick="{{ openTasteFn }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
         <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">✦ View taste &amp; profile</div>
         <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">your config + recent edits</div>
@@ -629,7 +661,7 @@
       <span style="font:600 11px/1 ui-monospace,Menlo,monospace; color:#1b1a17;">{{ dataSourceLabel }}</span>
     </div>
     <div style="display:flex; justify-content:space-between; gap:10px; font:500 11.5px/1.95 ui-monospace,Menlo,monospace; color:#8a887e;"><span>last data pull</span><span style="color:#3f3d36; text-align:right;">{{ dataPull }}</span></div>
-    <div style="display:flex; justify-content:space-between; gap:10px; font:500 11.5px/1.95 ui-monospace,Menlo,monospace; color:#8a887e;"><span>what changed</span><span style="color:#3f3d36; text-align:right;">{{ dataChanged }}</span></div>
+    <div onClick="{{ showChanges }}" title="What moved on the last pull (tap to see)" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11.5px/1.95 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>what changed</span><span style="color:#3f3d36; text-align:right;">{{ dataChanged }}</span></div>
     <div style="display:flex; justify-content:space-between; gap:10px; font:500 11.5px/1.95 ui-monospace,Menlo,monospace; color:#8a887e;"><span>last site update</span><span style="color:#3f3d36; text-align:right;">{{ siteUpdate }}</span></div>
 
     <div style="height:1px; background:#e4e2d9; margin:15px 0;"></div>
@@ -657,7 +689,7 @@
       <span style="font:700 15px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Your Claude API key</span>
       <span style="display:inline-flex; align-items:center; gap:9px;"><span style="font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#8a887e;">{{ apiKeySwLabel }}</span><span onClick="{{ toggleApiKey }}" style="{{ apiKeySwTrack }}"><span style="{{ apiKeySwKnob }}"></span></span></span>
     </div>
-    <input value="{{ apiKey }}" onChange="{{ onApiKey }}" placeholder="sk-ant-…" style="width:100%; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:12px 13px; font:500 14px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17; outline:none;" style-focus="border-color:#2b5cd9;" />
+    <input value="{{ apiKey }}" onChange="{{ onApiKey }}" onKeyDown="{{ onApiKeyDown }}" placeholder="sk-ant-…" style="width:100%; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:12px 13px; font:500 14px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17; outline:none;" style-focus="border-color:#2b5cd9;" />
     <div style="font:400 12px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:9px 0 22px;">When ON, your key pays for every message. Stored only in this browser. If it errors or hits a limit, switch it OFF to fall back to the token.</div>
 
     <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:7px;">
@@ -667,7 +699,7 @@
     <div style="font:400 12px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:0 0 22px;">Works with either connection — the shared token or your own key. Off = the default model. Opus replies are sharper but slower and pricier.</div>
 
     <div style="font:700 15px/1.2 -apple-system,system-ui,sans-serif; color:#161512; margin-bottom:9px;">Shared access token <span style="font-weight:400; color:#8a887e;">(from Ari)</span></div>
-    <input value="{{ sharedToken }}" onChange="{{ onSharedToken }}" placeholder="access token" style="width:100%; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:12px 13px; font:500 14px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17; outline:none;" style-focus="border-color:#2b5cd9;" />
+    <input value="{{ sharedToken }}" onChange="{{ onSharedToken }}" onKeyDown="{{ onApiKeyDown }}" placeholder="access token" style="width:100%; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:12px 13px; font:500 14px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17; outline:none;" style-focus="border-color:#2b5cd9;" />
     <div style="font:400 12px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:9px 0 0;">Used when your key is OFF (or unset). Enter once — it's saved on this device.</div>
 
     <div style="font:400 11px/1.4 ui-monospace,Menlo,monospace; color:#bdbbb1; margin:18px 0 0;">backend · la-events-concierge.arinazari.workers.dev</div>
@@ -974,6 +1006,8 @@ class Component extends DCLogic {
       pmin: pr.pmin, pmax: pr.pmax, priceDisplay: pr.display,
       source: this.normSource((Array.isArray(r.sources) && r.sources[0]) || r.source || (links[0] && links[0].source)),
       ra, ah, score,
+      rank: (typeof r.final_rank === 'number' ? r.final_rank : null),
+      rating: (typeof r.rating === 'number' ? r.rating : null),
       verdict: r.verdict || null,
       key: r.key || null,
       stars: Array.isArray(r.stars) ? r.stars.filter(s => s && s.name && s.hash) : [],
@@ -994,19 +1028,46 @@ class Component extends DCLogic {
       .filter(e => !(e.seriesKey && !e.seriesRep));   // one card per program — series ride via their rep night
     if (!mapped.length) return false;
     this.ALL = mapped;
+    this.BYKEY = new Map();
+    for (const e of mapped) if (e.key) this.BYKEY.set(e.key, e);
     this.META = (raw && !Array.isArray(raw)) ? raw : {};
     this.setState({ dataSource: 'live' });
     return true;
   }
+  byKey(k) { return (this.BYKEY && this.BYKEY.get(k)) || null; }
+  resolveKeys(keys) { const out = []; for (const k of (keys || [])) { const e = this.byKey(k); if (e) out.push(e); } return out; }
+  // Canonical order = the editor's final_rank (server-stamped, lower is better); events the
+  // editor hasn't ranked fall back to the deterministic score. The page never re-ranks.
+  rankCmp = (x, y) => {
+    const rx = x.rank == null ? 1e9 : x.rank, ry = y.rank == null ? 1e9 : y.rank;
+    return rx - ry || y.score - x.score || (x.iso < y.iso ? -1 : x.iso > y.iso ? 1 : 0) || x.title.localeCompare(y.title);
+  };
+  // The feed is ~7.6MB — never fetch it no-store. catalog_meta.json (tiny, no-store) supplies a
+  // content-version cache key: same version → the browser serves its cached copy (or a cheap 304);
+  // new version → new URL → fresh fetch. `bust` forces freshness after a per-profile rebuild
+  // (which changes data.<hash>.json without moving the catalog content_version).
+  loadMeta() {
+    return fetch('./catalog_meta.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(res => res.ok ? res.json() : null)
+      .catch(() => null)
+      .then(j => { if (j) { this.LIVE_CATALOG = j; this.forceUpdate(); } return j; });
+  }
+  feedVersion() { const m = this.LIVE_CATALOG; return (m && (m.content_version || m.version)) || ''; }
+  feedUrl(base, bust) {
+    if (bust) return base + '?v=' + Date.now();
+    const v = this.feedVersion();
+    return v ? base + '?v=' + v : base;
+  }
   _tryFeed(path) {
-    return fetch(path, { cache: 'no-store' })
+    return fetch(path)
       .then(res => res.ok ? res.json().then(raw => this._applyFeed(raw)) : false)
       .catch(() => false);
   }
-  loadFeedFor(p) {
-    const primary = (p && p.hash) ? ('./data.' + p.hash + '.json') : './data.json';
+  loadFeedFor(p, opts) {
+    const bust = !!(opts && opts.bust);
+    const primary = this.feedUrl((p && p.hash) ? ('./data.' + p.hash + '.json') : './data.json', bust);
     return this._tryFeed(primary).then(ok => {
-      if (!ok && p) return this._tryFeed('./data.json').then(() => {
+      if (!ok && p) return this._tryFeed(this.feedUrl('./data.json', bust)).then(() => {
         try { localStorage.removeItem('la-profile'); } catch (e) {}
         this.setState({ profile: null, loggedIn: false });
       });
@@ -1059,14 +1120,13 @@ class Component extends DCLogic {
     let prof = null;
     try { prof = JSON.parse(localStorage.getItem('la-profile') || 'null'); } catch (e) {}
     if (prof && prof.hash) { this.setState({ profile: prof, loggedIn: true, username: prof.u || '' }); this.maybeOnboard(prof); }
-    this.loadFeedFor(prof && prof.hash ? prof : null);
+    // meta first (161 bytes, no-store) so the big feed fetch can use a content-version cache key
+    this.loadMeta().then(() => this.loadFeedFor(prof && prof.hash ? prof : null));
     this.loadDigest();
-    fetch('./catalog_meta.json?t=' + Date.now(), { cache: 'no-store' })
-      .then(res => res.ok ? res.json() : null)
-      .then(j => { this.LIVE_CATALOG = j; this.forceUpdate(); }).catch(() => {});
     this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m }); };
     this._onResize(); window.addEventListener('resize', this._onResize);
     try { const m = JSON.parse(localStorage.getItem('la-chat-v1') || '[]'); if (Array.isArray(m) && m.length) this.setState({ chatMsgs: m }); } catch (e) {}
+    try { if (localStorage.getItem('la-view') === 'explore') this.setState({ view:'explore' }); } catch (e) {}
     this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.welcomeOpen) this.closeWelcome(); else if (this.state.guideOpen) this.setState({ guideOpen:false }); else if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
     window.addEventListener('keydown', this._onKey);
   }
@@ -1136,7 +1196,7 @@ class Component extends DCLogic {
   friendChipsFor(e) {
     if ((this.props.showChips ?? true) === false) return [];
     const init = n => { const w = String(n).trim().split(/\s+/); return ((w[0] || '?')[0] + (w[1] ? w[1][0] : String(w[0] || '').slice(1, 2))).toUpperCase(); };
-    return (e.stars || []).slice(0, 5).map(s => ({ i: init(s.name), bg: this.AVBG[this.hash(s.name) % this.AVBG.length] }));
+    return (e.stars || []).slice(0, 5).map(s => ({ i: init(s.name), t: s.name, bg: this.AVBG[this.hash(s.name) % this.AVBG.length] }));
   }
   // chip-count → soft social glow on the card
   glowFor(count, color) {
@@ -1191,7 +1251,6 @@ class Component extends DCLogic {
       tags, hasTags:tags.length>0, miniTags:tags.slice(0,2), ticketLabel:this.ticketLabel(e),
       isNew:(e.xb||[]).some(x => /just announced/i.test(x)) || !!(((this.META||{}).catalog_fetched_at||'') && e.firstSeen && String(e.firstSeen).slice(0,10) >= String(this.META.catalog_fetched_at).slice(0,10)),
       poster:this.posterFor(e),
-      photo:this.photoStyle(e, 'flex:none; width:100%; height:86px; border-radius:4px;'),
       thumb:this.photoStyle(e, 'flex:0 0 52px; height:66px; border-radius:3px;'),
       onOpen:() => this.openDetail(e.id),
       ...this.chipProps(e),
@@ -1202,19 +1261,35 @@ class Component extends DCLogic {
     for (const s of this.SCENES) if (s.test(e)) return s;
     return this.SCENES[this.SCENES.length-1];
   }
+  // ---------- server shelves (front_page.shelves — the assemble slate's lanes) ----------
+  SHELF_DOT = { underground:'oklch(0.52 0.14 285)', afters:'oklch(0.5 0.14 300)', day:'oklch(0.55 0.12 60)', bigroom:'oklch(0.53 0.12 250)', live:'oklch(0.52 0.13 32)', bigstage:'oklch(0.5 0.12 10)', film:'oklch(0.5 0.1 205)', stage:'oklch(0.5 0.13 350)', more:'oklch(0.5 0.12 255)' };
+  SHELF_DESC = {
+    underground:'Location-TBA parties, acid, and the after-dark techno core.', afters:'Late stretches and afterhours — the 2am-and-beyond lane.',
+    day:'Rooftops, open-airs, and golden-hour grooves.', bigroom:'The marquee club bookings.', live:'Bands and live sets — post-punk, shoegaze, psych and beyond.',
+    bigstage:'Arena and amphitheater nights.', film:'35mm and 70mm revival programming across the city.', stage:'Theater, premieres, and the rest of the stage.',
+    more:'Everything off the main lanes.' };
+  fpShelves() { const sh = (this.META.front_page || {}).shelves; return Array.isArray(sh) && sh.length ? sh : null; }
+  shelfOf(e) { const shs = this.fpShelves(); if (!shs || !e.lane) return null; return shs.find(s => (s.lanes || []).indexOf(e.lane) !== -1) || null; }
+  shelfEvents(sh) { return this.resolveKeys((sh.near || []).concat(sh.ahead || [])); }
   byId(id) { return this.ALL.find(e => e.id===id); }
 
   poolFor(lens) {
     const [a,b] = this.windowFor(lens);
     const less = e => this.state.reactions[e.id]==='less' ? 1 : 0; // downvoted sinks, never hides
     return this.ALL.filter(e => e.iso>=a && e.iso<=b)
-      .sort((x,y) => less(x)-less(y) || y.score-x.score || (x.iso<y.iso?-1:x.iso>y.iso?1:0) || x.title.localeCompare(y.title));
+      .sort((x,y) => less(x)-less(y) || this.rankCmp(x,y));
+  }
+  // Stable partition that keeps a server-ordered list's order but sinks "less"-downvoted events.
+  lessSink(evs) {
+    const less = e => this.state.reactions[e.id]==='less';
+    return evs.filter(e => !less(e)).concat(evs.filter(less));
   }
 
   // ---------- actions ----------
-  setLens = (k) => this.setState({ lens:k, view:'front', sceneId:null });
-  viewFront = () => this.setState({ view:'front', sceneId:null });
-  viewExplore = () => this.setState({ view:'explore', sceneId:null });
+  persistView(v) { try { localStorage.setItem('la-view', v); } catch (e) {} }
+  setLens = (k) => { this.persistView('front'); this.setState({ lens:k, view:'front', sceneId:null }); };
+  viewFront = () => { this.persistView('front'); this.setState({ view:'front', sceneId:null }); };
+  viewExplore = () => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null }); };
   openScene = (id) => this.setState({ view:'scene', sceneId:id, detailId:null });
   closeScene = () => this.setState({ view:'front', sceneId:null });
   openDetail = (id) => this.setState({ detailId:id });
@@ -1434,7 +1509,7 @@ class Component extends DCLogic {
     if (!u) { this.showToast('Type a username to load your profile', null); return; }
     try {
       const hash = await this.profileHash(u);
-      const res = await fetch('./data.' + hash + '.json', { cache:'no-store' });
+      const res = await fetch(this.feedUrl('./data.' + hash + '.json'));
       if (!res.ok) { this.showToast('No profile found for that username', null); return; }
       const raw = await res.json();
       if (!this._applyFeed(raw)) { this.showToast('That profile\u2019s feed is empty', null); return; }
@@ -1475,7 +1550,7 @@ class Component extends DCLogic {
     if (this._updTick) clearInterval(this._updTick); if (this._updPoll) clearInterval(this._updPoll);
     this._updTick = this._updPoll = null;
     this.setState({ updating:null });
-    if (ok) { this.loadFeedFor(this.state.profile); this.showToast('✓ Re-ranked — fresh ranks and digest are live', null); }
+    if (ok) { this.loadMeta().then(() => this.loadFeedFor(this.state.profile, { bust:true })); this.loadDigest(); this.showToast('✓ Re-ranked — fresh ranks and digest are live', null); }
     else this.showToast('Still building — it will land on the next refresh', null);
   }
   elapsedLabel() { const u = this.state.updating; if (!u) return ''; const s = Math.floor((Date.now() - u.since) / 1000); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
@@ -1513,7 +1588,14 @@ class Component extends DCLogic {
   toggleOpus = () => this.setState(s => ({ opusOn:!s.opusOn }));
   onApiKey = (e) => { const v=e.target.value; this.setState({ apiKey:v }); };
   onSharedToken = (e) => { const v=e.target.value; this.setState({ sharedToken:v }); };
-  saveApi = () => { try { localStorage.setItem('la-concierge-cfg', JSON.stringify({ apiKey:this.state.apiKey, sharedToken:this.state.sharedToken, apiKeyOn:this.state.apiKeyOn, opusOn:this.state.opusOn })); } catch(e){} this.setState({ apiModal:false }); this.showToast('Concierge settings saved on this device', null); };
+  saveApi = () => {
+    const key = (this.state.apiKey || '').trim();
+    if (this.state.apiKeyOn && key && !/^sk-ant-/.test(key)) { this.showToast('That doesn’t look like a Claude API key (sk-ant-…) — fix it or switch the key OFF', null); return; }
+    try { localStorage.setItem('la-concierge-cfg', JSON.stringify({ apiKey:this.state.apiKey, sharedToken:this.state.sharedToken, apiKeyOn:this.state.apiKeyOn, opusOn:this.state.opusOn })); } catch(e){}
+    this.setState({ apiModal:false });
+    this.showToast('Concierge settings saved on this device', null);
+  };
+  onApiKeyDown = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.saveApi(); } };
   openTaste = (tab) => this.setState({ tasteModal:true, tasteTab: tab||'taste', settingsOpen:false });
   closeTaste = () => this.setState({ tasteModal:false });
   setTasteTab = (t) => this.setState({ tasteTab:t });
@@ -1690,8 +1772,27 @@ class Component extends DCLogic {
   }
 
   // ---------- real event photos (feed `image`, https-gated in parseEvent) ----------
+  // Policy (Ari, 2026-07-24): photos are OFF by default, admin-controlled, and appear only on the
+  // top events of a signed-in profile's feed (the lead + shortlist) — not the house feed, not the
+  // whole catalog. The durable switch is profile.yaml `dashboard.photos` → feed `config.photos`;
+  // the owner's settings toggle overrides it on this device (preview).
+  isOwner() { return !!(this.META && this.META.profile && this.META.profile.owner); }
+  photosOverride() { try { return localStorage.getItem('la-photos-override'); } catch (e) { return null; } }
+  photosOn() {
+    if (!this.state.loggedIn) return false;
+    const ov = this.photosOverride();
+    if (ov === 'on') return true;
+    if (ov === 'off') return false;
+    return ((this.META.config || {}).photos) === true;
+  }
+  togglePhotos = () => {
+    const next = this.photosOn() ? 'off' : 'on';
+    try { localStorage.setItem('la-photos-override', next); } catch (e) {}
+    this.forceUpdate();
+    this.showToast(next === 'on' ? 'Event photos on (this device) — top picks only' : 'Event photos off (this device)', null);
+  };
   photoStyle(e, css) {
-    if (!e || !e.image) return { show:false, style:'' };
+    if (!this.photosOn() || !e || !e.image) return { show:false, style:'' };
     return { show:true, style: css + ' background:#e8e6de url("' + e.image.replace(/"/g, '%22') + '") center/cover no-repeat;' };
   }
 
@@ -1983,26 +2084,50 @@ class Component extends DCLogic {
     // ---- FRONT ----
     if (view==='front') {
       const pool = this.poolFor(lens);
-      const lead = pool[0] ? { ...this.cardFor(pool[0]), rank:'01', photoCol:this.photoStyle(pool[0], 'flex:0 0 210px; align-self:stretch; min-height:230px;') } : null;
+      const FP = this.META.front_page || {};
+      // THE LEAD + SHORTLIST — the server hero slate (the ONE assemble.top_picks policy, same
+      // rank_key as final_rank; see build_dashboard.build_front_page). The page never re-ranks:
+      // it renders the server order, only sinking events the person downvoted. The client pool
+      // is the fallback for a feed with no slate.
+      const heroSrv = this.lessSink(this.resolveKeys((FP.hero || {})[lens]).filter(e => e.iso >= T));
+      const top5 = heroSrv.length ? heroSrv.slice(0, 5) : pool.slice(0, 5);
+      const lead = top5[0] ? { ...this.cardFor(top5[0]), rank:'01', photoCol:this.photoStyle(top5[0], 'flex:0 0 210px; align-self:stretch; min-height:230px;') } : null;
       out.hasLead = !!lead; out.lead = lead || {};
       out.leadKicker = { today:"TONIGHT'S LEAD", weekend:"THE WEEKEND'S LEAD", twoweeks:'TOP OF THE NEXT TWO WEEKS', ahead:'THE ONE TO PLAN AROUND' }[lens] || 'YOUR LEAD';
-      const short = pool.slice(1,5).map((e,i) => ({ ...this.cardFor(e), rank:String(i+2).padStart(2,'0') }));
+      const short = top5.slice(1,5).map((e,i) => ({ ...this.cardFor(e), rank:String(i+2).padStart(2,'0') }));
       out.hasShortlist = short.length>0; out.shortlist = short;
 
-      const topIds = new Set(pool.slice(0,5).map(e => e.id));
-      const buckets = new Map();
-      for (const e of pool) { const s = this.sceneOf(e); if (!buckets.has(s.id)) buckets.set(s.id,{ scene:s, evs:[] }); buckets.get(s.id).evs.push(e); }
-      // "Your scenes": one tinted lane per scene — a horizontal-scroll grid of expanded cards, ranked by match
-      const scenes = [...buckets.values()].map(({ scene, evs }) => {
-        const laneEvs = evs.filter(e => !topIds.has(e.id)).slice(0,6);   // pool is score-desc; keep that ranking, up to 6
-        const cards = laneEvs.map((e,i) => {
-          const card = this.cardFor(e);
-          card.mustSee = i===0 && (e.score>=6 || !!(e.verdict && e.verdict.tier==='must-see'));   // lane badges its own top pick
-          card.hasChips = (card.friendChips||[]).length>0;    // read-only liker chips in this view
-          return card;
-        });
-        return { id:scene.id, label:scene.label, dot:scene.dot, allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(scene.id) };
-      }).filter(s => s.cards.length>0).sort((a,b) => b.cards.length-a.cards.length).slice(0,6);
+      const topIds = new Set(top5.map(e => e.id));
+      // "Your scenes" — the server shelves (slate order, near+ahead zones) filtered to the active
+      // lens window; the client sceneOf() bucketing is only the no-shelves fallback.
+      const shs = this.fpShelves();
+      let scenes;
+      if (shs) {
+        const [wa, wb] = this.windowFor(lens);
+        scenes = shs.map(sh => {
+          const evs = this.lessSink(this.shelfEvents(sh).filter(e => e.iso >= wa && e.iso <= wb && e.iso >= T && !topIds.has(e.id)));
+          const cards = evs.slice(0,6).map((e,i) => {
+            const card = this.cardFor(e);
+            card.mustSee = i===0 && (!!(e.verdict && e.verdict.tier==='must-see') || (e.rating != null && e.rating >= 5));
+            card.hasChips = (card.friendChips||[]).length>0;
+            return card;
+          });
+          return { id:sh.id, label:sh.label, dot:this.SHELF_DOT[sh.id] || '#76746b', allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(sh.id) };
+        }).filter(s => s.cards.length>0).slice(0,7);   // server shelf ORDER, not by-size
+      } else {
+        const buckets = new Map();
+        for (const e of pool) { const s = this.sceneOf(e); if (!buckets.has(s.id)) buckets.set(s.id,{ scene:s, evs:[] }); buckets.get(s.id).evs.push(e); }
+        scenes = [...buckets.values()].map(({ scene, evs }) => {
+          const laneEvs = evs.filter(e => !topIds.has(e.id)).slice(0,6);
+          const cards = laneEvs.map((e,i) => {
+            const card = this.cardFor(e);
+            card.mustSee = i===0 && (e.score>=6 || !!(e.verdict && e.verdict.tier==='must-see'));
+            card.hasChips = (card.friendChips||[]).length>0;
+            return card;
+          });
+          return { id:scene.id, label:scene.label, dot:scene.dot, allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(scene.id) };
+        }).filter(s => s.cards.length>0).sort((a,b) => b.cards.length-a.cards.length).slice(0,6);
+      }
       out.hasScenes = scenes.length>0; out.scenes = scenes;
       out.sceneColW = mob ? '100%' : 'calc((100% - 11px) / 2)';
 
@@ -2020,19 +2145,38 @@ class Component extends DCLogic {
       const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
       const isNewE = e => !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef);
       const onSaleE = e => (e.xb || []).some(x => /on.?sale/i.test(x));
-      const radar = this.ALL.filter(e => e.iso >= T && (onSaleE(e) || isNewE(e) || (e.xb || []).some(x => /just announced/i.test(x))))
-        .sort((a,b) => a.iso<b.iso?-1:1).slice(0,6).map(e => { const f = this.fmt(e.iso,e.time); return { id:e.id, dateShort:f.wd+' '+f.md, title:e.title, venue:e.venue+' · '+e.hood, tag: onSaleE(e)?'ON SALE':'JUST ANNOUNCED', onOpen:() => this.openDetail(e.id) }; });
+      const mkRow = (e, tag) => { const f = this.fmt(e.iso,e.time); return { id:e.id, dateShort:f.wd+' '+f.md, title:e.title, venue:e.venue+' · '+e.hood, tag, hasTag:!!tag, onOpen:() => this.openDetail(e.id) }; };
+      // ON THE RADAR — the server-curated set (build_radar/festivals.yaml via front_page.radar);
+      // the just-announced/on-sale heuristic only fills in when the feed carries none.
+      const radarSrv = this.resolveKeys(FP.radar).filter(e => e.iso >= T);
+      const radar = radarSrv.length
+        ? radarSrv.slice(0,8).map(e => mkRow(e, onSaleE(e) ? 'ON SALE' : (isNewE(e) || (e.xb||[]).some(x => /just announced/i.test(x))) ? 'JUST ANNOUNCED' : 'RADAR'))
+        : this.ALL.filter(e => e.iso >= T && (onSaleE(e) || isNewE(e) || (e.xb || []).some(x => /just announced/i.test(x))))
+            .sort((a,b) => a.iso<b.iso?-1:1).slice(0,6).map(e => mkRow(e, onSaleE(e)?'ON SALE':'JUST ANNOUNCED'));
       out.hasRadar = radar.length>0; out.radar = radar;
+      // AROUND TOWN — the server's near-city-pulse keys (was dropped in the redesign)
+      const around = this.resolveKeys(FP.around).filter(e => e.iso >= T && !topIds.has(e.id)).slice(0,6).map(e => mkRow(e, ''));
+      out.hasAround = around.length>0; out.around = around;
       out.fpEmpty = !lead;
     }
 
     // ---- SCENE ----
     if (view==='scene') {
-      const sc = this.SCENES.find(s => s.id===this.state.sceneId) || this.SCENES[0];
-      const lessS = e => this.state.reactions[e.id]==='less' ? 1 : 0;
-      const list = this.ALL.filter(e => e.iso>=T && this.sceneOf(e).id===sc.id)
-        .sort((x,y) => lessS(x)-lessS(y) || y.score-x.score || (x.iso<y.iso?-1:1)).map(e => this.cardFor(e));
-      out.sceneTitle = sc.label; out.sceneDesc = sc.desc; out.sceneDot = sc.dot; out.sceneCount = list.length; out.sceneList = list; out.closeScene = this.closeScene;
+      const shsAll = this.fpShelves();
+      const shelf = shsAll && shsAll.find(s => s.id === this.state.sceneId);
+      if (shelf) {
+        // server-slate lane page: the shelf's near+ahead zones in slate order
+        const list = this.lessSink(this.shelfEvents(shelf).filter(e => e.iso >= T)).map(e => this.cardFor(e));
+        out.sceneTitle = shelf.label; out.sceneDesc = this.SHELF_DESC[shelf.id] || '';
+        out.sceneDot = this.SHELF_DOT[shelf.id] || '#76746b'; out.sceneCount = list.length; out.sceneList = list;
+      } else {
+        const sc = this.SCENES.find(s => s.id===this.state.sceneId) || this.SCENES[0];
+        const lessS = e => this.state.reactions[e.id]==='less' ? 1 : 0;
+        const list = this.ALL.filter(e => e.iso>=T && this.sceneOf(e).id===sc.id)
+          .sort((x,y) => lessS(x)-lessS(y) || this.rankCmp(x,y)).map(e => this.cardFor(e));
+        out.sceneTitle = sc.label; out.sceneDesc = sc.desc; out.sceneDot = sc.dot; out.sceneCount = list.length; out.sceneList = list;
+      }
+      out.closeScene = this.closeScene;
     }
 
     // ---- EXPLORE ----
@@ -2049,7 +2193,7 @@ class Component extends DCLogic {
         : sk==='hood' ? strSort(e => e.hood)
         : sk==='cat' ? strSort(e => e.cat)
         : sk==='source' ? strSort(e => e.source)
-        : ((x,y) => lessE(x)-lessE(y) || y.score-x.score || (x.iso<y.iso?-1:1)));
+        : ((x,y) => lessE(x)-lessE(y) || this.rankCmp(x,y)));
       out.exploreRows = rows.slice(0,400).map((e,i) => ({ ...this.cardFor(e), rank:String(i+1) }));
       out.exploreEmpty = rows.length===0;
       out.arrowDate = sk==='date' ? '↓' : ''; out.arrowTitle = sk==='title' ? '↓' : ''; out.arrowScore = sk==='match' ? '↓' : '';
@@ -2057,7 +2201,7 @@ class Component extends DCLogic {
       out.sortDateCol = () => this.setSort('date'); out.sortTitleCol = () => this.setSort('title'); out.sortScoreCol = () => this.setSort('match');
       out.sortHoodCol = () => this.setSort('hood'); out.sortCatCol = () => this.setSort('cat'); out.sortSourceCol = () => this.setSort('source');
       const nAct = this.exActiveCount();
-      out.exploreCountLabel = rows.length + ' events' + (q ? ' · matching “'+this.state.exploreSearch.trim()+'”' : '')
+      out.exploreCountLabel = rows.length + ' events' + ((this.META.count && (nAct || q)) ? '' : ' · ' + (this.META.count || this.ALL.length) + ' in catalog') + (q ? ' · matching “'+this.state.exploreSearch.trim()+'”' : '')
         + (nAct ? ' · ' + nAct + ' filter' + (nAct===1?'':'s') + ' active' : '')
         + (!q && !nAct ? ' · '+({match:'ranked by match',date:'by date',title:'A–Z',hood:'by neighborhood',cat:'by category',source:'by source'}[sk]) : '');
       out.exHasActive = nAct > 0 || !!q;
@@ -2120,7 +2264,7 @@ class Component extends DCLogic {
         why:de.why, desc, hasDesc:!!desc, matchPct:this.matchPct(de.score)+'%', matchColor:this.scoreColorFor(de.score),
         tags, hasTags:tags.length>0,
         lineup:de.lineup.map(n => { const k = this._artistNorm(n); const direct = (this.META.artist_links || {})[k]; return { name:n, bio:bios[k]||'', hasBio:!!bios[k], spotify: direct || ('https://open.spotify.com/search/'+encodeURIComponent(n)), soundcloud:'https://soundcloud.com/search?q='+encodeURIComponent(n) }; }), hasLineup:de.lineup.length>0,
-        ticketLinks:links, sceneLabel:sc.label, onScene:() => this.openScene(sc.id), poster:this.posterFor(de),
+        ticketLinks:links, sceneLabel:(this.shelfOf(de) || sc).label, onScene:() => { const shf = this.shelfOf(de); this.openScene(shf ? shf.id : sc.id); }, poster:this.posterFor(de),
         photo:this.photoStyle(de, 'height:150px;'),
         onCal:() => { this.downloadIcs(de); this.showToast('Calendar file downloaded — open it to add', null); },
         onLess:(ev) => this.react(de.id,'less',ev),
@@ -2141,9 +2285,15 @@ class Component extends DCLogic {
       gearBg:this.state.settingsOpen?'#1b1a17':'#fff', gearColor:this.state.settingsOpen?'#fff':'#3f3d36',
       username:this.state.username, onUsername:this.onUsername, onUsernameKey:this.onUsernameKey, doLogin:this.doLogin, doLogout:this.doLogout,
       userName:uname, signedInAs:'signed in as '+uname,
-      dataPull:this.fmtStamp(this.META.catalog_fetched_at),
-      dataChanged:(this.LIVE_CATALOG && (this.LIVE_CATALOG.added != null || this.LIVE_CATALOG.updated != null)) ? ((this.LIVE_CATALOG.added||0)+' added · '+(this.LIVE_CATALOG.updated||0)+' updated') : 'no changes',
-      siteUpdate:this.fmtStamp(this.META.generated_at), dbSynced:this.fmtStamp(this.META.generated_at),
+      dataPull:this.fmtStamp((this.LIVE_CATALOG && this.LIVE_CATALOG.fetched_at) || this.META.catalog_fetched_at),
+      dataChanged:(this.LIVE_CATALOG && (this.LIVE_CATALOG.added != null || this.LIVE_CATALOG.updated != null)) ? ((this.LIVE_CATALOG.added||0)+' added · '+(this.LIVE_CATALOG.updated||0)+' updated'+((this.LIVE_CATALOG.changes||[]).length?' →':'')) : 'no changes',
+      showChanges:() => {
+        const ch = (this.LIVE_CATALOG && this.LIVE_CATALOG.changes) || [];
+        if (!ch.length) { this.showToast('Nothing moved on the last pull', null); return; }
+        const line = c => (c.title||'?') + (c.fields && c.fields.length ? ' ('+c.fields.join(', ')+')' : '');
+        this.showToast('Moved on the last pull: ' + ch.slice(0,3).map(line).join(' · ') + (ch.length>3 ? ' · +'+(ch.length-3)+' more' : ''), null);
+      },
+      siteUpdate:this.fmtStamp(document.lastModified), dbSynced:this.fmtStamp(this.META.generated_at),
       syncTitle:'Ranks & Digest: ' + ((this.LIVE_CATALOG && this.LIVE_CATALOG.content_version && this.META.catalog_content_version && this.LIVE_CATALOG.content_version !== this.META.catalog_content_version) ? 'Update available' : 'Current'),
       pullTitle:'Events database: Current',
       dataSourceLabel: this.state.dataSource === 'live' ? 'live · data.json' : (this.state.dataSource === 'loading' ? 'loading…' : 'unavailable'),
@@ -2157,6 +2307,14 @@ class Component extends DCLogic {
       spotifyConnected: this.state.spotifyStatus === true,
       spotifyCanConnect: this.state.loggedIn && this.state.spotifyStatus !== true,
       connectSpotify: this.connectSpotify, disconnectSpotify: this.disconnectSpotify,
+      showAdminRows: this.isOwner(),
+      photosStatusText: (() => {
+        const on = this.photosOn(); const ov = this.photosOverride();
+        const base = ((this.META.config || {}).photos) === true;
+        return (on ? 'on' : 'off') + ' — top picks only' + (ov ? ' · device override (site default: ' + (base ? 'on' : 'off') + ', set in profile.yaml)' : ' · site default (profile.yaml dashboard.photos)');
+      })(),
+      togglePhotos: this.togglePhotos,
+      photosSwTrack: sw(this.photosOn()).track, photosSwKnob: sw(this.photosOn()).knob,
       apiKeyStatus: (this.state.apiKeyOn && (this.state.apiKey||'').trim()) ? 'connected' : ((this.state.sharedToken||'').trim() ? 'shared token' : 'not set'),
       openSync:() => this.updateMyDigest(),
       openPull:() => this.showToast('Events database is current — last pulled ' + this.fmtStamp(this.META.catalog_fetched_at), null),
@@ -2165,7 +2323,7 @@ class Component extends DCLogic {
       openChangelog:() => this.openGuide('new'),
       openApiModal:this.openApiModal, openTasteFn:() => this.openTaste('taste'),
       apiModal:this.state.apiModal, closeApiModal:this.closeApiModal, saveApi:this.saveApi,
-      apiKey:this.state.apiKey, sharedToken:this.state.sharedToken, onApiKey:this.onApiKey, onSharedToken:this.onSharedToken,
+      apiKey:this.state.apiKey, sharedToken:this.state.sharedToken, onApiKey:this.onApiKey, onSharedToken:this.onSharedToken, onApiKeyDown:this.onApiKeyDown,
       toggleApiKey:this.toggleApiKey, toggleOpus:this.toggleOpus,
       apiKeySwTrack:sK.track, apiKeySwKnob:sK.knob, apiKeySwLabel:sK.label,
       opusSwTrack:sO.track, opusSwKnob:sO.knob, opusSwLabel:sO.label,

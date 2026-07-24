@@ -468,6 +468,17 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   and the dead ~3 MB vendored `@babel/standalone` is deleted. The surviving client-weight item is
   the feed: `data.json` (~7.9 MB raw, ~1 MB gzipped) re-fetched `no-store` each boot — fix is a
   slim boot feed + lazy full catalog, or content-versioned feed URLs with normal caching.
+- [x] **Content-versioned feed fetch (2026-07-24)** — the page now loads `catalog_meta.json`
+  first (161 B, no-store) and fetches the big feed as `data[.<hash>].json?v=<content_version>`
+  with normal HTTP caching: unchanged catalog → the browser serves its cached copy / a cheap 304
+  instead of re-downloading ~7.6 MB every boot. Post-rebuild reloads bust with `?v=<now>` (a
+  profile rebuild changes the feed without moving the catalog version).
+- [ ] **Slim boot feed (VERY HIGH per Ari, 2026-07-24)** — the deeper fix: `build_dashboard`
+  emits a small boot feed (front_page + config + the slate head, ~a few hundred KB) that paints
+  the front page immediately, with the full catalog lazy-loaded only when Explore/search needs
+  it. Composes with the versioned URLs above. Touches build_dashboard/build_profiles emit + the
+  page's loadFeedFor; keep the "one policy" invariant — the boot feed must carry the same
+  front_page block, not a re-derived one.
 - [x] **Per-event ICS export** — re-ported the one-click add-to-calendar (was `dashboard/js/ics.js`;
   regressed in the swap). Now an "Add to calendar ↓" button in each event's expanded detail row;
   self-contained RFC 5545 builder on the `Component` class (floating LA-local times, 3-hr default,
