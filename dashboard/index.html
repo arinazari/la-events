@@ -400,6 +400,7 @@
 
       <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:12px;">
         <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreCountLabel }}</span>
+        <sc-if value="{{ hasChatFilter }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearChatFilter }}" title="Clear the concierge's filter" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; padding:5px 10px; border:1px solid #c3d2f4; background:#eaf0fe; border-radius:999px;">✦ {{ chatFilterLabel }} ×</span></sc-if>
         <sc-if value="{{ exHasActive }}" hint-placeholder-val="{{ false }}"><span onClick="{{ exResetFn }}" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear filters ×</span></sc-if>
       </div>
       <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden; overflow-x:auto;">
@@ -449,6 +450,7 @@
           </tbody>
         </table>
       </div>
+      <sc-if value="{{ exploreClipped }}" hint-placeholder-val="{{ false }}"><div style="padding:12px 0; text-align:center; font:500 10.5px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreClipped }}</div></sc-if>
       <sc-if value="{{ exploreEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding:40px 0; text-align:center; font:500 12px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">No events match “{{ searchVal }}”.</div></sc-if>
     </div>
     </sc-if>
@@ -552,7 +554,7 @@
       <sc-for list="{{ chatRows }}" as="m" hint-placeholder-count="2">
         <div style="{{ m.wrap }}"><div style="{{ m.bubble }}">{{ m.text }}</div></div>
       </sc-for>
-      <sc-if value="{{ chatBusy }}" hint-placeholder-val="{{ false }}">
+      <sc-if value="{{ chatThinking }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex; justify-content:flex-start; padding:3px 0;"><div style="background:#fff; border:1px solid #e4e2d9; color:#76746b; border-radius:14px 14px 14px 4px; padding:11px 14px;"><span class="om-dots"><i></i><i></i><i></i></span></div></div>
       </sc-if>
     </div>
@@ -566,7 +568,7 @@
       </sc-if>
       <div style="display:flex; align-items:center; gap:8px; border:1px solid #cfcdc4; background:#fff; border-radius:999px; padding:10px 8px 10px 15px;" style-focus-within="border-color:#2b5cd9;">
         <input id="la-chat-input" value="{{ chatInput }}" onChange="{{ onChatInput }}" onKeyDown="{{ onChatKey }}" placeholder="{{ chatPlaceholder }}" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 13px/1.3 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
-        <span onClick="{{ sendChat }}" title="Send" style="flex:none; cursor:pointer; width:30px; height:30px; border-radius:50%; background: {{ chatGoBg }}; color:#fff; font-size:14px; line-height:30px; text-align:center;">→</span>
+        <span onClick="{{ onGoStop }}" title="{{ goTitle }}" style="flex:none; cursor:pointer; width:30px; height:30px; border-radius:50%; background: {{ chatGoBg }}; color:#fff; font-size:14px; line-height:30px; text-align:center;">{{ goLabel }}</span>
       </div>
       <div style="margin-top:8px; font:500 9.5px/1.5 ui-monospace,Menlo,monospace; color:#bdbbb1; text-align:center;">plans · recommendations · “more techno, less comedy”</div>
     </div>
@@ -824,6 +826,9 @@
       <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.16em; color:#8a887e;">EDITORIAL DIGEST</span>
       <span onClick="{{ downloadDigest }}" title="Download this digest as Markdown" style="margin-left:auto; margin-right:34px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:6px 11px; border-radius:2px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;" style-hover="border-color:#2b5cd9; color:#161512;">↓ download</span>
     </div>
+    <sc-if value="{{ digestFallbackNote }}" hint-placeholder-val="{{ false }}">
+      <div style="flex:none; padding:9px 20px; border-bottom:1px solid #ecd9ae; background:#fdf4e3; font:500 11px/1.5 ui-monospace,Menlo,monospace; color:#8a6d3b;">No personalized digest for your profile yet — this is the house digest. Hit Ranks &amp; Digest in Settings (☰) to write yours.</div>
+    </sc-if>
     <sc-if value="{{ digestNavShow }}" hint-placeholder-val="{{ true }}">
       <div class="scry" style="flex:none; display:flex; align-items:center; gap:6px; overflow-x:auto; padding:8px 20px; border-bottom:1px solid #e2e0d8; background:#fdfcf9;">
         <sc-for list="{{ digestNav }}" as="n" hint-placeholder-count="6">
@@ -1104,10 +1109,11 @@ class Component extends DCLogic {
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   }
 
-  state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, isMobile:false, exploreSort:'match', exploreSearch:'', toast:null, dataSource:'loading', profile:null,
+  state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, isMobile:false, exploreSort:'match', exploreDir:1, exploreSearch:'', toast:null, dataSource:'loading', profile:null,
     settingsOpen:false, loggedIn:false, apiModal:false, tasteModal:false, tasteTab:'taste', username:'',
     apiKeyOn:false, opusOn:false, apiKey:'', sharedToken:'',
     chatOpen:false, chatInput:'', chatMsgs:[], chatBusy:false, updating:null,
+    backendStatus:null, backendVer:null, liveReply:null, chatFiltered:null, chatFilterLabel:'',
     digestModalOpen:false, spotifyStatus:null, spotifyName:'',
     calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null,
     filtersOpen:false, exFrom:'', exTo:'',
@@ -1116,13 +1122,15 @@ class Component extends DCLogic {
 
   componentDidMount() {
     try { const r = JSON.parse(localStorage.getItem('la-fp-reactions-v1') || '{}'); if (r && typeof r === 'object') this.setState({ reactions:r }); } catch (e) {}
-    try { const c = JSON.parse(localStorage.getItem('la-concierge-cfg') || '{}'); if (c && typeof c==='object') this.setState({ apiKey:c.apiKey||'', sharedToken:c.sharedToken||'', apiKeyOn:!!c.apiKeyOn, opusOn:!!c.opusOn }); } catch (e) {}
+    this.migrateLegacyConn();
+    this.BACKEND_TOKEN = this.readConn().token || '';   // authoritative: post-migration, TTL-checked
     let prof = null;
     try { prof = JSON.parse(localStorage.getItem('la-profile') || 'null'); } catch (e) {}
     if (prof && prof.hash) { this.setState({ profile: prof, loggedIn: true, username: prof.u || '' }); this.maybeOnboard(prof); }
     // meta first (161 bytes, no-store) so the big feed fetch can use a content-version cache key
     this.loadMeta().then(() => this.loadFeedFor(prof && prof.hash ? prof : null));
     this.loadDigest();
+    if (this.BACKEND_URL) this.pingBackend();
     this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m }); };
     this._onResize(); window.addEventListener('resize', this._onResize);
     try { const m = JSON.parse(localStorage.getItem('la-chat-v1') || '[]'); if (Array.isArray(m) && m.length) this.setState({ chatMsgs: m }); } catch (e) {}
@@ -1130,7 +1138,7 @@ class Component extends DCLogic {
     this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.welcomeOpen) this.closeWelcome(); else if (this.state.guideOpen) this.setState({ guideOpen:false }); else if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
     window.addEventListener('keydown', this._onKey);
   }
-  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._updTick) clearInterval(this._updTick); if (this._updPoll) clearInterval(this._updPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); }
+  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._updTick) clearInterval(this._updTick); if (this._updPoll) clearInterval(this._updPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
 
   // ---------- date + format ----------
   fmt(iso, time) {
@@ -1294,7 +1302,8 @@ class Component extends DCLogic {
   closeScene = () => this.setState({ view:'front', sceneId:null });
   openDetail = (id) => this.setState({ detailId:id });
   closeDetail = () => this.setState({ detailId:null });
-  setSort = (k) => this.setState({ exploreSort:k });
+  // Same column twice flips direction (OLD behavior); a new column starts at its natural direction.
+  setSort = (k) => this.setState(s => ({ exploreSort:k, exploreDir: s.exploreSort === k ? -(s.exploreDir || 1) : 1 }));
   onSearch = (e) => { const v = e.target.value; this.setState(s => ({ exploreSearch:v, view: v.trim() ? 'explore' : s.view })); };
   clearSearch = () => this.setState({ exploreSearch:'' });
   pokeConcierge = () => this.toggleChat();
@@ -1302,14 +1311,91 @@ class Component extends DCLogic {
   STARTERS = ['techno this weekend', 'what’s worth it tonight', 'plan saturday — dinner then a show', 'free shows near me', 'more deep house, less comedy', 'afterhours warehouse'];
   useStarter = (t) => { const v = String(t || '').trim(); if (!v) return; this.setState({ chatInput: v }); try { const el = document.getElementById('la-chat-input'); if (el) { el.focus(); el.setSelectionRange(v.length, v.length); } } catch (e) {} };
   labelISO(iso) { const d = new Date(iso + 'T00:00:00'); if (isNaN(d.getTime())) return String(iso); return this.WD[d.getDay()] + ' ' + (d.getMonth() + 1) + '/' + d.getDate(); }
-  // ---- concierge chat (POST BACKEND_URL {messages, profile?, model?} -> {reply, taste_changed, profile_changed}) ----
+  // ---------- per-profile connection store (token + Claude key + on/off + Opus) ----------
+  // Scoped to the signed-in profile (keyed by feed hash; 'default' logged out) so credentials
+  // never leak across profiles; a 45-day freshness TTL ages out dormant connections.
+  // Shape: {token, key, enabled, opus, ts}.
+  CONN_TTL_MS = 45 * 24 * 60 * 60 * 1000;
+  connKey(p) { p = (p === undefined) ? this.state.profile : p; return 'la-conn:' + ((p && p.hash) || 'default'); }
+  readConn(p) {
+    try {
+      const raw = localStorage.getItem(this.connKey(p));
+      if (!raw) return {};
+      const c = JSON.parse(raw);
+      if (!c || typeof c !== 'object') return {};
+      if (c.ts && (Date.now() - c.ts) > this.CONN_TTL_MS) { try { localStorage.removeItem(this.connKey(p)); } catch (e) {} return {}; }
+      return c;
+    } catch (e) { return {}; }
+  }
+  writeConn(patch, p) {
+    try {
+      const next = { ...this.readConn(p), ...patch, ts: Date.now() };
+      const empty = !next.token && !next.key && !next.enabled && !next.opus;
+      empty ? localStorage.removeItem(this.connKey(p)) : localStorage.setItem(this.connKey(p), JSON.stringify(next));
+    } catch (e) {}
+  }
+  touchConn() { try { const c = this.readConn(); if (c.token || c.key) this.writeConn({}); } catch (e) {} }
+  // One-time migration: fold the redesign's shared la-concierge-cfg (and any pre-redesign global
+  // keys) into the active profile's slot, then delete them so nothing bleeds across profiles.
+  migrateLegacyConn() {
+    try {
+      try { localStorage.removeItem('la-backend-url'); } catch (e) {}
+      const patch = {};
+      try {
+        const cfg = JSON.parse(localStorage.getItem('la-concierge-cfg') || 'null');
+        if (cfg && typeof cfg === 'object') {
+          if (cfg.sharedToken) patch.token = cfg.sharedToken;
+          if (cfg.apiKey) patch.key = cfg.apiKey;
+          if (cfg.apiKeyOn) patch.enabled = true;
+          if (cfg.opusOn) patch.opus = true;
+        }
+      } catch (e) {}
+      const tok = localStorage.getItem('la-concierge-token'); if (tok && !patch.token) patch.token = tok;
+      const key = localStorage.getItem('la-claude-api-key'); if (key && !patch.key) patch.key = key;
+      if (localStorage.getItem('la-claude-api-enabled') === '1') patch.enabled = true;
+      if (localStorage.getItem('la-claude-use-opus') === '1') patch.opus = true;
+      if (Object.keys(patch).length && !localStorage.getItem(this.connKey())) this.writeConn(patch);
+      for (const k of ['la-concierge-cfg', 'la-concierge-token', 'la-claude-api-key', 'la-claude-api-enabled', 'la-claude-use-opus']) { try { localStorage.removeItem(k); } catch (e) {} }
+    } catch (e) {}
+  }
+  rawClaudeKey() { try { return (this.readConn().key || '').trim(); } catch (e) { return ''; } }
+  apiEnabled() { try { return !!this.readConn().enabled; } catch (e) { return false; } }
+  useOpus() { try { return !!this.readConn().opus; } catch (e) { return false; } }
+  byokKey() { const k = this.rawClaudeKey(); return (this.apiEnabled() && k) ? k : ''; }
+
+  // ---------- backend health ping + deploy fingerprint ----------
+  // "Connected" means the Worker answered a ping with these credentials — not just that a token
+  // is typed. The ping's `v` is the live build; day-prefix-older than MIN_BACKEND_VERSION flags
+  // "old build — redeploy" (wrangler deploys are manual and can silently not land).
+  MIN_BACKEND_VERSION = '2026-07-24-react2';
+  async pingBackend() {
+    if (!this.BACKEND_URL) { this.setState({ backendStatus: null }); return; }
+    try {
+      const res = await fetch(this.BACKEND_URL, { method: 'POST', headers: this.backendHeaders(), body: JSON.stringify({ ping: true }) });
+      let ver = null;
+      if (res.ok) { try { const j = await res.json(); ver = String((j && j.v) || ''); } catch (e) { ver = ''; } }
+      this.setState({ backendStatus: res.ok ? 'ok' : 'err', backendVer: ver });
+      if (res.ok) this.touchConn();
+    } catch (e) { this.setState({ backendStatus: 'err' }); }
+  }
+  backendStale() {
+    const v = this.state.backendVer;
+    return v !== null && v !== undefined && String(v).slice(0, 10) < this.MIN_BACKEND_VERSION.slice(0, 10);
+  }
+  backendStaleNote() {
+    return 'the Worker is an old build (' + (this.state.backendVer || 'pre-2026-07-20') +
+      '; this page expects ' + this.MIN_BACKEND_VERSION + ' or newer — ' +
+      (this.isOwner() ? 'redeploy backend/ from the latest main, see backend/README.md' : 'tell Ari the concierge backend needs a redeploy') + ')';
+  }
+
+  // ---- concierge chat ----
   backendHeaders() {
     const h = { 'content-type':'application/json' };
-    const tok = (this.state.sharedToken||'').trim(); if (tok) h.authorization = 'Bearer ' + tok;
-    const key = (this.state.apiKey||'').trim(); if (this.state.apiKeyOn && key) h['x-anthropic-key'] = key;
+    if (this.BACKEND_TOKEN) h.authorization = 'Bearer ' + this.BACKEND_TOKEN;
+    const key = this.byokKey(); if (key) h['x-anthropic-key'] = key;
     return h;
   }
-  chatConnected() { return !!((this.state.apiKeyOn && (this.state.apiKey||'').trim()) || (this.state.sharedToken||'').trim()); }
+  chatConnected() { return this.state.backendStatus === 'ok' || (this.state.backendStatus == null && !!(this.BACKEND_TOKEN || this.byokKey())); }
   chatScrollDown() { setTimeout(() => { const el = document.getElementById('la-chat-thread'); if (el) el.scrollTop = el.scrollHeight; }, 60); }
   setChat(msgs) { this.setState({ chatMsgs: msgs }); try { localStorage.setItem('la-chat-v1', JSON.stringify(msgs.slice(-40))); } catch (e) {} this.chatScrollDown(); }
   toggleChat = () => {
@@ -1331,34 +1417,225 @@ class Component extends DCLogic {
   closeChat = () => this.setState({ chatOpen:false });
   onChatInput = (e) => { const v = e.target.value; this.setState({ chatInput:v }); };
   onChatKey = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.sendChat(); } };
+  // Streamed request: NDJSON progress (delta/status/reset/hello/error/done/tick) grows a live
+  // bubble; `done` carries the authoritative reply. Legacy JSON workers answer one blob.
+  async askBackend(msgs) {
+    const body = { messages: msgs.filter(m => !m.welcome).slice(-12).map(m => ({ role:m.role, content:String(m.content||'') })), stream: true };
+    const p = this.state.profile; if (p && p.hash) body.profile = p.hash;
+    if (this.useOpus()) body.model = 'opus';
+    this._abort = new AbortController();
+    try {
+      const res = await fetch(this.BACKEND_URL, { method:'POST', headers:this.backendHeaders(), body: JSON.stringify(body), signal: this._abort.signal });
+      if (res.status === 401) { this.setState({ backendStatus:'err' }); const e = new Error('unauthorized'); e.code = 401; throw e; }
+      if (!res.ok) {
+        // The worker answered — this one generation failed. Surface its own {error, detail}.
+        let detail = '';
+        try { const ed = await res.json(); detail = String((ed && (ed.detail || ed.error)) || '').slice(0, 180); } catch (e2) {}
+        const e = new Error('backend ' + res.status + (detail ? ': ' + detail : ''));
+        e.code = res.status; e.detail = detail;
+        throw e;
+      }
+      this.setState({ backendStatus:'ok' });
+      this.touchConn();
+      const ct = (res.headers.get('content-type') || '').toLowerCase();
+      if (ct.indexOf('ndjson') === -1) {
+        const data = await res.json();
+        this._lastTasteChanged = !!(data && (data.taste_changed || data.profile_changed || data.digest_changed));
+        const reply = data && (data.reply || (Array.isArray(data.content) && data.content.map(b => b && b.text).filter(Boolean).join('\n')));
+        if (!reply) throw new Error('empty');
+        return reply;
+      }
+      return await this._readChatStream(res);
+    } finally { this._abort = null; }
+  }
+  async _readChatStream(res) {
+    const reader = res.body.getReader();
+    const dec = new TextDecoder();
+    let tail = '', live = '', isStatus = false, fin = null;
+    try {
+      for (;;) {
+        const { done: eof, value } = await reader.read();
+        const lines = (tail + (eof ? dec.decode() : dec.decode(value, { stream: true }))).split('\n');
+        tail = eof ? '' : lines.pop();
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          let ev; try { ev = JSON.parse(line); } catch (e) { continue; }
+          if (ev.t === 'delta') {
+            if (isStatus) { live = ''; isStatus = false; }
+            live += String(ev.text || '');
+            this._setLive(live);
+          } else if (ev.t === 'reset') { live = ''; isStatus = false; this._setLive(''); }
+          else if (ev.t === 'status') { live = ''; isStatus = true; this._setLive('*' + String(ev.msg || 'working') + '*'); }
+          else if (ev.t === 'hello') { if (ev.v) this.setState({ backendVer: String(ev.v) }); }
+          else if (ev.t === 'error') {
+            const detail = String(ev.detail || ev.error || '').slice(0, 180);
+            const e = new Error('backend ' + (ev.code || 502) + (detail ? ': ' + detail : ''));
+            e.code = ev.code || 502; e.detail = detail;
+            throw e;
+          } else if (ev.t === 'done') fin = ev;
+          // 'tick' = heartbeat, ignored
+        }
+        if (eof) break;
+      }
+    } finally { this._clearLiveTimer(); }
+    if (!fin) throw new Error('stream ended early');
+    this._lastTasteChanged = !!(fin.taste_changed || fin.profile_changed || fin.digest_changed);
+    const reply = String(fin.reply || '');
+    if (!reply) throw new Error('empty');
+    return reply;
+  }
+  // Throttled live-bubble updates — deltas arrive faster than markdown re-render is worth.
+  _setLive(text) {
+    this._liveText = text;
+    if (this._liveTimer) return;
+    this._liveTimer = setTimeout(() => { this._liveTimer = null; this.setState({ liveReply: this._liveText }); }, 80);
+  }
+  _clearLiveTimer() { if (this._liveTimer) { clearTimeout(this._liveTimer); this._liveTimer = null; } }
+  stopChat = () => { if (this._abort) { try { this._abort.abort(); } catch (e) {} } };
+  onGoStop = () => { if (this.state.chatBusy) this.stopChat(); else this.sendChat(); };
   sendChat = async () => {
     const q = (this.state.chatInput||'').trim();
     if (!q || this.state.chatBusy) return;
     const msgs = [...this.state.chatMsgs, { role:'user', content:q }];
     this.setChat(msgs); this.setState({ chatInput:'', chatBusy:true });
-    if (!this.chatConnected()) {
-      this.setChat([...msgs, { role:'assistant', welcome:true, content:'I\u2019m not connected yet — add the shared access token from Ari (or your own Claude key) under the ◆ connection settings up top, then ask again. Everything else on the page works without me.' }]);
-      this.setState({ chatBusy:false }); return;
-    }
-    try {
-      const body = { messages: msgs.filter(m => !m.welcome).slice(-12).map(m => ({ role:m.role, content:m.content })) };
-      const p = this.state.profile; if (p && p.hash) body.profile = p.hash;
-      if (this.state.opusOn) body.model = 'opus';
-      const res = await fetch(this.BACKEND_URL, { method:'POST', headers:this.backendHeaders(), body: JSON.stringify(body) });
-      if (!res.ok) {
-        const why = res.status === 401 ? 'not authorized — check the token or key under ◆' : ('backend error ' + res.status);
-        this.setChat([...msgs, { role:'assistant', welcome:true, content:'⚠︎ That didn\u2019t go through (' + why + '). Try again in a moment.' }]);
-        this.setState({ chatBusy:false }); return;
+    if (this.chatConnected()) {
+      try {
+        const reply = await this.askBackend(msgs);
+        if (this.backendStale()) this.pingBackend();   // a redeploy mid-session clears "old build"
+        const out = [...msgs, { role:'assistant', content: reply }];
+        if (this._lastTasteChanged) {
+          this._lastTasteChanged = false;
+          this.setTasteDirty(true);
+          out.push({ role:'assistant', welcome:true, content:'✓ Saved to your profile. Hit “Ranks & Digest” in Settings (☰) to re-rank with it — takes a minute or two.' });
+        }
+        this.setChat(out); this.setState({ chatBusy:false, liveReply:null });
+        return;
+      } catch (e) {
+        this._clearLiveTimer();
+        if (e && e.name === 'AbortError') { this.setChat([...msgs, { role:'assistant', content:'■ stopped.' }]); this.setState({ chatBusy:false, liveReply:null }); return; }
+        if (!(e && e.code) || this.backendStale()) this.pingBackend();
+        const detail = (e && e.detail) ? ' — ' + e.detail : '';
+        const stale = this.backendStale() ? '. Likely cause: ' + this.backendStaleNote() + ' —' : ' —';
+        const note = (e && e.code === 401)
+          ? '⚠︎ Not authorized — check the access token or your Claude key under the ◆ connection settings. Answering with the offline filter:'
+          : this.byokKey()
+            ? (this.backendStale()
+                ? '⚠︎ That failed on your Claude API key' + detail + '. Likely cause: ' + this.backendStaleNote() + ' — the key is probably fine. Answering with the offline filter:'
+                : '⚠︎ That failed on your Claude API key' + detail + ' (it may be invalid, rate-limited, or out of credit). Switch it OFF under ◆ to use the shared token. Answering with the offline filter:')
+            : (e && e.code)
+              ? '⚠︎ Concierge backend error ' + e.code + detail + stale + ' answering with the offline filter; your next message will try the concierge again:'
+              : '⚠︎ Concierge backend unreachable' + stale + ' answering with the offline filter; your next message will try the concierge again:';
+        this.setChat([...msgs, { role:'assistant', welcome:true, content: note }]);
+        this.setState({ liveReply:null });
       }
-      const j = await res.json();
-      const out = [...msgs, { role:'assistant', content: (j && j.reply) || '(no answer)' }];
-      if (j && (j.taste_changed || j.profile_changed || j.digest_changed)) out.push({ role:'assistant', welcome:true, content:'✓ Saved to your profile. Hit “Ranks & Digest” in Settings (☰) to re-rank with it — takes a minute or two.' });
-      this.setChat(out); this.setState({ chatBusy:false });
-    } catch (e) {
-      this.setChat([...msgs, { role:'assistant', welcome:true, content:'⚠︎ Couldn\u2019t reach the concierge backend — check your connection and try again.' }]);
-      this.setState({ chatBusy:false });
+    } else if (!this._backendHinted) {
+      this._backendHinted = true;
+      this.setChat([...msgs, { role:'assistant', welcome:true, content:'I’m not connected yet — add the shared access token from Ari (or your own Claude key) under the ◆ connection settings up top. Meanwhile the offline filter can still search the catalog:' }]);
     }
+    this.runLocal(q);
   };
+
+  // ---------- offline "Fast filter" engine (no LLM): NL → filter spec → Explore ----------
+  applySpec(spec) {
+    let list = this.ALL.filter(e => e.iso >= this.TODAY);
+    const has = (a) => Array.isArray(a) && a.length > 0;
+    const low = (s) => (s || '').toLowerCase();
+    if (has(spec.keywords)) {
+      const kws = spec.keywords.map(low);
+      list = list.filter(e => { const hay = low(e.title+' '+e.venue+' '+e.genre+' '+e.cat+' '+e.lineup.join(' ')); return kws.some(k => hay.includes(k)); });
+    }
+    if (has(spec.categories)) { const cs = spec.categories.map(low); list = list.filter(e => cs.includes(low(e.cat))); }
+    if (has(spec.genres)) { const gs = spec.genres.map(low); list = list.filter(e => gs.some(g => low(e.genre).includes(g) || (e.genres||[]).some(x => low(x) === g))); }
+    if (has(spec.vibes)) { const vs = spec.vibes.map(low); list = list.filter(e => (e.vibes||[]).some(v => vs.includes(low(v)))); }
+    if (has(spec.settings)) { const ss = spec.settings.map(low); list = list.filter(e => (e.settings||[]).some(x => ss.includes(low(x)))); }
+    if (has(spec.regions)) { const rs = spec.regions.map(low); list = list.filter(e => (e.regions||[]).some(r => rs.includes(low(r)))); }
+    if (has(spec.neighborhoods)) { const hs = spec.neighborhoods.map(low); list = list.filter(e => hs.includes(low(e.hood))); }
+    if (has(spec.venues)) { const vs = spec.venues.map(low); list = list.filter(e => vs.some(v => low(e.venue).includes(v))); }
+    if (typeof spec.priceMax === 'number') list = list.filter(e => e.pmin != null && e.pmin <= spec.priceMax);
+    if (spec.freeOnly) list = list.filter(e => e.pmin === 0);
+    const dow = (iso) => this.fmt(iso, '').wd;
+    if (spec.weekend) { const [wa, wb] = this.weekendRange(); const a = wa < this.TODAY ? this.TODAY : wa; list = list.filter(e => e.iso >= a && e.iso <= wb); }
+    if (spec.tonight) list = list.filter(e => e.iso === this.TODAY);
+    if (has(spec.days)) { const ds = spec.days.map(d => d.toLowerCase()); list = list.filter(e => ds.includes(dow(e.iso).toLowerCase())); }
+    if (spec.raPickOnly) list = list.filter(e => e.ra);
+    if (spec.afterhoursOnly) list = list.filter(e => e.ah);
+    if (typeof spec.minScore === 'number') list = list.filter(e => e.score >= spec.minScore);
+    return list.sort(spec.sortBy === 'date' ? ((x,y) => x.iso<y.iso?-1:x.iso>y.iso?1:0) : this.rankCmp);
+  }
+  localSpec(text) {
+    const t = ' ' + String(text).toLowerCase() + ' ';
+    const spec = {}; const bits = [];
+    if (/\btonight\b|\btoday\b/.test(t)) { spec.tonight = true; bits.push('tonight'); }
+    else if (/\bthis weekend\b|\bweekend\b/.test(t)) { spec.weekend = true; bits.push('this weekend'); }
+    else {
+      const WDm = { sunday:'Sun', sun:'Sun', monday:'Mon', mon:'Mon', tuesday:'Tue', tue:'Tue', tues:'Tue', wednesday:'Wed', wed:'Wed', thursday:'Thu', thu:'Thu', thurs:'Thu', friday:'Fri', fri:'Fri', saturday:'Sat', sat:'Sat' };
+      const days = [];
+      for (const k in WDm) if (new RegExp('\\b' + k + '\\b').test(t) && !days.includes(WDm[k])) days.push(WDm[k]);
+      if (days.length) { spec.days = days; bits.push(days.join('/')); }
+    }
+    const hoods = (this.META && this.META.neighborhoods) || [];
+    const hsel = [];
+    for (const h of hoods) if (h && t.includes(' ' + String(h).toLowerCase())) hsel.push(h);
+    if (hsel.length) { spec.neighborhoods = hsel; bits.push('in ' + hsel.join('/')); }
+    const cats = new Set();
+    if (/\bfilm\b|\bmovie\b|\bcinema\b|\bscreening\b|\brep\b/.test(t)) cats.add('Film');
+    if (/\bcomedy\b|\bstand-?up\b/.test(t)) cats.add('Comedy');
+    if (/\btheat(er|re)\b|\bplay\b|\bmusical\b/.test(t)) cats.add('Theater');
+    if (/\bpart(y|ies)\b|\bclub\b|\brave\b|\bdance\b|\bwarehouse\b|\bdj\b|\belectronic\b|\bhouse\b|\btechno\b|\bdisco\b|\bacid\b/.test(t)) { cats.add('Electronic'); cats.add('Party'); }
+    if (/\blive music\b|\bband\b|\bconcert\b|\bgig\b|\bindie\b|\brock\b|\bjazz\b/.test(t)) cats.add('Live Music');
+    if (/\bbeer\b|\bbrewery\b|\bmarket\b|\bflea\b/.test(t)) cats.add('Food');
+    if (cats.size) { spec.categories = [...cats]; bits.push([...cats].join('/')); }
+    const settings = ['rooftop','warehouse','cinema','listening bar','speakeasy','outdoor','pool'].filter(w => t.includes(' ' + w)).map(x => x === 'listening bar' ? 'listening-bar' : x);
+    if (settings.length) { spec.settings = settings; bits.push(settings.join('/')); }
+    const vibes = [];
+    if (/\bday part(y|ies)\b|\bdaytime\b/.test(t)) vibes.push('day-party');
+    if (/\bsunset\b|\bgolden hour\b/.test(t)) vibes.push('sunset');
+    if (/\b(all[- ]?vinyl|vinyl)\b/.test(t)) vibes.push('all-vinyl');
+    if (/\bqueer\b|\bpride\b|\blgbtq\b/.test(t)) vibes.push('queer');
+    if (/\bdrag\b/.test(t)) vibes.push('drag');
+    if (vibes.length) { spec.vibes = vibes; bits.push(vibes.map(v => v.replace(/-/g, ' ')).join('/')); }
+    const regions = ['westside','dtla','valley','hollywood','south-bay','eastside'].filter(w => t.includes(w));
+    if (regions.length) { spec.regions = regions; bits.push(regions.join('/')); }
+    if (/\bfree\b|\bno cover\b/.test(t)) { spec.freeOnly = true; bits.push('free'); }
+    if (/\bafterhours\b|\bafter-?hours\b/.test(t)) { spec.afterhoursOnly = true; bits.push('afterhours'); }
+    if (/\bra pick\b|\bresident advisor\b/.test(t)) spec.raPickOnly = true;
+    const pm = t.match(/\$\s?(\d{1,4})/); if (pm) { spec.priceMax = parseInt(pm[1], 10); bits.push('under $' + pm[1]); }
+    if (/\bbest\b|\btop\b|\bmust\b|\bhighly\b|\brecommend/.test(t)) { spec.minScore = 7; bits.push('top-rated'); }
+    spec.sortBy = /\bsoon|\bnext\b|\bearliest\b|by date|chronolog/.test(t) ? 'date' : 'rank';
+    const planRe = /\bplan\b|\bitinerary\b|night out|make (a|it a) night|dinner (then|and|&|before|first)|then (a|the) (show|set|gig|movie|party|dj)|sort me out|big night|whole night/;
+    const diningRe = /where (to|should|can).*(eat|dinner|lunch|brunch|food)|\b(dinner|lunch|brunch|restaurant|restaurants|reservation|somewhere to eat)\b/;
+    spec.intent = planRe.test(t) ? 'plan' : (diningRe.test(t) ? 'dining' : 'filter');
+    const got = ['tonight','weekend','days','neighborhoods','categories','genres','vibes','settings','regions','keywords','freeOnly','afterhoursOnly','raPickOnly','priceMax','minScore']
+      .some(k => spec[k] != null && spec[k] !== false && !(Array.isArray(spec[k]) && !spec[k].length));
+    if (!got && spec.intent === 'filter') {
+      const stop = new Set(['the','a','an','in','on','at','for','to','of','and','or','me','i','show','find','any','this','near','what','whats','events','event','la','something','want','wanna','go','out']);
+      spec.keywords = String(text).toLowerCase().replace(/[^a-z0-9$ ]/g, ' ').split(/\s+/).filter(w => w && !stop.has(w));
+    }
+    spec.summary = (bits.length ? bits.join(', ') : String(text).trim()).toLowerCase().slice(0, 28);
+    return spec;
+  }
+  runLocal(text) {
+    let spec;
+    try { spec = this.localSpec(text); } catch (e) { spec = { intent:'filter', sortBy:'rank', summary:String(text).trim().slice(0,28), keywords:[String(text).toLowerCase()] }; }
+    if (spec.intent !== 'filter') {
+      this.setChat([...this.state.chatMsgs, { role:'assistant', welcome:true, content: spec.intent === 'plan'
+        ? 'Planning a whole night (dinner → show → afters) needs the live concierge — connect under ◆ and ask again. Meanwhile I can filter shows: try `techno this weekend` or `free shows near me`.'
+        : 'Dining picks need the live concierge — connect under ◆ and ask again. For events, try `techno this weekend` or a neighborhood.' }]);
+      this.setState({ chatBusy:false });
+      return;
+    }
+    const list = this.applySpec(spec);
+    const label = spec.summary || String(text).trim().toLowerCase().slice(0, 28);
+    const top = list.slice(0, 3).map(e => { const f = this.fmt(e.iso, e.time); return '- **' + e.title + '** — ' + f.wd + ' ' + f.md + ' · ' + e.venue; }).join('\n');
+    const reply = list.length
+      ? 'Offline filter: **' + list.length + '** match' + (list.length === 1 ? '' : 'es') + ' for “' + label + '” — the Explore table is filtered to them.' + (top ? '\n' + top : '')
+      : 'Offline filter: nothing matched “' + label + '” — try a genre, a neighborhood, or a vibe (`techno`, `silver lake`, `day party`).';
+    this.setChat([...this.state.chatMsgs, { role:'assistant', content: reply }]);
+    this.setState({ chatBusy:false, chatFiltered: list.length ? list.map(e => e.id) : null, chatFilterLabel: list.length ? label : '', view: list.length ? 'explore' : this.state.view, exploreSort: spec.sortBy === 'date' ? 'date' : 'match', exploreDir: 1 });
+  }
+  clearChatFilter = () => this.setState({ chatFiltered:null, chatFilterLabel:'' });
+  setTasteDirty(v) { const p = this.state.profile; if (!p || !p.hash) return; try { v ? localStorage.setItem('la-dirty-' + p.hash, '1') : localStorage.removeItem('la-dirty-' + p.hash); } catch (e) {} this.forceUpdate(); }
+  isTasteDirty() { const p = this.state.profile; if (!p || !p.hash) return false; try { return localStorage.getItem('la-dirty-' + p.hash) === '1'; } catch (e) { return false; } }
   resetReactions = () => { this.setState({ reactions:{} }); try { localStorage.removeItem('la-fp-reactions-v1'); } catch (e) {} };
 
   // ---------- digest reader — renders ./digests/<hash>/latest.md (the full editorial digest) ----------
@@ -1372,7 +1649,12 @@ class Component extends DCLogic {
   }
   loadDigest() {
     const p = this.state.profile;
-    if (p && p.hash) return this._tryDigest('./digests/' + p.hash + '/latest.md').then(ok => ok ? true : this._tryDigest('./digests/latest.md'));
+    this.DIGEST_FALLBACK = false;
+    if (p && p.hash) return this._tryDigest('./digests/' + p.hash + '/latest.md').then(ok => {
+      if (ok) return true;
+      this.DIGEST_FALLBACK = true;   // no personal digest yet — say so instead of passing the house doc off as theirs
+      return this._tryDigest('./digests/latest.md');
+    });
     return this._tryDigest('./digests/latest.md');
   }
   escHtml(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -1517,11 +1799,13 @@ class Component extends DCLogic {
       try { localStorage.setItem('la-profile', JSON.stringify(prof)); } catch (e) {}
       this.setState({ profile:prof, loggedIn:true, settingsOpen:false });
       this.setReactions({});   // chips/less are per-person — server stars for this profile ride the feed
+      this.BACKEND_TOKEN = this.readConn(prof).token || '';   // connection is per-profile
+      this.setState({ backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); });
       this.loadDigest(); this.checkSpotify(); this.maybeOnboard(prof);
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'' }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
   updateMyDigest = async () => {
     const p = this.state.profile;
     if (!p || !p.hash) { this.showToast('Sign in first — updates re-rank your own feed', null); return; }
@@ -1582,7 +1866,7 @@ class Component extends DCLogic {
       { k:'feed generated', v: this.fmtStamp(this.META.generated_at) },
     ];
   }
-  openApiModal = () => this.setState({ apiModal:true, settingsOpen:false });
+  openApiModal = () => { const c = this.readConn(); this.setState({ apiModal:true, settingsOpen:false, apiKey:c.key||'', sharedToken:c.token||'', apiKeyOn:!!c.enabled, opusOn:!!c.opus }); if (this.BACKEND_URL) this.pingBackend(); };
   closeApiModal = () => this.setState({ apiModal:false });
   toggleApiKey = () => this.setState(s => ({ apiKeyOn:!s.apiKeyOn }));
   toggleOpus = () => this.setState(s => ({ opusOn:!s.opusOn }));
@@ -1591,9 +1875,13 @@ class Component extends DCLogic {
   saveApi = () => {
     const key = (this.state.apiKey || '').trim();
     if (this.state.apiKeyOn && key && !/^sk-ant-/.test(key)) { this.showToast('That doesn’t look like a Claude API key (sk-ant-…) — fix it or switch the key OFF', null); return; }
-    try { localStorage.setItem('la-concierge-cfg', JSON.stringify({ apiKey:this.state.apiKey, sharedToken:this.state.sharedToken, apiKeyOn:this.state.apiKeyOn, opusOn:this.state.opusOn })); } catch(e){}
+    const tok = (this.state.sharedToken || '').trim();
+    this.writeConn({ token: tok, key: key, enabled: !!this.state.apiKeyOn, opus: !!this.state.opusOn });
+    this.BACKEND_TOKEN = tok;
     this.setState({ apiModal:false });
-    this.showToast('Concierge settings saved on this device', null);
+    const via = (this.state.apiKeyOn && key) ? 'your Claude API key' : (tok ? 'the shared access token' : null);
+    this.showToast(via ? 'Saved — concierge will use ' + via + ' (checking…)' : 'Saved — no key or token set', null);
+    this.pingBackend();
   };
   onApiKeyDown = (e) => { if (e.key === 'Enter') { e.preventDefault(); this.saveApi(); } };
   openTaste = (tab) => this.setState({ tasteModal:true, tasteTab: tab||'taste', settingsOpen:false });
@@ -1614,7 +1902,7 @@ class Component extends DCLogic {
     const p = this.state.profile;
     if (!(p && p.hash)) { this.showToast('Log in first, then connect Spotify', null); return; }
     let url = this.spotifyUrl('/spotify/login?profile=' + p.hash);
-    const tok = (this.state.sharedToken||'').trim(); if (tok) url += '&t=' + encodeURIComponent(tok);
+    if (this.BACKEND_TOKEN) url += '&t=' + encodeURIComponent(this.BACKEND_TOKEN);
     try { window.open(url, '_blank', 'noopener'); } catch (e) { location.href = url; }
     this.showToast('Opening Spotify — approve, then come back', null);
     let n = 0; clearInterval(this._spotifyPoll);
@@ -1624,9 +1912,7 @@ class Component extends DCLogic {
     const p = this.state.profile;
     if (!(p && p.hash)) return;
     try {
-      const headers = { 'content-type':'application/json' };
-      const tok = (this.state.sharedToken||'').trim(); if (tok) headers.authorization = 'Bearer ' + tok;
-      await fetch(this.spotifyUrl('/spotify/disconnect'), { method:'POST', headers, body: JSON.stringify({ profile:p.hash }) });
+      await fetch(this.spotifyUrl('/spotify/disconnect'), { method:'POST', headers: this.backendHeaders(), body: JSON.stringify({ profile:p.hash }) });
     } catch (e) {}
     this.setState({ spotifyStatus:false, spotifyName:'' });
     this.showToast('Spotify disconnected', null);
@@ -1754,6 +2040,7 @@ class Component extends DCLogic {
     else if (st === 'stale') { calNote = 'The live Worker build predates calendar feeds — redeploy it (cd backend && npx wrangler deploy), then reopen this.'; calNoteColor = '#9a6a1a'; }
     else if (st === 'down') { calNote = 'Couldn’t reach the calendar feed just now — subscribe links hidden; the .ics snapshot below still works.'; calNoteColor = '#b4453a'; }
     else if (savedMode && savedN === 0) calNote = 'Star events (the ☆ on any event) to build this calendar — everyone sees your stars.';
+    else if (savedMode && typeof this.state.backendVer === 'string' && this.state.backendVer && this.state.backendVer < '2026-07-21-star1') { calNote = 'Starred calendars need Worker build 2026-07-21-star1 or newer — redeploy (cd backend && npx wrangler deploy). The .ics snapshot works now.'; calNoteColor = '#9a6a1a'; }
     else if (st === 'ok') { calCanSubscribe = true; calNote = savedMode ? 'A stable link: it auto-updates as you star (and unstar) events and drops past ones — no re-subscribe needed.' : ''; }
     else calNote = 'checking the live feed…';
     const who = (p && (p.name || p.u)) || null;
@@ -1809,7 +2096,7 @@ class Component extends DCLogic {
     const nf = { ...f }; nf[axis] = inc; nf['x'+axis] = exc;
     this.setState({ exFilters: nf });
   }
-  exReset = () => this.setState({ exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] }, exFrom:'', exTo:'', exploreSearch:'' });
+  exReset = () => this.setState({ exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] }, exFrom:'', exTo:'', exploreSearch:'', chatFiltered:null, chatFilterLabel:'' });
   exActiveCount() {
     const f = this.state.exFilters;
     let n = this.EX_AXES.reduce((a, ax) => a + f[ax].length + f['x'+ax].length, 0);
@@ -2068,10 +2355,12 @@ class Component extends DCLogic {
       chatOpen:this.state.chatOpen, closeChat:this.closeChat, sendChat:this.sendChat,
       chatInput:this.state.chatInput, onChatInput:this.onChatInput, onChatKey:this.onChatKey,
       chatBusy:this.state.chatBusy, chatW: mob ? '100vw' : '400px',
-      chatConnLabel: this.chatConnected() ? 'connected' : 'not connected',
+      chatConnLabel: (() => { const b = this.state.backendStatus; if (b === 'ok') return this.backendStale() ? 'old build' : (this.byokKey() ? 'your key' : 'connected'); return b === 'err' ? 'reconnect' : 'connecting…'; })(),
       chatPlaceholder: this.chatConnected() ? 'ask for a plan, a rec, a taste tweak…' : 'ask anything — I\u2019ll explain how to connect',
-      chatGoBg: (this.state.chatInput||'').trim() && !this.state.chatBusy ? '#2b5cd9' : '#c3c1b7',
-      chatRows: this.state.chatMsgs.map(m => m.role === 'user'
+      chatGoBg: this.state.chatBusy ? '#b4453a' : ((this.state.chatInput||'').trim() ? '#2b5cd9' : '#c3c1b7'),
+      goLabel: this.state.chatBusy ? '■' : '→', goTitle: this.state.chatBusy ? 'Stop' : 'Send', onGoStop: this.onGoStop,
+      chatThinking: this.state.chatBusy && !this.state.liveReply,
+      chatRows: (this.state.liveReply ? this.state.chatMsgs.concat([{ role:'assistant', content:this.state.liveReply, live:true }]) : this.state.chatMsgs).map(m => m.role === 'user'
         ? { text:m.content, wrap:'display:flex; justify-content:flex-end; padding:3px 0;', bubble:'max-width:86%; background:#1b1a17; color:#fff; border-radius:14px 14px 4px 14px; padding:10px 13px; font:400 13px/1.5 -apple-system,system-ui,sans-serif; white-space:pre-wrap; word-break:break-word;' }
         : { text: React.createElement('div', { className: m.welcome ? 'chat-intro' : '', onClick: m.welcome ? ((e) => { const c = e.target && e.target.closest && e.target.closest('code'); if (c && c.textContent) this.useStarter(c.textContent); }) : undefined, dangerouslySetInnerHTML: { __html: this.renderChatHtml(m.content) } }), wrap:'display:flex; justify-content:flex-start; padding:3px 0;', bubble:'max-width:92%; background:#fff; border:1px solid #e4e2d9; color:#26251f; border-radius:14px 14px 14px 4px; padding:10px 13px; font:400 13px/1.55 -apple-system,system-ui,sans-serif; word-break:break-word;' }),
       isUpdating: !!this.state.updating, notUpdating: !this.state.updating, updElapsed: this.elapsedLabel(),
@@ -2089,7 +2378,8 @@ class Component extends DCLogic {
       // rank_key as final_rank; see build_dashboard.build_front_page). The page never re-ranks:
       // it renders the server order, only sinking events the person downvoted. The client pool
       // is the fallback for a feed with no slate.
-      const heroSrv = this.lessSink(this.resolveKeys((FP.hero || {})[lens]).filter(e => e.iso >= T));
+      const [hwa, hwb] = this.windowFor(lens);
+      const heroSrv = this.lessSink(this.resolveKeys((FP.hero || {})[lens]).filter(e => e.iso >= T && e.iso >= hwa && e.iso <= hwb));
       const top5 = heroSrv.length ? heroSrv.slice(0, 5) : pool.slice(0, 5);
       const lead = top5[0] ? { ...this.cardFor(top5[0]), rank:'01', photoCol:this.photoStyle(top5[0], 'flex:0 0 210px; align-self:stretch; min-height:230px;') } : null;
       out.hasLead = !!lead; out.lead = lead || {};
@@ -2184,27 +2474,34 @@ class Component extends DCLogic {
       const q = this.state.exploreSearch.trim().toLowerCase();
       const upcoming = this.ALL.filter(e => e.iso>=T);
       let rows = upcoming.filter(e => this.exPass(e));
+      if (this.state.chatFiltered) { const cf = new Set(this.state.chatFiltered); rows = rows.filter(e => cf.has(e.id)); }
       if (q) rows = rows.filter(e => (e.title+' '+e.venue+' '+e.hood+' '+e.genre+' '+e.cat+' '+e.source+' '+e.lineup.join(' ')).toLowerCase().includes(q));
       const sk = this.state.exploreSort;
       const lessE = e => this.state.reactions[e.id]==='less' ? 1 : 0;
       const strSort = (fn) => (x,y) => fn(x).localeCompare(fn(y)) || y.score-x.score || (x.iso<y.iso?-1:1);
-      rows.sort(sk==='date' ? ((x,y) => x.iso<y.iso?-1:x.iso>y.iso?1:0)
+      const dir = this.state.exploreDir || 1;
+      const base = sk==='date' ? ((x,y) => x.iso<y.iso?-1:x.iso>y.iso?1:0)
         : sk==='title' ? ((x,y) => x.title.localeCompare(y.title))
         : sk==='hood' ? strSort(e => e.hood)
         : sk==='cat' ? strSort(e => e.cat)
         : sk==='source' ? strSort(e => e.source)
-        : ((x,y) => lessE(x)-lessE(y) || this.rankCmp(x,y)));
-      out.exploreRows = rows.slice(0,400).map((e,i) => ({ ...this.cardFor(e), rank:String(i+1) }));
+        : ((x,y) => lessE(x)-lessE(y) || this.rankCmp(x,y));
+      rows.sort(dir === 1 ? base : (x,y) => -base(x,y));
+      const EX_CAP = 1200;
+      out.exploreRows = rows.slice(0, EX_CAP).map((e,i) => ({ ...this.cardFor(e), rank:String(i+1) }));
+      out.exploreClipped = rows.length > EX_CAP ? ('showing the first ' + EX_CAP + ' — narrow with filters or search') : '';
       out.exploreEmpty = rows.length===0;
-      out.arrowDate = sk==='date' ? '↓' : ''; out.arrowTitle = sk==='title' ? '↓' : ''; out.arrowScore = sk==='match' ? '↓' : '';
-      out.arrowHood = sk==='hood' ? '↓' : ''; out.arrowCat = sk==='cat' ? '↓' : ''; out.arrowSource = sk==='source' ? '↓' : '';
+      const arr = dir === 1 ? '↓' : '↑';
+      out.arrowDate = sk==='date' ? arr : ''; out.arrowTitle = sk==='title' ? arr : ''; out.arrowScore = sk==='match' ? arr : '';
+      out.arrowHood = sk==='hood' ? arr : ''; out.arrowCat = sk==='cat' ? arr : ''; out.arrowSource = sk==='source' ? arr : '';
       out.sortDateCol = () => this.setSort('date'); out.sortTitleCol = () => this.setSort('title'); out.sortScoreCol = () => this.setSort('match');
       out.sortHoodCol = () => this.setSort('hood'); out.sortCatCol = () => this.setSort('cat'); out.sortSourceCol = () => this.setSort('source');
       const nAct = this.exActiveCount();
       out.exploreCountLabel = rows.length + ' events' + ((this.META.count && (nAct || q)) ? '' : ' · ' + (this.META.count || this.ALL.length) + ' in catalog') + (q ? ' · matching “'+this.state.exploreSearch.trim()+'”' : '')
         + (nAct ? ' · ' + nAct + ' filter' + (nAct===1?'':'s') + ' active' : '')
         + (!q && !nAct ? ' · '+({match:'ranked by match',date:'by date',title:'A–Z',hood:'by neighborhood',cat:'by category',source:'by source'}[sk]) : '');
-      out.exHasActive = nAct > 0 || !!q;
+      out.exHasActive = nAct > 0 || !!q || !!this.state.chatFiltered;
+      out.hasChatFilter = !!this.state.chatFiltered; out.chatFilterLabel = this.state.chatFilterLabel; out.clearChatFilter = this.clearChatFilter;
       out.exResetFn = this.exReset;
 
       // ---- filter panel ----
@@ -2277,7 +2574,9 @@ class Component extends DCLogic {
     // ---- SETTINGS + MODALS ----
     const sw = (on) => ({ track:'width:44px; height:24px; border-radius:999px; background:'+(on?'#2b5cd9':'#cfcdc4')+'; position:relative; cursor:pointer; flex:none; transition:background .15s;', knob:'position:absolute; top:2px; left:'+(on?'22px':'2px')+'; width:20px; height:20px; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.3); transition:left .15s;', label:on?'ON':'OFF' });
     const sK = sw(this.state.apiKeyOn), sO = sw(this.state.opusOn);
-    const connected = (this.state.apiKeyOn && (this.state.apiKey||'').trim()) || (this.state.sharedToken||'').trim();
+    const bstat = this.state.backendStatus;
+    const backendReady = bstat === 'ok';
+    const backendOld = backendReady && this.backendStale();
     const uname = (this.state.username||'').trim() || 'Ari';
     Object.assign(out, {
       settingsOpen:this.state.settingsOpen, toggleSettings:this.toggleSettings, closeSettings:this.closeSettings,
@@ -2315,7 +2614,13 @@ class Component extends DCLogic {
       })(),
       togglePhotos: this.togglePhotos,
       photosSwTrack: sw(this.photosOn()).track, photosSwKnob: sw(this.photosOn()).knob,
-      apiKeyStatus: (this.state.apiKeyOn && (this.state.apiKey||'').trim()) ? 'connected' : ((this.state.sharedToken||'').trim() ? 'shared token' : 'not set'),
+      apiKeyStatus: (() => {
+        const key = this.byokKey();
+        const idn = key ? ('your key (' + key.slice(0, 11) + '…)') : (this.BACKEND_TOKEN ? 'shared token' : 'not set');
+        if (backendOld) return idn + ' · ⚠︎ old Worker build';
+        if (backendReady) return idn + ' · connected';
+        return idn + (bstat === 'err' ? ' · not connecting' : '');
+      })(),
       openSync:() => this.updateMyDigest(),
       openPull:() => this.showToast('Events database is current — last pulled ' + this.fmtStamp(this.META.catalog_fetched_at), null),
       openWelcome:this.openWelcome,
@@ -2327,9 +2632,18 @@ class Component extends DCLogic {
       toggleApiKey:this.toggleApiKey, toggleOpus:this.toggleOpus,
       apiKeySwTrack:sK.track, apiKeySwKnob:sK.knob, apiKeySwLabel:sK.label,
       opusSwTrack:sO.track, opusSwKnob:sO.knob, opusSwLabel:sO.label,
-      conDot: connected?'#1f7a4d':'#c0392b',
-      conStatusText: connected ? 'Connected — the concierge is ready.' : 'Couldn\u2019t connect — check the API key or access token below. Add one below to start chatting — everything else on the page works without it.',
-      tasteModal:this.state.tasteModal, closeTaste:this.closeTaste,
+      conDot: backendOld ? '#a8781c' : backendReady ? '#1f7a4d' : (bstat === 'err' ? '#b4453a' : '#a7a59b'),
+      conStatusText: (() => {
+        const key = this.byokKey();
+        let line = backendReady
+          ? (key ? 'Connected — using your Claude API key (' + key.slice(0, 11) + '…). It pays for each message; if it errors, switch it OFF below and the shared token takes over.'
+                 : (this.BACKEND_TOKEN ? 'Connected — using the shared access token (Ari\u2019s key pays).' : 'Connected.'))
+          : (bstat === 'err'
+              ? 'Couldn\u2019t connect — check the API key or access token below.'
+              : 'Checking the connection… add your Claude key or Ari\u2019s access token below.');
+        if (backendOld) line += ' ⚠︎ Heads-up: ' + this.backendStaleNote() + '.';
+        return line;
+      })(),      tasteModal:this.state.tasteModal, closeTaste:this.closeTaste,
       setTasteTabTaste:() => this.setTasteTab('taste'), setTasteTabProfile:() => this.setTasteTab('profile'),
       isTasteTab:this.state.tasteTab==='taste', isProfileTab:this.state.tasteTab==='profile',
       tasteTabBg:this.state.tasteTab==='taste'?'#1b1a17':'#e8e6de', tasteTabColor:this.state.tasteTab==='taste'?'#fff':'#76746b',
@@ -2344,6 +2658,7 @@ class Component extends DCLogic {
     out.closeDigest = this.closeDigest;
     out.downloadDigest = this.downloadDigest;
     out.hasDigest = !!this.DIGEST_MD;
+    out.digestFallbackNote = !!(this.DIGEST_FALLBACK && this.state.loggedIn);
     const dgSecs = this.digestSections(this.DIGEST_MD);
     out.digestNavShow = dgSecs.length > 1;
     out.digestNav = dgSecs.map(s => ({ title: s.title, onClick: () => this.jumpDigest(s.id) }));
