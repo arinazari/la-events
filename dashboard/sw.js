@@ -6,7 +6,7 @@
  * Bump CACHE whenever a cache-first asset below changes — that byte change is
  * what makes the browser re-install this worker and re-fetch the shell. */
 
-const CACHE = "la-events-v8";
+const CACHE = "la-events-v9";
 const SHELL = [
   "./",
   "./index.html",
