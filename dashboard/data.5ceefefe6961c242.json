@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T12:08:20+00:00",
+  "generated_at": "2026-07-25T19:45:37+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "c454bf4e0c82",
@@ -1385,38 +1385,8 @@
       "f0de888b1d44",
       "fc3156980db4"
     ],
-    "radar": [
-      "96782c900568",
-      "a275d78b3f74",
-      "d535a0dbfe40",
-      "edab80bd44cb",
-      "84882da12558",
-      "d49eb8554c26",
-      "1edb63fd2e80",
-      "fb68efb436c1",
-      "33c2216d15dc",
-      "3d1950382c1d",
-      "5cfd176b0544",
-      "cf6cd35ddcc5",
-      "233fd1bfe94c",
-      "d5ab2f4bfacc",
-      "5900ac0a20b0",
-      "d9ec6d0e3a23"
-    ],
-    "around": [
-      "773d5c83a2fd",
-      "4dd13aaa260f",
-      "82c5013339e2",
-      "70290d18de29",
-      "493700d4eadb",
-      "c0280e879181",
-      "f7385763f9ec",
-      "440ecb2c9abc",
-      "ffaeb94bd682",
-      "3f31098f9532",
-      "dffdf5e28846",
-      "463b19e803f8"
-    ],
+    "radar": [],
+    "around": [],
     "festivals": [
       {
         "name": "Outside Lands 2026",
@@ -9546,10 +9516,6 @@
       "lane": "club:underground",
       "key": "7210967968cd",
       "stars": [
-        {
-          "name": "Ari",
-          "hash": "1d8a45fa37024d33"
-        },
         {
           "name": "Dr. Ganesan",
           "hash": "f35ca979e108622f"
@@ -253467,12 +253433,12 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-07-15",
-            "summary": "digest: 2026-07-15 WIP checkpoint \u2014 dr_ganesan, lori profile digests regenerated"
+            "date": "2026-06-25",
+            "summary": "Add three empty friend profiles: garo, taylor, alexa (#62)"
           }
         ],
-        "diff": "",
-        "diff_kind": "none",
+        "diff": "diff --git a/profiles/alexa/taste.yaml b/profiles/alexa/taste.yaml\nnew file mode 100644\nindex 0000000..0cd4c9e\n--- /dev/null\n+++ b/profiles/alexa/taste.yaml\n@@ -0,0 +1,19 @@\n+# Taste profile \u2014 Alexa. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only alexa\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium:  []   # +2 each\n+  low:     []   # +1, include only if exceptional\n+\n+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: []   # -2 each (the \"not for me\" list)\n+\n+artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n+comedians_loved:  []\n+venues_loved:     []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"",
+        "diff_kind": "applied",
         "reflected": true,
         "enriched_at": "2026-07-15"
       },
