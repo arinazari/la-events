@@ -633,96 +633,119 @@
 <sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
 <div style="position:fixed; inset:0; z-index:110;">
   <div onClick="{{ closeSettings }}" style="position:absolute; inset:0;"></div>
-  <div class="scry" style="position:absolute; top:52px; right:16px; width:344px; max-width:calc(100vw - 32px); max-height:calc(100dvh - 72px); overflow-y:auto; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 20px 54px rgba(0,0,0,0.26); padding:17px 19px 19px;">
-    <div style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.16em; color:#a7a59b; margin-bottom:14px;">SETTINGS</div>
+  <div class="scry" style="position:absolute; top:52px; right:16px; width:344px; max-width:calc(100vw - 32px); max-height:calc(100dvh - 72px); overflow-y:auto; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 20px 54px rgba(0,0,0,0.26); padding:14px 16px 15px;">
+    <div style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.16em; color:#a7a59b; margin-bottom:12px;">SETTINGS</div>
 
     <sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">
-      <div style="font:700 20px/1.1 -apple-system,system-ui,sans-serif; color:#161512; margin-bottom:6px;">Log in</div>
-      <div style="font:400 13px/1.5 ui-monospace,Menlo,monospace; color:#8a887e; margin-bottom:13px;">Type your username to load your taste profile + digest.</div>
-      <div style="display:flex; align-items:center; gap:8px; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:11px 13px; margin-bottom:12px;" style-focus-within="border-color:#2b5cd9;">
-        <input value="{{ username }}" onChange="{{ onUsername }}" onKeyDown="{{ onUsernameKey }}" placeholder="username" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 15px/1.2 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
-        <span onClick="{{ doLogin }}" title="Log in" style="flex:none; cursor:pointer; color:#2b5cd9; font-size:17px; font-weight:700;" style-hover="color:#1d49b8;">→</span>
+      <div style="font:700 18px/1.15 -apple-system,system-ui,sans-serif; color:#161512; margin-bottom:5px;">Log in</div>
+      <div style="font:400 11.5px/1.5 ui-monospace,Menlo,monospace; color:#8a887e; margin-bottom:11px;">Your username loads your taste profile + digest — and unlocks the calendar feed, Spotify and the concierge.</div>
+      <div style="display:flex; align-items:center; gap:8px; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:9px 12px;" style-focus-within="border-color:#2b5cd9;">
+        <input value="{{ username }}" onChange="{{ onUsername }}" onKeyDown="{{ onUsernameKey }}" placeholder="username" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 14px/1.2 -apple-system,system-ui,sans-serif; color:#1b1a17;" />
+        <span onClick="{{ doLogin }}" title="Log in" style="flex:none; cursor:pointer; color:#2b5cd9; font-size:16px; font-weight:700;" style-hover="color:#1d49b8;">→</span>
       </div>
     </sc-if>
 
     <sc-if value="{{ loggedIn }}" hint-placeholder-val="{{ false }}">
-      <div onClick="{{ openSync }}" style="cursor:pointer; background:#2b5cd9; color:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="background:#2450bf;">
+      <!-- identity -->
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:11px;">
+        <span style="flex:none; width:30px; height:30px; border-radius:999px; background:#1b1a17; color:#fdfcf9; font:700 13px/30px -apple-system,system-ui,sans-serif; text-align:center;">{{ acctInitial }}</span>
+        <span style="flex:1; min-width:0;">
+          <span style="display:flex; align-items:center; gap:6px; min-width:0;">
+            <span style="font:700 13.5px/1.15 -apple-system,system-ui,sans-serif; color:#161512; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ acctName }}</span>
+            <sc-if value="{{ showAdminRows }}" hint-placeholder-val="{{ false }}"><span style="flex:none; font:700 7.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#8a887e; background:#f1f0ea; border:1px solid #e0ded5; border-radius:3px; padding:3px 4px;">ADMIN</span></sc-if>
+          </span>
+          <span style="display:block; margin-top:3px; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ signedInAs }}</span>
+        </span>
+        <span onClick="{{ doLogout }}" title="Sign out of this profile" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#76746b; padding:7px 10px; border:1px solid #d2d0c7; background:#fff; border-radius:999px;" style-hover="border-color:#b4453a; color:#b4453a;">SIGN OUT</span>
+      </div>
+
+      <!-- primary action -->
+      <div onClick="{{ openSync }}" title="Re-rank your feed + rewrite your digest against the latest events" style="cursor:pointer; background:#2b5cd9; color:#fff; border-radius:6px; padding:10px 12px; margin-bottom:10px;" style-hover="background:#2450bf;">
         <sc-if value="{{ notUpdating }}" hint-placeholder-val="{{ true }}">
-          <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif;">↻ {{ syncTitle }}</div>
-          <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; opacity:0.85;">Last synced with database: {{ dbSynced }}</div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <span style="font:700 12.5px/1.2 -apple-system,system-ui,sans-serif;">↻ Ranks &amp; Digest</span>
+            <span style="flex:none; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.07em; padding:4px 7px; background:rgba(255,255,255,0.18); border-radius:999px;">{{ syncBadge }}</span>
+          </div>
+          <div style="margin-top:4px; font:400 10.5px/1.4 ui-monospace,Menlo,monospace; opacity:0.82;">last synced {{ dbSynced }}</div>
         </sc-if>
         <sc-if value="{{ isUpdating }}" hint-placeholder-val="{{ false }}">
-          <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif;">↻ Re-ranking your feed…</div>
+          <div style="font:700 12.5px/1.2 -apple-system,system-ui,sans-serif;">↻ Re-ranking your feed…</div>
           <div class="la-prog"><i></i></div>
-          <div style="margin-top:7px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; opacity:0.85;">elapsed {{ updElapsed }} · usually 1–2 min · safe to close</div>
+          <div style="margin-top:6px; font:400 10.5px/1.4 ui-monospace,Menlo,monospace; opacity:0.82;">elapsed {{ updElapsed }} · usually 1–2 min · safe to close</div>
         </sc-if>
       </div>
-      <div onClick="{{ openPull }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
-        <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">↻ {{ pullTitle }}<sc-if value="{{ showAdminRows }}" hint-placeholder-val="{{ false }}"> <span style="font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">ADMIN</span></sc-if></div>
-        <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">Last pulled from sources: {{ dataPull }}<sc-if value="{{ showAdminRows }}" hint-placeholder-val="{{ false }}"> · tap to fetch all sources now</sc-if></div>
-        <sc-if value="{{ isRefreshing }}" hint-placeholder-val="{{ false }}"><div class="la-prog" style="background:#dcdad1;"><i style="background:#2b5cd9;"></i></div></sc-if>
-      </div>
-      <div onClick="{{ openApiModal }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
-        <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">◆ Claude API key</div>
-        <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">{{ apiKeyStatus }}</div>
-      </div>
-      <div onClick="{{ openSpotifyModal }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="flex:1; min-width:0;">
-            <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;"><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#1DB954; vertical-align:1px; margin-right:6px;"></span>Spotify</div>
-            <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">{{ spotifyStatusText }}</div>
-          </div>
+
+      <!-- compact rows -->
+      <div style="border:1px solid #dedcd4; background:#fff; border-radius:6px; overflow:hidden;">
+        <div onClick="{{ openCalModal }}" title="Subscribe your top picks or starred events in Google / Apple Calendar" style="display:flex; align-items:center; gap:9px; padding:9px 11px; cursor:pointer;" style-hover="background:#f7f6f1;">
+          <span style="flex:none; width:17px; text-align:center; font-size:11px; color:#76746b;">▦</span>
+          <span style="flex:none; font:600 12.5px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Calendar feed</span>
+          <span style="flex:1; min-width:0; text-align:right; font:500 9.5px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Google / Apple / .ics</span>
+          <span style="flex:none; color:#bdbbb1; font-size:12px;">›</span>
+        </div>
+        <div onClick="{{ openSpotifyModal }}" title="{{ spotifyStatusText }}" style="display:flex; align-items:center; gap:9px; padding:9px 11px; cursor:pointer; border-top:1px solid #f0efe8;" style-hover="background:#f7f6f1;">
+          <span style="flex:none; width:17px; text-align:center;"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#1DB954;"></span></span>
+          <span style="flex:none; font:600 12.5px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Spotify</span>
+          <span style="flex:1; min-width:0; text-align:right; font:500 9.5px/1.3 ui-monospace,Menlo,monospace; color:{{ spotifyShortColor }}; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ spotifyShort }}</span>
           <sc-if value="{{ spotifyCanConnect }}" hint-placeholder-val="{{ true }}">
-            <span onClick="{{ connectSpotify }}" title="Link Spotify so your picks re-rank to your listening" style="flex:none; cursor:pointer; font:700 11px/1 -apple-system,system-ui,sans-serif; padding:9px 14px; background:#1DB954; color:#fff; border-radius:999px;" style-hover="background:#1aa74a;">Connect</span>
+            <span onClick="{{ connectSpotify }}" title="Link Spotify so your picks re-rank to your listening" style="flex:none; cursor:pointer; font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:5px 9px; background:#1DB954; color:#fff; border-radius:999px;" style-hover="background:#1aa74a;">CONNECT</span>
           </sc-if>
+          <sc-if value="{{ spotifyConnected }}" hint-placeholder-val="{{ false }}"><span style="flex:none; color:#bdbbb1; font-size:12px;">›</span></sc-if>
         </div>
-      </div>
-      <sc-if value="{{ showAdminRows }}" hint-placeholder-val="{{ false }}">
-      <div style="border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="flex:1; min-width:0;">
-            <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">◍ Event photos <span style="font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">ADMIN</span></div>
-            <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">{{ photosStatusText }}</div>
+        <div onClick="{{ openApiModal }}" title="{{ apiKeyStatus }}" style="display:flex; align-items:center; gap:9px; padding:9px 11px; cursor:pointer; border-top:1px solid #f0efe8;" style-hover="background:#f7f6f1;">
+          <span style="flex:none; width:17px; text-align:center; font-size:11px; color:#76746b;">◆</span>
+          <span style="flex:none; font:600 12.5px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Claude API key</span>
+          <span style="flex:1; min-width:0; display:inline-flex; align-items:center; justify-content:flex-end; gap:5px; overflow:hidden;">
+            <span style="flex:none; width:6px; height:6px; border-radius:50%; background:{{ conDot }};"></span>
+            <span style="font:500 9.5px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ apiShort }}</span>
+          </span>
+          <span style="flex:none; color:#bdbbb1; font-size:12px;">›</span>
+        </div>
+        <div onClick="{{ openTasteFn }}" style="display:flex; align-items:center; gap:9px; padding:9px 11px; cursor:pointer; border-top:1px solid #f0efe8;" style-hover="background:#f7f6f1;">
+          <span style="flex:none; width:17px; text-align:center; font-size:11px; color:#76746b;">✦</span>
+          <span style="flex:none; font:600 12.5px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Taste &amp; profile</span>
+          <span style="flex:1; min-width:0; text-align:right; font:500 9.5px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">config + recent edits</span>
+          <span style="flex:none; color:#bdbbb1; font-size:12px;">›</span>
+        </div>
+        <div onClick="{{ openPull }}" style="padding:9px 11px; cursor:pointer; border-top:1px solid #f0efe8;" style-hover="background:#f7f6f1;">
+          <div style="display:flex; align-items:center; gap:9px;">
+            <span style="flex:none; width:17px; text-align:center; font-size:11px; color:#76746b;">↻</span>
+            <span style="flex:none; font:600 12.5px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Events database</span>
+            <sc-if value="{{ showAdminRows }}" hint-placeholder-val="{{ false }}"><span style="flex:none; font:700 7.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#8a887e; background:#f1f0ea; border:1px solid #e0ded5; border-radius:3px; padding:2px 4px;" title="Tap to fetch all sources now">ADMIN</span></sc-if>
+            <span style="flex:1; min-width:0; text-align:right; font:500 9.5px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ pullShort }}</span>
           </div>
-          <span onClick="{{ togglePhotos }}" style="{{ photosSwTrack }}"><span style="{{ photosSwKnob }}"></span></span>
+          <sc-if value="{{ isRefreshing }}" hint-placeholder-val="{{ false }}"><div class="la-prog" style="background:#e4e2d9; margin-top:7px;"><i style="background:#2b5cd9;"></i></div></sc-if>
         </div>
-      </div>
-      </sc-if>
-      <div onClick="{{ openTasteFn }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
-        <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">✦ View taste &amp; profile</div>
-        <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">your config + recent edits</div>
-      </div>
-      <div onClick="{{ doLogout }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px; margin-bottom:9px;" style-hover="border-color:#a7a59b;">
-        <div style="font:700 13.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">⊖ Log out</div>
-        <div style="margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">{{ signedInAs }}</div>
+        <sc-if value="{{ showAdminRows }}" hint-placeholder-val="{{ false }}">
+        <div title="{{ photosStatusText }}" style="padding:9px 11px; border-top:1px solid #f0efe8;">
+          <div style="display:flex; align-items:center; gap:9px;">
+            <span style="flex:none; width:17px; text-align:center; font-size:11px; color:#76746b;">◍</span>
+            <span style="flex:none; font:600 12.5px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Event photos</span>
+            <span style="flex:none; font:700 7.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#8a887e; background:#f1f0ea; border:1px solid #e0ded5; border-radius:3px; padding:2px 4px;">ADMIN</span>
+            <span style="flex:1;"></span>
+            <span onClick="{{ togglePhotos }}" style="{{ photosSwTrack }}"><span style="{{ photosSwKnob }}"></span></span>
+          </div>
+          <div style="margin-top:4px; padding-left:26px; font:400 9.5px/1.35 ui-monospace,Menlo,monospace; color:#a7a59b; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ photosStatusText }}</div>
+        </div>
+        </sc-if>
       </div>
     </sc-if>
 
-    <div onClick="{{ openCalModal }}" style="cursor:pointer; border:1px solid #dedcd4; background:#fff; border-radius:6px; padding:12px 13px;" style-hover="border-color:#a7a59b;">
-      <div style="display:flex; align-items:flex-start; gap:11px;">
-        <span style="flex:none; width:22px; height:22px; border-radius:3px; background:#161512; color:#fff; font-size:12px; line-height:22px; text-align:center;">▦</span>
-        <span style="min-width:0;">
-          <span style="display:block; font:700 13.5px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Calendar feed</span>
-          <span style="display:block; margin-top:4px; font:400 11.5px/1.4 ui-monospace,Menlo,monospace; color:#8a887e;">top picks in Google / Apple Calendar</span>
-        </span>
-      </div>
+    <div style="height:1px; background:#e4e2d9; margin:13px 0 11px;"></div>
+    <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:5px;">
+      <span style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e;">DATA</span>
+      <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#1b1a17;">{{ dataSourceLabel }}</span>
     </div>
+    <div style="display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;"><span>last data pull</span><span style="color:#3f3d36; text-align:right;">{{ dataPull }}</span></div>
+    <div onClick="{{ showChanges }}" title="What moved on the last pull (tap to see)" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>what changed</span><span style="color:#3f3d36; text-align:right;">{{ dataChanged }}</span></div>
+    <div style="display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;"><span>last site update</span><span style="color:#3f3d36; text-align:right;">{{ siteUpdate }}</span></div>
 
-    <div style="height:1px; background:#e4e2d9; margin:15px 0;"></div>
-    <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:8px;">
-      <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e;">DATA</span>
-      <span style="font:600 11px/1 ui-monospace,Menlo,monospace; color:#1b1a17;">{{ dataSourceLabel }}</span>
-    </div>
-    <div style="display:flex; justify-content:space-between; gap:10px; font:500 11.5px/1.95 ui-monospace,Menlo,monospace; color:#8a887e;"><span>last data pull</span><span style="color:#3f3d36; text-align:right;">{{ dataPull }}</span></div>
-    <div onClick="{{ showChanges }}" title="What moved on the last pull (tap to see)" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11.5px/1.95 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>what changed</span><span style="color:#3f3d36; text-align:right;">{{ dataChanged }}</span></div>
-    <div style="display:flex; justify-content:space-between; gap:10px; font:500 11.5px/1.95 ui-monospace,Menlo,monospace; color:#8a887e;"><span>last site update</span><span style="color:#3f3d36; text-align:right;">{{ siteUpdate }}</span></div>
-
-    <div style="height:1px; background:#e4e2d9; margin:15px 0;"></div>
-    <div style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:8px;">ABOUT</div>
-    <div onClick="{{ openDigest }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11.5px/2 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>today's digest</span><span style="color:#2b5cd9;">read ↗</span></div>
-    <div onClick="{{ openWelcome }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11.5px/2 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>quick start</span><span style="color:#2b5cd9;">welcome ↗</span></div>
-    <div onClick="{{ openTour }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11.5px/2 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>how it works</span><span style="color:#2b5cd9;">tour ↗</span></div>
-    <div onClick="{{ openChangelog }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11.5px/2 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>what's new</span><span style="color:#2b5cd9;">changelog ↗</span></div>
+    <div style="height:1px; background:#e4e2d9; margin:11px 0;"></div>
+    <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:5px;">ABOUT</div>
+    <div onClick="{{ openDigest }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>today's digest</span><span style="color:#2b5cd9;">read ↗</span></div>
+    <div onClick="{{ openWelcome }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>quick start</span><span style="color:#2b5cd9;">welcome ↗</span></div>
+    <div onClick="{{ openTour }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>how it works</span><span style="color:#2b5cd9;">tour ↗</span></div>
+    <div onClick="{{ openChangelog }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>what's new</span><span style="color:#2b5cd9;">changelog ↗</span></div>
   </div>
 </div>
 </sc-if>
@@ -731,34 +754,36 @@
 <sc-if value="{{ apiModal }}" hint-placeholder-val="{{ false }}">
 <div style="position:fixed; inset:0; z-index:130; display:flex; align-items:center; justify-content:center; padding:28px; background:rgba(27,26,23,0.44);">
   <div onClick="{{ closeApiModal }}" style="position:absolute; inset:0;"></div>
-  <div class="scry" style="position:relative; z-index:1; width:100%; max-width:560px; max-height:100%; overflow-y:auto; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 24px 60px rgba(0,0,0,0.3); padding:22px 24px 20px;">
-    <div style="font:800 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.16em; color:#161512; margin-bottom:13px;">CONCIERGE</div>
-    <div style="display:flex; align-items:flex-start; gap:9px; margin-bottom:22px;">
-      <span style="flex:none; width:10px; height:10px; border-radius:50%; background: {{ conDot }}; margin-top:4px;"></span>
-      <span style="font:400 14px/1.55 -apple-system,system-ui,sans-serif; color:#3f3d36;">{{ conStatusText }}</span>
+  <div class="scry" style="position:relative; z-index:1; width:100%; max-width:560px; max-height:100%; overflow-y:auto; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 24px 60px rgba(0,0,0,0.3); padding:18px 20px 16px;">
+    <div style="font:800 11px/1 ui-monospace,Menlo,monospace; letter-spacing:0.16em; color:#161512; margin-bottom:11px;">CONCIERGE</div>
+    <div style="display:flex; align-items:flex-start; gap:9px; margin-bottom:16px;">
+      <span style="flex:none; width:9px; height:9px; border-radius:50%; background: {{ conDot }}; margin-top:4px;"></span>
+      <span style="font:400 13px/1.5 -apple-system,system-ui,sans-serif; color:#3f3d36;">{{ conStatusText }}</span>
     </div>
 
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
-      <span style="font:700 15px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Your Claude API key</span>
-      <span style="display:inline-flex; align-items:center; gap:9px;"><span style="font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#8a887e;">{{ apiKeySwLabel }}</span><span onClick="{{ toggleApiKey }}" style="{{ apiKeySwTrack }}"><span style="{{ apiKeySwKnob }}"></span></span></span>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px;">
+      <span style="font:700 14px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Your Claude API key</span>
+      <span style="display:inline-flex; align-items:center; gap:8px;"><span style="font:700 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#8a887e;">{{ apiKeySwLabel }}</span><span onClick="{{ toggleApiKey }}" style="{{ apiKeySwTrack }}"><span style="{{ apiKeySwKnob }}"></span></span></span>
     </div>
-    <input value="{{ apiKey }}" onChange="{{ onApiKey }}" onKeyDown="{{ onApiKeyDown }}" placeholder="sk-ant-…" style="width:100%; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:12px 13px; font:500 14px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17; outline:none;" style-focus="border-color:#2b5cd9;" />
-    <div style="font:400 12px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:9px 0 22px;">When ON, your key pays for every message. Stored only in this browser. If it errors or hits a limit, switch it OFF to fall back to the token.</div>
+    <input value="{{ apiKey }}" onChange="{{ onApiKey }}" onKeyDown="{{ onApiKeyDown }}" placeholder="sk-ant-…" style="width:100%; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:9px 11px; font:500 13px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17; outline:none;" style-focus="border-color:#2b5cd9;" />
+    <div style="font:400 11px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:7px 0 16px;">When ON, your key pays for every message. Stored only in this browser. If it errors or hits a limit, switch it OFF to fall back to the token.</div>
 
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:7px;">
-      <span style="font:700 15px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Use Opus <span style="font-weight:400; color:#8a887e;">(sharper, slower)</span></span>
-      <span style="display:inline-flex; align-items:center; gap:9px;"><span style="font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#8a887e;">{{ opusSwLabel }}</span><span onClick="{{ toggleOpus }}" style="{{ opusSwTrack }}"><span style="{{ opusSwKnob }}"></span></span></span>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:6px;">
+      <span style="font:700 14px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Use Opus <span style="font-weight:400; color:#8a887e;">(sharper, slower)</span></span>
+      <span style="display:inline-flex; align-items:center; gap:8px;"><span style="font:700 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#8a887e;">{{ opusSwLabel }}</span><span onClick="{{ toggleOpus }}" style="{{ opusSwTrack }}"><span style="{{ opusSwKnob }}"></span></span></span>
     </div>
-    <div style="font:400 12px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:0 0 22px;">Works with either connection — the shared token or your own key. Off = the default model. Opus replies are sharper but slower and pricier.</div>
+    <div style="font:400 11px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:0 0 16px;">Works with either connection — the shared token or your own key. Off = the default model. Opus replies are sharper but slower and pricier.</div>
 
-    <div style="font:700 15px/1.2 -apple-system,system-ui,sans-serif; color:#161512; margin-bottom:9px;">Shared access token <span style="font-weight:400; color:#8a887e;">(from Ari)</span></div>
-    <input value="{{ sharedToken }}" onChange="{{ onSharedToken }}" onKeyDown="{{ onApiKeyDown }}" placeholder="access token" style="width:100%; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:12px 13px; font:500 14px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17; outline:none;" style-focus="border-color:#2b5cd9;" />
-    <div style="font:400 12px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:9px 0 0;">Used when your key is OFF (or unset). Enter once — it's saved on this device.</div>
+    <div style="font:700 14px/1.2 -apple-system,system-ui,sans-serif; color:#161512; margin-bottom:8px;">Shared access token <span style="font-weight:400; color:#8a887e;">(from Ari)</span></div>
+    <input value="{{ sharedToken }}" onChange="{{ onSharedToken }}" onKeyDown="{{ onApiKeyDown }}" placeholder="access token" style="width:100%; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:9px 11px; font:500 13px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17; outline:none;" style-focus="border-color:#2b5cd9;" />
+    <div style="font:400 11px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:7px 0 0;">Used when your key is OFF (or unset). Enter once — it's saved on this device.</div>
 
-    <div style="font:400 11px/1.4 ui-monospace,Menlo,monospace; color:#bdbbb1; margin:18px 0 0;">backend · la-events-concierge.arinazari.workers.dev</div>
-    <div style="display:flex; justify-content:flex-end; gap:9px; margin-top:16px;">
-      <button onClick="{{ closeApiModal }}" style="font:700 12px/1 ui-monospace,Menlo,monospace; padding:11px 18px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:5px; cursor:pointer;" style-hover="border-color:#a7a59b;">Close</button>
-      <button onClick="{{ saveApi }}" style="font:700 12px/1 ui-monospace,Menlo,monospace; padding:11px 20px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:5px; cursor:pointer;" style-hover="background:#2450bf;">Save</button>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:14px;">
+      <span style="min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font:400 10px/1.4 ui-monospace,Menlo,monospace; color:#bdbbb1;">backend · la-events-concierge.arinazari.workers.dev</span>
+      <span style="flex:none; display:inline-flex; gap:7px;">
+        <button onClick="{{ closeApiModal }}" style="font:700 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#161512; color:#161512;">Close</button>
+        <button onClick="{{ saveApi }}" style="font:700 11px/1 ui-monospace,Menlo,monospace; padding:8px 16px; border:1px solid #2b5cd9; background:#2b5cd9; color:#fff; border-radius:999px; cursor:pointer;" style-hover="background:#2450bf;">Save</button>
+      </span>
     </div>
   </div>
 </div>
@@ -769,13 +794,13 @@
 <div style="position:fixed; inset:0; z-index:130; display:flex; align-items:center; justify-content:center; padding:28px; background:rgba(27,26,23,0.44);">
   <div onClick="{{ closeTaste }}" style="position:absolute; inset:0;"></div>
   <div style="position:relative; z-index:1; width:100%; max-width:720px; height:min(88vh, 820px); display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 24px 60px rgba(0,0,0,0.3); overflow:hidden;">
-    <div style="flex:none; display:flex; align-items:center; gap:12px; padding:15px 18px; border-bottom:1px solid #e4e2d9;">
-      <span style="font:700 15px/1 -apple-system,system-ui,sans-serif; color:#161512;">{{ userName }}</span>
-      <span style="display:inline-flex; border-radius:5px; overflow:hidden; border:1px solid #dedcd4;">
-        <span onClick="{{ setTasteTabTaste }}" style="cursor:pointer; font:700 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; background: {{ tasteTabBg }}; color: {{ tasteTabColor }};">Taste</span>
-        <span onClick="{{ setTasteTabProfile }}" style="cursor:pointer; font:700 11px/1 ui-monospace,Menlo,monospace; padding:8px 14px; background: {{ profileTabBg }}; color: {{ profileTabColor }};">Profile</span>
+    <div style="flex:none; display:flex; align-items:center; gap:12px; padding:12px 16px; border-bottom:1px solid #e4e2d9;">
+      <span style="font:700 14px/1 -apple-system,system-ui,sans-serif; color:#161512;">{{ userName }}</span>
+      <span style="display:inline-flex; border-radius:999px; overflow:hidden; border:1px solid #dedcd4;">
+        <span onClick="{{ setTasteTabTaste }}" style="cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 13px; background: {{ tasteTabBg }}; color: {{ tasteTabColor }};">Taste</span>
+        <span onClick="{{ setTasteTabProfile }}" style="cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; padding:7px 13px; background: {{ profileTabBg }}; color: {{ profileTabColor }};">Profile</span>
       </span>
-      <span onClick="{{ closeTaste }}" title="Close" style="margin-left:auto; cursor:pointer; width:30px; height:30px; border-radius:5px; background:#e8e6de; color:#76746b; font-size:15px; line-height:30px; text-align:center;" style-hover="background:#dcdad1;">✕</span>
+      <span onClick="{{ closeTaste }}" title="Close" style="margin-left:auto; cursor:pointer; width:28px; height:28px; border-radius:999px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; font-size:14px; line-height:26px; text-align:center;" style-hover="border-color:#1b1a17; color:#161512;">✕</span>
     </div>
     <div style="flex:none; display:flex; align-items:center; gap:12px; padding:11px 18px; background:{{ tasteBannerBg }}; border-bottom:1px solid {{ tasteBannerBorder }};">
       <span style="flex:1; font:700 13px/1.3 -apple-system,system-ui,sans-serif; color:{{ tasteBannerColor }};">{{ tasteBanner }}</span>
@@ -804,9 +829,9 @@
         </div>
       </sc-if>
     </div>
-    <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:14px; padding:13px 18px; border-top:1px solid #e4e2d9; flex-wrap:wrap;">
-      <span style="flex:1; min-width:220px; font:400 12px/1.5 -apple-system,system-ui,sans-serif; color:#8a887e;">Read-only. To change it, ask the concierge — e.g. "more techno, less comedy" or "I moved to Highland Park."</span>
-      <button onClick="{{ closeTaste }}" style="flex:none; font:700 12px/1 ui-monospace,Menlo,monospace; padding:11px 22px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:5px; cursor:pointer;" style-hover="background:#000;">Done</button>
+    <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:14px; padding:11px 16px; border-top:1px solid #e4e2d9; flex-wrap:wrap;">
+      <span style="flex:1; min-width:220px; font:400 11.5px/1.5 -apple-system,system-ui,sans-serif; color:#8a887e;">Read-only. To change it, ask the concierge — e.g. "more techno, less comedy" or "I moved to Highland Park."</span>
+      <button onClick="{{ closeTaste }}" style="flex:none; font:700 11px/1 ui-monospace,Menlo,monospace; padding:8px 16px; border:1px solid #1b1a17; background:#1b1a17; color:#fff; border-radius:999px; cursor:pointer;" style-hover="background:#000;">Done</button>
     </div>
   </div>
 </div>
@@ -3139,12 +3164,14 @@ class Component extends DCLogic {
     } else out.detail = { poster:{show:false}, photo:{show:false}, friendChips:[] };
 
     // ---- SETTINGS + MODALS ----
-    const sw = (on) => ({ track:'width:44px; height:24px; border-radius:999px; background:'+(on?'#2b5cd9':'#cfcdc4')+'; position:relative; cursor:pointer; flex:none; transition:background .15s;', knob:'position:absolute; top:2px; left:'+(on?'22px':'2px')+'; width:20px; height:20px; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.3); transition:left .15s;', label:on?'ON':'OFF' });
+    const sw = (on) => ({ track:'width:36px; height:20px; border-radius:999px; background:'+(on?'#2b5cd9':'#cfcdc4')+'; position:relative; cursor:pointer; flex:none; transition:background .15s;', knob:'position:absolute; top:2px; left:'+(on?'18px':'2px')+'; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.3); transition:left .15s;', label:on?'ON':'OFF' });
     const sK = sw(this.state.apiKeyOn), sO = sw(this.state.opusOn);
     const bstat = this.state.backendStatus;
     const backendReady = bstat === 'ok';
     const backendOld = backendReady && this.backendStale();
     const uname = (this.state.username||'').trim() || 'Ari';
+    const acctName = ((this.META.profile || {}).name || '').trim() || uname;
+    const pullStamp = this.fmtStamp((this.LIVE_CATALOG && this.LIVE_CATALOG.fetched_at) || this.META.catalog_fetched_at);
     Object.assign(out, {
       settingsOpen:this.state.settingsOpen, toggleSettings:this.toggleSettings, closeSettings:this.closeSettings,
       loggedIn:this.state.loggedIn, loggedOut:!this.state.loggedIn,
@@ -3152,7 +3179,13 @@ class Component extends DCLogic {
       updateBadge: this.state.loggedIn && (this.needsUpdate() || (() => { const h = this.state.profile && this.state.profile.hash; return !!(h && this.getUpdating(h)); })()),
       username:this.state.username, onUsername:this.onUsername, onUsernameKey:this.onUsernameKey, doLogin:this.doLogin, doLogout:this.doLogout,
       userName:uname, signedInAs:'signed in as '+uname,
-      dataPull:this.fmtStamp((this.LIVE_CATALOG && this.LIVE_CATALOG.fetched_at) || this.META.catalog_fetched_at),
+      acctName, acctInitial:(acctName.charAt(0) || '?').toUpperCase(),
+      syncBadge: this.needsUpdate() ? 'UPDATE AVAILABLE' : 'CURRENT',
+      pullShort: this.getRefreshing() ? ('refreshing… ' + this.fmtElapsed((this.getRefreshing()||{}).startedAt)) : ('pulled ' + pullStamp.split(',')[0]),
+      spotifyShort: (() => { const s = this.state.spotifyStatus; if (s === true) return '✓ ' + (this.state.spotifyName || 'connected'); if (s === null) return 'checking…'; return 'not connected'; })(),
+      spotifyShortColor: this.state.spotifyStatus === true ? '#1f7a4d' : '#a7a59b',
+      apiShort: (() => { const key = this.byokKey(); const idn = key ? 'your key' : (this.BACKEND_TOKEN ? 'shared token' : 'not set'); return backendOld ? (idn + ' · old build') : idn; })(),
+      dataPull:pullStamp,
       dataChanged:(this.LIVE_CATALOG && (this.LIVE_CATALOG.added != null || this.LIVE_CATALOG.updated != null)) ? ((this.LIVE_CATALOG.added||0)+' added · '+(this.LIVE_CATALOG.updated||0)+' updated'+((this.LIVE_CATALOG.changes||[]).length?' →':'')) : 'no changes',
       showChanges:() => {
         const ch = (this.LIVE_CATALOG && this.LIVE_CATALOG.changes) || [];
