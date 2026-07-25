@@ -72,10 +72,11 @@ def test_hero_is_lane_capped_for_diversity():
 
 
 def test_long_runs_move_to_nowrunning_and_leave_dated_surfaces():
-    """A series rep whose remaining span >= FP_RUN_MIN_DAYS holds the fixed Now-running
-    shelf instead of squatting a lane shelf (or the hero) for weeks; a short run stays."""
+    """An OPEN series rep whose remaining span >= FP_RUN_MIN_DAYS (at ~weekly density) holds
+    the fixed Now-running shelf instead of squatting a lane shelf (or the hero) for weeks; a
+    short run stays."""
     run = ev("run", "2026-07-16", "stage", 1, tier="must-see", series="s1", rep=True)
-    run["series"] = {"count": 20, "first": "2026-07-16", "last": "2026-08-30"}
+    run["series"] = {"count": 20, "first": "2026-07-14", "last": "2026-08-30"}
     short = ev("short", "2026-07-17", "film", 2, series="s2", rep=True)
     short["series"] = {"count": 3, "first": "2026-07-17", "last": "2026-07-19"}
     fp = B.build_front_page([run, short], {}, TODAY)
@@ -83,6 +84,56 @@ def test_long_runs_move_to_nowrunning_and_leave_dated_surfaces():
     cu = next(s for s in fp["shelves"] if s["id"] == "culture")
     assert "run" not in cu["near"] and "short" in cu["near"]
     assert "run" not in fp["hero"]["twoweeks"]
+
+
+def test_sparse_series_are_tour_stops_not_runs():
+    """Density guard: three stadium dates months apart (an Usher rebooking, a monthly party)
+    are dated picks, not a season — count must cover the span at ~weekly density."""
+    sparse = ev("sparse", "2026-07-20", "live-music:big", 1, series="s1", rep=True)
+    sparse["series"] = {"count": 3, "first": "2026-07-10", "last": "2026-08-30"}
+    fp = B.build_front_page([sparse], {}, TODAY)
+    assert fp["nowrunning"] == []
+    bs = next(s for s in fp["shelves"] if s["id"] == "bigstage")
+    assert bs["near"] == ["sparse"]
+
+
+def test_unopened_seasons_stay_on_plan_ahead():
+    """A season that hasn't OPENED is plan-ahead news, not 'in town for a while' — it keeps
+    its lane-shelf (ahead) card until opening night."""
+    future = ev("future", "2026-08-10", "stage", 1, series="s1", rep=True)
+    future["series"] = {"count": 20, "first": "2026-08-10", "last": "2026-09-30"}
+    fp = B.build_front_page([future], {}, TODAY)
+    assert fp["nowrunning"] == []
+    cu = next(s for s in fp["shelves"] if s["id"] == "culture")
+    assert cu["ahead"] == ["future"]
+
+
+def test_nowrunning_orders_by_closing_soonest():
+    """A Continuing list is urgency-ordered: the run closing first leads, regardless of the
+    two-zone rank (which would bury a far-out unjudged season below a weekly market)."""
+    late = ev("late", "2026-07-16", "market", 1, series="s1", rep=True)
+    late["series"] = {"count": 10, "first": "2026-07-12", "last": "2026-09-20"}
+    soon = ev("soon", "2026-07-16", "stage", 50, series="s2", rep=True)
+    soon["series"] = {"count": 18, "first": "2026-07-10", "last": "2026-08-02"}
+    fp = B.build_front_page([late, soon], {}, TODAY)
+    assert fp["nowrunning"] == ["soon", "late"]
+
+
+def test_overcap_runs_keep_their_lane_shelf_card():
+    """Only the EMITTED (capped) Now-running keys leave the dated pool — an over-cap run
+    keeps its lane-shelf card instead of vanishing from every surface."""
+    runs = []
+    for i in range(B.FP_NOWRUNNING_CAP + 2):
+        r = ev(f"r{i}", "2026-07-16", "stage", i + 1, series=f"s{i}", rep=True)
+        r["series"] = {"count": 30, "first": "2026-07-10",
+                       "last": B.timedelta and (B.date(2026, 8, 10) + B.timedelta(days=i)).isoformat()}
+        runs.append(r)
+    fp = B.build_front_page(runs, {}, TODAY)
+    assert len(fp["nowrunning"]) == B.FP_NOWRUNNING_CAP
+    overcap = {f"r{B.FP_NOWRUNNING_CAP}", f"r{B.FP_NOWRUNNING_CAP + 1}"}   # farthest closings
+    assert not (overcap & set(fp["nowrunning"]))
+    cu = next(s for s in fp["shelves"] if s["id"] == "culture")
+    assert overcap <= set(cu["near"])
 
 
 def test_two_bookings_weeks_apart_are_not_a_run():
@@ -100,7 +151,7 @@ def test_closing_window_reenters_lane_shelf():
     """Remaining span under the threshold (the summary spans upcoming nights only) puts a
     run back on its lane shelf — 'closes Sunday' is dated news again."""
     closing = ev("closing", "2026-07-16", "stage", 1, series="s1", rep=True)
-    closing["series"] = {"count": 5, "first": "2026-07-16", "last": "2026-07-20"}
+    closing["series"] = {"count": 5, "first": "2026-07-14", "last": "2026-07-20"}
     fp = B.build_front_page([closing], {}, TODAY)
     assert fp["nowrunning"] == []
     cu = next(s for s in fp["shelves"] if s["id"] == "culture")

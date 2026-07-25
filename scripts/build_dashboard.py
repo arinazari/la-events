@@ -153,10 +153,20 @@ FP_SHELF_CAP = 40      # keys per shelf list (near + ahead each) — deep enough
 # answers "what's in town for a while" — without it a strong run squats a lane's top slot for
 # weeks. Span is measured over the REMAINING nights (series summaries cover upcoming members
 # only), so a run re-enters its lane shelf — and hero eligibility — for its final fortnight,
-# when "closes Sunday" is news again.
+# when "closes Sunday" is news again. Three guards keep "running" honest:
+#   nights >= 3          two bookings weeks apart are two dated picks, not a run;
+#   ~weekly density      count >= span/7 — an Usher stadium date rebooked twice months later
+#                        and a monthly party are TOUR STOPS/dated picks, not a season
+#                        (weekly residencies and markets pass; sparser series stay dated);
+#   first <= today       a season that hasn't OPENED is plan-ahead news, not "in town" —
+#                        it stays on the dated surfaces until opening night.
+# The list is ordered CLOSING-SOONEST (final_rank as tiebreak): a Continuing list is urgency-
+# ordered, and the two-zone rank would bury far-out unjudged seasons below weekly markets.
+# Only the capped, emitted list leaves the dated pool — an over-cap run keeps its lane-shelf
+# card rather than silently vanishing from every surface.
 FP_RUN_MIN_DAYS = 14
-FP_RUN_MIN_NIGHTS = 3  # two bookings weeks apart are two dated picks, not a run
-FP_NOWRUNNING_CAP = 24
+FP_RUN_MIN_NIGHTS = 3
+FP_NOWRUNNING_CAP = 12   # matches the client's visible rows — emitted == shown
 # Hero size/diversity knobs live in lib/assemble (TOP_PICKS_*): the hero row IS the shared
 # Don't-miss policy (assemble.top_picks — one shelf definition with the digest's "Don't miss").
 
@@ -251,9 +261,20 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
     # Long runs split off first: they hold their own fixed shelf (visible under every lens —
     # a run IS an option tonight) and leave the dated surfaces (hero + lane shelves) until
     # their remaining span drops under FP_RUN_MIN_DAYS — the closing-window re-entry.
-    running = [e for e in ranked
-               if _run_span_days(e) >= FP_RUN_MIN_DAYS
-               and ((e.get("series") or {}).get("count") or 0) >= FP_RUN_MIN_NIGHTS]
+    # Guards (see the FP_RUN_* comment): >=3 nights, ~weekly density, and already OPEN.
+    def _is_running(e):
+        span = _run_span_days(e)
+        s = e.get("series") or {}
+        count = s.get("count") or 0
+        return (span >= FP_RUN_MIN_DAYS and count >= FP_RUN_MIN_NIGHTS
+                and count >= span / 7                       # ~weekly or denser
+                and (s.get("first") or "") <= today.isoformat())   # opened — "in town", not "opens Sep 8"
+    # Closing-soonest order (a Continuing list is urgency-ordered; rank breaks ties), capped
+    # to what the client shows; ONLY the emitted keys leave the dated pool, so an over-cap
+    # run keeps its lane-shelf card instead of vanishing from every surface.
+    running = sorted((e for e in ranked if _is_running(e)),
+                     key=lambda e: ((e.get("series") or {}).get("last") or "9999",
+                                    e.get("final_rank") or 10 ** 9))[:FP_NOWRUNNING_CAP]
     running_keys = {e["key"] for e in running}
     dated = [e for e in ranked if e["key"] not in running_keys]
 
@@ -306,7 +327,7 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
         "take": take,
         "hero": hero,
         "shelves": shelves,
-        "nowrunning": [e["key"] for e in running][:FP_NOWRUNNING_CAP],
+        "nowrunning": [e["key"] for e in running],
         "radar": join(radar_rows, 16),
         "around": join(around_rows, 12),
     }

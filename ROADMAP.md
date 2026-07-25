@@ -482,9 +482,19 @@ reshape (old labels/lanes back on `main`); PORTED onto the redesigned page in-se
 Ari — server intact through the merge (hero = shared `top_picks` over the dated pool), client
 re-implemented in the new architecture: run-span card dates via `cardFor`, a **Now running**
 row-section (radar-style, every lens), and the board as the detail's **ALL DATES** section
-(coexists with the restored same-night SHOWTIMES row). Open design thread from Ari: movies
-and festivals may each deserve a **dedicated view** (a marquee/showtimes page; a festivals
-page over `festivals.yaml` + radar) — discussed, not yet decided.
+(coexists with the restored same-night SHOWTIMES row). A post-port adversarial review pass
+hardened the classifier: "running" now requires ≥3 nights at **~weekly density** (an Usher
+stadium date rebooked months later and a monthly party are tour stops/dated picks, not a
+season) **and an opened run** (`first ≤ today` — an unopened season stays plan-ahead);
+the list is **closing-soonest ordered** (the two-zone rank buried Pantages seasons below
+weekly fleas), only the emitted cap leaves the dated pool (nothing vanishes), run labels are
+rep-only + weekday-cadence-aware ("4 Fridays"), and unnormalized series start times ("9:30
+PM") no longer NaN through the clock math. Open design thread from Ari: movies and festivals
+may each deserve a **dedicated view** (a marquee/showtimes page; a festivals page over
+`festivals.yaml` + radar) — discussed, not yet decided. Related audit finding (2026-07-25):
+**`festivals.yaml` is currently read by NOTHING** — build_radar derives radar purely from
+catalog signals, so out-of-catalog watch-list items (Portola, CRSSD, Coachella '27) surface
+nowhere; any festivals view starts by actually wiring that file in.
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end

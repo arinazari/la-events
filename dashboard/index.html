@@ -1464,15 +1464,21 @@ class Component extends DCLogic {
     if (e.showtimesUrl) out.push({ label: 'All LA showtimes', url: e.showtimesUrl });
     return { buttons: out.slice(0, 6), showtimes: [...groups].map(g => ({ venue: g[0], times: g[1] })) };
   }
-  // Run span for a series card — the PROGRAM's dates, not its rep night: {span, count} like
-  // ("Thru Sun Sep 6", "12 nights"), or null for one-nighters/same-day programs. Span is over
-  // the REMAINING nights (series summaries cover upcoming members only), so a closing run's
-  // label tightens honestly as it winds down.
+  // Run span for a series REP card — the PROGRAM's dates, not its rep night: {span, count}
+  // like ("Thru Sun Sep 6", "12 nights"), or null for one-nighters/same-day programs and for
+  // NON-rep member rows (a date-sorted Explore list shows each night under its own date; only
+  // the rep row — the program's card — wears the span). Span is over the REMAINING nights, so
+  // a closing run's label tightens honestly. Weekly-cadence series (all entries on one
+  // weekday) say so — "Thru Aug 23 · 5 Sundays" — instead of posing as a continuous run.
+  RUN_WDS = ['Sundays','Mondays','Tuesdays','Wednesdays','Thursdays','Fridays','Saturdays'];
   runLabel(e) {
     const s = e.series;
-    if (!(s && s.count > 1 && s.first && s.last && s.first !== s.last)) return null;
+    if (!e.seriesRep || !(s && s.count > 1 && s.first && s.last && s.first !== s.last)) return null;
     const lf = this.fmt(s.first, ''), ll = this.fmt(s.last, '');
-    const unit = (s.venues || []).length > 1 ? 'showings' : 'nights';
+    const dows = new Set((s.entries || []).map(en => this.fmt(en.date, '').dow));
+    const unit = (dows.size === 1 && (s.entries || []).length === s.count)
+      ? this.RUN_WDS[[...dows][0]]
+      : ((s.venues || []).length > 1 ? 'showings' : 'nights');
     const span = s.first <= this.TODAY ? 'Thru ' + ll.wd + ' ' + ll.md
       : lf.md + ' – ' + ll.md;
     return { span, count: s.count + ' ' + unit };
@@ -1482,6 +1488,13 @@ class Component extends DCLogic {
   // chips only when they VARY — a constant curtain time collapses into the section header
   // ("all shows 8:00 PM"), so a uniform theater run reads as pure dates while a rep-cinema
   // program with matinees teases its screenings apart. Sold-out nights stay listed, dimmed.
+  // Series-entry starts arrive unnormalized from webfetch/19hz sources ('9:30 PM', '11pm-6am')
+  // — only clean 24h HH:MM goes through fmt()'s clock math; anything else is already human
+  // text and passes through verbatim (fmt would render '9:30 PM' as '9:NaN AM').
+  fmtStart(date, start) {
+    return /^\d{1,2}:\d{2}$/.test(String(start || '').trim())
+      ? this.fmt(date, String(start).trim()).t : String(start || '').trim();
+  }
   BOARD_CHIP_MAX = 24;
   seriesBoard(e) {
     const none = { groups: [], head: '', more: '' };
@@ -1490,16 +1503,16 @@ class Component extends DCLogic {
     if (entries.length < 2) return none;
     const times = new Set(entries.map(en => en.start || ''));
     const uniform = times.size === 1 && !times.has('');
-    const head = uniform ? 'all shows ' + this.fmt(entries[0].date, entries[0].start).t : '';
+    const head = uniform ? 'all shows ' + this.fmtStart(entries[0].date, entries[0].start) : '';
     const multiVenue = (e.series.venues || []).length > 1;
     const shown = entries.slice(0, this.BOARD_CHIP_MAX);
     const byVenue = new Map();
     for (const en of shown) {
       const v = multiVenue ? this.venueDisplay(en.venue || '') : '';
       if (!byVenue.has(v)) byVenue.set(v, []);
-      const f = this.fmt(en.date, en.start);
+      const f = this.fmt(en.date, '');
       byVenue.get(v).push({
-        label: f.wd + ' ' + f.md + (!uniform && en.start ? ' · ' + f.t : ''),
+        label: f.wd + ' ' + f.md + (!uniform && en.start ? ' · ' + this.fmtStart(en.date, en.start) : ''),
         url: en.url || e.showtimesUrl || e.url || '#', dim: !!en.sold_out,
       });
     }
@@ -1574,7 +1587,9 @@ class Component extends DCLogic {
     const run = this.runLabel(e);
     return {
       id:e.id, when:run ? run.span+' · '+run.count : (isToday?'Tonight':f.wd)+' · '+f.t,
-      dateShort:run ? run.span : f.wd+' '+f.md, wd:f.wd, md:f.md, t:f.t,
+      // A run card's `t` is the count ("12 nights"), not the rep night's clock time — the
+      // span+7:30 pairing read as a nightly curtain time, wrong for mixed-matinee programs.
+      dateShort:run ? run.span : f.wd+' '+f.md, wd:f.wd, md:f.md, t:run ? run.count : f.t,
       title:e.title, venue:e.venue+' · '+e.hood, venueName:e.venue, hood:e.hood, genre:e.genre, source:e.source, sub:e.venue+(e.lineup&&e.lineup.length?' · '+e.lineup.join(', '):''), price:this.priceLabel(e), why:(e.whyCurated || e.desc || e.why),
       hasWhy:!!(e.whyCurated || e.desc || e.why),
       cat:e.cat, catShort:(e.cat==='Live Music'?'LIVE':e.cat).toUpperCase(), catColor:this.CAT_COLOR[e.cat]||'#3f3d36',
@@ -3060,7 +3075,7 @@ class Component extends DCLogic {
       // (the server measures span over remaining nights only).
       const nowr = this.lessSink(this.resolveKeys(FP.nowrunning)
         .filter(e => (e.series && e.series.last ? e.series.last >= T : e.iso >= T)));
-      out.nowRunning = nowr.slice(0, 8).map(e => {
+      out.nowRunning = nowr.slice(0, 12).map(e => {
         const run = this.runLabel(e) || { span: this.fmt(e.iso, '').wd + ' ' + this.fmt(e.iso, '').md, count: '' };
         return { id: e.id, dateShort: run.span, title: e.title, venue: this.venueDisplay(e.venue) + ' · ' + e.hood,
                  tag: run.count.toUpperCase(), hasTag: !!run.count, onOpen: () => this.openDetail(e.id) };
@@ -3085,8 +3100,12 @@ class Component extends DCLogic {
       const shsAll = this.fpShelves();
       const shelf = shsAll && shsAll.find(s => s.id === this.state.sceneId);
       if (shelf) {
-        // server-slate lane page: the shelf's near+ahead zones in slate order
-        const list = this.lessSink(this.shelfEvents(shelf).filter(e => e.iso >= T)).map(e => this.cardFor(e));
+        // server-slate lane page: the shelf's near+ahead zones in slate order. A MERGED
+        // shelf's server order is the round-robin interleave (a front-row mixing device) —
+        // re-sort by rank here so the page's "ranked by match" header stays honest.
+        let evs = this.shelfEvents(shelf).filter(e => e.iso >= T);
+        if ((shelf.lanes || []).length > 1) evs = evs.slice().sort(this.rankCmp);
+        const list = this.lessSink(evs).map(e => this.cardFor(e));
         out.sceneTitle = shelf.label; out.sceneDesc = this.SHELF_DESC[shelf.id] || '';
         out.sceneDot = this.SHELF_DOT[shelf.id] || '#76746b'; out.sceneCount = list.length; out.sceneList = list;
       } else {
