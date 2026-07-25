@@ -194,6 +194,44 @@ def test_take_lifted_from_slot_with_doc_date():
     assert B.build_front_page([], {}, TODAY)["take"] is None
 
 
+def test_festivals_watchlist_lift():
+    """festivals.yaml -> front_page.festivals: status:past filtered, dated items first (by
+    first parseable date), undated annual-watch entries last; build_front_page passes the
+    rows through verbatim (and emits [] when none are given)."""
+    import os
+    import tempfile
+    yml = (
+        "festivals:\n"
+        "  - name: Portola 2026\n"
+        "    location: Pier 80, SF\n"
+        "    when: 2026-09-26..27\n"
+        "    status: on_sale\n"
+        "    tickets: https://portola.example\n"
+        "    why: >\n      THE one for you.\n"
+        "  - name: Old Fest\n"
+        "    when: 2025-01-01\n"
+        "    status: past\n"
+        "  - name: GALA London\n"
+        "    when: typically late May\n"
+        "    status: annual_watch\n"
+    )
+    with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False) as f:
+        f.write(yml)
+        p = f.name
+    try:
+        fests = B.load_festivals(p)
+    finally:
+        os.unlink(p)
+    assert [x["name"] for x in fests] == ["Portola 2026", "GALA London"]
+    assert fests[0]["first_date"] == "2026-09-26" and fests[0]["status"] == "on_sale"
+    assert fests[0]["why"] == "THE one for you."
+    assert fests[1]["first_date"] is None
+    assert B.load_festivals("/nonexistent/festivals.yaml") == []
+    fp = B.build_front_page([], {}, TODAY, festivals=fests)
+    assert fp["festivals"] == fests
+    assert B.build_front_page([], {}, TODAY)["festivals"] == []
+
+
 def test_windows_shape_and_radar_join():
     w = B._fp_windows(TODAY)
     assert w["today"] == ("2026-07-15", "2026-07-15")
