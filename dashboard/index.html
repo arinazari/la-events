@@ -1236,6 +1236,12 @@ class Component extends DCLogic {
   // scores. parseEvent / profileHash / feed endpoints mirror the previous dashboard build.
   BACKEND_URL = 'https://la-events-concierge.arinazari.workers.dev';
   PROFILE_SALT = 'la-events/v1:';
+  // Wall-clock ceilings on the persisted pipeline jobs (see readJob). Past these a job is over
+  // as far as the page is concerned: the run either landed unseen or died, and either way the
+  // badge must stop and the button must come back. Generous vs. the real runtimes — the
+  // per-profile rebuild is ~1-2 min, the source refresh ~2-3 min.
+  JOB_MAX_MS = 35 * 60 * 1000;
+  REFRESH_MAX_MS = 20 * 60 * 1000;
 
   SCENES = [
     { id:'warehouse', label:'Warehouse & underground', desc:'Location-TBA parties, acid, and the after-dark techno core of your profile.', dot:'oklch(0.52 0.14 285)', lanes:['club:underground'], test:e => e.cat==='Electronic' && (e.ah || /techno|acid|warehouse|house|disco/.test(e.genre) || /tba/i.test(e.venue)) },
@@ -1517,8 +1523,17 @@ class Component extends DCLogic {
     try { if (localStorage.getItem('la-view') === 'explore') this.setState({ view:'explore' }); } catch (e) {}
     this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen:false }); else if (this.state.nudgeOpen) this.setState({ nudgeOpen:false }); else if (this.state.welcomeOpen) this.closeWelcome(); else if (this.state.guideOpen) this.setState({ guideOpen:false }); else if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
     window.addEventListener('keydown', this._onKey);
+    // Jobs are keyed in localStorage, so a tab that was already open when another tab started a
+    // rebuild renders that badge without ever arming a poll for it — the classic way the badge
+    // got stranded. Mirror the other tab: arm the poll it started, drop the badge it finished.
+    this._onStorage = (e) => {
+      if (!e || !e.key || !/^la-(updating-|refreshing$)/.test(e.key)) return;
+      this.reattachJobs();
+      this.forceUpdate();
+    };
+    window.addEventListener('storage', this._onStorage);
   }
-  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
+  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onStorage) window.removeEventListener('storage', this._onStorage); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
 
   // ---------- date + format ----------
   fmt(iso, time) {
@@ -2358,6 +2373,7 @@ class Component extends DCLogic {
       this.BACKEND_TOKEN = this.readConn(prof).token || '';   // connection is per-profile
       this.setState({ backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); });
       this.loadDigest(); this.checkSpotify(); this.maybeOnboard(prof);
+      this.reattachJobs(hash);   // this profile may have a rebuild still in flight from a previous visit
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
@@ -2370,18 +2386,38 @@ class Component extends DCLogic {
     const secs = Math.max(0, Math.floor((Date.now() - since) / 1000));
     return Math.floor(secs / 60) + ':' + String(secs % 60).padStart(2, '0');
   }
+  // 1 Hz re-render, purely to advance the elapsed counter. It ends itself as soon as no job is
+  // live — which now actually happens, because getUpdating/getRefreshing age out (readJob).
   startJobTick() {
     if (this._jobTick) return;
     this._jobTick = setInterval(() => {
       const active = this.state.profile && this.state.profile.hash;
-      if ((active && this.getUpdating(active)) || this.getRefreshing()) this.forceUpdate();
-      else { clearInterval(this._jobTick); this._jobTick = null; }
+      if (!((active && this.getUpdating(active)) || this.getRefreshing())) { clearInterval(this._jobTick); this._jobTick = null; return; }
+      if (!document.hidden) this.forceUpdate();   // nobody is reading the counter in a background tab
     }, 1000);
   }
+  // A job flag lives in localStorage but was only ever cleared from inside its polling interval —
+  // so anything that orphans the poll (closing the tab mid-run, switching profiles, a feed load
+  // that resolves without reattaching) stranded the flag forever: "re-ranking · 612:04" ticking
+  // on, Update silently dead (updateMyDigest early-returns on it), nudges suppressed, and a 1 Hz
+  // forceUpdate loop pinned. Expiry is therefore enforced at READ time — every consumer
+  // self-heals whether or not a poll is still alive to do the clearing.
+  readJob(key, maxMs) {
+    let job = null;
+    try { job = JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { job = null; }
+    if (!job || typeof job !== 'object') return null;
+    const started = Number(job.startedAt), age = Date.now() - started;
+    // Missing/garbled stamp, past the ceiling, or future-dated (clock moved) => not a live job.
+    if (!isFinite(started) || started <= 0 || age > maxMs || age < -60000) {
+      try { localStorage.removeItem(key); } catch (e) {}
+      return null;
+    }
+    return job;
+  }
   updatingKey(hash) { return 'la-updating-' + (hash || 'default'); }
-  getUpdating(hash) { try { return JSON.parse(localStorage.getItem(this.updatingKey(hash)) || 'null'); } catch (e) { return null; } }
+  getUpdating(hash) { return this.readJob(this.updatingKey(hash), this.JOB_MAX_MS); }
   setUpdating(hash, val) { try { val ? localStorage.setItem(this.updatingKey(hash), JSON.stringify(val)) : localStorage.removeItem(this.updatingKey(hash)); } catch (e) {} }
-  getRefreshing() { try { return JSON.parse(localStorage.getItem('la-refreshing') || 'null'); } catch (e) { return null; } }
+  getRefreshing() { return this.readJob('la-refreshing', this.REFRESH_MAX_MS); }
   setRefreshing(val) { try { val ? localStorage.setItem('la-refreshing', JSON.stringify(val)) : localStorage.removeItem('la-refreshing'); } catch (e) {} }
   strSig(x) {
     let h = 5381;
@@ -2399,8 +2435,11 @@ class Component extends DCLogic {
       .then(j => (j && (j.rebuilt_at || j.run_id)) ? ((j.rebuilt_at || '') + ':' + (j.run_id || '')) : null)
       .catch(() => null);
   }
-  reattachJobs() {
-    const active = this.state.profile && this.state.profile.hash;
+  // Called on mount AND on every profile switch: the update poll is bound to one hash and stops
+  // itself when the active profile changes, so switching away and back has to re-arm it or that
+  // profile's job is left with nobody watching it.
+  reattachJobs(hash) {
+    const active = hash || (this.state.profile && this.state.profile.hash);
     if (active && this.getUpdating(active) && !this._freshPoll) this.startUpdatePoll(active);
     if (this.getRefreshing() && !this._refreshPoll) this.startRefreshPoll();
   }
@@ -2414,11 +2453,16 @@ class Component extends DCLogic {
     this.startJobTick();
     this._freshPoll = setInterval(async () => {
       if (((this.state.profile && this.state.profile.hash) || null) !== hash) { clearInterval(this._freshPoll); this._freshPoll = null; return; }
-      const probes = await Promise.all([this.fetchDigestSig(hash), this.fetchRebuildStamp(hash)]);
-      await this.checkCatalogFreshness();
-      const digestChanged = !!(probes[0] && probes[0] !== baseDigest);
-      const landed = digestChanged || !!(probes[1] && probes[1] !== baseStamp);
-      const expired = ++nPolls > 120 || (job.startedAt && Date.now() - job.startedAt > 35 * 60 * 1000);
+      // Decide expiry BEFORE any network work — a probe that hangs or throws must never be able
+      // to stall the ceiling that ends the job. getUpdating() carries the wall clock (readJob).
+      const expired = ++nPolls > 120 || !this.getUpdating(hash);
+      let digestChanged = false, landed = false;
+      try {
+        const probes = await Promise.all([this.fetchDigestSig(hash), this.fetchRebuildStamp(hash)]);
+        await this.checkCatalogFreshness();
+        digestChanged = !!(probes[0] && probes[0] !== baseDigest);
+        landed = digestChanged || !!(probes[1] && probes[1] !== baseStamp);
+      } catch (e) { /* a failed probe is not a verdict — fall through to the expiry check */ }
       if (landed || expired) {
         clearInterval(this._freshPoll); this._freshPoll = null;
         this.setUpdating(hash, null);
@@ -2601,12 +2645,18 @@ class Component extends DCLogic {
     let nPolls = 0;
     this.startJobTick();
     this._refreshPoll = setInterval(async () => {
-      await this.checkCatalogFreshness();
-      const lc = this.LIVE_CATALOG || {};
-      const fetched = lc.fetched_at || null;
-      if (baseFetched == null && fetched) baseFetched = fetched;
-      const done = fetched && baseFetched && fetched !== baseFetched;
-      if (done || ++nPolls > 40) {
+      // Same ordering rule as the update poll: age out first, probe second.
+      const expired = ++nPolls > 40 || !this.getRefreshing();
+      let done = false;
+      let lc = {};
+      try {
+        await this.checkCatalogFreshness();
+        lc = this.LIVE_CATALOG || {};
+        const fetched = lc.fetched_at || null;
+        if (baseFetched == null && fetched) baseFetched = fetched;
+        done = !!(fetched && baseFetched && fetched !== baseFetched);
+      } catch (e) { /* transient fetch failure — let the ceiling decide */ }
+      if (done || expired) {
         clearInterval(this._refreshPoll); this._refreshPoll = null;
         this.setRefreshing(null);
         if (done) {
