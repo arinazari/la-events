@@ -18,6 +18,13 @@ home:
   coords: [ 34.0906, -118.2717 ] # ~Hyperion & Del Mar; used by scripts/lib/geo.py
 
 # City-specific source ids (lifted from the fetchers; they fall back to these literals).
+dashboard:
+  # Page-presentation knobs (the static dashboard reads these via feed config).
+  # photos: real event images on the front page's top picks (lead + shortlist) for
+  # signed-in profiles. Default false — flip here (or preview via the owner's in-page
+  # Settings toggle) to turn them on site-wide at the next feed build.
+  photos: false
+
 sources:
   ticketmaster_dma_id: "324" # LA DMA — fetch_ticketmaster.py
   ra_area_id: 23 # RA's internal LA area number — fetch_ra.py

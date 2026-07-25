@@ -70,6 +70,29 @@ def test_merge_keeps_all_links_and_richest_fields():
     assert len(m["lineup"]) == 2                        # richest lineup
 
 
+def test_merge_upgrades_known_link_with_new_keys_old_wins_conflicts():
+    """A re-fetched link carrying NEW keys (fetch_veezi's per-showtime `label`) upgrades the
+    long-lived catalog dict for the same url — but the KEPT side wins shared keys, so a
+    re-emitted link can't clobber `source` (the "venue"-sourced shared-page dedupe signal) or
+    an already-good label. Position is preserved (links[0] is THE ticket link)."""
+    cat = {"title": "The Odyssey (70mm)", "venue": "Vista Theater", "date": "2026-07-24",
+           "lineup": [], "links": [
+               {"source": "vista", "url": "https://tix/3859"},
+               {"source": "venue", "url": "https://tix/shared"}]}
+    inc = {"title": "The Odyssey (70mm)", "venue": "Vista Theater", "date": "2026-07-24",
+           "lineup": [], "links": [
+               {"source": "vista", "url": "https://tix/3859", "label": "7:30pm"},
+               {"source": "19hz", "url": "https://tix/shared", "label": "x"},
+               {"source": "vista", "url": "https://tix/3866", "label": "10:30pm"}]}
+    m = merge(cat, inc)
+    assert [l["url"] for l in m["links"]] == ["https://tix/3859", "https://tix/shared",
+                                              "https://tix/3866"]   # order kept, new url appended
+    assert m["links"][0]["label"] == "7:30pm"          # new key lands on the kept dict
+    assert m["links"][1]["source"] == "venue"          # kept side wins the shared key
+    assert m["links"][1]["label"] == "x"               # ...but still gains the new key
+    assert m["links"][2]["label"] == "10:30pm"
+
+
 def test_merge_demotes_tm_resale_link():
     # TM resale-marketplace URLs (/event/Z…) routinely dead-end — after a merge a working link
     # must sit at links[0] (the digest + dashboard surface the first link as THE ticket link).
@@ -426,6 +449,37 @@ def test_afterparty_does_not_merge_into_main_event():
     assert not is_duplicate(main, afters)
 
 
+# HARD-week afters, the real 8/1 pair: RA bills the room as a TBA alias-with-address
+# ("TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd…"), 19hz as the plain venue.
+# The venue leg only pairs through containment of the shared core "ace mission studios";
+# the title leg only through containment ("Mau P, Dreya V" ⊂ RA's billed title).
+AFTERS_RA = {"title": "Saturday HARDfest Afters (Mau P, Dreya V)",
+             "venue": "TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033",
+             "date": "2026-08-01", "lineup": ["Mau P"],
+             "links": [{"source": "ra", "url": "https://ra.co/events/2479700"}], "sources": ["ra"]}
+AFTERS_19HZ = {"title": "Mau P, Dreya V", "venue": "Ace Mission Studios (Los Angeles)",
+               "date": "2026-08-01", "lineup": [], "genre": "tech house",
+               "links": [{"source": "19hz",
+                          "url": "https://hard.frontgatetickets.com/event/mxqewxz783v0qzfu"}],
+               "sources": ["19hz"]}
+
+
+def test_tba_alias_venue_vs_plain_venue_merges():
+    assert is_duplicate(AFTERS_RA, AFTERS_19HZ)
+
+
+def test_19hz_genre_glued_to_venue_defeats_the_venue_leg():
+    # The dupe Ari caught on the dashboard: fetch_19hz used to leave 19hz's genre tags glued
+    # to the venue ("Ace Mission Studios (Los Angeles) tech house"), pushing the venue pair
+    # past ratio AND containment — two cards, one of them the Don't-miss hero. The fix lives
+    # in the fetcher (split the swallowed tags <td>), NOT in loosening the venue predicate:
+    # a shared-token venue rule would pair different venues that share a neighborhood word
+    # ("Highland Park Bowl" / "The Lodge Room (Highland Park)"). This documents the known-bad
+    # shape staying unmerged so nobody re-fixes it at the wrong layer.
+    dirty = dict(AFTERS_19HZ, venue="Ace Mission Studios (Los Angeles) tech house")
+    assert not is_duplicate(AFTERS_RA, dirty)
+
+
 def test_dedupe_collapses_recollect_cluster():
     # All four 7/10 rows fold into one live record: links from every source kept, and the two
     # ghost-flagged (stale) rows must NOT carry their `unlisted` status onto the live merge.
@@ -461,6 +515,17 @@ def test_merge_new_fetch_still_wins_volatiles():
     assert merge(old, dict(fetched, status="unlisted"))["status"] == "unlisted"
     # …and a stale flag on the catalog side is cleared by a fresh re-listing.
     assert "status" not in merge(dict(old, status="unlisted"), fetched)
+
+
+def test_merge_preserves_image_from_either_record():
+    # Event art is stable and only some sources carry it — the merge must keep it whichever side has it.
+    base = {"title": "Show", "venue": "Zebulon", "date": "2026-07-20", "last_seen": "2026-07-09"}
+    withimg = {"title": "Show", "venue": "Zebulon", "date": "2026-07-20", "last_seen": "2026-07-10",
+               "image": "https://cdn/flyer.jpg"}
+    assert merge(base, withimg)["image"] == "https://cdn/flyer.jpg"   # backfilled from incoming (pre-feature base)
+    assert merge(withimg, base)["image"] == "https://cdn/flyer.jpg"   # kept when the base already carries it
+    # Neither side has art -> no null `image` key leaks into the catalog row.
+    assert "image" not in merge(base, dict(base, last_seen="2026-07-10"))
 
 
 if __name__ == "__main__":

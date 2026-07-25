@@ -96,17 +96,20 @@ jobs:
           HASH: ${{ steps.target.outputs.hash }}
           IS_OWNER: ${{ steps.target.outputs.is_owner }}
         run: |
-          python scripts/build_profiles.py --only-hash "$HASH"
           paths="dashboard/data.$HASH.json dashboard/catalog_meta.json"
           # Owner = the canonical/default feed, and their displayed digest IS the consolidated one.
           # Re-render it deterministically (same path refresh-events/nightly use) so the owner's
-          # Update visibly refreshes the digest, not just the feed. Best-effort.
+          # Update visibly refreshes the digest, not just the feed. Best-effort — and BEFORE the
+          # feed build: build_profiles lifts "The Take" (front_page.take) from digests/latest.md,
+          # so the feed must read the doc this run deploys (fresh scaffold -> take null until the
+          # nightly voice pass), not carry yesterday's intro over a digest that no longer has it.
           if [ "$IS_OWNER" = "true" ]; then
             python scripts/build_radar.py || true
             python scripts/render_digest.py --consolidated \
               --md digests/latest.md || true
             paths="$paths digests/latest.md"
           fi
+          python scripts/build_profiles.py --only-hash "$HASH"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -- $paths 2>/dev/null || true

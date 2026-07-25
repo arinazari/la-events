@@ -19,10 +19,14 @@ Usage:
 import argparse
 import html
 import json
+import os
 import re
 import sys
 from datetime import datetime, timedelta
 from urllib.request import Request, urlopen
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (AXS `media` dict -> the event's largest image, free)
 
 try:
     from zoneinfo import ZoneInfo
@@ -34,10 +38,14 @@ except Exception:  # pragma: no cover
 FEED = "https://aegwebprod.blob.core.windows.net/json/events/{site_id}/events.json"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 
-# LA-metro cities present in the GV feed (excludes Bay Area / San Diego / Santa Barbara rooms)
+# LA-metro cities present in the GV feed (excludes Bay Area / San Diego / Santa Barbara rooms).
+# Westside cities (santa monica / culver city / el segundo) were missing — a plain omission that
+# silently dropped every GV Santa Monica booking (e.g. the Ocean Way Festival on The Beach at
+# Santa Monica), even though Santa Monica is closer to DTLA than Pomona/Anaheim/Long Beach below.
 LA_CITIES = {
     "los angeles", "west hollywood", "hollywood", "inglewood", "pomona",
     "santa ana", "anaheim", "pasadena", "long beach",
+    "santa monica", "culver city", "el segundo",
 }
 
 
@@ -123,6 +131,7 @@ def main() -> int:
             "status": tk.get("status"),
             "onsale": e.get("onsaleDateTime"),
             "presale": e.get("presaleDateTime"),
+            "image": images.from_axs_media(e.get("media")),  # AXS media (largest by area) — free
             "url": tk.get("eventUrl") or tk.get("url") or tk.get("ticketURL"),
         })
 

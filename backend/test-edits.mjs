@@ -8,7 +8,7 @@ import { readFileSync } from "node:fs";
 import { parse as yamlParse, parseDocument } from "yaml";
 import {
   applyDigestPatchDoc, newDigestDoc, applyProfilePatchDoc, applyPatchDoc, buildSystem, profileHash,
-  accumulateSSE,
+  accumulateSSE, foldReaction, foldFeedback,
 } from "./concierge-worker.js";
 
 let passed = 0;
@@ -163,6 +163,20 @@ const SSE_OK = [
   ok("sse: truncated stream (no message_stop) throws instead of passing as complete");
 }
 {
+  // onEvent tap: the browser-streaming path reads text deltas live off the same accumulation —
+  // and a throwing tap must never corrupt the fold (it's wrapped per event).
+  const seen = [];
+  const out = await accumulateSSE(sseStream(SSE_OK), (ev) => {
+    if (ev.type === "content_block_delta" && ev.delta.type === "text_delta") seen.push(ev.delta.text);
+    if (ev.type === "message_start") throw new Error("tap failure");
+  });
+  assert.deepEqual(seen, ["Go see ", "Kelela."], "text deltas tapped in order");
+  assert.equal(out.model, "claude-sonnet-4-6", "message_start still folded despite the tap throwing on it");
+  assert.equal(out.content[1].text, "Go see Kelela.");
+  assert.equal(out.stop_reason, "tool_use");
+  ok("sse: onEvent taps text deltas; a throwing tap never corrupts accumulation");
+}
+{
   // Signature deltas concatenate (must survive byte-exact for the pause_turn/tool-round echo),
   // a delta for an index that never got a start leaves no typeless fragment in content, and an
   // absurd index is ignored rather than creating a giant sparse array.
@@ -182,6 +196,33 @@ const SSE_OK = [
   assert.deepEqual(out.content.map((b) => b.type), ["thinking", "text"], "orphan/absurd-index fragments dropped");
   assert.equal(out.content[1].text, "hi");
   ok("sse: signature accumulates, orphan + absurd-index fragments are dropped");
+}
+
+/* ---- stars: the pure reaction/feedback folds (POST /react) ---- */
+{
+  const rec = { ts: "2026-07-21", profile: "abc12345", name: "Lori", event_key: "aaaabbbbcccc", kind: "star", title: "X" };
+  let r = foldReaction("", rec);
+  assert.ok(r.changed && r.text.endsWith("\n"));
+  assert.equal(JSON.parse(r.text.trim()).kind, "star");
+  assert.equal(foldReaction(r.text, rec).changed, false);          // idempotent: same state -> no append
+  const un = { ...rec, kind: "unstar" };
+  r = foldReaction(r.text, un);
+  assert.ok(r.changed);
+  r = foldReaction(r.text, rec);                                    // flip back appends again (last-wins log)
+  assert.ok(r.changed && r.text.trim().split("\n").length === 3);
+  assert.ok(foldReaction(r.text, { ...rec, profile: "def45678" }).changed);   // another profile is independent
+  const glued = foldReaction('{"profile":"zz","event_key":"aaaabbbbcccc","kind":"star"}', un);
+  assert.ok(glued.text.includes("}\n{"));                          // missing trailing newline never merges lines
+  ok("react: foldReaction is last-wins + idempotent per (profile, event)");
+}
+{
+  const frec = { ts: "2026-07-21", kind: "loved", artists: ["Antal"], event_key: "aaaabbbbcccc" };
+  let f = foldFeedback("", frec);
+  assert.ok(f.changed);
+  assert.equal(foldFeedback(f.text, frec).changed, false);         // append-once per (event, kind) — flapping can't stack
+  assert.ok(foldFeedback(f.text, { ...frec, kind: "hide" }).changed);   // a different kind still lands
+  assert.equal(foldFeedback("not json\n" + f.text, frec).changed, false);  // junk lines tolerated
+  ok("react: foldFeedback appends once per (event, kind)");
 }
 
 console.log(`\nall ${passed} worker edit tests passed`);

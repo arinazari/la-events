@@ -113,6 +113,7 @@ no backend; the static page just renders it.
 | Stage | Runs | No-ops when | Cost tier |
 |---|---|---|---|
 | fetch + dedupe + expire + score (`run_digest`) | every routine run / refresh | — (always; deterministic, cheap). Merge is **freshest-wins** for price/time/lineup/status, so in-place updates land. Also each run: `recurring.yaml` markets materialize into dated rows (idempotent), and out-of-market rows (profile `pipeline.out_of_market`) drop unless radar-worthy (festival / tracked artist / arena venue) | none |
+| artist-link resolver (`lib/artist_links`, inside `run_digest`) | every fetch run (creds-gated) | every current lineup/scene-graph artist already in `data/artist_links.json` (misses re-check after 45d); no `SPOTIFY_CLIENT_ID/SECRET` → SKIP | none (Spotify API, ≤250 lookups/run, converges) |
 | **event-editor** (Tier 1 verdicts, default profile) | routine + per-user rebuild | event already judged at this score AND editor-input version unchanged (`select_for_verdict`) | Sonnet, delta only |
 | **event-editor** (per-friend verdicts) | routine (gate-REFRESH profiles only) + per-user rebuild | `profile_refresh_gate` says SKIP — that profile's taste/profile/prefs/feedback unchanged since its last enrichment | Sonnet, taste-gated |
 | **scene-researcher** (Tier 1 full enrichment, top-100 head) | routine + per-user rebuild | event already full-tier in `enrichment.json` (write-once; a blurb-tier event in the head is *re-selected* to upgrade) | Sonnet, misses + upgrades only |
@@ -147,12 +148,18 @@ no backend; the static page just renders it.
 4. **Consolidated voice pass** (Tier-3, routine step 5b) — small, every run: the intro slot,
    the Don't-miss whys (prefilled deterministically from verdicts/curator notes; the pass
    rewrites for voice), an optional Around-town gloss. Fills marked slots only — never
-   selection (the body is deterministic slate).
+   selection (the body is deterministic slate). The pass also writes "The Take" — a
+   ONE-sentence teaser in the digest's invisible `<!-- take: -->` slot, distinct from the
+   intro; the feed build (step 7, after this pass) lifts it + the doc's date into
+   `front_page.take = {text, date}`, and the dashboard's concierge chat opens with it as
+   display chrome only (never sent to the model — the retired `opener` field).
 5. **Owner refresh** — **no LLM**, and debounced so a rapid re-click doesn't re-sweep sources.
    Known tradeoff: its best-effort re-render of `digests/latest.md` replaces the morning's
-   Tier-3 voice layer with a fresh deterministic scaffold (whys stay prefilled; the intro slot
-   marker is an invisible HTML comment) — data freshness wins intra-day; the nightly voice
-   pass restores the prose.
+   Tier-3 voice layer with a fresh deterministic scaffold (whys stay prefilled; the slot
+   markers are stripped by the page's renderer) — data freshness wins intra-day; the nightly
+   voice pass restores the prose. The feed rebuild runs AFTER the re-render, so
+   `front_page.take` honestly goes null with it (never yesterday's teaser, with yesterday's
+   date, presented over today's refreshed data) until the nightly pass refills the slot.
 6. **Per-user rebuild** — Sonnet, on the repo's `ANTHROPIC_API_KEY` (BYOK does NOT apply to CI —
    a browser-held key is never forwarded into a GitHub Actions run); gated client-side to
    actionable-only; the deterministic feed commits first so a timed-out LLM step still leaves the

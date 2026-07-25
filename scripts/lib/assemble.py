@@ -29,7 +29,7 @@ from collections import Counter, defaultdict
 from datetime import date
 
 from .enrich import event_key
-from .tagging import TYPES, tag_event
+from .tagging import TYPES, billed_afters, parse_hours, tag_event
 
 # Arena/amphitheater/stadium gazetteer — a booking here signals a mainstream-scale act. Pairs
 # with the `amphitheater` setting tag and a high-price proxy; the editor's lane override is the
@@ -95,9 +95,21 @@ def event_lane(ev: dict, verdicts: dict = None) -> str:
     vocab) defers to the more specific deterministic sub-lane in the same family — the editor
     meant "this is live music, not club", never "not big". Cross-family overrides always win.
 
-    Otherwise derive from the multi-axis tags: club splits on vibe first (a 10pm-4am Exchange
-    mainstage IS afters), then scale — hall/arena bookings and festival bills are mainstream-
-    draw; live-music splits big (hall/arena — the "stay informed" tier) vs. the rest.
+    Otherwise derive from the multi-axis tags. The club split is semantic, not chronological
+    (the old afters-on-any-10pm-start rule routed every real warehouse party to `afters` and
+    left `underground` holding the residue):
+      afters      — genuinely post-close (the semantic `afterhours` vibe: billed as afters,
+                    dead-hours doors, or a run past 4am — a 10pm-4am Exchange mainstage IS
+                    afters). An underground MAIN event (doors before midnight + warehouse-
+                    grade signals) keeps its lane when the vibe is merely inferred from
+                    hours — but an explicit afters BILLING (the promoter's own claim, e.g.
+                    "HARDfest Afters") always lands here; afters is the party after the party.
+      day         — day-party/sunset vibe or a rooftop/pool/outdoor room.
+      underground — warehouse/diy room or a TBA-location drop, at any start time. Checked
+                    BEFORE the scale/price rules so a stacked warehouse bill can't drift
+                    into big rooms. Also the residual for ordinary small-room club nights.
+      mainstream  — festival bills, hall/arena bookings, or the $70+ price proxy.
+    live-music splits big (hall/arena — the "stay informed" tier) vs. the rest.
 
     Lanes (see LANES): club:{mainstream,afters,day,underground}, live-music[:big], film,
     stage, comedy, market, workshop, art, food-drink, community, other."""
@@ -107,10 +119,15 @@ def event_lane(ev: dict, verdicts: dict = None) -> str:
         vibe = set(tags.get("vibe") or [])
         setting = set(tags.get("setting") or [])
         price = _max_price(ev)
-        if "afterhours" in vibe:
+        underground = bool({"warehouse", "diy"} & setting) or "tba-location" in vibe
+        start, _end = parse_hours(ev)
+        main_event = start is not None and 9 <= start <= 23      # doors before midnight
+        if "afterhours" in vibe and (billed_afters(ev) or not (underground and main_event)):
             det = "club:afters"
         elif "day-party" in vibe or "sunset" in vibe or (setting & {"rooftop", "pool", "outdoor"}):
             det = "club:day"
+        elif underground:
+            det = "club:underground"
         elif "festival" in vibe or _big_scale(ev, tags) or (price and price >= 70):
             det = "club:mainstream"
         else:
@@ -186,6 +203,57 @@ def rank_key(ev: dict, verdicts: dict):
     if tier:
         return (2, _TIER_RANK.get(tier, 0), eff)
     return (1, 0, ev.get("score") or 0)
+
+
+# ── One Don't-miss policy across surfaces (2026-07-16 redesign follow-up) ────────────────────
+# The flagship digest's "Don't miss" shelf and the dashboard front page's hero row are the same
+# product surface — the top handful across a window — so they select through ONE policy: walk in
+# rank_key order (tier-primary, the editor's call; the exact expression final_rank is stamped
+# from), one pick per program, and diversity caps so five club nights can't fill the shelf.
+# Callers window their own pool (the digest spans its whole window; the hero picks per time
+# lens) — the ordering, collapse rule, and knobs are what's shared.
+TOP_PICKS_N = 6
+TOP_PICKS_LANE_CAP = 2   # per exact lane within one pick set …
+TOP_PICKS_FAM_CAP = 3    # … and per lane family (club:*)
+
+
+def top_picks(pool: list, verdicts: dict = None, *, n: int = TOP_PICKS_N,
+              lane_cap: int = TOP_PICKS_LANE_CAP, fam_cap: int = TOP_PICKS_FAM_CAP,
+              series_of=None) -> list:
+    """THE top-picks selection (digest Don't-miss shelf + front-page hero row): rank the pool
+    by (rank_key, event_key) — identical to how the dashboard's final_rank is stamped, so the
+    two surfaces can never disagree on order — then pick until `n`, skipping judged skips,
+    duplicate keys, extra nights of an already-seen program (`series_of` keys a multi-night
+    run/film program; its best-ranked night represents it, and a cap-blocked program is
+    consumed, not deferred to a worse night), and anything past the lane/family diversity
+    caps. A pre-stamped `lane` field is honored (feed rows carry event_lane's own output);
+    otherwise the lane derives here."""
+    verdicts = verdicts or {}
+    ranked = sorted((e for e in pool if e.get("iso_date")),
+                    key=lambda e: (rank_key(e, verdicts), event_key(e)), reverse=True)
+    seen, programs, lane_n, fam_n, picks = set(), set(), Counter(), Counter(), []
+    for e in ranked:
+        k = event_key(e)
+        if k in seen:
+            continue
+        seen.add(k)
+        if (verdicts.get(k) or {}).get("tier") == "skip":
+            continue
+        prog = series_of(e) if series_of else None
+        if prog:
+            if prog in programs:
+                continue
+            programs.add(prog)
+        lane = e.get("lane") or event_lane(e, verdicts)
+        fam = lane.split(":")[0]
+        if lane_n[lane] >= lane_cap or fam_n[fam] >= fam_cap:
+            continue
+        picks.append(e)
+        lane_n[lane] += 1
+        fam_n[fam] += 1
+        if len(picks) >= n:
+            break
+    return picks
 
 
 def slate_fill(day_evs: list, per_day: int, slate: dict, verdicts: dict,

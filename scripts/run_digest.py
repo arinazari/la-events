@@ -21,7 +21,7 @@ Usage:
   python scripts/run_digest.py                     # fetch all, update catalog, emit candidates
   python scripts/run_digest.py --no-fetch          # re-run pipeline on the existing catalog only
   python scripts/run_digest.py --sources ra,dice   # fetch a subset
-  python scripts/run_digest.py --window 7 --top 40 --images 10
+  python scripts/run_digest.py --window 7 --top 40
 
 The daily routine chains `build_dashboard.py` after this to refresh the dashboard feed.
 """
@@ -53,7 +53,11 @@ FETCHERS = [
      "args": ["--days", "{days}"], "needs": ["TM_API_KEY"], "far": True},
     {"name": "Resident Advisor", "source": "ra", "script": "fetch_ra.py", "args": ["--days", "{days}"]},
     {"name": "19hz", "source": "19hz", "script": "fetch_19hz.py", "args": []},
-    {"name": "Goldenvoice", "source": "goldenvoice", "script": "fetch_goldenvoice.py", "args": []},
+    # far: True + threaded --days (mirrors Ticketmaster) — GV carries festivals/big tours that sell
+    # months out (e.g. the Ocean Way Festival ~2mo ahead); left on the fetcher's internal 14-day
+    # default it could never reach the catalog/radar until 2 weeks before, same bug Eventbrite hit.
+    {"name": "Goldenvoice", "source": "goldenvoice", "script": "fetch_goldenvoice.py",
+     "args": ["--days", "{days}"], "far": True},
     {"name": "Vidiots", "source": "vidiots", "script": "fetch_filmbot.py", "args": []},
     {"name": "Vista Theater", "source": "vista", "script": "fetch_veezi.py",
      "args": ["--token", "20xhpa3yt2hhkwt4zjvfcwsaww", "--venue", "Vista Theater", "--days", "{days}"]},
@@ -246,6 +250,17 @@ def main() -> int:
     meta_path = cat_path.parent / "catalog_meta.json"
     stale = P.stale_sources(catalog, today)   # sources gone dark (frozen last_seen) → meta + report
     cat_meta = CM.write_meta(meta_path, catalog, delta, stale)
+
+    # Best-effort: resolve NEW lineup / scene-graph artists to their Spotify artist pages
+    # (data/artist_links.json — the dashboard's direct ▶ listen links; search-URL fallback
+    # covers anything unresolved). Creds-gated + capped; a dead Spotify never blocks a digest.
+    if not args.no_fetch:
+        try:
+            from lib import artist_links as AL
+            print(f"  artist links: {AL.refresh(REPO)}")
+        except Exception as ex:  # noqa: BLE001
+            print(f"  WARN: artist-link resolve failed: {str(ex).splitlines()[0][:100]}",
+                  file=sys.stderr)
 
     affinity = load_affinity_layer(args.no_fetch, report, profile)
     # Track B2: the enrichment head is ordered by the editor's cached judgment (rank_score =

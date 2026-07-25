@@ -123,6 +123,40 @@ def test_dont_miss_is_tier_primary_with_why_slots():
     assert "<!-- tier3:why" in md
 
 
+def test_dont_miss_shares_the_front_page_diversity_policy():
+    """One Don't-miss policy across surfaces (2026-07-16 follow-up): the digest shelf runs the
+    same lib/assemble.top_picks as the dashboard hero, so five club nights can't fill it and a
+    judged skip never makes it. Clubs mix sub-lanes (3 underground + 2 afters — the afters
+    pair via dead-hours doors, the semantic split's evidence) so the FAMILY cap is what
+    binds: 2 underground (lane cap) + 1 afters exhausts club:* at 3."""
+    clubs = [{"title": f"Club{i}", "iso_date": "2026-06-20", "venue": f"V{i}", "score": 9 - i,
+              "category": "electronic", "links": [],
+              **({"start": "2am"} if i in (2, 3) else {}),
+              "verdict": {"tier": "must-see", "why": "w"}} for i in range(5)]
+    film = {"title": "RepFilm", "iso_date": "2026-06-21", "venue": "Vista", "score": 3,
+            "category": "film", "links": [], "verdict": {"tier": "great", "why": "w"}}
+    skip = {"title": "SkipMe", "iso_date": "2026-06-22", "venue": "V9", "score": 12,
+            "category": "film", "links": [], "verdict": {"tier": "skip", "why": "w"}}
+    picked = R._dont_miss_events(clubs + [film, skip])
+    titles = [e["title"] for e in picked]
+    assert "RepFilm" in titles                          # diversity: the film outlives lower clubs
+    assert "SkipMe" not in titles                       # judged skip excluded
+    assert sum(1 for t in titles if t.startswith("Club")) == 3   # family cap binds at 3
+
+
+def test_dont_miss_collapses_multi_night_runs():
+    """A residency/run enters the shelf ONCE via its best night (series_of=series_key wiring —
+    title+venue for non-film), so a 15-night run can't eat several shelf slots."""
+    run = [{"title": "Warehouse Residency", "iso_date": f"2026-06-{19 + i}", "venue": "Vault",
+            "score": 9 - i, "category": "electronic", "links": [],
+            "verdict": {"tier": "must-see", "why": "w"}} for i in range(3)]
+    other = {"title": "OtherNight", "iso_date": "2026-06-20", "venue": "Elsewhere", "score": 2,
+             "category": "live music", "links": [], "verdict": {"tier": "solid", "why": "w"}}
+    picked = R._dont_miss_events(run + [other])
+    assert [e["iso_date"] for e in picked if e["title"] == "Warehouse Residency"] == ["2026-06-19"]
+    assert any(e["title"] == "OtherNight" for e in picked)
+
+
 def test_around_md_excludes_slate_and_caps():
     rows = [{"key": f"k{i}", "title": f"Civic{i}", "venue": "City", "iso_date": "2026-06-2" + str(i % 8),
              "signals": ["civic"], "link": None} for i in range(15)]
@@ -146,6 +180,9 @@ def test_consolidated_sections_follow_prefs_order():
                                                         "signals": ["civic"], "link": None,
                                                         "venue": "DTLA"}], set()))
     assert "<!-- tier3:intro -->" in md
+    # the invisible one-sentence take slot precedes the intro slot — the feed build lifts the
+    # filled teaser (+ the doc date) into front_page.take; the unfilled scaffold yields no take
+    assert md.index("<!-- take: -->") < md.index("<!-- tier3:intro -->")
     assert md.index("## Don't miss") < md.index("## Next two weeks") \
         < md.index("## Around town") < md.index("## On the radar")
     # a prefs list that drops everything optional still renders the body
@@ -158,18 +195,23 @@ def test_consolidated_sections_follow_prefs_order():
 
 def test_day_groups_key_off_lane_not_source_category():
     """The fix for the 'Other' misfile: an RA warehouse bill arrives with a useless source
-    category but must land under Electronic & dance (lane club:*), with its sub-lane chip;
-    a verdict lane override beats the tags."""
+    category but must land under Electronic & dance (lane club:*). A TBA warehouse MAIN
+    event (11pm doors) is underground — the default club lane, no sub-lane chip — while a
+    genuine post-close party gets the afters chip; a verdict lane override beats the tags."""
     ra = {"title": "WORK presents: Ken Ishii", "iso_date": "2026-06-19", "start": "23:00",
           "score": 8, "rating": 4, "venue": "TBA - Los Angeles", "category": "Event",
           "sources": ["ra"], "links": [], "afterhours": True}
+    afters = {"title": "Nightshift After Hours", "iso_date": "2026-06-19", "start": "11pm-6am",
+              "score": 7, "rating": 4, "venue": "The Lexington", "category": "Event",
+              "sources": ["ra"], "links": [], "afterhours": True}
     misc = {"title": "Some Expo", "iso_date": "2026-06-19", "start": "10:00", "score": 4,
             "rating": 4, "venue": "Convention Center", "category": "Miscellaneous",
             "sources": ["ticketmaster"], "links": []}
-    md = R.render_markdown({"today": "2026-06-17", "candidates": []}, [ra, misc])
+    md = R.render_markdown({"today": "2026-06-17", "candidates": []}, [ra, afters, misc])
     assert "**Electronic & dance**" in md and "**Elsewhere**" in md
     assert md.index("**Electronic & dance**") < md.index("Ken Ishii") < md.index("**Elsewhere**")
-    assert "· afters ·" in md or "· afters\n" in md or "afters" in md.split("Ken Ishii")[1].split("\n")[0]
+    assert "afters" not in md.split("Ken Ishii")[1].split("\n")[0]
+    assert "afters" in md.split("Nightshift")[1].split("\n")[0]
     # verdict lane override wins over tags
     lm = {"title": "Secret Rave", "iso_date": "2026-06-20", "start": "22:00", "score": 6,
           "rating": 4, "venue": "Somewhere", "category": "music", "sources": ["dice"],

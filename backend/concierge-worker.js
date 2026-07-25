@@ -51,11 +51,18 @@
  *   PROFILE_SALT       (var, optional — must match the page + build_profiles.py; defaults below)
  */
 import { parse as yamlParse, parseDocument } from "yaml";
+// The calendar-subscription core (filter + iCalendar builder) — the SAME file the dashboard
+// loads for its modal preview/snapshot, so GET /calendar.ics can never drift from what the
+// page shows. CommonJS on purpose (dashboard/ has no package.json); esbuild interops it.
+import CalendarCore from "../dashboard/calendar-core.js";
 
 // Deploy fingerprint, surfaced by GET / (unauthenticated) and the authed ping. Bump on every
 // change that ships: wrangler deploys are MANUAL, so "is the fix actually live?" must be
-// checkable from outside — `curl https://<worker>/` — instead of guessed.
-const VERSION = "2026-07-20-stream2";
+// checkable from outside — `curl https://<worker>/` — instead of guessed. Keep the YYYY-MM-DD
+// prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
+// MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
+// (same-day suffixes don't sort: "-stream10" < "-stream2").
+const VERSION = "2026-07-24-react2";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
@@ -75,11 +82,11 @@ const DEFAULTS = {
 };
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const origin = env.ALLOWED_ORIGIN || DEFAULTS.ALLOWED_ORIGIN;
     const cors = {
       "Access-Control-Allow-Origin": origin,
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
       "Access-Control-Allow-Headers": "content-type, authorization, x-anthropic-key",
       "Access-Control-Max-Age": "86400",
     };
@@ -88,20 +95,24 @@ export default {
     // Everything below runs behind a catch-all: an uncaught error would otherwise surface as a
     // no-CORS Cloudflare error page the browser can only report as "backend unreachable" —
     // return the real reason (with CORS) so the page can show it instead.
-    try { return await handleRequest(request, env, cors); }
+    try { return await handleRequest(request, env, cors, ctx); }
     catch (e) { return json({ error: "internal", detail: String((e && e.message) || e).slice(0, 300) }, 500, cors); }
   },
 };
 
 /* The whole request path (spotify + pipeline routing + the chat proxy) — split out of fetch()
- * so the catch-all above wraps every branch. */
-async function handleRequest(request, env, cors) {
+ * so the catch-all above wraps every branch. `ctx` anchors the detached streaming pipeline. */
+async function handleRequest(request, env, cors, ctx) {
   // Per-profile Spotify (browser OAuth + KV token store + an authed sync the routine/CI calls)
   // is path-routed here; every other request is the chat proxy below. One Worker, one deploy.
   const url = new URL(request.url);
   if (url.pathname.startsWith("/spotify/")) return handleSpotify(url, request, env, cors);
   if (url.pathname === "/refresh-events" || url.pathname === "/rebuild-profile")
     return handlePipeline(url, request, env, cors);
+  // Calendar-subscription feed (GET, unauthenticated — see handleCalendar for why).
+  if (url.pathname === "/calendar.ics") return handleCalendar(url, request, env, cors);
+  // Stars — the one social save signal, committed to the shared reactions log (see handleReact).
+  if (url.pathname === "/react") return handleReact(request, env, cors);
 
   // Unauthenticated deploy fingerprint: which build is live (no secrets — see VERSION).
   if (request.method === "GET" && url.pathname === "/")
@@ -127,11 +138,9 @@ async function handleRequest(request, env, cors) {
   const messages = sanitizeMessages(body && body.messages);
   if (!messages.length) return json({ error: "no messages" }, 400, cors);
   const profileHash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
-  // The page's opener (the day's take) — a concierge line the user may be replying to. The
-  // page keeps its welcome chrome out of `messages` entirely (token save; and a leading
-  // assistant turn would be stripped below anyway), so the take arrives as its own field
-  // and grounds the system prompt instead.
-  const opener = (body && typeof body.opener === "string") ? body.opener.trim().slice(0, 1500) : "";
+  // NOTE: the page's welcome chrome (greeting + the day's take + how-to) never reaches this
+  // Worker in any form — no history turn, no side field (the old `opener` is retired by
+  // design: the take is display-only; replies ground on the feed data below).
 
   // Ground on the live feed — the profile's feed when one is attached (best-effort).
   const dataUrl = env.DATA_URL || DEFAULTS.DATA_URL;
@@ -149,7 +158,7 @@ async function handleRequest(request, env, cors) {
   // Worker can trigger a (revertible) commit to a profile's file; keep GITHUB_TOKEN a single-repo,
   // Contents-only PAT.
   const canEdit = !!(profileHash && env.GITHUB_TOKEN);
-  const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name, opener });
+  const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name });
   // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
   // set ADVISOR_MODEL to "" to disable. Plus the two self-edit tools when this profile can edit.
   const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
@@ -163,18 +172,73 @@ async function handleRequest(request, env, cors) {
   // cost is an accepted tradeoff). BYOK callers pay on their own key as before.
   const execModel = (body && body.model) ? resolveModel(env, body.model) : null;
 
+  const chatOpts = { system, tools, apiKey, model: execModel, canEdit, profileHash };
+
+  // STREAM-TO-BROWSER (page opt-in via body.stream): the same pipeline, but emitting NDJSON
+  // progress lines as it runs — text deltas appear in the chat as they generate instead of
+  // behind one long spinner. The page falls back by content-type, so an old page (no stream
+  // flag) or an old Worker (ignores the flag, returns JSON) still interoperate. Events:
+  //   {t:"hello",v}      first line, sent immediately (fast first byte + deploy fingerprint)
+  //   {t:"delta",text}   user-visible reply text as it generates
+  //   {t:"reset"}        discard accumulated text (it was tool-round preamble, not the reply)
+  //   {t:"status",msg}   phase note while tools run ("updating your taste profile…")
+  //   {t:"tick"}         heartbeat while thinking produces no visible text
+  //   {t:"done",reply,taste_changed,profile_changed,digest_changed}   authoritative final
+  //   {t:"error",code,error,detail}   in-band failure (HTTP is already 200 by then)
+  if (body.stream) {
+    const enc = new TextEncoder();
+    const ts = new TransformStream();
+    const writer = ts.writable.getWriter();
+    const emit = (obj) => { writer.write(enc.encode(JSON.stringify(obj) + "\n")).catch(() => {}); };
+    const pipeline = (async () => {
+      try {
+        emit({ t: "hello", v: VERSION });
+        emit({ t: "done", ...(await runChat(env, { ...chatOpts, messages }, emit)) });
+      } catch (e) {
+        emit({ t: "error", code: 502, error: "anthropic", detail: String(e && e.message || e).slice(0, 400) });
+      }
+      try { await writer.close(); } catch { /* page went away mid-stream */ }
+    })();
+    // ANCHOR the detached pipeline: without waitUntil its only lifeline is the open response
+    // stream, so a stop-button abort or tab close mid-TOOL-ROUND could kill the invocation
+    // between two GitHub commits ("I moved to Glendale and stop showing me comedy" → profile.yaml
+    // lands, taste.yaml silently doesn't). With it, an in-flight edit round always completes.
+    if (ctx && typeof ctx.waitUntil === "function") ctx.waitUntil(pipeline);
+    return new Response(ts.readable, {
+      status: 200,
+      headers: { "content-type": "application/x-ndjson; charset=utf-8", "cache-control": "no-store", ...cors },
+    });
+  }
+
+  // Legacy single-JSON path (old pages, curl) — same pipeline, no emitter.
+  try {
+    return json(await runChat(env, { ...chatOpts, messages }, null), 200, cors);
+  } catch (e) {
+    return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors);
+  }
+}
+
+/* The chat pipeline (generation → optional tool round → confirmation), shared by the streaming
+ * and legacy paths. `emit` is the NDJSON progress writer or null. Throws on Anthropic failure;
+ * returns { reply, taste_changed, profile_changed, digest_changed }. */
+async function runChat(env, { system, messages, tools, apiKey, model, canEdit, profileHash }, emit) {
+  // Forward user-visible text deltas to the page; anything else becomes a throttled heartbeat so
+  // long thinking stretches still move bytes (kept > sub-100s so no proxy first-byte/idle window
+  // is ever in play — hello already covered first byte).
+  let lastTick = 0;
+  const onEvent = emit && ((ev) => {
+    if (ev.type === "content_block_delta" && ev.delta && ev.delta.type === "text_delta") emit({ t: "delta", text: ev.delta.text });
+    else { const now = Date.now(); if (now - lastTick > 10000) { lastTick = now; emit({ t: "tick" }); } }
+  });
+
   // The advisor is a SERVER-side tool; its sampling loop can return stop_reason "pause_turn" — when
   // it does, re-send the conversation to let it continue (don't inject a user turn). Cap re-sends.
   let convo = messages;
   let data;
-  try {
-    for (let i = 0; i < 4; i++) {
-      data = await callAnthropic(env, { system, messages: convo, tools, apiKey, model: execModel });
-      if (data.stop_reason !== "pause_turn") break;
-      convo = [...convo, { role: "assistant", content: data.content }];
-    }
-  } catch (e) {
-    return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors);
+  for (let i = 0; i < 4; i++) {
+    data = await callAnthropic(env, { system, messages: convo, tools, apiKey, model, onEvent });
+    if (data.stop_reason !== "pause_turn") break;
+    convo = [...convo, { role: "assistant", content: data.content }];
   }
 
   // Tool-use round: the model may PLAN WITH FRIENDS (read-only, any authed caller) and/or change
@@ -184,6 +248,12 @@ async function handleRequest(request, env, cors) {
     const known = [PLAN_TOOL.name, TASTE_TOOL.name, PROFILE_TOOL.name, DIGEST_TOOL.name];
     const uses = (data.content || []).filter((b) => b.type === "tool_use" && known.includes(b.name));
     if (uses.length) {
+      if (emit) {
+        // Whatever streamed so far was preamble to the tool call, not the reply — the reply is
+        // the post-tool confirmation (legacy behavior discards the preamble too; see the return).
+        emit({ t: "reset" });
+        emit({ t: "status", msg: toolStatusLine(uses) });
+      }
       let tasteChanged = false, profileChanged = false, digestChanged = false;
       const results = [];
       for (const use of uses) {
@@ -211,27 +281,48 @@ async function handleRequest(request, env, cors) {
         { role: "assistant", content: data.content },
         { role: "user", content: results },
       ];
+      // The follow-up after a BARE preference change ("track Peggy Gou", "I moved to Glendale")
+      // is a one-line confirmation — it doesn't need max-effort thinking, and dropping it to low
+      // cuts taste-edit latency roughly in half. But a MIXED ask ("more techno now — what should
+      // I hit this weekend?") generates its real answer here in the follow-up, so anything that
+      // smells like a question keeps the configured effort — as do plan_with_friends rounds (the
+      // group-matrix reasoning happens here). Heuristic bias: misreading a bare edit as mixed
+      // only costs speed; the reverse would cost answer quality, so the ask-detection is greedy.
+      const lastUser = [...messages].reverse().find((m) => m.role === "user");
+      const asksMore = !lastUser || lastUser.content.length > 160 || /\?/.test(lastUser.content) ||
+        /\b(what|which|where|when|how|who|plan|recommend|suggest|should|ideas?|options?|go(ing)? out|tonight|weekend|this (week|month)|friday|saturday|sunday|monday|tuesday|wednesday|thursday)\b/i.test(lastUser.content);
+      const effort = (!asksMore && uses.every((u) => u.name !== PLAN_TOOL.name)) ? "low" : undefined;
       // Same bounded pause_turn resume as the first call: the advisor is plausibly consulted
       // right here (planning over the tool results), and without the loop a paused follow-up
       // would silently serve the canned fallback line instead of the model's actual answer.
       let data2;
-      try {
-        for (let i = 0; i < 3; i++) {
-          data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey, model: execModel });
-          if (data2.stop_reason !== "pause_turn") break;
-          follow.push({ role: "assistant", content: data2.content });
-        }
+      for (let i = 0; i < 3; i++) {
+        data2 = await callAnthropic(env, { system, messages: follow, tools, apiKey, model, effort, onEvent });
+        if (data2.stop_reason !== "pause_turn") break;
+        follow.push({ role: "assistant", content: data2.content });
       }
-      catch (e) { return json({ error: "anthropic", detail: String(e && e.message || e).slice(0, 400) }, 502, cors); }
       const changed = tasteChanged || profileChanged || digestChanged;
-      return json({
+      return {
         reply: textOf(data2) || (changed ? "Updated — re-ranking, refresh in ~a minute." : textOf(data) || "Done."),
         taste_changed: tasteChanged, profile_changed: profileChanged, digest_changed: digestChanged,
-      }, 200, cors);
+      };
     }
   }
 
-  return json({ reply: textOf(data) || "(no answer)" }, 200, cors);
+  return { reply: textOf(data) || "(no answer)", taste_changed: false, profile_changed: false, digest_changed: false };
+}
+
+/* One short human line for the streaming status while tools run, from which tools the round used. */
+function toolStatusLine(uses) {
+  const labels = [];
+  const add = (l) => { if (!labels.includes(l)) labels.push(l); };
+  for (const u of uses) {
+    if (u.name === PLAN_TOOL.name) add("checking your friends' feeds");
+    else if (u.name === PROFILE_TOOL.name) add("updating your ranking mechanism");
+    else if (u.name === DIGEST_TOOL.name) add("updating your digest format");
+    else add("updating your taste profile");
+  }
+  return labels.join(" + ") + "…";
 }
 
 /* ----- Anthropic ----- */
@@ -251,7 +342,7 @@ function resolveModel(env, m) {
  * first byte and the whole chat 502s ("concierge backend error"). With stream:true bytes flow
  * immediately and the connection stays alive for the full generation; accumulateSSE folds the
  * event stream back into the non-streaming shape the rest of the Worker consumes. */
-async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
+async function callAnthropic(env, { system, messages, tools, apiKey, model, effort, onEvent }) {
   const resp = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
@@ -267,13 +358,15 @@ async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
       // Cache the (large, stable) persona + grounded feed: turns 2+ of a conversation read it at ~0.1x.
       system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }],
       thinking: { type: "adaptive" },                          // adaptive thinking for quality planning
-      output_config: { effort: env.EFFORT || DEFAULTS.EFFORT },
+      // Per-call effort override (e.g. "low" for the post-edit confirmation round) over the
+      // configured default.
+      output_config: { effort: effort || env.EFFORT || DEFAULTS.EFFORT },
       messages,
       ...(tools && tools.length ? { tools } : {}),
     }),
   });
   if (!resp.ok) throw new Error(resp.status + " " + (await resp.text().catch(() => "")).slice(0, 300));
-  return accumulateSSE(resp.body);
+  return accumulateSSE(resp.body, onEvent);
 }
 
 /* Fold a Messages-API SSE stream back into the non-streaming response shape ({content,
@@ -282,8 +375,11 @@ async function callAnthropic(env, { system, messages, tools, apiKey, model }) {
  * re-send can pass the block back unchanged), tool_use / server_tool_use (input_json_delta
  * accumulated, parsed at content_block_stop), and complete server-result blocks (advisor/tool
  * results arrive whole in content_block_start). A mid-stream `error` event throws so callers
- * surface the API's real reason instead of a generic failure. Exported for tests. */
-export async function accumulateSSE(body) {
+ * surface the API's real reason instead of a generic failure. Exported for tests.
+ * `onEvent(ev)` — optional, called once per well-formed event (after the index bound check):
+ * the browser-streaming path taps it for live text deltas + heartbeats. Failures inside the
+ * callback must not corrupt accumulation, so it's wrapped. */
+export async function accumulateSSE(body, onEvent) {
   const msg = { content: [], stop_reason: null };
   const partial = {};                       // block index -> accumulated tool-input JSON string
   const reader = body.getReader();
@@ -309,6 +405,7 @@ export async function accumulateSSE(body) {
         // Bound the block index before using it: a corrupt index like 1e9 would make content a
         // giant sparse array that the later filter/stringify walks — a guaranteed CPU kill.
         if (ev.index !== undefined && (!Number.isInteger(ev.index) || ev.index < 0 || ev.index > 256)) continue;
+        if (onEvent) { try { onEvent(ev); } catch { /* a tap failure never breaks accumulation */ } }
         if (ev.type === "message_start" && ev.message) { msg.model = ev.message.model; msg.usage = ev.message.usage; }
         else if (ev.type === "content_block_start") msg.content[ev.index] = { ...ev.content_block };
         else if (ev.type === "content_block_delta") {
@@ -517,12 +614,6 @@ export function buildSystem(feed, opts = {}) {
     "not a generic chatbot. Voice: conversational, opinionated, concise; no sycophancy, no padding.",
     `Today is ${today} (America/Los_Angeles).`,
     opts.profileName ? `You're talking to ${opts.profileName}; the picks below are ranked to THEIR taste.` : "",
-    // The take: the page opens the chat thread with the digest's lede as YOUR first message —
-    // it reaches you here (not in the turn history), so replies to it stay grounded.
-    opts.opener
-      ? "\nYou opened this thread with today's take (they've read it — a reply like \"what's the" +
-        " move tonight then?\" refers to it):\n" + opts.opener
-      : "",
     "",
     "You can do four things with the data below: (1) ANSWER questions about events, venues,",
     "restaurants, artists, neighborhoods; (2) RECOMMEND with a one-line 'why' per pick; (3) PLAN a",
@@ -1347,6 +1438,159 @@ async function lastFetchAgeMinutes(env) {
     const t = j && j.fetched_at ? Date.parse(j.fetched_at) : NaN;
     return Number.isFinite(t) ? (Date.now() - t) / 60000 : null;
   } catch { return null; }
+}
+
+/* ================================== STARS (social saves) ==================================
+ * POST /react { profile, event_key, kind: star|unstar|hide|less, title?, artists?, genres? }
+ *
+ * A star is double-duty: the social signal (everyone sees "★ Lori" on cards + in digests, folded
+ * from data/reactions.jsonl at the next feed rebuild) and the first real input to the feedback loop
+ * (star→loved / hide→hide into that profile's data/feedback.<hash>.jsonl — the existing tested fold
+ * ranks with it, zero new scoring code). The saved-events calendar (GET /calendar.ics?saved=1) reads
+ * the same stars.
+ *
+ * Gate = a valid profile hash (name-derived on this build; a capability token once Track A lands) +
+ * GITHUB_TOKEN. NO CONCIERGE_TOKEN: that guards LLM spend and this spends none, so a friend who never
+ * set up the concierge can still star. resolveProfile() mapping the hash to a real profile IS the
+ * check. (Ported from Track A "A4: stars"; the reactions.jsonl schema is kept identical so the
+ * eventual Track A merge is a clean overlap.) */
+
+function appendJsonl(text, rec) {
+  const line = JSON.stringify(rec);
+  const t = String(text || "");
+  if (!t) return line + "\n";
+  return t + (t.endsWith("\n") ? "" : "\n") + line + "\n";
+}
+function jsonlRecords(text) {
+  const out = [];
+  for (const raw of String(text || "").split("\n")) {
+    const s = raw.trim();
+    if (!s || s.startsWith("#")) continue;
+    try { out.push(JSON.parse(s)); } catch { /* tolerate junk lines */ }
+  }
+  return out;
+}
+/* Append a star/unstar/hide to the shared reactions log — unless the profile's last recorded state
+ * for that event already equals rec.kind (idempotent taps). Returns {text, changed}. Exported for tests. */
+export function foldReaction(text, rec) {
+  let last = null;
+  for (const r of jsonlRecords(text)) {
+    if (r && r.profile === rec.profile && r.event_key === rec.event_key) last = r.kind;
+  }
+  if (last === rec.kind) return { text, changed: false };
+  return { text: appendJsonl(text, rec), changed: true };
+}
+/* Append a loved/hide line to a profile's feedback log — once per (event_key, kind), so repeat stars
+ * never stack weight. Returns {text, changed}. Exported for tests. */
+export function foldFeedback(text, rec) {
+  for (const r of jsonlRecords(text)) {
+    if (r && r.event_key === rec.event_key && r.kind === rec.kind) return { text, changed: false };
+  }
+  return { text: appendJsonl(text, rec), changed: true };
+}
+
+async function handleReact(request, env, cors) {
+  if (request.method !== "POST") return json({ error: "POST only" }, 405, cors);
+  if (!env.GITHUB_TOKEN) return json({ error: "reactions not enabled (no GITHUB_TOKEN)" }, 501, cors);
+  let body;
+  try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
+  const hash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
+  const key = typeof body.event_key === "string" && /^[0-9a-f]{12}$/.test(body.event_key) ? body.event_key : null;
+  const kind = ["star", "unstar", "hide", "less"].includes(body.kind) ? body.kind : null;
+  if (!hash || !key || !kind) return json({ error: "need profile, event_key, kind (star|unstar|hide|less)" }, 400, cors);
+  const prof = await resolveProfile(env, hash);
+  if (!prof) return json({ error: "unknown profile" }, 403, cors);
+
+  const title = String(body.title || "").replace(/\s+/g, " ").trim().slice(0, 120);
+  const artists = (Array.isArray(body.artists) ? body.artists : [])
+    .map((a) => String(a).replace(/\s+/g, " ").trim()).filter(Boolean).slice(0, 12);
+  const genres = (Array.isArray(body.genres) ? body.genres : [])
+    .map((g) => String(g).replace(/\s+/g, " ").trim().toLowerCase()).filter(Boolean).slice(0, 8);
+  const ts = new Date().toISOString().slice(0, 10);
+
+  // 1) the shared social log (drives the "★ Lori" display for everyone, next rebuild).
+  //    `less` skips it: "show less like this" is personal taste, not a social signal — it goes
+  //    only to the profile's own feedback log below.
+  let folded = { changed: false };
+  if (kind !== "less") {
+    const rfile = await ghGetFile(env, "data/reactions.jsonl");
+    const rec = { ts, profile: hash, name: prof.name, event_key: key, kind, ...(title ? { title } : {}) };
+    folded = foldReaction(rfile ? rfile.text : "", rec);
+    if (folded.changed) {
+      const msg = `react(${prof.name}): ${kind}${title ? " — " + title.slice(0, 60) : ""}`;
+      const ok = await ghPutFile(env, "data/reactions.jsonl", folded.text, rfile ? rfile.sha : undefined, msg);
+      if (!ok) return json({ error: "commit failed" }, 502, cors);
+    }
+  }
+
+  // 2) the learning loop — star→loved / hide→hide / less→skipped into that profile's own
+  //    feedback log. Needs artists or genres to teach anything (lib/feedback consumes only
+  //    those); an unstar never touches it (a past star still meant interest).
+  const FEEDBACK_KIND = { star: "loved", hide: "hide", less: "skipped" };
+  let learned = false;
+  if (FEEDBACK_KIND[kind] && (artists.length || genres.length)) {
+    const fpath = `data/feedback.${hash}.jsonl`;
+    const ffile = await ghGetFile(env, fpath);
+    const frec = { ts, kind: FEEDBACK_KIND[kind],
+                   ...(artists.length ? { artists } : {}), ...(genres.length ? { genres } : {}),
+                   event_key: key, ...(title ? { note: `${kind}: ${title}` } : {}) };
+    const ff = foldFeedback(ffile ? ffile.text : "", frec);
+    if (ff.changed) {
+      const who = artists[0] || genres[0] || "";
+      const n = artists.length + genres.length;
+      const msg = `react(${prof.name}): ${frec.kind} ${who}${n > 1 ? " +" + (n - 1) : ""}`;
+      learned = await ghPutFile(env, fpath, ff.text, ffile ? ffile.sha : undefined, msg);
+    }
+  }
+  return json({ ok: true, changed: folded.changed, learned }, 200, cors);
+}
+
+/* ============================== CALENDAR-SUBSCRIPTION FEED ==============================
+ * GET /calendar.ics[?p=<feed-hash>&min=&perday=&horizon=&days=&types=&xtypes=&genres=&xgenres=]
+ *
+ * A subscribable iCalendar of the profile's top-rated events — the URL Google Calendar /
+ * Apple Calendar polls, so the calendar keeps itself current as the feed rebuilds. The
+ * dashboard's calendar modal mints these URLs; settings ride entirely in the query string
+ * (dashboard/calendar-core.js is the shared parser/filter/builder), so there's no state here.
+ *
+ * DELIBERATELY UNAUTHENTICATED: calendar clients poll server-side and can't send Bearer
+ * headers. The gate exists to protect Anthropic spend + repo commits — this route does
+ * neither: it only re-serves the already-public Pages feed (data[.<hash>].json), reshaped.
+ * Same threat model as the feeds themselves: hashes are obfuscation, not security (when
+ * Track A swaps hashes for capability tokens, `p` inherits that automatically). */
+async function handleCalendar(url, request, env, cors) {
+  if (request.method !== "GET" && request.method !== "HEAD")
+    return json({ error: "GET only" }, 405, cors);
+  const p = url.searchParams.get("p");
+  const hash = typeof p === "string" && /^[0-9a-f]{8,32}$/.test(p) ? p : null;
+  if (p && !hash) return json({ error: "invalid profile hash" }, 400, cors);
+
+  let feed = null;
+  if (hash) feed = await fetchFeedByHash(env, hash);
+  else {
+    try {
+      const r = await fetch(env.DATA_URL || DEFAULTS.DATA_URL, { cf: { cacheTtl: 120 } });
+      if (r.ok) feed = await r.json();
+    } catch { /* degrade gracefully */ }
+  }
+  if (!feed) return json({ error: "feed unavailable" }, 502, cors);
+
+  // LA-today anchors the date window — the events' own timezone, wherever the subscriber is.
+  const todayISO = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles" }).format(new Date());
+  // Saved mode (?saved=1): the calendar is this profile's STARRED events, resolved server-side from
+  // the feed's `stars` field — a STABLE url (no baked-in keys), so it auto-picks up new stars on the
+  // next poll. Needs a profile to know whose stars; `savedHash` tells calendar-core to match on it.
+  const settings = CalendarCore.settingsFromParams(url.searchParams);
+  if (settings.saved) settings.savedHash = hash || "";
+  const ics = CalendarCore.buildIcs(feed, settings, { todayISO });
+  const headers = {
+    ...cors,
+    "content-type": "text/calendar; charset=utf-8",
+    "content-disposition": 'inline; filename="la-events.ics"',
+    // Pages rebuilds are at most a-few-per-day; calendar apps poll on ~hours anyway.
+    "cache-control": "public, max-age=1800",
+  };
+  return new Response(request.method === "HEAD" ? null : ics, { status: 200, headers });
 }
 
 /* Best-effort: nudge a rebuild of this one profile's feed (the spotify-sync workflow). */

@@ -41,10 +41,14 @@ Usage:
 import argparse
 import html
 import json
+import os
 import re
 import sys
 from datetime import date as _date, datetime, timedelta, timezone
 from urllib.request import Request, urlopen
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (per-film <img class="poster"> src -> a clean absolute URL, free)
 
 try:
     from zoneinfo import ZoneInfo
@@ -54,6 +58,7 @@ except Exception:  # pragma: no cover - fallback if tzdata missing
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 BASE = "https://ticketing.uswest.veezi.com/sessions"  # NO trailing slash (slash -> Cloudflare cf_bm)
+POSTER_ORIGIN = BASE.rsplit("/", 1)[0]  # https://ticketing.uswest.veezi.com — posters are root-relative (/Media/Poster?...)
 
 FORMAT = re.compile(r"\b(70mm|35mm|16mm|nitrate|DCP|IMAX)\b", re.I)
 MONTHS = {m: i for i, m in enumerate(
@@ -66,6 +71,10 @@ FILM_SPLIT = re.compile(r'<div\s+class="film\s*"')
 TITLE_RE = re.compile(r'<h3 class="title">\s*(.*?)\s*</h3>', re.S)
 CENSOR_RE = re.compile(r'<span class="censor">\s*(.*?)\s*</span>', re.S)
 DESC_RE = re.compile(r'<p class="film-desc">\s*(.*?)\s*</p>', re.S)
+# Per-film poster inside the block: <img class="poster" src="/Media/Poster?siteToken=…&code=…">.
+# (The page-background <img class="body-background film-poster"> has no src and sits outside any
+# film block, so this only ever matches the real per-film artwork.)
+POSTER_RE = re.compile(r'<img[^>]*class="poster"[^>]*src="([^"]+)"', re.I)
 # A date-container = its date header + the session list that immediately follows.
 DATECTR_RE = re.compile(
     r'<h4 class="date">\s*(.*?)\s*</h4>\s*<ul class="session-times">(.*?)</ul>', re.S)
@@ -93,6 +102,14 @@ def parse_time(raw: str):
         except ValueError:
             continue
     return None
+
+
+def fmt_hm(hm: str) -> str:
+    """'19:30' -> '7:30pm' (the digest's compact time style) for the per-showtime link label."""
+    h, m = (int(x) for x in hm.split(":"))
+    ap = "am" if h < 12 else "pm"
+    h12 = h % 12 or 12
+    return f"{h12}:{m:02d}{ap}" if m else f"{h12}{ap}"
 
 
 def parse_date(raw: str, today: _date):
@@ -142,6 +159,12 @@ def parse(doc: str, venue: str, token: str, days: int) -> list:
         desc = clean(dm.group(1)) if dm else None
         fmt_m = FORMAT.search(title) or (FORMAT.search(desc) if desc else None)
         fmt = fmt_m.group(1).upper() if fmt_m else None
+        # Poster (dashboard's top-events row): the film block's own artwork, root-relative -> absolute.
+        pm = POSTER_RE.search(blk)
+        poster = None
+        if pm:
+            src = html.unescape(pm.group(1))
+            poster = images.clean(POSTER_ORIGIN + src if src.startswith("/") else src)
 
         for dc in DATECTR_RE.finditer(blk):
             d = parse_date(dc.group(1), today)
@@ -165,6 +188,12 @@ def parse(doc: str, venue: str, token: str, days: int) -> list:
                 # Fold format into detail so the cinema/analog-film tagging (and the digest)
                 # see the print gauge; format/rating/sold_out also ride as extras.
                 detail = " · ".join(x for x in (fmt, desc) if x) or None
+                # Per-showtime link label ("7:30pm", "10:30pm · sold out"): when dedupe folds a
+                # night's showtimes into one record, the accumulated purchase links stay
+                # tellable-apart instead of rendering as N identical venue buttons. Only real
+                # per-session hrefs get one — the no-href fallback is the venue's generic
+                # schedule page, shared across sessions, and a session-specific label on it
+                # would lie once a second session hits the same fallback.
                 events.append({
                     "source": "veezi",
                     "id": f"veezi-{tok8}-{pid or key}",
@@ -176,8 +205,10 @@ def parse(doc: str, venue: str, token: str, days: int) -> list:
                     "format": fmt,
                     "rating": rating,
                     "sold_out": sold_out,
+                    "image": poster,  # per-film Veezi poster — free from the same page
                     "detail": detail,
                     "url": url,
+                    "url_label": (fmt_hm(start) + (" · sold out" if sold_out else "")) if hm else None,
                 })
     events.sort(key=lambda e: (e["date"], e["start"], e["title"]))
     return events

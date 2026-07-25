@@ -1,17 +1,18 @@
 {
   "name": "la-events-concierge",
   "version": "1.0.0",
+  "packageManager": "npm@10.9.7",
   "private": true,
   "description": "Cloudflare Worker: la-events concierge (chat) + taste self-edit. Deploy with `npm i && npx wrangler deploy`.",
   "type": "module",
   "main": "concierge-worker.js",
   "scripts": {
-    "test": "node test-edits.mjs"
+    "test": "node test-edits.mjs && node test-calendar.mjs"
   },
   "dependencies": {
     "yaml": "^2.5.0"
   },
   "devDependencies": {
-    "wrangler": "^3.80.0"
+    "wrangler": "^4.112.0"
   }
 }

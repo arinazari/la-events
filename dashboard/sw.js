@@ -6,16 +6,16 @@
  * Bump CACHE whenever a cache-first asset below changes — that byte change is
  * what makes the browser re-install this worker and re-fetch the shell. */
 
-const CACHE = "la-events-v4";
+const CACHE = "la-events-v9";
 const SHELL = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
   "./icon.svg",
   "./support.js",
+  "./calendar-core.js",
   "./vendor/react.production.min.js",
   "./vendor/react-dom.production.min.js",
-  "./vendor/babel.min.js",
 ];
 
 self.addEventListener("install", (e) => {

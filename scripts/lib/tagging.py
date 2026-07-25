@@ -299,6 +299,7 @@ VOCAB = {
     "region": list(REGIONS.keys()),
 }
 
+_AFTERS_KW = re.compile(r"\bafter[\s-]?hours?\b|\bafters\b")   # hay is already lowercased
 _CINEMA_KW = re.compile(r"\b(screening|matin[eé]e|double feature|q&a|q & a|35mm|70mm|16mm|"
                         r"film series|cinema)\b", re.I)
 _COMEDY_KW = re.compile(r"\b(comedy|stand[\s-]?up|standup|improv|open mic)\b", re.I)
@@ -306,8 +307,8 @@ _MARKET_KW = re.compile(r"\b(market|flea|bazaar|farmers|swap meet|vintage fair)\
 _WORKSHOP_KW = re.compile(r"\b(workshop|class|seminar)\b", re.I)
 # NB: `afters` must stay PLURAL-only — `afters?` matched the plain word "after" in any
 # detail blob ("After witnessing his father…" typed The Who's Tommy as club).
-_DJ_KW = re.compile(r"\b(dj set|b2b|warehouse|rave|afters|after[\s-]?part(?:y|ies)|day party)\b",
-                    re.I)
+_DJ_KW = re.compile(r"\b(dj set|b2b|warehouse|rave|afters|after[\s-]?hours|"
+                    r"after[\s-]?part(?:y|ies)|day party)\b", re.I)
 # Sports watch parties (title-only): a World Cup final at a warehouse is still not a rave.
 # The pattern recurs every Super Bowl/Dodgers run, scattering rows across the music lanes.
 # Deliberately NOT a bare tournament-word match — "Deep House Brunch: World Cup Edition" (a
@@ -336,8 +337,10 @@ _CLUB_TITLE_KW = re.compile(r"^\s*dj\b|\bdj (set|night)\b|\b(with|w/)\s+dj\b|"
 # Any electronic-genre keyword (the GENRE_ELECTRONIC patterns, \b-bounded) — the other half
 # of the live-room guard.
 _ELECTRONIC_KW = re.compile(r"\b(" + "|".join(p for _, p in GENRE_ELECTRONIC) + r")\b", re.I)
-# 19hz leaves its genre annotation in the venue string ("The Lexington (Los Angeles) tech
-# house, minimal") — extract it so genre scanning can use it WITHOUT scanning venue names
+# 19hz's genre annotation. fetch_19hz now emits it as the `genre` field; rows written
+# before it split the swallowed tags <td> out of the venue cell carry it glued to the
+# venue string instead ("The Lexington (Los Angeles) tech house, minimal") — the regex
+# recovers those. Either way it feeds genre scanning WITHOUT scanning venue names
 # (which mint false genres: "House of Blues" was 65% of all blues tags).
 _19HZ_VENUE_NOTE = re.compile(r"\([^)]*\)\s+([a-z0-9 ,&/+'-]+)$")
 
@@ -351,11 +354,22 @@ def _hay(ev: dict) -> str:
 
 
 def _venue_genre_note(ev: dict) -> str:
-    """The 19hz genre annotation embedded in the venue string, if any ('' otherwise)."""
+    """A 19hz row's genre annotation: the `genre` field, else the legacy embedded-in-venue
+    form ('' otherwise)."""
     if "19hz" not in (ev.get("sources") or []):
         return ""
+    g = str(ev.get("genre") or "").strip().lower()
+    if g:
+        return g
     m = _19HZ_VENUE_NOTE.search(str(ev.get("venue") or "").lower())
     return m.group(1) if m else ""
+
+
+def billed_afters(ev: dict) -> bool:
+    """The promoter's own claim: the event is explicitly billed as afters / after-hours.
+    Stronger than the inferred signals (dead-hours doors, a run past 4am) — event_lane
+    lets it beat the underground main-event exception."""
+    return bool(_AFTERS_KW.search(_hay(ev)))
 
 
 def _genre_hay(ev: dict) -> str:
@@ -368,14 +382,25 @@ def _genre_hay(ev: dict) -> str:
     return " ".join(parts).lower()
 
 
-def _hour(ev: dict):
-    s = ev.get("start")
-    if s and re.match(r"^\d{1,2}:", str(s)):
-        try:
-            return int(str(s).split(":")[0])
-        except ValueError:
-            return None
-    return None
+_AMPM_RE = re.compile(r"(\d{1,2})(?::\d{2})?\s*([ap]m)\b", re.I)
+_H24_RE = re.compile(r"\b(\d{1,2}):\d{2}\b")
+
+
+def parse_hours(ev: dict):
+    """(start_hour, end_hour) as 24h ints (either may be None) from the `start` string.
+
+    Fetchers emit heterogeneous forms — "23:00", "22:30", "8pm", "8:30pm", "10pm-3am",
+    "5pm-3am", "Sat: 2pm-Sun: 10pm" — and the old parser only read a leading "HH:",
+    so am/pm strings (most of 19hz) silently had no hour at all. First time token is
+    the start; the last, when distinct, is the end."""
+    s = str(ev.get("start") or "")
+    hits = [(int(h) % 12) + (12 if ap.lower() == "pm" else 0)
+            for h, ap in _AMPM_RE.findall(s)]
+    if not hits:
+        hits = [int(h) for h in _H24_RE.findall(s) if int(h) < 24]
+    if not hits:
+        return None, None
+    return hits[0], (hits[-1] if len(hits) > 1 else None)
 
 
 def _uniq(seq):
@@ -602,12 +627,18 @@ def _scale(ev: dict, setting: list, cfg: dict):
 
 def _vibe(ev: dict, typ: str, hay: str) -> list:
     out = []
-    hour = _hour(ev)
+    start, end = parse_hours(ev)
     price = str(ev.get("price") or "").lower()
     title_l = str(ev.get("title") or "").lower()
-    if ev.get("afterhours") or (hour is not None and (hour >= 22 or hour < 5)):
+    # "afterhours" is semantic, not chronological: billed as afters, dead-hours doors
+    # (post-midnight through morning), or a run past 4am. NOT merely a 10pm+ start —
+    # that describes every warehouse main event. The fetchers' crude flag (same 10pm+
+    # rule) no longer grants the tag; the raw `afterhours` bool still feeds scoring.
+    if (_AFTERS_KW.search(hay)
+            or (typ == "club" and start is not None and start < 9)
+            or (typ == "club" and end is not None and 4 <= end < 12)):
         out.append("afterhours")
-    if typ == "club" and hour is not None and 11 <= hour <= 16:
+    if typ == "club" and start is not None and 11 <= start <= 16:
         out.append("day-party")
     if re.search(r"\b(sunset|golden hour)\b", hay):
         out.append("sunset")
@@ -651,7 +682,7 @@ def _vibe(ev: dict, typ: str, hay: str) -> list:
     if typ == "film" and re.search(r"\bin person\b|\bin attendance\b|\bin conversation\b|"
                                    r"\bintroduced by\b|q ?& ?a with", hay):
         out.append("guest-in-person")
-    if typ == "film" and hour is not None and 9 <= hour < 17:
+    if typ == "film" and start is not None and 9 <= start < 17:
         out.append("matinee")
     if typ != "comedy" and re.search(r"\bblock party\b", hay):
         out.append("block-party")       # "COMEDY BLOCK PARTY" is a standup showcase, not a street

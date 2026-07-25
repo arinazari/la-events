@@ -16,6 +16,7 @@ from .catalog_meta import VOLATILE_FIELDS, _lineup_sig
 from .affinity import ambiguous_set, tracked_hits
 from .tagging import VENUE_SCALE
 from . import geo
+from . import images
 
 try:
     from zoneinfo import ZoneInfo
@@ -79,6 +80,74 @@ def clean_detail(text, max_len: int = 400):
     return s or None
 
 
+# ── Junk / scam-listing gate ──────────────────────────────────────────────────────────
+# SEO-spam listings dressed as events — call-center "customer service number" pages that
+# sources (RA open submissions, TM resellers) let through. Tuned against the July 2026
+# waves: the airline/hotline batch (~100 judged "skip" by event-editor, 2026-07-14) and
+# the RA-sourced insurance wave ("State Farm … Customer Service Number", 2026-07-22..24).
+# Judged on the TITLE only, on purpose: phones and service-speak occur legitimately in
+# `detail` (TM box-office lines, venue info numbers) — a detail match would false-positive.
+# Brand hits alone never drop (venue "The Airliner", band "Delta By The Beach" stay safe);
+# a brand must co-occur with a service-action word.
+
+# A formatted 3-3-4 phone (optionally +1 / parens) or a contiguous toll-free number.
+_JUNK_PHONE_IN_TITLE = re.compile(
+    r"(?:\+?1[\s.\-()]{0,3})?\(?\d{3}\)?[\s.\-]\d{3}[\s.\-]\d{4}"
+    r"|\b\+?1?8(?:00|33|44|55|66|77|88)\d{7}\b")
+
+# Call-center phrasing no real event title uses.
+_JUNK_SERVICE_KW = re.compile(
+    r"(?i)\b(customer\s+(?:service|care|support)|help\s?-?line|toll[\s\-]?free|"
+    r"reservations?\s+(?:number|line|phone|desk)|booking\s+number|support\s+number|"
+    r"contact\s+number|phone\s+number|call\s+now|24[/x]7\s+(?:support|help|assist))\b")
+
+# Airline / travel brand + a service-action word (both required: keeps venue 'The
+# Airliner', band 'Delta By The Beach', 'The United Theater' etc. safe).
+_JUNK_TRAVEL_BRAND = re.compile(
+    r"(?i)\b(airlines?|airways|ryanair|lufthansa|qantas(?:link)?|expedia|jetblue|"
+    r"easyjet|air\s+canada|air\s+france|british\s+airways|volotea|eurowings|"
+    r"air\s+astana|oman\s+air|garuda|aegean|china\s+southern|norse\s+atlantic|"
+    r"arik\s+air|gulf\s+air|virgin\s+australia|breeze\s+airways)\b")
+_JUNK_TRAVEL_ACTION = re.compile(
+    r"(?i)\b(book(?:ing)?|reservations?|cancel(?:lation)?s?|refunds?|customer|"
+    r"support|service|helpdesk|phone|number|call|baggage|check[\s\-]?in|"
+    r"flight\s+change|name\s+change|ticket\s+change)\b")
+
+# Insurance / fintech brand + an account-service action word.
+_JUNK_FIN_BRAND = re.compile(
+    r"(?i)\b(insurance|state\s+farm|allstate|geico|progressive\s+insurance|"
+    r"coinbase|robinhood|quickbooks|paypal|venmo|norton|mcafee|antivirus)\b")
+_JUNK_FIN_ACTION = re.compile(
+    r"(?i)\b(customer\s+service|log\s?-?in|sign\s?-?in|bill\s+pay|billing|"
+    r"cancel(?:lation)?s?|policy|grace\s+period|claims?|refunds?|credentials?|"
+    r"account\s+access|phone|number|support)\b")
+
+
+def is_junk_event(ev: dict):
+    """Deterministic scam/SEO-spam gate. Returns a reason string for a junk
+    listing, or None for a real event. Judged on the TITLE only — phones and
+    service-speak in detail/venue fields occur legitimately (box-office lines)."""
+    title = str(ev.get("title") or "")
+    if _JUNK_PHONE_IN_TITLE.search(title):
+        return "phone number in title (call-center spam)"
+    if _JUNK_SERVICE_KW.search(title):
+        return "call-center service phrasing in title"
+    if _JUNK_TRAVEL_BRAND.search(title) and _JUNK_TRAVEL_ACTION.search(title):
+        return "airline-hotline spam title"
+    if _JUNK_FIN_BRAND.search(title) and _JUNK_FIN_ACTION.search(title):
+        return "insurance/account-service spam title"
+    return None
+
+
+def drop_junk(records: list) -> tuple:
+    """Split records into (kept, dropped) by is_junk_event. Runs over catalog + incoming
+    at merge time, so junk that slipped into a committed catalog self-heals next pass."""
+    kept, dropped = [], []
+    for ev in records:
+        (dropped if is_junk_event(ev) else kept).append(ev)
+    return kept, dropped
+
+
 def _split_datetime(raw: dict):
     """(date 'YYYY-MM-DD', start 'HH:MM') from a record's date/datetime/start fields."""
     d = parse_event_date(raw)
@@ -101,7 +170,13 @@ def _links(raw: dict, source) -> list:
     for key in ("url", "ticket_url", "link", "event_url", "tickets"):
         v = raw.get(key)
         if isinstance(v, str) and v:
-            out.append({"source": source or "?", "url": v})
+            link = {"source": source or "?", "url": v}
+            # Optional display label for the primary url (fetch_veezi's per-showtime "7:30pm"):
+            # when dedupe folds a run's showtimes into one record, the accumulated links stay
+            # distinguishable instead of rendering as N identical venue buttons.
+            if key == "url" and isinstance(raw.get("url_label"), str) and raw["url_label"]:
+                link["label"] = raw["url_label"]
+            out.append(link)
     return out
 
 
@@ -138,6 +213,12 @@ def normalize_record(raw: dict, source=None) -> dict:
         raw = NORMALIZERS[source](dict(raw)) or raw
     date_str, start = _split_datetime(raw)
     lineup = [str(a) for a in _as_list(raw.get("lineup") or raw.get("artists") or raw.get("artist")) if a]
+    # Event photo (dashboard's top-events row): the fetchers pull this straight from the source
+    # response they already fetched — zero extra network, zero LLM tokens (see lib/images.py). The
+    # single final gate lives here: re-clean whatever a fetcher put on `image` so one bad/mixed-content
+    # URL can't reach the feed. Kept SPARSE (only when present) so the ~3k image-less rows don't each
+    # grow a null field — same treatment as lineup_genre.
+    image = images.clean(raw.get("image"))
     return {
         "title": raw.get("title") or raw.get("name") or raw.get("event_name"),
         "date": date_str,
@@ -154,6 +235,7 @@ def normalize_record(raw: dict, source=None) -> dict:
         "sources": _as_list(raw.get("sources") or source),
         "organizers": raw.get("organizers") or raw.get("organizer") or raw.get("promoter"),
         "detail": clean_detail(raw.get("detail") or raw.get("description") or raw.get("desc")),
+        **({"image": image} if image else {}),
         "price": _price(raw),
         "ra_pick": bool(raw.get("ra_pick")),
         "afterhours": bool(raw.get("afterhours") or raw.get("afterhours_flag")),
@@ -170,18 +252,24 @@ def stamp_seen(records: list, today: date = None) -> list:
 
 
 def merge_new(catalog: list, incoming: list, today: date = None) -> tuple:
-    """Stamp incoming as seen-today, append, dedupe. Returns (catalog, stats).
+    """Stamp incoming as seen-today, drop junk, append, dedupe. Returns (catalog, stats).
 
     Catalog records come first so they're the merge base (preserve identity; absorb
     new ticket links). first_seen survives, last_seen advances (via dedupe.merge).
+    The junk gate runs over catalog AND incoming before dedupe, so a scam listing
+    already committed to the catalog is swept on the next pass (self-healing).
     """
     t = (today or today_la()).isoformat()
     for r in incoming:
         r["first_seen"] = r.get("first_seen") or t
         r["last_seen"] = t
-    deduped, report = dedupe(list(catalog) + list(incoming))
+    pool, junk = drop_junk(list(catalog) + list(incoming))
+    deduped, report = dedupe(pool)
     stats = {"incoming": len(incoming), "merged": len(report),
-             "added": max(0, len(deduped) - len(catalog))}
+             "added": max(0, len(deduped) - len(catalog)),
+             "junk": len(junk)}
+    if junk:
+        stats["junk_titles"] = [str(e.get("title") or "")[:80] for e in junk[:5]]
     return deduped, stats
 
 

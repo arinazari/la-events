@@ -32,6 +32,18 @@ It does **a few** things, depending on what the POST body carries:
    "what would me + Lori be into" ─► worker ─► Claude calls plan_with_friends(["lori"])
        ─► worker fetches each named PUBLIC feed + the caller's, returns a per-person rating matrix
              ◄──────────── { reply } ────────────   profiles aren't private; a username is permission
+
+5b. STARS (POST /react — the one social save, no LLM, no CONCIERGE_TOKEN)
+   ☆ Star on a card ─► worker POST /react {profile, event_key, kind, title?, artists?}
+       ─► commits data/reactions.jsonl (last-wins per person+event) ─► CI re-folds `stars` onto the
+          feeds ─► everyone sees "★ Lori" on that card + in digests; the starrer's saved calendar picks it up
+       ─► star/hide with artists also appends loved/hide to feedback.<hash>.jsonl (teaches ranking)
+             ◄──────── { ok, changed, learned } ────────   gate = valid profile hash + GITHUB_TOKEN
+
+6. CALENDAR FEED (GET, no auth, no LLM — Google/Apple Calendar poll this)
+   GET /calendar.ics?p=<hash>&min=&perday=&horizon=&days=&types=&xtypes=&genres=&xgenres=
+       ─► worker fetches the PUBLIC feed (data[.<hash>].json), filters + builds iCalendar
+             ◄──────── text/calendar ────────   dashboard/calendar-core.js does the work
 ```
 
 Both self-edits keep the **single deterministic scorer**: the Worker only edits the YAML;
@@ -66,15 +78,69 @@ And one **read-only** tool (no commit, no GitHub token, available to any authed 
   (no fixed group rules — Ari's call). **Profiles aren't private**: knowing a username is permission
   enough, there's no opt-out flag. A username with no feed comes back under `unknown`.
 
+## Stars (`POST /react`) — the one social save
+
+```
+POST /react { profile: "<feed-hash>", event_key: "<12-hex>", kind: "star"|"unstar"|"hide",
+              title?: string, artists?: [string] }
+->   200 { ok, changed, learned }
+```
+
+A star is double-duty by design. The Worker commits it to `data/reactions.jsonl` (the shared
+log — star state is **last-wins per person+event**, idempotent taps), and CI folds it onto every
+feed as `stars: [{name, hash}]`, so the star is **visible to everyone**: "★ Lori" on the card and
+beside the event in every digest, and it drives that person's **Starred calendar**
+(`GET /calendar.ics?saved=1`). AND — for `star`/`hide` with `artists` attached — it appends a
+`loved`/`hide` line to that profile's `data/feedback.<hash>.jsonl`, which the existing tested
+feedback→scoring fold picks up with **zero new ranking code** (append-once per event+kind, so
+flapping can't stack weight; `unstar` never teaches — a past star still meant interest).
+
+Gate = a **valid profile hash** (`resolveProfile` maps it via `profiles.yaml` — a name-derived
+feed hash today; a capability token once Track A lands) **+ `GITHUB_TOKEN`**. There is **no
+`CONCIERGE_TOKEN` check**: that token guards LLM spend and `/react` spends none, so a friend who
+never set up the concierge can still star. Blast radius is a revertible commit to the shared
+reactions log — same "obfuscation, not security" model as the feeds. Committing to the repo is
+what makes stars mutual and durable (no per-viewer state); the feeds re-fold on the
+`data/reactions.jsonl` push (`build-profiles.yml`). Ported from Track A "A4: stars" with the
+reactions.jsonl schema kept identical, so that branch's eventual merge is a clean overlap.
+
 ## Contract
 
 ```
-POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<feed-hash>" }
-->    { reply: string, taste_changed?: boolean, profile_changed?: boolean, digest_changed?: boolean }
+POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<feed-hash>",
+        stream?: true }
+->    without stream: { reply, taste_changed?, profile_changed?, digest_changed? }   (application/json)
+->    with stream:    application/x-ndjson progress lines, one JSON object each:
+        {t:"hello",v}  {t:"delta",text}  {t:"reset"}  {t:"status",msg}  {t:"tick"}
+        {t:"done", reply, taste_changed, profile_changed, digest_changed}   <- authoritative final
+        {t:"error", code, error, detail}                                    <- in-band failure
 Auth: optional  Authorization: Bearer <CONCIERGE_TOKEN>
 GET / (no auth) -> { ok, service, v }   deploy fingerprint — `curl https://<worker>/` answers
                                         "which build is live?" (wrangler deploys are manual)
+GET /calendar.ics (no auth) -> text/calendar   the calendar-subscription feed. Settings ride the
+    query string (parsed by dashboard/calendar-core.js — the SAME file the page's calendar modal
+    uses for its preview/snapshot, imported at bundle time, so they can't drift):
+      p=<feed-hash>        whose feed (omit = the default data.json)
+      min=1..5             minimum rating (default 4)         perday=1..10  max events/day (default 3)
+      horizon=7..120       days ahead (default 60)            days=fri,sat  weekdays (empty = all)
+      types= / xtypes=     include/exclude tags.type          genres= / xgenres=  include/exclude genres
+      saved=1              STARRED mode: the calendar is every event this profile (p=) STARRED,
+                           resolved server-side from the feed's `stars` field. A STABLE url — new
+                           stars appear on the next poll, no re-subscribe. This is what the dashboard's
+                           "Starred" calendar tab subscribes to.
+      keys=k1,k2,…         legacy per-event key list baked into the url (the pre-server saves + the
+                           client snapshot). Still honored so old subscriptions keep working.
+POST /react (no CONCIERGE_TOKEN — see Stars) -> { ok, changed, learned }   star / unstar / hide.
+    UNAUTHENTICATED BY DESIGN: calendar clients poll server-side and can't send Bearer headers,
+    and the route spends nothing — no LLM call, no commit; it only re-serves the already-public
+    Pages feed reshaped. Same obfuscation-not-security model as the feed hashes themselves.
 ```
+
+The page opts into `stream` and falls back by response content-type, so old page ↔ new Worker and
+new page ↔ old Worker both keep working (an old Worker ignores the flag and answers JSON). With
+streaming, reply text appears in the chat as it generates; `reset` marks streamed text as tool-round
+preamble (not the reply), `status` narrates the tool round ("updating your taste profile…"), and
+`done.reply` replaces whatever accumulated (pause_turn chains can make them differ).
 
 `profile` is the feed hash the page already computes from the username (it's what `data.<hash>.json`
 is named after). The Worker resolves it back to the profile via `profiles.yaml` and edits that
@@ -127,6 +193,41 @@ Then point the dashboard at it: set the `BACKEND_URL` constant in `dashboard/ind
 printed Worker URL and redeploy Pages. Visitors connect from the page itself — **connect** in the
 chat header stores the token / personal key (per profile, in that browser's localStorage).
 
+> Re-run `npx wrangler deploy` after Worker-code changes in this repo. Current pending changes
+> (2026-07-21): the `opener` field is retired — the chat's take is display-only and the page no
+> longer sends it, so a stale deployed Worker is harmless — the **calendar feed**
+> (`GET /calendar.ics`) ships, and **stars** (`POST /react` + `GET /calendar.ics?saved=1`) at build
+> `2026-07-21-star1`. The calendar modal probes the live route when opened and shows a "redeploy"
+> note (subscribe links hidden, snapshot download still works) until the deploy lands; the Starred
+> tab additionally checks the live build via the ping and warns if it's older than
+> `2026-07-21-star1` (an older calendar build would serve picks for a `saved=1` URL, and `/react`
+> wouldn't exist at all). Stars need `GITHUB_TOKEN` set (else `/react` returns 501). A stale Worker
+> degrades gracefully — but stars + the starred calendar don't exist until you redeploy.
+
+### "I redeployed but it still fails" — verify the deploy actually landed
+
+`curl https://<worker>/` — every build since 2026-07-20 answers `GET /` with its deploy
+fingerprint `{ok, service, v}` (`VERSION` in concierge-worker.js). Two outcomes matter:
+
+- **`{"error":"POST only"}`** → the live build predates the fingerprint (2026-07-20, PR #96) —
+  it might be the one-PR-older #95 build (which already streams but can't say so), or anything
+  older. Either way, a deploy of the latest `main` did **not** land on the URL the page calls.
+  Usual causes: `wrangler deploy` run from a stale checkout (`git pull` first — fixes land on
+  `main` via PRs, so a laptop clone lags), or wrangler logged into a different Cloudflare
+  account / worker name, so it deployed *somewhere else* — compare the URL wrangler prints
+  against the page's `BACKEND_URL`.
+- **`v` with an older DATE than the page's `MIN_BACKEND_VERSION`** (dashboard/index.html;
+  compared at day granularity — same-day suffixes are free-form) → same story, newer flavor.
+  The page checks this on every ping and shows **old build** (amber) in the chat's connect
+  pill and modal, and names the stale build in chat error messages.
+
+Signature worth knowing: a chat error of `502 — 524 error code: 524` is the Worker relaying
+Cloudflare's timeout page from api.anthropic.com — the **non-streaming** call blowing the ~100s
+first-byte window on a long generation (a profile self-edit is the worst case: two max-effort
+generations plus a tool round). The streaming build can't produce that status (bytes flow
+immediately), so seeing it after a "redeploy" means the old build is still live — check the
+fingerprint before debugging anything else.
+
 ## Config
 
 | Env | Where | Purpose |
@@ -160,6 +261,17 @@ Tuned for **multi-step, high-quality planning**:
   advisor (or an Opus executor) that can exceed the Worker's outbound first-byte window — the
   chat then dies with `concierge backend error 502` even though nothing is misconfigured. With
   streaming, bytes flow immediately and the connection stays alive for the full generation.
+- **Streaming downstream** (2026-07-20-stream3) — with `stream: true` in the body, the same text
+  deltas are forwarded to the page as NDJSON (see Contract), so words appear in the chat as they
+  generate instead of behind one long THINKING spinner. Perceived latency drops massively; total
+  latency is unchanged.
+- **Cheap confirmation round** — the follow-up generation after a **bare** taste/profile/digest
+  edit ("track Peggy Gou", short message, no question) runs at `effort: low` — it's a one-line
+  confirmation, not planning — roughly halving taste-edit latency. A mixed ask ("more techno —
+  what's good this weekend?") keeps full effort, because its real answer is generated in that
+  follow-up; so do `plan_with_friends` rounds (the group-matrix reasoning happens there). The
+  ask-detection heuristic is deliberately greedy: misreading a bare edit only costs speed,
+  never answer quality.
 
 **Executor upgrade:** the page's **Use Opus** toggle sends `model: "opus"` in the body, and the
 Worker honors it for **any authed caller** — shared-token users included (Ari's call: the token

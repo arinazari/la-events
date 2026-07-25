@@ -24,6 +24,13 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
 
 ROW = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S | re.I)
 CELL = re.compile(r"<t[dh][^>]*>(.*?)</t[dh]>", re.S | re.I)
+# 19hz leaves the Title @ Venue <td> UNCLOSED, so CELL's non-greedy match swallows the
+# genre-tags cell that follows into it ("…</a> @ Ace Mission Studios (Los Angeles)<td>tech
+# house"). Split on the embedded <td>: venue before it, genre tags after. Flattening the
+# tags onto the venue instead broke cross-source dedupe (RA's "TBA - Mission Four
+# (Ace*Mission Studios) 550 S Mission Rd…" vs "Ace Mission Studios (Los Angeles) tech house"
+# fails every venue test → duplicate cards) and put tag noise in every venue line.
+EMBEDDED_TD = re.compile(r"<td[^>]*>", re.I)
 HREF = re.compile(r'href=["\']([^"\']+)["\']', re.I)
 DATECELL = re.compile(r"\b(20\d{2})/(\d{1,2})/(\d{1,2})\b")
 TIME = re.compile(r"\(([^)]*\d[^)]*)\)")
@@ -41,27 +48,13 @@ def parse_time(cell_text: str):
     return m.group(1).strip() if m else None
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--days", type=int, default=14)
-    ap.add_argument("-o", "--out", default="events_19hz.json")
-    args = ap.parse_args()
-
-    try:
-        req = Request(URL, headers={"User-Agent": UA})
-        with urlopen(req, timeout=30) as resp:
-            page = resp.read().decode("utf-8", "replace")
-    except Exception as e:  # noqa: BLE001
-        print(f"WARN: 19hz fetch failed: {e}", file=sys.stderr)
-        with open(args.out, "w") as f:
-            json.dump([], f)
-        return 0
-
-    lo, hi = date.today(), date.today() + timedelta(days=args.days)
+def parse_listing(page: str, lo: date, hi: date) -> list:
+    """Parse the listing HTML into event dicts for dates within [lo, hi]."""
     events = []
     for row in ROW.findall(page):
         cells = CELL.findall(row)
-        # 19hz data rows are: Date/Time | Title @ Venue | Price|Age | Organizers | Links | sortdate
+        # 19hz data rows parse as: Date/Time | Title @ Venue [+ swallowed Tags — see
+        # EMBEDDED_TD] | Price|Age | Organizers | Links | sortdate
         if len(cells) < 6:
             continue
         dm = DATECELL.search(cells[-1])
@@ -75,7 +68,9 @@ def main() -> int:
             continue
 
         dt_text = strip(cells[0])
-        title_venue = strip(cells[1])
+        tv_parts = EMBEDDED_TD.split(cells[1], maxsplit=1)
+        title_venue = strip(tv_parts[0])
+        genre = (strip(tv_parts[1]) or None) if len(tv_parts) > 1 else None
         if " @ " in title_venue:
             title, venue = title_venue.rsplit(" @ ", 1)
         else:
@@ -110,6 +105,7 @@ def main() -> int:
             "date": d.isoformat(),
             "start": time_str,
             "venue": venue.strip() if venue else None,
+            "genre": genre,
             "organizers": organizers,
             "price": price,
             "age": age,
@@ -126,7 +122,26 @@ def main() -> int:
             continue
         seen.add(k)
         uniq.append(e)
+    return uniq
 
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--days", type=int, default=14)
+    ap.add_argument("-o", "--out", default="events_19hz.json")
+    args = ap.parse_args()
+
+    try:
+        req = Request(URL, headers={"User-Agent": UA})
+        with urlopen(req, timeout=30) as resp:
+            page = resp.read().decode("utf-8", "replace")
+    except Exception as e:  # noqa: BLE001
+        print(f"WARN: 19hz fetch failed: {e}", file=sys.stderr)
+        with open(args.out, "w") as f:
+            json.dump([], f)
+        return 0
+
+    uniq = parse_listing(page, date.today(), date.today() + timedelta(days=args.days))
     with open(args.out, "w") as f:
         json.dump(uniq, f, indent=2)
     ah = sum(1 for e in uniq if e["afterhours_flag"])

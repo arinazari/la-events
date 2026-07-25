@@ -28,6 +28,7 @@ The dashboard is a pure viewer: it does NOT score. Re-run this after every diges
 
 import argparse
 import json
+import re
 import sys
 from collections import Counter
 from datetime import date, datetime, timedelta, timezone
@@ -40,12 +41,15 @@ from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: 
 from lib.feedback import merged_affinity  # noqa: E402
 from lib import affinity as AF  # noqa: E402  (ambiguous_set gates title-token bio folds)
 from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
+from lib.reactions import load_reactions, star_map, stars_for  # noqa: E402  (stars — the social fold)
+from lib.profiles import hash_names  # noqa: E402
 from lib import editor as ED  # noqa: E402
-from lib.assemble import rank_key, event_lane  # noqa: E402
+from lib.assemble import rank_key, event_lane, top_picks, TOP_PICKS_LANE_CAP  # noqa: E402
 from lib.series import group_series, series_summary, is_film, showtimes_url  # noqa: E402
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
+from lib import artist_links as ALINK  # noqa: E402  (direct ▶ listen links for the feed)
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -92,8 +96,12 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
             "priority": s.get("priority"),
             "status": s.get("status"),
         })
+    dashboard_knobs = profile.get("dashboard") or {}
     return {
         "files": {"taste": "taste.yaml", "profile": "profile.yaml", "sources": "sources.yaml"},
+        # profile.yaml `dashboard:` — page-presentation knobs (admin-controlled, per Ari
+        # 2026-07-24: event photos are opt-in, top-picks-only; the page defaults them OFF).
+        "photos": bool(dashboard_knobs.get("photos", False)),
         "taste": {
             "categories": {
                 "high": cats.get("high") or [],
@@ -149,9 +157,34 @@ FP_SHELF_CAP = 40      # keys per shelf list (near + ahead each) — deep enough
 FP_RUN_MIN_DAYS = 14
 FP_RUN_MIN_NIGHTS = 3  # two bookings weeks apart are two dated picks, not a run
 FP_NOWRUNNING_CAP = 24
-FP_HERO_N = 6
-FP_HERO_LANE_CAP = 2   # per exact lane within a hero row …
-FP_HERO_FAM_CAP = 3    # … and per lane family (club:*), so The Five can't be five club nights
+# Hero size/diversity knobs live in lib/assemble (TOP_PICKS_*): the hero row IS the shared
+# Don't-miss policy (assemble.top_picks — one shelf definition with the digest's "Don't miss").
+
+
+# "The Take" — the one-sentence teaser the voice pass writes into the consolidated digest's
+# invisible `<!-- take: … -->` slot, lifted here with the doc's own date so the feed carries it
+# structurally (front_page.take = {text, date}) and the page never parses markdown conventions.
+# The date rides along so the chat welcome can honestly show WHICH day's read this is (a stale
+# digest shows its real date, never today's). Display chrome only — never sent to the model.
+# The body excludes '<' so an unclosed take comment (an LLM fill that dropped its `-->`) fails
+# to match rather than lazily swallowing up to the NEXT comment's closer and shipping literal
+# markup into the feed. Malformed slot -> None -> the page's lede fallback.
+TAKE_RE = re.compile(r"<!--\s*take:(?!start\b|end\b)([^<]*?)-->", re.S)
+DOC_DATE_RE = re.compile(r"^# .*?(\d{4}-\d{2}-\d{2})", re.M)
+
+
+def digest_take(md: str):
+    """{text, date} from the digest's take slot, or None when the doc has no slot (a free-form
+    per-profile digest, a pre-take flagship) or the slot is unfilled — the page then falls back
+    to its clipped digestLede() heuristic over the digest it loads."""
+    m = TAKE_RE.search(md or "")
+    if not m:
+        return None
+    text = " ".join(m.group(1).split())
+    if not text:
+        return None
+    d = DOC_DATE_RE.search(md)
+    return {"text": text, "date": d.group(1) if d else None}
 
 
 def _fp_windows(today):
@@ -199,17 +232,19 @@ def _interleave(rows_by_lane: list) -> list:
     return out
 
 
-def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None) -> dict:
+def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
+                     take=None) -> dict:
     """The front_page block: hero keys per lens + shelf keys per lane (+ nowrunning/radar/
-    around joins). One card per PROGRAM: series members (lib/series — multi-night runs,
-    cross-theater film programs, stamped by the consolidation pass in main()) enter only via
-    their rep night, the same unit final_rank ranks."""
+    around joins, + "The Take" — the digest's dated one-sentence teaser, {text, date}, carried
+    structurally for the concierge chat's welcome). One card per PROGRAM: series members
+    (lib/series — multi-night runs, cross-theater film programs, stamped by the consolidation
+    pass in main()) enter only via their rep night, the same unit final_rank ranks."""
     pool = [e for e in events
             if not e.get("is_past") and e.get("iso_date") and (e.get("score") or 0) >= 0
             and (e.get("verdict") or {}).get("tier") != "skip"
             and (e.get("series_rep") or "series_key" not in e)]
-    # THE ordering is final_rank itself — stamped in main() from rank_key over these same rep
-    # units — so the front page can never disagree with the Explore table's rank column (no
+    # THE ordering is rank_key + event_key — the exact expression final_rank is stamped from in
+    # main() — so the front page can never disagree with the Explore table's rank column (no
     # second copy of the ranking expression to drift).
     ranked = sorted(pool, key=lambda e: e.get("final_rank") or 10 ** 9)
 
@@ -222,22 +257,16 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None)
     running_keys = {e["key"] for e in running}
     dated = [e for e in ranked if e["key"] not in running_keys]
 
+    # The hero row is the shared Don't-miss policy (lib/assemble.top_picks — one shelf
+    # definition with the flagship digest's shelf), applied per time-lens window over the
+    # DATED pool (long runs live in Now running, not the hero). Skips are re-checked
+    # harmlessly (top_picks reads the same verdicts map), but program collapse is NOT
+    # re-applied here (no series_of) — the reps-only pool filter above is the only thing
+    # keeping a multi-night run to one hero card.
     hero = {}
     for lens, (lo, hi) in _fp_windows(today).items():
-        lane_n, fam_n, picks = Counter(), Counter(), []
-        for e in dated:
-            if not (lo <= e["iso_date"] <= hi):
-                continue
-            lane = e.get("lane") or "other"
-            fam = lane.split(":")[0]
-            if lane_n[lane] >= FP_HERO_LANE_CAP or fam_n[fam] >= FP_HERO_FAM_CAP:
-                continue
-            picks.append(e["key"])
-            lane_n[lane] += 1
-            fam_n[fam] += 1
-            if len(picks) >= FP_HERO_N:
-                break
-        hero[lens] = picks
+        window = [e for e in dated if lo <= e["iso_date"] <= hi]
+        hero[lens] = [e["key"] for e in top_picks(window, verdicts)]
 
     # Shelf key-lists split NEAR (days 0–13: the today/weekend/two-weeks lenses) vs AHEAD
     # (14–60: plan-ahead). One global-rank cut would starve plan-ahead by construction —
@@ -274,6 +303,7 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None)
 
     return {
         "windows": _fp_windows(today),
+        "take": take,
         "hero": hero,
         "shelves": shelves,
         "nowrunning": [e["key"] for e in running][:FP_NOWRUNNING_CAP],
@@ -292,6 +322,11 @@ def main() -> int:
     ap.add_argument("--sources", default="sources.yaml")
     ap.add_argument("--enrichment", default="data/enrichment.json",
                     help="scene-graph cache to fold in (optional; skipped if absent)")
+    ap.add_argument("--digest", default="digests/latest.md",
+                    help="digest doc to lift 'The Take' (the voice pass's dated one-sentence "
+                         "teaser) from into front_page.take — build_profiles points each "
+                         "friend's feed at their own digests/<hash>/latest.md (no take slot "
+                         "there -> null; the page falls back to its clipped lede heuristic)")
     ap.add_argument("--profile-hash", default=None,
                     help="feed hash of the profile being built — loads its OWN per-person music "
                          "layer (data/spotify/<hash>.json + data/feedback.<hash>.jsonl) instead of "
@@ -379,6 +414,13 @@ def main() -> int:
     vpath = resolve(args.verdicts) if args.verdicts else ED.verdict_path(args.profile_hash)
     verdicts = ED.verdict_map(ED.load_verdicts(vpath))
 
+    # Stars — the shared reaction log (data/reactions.jsonl, committed by the Worker's POST /react)
+    # folded onto events as display names. The one social feature and it's MUTUAL: the same fold in
+    # every feed, so everyone sees who starred what. Graceful: no log -> no stars, no profiles.yaml
+    # read.
+    smap = star_map(load_reactions(REPO / "data" / "reactions.jsonl"))
+    star_names = hash_names(load_yaml(REPO / "profiles.yaml") or {}) if smap else {}
+
     is_sample = "sample" in catalog_path.name
     # LA-local today (NOT the runner's UTC date) — otherwise, in CI (UTC) past midnight UTC, events
     # still happening tonight in LA get marked is_past and lose their final_rank / highlight.
@@ -409,7 +451,12 @@ def main() -> int:
         if v:
             out["verdict"] = v                       # {tier, lane?, adjust, why, confidence}
         out["lane"] = event_lane(out, verdicts)      # verdict lane override else tag-derived
-        out["key"] = event_key(ev)                   # stable id — front_page joins + feedback
+        k = event_key(ev)
+        out["key"] = k                               # stable id — front_page joins + feedback + stars
+
+        starred = stars_for(smap, star_names, k)
+        if starred:
+            out["stars"] = starred                   # [{name, hash}] — who starred it (social)
 
         events.append(out)
 
@@ -493,7 +540,22 @@ def main() -> int:
                     around_rows = rows
             except (json.JSONDecodeError, OSError):
                 pass
-    front_page = build_front_page(events, verdicts, today, radar_rows, around_rows)
+    # Sample builds skip the lift — a demo feed must not carry the real digest's voice-pass
+    # intro over sample events (same gate the catalog_meta publish uses).
+    take = None
+    dpath = resolve(args.digest)
+    if not is_sample and dpath.exists():
+        try:
+            take = digest_take(dpath.read_text(encoding="utf-8"))
+        except OSError:
+            pass
+    front_page = build_front_page(events, verdicts, today, radar_rows, around_rows, take=take)
+
+    # Direct ▶ listen links (data/artist_links.json, resolved during run_digest): normalized
+    # name -> Spotify artist URL for exactly the artists this feed's upcoming events carry.
+    # The dashboard's _artistNorm() mirrors ALINK.norm_name() and falls back to a search URL
+    # on any miss, so an absent/stale cache just means search links — never a broken feed.
+    artist_links = ALINK.feed_map(ALINK.load(REPO / "data" / "artist_links.json"), events)
 
     # The catalog version this feed was scored against — the dashboard compares it to the live
     # dashboard/catalog_meta.json to decide if this profile's ranking/digest is stale. Prefer the
@@ -521,6 +583,7 @@ def main() -> int:
         "categories": categories,
         "tag_facets": tag_facets,
         "front_page": front_page,
+        "artist_links": artist_links,
         "dining": dining,
         "taste": {
             "venues_loved": taste.get("venues_loved") or [],

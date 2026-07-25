@@ -429,28 +429,38 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   slots; "Weekends ahead" compressed to top-4 + a link to the per-weekend file (now staged/published);
   ops banners moved to the footer). Root cause fixes underneath: Ticketmaster's capitalized segment
   names never matched the tagger ("other" was 65% of the catalog → now ~1%), and detail-blob keywords
-  could retype concerts. AND the dashboard now opens on a **Front page** — The Take (digest lede) +
-  a time lens (tonight/weekend/2wk/ahead) + a tier-badged Don't-miss hero row + per-lane shelves, all
-  computed server-side (`build_dashboard.build_front_page`, same rank_key as final_rank; the page
-  never re-ranks); the table demoted to **Explore** (header switch, per-device persistence). Every
+  could retype concerts. AND the dashboard now opens on a **Front page** — a time lens
+  (tonight/weekend/2wk/ahead) + a Don't-miss hero row + per-lane shelves, all computed
+  server-side (`build_dashboard.build_front_page`, same rank_key as final_rank; the page
+  never re-ranks); the table demoted to **Explore** (header switch, per-device persistence).
+  (As first shipped this page also opened with a "The Take" lede card and tier-badged the hero;
+  since revised — the take moved into the concierge chat as a dated one-sentence teaser (#92 +
+  the follow-ups below), and the hero unbadged (#93).) Every
   feed event now carries its stable `key` (event_key) — the join id, and the anchor for feedback
   reactions when that lands.
 
-### Redesign follow-ups (TODO — from the 2026-07-16 review; both need Ari's call)
-- [ ] **One "Don't miss" policy across surfaces** — the digest's shelf (`_dont_miss_events`,
-  tier-primary, run-collapsed, NO lane cap) and the front page's hero (`build_front_page`,
-  same rank but lane-capped 2-per-lane/3-per-family for diversity) can legitimately disagree —
-  five club nights can top the digest shelf while the hero forces a film in. If the two should
-  read identically, extract one shared top-picks helper into `lib/assemble` (next to
-  `slate_fill`/`rank_key`) and give both surfaces the same diversity knobs. Decision: same or
-  deliberately different?
-- [ ] **Emit "The Take" structurally** — the take is the digest lede parsed out of
-  `digests/latest.md` with string heuristics (`digestLede()` in the dashboard). Robust enough
-  for now (bold/italic openers handled), but the clean fix is the voice pass writing the intro
-  to a structured slot the feed carries (e.g. `front_page.take`), so the page never parses
-  markdown conventions. (2026-07-16 follow-up: the take moved off the front page entirely —
-  it renders inside the concierge chat's welcome message (`seedTake()`), and reaches the model
-  as the Worker's `opener` system-prompt field, never as history.)
+### Redesign follow-ups (from the 2026-07-16 review) — ✅ both shipped 2026-07-20
+- [x] **One "Don't miss" policy across surfaces** — resolved as SAME (the "one policy" reading):
+  `lib/assemble.top_picks` (next to `slate_fill`/`rank_key`) is now THE shelf definition —
+  rank_key order (the exact expression `final_rank` is stamped from), judged skips out, one
+  night per program, and the shared `TOP_PICKS_*` diversity knobs (2-per-lane / 3-per-family,
+  N=6). Both `render_digest._dont_miss_events` and `build_front_page`'s hero run it, so the
+  digest shelf now gets the hero's diversity too (five club nights can't fill it; live-music/
+  film picks displace the 4th-best club bill). If Ari prefers the shelves deliberately
+  different, the knobs are per-call args — change one caller, not the policy. Composes with
+  the taxonomy revamp: the family cap spans `live-music:*` exactly like `club:*`.
+- [x] **Emit "The Take" structurally** — revised per Ari (2026-07-20): the take is NOT the
+  digest intro lifted verbatim — it's a dedicated **one-sentence, high-level teaser** the
+  voice pass writes into an invisible `<!-- take: … -->` slot under the digest header
+  (distinct from the 2–4 sentence `tier3:intro`). `build_dashboard --digest` lifts it into
+  each feed as `front_page.take = {text, date}` — the date is the digest's own date, so the
+  chat welcome shows it's genuinely today's read, honestly stale otherwise; `build_profiles`
+  points each friend's build at their OWN `digests/<hash>/latest.md` (no slot → `take: null`;
+  never Ari's teaser). The page prefers the structural take for the chat welcome
+  (`seedTake`); the `digestLede()` heuristic survives only as the fallback, clipped to one
+  sentence. **Display-only by design**: the take renders as if the concierge said it but is
+  NEVER sent to the model — the `opener` system-prompt field is removed (page + Worker); the
+  concierge stays grounded on the feed data alone.
 
 ### 2026-07-21 — Front-page shelf reshape (with Ari, in-session)
 Labels standardized for the multi-user audience (taxonomy unchanged — lanes/tags/verdict
@@ -469,22 +479,54 @@ weekly residencies/recurring markets (MUZIQUE Fridays, Silverlake Flea) qualify 
 by construction — deliberate for now ("standing options"), revisit if the shelf reads wrong.
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
-- [ ] **Pre-transpile build step** — the new UI is a React app transpiled *in the browser* by
-  `@babel/standalone` (~3 MB vendored). Add a build step that compiles `index.html` ahead of time and
-  ships plain JS, dropping Babel + the first-paint transpile cost from the client.
+- [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
+  ships plain JS (dc-runtime `support.js` evaluates the template directly; no in-browser Babel),
+  and the dead ~3 MB vendored `@babel/standalone` is deleted. The surviving client-weight item is
+  the feed: `data.json` (~7.9 MB raw, ~1 MB gzipped) re-fetched `no-store` each boot — fix is a
+  slim boot feed + lazy full catalog, or content-versioned feed URLs with normal caching.
+- [x] **Content-versioned feed fetch (2026-07-24)** — the page now loads `catalog_meta.json`
+  first (161 B, no-store) and fetches the big feed as `data[.<hash>].json?v=<content_version>`
+  with normal HTTP caching: unchanged catalog → the browser serves its cached copy / a cheap 304
+  instead of re-downloading ~7.6 MB every boot. Post-rebuild reloads bust with `?v=<now>` (a
+  profile rebuild changes the feed without moving the catalog version).
+- [ ] **Slim boot feed (VERY HIGH per Ari, 2026-07-24)** — the deeper fix: `build_dashboard`
+  emits a small boot feed (front_page + config + the slate head, ~a few hundred KB) that paints
+  the front page immediately, with the full catalog lazy-loaded only when Explore/search needs
+  it. Composes with the versioned URLs above. Touches build_dashboard/build_profiles emit + the
+  page's loadFeedFor; keep the "one policy" invariant — the boot feed must carry the same
+  front_page block, not a re-derived one.
 - [x] **Per-event ICS export** — re-ported the one-click add-to-calendar (was `dashboard/js/ics.js`;
   regressed in the swap). Now an "Add to calendar ↓" button in each event's expanded detail row;
   self-contained RFC 5545 builder on the `Component` class (floating LA-local times, 3-hr default,
   all-day fallback, lineup/curator-note/price/rating/link in the description).
-- [ ] **Save / bookmark events** — let Ari star events to a personal shortlist (localStorage; the seed
-  for "plan around these"). Was `save-for-plan` in the prior front end; not in the new design yet.
-  The front page's card detail modal is the natural surface, and events now carry a stable `key`.
-- [ ] **Like → learn taste** — per-event 👍/👎 (or "more like this" / "never show") that feeds the
-  existing feedback loop (`data/feedback.jsonl` → `lib/feedback.py` → affinity, Phase C). Closes the
-  implicit-signal-capture gap noted in Phase C (emitting reactions waited on a dashboard surface); on
-  static Pages it rides the hand-off seam — compose the `feedback.jsonl` append for the agent to commit.
-  Groundwork shipped (2026-07-16): the front-page cards/detail modal are the surface, and every feed
-  event carries `key` = the server `event_key` that `log_feedback.py` / `lib/feedback.py` key off.
+- [x] **Calendar subscription** (2026-07-20; saved-events added 2026-07-21) — Settings → **Calendar
+  feed**: a subscribable iCalendar polled by Google/Apple so it stays current, in two modes via a
+  source toggle — **Top picks** (the profile's taste-ranked events) and **Saved** (the starred
+  shortlist). The Worker serves `GET /calendar.ics?p=<hash>&…` (unauthenticated — it only re-serves
+  the public feed): picks mode takes min rating / per-day cap / horizon / weekdays / include-exclude
+  type+genre chips in the query string; the **Starred** calendar takes `saved=1` and resolves the
+  profile's stars server-side from the feed's `stars` field — a stable url (the earlier `keys=`
+  event-list is kept as a legacy/snapshot fallback). `dashboard/calendar-core.js` is the ONE filter/ICS builder, loaded by the page (live
+  preview + one-shot `.ics` snapshot) and imported by the Worker, so preview and subscription can't
+  drift. Subscription URLs use explicit `TZID=America/Los_Angeles` (+VTIMEZONE) — a deliberate
+  divergence from the floating-local one-shot exports, since polled feeds cross clients. Build
+  `2026-07-21-cal2`. Track A: the URL carries the feed hash; when capability tokens replace hashes,
+  `p=` inherits that swap.
+- [x] **Save / bookmark events → server-side stars** (2026-07-21) — shipped first as a per-browser
+  localStorage shortlist, then reworked to **server-side stars** (Ari's call: saves must be shared,
+  not per-device). A **☆ Star** on the Explore row / mobile card / front-page detail POSTs to the
+  Worker's `POST /react`, which commits to `data/reactions.jsonl`; CI folds `stars: [{name,hash}]`
+  onto every feed, so a star is **mutual** — "★ Lori" shows on the card + in digests for everyone —
+  AND it's the seed of the learning loop (star→`loved` into `feedback.<hash>.jsonl`, ranked by the
+  existing fold). The Starred calendar reads server stars via a stable `?saved=1` (no re-subscribe).
+  Ported from Track A "A4: stars" (`claude/track-a-execution-vu3gif`), reactions.jsonl schema kept
+  identical for a clean merge; the tokenization/private-repo parts of Track A stay out of scope.
+- [~] **Like → learn taste** — largely shipped via **stars** (2026-07-21): the ☆ Star's server commit
+  also appends a `loved`/`hide` line to `data/feedback.<hash>.jsonl` (`POST /react`), which the existing
+  `lib/feedback.py` → affinity fold ranks with — the star IS the "more like this" signal, no separate
+  👍/👎 needed. Remaining: an explicit **👎 / never-show** surface (the `hide` kind exists in `/react`
+  but the dashboard only sends `star`/`unstar`; wire a hide affordance if wanted). No hand-off seam
+  needed anymore — the Worker commits directly.
 - [ ] **In-app taste editing (direct YAML)** — the profile popup is now slim (signed-in · log out +
   a "View your taste profile →" link) and opens a dedicated **read-only** taste modal (2026-06-20).
   Making it *editable in-page* means a Worker save path: POST the full YAML → validate (re-parses +

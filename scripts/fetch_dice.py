@@ -28,6 +28,9 @@ from datetime import datetime, timedelta
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images  # noqa: E402  (DICE's MusicEvent JSON-LD is schema.org -> `image` for free)
+
 try:
     from zoneinfo import ZoneInfo
     LA = ZoneInfo("America/Los_Angeles")
@@ -186,6 +189,7 @@ def fetch_venue(slug, name, hood, now, hi):
                 "lineup": lineup,
                 "category": "electronic" if ELECTRONIC_HINT.search(blob) else "music",
                 "price": price(ev),
+                "image": images.from_jsonld(ev.get("image")),  # schema.org `image` when the venue JSON-LD carries it
                 "url": ev_url,
             })
     return out

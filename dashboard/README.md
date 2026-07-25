@@ -11,18 +11,27 @@ The page is a pure viewer: it never scores and never calls an LLM in the browser
 ```
 index.html            the dashboard (design-tool export; edit THIS file directly)
 support.js            the "dc-runtime" that renders index.html (loads vendored React/Babel)
-vendor/               React 18 + ReactDOM + @babel/standalone, vendored locally (no CDN)
+calendar-core.js      calendar-subscription core (filter + iCalendar builder) — shared VERBATIM
+                      with the Worker's GET /calendar.ics (backend/ imports this file), so the
+                      modal's preview always matches what a subscribed calendar receives. Serves
+                      both the taste-ranked "Top picks" calendar and the "Starred" one (?saved=1,
+                      resolved from the feed's `stars` field — server-side saves via POST /react)
+vendor/               React 18 + ReactDOM, vendored locally (no CDN)
 data.json             the feed — built by scripts/build_dashboard.py (committed)
 manifest.webmanifest  installable-PWA metadata
 sw.js                 offline app-shell cache (PWA)
 icon.svg              app icon
 ```
 
-> **Heads up on the runtime:** this UI is a React app transpiled in the browser by
-> `@babel/standalone` (~3 MB, vendored in `vendor/`). That's the cost of hosting a
-> design-tool artifact as-is — first paint does a client-side transpile. It works offline
-> and needs no CDN, but it is heavier than a hand-written static page. If that ever matters,
-> the long-term cleanup is a build step that pre-transpiles (drops Babel from the client).
+> **Heads up on the runtime:** the 2026-07-24 front end ships plain JS — the dc-runtime
+> (`support.js`, ~66 KB, generated) evaluates the page's template + logic directly; there is
+> **no in-browser Babel transpile anymore** (the old ~3 MB vendored `@babel/standalone` is
+> deleted; the runtime would lazy-load Babel from a CDN only for JSX `x-import` modules,
+> which this page doesn't use). The dominant client cost is now the feed itself:
+> `data.json` is ~7.9 MB raw (~1 MB gzipped over Pages) and is re-fetched with
+> `cache:'no-store'` on every boot. If that ever matters, the cleanup is a slim boot feed
+> (front page + head) with the full catalog lazy-loaded for Explore, or content-versioned
+> feed URLs (`data.json?v=<catalog_content_version>`) with normal HTTP caching.
 
 ## How data flows (backend unchanged)
 
@@ -30,8 +39,9 @@ icon.svg              app icon
 data/catalog.json ──┐
 data/enrichment.json├─► scripts/build_dashboard.py ─► dashboard/data.json ─► index.html
 taste.yaml          │     (scores each event the SAME way the digest does,        (pure viewer)
-profile.yaml        │      folds in enrichment, emits config + facets)
-sources.yaml ───────┘
+profile.yaml        │      folds in enrichment, emits config + facets,
+sources.yaml        │      lifts front_page.take from the digest's take slot —
+digests/latest.md ──┘      why the workflows render the digest BEFORE the feed)
 ```
 
 `index.html` fetches `./data.json` at startup, normalizes the real catalog schema
@@ -48,7 +58,10 @@ The page opens on the **Front page** — an editorial home rendered from the fee
 - A **time lens** (*tonight · this weekend · next 2 weeks · plan ahead*) that re-scopes
   everything below. The feed ships each lens's hero list plus rank-ordered shelf key-lists;
   the client only date-windows and slices — selection, never re-sorting.
-- **Don't miss** — the hero row, lane-capped server-side so it can't be five club nights.
+- **Don't miss** — the hero row, selected server-side by the ONE shared top-picks policy
+  (`lib/assemble.top_picks` — the same helper, order, and lane/family diversity caps as the
+  flagship digest's "Don't miss" shelf), so it can't be five club nights and can't disagree
+  with the digest on policy.
   Shelf cards badge only the editor's rare **must-see** flag: the front page IS the top of
   the ranking, so "great" is the baseline there and goes unbadged (a badge on every card is
   no badge at all) — and the hero row badges nothing, since its own label already says it.
@@ -89,14 +102,16 @@ The chat has two modes, toggled in its header (default **Concierge**):
   is the fallback whenever the backend is unset/unreachable, so the chat never dead-ends.
 
 **The welcome wraps the take** — the thread opens on ONE concierge message: the greeting, then
-the day's take ("For Fri 7/17: …" — the consolidated digest's voice-pass lede, parsed out of
-`./digests/latest.md`), then the how-to with its tap-to-fill examples. The how-to renders
-full-size until this device sends its first message, then tucks behind a *see what I can do ▸*
-toggle (`chatGuideOpen` / `la-chat-used`). The welcome is client-side chrome: it *looks* like
-the LLM's first message but is never sent to it — `askBackend` drops it from the history
-(saving tokens); only the take rides along, as the `opener` field the Worker folds into the
-system prompt, so "what's the move tonight then?" still has context. A profile with no digest
-yet just gets no take line.
+the day's take ("For Fri 7/17: …" — the voice pass's ONE-sentence teaser, carried structurally
+as `front_page.take = {text, date}`; the date shown is the digest's own date, so it visibly
+reads as today's take when it is and honestly dated when stale), then the how-to with its
+tap-to-fill examples. Feeds without a structural take fall back to the digest-lede heuristic
+(`digestLede()`), clipped to one sentence. The how-to renders full-size until this device
+sends its first message, then tucks behind a *see what I can do ▸* toggle (`chatGuideOpen` /
+`la-chat-used`). The welcome is ALL client-side chrome: it *looks* like the LLM's first
+message but none of it is ever sent — not as history and not as any side field (the old
+`opener` is retired by design; the model grounds on the feed data alone). A profile with no
+digest yet just gets no take line.
 
 **Discover new sources** → a **copy-to-Claude-Code hand-off** (composes a Discover-mode prompt,
 copies it; you paste it into Claude Code, which proposes sources — approval still happens in the
