@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T00:39:49+00:00",
+  "generated_at": "2026-07-25T01:24:24+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "c454bf4e0c82",
@@ -9,7 +9,7 @@
   "enriched_count": 1537,
   "music": {
     "layer": "spotify",
-    "artists": 183,
+    "artists": 182,
     "genres": 0
   },
   "neighborhoods": [
@@ -778,8 +778,8 @@
         "7210967968cd",
         "773d5c83a2fd",
         "8a3d95d9db16",
-        "981ec1e26eb6",
-        "58fd18418469"
+        "58fd18418469",
+        "d991f971640b"
       ],
       "ahead": [
         "1c14235e465f",
@@ -1040,10 +1040,10 @@
           "live-music"
         ],
         "near": [
-          "981ec1e26eb6",
           "58fd18418469",
           "d991f971640b",
           "bc85e003465d",
+          "981ec1e26eb6",
           "ffaeb94bd682",
           "08f6322b23b5",
           "f6c03e7501c5",
@@ -1132,9 +1132,9 @@
         ],
         "near": [
           "4dd13aaa260f",
-          "cb48e0bf0488",
           "b1cc3aabc211",
           "70290d18de29",
+          "cb48e0bf0488",
           "1db0002517a6",
           "cec7f396634c",
           "b00761a9e7c7",
@@ -3369,7 +3369,7 @@
       },
       "lane": "club:underground",
       "key": "66a16855b568",
-      "final_rank": 58
+      "final_rank": 57
     },
     {
       "title": "SORRY FOR PARTY ROCKING (2010-2015 Pop & EDM All Night Long!)",
@@ -3637,7 +3637,7 @@
       },
       "lane": "live-music:big",
       "key": "b1cc3aabc211",
-      "final_rank": 51
+      "final_rank": 50
     },
     {
       "title": "Fight Without Jingi",
@@ -5253,7 +5253,7 @@
       },
       "lane": "live-music",
       "key": "f6c03e7501c5",
-      "final_rank": 73
+      "final_rank": 72
     },
     {
       "title": "Treaty Oak Revival",
@@ -6018,7 +6018,7 @@
       },
       "lane": "club:mainstream",
       "key": "16d1cd0d334f",
-      "final_rank": 68
+      "final_rank": 67
     },
     {
       "title": "The S3XBALL",
@@ -6173,7 +6173,7 @@
       },
       "lane": "live-music",
       "key": "08f6322b23b5",
-      "final_rank": 71
+      "final_rank": 70
     },
     {
       "title": "BAD BUNNY SUMMER NIGHT",
@@ -10318,7 +10318,7 @@
       },
       "lane": "live-music",
       "key": "bc85e003465d",
-      "final_rank": 13
+      "final_rank": 12
     },
     {
       "title": "Project Nightfall | Vermont Hollywood | 21+",
@@ -12015,7 +12015,7 @@
       },
       "lane": "live-music:big",
       "key": "70290d18de29",
-      "final_rank": 57
+      "final_rank": 56
     },
     {
       "title": "CSW - Nick Le\u00f3n [All Night]",
@@ -12527,7 +12527,7 @@
       },
       "lane": "club:underground",
       "key": "7e22ce3805ff",
-      "final_rank": 55
+      "final_rank": 54
     },
     {
       "source": "Avalon Hollywood",
@@ -12783,7 +12783,7 @@
       },
       "lane": "club:underground",
       "key": "0a6027d386d0",
-      "final_rank": 70
+      "final_rank": 69
     },
     {
       "title": "The Odyssey (70mm)",
@@ -13243,7 +13243,7 @@
       },
       "lane": "club:afters",
       "key": "c24970c8e968",
-      "final_rank": 50
+      "final_rank": 49
     },
     {
       "title": "NIGHTSHIFT AFTER HOURS",
@@ -15556,7 +15556,7 @@
       },
       "lane": "club:day",
       "key": "cf1a114b8ef0",
-      "final_rank": 82
+      "final_rank": 81
     },
     {
       "title": "Candyland",
@@ -16069,7 +16069,7 @@
       "lane": "film",
       "key": "e844781fd886",
       "showtimes_url": "https://www.google.com/search?q=%22a+new+leaf%22+showtimes+Los+Angeles",
-      "final_rank": 78
+      "final_rank": 77
     },
     {
       "title": "American Pachuco: The Legend of Luis Valdez",
@@ -16341,7 +16341,7 @@
       "lane": "film",
       "key": "55ea669c1f29",
       "showtimes_url": "https://www.google.com/search?q=%22alien%22+showtimes+Los+Angeles",
-      "final_rank": 61
+      "final_rank": 60
     },
     {
       "title": "Deliciosa Vibra",
@@ -16561,7 +16561,7 @@
       },
       "series_rep": true,
       "showtimes_url": "https://www.google.com/search?q=%22maddie+s+secret%22+showtimes+Los+Angeles",
-      "final_rank": 81
+      "final_rank": 80
     },
     {
       "title": "Walk the Wood Food Tour",
@@ -18118,6 +18118,12 @@
       },
       "lane": "live-music",
       "key": "ffaeb94bd682",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "final_rank": 38
     },
     {
@@ -22434,6 +22440,12 @@
       },
       "lane": "club:mainstream",
       "key": "773d5c83a2fd",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "final_rank": 4
     },
     {
@@ -23516,7 +23528,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22maddie+s+secret%22+showtimes+Los+Angeles",
-      "series_rank": 81
+      "series_rank": 80
     },
     {
       "title": "DJ Y-Not (Brainstory)",
@@ -29736,7 +29748,7 @@
       },
       "lane": "live-music",
       "key": "d991f971640b",
-      "final_rank": 12
+      "final_rank": 11
     },
     {
       "title": "Back to the Future",
@@ -38315,98 +38327,6 @@
       "final_rank": 277
     },
     {
-      "title": "Black Moth Super Rainbow",
-      "date": "2026-07-31",
-      "start": "20:00",
-      "venue": "The Belasco",
-      "neighborhood": "DTLA",
-      "category": "Music",
-      "genre": "Rock",
-      "lineup": [
-        "Black Moth Super Rainbow",
-        "Giant Day"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/black-moth-super-rainbow-los-angeles-california-07-31-2026/event/09006473E312DAC6"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": "THIS IS AN ALL AGES EVENT The Belasco is a STANDING ROOM ONLY venue. We have a dedicated area for guests in wheelchairs and their companions, which is available on a first-come, first-served basis. Please contact us at THEBELASCO@LIVENATION.COM or (213) 531-0580 for questions regarding accessibility at the venue and to request accommodation. TIMES AND SUPPORT ACTS SUBJECT TO CHANGE WITHOUT NOTICE\u2026",
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-07-16",
-      "tags": {
-        "type": "live-music",
-        "genre": [
-          "rock"
-        ],
-        "setting": [],
-        "scale": "hall",
-        "vibe": [
-          "all-ages"
-        ],
-        "region": "dtla",
-        "near_home": true
-      },
-      "updated_at": "2026-06-30",
-      "changed_fields": [
-        "start"
-      ],
-      "score": 6,
-      "rating": 4,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 Friday/Saturday night",
-        "+1 close to Silver Lake",
-        "+2 Spotify heavy rotation (Black Moth Super Rainbow)"
-      ],
-      "iso_date": "2026-07-31",
-      "is_past": false,
-      "enrichment": {
-        "type": "live-music",
-        "subgenres": [
-          "experimental",
-          "indie"
-        ],
-        "label_orbit": [
-          "Rad Cult"
-        ],
-        "energy": "hazy / trippy",
-        "sounds_like": [
-          "Boards of Canada",
-          "Tobacco"
-        ],
-        "artist_notes": [
-          {
-            "name": "Black Moth Super Rainbow",
-            "note": "Tobacco-fronted Pittsburgh outfit \u2014 vocoder-heavy, hazy psychedelic pop over fuzzed analog synths; a cult-favorite band, not a nostalgia act despite the vintage-synth sound. ('Psych' isn't yet in the subgenre vocab; flagging rather than coining a tag.)"
-          },
-          {
-            "name": "Giant Day",
-            "note": "Elephant 6-affiliated post-punk/art-rock duo (Derek Almstead of Olivia Tremor Control/of Montreal + Emily Growden) \u2014 psych-funk, synth-forward; the first official new E6 band in 15+ years."
-          }
-        ],
-        "curator_note": "Black Moth Super Rainbow's woozy, vocoder-drenched psych-pop is a genuinely different flavor from the house/techno lane \u2014 good for a stranger, warmer Friday at the Belasco, and Giant Day's Elephant 6 pedigree makes the opener worth showing up early for.",
-        "description": "Psychedelic synth-pop act Black Moth Super Rainbow with Giant Day at The Belasco, 8pm."
-      },
-      "verdict": {
-        "tier": "great",
-        "adjust": 1,
-        "why": "Tobacco's cult psych-pop project plus the first new Elephant 6 band in 15 years opening \u2014 a real bill despite the vintage-synth sound.",
-        "confidence": "high"
-      },
-      "lane": "live-music:big",
-      "key": "cb48e0bf0488",
-      "final_rank": 48
-    },
-    {
       "title": "12 Angry Men",
       "date": "2026-07-31",
       "start": "20:00",
@@ -38471,7 +38391,7 @@
       "lane": "film",
       "key": "14f118b7b429",
       "showtimes_url": "https://www.google.com/search?q=%2212+angry+men%22+showtimes+Los+Angeles",
-      "final_rank": 69
+      "final_rank": 68
     },
     {
       "title": "Social Lovers & lovetempo with Xica Soul",
@@ -39334,6 +39254,98 @@
       "lane": "live-music",
       "key": "9fa71bebd13b",
       "final_rank": 455
+    },
+    {
+      "title": "Black Moth Super Rainbow",
+      "date": "2026-07-31",
+      "start": "20:00",
+      "venue": "The Belasco",
+      "neighborhood": "DTLA",
+      "category": "Music",
+      "genre": "Rock",
+      "lineup": [
+        "Black Moth Super Rainbow",
+        "Giant Day"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/black-moth-super-rainbow-los-angeles-california-07-31-2026/event/09006473E312DAC6"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": "THIS IS AN ALL AGES EVENT The Belasco is a STANDING ROOM ONLY venue. We have a dedicated area for guests in wheelchairs and their companions, which is available on a first-come, first-served basis. Please contact us at THEBELASCO@LIVENATION.COM or (213) 531-0580 for questions regarding accessibility at the venue and to request accommodation. TIMES AND SUPPORT ACTS SUBJECT TO CHANGE WITHOUT NOTICE\u2026",
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-07-16",
+      "tags": {
+        "type": "live-music",
+        "genre": [
+          "rock"
+        ],
+        "setting": [],
+        "scale": "hall",
+        "vibe": [
+          "all-ages"
+        ],
+        "region": "dtla",
+        "near_home": true
+      },
+      "updated_at": "2026-06-30",
+      "changed_fields": [
+        "start"
+      ],
+      "score": 5,
+      "rating": 3,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 Friday/Saturday night",
+        "+1 close to Silver Lake",
+        "+1 Spotify on rotation (Black Moth Super Rainbow)"
+      ],
+      "iso_date": "2026-07-31",
+      "is_past": false,
+      "enrichment": {
+        "type": "live-music",
+        "subgenres": [
+          "experimental",
+          "indie"
+        ],
+        "label_orbit": [
+          "Rad Cult"
+        ],
+        "energy": "hazy / trippy",
+        "sounds_like": [
+          "Boards of Canada",
+          "Tobacco"
+        ],
+        "artist_notes": [
+          {
+            "name": "Black Moth Super Rainbow",
+            "note": "Tobacco-fronted Pittsburgh outfit \u2014 vocoder-heavy, hazy psychedelic pop over fuzzed analog synths; a cult-favorite band, not a nostalgia act despite the vintage-synth sound. ('Psych' isn't yet in the subgenre vocab; flagging rather than coining a tag.)"
+          },
+          {
+            "name": "Giant Day",
+            "note": "Elephant 6-affiliated post-punk/art-rock duo (Derek Almstead of Olivia Tremor Control/of Montreal + Emily Growden) \u2014 psych-funk, synth-forward; the first official new E6 band in 15+ years."
+          }
+        ],
+        "curator_note": "Black Moth Super Rainbow's woozy, vocoder-drenched psych-pop is a genuinely different flavor from the house/techno lane \u2014 good for a stranger, warmer Friday at the Belasco, and Giant Day's Elephant 6 pedigree makes the opener worth showing up early for.",
+        "description": "Psychedelic synth-pop act Black Moth Super Rainbow with Giant Day at The Belasco, 8pm."
+      },
+      "verdict": {
+        "tier": "great",
+        "adjust": 1,
+        "why": "Tobacco's cult psych-pop project plus the first new Elephant 6 band in 15 years opening \u2014 a real bill despite the vintage-synth sound.",
+        "confidence": "high"
+      },
+      "lane": "live-music:big",
+      "key": "cb48e0bf0488",
+      "final_rank": 83
     },
     {
       "title": "Cannibal Ox \"The Cold Vein\" 25 Year Anniversary",
@@ -41443,7 +41455,7 @@
       "lane": "film",
       "key": "cbeb1b3e71aa",
       "showtimes_url": "https://www.google.com/search?q=%22dressed+to+kill%22+showtimes+Los+Angeles",
-      "final_rank": 83
+      "final_rank": 82
     },
     {
       "title": "American Pachuco: The Legend of Luis Valdez",
@@ -41806,7 +41818,7 @@
       "lane": "film",
       "key": "df60fbaca74c",
       "showtimes_url": "https://www.google.com/search?q=%22the+thing%22+showtimes+Los+Angeles",
-      "final_rank": 79
+      "final_rank": 78
     },
     {
       "title": "Black Market, Michael Fam",
@@ -45785,7 +45797,7 @@
       },
       "lane": "club:underground",
       "key": "1c8c064e1849",
-      "final_rank": 66
+      "final_rank": 65
     },
     {
       "title": "Certified Groovers w/ Demuir, Juliet Mendoza, Force Placement",
@@ -46035,7 +46047,7 @@
       },
       "lane": "club:underground",
       "key": "1e7671f8dbd9",
-      "final_rank": 65
+      "final_rank": 64
     },
     {
       "title": "of Montreal",
@@ -46552,7 +46564,7 @@
       },
       "lane": "club:underground",
       "key": "a1d86a241c70",
-      "final_rank": 52
+      "final_rank": 51
     },
     {
       "title": "Chaotic Groove",
@@ -47165,7 +47177,7 @@
       },
       "lane": "club:day",
       "key": "f3d70e5e197d",
-      "final_rank": 11
+      "final_rank": 10
     },
     {
       "title": "Navan: Kisses On The Moon Tour",
@@ -47343,13 +47355,12 @@
       "changed_fields": [
         "start"
       ],
-      "score": 5,
+      "score": 4,
       "rating": 3,
       "reasons": [
         "+2 music (medium interest)",
         "+1 Friday/Saturday night",
-        "+1 close to Silver Lake",
-        "+1 Spotify on rotation (Kim Gordon)"
+        "+1 close to Silver Lake"
       ],
       "iso_date": "2026-08-01",
       "is_past": false,
@@ -47406,7 +47417,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 9
+      "final_rank": 13
     },
     {
       "title": "Los Aptos",
@@ -49171,7 +49182,7 @@
       "lane": "film",
       "key": "669437d15162",
       "showtimes_url": "https://www.google.com/search?q=%22the+truman+show%22+showtimes+Los+Angeles",
-      "final_rank": 59
+      "final_rank": 58
     },
     {
       "title": "Twin Peaks: The Original Mystery \u2013 Episodes 3 + 4",
@@ -49272,7 +49283,7 @@
       },
       "series_rep": true,
       "showtimes_url": "https://www.google.com/search?q=%22twin+peaks+the+original+mystery+episodes+3+4%22+showtimes+Los+Angeles",
-      "final_rank": 63
+      "final_rank": 62
     },
     {
       "title": "Yes, Madam!",
@@ -50097,7 +50108,7 @@
       },
       "lane": "club:underground",
       "key": "498c5b4c9c3e",
-      "final_rank": 62
+      "final_rank": 61
     },
     {
       "title": "Mary Droppinz b2b Jon Casey",
@@ -54711,100 +54722,6 @@
       "final_rank": 134
     },
     {
-      "title": "Kim Gordon - Play Me Tour",
-      "date": "2026-08-02",
-      "start": "20:00",
-      "venue": "Pacific Electric",
-      "neighborhood": "DTLA",
-      "category": "Music",
-      "genre": "Rock",
-      "lineup": [
-        "Kim Gordon"
-      ],
-      "links": [
-        {
-          "source": "ticketmaster",
-          "url": "https://www.ticketmaster.com/kim-gordon-play-me-tour-los-angeles-california-08-02-2026/event/09006482BE647FBF"
-        }
-      ],
-      "sources": [
-        "ticketmaster"
-      ],
-      "organizers": null,
-      "detail": null,
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-06-19",
-      "last_seen": "2026-07-16",
-      "tags": {
-        "type": "live-music",
-        "genre": [
-          "rock"
-        ],
-        "setting": [],
-        "scale": null,
-        "vibe": [],
-        "region": "dtla",
-        "near_home": true
-      },
-      "updated_at": "2026-06-30",
-      "changed_fields": [
-        "start"
-      ],
-      "score": 4,
-      "rating": 3,
-      "reasons": [
-        "+2 music (medium interest)",
-        "+1 close to Silver Lake",
-        "+1 Spotify on rotation (Kim Gordon)"
-      ],
-      "iso_date": "2026-08-02",
-      "is_past": false,
-      "enrichment": {
-        "artist_notes": [
-          {
-            "name": "Kim Gordon",
-            "note": "Sonic Youth co-founder now several solo albums deep into a genuinely strange run \u2014 industrial-tinged, spoken-word noise-rock, not a legacy-act victory lap."
-          }
-        ],
-        "description": "Kim Gordon Play Me Tour at Pacific Electric, DTLA."
-      },
-      "verdict": {
-        "tier": "great",
-        "adjust": 2,
-        "why": "Kim Gordon is deep into a genuinely strange industrial noise-rock solo run, not a legacy victory lap \u2014 closing night of a short DTLA stand, dead-center of your post-punk/experimental taste.",
-        "confidence": "high"
-      },
-      "lane": "live-music",
-      "key": "cd7672b88551",
-      "series_key": "run:kim gordon play me tour|pacific electric",
-      "series": {
-        "count": 2,
-        "first": "2026-08-01",
-        "last": "2026-08-02",
-        "venues": [
-          "Pacific Electric"
-        ],
-        "entries": [
-          {
-            "date": "2026-08-01",
-            "venue": "Pacific Electric",
-            "start": "20:00",
-            "url": "https://www.ticketmaster.com/kim-gordon-play-me-tour-los-angeles-california-08-01-2026/event/09006482BE637FB6"
-          },
-          {
-            "date": "2026-08-02",
-            "venue": "Pacific Electric",
-            "start": "20:00",
-            "url": "https://www.ticketmaster.com/kim-gordon-play-me-tour-los-angeles-california-08-02-2026/event/09006482BE647FBF"
-          }
-        ]
-      },
-      "series_rep": false,
-      "series_rank": 9
-    },
-    {
       "title": "Sunday HARDfest Afters (Omar+, Miguelle & Tons, Fifi)",
       "date": "2026-08-02",
       "start": "10pm-2am",
@@ -55165,7 +55082,7 @@
       },
       "lane": "live-music",
       "key": "58fd18418469",
-      "final_rank": 10
+      "final_rank": 9
     },
     {
       "title": "Below- Pool Party: Banoffee, Buckmonster, KEHIW, Bradley John, Krissy Marchante",
@@ -55721,7 +55638,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22twin+peaks+the+original+mystery+episodes+3+4%22+showtimes+Los+Angeles",
-      "series_rank": 63
+      "series_rank": 62
     },
     {
       "title": "Heat Advisory: Day Two Festival Afters",
@@ -56331,6 +56248,99 @@
       },
       "series_rep": true,
       "final_rank": 448
+    },
+    {
+      "title": "Kim Gordon - Play Me Tour",
+      "date": "2026-08-02",
+      "start": "20:00",
+      "venue": "Pacific Electric",
+      "neighborhood": "DTLA",
+      "category": "Music",
+      "genre": "Rock",
+      "lineup": [
+        "Kim Gordon"
+      ],
+      "links": [
+        {
+          "source": "ticketmaster",
+          "url": "https://www.ticketmaster.com/kim-gordon-play-me-tour-los-angeles-california-08-02-2026/event/09006482BE647FBF"
+        }
+      ],
+      "sources": [
+        "ticketmaster"
+      ],
+      "organizers": null,
+      "detail": null,
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-06-19",
+      "last_seen": "2026-07-16",
+      "tags": {
+        "type": "live-music",
+        "genre": [
+          "rock"
+        ],
+        "setting": [],
+        "scale": null,
+        "vibe": [],
+        "region": "dtla",
+        "near_home": true
+      },
+      "updated_at": "2026-06-30",
+      "changed_fields": [
+        "start"
+      ],
+      "score": 3,
+      "rating": 2,
+      "reasons": [
+        "+2 music (medium interest)",
+        "+1 close to Silver Lake"
+      ],
+      "iso_date": "2026-08-02",
+      "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "Kim Gordon",
+            "note": "Sonic Youth co-founder now several solo albums deep into a genuinely strange run \u2014 industrial-tinged, spoken-word noise-rock, not a legacy-act victory lap."
+          }
+        ],
+        "description": "Kim Gordon Play Me Tour at Pacific Electric, DTLA."
+      },
+      "verdict": {
+        "tier": "great",
+        "adjust": 2,
+        "why": "Kim Gordon is deep into a genuinely strange industrial noise-rock solo run, not a legacy victory lap \u2014 closing night of a short DTLA stand, dead-center of your post-punk/experimental taste.",
+        "confidence": "high"
+      },
+      "lane": "live-music",
+      "key": "cd7672b88551",
+      "series_key": "run:kim gordon play me tour|pacific electric",
+      "series": {
+        "count": 2,
+        "first": "2026-08-01",
+        "last": "2026-08-02",
+        "venues": [
+          "Pacific Electric"
+        ],
+        "entries": [
+          {
+            "date": "2026-08-01",
+            "venue": "Pacific Electric",
+            "start": "20:00",
+            "url": "https://www.ticketmaster.com/kim-gordon-play-me-tour-los-angeles-california-08-01-2026/event/09006482BE637FB6"
+          },
+          {
+            "date": "2026-08-02",
+            "venue": "Pacific Electric",
+            "start": "20:00",
+            "url": "https://www.ticketmaster.com/kim-gordon-play-me-tour-los-angeles-california-08-02-2026/event/09006482BE647FBF"
+          }
+        ]
+      },
+      "series_rep": false,
+      "series_rank": 13
     },
     {
       "title": "Grupo Frontera - Triste Pero Bien C*bron Tour",
@@ -67319,7 +67329,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22taxi+driver%22+showtimes+Los+Angeles",
-      "series_rank": 75
+      "series_rank": 74
     },
     {
       "title": "Gipsy Kings featuring Nicolas Reyes",
@@ -69534,7 +69544,7 @@
       },
       "lane": "club:underground",
       "key": "1c5658a19b7d",
-      "final_rank": 67
+      "final_rank": 66
     },
     {
       "title": "Lizdek LA - Midnight Society",
@@ -70589,7 +70599,7 @@
       },
       "series_rep": true,
       "showtimes_url": "https://www.google.com/search?q=%22taxi+driver%22+showtimes+Los+Angeles",
-      "final_rank": 75
+      "final_rank": 74
     },
     {
       "title": "Pulp Fiction",
@@ -74832,7 +74842,7 @@
       },
       "lane": "live-music",
       "key": "d95b156bb459",
-      "final_rank": 80
+      "final_rank": 79
     },
     {
       "title": "The Strike",
@@ -77053,7 +77063,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22taxi+driver%22+showtimes+Los+Angeles",
-      "series_rank": 75
+      "series_rank": 74
     },
     {
       "title": "Cannibal Holocaust",
@@ -80032,7 +80042,7 @@
       },
       "lane": "club:day",
       "key": "7474456564c6",
-      "final_rank": 56
+      "final_rank": 55
     },
     {
       "title": "Sunday Sessions LA: Highkin All Night Long (Vinyl Only)",
@@ -80346,7 +80356,7 @@
       },
       "lane": "live-music",
       "key": "eea210d8b781",
-      "final_rank": 76
+      "final_rank": 75
     },
     {
       "title": "Grand Ole Echo",
@@ -82159,7 +82169,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22taxi+driver%22+showtimes+Los+Angeles",
-      "series_rank": 75
+      "series_rank": 74
     },
     {
       "title": "EARLY BIRDZ - Flight 012 / LA Penthouse Rave",
@@ -92579,7 +92589,7 @@
       },
       "series_rep": true,
       "showtimes_url": "https://www.google.com/search?q=%22the+dark+knight+rises%22+showtimes+Los+Angeles",
-      "final_rank": 64
+      "final_rank": 63
     },
     {
       "title": "KCON",
@@ -93201,7 +93211,7 @@
       },
       "lane": "live-music:big",
       "key": "f5fa123eb456",
-      "final_rank": 74
+      "final_rank": 73
     },
     {
       "title": "Gallant \"Ology\" 10 Year Anniversary",
@@ -93419,7 +93429,7 @@
       },
       "lane": "live-music:big",
       "key": "fb112c9c7dc6",
-      "final_rank": 72
+      "final_rank": 71
     },
     {
       "title": "KCON - Friday",
@@ -93958,7 +93968,7 @@
       },
       "lane": "live-music",
       "key": "9df4c24ef8b4",
-      "final_rank": 53
+      "final_rank": 52
     },
     {
       "source": "Avalon Hollywood",
@@ -98070,7 +98080,7 @@
       },
       "lane": "club:underground",
       "key": "984fe4bfb4d4",
-      "final_rank": 54
+      "final_rank": 53
     },
     {
       "title": "Certified Groovers: John Tejada and More",
@@ -98345,7 +98355,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22the+dark+knight+rises%22+showtimes+Los+Angeles",
-      "series_rank": 64
+      "series_rank": 63
     },
     {
       "title": "KCON",
@@ -98537,7 +98547,7 @@
       },
       "lane": "club:mainstream",
       "key": "ea64a8bc0c7b",
-      "final_rank": 77
+      "final_rank": 76
     },
     {
       "title": "DOES YOUR MAMA KNOW? (DYMK FINALE)",
@@ -99226,7 +99236,7 @@
       },
       "lane": "club:underground",
       "key": "5bd7f81cf3e4",
-      "final_rank": 60
+      "final_rank": 59
     },
     {
       "source": "squarespace",
@@ -116087,7 +116097,7 @@
       },
       "lane": "club:underground",
       "key": "c6279f96f092",
-      "final_rank": 49
+      "final_rank": 48
     },
     {
       "title": "Moneyball",
