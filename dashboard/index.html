@@ -247,7 +247,10 @@
                   <span style="flex:none; width:9px; height:9px; border-radius:50%; background: {{ sc.dot }};"></span>
                   <span style="font:700 13px/1.1 -apple-system,system-ui,sans-serif; color:#161512;">{{ sc.label }}</span>
                 </span>
-                <span onClick="{{ sc.onAll }}" title="See this lane in full" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.allLabel }} →</span>
+                <span style="flex:none; display:inline-flex; align-items:baseline; gap:12px;">
+                  <sc-if value="{{ sc.hasExtra }}" hint-placeholder-val="{{ false }}"><span onClick="{{ sc.onExtra }}" title="Every film program — boards, openings, one-nights" style="cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.extraLabel }} →</span></sc-if>
+                  <span onClick="{{ sc.onAll }}" title="See this lane in full" style="cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.allLabel }} →</span>
+                </span>
               </div>
               <div class="scry" style="display:grid; grid-auto-flow:column; grid-template-rows: {{ sc.rowsCss }}; grid-auto-columns: {{ sceneColW }}; gap:11px; overflow-x:auto; padding:2px 2px 9px; scroll-snap-type:x proximity;">
                 <sc-for list="{{ sc.cards }}" as="c" hint-placeholder-count="4">
@@ -287,12 +290,34 @@
       </section>
       </sc-if>
 
+      <!-- NOW RUNNING — long runs & seasons: in town for a while, not one-night picks -->
+      <sc-if value="{{ hasNowRunning }}" hint-placeholder-val="{{ false }}">
+      <section style="margin-bottom:24px;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px;">
+          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Now running</span>
+          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">runs & seasons — in town for a while</span>
+        </div>
+        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
+          <sc-for list="{{ nowRunning }}" as="r" hint-placeholder-count="4">
+            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
+              <span style="flex:0 0 96px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
+              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
+              <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
+              <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color:#1f7a4d; background:rgba(31,122,77,0.1);">{{ r.tag }}</span></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      </sc-if>
+
       <!-- ON THE RADAR -->
       <sc-if value="{{ hasRadar }}" hint-placeholder-val="{{ false }}">
       <section style="margin-bottom:24px;">
-        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px; flex-wrap:wrap;">
           <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">On the radar</span>
           <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">just announced · on sale now</span>
+          <span style="flex:1;"></span>
+          <span onClick="{{ openFestivals }}" title="The standing festival watch-list" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">the festival watch-list →</span>
         </div>
         <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
           <sc-for list="{{ radar }}" as="r" hint-placeholder-count="4">
@@ -366,6 +391,123 @@
           </article>
         </sc-for>
       </div>
+    </div>
+    </sc-if>
+
+    <!-- ==================== MOVIES — the marquee ==================== -->
+    <sc-if value="{{ isMovies }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:920px; margin:0 auto; padding:20px 22px 40px;">
+      <span onClick="{{ closeSub }}" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b; margin-bottom:16px;" style-hover="color:#161512;">← front page</span>
+      <h1 style="margin:0 0 7px; font:700 25px/1.15 -apple-system,system-ui,sans-serif; color:#161512;">The marquee</h1>
+      <p style="margin:0 0 4px; font:400 13.5px/1.5 -apple-system,system-ui,sans-serif; color:#76746b; max-width:64ch;">Every film program in the catalog — what's running, what opens soon, and the one-night screenings. Chips go straight to that night's tickets.</p>
+      <div style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; margin-bottom:18px;">{{ mvCount }} programs &amp; screenings</div>
+      <sc-if value="{{ hasMvPlaying }}" hint-placeholder-val="{{ false }}">
+        <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin:14px 0 9px;">NOW PLAYING</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <sc-for list="{{ mvPlaying }}" as="m" hint-placeholder-count="3">
+            <article onClick="{{ m.onOpen }}" style="background:#fff; border:1px solid #dedcd4; border-radius:5px; padding:14px 16px; cursor:pointer; transition:border-color .12s ease;" style-hover="border-color:#a7a59b;">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ m.span }}<sc-if value="{{ m.hasCount }}" hint-placeholder-val="{{ true }}"> · {{ m.count }}</sc-if></span>
+                <span style="font:700 11px/1 ui-monospace,Menlo,monospace; color: {{ m.matchColor }};">{{ m.matchPct }}</span>
+              </div>
+              <div style="margin-top:6px; font:700 16px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ m.title }}</div>
+              <div style="margin-top:4px; font:500 10.5px/1.35 ui-monospace,Menlo,monospace; color:#76746b;">{{ m.venue }}</div>
+              <sc-if value="{{ m.hasWhy }}" hint-placeholder-val="{{ false }}"><p style="margin:8px 0 0; font:400 12.5px/1.5 -apple-system,system-ui,sans-serif; color:#5a584f; text-wrap:pretty;">{{ m.why }}</p></sc-if>
+              <div style="margin-top:10px;">
+                <div style="font:800 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:6px;">DATES{{ m.head }}</div>
+                <sc-for list="{{ m.groups }}" as="mg" hint-placeholder-count="1">
+                  <sc-if value="{{ mg.hasVenue }}" hint-placeholder-val="{{ false }}"><div style="margin:6px 0 4px; font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ mg.venue }}</div></sc-if>
+                  <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:3px;">
+                    <sc-for list="{{ mg.chips }}" as="mc" hint-placeholder-count="6">
+                      <a href="{{ mc.url }}" target="_blank" rel="noopener" onClick="{{ mc.stop }}" style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; border:1px solid {{ mc.border }}; color: {{ mc.color }}; border-radius:3px; text-decoration: {{ mc.deco }}; white-space:nowrap;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ mc.label }}</a>
+                    </sc-for>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ m.hasMore }}" hint-placeholder-val="{{ false }}"><span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ m.more }}</span></sc-if>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ hasMvSoon }}" hint-placeholder-val="{{ false }}">
+        <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin:20px 0 9px;">OPENS SOON</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <sc-for list="{{ mvSoon }}" as="m" hint-placeholder-count="2">
+            <article onClick="{{ m.onOpen }}" style="background:#fff; border:1px solid #dedcd4; border-radius:5px; padding:14px 16px; cursor:pointer; transition:border-color .12s ease;" style-hover="border-color:#a7a59b;">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ m.span }}<sc-if value="{{ m.hasCount }}" hint-placeholder-val="{{ true }}"> · {{ m.count }}</sc-if></span>
+                <span style="font:700 11px/1 ui-monospace,Menlo,monospace; color: {{ m.matchColor }};">{{ m.matchPct }}</span>
+              </div>
+              <div style="margin-top:6px; font:700 16px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ m.title }}</div>
+              <div style="margin-top:4px; font:500 10.5px/1.35 ui-monospace,Menlo,monospace; color:#76746b;">{{ m.venue }}</div>
+              <sc-if value="{{ m.hasWhy }}" hint-placeholder-val="{{ false }}"><p style="margin:8px 0 0; font:400 12.5px/1.5 -apple-system,system-ui,sans-serif; color:#5a584f; text-wrap:pretty;">{{ m.why }}</p></sc-if>
+            </article>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ hasMvSingles }}" hint-placeholder-val="{{ false }}">
+        <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin:20px 0 9px;">ONE-NIGHT SCREENINGS · NEXT 2 WEEKS</div>
+        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
+          <sc-for list="{{ mvSingles }}" as="r" hint-placeholder-count="6">
+            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
+              <span style="flex:0 0 92px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }} · {{ r.t }}</span>
+              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
+              <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
+              <span style="flex:none; font:700 10px/1 ui-monospace,Menlo,monospace; color: {{ r.matchColor }};">{{ r.matchPct }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{ hasMvSinglesMore }}" hint-placeholder-val="{{ false }}"><div style="margin-top:6px; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ mvSinglesMore }}</div></sc-if>
+      </sc-if>
+      <sc-if value="{{ mvEmpty }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:40px 0; font:500 13px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">No film programs in the catalog right now.</div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <!-- ==================== FESTIVALS — the watch-list ==================== -->
+    <sc-if value="{{ isFestivals }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:920px; margin:0 auto; padding:20px 22px 40px;">
+      <span onClick="{{ closeSub }}" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b; margin-bottom:16px;" style-hover="color:#161512;">← front page</span>
+      <h1 style="margin:0 0 7px; font:700 25px/1.15 -apple-system,system-ui,sans-serif; color:#161512;">Festivals &amp; big shows</h1>
+      <p style="margin:0 0 4px; font:400 13.5px/1.5 -apple-system,system-ui,sans-serif; color:#76746b; max-width:64ch;">The standing watch-list — taste-aligned festivals worth planning around, with where each one stands on tickets. Curated by hand; refreshed with live lookups.</p>
+      <div style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; margin-bottom:18px;">{{ festCount }} on the list</div>
+      <sc-if value="{{ hasFestDated }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <sc-for list="{{ festDated }}" as="f" hint-placeholder-count="4">
+            <article style="background:#fff; border:1px solid #dedcd4; border-radius:5px; padding:14px 16px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ f.when }}</span>
+                <sc-if value="{{ f.hasStatus }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color: {{ f.stColor }}; background: {{ f.stBg }};">{{ f.stLabel }}</span></sc-if>
+              </div>
+              <div style="margin-top:6px; font:700 16px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ f.name }}</div>
+              <div style="margin-top:4px; font:500 10.5px/1.35 ui-monospace,Menlo,monospace; color:#76746b;">{{ f.location }}</div>
+              <sc-if value="{{ f.hasWhy }}" hint-placeholder-val="{{ false }}"><p style="margin:8px 0 0; font:400 12.5px/1.5 -apple-system,system-ui,sans-serif; color:#5a584f; text-wrap:pretty;">{{ f.why }}</p></sc-if>
+              <sc-if value="{{ f.hasTickets }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;"><a href="{{ f.tickets }}" target="_blank" rel="noopener" onClick="{{ f.stop }}" style="font:700 10.5px/1 ui-monospace,Menlo,monospace; padding:8px 13px; border:1px solid #2b5cd9; color:#2b5cd9; border-radius:999px; text-decoration:none;" style-hover="background:#2b5cd9; color:#fff;">Tickets ↗</a></div></sc-if>
+            </article>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ hasFestWatch }}" hint-placeholder-val="{{ false }}">
+        <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin:20px 0 9px;">ON WATCH — NO DATES YET</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <sc-for list="{{ festWatch }}" as="f" hint-placeholder-count="2">
+            <article style="background:#fff; border:1px solid #e2e0d8; border-radius:5px; padding:14px 16px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ f.when }}</span>
+                <sc-if value="{{ f.hasStatus }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color: {{ f.stColor }}; background: {{ f.stBg }};">{{ f.stLabel }}</span></sc-if>
+              </div>
+              <div style="margin-top:6px; font:700 16px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ f.name }}</div>
+              <div style="margin-top:4px; font:500 10.5px/1.35 ui-monospace,Menlo,monospace; color:#76746b;">{{ f.location }}</div>
+              <sc-if value="{{ f.hasWhy }}" hint-placeholder-val="{{ false }}"><p style="margin:8px 0 0; font:400 12.5px/1.5 -apple-system,system-ui,sans-serif; color:#5a584f; text-wrap:pretty;">{{ f.why }}</p></sc-if>
+              <sc-if value="{{ f.hasTickets }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;"><a href="{{ f.tickets }}" target="_blank" rel="noopener" onClick="{{ f.stop }}" style="font:700 10.5px/1 ui-monospace,Menlo,monospace; padding:8px 13px; border:1px solid #d2d0c7; color:#3f3d36; border-radius:999px; text-decoration:none;" style-hover="border-color:#a7a59b;">Site ↗</a></div></sc-if>
+            </article>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ festEmpty }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:40px 0; font:500 13px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">The watch-list is empty — this feed predates the festivals wiring, or festivals.yaml has no upcoming entries.</div>
+      </sc-if>
     </div>
     </sc-if>
 
@@ -565,17 +707,25 @@
           </sc-for>
         </div>
       </sc-if>
+      <!-- ALL DATES — the run's showtimes board: every remaining night a chip to that night's
+           tickets, grouped by theater for cross-venue programs; a constant curtain time lives
+           in the header, mixed times ride the chips; sold-out nights dimmed. -->
       <sc-if value="{{ detail.hasSeries }}" hint-placeholder-val="{{ false }}">
         <div style="margin-top:16px;">
-          <div style="font:800 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin-bottom:8px;">ALSO SHOWING</div>
-          <div style="display:flex; flex-wrap:wrap; gap:6px;">
-            <sc-for list="{{ detail.seriesChipRows }}" as="sd" hint-placeholder-count="4">
-              <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:3px; text-decoration: {{ sd.deco }};" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ sd.label }}</a>
-            </sc-for>
-            <sc-if value="{{ detail.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
-              <span style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; color:#a7a59b;">{{ detail.seriesMore }}</span>
+          <div style="font:800 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin-bottom:8px;">ALL DATES{{ detail.seriesHead }}</div>
+          <sc-for list="{{ detail.seriesGroups }}" as="sgr" hint-placeholder-count="1">
+            <sc-if value="{{ sgr.hasVenue }}" hint-placeholder-val="{{ false }}">
+              <div style="margin:7px 0 5px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ sgr.venue }}</div>
             </sc-if>
-          </div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:4px;">
+              <sc-for list="{{ sgr.chips }}" as="sd" hint-placeholder-count="6">
+                <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" title="{{ sd.title }}" style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:3px; text-decoration: {{ sd.deco }}; white-space:nowrap;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ sd.label }}</a>
+              </sc-for>
+            </div>
+          </sc-for>
+          <sc-if value="{{ detail.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
+            <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ detail.seriesMore }}</span>
+          </sc-if>
         </div>
       </sc-if>
 
@@ -1462,20 +1612,61 @@ class Component extends DCLogic {
     if (e.showtimesUrl) out.push({ label: 'All LA showtimes', url: e.showtimesUrl });
     return { buttons: out.slice(0, 6), showtimes: [...groups].map(g => ({ venue: g[0], times: g[1] })) };
   }
-  SERIES_CHIP_MAX = 10;
-  seriesChips(e) {
-    if (!e.series || !(e.series.entries || []).length) return { chips: [], more: '' };
+  // Run span for a series REP card — the PROGRAM's dates, not its rep night: {span, count}
+  // like ("Thru Sun Sep 6", "12 nights"), or null for one-nighters/same-day programs and for
+  // NON-rep member rows (a date-sorted Explore list shows each night under its own date; only
+  // the rep row — the program's card — wears the span). Span is over the REMAINING nights, so
+  // a closing run's label tightens honestly. Weekly-cadence series (all entries on one
+  // weekday) say so — "Thru Aug 23 · 5 Sundays" — instead of posing as a continuous run.
+  RUN_WDS = ['Sundays','Mondays','Tuesdays','Wednesdays','Thursdays','Fridays','Saturdays'];
+  runLabel(e) {
+    const s = e.series;
+    if (!e.seriesRep || !(s && s.count > 1 && s.first && s.last && s.first !== s.last)) return null;
+    const lf = this.fmt(s.first, ''), ll = this.fmt(s.last, '');
+    const dows = new Set((s.entries || []).map(en => this.fmt(en.date, '').dow));
+    const unit = (dows.size === 1 && (s.entries || []).length === s.count)
+      ? this.RUN_WDS[[...dows][0]]
+      : ((s.venues || []).length > 1 ? 'showings' : 'nights');
+    const span = s.first <= this.TODAY ? 'Thru ' + ll.wd + ' ' + ll.md
+      : lf.md + ' – ' + ll.md;
+    return { span, count: s.count + ' ' + unit };
+  }
+  // The movie-theater board for a series detail: every remaining night as a date chip linking
+  // to that night's tickets, grouped by venue when the program spans theaters. Times ride the
+  // chips only when they VARY — a constant curtain time collapses into the section header
+  // ("all shows 8:00 PM"), so a uniform theater run reads as pure dates while a rep-cinema
+  // program with matinees teases its screenings apart. Sold-out nights stay listed, dimmed.
+  // Series-entry starts arrive unnormalized from webfetch/19hz sources ('9:30 PM', '11pm-6am')
+  // — only clean 24h HH:MM goes through fmt()'s clock math; anything else is already human
+  // text and passes through verbatim (fmt would render '9:30 PM' as '9:NaN AM').
+  fmtStart(date, start) {
+    return /^\d{1,2}:\d{2}$/.test(String(start || '').trim())
+      ? this.fmt(date, String(start).trim()).t : String(start || '').trim();
+  }
+  BOARD_CHIP_MAX = 24;
+  seriesBoard(e) {
+    const none = { groups: [], head: '', more: '' };
+    if (!e.series || (e.series.entries || []).length < 2) return none;
+    const entries = e.series.entries.filter(en => en.date >= this.TODAY);
+    if (entries.length < 2) return none;
+    const times = new Set(entries.map(en => en.start || ''));
+    const uniform = times.size === 1 && !times.has('');
+    const head = uniform ? 'all shows ' + this.fmtStart(entries[0].date, entries[0].start) : '';
     const multiVenue = (e.series.venues || []).length > 1;
-    const others = e.series.entries.filter(en => !(en.date === e.iso && en.venue === e.venue));
-    const chips = [];
-    for (const en of others.slice(0, this.SERIES_CHIP_MAX)) {
-      let label = this.labelISO(en.date);
-      if (multiVenue && en.venue) label += ' · ' + en.venue;
-      if (en.sold_out) label += ' · sold out';
-      chips.push({ label, url: en.url || e.showtimesUrl || e.url || '#', dim: !!en.sold_out });
+    const shown = entries.slice(0, this.BOARD_CHIP_MAX);
+    const byVenue = new Map();
+    for (const en of shown) {
+      const v = multiVenue ? this.venueDisplay(en.venue || '') : '';
+      if (!byVenue.has(v)) byVenue.set(v, []);
+      const f = this.fmt(en.date, '');
+      byVenue.get(v).push({
+        label: f.wd + ' ' + f.md + (!uniform && en.start ? ' · ' + this.fmtStart(en.date, en.start) : ''),
+        url: en.url || e.showtimesUrl || e.url || '#', dim: !!en.sold_out,
+      });
     }
-    const extra = others.length - chips.length;
-    return { chips, more: extra > 0 ? '+' + extra + ' more dates' : '' };
+    const extra = entries.length - shown.length;
+    return { head, groups: [...byVenue].map(g => ({ venue: g[0], chips: g[1] })),
+             more: extra > 0 ? '+' + extra + ' more dates' : '' };
   }
   // Venue LINK label: strip an RA-style address tail; the full string stays in the maps query.
   venueDisplay(v) {
@@ -1538,8 +1729,15 @@ class Component extends DCLogic {
     const f = this.fmt(e.iso, e.time);
     const isToday = e.iso===this.TODAY;
     const tags = this.tagsFor(e);
+    // A series card wears the RUN, not its rep night ("Thru Sun Sep 6 · 12 nights") — the
+    // card stands for the whole program on ranked surfaces; per-night detail lives in the
+    // detail modal's ALL DATES board.
+    const run = this.runLabel(e);
     return {
-      id:e.id, when:(isToday?'Tonight':f.wd)+' · '+f.t, dateShort:f.wd+' '+f.md, wd:f.wd, md:f.md, t:f.t,
+      id:e.id, when:run ? run.span+' · '+run.count : (isToday?'Tonight':f.wd)+' · '+f.t,
+      // A run card's `t` is the count ("12 nights"), not the rep night's clock time — the
+      // span+7:30 pairing read as a nightly curtain time, wrong for mixed-matinee programs.
+      dateShort:run ? run.span : f.wd+' '+f.md, wd:f.wd, md:f.md, t:run ? run.count : f.t,
       title:e.title, venue:e.venue+' · '+e.hood, venueName:e.venue, hood:e.hood, genre:e.genre, source:e.source, sub:e.venue+(e.lineup&&e.lineup.length?' · '+e.lineup.join(', '):''), price:this.priceLabel(e), why:(e.whyCurated || e.desc || e.why),
       hasWhy:!!(e.whyCurated || e.desc || e.why),
       cat:e.cat, catShort:(e.cat==='Live Music'?'LIVE':e.cat).toUpperCase(), catColor:this.CAT_COLOR[e.cat]||'#3f3d36',
@@ -1558,12 +1756,14 @@ class Component extends DCLogic {
     return this.SCENES[this.SCENES.length-1];
   }
   // ---------- server shelves (front_page.shelves — the assemble slate's lanes) ----------
-  SHELF_DOT = { underground:'oklch(0.52 0.14 285)', afters:'oklch(0.5 0.14 300)', day:'oklch(0.55 0.12 60)', bigroom:'oklch(0.53 0.12 250)', live:'oklch(0.52 0.13 32)', bigstage:'oklch(0.5 0.12 10)', film:'oklch(0.5 0.1 205)', stage:'oklch(0.5 0.13 350)', more:'oklch(0.5 0.12 255)' };
+  SHELF_DOT = { underground:'oklch(0.52 0.14 285)', afters:'oklch(0.5 0.14 300)', day:'oklch(0.55 0.12 60)', bigroom:'oklch(0.53 0.12 250)', live:'oklch(0.52 0.13 32)', bigstage:'oklch(0.5 0.12 10)', culture:'oklch(0.5 0.1 205)', film:'oklch(0.5 0.1 205)', stage:'oklch(0.5 0.13 350)', more:'oklch(0.5 0.12 255)' };
   SHELF_DESC = {
     underground:'Location-TBA parties, acid, and the after-dark techno core.', afters:'Late stretches and afterhours — the 2am-and-beyond lane.',
     day:'Rooftops, open-airs, and golden-hour grooves.', bigroom:'The marquee club bookings.', live:'Bands and live sets — post-punk, shoegaze, psych and beyond.',
-    bigstage:'Arena and amphitheater nights.', film:'35mm and 70mm revival programming across the city.', stage:'Theater, premieres, and the rest of the stage.',
-    more:'Everything off the main lanes.' };
+    bigstage:'Arena and amphitheater nights.',
+    culture:'One-night culture — rep screenings, standup, and the stage.',
+    film:'35mm and 70mm revival programming across the city.', stage:'Theater, premieres, and the rest of the stage.',
+    more:'Markets, art walks, and the rest of the city.' };
   fpShelves() { const sh = (this.META.front_page || {}).shelves; return Array.isArray(sh) && sh.length ? sh : null; }
   shelfOf(e) { const shs = this.fpShelves(); if (!shs || !e.lane) return null; return shs.find(s => (s.lanes || []).indexOf(e.lane) !== -1) || null; }
   shelfEvents(sh) { return this.resolveKeys((sh.near || []).concat(sh.ahead || [])); }
@@ -1588,6 +1788,10 @@ class Component extends DCLogic {
   viewExplore = () => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null }); };
   openScene = (id) => this.setState({ view:'scene', sceneId:id, detailId:null });
   closeScene = () => this.setState({ view:'front', sceneId:null });
+  // Dedicated sub-views (2026-07-25): the movies marquee + the festivals watch-list.
+  openMovies = () => this.setState({ view:'movies', sceneId:null, detailId:null });
+  openFestivals = () => this.setState({ view:'festivals', sceneId:null, detailId:null });
+  closeSub = () => this.setState({ view:'front' });
   openDetail = (id) => this.setState({ detailId:id });
   closeDetail = () => this.setState({ detailId:null });
   // Same column twice flips direction (OLD behavior); a new column starts at its natural direction.
@@ -2792,6 +2996,8 @@ class Component extends DCLogic {
     "",
     "## Late July 2026 — the redesign, restored",
     "",
+    "- **Two dedicated views: the marquee, and the festival watch-list.** **The marquee** (via *the marquee →* on the movies lane) is a full movies page: every film program with its dates board inline — now playing, opens soon, and the one-night screenings for the next two weeks. **Festivals & big shows** (via *the festival watch-list →* under On the radar) finally surfaces the hand-curated watch-list — Portola, CRSSD, Coachella and co. with dates, where tickets stand (*on sale · lineup pending · annual watch*), and the one-line why. That list existed all along; it just never reached the site until now.",
+    "- **Clearer scene names + a home for long runs.** The scene lanes got plainer names — **Afterhours**, **Big-name club nights**, **Arenas & halls**, **Markets, art & more** — and movies, comedy and theater share one **Movies, comedy & theater** lane. Multi-week runs and seasons (a Pantages musical, a month of rep showtimes) moved to their own **Now running** section instead of squatting a scene box for weeks; they rejoin the dated lanes for their final two weeks, when *closes Sunday* is news. Run cards show the span (*Thru Sun Sep 6 · 12 nights*), and their detail popup carries an **All dates** board — every remaining night as a chip straight to that night's tickets, grouped by theater, sold-out nights crossed out.",
     "- **A new front page** — the lead pick, your shortlist, a lane per scene, and the day's digest headline up top, with the detail popup and settings rebuilt to match.",
     "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, real **event photos** on cards, the **quick start / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
     "- **Stars teach again, and “less” learns too.** The + chip commits your star server-side (friends see it; the lineup boosts your ranking), and **Show less like this** now files a soft negative signal instead of only hiding locally.",
@@ -2919,6 +3125,8 @@ class Component extends DCLogic {
       dateLabel:dLabel, profileLine: this.state.profile ? ('· for ' + (this.state.username || this.state.profile.u)) : '· for you',
       showProfileLine: !mob, showHeaderTabs: !mob,
       isFront: view==='front', isScene: view==='scene', isExplore: view==='explore',
+      isMovies: view==='movies', isFestivals: view==='festivals',
+      openMovies: this.openMovies, openFestivals: this.openFestivals,
       frontTabBg: view==='front'?'#1b1a17':'transparent', frontTabColor: view==='front'?'#fff':'#76746b',
       exploreTabBg: view==='explore'?'#1b1a17':'transparent', exploreTabColor: view==='explore'?'#fff':'#76746b',
       viewFront:this.viewFront, viewExplore:this.viewExplore,
@@ -2981,8 +3189,10 @@ class Component extends DCLogic {
             card.hasChips = (card.friendChips||[]).length>0;
             return card;
           });
-          return { id:sh.id, label:sh.label, dot:this.SHELF_DOT[sh.id] || '#76746b', allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(sh.id) };
-        }).filter(s => s.cards.length>0).slice(0,7);   // server shelf ORDER, not by-size
+          return { id:sh.id, label:sh.label, dot:this.SHELF_DOT[sh.id] || '#76746b', allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(sh.id),
+                   // the culture lane carries the door to the dedicated movies marquee
+                   hasExtra: sh.id==='culture' || sh.id==='film', extraLabel:'the marquee', onExtra:this.openMovies };
+        }).filter(s => s.cards.length>0).slice(0,8);   // server shelf ORDER, not by-size (8 = the full reshaped lane set)
       } else {
         const buckets = new Map();
         for (const e of pool) { const s = this.sceneOf(e); if (!buckets.has(s.id)) buckets.set(s.id,{ scene:s, evs:[] }); buckets.get(s.id).evs.push(e); }
@@ -3015,6 +3225,19 @@ class Component extends DCLogic {
       const isNewE = e => !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef);
       const onSaleE = e => (e.xb || []).some(x => /on.?sale/i.test(x));
       const mkRow = (e, tag) => { const f = this.fmt(e.iso,e.time); return { id:e.id, dateShort:f.wd+' '+f.md, title:e.title, venue:e.venue+' · '+e.hood, tag, hasTag:!!tag, onOpen:() => this.openDetail(e.id) }; };
+      // NOW RUNNING — long runs/seasons (front_page.nowrunning: series reps with 3+ remaining
+      // nights spanning 14+ days). A fixed section under every lens — a run IS an option
+      // tonight — so a Pantages season can't squat a scene box for six weeks. A run stays
+      // while any night remains; it re-enters the dated surfaces for its closing fortnight
+      // (the server measures span over remaining nights only).
+      const nowr = this.lessSink(this.resolveKeys(FP.nowrunning)
+        .filter(e => (e.series && e.series.last ? e.series.last >= T : e.iso >= T)));
+      out.nowRunning = nowr.slice(0, 12).map(e => {
+        const run = this.runLabel(e) || { span: this.fmt(e.iso, '').wd + ' ' + this.fmt(e.iso, '').md, count: '' };
+        return { id: e.id, dateShort: run.span, title: e.title, venue: this.venueDisplay(e.venue) + ' · ' + e.hood,
+                 tag: run.count.toUpperCase(), hasTag: !!run.count, onOpen: () => this.openDetail(e.id) };
+      });
+      out.hasNowRunning = out.nowRunning.length > 0;
       // ON THE RADAR — the server-curated set (build_radar/festivals.yaml via front_page.radar);
       // the just-announced/on-sale heuristic only fills in when the feed carries none.
       const radarSrv = this.resolveKeys(FP.radar).filter(e => e.iso >= T);
@@ -3034,8 +3257,12 @@ class Component extends DCLogic {
       const shsAll = this.fpShelves();
       const shelf = shsAll && shsAll.find(s => s.id === this.state.sceneId);
       if (shelf) {
-        // server-slate lane page: the shelf's near+ahead zones in slate order
-        const list = this.lessSink(this.shelfEvents(shelf).filter(e => e.iso >= T)).map(e => this.cardFor(e));
+        // server-slate lane page: the shelf's near+ahead zones in slate order. A MERGED
+        // shelf's server order is the round-robin interleave (a front-row mixing device) —
+        // re-sort by rank here so the page's "ranked by match" header stays honest.
+        let evs = this.shelfEvents(shelf).filter(e => e.iso >= T);
+        if ((shelf.lanes || []).length > 1) evs = evs.slice().sort(this.rankCmp);
+        const list = this.lessSink(evs).map(e => this.cardFor(e));
         out.sceneTitle = shelf.label; out.sceneDesc = this.SHELF_DESC[shelf.id] || '';
         out.sceneDot = this.SHELF_DOT[shelf.id] || '#76746b'; out.sceneCount = list.length; out.sceneList = list;
       } else {
@@ -3046,6 +3273,70 @@ class Component extends DCLogic {
         out.sceneTitle = sc.label; out.sceneDesc = sc.desc; out.sceneDot = sc.dot; out.sceneCount = list.length; out.sceneList = list;
       }
       out.closeScene = this.closeScene;
+    }
+
+    // ---- MOVIES (the marquee) — every film program, boards inline ----
+    // A dedicated full-page movies view (Ari, 2026-07-25): the ALL DATES board turned into a
+    // page. Three sections: Now playing (open runs, rank order) / Opens soon (by opening
+    // date) / One-night screenings (next 2 weeks, date order). Client-only: the per-night,
+    // per-theater data already ships on every feed row's series summary.
+    if (view==='movies') {
+      const isProg = e => !!(e.series && e.series.count > 1 && e.series.first !== e.series.last);
+      const reps = this.ALL.filter(e => e.lane==='film' && (e.seriesRep || !e.seriesKey)
+        && (e.series && e.series.last ? e.series.last >= T : e.iso >= T));
+      const mkProg = (e) => {
+        const run = this.runLabel(e) || { span: this.fmt(e.iso,'').wd+' '+this.fmt(e.iso,'').md, count:'' };
+        const b = this.seriesBoard(e);
+        const nv = (e.series.venues || []).length;
+        return { id:e.id, title:e.title,
+          venue:(e.series.venues || [e.venue]).slice(0,3).map(v => this.venueDisplay(v)).join(' · ') + (nv>3 ? ' +'+(nv-3) : ''),
+          span:run.span, count:run.count, hasCount:!!run.count,
+          why:e.whyCurated || e.desc || '', hasWhy:!!(e.whyCurated || e.desc),
+          matchPct:this.matchPct(e.score)+'%', matchColor:this.scoreColorFor(e.score),
+          head:b.head ? ' — ' + b.head : '',
+          groups:b.groups.map(g => ({ venue:g.venue, hasVenue:!!g.venue, chips:g.chips.map(c => ({ label:c.label, url:c.url,
+            color:c.dim?'#a29a90':'#3f3d36', border:c.dim?'#dedcd4':'#c9c7bd', deco:c.dim?'line-through':'none', stop:(ev)=>ev.stopPropagation() })) })),
+          more:b.more, hasMore:!!b.more,
+          onOpen:() => this.openDetail(e.id) };
+      };
+      const progs = reps.filter(isProg);
+      const playing = progs.filter(e => e.series.first <= T).sort(this.rankCmp).map(mkProg);
+      const soon = progs.filter(e => e.series.first > T)
+        .sort((a,b) => a.series.first < b.series.first ? -1 : 1).map(mkProg);
+      const singles = reps.filter(e => !isProg(e) && e.iso >= T && e.iso <= this.addDays(T, 13))
+        .sort((a,b) => a.iso < b.iso ? -1 : a.iso > b.iso ? 1 : 0)
+        .map(e => { const f = this.fmt(e.iso, e.time); return { id:e.id, dateShort:f.wd+' '+f.md, t:f.t, title:e.title,
+          venue:this.venueDisplay(e.venue)+' · '+e.hood, matchPct:this.matchPct(e.score)+'%',
+          matchColor:this.scoreColorFor(e.score), onOpen:() => this.openDetail(e.id) }; });
+      out.mvPlaying = playing; out.hasMvPlaying = playing.length>0;
+      out.mvSoon = soon; out.hasMvSoon = soon.length>0;
+      out.mvSingles = singles.slice(0,30); out.hasMvSingles = singles.length>0;
+      out.mvSinglesMore = singles.length>30 ? '+'+(singles.length-30)+' more — see Explore' : '';
+      out.hasMvSinglesMore = singles.length>30;
+      out.mvCount = playing.length + soon.length + singles.length;
+      out.mvEmpty = out.mvCount===0;
+      out.closeSub = this.closeSub;
+    }
+
+    // ---- FESTIVALS — the standing watch-list (festivals.yaml via front_page.festivals) ----
+    if (view==='festivals') {
+      const fests = ((this.META.front_page || {}).festivals) || [];
+      const STATUS = { on_sale:{label:'ON SALE', color:'#1f7a4d', bg:'rgba(31,122,77,0.1)'},
+                       announced:{label:'ANNOUNCED', color:'#2b5cd9', bg:'rgba(43,92,217,0.1)'},
+                       lineup_pending:{label:'LINEUP PENDING', color:'#b06a00', bg:'rgba(176,106,0,0.1)'},
+                       annual_watch:{label:'ANNUAL WATCH', color:'#76746b', bg:'rgba(118,116,107,0.12)'} };
+      const mk = f => { const st = STATUS[f.status]
+          || (f.status ? { label:String(f.status).replace(/_/g,' ').toUpperCase(), color:'#76746b', bg:'rgba(118,116,107,0.12)' } : null);
+        return { name:f.name, when:String(f.when||'').replace(/\.\./g,' – '), location:f.location||'',
+          why:f.why||'', hasWhy:!!f.why, tickets:f.tickets||'', hasTickets:!!f.tickets,
+          hasStatus:!!st, stLabel:st?st.label:'', stColor:st?st.color:'', stBg:st?st.bg:'',
+          stop:(ev)=>ev.stopPropagation() }; };
+      const dated = fests.filter(f => f.first_date).map(mk);
+      const watch = fests.filter(f => !f.first_date).map(mk);
+      out.festDated = dated; out.hasFestDated = dated.length>0;
+      out.festWatch = watch; out.hasFestWatch = watch.length>0;
+      out.festCount = fests.length; out.festEmpty = fests.length===0;
+      out.closeSub = this.closeSub;
     }
 
     // ---- EXPLORE ----
@@ -3135,7 +3426,7 @@ class Component extends DCLogic {
       const showtimeGroups = tk.showtimes.map(g => ({ venue: g.venue, times: g.times.map(tm => ({ label: tm.label, url: tm.url,
         color: tm.dim ? '#a29a90' : '#2b5cd9', border: tm.dim ? '#dedcd4' : '#b9c9f2', deco: tm.dim ? 'line-through' : 'none',
         title: tm.dim ? tm.label + ' — sold out' : tm.label + ' — buy tickets', stop:(ev) => ev.stopPropagation() })) }));
-      const scSeries = this.seriesChips(de);
+      const board = this.seriesBoard(de);
       const hoodInVenue = !!(de.hood && de.venue.toLowerCase().includes(de.hood.toLowerCase()));
       const hoodShown = (de.hood && de.hood !== 'Los Angeles' && !hoodInVenue) ? de.hood : '';
       out.detail = {
@@ -3148,10 +3439,13 @@ class Component extends DCLogic {
         lineup:de.lineup.map(n => { const k = this._artistNorm(n); const direct = (this.META.artist_links || {})[k]; return { name:n, bio:bios[k]||'', hasBio:!!bios[k], spotify: direct || ('https://open.spotify.com/search/'+encodeURIComponent(n)), soundcloud:'https://soundcloud.com/search?q='+encodeURIComponent(n) }; }), hasLineup:de.lineup.length>0,
         ticketLinks:links,
         hasShowtimes: showtimeGroups.length > 0, showtimeGroups,
-        hasSeries: scSeries.chips.length > 0,
-        seriesChipRows: scSeries.chips.map(c => ({ label: c.label, url: c.url,
-          color: c.dim ? '#a29a90' : '#3f3d36', border: c.dim ? '#dedcd4' : '#c9c7bd', deco: c.dim ? 'line-through' : 'none', stop:(ev) => ev.stopPropagation() })),
-        seriesMore: scSeries.more, hasSeriesMore: !!scSeries.more,
+        hasSeries: board.groups.length > 0,
+        seriesHead: board.head ? ' — ' + board.head : '',
+        seriesGroups: board.groups.map(g => ({ venue: g.venue, hasVenue: !!g.venue,
+          chips: g.chips.map(c => ({ label: c.label, url: c.url,
+            color: c.dim ? '#a29a90' : '#3f3d36', border: c.dim ? '#dedcd4' : '#c9c7bd', deco: c.dim ? 'line-through' : 'none',
+            title: c.dim ? c.label + ' — sold out' : c.label + ' — tickets for this date', stop:(ev) => ev.stopPropagation() })) })),
+        seriesMore: board.more, hasSeriesMore: !!board.more,
         seriesBadge: (de.series && de.series.count > 1) ? ((de.series.venues || []).length > 1 ? (de.series.count + ' dates · ' + de.series.venues.length + ' theaters') : (de.series.count + ' nights')) : '',
         sceneLabel:(this.shelfOf(de) || sc).label, onScene:() => { const shf = this.shelfOf(de); this.openScene(shf ? shf.id : sc.id); }, poster:this.posterFor(de),
         photo:this.photoStyle(de, 'height:150px;'),
