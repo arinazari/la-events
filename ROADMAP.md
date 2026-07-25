@@ -490,11 +490,17 @@ the list is **closing-soonest ordered** (the two-zone rank buried Pantages seaso
 weekly fleas), only the emitted cap leaves the dated pool (nothing vanishes), run labels are
 rep-only + weekday-cadence-aware ("4 Fridays"), and unnormalized series start times ("9:30
 PM") no longer NaN through the clock math. Open design thread from Ari: movies and festivals
-may each deserve a **dedicated view** (a marquee/showtimes page; a festivals page over
-`festivals.yaml` + radar) — discussed, not yet decided. Related audit finding (2026-07-25):
-**`festivals.yaml` is currently read by NOTHING** — build_radar derives radar purely from
-catalog signals, so out-of-catalog watch-list items (Portola, CRSSD, Coachella '27) surface
-nowhere; any festivals view starts by actually wiring that file in.
+may each deserve a **dedicated view** — BUILT 2026-07-25 (approved direction, on branch):
+**The marquee** ("the marquee →" on the movies lane) — every film program on one page: Now
+playing with inline ALL DATES boards, Opens soon, One-night screenings (client-only; the
+per-night data already shipped in series summaries). **Festivals & big shows** ("the
+festival watch-list →" under On the radar) — `festivals.yaml` finally became a real data
+path: `load_festivals()` → `front_page.festivals` → the watch-list view (dates, status
+chips, the why, tickets). Audit context: before this, **nothing read festivals.yaml** —
+build_radar derives radar purely from catalog signals, so Portola/CRSSD/Coachella '27
+surfaced nowhere. REMAINING: the digest-side gap — the voice-pass "fold in festivals.yaml"
+instruction still contributes zero lines to "On the radar"; wire the same load into
+build_radar/render_digest if the digest should carry the watch-list too.
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
