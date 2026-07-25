@@ -28,6 +28,10 @@
   .scry::-webkit-scrollbar-thumb { background:#cdcbc3; border-radius:0; }
   .scry::-webkit-scrollbar-track { background:transparent; }
   .lchips::-webkit-scrollbar { height:0; }
+  .fcol::-webkit-scrollbar { width:6px; }
+  .fcol::-webkit-scrollbar-thumb { background:#d7d5cc; border-radius:3px; }
+  .fcol::-webkit-scrollbar-track { background:transparent; }
+  .fcol { scrollbar-width:thin; scrollbar-color:#d7d5cc transparent; }
   @keyframes la-pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
   @keyframes la-pop { 0%{transform:scale(.5);} 60%{transform:scale(1.2);} 100%{transform:scale(1);} }
   @keyframes om-scan { 0%{transform:translateX(-100%);} 100%{transform:translateX(300%);} }
@@ -85,13 +89,13 @@
         </div>
       </sc-if>
       <sc-if value="{{ showSort }}" hint-placeholder-val="{{ false }}">
-        <div class="lchips" style="display:flex; align-items:center; gap:6px; overflow-x:auto; padding:1px;">
-          <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; padding-right:2px;">SORT</span>
-          <sc-for list="{{ sortOpts }}" as="s" hint-placeholder-count="3">
-            <span onClick="{{ s.onClick }}" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 12px; border:1px solid {{ s.border }}; background: {{ s.bg }}; color: {{ s.color }}; border-radius:999px;">{{ s.label }}</span>
+        <div class="lchips" style="display:flex; align-items:center; gap:5px; overflow-x:auto; padding:1px;">
+          <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; padding-right:1px;">SORT</span>
+          <sc-for list="{{ sortOpts }}" as="s" hint-placeholder-count="4">
+            <span onClick="{{ s.onClick }}" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 10px; border:1px solid {{ s.border }}; background: {{ s.bg }}; color: {{ s.color }}; border-radius:999px;">{{ s.label }}</span>
           </sc-for>
-          <span style="width:1px; height:16px; background:#dedcd4; margin:0 2px;"></span>
-          <span onClick="{{ toggleFilters }}" title="Filter by category, genre, vibe, neighborhood, date and more" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 12px; border:1px solid {{ filtersBtnBorder }}; background: {{ filtersBtnBg }}; color: {{ filtersBtnColor }}; border-radius:999px;">☰ {{ filtersBtnLabel }}</span>
+          <span style="width:1px; height:16px; background:#dedcd4; margin:0 1px;"></span>
+          <span onClick="{{ toggleFilters }}" title="Filter by category, genre, vibe, neighborhood, date and more" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 10px; border:1px solid {{ filtersBtnBorder }}; background: {{ filtersBtnBg }}; color: {{ filtersBtnColor }}; border-radius:999px;">☰ {{ filtersBtnLabel }}</span>
         </div>
       </sc-if>
       <span style="flex:1 1 180px; min-width:150px; display:inline-flex; align-items:center; gap:7px; padding:7px 11px; border:1px solid #d2d0c7; background:#fff; border-radius:999px;" style-focus-within="border-color:#a7a59b;">
@@ -428,16 +432,102 @@
         </div>
       </sc-if>
       <sc-if value="{{ notMobileCards }}" hint-placeholder-val="{{ true }}">
-      <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden; overflow-x:auto;">
-        <table style="width:100%; border-collapse:collapse; font-size:12.5px; min-width:720px;">
+      <!-- the original explore design: a bare ranked table, filters living IN the columns -->
+      <table style="width:100%; border-collapse:collapse; font-size:12.5px;">
           <thead>
             <tr style="position:sticky; top:0; z-index:2; background:#efeee9; box-shadow:0 1px 0 #d9d7cf;">
-              <th onClick="{{ sortDateCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:92px;" style-hover="color:#2b5cd9;">DATE <span style="color:#2b5cd9;">{{ arrowDate }}</span></th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:96px; position:relative;">
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                  <span onClick="{{ sortDateCol }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">DATE <span style="color:#2b5cd9;">{{ arrowDate }}</span></span>
+                  <span onClick="{{ openDateF }}" title="Dates — a preset or a custom range" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ dateIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                </span>
+                <sc-if value="{{ dateOpen }}" hint-placeholder-val="{{ false }}">
+                  <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+                  <div style="position:absolute; top:30px; left:12px; z-index:51; width:196px; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 10px;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 2px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">DATES</span>
+                      <sc-if value="{{ dateHasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearDates }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                    </div>
+                    <sc-for list="{{ dateMenu }}" as="o" hint-placeholder-count="5">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span>{{ o.label }}</span></div>
+                    </sc-for>
+                    <div style="border-top:1px solid #eceae2; margin-top:6px; padding:8px 4px 3px;">
+                      <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:7px;">CUSTOM RANGE</div>
+                      <input type="date" value="{{ exFrom }}" onChange="{{ onExFrom }}" style="width:100%; border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:5px 7px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;" />
+                      <div style="text-align:center; font:600 9px/1.7 ui-monospace,Menlo,monospace; color:#bdbbb1;">to</div>
+                      <input type="date" value="{{ exTo }}" onChange="{{ onExTo }}" style="width:100%; border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:5px 7px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;" />
+                    </div>
+                  </div>
+                </sc-if>
+              </th>
               <th onClick="{{ sortTitleCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; user-select:none;" style-hover="color:#2b5cd9;">EVENT / LINEUP <span style="color:#2b5cd9;">{{ arrowTitle }}</span></th>
-              <th onClick="{{ sortHoodCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:132px;" style-hover="color:#2b5cd9;">NEIGHBORHOOD <span style="color:#2b5cd9;">{{ arrowHood }}</span></th>
-              <th onClick="{{ sortCatCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:148px;" style-hover="color:#2b5cd9;">CATEGORY / VIBE <span style="color:#2b5cd9;">{{ arrowCat }}</span></th>
-              <th onClick="{{ sortScoreCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:116px;" style-hover="color:#2b5cd9;">MATCH <span style="color:#2b5cd9;">{{ arrowScore }}</span></th>
-              <th onClick="{{ sortSourceCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:86px;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:140px; position:relative;">
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                  <span onClick="{{ sortHoodCol }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">NEIGHBORHOOD <span style="color:#2b5cd9;">{{ arrowHood }}</span></span>
+                  <span onClick="{{ openHoodF }}" title="Neighborhood / region — click a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ hoodIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                </span>
+                <sc-if value="{{ hoodOpen }}" hint-placeholder-val="{{ false }}">
+                  <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+                  <div style="position:absolute; top:30px; left:12px; z-index:51; display:flex; align-items:stretch; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                    <sc-for list="{{ hoodFCols }}" as="fc" hint-placeholder-count="2">
+                      <div class="fcol" style="flex:0 0 auto; width: {{ fc.w }}; max-height:320px; overflow-y:auto; padding:0 9px; border-left: {{ fc.bl }};">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                          <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                          <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                        </div>
+                        <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="8">
+                          <div onClick="{{ o.onClick }}" title="click: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:150px; position:relative;">
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                  <span onClick="{{ sortCatCol }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">CATEGORY / VIBE <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
+                  <span onClick="{{ openCatF }}" title="Category / genre / vibe / setting — click a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ catIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                </span>
+                <sc-if value="{{ catOpen }}" hint-placeholder-val="{{ false }}">
+                  <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+                  <div style="position:absolute; top:30px; right:12px; z-index:51; display:flex; align-items:stretch; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                    <sc-for list="{{ catFCols }}" as="fc" hint-placeholder-count="4">
+                      <div class="fcol" style="flex:0 0 auto; width: {{ fc.w }}; max-height:340px; overflow-y:auto; padding:0 9px; border-left: {{ fc.bl }};">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                          <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                          <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                        </div>
+                        <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="8">
+                          <div onClick="{{ o.onClick }}" title="click: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:150px;"><span onClick="{{ sortRankCol }}" title="The editor's final running order — sort by it" style="cursor:pointer; color: {{ rankHeadColor }};" style-hover="color:#2b5cd9;">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span><span style="color:#d2d0c7;"> · </span><span onClick="{{ sortScoreCol }}" title="The transparent taste-match — sort by it" style="cursor:pointer; color: {{ scoreHeadColor }};" style-hover="color:#2b5cd9;">MATCH <span style="color:#2b5cd9;">{{ arrowScore }}</span></span></th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:104px; position:relative;">
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                  <span onClick="{{ sortSourceCol }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></span>
+                  <span onClick="{{ openSourceF }}" title="Source — click a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ sourceIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                </span>
+                <sc-if value="{{ sourceOpen }}" hint-placeholder-val="{{ false }}">
+                  <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+                  <div style="position:absolute; top:30px; right:12px; z-index:51; display:flex; align-items:stretch; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                    <sc-for list="{{ sourceFCols }}" as="fc" hint-placeholder-count="1">
+                      <div class="fcol" style="flex:0 0 auto; width: {{ fc.w }}; max-height:300px; overflow-y:auto; padding:0 9px; border-left: {{ fc.bl }};">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                          <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                          <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                        </div>
+                        <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="6">
+                          <div onClick="{{ o.onClick }}" title="click: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </th>
               <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:68px;">WHO</th>
             </tr>
           </thead>
@@ -464,7 +554,19 @@
                   <div style="margin-top:3px; font-size:11px; color:#a7a59b;">{{ c.genre }}</div>
                 </td>
                 <td style="padding:11px 12px; vertical-align:top; white-space:nowrap;">
-                  <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex; align-items:center; gap:6px;"><span style="font:700 11px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span><sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex; align-items:flex-end; gap:1.5px; height:8px;"><sc-for list="{{ c.segs }}" as="s" hint-placeholder-count="9"><span style="width:1.5px; height:8px; border-radius:1px; background: {{ s.bg }};"></span></sc-for></span></sc-if></span></sc-if>
+                  <div style="display:flex; align-items:center; gap:10px;">
+                    <span title="{{ c.rankTitle }}" style="display:inline-flex; align-items:baseline; justify-content:flex-end; gap:1px; min-width:26px;">
+                      <sc-if value="{{ c.hasRank }}" hint-placeholder-val="{{ true }}"><span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#c2c0b6;">#</span></sc-if>
+                      <span style="font:500 15px/1 ui-monospace,Menlo,monospace; letter-spacing:-0.02em; color: {{ c.rankColor }};">{{ c.rankNum }}</span>
+                    </span>
+                    <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}">
+                      <span style="width:1px; height:16px; background:#e2e0d8;"></span>
+                      <span style="display:inline-flex; align-items:center; gap:6px;">
+                        <span style="font:700 11px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span>
+                        <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex; align-items:flex-end; gap:1.5px; height:8px;"><sc-for list="{{ c.segs }}" as="s" hint-placeholder-count="9"><span style="width:1.5px; height:8px; border-radius:1px; background: {{ s.bg }};"></span></sc-for></span></sc-if>
+                      </span>
+                    </sc-if>
+                  </div>
                 </td>
                 <td style="padding:11px 12px; vertical-align:top;"><span style="font:500 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.source }}</span></td>
                 <td style="padding:11px 12px; vertical-align:top;">
@@ -473,8 +575,7 @@
               </tr>
             </sc-for>
           </tbody>
-        </table>
-      </div>
+      </table>
       </sc-if>
       <sc-if value="{{ exploreClipped }}" hint-placeholder-val="{{ false }}"><div style="padding:12px 0; text-align:center; font:500 10.5px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreClipped }}</div></sc-if>
       <sc-if value="{{ exploreEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding:40px 0; text-align:center; font:500 12px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">No events match “{{ searchVal }}”.</div></sc-if>
@@ -1311,14 +1412,14 @@ class Component extends DCLogic {
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   }
 
-  state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, isMobile:false, exploreSort:'match', exploreDir:1, exploreSearch:'', toast:null, dataSource:'loading', profile:null,
+  state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, isMobile:false, exploreSort:'rank', exploreDir:1, exploreSearch:'', toast:null, dataSource:'loading', profile:null,
     settingsOpen:false, loggedIn:false, apiModal:false, tasteModal:false, tasteTab:'taste', username:'',
     apiKeyOn:false, opusOn:false, apiKey:'', sharedToken:'',
     chatOpen:false, chatInput:'', chatMsgs:[], chatBusy:false, updating:null,
     backendStatus:null, backendVer:null, liveReply:null, chatFiltered:null, chatFilterLabel:'',
     digestModalOpen:false, spotifyStatus:null, spotifyName:'',
     calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null,
-    filtersOpen:false, exFrom:'', exTo:'',
+    filtersOpen:false, openFilter:null, exFrom:'', exTo:'',
     exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] },
     guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, welcomeDismiss:false, nudgeOpen:false, nudgeMore:false, digestMenuOpen:false, digestEmailOpen:false, digestPast:null, digestEmail:'', spotifyModalOpen:false };
 
@@ -1559,8 +1660,8 @@ class Component extends DCLogic {
   // ---------- actions ----------
   persistView(v) { try { localStorage.setItem('la-view', v); } catch (e) {} }
   setLens = (k) => { this.persistView('front'); this.setState({ lens:k, view:'front', sceneId:null }); };
-  viewFront = () => { this.persistView('front'); this.setState({ view:'front', sceneId:null }); };
-  viewExplore = () => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null }); };
+  viewFront = () => { this.persistView('front'); this.setState({ view:'front', sceneId:null, openFilter:null }); };
+  viewExplore = () => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null, openFilter:null }); };
   openScene = (id) => this.setState({ view:'scene', sceneId:id, detailId:null });
   closeScene = () => this.setState({ view:'front', sceneId:null });
   openDetail = (id) => this.setState({ detailId:id });
@@ -1895,7 +1996,7 @@ class Component extends DCLogic {
       ? 'Offline filter: **' + list.length + '** match' + (list.length === 1 ? '' : 'es') + ' for “' + label + '” — the Explore table is filtered to them.' + (top ? '\n' + top : '')
       : 'Offline filter: nothing matched “' + label + '” — try a genre, a neighborhood, or a vibe (`techno`, `silver lake`, `day party`).';
     this.setChat([...this.state.chatMsgs, { role:'assistant', content: reply }]);
-    this.setState({ chatBusy:false, chatFiltered: list.length ? list.map(e => e.id) : null, chatFilterLabel: list.length ? label : '', view: list.length ? 'explore' : this.state.view, exploreSort: spec.sortBy === 'date' ? 'date' : 'match', exploreDir: 1 });
+    this.setState({ chatBusy:false, chatFiltered: list.length ? list.map(e => e.id) : null, chatFilterLabel: list.length ? label : '', view: list.length ? 'explore' : this.state.view, exploreSort: spec.sortBy === 'date' ? 'date' : 'rank', exploreDir: 1 });
   }
   clearChatFilter = () => this.setState({ chatFiltered:null, chatFilterLabel:'' });
   resetReactions = () => { this.setState({ reactions:{} }); try { localStorage.removeItem('la-fp-reactions-v1'); } catch (e) {} };
@@ -2635,8 +2736,14 @@ class Component extends DCLogic {
   }
 
   // ---------- Explore faceted filters ----------
+  // Desktop: the filters live IN the table columns (the original explore design) — a funnel
+  // per header opens an anchored menu of that column's values (hood+region; cat+genre+vibe+
+  // setting; source; dates). Mobile (card list, no columns) keeps the stacked chip panel.
   EX_AXES = ['cat','genre','vibe','setting','hood','region','source'];
   toggleFilters = () => this.setState(s => ({ filtersOpen: !s.filtersOpen, view:'explore' }));
+  openFilterMenu = (col) => this.setState(s => ({ openFilter: s.openFilter === col ? null : col }));
+  closeFilterMenu = () => this.setState({ openFilter:null });
+  exClearAxis = (ax) => this.setState(s => { const nf = { ...s.exFilters }; nf[ax] = []; nf['x'+ax] = []; return { exFilters:nf }; });
   exCycle(axis, val) {
     const f = this.state.exFilters;
     const inc = f[axis].slice(), exc = f['x'+axis].slice();
@@ -2712,14 +2819,14 @@ class Component extends DCLogic {
     "## Find something to do",
     "",
     "- The **front page** opens on your window — *tonight · this weekend · next 2 weeks · plan ahead* — with the lead pick, a shortlist, and a lane per scene. Tap any card for details + tickets.",
-    "- **Explore** (top right) is the full table. **Sort** by tapping the `DATE`, `EVENT`, `NEIGHBORHOOD`, `CATEGORY` or `SOURCE` headers.",
-    "- **Filter** with the `FILTERS` chip next to the sort options: tap a value once to **✓ keep** only matches, again to **✕ hide** it, once more to clear — categories, genres, vibe, setting, neighborhood, region and source, plus a date range with presets.",
+    "- **Explore** (top right) is the full table. **Sort** by tapping the `DATE`, `EVENT`, `NEIGHBORHOOD`, `CATEGORY`, `RANK`, `MATCH` or `SOURCE` headers.",
+    "- **Filter from the columns**: the little funnel in a header opens that column's menu — `DATE` holds the presets + a custom range, `NEIGHBORHOOD` also carries region, `CATEGORY / VIBE` carries category, genre, vibe and setting side by side, `SOURCE` stands alone. Click a value once to **✓ keep** only matches, again to **✕ hide** it, once more to clear; a blue funnel means that column is filtering. On a phone the `FILTERS` chip opens the same controls as a panel.",
     "- **Tap any tag** on a card (like *techno* or *warehouse*) to jump into Explore filtered to exactly that tag.",
     "- **Search** everything from the box in the header.",
     "",
-    "## The match number",
+    "## Rank vs. match",
     "",
-    "Each event's **match %** (with the little bar) is the transparent taste score — deterministic, the same math behind the digest, refined by a light editorial pass.",
+    "Explore's `RANK · MATCH` column shows two things. The **match %** (with the little bar) is the transparent taste score — deterministic, the same math behind the digest. The **rank** (the `#`) is the final running order after a light editorial pass nudges a few picks up or down. Sort by either.",
     "",
     "## Read the digest",
     "",
@@ -2767,6 +2874,7 @@ class Component extends DCLogic {
     "",
     "## Late July 2026 — the redesign, restored",
     "",
+    "- **Explore's filters moved back into the columns** — the original design. Each header wears a small funnel: `NEIGHBORHOOD` opens neighborhood + region side by side, `CATEGORY / VIBE` opens category, genre, vibe and setting, `DATE` holds the presets + a custom range, `SOURCE` its list. ✓ keep / ✕ hide per value, a blue funnel where a filter is live. The `RANK · MATCH` column is back too — the editor's `#` running order and the transparent match %, each sortable. (Phones keep the filter panel.)",
     "- **A new front page** — the lead pick, your shortlist, a lane per scene, and the day's digest headline up top, with the detail popup and settings rebuilt to match.",
     "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, real **event photos** on cards, the **quick start / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
     "- **Stars teach again, and “less” learns too.** The + chip commits your star server-side (friends see it; the lineup boosts your ranking), and **Show less like this** now files a soft negative signal instead of only hiding locally.",
@@ -2897,9 +3005,9 @@ class Component extends DCLogic {
       frontTabBg: view==='front'?'#1b1a17':'transparent', frontTabColor: view==='front'?'#fff':'#76746b',
       exploreTabBg: view==='explore'?'#1b1a17':'transparent', exploreTabColor: view==='explore'?'#fff':'#76746b',
       viewFront:this.viewFront, viewExplore:this.viewExplore,
-      showLenses: view==='front' || view==='scene', showSort: view==='explore',
+      showLenses: view==='front' || view==='scene', showSort: view==='explore' && mob,   // desktop sorts/filters in the table columns
       lenses: lensDefs.map(([k,label]) => ({ label, onClick:() => this.setLens(k), border: lens===k?'#1b1a17':'#d2d0c7', bg: lens===k?'#1b1a17':'#fff', color: lens===k?'#fff':'#76746b' })),
-      sortOpts: [['match','MATCH'],['date','DATE'],['title','A–Z']].map(([k,label]) => ({ label, onClick:() => this.setSort(k), border: this.state.exploreSort===k?'#2b5cd9':'#d2d0c7', bg: this.state.exploreSort===k?'#eaf0fe':'#fff', color: this.state.exploreSort===k?'#2b5cd9':'#76746b' })),
+      sortOpts: [['rank','RANK'],['match','MATCH'],['date','DATE'],['title','A–Z']].map(([k,label]) => ({ label, onClick:() => this.setSort(k), border: this.state.exploreSort===k?'#2b5cd9':'#d2d0c7', bg: this.state.exploreSort===k?'#eaf0fe':'#fff', color: this.state.exploreSort===k?'#2b5cd9':'#76746b' })),
       searchVal:this.state.exploreSearch, onSearch:this.onSearch, hasSearch:!!this.state.exploreSearch.trim(), clearSearch:this.clearSearch,
       showConcierge: !mob, showBottomNav: mob,
       navFrontColor: view==='front'?'#1b1a17':'#a7a59b', navExploreColor: view==='explore'?'#1b1a17':'#a7a59b',
@@ -3039,23 +3147,28 @@ class Component extends DCLogic {
         : sk==='hood' ? strSort(e => e.hood)
         : sk==='cat' ? strSort(e => e.cat)
         : sk==='source' ? strSort(e => e.source)
-        : ((x,y) => lessE(x)-lessE(y) || this.rankCmp(x,y));
-      if (sk === 'match') rows = this.collapseSeries(rows);   // a ranking shows each program once
+        : sk==='match' ? ((x,y) => y.score-x.score || (x.iso<y.iso?-1:x.iso>y.iso?1:0) || x.title.localeCompare(y.title))
+        : ((x,y) => lessE(x)-lessE(y) || this.rankCmp(x,y));   // rank — the editor's final running order
+      if (sk === 'rank') rows = this.collapseSeries(rows);   // a ranking shows each program once
       rows.sort(dir === 1 ? base : (x,y) => -base(x,y));
       const EX_CAP = 1200;
-      out.exploreRows = rows.slice(0, EX_CAP).map((e,i) => ({ ...this.cardFor(e), rank:String(i+1) }));
+      out.exploreRows = rows.slice(0, EX_CAP).map((e) => ({ ...this.cardFor(e),
+        hasRank: e.rank != null, rankNum: (e.rank != null ? String(e.rank) : '—'),
+        rankColor: (e.rank != null ? '#161512' : '#cfcdc4'),
+        rankTitle: (e.verdict ? (String(e.verdict.tier || '').toUpperCase() + (e.verdict.why ? ' — ' + e.verdict.why : '')) : (e.rank != null ? "the editor's final running order" : 'not ranked by the editor — falls back to score')) }));
       out.exploreClipped = rows.length > EX_CAP ? ('showing the first ' + EX_CAP + ' — narrow with filters or search') : '';
       out.exploreEmpty = rows.length===0;
       out.isMobileCards = mob; out.notMobileCards = !mob;
       const arr = dir === 1 ? '↓' : '↑';
-      out.arrowDate = sk==='date' ? arr : ''; out.arrowTitle = sk==='title' ? arr : ''; out.arrowScore = sk==='match' ? arr : '';
+      out.arrowDate = sk==='date' ? arr : ''; out.arrowTitle = sk==='title' ? arr : ''; out.arrowScore = sk==='match' ? arr : ''; out.arrowRank = sk==='rank' ? arr : '';
       out.arrowHood = sk==='hood' ? arr : ''; out.arrowCat = sk==='cat' ? arr : ''; out.arrowSource = sk==='source' ? arr : '';
-      out.sortDateCol = () => this.setSort('date'); out.sortTitleCol = () => this.setSort('title'); out.sortScoreCol = () => this.setSort('match');
+      out.sortDateCol = () => this.setSort('date'); out.sortTitleCol = () => this.setSort('title'); out.sortScoreCol = () => this.setSort('match'); out.sortRankCol = () => this.setSort('rank');
       out.sortHoodCol = () => this.setSort('hood'); out.sortCatCol = () => this.setSort('cat'); out.sortSourceCol = () => this.setSort('source');
+      out.rankHeadColor = sk==='rank' ? '#2b5cd9' : '#76746b'; out.scoreHeadColor = sk==='match' ? '#2b5cd9' : '#76746b';
       const nAct = this.exActiveCount();
       out.exploreCountLabel = rows.length + ' events' + ((this.META.count && (nAct || q)) ? '' : ' · ' + (this.META.count || this.ALL.length) + ' in catalog') + (q ? ' · matching “'+this.state.exploreSearch.trim()+'”' : '')
         + (nAct ? ' · ' + nAct + ' filter' + (nAct===1?'':'s') + ' active' : '')
-        + (!q && !nAct ? ' · '+({match:'ranked by match',date:'by date',title:'A–Z',hood:'by neighborhood',cat:'by category',source:'by source'}[sk]) : '');
+        + (!q && !nAct ? ' · '+({rank:'ranked',match:'by match',date:'by date',title:'A–Z',hood:'by neighborhood',cat:'by category',source:'by source'}[sk]) : '');
       out.exHasActive = nAct > 0 || !!q || !!this.state.chatFiltered;
       out.hasChatFilter = !!this.state.chatFiltered; out.chatFilterLabel = this.state.chatFilterLabel; out.clearChatFilter = this.clearChatFilter;
       out.exResetFn = this.exReset;
@@ -3094,6 +3207,61 @@ class Component extends DCLogic {
       ];
       out.exFrom = this.state.exFrom; out.exTo = this.state.exTo;
       out.onExFrom = this.onExFrom; out.onExTo = this.onExTo;
+
+      // ---- desktop column-header filter menus (the original explore design) ----
+      // Full value lists (scrollable), not the panel's capped chip rows: facet order (the feed's
+      // frequency-ranked vocab) + an alphabetical tail of event-derived tags for tag axes;
+      // alphabetical for neighborhoods + sources; catalog frequency for categories.
+      const nsel = (ax) => f[ax].length + f['x'+ax].length;
+      const pretty = (v) => String(v).replace(/-/g, ' ');
+      const uniqV = (arr) => [...new Set(arr)];
+      const tagAxis = (ax, pick) => { const head = facet(ax); const seen = new Set(head);
+        const tail = uniqV(upcoming.flatMap(pick).filter(Boolean)).filter(v => !seen.has(v)).sort((a,b) => a.localeCompare(b));
+        return head.concat(tail); };
+      const mkItems = (ax, vals, lab) => withSel(vals, ax).map(v => {
+        const inq = f[ax].indexOf(v)!==-1, outq = f['x'+ax].indexOf(v)!==-1;   // keep / hide / neutral
+        return { label: lab ? lab(v) : v,
+          box: inq ? '✓' : (outq ? '✕' : '□'),
+          boxColor: inq ? '#1f7a4d' : (outq ? '#b4543f' : '#cbc9bf'),
+          color: outq ? '#a29a90' : (inq ? '#161512' : '#76746b'),
+          bg: inq ? '#e9efe9' : (outq ? '#f5ece8' : 'transparent'),
+          weight: inq ? '600' : '500', deco: outq ? 'line-through' : 'none',
+          onClick: () => this.exCycle(ax, v) };
+      });
+      const fcol = (label, ax, vals, lab, w, first) => ({ label, w, bl: first ? 'none' : '1px solid #eceae2',
+        hasSel: nsel(ax) > 0, onClear: () => this.exClearAxis(ax), items: mkItems(ax, vals, lab) });
+      out.hoodFCols = [
+        fcol('NEIGHBORHOOD', 'hood', uniqV(upcoming.map(e => e.hood).filter(Boolean)).sort((a,b) => a.localeCompare(b)), null, '190px', true),
+        fcol('REGION', 'region', tagAxis('region', e => e.regions || []), pretty, '120px'),
+      ];
+      out.catFCols = [
+        fcol('CATEGORY', 'cat', counts(upcoming.map(e => e.cat)), null, '138px', true),
+        fcol('GENRE', 'genre', tagAxis('genre', e => e.genres || []), pretty, '138px'),
+        fcol('VIBE', 'vibe', tagAxis('vibe', e => e.vibes || []), pretty, '138px'),
+        fcol('SETTING', 'setting', tagAxis('setting', e => e.settings || []), pretty, '138px'),
+      ];
+      out.sourceFCols = [fcol('SOURCE', 'source', uniqV(upcoming.map(e => e.source).filter(Boolean)).sort((a,b) => a.localeCompare(b)), null, '170px', true)];
+      const openF = this.state.openFilter;
+      out.dateOpen = openF==='date'; out.hoodOpen = openF==='hood'; out.catOpen = openF==='cat'; out.sourceOpen = openF==='source';
+      out.openDateF = () => this.openFilterMenu('date'); out.openHoodF = () => this.openFilterMenu('hood');
+      out.openCatF = () => this.openFilterMenu('cat'); out.openSourceF = () => this.openFilterMenu('source');
+      out.closeFilterMenu = this.closeFilterMenu;
+      const dateOn = !!(this.state.exFrom || this.state.exTo);
+      out.dateIcon = dateOn ? '#2b5cd9' : '#bdbbb1';
+      out.hoodIcon = (nsel('hood') + nsel('region')) ? '#2b5cd9' : '#bdbbb1';
+      out.catIcon = (nsel('cat') + nsel('genre') + nsel('vibe') + nsel('setting')) ? '#2b5cd9' : '#bdbbb1';
+      out.sourceIcon = nsel('source') ? '#2b5cd9' : '#bdbbb1';
+      out.dateHasSel = dateOn; out.clearDates = () => this.setState({ exFrom:'', exTo:'' });
+      out.dateMenu = [
+        ['All dates', 'all', rng('','')],
+        ['Tonight', 'today', rng(T,T)],
+        ['This weekend', 'weekend', rng(wa,wb)],
+        ['Next 2 wks', 'twoweeks', rng(T,this.addDays(T,13))],
+        ['Next month', 'month', rng(T,this.addDays(T,30))],
+      ].map(([label, k, on]) => ({ label,
+        box: on ? '✓' : '□', boxColor: on ? '#1f7a4d' : '#cbc9bf',
+        color: on ? '#161512' : '#76746b', bg: on ? '#e9efe9' : 'transparent',
+        weight: on ? '600' : '500', onClick: () => this.exPreset(k) }));
     }
 
     // ---- DETAIL ----
@@ -3281,14 +3449,14 @@ class Component extends DCLogic {
     // ---- CALENDAR FEED ----
     Object.assign(out, this.calVals());
 
-    // ---- FILTERS toggle (explore header) ----
+    // ---- FILTERS toggle (mobile explore header — desktop filters live in the table columns) ----
     const nF = this.exActiveCount();
     out.toggleFilters = this.toggleFilters;
     out.filtersBtnLabel = 'FILTERS' + (nF ? ' ('+nF+')' : '');
     out.filtersBtnBg = this.state.filtersOpen ? '#1b1a17' : (nF ? '#eaf0fe' : '#fff');
     out.filtersBtnColor = this.state.filtersOpen ? '#fff' : (nF ? '#2b5cd9' : '#76746b');
     out.filtersBtnBorder = this.state.filtersOpen ? '#1b1a17' : (nF ? '#2b5cd9' : '#d2d0c7');
-    out.filtersOpen = this.state.filtersOpen && view==='explore';
+    out.filtersOpen = this.state.filtersOpen && view==='explore' && mob;
 
     // ---- ABOUT: guide (how / what's new) + first-run welcome ----
     out.guideOpen = this.state.guideOpen;
