@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/24/2026 deterministically (no API). 330 candidates. Signals: big-venue 288, festival 39, tracked 5._
+_Generated 7/25/2026 deterministically (no API). 324 candidates. Signals: big-venue 284, festival 37, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -30,12 +30,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 10/31 | 5 | THE MAZE Halloween: Arts District Block Party | TBA - Arts District Los Angeles | festival | [link](https://ra.co/events/2491883) |
-
-## August 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Fri 8/28 | 4 | BKOfest Presents: Underground Rager 2026 (Day 2) | Harvard & Stone | festival | [link](https://www.songkick.com/festivals/3795968-bkofest-presents-underground-rager/id/43320958-bkofest-presents-underground-rager-2026) |
 
 ## September 2026
 
@@ -93,7 +87,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/28 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZd) |
 | Sat 8/29 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZ7) |
 
 ## September 2026
@@ -163,7 +156,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/28 | 4 | UNDERTALE: The Determination Symphony | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/undertale-the-determination-symphony-los-angeles-california-08-28-2026/event/0900646CE1A7DFED) |
 | Sat 8/29 | 4 | Robby Krieger's Spanish Caravan - The Doors En Español | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/robby-kriegers-spanish-caravan-the-doors-los-angeles-california-08-29-2026/event/090064B4E5F69EAE) |
 
 ## September 2026
@@ -218,8 +210,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/28 | 3 | ZAYN: The Konnakol Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/zayn-the-konnakol-tour-inglewood-california-08-28-2026/event/09006443E08F98F0) |
-| Fri 8/28 | 3 | CRANKDAT - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 8/29 | 3 | Acid Bath | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/acid-bath-ontario-california-08-29-2026/event/0900647AADB19AC7) |
 | Sat 8/29 | 3 | El Tri | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/el-tri-inglewood-california-08-29-2026/event/0A00649CE752A47E) |
 | Sat 8/29 | 3 | CRANKDAT - 3rd Night Added! | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
@@ -376,7 +366,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/28 | 2 | Ali Wong Live | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1343758/ali-wong-tickets) |
 | Sat 8/29 | 2 | Ali Wong Live | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1462644/ali-wong-tickets) |
 | Sun 8/30 | 2 | Avenged Sevenfold, Good Charlotte, and A Day to Remember | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/avenged-sevenfold-good-charlotte-and-a-los-angeles-california-08-30-2026/event/0A0063818F234796) |
 | Sun 8/30 | 2 | CRANKDAT - 4th Night Added! | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |

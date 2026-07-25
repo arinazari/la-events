@@ -1,31 +1,31 @@
-# LA Events — 2026-07-24
+# LA Events — 2026-07-25
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Checked Fri 7/24 · no new or changed events since the last pull*
+*Checked Sat 7/25 · no new or changed events since the last pull*
 
-<!-- take: Warehouse techno owns the weekend, Nolan's Odyssey is mid-run in 70mm at the Vista, and Sunday's a genuine novelty at the Bowl. -->
-<!-- tier3:intro -->This is a proper warehouse-techno weekend — tonight's free-RSVP Rich NXT/Nu Zau night and tomorrow's all-vinyl Certified Groovers both hit the same rooftop-into-DTLA-warehouse groove, so pick one rather than trying to do both. Nolan's *Odyssey* is mid-run in 70mm at the Vista all week — Saturday 8/1 is the night to actually go, not tonight's or tomorrow's showing. Sunday throws a real curveball: Boris Brejcha fronting the Hollywood Bowl Orchestra, equal parts stunt and legitimately worth seeing. Pace yourself — the 14th stacks Moodymann-plays-Prince against Alan Fitzpatrick's warehouse bill, so that's the weekend to keep some energy in reserve for.
+<!-- take: Nick León's TBA warehouse tonight and Boris Brejcha fronting the Bowl Orchestra tomorrow bookend the best 48 hours of an otherwise quiet stretch. -->
+A short, front-loaded week: the two real must-sees both land in the next 48 hours — Nick León's dembow-into-techno all-nighter tonight, then Boris Brejcha's orchestra stunt at the Bowl tomorrow — and after that it's rep cinema (Nolan's Odyssey in 70mm, Jackie Brown at midnight) carrying more weight than the club calendar. The one real collision worth flagging early: Friday 8/14 stacks Moodymann/Rashida playing Prince at the Regent against Alan Fitzpatrick's warehouse set for WORK x Skullduggery — if you can only do one, the Moodymann pairing is the harder-to-repeat night.
 
 ## Tonight & tomorrow
 
-<!-- tier3:call -->Pick one warehouse night: tonight's free-RSVP Rich NXT/Nu Zau techno or tomorrow's all-vinyl Certified Groovers — both scratch the same itch, so don't feel obligated to do both.
+Go warehouse tonight for Nick León, theater tomorrow for Brejcha at the Bowl — both are worth building the night around, so pick based on which room you'd rather be in.
 
-- `Today 7:30pm` ⭐ **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3859?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+odyssey%22+showtimes+Los+Angeles) — *Nolan on 70mm at the Vista is the exact director-tracked, format-loved combo the taste brief says to build a night around — Friday prime-time is the pick of the ten-night run.*
-- `Today 11pm-6am` ⭐ **[Utopia x Dialed Records presents RICH NXT, NU ZAU, TXHLDEM](https://ra.co/events/2481171)** — TBA, Los Angeles · free w/rsvp b4 1 / $10-45 · ↻ updated (price, start) — *Rich NXT, Nu Zau, and the Dialed Records roster are legit fabric/European-orbit techno names on a free TBA-location night — the exact underground-warehouse sweet spot the flat score of 5 buried.*
-- `Today 7:30PM` ⭐ **[Jane Monheit Duo (with Max Haymer)](https://samfirstbar.com/events/jane-monheit-duo-with-max-haymer)** — Sam First, Westchester — *Grammy-nominated jazz vocalist Jane Monheit in a 20-seat listening bar — exactly the big-name-in-a-small-room pattern you flagged wanting more of.*
-- `Tomorrow 11pm-8am` ⭐ **[Certified Groovers: ARTUR & GILBERTO [all night long]](https://ra.co/events/2488322)** — TBA - Downtown Los Angeles, DTLA · $21 b4 12 / $30 · ↻ updated (price, start) — *All-vinyl, open-to-close deep-house at a secret DTLA warehouse, Certified Groovers regulars on the wax — this is the rooftop-vinyl-groove lane at full strength, just after dark instead of at golden hour, and it's a Friday walk from Silver Lake.*
-- `Tomorrow 9:30pm` 🆕 **[Le Frique Sonique Presents: Jeremy Sole - All Night Long](https://www.ticketmaster.com/event/090064F0DD4BF93B)** — The Moroccan Lounge (Los Angeles), Arts District · $21-32 — *Jeremy Sole's the actual KCRW digger — 30 years of vinyl across house, Afro-Latin and funk, all night in a room that suits it.*
-- `Tomorrow 9pm-3am` **[AXIS: Viaduct III - An Open Air Affair, with Tedd Patterson and Jack Faulkner](https://ra.co/events/2474845)** — TBA, Los Angeles · day party · $45 · ↻ updated (price, start) — *Tedd Patterson's Body & Soul-lineage deep house — open-air TBA warehouse with real soulful pedigree, not just another rooftop filler.*
+- `Today 10pm-4am` ⭐ **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA - Downtown, DTLA · $33 — *Nick León isn't a generic warehouse booking — TraTraTrax/Future Times, his own dembow-into-techno fusion is one of the more distinctive things happening in club music right now, and it's an RA pick all-nighter ten minutes from home.*
+- `Today 9:30pm` **[Le Frique Sonique Presents: Jeremy Sole - All Night Long](https://www.ticketmaster.com/event/090064F0DD4BF93B)** — The Moroccan Lounge (Los Angeles), Arts District · $21-32 — *Jeremy Sole's the actual KCRW digger — 30 years of vinyl across house, Afro-Latin and funk, all night in a room that suits it.*
+- `Today 9pm-3am` **[AXIS: Viaduct III - An Open Air Affair, with Tedd Patterson and Jack Faulkner](https://ra.co/events/2474845)** — TBA, Los Angeles · day party · $45 — *Tedd Patterson's Body & Soul-lineage deep house — open-air TBA warehouse with real soulful pedigree, not just another rooftop filler.*
+- `Tomorrow 7pm` ⭐ **[LA Phil KCRW Festival: Boris Brejcha with the Hollywood Bowl Orchestra](https://ra.co/events/2375675)** — Hollywood Bowl, Hollywood · big room · $18+ — *Boris Brejcha — the masked German techno institution behind Fckng Serious — with a live orchestra at the Bowl is a one-off crossover novelty, not just another festival DJ slot; build the week around it.*
+- `Tomorrow 2:30pm-7pm` **[Matcha and Groove 004: mad gavs, Nacocamellia, Xica Soul, Sara Kawai](https://ra.co/events/2492586)** — TBA - DoubleTree DTLA - Kyoto Garden, DTLA · day party · $15-25 — *A day party in the DoubleTree's Kyoto Garden is a genuinely different setting, and Xica Soul's an In Sheep's Clothing-circuit selector worth catching in daylight.*
+- `Tomorrow 2pm` **[LA Filmforum: Films by Yoko Ono](https://dice.fm/event/6d82vq-la-filmforum-films-by-yoko-ono-26th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown — *Yoko Ono film program at a venue you love — this is a rep-cinema pick, not a live-music one, and it's the right kind of afternoon experimental booking.*
 
 ## Don't miss
 
-- `Sat 7/25` **[Certified Groovers: ARTUR & GILBERTO [all night long]](https://ra.co/events/2488322)** — TBA - Downtown Los Angeles, DTLA · $21 b4 12 / $30 · *🎟 tiered pricing — buy early*  
-  Certified Groovers is the recurring TBA-location, all-vinyl deep-house series in DTLA (past nights have pulled in Mark Farina, DJ Sneak, Felipe Gordon) — this one's a lower-name-recognition night on the bill, but it's the same vinyl/warehouse/afterhours format you keep coming back for. <!-- tier3:why 7210967968cd -->
+- `Sat 7/25` **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA - Downtown, DTLA · $33 · *📍 location TBA — watch for the drop*  
+  An all-night TBA set from Nick León isn't a straight house night — it's Miami dembow-and-dancehall rhythm woven into club music, which makes this one of the more interesting bookings in this batch if you want something that doesn't sound like everything else on the calendar. <!-- tier3:why a4c21a0657c3 -->
 - `Sun 7/26` **[LA Phil KCRW Festival: Boris Brejcha with the Hollywood Bowl Orchestra](https://ra.co/events/2375675)** — Hollywood Bowl, Hollywood · $18+  
   A masked minimal-techno guy fronting the Hollywood Bowl Orchestra is a stunt booking, but Brejcha's sound is built for exactly this kind of cinematic scale — and it's a venue you already love. Worth it for the novelty alone even if it's not a real club set. <!-- tier3:why 773d5c83a2fd -->
 - `Tue 7/28` **[Bad Brains - 50th Anniversary Celebration](https://www.ticketmaster.com/bad-brains-50th-anniversary-celebration-los-angeles-california-07-28-2026/event/090064DB0D1CA15C)** — The Regent Theater, DTLA  
   Not the actual band reunited — it's an all-star 50th-anniversary tribute with H.R. as guest of honor and a rotating cast (Vernon Reid, Money Mark) — but that pedigree still makes it worth it if you love the record. <!-- tier3:why d991f971640b -->
 - `Sat 8/1` **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3885?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz  
-  Nolan's Odyssey in 70mm at the Vista on a Saturday — the one night of this run to actually build the evening around. <!-- tier3:why cf187e8dbfd6 -->
+  Nolan's Odyssey adaptation in native 70mm at the Vista is a real director-event, not just another rep-house revival — the 6:30 slot is the one worth building the evening around. <!-- tier3:why cf187e8dbfd6 -->
 - `Fri 8/14` **[Moodymann and DJ Rashida Play Prince](https://www.ticketmaster.com/moodymann-and-dj-rashida-play-prince-los-angeles-california-08-14-2026/event/090064BA38058214)** — The Regent Theater, DTLA  
   Moodymann and someone who was actually in Prince's inner circle playing his catalog at the Regent is a real pairing, not a novelty theme night — a Detroit deep-house legend's crate plus Rashida's insider Prince knowledge should make for a genuinely soulful room rather than a covers-band vibe. <!-- tier3:why 1c14235e465f -->
 - `Fri 8/14` **[WORK x SKULLDUGGERY present: Alan Fitzpatrick, Anastasia Giovani, & Greg Downey](https://ra.co/events/2470130)** — TBA - Los Angeles, Los Angeles · *📍 location TBA — watch for the drop*  
@@ -35,74 +35,46 @@
 
 
 **New to the slate**
-- `Sat 7/25` 🆕 **[Le Frique Sonique Presents: Jeremy Sole - All Night Long](https://www.ticketmaster.com/event/090064F0DD4BF93B)** — The Moroccan Lounge (Los Angeles), Arts District · $21-32 — *Jeremy Sole's the actual KCRW digger — 30 years of vinyl across house, Afro-Latin and funk, all night in a room that suits it.*
-- `Mon 7/27` (+2 more dates) 🆕 **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2497181)** — The Lexington, DTLA · afters — *Recurring Nightshift afters slot at the Lex with no lineup posted — flagging the earliest night of this run over its sibling repeats.*
-- `Fri 7/31` 🆕 **[SUNSET SESSIONS](https://ra.co/events/2497381)** — Level 8 DTLA, DTLA · day party — *The actual golden-hour Sunset Sessions, not the after-dark spin-off — the rooftop-vinyl-groove format you specifically keep coming back for.*
-- `Fri 7/31` 🆕 **[Audiojack, Rozalesd](https://dice.fm/event/dkox2o-audiojack-31st-jul-the-spotlight-los-angeles-tickets)** — The Spotlight (Los Angeles) · $24.93 — *Audiojack's jacking, melodic tech-house is the exact UK/fabric-London lane this profile is built around.*
-- `Fri 7/31` (+4 more dates) ⭐ 🆕 **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3885?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+odyssey%22+showtimes+Los+Angeles) — *Nolan's Odyssey in 70mm at the Vista on a Saturday — the one night of this run to actually build the evening around.*
-- `Fri 8/7` 🆕 **[SUNSET SESSIONS presents: 'GOOD GIRL' Release Party](https://ra.co/events/2497272)** — Level 8 DTLA, DTLA · day party — *This is the Sunset Sessions rooftop-groove format you specifically love, and Tamara Lanza is a real Level 8 house/disco-into-melodic regular, not a fill-in.*
-- `Sat 8/15` (+1 more date) 🆕 **[Misbehaving Ladies](https://ticketing.uswest.veezi.com/purchase/3902?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22misbehaving+ladies%22+showtimes+Los+Angeles) — *Generic rep matinee, no format or director hook — score already has this about right.*
-- `Thu 8/20` 🆕 **[Afterglow - Apotheke](https://ra.co/events/2497213)** — Apotheke, Chinatown — *Apotheke's a solid Chinatown room for a DJ night, but no lineup listed to size it up.*
-- *…plus 2 more*
+- `Fri 8/7` 🆕 **[Twin Peaks: The Original Mystery – Episodes 7 + 8](https://vidiotsfoundation.org/showtimes/twin-peaks-the-original-mystery-episodes-7-8-8-7-26-1000-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22twin+peaks+the+original+mystery+episodes+7+8%22+showtimes+Los+Angeles) — *Lynch is a tracked director for you and this is literal Twin Peaks on the big screen — the pick of Vidiots' four-way slate that night.*
+- `Sun 8/9` 🆕 **[Three Wise Girls](https://ticketing.uswest.veezi.com/purchase/3911?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22three+wise+girls%22+showtimes+Los+Angeles) — *Last chance on this short pre-code run at the Vista — matinee slot keeps it low-stakes but it's your kind of room, and it's closing.*
+- `Thu 8/13` 🆕 **[VLSF & KCRW presents: BOYO, Ramonda Hammer, Always You,  Cody's Program](https://dice.fm/event/dko8ee-vlsf-kcrw-presents-boyo-ramonda-hammer-always-you-codys-program-13th-aug-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood — *KCRW co-presenting with BOYO on the bill is a real curatorial signal for the small-indie-club lane, not just a generic Gold Diggers booking.*
+- `Sat 8/15` 🆕 **[Slow Rose 26 Hour Show (Closing Night)](https://dice.fm/event/2wqo76-slow-rose-26-hour-show-closing-night-15th-aug-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown — *2220 Arts is a room you trust and a 26-hour closing marathon is the kind of oddball durational booking worth catching even without a known lineup.*
 
 **Updated**
-- `Fri 7/24` **[Panic Room feat. River Moon, Shane Thomas, Bebe, & Rob Aquino](https://ra.co/events/2485494)** — TBA - Silverlake, Silver Lake · $20-40 · ↻ updated (price, start) — *River Moon's a Boiler Room alum and this Loose-crew queer afterhours lineup (Rob Aquino, Bebe, Shane Thomas) has real underground credibility, not just a TBA gimmick — Friday night, minutes from home.*
-- `Fri 7/24` ⭐ **[Utopia x Dialed Records presents RICH NXT, NU ZAU, TXHLDEM](https://ra.co/events/2481171)** — TBA, Los Angeles · free w/rsvp b4 1 / $10-45 · ↻ updated (price, start) — *Rich NXT, Nu Zau, and the Dialed Records roster are legit fabric/European-orbit techno names on a free TBA-location night — the exact underground-warehouse sweet spot the flat score of 5 buried.*
-- `Sat 7/25` ⭐ **[Certified Groovers: ARTUR & GILBERTO [all night long]](https://ra.co/events/2488322)** — TBA - Downtown Los Angeles, DTLA · $21 b4 12 / $30 · ↻ updated (price, start) — *All-vinyl, open-to-close deep-house at a secret DTLA warehouse, Certified Groovers regulars on the wax — this is the rooftop-vinyl-groove lane at full strength, just after dark instead of at golden hour, and it's a Friday walk from Silver Lake.*
-- `Sat 7/25` **[AXIS: Viaduct III - An Open Air Affair, with Tedd Patterson and Jack Faulkner](https://ra.co/events/2474845)** — TBA, Los Angeles · day party · $45 · ↻ updated (price, start) — *Tedd Patterson's Body & Soul-lineage deep house — open-air TBA warehouse with real soulful pedigree, not just another rooftop filler.*
-- `Thu 7/30` **[Surface DIY with Samwise, Capes + Special Guest](https://ra.co/events/2493200)** — Better Tomorrow, Los Angeles · afters · $11 · ↻ updated (price, start) — *Unknown headliners on a DIY afterhours bill — no track record here to call the draw.*
-- `Fri 7/31` **[Social Lovers & lovetempo with Xica Soul](https://ra.co/events/2487851)** — The Airliner, Lincoln Heights · $23 pre · ↻ updated (price, start) — *lovetempo is Mattie Safer's (Poolside, The Rapture) solo disco project — warm, romantic soul-disco at the Airliner, exactly the groove lane you chase.*
-- `Fri 8/7` ⭐ **[RÜFÜS DU SOL NORTH AMERICA 2026](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-07-2026/event/09006455E5DFE35A)** — Kia Forum, Inglewood · big room · $90+ · ↻ updated (price, start) — *RÜFÜS DU SOL is a tracked artist and Ben Böhmer's Anjunadeep melodic-house set is a genuinely good opener — the mainstream-arena-fun-counts-too pick of the week.*
+- `Sat 8/8` **[EMBRZ at Harbor House Rooftop](https://ra.co/events/2410366)** — Harbor House DTLA, DTLA · day party · $24 b4 6 / $30+ · ↻ updated (price, start) — *Sunset rooftop melodic house from a This Never Happened (Lane 8's label) signee — downtempo and vocal-forward rather than peak-time, right in the golden-hour lane you keep chasing.*
 
 ## Next two weeks
 
-### Friday · July 24
-Jane Monheit's early set at Sam First (7:30) or Sunset Sessions' golden-hour rooftop at Level 8 (5pm) both work as a first stop — either way, land at Rich NXT's free-RSVP techno warehouse by 11; it runs till 6am so there's no rush. Full sequenced plan → ask the concierge. <!-- tier3:blueprint 2026-07-24 -->
-
-**Electronic & dance**
-- `11pm-6am` ⭐ **[Utopia x Dialed Records presents RICH NXT, NU ZAU, TXHLDEM](https://ra.co/events/2481171)** — TBA, Los Angeles · free w/rsvp b4 1 / $10-45 · ↻ updated (price, start)  
-  Dialed's own TXHLDEM going alongside a genuine FUSE-scene UK vet in Rich NXT plus Bucharest's Nu Zau is a real techno bill hiding behind a bare TBA address — worth chasing down even before the location drops.
-- `11:59pm-5am` **[Panic Room feat. River Moon, Shane Thomas, Bebe, & Rob Aquino](https://ra.co/events/2485494)** — TBA - Silverlake, Silver Lake · $20-40 · ↻ updated (price, start)  
-  This is LA's queer-underground crew doing their regular late one — less pure house/techno than a genre-blurring party, but River Moon alone makes it worth catching if you want something weirder than the usual rooftop set.
-- `5pm` **[SUNSET SESSIONS X JUPTR X RECOLLECT UNDERGROUND](https://ra.co/events/2493120)** — Level 8 DTLA, DTLA · day party  
-  This is the actual Sunset Sessions @ Level 8 recurring night the taste profile calls out by name, and a 5pm start means real golden-hour light on the decks. Tamara Lanza is a series regular for a reason — build the evening around this one.
-- `11pm-6am` (Fri 7/24 +4 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2491931)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23-28 — *Recurring Lexington afters with no lineup listed — the Saturday installment is the marginally better pick of this run.*
-
-**Live music**
-- `7:30PM` ⭐ **[Jane Monheit Duo (with Max Haymer)](https://samfirstbar.com/events/jane-monheit-duo-with-max-haymer)** — Sam First, Westchester  
-  This is straight vocal-jazz classicism, not the house/techno lane at all, but Sam First is exactly the kind of tiny listening room where a Grammy-nominated voice like Monheit's earns bar-stool distance — a good change of pace, not a core pick.
-
-**Film**
-- `6:30pm` (Fri 7/24 +6 more) ⭐ 🆕 **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3885?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+odyssey%22+showtimes+Los+Angeles)
-
-**Comedy & stage**
-- `1pm` (Fri 7/24 +7 more) **[The Phantom of the Opera (Touring)](https://www.ticketmaster.com/the-phantom-of-the-opera-touring-los-angeles-california-07-25-2026/event/0B006383A5874803)** — Hollywood Pantages Theatre, Hollywood — *Saturday matinee at a loved venue, fine if you're around but not the marquee night.*
-
-**Elsewhere**
-- `8:30pm` (Fri 7/24 +3 more) **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPP)** — Festival of Arts Pageant of the Masters, Laguna Beach — *The living-tableaux art spectacle is a genuine only-in-SoCal thing worth doing once — this is the instance to flag out of a 29-night run.*
-
 ### Saturday · July 25
-Dinner at Yess in the Arts District sets you up close to DTLA — from there, Jeremy Sole's eclectic set at the Moroccan Lounge (9:30) is a good warmup before Certified Groovers' all-vinyl warehouse takes over at 11 and runs till 8am. <!-- tier3:blueprint 2026-07-25 -->
+*Dinner in DTLA, then straight into the Nick León all-nighter from 10 — dembow-and-dancehall-inflected techno till 4, ten minutes from home. No real reason to sequence anything else in front of it tonight.*
 
 **Electronic & dance**
-- `11pm-8am` ⭐ **[Certified Groovers: ARTUR & GILBERTO [all night long]](https://ra.co/events/2488322)** — TBA - Downtown Los Angeles, DTLA · $21 b4 12 / $30 · ↻ updated (price, start)
-- `9:30pm` 🆕 **[Le Frique Sonique Presents: Jeremy Sole - All Night Long](https://www.ticketmaster.com/event/090064F0DD4BF93B)** — The Moroccan Lounge (Los Angeles), Arts District · $21-32  
-  Jeremy Sole — KCRW DJ/host — 30+ years digging vinyl across house, Afro-Latin, funk and global grooves; runs the 'Bajo' residency at this same Airliner series. An eclectic, trustworthy selector rather than a straight house/techno headliner.
-- `9pm-3am` **[AXIS: Viaduct III - An Open Air Affair, with Tedd Patterson and Jack Faulkner](https://ra.co/events/2474845)** — TBA, Los Angeles · day party · $45 · ↻ updated (price, start)  
+- `10pm-4am` ⭐ **[CSW - Nick León [All Night]](https://ra.co/events/2475085)** — TBA - Downtown, DTLA · $33
+- `9:30pm` **[Le Frique Sonique Presents: Jeremy Sole - All Night Long](https://www.ticketmaster.com/event/090064F0DD4BF93B)** — The Moroccan Lounge (Los Angeles), Arts District · $21-32  
+  Jeremy Sole doing an open-to-close set is the good kind of gamble — decades of KCRW digging across house, Afro-Latin and funk means the set wanders wherever the crate takes him instead of sticking to one lane all night.
+- `9pm-3am` **[AXIS: Viaduct III - An Open Air Affair, with Tedd Patterson and Jack Faulkner](https://ra.co/events/2474845)** — TBA, Los Angeles · day party · $45  
   A 90s-NYC legend playing a secret open-air DTLA spot with the local guy who's been building this exact series for years — the $45 and not knowing the address till the week of is the whole appeal.
 - `11pm-8am` **[Julian's Celebration Station: Capes, Deep House Dad, Hazy, mad gavs, Rodney, Sky Rivers, tonytonytony, WHOS DEREK](https://ra.co/events/2491232)** — Better Tomorrow, Los Angeles · afters · $23.50-33.55  
-  Hazy — Recurring Sunday Sessions LA resident — vinyl-only house sets, a regular on the rotation at the series' open-airs.
+  Sensory Signal's Capes anchors an 11pm-to-8am crawl through tech-house and deep house with two of the Sunday Sessions vinyl crew mixed in — a real all-nighter, not a two-set party. Couldn't verify Rodney or tonytonytony beyond the bill.
 
 **Live music**
 - `time TBA` **[Joe Hisaishi presents Music Future](https://www.theford.com/events/performances/4855/2026-07-25/joe-hisaishi-presents-music-future)** — The Ford, Hollywood  
   Off the house/techno spine entirely, but Hisaishi conducting his own material outdoors at the Ford is a genuine event, not a category filler — go for the composer, not the format.
+
+**Film**
+- `6:30pm` (Sat 7/25 +5 more) ⭐ **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3885?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22the+odyssey%22+showtimes+Los+Angeles)
+
+**Comedy & stage**
+- `1pm` (Sat 7/25 +7 more) **[The Phantom of the Opera (Touring)](https://www.ticketmaster.com/the-phantom-of-the-opera-touring-los-angeles-california-07-25-2026/event/0B006383A5874803)** — Hollywood Pantages Theatre, Hollywood — *Saturday matinee at a loved venue, fine if you're around but not the marquee night.*
+
+- *Also:* [Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xvPJ) (Festival of Arts Pageant of the Masters)
 
 ### Sunday · July 26
 
 **Electronic & dance**
 - `7pm` ⭐ **[LA Phil KCRW Festival: Boris Brejcha with the Hollywood Bowl Orchestra](https://ra.co/events/2375675)** — Hollywood Bowl, Hollywood · big room · $18+
 - `2:30pm-7pm` **[Matcha and Groove 004: mad gavs, Nacocamellia, Xica Soul, Sara Kawai](https://ra.co/events/2492586)** — TBA - DoubleTree DTLA - Kyoto Garden, DTLA · day party · $15-25  
-  mad gavs — LA DJ/producer who cut her teeth on UCLA Radio — genuinely versatile across club, breaks, house, techno, jersey and jungle; part of the Lots of Practice label crew, has opened for A-Trak and Flava D.
+  A Japanese-garden rooftop day party with matcha and pottery on the side is a genuinely different afternoon than the usual TBA-warehouse listing, and Sara Kawai's harp-plus-DJ hybrid is a real reason the RA pick makes sense.
 
 **Live music**
 - `7pm` **[Wu Lyf](https://www.ticketmaster.com/wu-lyf-los-angeles-california-07-26-2026/event/090064C3EA438AA6)** — The Echo, Echo Park  
@@ -111,6 +83,8 @@ Dinner at Yess in the Arts District sets you up close to DTLA — from there, Je
 **Film**
 - `2pm` **[LA Filmforum: Films by Yoko Ono](https://dice.fm/event/6d82vq-la-filmforum-films-by-yoko-ono-26th-jul-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives, Historic Filipinotown  
   A rare big-screen outing for Ono's conceptual short films — this is the art-world Yoko, not the Beatles-adjacent one, and 2220 is exactly the room for it.
+
+- *Also:* [NIGHTSHIFT AFTER HOURS](https://ra.co/events/2491933) (The Lexington)
 
 ### Monday · July 27
 
@@ -152,7 +126,7 @@ Dinner at Yess in the Arts District sets you up close to DTLA — from there, Je
 **Electronic & dance**
 - `10pm-2am` **[Thursday HARDfest Pre-Party (Maceo Plex, Raxon, John Bryars)](https://ra.co/events/2479623)** — TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033, Los Angeles · $54+  
   A TBA-location afterhours pre-party for HARDfest with Maceo Plex on the bill is exactly the kind of thing worth staying up for — real techno pedigree, not festival filler.
-- `10pm-4am` **[Surface DIY with Samwise, Capes + Special Guest](https://ra.co/events/2493200)** — Better Tomorrow, Los Angeles · afters · $11 · ↻ updated (price, start) — *Unknown headliners on a DIY afterhours bill — no track record here to call the draw.*
+- `10pm-4am` **[Surface DIY with Samwise, Capes + Special Guest](https://ra.co/events/2493200)** — Better Tomorrow, Los Angeles · afters · $11 — *Unknown headliners on a DIY afterhours bill — no track record here to call the draw.*
 
 **Live music**
 - `8pm` **[Jackie-O Motherfucker, Syko Friend, Cockfighter](https://dice.fm/event/nv5kd3-jackie-o-motherfucker-syko-friend-cockfighter-30th-jul-zebulon-los-angeles-tickets)** — Zebulon, Frogtown  
@@ -163,15 +137,15 @@ Dinner at Yess in the Arts District sets you up close to DTLA — from there, Je
   The original Fast & Furious, 25 years on, at the Vista — pure popcorn nostalgia, and the Vista's the right room for it.
 
 ### Friday · July 31
-Sunset Sessions' rooftop groove at Level 8 (5pm) into lovetempo's warm disco set at the Airliner (8pm) is the sequenced move — or peel off for *Jackie Brown* at midnight at the New Bev if you want a change of pace. <!-- tier3:blueprint 2026-07-31 -->
+*Golden hour at Sunset Sessions from 5, then Audiojack's house-minimal set at the Spotlight by 10 — or peel off for Jackie Brown at midnight if you'd rather close the night with a movie than a dance floor.*
 
 **Electronic & dance**
-- `8pm-2am` **[Social Lovers & lovetempo with Xica Soul](https://ra.co/events/2487851)** — The Airliner, Lincoln Heights · $23 pre · ↻ updated (price, start)  
+- `8pm-2am` **[Social Lovers & lovetempo with Xica Soul](https://ra.co/events/2487851)** — The Airliner, Lincoln Heights · $23 pre  
   lovetempo is Mattie Safer (Poolside, The Rapture) doing a warm, disco-leaning solo project — real pedigree for a small bar night, and Xica Soul's soul/funk selection is a strong pairing.
-- `5pm` 🆕 **[SUNSET SESSIONS](https://ra.co/events/2497381)** — Level 8 DTLA, DTLA · day party  
-  Tamara Lanza — LA multi-genre DJ and Level 8 / Sunset Sessions regular — ranges disco house through deep and melodic; reliable rooftop-groove selector.
-- `10pm-2:30am` 🆕 **[Audiojack, Rozalesd](https://dice.fm/event/dkox2o-audiojack-31st-jul-the-spotlight-los-angeles-tickets)** — The Spotlight (Los Angeles) · $24.93  
-  Electronic set with Audiojack and Rozalesd at The Spotlight (10pm–2:30am).
+- `5pm` **[SUNSET SESSIONS](https://ra.co/events/2497381)** — Level 8 DTLA, DTLA · day party  
+  Same Sunset Sessions golden-hour slot as always, and SAAND's Tierra Sounds pedigree is a genuinely stronger name than most weeks this rotating-DJ series pulls.
+- `10pm-2:30am` **[Audiojack, Rozalesd](https://dice.fm/event/dkox2o-audiojack-31st-jul-the-spotlight-los-angeles-tickets)** — The Spotlight (Los Angeles) · $24.93  
+  Twenty years in, Audiojack's house-minimal-garage blend is still one of the more reliably groovy UK bookings to land in LA, with a close-to-home opener in Rozalesd.
 
 **Live music**
 - `9pm` **[Cannibal Ox "The Cold Vein" 25 Year Anniversary](https://www.ticketmaster.com/cannibal-ox-the-cold-vein-25-los-angeles-california-07-31-2026/event/0900647EEBE3DDEC)** — The Regent Theater, DTLA  
@@ -185,7 +159,7 @@ Sunset Sessions' rooftop groove at Level 8 (5pm) into lovetempo's warm disco set
 - `2pm` (Fri 7/31 + Sat 8/1) **[BalletNow](https://www.laphil.com/)** — Walt Disney Concert Hall, DTLA — *Matinee ballet at Disney Hall — low-priority category, but the room earns it a look; go this date over the sibling.*
 
 ### Saturday · August 1
-*The Odyssey* in 70mm at the Vista is the one to build the night around — go early, then either Kim Gordon at Pacific Electric (8pm) or Maccabi House's long day-into-night party at Yaanga Park (4pm-midnight) covers whichever mood you want after. <!-- tier3:blueprint 2026-08-01 -->
+*Kim Gordon at Pacific Electric, 8pm, is the pick if you want an actual show; Maccabi House's day-into-night at Yaanga Park is the all-day alternative if you'd rather pick one lane at 4pm and stay in it till midnight.*
 
 **Electronic & dance**
 - `4pm-12am` ⭐ **[Maccabi House La Feat. Adam Ten, Mita Gami, Mary Jane, The Botanist](https://ra.co/events/2430255)** — TBA - YAANGA PARK, Los Angeles · day party · $79 b4 6 / $99.40-233.90  
@@ -254,8 +228,8 @@ Sunset Sessions' rooftop groove at Level 8 (5pm) into lovetempo's warm disco set
 ### Thursday · August 6
 
 **Electronic & dance**
-- `7:30pm` **[RÜFÜS DU SOL NORTH AMERICA 2026](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-06-2026/event/0900644BFCB72440)** — Kia Forum, Inglewood · big room  
-  Ben Böhmer — German producer on Anjunadeep — melodic/progressive house, tours with a live band rather than just decks; same Anjuna-orbit lane as Lane 8 and Yotto, a genuinely good opener for this bill.
+- `7:30pm` (Thu 8/6 + Fri 8/7) ⭐ **[RÜFÜS DU SOL NORTH AMERICA 2026](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-07-2026/event/09006455E5DFE35A)** — Kia Forum, Inglewood · big room · $90+  
+  This is the arena tour, not a club night, but Rüfüs is a tracked name for a reason and Ben Böhmer's live Anjunadeep set is worth showing up on time for.
 
 **Live music**
 - `7pm` **[Yard Act](https://www.ticketmaster.com/yard-act-los-angeles-california-08-06-2026/event/0900648FD10BA40A)** — Teragram Ballroom, Westlake  
@@ -265,81 +239,107 @@ Sunset Sessions' rooftop groove at Level 8 (5pm) into lovetempo's warm disco set
 - `7:30pm` **[Taxi Driver](https://ticketing.uswest.veezi.com/purchase/4852?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — New Beverly Cinema, Fairfax · [more LA showtimes](https://www.google.com/search?q=%22taxi+driver%22+showtimes+Los+Angeles)  
   Taxi Driver at New Beverly Cinema (7:30pm).
 
+### Friday · August 7
+*Sunset Sessions at 5 again, then decide by 11 between Lights Down Low's dh2 takeover (Nikki Nair's the draw) or INCOGNITO's warehouse booking with Mha iri — same neighborhood, different flavor of techno.*
+
+**Electronic & dance**
+- `5pm` **[SUNSET SESSIONS presents: 'GOOD GIRL' Release Party](https://ra.co/events/2497272)** — Level 8 DTLA, DTLA · day party  
+  This is the actual weekly Sunset Sessions night at Level 8 that keeps coming up as a favorite — a 5pm start means real golden-hour light over DTLA, and Tamara Lanza's return is the reliability signal here even without a read on David Paul.
+- `11pm-5am` **[Lights Down Low Feat. Dh2 Takeover - Nikki Nair, George Daniel, 2 Dogs](https://ra.co/events/2474579)** — TBA - Downtown Los Angeles, DTLA · $23.20-34.90  
+  A whole night built around George Daniel's dh2 label rather than one big headliner — Nikki Nair is the genuinely interesting booking on paper, hard to pin to one genre, and worth catching before the inevitable early-morning comedown set.
+- `11pm` **[INCOGNITO presents 360° with Tauceti (FR) & Mha iri (UK)](https://ra.co/events/2480231)** — TBA - Los Angeles (Warehouse), Los Angeles  
+  Mha iri's Drumcode pedigree is the real signal here — a proper warehouse booking from a promoter that's been quietly building LA's underground techno scene for a decade.
+
+**Live music**
+- `7pm` **[rocknite.la - J'cuuzi, Salt, 3371](https://dice.fm/event/53mw78-rocknitela-jcuuzi-salt-3371-7th-aug-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood  
+  A scrappy DIY community-booked bill at Gold Diggers — right lane (small-room bands over another DJ set) but unproven, low-stakes names; go if you want the discovery angle, skip if you want a sure thing.
+
+**Film**
+- `10pm` 🆕 **[Twin Peaks: The Original Mystery – Episodes 7 + 8](https://vidiotsfoundation.org/showtimes/twin-peaks-the-original-mystery-episodes-7-8-8-7-26-1000-pm/)** — Vidiots, Eagle Rock · [more LA showtimes](https://www.google.com/search?q=%22twin+peaks+the+original+mystery+episodes+7+8%22+showtimes+Los+Angeles)  
+  Twin Peaks episodes 7-8 screening at Vidiots in Eagle Rock (10pm).
+
 ## Weekends ahead
 
 ### Weekend of Fri 8/7
 - `Sat 8/8` ⭐ **[Take it Outside](https://ra.co/events/2475830)** — The Bridge, DTLA — *Lovefingers and Heidi Lawden are DJ Harvey's own collaborators running ESP Institute's Balearic/disco lineage — this is the deep-crate rooftop-groove day-into-night you build a Saturday around.*
-- `Fri 8/7` (+1 more date) ⭐ **[RÜFÜS DU SOL NORTH AMERICA 2026](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-07-2026/event/09006455E5DFE35A)** — Kia Forum, Inglewood · big room · $90+ · ↻ updated (price, start) — *RÜFÜS DU SOL is a tracked artist and Ben Böhmer's Anjunadeep melodic-house set is a genuinely good opener — the mainstream-arena-fun-counts-too pick of the week.*
-- `Fri 8/7` 🆕 **[SUNSET SESSIONS presents: 'GOOD GIRL' Release Party](https://ra.co/events/2497272)** — Level 8 DTLA, DTLA · day party — *This is the Sunset Sessions rooftop-groove format you specifically love, and Tamara Lanza is a real Level 8 house/disco-into-melodic regular, not a fill-in.*
-- `Fri 8/7` **[Lights Down Low Feat. Dh2 Takeover - Nikki Nair, George Daniel, 2 Dogs](https://ra.co/events/2474579)** — TBA - Downtown Los Angeles, DTLA · $23.20-34.90 — *Nikki Nair is a real one — Dirtybird/Lobster Theremin, Underground Resistance-mentored, genuinely genre-scrambling — and George Daniel's dh2 project is a legit crate-digger side hustle, not a celebrity vanity booking. TBA warehouse afterhours is exactly the format you chase.*
-- *…plus 11 more that weekend — full list: [weekend digest](weekends/2026-08-07.md)*
+- `Sat 8/8` **[EMBRZ at Harbor House Rooftop](https://ra.co/events/2410366)** — Harbor House DTLA, DTLA · day party · $24 b4 6 / $30+ · ↻ updated (price, start) — *Sunset rooftop melodic house from a This Never Happened (Lane 8's label) signee — downtempo and vocal-forward rather than peak-time, right in the golden-hour lane you keep chasing.*
+- `Sun 8/9` **[Dialogue: Shonky (extended set) - Day Party](https://ra.co/events/2425220)** — The Bridge, DTLA · day party — *Shonky's a third of Apollonia — groovy, stripped-back house exactly in your lane, and an extended day-party set is the format that suits him.*
+- `Sat 8/8` **[Strange Case with Windows & Eighth Ball](https://www.ticketmaster.com/strange-case-los-angeles-california-08-08-2026/event/090064CF0291E197)** — The Echo, Echo Park — *Rock trio headlining The Echo — another one of the named small-venue rock rooms, and the live-band lane needs surfacing per your own feedback note.*
+- *…plus 8 more that weekend — full list: [weekend digest](weekends/2026-08-07.md)*
 
 ### Weekend of Fri 8/14
 - `Fri 8/14` ⭐ **[Moodymann and DJ Rashida Play Prince](https://www.ticketmaster.com/moodymann-and-dj-rashida-play-prince-los-angeles-california-08-14-2026/event/090064BA38058214)** — The Regent Theater, DTLA — *Tracked deep-house legend Moodymann plus DJ Rashida, who was literally Prince's touring DJ, doing a full all-Prince set at a real theater — a one-off pairing the flat 6 score badly undersells.*
 - `Fri 8/14` ⭐ **[WORK x SKULLDUGGERY present: Alan Fitzpatrick, Anastasia Giovani, & Greg Downey](https://ra.co/events/2470130)** — TBA - Los Angeles, Los Angeles — *Alan Fitzpatrick tours the same circuit as Adam Beyer and Charlotte de Witte — a legit European techno headliner at a warehouse, which the TBA-location listing badly undersells.*
 - `Sun 8/16` ⭐ **[Subtract On The Pier Finale - Danny Tenaglia](https://ra.co/events/2479911)** — Belmont Veterans Memorial Pier, Los Angeles · day party — *Danny Tenaglia is a legit house/techno legend and this is the closing party of a genuinely respected SoCal deep-house day-party series — open-air, groove-heavy, exactly the lane, and the score badly underrates it at a 3.*
-- `Sat 8/15` **[FLOAT Rooftop Pool Party feat. Massane [2-8 PM]](https://ra.co/events/2449788)** — Level 8 DTLA, DTLA · day party · $30.73 — *Massane records on Lane 8's own label and sits right in the Lane 8/Yotto lane you track — daytime rooftop pool party nails the setting boost too.*
-- *…plus 17 more that weekend — full list: [weekend digest](weekends/2026-08-14.md)*
+- `Thu 8/13` ⭐ **[RÜFÜS DU SOL NORTH AMERICA 2026](https://www.ticketmaster.com/rufus-du-sol-north-america-2026-inglewood-california-08-13-2026/event/09006455E5F7E3C2)** — Kia Forum, Inglewood · big venue — *Closing night of the Forum run for a tracked act you're explicitly into with Ben Böhmer (Anjunadeep) opening - the one night from this stand to actually go.*
+- *…plus 18 more that weekend — full list: [weekend digest](weekends/2026-08-14.md)*
 
 ### Weekend of Fri 8/21
 - `Fri 8/21` ⭐ **[INCOGNITO and Dirty Epic present: Further with DJ Bone, Stacey Hotwaxx Hale & Mapamota](https://ra.co/events/2492445)** — TBA, Los Angeles — *DJ Bone and Stacey Hotwaxx Hale are Detroit techno/house royalty, the same lineage as the Moodymann/Theo Parrish names you track, at a TBA warehouse — build the Friday around this.*
-- `Fri 8/21` **[Royal Coda](https://www.ticketmaster.com/royal-coda-los-angeles-california-08-21-2026/event/090064A60FCF39BA)** — Teragram Ballroom, Westlake — *Teragram's one of your named indie-rock rooms and this is a full local bill — the score only gave it generic 'music' credit, not the venue match it deserves.*
-- `Sat 8/22` **[FLOAT Rooftop Pool Party feat. Durante [2-8 PM]](https://ra.co/events/2480989)** — Level 8 DTLA, DTLA · day party · $30.73
-- `Sat 8/22` **[Mutate: Oguz](https://ra.co/events/2461046)** — Exchange LA, DTLA · big room
-- *…plus 12 more that weekend — full list: [weekend digest](weekends/2026-08-21.md)*
+- `Sat 8/22` ⭐ **[RE/FORM presents Trip To Galaxy: Joris Voorn, LUIS MIRANDA, & Materielle](https://ra.co/events/2474930)** — TBA - Los Angeles, Los Angeles — *Joris Voorn is a legit international house/techno headliner — a TBA warehouse setting is exactly the night to build the weekend around.*
+- `Sat 8/22` ⭐ **[Just Like Heaven Festival](https://www.axs.com/events/1337483/just-like-heaven-2026-tickets)** — Brookside at the Rose Bowl, Pasadena · big venue — *LCD Soundsystem, The Strokes, Chromeo, The Rapture, and A Club Called Rhonda on one bill is a disco/dance-rock stack the flat score badly undersells — this is the festival to build the day around.*
+- `Sat 8/22` **[FLOAT Rooftop Pool Party feat. Durante [2-8 PM]](https://ra.co/events/2480989)** — Level 8 DTLA, DTLA · day party · $30.73 — *Durante's on Anjunadeep proper (same orbit as Lane 8/Yotto, actual collabs with Amtrac), and a rooftop pool day party is exactly the daytime groove setting you go for.*
+- *…plus 14 more that weekend — full list: [weekend digest](weekends/2026-08-21.md)*
 
 ### Weekend of Fri 8/28
+- `Sat 8/29` **[Blonde Ransom](https://ticketing.uswest.veezi.com/purchase/3906?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [more LA showtimes](https://www.google.com/search?q=%22blonde+ransom%22+showtimes+Los+Angeles)
+- `Sat 8/29` **[Chai Rave LA: ON THE ROOFTOP at LEVEL8 ON AUG 29TH! (ONE YEAR ANNIVERSARY!)](https://ra.co/events/2480635)** — Level 8 DTLA, DTLA · day party
 - `Fri 8/28` **[WORK Harder presents: RIKHTER [4 HR Set] & EMILIANA](https://ra.co/events/2484883)** — TBA - Los Angeles, Los Angeles
 - `Fri 8/28` **[FEA](https://ra.co/events/2477989)** — The Redwood Bar And Grill, DTLA
-- `Thu 8/27` **[The Ian Fays](https://ra.co/events/2493176)** — The Redwood Bar And Grill, DTLA
-- `Fri 8/28` **[Brad Mehldau: Ride Into The Sun - The Music Of Elliott Smith](https://www.ticketmaster.com/brad-mehldau-ride-into-the-sun-los-angeles-california-08-28-2026/event/0900646A870B520F)** — Orpheum Theatre, DTLA · big venue
-- *…plus 3 more that weekend — full list: [weekend digest](weekends/2026-08-28.md)*
+- *…plus 7 more that weekend — full list: [weekend digest](weekends/2026-08-28.md)*
 
 ## Around town
 
 *Notable around the city — not ranked to taste; here so you stay apprised.*
-- `Fri 7/24` **[Smokey Robinson & Gladys Knight: Just the Two of Us](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue* <!-- tier3:gloss b1cc3aabc211 -->
-- `Fri 7/24` **[Groovers Ball: 3 YEAR ANNIVERSRY (ft. Dance Maniacs, DJ LIGMA, & Oscar Osorio)](https://ra.co/events/2463430)** — Homage Brewing · Pomona  ·  *editorial* <!-- tier3:gloss 10a67894d0e4 -->
-- `Fri 7/24` **[Widespread Panic](https://www.ticketmaster.com/widespread-panic-los-angeles-california-07-24-2026/event/0900646CA6AD9272)** — Orpheum Theatre · DTLA  ·  *editorial* <!-- tier3:gloss f870e8caec0c -->
-- `Fri 7/24` **[Parts & Labor, HLLLYH, Molly Horses](https://dice.fm/event/eomgyd-parts-labor-hlllyh-molly-horses-24th-jul-zebulon-los-angeles-tickets)** — Zebulon · Frogtown  ·  *editorial* <!-- tier3:gloss 08f6322b23b5 -->
-- `Sat 7/25` **[Smokey Robinson w/ Gladys Knight](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue* <!-- tier3:gloss 70290d18de29 -->
-- `Sat 7/25` **LAFC vs. Sporting Kansas City** — BMO Stadium · Exposition Park  ·  *editorial, big-venue* <!-- tier3:gloss 493700d4eadb -->
-- `Sat 7/25` **[Darude](https://avalonhollywood.com/event/darude-nightclub-near-me-discover-avalon-hollywood-2026-july-25-best-night-club-near-me-los-angeles/)** — Avalon Hollywood · Hollywood  ·  *editorial* <!-- tier3:gloss c0280e879181 -->
-- `Sat 7/25` **Edward Scissorhands** — Hollywood Forever Cemetery · Hollywood  ·  *editorial* <!-- tier3:gloss 440ecb2c9abc -->
-- `Fri 7/31` **[Fri HARDfest Pre-Party (Live From Earth: underscores (DJ Set), MCR-T, Anetha, deBasement, umru)](https://ra.co/events/2479696)** — TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033 · Los Angeles  ·  *festival* <!-- tier3:gloss dffdf5e28846 -->
-- `Sat 8/1` **[HARD Summer Music Festival](https://on.fgtix.com/trk/5oHm)** — Hollywood Park Grounds · Inglewood  ·  *festival, Amelie Lens,Charlotte de Witte* <!-- tier3:gloss 4dd13aaa260f -->
-- `Sat 8/1` **[Heat Advisory: Day One Festival Afters](https://posh.vip/e/heat-advisory-day-one-festival-afters)** — TBA (DTLA/Los Angeles) · DTLA  ·  *festival* <!-- tier3:gloss 3f31098f9532 -->
-- `Sun 8/2` **[Heat Advisory: Day Two Festival Afters](https://posh.vip/e/heat-advisory-day-two-festival-afters)** — TBA (DTLA/Los Angeles) · DTLA  ·  *festival* <!-- tier3:gloss 463b19e803f8 -->
+- `Sat 7/25` **[Smokey Robinson w/ Gladys Knight](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue* — Motown royalty, off-lane but a real citywide draw this weekend.
+- `Sat 7/25` **LAFC vs. Sporting Kansas City** — BMO Stadium · Exposition Park  ·  *editorial, big-venue*
+- `Sat 7/25` **[Darude](https://avalonhollywood.com/event/darude-nightclub-near-me-discover-avalon-hollywood-2026-july-25-best-night-club-near-me-los-angeles/)** — Avalon Hollywood · Hollywood  ·  *editorial* — Sandstorm-era trance nostalgia, big-room not the lane.
+- `Sat 7/25` **[Widespread Panic](https://www.ticketmaster.com/widespread-panic-los-angeles-california-07-25-2026/event/0900646CA6B0927E)** — Orpheum Theatre · DTLA  ·  *editorial* — Jam-band residency, off-lane but the Orpheum's a real room and this is a citywide moment.
+- `Sat 7/25` **Edward Scissorhands** — Hollywood Forever Cemetery · Hollywood  ·  *editorial* — Tim Burton screening in the cemetery series; the outdoor setting is the whole appeal.
+- `Sat 7/25` **[BeeHive Block Party](https://www.universe.com/Beehiveblockparty2026)** — The Beehive · Los Angeles  ·  *festival*
+- `Fri 7/31` **[Fri HARDfest Pre-Party (Live From Earth: underscores (DJ Set), MCR-T, Anetha, deBasement, umru)](https://ra.co/events/2479696)** — TBA - Mission Four (Ace*Mission Studios) 550 S Mission Rd, Los Angeles, CA 90033 · Los Angeles  ·  *festival*
+- `Sat 8/1` **[HARD Summer Music Festival](https://on.fgtix.com/trk/5oHm)** — Hollywood Park Grounds · Inglewood  ·  *festival, Amelie Lens,Charlotte de Witte* — Both tracked names anchor the mainstream festival stage if the big-room scale doesn't put you off.
+- `Sat 8/1` **[Heat Advisory: Day One Festival Afters](https://posh.vip/e/heat-advisory-day-one-festival-afters)** — TBA (DTLA/Los Angeles) · DTLA  ·  *festival*
+- `Sun 8/2` **[Heat Advisory: Day Two Festival Afters](https://posh.vip/e/heat-advisory-day-two-festival-afters)** — TBA (DTLA/Los Angeles) · DTLA  ·  *festival*
+- `Fri 8/7` **[The Windgrease Festival: Full Festival Passes](https://dice.fm/event/dkdgpe-the-windgrease-festival-full-festival-passes-7th-aug-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives · Historic Filipinotown  ·  *festival*
+- `Fri 8/7` **[Windgrease Festival: Windgreasers Vocal Sextet](https://dice.fm/event/wwmkdn-windgrease-festival-windgreasers-vocal-sextet-7th-aug-2220-arts-archives-los-angeles-tickets)** — 2220 Arts + Archives · Historic Filipinotown  ·  *festival*
 
 ## On the radar
 
 
 **August 2026**
-- `Fri 8/28` **[BKOfest Presents: Underground Rager 2026 (Day 2)](https://www.songkick.com/festivals/3795968-bkofest-presents-underground-rager/id/43320958-bkofest-presents-underground-rager-2026)** — Harvard & Stone · East Hollywood  ·  *festival* <!-- tier3:gloss  -->
-- `Sat 8/29` **[Verizon offer - Daisy Chain Fields](https://www.daisychainfields.com/tickets)** — Great Park Live · Irvine  ·  *festival* <!-- tier3:gloss  -->
-- `Sat 8/29` **[Biergarten Blues Festival](https://www.universe.com/events/biergarten-blues-festival-tickets-YVZ36T?ref=ticketmaster)** — The Biergarten at Old World HB · Huntington Beach  ·  *festival* <!-- tier3:gloss  -->
+- `Sat 8/29` **[Verizon offer - Daisy Chain Fields](https://www.daisychainfields.com/tickets)** — Great Park Live · Irvine  ·  *festival* — Olivia Rodrigo's new all-women festival — off-lane, see the watch-list below for the full pitch.
+- `Sat 8/29` **[Biergarten Blues Festival](https://www.universe.com/events/biergarten-blues-festival-tickets-YVZ36T?ref=ticketmaster)** — The Biergarten at Old World HB · Huntington Beach  ·  *festival*
 
 **September 2026**
-- `Sat 9/5` **[Hypnotique Presents: Sway Festival - 2 DAY PASS](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE)** — Teragram Ballroom · Westlake  ·  *festival* <!-- tier3:gloss  -->
-- `Sun 9/6` **[Hypnotique Presents: Sway Festival - DAY 2](https://www.ticketmaster.com/hypnotique-presents-sway-festival-day-2-los-angeles-california-09-06-2026/event/090064C8A6207A7D)** — Teragram Ballroom · Westlake  ·  *festival* <!-- tier3:gloss  -->
-- `Fri 9/11` **[Cold Waves 2-Day (9/11/26-9/12/26)](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76)** — Pacific Electric · DTLA  ·  *festival* <!-- tier3:gloss  -->
-- `Sat 9/19` **[Âme, DJ Tennis, Kaz James - Chinatown Block Party](https://ra.co/events/2487802)** — Gin Ling Way, Chinatown · Chinatown  ·  *festival* <!-- tier3:gloss  -->
-- `Sat 9/19` **[Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustBowlChampion](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA)** — Echoplex · Echo Park  ·  *festival* <!-- tier3:gloss  -->
-- `Sat 9/19` **[AFI](https://www.ticketmaster.com/afi-santa-ana-california-09-19-2026/event/09006494A5578640)** — Observatory Festival Grounds · Santa Ana  ·  *festival* <!-- tier3:gloss  -->
-- `Thu 9/24` **[Laurie Anderson](https://www.ticketmaster.com/laurie-anderson-los-angeles-california-09-24-2026/event/090064CAD9E9F3B2)** — Orpheum Theatre · DTLA  ·  *festival* <!-- tier3:gloss  -->
-- `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono* <!-- tier3:gloss  -->
-- `Sat 9/26` **[Ocean Way Festival - 09/26 Saturday](https://www.axs.com/events/1459419/ocean-way-festival-tickets)** — The Beach at Santa Monica · Santa Monica  ·  *festival, DJ Harvey* <!-- tier3:gloss  -->
-- `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park · DTLA  ·  *Amelie Lens* <!-- tier3:gloss  -->
+- `Sat 9/5` **[Hypnotique Presents: Sway Festival - 2 DAY PASS](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE)** — Teragram Ballroom · Westlake  ·  *festival*
+- `Sun 9/6` **[Hypnotique Presents: Sway Festival - DAY 2](https://www.ticketmaster.com/hypnotique-presents-sway-festival-day-2-los-angeles-california-09-06-2026/event/090064C8A6207A7D)** — Teragram Ballroom · Westlake  ·  *festival*
+- `Fri 9/11` **[Cold Waves 2-Day (9/11/26-9/12/26)](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76)** — Pacific Electric · DTLA  ·  *festival*
+- `Sat 9/19` **[Âme, DJ Tennis, Kaz James - Chinatown Block Party](https://ra.co/events/2487802)** — Gin Ling Way, Chinatown · Chinatown  ·  *festival* — Âme (Innervisions, tracked) headlining a street party — the one on this list actually worth planning around.
+- `Sat 9/19` **[Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustBowlChampion](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA)** — Echoplex · Echo Park  ·  *festival*
+- `Sat 9/19` **[AFI](https://www.ticketmaster.com/afi-santa-ana-california-09-19-2026/event/09006494A5578640)** — Observatory Festival Grounds · Santa Ana  ·  *festival*
+- `Thu 9/24` **[Laurie Anderson](https://www.ticketmaster.com/laurie-anderson-los-angeles-california-09-24-2026/event/090064CAD9E9F3B2)** — Orpheum Theatre · DTLA  ·  *festival* — Avant-garde legend, not a dance night but a genuine one-off.
+- `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono* — Tracked act, one of the better electronic-adjacent bookings on the calendar this fall.
+- `Fri 9/25` **[Ohana Music Festival](https://on.fgtix.com/trk/ycJM)** — Doheny State Beach · Dana Point  ·  *festival*
+- `Sat 9/26` **[Ocean Way Festival - 09/26 Saturday](https://www.axs.com/events/1459419/ocean-way-festival-tickets)** — The Beach at Santa Monica · Santa Monica  ·  *festival, DJ Harvey* — DJ Harvey (tracked) is the reason to actually watch this one.
+- `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park · DTLA  ·  *Amelie Lens* — Amelie Lens (tracked); same booking flagged as a weekend top pick above.
 
 **October 2026**
-- `Fri 10/9` **[Parrotfish](https://www.ticketmaster.com/parrotfish-los-angeles-california-10-09-2026/event/090064E905D61695)** — The Moroccan Lounge · Arts District  ·  *festival* <!-- tier3:gloss  -->
-- `Sat 10/31` **[THE MAZE Halloween: Arts District Block Party](https://ra.co/events/2491883)** — TBA - Arts District Los Angeles · Arts District  ·  *festival* <!-- tier3:gloss  -->
+- `Fri 10/9` **[Parrotfish](https://www.ticketmaster.com/parrotfish-los-angeles-california-10-09-2026/event/090064E905D61695)** — The Moroccan Lounge · Arts District  ·  *festival*
+- `Sat 10/31` **[THE MAZE Halloween: Arts District Block Party](https://ra.co/events/2491883)** — TBA - Arts District Los Angeles · Arts District  ·  *festival*
 
 **November 2026**
-- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* <!-- tier3:gloss  -->
-- `Thu 11/12` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4)** — The Wiltern · Koreatown  ·  *Bonobo* <!-- tier3:gloss  -->
-- `Sun 11/22` **[Three Days Grace - Alienation Tour ](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0)** — Intuit Dome · Inglewood  ·  *festival, big-venue* <!-- tier3:gloss  -->
+- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* — Bonobo (tracked), two Wiltern nights same tour — go whichever works.
+- `Thu 11/12` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4)** — The Wiltern · Koreatown  ·  *Bonobo*
+- `Sun 11/22` **[Three Days Grace - Alienation Tour ](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0)** — Intuit Dome · Inglewood  ·  *festival, big-venue*
+
+**The watch-list** — *festivals worth planning around*
+- **[Outside Lands 2026](https://www.sfoutsidelands.com/)** — 8/7–09 · Golden Gate Park, San Francisco · **on sale** — Rüfüs Du Sol + The xx headline the on-taste end; Charli xcx, The Strokes, Turnstile, Empire of the Sun broaden it. ~2 months out, travel weekend. 3-day GA from ~$569.
+- **[Daisy Chain Fields (Olivia Rodrigo)](https://www.daisychainfields.com/tickets)** — 8/29 · Great Park Live, Irvine (OC — ~45 mi, worth the drive) · **announced** — Olivia Rodrigo's first festival — a one-day, all-women lineup (Chappell Roan, Doechii, Mitski, The Breeders, Bikini Kill, Garbage, Santigold + special guests Stevie Nicks, Karen O, Sarah McLachlan), 100% of net proceeds to women/girls nonprofits. Off the core house/techno lane, but a marquee must-know — and squarely on-taste for the Lori profile (she tracks Olivia Rodrigo + Mitski). Tickets via Front Gate; from $250.
+- **[CRSSD Festival — Fall 2026](https://www.crssdfest.com/)** — 9/26–27 · Waterfront Park, San Diego · **on sale** — SD is a drive, but this is festival-tier and on-taste — Disclosure, Chris Lake, Groove Armada (DJ set), Helena Hauff, Ben UFO, I Hate Models, Mathame, Carlita, salute. House/ techno/melodic, European lean, waterfront, 21+. NOTE: same weekend as Portola (SF) — can't do both; pick one.
+- **[Portola 2026](https://www.portolamusicfestival.com/)** — 9/26–27 · Pier 80, San Francisco · **on sale** — THE one for you — electronic-forward with DESPACIO (James Murphy + 2ManyDJs sound system), Four Tet, Soulwax, Groove Armada, DJ Shadow, Fatboy Slim, Skepta, plus Robyn, Tiësto, Swedish House Mafia. European/house energy in a warehouse-pier setting. 2-day ~$380.
+- **[Coachella 2027](https://www.coachella.com/)** — 4/9–11 and 4/16–18 · Empire Polo Club, Indio CA · **lineup pending** — Advance GA already sold out (~$549–599); lineup typically drops Sept 2026–Jan 2027. Worth tracking the lineup announce to decide if a resale is worth it.
 
 ---
 > ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
-*⚠️ Stale sources (not refreshed — these events may be out of date): posh 9d (21 events), ticketmaster 8d (2143 events), alvas 8d (25 events), venicewest 3d (68 events), harvelles 3d (32 events)*
+*⚠️ Stale sources (not refreshed — these events may be out of date): ticketmaster 9d (2111 events), alvas 9d (24 events), venicewest 4d (66 events), harvelles 4d (32 events), webfetch 3d (207 events)*
