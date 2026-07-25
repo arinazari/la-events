@@ -287,6 +287,26 @@
       </section>
       </sc-if>
 
+      <!-- NOW RUNNING — long runs & seasons: in town for a while, not one-night picks -->
+      <sc-if value="{{ hasNowRunning }}" hint-placeholder-val="{{ false }}">
+      <section style="margin-bottom:24px;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px;">
+          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Now running</span>
+          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">runs & seasons — in town for a while</span>
+        </div>
+        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
+          <sc-for list="{{ nowRunning }}" as="r" hint-placeholder-count="4">
+            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
+              <span style="flex:0 0 96px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
+              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
+              <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
+              <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color:#1f7a4d; background:rgba(31,122,77,0.1);">{{ r.tag }}</span></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      </sc-if>
+
       <!-- ON THE RADAR -->
       <sc-if value="{{ hasRadar }}" hint-placeholder-val="{{ false }}">
       <section style="margin-bottom:24px;">
@@ -565,17 +585,25 @@
           </sc-for>
         </div>
       </sc-if>
+      <!-- ALL DATES — the run's showtimes board: every remaining night a chip to that night's
+           tickets, grouped by theater for cross-venue programs; a constant curtain time lives
+           in the header, mixed times ride the chips; sold-out nights dimmed. -->
       <sc-if value="{{ detail.hasSeries }}" hint-placeholder-val="{{ false }}">
         <div style="margin-top:16px;">
-          <div style="font:800 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin-bottom:8px;">ALSO SHOWING</div>
-          <div style="display:flex; flex-wrap:wrap; gap:6px;">
-            <sc-for list="{{ detail.seriesChipRows }}" as="sd" hint-placeholder-count="4">
-              <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:3px; text-decoration: {{ sd.deco }};" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ sd.label }}</a>
-            </sc-for>
-            <sc-if value="{{ detail.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
-              <span style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; color:#a7a59b;">{{ detail.seriesMore }}</span>
+          <div style="font:800 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin-bottom:8px;">ALL DATES{{ detail.seriesHead }}</div>
+          <sc-for list="{{ detail.seriesGroups }}" as="sgr" hint-placeholder-count="1">
+            <sc-if value="{{ sgr.hasVenue }}" hint-placeholder-val="{{ false }}">
+              <div style="margin:7px 0 5px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ sgr.venue }}</div>
             </sc-if>
-          </div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:4px;">
+              <sc-for list="{{ sgr.chips }}" as="sd" hint-placeholder-count="6">
+                <a href="{{ sd.url }}" target="_blank" rel="noopener" onClick="{{ sd.stop }}" title="{{ sd.title }}" style="font:500 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; border:1px solid {{ sd.border }}; color: {{ sd.color }}; border-radius:3px; text-decoration: {{ sd.deco }}; white-space:nowrap;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ sd.label }}</a>
+              </sc-for>
+            </div>
+          </sc-for>
+          <sc-if value="{{ detail.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
+            <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ detail.seriesMore }}</span>
+          </sc-if>
         </div>
       </sc-if>
 
@@ -1436,20 +1464,48 @@ class Component extends DCLogic {
     if (e.showtimesUrl) out.push({ label: 'All LA showtimes', url: e.showtimesUrl });
     return { buttons: out.slice(0, 6), showtimes: [...groups].map(g => ({ venue: g[0], times: g[1] })) };
   }
-  SERIES_CHIP_MAX = 10;
-  seriesChips(e) {
-    if (!e.series || !(e.series.entries || []).length) return { chips: [], more: '' };
+  // Run span for a series card — the PROGRAM's dates, not its rep night: {span, count} like
+  // ("Thru Sun Sep 6", "12 nights"), or null for one-nighters/same-day programs. Span is over
+  // the REMAINING nights (series summaries cover upcoming members only), so a closing run's
+  // label tightens honestly as it winds down.
+  runLabel(e) {
+    const s = e.series;
+    if (!(s && s.count > 1 && s.first && s.last && s.first !== s.last)) return null;
+    const lf = this.fmt(s.first, ''), ll = this.fmt(s.last, '');
+    const unit = (s.venues || []).length > 1 ? 'showings' : 'nights';
+    const span = s.first <= this.TODAY ? 'Thru ' + ll.wd + ' ' + ll.md
+      : lf.md + ' – ' + ll.md;
+    return { span, count: s.count + ' ' + unit };
+  }
+  // The movie-theater board for a series detail: every remaining night as a date chip linking
+  // to that night's tickets, grouped by venue when the program spans theaters. Times ride the
+  // chips only when they VARY — a constant curtain time collapses into the section header
+  // ("all shows 8:00 PM"), so a uniform theater run reads as pure dates while a rep-cinema
+  // program with matinees teases its screenings apart. Sold-out nights stay listed, dimmed.
+  BOARD_CHIP_MAX = 24;
+  seriesBoard(e) {
+    const none = { groups: [], head: '', more: '' };
+    if (!e.series || (e.series.entries || []).length < 2) return none;
+    const entries = e.series.entries.filter(en => en.date >= this.TODAY);
+    if (entries.length < 2) return none;
+    const times = new Set(entries.map(en => en.start || ''));
+    const uniform = times.size === 1 && !times.has('');
+    const head = uniform ? 'all shows ' + this.fmt(entries[0].date, entries[0].start).t : '';
     const multiVenue = (e.series.venues || []).length > 1;
-    const others = e.series.entries.filter(en => !(en.date === e.iso && en.venue === e.venue));
-    const chips = [];
-    for (const en of others.slice(0, this.SERIES_CHIP_MAX)) {
-      let label = this.labelISO(en.date);
-      if (multiVenue && en.venue) label += ' · ' + en.venue;
-      if (en.sold_out) label += ' · sold out';
-      chips.push({ label, url: en.url || e.showtimesUrl || e.url || '#', dim: !!en.sold_out });
+    const shown = entries.slice(0, this.BOARD_CHIP_MAX);
+    const byVenue = new Map();
+    for (const en of shown) {
+      const v = multiVenue ? this.venueDisplay(en.venue || '') : '';
+      if (!byVenue.has(v)) byVenue.set(v, []);
+      const f = this.fmt(en.date, en.start);
+      byVenue.get(v).push({
+        label: f.wd + ' ' + f.md + (!uniform && en.start ? ' · ' + f.t : ''),
+        url: en.url || e.showtimesUrl || e.url || '#', dim: !!en.sold_out,
+      });
     }
-    const extra = others.length - chips.length;
-    return { chips, more: extra > 0 ? '+' + extra + ' more dates' : '' };
+    const extra = entries.length - shown.length;
+    return { head, groups: [...byVenue].map(g => ({ venue: g[0], chips: g[1] })),
+             more: extra > 0 ? '+' + extra + ' more dates' : '' };
   }
   // Venue LINK label: strip an RA-style address tail; the full string stays in the maps query.
   venueDisplay(v) {
@@ -1512,8 +1568,13 @@ class Component extends DCLogic {
     const f = this.fmt(e.iso, e.time);
     const isToday = e.iso===this.TODAY;
     const tags = this.tagsFor(e);
+    // A series card wears the RUN, not its rep night ("Thru Sun Sep 6 · 12 nights") — the
+    // card stands for the whole program on ranked surfaces; per-night detail lives in the
+    // detail modal's ALL DATES board.
+    const run = this.runLabel(e);
     return {
-      id:e.id, when:(isToday?'Tonight':f.wd)+' · '+f.t, dateShort:f.wd+' '+f.md, wd:f.wd, md:f.md, t:f.t,
+      id:e.id, when:run ? run.span+' · '+run.count : (isToday?'Tonight':f.wd)+' · '+f.t,
+      dateShort:run ? run.span : f.wd+' '+f.md, wd:f.wd, md:f.md, t:f.t,
       title:e.title, venue:e.venue+' · '+e.hood, venueName:e.venue, hood:e.hood, genre:e.genre, source:e.source, sub:e.venue+(e.lineup&&e.lineup.length?' · '+e.lineup.join(', '):''), price:this.priceLabel(e), why:(e.whyCurated || e.desc || e.why),
       hasWhy:!!(e.whyCurated || e.desc || e.why),
       cat:e.cat, catShort:(e.cat==='Live Music'?'LIVE':e.cat).toUpperCase(), catColor:this.CAT_COLOR[e.cat]||'#3f3d36',
@@ -1532,12 +1593,14 @@ class Component extends DCLogic {
     return this.SCENES[this.SCENES.length-1];
   }
   // ---------- server shelves (front_page.shelves — the assemble slate's lanes) ----------
-  SHELF_DOT = { underground:'oklch(0.52 0.14 285)', afters:'oklch(0.5 0.14 300)', day:'oklch(0.55 0.12 60)', bigroom:'oklch(0.53 0.12 250)', live:'oklch(0.52 0.13 32)', bigstage:'oklch(0.5 0.12 10)', film:'oklch(0.5 0.1 205)', stage:'oklch(0.5 0.13 350)', more:'oklch(0.5 0.12 255)' };
+  SHELF_DOT = { underground:'oklch(0.52 0.14 285)', afters:'oklch(0.5 0.14 300)', day:'oklch(0.55 0.12 60)', bigroom:'oklch(0.53 0.12 250)', live:'oklch(0.52 0.13 32)', bigstage:'oklch(0.5 0.12 10)', culture:'oklch(0.5 0.1 205)', film:'oklch(0.5 0.1 205)', stage:'oklch(0.5 0.13 350)', more:'oklch(0.5 0.12 255)' };
   SHELF_DESC = {
     underground:'Location-TBA parties, acid, and the after-dark techno core.', afters:'Late stretches and afterhours — the 2am-and-beyond lane.',
     day:'Rooftops, open-airs, and golden-hour grooves.', bigroom:'The marquee club bookings.', live:'Bands and live sets — post-punk, shoegaze, psych and beyond.',
-    bigstage:'Arena and amphitheater nights.', film:'35mm and 70mm revival programming across the city.', stage:'Theater, premieres, and the rest of the stage.',
-    more:'Everything off the main lanes.' };
+    bigstage:'Arena and amphitheater nights.',
+    culture:'One-night culture — rep screenings, standup, and the stage.',
+    film:'35mm and 70mm revival programming across the city.', stage:'Theater, premieres, and the rest of the stage.',
+    more:'Markets, art walks, and the rest of the city.' };
   fpShelves() { const sh = (this.META.front_page || {}).shelves; return Array.isArray(sh) && sh.length ? sh : null; }
   shelfOf(e) { const shs = this.fpShelves(); if (!shs || !e.lane) return null; return shs.find(s => (s.lanes || []).indexOf(e.lane) !== -1) || null; }
   shelfEvents(sh) { return this.resolveKeys((sh.near || []).concat(sh.ahead || [])); }
@@ -2766,6 +2829,7 @@ class Component extends DCLogic {
     "",
     "## Late July 2026 — the redesign, restored",
     "",
+    "- **Clearer scene names + a home for long runs.** The scene lanes got plainer names — **Afterhours**, **Big-name club nights**, **Arenas & halls**, **Markets, art & more** — and movies, comedy and theater share one **Movies, comedy & theater** lane. Multi-week runs and seasons (a Pantages musical, a month of rep showtimes) moved to their own **Now running** section instead of squatting a scene box for weeks; they rejoin the dated lanes for their final two weeks, when *closes Sunday* is news. Run cards show the span (*Thru Sun Sep 6 · 12 nights*), and their detail popup carries an **All dates** board — every remaining night as a chip straight to that night's tickets, grouped by theater, sold-out nights crossed out.",
     "- **A new front page** — the lead pick, your shortlist, a lane per scene, and the day's digest headline up top, with the detail popup and settings rebuilt to match.",
     "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, real **event photos** on cards, the **quick start / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
     "- **Stars teach again, and “less” learns too.** The + chip commits your star server-side (friends see it; the lineup boosts your ranking), and **Show less like this** now files a soft negative signal instead of only hiding locally.",
@@ -2956,7 +3020,7 @@ class Component extends DCLogic {
             return card;
           });
           return { id:sh.id, label:sh.label, dot:this.SHELF_DOT[sh.id] || '#76746b', allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(sh.id) };
-        }).filter(s => s.cards.length>0).slice(0,7);   // server shelf ORDER, not by-size
+        }).filter(s => s.cards.length>0).slice(0,8);   // server shelf ORDER, not by-size (8 = the full reshaped lane set)
       } else {
         const buckets = new Map();
         for (const e of pool) { const s = this.sceneOf(e); if (!buckets.has(s.id)) buckets.set(s.id,{ scene:s, evs:[] }); buckets.get(s.id).evs.push(e); }
@@ -2989,6 +3053,19 @@ class Component extends DCLogic {
       const isNewE = e => !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef);
       const onSaleE = e => (e.xb || []).some(x => /on.?sale/i.test(x));
       const mkRow = (e, tag) => { const f = this.fmt(e.iso,e.time); return { id:e.id, dateShort:f.wd+' '+f.md, title:e.title, venue:e.venue+' · '+e.hood, tag, hasTag:!!tag, onOpen:() => this.openDetail(e.id) }; };
+      // NOW RUNNING — long runs/seasons (front_page.nowrunning: series reps with 3+ remaining
+      // nights spanning 14+ days). A fixed section under every lens — a run IS an option
+      // tonight — so a Pantages season can't squat a scene box for six weeks. A run stays
+      // while any night remains; it re-enters the dated surfaces for its closing fortnight
+      // (the server measures span over remaining nights only).
+      const nowr = this.lessSink(this.resolveKeys(FP.nowrunning)
+        .filter(e => (e.series && e.series.last ? e.series.last >= T : e.iso >= T)));
+      out.nowRunning = nowr.slice(0, 8).map(e => {
+        const run = this.runLabel(e) || { span: this.fmt(e.iso, '').wd + ' ' + this.fmt(e.iso, '').md, count: '' };
+        return { id: e.id, dateShort: run.span, title: e.title, venue: this.venueDisplay(e.venue) + ' · ' + e.hood,
+                 tag: run.count.toUpperCase(), hasTag: !!run.count, onOpen: () => this.openDetail(e.id) };
+      });
+      out.hasNowRunning = out.nowRunning.length > 0;
       // ON THE RADAR — the server-curated set (build_radar/festivals.yaml via front_page.radar);
       // the just-announced/on-sale heuristic only fills in when the feed carries none.
       const radarSrv = this.resolveKeys(FP.radar).filter(e => e.iso >= T);
@@ -3109,7 +3186,7 @@ class Component extends DCLogic {
       const showtimeGroups = tk.showtimes.map(g => ({ venue: g.venue, times: g.times.map(tm => ({ label: tm.label, url: tm.url,
         color: tm.dim ? '#a29a90' : '#2b5cd9', border: tm.dim ? '#dedcd4' : '#b9c9f2', deco: tm.dim ? 'line-through' : 'none',
         title: tm.dim ? tm.label + ' — sold out' : tm.label + ' — buy tickets', stop:(ev) => ev.stopPropagation() })) }));
-      const scSeries = this.seriesChips(de);
+      const board = this.seriesBoard(de);
       const hoodInVenue = !!(de.hood && de.venue.toLowerCase().includes(de.hood.toLowerCase()));
       const hoodShown = (de.hood && de.hood !== 'Los Angeles' && !hoodInVenue) ? de.hood : '';
       out.detail = {
@@ -3122,10 +3199,13 @@ class Component extends DCLogic {
         lineup:de.lineup.map(n => { const k = this._artistNorm(n); const direct = (this.META.artist_links || {})[k]; return { name:n, bio:bios[k]||'', hasBio:!!bios[k], spotify: direct || ('https://open.spotify.com/search/'+encodeURIComponent(n)), soundcloud:'https://soundcloud.com/search?q='+encodeURIComponent(n) }; }), hasLineup:de.lineup.length>0,
         ticketLinks:links,
         hasShowtimes: showtimeGroups.length > 0, showtimeGroups,
-        hasSeries: scSeries.chips.length > 0,
-        seriesChipRows: scSeries.chips.map(c => ({ label: c.label, url: c.url,
-          color: c.dim ? '#a29a90' : '#3f3d36', border: c.dim ? '#dedcd4' : '#c9c7bd', deco: c.dim ? 'line-through' : 'none', stop:(ev) => ev.stopPropagation() })),
-        seriesMore: scSeries.more, hasSeriesMore: !!scSeries.more,
+        hasSeries: board.groups.length > 0,
+        seriesHead: board.head ? ' — ' + board.head : '',
+        seriesGroups: board.groups.map(g => ({ venue: g.venue, hasVenue: !!g.venue,
+          chips: g.chips.map(c => ({ label: c.label, url: c.url,
+            color: c.dim ? '#a29a90' : '#3f3d36', border: c.dim ? '#dedcd4' : '#c9c7bd', deco: c.dim ? 'line-through' : 'none',
+            title: c.dim ? c.label + ' — sold out' : c.label + ' — tickets for this date', stop:(ev) => ev.stopPropagation() })) })),
+        seriesMore: board.more, hasSeriesMore: !!board.more,
         seriesBadge: (de.series && de.series.count > 1) ? ((de.series.venues || []).length > 1 ? (de.series.count + ' dates · ' + de.series.venues.length + ' theaters') : (de.series.count + ' nights')) : '',
         sceneLabel:(this.shelfOf(de) || sc).label, onScene:() => { const shf = this.shelfOf(de); this.openScene(shf ? shf.id : sc.id); }, poster:this.posterFor(de),
         photo:this.photoStyle(de, 'height:150px;'),
