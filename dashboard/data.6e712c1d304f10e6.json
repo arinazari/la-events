@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T01:44:26+00:00",
+  "generated_at": "2026-07-25T04:12:32+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "c454bf4e0c82",
@@ -10917,6 +10917,10 @@
       "lane": "club:underground",
       "key": "7210967968cd",
       "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        },
         {
           "name": "Dr. Ganesan",
           "hash": "f35ca979e108622f"
