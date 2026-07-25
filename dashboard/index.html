@@ -1054,7 +1054,8 @@ class Component extends DCLogic {
   CAT_HUE = { 'Electronic':285, 'Live Music':32, 'Comedy':95, 'Film':205, 'Theater':350, 'Food':145, 'Arts':255 };
   AVBG = ['#dbe3fb','#e8ddc6','#d8e8dd','#f0dbe6','#dcdcea','#ecdcd4'];
   // centered 5-point star (points reach the viewBox edge) as a CSS background — precise, unlike the ★ glyph
-  STAR_BG = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12 .6 14.7 8.3 22.9 8.45 16.4 13.4 18.8 21.3 12 16.6 5.2 21.3 7.6 13.4 1.1 8.45 9.3 8.3Z'/%3E%3C/svg%3E")`;
+  // exact trig: center (12,12), outer R=11.4, inner r=0.36R — all five legs identical under 72° rotation
+  STAR_BG = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12 .6 14.41 8.68 22.84 8.48 15.9 13.27 18.7 21.22 12 16.1 5.3 21.22 8.1 13.27 1.16 8.48 9.59 8.68Z'/%3E%3C/svg%3E")`;
   // ============ LIVE DATA (plug-in layer) ============
   // Pure viewer of dashboard/data.json (built by scripts/build_dashboard.py) — the page never
   // scores. parseEvent / profileHash / feed endpoints mirror the previous dashboard build.
