@@ -59,6 +59,16 @@ GROUPS = [
 LANE_CHIP = {"club:afters": "afters", "club:day": "day party", "club:mainstream": "big room",
              "live-music:big": "big venue"}
 
+# Deployed dashboard base (profile.yaml dashboard.site_url; main() re-reads it from --profile).
+# Event lines link each pick's card there — ?e=<event_key> opens that event's modal on the site,
+# where it can be starred/saved. Blank = ticket links only.
+SITE_URL = str(((load_profile().get("dashboard") or {}).get("site_url") or "")).strip()
+
+
+def _card_md(key: str) -> str:
+    """The `card ↗` deep link to this event's card on the deployed dashboard."""
+    return f"[card ↗]({SITE_URL}?e={key})" if SITE_URL and key else ""
+
 PICK_MIN_RATING = 5   # rating at/above this gets an "editor's pick" flag inline
 
 # Tier-scaled display: the editor's verdict decides how much page an event gets (build_slate_cands
@@ -296,7 +306,8 @@ def event_md(ev: dict, style: str = "full", note_seen: frozenset = frozenset(),
             f"[{v}]({by_venue[v]})" if by_venue.get(v) else v for v in others[:3])
     more = f"[more LA showtimes]({showtimes_url(title)})" if is_film(ev) else ""
     chip = LANE_CHIP.get(_lane_of(ev))
-    tail = " · ".join(x for x in (_loc(ev), also_at, chip, ev.get("price"), _stars_note(ev), upd_note, more) if x)
+    card = _card_md(event_key(ev))
+    tail = " · ".join(x for x in (_loc(ev), also_at, chip, ev.get("price"), _stars_note(ev), upd_note, more, card) if x)
     line = f"- `{head_chip}`{span} {pick}{fresh}**{head}**" + (f" — {tail}" if tail else "")
     if style == "compact":
         why = (ev.get("verdict") or {}).get("why") or ""
@@ -536,6 +547,9 @@ def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT, picked: list = None
         urg = _urgency(ev)
         if urg:
             line += f" · *{urg}*"
+        card = _card_md(event_key(ev))
+        if card:
+            line += f" · {card}"
         out.append(line + f"  \n  {why} <!-- tier3:why {event_key(ev)} -->")
     return out + [""]
 
@@ -554,8 +568,10 @@ def _around_md(rows: list, slate_keys: set, limit: int = AROUND_LIMIT) -> list:
         sig = ", ".join(s.replace("tracked:", "") for s in (r.get("signals") or []))
         head = f"[{r['title']}]({r['link']})" if r.get("link") else (r.get("title") or "Untitled")
         loc = " · ".join(x for x in (r.get("venue"), r.get("neighborhood")) if x)
+        card = _card_md(r.get("key") or "")
         out.append(f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}**"
                    + (f" — {loc}" if loc else "") + (f"  ·  *{sig}*" if sig else "")
+                   + (f" · {card}" if card else "")
                    + f" <!-- tier3:gloss {r.get('key', '')} -->")
     return out + [""]
 
@@ -609,8 +625,10 @@ def _radar_md(rows: list, limit: int = 18) -> list:
         sig = ", ".join(s.replace("tracked:", "") for s in (r.get("signals") or []))
         head = f"[{r['title']}]({r['link']})" if r.get("link") else (r.get("title") or "Untitled")
         loc = " · ".join(x for x in (r.get("venue"), r.get("neighborhood")) if x)
+        card = _card_md(r.get("key") or "")
         out.append(f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}**"
                    + (f" — {loc}" if loc else "") + (f"  ·  *{sig}*" if sig else "")
+                   + (f" · {card}" if card else "")
                    + f" <!-- tier3:gloss {r.get('key', '')} -->")
     return out
 
@@ -740,6 +758,8 @@ def main() -> int:
     catalog = json.loads(resolve(args.catalog).read_text())
     meta = CM.read_meta(resolve(args.catalog).parent / "catalog_meta.json")
     taste, profile = load_taste(args.taste), load_profile(args.profile)
+    global SITE_URL
+    SITE_URL = str(((profile.get("dashboard") or {}).get("site_url") or "")).strip()
     # Format prefs: the one structural knob the deterministic renderer honors is the per-day cap
     # (the rest — sections/tone/length/emphasis — shape the LLM digest layer, not this scaffold).
     prefs = load_digest_prefs(args.digest_prefs)
