@@ -462,6 +462,46 @@ A **hosted, bookmarkable page** Ari opens to see the catalog, plan a night, and 
   NEVER sent to the model — the `opener` system-prompt field is removed (page + Worker); the
   concierge stays grounded on the feed data alone.
 
+### 2026-07-21 — Front-page shelf reshape (with Ari, in-session)
+Labels standardized for the multi-user audience (taxonomy unchanged — lanes/tags/verdict
+whitelists untouched): **Afters → Afterhours**, **Big rooms → Big-name club nights**, **Big
+stages → Arenas & halls** (kills the Big/Big and stage/stage word collisions), **Elsewhere →
+Markets, art & more**; film+comedy+stage merged into one **Movies, comedy & theater** shelf
+(round-robin lane interleave so film volume can't monopolize the visible row). NEW fixed
+**Now running** shelf: series reps with ≥3 remaining nights spanning ≥14 days leave the dated
+surfaces (hero + lane shelves) — lane shelves answer "what's on a date," Now running answers
+"what's in town for a while." Span is measured over *remaining* nights, so a run re-enters the
+dated shelves for its final fortnight ("closes Sunday" is news again). Run cards show the span
+("Thru Sun 9/6 · 12 nights"); the card detail modal gained a **showtimes board** — every
+remaining night as a chip → that night's tickets, grouped by theater for cross-venue film
+programs, constant curtain time collapsed into the header, sold-out nights dimmed. Note:
+weekly residencies/recurring markets (MUZIQUE Fridays, Silverlake Flea) qualify as "running"
+by construction — deliberate for now ("standing options"), revisit if the shelf reads wrong.
+**2026-07-25 follow-up:** the 7/24 front-end redesign + restore passes shipped without this
+reshape (old labels/lanes back on `main`); PORTED onto the redesigned page in-session with
+Ari — server intact through the merge (hero = shared `top_picks` over the dated pool), client
+re-implemented in the new architecture: run-span card dates via `cardFor`, a **Now running**
+row-section (radar-style, every lens), and the board as the detail's **ALL DATES** section
+(coexists with the restored same-night SHOWTIMES row). A post-port adversarial review pass
+hardened the classifier: "running" now requires ≥3 nights at **~weekly density** (an Usher
+stadium date rebooked months later and a monthly party are tour stops/dated picks, not a
+season) **and an opened run** (`first ≤ today` — an unopened season stays plan-ahead);
+the list is **closing-soonest ordered** (the two-zone rank buried Pantages seasons below
+weekly fleas), only the emitted cap leaves the dated pool (nothing vanishes), run labels are
+rep-only + weekday-cadence-aware ("4 Fridays"), and unnormalized series start times ("9:30
+PM") no longer NaN through the clock math. Open design thread from Ari: movies and festivals
+may each deserve a **dedicated view** — BUILT 2026-07-25 (approved direction, on branch):
+**The marquee** ("the marquee →" on the movies lane) — every film program on one page: Now
+playing with inline ALL DATES boards, Opens soon, One-night screenings (client-only; the
+per-night data already shipped in series summaries). **Festivals & big shows** ("the
+festival watch-list →" under On the radar) — `festivals.yaml` finally became a real data
+path: `load_festivals()` → `front_page.festivals` → the watch-list view (dates, status
+chips, the why, tickets). Audit context: before this, **nothing read festivals.yaml** —
+build_radar derives radar purely from catalog signals, so Portola/CRSSD/Coachella '27
+surfaced nowhere. REMAINING: the digest-side gap — the voice-pass "fold in festivals.yaml"
+instruction still contributes zero lines to "On the radar"; wire the same load into
+build_radar/render_digest if the digest should carry the watch-list too.
+
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
   ships plain JS (dc-runtime `support.js` evaluates the template directly; no in-browser Babel),

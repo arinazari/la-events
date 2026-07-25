@@ -46,6 +46,7 @@ from lib.profiles import hash_names  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib.assemble import rank_key, event_lane, top_picks, TOP_PICKS_LANE_CAP  # noqa: E402
 from lib.series import group_series, series_summary, is_film, showtimes_url  # noqa: E402
+from lib.festivals import load_festivals  # noqa: E402  (festivals.yaml -> front_page.festivals)
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
@@ -139,16 +140,34 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
 # pre-ranked lists and slices — selection, never re-sorting.
 FP_SHELVES = [
     ("underground", "Warehouse & underground", ("club:underground",)),
-    ("afters", "Afters", ("club:afters",)),
+    ("afters", "Afterhours", ("club:afters",)),
     ("day", "Day parties & rooftops", ("club:day",)),
-    ("bigroom", "Big rooms", ("club:mainstream",)),
+    ("bigroom", "Big-name club nights", ("club:mainstream",)),
     ("live", "Bands & small rooms", ("live-music",)),   # bare lane = the sub-hall live tier
-    ("bigstage", "Big stages", ("live-music:big",)),    # arena/hall concerts — "stay informed"
-    ("film", "Film & rep cinema", ("film",)),
-    ("stage", "Comedy & stage", ("comedy", "stage")),
-    ("more", "Elsewhere", None),                 # catch-all: market/art/community/…
+    ("bigstage", "Arenas & halls", ("live-music:big",)),  # arena/hall concerts — "stay informed"
+    ("culture", "Movies, comedy & theater", ("film", "comedy", "stage")),
+    ("more", "Markets, art & more", None),       # catch-all: market/art/community/…
 ]
 FP_SHELF_CAP = 40      # keys per shelf list (near + ahead each) — deep enough for a lens to fill
+# Long runs (a Pantages season, a month of Odyssey showtimes) leave the lane shelves for the
+# fixed "Now running" shelf: lane shelves answer "what's happening on a date", Now running
+# answers "what's in town for a while" — without it a strong run squats a lane's top slot for
+# weeks. Span is measured over the REMAINING nights (series summaries cover upcoming members
+# only), so a run re-enters its lane shelf — and hero eligibility — for its final fortnight,
+# when "closes Sunday" is news again. Three guards keep "running" honest:
+#   nights >= 3          two bookings weeks apart are two dated picks, not a run;
+#   ~weekly density      count >= span/7 — an Usher stadium date rebooked twice months later
+#                        and a monthly party are TOUR STOPS/dated picks, not a season
+#                        (weekly residencies and markets pass; sparser series stay dated);
+#   first <= today       a season that hasn't OPENED is plan-ahead news, not "in town" —
+#                        it stays on the dated surfaces until opening night.
+# The list is ordered CLOSING-SOONEST (final_rank as tiebreak): a Continuing list is urgency-
+# ordered, and the two-zone rank would bury far-out unjudged seasons below weekly markets.
+# Only the capped, emitted list leaves the dated pool — an over-cap run keeps its lane-shelf
+# card rather than silently vanishing from every surface.
+FP_RUN_MIN_DAYS = 14
+FP_RUN_MIN_NIGHTS = 3
+FP_NOWRUNNING_CAP = 12   # matches the client's visible rows — emitted == shown
 # Hero size/diversity knobs live in lib/assemble (TOP_PICKS_*): the hero row IS the shared
 # Don't-miss policy (assemble.top_picks — one shelf definition with the digest's "Don't miss").
 
@@ -194,13 +213,44 @@ def _fp_windows(today):
     }
 
 
+def _run_span_days(e: dict) -> int:
+    """Days spanned by a series rep's REMAINING nights (series summaries cover upcoming
+    members only), 0 for non-series rows or same-day programs."""
+    s = e.get("series") or {}
+    first, last = s.get("first"), s.get("last")
+    if not (e.get("series_rep") and first and last):
+        return 0
+    try:
+        return (date.fromisoformat(last) - date.fromisoformat(first)).days
+    except ValueError:
+        return 0
+
+
+def _interleave(rows_by_lane: list) -> list:
+    """Round-robin merge of per-lane rank-ordered rows. A multi-lane shelf list gets windowed
+    by the client's date lens and sliced, so ONLY a mix-at-every-prefix order keeps the
+    high-volume lane (film) from monopolizing whatever slice survives; a lane floor computed
+    here would be defeated by the windowing. Rank order is preserved within each lane."""
+    out, idx = [], [0] * len(rows_by_lane)
+    progressed = True
+    while progressed:
+        progressed = False
+        for i, rows in enumerate(rows_by_lane):
+            if idx[i] < len(rows):
+                out.append(rows[idx[i]])
+                idx[i] += 1
+                progressed = True
+    return out
+
+
 def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
-                     take=None) -> dict:
-    """The front_page block: hero keys per lens + shelf keys per lane (+ radar/around joins,
-    + "The Take" — the digest's dated one-sentence teaser, {text, date}, carried structurally
-    for the concierge chat's welcome). One card per PROGRAM: series members
-    (lib/series — multi-night runs, cross-theater film programs, stamped by the consolidation
-    pass in main()) enter only via their rep night, the same unit final_rank ranks."""
+                     take=None, festivals=None) -> dict:
+    """The front_page block: hero keys per lens + shelf keys per lane (+ nowrunning/radar/
+    around joins, + "The Take" — the digest's dated one-sentence teaser, {text, date}, carried
+    structurally for the concierge chat's welcome, + the festivals watch-list rows for the
+    dedicated Festivals view). One card per PROGRAM: series members (lib/series — multi-night
+    runs, cross-theater film programs, stamped by the consolidation pass in main()) enter only
+    via their rep night, the same unit final_rank ranks."""
     pool = [e for e in events
             if not e.get("is_past") and e.get("iso_date") and (e.get("score") or 0) >= 0
             and (e.get("verdict") or {}).get("tier") != "skip"
@@ -210,14 +260,35 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
     # second copy of the ranking expression to drift).
     ranked = sorted(pool, key=lambda e: e.get("final_rank") or 10 ** 9)
 
+    # Long runs split off first: they hold their own fixed shelf (visible under every lens —
+    # a run IS an option tonight) and leave the dated surfaces (hero + lane shelves) until
+    # their remaining span drops under FP_RUN_MIN_DAYS — the closing-window re-entry.
+    # Guards (see the FP_RUN_* comment): >=3 nights, ~weekly density, and already OPEN.
+    def _is_running(e):
+        span = _run_span_days(e)
+        s = e.get("series") or {}
+        count = s.get("count") or 0
+        return (span >= FP_RUN_MIN_DAYS and count >= FP_RUN_MIN_NIGHTS
+                and count >= span / 7                       # ~weekly or denser
+                and (s.get("first") or "") <= today.isoformat())   # opened — "in town", not "opens Sep 8"
+    # Closing-soonest order (a Continuing list is urgency-ordered; rank breaks ties), capped
+    # to what the client shows; ONLY the emitted keys leave the dated pool, so an over-cap
+    # run keeps its lane-shelf card instead of vanishing from every surface.
+    running = sorted((e for e in ranked if _is_running(e)),
+                     key=lambda e: ((e.get("series") or {}).get("last") or "9999",
+                                    e.get("final_rank") or 10 ** 9))[:FP_NOWRUNNING_CAP]
+    running_keys = {e["key"] for e in running}
+    dated = [e for e in ranked if e["key"] not in running_keys]
+
     # The hero row is the shared Don't-miss policy (lib/assemble.top_picks — one shelf
-    # definition with the flagship digest's shelf), applied per time-lens window. Skips are
-    # re-checked harmlessly (top_picks reads the same verdicts map), but program collapse is
-    # NOT re-applied here (no series_of) — the reps-only pool filter above is the only thing
+    # definition with the flagship digest's shelf), applied per time-lens window over the
+    # DATED pool (long runs live in Now running, not the hero). Skips are re-checked
+    # harmlessly (top_picks reads the same verdicts map), but program collapse is NOT
+    # re-applied here (no series_of) — the reps-only pool filter above is the only thing
     # keeping a multi-night run to one hero card.
     hero = {}
     for lens, (lo, hi) in _fp_windows(today).items():
-        window = [e for e in ranked if lo <= e["iso_date"] <= hi]
+        window = [e for e in dated if lo <= e["iso_date"] <= hi]
         hero[lens] = [e["key"] for e in top_picks(window, verdicts)]
 
     # Shelf key-lists split NEAR (days 0–13: the today/weekend/two-weeks lenses) vs AHEAD
@@ -230,9 +301,12 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
     claimed = {ln for _, _, lanes in FP_SHELVES if lanes for ln in lanes}
     for sid, label, lanes in FP_SHELVES:
         if lanes:
-            rows = [e for e in ranked if (e.get("lane") or "other") in lanes]
+            rows = [e for e in dated if (e.get("lane") or "other") in lanes]
+            if len(lanes) > 1:      # merged shelf (culture): mix lanes at every prefix
+                rows = _interleave([[e for e in rows if (e.get("lane") or "other") == ln]
+                                    for ln in lanes])
         else:
-            rows = [e for e in ranked if (e.get("lane") or "other") not in claimed]
+            rows = [e for e in dated if (e.get("lane") or "other") not in claimed]
         near = [e["key"] for e in rows if e["iso_date"] <= near_end][:FP_SHELF_CAP]
         ahead = [e["key"] for e in rows if e["iso_date"] > near_end][:FP_SHELF_CAP]
         if near or ahead:
@@ -255,8 +329,10 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
         "take": take,
         "hero": hero,
         "shelves": shelves,
+        "nowrunning": [e["key"] for e in running],
         "radar": join(radar_rows, 16),
         "around": join(around_rows, 12),
+        "festivals": festivals or [],
     }
 
 
@@ -497,7 +573,10 @@ def main() -> int:
             take = digest_take(dpath.read_text(encoding="utf-8"))
         except OSError:
             pass
-    front_page = build_front_page(events, verdicts, today, radar_rows, around_rows, take=take)
+    # Festivals watch-list — sample builds skip it (a demo feed shouldn't carry the real list).
+    festivals = [] if is_sample else load_festivals(REPO / "festivals.yaml")
+    front_page = build_front_page(events, verdicts, today, radar_rows, around_rows,
+                                  take=take, festivals=festivals)
 
     # Direct ▶ listen links (data/artist_links.json, resolved during run_digest): normalized
     # name -> Spotify artist URL for exactly the artists this feed's upcoming events carry.
