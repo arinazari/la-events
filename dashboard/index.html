@@ -3002,9 +3002,8 @@ class Component extends DCLogic {
     for (const k of ks) m[k] = 1;
     this.setSeen(m);
     this.setState({ detailId:null });
-    // A fulfilled star: seen consumes the save, so it leaves the Starred calendar too.
-    const wasStarred = this.state.reactions[e.id] === 'chip';
-    if (wasStarred) { const r = { ...this.state.reactions }; delete r[e.id]; this.setReactions(r); this.reactPost(e, 'unstar'); }
+    // A star survives "seen" (Ari's call): the save stays on the Starred calendar — seen only
+    // hides the event from the browsing surfaces.
     // The learning signal (kind seen → feedback "went") posts only after the UNDO window closes,
     // so a mis-tap that's undone never teaches the ranking a phantom positive.
     const postT = setTimeout(() => this.reactPost(e, 'seen'), 5200);
@@ -3013,7 +3012,6 @@ class Component extends DCLogic {
       () => {
         clearTimeout(postT);
         const m2 = { ...this.state.seen }; for (const k of ks) delete m2[k]; this.setSeen(m2);
-        if (wasStarred) { const r2 = { ...this.state.reactions }; r2[e.id] = 'chip'; this.setReactions(r2); this.reactPost(e, 'star'); }
         this.clearToast();
       });
   }
