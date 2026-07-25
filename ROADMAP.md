@@ -477,6 +477,14 @@ remaining night as a chip → that night's tickets, grouped by theater for cross
 programs, constant curtain time collapsed into the header, sold-out nights dimmed. Note:
 weekly residencies/recurring markets (MUZIQUE Fridays, Silverlake Flea) qualify as "running"
 by construction — deliberate for now ("standing options"), revisit if the shelf reads wrong.
+**2026-07-25 follow-up:** the 7/24 front-end redesign + restore passes shipped without this
+reshape (old labels/lanes back on `main`); PORTED onto the redesigned page in-session with
+Ari — server intact through the merge (hero = shared `top_picks` over the dated pool), client
+re-implemented in the new architecture: run-span card dates via `cardFor`, a **Now running**
+row-section (radar-style, every lens), and the board as the detail's **ALL DATES** section
+(coexists with the restored same-night SHOWTIMES row). Open design thread from Ari: movies
+and festivals may each deserve a **dedicated view** (a marquee/showtimes page; a festivals
+page over `festivals.yaml` + radar) — discussed, not yet decided.
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
