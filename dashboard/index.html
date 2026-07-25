@@ -2392,7 +2392,9 @@ class Component extends DCLogic {
     if (this._jobTick) return;
     this._jobTick = setInterval(() => {
       const active = this.state.profile && this.state.profile.hash;
-      if (!((active && this.getUpdating(active)) || this.getRefreshing())) { clearInterval(this._jobTick); this._jobTick = null; return; }
+      // One last repaint on the way out: read-time expiry can end a job with no poll alive to
+      // call forceUpdate afterwards, and without this the badge stays painted on a dead job.
+      if (!((active && this.getUpdating(active)) || this.getRefreshing())) { clearInterval(this._jobTick); this._jobTick = null; this.forceUpdate(); return; }
       if (!document.hidden) this.forceUpdate();   // nobody is reading the counter in a background tab
     }, 1000);
   }
@@ -2440,44 +2442,62 @@ class Component extends DCLogic {
   // profile's job is left with nobody watching it.
   reattachJobs(hash) {
     const active = hash || (this.state.profile && this.state.profile.hash);
-    if (active && this.getUpdating(active) && !this._freshPoll) this.startUpdatePoll(active);
+    // Compare against the hash the live poll is BOUND to, not merely "is a poll running" — on a
+    // profile switch the outgoing poll is still alive (it only notices the switch on its next
+    // tick), so a bare !this._freshPoll test would no-op exactly when re-arming matters.
+    if (active && this.getUpdating(active) && this._freshPollHash !== active) this.startUpdatePoll(active);
     if (this.getRefreshing() && !this._refreshPoll) this.startRefreshPoll();
   }
+  stopUpdatePoll() { clearInterval(this._freshPoll); this._freshPoll = null; this._freshPollHash = null; }
   startUpdatePoll(hash) {
-    clearInterval(this._freshPoll); this._freshPoll = null;
-    const job = this.getUpdating(hash);
-    if (!job) return;
-    const baseDigest = job.baseDigest || null;
-    const baseStamp = job.baseStamp || null;
+    this.stopUpdatePoll();
+    if (!this.getUpdating(hash)) return;
+    this._freshPollHash = hash;
     let nPolls = 0;
     this.startJobTick();
     this._freshPoll = setInterval(async () => {
-      if (((this.state.profile && this.state.profile.hash) || null) !== hash) { clearInterval(this._freshPoll); this._freshPoll = null; return; }
-      // Decide expiry BEFORE any network work — a probe that hangs or throws must never be able
-      // to stall the ceiling that ends the job. getUpdating() carries the wall clock (readJob).
-      const expired = ++nPolls > 120 || !this.getUpdating(hash);
+      if (((this.state.profile && this.state.profile.hash) || null) !== hash) { this.stopUpdatePoll(); return; }
+      // Re-read the job every tick instead of trusting a snapshot taken when the poll was armed.
+      // updateMyDigest claims the flag BEFORE it has fetched the baseline signatures, so a poll
+      // armed from that first write (a cross-tab reattach, say) would hold null baselines — and
+      // `probe !== null` reads as "changed", falsely completing the job on its first probe.
+      // Key presence, not value: the bases are written together and may legitimately be null.
+      const job = this.getUpdating(hash);
+      const based = !!job && ('baseDigest' in job || 'baseStamp' in job);
+      const timedOut = ++nPolls > 120;
+      const gone = !job;   // aged out under us (readJob), or another tab finished it
       let digestChanged = false, landed = false;
-      try {
-        const probes = await Promise.all([this.fetchDigestSig(hash), this.fetchRebuildStamp(hash)]);
-        await this.checkCatalogFreshness();
-        digestChanged = !!(probes[0] && probes[0] !== baseDigest);
-        landed = digestChanged || !!(probes[1] && probes[1] !== baseStamp);
-      } catch (e) { /* a failed probe is not a verdict — fall through to the expiry check */ }
-      if (landed || expired) {
-        clearInterval(this._freshPoll); this._freshPoll = null;
-        this.setUpdating(hash, null);
-        if (landed) {
-          this.setTasteDirtyFor(hash, false);
-          if (((this.state.profile && this.state.profile.hash) || null) === hash) {
-            await this.loadFeedFor(this.state.profile, { bust: true });
-            this.loadDigest();
-          }
-          this.showToast(digestChanged ? '✓ Your picks + digest are up to date' : 'Re-ranked against the latest events — your digest was already current', null);
-        } else {
-          this.showToast('The update is taking longer than expected — it may still land in the background; check back in a few minutes', null);
-        }
-        this.forceUpdate();
+      if (based) {
+        // Probe only once there is something to compare against. A probe that hangs or throws is
+        // not a verdict — fall through and let the ceiling end the job.
+        try {
+          const probes = await Promise.all([this.fetchDigestSig(hash), this.fetchRebuildStamp(hash)]);
+          await this.checkCatalogFreshness();
+          digestChanged = !!(probes[0] && probes[0] !== (job.baseDigest || null));
+          landed = digestChanged || !!(probes[1] && probes[1] !== (job.baseStamp || null));
+        } catch (e) {}
       }
+      if (!(landed || gone || timedOut)) return;
+      this.stopUpdatePoll();
+      this.setUpdating(hash, null);
+      if (landed) {
+        this.setTasteDirtyFor(hash, false);
+        if (((this.state.profile && this.state.profile.hash) || null) === hash) {
+          await this.loadFeedFor(this.state.profile, { bust: true });
+          this.loadDigest();
+        }
+        this.showToast(digestChanged ? '✓ Your picks + digest are up to date' : 'Re-ranked against the latest events — your digest was already current', null);
+      } else if (gone && !timedOut) {
+        // The flag went away without us seeing it land — another tab owns the outcome and will
+        // do the talking. Pick up whatever it produced; don't claim a failure that isn't ours.
+        if (((this.state.profile && this.state.profile.hash) || null) === hash) {
+          await this.loadFeedFor(this.state.profile, { bust: true });
+          this.loadDigest();
+        }
+      } else {
+        this.showToast('The update is taking longer than expected — it may still land in the background; check back in a few minutes', null);
+      }
+      this.forceUpdate();
     }, 15000);
   }
   updateMyDigest = async () => {
