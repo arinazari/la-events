@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T11:29:04+00:00",
+  "generated_at": "2026-07-25T12:08:15+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "c454bf4e0c82",
@@ -1385,8 +1385,94 @@
       "f0de888b1d44",
       "fc3156980db4"
     ],
-    "radar": [],
-    "around": []
+    "radar": [
+      "96782c900568",
+      "a275d78b3f74",
+      "d535a0dbfe40",
+      "edab80bd44cb",
+      "84882da12558",
+      "d49eb8554c26",
+      "1edb63fd2e80",
+      "fb68efb436c1",
+      "33c2216d15dc",
+      "3d1950382c1d",
+      "5cfd176b0544",
+      "cf6cd35ddcc5",
+      "233fd1bfe94c",
+      "d5ab2f4bfacc",
+      "5900ac0a20b0",
+      "d9ec6d0e3a23"
+    ],
+    "around": [
+      "773d5c83a2fd",
+      "4dd13aaa260f",
+      "82c5013339e2",
+      "70290d18de29",
+      "493700d4eadb",
+      "c0280e879181",
+      "f7385763f9ec",
+      "440ecb2c9abc",
+      "ffaeb94bd682",
+      "3f31098f9532",
+      "dffdf5e28846",
+      "463b19e803f8"
+    ],
+    "festivals": [
+      {
+        "name": "Outside Lands 2026",
+        "location": "Golden Gate Park, San Francisco",
+        "when": "2026-08-07..09",
+        "status": "on_sale",
+        "tickets": "https://www.sfoutsidelands.com/",
+        "why": "R\u00fcf\u00fcs Du Sol + The xx headline the on-taste end; Charli xcx, The Strokes, Turnstile, Empire of the Sun broaden it. ~2 months out, travel weekend. 3-day GA from ~$569.",
+        "first_date": "2026-08-07"
+      },
+      {
+        "name": "Daisy Chain Fields (Olivia Rodrigo)",
+        "location": "Great Park Live, Irvine (OC \u2014 ~45 mi, worth the drive)",
+        "when": "2026-08-29",
+        "status": "announced",
+        "tickets": "https://www.daisychainfields.com/tickets",
+        "why": "Olivia Rodrigo's first festival \u2014 a one-day, all-women lineup (Chappell Roan, Doechii, Mitski, The Breeders, Bikini Kill, Garbage, Santigold + special guests Stevie Nicks, Karen O, Sarah McLachlan), 100% of net proceeds to women/girls nonprofits. Off the core house/techno lane, but a marquee must-know \u2014 and squarely on-taste for the Lori profile (she tracks Olivia Rodrigo + Mitski). Tickets via Front Gate; from $250.",
+        "first_date": "2026-08-29"
+      },
+      {
+        "name": "CRSSD Festival \u2014 Fall 2026",
+        "location": "Waterfront Park, San Diego",
+        "when": "2026-09-26..27",
+        "status": "on_sale",
+        "tickets": "https://www.crssdfest.com/",
+        "why": "SD is a drive, but this is festival-tier and on-taste \u2014 Disclosure, Chris Lake, Groove Armada (DJ set), Helena Hauff, Ben UFO, I Hate Models, Mathame, Carlita, salute. House/ techno/melodic, European lean, waterfront, 21+. NOTE: same weekend as Portola (SF) \u2014 can't do both; pick one.",
+        "first_date": "2026-09-26"
+      },
+      {
+        "name": "Portola 2026",
+        "location": "Pier 80, San Francisco",
+        "when": "2026-09-26..27",
+        "status": "on_sale",
+        "tickets": "https://www.portolamusicfestival.com/",
+        "why": "THE one for you \u2014 electronic-forward with DESPACIO (James Murphy + 2ManyDJs sound system), Four Tet, Soulwax, Groove Armada, DJ Shadow, Fatboy Slim, Skepta, plus Robyn, Ti\u00ebsto, Swedish House Mafia. European/house energy in a warehouse-pier setting. 2-day ~$380.",
+        "first_date": "2026-09-26"
+      },
+      {
+        "name": "Coachella 2027",
+        "location": "Empire Polo Club, Indio CA",
+        "when": "2027-04-09..11 and 2027-04-16..18",
+        "status": "lineup_pending",
+        "tickets": "https://www.coachella.com/",
+        "why": "Advance GA already sold out (~$549\u2013599); lineup typically drops Sept 2026\u2013Jan 2027. Worth tracking the lineup announce to decide if a resale is worth it.",
+        "first_date": "2027-04-09"
+      },
+      {
+        "name": "GALA Festival (London) \u2014 2027 edition",
+        "location": "Peckham Rye Park, South London",
+        "when": "~2027-05 (annual, late May; 2026 already happened May 22\u201324)",
+        "status": "dormant",
+        "tickets": "https://galafestival.co.uk",
+        "why": "Quintessential European house/disco day-fest (2026: Seth Troxler, Todd Terje, Call Super, DJ Seinfeld). On-taste, but not timely \u2014 only bubble up when 2027 presale/lineup drops.",
+        "first_date": null
+      }
+    ]
   },
   "artist_links": {},
   "dining": [
