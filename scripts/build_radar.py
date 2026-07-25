@@ -30,6 +30,7 @@ from lib.dedupe import normalize  # noqa: E402  (run-collapse key for around-tow
 from lib.pipeline import today_la  # noqa: E402
 from lib.enrich import event_key  # noqa: E402  (stable key for the around-town/slate de-dupe)
 from lib.affinity import tracked_hits, ambiguous_set  # noqa: E402  (lineup-first billed-name match)
+from lib.festivals import load_festivals, timely  # noqa: E402  (festivals.yaml watch-list)
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -204,9 +205,15 @@ def main() -> int:
     today = today_la()
     rows = build_radar(catalog, taste, profile, today, cutoff_days=args.cutoff_days)
 
+    # The festivals.yaml watch-list rides radar.json under its own key — TIMELY items only
+    # (the yaml header's relevance gate: a live ticket story). These are out-of-catalog rows
+    # (no event key), so they never enter `events`/the dashboard radar join; render_digest
+    # gives them their own block under "On the radar".
+    watchlist = timely(load_festivals(REPO / "festivals.yaml"))
+
     doc = {"generated_at": datetime.now().isoformat(timespec="seconds"),
            "today": today.isoformat(), "cutoff_days": args.cutoff_days,
-           "count": len(rows), "events": rows}
+           "count": len(rows), "events": rows, "watchlist": watchlist}
     out_path = resolve(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
@@ -225,6 +232,7 @@ def main() -> int:
         a_path.write_text(json.dumps(a_doc, indent=2, ensure_ascii=False) + "\n")
 
     print(f"build_radar {today}: {len(rows)} radar candidates (>{args.cutoff_days}d)"
+          f" + {len(watchlist)} watch-list"
           f"{f' + {n_around} around-town (<{args.around_days}d)' if args.around_days > 0 else ''} -> "
           f"{out_path.relative_to(REPO) if out_path.is_relative_to(REPO) else out_path}"
           f"{' + ' + args.md if args.md else ''}")

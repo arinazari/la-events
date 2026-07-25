@@ -46,6 +46,7 @@ from lib.profiles import hash_names  # noqa: E402
 from lib import editor as ED  # noqa: E402
 from lib.assemble import rank_key, event_lane, top_picks, TOP_PICKS_LANE_CAP  # noqa: E402
 from lib.series import group_series, series_summary, is_film, showtimes_url  # noqa: E402
+from lib.festivals import load_festivals  # noqa: E402  (festivals.yaml -> front_page.festivals)
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
@@ -195,44 +196,6 @@ def digest_take(md: str):
         return None
     d = DOC_DATE_RE.search(md)
     return {"text": text, "date": d.group(1) if d else None}
-
-
-# ── Festivals watch-list (festivals.yaml → front_page.festivals) ─────────────────
-# The yaml was standing memory that NOTHING read (2026-07-25 audit): build_radar derives
-# radar purely from catalog signals, so out-of-catalog watch-list items (Portola, CRSSD,
-# Coachella '27) surfaced nowhere. This lift makes the file a real data path: the dashboard's
-# dedicated Festivals view renders it verbatim — name/when/status/why/tickets — with
-# status:past filtered and dated items first. Curation stays in the yaml (the file header's
-# relevance-gating note applies to the DIGEST; the dedicated view IS the watch-list).
-_FEST_DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
-
-
-def load_festivals(path) -> list:
-    """festivals.yaml -> front_page.festivals rows. [] when the file is absent/empty."""
-    p = Path(path)
-    if not p.exists():
-        return []
-    data = load_yaml(p) or {}
-    out = []
-    for f in (data.get("festivals") or []):
-        if not isinstance(f, dict) or not f.get("name"):
-            continue
-        status = str(f.get("status") or "").strip().lower() or None
-        if status == "past":
-            continue
-        when = str(f.get("when") or "").strip()
-        m = _FEST_DATE_RE.search(when)
-        out.append({
-            "name": str(f.get("name")).strip(),
-            "location": str(f.get("location") or "").strip(),
-            "when": when,
-            "status": status,
-            "tickets": str(f.get("tickets") or "").strip() or None,
-            "why": " ".join(str(f.get("why") or "").split()),
-            "first_date": m.group(0) if m else None,
-        })
-    out.sort(key=lambda x: (x["first_date"] is None, x["first_date"] or "", x["name"]))
-    return out
 
 
 def _fp_windows(today):
