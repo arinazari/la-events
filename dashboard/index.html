@@ -361,6 +361,12 @@
     <!-- ==================== SCENE PAGE ==================== -->
     <sc-if value="{{ isScene }}" hint-placeholder-val="{{ false }}">
     <div style="max-width:920px; margin:0 auto; padding:20px 22px 40px;">
+      <sc-if value="{{ showMobileSearch }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ mobileSearchTap }}" style="display:flex; align-items:center; gap:8px; padding:11px 14px; border:1px solid #d2d0c7; background:#fff; border-radius:999px; margin-bottom:16px; cursor:pointer; color:#9a988e;">
+          <span style="flex:none; font-size:17px;">⌕</span>
+          <span style="font:500 12.5px/1 ui-monospace,Menlo,monospace;">search events, venues, artists</span>
+        </div>
+      </sc-if>
       <span onClick="{{ closeScene }}" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b; margin-bottom:16px;" style-hover="color:#161512;">← front page</span>
       <h1 style="margin:0 0 7px; font:700 25px/1.15 -apple-system,system-ui,sans-serif; color:#161512; display:flex; align-items:center; gap:10px; flex-wrap:wrap;"><span style="flex:none; width:11px; height:11px; border-radius:50%; background: {{ sceneDot }};"></span>{{ sceneTitle }}</h1>
       <p style="margin:0 0 4px; font:400 13.5px/1.5 -apple-system,system-ui,sans-serif; color:#76746b; max-width:60ch;">{{ sceneDesc }}</p>
@@ -1224,6 +1230,7 @@ class Component extends DCLogic {
   }
   // Digest "card ↗" links (…?e=<key>) open the event's card right here instead of reloading the site.
   onDigestClick = (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;  // keep open-in-new-tab gestures
     const a = e.target && e.target.closest && e.target.closest('a');
     if (!a) return;
     const m = String(a.getAttribute('href') || '').match(/[?&]e=([0-9a-f]{6,32})\b/);
@@ -1402,11 +1409,20 @@ class Component extends DCLogic {
       const el = document.getElementById('la-main');
       if (!el) { this._bindT = setTimeout(this._bindMainScroll, 300); return; }
       if (el === this._mainEl) return;
-      this._mainEl = el; this._lastY = el.scrollTop || 0;
+      this._mainEl = el; this._lastY = el.scrollTop || 0; this._accY = 0;
       this._onMainScroll = () => {
-        if (!this.state.isMobile) { this._lastY = el.scrollTop; return; }
-        const y = el.scrollTop, dy = y - this._lastY; this._lastY = y;
-        const hide = (y > 90 && dy > 4) ? true : ((dy < -4 || y <= 90) ? false : this.state.navHidden);
+        // Clamp into the real scroll range so iOS rubber-band overscroll can't fake a direction
+        // flip, and accumulate signed deltas so slow drags still cross the threshold eventually.
+        const maxY = Math.max(0, el.scrollHeight - el.clientHeight);
+        const y = Math.max(0, Math.min(el.scrollTop, maxY));
+        if (!this.state.isMobile) { this._lastY = y; return; }
+        const dy = y - this._lastY; this._lastY = y;
+        if (dy === 0) return;
+        this._accY = ((this._accY > 0) === (dy > 0) ? this._accY : 0) + dy;
+        let hide = this.state.navHidden;
+        if (y <= 90) hide = false;
+        else if (this._accY > 12) hide = true;
+        else if (this._accY < -12) hide = false;
         if (hide !== this.state.navHidden) this.setState({ navHidden: hide });
       };
       el.addEventListener('scroll', this._onMainScroll, { passive: true });
@@ -1414,7 +1430,7 @@ class Component extends DCLogic {
     this._bindMainScroll();
     try { const m = JSON.parse(localStorage.getItem('la-chat-v1') || '[]'); if (Array.isArray(m) && m.length) this.setState({ chatMsgs: m }); } catch (e) {}
     try { if (localStorage.getItem('la-view') === 'explore') this.setState({ view:'explore' }); } catch (e) {}
-    this._onKey = (e) => { if (e.key==='/' && !this.state.isMobile) { const tg = e.target || {}; const tn = String(tg.tagName || '').toLowerCase(); if (tn !== 'input' && tn !== 'textarea' && !tg.isContentEditable && !this.state.chatOpen && !this.state.detailId && !this.state.digestModalOpen && !this.state.settingsOpen && !this.state.apiModal && !this.state.tasteModal && !this.state.guideOpen && !this.state.welcomeOpen && !this.state.calModalOpen) { const el = document.getElementById('la-search'); if (el) { e.preventDefault(); el.focus(); } } return; } if (e.key!=='Escape') return; if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen:false }); else if (this.state.nudgeOpen) this.setState({ nudgeOpen:false }); else if (this.state.welcomeOpen) this.closeWelcome(); else if (this.state.guideOpen) this.setState({ guideOpen:false }); else if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
+    this._onKey = (e) => { if (e.key==='/' && !this.state.isMobile) { const tg = e.target || {}; const tn = String(tg.tagName || '').toLowerCase(); if (tn !== 'input' && tn !== 'textarea' && !tg.isContentEditable && !this.state.chatOpen && !this.state.detailId && !this.state.digestModalOpen && !this.state.settingsOpen && !this.state.apiModal && !this.state.tasteModal && !this.state.guideOpen && !this.state.welcomeOpen && !this.state.calModalOpen && !this.state.spotifyModalOpen && !this.state.nudgeOpen) { const el = document.getElementById('la-search'); if (el) { e.preventDefault(); el.focus(); } } return; } if (e.key!=='Escape') return; if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen:false }); else if (this.state.nudgeOpen) this.setState({ nudgeOpen:false }); else if (this.state.welcomeOpen) this.closeWelcome(); else if (this.state.guideOpen) this.setState({ guideOpen:false }); else if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
     window.addEventListener('keydown', this._onKey);
   }
   componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._bindT) clearTimeout(this._bindT); if (this._mainEl && this._onMainScroll) this._mainEl.removeEventListener('scroll', this._onMainScroll); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
@@ -1639,8 +1655,26 @@ class Component extends DCLogic {
   viewExplore = () => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null, navHidden:false }); };
   openScene = (id) => this.setState({ view:'scene', sceneId:id, detailId:null, navHidden:false });
   closeScene = () => this.setState({ view:'front', sceneId:null, navHidden:false });
-  // mobile front-page search pill → Explore with the real input focused
-  mobileSearchTap = () => { this.viewExplore(); setTimeout(() => { const el = document.getElementById('la-search-m'); if (el) el.focus(); }, 80); };
+  // mobile front-page search pill → Explore with the real input focused. iOS only raises the
+  // keyboard for a focus() inside the tap gesture, so focus a throwaway input NOW and hand
+  // focus to the real one once Explore has rendered (retry once for slow first paints).
+  mobileSearchTap = () => {
+    let tmp = null;
+    try {
+      tmp = document.createElement('input');
+      tmp.type = 'text'; tmp.setAttribute('aria-hidden', 'true');
+      tmp.style.cssText = 'position:fixed; top:0; left:0; width:1px; height:1px; opacity:0; border:none; padding:0; font-size:16px;';
+      document.body.appendChild(tmp); tmp.focus();
+    } catch (e) { tmp = null; }
+    this.viewExplore();
+    const hand = (tries) => {
+      const el = document.getElementById('la-search-m');
+      if (el) { el.focus(); if (tmp) tmp.remove(); }
+      else if (tries > 0) setTimeout(() => hand(tries - 1), 250);
+      else if (tmp) tmp.remove();
+    };
+    setTimeout(() => hand(2), 120);
+  };
   openDetail = (id) => this.setState({ detailId:id });
   closeDetail = () => this.setState({ detailId:null });
   // Same column twice flips direction (OLD behavior); a new column starts at its natural direction.
@@ -2214,13 +2248,14 @@ class Component extends DCLogic {
       try { localStorage.setItem('la-profile', JSON.stringify(prof)); } catch (e) {}
       this.setState({ profile:prof, loggedIn:true, settingsOpen:false });
       this.setReactions({});   // chips/less are per-person — server stars for this profile ride the feed
+      this.setSeen({});        // "Saw this" is per-person too — a fresh profile starts unhidden
       this.BACKEND_TOKEN = this.readConn(prof).token || '';   // connection is per-profile
       this.setState({ backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); });
       this.loadDigest(); this.checkSpotify(); this.maybeOnboard(prof);
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
   // ---------- pipeline jobs: per-profile Update + owner Refresh, persisted across reloads ----------
   workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
   checkCatalogFreshness() { return this.loadMeta(); }
@@ -2943,22 +2978,44 @@ class Component extends DCLogic {
   setReactions(r) { this.setState({ reactions:r }); try { localStorage.setItem('la-fp-reactions-v1', JSON.stringify(r)); } catch (e) {} }
   // ---------- "Saw this" — hide an event (and, for repeating programs, ALL its dates) ----------
   // Keyed by the stable series/event key (NOT the per-build row id), so it survives feed rebuilds.
-  seenKeyOf(e) { return e.seriesKey || e.key || ((e.title || '') + '|' + (e.venue || '')).toLowerCase(); }
-  isSeen(e) { return !!(e && this.state.seen[this.seenKeyOf(e)]); }
+  // Repeating programs ALSO store a title fingerprint: the server only stamps series_key on runs
+  // with 2+ upcoming nights, so a run's final night would lose the key on the nightly rebuild and
+  // resurface — the fingerprint ("saw The Odyssey, period") keeps it hidden to the end of the run.
+  _titleFp(t) { const s = String(t || '').toLowerCase().replace(/\s*[([{].*$/, '').replace(/\W+/g, ' ').trim(); return s.length >= 6 ? 't:' + s : ''; }
+  _seenKeysOf(e) {
+    const ks = [];
+    if (e.seriesKey) ks.push(e.seriesKey);
+    if (e.key) ks.push(e.key);
+    if (!ks.length) ks.push(((e.title || '') + '|' + (e.venue || '')).toLowerCase());
+    const repeats = !!(e.seriesKey || (e.series && e.series.count > 1));
+    const fp = repeats ? this._titleFp(e.title) : '';
+    if (fp) ks.push(fp);
+    return ks;
+  }
+  isSeen(e) { if (!e) return false; const m = this.state.seen; for (const k of this._seenKeysOf(e)) if (m[k]) return true; return false; }
   setSeen(m) { this.setState({ seen:m }); try { localStorage.setItem('la-seen-v1', JSON.stringify(m)); } catch (e) {} }
   markSeen(e, ev) {
     if (ev && ev.stopPropagation) ev.stopPropagation();
-    const k = this.seenKeyOf(e);
+    const ks = this._seenKeysOf(e);
     const m = { ...this.state.seen };
-    const on = !m[k];
-    if (!on) { delete m[k]; this.setSeen(m); return; }
-    m[k] = 1;
+    if (this.isSeen(e)) { for (const k of ks) delete m[k]; this.setSeen(m); return; }
+    for (const k of ks) m[k] = 1;
     this.setSeen(m);
     this.setState({ detailId:null });
-    this.reactPost(e, 'seen');
+    // A fulfilled star: seen consumes the save, so it leaves the Starred calendar too.
+    const wasStarred = this.state.reactions[e.id] === 'chip';
+    if (wasStarred) { const r = { ...this.state.reactions }; delete r[e.id]; this.setReactions(r); this.reactPost(e, 'unstar'); }
+    // The learning signal (kind seen → feedback "went") posts only after the UNDO window closes,
+    // so a mis-tap that's undone never teaches the ranking a phantom positive.
+    const postT = setTimeout(() => this.reactPost(e, 'seen'), 5200);
     const isSeries = !!(e.seriesKey && e.series && e.series.count > 1);
     this.showToast(isSeries ? 'Saw it — hiding every date of this one' : 'Saw it — hidden from your feed',
-      () => { const m2 = { ...this.state.seen }; delete m2[k]; this.setSeen(m2); this.clearToast(); });
+      () => {
+        clearTimeout(postT);
+        const m2 = { ...this.state.seen }; for (const k of ks) delete m2[k]; this.setSeen(m2);
+        if (wasStarred) { const r2 = { ...this.state.reactions }; r2[e.id] = 'chip'; this.setReactions(r2); this.reactPost(e, 'star'); }
+        this.clearToast();
+      });
   }
   // The learning payload: the fold consumes artists/genres, so a bare {kind} teaches nothing.
   reactPost(e, kind) {
@@ -2998,7 +3055,7 @@ class Component extends DCLogic {
     const dLabel = (() => { const f = this.fmt(T, ''); return (f.wd + ' · ' + f.md).toUpperCase(); })();
     const lensDefs = [['today','TONIGHT'],['weekend','THIS WEEKEND'],['twoweeks','NEXT 2 WEEKS'],['ahead','PLAN AHEAD']];
 
-    const exploreableCount = this.ALL.filter(e => e.iso>=T).length;
+    const exploreableCount = this.ALL.filter(e => e.iso>=T && !this.isSeen(e)).length;
 
     const out = {
       outerStyle: 'height:100dvh;',
@@ -3017,7 +3074,7 @@ class Component extends DCLogic {
       showSlashHint: !mob && !this.state.exploreSearch.trim(),
       showConcierge: !mob, showBottomNav: mob,
       navTransform: (mob && this.state.navHidden) ? 'translateY(115%)' : 'translateY(0)',
-      mainPadB: mob ? '58px' : '0px',
+      mainPadB: mob ? 'calc(58px + env(safe-area-inset-bottom))' : '0px',
       navFrontColor: view==='front'?'#1b1a17':'#a7a59b', navExploreColor: view==='explore'?'#1b1a17':'#a7a59b',
       pokeConcierge:this.pokeConcierge, openDigest:this.openDigest,
       chatOpen:this.state.chatOpen, closeChat:this.closeChat, sendChat:this.sendChat,

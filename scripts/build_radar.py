@@ -108,7 +108,8 @@ def build_radar(catalog: list, taste: dict, profile: dict, today, cutoff_days: i
         link = next((l["url"] for l in (ev.get("links") or [])
                      if isinstance(l, dict) and l.get("url")), None)
         out.append({
-            "id": ev.get("title"), "title": ev.get("title"), "venue": ev.get("venue"),
+            "id": ev.get("title"), "key": event_key(ev),
+            "title": ev.get("title"), "venue": ev.get("venue"),
             "neighborhood": ev.get("neighborhood"), "date": ev.get("date"),
             "iso_date": d.isoformat(), "score": s, "signals": sig, "link": link,
             "lineup": ev.get("lineup") or [], "category": ev.get("category"),
