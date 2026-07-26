@@ -47,11 +47,11 @@
 
 <div style="{{ outerStyle }}">
 <div style="{{ frameStyle }}">
-<div class="app-shell" style="display:flex; flex-direction:column; height:100%; overflow:hidden; background:#f4f3ef; font-family:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif; color:#1b1a17;">
+<div class="app-shell" style="position:relative; display:flex; flex-direction:column; height:100%; overflow:hidden; background:#f4f3ef; font-family:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif; color:#1b1a17;">
 
   <!-- ============ TOP BAR ============ -->
   <header style="flex:none; border-bottom:1px solid #d9d7cf; background:rgba(244,243,239,0.92); backdrop-filter:blur(6px);">
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 16px 8px;">
+    <div style="max-width:1120px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 22px 8px;">
       <div style="display:flex; align-items:center; gap:12px; min-width:0;">
         <span style="display:inline-flex; align-items:center; gap:7px;">
           <span style="width:9px; height:9px; background:#1b1a17; transform:rotate(45deg);"></span>
@@ -75,8 +75,8 @@
         <span onClick="{{ toggleSettings }}" title="Settings" style="position:relative; cursor:pointer; flex:none; width:32px; height:32px; border:1px solid #d2d0c7; background: {{ gearBg }}; color: {{ gearColor }}; border-radius:999px; font-size:14px; line-height:30px; text-align:center;" style-hover="border-color:#a7a59b;">☰<sc-if value="{{ updateBadge }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:-1px; right:-1px; width:9px; height:9px; border-radius:50%; background:#2b5cd9; border:2px solid #f4f3ef;"></span></sc-if></span>
       </div>
     </div>
-    <!-- row B: lenses (front/scene) or sort (explore) + search -->
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 16px 10px; flex-wrap:wrap;">
+    <!-- row B: lenses (front/scene) or sort (explore) + search — inner content locked to the 1120px content grid -->
+    <div style="max-width:1120px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 22px 10px; flex-wrap:wrap;">
       <sc-if value="{{ showLenses }}" hint-placeholder-val="{{ true }}">
         <div class="lchips" style="display:flex; align-items:center; gap:6px; overflow-x:auto; padding:1px;">
           <sc-for list="{{ lenses }}" as="l" hint-placeholder-count="4">
@@ -94,22 +94,35 @@
           <span onClick="{{ toggleFilters }}" title="Filter by category, genre, vibe, neighborhood, date and more" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 12px; border:1px solid {{ filtersBtnBorder }}; background: {{ filtersBtnBg }}; color: {{ filtersBtnColor }}; border-radius:999px;">☰ {{ filtersBtnLabel }}</span>
         </div>
       </sc-if>
-      <span style="flex:1 1 180px; min-width:150px; display:inline-flex; align-items:center; gap:7px; padding:7px 11px; border:1px solid #d2d0c7; background:#fff; border-radius:999px;" style-focus-within="border-color:#a7a59b;">
+      <sc-if value="{{ showHeaderSearch }}" hint-placeholder-val="{{ true }}">
+      <span style="flex:none; width:280px; margin-left:auto; display:inline-flex; align-items:center; gap:7px; padding:7px 11px; border:1px solid #d2d0c7; background:#fff; border-radius:999px; transition:width .18s ease, border-color .12s ease;" style-focus-within="border-color:#a7a59b; width:340px;">
         <span style="flex:none; color:#9a988e; font-size:17px;">⌕</span>
-        <input value="{{ searchVal }}" onChange="{{ onSearch }}" placeholder="search events, venues, artists" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 11.5px/1 ui-monospace,Menlo,monospace; color:#1b1a17;" />
+        <input id="la-search" value="{{ searchVal }}" onChange="{{ onSearch }}" placeholder="search events, venues, artists" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 11.5px/1 ui-monospace,Menlo,monospace; color:#1b1a17;" />
         <sc-if value="{{ hasSearch }}" hint-placeholder-val="{{ false }}">
           <span onClick="{{ clearSearch }}" title="Clear" style="flex:none; cursor:pointer; color:#a7a59b; font-weight:700; font-size:13px;" style-hover="color:#161512;">×</span>
         </sc-if>
+        <sc-if value="{{ showSlashHint }}" hint-placeholder-val="{{ false }}">
+          <span title="Press / to search" style="flex:none; font:700 9px/1 ui-monospace,Menlo,monospace; color:#b5b3a9; border:1px solid #e0ded5; border-radius:4px; padding:3px 6px;">/</span>
+        </sc-if>
       </span>
+      </sc-if>
     </div>
   </header>
 
   <div style="flex:1; display:flex; min-height:0;">
-    <main class="scry" style="flex:1; min-width:0; overflow-y:auto; overflow-x:hidden;">
+    <main id="la-main" class="scry" style="flex:1; min-width:0; overflow-y:auto; overflow-x:hidden; padding-bottom: {{ mainPadB }};">
 
     <!-- ==================== FRONT PAGE ==================== -->
     <sc-if value="{{ isFront }}" hint-placeholder-val="{{ true }}">
     <div style="max-width:1120px; margin:0 auto; padding:20px 22px 40px;">
+
+      <!-- mobile: search lives with the content — visible at the top, scrolls away with it -->
+      <sc-if value="{{ showMobileSearch }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ mobileSearchTap }}" style="display:flex; align-items:center; gap:8px; padding:11px 14px; border:1px solid #d2d0c7; background:#fff; border-radius:999px; margin-bottom:16px; cursor:pointer; color:#9a988e;">
+          <span style="flex:none; font-size:17px;">⌕</span>
+          <span style="font:500 12.5px/1 ui-monospace,Menlo,monospace;">search events, venues, artists</span>
+        </div>
+      </sc-if>
 
       <!-- THE LEAD -->
       <sc-if value="{{ hasLead }}" hint-placeholder-val="{{ true }}">
@@ -150,7 +163,7 @@
               </div>
               </sc-if>
             </div>
-            <p style="margin:0; font:400 14.5px/1.55 -apple-system,system-ui,sans-serif; color:#3f3d36; max-width:62ch; text-wrap:pretty;">{{ lead.why }}</p>
+            <p style="margin:0; font:400 14.5px/1.55 -apple-system,system-ui,sans-serif; color:#3f3d36; max-width:62ch; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;">{{ lead.why }}</p>
             <sc-if value="{{ lead.hasTags }}" hint-placeholder-val="{{ true }}">
               <div style="display:flex; flex-wrap:wrap; gap:5px;">
                 <sc-for list="{{ lead.tags }}" as="t" hint-placeholder-count="4"><span onClick="{{ t.onTag }}" title="See more like this in Explore" style="cursor:pointer; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:4px 6px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};" style-hover="text-decoration:underline;">{{ t.text }}</span></sc-for>
@@ -221,12 +234,19 @@
       <sc-if value="{{ hasDispatch }}" hint-placeholder-val="{{ false }}">
       <section style="margin-bottom:28px; background:#fdfcf9; border:1px solid #e2e0d8; border-left:3px solid #1b1a17; border-radius:4px; padding:18px 20px;">
         <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:8px;">TODAY'S DIGEST · {{ dispatch.kicker }}</div>
-        <h3 style="margin:0 0 10px; font:700 17px/1.35 -apple-system,system-ui,sans-serif; color:#161512; max-width:74ch; text-wrap:pretty;">{{ dispatch.headline }}</h3>
+        <h3 style="margin:0 0 8px; font:700 17px/1.35 -apple-system,system-ui,sans-serif; color:#161512; max-width:74ch; text-wrap:pretty;">{{ dispatch.headline }}</h3>
+        <sc-if value="{{ dispatch.hasBlurb }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0 0 10px; font:400 13px/1.6 -apple-system,system-ui,sans-serif; color:#5a584f; max-width:74ch; text-wrap:pretty;">{{ dispatch.blurb }}</p>
+        </sc-if>
         <p style="margin:0 0 12px; font:400 13.5px/1.6 -apple-system,system-ui,sans-serif; color:#3f3d36;"><span onClick="{{ openDigest }}" style="cursor:pointer; font-weight:600; color:#2b5cd9; white-space:nowrap;" style-hover="color:#1d49b8;">Read the full digest →</span></p>
         <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
           <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">IN THIS DIGEST</span>
           <sc-for list="{{ dispatch.chips }}" as="ch" hint-placeholder-count="3">
-            <span onClick="{{ ch.onClick }}" style="cursor:pointer; font:600 10.5px/1 ui-monospace,Menlo,monospace; padding:6px 9px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ ch.text }} →</span>
+            <span onClick="{{ ch.onClick }}" title="{{ ch.full }}" style="cursor:pointer; display:inline-flex; align-items:center; gap:7px; max-width:280px; font:600 10.5px/1.2 ui-monospace,Menlo,monospace; padding:4px 5px 4px 10px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; white-space:nowrap;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">
+              <span style="flex:none; font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ ch.when }}</span>
+              <span style="min-width:0; overflow:hidden; text-overflow:ellipsis;">{{ ch.text }}</span>
+              <span onClick="{{ ch.onStar }}" title="{{ ch.starTitle }}" style="flex:none; width:21px; height:21px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:12px; line-height:1; color: {{ ch.starColor }}; background: {{ ch.starBg }};" style-hover="background:#eef1f7;">{{ ch.starGlyph }}</span>
+            </span>
           </sc-for>
         </div>
       </section>
@@ -366,6 +386,12 @@
     <!-- ==================== SCENE PAGE ==================== -->
     <sc-if value="{{ isScene }}" hint-placeholder-val="{{ false }}">
     <div style="max-width:920px; margin:0 auto; padding:20px 22px 40px;">
+      <sc-if value="{{ showMobileSearch }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ mobileSearchTap }}" style="display:flex; align-items:center; gap:8px; padding:11px 14px; border:1px solid #d2d0c7; background:#fff; border-radius:999px; margin-bottom:16px; cursor:pointer; color:#9a988e;">
+          <span style="flex:none; font-size:17px;">⌕</span>
+          <span style="font:500 12.5px/1 ui-monospace,Menlo,monospace;">search events, venues, artists</span>
+        </div>
+      </sc-if>
       <span onClick="{{ closeScene }}" style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b; margin-bottom:16px;" style-hover="color:#161512;">← front page</span>
       <h1 style="margin:0 0 7px; font:700 25px/1.15 -apple-system,system-ui,sans-serif; color:#161512; display:flex; align-items:center; gap:10px; flex-wrap:wrap;"><span style="flex:none; width:11px; height:11px; border-radius:50%; background: {{ sceneDot }};"></span>{{ sceneTitle }}</h1>
       <p style="margin:0 0 4px; font:400 13.5px/1.5 -apple-system,system-ui,sans-serif; color:#76746b; max-width:60ch;">{{ sceneDesc }}</p>
@@ -515,6 +541,17 @@
     <sc-if value="{{ isExplore }}" hint-placeholder-val="{{ false }}">
     <div style="max-width:1080px; margin:0 auto; padding:16px 22px 40px;">
 
+      <!-- mobile: search lives with the content — visible at the top, scrolls away with it -->
+      <sc-if value="{{ showMobileSearch }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid #d2d0c7; background:#fff; border-radius:999px; margin-bottom:12px;" style-focus-within="border-color:#a7a59b;">
+          <span style="flex:none; color:#9a988e; font-size:17px;">⌕</span>
+          <input id="la-search-m" value="{{ searchVal }}" onChange="{{ onSearch }}" placeholder="search events, venues, artists" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font:500 13px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17;" />
+          <sc-if value="{{ hasSearch }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ clearSearch }}" title="Clear" style="flex:none; cursor:pointer; color:#a7a59b; font-weight:700; font-size:15px;" style-hover="color:#161512;">×</span>
+          </sc-if>
+        </div>
+      </sc-if>
+
       <!-- FILTER PANEL -->
       <sc-if value="{{ filtersOpen }}" hint-placeholder-val="{{ false }}">
       <div id="ex-filter-panel" style="margin-bottom:14px; background:#fdfcf9; border:1px solid #dedcd4; border-radius:6px; padding:14px 16px 15px;">
@@ -540,10 +577,12 @@
       </div>
       </sc-if>
 
-      <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:12px;">
-        <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreCountLabel }}</span>
-        <sc-if value="{{ hasChatFilter }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearChatFilter }}" title="Clear the concierge's filter" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9; padding:5px 10px; border:1px solid #c3d2f4; background:#eaf0fe; border-radius:999px;">✦ {{ chatFilterLabel }} ×</span></sc-if>
-        <sc-if value="{{ exHasActive }}" hint-placeholder-val="{{ false }}"><span onClick="{{ exResetFn }}" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear filters ×</span></sc-if>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; flex-wrap:wrap;">
+        <span style="display:inline-flex; align-items:center; gap:9px; min-width:0;">
+          <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreCountLabel }}</span>
+          <sc-if value="{{ hasChatFilter }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearChatFilter }}" title="Clear the concierge's filter" style="cursor:pointer; display:inline-flex; align-items:center; gap:5px; max-width:280px; font:700 10px/1.3 ui-monospace,Menlo,monospace; color:#2b5cd9; padding:5px 10px; border:1px solid #c3d2f4; background:#eaf0fe; border-radius:999px; white-space:nowrap;"><span style="overflow:hidden; text-overflow:ellipsis;">✦ {{ chatFilterLabel }}</span><span style="flex:none;">×</span></span></sc-if>
+        </span>
+        <sc-if value="{{ exHasActive }}" hint-placeholder-val="{{ false }}"><span onClick="{{ exResetFn }}" style="flex:none; cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear filters ×</span></sc-if>
       </div>
       <!-- mobile: flat card list (the table is a desktop surface) -->
       <sc-if value="{{ isMobileCards }}" hint-placeholder-val="{{ false }}">
@@ -593,7 +632,7 @@
                 </td>
                 <td style="padding:11px 12px; vertical-align:top;">
                   <div style="font:600 13px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">{{ c.title }}</div>
-                  <div style="margin-top:3px; font:500 11px/1.4 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.sub }}</div>
+                  <div style="margin-top:3px; font:500 11px/1.4 ui-monospace,Menlo,monospace; color:#76746b; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;">{{ c.sub }}</div>
                   <sc-if value="{{ c.hasTags }}" hint-placeholder-val="{{ false }}">
                     <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:5px;">
                       <sc-for list="{{ c.miniTags }}" as="t" hint-placeholder-count="2"><span onClick="{{ t.onTag }}" title="See more like this in Explore" style="cursor:pointer; font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:3px 5px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};" style-hover="text-decoration:underline;">{{ t.text }}</span></sc-for>
@@ -634,9 +673,9 @@
     </sc-if>
   </div>
 
-  <!-- bottom nav (mobile) -->
+  <!-- bottom nav (mobile) — overlays the content and slides away while scrolling down (iOS pattern) -->
   <sc-if value="{{ showBottomNav }}" hint-placeholder-val="{{ false }}">
-    <nav style="flex:none; display:flex; align-items:stretch; border-top:1px solid #d9d7cf; background:#efeee9;">
+    <nav style="position:absolute; left:0; right:0; bottom:0; z-index:40; display:flex; align-items:stretch; border-top:1px solid #d9d7cf; background:#efeee9; padding-bottom:env(safe-area-inset-bottom); transform: {{ navTransform }}; transition:transform .28s ease;">
       <span onClick="{{ viewFront }}" style="flex:1; text-align:center; padding:11px 0 13px; cursor:pointer; font:700 10px/1.5 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color: {{ navFrontColor }};">◆<br/>FRONT</span>
       <span onClick="{{ viewExplore }}" style="flex:1; text-align:center; padding:11px 0 13px; cursor:pointer; font:700 10px/1.5 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color: {{ navExploreColor }};">▤<br/>EXPLORE</span>
       <span onClick="{{ pokeConcierge }}" style="flex:1; text-align:center; padding:11px 0 13px; cursor:pointer; font:700 10px/1.5 ui-monospace,Menlo,monospace; letter-spacing:0.05em; color:#2b5cd9;">✦<br/>CONCIERGE</span>
@@ -734,7 +773,10 @@
         <button onClick="{{ detail.onCal }}" style="display:inline-flex; align-items:center; gap:6px; font:700 11px/1 ui-monospace,Menlo,monospace; padding:11px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#a7a59b;">Add to calendar ↓</button>
       </div>
       <div style="margin-top:16px; padding-top:14px; border-top:1px solid #eeece4; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-        <span onClick="{{ detail.onLess }}" title="Tune your feed" style="cursor:pointer; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color: {{ detail.lessColor }};" style-hover="color:#8a887e;">{{ detail.lessLabel }}</span>
+        <span style="display:inline-flex; align-items:center; gap:14px; flex-wrap:wrap;">
+          <span onClick="{{ detail.onLess }}" title="Tune your feed" style="cursor:pointer; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color: {{ detail.lessColor }};" style-hover="color:#8a887e;">{{ detail.lessLabel }}</span>
+          <span onClick="{{ detail.onSeen }}" title="Already saw / went to this — hide it (and its other dates) from your feed" style="cursor:pointer; font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color: {{ detail.seenColor }};" style-hover="color:#8a887e;">{{ detail.seenLabel }}</span>
+        </span>
         <span onClick="{{ detail.onScene }}" style="cursor:pointer; font:700 10.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">More {{ detail.sceneLabel }} →</span>
       </div>
     </div>
@@ -1359,6 +1401,27 @@ class Component extends DCLogic {
     return true;
   }
   byKey(k) { return (this.BYKEY && this.BYKEY.get(k)) || null; }
+  // ?e=<event_key> → that event's card, once per boot (digest links + shared URLs land here)
+  openDeepLink() {
+    const k = this._deepKey;
+    if (!k) return;
+    this._deepKey = null;
+    const ev = this.byKey(k);
+    if (ev) this.setState({ detailId: ev.id });
+    else this.showToast('That event isn’t in the current feed anymore', null);
+  }
+  // Digest "card ↗" links (…?e=<key>) open the event's card right here instead of reloading the site.
+  onDigestClick = (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;  // keep open-in-new-tab gestures
+    const a = e.target && e.target.closest && e.target.closest('a');
+    if (!a) return;
+    const m = String(a.getAttribute('href') || '').match(/[?&]e=([0-9a-f]{6,32})\b/);
+    if (!m) return;
+    const ev = this.byKey(m[1]);
+    if (!ev) return;   // expired/unknown key — let the link open the site normally
+    e.preventDefault();
+    this.setState({ digestModalOpen: false, detailId: ev.id });
+  };
   resolveKeys(keys) { const out = []; for (const k of (keys || [])) { const e = this.byKey(k); if (e) out.push(e); } return out; }
   // Canonical order = the editor's final_rank (server-stamped, lower is better); events the
   // editor hasn't ranked fall back to the deterministic score. The page never re-ranks.
@@ -1492,7 +1555,7 @@ class Component extends DCLogic {
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   }
 
-  state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, isMobile:false, exploreSort:'match', exploreDir:1, exploreSearch:'', toast:null, dataSource:'loading', profile:null,
+  state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, seen:{}, navHidden:false, isMobile:false, exploreSort:'match', exploreDir:1, exploreSearch:'', toast:null, dataSource:'loading', profile:null,
     settingsOpen:false, loggedIn:false, apiModal:false, tasteModal:false, tasteTab:'taste', username:'',
     apiKeyOn:false, opusOn:false, apiKey:'', sharedToken:'',
     chatOpen:false, chatInput:'', chatMsgs:[], chatBusy:false, updating:null,
@@ -1505,23 +1568,51 @@ class Component extends DCLogic {
 
   componentDidMount() {
     try { const r = JSON.parse(localStorage.getItem('la-fp-reactions-v1') || '{}'); if (r && typeof r === 'object') this.setState({ reactions:r }); } catch (e) {}
+    try { const s = JSON.parse(localStorage.getItem('la-seen-v1') || '{}'); if (s && typeof s === 'object') this.setState({ seen:s }); } catch (e) {}
     this.migrateLegacyConn();
     this.BACKEND_TOKEN = this.readConn().token || '';   // authoritative: post-migration, TTL-checked
     let prof = null;
     try { prof = JSON.parse(localStorage.getItem('la-profile') || 'null'); } catch (e) {}
     if (prof && prof.hash) { this.setState({ profile: prof, loggedIn: true, username: prof.u || '' }); this.maybeOnboard(prof); }
+    // ?e=<event_key> deep link (the digest's "card ↗" links) — opened once the feed is in
+    try { this._deepKey = new URLSearchParams(location.search).get('e') || null; } catch (e) { this._deepKey = null; }
     // meta first (161 bytes, no-store) so the big feed fetch can use a content-version cache key
     this.loadMeta().then(() => this.loadFeedFor(prof && prof.hash ? prof : null)).then(() => {
       this.reattachJobs();
       if (this.state.profile) this.maybeNudge();
+      this.openDeepLink();
     });
     this.loadDigest();
     if (this.BACKEND_URL) this.pingBackend();
-    this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m }); };
+    this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m, navHidden: false }); };
     this._onResize(); window.addEventListener('resize', this._onResize);
+    // bottom-nav auto-hide: watch the main scroller; down hides, up (or near the top) shows
+    this._bindMainScroll = () => {
+      const el = document.getElementById('la-main');
+      if (!el) { this._bindT = setTimeout(this._bindMainScroll, 300); return; }
+      if (el === this._mainEl) return;
+      this._mainEl = el; this._lastY = el.scrollTop || 0; this._accY = 0;
+      this._onMainScroll = () => {
+        // Clamp into the real scroll range so iOS rubber-band overscroll can't fake a direction
+        // flip, and accumulate signed deltas so slow drags still cross the threshold eventually.
+        const maxY = Math.max(0, el.scrollHeight - el.clientHeight);
+        const y = Math.max(0, Math.min(el.scrollTop, maxY));
+        if (!this.state.isMobile) { this._lastY = y; return; }
+        const dy = y - this._lastY; this._lastY = y;
+        if (dy === 0) return;
+        this._accY = ((this._accY > 0) === (dy > 0) ? this._accY : 0) + dy;
+        let hide = this.state.navHidden;
+        if (y <= 90) hide = false;
+        else if (this._accY > 12) hide = true;
+        else if (this._accY < -12) hide = false;
+        if (hide !== this.state.navHidden) this.setState({ navHidden: hide });
+      };
+      el.addEventListener('scroll', this._onMainScroll, { passive: true });
+    };
+    this._bindMainScroll();
     try { const m = JSON.parse(localStorage.getItem('la-chat-v1') || '[]'); if (Array.isArray(m) && m.length) this.setState({ chatMsgs: m }); } catch (e) {}
     try { if (localStorage.getItem('la-view') === 'explore') this.setState({ view:'explore' }); } catch (e) {}
-    this._onKey = (e) => { if (e.key!=='Escape') return; if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen:false }); else if (this.state.nudgeOpen) this.setState({ nudgeOpen:false }); else if (this.state.welcomeOpen) this.closeWelcome(); else if (this.state.guideOpen) this.setState({ guideOpen:false }); else if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
+    this._onKey = (e) => { if (e.key==='/' && !this.state.isMobile) { const tg = e.target || {}; const tn = String(tg.tagName || '').toLowerCase(); if (tn !== 'input' && tn !== 'textarea' && !tg.isContentEditable && !this.state.chatOpen && !this.state.detailId && !this.state.digestModalOpen && !this.state.settingsOpen && !this.state.apiModal && !this.state.tasteModal && !this.state.guideOpen && !this.state.welcomeOpen && !this.state.calModalOpen && !this.state.spotifyModalOpen && !this.state.nudgeOpen) { const el = document.getElementById('la-search'); if (el) { e.preventDefault(); el.focus(); } } return; } if (e.key!=='Escape') return; if (this.state.spotifyModalOpen) this.setState({ spotifyModalOpen:false }); else if (this.state.nudgeOpen) this.setState({ nudgeOpen:false }); else if (this.state.welcomeOpen) this.closeWelcome(); else if (this.state.guideOpen) this.setState({ guideOpen:false }); else if (this.state.calModalOpen) this.setState({ calModalOpen:false }); else if (this.state.digestModalOpen) this.setState({ digestModalOpen:false }); else if (this.state.chatOpen) this.setState({ chatOpen:false }); else if (this.state.apiModal) this.setState({ apiModal:false }); else if (this.state.tasteModal) this.setState({ tasteModal:false }); else if (this.state.settingsOpen) this.setState({ settingsOpen:false }); else if (this.state.detailId) this.setState({ detailId:null }); };
     window.addEventListener('keydown', this._onKey);
     // Jobs are keyed in localStorage, so a tab that was already open when another tab started a
     // rebuild renders that badge without ever arming a poll for it — the classic way the badge
@@ -1533,7 +1624,7 @@ class Component extends DCLogic {
     };
     window.addEventListener('storage', this._onStorage);
   }
-  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onStorage) window.removeEventListener('storage', this._onStorage); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
+  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._bindT) clearTimeout(this._bindT); if (this._mainEl && this._onMainScroll) this._mainEl.removeEventListener('scroll', this._onMainScroll); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onStorage) window.removeEventListener('storage', this._onStorage); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
 
   // ---------- date + format ----------
   fmt(iso, time) {
@@ -1749,7 +1840,7 @@ class Component extends DCLogic {
     // detail modal's ALL DATES board.
     const run = this.runLabel(e);
     return {
-      id:e.id, when:run ? run.span+' · '+run.count : (isToday?'Tonight':f.wd)+' · '+f.t,
+      id:e.id, when:run ? run.span+' · '+run.count : (isToday?'Tonight':f.wd+' '+f.md)+' · '+f.t,
       // A run card's `t` is the count ("12 nights"), not the rep night's clock time — the
       // span+7:30 pairing read as a nightly curtain time, wrong for mixed-matinee programs.
       dateShort:run ? run.span : f.wd+' '+f.md, wd:f.wd, md:f.md, t:run ? run.count : f.t,
@@ -1787,26 +1878,48 @@ class Component extends DCLogic {
   poolFor(lens) {
     const [a,b] = this.windowFor(lens);
     const less = e => this.state.reactions[e.id]==='less' ? 1 : 0; // downvoted sinks, never hides
-    return this.collapseSeries(this.ALL.filter(e => e.iso>=a && e.iso<=b))
+    return this.collapseSeries(this.ALL.filter(e => e.iso>=a && e.iso<=b && !this.isSeen(e)))
       .sort((x,y) => less(x)-less(y) || this.rankCmp(x,y));
   }
   // Stable partition that keeps a server-ordered list's order but sinks "less"-downvoted events.
+  // "Seen" events (Saw this) drop out entirely — that's the one reaction that hides.
   lessSink(evs) {
+    const kept = evs.filter(e => !this.isSeen(e));
     const less = e => this.state.reactions[e.id]==='less';
-    return evs.filter(e => !less(e)).concat(evs.filter(less));
+    return kept.filter(e => !less(e)).concat(kept.filter(less));
   }
 
   // ---------- actions ----------
   persistView(v) { try { localStorage.setItem('la-view', v); } catch (e) {} }
-  setLens = (k) => { this.persistView('front'); this.setState({ lens:k, view:'front', sceneId:null }); };
-  viewFront = () => { this.persistView('front'); this.setState({ view:'front', sceneId:null }); };
-  viewExplore = () => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null }); };
-  openScene = (id) => this.setState({ view:'scene', sceneId:id, detailId:null });
-  closeScene = () => this.setState({ view:'front', sceneId:null });
+  setLens = (k) => { this.persistView('front'); this.setState({ lens:k, view:'front', sceneId:null, navHidden:false }); };
+  viewFront = () => { this.persistView('front'); this.setState({ view:'front', sceneId:null, navHidden:false }); };
+  viewExplore = () => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null, navHidden:false }); };
+  openScene = (id) => this.setState({ view:'scene', sceneId:id, detailId:null, navHidden:false });
+  closeScene = () => this.setState({ view:'front', sceneId:null, navHidden:false });
   // Dedicated sub-views (2026-07-25): the movies marquee + the festivals watch-list.
-  openMovies = () => this.setState({ view:'movies', sceneId:null, detailId:null });
-  openFestivals = () => this.setState({ view:'festivals', sceneId:null, detailId:null });
-  closeSub = () => this.setState({ view:'front' });
+  openMovies = () => this.setState({ view:'movies', sceneId:null, detailId:null, navHidden:false });
+  openFestivals = () => this.setState({ view:'festivals', sceneId:null, detailId:null, navHidden:false });
+  closeSub = () => this.setState({ view:'front', navHidden:false });
+  // mobile front-page search pill → Explore with the real input focused. iOS only raises the
+  // keyboard for a focus() inside the tap gesture, so focus a throwaway input NOW and hand
+  // focus to the real one once Explore has rendered (retry once for slow first paints).
+  mobileSearchTap = () => {
+    let tmp = null;
+    try {
+      tmp = document.createElement('input');
+      tmp.type = 'text'; tmp.setAttribute('aria-hidden', 'true');
+      tmp.style.cssText = 'position:fixed; top:0; left:0; width:1px; height:1px; opacity:0; border:none; padding:0; font-size:16px;';
+      document.body.appendChild(tmp); tmp.focus();
+    } catch (e) { tmp = null; }
+    this.viewExplore();
+    const hand = (tries) => {
+      const el = document.getElementById('la-search-m');
+      if (el) { el.focus(); if (tmp) tmp.remove(); }
+      else if (tries > 0) setTimeout(() => hand(tries - 1), 250);
+      else if (tmp) tmp.remove();
+    };
+    setTimeout(() => hand(2), 120);
+  };
   openDetail = (id) => this.setState({ detailId:id });
   closeDetail = () => this.setState({ detailId:null });
   // Same column twice flips direction (OLD behavior); a new column starts at its natural direction.
@@ -1818,6 +1931,16 @@ class Component extends DCLogic {
   STARTERS = ['techno this weekend', 'what’s worth it tonight', 'plan saturday — dinner then a show', 'free shows near me', 'more deep house, less comedy', 'afterhours warehouse'];
   useStarter = (t) => { const v = String(t || '').trim(); if (!v) return; this.setState({ chatInput: v }); try { const el = document.getElementById('la-chat-input'); if (el) { el.focus(); el.setSelectionRange(v.length, v.length); } } catch (e) {} };
   labelISO(iso) { const d = new Date(iso + 'T00:00:00'); if (isNaN(d.getTime())) return String(iso); return this.WD[d.getDay()] + ' ' + (d.getMonth() + 1) + '/' + d.getDate(); }
+  // "In this digest" chip titles: promoter-prefixed rave titles keep the artists, long titles
+  // clip at a word boundary — the full title rides in the tooltip and on the card itself.
+  shortTitle(t) {
+    let s = String(t || '').trim();
+    const pres = s.match(/\bpresents?[:\s]+(.{6,})$/i);
+    if (pres && s.length > 34) s = pres[1].trim();
+    if (s.length > 34) { const cut = s.split(/:\s+|\s+[—–|]\s+|\s+-\s+/)[0]; if (cut.length >= 12) s = cut; }
+    if (s.length > 34) s = s.slice(0, 32).replace(/[\s,;:·|/-]+\S*$/, '').trim() + '…';
+    return s;
+  }
   // ---------- per-profile connection store (token + Claude key + on/off + Opus) ----------
   // Scoped to the signed-in profile (keyed by feed hash; 'default' logged out) so credentials
   // never leak across profiles; a 45-day freshness TTL ages out dormant connections.
@@ -2142,7 +2265,7 @@ class Component extends DCLogic {
     this.setState({ chatBusy:false, chatFiltered: list.length ? list.map(e => e.id) : null, chatFilterLabel: list.length ? label : '', view: list.length ? 'explore' : this.state.view, exploreSort: spec.sortBy === 'date' ? 'date' : 'match', exploreDir: 1 });
   }
   clearChatFilter = () => this.setState({ chatFiltered:null, chatFilterLabel:'' });
-  resetReactions = () => { this.setState({ reactions:{} }); try { localStorage.removeItem('la-fp-reactions-v1'); } catch (e) {} };
+  resetReactions = () => { this.setState({ reactions:{}, seen:{} }); try { localStorage.removeItem('la-fp-reactions-v1'); localStorage.removeItem('la-seen-v1'); } catch (e) {} };
 
   // ---------- digest reader — renders ./digests/<hash>/latest.md (the full editorial digest) ----------
   DIGEST_MD = '';
@@ -2370,6 +2493,7 @@ class Component extends DCLogic {
       try { localStorage.setItem('la-profile', JSON.stringify(prof)); } catch (e) {}
       this.setState({ profile:prof, loggedIn:true, settingsOpen:false });
       this.setReactions({});   // chips/less are per-person — server stars for this profile ride the feed
+      this.setSeen({});        // "Saw this" is per-person too — a fresh profile starts unhidden
       this.BACKEND_TOKEN = this.readConn(prof).token || '';   // connection is per-profile
       this.setState({ backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); });
       this.loadDigest(); this.checkSpotify(); this.maybeOnboard(prof);
@@ -2377,7 +2501,7 @@ class Component extends DCLogic {
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
   // ---------- pipeline jobs: per-profile Update + owner Refresh, persisted across reloads ----------
   workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
   checkCatalogFreshness() { return this.loadMeta(); }
@@ -3066,6 +3190,11 @@ class Component extends DCLogic {
     "",
     "## Late July 2026 — the redesign, restored",
     "",
+    "- **“Saw this” hides what you've already seen.** On any event's card: *Saw this — hide it* removes the event — and every other date of a repeating run (that 70mm you already caught) — from your feed. Undo from the toast, or *reset your reactions* any time.",
+    "- **Digest links now land on the card.** Event lines in the written digest carry a `card ↗` link that opens that event right on the site — details, lineup, save star and all. Inside the digest reader it opens in place, and the link works from an emailed digest too.",
+    "- **The day's digest, fleshed out.** The front-page digest box now runs the digest's opening read under the headline, and the *In this digest* chips got dates, tighter titles, and a ★ save button of their own.",
+    "- **Cards say when.** Every card now shows the date (*Sat Aug 22*), not just the weekday — no more guessing which Saturday under *plan ahead*.",
+    "- **Mobile, smoother.** Search now lives at the top of the page (scrolls away with the content), the header is tighter, and the bottom nav tucks away while you scroll down — it's back the moment you scroll up.",
     "- **Two dedicated views: the marquee, and the festival watch-list.** **The marquee** (via *the marquee →* on the movies lane) is a full movies page: every film program with its dates board inline — now playing, opens soon, and the one-night screenings for the next two weeks. **Festivals & big shows** (via *the festival watch-list →* under On the radar) finally surfaces the hand-curated watch-list — Portola, CRSSD, Coachella and co. with dates, where tickets stand (*on sale · lineup pending · annual watch*), and the one-line why. That list existed all along; it just never reached the site until now.",
     "- **Clearer scene names + a home for long runs.** The scene lanes got plainer names — **Afterhours**, **Big-name club nights**, **Arenas & halls**, **Markets, art & more** — and movies, comedy and theater share one **Movies, comedy & theater** lane. Multi-week runs and seasons (a Pantages musical, a month of rep showtimes) moved to their own **Now running** section instead of squatting a scene box for weeks; they rejoin the dated lanes for their final two weeks, when *closes Sunday* is news. Run cards show the span (*Thru Sun Sep 6 · 12 nights*), and their detail popup carries an **All dates** board — every remaining night as a chip straight to that night's tickets, grouped by theater, sold-out nights crossed out.",
     "- **A new front page** — the lead pick, your shortlist, a lane per scene, and the day's digest headline up top, with the detail popup and settings rebuilt to match.",
@@ -3149,6 +3278,45 @@ class Component extends DCLogic {
   toggleWelcomeDismiss = () => this.setState(s => ({ welcomeDismiss: !s.welcomeDismiss }));
 
   setReactions(r) { this.setState({ reactions:r }); try { localStorage.setItem('la-fp-reactions-v1', JSON.stringify(r)); } catch (e) {} }
+  // ---------- "Saw this" — hide an event (and, for repeating programs, ALL its dates) ----------
+  // Keyed by the stable series/event key (NOT the per-build row id), so it survives feed rebuilds.
+  // Repeating programs ALSO store a title fingerprint: the server only stamps series_key on runs
+  // with 2+ upcoming nights, so a run's final night would lose the key on the nightly rebuild and
+  // resurface — the fingerprint ("saw The Odyssey, period") keeps it hidden to the end of the run.
+  _titleFp(t) { const s = String(t || '').toLowerCase().replace(/\s*[([{].*$/, '').replace(/\W+/g, ' ').trim(); return s.length >= 6 ? 't:' + s : ''; }
+  _seenKeysOf(e) {
+    const ks = [];
+    if (e.seriesKey) ks.push(e.seriesKey);
+    if (e.key) ks.push(e.key);
+    if (!ks.length) ks.push(((e.title || '') + '|' + (e.venue || '')).toLowerCase());
+    const repeats = !!(e.seriesKey || (e.series && e.series.count > 1));
+    const fp = repeats ? this._titleFp(e.title) : '';
+    if (fp) ks.push(fp);
+    return ks;
+  }
+  isSeen(e) { if (!e) return false; const m = this.state.seen; for (const k of this._seenKeysOf(e)) if (m[k]) return true; return false; }
+  setSeen(m) { this.setState({ seen:m }); try { localStorage.setItem('la-seen-v1', JSON.stringify(m)); } catch (e) {} }
+  markSeen(e, ev) {
+    if (ev && ev.stopPropagation) ev.stopPropagation();
+    const ks = this._seenKeysOf(e);
+    const m = { ...this.state.seen };
+    if (this.isSeen(e)) { for (const k of ks) delete m[k]; this.setSeen(m); return; }
+    for (const k of ks) m[k] = 1;
+    this.setSeen(m);
+    this.setState({ detailId:null });
+    // A star survives "seen" (Ari's call): the save stays on the Starred calendar — seen only
+    // hides the event from the browsing surfaces.
+    // The learning signal (kind seen → feedback "went") posts only after the UNDO window closes,
+    // so a mis-tap that's undone never teaches the ranking a phantom positive.
+    const postT = setTimeout(() => this.reactPost(e, 'seen'), 5200);
+    const isSeries = !!(e.seriesKey && e.series && e.series.count > 1);
+    this.showToast(isSeries ? 'Saw it — hiding every date of this one' : 'Saw it — hidden from your feed',
+      () => {
+        clearTimeout(postT);
+        const m2 = { ...this.state.seen }; for (const k of ks) delete m2[k]; this.setSeen(m2);
+        this.clearToast();
+      });
+  }
   // The learning payload: the fold consumes artists/genres, so a bare {kind} teaches nothing.
   reactPost(e, kind) {
     const p = this.state.profile;
@@ -3187,7 +3355,7 @@ class Component extends DCLogic {
     const dLabel = (() => { const f = this.fmt(T, ''); return (f.wd + ' · ' + f.md).toUpperCase(); })();
     const lensDefs = [['today','TONIGHT'],['weekend','THIS WEEKEND'],['twoweeks','NEXT 2 WEEKS'],['ahead','PLAN AHEAD']];
 
-    const exploreableCount = this.ALL.filter(e => e.iso>=T).length;
+    const exploreableCount = this.ALL.filter(e => e.iso>=T && !this.isSeen(e)).length;
 
     const out = {
       outerStyle: 'height:100dvh;',
@@ -3204,7 +3372,11 @@ class Component extends DCLogic {
       lenses: lensDefs.map(([k,label]) => ({ label, onClick:() => this.setLens(k), border: lens===k?'#1b1a17':'#d2d0c7', bg: lens===k?'#1b1a17':'#fff', color: lens===k?'#fff':'#76746b' })),
       sortOpts: [['match','MATCH'],['date','DATE'],['title','A–Z']].map(([k,label]) => ({ label, onClick:() => this.setSort(k), border: this.state.exploreSort===k?'#2b5cd9':'#d2d0c7', bg: this.state.exploreSort===k?'#eaf0fe':'#fff', color: this.state.exploreSort===k?'#2b5cd9':'#76746b' })),
       searchVal:this.state.exploreSearch, onSearch:this.onSearch, hasSearch:!!this.state.exploreSearch.trim(), clearSearch:this.clearSearch,
+      showHeaderSearch: !mob, showMobileSearch: mob, mobileSearchTap: this.mobileSearchTap,
+      showSlashHint: !mob && !this.state.exploreSearch.trim(),
       showConcierge: !mob, showBottomNav: mob,
+      navTransform: (mob && this.state.navHidden) ? 'translateY(115%)' : 'translateY(0)',
+      mainPadB: mob ? 'calc(58px + env(safe-area-inset-bottom))' : '0px',
       navFrontColor: view==='front'?'#1b1a17':'#a7a59b', navExploreColor: view==='explore'?'#1b1a17':'#a7a59b',
       pokeConcierge:this.pokeConcierge, openDigest:this.openDigest,
       chatOpen:this.state.chatOpen, closeChat:this.closeChat, sendChat:this.sendChat,
@@ -3282,13 +3454,34 @@ class Component extends DCLogic {
 
       const take = this.META.front_page && this.META.front_page.take;
       if (take && take.text) {
-        const heroKeys = (((this.META.front_page || {}).hero || {})[lens] || []).slice(0, 3);
-        const chips = heroKeys.map(k => this.ALL.find(e => e.key === k)).filter(Boolean).map(e => ({ text: e.title, onClick: () => this.openDetail(e.id) }));
+        const heroKeys = (((this.META.front_page || {}).hero || {})[lens] || []).slice(0, 5);
+        const chips = heroKeys.map(k => this.ALL.find(e => e.key === k)).filter(e => e && !this.isSeen(e)).slice(0, 3).map(e => {
+          const mine = this.state.reactions[e.id] === 'chip';
+          return {
+            when: this.labelISO(e.iso), text: this.shortTitle(e.title), full: e.title,
+            onClick: () => this.openDetail(e.id),
+            onStar: (ev) => this.react(e.id, 'chip', ev),
+            starGlyph: mine ? '★' : '☆', starColor: mine ? '#c89b2f' : '#a7a59b',
+            starBg: mine ? '#fdf4e3' : 'transparent',
+            starTitle: mine ? 'Saved — tap to unsave' : 'Save this one',
+          };
+        });
         out.hasDispatch = true;
         // Descriptive headline = the day's take sentence itself (not the label "The take") — the
-        // take reads as an editorial deck; the kicker carries the digest's own date.
+        // take reads as an editorial deck; the kicker carries the digest's own date. The blurb
+        // under it is the digest's opening prose (the lede), clipped to two sentences — skipped
+        // when the loaded digest is the house fallback for a signed-in profile (wrong voice).
+        let blurb = '';
+        if (!(this.DIGEST_FALLBACK && this.state.loggedIn)) {
+          const lede = (this.digestLede() || '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
+          if (lede && lede !== take.text) {
+            const sents = lede.match(/[^.!?]+[.!?]+(?:\s|$)/g) || [lede];
+            blurb = sents.slice(0, 2).join(' ').replace(/\s+/g, ' ').trim();
+            if (blurb.length > 320) blurb = blurb.slice(0, 300).replace(/\s+\S*$/, '') + '…';
+          }
+        }
         const kf = take.date ? this.fmt(take.date, '') : null;
-        out.dispatch = { kicker: kf ? (kf.wd + ' · ' + kf.md).toUpperCase() : dLabel, headline: take.text, chips };
+        out.dispatch = { kicker: kf ? (kf.wd + ' · ' + kf.md).toUpperCase() : dLabel, headline: take.text, blurb, hasBlurb: !!blurb, chips };
       } else out.hasDispatch = false;
 
       const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
@@ -3310,14 +3503,14 @@ class Component extends DCLogic {
       out.hasNowRunning = out.nowRunning.length > 0;
       // ON THE RADAR — the server-curated set (build_radar/festivals.yaml via front_page.radar);
       // the just-announced/on-sale heuristic only fills in when the feed carries none.
-      const radarSrv = this.resolveKeys(FP.radar).filter(e => e.iso >= T);
+      const radarSrv = this.resolveKeys(FP.radar).filter(e => e.iso >= T && !this.isSeen(e));
       const radar = radarSrv.length
         ? radarSrv.slice(0,8).map(e => mkRow(e, onSaleE(e) ? 'ON SALE' : (isNewE(e) || (e.xb||[]).some(x => /just announced/i.test(x))) ? 'JUST ANNOUNCED' : 'RADAR'))
-        : this.ALL.filter(e => e.iso >= T && (onSaleE(e) || isNewE(e) || (e.xb || []).some(x => /just announced/i.test(x))))
+        : this.ALL.filter(e => e.iso >= T && !this.isSeen(e) && (onSaleE(e) || isNewE(e) || (e.xb || []).some(x => /just announced/i.test(x))))
             .sort((a,b) => a.iso<b.iso?-1:1).slice(0,6).map(e => mkRow(e, onSaleE(e)?'ON SALE':'JUST ANNOUNCED'));
       out.hasRadar = radar.length>0; out.radar = radar;
       // AROUND TOWN — the server's near-city-pulse keys (was dropped in the redesign)
-      const around = this.resolveKeys(FP.around).filter(e => e.iso >= T && !topIds.has(e.id)).slice(0,6).map(e => mkRow(e, ''));
+      const around = this.resolveKeys(FP.around).filter(e => e.iso >= T && !topIds.has(e.id) && !this.isSeen(e)).slice(0,6).map(e => mkRow(e, ''));
       out.hasAround = around.length>0; out.around = around;
       out.fpEmpty = !lead;
     }
@@ -3338,7 +3531,7 @@ class Component extends DCLogic {
       } else {
         const sc = this.SCENES.find(s => s.id===this.state.sceneId) || this.SCENES[0];
         const lessS = e => this.state.reactions[e.id]==='less' ? 1 : 0;
-        const list = this.collapseSeries(this.ALL.filter(e => e.iso>=T && this.sceneOf(e).id===sc.id))
+        const list = this.collapseSeries(this.ALL.filter(e => e.iso>=T && this.sceneOf(e).id===sc.id && !this.isSeen(e)))
           .sort((x,y) => lessS(x)-lessS(y) || this.rankCmp(x,y)).map(e => this.cardFor(e));
         out.sceneTitle = sc.label; out.sceneDesc = sc.desc; out.sceneDot = sc.dot; out.sceneCount = list.length; out.sceneList = list;
       }
@@ -3352,7 +3545,7 @@ class Component extends DCLogic {
     // per-theater data already ships on every feed row's series summary.
     if (view==='movies') {
       const isProg = e => !!(e.series && e.series.count > 1 && e.series.first !== e.series.last);
-      const reps = this.ALL.filter(e => e.lane==='film' && (e.seriesRep || !e.seriesKey)
+      const reps = this.ALL.filter(e => e.lane==='film' && (e.seriesRep || !e.seriesKey) && !this.isSeen(e)
         && (e.series && e.series.last ? e.series.last >= T : e.iso >= T));
       const mkProg = (e) => {
         const run = this.runLabel(e) || { span: this.fmt(e.iso,'').wd+' '+this.fmt(e.iso,'').md, count:'' };
@@ -3413,7 +3606,7 @@ class Component extends DCLogic {
     if (view==='explore') {
       const q = this.state.exploreSearch.trim().toLowerCase();
       const upcoming = this.ALL.filter(e => e.iso>=T);
-      let rows = upcoming.filter(e => this.exPass(e));
+      let rows = upcoming.filter(e => this.exPass(e) && !this.isSeen(e));
       if (this.state.chatFiltered) { const cf = new Set(this.state.chatFiltered); rows = rows.filter(e => cf.has(e.id)); }
       if (q) rows = rows.filter(e => (e.title+' '+e.venue+' '+e.hood+' '+e.genre+' '+e.cat+' '+e.source+' '+e.lineup.join(' ')).toLowerCase().includes(q));
       const sk = this.state.exploreSort;
@@ -3523,6 +3716,9 @@ class Component extends DCLogic {
         onLess:(ev) => this.react(de.id,'less',ev),
         lessLabel: this.state.reactions[de.id]==='less' ? '✓ Showing less like this' : 'Show less like this',
         lessColor: this.state.reactions[de.id]==='less' ? '#8a887e' : '#a9a79d',
+        onSeen:(ev) => this.markSeen(de, ev),
+        seenLabel: this.isSeen(de) ? '✓ Marked seen' : 'Saw this — hide it',
+        seenColor: this.isSeen(de) ? '#8a887e' : '#a9a79d',
         ...this.chipProps(de),
       };
     } else out.detail = { poster:{show:false}, photo:{show:false}, friendChips:[] };
@@ -3672,7 +3868,7 @@ class Component extends DCLogic {
     out.digestNavShow = dgSecs.length > 1;
     out.digestNav = dgSecs.map(s => ({ title: s.title, onClick: () => this.jumpDigest(s.id) }));
     out.digestBody = this.shownDigestMd()
-      ? React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } })
+      ? React.createElement('div', { onClick: this.onDigestClick, dangerouslySetInnerHTML: { __html: this.renderDigestHtml() } })
       : React.createElement('div', { style: { padding: '30px 0', textAlign: 'center', font: '500 12px/1.6 ui-monospace,Menlo,monospace', color: '#a7a59b' } }, 'Loading the digest…');
 
     // ---- CALENDAR FEED ----

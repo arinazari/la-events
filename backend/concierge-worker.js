@@ -1441,7 +1441,7 @@ async function lastFetchAgeMinutes(env) {
 }
 
 /* ================================== STARS (social saves) ==================================
- * POST /react { profile, event_key, kind: star|unstar|hide|less, title?, artists?, genres? }
+ * POST /react { profile, event_key, kind: star|unstar|hide|less|seen, title?, artists?, genres? }
  *
  * A star is double-duty: the social signal (everyone sees "★ Lori" on cards + in digests, folded
  * from data/reactions.jsonl at the next feed rebuild) and the first real input to the feedback loop
@@ -1496,8 +1496,8 @@ async function handleReact(request, env, cors) {
   try { body = await request.json(); } catch { return json({ error: "bad json" }, 400, cors); }
   const hash = typeof body.profile === "string" && /^[0-9a-f]{8,32}$/.test(body.profile) ? body.profile : null;
   const key = typeof body.event_key === "string" && /^[0-9a-f]{12}$/.test(body.event_key) ? body.event_key : null;
-  const kind = ["star", "unstar", "hide", "less"].includes(body.kind) ? body.kind : null;
-  if (!hash || !key || !kind) return json({ error: "need profile, event_key, kind (star|unstar|hide|less)" }, 400, cors);
+  const kind = ["star", "unstar", "hide", "less", "seen"].includes(body.kind) ? body.kind : null;
+  if (!hash || !key || !kind) return json({ error: "need profile, event_key, kind (star|unstar|hide|less|seen)" }, 400, cors);
   const prof = await resolveProfile(env, hash);
   if (!prof) return json({ error: "unknown profile" }, 403, cors);
 
@@ -1509,10 +1509,10 @@ async function handleReact(request, env, cors) {
   const ts = new Date().toISOString().slice(0, 10);
 
   // 1) the shared social log (drives the "★ Lori" display for everyone, next rebuild).
-  //    `less` skips it: "show less like this" is personal taste, not a social signal — it goes
-  //    only to the profile's own feedback log below.
+  //    `less` and `seen` skip it: "show less like this" / "saw this" are personal taste,
+  //    not social signals — they go only to the profile's own feedback log below.
   let folded = { changed: false };
-  if (kind !== "less") {
+  if (kind !== "less" && kind !== "seen") {
     const rfile = await ghGetFile(env, "data/reactions.jsonl");
     const rec = { ts, profile: hash, name: prof.name, event_key: key, kind, ...(title ? { title } : {}) };
     folded = foldReaction(rfile ? rfile.text : "", rec);
@@ -1523,10 +1523,10 @@ async function handleReact(request, env, cors) {
     }
   }
 
-  // 2) the learning loop — star→loved / hide→hide / less→skipped into that profile's own
-  //    feedback log. Needs artists or genres to teach anything (lib/feedback consumes only
-  //    those); an unstar never touches it (a past star still meant interest).
-  const FEEDBACK_KIND = { star: "loved", hide: "hide", less: "skipped" };
+  // 2) the learning loop — star→loved / hide→hide / less→skipped / seen→went into that
+  //    profile's own feedback log. Needs artists or genres to teach anything (lib/feedback
+  //    consumes only those); an unstar never touches it (a past star still meant interest).
+  const FEEDBACK_KIND = { star: "loved", hide: "hide", less: "skipped", seen: "went" };
   let learned = false;
   if (FEEDBACK_KIND[kind] && (artists.length || genres.length)) {
     const fpath = `data/feedback.${hash}.jsonl`;
