@@ -156,31 +156,33 @@ Each profile also gets its own **personalized digest** (the daily routine writes
 from their feed; the popup's "digest ↗" shows it). Until the routine has run for a new profile, the page
 shows a "ranked picks are live in the table" placeholder.
 
-## Onboarding — first-run welcome, guide & "What's new"
+## Onboarding — tutorial, guide & "What's new"
 
 There are two onboarding surfaces, both authored as Markdown strings in `index.html` and rendered
-through the same `renderMarkdown` the digest modal uses (so they match its look exactly — no new styling):
+through the same `renderMarkdown` the digest modal uses. **Both are opt-in — nothing auto-opens.**
 
-**1. First-run welcome (auto-opens after sign-in).** A short, **stepped** quick-start (`WELCOME` — four
-steps: how the picks are made → **set yourself up** (connect the concierge with Ari's token / your own
-key → tell it your neighborhood + tastes → connect Spotify) → **refresh your ranks** to fold it all in →
-where everything else lives). It **auto-opens the first time someone signs into a profile** — on a fresh sign-in and on a
-persisted-login reload (`maybeOnboard`, called from `applyProfile` and, guarded by a logged-in profile,
-`componentDidMount`). It **never pops up on the logged-out default view**; the owner/default can preview
-it from Settings → ABOUT → quick start. It is keyed per profile in localStorage (`la-onboarded:<hash>`),
-and the **"Don't show this again" checkbox is the dismissal**: ticked → the flag is set and it never
-auto-opens for that profile again; left un-ticked → closing it just hides it for now and it greets you
-again next visit (deliberate — it nags until acknowledged). Re-openable any time from
-**Settings → ABOUT → quick start**.
+**1. Tutorial (manual).** A short, **stepped** walkthrough (`WELCOME` — four steps: how the picks are
+made → **set yourself up** (connect the concierge with Ari's token / your own key → tell it your
+neighborhood + tastes → connect Spotify) → **refresh your ranks** to fold it all in → where everything
+else lives). It **never opens on its own** — not on sign-in, not on a persisted-login reload. The single
+entry point is **Settings → ABOUT → tutorial**, which always starts at step 1 (`openWelcome`). Because
+it can't interrupt anyone, there is no per-profile "seen" flag and no "don't show this again" dismissal
+to persist — closing it (Got it / × / Esc) just closes it. The footer shows a `Step N of 4` counter.
+
+Its body carries the `la-tut` class (see the `<style>` block). Modals mount **outside `.app-shell`**,
+which is the only element declaring a `font-family`, and `renderMarkdown`'s `<p>`/`<li>` set only size
+and leading — so without that class the prose falls back to the browser default serif. `.la-tut` pins
+the app sans stack and gives the tutorial reading-sized prose. It is deliberately scoped to the
+tutorial: the shared renderer still drives the digest and guide unchanged.
 
 **2. Guide & changelog (manual).** A two-tab modal — **How it works** (the full plain-language tour:
 the table, rank-vs-score, the concierge, signing in, tuning taste, installing the PWA) and **What's new**
-(a short changelog of friend-facing features), `GUIDE_HOW` / `GUIDE_NEW`. These stay **manual and quiet** —
-no auto-open; reached under Settings → ABOUT (*how it works* / *what's new*).
+(a short changelog of friend-facing features), `GUIDE_HOW` / `GUIDE_NEW`. Reached under
+Settings → ABOUT (*how it works* / *what's new*).
 
-**Where it lives:** the **ABOUT** group in the **⚷ / ☰** settings popup (footer) — *quick start* (re-open
-the welcome), *how it works* (tour), *what's new* (changelog). That group sits outside the logged-in /
-logged-out branches, so it's reachable whether or not someone is signed in.
+**Where it lives:** the **ABOUT** group in the **⚷ / ☰** settings popup (footer) — *tutorial*, *how it
+works* (tour), *what's new* (changelog). That group sits outside the logged-in / logged-out branches,
+so it's reachable whether or not someone is signed in.
 
 **When you ship a friend-facing change, add a bullet to `GUIDE_NEW`** (and a `## <month>` heading when a
 new period starts). That's the only upkeep — friends find it under Settings → ABOUT.
