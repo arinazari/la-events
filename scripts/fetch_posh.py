@@ -21,6 +21,21 @@ the digest — run_digest catches each fetcher's failure per-source. Re-capture 
 browser's network tab (events.fetchMarketplaceEvents request, x-jwt-token header), update
 POSH_TOKEN, and the flag clears on the next run.
 
+NOT-AUTH: posh.vip sits behind Cloudflare, which issues a *managed challenge* (HTTP 403 +
+`cf-mitigated: challenge`, "Just a moment..." interstitial) to datacenter egress — the cloud
+sessions the daily routine runs in, and GitHub Actions. That 403 never reaches Posh's auth
+layer, so it says nothing about the token: it fires identically with no token at all, and
+posh.vip's plain homepage 403s too. This used to be reported as "POSH_TOKEN expired", which
+sent Ari chasing a token that was already valid (2026-07-16 → 07-24: re-captured twice, neither
+helped, because the token was never the problem). Challenge detection therefore runs BEFORE the
+401/403 auth branch and gets its own footer line. A token verified good by hand from a
+residential IP + this flag in the digest = an egress problem, not a credential one.
+
+Note on the token's claims, since they mislead: Posh mints `iat` in SECONDS but `exp` in
+MILLISECONDS. Read literally by any standard verifier `exp` lands in ~year 58592, i.e. it never
+expires — do not "normalize" it to a date and conclude the token lapsed. The meaningful field
+is the custom `expires` (ms, ~30d after `issued`).
+
 Usage:
     export POSH_TOKEN=...    # session JWT
     python fetch_posh.py --days 10 [--when "This Month"] [--sort Trending] [-o events_posh.json]
@@ -121,8 +136,10 @@ def fetch(when: str, sort: str, limit: int, token: str):
         "user-agent": UA,
         "referer": "https://posh.vip/explore",
     })
+    # Return the raw body + headers rather than parsed JSON: a Cloudflare challenge can arrive
+    # with a 2xx/503 and an HTML body, and main() needs the headers to identify it.
     with urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read().decode("utf-8", "replace"))
+        return resp.headers, resp.read().decode("utf-8", "replace")
 
 
 # Surfaced verbatim in the digest footer's "Coverage gaps" line (run_digest takes the LAST
@@ -133,6 +150,25 @@ EXPIRED_MSG = "POSH_TOKEN expired — re-capture it"
 # comes back as {"error": {"message": "Error authenticating."}}. Match that (and related
 # phrasings) so expiry surfaces the actionable EXPIRED_MSG, not a generic "Posh API error".
 _AUTH_HINTS = ("authenticat", "unauth", "jwt", "token", "session", "forbidden", "expired", "log in")
+
+# Cloudflare bot challenge — an EGRESS problem, not a credential one. Deliberately worded so
+# nobody re-captures a working token off the back of it (see the NOT-AUTH note in the docstring).
+CHALLENGE_MSG = ("posh blocked by Cloudflare (bot challenge on this runner's IP — "
+                 "NOT a token problem; token untouched)")
+# The interstitial's stable markers. `cf-mitigated: challenge` is the authoritative signal;
+# the body strings cover edges that render the page without setting the header.
+_CHALLENGE_HINTS = ("just a moment", "__cf_chl", "cf-browser-verification", "cf_chl_opt",
+                    "attention required", "enable javascript and cookies")
+
+
+def is_cf_challenge(headers, body: str) -> bool:
+    """True when Cloudflare challenged us at the edge (so the request never reached Posh)."""
+    try:
+        if (headers.get("cf-mitigated") or "").strip().lower() == "challenge":
+            return True
+    except AttributeError:  # headers may be None on some error paths
+        pass
+    return any(h in (body or "").lower() for h in _CHALLENGE_HINTS)
 
 
 def degrade(out_path: str, footer_msg: str, detail: str = "") -> int:
@@ -163,14 +199,30 @@ def main() -> int:
         return 1
 
     try:
-        data = fetch(args.when, args.sort, args.limit, token)
+        headers, raw = fetch(args.when, args.sort, args.limit, token)
     except HTTPError as e:
-        body = e.read().decode("utf-8", "replace")[:200]
+        body = e.read().decode("utf-8", "replace")
+        # Cloudflare FIRST: its challenge is a 403, so the auth branch below would otherwise
+        # claim the token expired when the request never reached Posh at all.
+        if is_cf_challenge(e.headers, body):
+            return degrade(args.out, CHALLENGE_MSG,
+                           detail=f"HTTP {e.code} cf-mitigated={e.headers.get('cf-mitigated')!r} "
+                                  f"cf-ray={e.headers.get('cf-ray')!r} body={body[:120]!r}")
         if e.code in (401, 403):  # expired/invalid session JWT — the ~monthly re-capture
-            return degrade(args.out, EXPIRED_MSG, detail=f"auth {e.code}: {body}")
-        return degrade(args.out, f"Posh fetch failed: HTTP {e.code}", detail=body)
+            return degrade(args.out, EXPIRED_MSG, detail=f"auth {e.code}: {body[:200]}")
+        return degrade(args.out, f"Posh fetch failed: HTTP {e.code}", detail=body[:200])
     except Exception as e:  # noqa: BLE001  — network/parse/etc: a coverage gap, not a block
         return degrade(args.out, f"Posh fetch failed: {str(e).splitlines()[0][:120]}")
+
+    # A challenge can also come back 2xx/503 with the interstitial as the body.
+    if is_cf_challenge(headers, raw):
+        return degrade(args.out, CHALLENGE_MSG, detail=f"challenge body: {raw[:120]!r}")
+
+    try:
+        data = json.loads(raw)
+    except ValueError:
+        return degrade(args.out, "Posh returned non-JSON (see run log for the body)",
+                       detail=f"unparseable: {raw[:200]!r}")
 
     if isinstance(data, dict) and data.get("error"):
         msg = (data["error"].get("message") or "").strip()
