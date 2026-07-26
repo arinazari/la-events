@@ -62,7 +62,7 @@ import CalendarCore from "../dashboard/calendar-core.js";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-07-24-react2";
+const VERSION = "2026-07-26-posh-relay";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
@@ -113,6 +113,9 @@ async function handleRequest(request, env, cors, ctx) {
   if (url.pathname === "/calendar.ics") return handleCalendar(url, request, env, cors);
   // Stars — the one social save signal, committed to the shared reactions log (see handleReact).
   if (url.pathname === "/react") return handleReact(request, env, cors);
+  // Posh relay — the digest fetcher's escape hatch when posh.vip's Cloudflare challenges the
+  // runner's datacenter IP (cloud sessions, GH Actions). See handlePoshRelay for the contract.
+  if (url.pathname === "/posh") return handlePoshRelay(url, request, env, cors);
 
   // Unauthenticated deploy fingerprint: which build is live (no secrets — see VERSION).
   if (request.method === "GET" && url.pathname === "/")
@@ -1487,6 +1490,76 @@ export function foldFeedback(text, rec) {
     if (r && r.event_key === rec.event_key && r.kind === rec.kind) return { text, changed: false };
   }
   return { text: appendJsonl(text, rec), changed: true };
+}
+
+/* ---- Posh relay ----------------------------------------------------------------------
+ * posh.vip challenges datacenter egress (the digest's cloud sessions + GH Actions) at the
+ * Cloudflare edge, so scripts/fetch_posh.py can hold a perfectly valid POSH_TOKEN and still
+ * never reach Posh's API — 2026-07-15 → 07-24 that read as "token expired" and burned two
+ * pointless re-captures. Worker subrequests egress from Cloudflare's own network, which the
+ * bot wall treats differently, so the fetcher retries through here when challenged.
+ *
+ * AUTH: the caller must present the SAME session JWT this Worker holds as its POSH_TOKEN
+ * secret (constant-time compare) — the digest runner already has it, so the relay adds no new
+ * secret anywhere, and a stranger can't use this route to tunnel past Posh's bot wall.
+ * Consequence: the ~monthly re-capture now updates THREE copies — cloud env, GH Actions,
+ * and `npx wrangler secret put POSH_TOKEN` — and a drifted Worker copy answers 401
+ * x-posh-relay:auth-mismatch, which the fetcher reports as its own footer line (never as
+ * token expiry).
+ *
+ * The upstream reply passes through raw (body + status + cf-mitigated): fetch_posh.py already
+ * knows how to read Posh's tRPC errors and Cloudflare's challenge page, so the relay adds
+ * x-posh-relay/x-posh-upstream-status headers for provenance and otherwise stays out of the way. */
+const POSH_UPSTREAM = "https://posh.vip/api/web/v2/trpc/events.fetchMarketplaceEvents";
+// Keep this UA in lockstep with scripts/fetch_posh.py — same logged-in-browser fingerprint
+// whether the request goes direct or through the relay.
+const POSH_UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
+
+/* No-early-exit string compare (XOR-fold). Length differences return immediately — JWT length
+ * isn't a secret — but matching-length comparisons never short-circuit on content. */
+function tokenEq(a, b) {
+  if (typeof a !== "string" || typeof b !== "string" || a.length !== b.length || !a.length) return false;
+  let d = 0;
+  for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return d === 0;
+}
+
+async function handlePoshRelay(url, request, env, cors) {
+  if (request.method !== "GET") return json({ error: "GET only" }, 405, cors);
+  if (!env.POSH_TOKEN)
+    return json({ error: "relay disabled (no POSH_TOKEN secret on the Worker)" }, 501,
+                { ...cors, "x-posh-relay": "disabled" });
+  if (!tokenEq(request.headers.get("x-jwt-token") || "", env.POSH_TOKEN))
+    return json({ error: "relay auth: x-jwt-token does not match the Worker's POSH_TOKEN secret" }, 401,
+                { ...cors, "x-posh-relay": "auth-mismatch" });
+  const input = url.searchParams.get("input");
+  if (!input || input.length > 4096) return json({ error: "need ?input= (the tRPC filter JSON)" }, 400, cors);
+
+  let r;
+  try {
+    r = await fetch(`${POSH_UPSTREAM}?input=${encodeURIComponent(input)}`, {
+      headers: {
+        "x-jwt-token": env.POSH_TOKEN,
+        "content-type": "application/json",
+        accept: "*/*",
+        "user-agent": POSH_UA,
+        referer: "https://posh.vip/explore",
+      },
+    });
+  } catch (e) {
+    return json({ error: "relay upstream fetch failed", detail: String((e && e.message) || e).slice(0, 200) }, 502,
+                { ...cors, "x-posh-relay": "fetch-error" });
+  }
+  const body = await r.text();
+  const headers = {
+    ...cors,
+    "content-type": r.headers.get("content-type") || "application/json",
+    "x-posh-relay": "upstream",
+    "x-posh-upstream-status": String(r.status),
+  };
+  const cfm = r.headers.get("cf-mitigated");
+  if (cfm) headers["cf-mitigated"] = cfm;   // let the fetcher see an upstream challenge as-is
+  return new Response(body, { status: r.status, headers });
 }
 
 async function handleReact(request, env, cors) {
