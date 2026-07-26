@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T11:32:33+00:00",
+  "generated_at": "2026-07-26T11:39:13+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "c454bf4e0c82",
@@ -62908,6 +62908,12 @@
       },
       "lane": "stage",
       "key": "9a43f0e03a30",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "series_key": "run:the phantom of the opera touring|hollywood pantages theatre",
       "series": {
         "count": 13,
