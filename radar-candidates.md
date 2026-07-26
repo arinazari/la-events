@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/24/2026 deterministically (no API). 330 candidates. Signals: big-venue 288, festival 39, tracked 5._
+_Generated 7/26/2026 deterministically (no API). 315 candidates. Signals: big-venue 278, festival 34, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -31,12 +31,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 10/31 | 5 | THE MAZE Halloween: Arts District Block Party | TBA - Arts District Los Angeles | festival | [link](https://ra.co/events/2491883) |
 
-## August 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Fri 8/28 | 4 | BKOfest Presents: Underground Rager 2026 (Day 2) | Harvard & Stone | festival | [link](https://www.songkick.com/festivals/3795968-bkofest-presents-underground-rager/id/43320958-bkofest-presents-underground-rager-2026) |
-
 ## September 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -57,13 +51,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
 | Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
-
-## August 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 8/29 | 3 | Verizon offer - Daisy Chain Fields | Great Park Live | festival | [link](https://www.daisychainfields.com/tickets) |
-| Sat 8/29 | 3 | Biergarten Blues Festival | The Biergarten at Old World HB | festival | [link](https://www.universe.com/events/biergarten-blues-festival-tickets-YVZ36T?ref=ticketmaster) |
 
 ## September 2026
 
@@ -88,13 +75,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 11/14 | 3 | MOVEMENTS - HAPPIER NOW USA TOUR | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/movements-happier-now-usa-tour-santa-ana-california-11-14-2026/event/090064A6060A0AEE) |
-
-## August 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Fri 8/28 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZd) |
-| Sat 8/29 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZ7) |
 
 ## September 2026
 
@@ -159,13 +139,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 10/3 | 5 | Factory 93 presents: OUTWORLD: KlangKuenstler All Night Lo | The Forum | big-venue | [link](https://ra.co/events/2452834) |
 
-## August 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Fri 8/28 | 4 | UNDERTALE: The Determination Symphony | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/undertale-the-determination-symphony-los-angeles-california-08-28-2026/event/0900646CE1A7DFED) |
-| Sat 8/29 | 4 | Robby Krieger's Spanish Caravan - The Doors En Español | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/robby-kriegers-spanish-caravan-the-doors-los-angeles-california-08-29-2026/event/090064B4E5F69EAE) |
-
 ## September 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -218,11 +191,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/28 | 3 | ZAYN: The Konnakol Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/zayn-the-konnakol-tour-inglewood-california-08-28-2026/event/09006443E08F98F0) |
-| Fri 8/28 | 3 | CRANKDAT - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
-| Sat 8/29 | 3 | Acid Bath | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/acid-bath-ontario-california-08-29-2026/event/0900647AADB19AC7) |
-| Sat 8/29 | 3 | El Tri | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/el-tri-inglewood-california-08-29-2026/event/0A00649CE752A47E) |
-| Sat 8/29 | 3 | CRANKDAT - 3rd Night Added! | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sun 8/30 | 3 | Lost 80's Live | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Mon 8/31 | 3 | Muse - The Wow! Signal Tour | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/muse-the-wow-signal-tour-hollywood-california-08-31-2026/event/0B006479D65B4FA1) |
 
@@ -376,8 +344,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 8/28 | 2 | Ali Wong Live | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1343758/ali-wong-tickets) |
-| Sat 8/29 | 2 | Ali Wong Live | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1462644/ali-wong-tickets) |
 | Sun 8/30 | 2 | Avenged Sevenfold, Good Charlotte, and A Day to Remember | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/avenged-sevenfold-good-charlotte-and-a-los-angeles-california-08-30-2026/event/0A0063818F234796) |
 | Sun 8/30 | 2 | CRANKDAT - 4th Night Added! | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sun 8/30 | 2 | Jose Maria Napoleon - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -484,12 +450,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
 | Mon 12/14 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-14-2026/event/090064B49319A5BE) |
 | Sun 12/20 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-20-2026/event/090064BBE49DEE4D) |
-
-## August 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 8/29 | 1 | Ramon Ayala | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/ramon-ayala-palm-desert-california-08-29-2026/event/0A006473DA6AEDFE) |
 
 ## September 2026
 
