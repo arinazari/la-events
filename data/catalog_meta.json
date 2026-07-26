@@ -1,35 +1,98 @@
 {
-  "version": "c454bf4e0c82",
-  "content_version": "5a7b0b8e8bb4",
-  "count": 3333,
-  "fetched_at": "2026-07-24T12:28:30+00:00",
-  "added": 0,
-  "updated": 0,
-  "stale_sources": [
+  "version": "019f37b71243",
+  "content_version": "c948eee2b010",
+  "count": 3137,
+  "fetched_at": "2026-07-26T12:14:26+00:00",
+  "added": 60,
+  "updated": 6,
+  "changes": [
     {
-      "source": "posh",
-      "days": 9,
-      "count": 21
+      "title": "MIDNIGHTS - TAYLOR SWIFT DANCE PARTY - EARLY VERSION [LOS ANGELES]",
+      "date": "2026-08-01",
+      "venue": "Teragram Ballroom",
+      "fields": [
+        "price"
+      ]
     },
     {
+      "title": "Mixmag LAB: Los Angeles ft. What So Not",
+      "date": "2026-08-06",
+      "venue": "1720",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "EMBRZ at Harbor House Rooftop",
+      "date": "2026-08-08",
+      "venue": "Harbor House DTLA",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "90's House and Rave Classics",
+      "date": "2026-08-08",
+      "venue": "High Tide",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "VLSF & KCRW presents: BOYO ft. Fime, Cody's Program",
+      "date": "2026-08-13",
+      "venue": "Gold Diggers",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Chanel Beads",
+      "date": "2026-10-02",
+      "venue": "Fonda Theatre",
+      "fields": [
+        "lineup"
+      ]
+    }
+  ],
+  "stale_sources": [
+    {
       "source": "ticketmaster",
-      "days": 8,
-      "count": 2143
+      "days": 10,
+      "count": 2079
     },
     {
       "source": "alvas",
-      "days": 8,
-      "count": 25
+      "days": 10,
+      "count": 23
     },
     {
       "source": "venicewest",
-      "days": 3,
-      "count": 68
+      "days": 5,
+      "count": 63
     },
     {
       "source": "harvelles",
-      "days": 3,
+      "days": 5,
       "count": 32
+    },
+    {
+      "source": "webfetch",
+      "days": 4,
+      "count": 199
+    },
+    {
+      "source": "squarespace",
+      "days": 3,
+      "count": 64
+    },
+    {
+      "source": "ics",
+      "days": 3,
+      "count": 20
     }
   ]
 }
