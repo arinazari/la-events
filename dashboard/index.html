@@ -20,7 +20,12 @@
 <x-dc>
 <helmet>
 <style>
-  html, body { margin:0; padding:0; height:100%; background:#f4f3ef; }
+  /* The app font stack lives HERE, not only on .app-shell — every modal (digest, guide, tutorial,
+     nudge, detail, settings…) mounts outside .app-shell, so anything relying on inheritance used to
+     fall through to the browser default serif. renderMarkdown's <p>/<li> set only size+leading, which
+     is why digest and guide prose rendered in Times. Inherit from the root and they all follow. */
+  html, body { margin:0; padding:0; height:100%; background:#f4f3ef;
+    font-family:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif; }
   * { box-sizing:border-box; }
   ::selection { background:#2b5cd9; color:#fff; }
   a { color:#2b5cd9; text-decoration:none; } a:hover { color:#1d49b8; }
@@ -42,11 +47,8 @@
   .chat-intro code { cursor:pointer; }
   .chat-intro code:hover { background:#dde4fb !important; color:#1d49b8 !important; }
   #dg-scroll a { color:#1b1a17; }
-  /* The tutorial body is renderMarkdown output, and modals mount OUTSIDE .app-shell — the one place
-     that declares a font-family. renderMarkdown's <p>/<li> set only size+leading, so they were
-     inheriting the browser default (Times). Pin the app stack and give the prose reading sizes.
-     Scoped to the tutorial on purpose: the shared renderer still drives the digest/guide unchanged. */
-  .la-tut { font-family:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif; }
+  /* Tutorial-only reading sizes (the family comes from the root rule above). renderMarkdown sets
+     size+leading inline for the digest's density, so overriding them here needs !important. */
   .la-tut p, .la-tut li { font-size:14px !important; line-height:1.62 !important; }
   .la-tut h1 { font-size:22px !important; letter-spacing:-0.015em; margin-bottom:9px !important; }
   .la-tut ul { gap:9px !important; }

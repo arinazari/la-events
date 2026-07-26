@@ -169,11 +169,18 @@ entry point is **Settings → ABOUT → tutorial**, which always starts at step 
 it can't interrupt anyone, there is no per-profile "seen" flag and no "don't show this again" dismissal
 to persist — closing it (Got it / × / Esc) just closes it. The footer shows a `Step N of 4` counter.
 
-Its body carries the `la-tut` class (see the `<style>` block). Modals mount **outside `.app-shell`**,
-which is the only element declaring a `font-family`, and `renderMarkdown`'s `<p>`/`<li>` set only size
-and leading — so without that class the prose falls back to the browser default serif. `.la-tut` pins
-the app sans stack and gives the tutorial reading-sized prose. It is deliberately scoped to the
-tutorial: the shared renderer still drives the digest and guide unchanged.
+Its body carries the `la-tut` class (see the `<style>` block), which bumps the prose to reading sizes
+(14px/1.62, larger `h1`) — tutorial-only, so the digest keeps its denser default. `renderMarkdown` sets
+size and leading inline, so those overrides need `!important`.
+
+### A note on `font-family`
+
+The app font stack is declared on **`html, body`**, not just on `.app-shell`. Every modal — digest,
+guide, tutorial, nudge, detail, settings — mounts *outside* `.app-shell`, so when that rule was the only
+`font-family` in the file, anything relying on inheritance fell through to the browser default serif.
+`renderMarkdown` sets only size and leading on `<p>`/`<li>`, which is why digest and guide prose rendered
+in Times New Roman. Declaring the stack at the root fixes every surface at once. **If you add a modal or
+a renderer, you get the right font for free — don't re-declare it.**
 
 **2. Guide & changelog (manual).** A two-tab modal — **How it works** (the full plain-language tour:
 the table, rank-vs-score, the concierge, signing in, tuning taste, installing the PWA) and **What's new**
