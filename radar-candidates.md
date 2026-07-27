@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/26/2026 deterministically (no API). 315 candidates. Signals: big-venue 278, festival 34, tracked 5._
+_Generated 7/27/2026 deterministically (no API). 310 candidates. Signals: big-venue 274, festival 33, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -109,7 +109,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/30 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZA) |
 | Mon 8/31 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZk) |
 
 ## September 2026
@@ -191,7 +190,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 8/30 | 3 | Lost 80's Live | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Mon 8/31 | 3 | Muse - The Wow! Signal Tour | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/muse-the-wow-signal-tour-hollywood-california-08-31-2026/event/0B006479D65B4FA1) |
 
 ## September 2026
@@ -339,14 +337,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Thu 12/17 | 3 | Cece Winans | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/18 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-18-2026/event/090064BBE484EE0D) |
 | Sat 12/19 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-19-2026/event/090064BBE48FEE25) |
-
-## August 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 8/30 | 2 | Avenged Sevenfold, Good Charlotte, and A Day to Remember | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/avenged-sevenfold-good-charlotte-and-a-los-angeles-california-08-30-2026/event/0A0063818F234796) |
-| Sun 8/30 | 2 | CRANKDAT - 4th Night Added! | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
-| Sun 8/30 | 2 | Jose Maria Napoleon - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 
 ## September 2026
 
