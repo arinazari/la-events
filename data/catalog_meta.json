@@ -1,36 +1,10 @@
 {
-  "version": "55125ec58379",
-  "content_version": "3de3ba6c3e78",
-  "count": 3131,
-  "fetched_at": "2026-07-27T12:24:12+00:00",
-  "added": 26,
-  "updated": 3,
-  "changes": [
-    {
-      "title": "Certified Groovers w/ Demuir, Juliet Mendoza, Force Placement",
-      "date": "2026-08-01",
-      "venue": "TBA - Downtown Los Angeles",
-      "fields": [
-        "lineup"
-      ]
-    },
-    {
-      "title": "Phantoms POOL PARTY at Level 8",
-      "date": "2026-08-08",
-      "venue": "Level 8 DTLA",
-      "fields": [
-        "price"
-      ]
-    },
-    {
-      "title": "G Flip",
-      "date": "2026-08-18",
-      "venue": "Roxy Theatre-CA",
-      "fields": [
-        "lineup"
-      ]
-    }
-  ],
+  "version": "c1ff34a39ef7",
+  "content_version": "bb9ea8f37bfe",
+  "count": 3143,
+  "fetched_at": "2026-07-27T12:31:25+00:00",
+  "added": 0,
+  "updated": 0,
   "stale_sources": [
     {
       "source": "ticketmaster",
@@ -41,21 +15,6 @@
       "source": "alvas",
       "days": 11,
       "count": 23
-    },
-    {
-      "source": "harvelles",
-      "days": 6,
-      "count": 32
-    },
-    {
-      "source": "squarespace",
-      "days": 4,
-      "count": 61
-    },
-    {
-      "source": "ics",
-      "days": 4,
-      "count": 20
     }
   ]
 }
