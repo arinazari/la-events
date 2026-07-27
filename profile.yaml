@@ -32,6 +32,11 @@ dashboard:
 sources:
   ticketmaster_dma_id: "324" # LA DMA — fetch_ticketmaster.py
   ra_area_id: 23 # RA's internal LA area number — fetch_ra.py
+  # Beatportal (Beatport Tickets) geo filter — fetch_beatport.py; their own LA preset.
+  beatportal_city:
+    city_name: Los Angeles
+    country_code: US
+    radius: "100"
 
 pipeline:
   # Out-of-market drop (Ari, 2026-07-17): TM's DMA 324 reaches Palm Springs / Paso Robles /

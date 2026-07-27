@@ -4,7 +4,7 @@
 #   name:      display name
 #   category:  electronic | live_music | comedy | film | theater | editorial |
 #              general | beer_food | market | multi
-#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | dice | veezi | seetickets | squarespace | rss | ics | gmail | manual
+#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | dice | veezi | seetickets | squarespace | rss | ics | gmail | manual | beatport
 #              (webfetch = read at digest time via the WebFetch tool; for bot-walled/JS pages)
 #   url:       endpoint or calendar page (or IG handle for manual)
 #   priority:  1 (always fetch) .. 3 (only on category-specific requests)
@@ -77,6 +77,28 @@ sources:
       ticket URL). MANDATORY: a real Chrome User-Agent — DICE 403s the default urllib agent.
       scripts/fetch_dice.py (verified 2026-06-16: 112 events across 9 venues, incl. Zebulon's
       "Mama's Gun" 6/17). Some shows also hit RA/TM — dedupe expected.
+
+  - name: Beatport (Beatport Tickets / Beatport Live)
+    category: electronic
+    method: beatport
+    url: https://www.beatportal.com/events?city_name=Los+Angeles&country_code=US&radius=100
+    priority: 2
+    status: active
+    notes: >
+      Beatport's ticketing arm (Beatport Tickets, powered by Weeztix) incl. the touring
+      "Beatport Live" event/stage brand. beatport.com/events is Cloudflare-walled, but
+      beatportal.com/events serves the SAME inventory server-rendered (real Chrome UA) with
+      geo + date query params (city_name/country_code/radius, ISO from/to), and every event
+      page embeds clean schema.org Event JSON-LD (start/end, performer, venue + street
+      address, image, organizer; seller links w/ BEATPORT affiliate tags in the description).
+      scripts/fetch_beatport.py (listing -> event links -> JSON-LD, the eventbrite pattern;
+      city overridable via profile.yaml sources.beatportal_city; run by run_digest).
+      Verified 2026-07-27: filter + parser proven on Las Vegas (5 events, the "Beatport
+      Fridays" Marquee residency); LA is one of their six FEATURED city filters but
+      inventory is EMPTY so far — the fetcher returns 0 cleanly (one cheap page fetch/run)
+      until Beatport's US expansion lists LA rows. Promote to priority 1 when it does.
+      Expect heavy RA/DICE/TM overlap then — dedupe expected. Platform quirk: startDate tz
+      offsets can be wrong (a Vegas dayclub stamped -04:00); dates are solid, times best-effort.
 
   - name: Gmail "Events" label
     category: multi

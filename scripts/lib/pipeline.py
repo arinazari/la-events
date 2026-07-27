@@ -26,7 +26,7 @@ except Exception:  # pragma: no cover - tzdata missing
 
 # Default category per source when a record doesn't carry one.
 SOURCE_CATEGORY = {
-    "ra": "electronic", "19hz": "electronic", "posh": "party",
+    "ra": "electronic", "19hz": "electronic", "posh": "party", "beatport": "electronic",
     "ticketmaster": "music", "goldenvoice": "music", "dice": "live_music",
     "filmbot": "film", "vidiots": "film", "veezi": "film", "vista": "film", "newbev": "film",
     "eventbrite": "general",

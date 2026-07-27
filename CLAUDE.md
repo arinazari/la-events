@@ -32,7 +32,8 @@ The structured path is orchestrated by `scripts/run_digest.py` (fetch → dedupe
 - **Structured fetchers** (`scripts/fetch_*.py`) — APIs / JSON feeds / parseable pages: TM, RA,
   19hz, Goldenvoice, Filmbot, Eventbrite, Posh, **DICE** (dice.fm/venue/<slug> — MusicEvent JSON-LD
   under a Place's `event` key, real Chrome UA required), **Squarespace** (`?format=json-pretty`),
-  **ICS/Tockify**. They emit normalized event JSON; the run merges + dedupes into `data/catalog.json`.
+  **ICS/Tockify**, **Beatport** (Beatport Tickets/Live via beatportal.com/events — geo-filtered
+  server-rendered listing → per-event JSON-LD; LA inventory pending their US rollout). They emit normalized event JSON; the run merges + dedupes into `data/catalog.json`.
 - **`webfetch`-at-digest** — venues with no JSON-LD/feed and heterogeneous CMSs (McCabe's, The
   Dresden, Harvelle's, Sam First, Alva's, …) and editorial roundups: read the rendered page via the
   WebFetch tool during the digest run rather than maintaining brittle per-CMS scrapers.
@@ -91,9 +92,10 @@ scripts/render_digest.py            # scored pool + verdicts → digest slate (M
 scripts/travel.py                   # night-planner travel CLI: rough LA drive/walk times (lib/geo.py + dining.json)
 scripts/make_ics.py                 # turn a night-planner itinerary into a calendar .ics (lib/ics.py)
 scripts/log_feedback.py             # concierge: append a reaction to data/feedback.jsonl (the learned loop)
-scripts/fetch_*.py                  # 11 source fetchers (run BY run_digest, or in Step-2 layering):
+scripts/fetch_*.py                  # 12 source fetchers (run BY run_digest, or in Step-2 layering):
                                     #   ticketmaster (TM_API_KEY), ra, 19hz, goldenvoice, filmbot,
-                                    #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld
+                                    #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld,
+                                    #   beatport (beatportal.com listing → JSON-LD)
 scripts/fetch_spotify.py            # Phase C: Spotify sync (SPOTIFY_* creds) → data/spotify_affinity.json
 scripts/sync_profiles_spotify.py    # per-profile Spotify: pull friends' connected accounts (via the concierge
                                     #   Worker) → data/spotify/<hash>.json (gitignored); routine + spotify-sync CI
