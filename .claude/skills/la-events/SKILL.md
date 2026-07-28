@@ -52,8 +52,8 @@ expire → score — and writes `data/catalog.json` (durable, score-free) plus `
 (the scored, ranked, upcoming top-N). **Don't fetch / dedupe /
 score these by hand anymore.** It covers the single-endpoint structured fetchers: Ticketmaster
 (`TM_API_KEY`), Resident Advisor, 19hz, Goldenvoice, Vidiots (Filmbot), Posh (`POSH_TOKEN`),
-Eventbrite (curated organizers), DICE, Beatport (beatportal.com listing; 0 rows until their
-LA inventory goes live). It **degrades gracefully** — any fetcher that errors / times
+Eventbrite (curated organizers), DICE, Beatport (beatportal.com — ticketed listing still
+empty for LA, but its "RSVP Now" article sweep catches Beatport Live's free LA drops). It **degrades gracefully** — any fetcher that errors / times
 out / is missing its key is listed in the printed run report (carry that into the footer), never
 blocking the run.
 
@@ -339,7 +339,7 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
 - `scripts/fetch_filmbot.py` — Nightjar/Filmbot cinema REST API (`--site`; Vidiots default)
 - `scripts/fetch_posh.py` — Posh authenticated tRPC explore (needs `POSH_TOKEN`)
 - `scripts/fetch_eventbrite.py` — curated-organizer crawler + `--harvest` / `--scan-catalog`
-- `scripts/fetch_beatport.py` — Beatport Tickets/Live via beatportal.com (geo-filtered listing → JSON-LD)
+- `scripts/fetch_beatport.py` — Beatport Tickets/Live via beatportal.com (geo-filtered listing → JSON-LD + "RSVP Now" free-party article drops)
 - `scripts/fetch_jsonld.py` — generic schema.org/Event scraper (curl fallback)
 
 ## Practical notes

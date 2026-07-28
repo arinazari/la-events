@@ -86,19 +86,25 @@ sources:
     status: active
     notes: >
       Beatport's ticketing arm (Beatport Tickets, powered by Weeztix) incl. the touring
-      "Beatport Live" event/stage brand. beatport.com/events is Cloudflare-walled, but
-      beatportal.com/events serves the SAME inventory server-rendered (real Chrome UA) with
-      geo + date query params (city_name/country_code/radius, ISO from/to), and every event
-      page embeds clean schema.org Event JSON-LD (start/end, performer, venue + street
-      address, image, organizer; seller links w/ BEATPORT affiliate tags in the description).
-      scripts/fetch_beatport.py (listing -> event links -> JSON-LD, the eventbrite pattern;
-      city overridable via profile.yaml sources.beatportal_city; run by run_digest).
-      Verified 2026-07-27: filter + parser proven on Las Vegas (5 events, the "Beatport
-      Fridays" Marquee residency); LA is one of their six FEATURED city filters but
-      inventory is EMPTY so far — the fetcher returns 0 cleanly (one cheap page fetch/run)
-      until Beatport's US expansion lists LA rows. Promote to priority 1 when it does.
-      Expect heavy RA/DICE/TM overlap then — dedupe expected. Platform quirk: startDate tz
-      offsets can be wrong (a Vegas dayclub stamped -04:00); dates are solid, times best-effort.
+      "Beatport Live" event/stage brand. TWO lanes, one fetcher (scripts/fetch_beatport.py,
+      run by run_digest; city overridable via profile.yaml sources.beatportal_city):
+      (1) TICKETED LISTING — beatport.com/events is Cloudflare-walled, but
+      beatportal.com/events serves the same inventory server-rendered (real Chrome UA) with
+      geo + date query params (city_name/country_code/radius, ISO from/to), each event page
+      embedding clean Event JSON-LD (the eventbrite pattern). Verified 2026-07-27 on Las
+      Vegas (5 events, "Beatport Fridays" Marquee residency); LA is a FEATURED city filter
+      but this lane is EMPTY for LA so far — returns 0 cheaply until their US expansion
+      lists LA rows (promote to priority 1 then; heavy RA/DICE/TM overlap expected, dedupe
+      handles). tz quirk: startDate offsets can be wrong; dates solid, times best-effort.
+      (2) "RSVP NOW" ARTICLE DROPS — Beatport Live's own free LA parties are announced as
+      beatportal.com/articles/<id>-rsvp-now-... posts with a drop.cobrand.com RSVP link and
+      NEVER hit the /events listing (caught by Ari 2026-07-28: the 8/6 Beatport Live x HARD
+      Selects Takeover — DJ Seinfeld, salute, Chloëdees at Beatport's LA HQ, free/21+).
+      The fetcher sweeps the server-rendered homepage for rsvp-now slugs, parses the
+      formulaic article (doors line, og: dek, Cobrand link), gates on the profile city.
+      Venue usually TBA-until-RSVP -> rows carry "TBA (RSVP)" (Posh-style tradeoff: a later
+      real-venue listing elsewhere may not fuzzy-merge). These drops are limited-cap
+      first-come — surface them EARLY when they appear.
 
   - name: Gmail "Events" label
     category: multi

@@ -32,8 +32,9 @@ The structured path is orchestrated by `scripts/run_digest.py` (fetch → dedupe
 - **Structured fetchers** (`scripts/fetch_*.py`) — APIs / JSON feeds / parseable pages: TM, RA,
   19hz, Goldenvoice, Filmbot, Eventbrite, Posh, **DICE** (dice.fm/venue/<slug> — MusicEvent JSON-LD
   under a Place's `event` key, real Chrome UA required), **Squarespace** (`?format=json-pretty`),
-  **ICS/Tockify**, **Beatport** (Beatport Tickets/Live via beatportal.com/events — geo-filtered
-  server-rendered listing → per-event JSON-LD; LA inventory pending their US rollout). They emit normalized event JSON; the run merges + dedupes into `data/catalog.json`.
+  **ICS/Tockify**, **Beatport** (Beatport Tickets/Live via beatportal.com — geo-filtered
+  /events listing → per-event JSON-LD, plus the homepage's "RSVP Now" article drops for
+  Beatport Live's free LA parties, which never hit the listing). They emit normalized event JSON; the run merges + dedupes into `data/catalog.json`.
 - **`webfetch`-at-digest** — venues with no JSON-LD/feed and heterogeneous CMSs (McCabe's, The
   Dresden, Harvelle's, Sam First, Alva's, …) and editorial roundups: read the rendered page via the
   WebFetch tool during the digest run rather than maintaining brittle per-CMS scrapers.
