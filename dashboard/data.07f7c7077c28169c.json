@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T12:40:29+00:00",
+  "generated_at": "2026-07-29T02:55:28+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "547d4d461a79",
@@ -1376,38 +1376,8 @@
       "f0de888b1d44",
       "e8731cabdd40"
     ],
-    "radar": [
-      "96782c900568",
-      "a275d78b3f74",
-      "d535a0dbfe40",
-      "edab80bd44cb",
-      "84882da12558",
-      "d49eb8554c26",
-      "1edb63fd2e80",
-      "fb68efb436c1",
-      "33c2216d15dc",
-      "3d1950382c1d",
-      "5cfd176b0544",
-      "cf6cd35ddcc5",
-      "5900ac0a20b0",
-      "d9ec6d0e3a23",
-      "85ff43f3e43e",
-      "713ea1693637"
-    ],
-    "around": [
-      "cb768b413e65",
-      "82c5013339e2",
-      "52241f8a3d48",
-      "3602c9b750bf",
-      "b2d6fe30fbdb",
-      "1db0002517a6",
-      "981ec1e26eb6",
-      "935b2ddcc1e8",
-      "34ad92f55185",
-      "156bdcffb78e",
-      "dffdf5e28846",
-      "b324c748a4a9"
-    ],
+    "radar": [],
+    "around": [],
     "festivals": [
       {
         "name": "Outside Lands 2026",
@@ -278205,14 +278175,14 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-07-18",
-            "summary": "wip: rebuild all dashboard feeds + refresh gate for daily digest run"
+            "date": "2026-07-14",
+            "summary": "Add blank-slate profile \"levon\" (#81)"
           }
         ],
-        "diff": "",
-        "diff_kind": "none",
+        "diff": "diff --git a/profiles/levon/taste.yaml b/profiles/levon/taste.yaml\nnew file mode 100644\nindex 0000000..4adf849\n--- /dev/null\n+++ b/profiles/levon/taste.yaml\n@@ -0,0 +1,19 @@\n+# Taste profile \u2014 Levon. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only levon\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium:  []   # +2 each\n+  low:     []   # +1, include only if exceptional\n+\n+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: []   # -2 each (the \"not for me\" list)\n+\n+artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n+comedians_loved:  []\n+venues_loved:     []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-07-18"
+        "enriched_at": "2026-07-15"
       },
       "profile": {
         "file": "profiles/levon/profile.yaml",
