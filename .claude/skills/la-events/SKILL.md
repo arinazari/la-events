@@ -205,6 +205,9 @@ the spine — it answers "what's on tonight / this weekend" at a glance). Struct
    item only when there's an actual ticket-timing reason (on-sale/presale opening, prices
    climbing, low stock, selling out, sold out, lineup just dropped). If nothing's time-sensitive,
    a line or two is plenty; dormant entries stay in `festivals.yaml`. Lead most on-taste + urgent.
+   Discovery sweep per refresh: Music Festival Wizard via WebSearch `site:` queries only (the
+   site is Cloudflare-bot-walled — never fetch it directly); travel-worthy finds are welcome —
+   tag them `scope: travel` (see the festivals.yaml header).
 7. Footer: ops only — sources that failed/were skipped this run, plus any token-expiry banner
    (the renderer already places these; never restate them in the intro).
 
