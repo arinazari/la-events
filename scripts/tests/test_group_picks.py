@@ -77,11 +77,11 @@ def test_resolve_member_owner_alias_and_friend():
 
 
 def test_friend_without_explicit_paths_falls_back_to_convention():
-    by_user = {"dr_ganesan": {"username": "dr_ganesan", "name": "Dr. Ganesan"}}
-    m = G.resolve_member("dr_ganesan", by_user, None, "la-events/v1:")
-    assert m["taste"] == "profiles/dr_ganesan/taste.yaml"
-    assert m["profile"] == "profiles/dr_ganesan/profile.yaml"
-    assert m["hash"] == G.profile_hash("dr_ganesan", "la-events/v1:")
+    by_user = {"vish": {"username": "vish", "name": "Dr. Ganesan"}}
+    m = G.resolve_member("vish", by_user, None, "la-events/v1:")
+    assert m["taste"] == "profiles/vish/taste.yaml"
+    assert m["profile"] == "profiles/vish/profile.yaml"
+    assert m["hash"] == G.profile_hash("vish", "la-events/v1:")
 
 
 def test_resolve_by_display_name_not_just_username():
@@ -100,12 +100,12 @@ def test_resolve_by_display_name_not_just_username():
 
 
 def test_resolve_by_name_normalizes_punctuation_and_case():
-    dg = {"username": "dr_ganesan", "name": "Dr. Ganesan", "taste": "profiles/dr_ganesan/taste.yaml"}
-    by_user = {"dr_ganesan": dg}
+    dg = {"username": "vish", "name": "Dr. Ganesan", "taste": "profiles/vish/taste.yaml"}
+    by_user = {"vish": dg}
     by_name = {G.norm_name("Dr. Ganesan"): dg}
     for typed in ("Dr. Ganesan", "dr ganesan", "DR  GANESAN"):
         m = G.resolve_member(typed, by_user, None, "la-events/v1:", by_name)
-        assert m is not None and m["id"] == "dr_ganesan", f"{typed!r} should resolve"
+        assert m is not None and m["id"] == "vish", f"{typed!r} should resolve"
 
 
 def test_username_wins_over_a_colliding_name():
