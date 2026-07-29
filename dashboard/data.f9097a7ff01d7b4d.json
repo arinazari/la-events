@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-29T02:55:18+00:00",
+  "generated_at": "2026-07-29T02:57:39+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "547d4d461a79",
   "catalog_content_version": "1073ded1ec69",
   "catalog_fetched_at": "2026-07-28T12:30:14+00:00",
-  "count": 3483,
-  "enriched_count": 1543,
+  "count": 3484,
+  "enriched_count": 1544,
   "music": {
     "layer": "none",
     "artists": 0,
@@ -2683,6 +2683,13 @@
         "status": "active"
       },
       {
+        "name": "Beatport (Beatport Tickets / Beatport Live)",
+        "category": "electronic",
+        "method": "beatport",
+        "priority": 2,
+        "status": "active"
+      },
+      {
         "name": "Gmail \"Events\" label",
         "category": "multi",
         "method": "gmail",
@@ -5148,7 +5155,7 @@
       },
       "lane": "club:underground",
       "key": "b20d5457aaff",
-      "final_rank": 2151
+      "final_rank": 2152
     },
     {
       "title": "Pageant of the Masters",
@@ -5517,7 +5524,7 @@
       },
       "lane": "live-music",
       "key": "f215944e50a8",
-      "final_rank": 2424
+      "final_rank": 2425
     },
     {
       "title": "Cali Art Experience",
@@ -5570,7 +5577,7 @@
       },
       "lane": "club:underground",
       "key": "2b917fbf1db1",
-      "final_rank": 2591
+      "final_rank": 2592
     },
     {
       "title": "Violent Femmes: 45 Years of Violent Femmes Tour",
@@ -7298,7 +7305,7 @@
       },
       "lane": "club:underground",
       "key": "d3cdcc9ddefb",
-      "final_rank": 2102
+      "final_rank": 2103
     },
     {
       "title": "Wildcrust Happy Hour",
@@ -7546,7 +7553,7 @@
       },
       "lane": "club:afters",
       "key": "47f0419c11b3",
-      "final_rank": 2295
+      "final_rank": 2296
     },
     {
       "title": "AFTERS 7-29 ( WEDNESDAY )",
@@ -7661,7 +7668,7 @@
       },
       "lane": "live-music",
       "key": "003383344acf",
-      "final_rank": 2634
+      "final_rank": 2635
     },
     {
       "title": "Cypress Hill",
@@ -7724,7 +7731,7 @@
       },
       "lane": "live-music:big",
       "key": "1db967a24e43",
-      "final_rank": 2611
+      "final_rank": 2612
     },
     {
       "title": "Pageant of the Masters",
@@ -8142,7 +8149,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2662
+      "series_rank": 2663
     },
     {
       "title": "Copper Queens",
@@ -8198,7 +8205,7 @@
       },
       "lane": "stage",
       "key": "7d8322023242",
-      "final_rank": 2516
+      "final_rank": 2517
     },
     {
       "source": "Sam First",
@@ -8268,7 +8275,7 @@
       },
       "lane": "live-music",
       "key": "97e3e46d97a5",
-      "final_rank": 2495
+      "final_rank": 2496
     },
     {
       "title": "Mario Judah",
@@ -8323,7 +8330,7 @@
       },
       "lane": "live-music",
       "key": "1dd9059e3d73",
-      "final_rank": 2610
+      "final_rank": 2611
     },
     {
       "title": "Come Sing With the Band - Live Band Karaoke",
@@ -8377,7 +8384,7 @@
       },
       "lane": "live-music",
       "key": "bb15790cb9e7",
-      "final_rank": 2466
+      "final_rank": 2467
     },
     {
       "title": "Stasis, Lost Angeles, Kung Fu Mike, Vero Muerte, Weekend Fixers and More",
@@ -8430,7 +8437,7 @@
       },
       "lane": "club:underground",
       "key": "252a3a635476",
-      "final_rank": 2689
+      "final_rank": 2690
     },
     {
       "title": "RLC Fashion Show & Summer White Party Sur Restaurant Vanderpump Rules_",
@@ -8483,7 +8490,7 @@
       },
       "lane": "club:underground",
       "key": "24715dbfaa2c",
-      "final_rank": 2601
+      "final_rank": 2602
     },
     {
       "title": "ReFuze & GROOVE-ISM DJ/Team MEETING",
@@ -8536,7 +8543,7 @@
       },
       "lane": "club:underground",
       "key": "0f5c7a675ad5",
-      "final_rank": 2625
+      "final_rank": 2626
     },
     {
       "title": "9PM SHARP hosted by D.Sharp",
@@ -8589,7 +8596,7 @@
       },
       "lane": "club:underground",
       "key": "f6be3a2e5d2a",
-      "final_rank": 2419
+      "final_rank": 2420
     },
     {
       "title": "Abby Kenna with Hana Bryanne",
@@ -10836,7 +10843,7 @@
       },
       "lane": "club:underground",
       "key": "b5f01d902511",
-      "final_rank": 2140
+      "final_rank": 2141
     },
     {
       "title": "Mezzanine: Franco Rosso's Dread Beat an' Blood",
@@ -11243,7 +11250,7 @@
       },
       "lane": "club:underground",
       "key": "d07d0579a314",
-      "final_rank": 2106
+      "final_rank": 2107
     },
     {
       "title": "This Week at Bar Franca",
@@ -11358,7 +11365,7 @@
       },
       "lane": "club:underground",
       "key": "79f7abdec311",
-      "final_rank": 2227
+      "final_rank": 2228
     },
     {
       "title": "Blips n Bass vol 13",
@@ -11408,7 +11415,7 @@
       },
       "lane": "club:underground",
       "key": "c20b8a42ee2a",
-      "final_rank": 2128
+      "final_rank": 2129
     },
     {
       "title": "RECOLLECT UNDERGROUND: SPECIAL GUEST Skonka",
@@ -11537,7 +11544,7 @@
       },
       "lane": "club:underground",
       "key": "24bfd9407eb5",
-      "final_rank": 2352
+      "final_rank": 2353
     },
     {
       "title": "After Hours 2.0",
@@ -11591,7 +11598,7 @@
       },
       "lane": "club:afters",
       "key": "5a08c2e8eee3",
-      "final_rank": 2275
+      "final_rank": 2276
     },
     {
       "title": "(OONTS)^2",
@@ -11848,7 +11855,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2103
+      "series_rank": 2104
     },
     {
       "title": "The Marvelous Miss Gender starring BOSCO",
@@ -11911,7 +11918,7 @@
       },
       "lane": "stage",
       "key": "ff9d17b69adc",
-      "final_rank": 2408
+      "final_rank": 2409
     },
     {
       "title": "Bob Golub",
@@ -11998,7 +12005,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2646
+      "series_rank": 2647
     },
     {
       "title": "Marshmello",
@@ -12057,7 +12064,7 @@
       },
       "lane": "club:underground",
       "key": "926c4cf82df8",
-      "final_rank": 2499
+      "final_rank": 2500
     },
     {
       "title": "Trevor Noah",
@@ -12115,7 +12122,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "fbd21c569863",
-      "final_rank": 2699
+      "final_rank": 2700
     },
     {
       "title": "Pageant of the Masters",
@@ -12566,7 +12573,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -12766,7 +12773,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "One Night of Queen",
@@ -12826,7 +12833,7 @@
       },
       "lane": "live-music:big",
       "key": "c1b91eee8825",
-      "final_rank": 2461
+      "final_rank": 2462
     },
     {
       "title": "OC Fair",
@@ -12942,7 +12949,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2662
+      "series_rank": 2663
     },
     {
       "source": "Sam First",
@@ -13012,7 +13019,7 @@
       },
       "lane": "live-music",
       "key": "37956e4786d1",
-      "final_rank": 2577
+      "final_rank": 2578
     },
     {
       "title": "Marshmello",
@@ -13063,7 +13070,7 @@
       },
       "lane": "club:underground",
       "key": "9c79b1f07067",
-      "final_rank": 2660
+      "final_rank": 2661
     },
     {
       "title": "\u26bd\ufe0f 7/30 \u2014 DRUM AND BASS\u26bd\ufe0f  We\u2019re closing out July with high-speed energ",
@@ -13119,7 +13126,7 @@
       },
       "lane": "club:underground",
       "key": "396fd2049034",
-      "final_rank": 2685
+      "final_rank": 2686
     },
     {
       "title": "Reggaeton Rave",
@@ -13176,7 +13183,7 @@
       },
       "lane": "club:mainstream",
       "key": "b56b6929ebee",
-      "final_rank": 2471
+      "final_rank": 2472
     },
     {
       "title": "Travel Noire Sessions: How To Plan Your First Non-Traditional Trip",
@@ -13231,7 +13238,7 @@
       },
       "lane": "club:day",
       "key": "ba1281fbdeb0",
-      "final_rank": 2712
+      "final_rank": 2713
     },
     {
       "title": "My Expensive Habit",
@@ -13284,7 +13291,7 @@
       },
       "lane": "club:underground",
       "key": "e46de9d0ce19",
-      "final_rank": 2431
+      "final_rank": 2432
     },
     {
       "title": "Matiz",
@@ -13337,7 +13344,7 @@
       },
       "lane": "club:underground",
       "key": "d5b7f53e9c23",
-      "final_rank": 2447
+      "final_rank": 2448
     },
     {
       "title": "BARELY FRIDAY: 2010s Best Hits",
@@ -13390,7 +13397,7 @@
       },
       "lane": "club:underground",
       "key": "4741556e11ba",
-      "final_rank": 2561
+      "final_rank": 2562
     },
     {
       "title": "Violent Femmes: 45 Years of Violent Femmes Tour",
@@ -18514,7 +18521,7 @@
       },
       "lane": "live-music",
       "key": "93ff3fe81664",
-      "final_rank": 2195
+      "final_rank": 2196
     },
     {
       "title": "Flyleaf with Lacey Sturm - 20th Anniversary Tour",
@@ -18607,7 +18614,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2103
+      "series_rank": 2104
     },
     {
       "title": "Calle 24 - Eterno Tour",
@@ -18667,7 +18674,7 @@
       },
       "lane": "live-music",
       "key": "8d6573b333ef",
-      "final_rank": 2202
+      "final_rank": 2203
     },
     {
       "title": "Marc Maron: Yammering into the Void Tour",
@@ -19074,7 +19081,7 @@
       },
       "lane": "live-music",
       "key": "50621749bc0d",
-      "final_rank": 2282
+      "final_rank": 2283
     },
     {
       "title": "Nile Rodgers & CHIC",
@@ -19196,7 +19203,7 @@
       },
       "lane": "live-music",
       "key": "5cd02c962065",
-      "final_rank": 2269
+      "final_rank": 2270
     },
     {
       "title": "Pageant of the Masters",
@@ -19569,7 +19576,7 @@
       },
       "lane": "club:underground",
       "key": "4debbfe632eb",
-      "final_rank": 2285
+      "final_rank": 2286
     },
     {
       "title": "Joe Moses & Friends",
@@ -19707,7 +19714,7 @@
       },
       "lane": "stage",
       "key": "92f3dfe32064",
-      "final_rank": 2197
+      "final_rank": 2198
     },
     {
       "title": "The Deer Hunter",
@@ -19942,7 +19949,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2235
+      "series_rank": 2236
     },
     {
       "title": "Infierno: LOVE, Diablito, CAMILITA, ZALEZ",
@@ -20003,7 +20010,7 @@
       },
       "lane": "club:underground",
       "key": "550e32efc68c",
-      "final_rank": 2278
+      "final_rank": 2279
     },
     {
       "title": "Grace Bones presents House of Chic Radio",
@@ -20219,7 +20226,7 @@
       },
       "lane": "club:underground",
       "key": "1a389d07e08c",
-      "final_rank": 2367
+      "final_rank": 2368
     },
     {
       "title": "Emo Black Box",
@@ -20381,7 +20388,7 @@
       },
       "lane": "club:underground",
       "key": "cc4299f67bb7",
-      "final_rank": 2111
+      "final_rank": 2112
     },
     {
       "title": "LA\u2019s LAST SUMMER PARTY (ft. Soulja Boy)",
@@ -20433,7 +20440,7 @@
       },
       "lane": "club:underground",
       "key": "9756f17a83b9",
-      "final_rank": 2189
+      "final_rank": 2190
     },
     {
       "title": "Common Grounds",
@@ -20537,7 +20544,7 @@
       },
       "lane": "club:underground",
       "key": "42370bf7dd30",
-      "final_rank": 2307
+      "final_rank": 2308
     },
     {
       "title": "Friday Night Summer International Rooftop Social",
@@ -20647,7 +20654,7 @@
       },
       "lane": "club:underground",
       "key": "80822ebf278d",
-      "final_rank": 2216
+      "final_rank": 2217
     },
     {
       "title": "Love In This Club [7.31]",
@@ -20701,7 +20708,7 @@
       },
       "lane": "club:underground",
       "key": "1e7caa2b2536",
-      "final_rank": 2361
+      "final_rank": 2362
     },
     {
       "title": "WHERE YOU AT?!",
@@ -20808,7 +20815,7 @@
       },
       "lane": "club:underground",
       "key": "777f382c39fb",
-      "final_rank": 2228
+      "final_rank": 2229
     },
     {
       "title": "GIRLS NEXTDOOR",
@@ -20862,7 +20869,7 @@
       },
       "lane": "club:underground",
       "key": "334cec5b3ea9",
-      "final_rank": 2332
+      "final_rank": 2333
     },
     {
       "title": "Summer Escape - House // Tech-House (18+)",
@@ -21535,7 +21542,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2646
+      "final_rank": 2647
     },
     {
       "title": "Gary Owen",
@@ -21631,7 +21638,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2674
+      "series_rank": 2675
     },
     {
       "title": "Babes Against the Machine, Living in Stereo, Presidents of USA Tribute",
@@ -21693,7 +21700,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "85905e9ef120",
-      "final_rank": 2666
+      "final_rank": 2667
     },
     {
       "title": "Bill Burr Live",
@@ -21747,7 +21754,7 @@
       },
       "lane": "comedy",
       "key": "1fd08b494a92",
-      "final_rank": 2690
+      "final_rank": 2691
     },
     {
       "title": "DEEJAY AL",
@@ -21802,7 +21809,7 @@
       },
       "lane": "club:mainstream",
       "key": "97ad35491905",
-      "final_rank": 2496
+      "final_rank": 2497
     },
     {
       "title": "Flashback: A 2010S Edm Tribute Party",
@@ -21864,7 +21871,7 @@
       },
       "lane": "club:mainstream",
       "key": "981e6281135e",
-      "final_rank": 2661
+      "final_rank": 2662
     },
     {
       "title": "Heat Advisory: Unofficial Hard Summer Afters Day 1 (21+)",
@@ -28354,7 +28361,7 @@
       },
       "lane": "live-music",
       "key": "9dbcac612f7c",
-      "final_rank": 2181
+      "final_rank": 2182
     },
     {
       "title": "Flyleaf with Lacey Sturm - 20th Anniversary Tour",
@@ -28447,7 +28454,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2103
+      "final_rank": 2104
     },
     {
       "title": "LIL WAYNE: 20 YEARS OF CARTER CLASSICS WITH THE GAME & 2 CHAINZ",
@@ -28509,7 +28516,7 @@
       },
       "lane": "live-music",
       "key": "415a4e715c70",
-      "final_rank": 2309
+      "final_rank": 2310
     },
     {
       "title": "Brian Henson's Puppet Up!",
@@ -28677,7 +28684,7 @@
       },
       "lane": "stage",
       "key": "2583786ee7b3",
-      "final_rank": 2350
+      "final_rank": 2351
     },
     {
       "title": "Domina - 18+",
@@ -28804,7 +28811,7 @@
       },
       "lane": "live-music:big",
       "key": "a2588406d79a",
-      "final_rank": 2170
+      "final_rank": 2171
     },
     {
       "title": "Marc Maron: Yammering into the Void Tour",
@@ -29096,7 +29103,7 @@
       },
       "lane": "live-music",
       "key": "0adb059bc851",
-      "final_rank": 2386
+      "final_rank": 2387
     },
     {
       "title": "The Full Monty",
@@ -29949,7 +29956,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2235
+      "final_rank": 2236
     },
     {
       "title": "KIDS RAVE - KIDTOPIA",
@@ -30059,7 +30066,7 @@
       },
       "lane": "live-music",
       "key": "48952088a67b",
-      "final_rank": 2294
+      "final_rank": 2295
     },
     {
       "title": "Daft Disko: Lansing",
@@ -30159,7 +30166,7 @@
       },
       "lane": "other",
       "key": "b269fcbc0d42",
-      "final_rank": 2150
+      "final_rank": 2151
     },
     {
       "title": "House Party x Zipp",
@@ -30327,7 +30334,7 @@
       },
       "lane": "live-music",
       "key": "c82ab3947c19",
-      "final_rank": 2116
+      "final_rank": 2117
     },
     {
       "title": "Overworked, Pepe G, Ian Myers, Jvstintyme",
@@ -30385,7 +30392,7 @@
       },
       "lane": "club:underground",
       "key": "34ebf2e93083",
-      "final_rank": 2327
+      "final_rank": 2328
     },
     {
       "title": "Whisper of the Heart (English Dubbed Version)",
@@ -30803,7 +30810,7 @@
       },
       "lane": "club:underground",
       "key": "0bcf8523f7f9",
-      "final_rank": 2383
+      "final_rank": 2384
     },
     {
       "title": "UNDS X GARMS LA POPUP",
@@ -30859,7 +30866,7 @@
       },
       "lane": "club:day",
       "key": "6732cb9e66bd",
-      "final_rank": 2253
+      "final_rank": 2254
     },
     {
       "title": "SCORE X TONI'S NOOK TALK BACK",
@@ -30913,7 +30920,7 @@
       },
       "lane": "club:day",
       "key": "1a3b5cf6f4d6",
-      "final_rank": 2366
+      "final_rank": 2367
     },
     {
       "title": "Saturday Love : A Brunch Party",
@@ -30967,7 +30974,7 @@
       },
       "lane": "club:day",
       "key": "a5a0fc48707a",
-      "final_rank": 2168
+      "final_rank": 2169
     },
     {
       "title": "THE FINAL MILE",
@@ -31024,7 +31031,7 @@
       },
       "lane": "club:day",
       "key": "8bdfffb29774",
-      "final_rank": 2204
+      "final_rank": 2205
     },
     {
       "title": "Saturday Pool Party",
@@ -31081,7 +31088,7 @@
       },
       "lane": "club:day",
       "key": "c853cf62464f",
-      "final_rank": 2114
+      "final_rank": 2115
     },
     {
       "title": "BEACH COUNTRY by Country Night \u2022 Perry\u2019s Beach \u2022 Sat Aug 1st",
@@ -31137,7 +31144,7 @@
       },
       "lane": "club:day",
       "key": "4cfdb6e379e8",
-      "final_rank": 2288
+      "final_rank": 2289
     },
     {
       "title": "&Things Day Party",
@@ -31192,7 +31199,7 @@
       },
       "lane": "club:day",
       "key": "989647d5c84a",
-      "final_rank": 2187
+      "final_rank": 2188
     },
     {
       "title": "The Beach Club",
@@ -31247,7 +31254,7 @@
       },
       "lane": "club:day",
       "key": "056bb8aef7dd",
-      "final_rank": 2395
+      "final_rank": 2396
     },
     {
       "title": "Covers For Lovers: 2000's R&B Jazz Night (6pm Saturday Session)",
@@ -31305,7 +31312,7 @@
       },
       "lane": "club:underground",
       "key": "b2d768d4100b",
-      "final_rank": 2148
+      "final_rank": 2149
     },
     {
       "title": "PLAY BY EAR",
@@ -31469,7 +31476,7 @@
       },
       "lane": "club:underground",
       "key": "5a7ec67957c4",
-      "final_rank": 2273
+      "final_rank": 2274
     },
     {
       "title": "LA \u201cRed-Line\u201d",
@@ -31578,7 +31585,7 @@
       },
       "lane": "club:underground",
       "key": "74a3a28b8aed",
-      "final_rank": 2236
+      "final_rank": 2237
     },
     {
       "title": "Peaches And Cream - A R&B And Hip Hop Throwback Party",
@@ -32150,7 +32157,7 @@
       },
       "lane": "comedy",
       "key": "25680a65cfb2",
-      "final_rank": 2688
+      "final_rank": 2689
     },
     {
       "title": "Bob Golub",
@@ -32245,7 +32252,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2646
+      "series_rank": 2647
     },
     {
       "title": "Gary Owen",
@@ -32341,7 +32348,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2674
+      "final_rank": 2675
     },
     {
       "title": "The Fab Four - The Ultimate Tribute",
@@ -32402,7 +32409,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "b799b0196996",
-      "final_rank": 2652
+      "final_rank": 2653
     },
     {
       "title": "Pageant of the Masters",
@@ -32464,7 +32471,7 @@
       },
       "lane": "stage",
       "key": "121218cf981a",
-      "final_rank": 2694
+      "final_rank": 2695
     },
     {
       "title": "OC Fair",
@@ -32584,7 +32591,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2662
+      "series_rank": 2663
     },
     {
       "title": "Party Peas presents Beach Pod",
@@ -32637,7 +32644,7 @@
       },
       "lane": "other",
       "key": "0eb7db30be11",
-      "final_rank": 2695
+      "final_rank": 2696
     },
     {
       "title": "DJ DDub",
@@ -32694,7 +32701,7 @@
       },
       "lane": "club:day",
       "key": "354da6c68fb9",
-      "final_rank": 2579
+      "final_rank": 2580
     },
     {
       "title": "Beach Pod: Shuffles, LOLO, ayeKREATURE, OG Fern, XXXTiNA, that b",
@@ -32750,7 +32757,7 @@
       },
       "lane": "club:day",
       "key": "01b0bfe0e558",
-      "final_rank": 2632
+      "final_rank": 2633
     },
     {
       "title": "KEEP CALM 2026",
@@ -32805,7 +32812,7 @@
       },
       "lane": "club:mainstream",
       "key": "cb0c0cf248a2",
-      "final_rank": 2451
+      "final_rank": 2452
     },
     {
       "title": "Thermal w/ Kx Chr, Nina J, nat the fkn rat, Cecylia",
@@ -35146,7 +35153,7 @@
       },
       "lane": "club:day",
       "key": "1c5ddc013f3c",
-      "final_rank": 2364
+      "final_rank": 2365
     },
     {
       "title": "LA Filmforum: George: The Story of George Maciunas and Fluxus",
@@ -35288,7 +35295,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2194
+      "series_rank": 2195
     },
     {
       "title": "Smorgasburg LA",
@@ -36536,7 +36543,7 @@
       },
       "lane": "club:day",
       "key": "c897097697c5",
-      "final_rank": 2113
+      "final_rank": 2114
     },
     {
       "title": "SUNDAZE - OPEN AIR EVENT\nat UTOPIA by REUNITE -\nSECRET GUEST HEADLINER",
@@ -36592,7 +36599,7 @@
       },
       "lane": "club:day",
       "key": "3e50a17f17d3",
-      "final_rank": 2315
+      "final_rank": 2316
     },
     {
       "title": "Milk & Honey",
@@ -36652,7 +36659,7 @@
       },
       "lane": "club:underground",
       "key": "3d3f174b7279",
-      "final_rank": 2318
+      "final_rank": 2319
     },
     {
       "title": "ROMANCE PLANET,  ROCKET RESE, & HER BLOOD",
@@ -36766,7 +36773,7 @@
       },
       "lane": "club:underground",
       "key": "071b245de8ae",
-      "final_rank": 2391
+      "final_rank": 2392
     },
     {
       "title": "LOS PERROS X LICKNDIP: HEATWAVE 8/2",
@@ -36818,7 +36825,7 @@
       },
       "lane": "club:underground",
       "key": "7e58cc4ce4f8",
-      "final_rank": 2219
+      "final_rank": 2220
     },
     {
       "title": "AFTERS 8-02 ( SUNDAY )",
@@ -37015,7 +37022,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "ef35b6b3c2f5",
-      "final_rank": 2703
+      "final_rank": 2704
     },
     {
       "title": "Josh Tatofi",
@@ -37076,7 +37083,7 @@
       },
       "lane": "live-music:big",
       "key": "c2215f70325f",
-      "final_rank": 2460
+      "final_rank": 2461
     },
     {
       "title": "HEADSEND",
@@ -37135,7 +37142,7 @@
       },
       "lane": "live-music",
       "key": "69d57719520b",
-      "final_rank": 2533
+      "final_rank": 2534
     },
     {
       "title": "Gary Owen",
@@ -37223,7 +37230,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2674
+      "series_rank": 2675
     },
     {
       "title": "Nelly w/ Too Short",
@@ -37287,7 +37294,7 @@
       },
       "lane": "live-music:big",
       "key": "6d89d50fd65e",
-      "final_rank": 2530
+      "final_rank": 2531
     },
     {
       "title": "Pageant of the Masters",
@@ -37705,7 +37712,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2662
+      "series_rank": 2663
     },
     {
       "source": "The Venice West",
@@ -37765,7 +37772,7 @@
       },
       "lane": "live-music",
       "key": "e064e14c8440",
-      "final_rank": 2437
+      "final_rank": 2438
     },
     {
       "title": "Heart of Gold \u2014 A Tribute to Neil Young",
@@ -37828,7 +37835,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "d4c30568ad58",
-      "final_rank": 2708
+      "final_rank": 2709
     },
     {
       "title": "Beatles Brunch w/ The Beat 5",
@@ -37893,7 +37900,7 @@
       },
       "lane": "live-music",
       "key": "1e2509a450ba",
-      "final_rank": 2609
+      "final_rank": 2610
     },
     {
       "title": "Melrose Trading Post",
@@ -37983,7 +37990,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2478
+      "series_rank": 2479
     },
     {
       "title": "Party Pupils",
@@ -38040,7 +38047,7 @@
       },
       "lane": "club:day",
       "key": "efea94fd8b3c",
-      "final_rank": 2702
+      "final_rank": 2703
     },
     {
       "title": "Azure Huntington Beach w/Mashbit",
@@ -38099,7 +38106,7 @@
       },
       "lane": "club:day",
       "key": "791623d74ad6",
-      "final_rank": 2669
+      "final_rank": 2670
     },
     {
       "title": "Afrobeats Day Party ( Los Angeles)",
@@ -38160,7 +38167,7 @@
       },
       "lane": "club:day",
       "key": "e0c9d7e98606",
-      "final_rank": 2435
+      "final_rank": 2436
     },
     {
       "title": "JSL Summer Festival",
@@ -38214,7 +38221,7 @@
       },
       "lane": "club:day",
       "key": "716899b988f4",
-      "final_rank": 2527
+      "final_rank": 2528
     },
     {
       "title": "Covers For Lovers: 2000's R&B Jazz Night (6pm Sunday Session)",
@@ -38271,7 +38278,7 @@
       },
       "lane": "club:underground",
       "key": "558dd20e26bd",
-      "final_rank": 2546
+      "final_rank": 2547
     },
     {
       "title": "From First To Last",
@@ -38322,7 +38329,7 @@
       },
       "lane": "other",
       "key": "bba0be6d4d4d",
-      "final_rank": 2465
+      "final_rank": 2466
     },
     {
       "title": "comehelpglo",
@@ -39067,7 +39074,7 @@
       },
       "lane": "live-music",
       "key": "421d0dcd99ab",
-      "final_rank": 2565
+      "final_rank": 2566
     },
     {
       "title": "Ashanti ft Bow Wow",
@@ -39127,7 +39134,7 @@
       },
       "lane": "live-music",
       "key": "71e99876e608",
-      "final_rank": 2526
+      "final_rank": 2527
     },
     {
       "title": "Pageant of the Masters",
@@ -39484,7 +39491,7 @@
       },
       "lane": "live-music",
       "key": "a449b4656908",
-      "final_rank": 2485
+      "final_rank": 2486
     },
     {
       "title": "Monday Caf\u00e9: A Creative Co-working Lounge",
@@ -39538,7 +39545,7 @@
       },
       "lane": "club:day",
       "key": "b2e2a7b58562",
-      "final_rank": 2474
+      "final_rank": 2475
     },
     {
       "title": "Friends Of Friends: summer Sessions",
@@ -39592,7 +39599,7 @@
       },
       "lane": "club:underground",
       "key": "1d24210e8cc4",
-      "final_rank": 2613
+      "final_rank": 2614
     },
     {
       "title": "Sarah McLachlan - Better Broken Tour",
@@ -40026,7 +40033,7 @@
       },
       "lane": "comedy",
       "key": "3c0fe8316b15",
-      "final_rank": 2319
+      "final_rank": 2320
     },
     {
       "title": "The Phantom of the Opera (Touring)",
@@ -41377,7 +41384,7 @@
       },
       "lane": "club:underground",
       "key": "c3334f83c04c",
-      "final_rank": 2125
+      "final_rank": 2126
     },
     {
       "title": "Monsieur Perine - Instrucciones Para Ser Feliz Tour",
@@ -41438,7 +41445,7 @@
       },
       "lane": "live-music",
       "key": "b2ffd22b569c",
-      "final_rank": 2472
+      "final_rank": 2473
     },
     {
       "title": "Switchfoot ft Hoobastank",
@@ -41498,7 +41505,7 @@
       },
       "lane": "live-music",
       "key": "e4196a62ad9d",
-      "final_rank": 2432
+      "final_rank": 2433
     },
     {
       "title": "Pageant of the Masters",
@@ -41877,7 +41884,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2538
+      "final_rank": 2539
     },
     {
       "title": "Meridian Brothers + Mexican Institute of Sound",
@@ -43645,7 +43652,7 @@
       },
       "lane": "live-music",
       "key": "2a75fb36cfdd",
-      "final_rank": 2594
+      "final_rank": 2595
     },
     {
       "title": "The Technicolors",
@@ -43706,7 +43713,7 @@
       },
       "lane": "live-music",
       "key": "b755b2e0c666",
-      "final_rank": 2469
+      "final_rank": 2470
     },
     {
       "title": "John Fogerty w/ Hearty Har",
@@ -43770,7 +43777,7 @@
       },
       "lane": "live-music:big",
       "key": "e0eae893f25e",
-      "final_rank": 2434
+      "final_rank": 2435
     },
     {
       "title": "Nate Smith",
@@ -43827,7 +43834,7 @@
       },
       "lane": "live-music",
       "key": "c79fc2c2dfd3",
-      "final_rank": 2457
+      "final_rank": 2458
     },
     {
       "title": "Samuel J. Comroe",
@@ -43887,7 +43894,7 @@
       },
       "lane": "comedy",
       "key": "7b703c2d01ea",
-      "final_rank": 2518
+      "final_rank": 2519
     },
     {
       "title": "Pageant of the Masters",
@@ -44413,7 +44420,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "OC Fair",
@@ -44529,7 +44536,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2662
+      "series_rank": 2663
     },
     {
       "title": "Tiffany Haddish (early show)",
@@ -44594,7 +44601,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "f554db569447",
-      "final_rank": 2701
+      "final_rank": 2702
     },
     {
       "title": "Obscene (Goth / Industrial / EBM) w guest MATT HART(UK) & LA Industrial Battle of the Bands",
@@ -46485,6 +46492,60 @@
       "final_rank": 1921
     },
     {
+      "title": "Beatport Live x HARD Selects Takeover",
+      "date": "2026-08-06",
+      "start": "19:00",
+      "venue": "TBA (RSVP)",
+      "neighborhood": null,
+      "category": "electronic",
+      "genre": null,
+      "lineup": [
+        "DJ Seinfeld",
+        "salute",
+        "Chlo\u00ebdees"
+      ],
+      "links": [
+        {
+          "source": "beatport",
+          "url": "https://www.beatportal.com/articles/1531717-rsvp-now-dj-seinfeld-salute-chloedees-beatport-live-x-hard-selects-takeover"
+        },
+        {
+          "source": "beatport",
+          "url": "https://drop.cobrand.com/d/Beatport/salute_djseinfeld_chloedees",
+          "label": "RSVP"
+        }
+      ],
+      "sources": [
+        "beatport"
+      ],
+      "organizers": "Beatport Live",
+      "detail": "DJ Seinfeld, salute, and Chlo\u00ebdees play Beatport Live x HARD Selects in Los Angeles on August 6. RSVP now for the HARD Summer weekend takeover at Beatport\u2019s LA HQ. Free with RSVP (limited slots, first come first served); 21+; complimentary drinks.",
+      "image": "https://assets.beatportal.com/images/transforms/content-item/_1200x630_crop_center-center_none/Beatport-Live-x-HARD-Selects-Takeover-2026.png",
+      "price": "free",
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-07-28",
+      "last_seen": "2026-07-28",
+      "score": 2,
+      "rating": 2,
+      "reasons": [
+        "+2 electronic (medium interest)"
+      ],
+      "iso_date": "2026-08-06",
+      "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "DJ Seinfeld",
+            "note": "Swedish-Argentine producer (Armand Jakobsson) who pioneered 'lo-fi house' \u2014 tracked name; hazy, nostalgic house that's a shade more tasteful than most of this bill."
+          }
+        ]
+      },
+      "lane": "club:underground",
+      "key": "d3e25eb26f47",
+      "final_rank": 2102
+    },
+    {
       "title": "Gipsy Kings featuring Nicolas Reyes",
       "date": "2026-08-06",
       "start": "20:00",
@@ -46541,7 +46602,7 @@
       },
       "lane": "live-music",
       "key": "8d322610469e",
-      "final_rank": 2505
+      "final_rank": 2506
     },
     {
       "title": "Young Artist Project",
@@ -46603,7 +46664,7 @@
       },
       "lane": "stage",
       "key": "8676b841b0bc",
-      "final_rank": 2509
+      "final_rank": 2510
     },
     {
       "title": "Patti LaBelle w/ The OJays",
@@ -46667,7 +46728,7 @@
       },
       "lane": "live-music:big",
       "key": "f8e0ecd34d18",
-      "final_rank": 2417
+      "final_rank": 2418
     },
     {
       "title": "Pageant of the Masters",
@@ -47169,7 +47230,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "OC Fair",
@@ -47285,7 +47346,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2662
+      "series_rank": 2663
     },
     {
       "title": "Chris Cope",
@@ -47513,7 +47574,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "Trappy x Deviant Game Night Nola ",
@@ -47566,7 +47627,7 @@
       },
       "lane": "club:underground",
       "key": "ee3b012df413",
-      "final_rank": 2426
+      "final_rank": 2427
     },
     {
       "title": "1ST GEN: WONDERLAND Los Angeles",
@@ -47619,7 +47680,7 @@
       },
       "lane": "club:underground",
       "key": "2e7119d8e04a",
-      "final_rank": 2589
+      "final_rank": 2590
     },
     {
       "title": "Steven G with Tayy Tarantino & Pofsky",
@@ -51830,7 +51891,7 @@
       },
       "lane": "live-music",
       "key": "94d22744ef2b",
-      "final_rank": 2193
+      "final_rank": 2194
     },
     {
       "title": "Alejandro Aranda",
@@ -51891,7 +51952,7 @@
       },
       "lane": "live-music",
       "key": "6084bfc0e4b8",
-      "final_rank": 2263
+      "final_rank": 2264
     },
     {
       "title": "Tommy Newport",
@@ -51952,7 +52013,7 @@
       },
       "lane": "live-music",
       "key": "47c4c2347615",
-      "final_rank": 2296
+      "final_rank": 2297
     },
     {
       "title": "Brian Henson's Puppet Up!",
@@ -52901,7 +52962,7 @@
       },
       "lane": "live-music",
       "key": "0c6540a8d788",
-      "final_rank": 2382
+      "final_rank": 2383
     },
     {
       "title": "Deep Beats First Fridays - SOUL-O, Stone One",
@@ -53317,7 +53378,7 @@
       },
       "lane": "club:underground",
       "key": "c17af3eefbbe",
-      "final_rank": 2129
+      "final_rank": 2130
     },
     {
       "title": "Flashback: A 2010S Edm Tribute Party",
@@ -53631,7 +53692,7 @@
       },
       "lane": "club:day",
       "key": "678ef5c28bdb",
-      "final_rank": 2252
+      "final_rank": 2253
     },
     {
       "title": "Open Mic Night @Raymond Gonzos House",
@@ -53686,7 +53747,7 @@
       },
       "lane": "comedy",
       "key": "7f2689a3fd3e",
-      "final_rank": 2218
+      "final_rank": 2219
     },
     {
       "title": "WORLD MOTION: LA",
@@ -53740,7 +53801,7 @@
       },
       "lane": "club:underground",
       "key": "8b3c67cf6d4e",
-      "final_rank": 2205
+      "final_rank": 2206
     },
     {
       "title": "JAH BLESS BASHMENT - JAMAICA INDEPENDENCE CELEBRATION",
@@ -54019,7 +54080,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "08da8dd73c16",
-      "final_rank": 2696
+      "final_rank": 2697
     },
     {
       "title": "Jo Jo Jorge Falcon",
@@ -54077,7 +54138,7 @@
       },
       "lane": "comedy",
       "key": "52efaf95e37f",
-      "final_rank": 2679
+      "final_rank": 2680
     },
     {
       "title": "Donnell Rawlings",
@@ -54173,7 +54234,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2635
+      "series_rank": 2636
     },
     {
       "title": "OC Fair",
@@ -54293,7 +54354,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2662
+      "final_rank": 2663
     },
     {
       "title": "Rush and Tool Tributes",
@@ -54346,7 +54407,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "1c7d13b00298",
-      "final_rank": 2691
+      "final_rank": 2692
     },
     {
       "title": "B\u00fcff Long Beach",
@@ -54400,7 +54461,7 @@
       },
       "lane": "club:underground",
       "key": "d861638202ed",
-      "final_rank": 2446
+      "final_rank": 2447
     },
     {
       "title": "EMBRZ at Harbor House Rooftop",
@@ -58673,7 +58734,7 @@
       },
       "lane": "stage",
       "key": "cd11655f76d1",
-      "final_rank": 2110
+      "final_rank": 2111
     },
     {
       "title": "Beach Bunny\u00a0& The Beths - US Tour 2026",
@@ -58745,7 +58806,7 @@
       },
       "lane": "live-music",
       "key": "026a92b278c2",
-      "final_rank": 2402
+      "final_rank": 2403
     },
     {
       "title": "Widowspeak",
@@ -58806,7 +58867,7 @@
       },
       "lane": "live-music",
       "key": "04648d68a13f",
-      "final_rank": 2398
+      "final_rank": 2399
     },
     {
       "title": "Surely Tempo - Garden Room @ RMA",
@@ -59041,7 +59102,7 @@
       },
       "lane": "live-music",
       "key": "b108a3b879f5",
-      "final_rank": 2154
+      "final_rank": 2155
     },
     {
       "title": "The Phantom of the Opera (Touring)",
@@ -59251,7 +59312,7 @@
       },
       "lane": "comedy",
       "key": "388823a9c41d",
-      "final_rank": 2325
+      "final_rank": 2326
     },
     {
       "title": "Rebelution w/ Skip Marley",
@@ -59408,7 +59469,7 @@
       },
       "lane": "comedy",
       "key": "5692bc6612e3",
-      "final_rank": 2276
+      "final_rank": 2277
     },
     {
       "title": "Pageant of the Masters",
@@ -60886,7 +60947,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "6c9cf1e06302",
-      "final_rank": 2672
+      "final_rank": 2673
     },
     {
       "title": "Donnell Rawlings",
@@ -60982,7 +61043,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2635
+      "final_rank": 2636
     },
     {
       "title": "MUSEO 002",
@@ -61037,7 +61098,7 @@
       },
       "lane": "club:underground",
       "key": "1e76fe709aae",
-      "final_rank": 2608
+      "final_rank": 2609
     },
     {
       "title": "Grand Ole Echo",
@@ -62605,7 +62666,7 @@
       },
       "lane": "club:underground",
       "key": "390dd0d19ade",
-      "final_rank": 2324
+      "final_rank": 2325
     },
     {
       "title": "Atwater Village Farmers Market",
@@ -62696,7 +62757,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2194
+      "series_rank": 2195
     },
     {
       "title": "Smorgasburg LA",
@@ -64169,7 +64230,7 @@
       },
       "lane": "live-music",
       "key": "4b89002399da",
-      "final_rank": 2557
+      "final_rank": 2558
     },
     {
       "title": "Rebelution w/ Skip Marley",
@@ -64352,7 +64413,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2635
+      "series_rank": 2636
     },
     {
       "title": "Pageant of the Masters",
@@ -64770,7 +64831,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2662
+      "series_rank": 2663
     },
     {
       "source": "squarespace",
@@ -64828,7 +64889,7 @@
       },
       "lane": "live-music",
       "key": "865303749265",
-      "final_rank": 2510
+      "final_rank": 2511
     },
     {
       "title": "Melrose Trading Post",
@@ -64918,7 +64979,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2478
+      "series_rank": 2479
     },
     {
       "title": "Lane 8, Sultan + Shepard, Yotto, Kasbo, Massane, Qrion, Ashibah, Grigore",
@@ -65008,7 +65069,7 @@
       },
       "lane": "club:day",
       "key": "8f29fc1fbe44",
-      "final_rank": 2663
+      "final_rank": 2664
     },
     {
       "title": "John Mellencamp Dancing Words Tour The Greatest Hits",
@@ -65710,7 +65771,7 @@
       },
       "lane": "comedy",
       "key": "1ea3d123d91c",
-      "final_rank": 2607
+      "final_rank": 2608
     },
     {
       "title": "Pageant of the Masters",
@@ -67192,7 +67253,7 @@
       },
       "lane": "club:underground",
       "key": "3f45cae00b45",
-      "final_rank": 2312
+      "final_rank": 2313
     },
     {
       "title": "Silver Lake Farmers Market",
@@ -67656,7 +67717,7 @@
       },
       "lane": "live-music:big",
       "key": "a42c259a1e89",
-      "final_rank": 2486
+      "final_rank": 2487
     },
     {
       "title": "Pageant of the Masters",
@@ -69608,7 +69669,7 @@
       },
       "lane": "live-music",
       "key": "af7b6d24c4aa",
-      "final_rank": 2479
+      "final_rank": 2480
     },
     {
       "title": "AJR",
@@ -69671,7 +69732,7 @@
       },
       "lane": "live-music:big",
       "key": "ca68bfc863c0",
-      "final_rank": 2454
+      "final_rank": 2455
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -69849,7 +69910,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Pageant of the Masters",
@@ -70375,7 +70436,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "OC Fair",
@@ -70491,7 +70552,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2662
+      "series_rank": 2663
     },
     {
       "title": "Upon Your Dead Body",
@@ -71748,7 +71809,7 @@
       },
       "lane": "comedy",
       "key": "a75cec51e3e1",
-      "final_rank": 2164
+      "final_rank": 2165
     },
     {
       "title": "The Full Monty",
@@ -72850,7 +72911,7 @@
       },
       "lane": "live-music",
       "key": "7bc224c5df14",
-      "final_rank": 2517
+      "final_rank": 2518
     },
     {
       "title": "Al Green",
@@ -72909,7 +72970,7 @@
       },
       "lane": "live-music:big",
       "key": "0fd183797da3",
-      "final_rank": 2624
+      "final_rank": 2625
     },
     {
       "title": "Dwight Yoakam",
@@ -72972,7 +73033,7 @@
       },
       "lane": "live-music:big",
       "key": "49e159357dbb",
-      "final_rank": 2560
+      "final_rank": 2561
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -73146,7 +73207,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Pageant of the Masters",
@@ -73648,7 +73709,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "OC Fair",
@@ -73764,7 +73825,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2662
+      "series_rank": 2663
     },
     {
       "title": "Derek Richards",
@@ -73844,7 +73905,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2651
+      "series_rank": 2652
     },
     {
       "title": "Roll Call @ Hamburger Mary's West Hollywood Location",
@@ -73989,7 +74050,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "Will Swinton - Will Swinton Live",
@@ -77416,7 +77477,7 @@
       },
       "lane": "live-music:big",
       "key": "b410d932bd4d",
-      "final_rank": 2146
+      "final_rank": 2147
     },
     {
       "title": "TOTO + Christopher Cross + The Romantics",
@@ -77478,7 +77539,7 @@
       },
       "lane": "live-music",
       "key": "5a5ba9e37973",
-      "final_rank": 2274
+      "final_rank": 2275
     },
     {
       "title": "Upon Your Dead Body",
@@ -77539,7 +77600,7 @@
       },
       "lane": "live-music",
       "key": "432bb57ab117",
-      "final_rank": 2304
+      "final_rank": 2305
     },
     {
       "title": "Emarosa Presents: High Horse Heaven Tour",
@@ -77601,7 +77662,7 @@
       },
       "lane": "live-music",
       "key": "204cc8e24238",
-      "final_rank": 2359
+      "final_rank": 2360
     },
     {
       "title": "Disney's Beauty and the Beast (Touring)",
@@ -77977,7 +78038,7 @@
       },
       "lane": "live-music:big",
       "key": "5e62bc1b1447",
-      "final_rank": 2266
+      "final_rank": 2267
     },
     {
       "title": "Pageant of the Masters",
@@ -78435,7 +78496,7 @@
       },
       "lane": "live-music",
       "key": "5d6f094098fe",
-      "final_rank": 2268
+      "final_rank": 2269
     },
     {
       "title": "Baila Habibi (21+)",
@@ -78493,7 +78554,7 @@
       },
       "lane": "live-music",
       "key": "3ef4140dcae4",
-      "final_rank": 2313
+      "final_rank": 2314
     },
     {
       "title": "Ballet Orange County - \"Encore!\"",
@@ -78549,7 +78610,7 @@
       },
       "lane": "stage",
       "key": "821a3a6738a5",
-      "final_rank": 2215
+      "final_rank": 2216
     },
     {
       "title": "MUZIQUE Fridays @ Kiss Kiss Bang Bang w/ SWOOPS + Special Guest DJS",
@@ -78661,7 +78722,7 @@
       },
       "lane": "other",
       "key": "d08f27995422",
-      "final_rank": 2105
+      "final_rank": 2106
     },
     {
       "title": "626 Night Market - Arcadia | August 14-16, 2026",
@@ -78711,7 +78772,7 @@
       },
       "lane": "market",
       "key": "85d38b822915",
-      "final_rank": 2212
+      "final_rank": 2213
     },
     {
       "title": "Cabaret",
@@ -79007,7 +79068,7 @@
       },
       "lane": "stage",
       "key": "68a806613d9f",
-      "final_rank": 2250
+      "final_rank": 2251
     },
     {
       "title": "Hong Kong Fuck You - Garden Room @ RMA",
@@ -79129,7 +79190,7 @@
       "lane": "film",
       "key": "3c94a2859d5a",
       "showtimes_url": "https://www.google.com/search?q=%22little+shop+of+horrors+screening%22+showtimes+Los+Angeles",
-      "final_rank": 2573
+      "final_rank": 2574
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -79311,7 +79372,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "The Broken Hearts - Tom Petty Tribute",
@@ -79375,7 +79436,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "eb9b65801f5b",
-      "final_rank": 2636
+      "final_rank": 2637
     },
     {
       "title": "Derek Richards",
@@ -79463,7 +79524,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2651
+      "series_rank": 2652
     },
     {
       "title": "KCON",
@@ -83653,7 +83714,7 @@
       },
       "lane": "live-music",
       "key": "a671f20d94ca",
-      "final_rank": 2165
+      "final_rank": 2166
     },
     {
       "title": "Sammy Johnson",
@@ -83715,7 +83776,7 @@
       },
       "lane": "live-music:big",
       "key": "0a7e4f0b51aa",
-      "final_rank": 2388
+      "final_rank": 2389
     },
     {
       "title": "Luke Bryan: Word On The Street Tour",
@@ -83780,7 +83841,7 @@
       },
       "lane": "live-music",
       "key": "223f887fc139",
-      "final_rank": 2357
+      "final_rank": 2358
     },
     {
       "title": "Los Yonics Zamacona",
@@ -84703,7 +84764,7 @@
       },
       "lane": "live-music",
       "key": "897f1fb81a62",
-      "final_rank": 2208
+      "final_rank": 2209
     },
     {
       "source": "Harvelle's Santa Monica",
@@ -84877,7 +84938,7 @@
       },
       "lane": "live-music",
       "key": "a8c83fa319e2",
-      "final_rank": 2162
+      "final_rank": 2163
     },
     {
       "title": "Gimme Gimme Disco - 18+",
@@ -84935,7 +84996,7 @@
       },
       "lane": "live-music",
       "key": "06ef082deb8f",
-      "final_rank": 2392
+      "final_rank": 2393
     },
     {
       "title": "The Hayds - Garden Room @ RMA",
@@ -85699,7 +85760,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Derek Richards",
@@ -85787,7 +85848,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2651
+      "final_rank": 2652
     },
     {
       "title": "KCON",
@@ -87856,7 +87917,7 @@
       },
       "lane": "club:underground",
       "key": "227ab6a2cb23",
-      "final_rank": 2356
+      "final_rank": 2357
     },
     {
       "title": "Sunday Night Jazz w/ The Andre Bernier Trio",
@@ -88011,7 +88072,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2194
+      "final_rank": 2195
     },
     {
       "title": "Smorgasburg LA",
@@ -88429,7 +88490,7 @@
       },
       "series_rep": true,
       "showtimes_url": "https://www.google.com/search?q=%2220+000+leagues+under+the+sea%22+showtimes+Los+Angeles",
-      "final_rank": 2117
+      "final_rank": 2118
     },
     {
       "title": "Misbehaving Ladies",
@@ -88906,7 +88967,7 @@
       },
       "lane": "live-music",
       "key": "722eef3c44dd",
-      "final_rank": 2524
+      "final_rank": 2525
     },
     {
       "title": "Penny & Sparrow",
@@ -88966,7 +89027,7 @@
       },
       "lane": "live-music",
       "key": "f48ba5d998ad",
-      "final_rank": 2422
+      "final_rank": 2423
     },
     {
       "title": "Steel Pulse w/ The English Beat",
@@ -89030,7 +89091,7 @@
       },
       "lane": "live-music:big",
       "key": "8d952971a3aa",
-      "final_rank": 2503
+      "final_rank": 2504
     },
     {
       "title": "Alfred Robles",
@@ -89294,7 +89355,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Los Mirlos",
@@ -89354,7 +89415,7 @@
       },
       "lane": "live-music",
       "key": "cc5838e25fa0",
-      "final_rank": 2450
+      "final_rank": 2451
     },
     {
       "title": "Pageant of the Masters",
@@ -89708,7 +89769,7 @@
       },
       "lane": "comedy",
       "key": "95c1f03b42bb",
-      "final_rank": 2497
+      "final_rank": 2498
     },
     {
       "title": "Melrose Trading Post",
@@ -89798,7 +89859,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2478
+      "series_rank": 2479
     },
     {
       "title": "The Black Crowes, Tedeschi Trucks Band, Whiskey Myers",
@@ -90427,7 +90488,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%2220+000+leagues+under+the+sea%22+showtimes+Los+Angeles",
-      "series_rank": 2117
+      "series_rank": 2118
     },
     {
       "title": "Arc Iris Movie Night: iTMRW",
@@ -92418,7 +92479,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%2220+000+leagues+under+the+sea%22+showtimes+Los+Angeles",
-      "series_rank": 2117
+      "series_rank": 2118
     },
     {
       "title": "Gorden Campbell & Friends",
@@ -92586,7 +92647,7 @@
       },
       "lane": "live-music",
       "key": "fc731279483c",
-      "final_rank": 2411
+      "final_rank": 2412
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -92760,7 +92821,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Pageant of the Masters",
@@ -93122,7 +93183,7 @@
       },
       "lane": "live-music",
       "key": "9205dcac7c9c",
-      "final_rank": 2500
+      "final_rank": 2501
     },
     {
       "source": "webfetch",
@@ -93199,7 +93260,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2538
+      "series_rank": 2539
     },
     {
       "title": "Sizzy Rocket",
@@ -94327,7 +94388,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%2220+000+leagues+under+the+sea%22+showtimes+Los+Angeles",
-      "series_rank": 2117
+      "series_rank": 2118
     },
     {
       "source": "webfetch",
@@ -94451,7 +94512,7 @@
       },
       "lane": "live-music",
       "key": "a5b16c3b96e0",
-      "final_rank": 2484
+      "final_rank": 2485
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -94625,7 +94686,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Pageant of the Masters",
@@ -95151,7 +95212,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Fenix Flexin",
@@ -95206,7 +95267,7 @@
       },
       "lane": "live-music",
       "key": "b93d1e71e204",
-      "final_rank": 2468
+      "final_rank": 2469
     },
     {
       "title": "Mt. Joy 2026: 2 Day Ticket (08/20 - 08/21) Valid Both Days",
@@ -96464,7 +96525,7 @@
       },
       "lane": "live-music",
       "key": "c150b0570f65",
-      "final_rank": 2463
+      "final_rank": 2464
     },
     {
       "title": "Pirates of the Caribbean: the Curse of the Black Pearl - Live In Concert",
@@ -96524,7 +96585,7 @@
       },
       "lane": "stage",
       "key": "1dc6a934fecf",
-      "final_rank": 2721
+      "final_rank": 2722
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -96698,7 +96759,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Pageant of the Masters",
@@ -97200,7 +97261,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Jc Currais",
@@ -97283,7 +97344,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2120
+      "series_rank": 2121
     },
     {
       "title": "Hollywood Palladium",
@@ -99654,7 +99715,7 @@
       },
       "lane": "live-music:big",
       "key": "1d684802bfe6",
-      "final_rank": 2363
+      "final_rank": 2364
     },
     {
       "title": "Little Stranger",
@@ -99717,7 +99778,7 @@
       },
       "lane": "live-music",
       "key": "6f5f426f1b47",
-      "final_rank": 2243
+      "final_rank": 2244
     },
     {
       "title": "Disney's Beauty and the Beast (Touring)",
@@ -100058,7 +100119,7 @@
       },
       "lane": "comedy",
       "key": "9057fc3a9ffa",
-      "final_rank": 2201
+      "final_rank": 2202
     },
     {
       "title": "Pageant of the Masters",
@@ -100418,7 +100479,7 @@
       },
       "lane": "live-music",
       "key": "5b933244a65e",
-      "final_rank": 2272
+      "final_rank": 2273
     },
     {
       "title": "Emo Night Brooklyn - 18+",
@@ -100534,7 +100595,7 @@
       },
       "lane": "club:underground",
       "key": "c65cee21b5c1",
-      "final_rank": 2118
+      "final_rank": 2119
     },
     {
       "title": "Ameega, XL Middleton, & Moniquea performing live @ Indeed Indeed",
@@ -101053,7 +101114,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2120
+      "final_rank": 2121
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -101235,7 +101296,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Bee Gees Fever - Tribute To Bee Gees",
@@ -101289,7 +101350,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "a7793903d26c",
-      "final_rank": 2655
+      "final_rank": 2656
     },
     {
       "title": "Livingmore",
@@ -104245,7 +104306,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2401
+      "final_rank": 2402
     },
     {
       "title": "818",
@@ -104411,7 +104472,7 @@
       },
       "lane": "live-music",
       "key": "43bb731240de",
-      "final_rank": 2302
+      "final_rank": 2303
     },
     {
       "title": "Fear",
@@ -104473,7 +104534,7 @@
       },
       "lane": "live-music",
       "key": "006bcaaecea8",
-      "final_rank": 2407
+      "final_rank": 2408
     },
     {
       "title": "Latin Legacy Tour: MC Magic, Baby Bash & Lil' Rob",
@@ -104538,7 +104599,7 @@
       },
       "lane": "live-music",
       "key": "d12219fd3a8b",
-      "final_rank": 2104
+      "final_rank": 2105
     },
     {
       "title": "Three Pianos: Something Corporate, Jack's Mannequin, Andrew McMahon",
@@ -104876,7 +104937,7 @@
       },
       "lane": "live-music",
       "key": "a08bf198729d",
-      "final_rank": 2171
+      "final_rank": 2172
     },
     {
       "title": "Kawaii Rave (18+)",
@@ -104938,7 +104999,7 @@
       },
       "lane": "club:underground",
       "key": "babf7cbabd40",
-      "final_rank": 2135
+      "final_rank": 2136
     },
     {
       "title": "Jason Bonham's Led Zeppelin Evening",
@@ -105005,7 +105066,7 @@
       },
       "lane": "live-music:big",
       "key": "1dc3ed66c9e9",
-      "final_rank": 2362
+      "final_rank": 2363
     },
     {
       "title": "Pageant of the Masters",
@@ -105428,7 +105489,7 @@
       },
       "lane": "live-music:big",
       "key": "2039d7e7da93",
-      "final_rank": 2360
+      "final_rank": 2361
     },
     {
       "source": "Harvelle's Santa Monica",
@@ -105606,7 +105667,7 @@
       },
       "lane": "live-music",
       "key": "54a25e87c24e",
-      "final_rank": 2279
+      "final_rank": 2280
     },
     {
       "title": "SUBMISSION EVENTS & SOFLA TOG PRESENTS \"FLORIDA MUSIC COLLECTIVE\"",
@@ -105656,7 +105717,7 @@
       },
       "lane": "other",
       "key": "b57122fbfac5",
-      "final_rank": 2142
+      "final_rank": 2143
     },
     {
       "title": "KINGDOM LA  | THE RAVE",
@@ -106094,7 +106155,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2120
+      "series_rank": 2121
     },
     {
       "title": "The Broken Hearts: Ultimate Tom Petty Tribute",
@@ -106154,7 +106215,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "67a69ffb0c9e",
-      "final_rank": 2673
+      "final_rank": 2674
     },
     {
       "title": "Jamie Lissow",
@@ -106220,7 +106281,7 @@
       },
       "lane": "comedy",
       "key": "a5945e188a31",
-      "final_rank": 2657
+      "final_rank": 2658
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -106402,7 +106463,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Grand Ole Echo",
@@ -107294,7 +107355,7 @@
       },
       "lane": "comedy",
       "key": "22d97053b837",
-      "final_rank": 2354
+      "final_rank": 2355
     },
     {
       "title": "Jiji's Jazz Club Presents: YOCOYA",
@@ -107976,7 +108037,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2194
+      "series_rank": 2195
     },
     {
       "title": "Smorgasburg LA",
@@ -108604,7 +108665,7 @@
       },
       "lane": "live-music:big",
       "key": "dbaa028b24fe",
-      "final_rank": 2443
+      "final_rank": 2444
     },
     {
       "title": "Premium Club Seats - Daniel Caesar - Son Of Spergy Tour",
@@ -108692,7 +108753,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2584
+      "series_rank": 2585
     },
     {
       "title": "Jabbawockeez",
@@ -108775,7 +108836,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2401
+      "series_rank": 2402
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -108949,7 +109010,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Los Tucanes de Tijuana w/ Grupo Arriesgado",
@@ -109013,7 +109074,7 @@
       },
       "lane": "live-music:big",
       "key": "cfda6fa92fc2",
-      "final_rank": 2448
+      "final_rank": 2449
     },
     {
       "title": "Pageant of the Masters",
@@ -109377,7 +109438,7 @@
       },
       "lane": "live-music",
       "key": "77168b9e54b0",
-      "final_rank": 2521
+      "final_rank": 2522
     },
     {
       "title": "Melrose Trading Post",
@@ -109467,7 +109528,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2478
+      "series_rank": 2479
     },
     {
       "title": "Topanga Vintage Market",
@@ -109515,7 +109576,7 @@
       },
       "lane": "market",
       "key": "dc6a8efad71f",
-      "final_rank": 2441
+      "final_rank": 2442
     },
     {
       "title": "TRAIN - Drops of Jupiter: 25 Years in the Atmosphere",
@@ -110305,7 +110366,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2584
+      "final_rank": 2585
     },
     {
       "title": "Pageant of the Masters",
@@ -111965,7 +112026,7 @@
       },
       "lane": "live-music",
       "key": "b1b445fa0885",
-      "final_rank": 2476
+      "final_rank": 2477
     },
     {
       "title": "Maryjo",
@@ -112026,7 +112087,7 @@
       },
       "lane": "live-music",
       "key": "ad963b9b18ba",
-      "final_rank": 2481
+      "final_rank": 2482
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -112200,7 +112261,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Pageant of the Masters",
@@ -113570,7 +113631,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Pageant of the Masters",
@@ -114096,7 +114157,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Wax + DJ Hoppa",
@@ -115664,7 +115725,7 @@
       "lane": "film",
       "key": "9f0473f1f83c",
       "showtimes_url": "https://www.google.com/search?q=%22pitchblack+playback+j+dilla+the+shining%22+showtimes+Los+Angeles",
-      "final_rank": 2178
+      "final_rank": 2179
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -115838,7 +115899,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Built To Spill w/ PLAYDEAD",
@@ -115902,7 +115963,7 @@
       },
       "lane": "live-music",
       "key": "e8a504d3bb2f",
-      "final_rank": 2429
+      "final_rank": 2430
     },
     {
       "title": "Pageant of the Masters",
@@ -116404,7 +116465,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Wolves of Glendale",
@@ -116459,7 +116520,7 @@
       },
       "lane": "live-music",
       "key": "4d2a4b05dc0d",
-      "final_rank": 2555
+      "final_rank": 2556
     },
     {
       "title": "Linea Personal: TODO \u00d8 NADA",
@@ -116514,7 +116575,7 @@
       },
       "lane": "live-music",
       "key": "77ef437a357d",
-      "final_rank": 2520
+      "final_rank": 2521
     },
     {
       "title": "Christopher \"Kid\" Reid",
@@ -116596,7 +116657,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2654
+      "series_rank": 2655
     },
     {
       "title": "Roll Call @ Hamburger Mary's West Hollywood Location",
@@ -116741,7 +116802,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "Ian Asher",
@@ -118547,7 +118608,7 @@
       },
       "lane": "live-music:big",
       "key": "44fd291094a8",
-      "final_rank": 2298
+      "final_rank": 2299
     },
     {
       "title": "A Great Night in Hip Hop - Nas & The Roots",
@@ -118610,7 +118671,7 @@
       },
       "lane": "live-music",
       "key": "aab66888ce8d",
-      "final_rank": 2160
+      "final_rank": 2161
     },
     {
       "title": "ANTES\u00a0DE QUE NOS OLVIDEN EN RIVERSIDE",
@@ -118672,7 +118733,7 @@
       },
       "lane": "live-music",
       "key": "5c736ec9d30f",
-      "final_rank": 2270
+      "final_rank": 2271
     },
     {
       "title": "Disney's Beauty and the Beast (Touring)",
@@ -118946,7 +119007,7 @@
       },
       "lane": "live-music",
       "key": "502ed3b4c9fd",
-      "final_rank": 2283
+      "final_rank": 2284
     },
     {
       "title": "Diana Ross",
@@ -119010,7 +119071,7 @@
       },
       "lane": "live-music:big",
       "key": "6a4cc90d80ba",
-      "final_rank": 2247
+      "final_rank": 2248
     },
     {
       "title": "Ali Wong Live",
@@ -119099,7 +119160,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2372
+      "series_rank": 2373
     },
     {
       "title": "Pageant of the Masters",
@@ -119458,7 +119519,7 @@
       },
       "lane": "live-music",
       "key": "234770906727",
-      "final_rank": 2353
+      "final_rank": 2354
     },
     {
       "title": "Saved by the 90s",
@@ -119511,7 +119572,7 @@
       },
       "lane": "live-music",
       "key": "1c31b596e110",
-      "final_rank": 2365
+      "final_rank": 2366
     },
     {
       "title": "The Mummy (1999)",
@@ -119770,7 +119831,7 @@
       },
       "lane": "live-music",
       "key": "16ec23707fbb",
-      "final_rank": 2371
+      "final_rank": 2372
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -119952,7 +120013,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Christopher \"Kid\" Reid",
@@ -120039,7 +120100,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2654
+      "final_rank": 2655
     },
     {
       "title": "Verizon offer - Daisy Chain Fields",
@@ -122398,7 +122459,7 @@
       },
       "lane": "live-music",
       "key": "6c023fb84882",
-      "final_rank": 2245
+      "final_rank": 2246
     },
     {
       "title": "A SUMMER NIGHT OF R&B SOUL",
@@ -122457,7 +122518,7 @@
       },
       "lane": "live-music",
       "key": "7ceade4a0c93",
-      "final_rank": 2222
+      "final_rank": 2223
     },
     {
       "title": "FEAR& LIVE: Ft. Hasan Piker, Austinshow, Will Neff, & QTCinderella",
@@ -122798,7 +122859,7 @@
       },
       "lane": "live-music:big",
       "key": "9ab07d71ae52",
-      "final_rank": 2184
+      "final_rank": 2185
     },
     {
       "title": "Ali Wong Live",
@@ -122887,7 +122948,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2372
+      "final_rank": 2373
     },
     {
       "title": "Chisme with DoKnow and Jakarta",
@@ -123763,7 +123824,7 @@
       },
       "lane": "stage",
       "key": "78c0904ceee5",
-      "final_rank": 2670
+      "final_rank": 2671
     },
     {
       "title": "Teo Gonzalez and Mario Aguilar: 90 vs 60 La Comedia Perfecta",
@@ -123822,7 +123883,7 @@
       },
       "lane": "comedy",
       "key": "19061cf620a2",
-      "final_rank": 2692
+      "final_rank": 2693
     },
     {
       "title": "Brad Williams Tall Tales Tour",
@@ -123880,7 +123941,7 @@
       },
       "lane": "comedy",
       "key": "7b7fea3040be",
-      "final_rank": 2668
+      "final_rank": 2669
     },
     {
       "title": "Phantom Of The Opera (Touring)",
@@ -124062,7 +124123,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2645
+      "final_rank": 2646
     },
     {
       "title": "Amor Prohibido - Tribute to Selena",
@@ -124115,7 +124176,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "597973854e2d",
-      "final_rank": 2677
+      "final_rank": 2678
     },
     {
       "title": "Christopher \"Kid\" Reid",
@@ -124202,7 +124263,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2654
+      "series_rank": 2655
     },
     {
       "title": "Grand Ole Echo",
@@ -126014,7 +126075,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2194
+      "series_rank": 2195
     },
     {
       "title": "Smorgasburg LA",
@@ -126434,7 +126495,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2645
+      "series_rank": 2646
     },
     {
       "title": "Pageant of the Masters",
@@ -126791,7 +126852,7 @@
       },
       "lane": "live-music:big",
       "key": "a236a84d685d",
-      "final_rank": 2487
+      "final_rank": 2488
     },
     {
       "title": "Portugal. The Man",
@@ -126846,7 +126907,7 @@
       },
       "lane": "live-music",
       "key": "981628476198",
-      "final_rank": 2494
+      "final_rank": 2495
     },
     {
       "title": "Hard Days Night- Beatles Tribute",
@@ -126901,7 +126962,7 @@
       "lane": "film",
       "key": "7c2646c6f511",
       "showtimes_url": "https://www.google.com/search?q=%22hard+days+night+beatles+tribute%22+showtimes+Los+Angeles",
-      "final_rank": 2725
+      "final_rank": 2726
     },
     {
       "title": "Melrose Trading Post",
@@ -126991,7 +127052,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2478
+      "final_rank": 2479
     },
     {
       "title": "BreakThru Entertainment Presents",
@@ -127046,7 +127107,7 @@
       },
       "lane": "live-music",
       "key": "158e9b5d666e",
-      "final_rank": 2617
+      "final_rank": 2618
     },
     {
       "title": "Muse - The Wow! Signal Tour",
@@ -128461,7 +128522,7 @@
       },
       "lane": "live-music:big",
       "key": "588709edc59c",
-      "final_rank": 2545
+      "final_rank": 2546
     },
     {
       "title": "Pageant of the Masters",
@@ -129919,7 +129980,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Pallbearer",
@@ -129972,7 +130033,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "37bb337a80aa",
-      "final_rank": 2576
+      "final_rank": 2577
     },
     {
       "title": "Chad & JT Go Deep (early show)",
@@ -130041,7 +130102,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "24f699e73fca",
-      "final_rank": 2720
+      "final_rank": 2721
     },
     {
       "title": "Digital Underground \"Sex Packets\" 35th year Anniversary",
@@ -130775,7 +130836,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "05c0a1e876d3",
-      "final_rank": 2394
+      "final_rank": 2395
     },
     {
       "title": "Angelo Mota LIVE!",
@@ -131015,7 +131076,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "f57e8f059d91",
-      "final_rank": 2421
+      "final_rank": 2422
     },
     {
       "title": "Pageant of the Masters",
@@ -131511,7 +131572,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Steve Aoki w/ Tyga",
@@ -131569,7 +131630,7 @@
       "is_past": false,
       "lane": "club:mainstream",
       "key": "259f69fd6895",
-      "final_rank": 2599
+      "final_rank": 2600
     },
     {
       "title": "bar italia",
@@ -131621,7 +131682,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "130f0dbbda99",
-      "final_rank": 2618
+      "final_rank": 2619
     },
     {
       "title": "Roll Call @ Hamburger Mary's West Hollywood Location",
@@ -131763,7 +131824,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "PRINS - MESSY, YOUNG & ABLE WORLD TOUR",
@@ -132875,7 +132936,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "42aa6179ab81",
-      "final_rank": 2306
+      "final_rank": 2307
     },
     {
       "title": "Screeching Weasel",
@@ -132934,7 +132995,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "75c68492f0a9",
-      "final_rank": 2233
+      "final_rank": 2234
     },
     {
       "title": "ZINORBITA - H\u00c9ROES DEL SILENCIO EXPERIENCE",
@@ -132991,7 +133052,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "047cc87592f7",
-      "final_rank": 2397
+      "final_rank": 2398
     },
     {
       "title": "1964 The Tribute \"Beatles Show\"",
@@ -133050,7 +133111,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "31ffc0ce8395",
-      "final_rank": 2334
+      "final_rank": 2335
     },
     {
       "title": "Disney's Beauty and the Beast (Touring)",
@@ -135429,7 +135490,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "0830e3883c50",
-      "final_rank": 2390
+      "final_rank": 2391
     },
     {
       "title": "All Shall Perish - The Price Of Existence: 20-Year Anniversary",
@@ -135609,7 +135670,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "7206d0af90c9",
-      "final_rank": 2238
+      "final_rank": 2239
     },
     {
       "title": "Los Angeles Azules - Cumbia Sin Fronteras US Tour",
@@ -135666,7 +135727,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "a062313e034a",
-      "final_rank": 2172
+      "final_rank": 2173
     },
     {
       "title": "Disney's Beauty and the Beast (Touring)",
@@ -135934,7 +135995,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "aab0668d1df6",
-      "final_rank": 2161
+      "final_rank": 2162
     },
     {
       "title": "MC Magic",
@@ -135995,7 +136056,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "ab225f925679",
-      "final_rank": 2159
+      "final_rank": 2160
     },
     {
       "title": "Garden Brothers Circus",
@@ -136153,7 +136214,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "3448f7cb28bc",
-      "final_rank": 2329
+      "final_rank": 2330
     },
     {
       "title": "Ballet Folklorico Rey Coliman Presents: Novias de Mexico",
@@ -136203,7 +136264,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "01d6bd405ffc",
-      "final_rank": 2404
+      "final_rank": 2405
     },
     {
       "title": "David Bowie and Blondie Tributes",
@@ -136262,7 +136323,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "303591b97111",
-      "final_rank": 2337
+      "final_rank": 2338
     },
     {
       "title": "Deep House Brunch POOL PARTY [Labor Day Saturday]",
@@ -136960,7 +137021,7 @@
       "is_past": false,
       "lane": "club:day",
       "key": "116afa716e6e",
-      "final_rank": 2376
+      "final_rank": 2377
     },
     {
       "title": "Grum POOL PARTY at Level 8 [Labor Day Sunday]",
@@ -137074,7 +137135,7 @@
       },
       "lane": "club:underground",
       "key": "aff47e5b4d13",
-      "final_rank": 2155
+      "final_rank": 2156
     },
     {
       "title": "Day Trip In The Park LA: [PIV Takeover] Gaskin, Prunk, Robbie Doherty, Kellie Allen",
@@ -137818,7 +137879,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "e9190797a13e",
-      "final_rank": 2705
+      "final_rank": 2706
     },
     {
       "title": "Stan Society Presents Bop to the Top Summer Tour 2026 (18+)",
@@ -137876,7 +137937,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "54e475cbeae6",
-      "final_rank": 2547
+      "final_rank": 2548
     },
     {
       "title": "Boy George w/ Culture Club",
@@ -137937,7 +137998,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "52a1f2706fd2",
-      "final_rank": 2550
+      "final_rank": 2551
     },
     {
       "title": "Afrobeats Day Party ( Beverly Hills ) LABOR DAY WEEKEND",
@@ -137997,7 +138058,7 @@
       "is_past": false,
       "lane": "club:day",
       "key": "5499f8fded22",
-      "final_rank": 2548
+      "final_rank": 2549
     },
     {
       "title": "AFROBEATS TAKEOVER X ENJOYMENT WORLDWIDE LABOR DAY WEEKEND EDITION",
@@ -138045,7 +138106,7 @@
       "is_past": false,
       "lane": "other",
       "key": "4083badcd3ff",
-      "final_rank": 2567
+      "final_rank": 2568
     },
     {
       "title": "AFROBEATS TAKEOVER x ENJOYMENT WORLDWIDE ( Labor Day weekend )",
@@ -138093,7 +138154,7 @@
       "is_past": false,
       "lane": "other",
       "key": "86cf6bc251fe",
-      "final_rank": 2508
+      "final_rank": 2509
     },
     {
       "title": "J. Cole: The Fall-Off Tour",
@@ -138288,7 +138349,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "337b946bbf36",
-      "final_rank": 2583
+      "final_rank": 2584
     },
     {
       "title": "Jackson Marshall",
@@ -138919,7 +138980,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "613a0bb3f13e",
-      "final_rank": 2542
+      "final_rank": 2543
     },
     {
       "title": "Chanpan Presents: \"autogratis North American Tour\"",
@@ -138976,7 +139037,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "0b77251090e1",
-      "final_rank": 2626
+      "final_rank": 2627
     },
     {
       "title": "RAV: EXOPOCALYPSE TOUR",
@@ -139030,7 +139091,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "205b841f4871",
-      "final_rank": 2605
+      "final_rank": 2606
     },
     {
       "title": "wave to earth - the pieces tour",
@@ -139448,7 +139509,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "30c01bce4af4",
-      "final_rank": 2336
+      "final_rank": 2337
     },
     {
       "title": "Bikini Kill",
@@ -139995,7 +140056,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Polyphia Tour MMXXVI  ",
@@ -140866,7 +140927,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "8e4b101331ba",
-      "final_rank": 2502
+      "final_rank": 2503
     },
     {
       "title": "World of Warcraft\u00ae: 20 Years of Music",
@@ -140921,7 +140982,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "5e0e36128100",
-      "final_rank": 2544
+      "final_rank": 2545
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -141118,7 +141179,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Roll Call @ Hamburger Mary's West Hollywood Location",
@@ -141260,7 +141321,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "Chris Tomlin | Official Ticket + Hotel Packages",
@@ -142780,7 +142841,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "c5837b72c9d1",
-      "final_rank": 2123
+      "final_rank": 2124
     },
     {
       "title": "Led Zeppelin 2",
@@ -142834,7 +142895,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "b4d2acd2bf14",
-      "final_rank": 2145
+      "final_rank": 2146
     },
     {
       "title": "Basscon Presents: Da Tweekaz (18+)",
@@ -142893,7 +142954,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "a270b16c9615",
-      "final_rank": 2169
+      "final_rank": 2170
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -143140,7 +143201,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "c84ca4f417b9",
-      "final_rank": 2115
+      "final_rank": 2116
     },
     {
       "title": "Desperado",
@@ -143192,7 +143253,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "ae4a30176985",
-      "final_rank": 2156
+      "final_rank": 2157
     },
     {
       "title": "Dan and Phil: Hard Launch World Tour",
@@ -143268,7 +143329,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2224
+      "final_rank": 2225
     },
     {
       "title": "Broadway Rave (18+)",
@@ -143323,7 +143384,7 @@
       "is_past": false,
       "lane": "club:underground",
       "key": "0df0b71436e2",
-      "final_rank": 2380
+      "final_rank": 2381
     },
     {
       "title": "Not My Weekend + Daisyhead",
@@ -143377,7 +143438,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "b1eb61e585eb",
-      "final_rank": 2152
+      "final_rank": 2153
     },
     {
       "title": "Virtigo presents: Diavol Strain ( Chile), Velas Negras, and Hammerwhip",
@@ -143426,7 +143487,7 @@
       "is_past": false,
       "lane": "club:underground",
       "key": "6f692bad3115",
-      "final_rank": 2529
+      "final_rank": 2530
     },
     {
       "title": "Kamasi Washington",
@@ -145746,7 +145807,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "acd73579001e",
-      "final_rank": 2157
+      "final_rank": 2158
     },
     {
       "title": "W.A.S.P. - 1984 TO HEADLESS",
@@ -145800,7 +145861,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "33afb2b55b1a",
-      "final_rank": 2331
+      "final_rank": 2332
     },
     {
       "title": "Miguel & Big Sean: CTRL + ALT + DELETE ",
@@ -145867,7 +145928,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "43eaca06162a",
-      "final_rank": 2301
+      "final_rank": 2302
     },
     {
       "title": "Dan and Phil: Hard Launch World Tour",
@@ -145943,7 +146004,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2224
+      "series_rank": 2225
     },
     {
       "title": "An Evening with J Anthony Brown",
@@ -145997,7 +146058,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "3ae8b248e759",
-      "final_rank": 2321
+      "final_rank": 2322
     },
     {
       "title": "Dogman: The Musical",
@@ -146276,7 +146337,7 @@
       "is_past": false,
       "lane": "club:underground",
       "key": "3ddf85b27a84",
-      "final_rank": 2571
+      "final_rank": 2572
     },
     {
       "title": "Total Vibez Live w/ Keyshia Cole",
@@ -146333,7 +146394,7 @@
       "is_past": false,
       "lane": "other",
       "key": "882faf6e68c8",
-      "final_rank": 2665
+      "final_rank": 2666
     },
     {
       "title": "Grand Ole Echo",
@@ -147148,7 +147209,7 @@
       "is_past": false,
       "lane": "market",
       "key": "71a56711da05",
-      "final_rank": 2239
+      "final_rank": 2240
     },
     {
       "title": "The Weasels - Rock n' Roll Sundays",
@@ -147355,7 +147416,7 @@
       "is_past": false,
       "lane": "other",
       "key": "e9a025307c66",
-      "final_rank": 2428
+      "final_rank": 2429
     },
     {
       "title": "\"Weird Al\" Yankovic: Bigger & Weirder 2026 Tour",
@@ -147409,7 +147470,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "8fbc2c6c2b06",
-      "final_rank": 2501
+      "final_rank": 2502
     },
     {
       "title": "Venkata Krishna Temple presents Chilibeatz Music Tribute",
@@ -147460,7 +147521,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "7599da27b2d9",
-      "final_rank": 2522
+      "final_rank": 2523
     },
     {
       "title": "A Night of Soulful Blues ft. The Fabulous Thunderbirds & Ruthie Foster",
@@ -147521,7 +147582,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "10b90d0b92b9",
-      "final_rank": 2623
+      "final_rank": 2624
     },
     {
       "title": "Dogman: The Musical",
@@ -148213,7 +148274,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "704c5b078f7d",
-      "final_rank": 2528
+      "final_rank": 2529
     },
     {
       "title": "papa mbye - JAKAARLO Tour",
@@ -149034,7 +149095,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "46f8f429cf5f",
-      "final_rank": 2562
+      "final_rank": 2563
     },
     {
       "title": "Dogman: The Musical",
@@ -149559,7 +149620,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "8b19c33d5374",
-      "final_rank": 2206
+      "final_rank": 2207
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -149852,7 +149913,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "528904ca7748",
-      "final_rank": 2281
+      "final_rank": 2282
     },
     {
       "title": "American Aquarium",
@@ -150345,7 +150406,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Dogman: The Musical",
@@ -151420,7 +151481,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "24ca66ec13c5",
-      "final_rank": 2351
+      "final_rank": 2352
     },
     {
       "title": "Soulwax at The Fonda Theatre",
@@ -151537,7 +151598,7 @@
       "is_past": false,
       "lane": "club:underground",
       "key": "c5faa1b659cf",
-      "final_rank": 2121
+      "final_rank": 2122
     },
     {
       "title": "Eric Nam",
@@ -151698,7 +151759,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2192
+      "series_rank": 2193
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -151895,7 +151956,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "GODSMACK - The Rise of Rock World Tour 2026",
@@ -151949,7 +152010,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "4b82e753e435",
-      "final_rank": 2558
+      "final_rank": 2559
     },
     {
       "title": "The Exploited",
@@ -152004,7 +152065,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "288fec8dc647",
-      "final_rank": 2596
+      "final_rank": 2597
     },
     {
       "title": "Chance The Rapper - Coloring Book 10 Year Anniversary Tour",
@@ -152061,7 +152122,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "883777113957",
-      "final_rank": 2506
+      "final_rank": 2507
     },
     {
       "title": "greek",
@@ -152113,7 +152174,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "a67326c07d0e",
-      "final_rank": 2483
+      "final_rank": 2484
     },
     {
       "title": "Roll Call @ Hamburger Mary's West Hollywood Location",
@@ -152255,7 +152316,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2416
+      "final_rank": 2417
     },
     {
       "title": "Gravedgr",
@@ -154038,7 +154099,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2192
+      "final_rank": 2193
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -154303,7 +154364,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2137
+      "series_rank": 2138
     },
     {
       "title": "Five Finger Death Punch",
@@ -154358,7 +154419,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "48c159b9123f",
-      "final_rank": 2293
+      "final_rank": 2294
     },
     {
       "title": "deca joins: 2026 World Tour - A Brief Stop",
@@ -154411,7 +154472,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "7bffb6faeb0b",
-      "final_rank": 2223
+      "final_rank": 2224
     },
     {
       "title": "TRAPT DEBUT ALBUM 25TH ANNIVERSARY 2026 TOUR",
@@ -154467,7 +154528,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "00f5c0670ab9",
-      "final_rank": 2406
+      "final_rank": 2407
     },
     {
       "title": "A Tribute to Fleetwood Mac & Tom Petty",
@@ -154523,7 +154584,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "0240e241ea9f",
-      "final_rank": 2403
+      "final_rank": 2404
     },
     {
       "title": "Edith Marquez: Eterna e Inolvidable",
@@ -154576,7 +154637,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "abdbf6fb1fc6",
-      "final_rank": 2158
+      "final_rank": 2159
     },
     {
       "title": "Zach Top: Cold Beer & Country Music Tour 2026",
@@ -154697,7 +154758,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "40669f931d82",
-      "final_rank": 2310
+      "final_rank": 2311
     },
     {
       "source": "webfetch",
@@ -155024,7 +155085,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "28a535d85e29",
-      "final_rank": 2347
+      "final_rank": 2348
     },
     {
       "title": "FOOS GONE WILD: The FOOS GONE WILD Tour 2026",
@@ -155079,7 +155140,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "d7257f8055cb",
-      "final_rank": 2641
+      "final_rank": 2642
     },
     {
       "title": "Big Thief",
@@ -157597,7 +157658,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "2f3f2494eab4",
-      "final_rank": 2340
+      "final_rank": 2341
     },
     {
       "title": "Beyond Illusion by Shahrooz: An Immersive Experience",
@@ -157735,7 +157796,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2175
+      "final_rank": 2176
     },
     {
       "title": "Mentiras All Stars",
@@ -157791,7 +157852,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "216d1f0790d3",
-      "final_rank": 2358
+      "final_rank": 2359
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -158032,7 +158093,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "700f6db1dcf4",
-      "final_rank": 2242
+      "final_rank": 2243
     },
     {
       "title": "Ralph Barbosa",
@@ -158114,7 +158175,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2137
+      "final_rank": 2138
     },
     {
       "title": "Nocturnal Wonderland",
@@ -158319,7 +158380,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "84c1ab1defd6",
-      "final_rank": 2214
+      "final_rank": 2215
     },
     {
       "title": "Tribute Titans presents SatchVanHagar",
@@ -158425,7 +158486,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "41f1b24ce365",
-      "final_rank": 2308
+      "final_rank": 2309
     },
     {
       "title": "John Cameron Mitchell: Hedwig 25th Anniversary Movie Tour",
@@ -158479,7 +158540,7 @@
       "lane": "film",
       "key": "44f61263e538",
       "showtimes_url": "https://www.google.com/search?q=%22john+cameron+mitchell+hedwig+movie+tour%22+showtimes+Los+Angeles",
-      "final_rank": 2299
+      "final_rank": 2300
     },
     {
       "title": "Dogman: The Musical",
@@ -158763,7 +158824,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "4a79eb66f590",
-      "final_rank": 2683
+      "final_rank": 2684
     },
     {
       "title": "Adri\u00e1n Uribe: 50 y Pico Tour",
@@ -158814,7 +158875,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "58778da99813",
-      "final_rank": 2678
+      "final_rank": 2679
     },
     {
       "title": "Grand Ole Echo",
@@ -159927,7 +159988,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "0ee52f2cdad9",
-      "final_rank": 2724
+      "final_rank": 2725
     },
     {
       "title": "Matt Mathews: Not What I Ordered World Tour",
@@ -160004,7 +160065,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2175
+      "series_rank": 2176
     },
     {
       "title": "Sevendust & Theory of a Deadman: The Dead / Seven Tour",
@@ -160058,7 +160119,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "6148e9496264",
-      "final_rank": 2541
+      "final_rank": 2542
     },
     {
       "title": "The Sixties Show",
@@ -160110,7 +160171,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "951c148b6e31",
-      "final_rank": 2714
+      "final_rank": 2715
     },
     {
       "title": "The Doobie Doubles",
@@ -160169,7 +160230,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "d8f5a9c5726e",
-      "final_rank": 2445
+      "final_rank": 2446
     },
     {
       "title": "RUSSELL!",
@@ -160221,7 +160282,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "3f454846eaca",
-      "final_rank": 2569
+      "final_rank": 2570
     },
     {
       "title": "Dogman: The Musical",
@@ -160500,7 +160561,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "8560c2e6ee61",
-      "final_rank": 2512
+      "final_rank": 2513
     },
     {
       "title": "Boys Go To Jupiter with Isaac Soren",
@@ -161690,7 +161751,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Ariel Posen with Zach Person",
@@ -162609,7 +162670,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -162830,7 +162891,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Kruder & Dorfmeister",
@@ -163917,7 +163978,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "bb48da97eb6a",
-      "final_rank": 2711
+      "final_rank": 2712
     },
     {
       "title": "Ghostbusters In Concert",
@@ -163971,7 +164032,7 @@
       "lane": "film",
       "key": "278e935529b3",
       "showtimes_url": "https://www.google.com/search?q=%22ghostbusters+in+concert%22+showtimes+Los+Angeles",
-      "final_rank": 2598
+      "final_rank": 2599
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -164151,7 +164212,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "La Mirada Theatre presents: Little Shop of Horrors",
@@ -164479,7 +164540,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "The Front Bottoms - 11 Years of Back On Top",
@@ -164531,7 +164592,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "c155d952773d",
-      "final_rank": 2462
+      "final_rank": 2463
     },
     {
       "title": "Riley Green: Cowboy As It Gets Tour 2026",
@@ -164586,7 +164647,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "05e8522d2def",
-      "final_rank": 2627
+      "final_rank": 2628
     },
     {
       "title": "American Football",
@@ -164638,7 +164699,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "2c78b55a1d74",
-      "final_rank": 2590
+      "final_rank": 2591
     },
     {
       "title": "The Concert: A Tribute To ABBA",
@@ -164693,7 +164754,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "88eb3e101b15",
-      "final_rank": 2716
+      "final_rank": 2717
     },
     {
       "source": "The Venice West",
@@ -164752,7 +164813,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "3d75ebd64a39",
-      "final_rank": 2572
+      "final_rank": 2573
     },
     {
       "title": "Roll Call @ Hamburger Mary's West Hollywood Location",
@@ -164894,7 +164955,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "Chanpan Presents: autogratis North American Tour",
@@ -167312,7 +167373,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "2bea96b29310",
-      "final_rank": 2342
+      "final_rank": 2343
     },
     {
       "title": "Julien-K & Nite",
@@ -167366,7 +167427,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "bd40932f9221",
-      "final_rank": 2133
+      "final_rank": 2134
     },
     {
       "title": "Red NOT Chili Peppers",
@@ -167533,7 +167594,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "7090ff1c4dab",
-      "final_rank": 2240
+      "final_rank": 2241
     },
     {
       "title": "club speed.star presents: RIRIA",
@@ -168049,7 +168110,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Jesse Baez",
@@ -170315,7 +170376,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "3bcebb3504a7",
-      "final_rank": 2320
+      "final_rank": 2321
     },
     {
       "title": "156/Silence - From A Distance Tour -MOVED TO THE OBSERVATORY SANTA ANA",
@@ -170430,7 +170491,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "048685ea14c1",
-      "final_rank": 2396
+      "final_rank": 2397
     },
     {
       "title": "Danzig",
@@ -170487,7 +170548,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "7d2e5a7afc2b",
-      "final_rank": 2221
+      "final_rank": 2222
     },
     {
       "title": "Pearl & The Oysters",
@@ -170540,7 +170601,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "5db8b451f2cf",
-      "final_rank": 2267
+      "final_rank": 2268
     },
     {
       "title": "Lee Juck",
@@ -170593,7 +170654,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "b6386adf67ac",
-      "final_rank": 2139
+      "final_rank": 2140
     },
     {
       "title": "Get the Led Out",
@@ -170810,7 +170871,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "6592f66e3932",
-      "final_rank": 2257
+      "final_rank": 2258
     },
     {
       "title": "Dogman: The Musical",
@@ -171097,7 +171158,7 @@
       "is_past": false,
       "lane": "club:underground",
       "key": "92c1fe9df9e0",
-      "final_rank": 2198
+      "final_rank": 2199
     },
     {
       "title": "Brincos Dieras - El Desmadre Continua Tour (18+)",
@@ -171154,7 +171215,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "8ca37d33d675",
-      "final_rank": 2664
+      "final_rank": 2665
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -171339,7 +171400,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Grand Ole Echo",
@@ -171824,7 +171885,7 @@
       },
       "lane": "club:day",
       "key": "b55dc359c0e1",
-      "final_rank": 2143
+      "final_rank": 2144
     },
     {
       "title": "Day Trip In The Park LA: Armand Van Helden, James Poole, Adam Auburn, Athena",
@@ -172440,7 +172501,7 @@
       "is_past": false,
       "lane": "club:day",
       "key": "bfbc71b3e946",
-      "final_rank": 2130
+      "final_rank": 2131
     },
     {
       "title": "At The Park",
@@ -172992,7 +173053,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "7b3cfebbb489",
-      "final_rank": 2717
+      "final_rank": 2718
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -173172,7 +173233,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Bilmuri - Kinda Hard Tour",
@@ -173230,7 +173291,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "52c8a6881485",
-      "final_rank": 2549
+      "final_rank": 2550
     },
     {
       "title": "WesGhost & Red Leather - RedGhost Tour",
@@ -173283,7 +173344,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "51599630a606",
-      "final_rank": 2551
+      "final_rank": 2552
     },
     {
       "title": "Dave Blunts - Still Standing Tour",
@@ -173335,7 +173396,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "e2cf70fe4677",
-      "final_rank": 2433
+      "final_rank": 2434
     },
     {
       "title": "Men I Trust",
@@ -173388,7 +173449,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "2f5d0c805662",
-      "final_rank": 2587
+      "final_rank": 2588
     },
     {
       "title": "El Haragan y Cia, Inspector y El Gran Silencio",
@@ -173442,7 +173503,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "e0c15aa3ce4c",
-      "final_rank": 2436
+      "final_rank": 2437
     },
     {
       "title": "Dogman: The Musical",
@@ -173880,7 +173941,7 @@
       "is_past": false,
       "lane": "other",
       "key": "cbc8160d6b3a",
-      "final_rank": 2112
+      "final_rank": 2113
     },
     {
       "title": "Beth Orton",
@@ -175196,7 +175257,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Chasing Abbey",
@@ -175248,7 +175309,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "3156c9c7ea86",
-      "final_rank": 2585
+      "final_rank": 2586
     },
     {
       "title": "Sleep: North America 2026",
@@ -175300,7 +175361,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "859d5c86f723",
-      "final_rank": 2511
+      "final_rank": 2512
     },
     {
       "title": "Dogman: The Musical",
@@ -176812,7 +176873,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "4e65640a4cd0",
-      "final_rank": 2554
+      "final_rank": 2555
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -176992,7 +177053,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -177213,7 +177274,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Latin Music Conference- 2 DAY PASS",
@@ -177262,7 +177323,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "9bdbc05c273b",
-      "final_rank": 2490
+      "final_rank": 2491
     },
     {
       "title": "Latin Music Conference SINGLE DAY Ticket",
@@ -177335,7 +177396,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2440
+      "final_rank": 2441
     },
     {
       "title": "Earl Sweatshirt & MIKE: Home on the Range Tour 2026",
@@ -177390,7 +177451,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "2fc81f337e47",
-      "final_rank": 2586
+      "final_rank": 2587
     },
     {
       "title": "Dogman: The Musical",
@@ -177666,7 +177727,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "11d3c0e23ce8",
-      "final_rank": 2620
+      "final_rank": 2621
     },
     {
       "title": "Castle Rat: Summon The Beasts Tour 2026",
@@ -178928,7 +178989,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "La Mirada Theatre presents: Little Shop of Horrors",
@@ -179116,7 +179177,7 @@
       "is_past": false,
       "lane": "other",
       "key": "9fd2ebb2c6d6",
-      "final_rank": 2488
+      "final_rank": 2489
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -179313,7 +179374,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Latin Music Conference SINGLE DAY Ticket",
@@ -179386,7 +179447,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2440
+      "series_rank": 2441
     },
     {
       "title": "Wednesday 13",
@@ -179440,7 +179501,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "86e75a3a862a",
-      "final_rank": 2507
+      "final_rank": 2508
     },
     {
       "title": "Disney Descendants, ZOMBIES & Camp Rock: Worlds Collide Concert Tour",
@@ -179496,7 +179557,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "fc16a0be4c36",
-      "final_rank": 2413
+      "final_rank": 2414
     },
     {
       "title": "Brian Fallon",
@@ -179549,7 +179610,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "24bca1ceeee4",
-      "final_rank": 2600
+      "final_rank": 2601
     },
     {
       "title": "JPEGMAFIA: the Experimental Rap Tour",
@@ -179604,7 +179665,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "1d7ff7bf1b65",
-      "final_rank": 2612
+      "final_rank": 2613
     },
     {
       "title": "Hairball",
@@ -179658,7 +179719,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "fc1725e212a6",
-      "final_rank": 2412
+      "final_rank": 2413
     },
     {
       "title": "Dogman: The Musical - Sensory Sensitive Performance",
@@ -179737,7 +179798,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2326
+      "series_rank": 2327
     },
     {
       "title": "Roll Call @ Hamburger Mary's West Hollywood Location",
@@ -179879,7 +179940,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "Osees ft. Brigid Dawson",
@@ -181809,7 +181870,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "5fbea26fb0b6",
-      "final_rank": 2265
+      "final_rank": 2266
     },
     {
       "title": "Death Lens",
@@ -181922,7 +181983,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "806f47bb6229",
-      "final_rank": 2217
+      "final_rank": 2218
     },
     {
       "title": "MOCEDADES US TOUR 2026",
@@ -181975,7 +182036,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "860b79644b77",
-      "final_rank": 2211
+      "final_rank": 2212
     },
     {
       "title": "Thomas Rhett: The Soundtrack to Life Tour",
@@ -182163,7 +182224,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2326
+      "final_rank": 2327
     },
     {
       "title": "Adam Ray: WHO IS ME Tour",
@@ -182218,7 +182279,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "5cce50978e2f",
-      "final_rank": 2675
+      "final_rank": 2676
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -182403,7 +182464,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Soda Blonde",
@@ -184300,7 +184361,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "064f8f69c926",
-      "final_rank": 2393
+      "final_rank": 2394
     },
     {
       "title": "The Outsiders (Touring)",
@@ -184535,7 +184596,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "9b18c4905b9d",
-      "final_rank": 2183
+      "final_rank": 2184
     },
     {
       "title": "Ron White",
@@ -184593,7 +184654,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "7db2967e9678",
-      "final_rank": 2220
+      "final_rank": 2221
     },
     {
       "title": "La Mirada Theatre presents: Little Shop of Horrors",
@@ -184787,7 +184848,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "0b20f877c647",
-      "final_rank": 2385
+      "final_rank": 2386
     },
     {
       "title": "Breaking Benjamin",
@@ -184843,7 +184904,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "696937b51574",
-      "final_rank": 2249
+      "final_rank": 2250
     },
     {
       "title": "Insane Clown Posse",
@@ -184896,7 +184957,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "c593174d26c1",
-      "final_rank": 2122
+      "final_rank": 2123
     },
     {
       "title": "Wind Walkers - The \"I Don't Belong Here\" Tour",
@@ -185105,7 +185166,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "3420922844b5",
-      "final_rank": 2330
+      "final_rank": 2331
     },
     {
       "title": "Pier Play - Los Angeles",
@@ -185216,7 +185277,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "ce5a8de56a38",
-      "final_rank": 2108
+      "final_rank": 2109
     },
     {
       "title": "Dogman: The Musical",
@@ -185503,7 +185564,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "c0fbe018e5e1",
-      "final_rank": 2649
+      "final_rank": 2650
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -185688,7 +185749,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2643
+      "final_rank": 2644
     },
     {
       "title": "Funky House Collective",
@@ -185742,7 +185803,7 @@
       "is_past": false,
       "lane": "club:day",
       "key": "3624ee12f41e",
-      "final_rank": 2578
+      "final_rank": 2579
     },
     {
       "title": "Neverender Festival - Single Day 10/4",
@@ -186689,7 +186750,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "b854587687ef",
-      "final_rank": 2713
+      "final_rank": 2714
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -186869,7 +186930,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "La Mirada Theatre presents: Little Shop of Horrors",
@@ -187052,7 +187113,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "6a300fd02af7",
-      "final_rank": 2532
+      "final_rank": 2533
     },
     {
       "title": "Air Supply",
@@ -187104,7 +187165,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "d940a602fd7d",
-      "final_rank": 2444
+      "final_rank": 2445
     },
     {
       "title": "French Police",
@@ -187157,7 +187218,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "b099c7981663",
-      "final_rank": 2477
+      "final_rank": 2478
     },
     {
       "title": "Marco Antonio Solis - Tour Gratitud 2026",
@@ -187209,7 +187270,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "10c3df13e5a2",
-      "final_rank": 2622
+      "final_rank": 2623
     },
     {
       "title": "Taylor Made Tapestry (A Tribute to Carole King & James Taylor)",
@@ -187268,7 +187329,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "4fcac425d74a",
-      "final_rank": 2552
+      "final_rank": 2553
     },
     {
       "title": "Dogman: The Musical",
@@ -187549,7 +187610,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "66185555162a",
-      "final_rank": 2537
+      "final_rank": 2538
     },
     {
       "title": "Roxette 40th Anniversary Tour 2026",
@@ -187978,7 +188039,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "fa45a28d6369",
-      "final_rank": 2415
+      "final_rank": 2416
     },
     {
       "title": "ivri",
@@ -188031,7 +188092,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "29ea574ddb9b",
-      "final_rank": 2595
+      "final_rank": 2596
     },
     {
       "title": "Spite",
@@ -188086,7 +188147,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "c6aeec783850",
-      "final_rank": 2458
+      "final_rank": 2459
     },
     {
       "title": "Sleeping With Sirens: An Ending In Itself Tour",
@@ -188141,7 +188202,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "9b11b5738e83",
-      "final_rank": 2491
+      "final_rank": 2492
     },
     {
       "title": "ivri - The Evidence of You Tour",
@@ -189323,7 +189384,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Chad Gray: 30 Years of Madnesss",
@@ -189377,7 +189438,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "cefa59807cb2",
-      "final_rank": 2449
+      "final_rank": 2450
     },
     {
       "title": "Dogman: The Musical",
@@ -190061,7 +190122,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "9087d31f1c17",
-      "final_rank": 2200
+      "final_rank": 2201
     },
     {
       "title": "PRESIDENT: North American Campaign 2026",
@@ -190548,7 +190609,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "245935acf966",
-      "final_rank": 2602
+      "final_rank": 2603
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -190728,7 +190789,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -190949,7 +191010,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Blonde Redhead",
@@ -191006,7 +191067,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "b643c68a49ec",
-      "final_rank": 2470
+      "final_rank": 2471
     },
     {
       "title": "Dogman: The Musical",
@@ -192645,7 +192706,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "La Mirada Theatre presents: Little Shop of Horrors",
@@ -192973,7 +193034,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Twin Shadow",
@@ -193023,7 +193084,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "7967ff8c87b9",
-      "final_rank": 2519
+      "final_rank": 2520
     },
     {
       "title": "oskar med k",
@@ -193075,7 +193136,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "2854ee8321f1",
-      "final_rank": 2597
+      "final_rank": 2598
     },
     {
       "title": "Fey - Forever 17 Tour",
@@ -193129,7 +193190,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "720c4c71b89b",
-      "final_rank": 2525
+      "final_rank": 2526
     },
     {
       "title": "Killer Queen - A Tribute to Queen",
@@ -193181,7 +193242,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "eec2464a68c7",
-      "final_rank": 2704
+      "final_rank": 2705
     },
     {
       "title": "Chayanne - Bailemos Otra Vez Tour",
@@ -193238,7 +193299,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "dbd9d8071250",
-      "final_rank": 2442
+      "final_rank": 2443
     },
     {
       "title": "Keith Sweat",
@@ -193290,7 +193351,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "3be88db76f05",
-      "final_rank": 2574
+      "final_rank": 2575
     },
     {
       "title": "Legends in Concert: Legendary Ladies",
@@ -193344,7 +193405,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "deefaef6be95",
-      "final_rank": 2439
+      "final_rank": 2440
     },
     {
       "title": "Insecure: The 10th Anniversary Tour",
@@ -193393,7 +193454,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "2a90e48db3d0",
-      "final_rank": 2593
+      "final_rank": 2594
     },
     {
       "title": "Dogman: The Musical",
@@ -193758,7 +193819,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "Mixed Feelings Presents: Cortisa Star - For All The Dolls Tour",
@@ -195415,7 +195476,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2163
+      "series_rank": 2164
     },
     {
       "title": "The Outsiders (Touring)",
@@ -195793,7 +195854,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "61f3ea8ad36d",
-      "final_rank": 2260
+      "final_rank": 2261
     },
     {
       "title": "Lilyisthatyou - The Flowers Have Feelings Tour",
@@ -195846,7 +195907,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "0ece9aee78d1",
-      "final_rank": 2379
+      "final_rank": 2380
     },
     {
       "title": "Death From Above 1979",
@@ -195899,7 +195960,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "2ead20c824b8",
-      "final_rank": 2341
+      "final_rank": 2342
     },
     {
       "title": "Rocky Horror Picture Show Spooktacular Tour with Nell Campbell",
@@ -195952,7 +196013,7 @@
       "lane": "film",
       "key": "69ec62478f28",
       "showtimes_url": "https://www.google.com/search?q=%22rocky+horror+picture+show+spooktacular+tour+with+nell+campbell%22+showtimes+Los+Angeles",
-      "final_rank": 2248
+      "final_rank": 2249
     },
     {
       "title": "Showroom Intl Production presents ELVIS: In Person",
@@ -196004,7 +196065,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "c232da5d7b9f",
-      "final_rank": 2127
+      "final_rank": 2128
     },
     {
       "title": "SOMBR - You Are The Reason Tour",
@@ -196064,7 +196125,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "98737f810c29",
-      "final_rank": 2188
+      "final_rank": 2189
     },
     {
       "title": "Killer Queen - A Tribute To Queen Ft. Patrick Myers As Freddie Mercury",
@@ -196119,7 +196180,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "4b13edf106ff",
-      "final_rank": 2292
+      "final_rank": 2293
     },
     {
       "title": "LA MAFIA - EPIC TOUR 46",
@@ -196172,7 +196233,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "084ba162d591",
-      "final_rank": 2389
+      "final_rank": 2390
     },
     {
       "title": "626 Night Market - Pleasanton | October 9-11, 2026",
@@ -196219,7 +196280,7 @@
       "is_past": false,
       "lane": "market",
       "key": "774e9b2f0003",
-      "final_rank": 2230
+      "final_rank": 2231
     },
     {
       "title": "This Wild Life",
@@ -196273,7 +196334,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "757f54525901",
-      "final_rank": 2234
+      "final_rank": 2235
     },
     {
       "title": "Dogman: The Musical",
@@ -196552,7 +196613,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "512a9f89fc4e",
-      "final_rank": 2680
+      "final_rank": 2681
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -196737,7 +196798,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Jack Johnson: SURFILMUSIC Tour 2026",
@@ -198519,7 +198580,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "9315123f1eb0",
-      "final_rank": 2196
+      "final_rank": 2197
     },
     {
       "title": "TOArts presents Davide De Pierro The Letters I Never Sent",
@@ -198573,7 +198634,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "4b6e3907143d",
-      "final_rank": 2291
+      "final_rank": 2292
     },
     {
       "title": "5 Star Theatricals presents Les Miserables",
@@ -198675,7 +198736,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2163
+      "series_rank": 2164
     },
     {
       "title": "The Outsiders (Touring)",
@@ -199125,7 +199186,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "65af17f1a8cc",
-      "final_rank": 2255
+      "final_rank": 2256
     },
     {
       "title": "Phillip Phillips",
@@ -199233,7 +199294,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "be9e825b8370",
-      "final_rank": 2132
+      "final_rank": 2133
     },
     {
       "title": "Dogman: The Musical",
@@ -199521,7 +199582,7 @@
       "lane": "film",
       "key": "7775ee1c9d08",
       "showtimes_url": "https://www.google.com/search?q=%22the+rocky+horror+picture+show+original+cast+spooktacular+tour%22+showtimes+Los+Angeles",
-      "final_rank": 2229
+      "final_rank": 2230
     },
     {
       "title": "Classics : Faces Of America at 250",
@@ -199578,7 +199639,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "6cab5e47c8df",
-      "final_rank": 2671
+      "final_rank": 2672
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -199763,7 +199824,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "Jack Johnson: SURFILMUSIC Tour 2026",
@@ -200719,7 +200780,7 @@
       "is_past": false,
       "lane": "market",
       "key": "968953e06ebc",
-      "final_rank": 2191
+      "final_rank": 2192
     },
     {
       "title": "L\u00d8L\u00d8",
@@ -200888,7 +200949,7 @@
       "lane": "film",
       "key": "00f13938277b",
       "showtimes_url": "https://www.google.com/search?q=%22davide+de+pierro+matinee+show%22+showtimes+Los+Angeles",
-      "final_rank": 2633
+      "final_rank": 2634
     },
     {
       "title": "Hokus Pokus Live!",
@@ -200946,7 +201007,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "1925ab54f77f",
-      "final_rank": 2722
+      "final_rank": 2723
     },
     {
       "title": "Beauty And The Beast (Touring)",
@@ -201126,7 +201187,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2643
+      "series_rank": 2644
     },
     {
       "title": "La Mirada Theatre presents: Little Shop of Horrors",
@@ -201309,7 +201370,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "1265fb092a87",
-      "final_rank": 2619
+      "final_rank": 2620
     },
     {
       "title": "El Ten Eleven",
@@ -201366,7 +201427,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "1141ba512dbc",
-      "final_rank": 2621
+      "final_rank": 2622
     },
     {
       "title": "josh conway: the plum tour",
@@ -201418,7 +201479,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "4187328af18d",
-      "final_rank": 2566
+      "final_rank": 2567
     },
     {
       "title": "Al Jardine of The Beach Boys with the Pet Sounds Band",
@@ -201473,7 +201534,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "347c24b38132",
-      "final_rank": 2580
+      "final_rank": 2581
     },
     {
       "title": "Dogman: The Musical",
@@ -201781,7 +201842,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2543
+      "final_rank": 2544
     },
     {
       "title": "Jacob Collier",
@@ -202052,7 +202113,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "caee26077694",
-      "final_rank": 2452
+      "final_rank": 2453
     },
     {
       "title": "The Terminator Live",
@@ -202103,7 +202164,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "9896ad2b0209",
-      "final_rank": 2493
+      "final_rank": 2494
     },
     {
       "title": "VLSF & KCRW Presents: Shiner & Fotocrime",
@@ -202676,7 +202737,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "c437f77360ab",
-      "final_rank": 2124
+      "final_rank": 2125
     },
     {
       "title": "HOTEL ALLAN - The 10 Year Anniversary Tour",
@@ -203123,7 +203184,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "18a554b861d1",
-      "final_rank": 2723
+      "final_rank": 2724
     },
     {
       "title": "Dogman: The Musical",
@@ -203958,7 +204019,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "64967c3c7cbe",
-      "final_rank": 2258
+      "final_rank": 2259
     },
     {
       "title": "Banda MS de Sergio Lizarraga (21+ Event)",
@@ -204693,7 +204754,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Love Spells",
@@ -204746,7 +204807,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "ed9ff6bb909d",
-      "final_rank": 2427
+      "final_rank": 2428
     },
     {
       "title": "TURNSTILE: THE NEVER ENOUGH TOUR PT. 2 ",
@@ -204808,7 +204869,7 @@
       },
       "lane": "live-music",
       "key": "3387f975a013",
-      "final_rank": 2582
+      "final_rank": 2583
     },
     {
       "title": "Dogman: The Musical",
@@ -205733,7 +205794,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "cd769817cd79",
-      "final_rank": 2109
+      "final_rank": 2110
     },
     {
       "title": "The Outsiders (Touring)",
@@ -206008,7 +206069,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "464eb7c2fed0",
-      "final_rank": 2297
+      "final_rank": 2298
     },
     {
       "title": "HOTEL ALLAN - The 10 Year Anniversary Tour",
@@ -206481,7 +206542,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "6001c7a4046c",
-      "final_rank": 2718
+      "final_rank": 2719
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -206678,7 +206739,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Phil Wickham | Official Ticket + Hotel Packages",
@@ -206740,7 +206801,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "4a835d52373f",
-      "final_rank": 2559
+      "final_rank": 2560
     },
     {
       "title": "Dinosaur Jr. - Fall Tour 2026 with special guest Stef Chura",
@@ -206793,7 +206854,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "b2443aca495f",
-      "final_rank": 2475
+      "final_rank": 2476
     },
     {
       "title": "Rata Blanca Tour USA 2026",
@@ -206845,7 +206906,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "7f9b0115ee23",
-      "final_rank": 2514
+      "final_rank": 2515
     },
     {
       "title": "Vienna Royal Orchestra: Viva Mozart 270",
@@ -206899,7 +206960,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "f213dbc41143",
-      "final_rank": 2425
+      "final_rank": 2426
     },
     {
       "title": "Cryogeyser",
@@ -206951,7 +207012,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "c0866ccf6202",
-      "final_rank": 2464
+      "final_rank": 2465
     },
     {
       "title": "Dogman: The Musical",
@@ -207316,7 +207377,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "GEESE",
@@ -208780,7 +208841,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2163
+      "final_rank": 2164
     },
     {
       "title": "The Outsiders (Touring)",
@@ -209049,7 +209110,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2180
+      "series_rank": 2181
     },
     {
       "title": "Bumpin Uglies - Orange Crush Tour",
@@ -209102,7 +209163,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "a5c131c047d3",
-      "final_rank": 2166
+      "final_rank": 2167
     },
     {
       "title": "The Terminator Live",
@@ -209472,7 +209533,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2658
+      "series_rank": 2659
     },
     {
       "title": "GEESE",
@@ -211127,7 +211188,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2163
+      "series_rank": 2164
     },
     {
       "title": "Young Frankenstein",
@@ -211219,7 +211280,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2180
+      "final_rank": 2181
     },
     {
       "title": "The Outsiders (Touring)",
@@ -211445,7 +211506,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "2f94f7bbf5d9",
-      "final_rank": 2339
+      "final_rank": 2340
     },
     {
       "title": "Hot Flash Heat Wave",
@@ -211499,7 +211560,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "9f6a76f8a937",
-      "final_rank": 2176
+      "final_rank": 2177
     },
     {
       "title": "SmartLess Live with Jason Bateman, Sean Hayes, & Will Arnett",
@@ -211607,7 +211668,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "96b6c695f580",
-      "final_rank": 2190
+      "final_rank": 2191
     },
     {
       "title": "Laura Ramoso: The Calm Down Tour",
@@ -211715,7 +211776,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "0186a24d86fa",
-      "final_rank": 2405
+      "final_rank": 2406
     },
     {
       "title": "FLEX: In the B\u00dcFF - Los Angeles",
@@ -212050,7 +212111,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "9a078aa1090c",
-      "final_rank": 2185
+      "final_rank": 2186
     },
     {
       "title": "SAINT LEVANT - AFANDI WORLD TOUR",
@@ -212103,7 +212164,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "c28e7da0563c",
-      "final_rank": 2126
+      "final_rank": 2127
     },
     {
       "title": "TJ Miller",
@@ -212192,7 +212253,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2658
+      "final_rank": 2659
     },
     {
       "title": "Kacey Musgraves w/ Gabriella Rose",
@@ -213320,7 +213381,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2163
+      "series_rank": 2164
     },
     {
       "title": "TJ Miller",
@@ -213404,7 +213465,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2658
+      "series_rank": 2659
     },
     {
       "title": "Pouya - The Forever Glades Tour",
@@ -213460,7 +213521,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "4d117f82e592",
-      "final_rank": 2556
+      "final_rank": 2557
     },
     {
       "title": "Little Shop of Horrors 40th Anniversary",
@@ -213511,7 +213572,7 @@
       "lane": "film",
       "key": "4bc6a1ef788b",
       "showtimes_url": "https://www.google.com/search?q=%22little+shop+of+horrors%22+showtimes+Los+Angeles",
-      "final_rank": 2682
+      "final_rank": 2683
     },
     {
       "title": "Dogman: The Musical",
@@ -215000,7 +215061,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "2aa0d3a73308",
-      "final_rank": 2592
+      "final_rank": 2593
     },
     {
       "title": "The Outsiders (Touring)",
@@ -215140,7 +215201,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "Ravyn Lenae Presents: Blue Island",
@@ -215752,7 +215813,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "64130668a3b0",
-      "final_rank": 2539
+      "final_rank": 2540
     },
     {
       "title": "Hovvdy",
@@ -215805,7 +215866,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "21c20cc8c9ad",
-      "final_rank": 2603
+      "final_rank": 2604
     },
     {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -216022,7 +216083,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "The Outsiders (Touring)",
@@ -216162,7 +216223,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "THE SCHIZOPHONICS - Burning Floor Tour w/ Plastic Nancy & Shimmer Bed",
@@ -216818,7 +216879,7 @@
       "is_past": false,
       "lane": "club:underground",
       "key": "3fc397f96e67",
-      "final_rank": 2311
+      "final_rank": 2312
     },
     {
       "title": "Sawyer Hill",
@@ -217027,7 +217088,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "680e7aa4487a",
-      "final_rank": 2534
+      "final_rank": 2535
     },
     {
       "title": "The Outsiders (Touring)",
@@ -217167,7 +217228,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "Black Flag",
@@ -217223,7 +217284,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "74cd8fb96828",
-      "final_rank": 2523
+      "final_rank": 2524
     },
     {
       "title": "Henry Cho: The Empty Nest Tour",
@@ -217273,7 +217334,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "d9cc677d4cf6",
-      "final_rank": 2707
+      "final_rank": 2708
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -217466,7 +217527,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Roll Call @ Hamburger Mary's West Hollywood Location",
@@ -217608,7 +217669,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "Wesley Joseph",
@@ -219178,7 +219239,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "4c9960d0d355",
-      "final_rank": 2289
+      "final_rank": 2290
     },
     {
       "title": "Rise Against: Ricochet 2026",
@@ -219233,7 +219294,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "1151ac1c405f",
-      "final_rank": 2377
+      "final_rank": 2378
     },
     {
       "title": "Post Sex Nachos",
@@ -219291,7 +219352,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "8ae1d2f4ddc8",
-      "final_rank": 2207
+      "final_rank": 2208
     },
     {
       "title": "America The Happy Trails Tour 2026 ",
@@ -219344,7 +219405,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "42d8227dfe05",
-      "final_rank": 2305
+      "final_rank": 2306
     },
     {
       "title": "City of the Sun",
@@ -219397,7 +219458,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "b4ef530e39de",
-      "final_rank": 2144
+      "final_rank": 2145
     },
     {
       "title": "Bravo the Bagchaser & Peysoh - Sounds by DJ Trill",
@@ -219451,7 +219512,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "b66d17c718f4",
-      "final_rank": 2138
+      "final_rank": 2139
     },
     {
       "title": "Bluey's Big Play",
@@ -219598,7 +219659,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "d66d8dc5d653",
-      "final_rank": 2642
+      "final_rank": 2643
     },
     {
       "title": "The Outsiders (Touring)",
@@ -219739,7 +219800,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "Bingo Loco (21+)",
@@ -219795,7 +219856,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "36a83c68bc20",
-      "final_rank": 2686
+      "final_rank": 2687
     },
     {
       "title": "WEEZER: The Gathering",
@@ -221281,7 +221342,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2180
+      "series_rank": 2181
     },
     {
       "title": "Tradici\u00f3n, Arte y Pasi\u00f3n: Mariachi Los Camperos",
@@ -221334,7 +221395,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "03a94c3959f6",
-      "final_rank": 2400
+      "final_rank": 2401
     },
     {
       "title": "Ben Schwartz & Friends",
@@ -221440,7 +221501,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "2b01b99da0ff",
-      "final_rank": 2343
+      "final_rank": 2344
     },
     {
       "title": "George Lopez",
@@ -221545,7 +221606,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "b32d75bdc6c6",
-      "final_rank": 2147
+      "final_rank": 2148
     },
     {
       "title": "Mia Asano",
@@ -221598,7 +221659,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "316c01e28747",
-      "final_rank": 2335
+      "final_rank": 2336
     },
     {
       "title": "Kyle Gordon",
@@ -221657,7 +221718,7 @@
       "is_past": false,
       "lane": "other",
       "key": "611d39d7c8bb",
-      "final_rank": 2261
+      "final_rank": 2262
     },
     {
       "title": "Intocable: Cultura Tour 2026",
@@ -221710,7 +221771,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "a045f4baf26a",
-      "final_rank": 2173
+      "final_rank": 2174
     },
     {
       "title": "The Aquabats! - Trick-or-Treat To The Beat!",
@@ -221818,7 +221879,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "041730053b26",
-      "final_rank": 2399
+      "final_rank": 2400
     },
     {
       "title": "The Outsiders (Touring)",
@@ -221963,7 +222024,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2638
+      "final_rank": 2639
     },
     {
       "title": "Be Like Blippi",
@@ -222016,7 +222077,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "29101b6aaac8",
-      "final_rank": 2687
+      "final_rank": 2688
     },
     {
       "title": "Bingo Loco - 21+",
@@ -222072,7 +222133,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "49a25df78482",
-      "final_rank": 2684
+      "final_rank": 2685
     },
     {
       "title": "POPS : The Ultimate Eagles Experience",
@@ -222125,7 +222186,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "bf880b1e368f",
-      "final_rank": 2650
+      "final_rank": 2651
     },
     {
       "title": "Julia Wolf",
@@ -222849,7 +222910,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "Young Frankenstein",
@@ -222940,7 +223001,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2180
+      "series_rank": 2181
     },
     {
       "title": "Be Like Blippi Tour!",
@@ -222996,7 +223057,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "fe3776a5d94c",
-      "final_rank": 2698
+      "final_rank": 2699
     },
     {
       "title": "Assala Nasri",
@@ -223048,7 +223109,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "03bc844e4a52",
-      "final_rank": 2630
+      "final_rank": 2631
     },
     {
       "title": "Michael Franti Trio - Heartstrings & Dynamite",
@@ -223101,7 +223162,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "f3967f892fd6",
-      "final_rank": 2423
+      "final_rank": 2424
     },
     {
       "title": "Julia Wolf w/ Bee Blackwell",
@@ -223446,7 +223507,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "1a5f50e41733",
-      "final_rank": 2615
+      "final_rank": 2616
     },
     {
       "title": "ButtTootKing: Lydia B Kollins, Suzie Toot, and Kori King (18 and Over)",
@@ -223505,7 +223566,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "c840a2a3b601",
-      "final_rank": 2456
+      "final_rank": 2457
     },
     {
       "title": "VOIL\u00c0 Presents: Moonbloom",
@@ -224109,7 +224170,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "6837a7da4f0a",
-      "final_rank": 2251
+      "final_rank": 2252
     },
     {
       "title": "CHIEF KEEF",
@@ -224400,7 +224461,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "Dilated Peoples",
@@ -225026,7 +225087,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "1ca51cecf967",
-      "final_rank": 2614
+      "final_rank": 2615
     },
     {
       "title": "UB40",
@@ -225078,7 +225139,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "e5e2cf7475c7",
-      "final_rank": 2430
+      "final_rank": 2431
     },
     {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -225295,7 +225356,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "The Outsiders (Touring)",
@@ -225435,7 +225496,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "Knocked Loose w/ Denzel Curry",
@@ -226574,7 +226635,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "15df1306211b",
-      "final_rank": 2616
+      "final_rank": 2617
     },
     {
       "title": "Violet Grohl",
@@ -226626,7 +226687,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "9e0ba23df144",
-      "final_rank": 2489
+      "final_rank": 2490
     },
     {
       "title": "The Outsiders (Touring)",
@@ -226766,7 +226827,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -226959,7 +227020,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Xavier Wulf Presents: The Cool World Tour",
@@ -227011,7 +227072,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "e0212274e3a1",
-      "final_rank": 2438
+      "final_rank": 2439
     },
     {
       "title": "Orville Peck - Man Turned Mule Tour",
@@ -227064,7 +227125,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "03d13ad7132c",
-      "final_rank": 2629
+      "final_rank": 2630
     },
     {
       "title": "Roll Call @ Hamburger Mary's West Hollywood Location",
@@ -227206,7 +227267,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2416
+      "series_rank": 2417
     },
     {
       "title": "Francis of Delirium",
@@ -228349,7 +228410,7 @@
       "is_past": false,
       "lane": "club:underground",
       "key": "4eaa06c252d2",
-      "final_rank": 2284
+      "final_rank": 2285
     },
     {
       "title": "The Black Angels: Passover 2026 Tour",
@@ -228403,7 +228464,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "bb9afd520998",
-      "final_rank": 2134
+      "final_rank": 2135
     },
     {
       "title": "JAY WEBB - THE HOMESICK TOUR",
@@ -228457,7 +228518,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "3ee21df9937a",
-      "final_rank": 2314
+      "final_rank": 2315
     },
     {
       "title": "Kanan Gill",
@@ -228518,7 +228579,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "44d5f69bb740",
-      "final_rank": 2300
+      "final_rank": 2301
     },
     {
       "title": "A Twink and A Redhead",
@@ -228678,7 +228739,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "28bb7d0de429",
-      "final_rank": 2346
+      "final_rank": 2347
     },
     {
       "title": "My Generation",
@@ -228730,7 +228791,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "768fe81c7eb2",
-      "final_rank": 2232
+      "final_rank": 2233
     },
     {
       "title": "The Who's Tommy (Touring)",
@@ -229040,7 +229101,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "Ladies of Rock",
@@ -229986,7 +230047,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "7aa3ed750663",
-      "final_rank": 2226
+      "final_rank": 2227
     },
     {
       "title": "WAGE WAR - EMERGENCY BROADCAST TOUR",
@@ -230042,7 +230103,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "12777405691e",
-      "final_rank": 2374
+      "final_rank": 2375
     },
     {
       "title": "The Toxhards - \"Get Destructive Tour\" Fall 2026 Tour",
@@ -230095,7 +230156,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "6435e8dac6b7",
-      "final_rank": 2259
+      "final_rank": 2260
     },
     {
       "title": "The Tubs",
@@ -230209,7 +230270,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "34a64f7cf4f1",
-      "final_rank": 2328
+      "final_rank": 2329
     },
     {
       "title": "W.A.S.P. - 1984 TO HEADLESS",
@@ -230700,7 +230761,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "THE CHICKS - TAKING THE LONG WAY",
@@ -231575,7 +231636,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2638
+      "series_rank": 2639
     },
     {
       "title": "La Mirada Theatre presents: Dear Evan Hansen",
@@ -231755,7 +231816,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "fb984f9edc55",
-      "final_rank": 2414
+      "final_rank": 2415
     },
     {
       "title": "The Limi\u00f1anas",
@@ -232671,7 +232732,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "ca4167891992",
-      "final_rank": 2455
+      "final_rank": 2456
     },
     {
       "title": "Man/Woman/Chainsaw",
@@ -233273,7 +233334,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2709
+      "series_rank": 2710
     },
     {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -233490,7 +233551,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "ESTEMAN & DANIELA SPALLA - AMORIO USA TOUR",
@@ -234390,7 +234451,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2709
+      "final_rank": 2710
     },
     {
       "title": "Armand Hammer",
@@ -234450,7 +234511,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "7e4ec7d34cfb",
-      "final_rank": 2515
+      "final_rank": 2516
     },
     {
       "title": "Steve Trevino",
@@ -234534,7 +234595,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2647
+      "series_rank": 2648
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -234727,7 +234788,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Magic Rocks!",
@@ -234782,7 +234843,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "997e464549de",
-      "final_rank": 2492
+      "final_rank": 2493
     },
     {
       "title": "Penn & Teller",
@@ -234833,7 +234894,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "439adeaa5e71",
-      "final_rank": 2563
+      "final_rank": 2564
     },
     {
       "title": "Supertaste",
@@ -235714,7 +235775,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "4d9e446bd4b6",
-      "final_rank": 2286
+      "final_rank": 2287
     },
     {
       "title": "Dan + Shay - The Young Tour",
@@ -235822,7 +235883,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "0b8c6e8d4eef",
-      "final_rank": 2384
+      "final_rank": 2385
     },
     {
       "title": "Michael Blaustein",
@@ -235954,7 +236015,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2290
+      "series_rank": 2291
     },
     {
       "title": "Suicide Silence: REMINDERS OF HELL TOUR",
@@ -236010,7 +236071,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "60caca0eab7a",
-      "final_rank": 2262
+      "final_rank": 2263
     },
     {
       "title": "The Who's Tommy (Touring)",
@@ -236268,7 +236329,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2647
+      "series_rank": 2648
     },
     {
       "title": "Foy Vance",
@@ -237505,7 +237566,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "0ada2e2842cf",
-      "final_rank": 2387
+      "final_rank": 2388
     },
     {
       "title": "Hit the Lights",
@@ -237560,7 +237621,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "884b5b5ee933",
-      "final_rank": 2209
+      "final_rank": 2210
     },
     {
       "title": "New West Symphony - Symphony Goes to Cirque",
@@ -237612,7 +237673,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "6023f582c3c5",
-      "final_rank": 2264
+      "final_rank": 2265
     },
     {
       "title": "Paul Cauthen",
@@ -237670,7 +237731,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "66610c44707f",
-      "final_rank": 2254
+      "final_rank": 2255
     },
     {
       "title": "Brand New",
@@ -237728,7 +237789,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "9b40f8a43374",
-      "final_rank": 2182
+      "final_rank": 2183
     },
     {
       "title": "Buena Vista Orchestra",
@@ -237782,7 +237843,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "b897c9092f87",
-      "final_rank": 2136
+      "final_rank": 2137
     },
     {
       "title": "Countess Luann",
@@ -238177,7 +238238,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "2a521900d01d",
-      "final_rank": 2344
+      "final_rank": 2345
     },
     {
       "title": "Steve Trevino",
@@ -238266,7 +238327,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2647
+      "final_rank": 2648
     },
     {
       "title": "SYML: Solo in North America 2026",
@@ -238880,7 +238941,7 @@
       "is_past": false,
       "lane": "market",
       "key": "76c77f040c95",
-      "final_rank": 2231
+      "final_rank": 2232
     },
     {
       "title": "Yuki Chiba",
@@ -239387,7 +239448,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "5810b0b84fad",
-      "final_rank": 2719
+      "final_rank": 2720
     },
     {
       "title": "Ricky Martin",
@@ -239439,7 +239500,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "94ca2f0bd75c",
-      "final_rank": 2498
+      "final_rank": 2499
     },
     {
       "title": "Camerata Pacifica",
@@ -239520,7 +239581,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2543
+      "series_rank": 2544
     },
     {
       "title": "they are gutting a body of water",
@@ -239937,7 +239998,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "258cac54ebbd",
-      "final_rank": 2349
+      "final_rank": 2350
     },
     {
       "title": "MILK CRATE MIC",
@@ -240550,7 +240611,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "caa75fdfef25",
-      "final_rank": 2453
+      "final_rank": 2454
     },
     {
       "title": "Daughtry: 20 Years Unplugged Tour",
@@ -240603,7 +240664,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "3f78ce437d98",
-      "final_rank": 2568
+      "final_rank": 2569
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -240743,7 +240804,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "Turnover - Down On Earth Tour",
@@ -241140,7 +241201,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "1391eb2bec69",
-      "final_rank": 2373
+      "final_rank": 2374
     },
     {
       "title": "Stephen Day",
@@ -241793,7 +241854,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -241933,7 +241994,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "The Psychedelic Furs With Special Guests Gary Numan",
@@ -241986,7 +242047,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "61fe7dd2ffd5",
-      "final_rank": 2540
+      "final_rank": 2541
     },
     {
       "title": "Sabaton: Legends on Tour",
@@ -242658,7 +242719,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "c655da39d137",
-      "final_rank": 2119
+      "final_rank": 2120
     },
     {
       "title": "Bombargo",
@@ -243316,7 +243377,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2667
+      "series_rank": 2668
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -243456,7 +243517,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "La Mirada Theatre presents: Dear Evan Hansen",
@@ -243776,7 +243837,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2706
+      "final_rank": 2707
     },
     {
       "title": "panicbaby *this might hurt a little Tour",
@@ -244791,7 +244852,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "19f74a348f82",
-      "final_rank": 2368
+      "final_rank": 2369
     },
     {
       "title": "\u00d3lafur Arnalds",
@@ -244904,7 +244965,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "9ecb2a7647a0",
-      "final_rank": 2179
+      "final_rank": 2180
     },
     {
       "title": "La Mirada Theatre presents: Dear Evan Hansen",
@@ -245171,7 +245232,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2290
+      "final_rank": 2291
     },
     {
       "title": "Oh, Mary! (Touring)",
@@ -245600,7 +245661,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "9da23f406706",
-      "final_rank": 2659
+      "final_rank": 2660
     },
     {
       "title": "Alfred Robles",
@@ -245695,7 +245756,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2667
+      "series_rank": 2668
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -245836,7 +245897,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "MARIS",
@@ -247387,7 +247448,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "19b0740555d2",
-      "final_rank": 2369
+      "final_rank": 2370
     },
     {
       "title": "La Mirada Theatre presents: Dear Evan Hansen",
@@ -247573,7 +247634,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "398beff25002",
-      "final_rank": 2322
+      "final_rank": 2323
     },
     {
       "title": "DragonForce: Inhuman Rampage 20th Anniversary",
@@ -247628,7 +247689,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "2852fbebc996",
-      "final_rank": 2348
+      "final_rank": 2349
     },
     {
       "title": "State Champs",
@@ -247683,7 +247744,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "cf8321354d6d",
-      "final_rank": 2107
+      "final_rank": 2108
     },
     {
       "title": "Dengue Fever",
@@ -247736,7 +247797,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "98ed8a5a7fc4",
-      "final_rank": 2186
+      "final_rank": 2187
     },
     {
       "title": "Marc Broussard",
@@ -247793,7 +247854,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "65a7a4735688",
-      "final_rank": 2256
+      "final_rank": 2257
     },
     {
       "title": "Leonid & Friends",
@@ -247870,7 +247931,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2370
+      "final_rank": 2371
     },
     {
       "title": "Eli Brown @ City Market DTLA",
@@ -248361,7 +248422,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "7bbf9873d1b6",
-      "final_rank": 2225
+      "final_rank": 2226
     },
     {
       "title": "SNEAK'S BIRTHDAY BEATS 2026",
@@ -248557,7 +248618,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "Alfred Robles",
@@ -248652,7 +248713,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2667
+      "final_rank": 2668
     },
     {
       "title": "Classics : Entangled in Passion",
@@ -248705,7 +248766,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "d9b6f426789e",
-      "final_rank": 2640
+      "final_rank": 2641
     },
     {
       "title": "For You Fest",
@@ -248786,7 +248847,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2693
+      "final_rank": 2694
     },
     {
       "title": "20 Years of Nekrogoblikon with Special Guests Aborted",
@@ -250002,7 +250063,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "Alfred Robles",
@@ -250092,7 +250153,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2667
+      "series_rank": 2668
     },
     {
       "title": "La Mirada Theatre presents: Dear Evan Hansen",
@@ -250301,7 +250362,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2693
+      "series_rank": 2694
     },
     {
       "title": "Gary Numan",
@@ -251114,7 +251175,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "Headache",
@@ -251701,7 +251762,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "6d04555d737e",
-      "final_rank": 2531
+      "final_rank": 2532
     },
     {
       "title": "An Evening of Alton Brown",
@@ -251750,7 +251811,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "05dff3f4bd75",
-      "final_rank": 2628
+      "final_rank": 2629
     },
     {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -251967,7 +252028,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -252107,7 +252168,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "Senses Fail Presents Still Searching",
@@ -252831,7 +252892,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "4ebc1d28d06f",
-      "final_rank": 2553
+      "final_rank": 2554
     },
     {
       "title": "Brad Williams: The Tall Tales Tour",
@@ -252882,7 +252943,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "fdd8c1338f83",
-      "final_rank": 2410
+      "final_rank": 2411
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -253022,7 +253083,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "La Mirada Theatre presents: Dear Evan Hansen",
@@ -253202,7 +253263,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "b9ff9e2d00ad",
-      "final_rank": 2467
+      "final_rank": 2468
     },
     {
       "title": "An Evening of Alton Brown",
@@ -253252,7 +253313,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "94cdda7c73ca",
-      "final_rank": 2715
+      "final_rank": 2716
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -253445,7 +253506,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Corona Capital",
@@ -254119,7 +254180,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "29157e765043",
-      "final_rank": 2345
+      "final_rank": 2346
     },
     {
       "title": "Kool & the Gang",
@@ -254172,7 +254233,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "0f34b80edece",
-      "final_rank": 2378
+      "final_rank": 2379
     },
     {
       "title": "The Amity Affliction: HOUSE OF CARDS 2026",
@@ -254228,7 +254289,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "bfaffcd65caf",
-      "final_rank": 2131
+      "final_rank": 2132
     },
     {
       "title": "Oh, Mary! (Touring)",
@@ -254526,7 +254587,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2653
+      "final_rank": 2654
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -254667,7 +254728,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "Bayonne",
@@ -256083,7 +256144,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "2fd7ec535442",
-      "final_rank": 2338
+      "final_rank": 2339
     },
     {
       "title": "Boston Manor",
@@ -256138,7 +256199,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "6eb4e9520b4e",
-      "final_rank": 2244
+      "final_rank": 2245
     },
     {
       "title": "Wolf & Bear",
@@ -256193,7 +256254,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "3260e9cb44b0",
-      "final_rank": 2333
+      "final_rank": 2334
     },
     {
       "title": "Oh, Mary! (Touring)",
@@ -256462,7 +256523,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "a011b9a0b6e8",
-      "final_rank": 2174
+      "final_rank": 2175
     },
     {
       "title": "Water for Elephants (Touring)",
@@ -256607,7 +256668,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2639
+      "final_rank": 2640
     },
     {
       "title": "Harland Williams",
@@ -256696,7 +256757,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2653
+      "series_rank": 2654
     },
     {
       "title": "Alfred Robles: Vatos with Gatos",
@@ -256747,7 +256808,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "c1b33e30ba2f",
-      "final_rank": 2648
+      "final_rank": 2649
     },
     {
       "title": "SiM - HOOMAN WORLD TOUR",
@@ -257776,7 +257837,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2639
+      "series_rank": 2640
     },
     {
       "title": "Elmo's Got the Moves",
@@ -257830,7 +257891,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "c64c97df1854",
-      "final_rank": 2710
+      "final_rank": 2711
     },
     {
       "title": "La Mirada Theatre presents: Dear Evan Hansen",
@@ -258015,7 +258076,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "3a6f6510a188",
-      "final_rank": 2575
+      "final_rank": 2576
     },
     {
       "title": "Alter Bridge - What Lies Within Tour",
@@ -258069,7 +258130,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "67aaebd19250",
-      "final_rank": 2535
+      "final_rank": 2536
     },
     {
       "title": "Harland Williams",
@@ -258153,7 +258214,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2653
+      "series_rank": 2654
     },
     {
       "title": "Worry Club",
@@ -258256,7 +258317,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "2f2291ed2a00",
-      "final_rank": 2588
+      "final_rank": 2589
     },
     {
       "title": "The Mountain Goats",
@@ -258860,7 +258921,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "ff14b301e540",
-      "final_rank": 2409
+      "final_rank": 2410
     },
     {
       "title": "JOURNEY - Final Frontier Tour (An Evening With)",
@@ -258917,7 +258978,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "21becf2e6011",
-      "final_rank": 2604
+      "final_rank": 2605
     },
     {
       "title": "Agriculture w/ Uniform",
@@ -258981,7 +259042,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "f8d9db841c7f",
-      "final_rank": 2418
+      "final_rank": 2419
     },
     {
       "title": "Daisy Grenade",
@@ -259036,7 +259097,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "ae7079d71536",
-      "final_rank": 2480
+      "final_rank": 2481
     },
     {
       "title": "DJ Quik",
@@ -259567,7 +259628,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Leonid & Friends",
@@ -259643,7 +259704,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2370
+      "series_rank": 2371
     },
     {
       "title": "Dead Poet Society x Honey Revenge",
@@ -259698,7 +259759,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "f5fb9e0c63b6",
-      "final_rank": 2420
+      "final_rank": 2421
     },
     {
       "title": "Psycroptic",
@@ -259753,7 +259814,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "8d81227a4c2e",
-      "final_rank": 2504
+      "final_rank": 2505
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -259946,7 +260007,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Devault",
@@ -260323,7 +260384,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "52e9fd35ebea",
-      "final_rank": 2280
+      "final_rank": 2281
     },
     {
       "title": "Alicia Villarreal - Bendita Locura Tour 2026",
@@ -260376,7 +260437,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "434e5d65d321",
-      "final_rank": 2303
+      "final_rank": 2304
     },
     {
       "title": "The Dickies",
@@ -260433,7 +260494,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "11e152be8f87",
-      "final_rank": 2375
+      "final_rank": 2376
     },
     {
       "title": "Bone Thugs-N-Harmony",
@@ -260486,7 +260547,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "8d0846182432",
-      "final_rank": 2203
+      "final_rank": 2204
     },
     {
       "title": "Oh, Mary! (Touring)",
@@ -261433,7 +261494,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "0dd96abff0c1",
-      "final_rank": 2381
+      "final_rank": 2382
     },
     {
       "title": "Oh, Mary! (Touring)",
@@ -261699,7 +261760,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "7063d79cbd91",
-      "final_rank": 2241
+      "final_rank": 2242
     },
     {
       "title": "Coca-Cola Flow Fest",
@@ -262045,7 +262106,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "3f18de39eeb6",
-      "final_rank": 2570
+      "final_rank": 2571
     },
     {
       "title": "The Wiz (Touring)",
@@ -262121,7 +262182,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2482
+      "series_rank": 2483
     },
     {
       "title": "MILK CRATE MIC",
@@ -262625,7 +262686,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "036549d135c3",
-      "final_rank": 2631
+      "final_rank": 2632
     },
     {
       "title": "The Wiz (Touring)",
@@ -262701,7 +262762,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2482
+      "final_rank": 2483
     },
     {
       "title": "Oh, Mary! (Touring)",
@@ -263176,7 +263237,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Squirrel Nut Zippers Christmas Caravan",
@@ -263701,7 +263762,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "432be346bc7d",
-      "final_rank": 2564
+      "final_rank": 2565
     },
     {
       "title": "Drag Show: \u201cTHIRSTY THURSDAYS\u201d @ Hamburger Mary's Long Beach",
@@ -263894,7 +263955,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "The Neighbourhood: THE WOURLD TOUR",
@@ -264895,7 +264956,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2637
+      "series_rank": 2638
     },
     {
       "title": "Thundercat: Distracted AF Tour",
@@ -265769,7 +265830,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2153
+      "final_rank": 2154
     },
     {
       "title": "Unloco - 25 Years of Healing ",
@@ -265822,7 +265883,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "39148aadb66e",
-      "final_rank": 2323
+      "final_rank": 2324
     },
     {
       "title": "A John Waters Christmas",
@@ -265925,7 +265986,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "3e48ebf13bf8",
-      "final_rank": 2316
+      "final_rank": 2317
     },
     {
       "title": "Shine On (Pink Floyd Tribute)",
@@ -265980,7 +266041,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "9f5108add4bb",
-      "final_rank": 2177
+      "final_rank": 2178
     },
     {
       "title": "Chrissy Chlapecka",
@@ -266033,7 +266094,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "6aac8b8f3dbc",
-      "final_rank": 2246
+      "final_rank": 2247
     },
     {
       "title": "Oh, Mary! (Touring)",
@@ -266335,7 +266396,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2637
+      "final_rank": 2638
     },
     {
       "title": "The Hellp",
@@ -266875,7 +266936,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2153
+      "series_rank": 2154
     },
     {
       "title": "Zoltan Kaszas",
@@ -266959,7 +267020,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2637
+      "series_rank": 2638
     },
     {
       "title": "El\u00edas Medina",
@@ -267011,7 +267072,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "1fb61258c5f6",
-      "final_rank": 2606
+      "final_rank": 2607
     },
     {
       "title": "Scott Bradlees Postmodern Jukebox: The Future Is Vintage World Tour",
@@ -267063,7 +267124,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "b2f719536611",
-      "final_rank": 2473
+      "final_rank": 2474
     },
     {
       "title": "Adrian Uribe: 50 y Pico Tour",
@@ -267112,7 +267173,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "676a1384e069",
-      "final_rank": 2536
+      "final_rank": 2537
     },
     {
       "title": "The Pineapple Thief: Far and Wide Tour 2026",
@@ -267401,7 +267462,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "c4e5c439292b",
-      "final_rank": 2459
+      "final_rank": 2460
     },
     {
       "title": "David Bisbal - Tour Eternos 2026",
@@ -267724,7 +267785,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2700
+      "final_rank": 2701
     },
     {
       "title": "HARBOUR",
@@ -268013,7 +268074,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Strawberry Guy",
@@ -268732,7 +268793,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "84d18548b1f5",
-      "final_rank": 2213
+      "final_rank": 2214
     },
     {
       "title": "Rapunzel...a Tangled Tale",
@@ -268913,7 +268974,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "4d2a74966be9",
-      "final_rank": 2681
+      "final_rank": 2682
     },
     {
       "title": "Kelsey Cook",
@@ -268996,7 +269057,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2644
+      "series_rank": 2645
     },
     {
       "title": "Sam Quealy - North America Tour",
@@ -269805,7 +269866,7 @@
       "lane": "film",
       "key": "4d02af80758c",
       "showtimes_url": "https://www.google.com/search?q=%22the+princess+bride+an+inconceivable+evening+with+cary+elwes%22+showtimes+Los+Angeles",
-      "final_rank": 2287
+      "final_rank": 2288
     },
     {
       "title": "A Drag Queen Christmas",
@@ -269861,7 +269922,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "b5df9b9560da",
-      "final_rank": 2141
+      "final_rank": 2142
     },
     {
       "title": "Rapunzel...a Tangled Tale",
@@ -270078,7 +270139,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2644
+      "final_rank": 2645
     },
     {
       "title": "The Wooten Brothers",
@@ -270962,7 +271023,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Rapunzel...a Tangled Tale",
@@ -271340,7 +271401,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2706
+      "series_rank": 2707
     },
     {
       "title": "Rapunzel...a Tangled Tale",
@@ -272076,7 +272137,7 @@
       "is_past": false,
       "lane": "other",
       "key": "a5abc464305f",
-      "final_rank": 2167
+      "final_rank": 2168
     },
     {
       "title": "That's Not Me Comedy Tour with Concrete",
@@ -272180,7 +272241,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "87da4ebfd7cd",
-      "final_rank": 2210
+      "final_rank": 2211
     },
     {
       "title": "Rapunzel...a Tangled Tale",
@@ -272361,7 +272422,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "5a44b1beb848",
-      "final_rank": 2676
+      "final_rank": 2677
     },
     {
       "title": "Sound And Fury Presents: Have Heart",
@@ -273201,7 +273262,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "558a91f12388",
-      "final_rank": 2277
+      "final_rank": 2278
     },
     {
       "title": "Who's Bad: The Ultimate Michael Jackson Experience",
@@ -273256,7 +273317,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "b2af57fbd3c0",
-      "final_rank": 2149
+      "final_rank": 2150
     },
     {
       "title": "Rapunzel...a Tangled Tale",
@@ -273443,7 +273504,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "072e0adc160f",
-      "final_rank": 2697
+      "final_rank": 2698
     },
     {
       "title": "The Hot Sardines",
@@ -274174,7 +274235,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Rapunzel...a Tangled Tale",
@@ -274895,7 +274956,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "80969effaa46",
-      "final_rank": 2513
+      "final_rank": 2514
     },
     {
       "title": "The Book of Mormon (Touring)",
@@ -274999,7 +275060,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2656
+      "series_rank": 2657
     },
     {
       "title": "BenDeLaCreme Presents The Jinkx & DeLa Holiday Show",
@@ -275053,7 +275114,7 @@
       "is_past": false,
       "lane": "stage",
       "key": "92a6f0333ede",
-      "final_rank": 2199
+      "final_rank": 2200
     },
     {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -275270,7 +275331,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "The Book of Mormon (Touring)",
@@ -275374,7 +275435,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2656
+      "series_rank": 2657
     },
     {
       "title": "2026 Premium Season Tickets",
@@ -275524,7 +275585,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2656
+      "series_rank": 2657
     },
     {
       "title": "The Book of Mormon (Touring)",
@@ -275629,7 +275690,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2656
+      "series_rank": 2657
     },
     {
       "title": "Drag Show: \u201cSaturday Drag Brunch\u201d at Hamburger Mary's West Hollywood",
@@ -275961,7 +276022,7 @@
         ]
       },
       "series_rep": true,
-      "final_rank": 2656
+      "final_rank": 2657
     },
     {
       "title": "The Book of Mormon (Touring)",
@@ -276069,7 +276130,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2656
+      "series_rank": 2657
     },
     {
       "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -276286,7 +276347,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Anna Von Hausswolff: Iconoclasts Tour",
@@ -276815,7 +276876,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2543
+      "series_rank": 2544
     },
     {
       "title": "Olivia Rodrigo: The Unraveled Tour",
@@ -277236,7 +277297,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "The Legend of Korra In Concert Tour",
@@ -277336,7 +277397,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "721d2c9967b8",
-      "final_rank": 2237
+      "final_rank": 2238
     },
     {
       "title": "TOArts presents The Man in Black",
@@ -277388,7 +277449,7 @@
       "is_past": false,
       "lane": "live-music",
       "key": "3da6da0768ed",
-      "final_rank": 2317
+      "final_rank": 2318
     },
     {
       "title": "Olivia Rodrigo: The Unraveled Tour",
@@ -277981,7 +278042,7 @@
       "is_past": false,
       "lane": "comedy",
       "key": "33e25998821c",
-      "final_rank": 2581
+      "final_rank": 2582
     },
     {
       "title": "Olivia Rodrigo: The Unraveled Tour",
@@ -278300,7 +278361,7 @@
         ]
       },
       "series_rep": false,
-      "series_rank": 2700
+      "series_rank": 2701
     },
     {
       "title": "Olivia Rodrigo: The Unraveled Tour",
@@ -278455,7 +278516,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "5bfbb8e62c49",
-      "final_rank": 2271
+      "final_rank": 2272
     },
     {
       "title": "Direct from Sweden: The Music of ABBA",
@@ -278510,7 +278571,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "2290e1fd9250",
-      "final_rank": 2355
+      "final_rank": 2356
     },
     {
       "title": "Five for Fighting",
