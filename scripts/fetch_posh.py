@@ -21,6 +21,30 @@ the digest — run_digest catches each fetcher's failure per-source. Re-capture 
 browser's network tab (events.fetchMarketplaceEvents request, x-jwt-token header), update
 POSH_TOKEN, and the flag clears on the next run.
 
+NOT-AUTH: posh.vip sits behind Cloudflare, which issues a *managed challenge* (HTTP 403 +
+`cf-mitigated: challenge`, "Just a moment..." interstitial) to datacenter egress — the cloud
+sessions the daily routine runs in, and GitHub Actions. That 403 never reaches Posh's auth
+layer, so it says nothing about the token: it fires identically with no token at all, and
+posh.vip's plain homepage 403s too. This used to be reported as "POSH_TOKEN expired", which
+sent Ari chasing a token that was already valid (2026-07-16 → 07-24: re-captured twice, neither
+helped, because the token was never the problem). Challenge detection therefore runs BEFORE the
+401/403 auth branch and gets its own footer line. A token verified good by hand from a
+residential IP + this flag in the digest = an egress problem, not a credential one.
+
+RELAY: when the direct request is challenged, this retries once through the concierge Worker's
+/posh route (backend/concierge-worker.js): Worker subrequests egress from Cloudflare's own
+network, which the bot wall treats differently than datacenter IPs. The relay authenticates by
+requiring this same POSH_TOKEN (it must equal the Worker's POSH_TOKEN secret), so no extra
+secret exists anywhere — but the ~monthly re-capture must update the Worker copy too
+(`npx wrangler secret put POSH_TOKEN`); a drifted copy surfaces as its own "sync the Worker
+secret" footer line, never as token expiry. Override the relay URL with POSH_PROXY_URL;
+set POSH_PROXY_URL="" to disable the fallback entirely.
+
+Note on the token's claims, since they mislead: Posh mints `iat` in SECONDS but `exp` in
+MILLISECONDS. Read literally by any standard verifier `exp` lands in ~year 58592, i.e. it never
+expires — do not "normalize" it to a date and conclude the token lapsed. The meaningful field
+is the custom `expires` (ms, ~30d after `issued`).
+
 Usage:
     export POSH_TOKEN=...    # session JWT
     python fetch_posh.py --days 10 [--when "This Month"] [--sort Trending] [-o events_posh.json]
@@ -47,6 +71,9 @@ except Exception:  # pragma: no cover
 BASE = "https://posh.vip/api/web/v2/trpc/events.fetchMarketplaceEvents"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 TBA_HINTS = ("revealed", "after approval", "tba", "secret", "upon rsvp")
+# The Worker relay (see RELAY in the docstring). Hardcoding the owner's workers.dev URL matches
+# this repo's convention (wrangler.toml [vars] does the same); POSH_PROXY_URL overrides, "" disables.
+PROXY_DEFAULT = "https://la-events-concierge.arinazari.workers.dev/posh"
 
 
 def min_price(tickets):
@@ -101,7 +128,11 @@ def normalize(ev):
     }
 
 
-def fetch(when: str, sort: str, limit: int, token: str):
+def fetch(base: str, when: str, sort: str, limit: int, token: str):
+    """One request attempt against `base` — the real API or the Worker relay, which speaks the
+    same protocol (?input= in, raw tRPC body out, x-jwt-token auth). Returns (headers, raw_body).
+    Raises Challenged when Cloudflare blocked it at the edge; other HTTPErrors re-raise with the
+    already-read body attached as e._body (urlopen bodies are single-read)."""
     payload = {
         "sort": sort,
         "when": when,
@@ -113,7 +144,7 @@ def fetch(when: str, sort: str, limit: int, token: str):
         "limit": limit,
         "clientTimezone": "America/Los_Angeles",
     }
-    url = f"{BASE}?input={urllib.parse.quote(json.dumps(payload))}"
+    url = f"{base}?input={urllib.parse.quote(json.dumps(payload))}"
     req = Request(url, headers={
         "x-jwt-token": token,
         "content-type": "application/json",
@@ -121,8 +152,20 @@ def fetch(when: str, sort: str, limit: int, token: str):
         "user-agent": UA,
         "referer": "https://posh.vip/explore",
     })
-    with urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read().decode("utf-8", "replace"))
+    try:
+        with urlopen(req, timeout=30) as resp:
+            headers, body = resp.headers, resp.read().decode("utf-8", "replace")
+    except HTTPError as e:
+        body = e.read().decode("utf-8", "replace")
+        if is_cf_challenge(e.headers, body):
+            raise Challenged(f"HTTP {e.code} cf-mitigated={e.headers.get('cf-mitigated')!r} "
+                             f"cf-ray={e.headers.get('cf-ray')!r} body={body[:120]!r}") from None
+        e._body = body
+        raise
+    # A challenge can also arrive as 2xx with the interstitial as the body.
+    if is_cf_challenge(headers, body):
+        raise Challenged(f"challenge body (HTTP 2xx): {body[:120]!r}")
+    return headers, body
 
 
 # Surfaced verbatim in the digest footer's "Coverage gaps" line (run_digest takes the LAST
@@ -133,6 +176,42 @@ EXPIRED_MSG = "POSH_TOKEN expired — re-capture it"
 # comes back as {"error": {"message": "Error authenticating."}}. Match that (and related
 # phrasings) so expiry surfaces the actionable EXPIRED_MSG, not a generic "Posh API error".
 _AUTH_HINTS = ("authenticat", "unauth", "jwt", "token", "session", "forbidden", "expired", "log in")
+
+# Cloudflare bot challenge — an EGRESS problem, not a credential one. Deliberately worded so
+# nobody re-captures a working token off the back of it (see the NOT-AUTH note in the docstring).
+CHALLENGE_MSG = ("posh blocked by Cloudflare (bot challenge on this runner's IP — "
+                 "NOT a token problem; token untouched)")
+# Both routes challenged: direct AND through the Worker relay. Egress is fully walled off —
+# the remaining options are running the fetch from a residential IP or accepting the gap.
+RELAY_CHALLENGED_MSG = ("posh blocked by Cloudflare on BOTH routes (direct + Worker relay) — "
+                        "not a token problem")
+# The relay refused OUR token: its POSH_TOKEN secret is stale/unset. Actionable, and distinct
+# from Posh itself rejecting the session.
+RELAY_SECRET_MSG = ("posh Worker relay refused POSH_TOKEN — sync the Worker copy: "
+                    "npx wrangler secret put POSH_TOKEN")
+# A deployed relay stamps x-posh-relay on EVERY response (upstream/auth-mismatch/disabled/
+# fetch-error). An error without that marker means the live Worker predates the route — the
+# old build's chat proxy answers /posh with its own 405/401.
+RELAY_MISSING_MSG = ("posh Worker relay not deployed (route missing on the live Worker) — "
+                     "cd backend && npx wrangler deploy")
+
+
+class Challenged(Exception):
+    """Cloudflare blocked the request at the edge — it never reached Posh (see NOT-AUTH)."""
+# The interstitial's stable markers. `cf-mitigated: challenge` is the authoritative signal;
+# the body strings cover edges that render the page without setting the header.
+_CHALLENGE_HINTS = ("just a moment", "__cf_chl", "cf-browser-verification", "cf_chl_opt",
+                    "attention required", "enable javascript and cookies")
+
+
+def is_cf_challenge(headers, body: str) -> bool:
+    """True when Cloudflare challenged us at the edge (so the request never reached Posh)."""
+    try:
+        if (headers.get("cf-mitigated") or "").strip().lower() == "challenge":
+            return True
+    except AttributeError:  # headers may be None on some error paths
+        pass
+    return any(h in (body or "").lower() for h in _CHALLENGE_HINTS)
 
 
 def degrade(out_path: str, footer_msg: str, detail: str = "") -> int:
@@ -162,15 +241,45 @@ def main() -> int:
         print("ERROR: set POSH_TOKEN (session JWT from a logged-in posh.vip request)", file=sys.stderr)
         return 1
 
+    proxy = os.environ.get("POSH_PROXY_URL", PROXY_DEFAULT).strip()
+    used_relay = False
     try:
-        data = fetch(args.when, args.sort, args.limit, token)
+        try:
+            headers, raw = fetch(BASE, args.when, args.sort, args.limit, token)
+        except Challenged as direct:
+            # Cloudflare blocked the direct request. Challenge detection runs BEFORE the 401/403
+            # auth branch below — the challenge IS a 403, and reading it as auth is exactly the
+            # bug that burned two pointless token re-captures (see NOT-AUTH). Retry through the
+            # Worker relay (see RELAY), whose Cloudflare-network egress the bot wall may accept.
+            if not proxy:
+                return degrade(args.out, CHALLENGE_MSG, detail=f"direct: {direct}")
+            print("  posh: direct fetch challenged by Cloudflare -> retrying via Worker relay",
+                  file=sys.stderr)
+            used_relay = True
+            try:
+                headers, raw = fetch(proxy, args.when, args.sort, args.limit, token)
+            except Challenged as relay:
+                return degrade(args.out, RELAY_CHALLENGED_MSG,
+                               detail=f"direct: {direct} | relay: {relay}")
     except HTTPError as e:
-        body = e.read().decode("utf-8", "replace")[:200]
+        body = getattr(e, "_body", "")
+        relay_state = (e.headers.get("x-posh-relay") or "") if e.headers else ""
+        if relay_state in ("auth-mismatch", "disabled"):  # the RELAY refused us, not Posh
+            return degrade(args.out, RELAY_SECRET_MSG, detail=f"relay {e.code}: {body[:160]}")
+        if used_relay and not relay_state:  # relay error without the marker = pre-route build
+            return degrade(args.out, RELAY_MISSING_MSG,
+                           detail=f"relay HTTP {e.code} without x-posh-relay marker: {body[:160]}")
         if e.code in (401, 403):  # expired/invalid session JWT — the ~monthly re-capture
-            return degrade(args.out, EXPIRED_MSG, detail=f"auth {e.code}: {body}")
-        return degrade(args.out, f"Posh fetch failed: HTTP {e.code}", detail=body)
+            return degrade(args.out, EXPIRED_MSG, detail=f"auth {e.code}: {body[:200]}")
+        return degrade(args.out, f"Posh fetch failed: HTTP {e.code}", detail=body[:200])
     except Exception as e:  # noqa: BLE001  — network/parse/etc: a coverage gap, not a block
         return degrade(args.out, f"Posh fetch failed: {str(e).splitlines()[0][:120]}")
+
+    try:
+        data = json.loads(raw)
+    except ValueError:
+        return degrade(args.out, "Posh returned non-JSON (see run log for the body)",
+                       detail=f"unparseable: {raw[:200]!r}")
 
     if isinstance(data, dict) and data.get("error"):
         msg = (data["error"].get("message") or "").strip()

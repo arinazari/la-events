@@ -235,6 +235,7 @@ fingerprint before debugging anything else.
 | `ANTHROPIC_API_KEY` | `wrangler secret put` | **required** — your Anthropic key |
 | `CONCIERGE_TOKEN`   | `wrangler secret put` | optional shared token gating the proxy (see Auth) |
 | `GITHUB_TOKEN`      | `wrangler secret put` | optional — a **fine-grained PAT scoped to this repo, Contents: read & write**. That one scope covers taste **and** profile self-edit AND the refresh/update buttons (the `repository_dispatch` endpoint requires Contents: write — *not* Actions). Set it to enable those; leave it unset and the Worker is chat-only. |
+| `POSH_TOKEN`        | `wrangler secret put` | optional — enables the `/posh` relay: `scripts/fetch_posh.py` retries through it when posh.vip's Cloudflare challenges the digest runner's datacenter IP (cloud sessions, GH Actions). Same session JWT as everywhere else; the route requires the caller to present a matching one, so **update this copy too at each ~monthly re-capture** or the fetcher will flag "sync the Worker copy". Unset → the route answers 501 and the fetcher degrades with an honest footer line. |
 | `ANTHROPIC_MODEL`   | `wrangler.toml [vars]` | **executor** model — does the bulk of generation (default `claude-sonnet-4-6`) |
 | `ADVISOR_MODEL`     | `wrangler.toml [vars]` | **advisor** the executor consults for multi-step planning (default `claude-opus-4-8`; `""` disables; must be ≥ the executor) |
 | `EFFORT`            | `wrangler.toml [vars]` | executor effort `low`/`medium`/`high`/`max` (default `max`) |

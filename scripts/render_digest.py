@@ -28,6 +28,7 @@ from lib.config import load_yaml  # noqa: E402
 from lib.series import series_key, is_film, showtimes_url  # noqa: E402
 from lib.config import load_taste, load_profile, load_digest_prefs  # noqa: E402
 from lib.feedback import merged_affinity  # noqa: E402
+from lib.festivals import pretty_when  # noqa: E402  (watch-list dates -> M/D convention)
 from lib.affinity import ambiguous_set  # noqa: E402  (gates title-token artist-bio folds)
 from lib.pipeline import score_pool, today_la  # noqa: E402
 from lib.assemble import assemble, event_lane, top_picks, TOP_PICKS_N  # noqa: E402
@@ -58,6 +59,16 @@ GROUPS = [
 # (and the one live heading keeps small rooms apart from arena/hall shows).
 LANE_CHIP = {"club:afters": "afters", "club:day": "day party", "club:mainstream": "big room",
              "live-music:big": "big venue"}
+
+# Deployed dashboard base (profile.yaml dashboard.site_url; main() re-reads it from --profile).
+# Event lines link each pick's card there — ?e=<event_key> opens that event's modal on the site,
+# where it can be starred/saved. Blank = ticket links only.
+SITE_URL = str(((load_profile().get("dashboard") or {}).get("site_url") or "")).strip()
+
+
+def _card_md(key: str) -> str:
+    """The `card ↗` deep link to this event's card on the deployed dashboard."""
+    return f"[card ↗]({SITE_URL}?e={key})" if SITE_URL and key else ""
 
 PICK_MIN_RATING = 5   # rating at/above this gets an "editor's pick" flag inline
 
@@ -296,7 +307,8 @@ def event_md(ev: dict, style: str = "full", note_seen: frozenset = frozenset(),
             f"[{v}]({by_venue[v]})" if by_venue.get(v) else v for v in others[:3])
     more = f"[more LA showtimes]({showtimes_url(title)})" if is_film(ev) else ""
     chip = LANE_CHIP.get(_lane_of(ev))
-    tail = " · ".join(x for x in (_loc(ev), also_at, chip, ev.get("price"), _stars_note(ev), upd_note, more) if x)
+    card = _card_md(event_key(ev))
+    tail = " · ".join(x for x in (_loc(ev), also_at, chip, ev.get("price"), _stars_note(ev), upd_note, more, card) if x)
     line = f"- `{head_chip}`{span} {pick}{fresh}**{head}**" + (f" — {tail}" if tail else "")
     if style == "compact":
         why = (ev.get("verdict") or {}).get("why") or ""
@@ -536,6 +548,9 @@ def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT, picked: list = None
         urg = _urgency(ev)
         if urg:
             line += f" · *{urg}*"
+        card = _card_md(event_key(ev))
+        if card:
+            line += f" · {card}"
         out.append(line + f"  \n  {why} <!-- tier3:why {event_key(ev)} -->")
     return out + [""]
 
@@ -554,8 +569,10 @@ def _around_md(rows: list, slate_keys: set, limit: int = AROUND_LIMIT) -> list:
         sig = ", ".join(s.replace("tracked:", "") for s in (r.get("signals") or []))
         head = f"[{r['title']}]({r['link']})" if r.get("link") else (r.get("title") or "Untitled")
         loc = " · ".join(x for x in (r.get("venue"), r.get("neighborhood")) if x)
+        card = _card_md(r.get("key") or "")
         out.append(f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}**"
                    + (f" — {loc}" if loc else "") + (f"  ·  *{sig}*" if sig else "")
+                   + (f" · {card}" if card else "")
                    + f" <!-- tier3:gloss {r.get('key', '')} -->")
     return out + [""]
 
@@ -595,6 +612,27 @@ def _weekends_md(cands: list) -> list:
     return out
 
 
+def _watchlist_md(rows: list) -> list:
+    """The festivals.yaml watch-list block under "On the radar" — the standing memory the
+    catalog-derived radar rows can't see (out-of-catalog festivals: Portola, CRSSD, a
+    Coachella lineup watch). build_radar already gates to TIMELY items (a live ticket
+    story), so everything here is worth a line. Deterministic prose — no tier3 slot."""
+    if not rows:
+        return []
+    out = ["\n**The watch-list** — *festivals worth planning around*"]
+    for f in rows:
+        head = f"[{f['name']}]({f['tickets']})" if f.get("tickets") else f.get("name", "?")
+        bits = " · ".join(x for x in (pretty_when(f.get("when")), f.get("location")) if x)
+        status = (f.get("status") or "").replace("_", " ")
+        line = f"- **{head}**" + (f" — {bits}" if bits else "")
+        if status:
+            line += f" · **{status}**"
+        if f.get("why"):
+            line += f" — {f['why']}"
+        out.append(line)
+    return out
+
+
 def _radar_md(rows: list, limit: int = 18) -> list:
     if not rows:
         return ["*Nothing flagged on the radar yet.*"]
@@ -609,8 +647,10 @@ def _radar_md(rows: list, limit: int = 18) -> list:
         sig = ", ".join(s.replace("tracked:", "") for s in (r.get("signals") or []))
         head = f"[{r['title']}]({r['link']})" if r.get("link") else (r.get("title") or "Untitled")
         loc = " · ".join(x for x in (r.get("venue"), r.get("neighborhood")) if x)
+        card = _card_md(r.get("key") or "")
         out.append(f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}**"
                    + (f" — {loc}" if loc else "") + (f"  ·  *{sig}*" if sig else "")
+                   + (f" · {card}" if card else "")
                    + f" <!-- tier3:gloss {r.get('key', '')} -->")
     return out
 
@@ -645,7 +685,8 @@ def _posh_banner_md(notice: dict) -> str:
 def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dict, notice=None,
                            dont_miss: list = None, around: list = None, order: list = None,
                            weekends: list = None, dm_keys: frozenset = frozenset(),
-                           tonight: list = None, changes: list = None) -> str:
+                           tonight: list = None, changes: list = None,
+                           watchlist: list = None) -> str:
     """The consolidated scaffold. Section inclusion + order follow digest.yaml `sections`
     (Track B4 — the renderer finally honors it); day_by_day is the body and is never droppable.
     The `<!-- tier3:… -->` markers are the Tier-3 voice pass's slots: it fills the intro and may
@@ -699,6 +740,7 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
         elif sec == "radar":
             out.append("## On the radar\n")
             out.extend(_radar_md(radar))
+            out.extend(_watchlist_md(watchlist or []))
             out.append("")
     notes = _footer_notes(doc)
     if notice:
@@ -740,6 +782,8 @@ def main() -> int:
     catalog = json.loads(resolve(args.catalog).read_text())
     meta = CM.read_meta(resolve(args.catalog).parent / "catalog_meta.json")
     taste, profile = load_taste(args.taste), load_profile(args.profile)
+    global SITE_URL
+    SITE_URL = str(((profile.get("dashboard") or {}).get("site_url") or "")).strip()
     # Format prefs: the one structural knob the deterministic renderer honors is the per-day cap
     # (the rest — sections/tone/length/emphasis — shape the LLM digest layer, not this scaffold).
     prefs = load_digest_prefs(args.digest_prefs)
@@ -784,11 +828,13 @@ def main() -> int:
                                  from_=(today + timedelta(days=14)).isoformat(),
                                  to=(today + timedelta(days=35)).isoformat(), affinity=affinity, pool=wide_pool)
         sec2 = [c for c in sec2 if date.fromisoformat(c["iso_date"]).weekday() in (3, 4, 5, 6)]
-        radar = []
+        radar, watchlist = [], []
         rpath = resolve(args.radar)
         if rpath.exists():
             try:
-                radar = json.loads(rpath.read_text()).get("events", [])
+                rdoc = json.loads(rpath.read_text())
+                radar = rdoc.get("events", [])
+                watchlist = rdoc.get("watchlist", [])   # festivals.yaml, timely-gated (build_radar)
             except (json.JSONDecodeError, OSError):
                 pass
         around_rows = []
@@ -813,12 +859,13 @@ def main() -> int:
         Path(args.md).write_text(render_consolidated_md(
             doc["today"], sections, radar, doc, notice,
             dont_miss=dont_miss, around=around, order=prefs.get("sections"),
-            weekends=weekends, dm_keys=dm_keys, tonight=tonight, changes=changes))
+            weekends=weekends, dm_keys=dm_keys, tonight=tonight, changes=changes,
+            watchlist=watchlist))
         print(f"rendered consolidated digest: {max(len(tonight) - 4, 0)} tonight/tomorrow + "
               f"{max(len(dont_miss) - 2, 0)} don't-miss + "
               f"{max(len(changes) - 2, 0)} changed + "
               f"{len(sec1)} + {len(sec2)} picks + {max(len(around) - 3, 0)} around town + "
-              f"{min(len(radar), 18)} on the radar -> {args.md}")
+              f"{min(len(radar), 18)} on the radar (+{len(watchlist)} watch-list) -> {args.md}")
         return 0
 
     # Windowed mode — kept for the per-weekend look-ahead (e.g. next weekend, plugged into the
