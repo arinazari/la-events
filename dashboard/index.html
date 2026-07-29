@@ -88,16 +88,6 @@
           </sc-for>
         </div>
       </sc-if>
-      <sc-if value="{{ showSort }}" hint-placeholder-val="{{ false }}">
-        <div class="lchips" style="display:flex; align-items:center; gap:5px; overflow-x:auto; padding:1px;">
-          <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; padding-right:1px;">SORT</span>
-          <sc-for list="{{ sortOpts }}" as="s" hint-placeholder-count="4">
-            <span onClick="{{ s.onClick }}" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 10px; border:1px solid {{ s.border }}; background: {{ s.bg }}; color: {{ s.color }}; border-radius:999px;">{{ s.label }}</span>
-          </sc-for>
-          <span style="width:1px; height:16px; background:#dedcd4; margin:0 1px;"></span>
-          <span onClick="{{ toggleFilters }}" title="Filter by category, genre, vibe, neighborhood, date and more" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 10px; border:1px solid {{ filtersBtnBorder }}; background: {{ filtersBtnBg }}; color: {{ filtersBtnColor }}; border-radius:999px;">☰ {{ filtersBtnLabel }}</span>
-        </div>
-      </sc-if>
       <sc-if value="{{ showHeaderSearch }}" hint-placeholder-val="{{ true }}">
       <span style="flex:none; width:280px; margin-left:auto; display:inline-flex; align-items:center; gap:7px; padding:7px 11px; border:1px solid #d2d0c7; background:#fff; border-radius:999px; transition:width .18s ease, border-color .12s ease;" style-focus-within="border-color:#a7a59b; width:340px;">
         <span style="flex:none; color:#9a988e; font-size:17px;">⌕</span>
@@ -556,31 +546,6 @@
         </div>
       </sc-if>
 
-      <!-- FILTER PANEL -->
-      <sc-if value="{{ filtersOpen }}" hint-placeholder-val="{{ false }}">
-      <div id="ex-filter-panel" style="margin-bottom:14px; background:#fdfcf9; border:1px solid #dedcd4; border-radius:6px; padding:14px 16px 15px;">
-        <div style="display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
-          <span style="flex:none; width:96px; font:700 8.5px/2.6 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">DATES</span>
-          <sc-for list="{{ exDateChips }}" as="c" hint-placeholder-count="5"><span onClick="{{ c.onClick }}" style="cursor:pointer; padding:6px 11px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
-          <span style="display:inline-flex; align-items:center; gap:5px; font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">
-            <input type="date" value="{{ exFrom }}" onChange="{{ onExFrom }}" style="border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:5px 7px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;" />
-            –
-            <input type="date" value="{{ exTo }}" onChange="{{ onExTo }}" style="border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:5px 7px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;" />
-          </span>
-        </div>
-        <sc-for list="{{ exRows }}" as="fr" hint-placeholder-count="7">
-          <div style="margin-top:9px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
-            <span style="flex:none; width:96px; font:700 8.5px/2.6 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;" title="tap to cycle: ✓ only these → ✕ hide → off">{{ fr.label }}</span>
-            <sc-for list="{{ fr.chips }}" as="c" hint-placeholder-count="8"><span onClick="{{ c.onClick }}" title="{{ c.title }}" style="cursor:pointer; padding:6px 11px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
-          </div>
-        </sc-for>
-        <div style="margin-top:11px; padding-top:10px; border-top:1px solid #eeece4; display:flex; align-items:center; justify-content:space-between; gap:10px;">
-          <span style="font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#bdbbb1;">tap a value: ✓ only these → ✕ hide → off · tags on any card filter here too</span>
-          <span onClick="{{ exResetFn }}" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#b4453a;" style-hover="text-decoration:underline;">reset all</span>
-        </div>
-      </div>
-      </sc-if>
-
       <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; flex-wrap:wrap;">
         <span style="display:inline-flex; align-items:center; gap:9px; min-width:0;">
           <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreCountLabel }}</span>
@@ -588,8 +553,102 @@
         </span>
         <sc-if value="{{ exHasActive }}" hint-placeholder-val="{{ false }}"><span onClick="{{ exResetFn }}" style="flex:none; cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear filters ×</span></sc-if>
       </div>
-      <!-- mobile: flat card list (the table is a desktop surface) -->
+      <!-- mobile: flat card list (the table is a desktop surface) topped by the SAME column
+           controls as the desktop table, condensed into one sticky strip — tap a label to sort,
+           tap its funnel for that column's menu (full-width dropdown, sub-columns wrap) -->
       <sc-if value="{{ isMobileCards }}" hint-placeholder-val="{{ false }}">
+        <div style="position:sticky; top:0; z-index:3; background:#efeee9; box-shadow:0 1px 0 #d9d7cf; border-radius:3px; margin-bottom:12px;">
+          <div class="lchips" style="display:flex; align-items:center; justify-content:space-between; gap:7px; overflow-x:auto; padding:10px 9px;">
+            <span style="flex:none; display:inline-flex; align-items:center; gap:4px; white-space:nowrap;">
+              <span onClick="{{ sortDateCol }}" style="cursor:pointer; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">DATE <span style="color:#2b5cd9;">{{ arrowDate }}</span></span>
+              <span onClick="{{ openDateF }}" title="Dates — a preset or a custom range" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:4px 2px; color: {{ dateIcon }};"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+            </span>
+            <span onClick="{{ sortTitleCol }}" style="flex:none; cursor:pointer; white-space:nowrap; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">EVENT <span style="color:#2b5cd9;">{{ arrowTitle }}</span></span>
+            <span style="flex:none; display:inline-flex; align-items:center; gap:4px; white-space:nowrap;">
+              <span onClick="{{ sortHoodCol }}" style="cursor:pointer; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">HOOD <span style="color:#2b5cd9;">{{ arrowHood }}</span></span>
+              <span onClick="{{ openHoodF }}" title="Neighborhood / region — tap a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:4px 2px; color: {{ hoodIcon }};"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+            </span>
+            <span style="flex:none; display:inline-flex; align-items:center; gap:4px; white-space:nowrap;">
+              <span onClick="{{ sortCatCol }}" style="cursor:pointer; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">CAT/VIBE <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
+              <span onClick="{{ openCatF }}" title="Category / genre / vibe / setting — tap a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:4px 2px; color: {{ catIcon }};"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+            </span>
+            <span style="flex:none; white-space:nowrap; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;"><span onClick="{{ sortRankCol }}" style="cursor:pointer; color: {{ rankHeadColor }};">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span><span style="color:#d2d0c7;">·</span> <span onClick="{{ sortScoreCol }}" style="cursor:pointer; color: {{ scoreHeadColor }};">MATCH <span style="color:#2b5cd9;">{{ arrowScore }}</span></span></span>
+            <span style="flex:none; display:inline-flex; align-items:center; gap:4px; white-space:nowrap;">
+              <span onClick="{{ sortSourceCol }}" style="cursor:pointer; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">SRC <span style="color:#2b5cd9;">{{ arrowSource }}</span></span>
+              <span onClick="{{ openSourceF }}" title="Source — tap a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:4px 2px; color: {{ sourceIcon }};"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+            </span>
+          </div>
+          <sc-if value="{{ dateOpen }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+            <div style="position:absolute; top:100%; left:0; right:0; z-index:51; display:flex; flex-wrap:wrap; background:#fff; border:1px solid #c9c7bd; border-radius:0 0 6px 6px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:8px 6px;">
+              <div class="fcol" style="flex:1 1 150px; min-width:140px; max-height:32vh; overflow-y:auto; padding:0 9px 6px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                  <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">DATES</span>
+                  <sc-if value="{{ dateHasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearDates }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;">clear</span></sc-if>
+                </div>
+                <sc-for list="{{ dateMenu }}" as="o" hint-placeholder-count="5">
+                  <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:7px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 12px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};"><span style="font-size:11px; color: {{ o.boxColor }};">{{ o.box }}</span><span>{{ o.label }}</span></div>
+                </sc-for>
+              </div>
+              <div style="flex:1 1 150px; min-width:140px; padding:0 9px 6px;">
+                <div style="padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:8px;">
+                  <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">CUSTOM RANGE</span>
+                </div>
+                <input type="date" value="{{ exFrom }}" onChange="{{ onExFrom }}" style="width:100%; border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:6px 8px; font:600 11px/1.2 ui-monospace,Menlo,monospace; color:#3f3d36;" />
+                <div style="text-align:center; font:600 9px/1.8 ui-monospace,Menlo,monospace; color:#bdbbb1;">to</div>
+                <input type="date" value="{{ exTo }}" onChange="{{ onExTo }}" style="width:100%; border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:6px 8px; font:600 11px/1.2 ui-monospace,Menlo,monospace; color:#3f3d36;" />
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ hoodOpen }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+            <div style="position:absolute; top:100%; left:0; right:0; z-index:51; display:flex; flex-wrap:wrap; background:#fff; border:1px solid #c9c7bd; border-radius:0 0 6px 6px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:8px 6px;">
+              <sc-for list="{{ hoodFCols }}" as="fc" hint-placeholder-count="2">
+                <div class="fcol" style="flex:1 1 150px; min-width:140px; max-height:32vh; overflow-y:auto; padding:0 9px 6px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                    <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;">clear</span></sc-if>
+                  </div>
+                  <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="8">
+                    <div onClick="{{ o.onClick }}" title="tap: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:7px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 12px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};"><span style="font-size:11px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ catOpen }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+            <div style="position:absolute; top:100%; left:0; right:0; z-index:51; display:flex; flex-wrap:wrap; background:#fff; border:1px solid #c9c7bd; border-radius:0 0 6px 6px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:8px 6px;">
+              <sc-for list="{{ catFCols }}" as="fc" hint-placeholder-count="4">
+                <div class="fcol" style="flex:1 1 150px; min-width:140px; max-height:28vh; overflow-y:auto; padding:0 9px 6px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                    <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;">clear</span></sc-if>
+                  </div>
+                  <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="8">
+                    <div onClick="{{ o.onClick }}" title="tap: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:7px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 12px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};"><span style="font-size:11px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ sourceOpen }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+            <div style="position:absolute; top:100%; left:0; right:0; z-index:51; display:flex; flex-wrap:wrap; background:#fff; border:1px solid #c9c7bd; border-radius:0 0 6px 6px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:8px 6px;">
+              <sc-for list="{{ sourceFCols }}" as="fc" hint-placeholder-count="1">
+                <div class="fcol" style="flex:1 1 150px; min-width:140px; max-height:32vh; overflow-y:auto; padding:0 9px 6px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                    <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;">clear</span></sc-if>
+                  </div>
+                  <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="6">
+                    <div onClick="{{ o.onClick }}" title="tap: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:7px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 12px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};"><span style="font-size:11px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
         <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
           <sc-for list="{{ exploreRows }}" as="c" hint-placeholder-count="8">
             <div onClick="{{ c.onOpen }}" style="border-bottom:1px solid #e8e6de; padding:13px 15px; cursor:pointer;">
@@ -598,9 +657,10 @@
                   <div style="font:600 10.5px/1.2 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.dateShort }} · {{ c.t }}</div>
                   <div style="margin-top:4px; font:600 14.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ c.title }}</div>
                 </div>
-                <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}">
-                  <span style="flex:none; font:700 12px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span>
-                </sc-if>
+                <span style="flex:none; display:inline-flex; align-items:baseline; gap:6px;">
+                  <sc-if value="{{ c.hasRank }}" hint-placeholder-val="{{ true }}"><span title="{{ c.rankTitle }}" style="font:500 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">#{{ c.rankNum }}</span></sc-if>
+                  <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}"><span style="font:700 12px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span></sc-if>
+                </span>
               </div>
               <div style="margin-top:5px; font:500 11px/1.4 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.venue }}</div>
               <div style="margin-top:7px; display:flex; flex-wrap:wrap; align-items:center; gap:6px;">
@@ -1663,7 +1723,7 @@ class Component extends DCLogic {
     backendStatus:null, backendVer:null, liveReply:null, chatFiltered:null, chatFilterLabel:'',
     digestModalOpen:false, spotifyStatus:null, spotifyName:'',
     calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null,
-    filtersOpen:false, openFilter:null, exFrom:'', exTo:'',
+    openFilter:null, exFrom:'', exTo:'',
     exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] },
     guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, welcomeDismiss:false, nudgeOpen:false, nudgeMore:false, digestMenuOpen:false, digestEmailOpen:false, digestPast:null, digestEmail:'', spotifyModalOpen:false };
 
@@ -3159,11 +3219,11 @@ class Component extends DCLogic {
   }
 
   // ---------- Explore faceted filters ----------
-  // Desktop: the filters live IN the table columns (the original explore design) — a funnel
-  // per header opens an anchored menu of that column's values (hood+region; cat+genre+vibe+
-  // setting; source; dates). Mobile (card list, no columns) keeps the stacked chip panel.
+  // The filters live IN the columns (the original explore design) — a funnel per header opens
+  // an anchored menu of that column's values (hood+region; cat+genre+vibe+setting; source;
+  // dates). Desktop anchors them to the table headers; mobile mirrors the same headers as a
+  // sticky strip over the card list, with full-width dropdowns. One state, two anchorings.
   EX_AXES = ['cat','genre','vibe','setting','hood','region','source'];
-  toggleFilters = () => this.setState(s => ({ filtersOpen: !s.filtersOpen, view:'explore' }));
   openFilterMenu = (col) => this.setState(s => ({ openFilter: s.openFilter === col ? null : col }));
   closeFilterMenu = () => this.setState({ openFilter:null });
   exClearAxis = (ax) => this.setState(s => { const nf = { ...s.exFilters }; nf[ax] = []; nf['x'+ax] = []; return { exFilters:nf }; });
@@ -3227,7 +3287,7 @@ class Component extends DCLogic {
     if (axis) {
       const f = this.state.exFilters;
       if (f[axis].indexOf(t) === -1) { const nf = { ...f }; nf[axis] = f[axis].concat([t]); nf['x'+axis] = f['x'+axis].filter(v => v !== t); this.setState({ exFilters:nf }); }
-      this.setState({ view:'explore', filtersOpen:true, detailId:null });
+      this.setState({ view:'explore', detailId:null });
     } else {
       this.setState({ view:'explore', exploreSearch:String(text||'').trim(), detailId:null });
     }
@@ -3243,7 +3303,7 @@ class Component extends DCLogic {
     "",
     "- The **front page** opens on your window — *tonight · this weekend · next 2 weeks · plan ahead* — with the lead pick, a shortlist, and a lane per scene. Tap any card for details + tickets.",
     "- **Explore** (top right) is the full table. **Sort** by tapping the `DATE`, `EVENT`, `NEIGHBORHOOD`, `CATEGORY`, `RANK`, `MATCH` or `SOURCE` headers.",
-    "- **Filter from the columns**: the little funnel in a header opens that column's menu — `DATE` holds the presets + a custom range, `NEIGHBORHOOD` also carries region, `CATEGORY / VIBE` carries category, genre, vibe and setting side by side, `SOURCE` stands alone. Click a value once to **✓ keep** only matches, again to **✕ hide** it, once more to clear; a blue funnel means that column is filtering. On a phone the `FILTERS` chip opens the same controls as a panel.",
+    "- **Filter from the columns**: the little funnel in a header opens that column's menu — `DATE` holds the presets + a custom range, `NEIGHBORHOOD` also carries region, `CATEGORY / VIBE` carries category, genre, vibe and setting side by side, `SOURCE` stands alone. Click a value once to **✓ keep** only matches, again to **✕ hide** it, once more to clear; a blue funnel means that column is filtering. On a phone the same headers ride a strip pinned above the list — tap a label to sort, tap its funnel for the menu.",
     "- **Tap any tag** on a card (like *techno* or *warehouse*) to jump into Explore filtered to exactly that tag.",
     "- **Search** everything from the box in the header.",
     "",
@@ -3297,7 +3357,7 @@ class Component extends DCLogic {
     "",
     "## Late July 2026 — the redesign, restored",
     "",
-    "- **Explore's filters moved back into the columns** — the original design. Each header wears a small funnel: `NEIGHBORHOOD` opens neighborhood + region side by side, `CATEGORY / VIBE` opens category, genre, vibe and setting, `DATE` holds the presets + a custom range, `SOURCE` its list. ✓ keep / ✕ hide per value, a blue funnel where a filter is live. The `RANK · MATCH` column is back too — the editor's `#` running order and the transparent match %, each sortable.",
+    "- **Explore's filters moved back into the columns** — the original design. Each header wears a small funnel: `NEIGHBORHOOD` opens neighborhood + region side by side, `CATEGORY / VIBE` opens category, genre, vibe and setting, `DATE` holds the presets + a custom range, `SOURCE` its list. ✓ keep / ✕ hide per value, a blue funnel where a filter is live. The `RANK · MATCH` column is back too — the editor's `#` running order and the transparent match %, each sortable. Phones get the same system, not a separate panel: the column headers ride a sticky strip above the card list, funnels open full-width menus, and cards show their `#` rank beside the match.",
     "- **“Saw this” hides what you've already seen.** On any event's card: *Saw this — hide it* removes the event — and every other date of a repeating run (that 70mm you already caught) — from your feed. Undo from the toast, or *reset your reactions* any time.",
     "- **Digest links now land on the card.** Event lines in the written digest carry a `card ↗` link that opens that event right on the site — details, lineup, save star and all. Inside the digest reader it opens in place, and the link works from an emailed digest too.",
     "- **The day's digest, fleshed out.** The front-page digest box now runs the digest's opening read under the headline, and the *In this digest* chips got dates, tighter titles, and a ★ save button of their own.",
@@ -3476,9 +3536,8 @@ class Component extends DCLogic {
       frontTabBg: view==='front'?'#1b1a17':'transparent', frontTabColor: view==='front'?'#fff':'#76746b',
       exploreTabBg: view==='explore'?'#1b1a17':'transparent', exploreTabColor: view==='explore'?'#fff':'#76746b',
       viewFront:this.viewFront, viewExplore:this.viewExplore,
-      showLenses: view==='front' || view==='scene', showSort: view==='explore' && mob,   // desktop sorts/filters in the table columns
+      showLenses: view==='front' || view==='scene',   // explore sorts/filters live in the column headers (desktop table + mobile strip)
       lenses: lensDefs.map(([k,label]) => ({ label, onClick:() => this.setLens(k), border: lens===k?'#1b1a17':'#d2d0c7', bg: lens===k?'#1b1a17':'#fff', color: lens===k?'#fff':'#76746b' })),
-      sortOpts: [['rank','RANK'],['match','MATCH'],['date','DATE'],['title','A–Z']].map(([k,label]) => ({ label, onClick:() => this.setSort(k), border: this.state.exploreSort===k?'#2b5cd9':'#d2d0c7', bg: this.state.exploreSort===k?'#eaf0fe':'#fff', color: this.state.exploreSort===k?'#2b5cd9':'#76746b' })),
       searchVal:this.state.exploreSearch, onSearch:this.onSearch, hasSearch:!!this.state.exploreSearch.trim(), clearSearch:this.clearSearch,
       showHeaderSearch: !mob, showMobileSearch: mob, mobileSearchTap: this.mobileSearchTap,
       showSlashHint: !mob && !this.state.exploreSearch.trim(),
@@ -3752,45 +3811,19 @@ class Component extends DCLogic {
       out.hasChatFilter = !!this.state.chatFiltered; out.chatFilterLabel = this.state.chatFilterLabel; out.clearChatFilter = this.clearChatFilter;
       out.exResetFn = this.exReset;
 
-      // ---- filter panel ----
+      // ---- column-header filter menus (the original explore design) ----
+      // One set of menus, two anchorings: the desktop table headers and the mobile strip.
+      // Full value lists (scrollable): facet order (the feed's frequency-ranked vocab) + an
+      // alphabetical tail of event-derived tags for tag axes; alphabetical for neighborhoods
+      // + sources; catalog frequency for categories.
       const f = this.state.exFilters;
-      const fchip = (label, mode, onClick, title) => ({ label, onClick, title: title || '',
-        border: mode==='in'?'#1f7a4d':mode==='out'?'#c75146':mode==='on'?'#2b5cd9':'#dedcd4',
-        bg: mode==='in'?'#eaf6ee':mode==='out'?'#fbeae8':mode==='on'?'#eaf0fe':'#fff',
-        color: mode==='in'?'#1f7a4d':mode==='out'?'#b4453a':mode==='on'?'#2b5cd9':'#5f5d54' });
       const counts = (vals) => { const m = new Map(); for (const v of vals) { if (!v || /^undefined$/i.test(v)) continue; m.set(v, (m.get(v)||0)+1); } return [...m.entries()].sort((a,b) => b[1]-a[1]).map(x => x[0]); };
-      const facet = (ax, cap) => (this.META && this.META.tag_facets && Array.isArray(this.META.tag_facets[ax])) ? this.META.tag_facets[ax].slice(0, cap).map(x => x.value) : [];
+      const facet = (ax) => (this.META && this.META.tag_facets && Array.isArray(this.META.tag_facets[ax])) ? this.META.tag_facets[ax].map(x => x.value) : [];
       const withSel = (vals, ax) => { const all = vals.slice(); for (const v of f[ax].concat(f['x'+ax])) if (all.indexOf(v)===-1) all.push(v); return all; };
-      const triRow = (label, ax, vals) => ({ label, chips: withSel(vals, ax).map(v => {
-        const mode = f[ax].indexOf(v)!==-1 ? 'in' : f['x'+ax].indexOf(v)!==-1 ? 'out' : 'off';
-        const mark = mode==='in' ? '✓ ' : mode==='out' ? '✕ ' : '';
-        return fchip(mark + v, mode, () => this.exCycle(ax, v), 'tap to cycle: ✓ only these → ✕ hide → off');
-      }) });
-      out.exRows = [
-        triRow('CATEGORY', 'cat', counts(upcoming.map(e => e.cat))),
-        triRow('GENRE', 'genre', facet('genre', 16)),
-        triRow('VIBE', 'vibe', facet('vibe', 12)),
-        triRow('SETTING', 'setting', facet('setting', 10)),
-        triRow('NEIGHBORHOOD', 'hood', counts(upcoming.map(e => e.hood)).slice(0, 18)),
-        triRow('REGION', 'region', facet('region', 10)),
-        triRow('SOURCE', 'source', counts(upcoming.map(e => e.source))),
-      ].filter(r => r.chips.length > 1);
       const rng = (a, b) => this.state.exFrom===a && this.state.exTo===b;
       const [wa, wb] = this.weekendRange();
-      out.exDateChips = [
-        fchip('All dates', rng('','')?'on':'off', () => this.exPreset('all')),
-        fchip('Tonight', rng(T,T)?'on':'off', () => this.exPreset('today')),
-        fchip('This weekend', rng(wa,wb)?'on':'off', () => this.exPreset('weekend')),
-        fchip('Next 2 wks', rng(T,this.addDays(T,13))?'on':'off', () => this.exPreset('twoweeks')),
-        fchip('Next month', rng(T,this.addDays(T,30))?'on':'off', () => this.exPreset('month')),
-      ];
       out.exFrom = this.state.exFrom; out.exTo = this.state.exTo;
       out.onExFrom = this.onExFrom; out.onExTo = this.onExTo;
-
-      // ---- desktop column-header filter menus (the original explore design) ----
-      // Full value lists (scrollable), not the panel's capped chip rows: facet order (the feed's
-      // frequency-ranked vocab) + an alphabetical tail of event-derived tags for tag axes;
-      // alphabetical for neighborhoods + sources; catalog frequency for categories.
       const nsel = (ax) => f[ax].length + f['x'+ax].length;
       const pretty = (v) => String(v).replace(/-/g, ' ');
       const uniqV = (arr) => [...new Set(arr)];
@@ -4041,15 +4074,6 @@ class Component extends DCLogic {
 
     // ---- CALENDAR FEED ----
     Object.assign(out, this.calVals());
-
-    // ---- FILTERS toggle (mobile explore header — desktop filters live in the table columns) ----
-    const nF = this.exActiveCount();
-    out.toggleFilters = this.toggleFilters;
-    out.filtersBtnLabel = 'FILTERS' + (nF ? ' ('+nF+')' : '');
-    out.filtersBtnBg = this.state.filtersOpen ? '#1b1a17' : (nF ? '#eaf0fe' : '#fff');
-    out.filtersBtnColor = this.state.filtersOpen ? '#fff' : (nF ? '#2b5cd9' : '#76746b');
-    out.filtersBtnBorder = this.state.filtersOpen ? '#1b1a17' : (nF ? '#2b5cd9' : '#d2d0c7');
-    out.filtersOpen = this.state.filtersOpen && view==='explore' && mob;
 
     // ---- ABOUT: guide (how / what's new) + first-run welcome ----
     out.guideOpen = this.state.guideOpen;
