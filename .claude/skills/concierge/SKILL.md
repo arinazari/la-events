@@ -90,7 +90,7 @@ skill's mode directly rather than ceremony. The concierge earns its keep on the 
 When the ask names other people — "what would me + Lori be into," "find a show the three of us would
 like," "plan something for me and Dr. Ganesan" — don't just use Ari's taste. Run the group scorer:
 
-`python scripts/group_picks.py --people me,lori,dr_ganesan [--days N | --from <ISO> --to <ISO>]`
+`python scripts/group_picks.py --people me,lori,vish [--days N | --from <ISO> --to <ISO>]`
 
 It scores the catalog against **each person's own** taste / mechanics / music layer (the same scorer
 as their solo feed, so it can't drift) and prints a per-event matrix: every shared upcoming event with
@@ -98,7 +98,7 @@ each person's score + ★ + a `⛔` when it's a hard down-rank for them, plus `a
 `me` (or `default`) = Ari/the owner; friends are their `profiles.yaml` entries.
 
 **Don't ask for a username — resolve the name yourself.** `--people` takes a profile's display **name
-or** username, case-insensitively (`Lori` == `lori`, `Dr. Ganesan` == `dr_ganesan`), so pass whatever
+or** username, case-insensitively (`Lori` == `lori`, `Dr. Ganesan` == `vish`), so pass whatever
 Ari called them. When he says "me + Lori," run `--people me,Lori` directly — asking him to confirm
 "Lori's username" is a pointless extra step when the name already maps to a profile. Only stop to ask
 when the name is genuinely **ambiguous** (matches two different people you both know) or **has no

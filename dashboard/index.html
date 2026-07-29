@@ -20,7 +20,12 @@
 <x-dc>
 <helmet>
 <style>
-  html, body { margin:0; padding:0; height:100%; background:#f4f3ef; }
+  /* The app font stack lives HERE, not only on .app-shell — every modal (digest, guide, tutorial,
+     nudge, detail, settings…) mounts outside .app-shell, so anything relying on inheritance used to
+     fall through to the browser default serif. renderMarkdown's <p>/<li> set only size+leading, which
+     is why digest and guide prose rendered in Times. Inherit from the root and they all follow. */
+  html, body { margin:0; padding:0; height:100%; background:#f4f3ef;
+    font-family:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif; }
   * { box-sizing:border-box; }
   ::selection { background:#2b5cd9; color:#fff; }
   a { color:#2b5cd9; text-decoration:none; } a:hover { color:#1d49b8; }
@@ -42,6 +47,12 @@
   .chat-intro code { cursor:pointer; }
   .chat-intro code:hover { background:#dde4fb !important; color:#1d49b8 !important; }
   #dg-scroll a { color:#1b1a17; }
+  /* Tutorial-only reading sizes (the family comes from the root rule above). renderMarkdown sets
+     size+leading inline for the digest's density, so overriding them here needs !important. */
+  .la-tut p, .la-tut li { font-size:14px !important; line-height:1.62 !important; }
+  .la-tut h1 { font-size:22px !important; letter-spacing:-0.015em; margin-bottom:9px !important; }
+  .la-tut ul { gap:9px !important; }
+  .la-tut strong { color:#161512; }
 </style>
 </helmet>
 
@@ -935,7 +946,7 @@
     <div style="height:1px; background:#e4e2d9; margin:11px 0;"></div>
     <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:5px;">ABOUT</div>
     <div onClick="{{ openDigest }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>today's digest</span><span style="color:#2b5cd9;">read ↗</span></div>
-    <div onClick="{{ openWelcome }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>quick start</span><span style="color:#2b5cd9;">welcome ↗</span></div>
+    <div onClick="{{ openWelcome }}" title="The four-step quick start — how the picks are made and how to set yourself up" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>tutorial</span><span style="color:#2b5cd9;">open ↗</span></div>
     <div onClick="{{ openTour }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>how it works</span><span style="color:#2b5cd9;">tour ↗</span></div>
     <div onClick="{{ openChangelog }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>what's new</span><span style="color:#2b5cd9;">changelog ↗</span></div>
   </div>
@@ -1194,19 +1205,16 @@
   <div style="position:relative; z-index:1; width:100%; max-width:560px; max-height:calc(100dvh - 48px); display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:5px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
     <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 14px 13px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:5px 5px 0 0;">
       <div style="display:flex; align-items:center; gap:11px; min-width:0;">
-        <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; text-transform:uppercase; color:#a7a59b;">Quick start</span>
+        <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; text-transform:uppercase; color:#a7a59b;">Tutorial</span>
         <span style="display:inline-flex; gap:5px; align-items:center;">
           <sc-for list="{{ welcomeDots }}" as="d" hint-placeholder-count="4"><span style="width:6px; height:6px; border-radius:50%; background: {{ d.bg }};"></span></sc-for>
         </span>
       </div>
       <button onClick="{{ closeWelcome }}" title="Close (Esc)" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:999px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
     </div>
-    <div class="scry" style="flex:1; min-height:0; overflow-y:auto; padding:22px 26px 24px;">{{ welcomeBody }}</div>
+    <div class="scry la-tut" style="flex:1; min-height:0; overflow-y:auto; padding:22px 26px 24px;">{{ welcomeBody }}</div>
     <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 18px; border-top:1px solid #e2e0d8; background:#faf9f5; border-radius:0 0 5px 5px;">
-      <div onClick="{{ toggleWelcomeDismiss }}" title="Tick this once you've read it — otherwise it'll greet you again next time" style="display:inline-flex; align-items:center; gap:8px; cursor:pointer;">
-        <span style="width:15px; height:15px; flex:none; border:1px solid {{ welcomeCheckBorder }}; background: {{ welcomeCheckBg }}; border-radius:3px; display:inline-flex; align-items:center; justify-content:center; font:700 10px/1 ui-monospace,Menlo,monospace; color:#fff;">{{ welcomeCheckMark }}</span>
-        <span style="font:500 11px/1.4 -apple-system,system-ui,sans-serif; color:#76746b;">Don't show this again</span>
-      </div>
+      <span style="font:500 11px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ welcomeStepLabel }}</span>
       <div style="display:flex; align-items:center; gap:8px;">
         <sc-if value="{{ welcomeHasBack }}" hint-placeholder-val="{{ false }}">
           <button onClick="{{ welcomeBack }}" style="flex:none; font:700 11px/1 ui-monospace,Menlo,monospace; padding:9px 15px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#1b1a17; color:#161512;">Back</button>
@@ -1564,7 +1572,7 @@ class Component extends DCLogic {
     calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null,
     filtersOpen:false, exFrom:'', exTo:'',
     exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] },
-    guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, welcomeDismiss:false, nudgeOpen:false, nudgeMore:false, digestMenuOpen:false, digestEmailOpen:false, digestPast:null, digestEmail:'', spotifyModalOpen:false };
+    guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, nudgeOpen:false, nudgeMore:false, digestMenuOpen:false, digestEmailOpen:false, digestPast:null, digestEmail:'', spotifyModalOpen:false };
 
   componentDidMount() {
     try { const r = JSON.parse(localStorage.getItem('la-fp-reactions-v1') || '{}'); if (r && typeof r === 'object') this.setState({ reactions:r }); } catch (e) {}
@@ -1573,7 +1581,7 @@ class Component extends DCLogic {
     this.BACKEND_TOKEN = this.readConn().token || '';   // authoritative: post-migration, TTL-checked
     let prof = null;
     try { prof = JSON.parse(localStorage.getItem('la-profile') || 'null'); } catch (e) {}
-    if (prof && prof.hash) { this.setState({ profile: prof, loggedIn: true, username: prof.u || '' }); this.maybeOnboard(prof); }
+    if (prof && prof.hash) this.setState({ profile: prof, loggedIn: true, username: prof.u || '' });
     // ?e=<event_key> deep link (the digest's "card ↗" links) — opened once the feed is in
     try { this._deepKey = new URLSearchParams(location.search).get('e') || null; } catch (e) { this._deepKey = null; }
     // meta first (161 bytes, no-store) so the big feed fetch can use a content-version cache key
@@ -2496,7 +2504,7 @@ class Component extends DCLogic {
       this.setSeen({});        // "Saw this" is per-person too — a fresh profile starts unhidden
       this.BACKEND_TOKEN = this.readConn(prof).token || '';   // connection is per-profile
       this.setState({ backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); });
-      this.loadDigest(); this.checkSpotify(); this.maybeOnboard(prof);
+      this.loadDigest(); this.checkSpotify();
       this.reattachJobs(hash);   // this profile may have a rebuild still in flight from a previous visit
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
@@ -2733,8 +2741,10 @@ class Component extends DCLogic {
       prevVisit = localStorage.getItem(this.visitKey(p.hash));
       localStorage.setItem(this.visitKey(p.hash), new Date().toISOString());
     } catch (e) {}
-    if (!this.hasOnboarded(p)) return;
     if (this.getUpdating(p.hash)) return;
+    // Never nudge a first-ever visit — no prior visit stamp means we've never seen this profile here.
+    // (This used to ride on the onboarding flag, back when the tutorial auto-opened and set one.)
+    if (!prevVisit) return;
     try { if (localStorage.getItem(this.nudgeSnoozeKey(p.hash)) === this.todayKey()) return; } catch (e) {}
     const llmDays = this.daysSince(this.lastEnrichedAt());
     const awayDays = this.daysSince(prevVisit);
@@ -3198,7 +3208,7 @@ class Component extends DCLogic {
     "- **Two dedicated views: the marquee, and the festival watch-list.** **The marquee** (via *the marquee →* on the movies lane) is a full movies page: every film program with its dates board inline — now playing, opens soon, and the one-night screenings for the next two weeks. **Festivals & big shows** (via *the festival watch-list →* under On the radar) finally surfaces the hand-curated watch-list — Portola, CRSSD, Coachella and co. with dates, where tickets stand (*on sale · lineup pending · annual watch*), and the one-line why. That list existed all along; it just never reached the site until now.",
     "- **Clearer scene names + a home for long runs.** The scene lanes got plainer names — **Afterhours**, **Big-name club nights**, **Arenas & halls**, **Markets, art & more** — and movies, comedy and theater share one **Movies, comedy & theater** lane. Multi-week runs and seasons (a Pantages musical, a month of rep showtimes) moved to their own **Now running** section instead of squatting a scene box for weeks; they rejoin the dated lanes for their final two weeks, when *closes Sunday* is news. Run cards show the span (*Thru Sun Sep 6 · 12 nights*), and their detail popup carries an **All dates** board — every remaining night as a chip straight to that night's tickets, grouped by theater, sold-out nights crossed out.",
     "- **A new front page** — the lead pick, your shortlist, a lane per scene, and the day's digest headline up top, with the detail popup and settings rebuilt to match.",
-    "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, real **event photos** on cards, the **quick start / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
+    "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, real **event photos** on cards, the **tutorial / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
     "- **Stars teach again, and “less” learns too.** The + chip commits your star server-side (friends see it; the lineup boosts your ranking), and **Show less like this** now files a soft negative signal instead of only hiding locally.",
     "- **Retired:** the ✦ Artist intel button (the lineup rows' Spotify/SoundCloud links and bios remain).",
     "- **The front page is the server's slate again.** The lead, shortlist, scene lanes, radar and the returning **Around town** section render the editorial slate (the same ranking your digest uses) instead of a client-side re-sort; film runs show **showtimes** and **also-showing** nights again; the concierge **streams** its replies (with a ■ stop) and falls back to an instant offline filter; phones get a proper **card list**; and the feed only re-downloads when the catalog actually changed.",
@@ -3216,7 +3226,7 @@ class Component extends DCLogic {
     "",
     "## June 2026",
     "",
-    "- **A quick-start welcome.** The first time you sign in, a short four-step tour walks you through how the picks are made and setting yourself up. Tick *don't show this again* to dismiss it; re-open it any time from **Settings → quick start**.",
+    "- **A tutorial, on demand.** A short four-step walkthrough of how the picks are made and how to set yourself up. It no longer interrupts you on sign-in — open it whenever you want from **Settings → tutorial**.",
     "- **See your taste edits land.** *View taste & profile* (Settings) shows a diff of every change the concierge made to your taste or profile.",
     "- **Festivals & further ahead.** The digest surfaces big destination festivals and looks up to ~6 months out, so you can catch the major stuff while tickets last.",
     "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you.",
@@ -3261,21 +3271,18 @@ class Component extends DCLogic {
       "- The front page's **TODAY'S DIGEST** box opens your written **digest** — top picks with a sentence each, grouped by day.",
       "- The **+ chip** on any card stars it — friends see your star, it teaches your ranking, and **Settings → Calendar feed** turns picks or stars into a live calendar.",
       "- **View taste & profile** (Settings) shows every edit the concierge made.",
-      "- Want this tour again, or the full walkthrough? **Settings → quick start / how it works**. That's it — go find something good."
+      "- Want this again, or the full walkthrough? **Settings → tutorial / how it works**. That's it — go find something good."
     ].join('\n')
   ];
   openGuide = (tab) => this.setState({ guideOpen:true, guideTab: tab || 'how', settingsOpen:false });
   closeGuide = () => this.setState({ guideOpen:false });
   setGuideTab = (t) => this.setState({ guideTab:t });
-  onboardKey(p) { return 'la-onboarded:' + ((p && p.hash) || 'default'); }
-  hasOnboarded(p) { try { return localStorage.getItem(this.onboardKey(p)) === '1'; } catch (e) { return false; } }
-  maybeOnboard(p) { if (!p || !p.hash || this.hasOnboarded(p)) return; this.setState({ welcomeOpen:true, welcomeStep:0, welcomeDismiss:false }); }
-  openWelcome = () => this.setState({ welcomeOpen:true, welcomeStep:0, welcomeDismiss:this.hasOnboarded(this.state.profile), settingsOpen:false });
-  persistOnboard() { const k = this.onboardKey(this.state.profile); try { this.state.welcomeDismiss ? localStorage.setItem(k, '1') : localStorage.removeItem(k); } catch (e) {} }
-  closeWelcome = () => { this.persistOnboard(); this.setState({ welcomeOpen:false }); };
+  // Opt-in only: the tutorial never auto-opens. Settings → ABOUT → tutorial is the single entry point,
+  // so there's no per-profile "seen" flag and no "don't show this again" dismissal to persist.
+  openWelcome = () => this.setState({ welcomeOpen:true, welcomeStep:0, settingsOpen:false });
+  closeWelcome = () => this.setState({ welcomeOpen:false });
   welcomeBack = () => this.setState({ welcomeStep: Math.max(0, this.state.welcomeStep - 1) });
   welcomeNext = () => { if (this.state.welcomeStep >= this.WELCOME.length - 1) this.closeWelcome(); else this.setState({ welcomeStep: this.state.welcomeStep + 1 }); };
-  toggleWelcomeDismiss = () => this.setState(s => ({ welcomeDismiss: !s.welcomeDismiss }));
 
   setReactions(r) { this.setState({ reactions:r }); try { localStorage.setItem('la-fp-reactions-v1', JSON.stringify(r)); } catch (e) {} }
   // ---------- "Saw this" — hide an event (and, for repeating programs, ALL its dates) ----------
@@ -3899,10 +3906,7 @@ class Component extends DCLogic {
     out.welcomeHasBack = this.state.welcomeStep > 0;
     out.welcomeBack = this.welcomeBack; out.welcomeNext = this.welcomeNext;
     out.welcomeNextLabel = this.state.welcomeStep >= this.WELCOME.length - 1 ? 'Got it' : 'Next';
-    out.toggleWelcomeDismiss = this.toggleWelcomeDismiss;
-    out.welcomeCheckBg = this.state.welcomeDismiss ? '#2b5cd9' : '#fff';
-    out.welcomeCheckBorder = this.state.welcomeDismiss ? '#2b5cd9' : '#c9c7bd';
-    out.welcomeCheckMark = this.state.welcomeDismiss ? '✓' : '';
+    out.welcomeStepLabel = 'Step ' + (this.state.welcomeStep + 1) + ' of ' + this.WELCOME.length;
     out.nudgeOpen = !!this.state.nudgeOpen;
     out.closeNudge = this.closeNudge; out.nudgeUpdateNow = this.nudgeUpdateNow;
     out.nudgeBody = React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.state.nudgeOpen ? this.nudgeBodyMd() : '') } });
