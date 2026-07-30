@@ -494,13 +494,6 @@
       "enriched_at": "2026-07-01T03:19:17",
       "enriched_tier": "full"
     },
-    "a8c0ad8333d1": {
-      "id": "a8c0ad8333d1",
-      "description": "The Petrified Forest at Vista Theater, Los Feliz (14:00).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
     "865688734108": {
       "id": "865688734108",
       "description": "Lindsey Stirling with PVRIS and ARKAI at Greek Theatre, Los Feliz (20:00).",
@@ -778,48 +771,6 @@
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "high"
     },
-    "ba5ea2b3964e": {
-      "id": "ba5ea2b3964e",
-      "description": "AZRA pop show at The Moroccan Lounge, Arts District (21+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "1d77132a4d8c": {
-      "id": "1d77132a4d8c",
-      "description": "Violent Femmes 45th anniversary tour at The Bellwether, DTLA.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "81c81cc5394d": {
-      "id": "81c81cc5394d",
-      "description": "Meet Me @ The Altar with Leisure Hour rock show at The Echo, Echo Park.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "e33f19ed122d": {
-      "id": "e33f19ed122d",
-      "description": "More Ephemerol with FoXix & Jackie Body at The Moroccan Lounge, Arts District (21+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "b00761a9e7c7": {
-      "id": "b00761a9e7c7",
-      "description": "Tower of Power with Preservation Hall Jazz Band at Hollywood Bowl.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "d21a68da45f3": {
-      "id": "d21a68da45f3",
-      "description": "Back to the Future screening at New Beverly Cinema.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
     "10c0e1af4c06": {
       "id": "10c0e1af4c06",
       "description": "Mella: Or So We've Been Touring with Body Thief & Postdrome at The Moroccan Lounge, Arts District (all ages).",
@@ -1004,10 +955,27 @@
     },
     "b2d6fe30fbdb": {
       "id": "b2d6fe30fbdb",
-      "description": "Death Cab for Cutie: I Built You A Tower World Tour with Nation of Language at Greek Theatre, Los Feliz.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
+      "type": "live-music",
+      "subgenres": [
+        "indie",
+        "rock"
+      ],
+      "label_orbit": [],
+      "energy": "listening / anthemic",
+      "setting": "amphitheater",
+      "vibe": [],
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Nation of Language",
+          "note": "Brooklyn synth-pop trio doing earnest, era-accurate New Order/early Human League worship — the more interesting reason to show up early on this bill if you like that cold-wave-gone-warm sound."
+        }
+      ],
+      "curator_note": "Death Cab doing the reliable melancholic-indie-anthem thing at the Greek; the real discovery on the night is Nation of Language's moody synth-pop opening set if you don't know them yet.",
+      "description": "Death Cab for Cutie headline the Greek on their new-album tour, with synth-pop trio Nation of Language opening.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "cd7672b88551": {
       "id": "cd7672b88551",
@@ -1061,27 +1029,6 @@
     "bc30650a1bde": {
       "id": "bc30650a1bde",
       "description": "Hip-hop artist Rio Da Yung Og at The Regent Theater, DTLA (all ages).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "856fb52b5d59": {
-      "id": "856fb52b5d59",
-      "description": "The Phantom of the Opera touring production at Hollywood Pantages Theatre (7:30pm, July 29).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "989351d6bfbe": {
-      "id": "989351d6bfbe",
-      "description": "The Stray Cats 21+ show at Yaamava Resort & Casino at San Manuel (8pm, July 29).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "e0549c63d39e": {
-      "id": "e0549c63d39e",
-      "description": "Metal show: Corpse Pile with Iron Front, Greenwitch, Prevaricate, Desecratory at The Midnight Hour in San Fernando (7pm, July 29).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "high"
@@ -1233,13 +1180,6 @@
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "high"
     },
-    "1c4327ee1372": {
-      "id": "1c4327ee1372",
-      "description": "Pageant of the Masters outdoor festival showcase in Laguna Beach.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
     "ff9d17b69adc": {
       "id": "ff9d17b69adc",
       "description": "Drag show featuring BOSCO from RuPaul's Drag Race in 'The Marvelous Miss Gender' at The Wiltern in Koreatown, 18+.",
@@ -1355,27 +1295,6 @@
     "ddbd40bd60f9": {
       "id": "ddbd40bd60f9",
       "description": "Pageant of the Masters exhibition at the Festival of Arts in Laguna Beach.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "003383344acf": {
-      "id": "003383344acf",
-      "description": "Alternative rock band Bush at Ventura Fairgrounds (19:30).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "1db967a24e43": {
-      "id": "1db967a24e43",
-      "description": "Hip-hop group Cypress Hill at Pacific Amphitheatre, Costa Mesa (19:30).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
-    },
-    "b5be15ff655a": {
-      "id": "b5be15ff655a",
-      "description": "Drag show at Hamburger Mary's Long Beach (19:30).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-01T03:19:17",
       "confidence": "high"
@@ -2381,20 +2300,6 @@
       "enriched_at": "2026-07-04T12:35:59",
       "confidence": "high"
     },
-    "3d7436f03230": {
-      "id": "3d7436f03230",
-      "description": "French jazz classics with world-renowned singer Chloé Perrier at Vibrato Grill Jazz on Jul 29 at 11:30pm.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-04T12:35:59",
-      "confidence": "high"
-    },
-    "e52a0474293c": {
-      "id": "e52a0474293c",
-      "description": "Live show at The Venice West on Jul 29 at 8pm with The McCharmlys.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-04T12:35:59",
-      "confidence": "low"
-    },
     "b22f735373a2": {
       "id": "b22f735373a2",
       "description": "1970s cover show 'The K-Tel All-Stars' at Vibrato Grill Jazz on Jul 30 at 11:30pm, playing hits, one-hit wonders, and AM radio gold.",
@@ -2597,13 +2502,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-04T12:35:59",
       "confidence": "medium"
-    },
-    "7d8322023242": {
-      "id": "7d8322023242",
-      "description": "Drag show featuring Bob The Drag Queen at Copper Blues, Oxnard.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-04T12:35:59",
-      "confidence": "high"
     },
     "3edec7c96cc4": {
       "id": "3edec7c96cc4",
@@ -3608,27 +3506,6 @@
       "enriched_at": "2026-07-08T12:32:11",
       "confidence": "high"
     },
-    "25f55131184a": {
-      "id": "25f55131184a",
-      "description": "Live show at Permanent Records Roadhouse in Cypress Park (6pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-08T12:32:11",
-      "confidence": "low"
-    },
-    "a35b0483ab9c": {
-      "id": "a35b0483ab9c",
-      "description": "80s & 90s dance party at Gold Diggers (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-08T12:32:11",
-      "confidence": "high"
-    },
-    "8ff6ee4ac91f": {
-      "id": "8ff6ee4ac91f",
-      "description": "Punk & experimental live bands (Mr. Dinkles, Beautiful Freaks from Seattle) at The Smell in DTLA (8pm, $15).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-08T12:32:11",
-      "confidence": "high"
-    },
     "bbc675ebc484": {
       "id": "bbc675ebc484",
       "description": "Punk & experimental live show with Applied Communications (Washington, DC) at The Smell (8:30pm, $10).",
@@ -3646,13 +3523,6 @@
     "fcc096ab8a8d": {
       "id": "fcc096ab8a8d",
       "description": "Pop live set with Karly Bowman, Mila Cargo & Ryann Barnes at The Moroccan Lounge (6:30pm, all-ages, $12-15).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-08T12:32:11",
-      "confidence": "high"
-    },
-    "6cc31009da09": {
-      "id": "6cc31009da09",
-      "description": "Live jazz/blues show featuring Ducks Xing, October, Guyliner & Tell Me Why at The Mint (7pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-08T12:32:11",
       "confidence": "high"
@@ -3723,13 +3593,6 @@
     "36cda0196832": {
       "id": "36cda0196832",
       "description": "Pageant of the Masters at Festival of Arts in Laguna Beach (8:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-08T12:32:11",
-      "confidence": "high"
-    },
-    "1dd9059e3d73": {
-      "id": "1dd9059e3d73",
-      "description": "Hip-hop artist Mario Judah at Constellation Room in Santa Ana (7pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-08T12:32:11",
       "confidence": "high"
@@ -4031,13 +3894,6 @@
       "enriched_at": "2026-07-09T12:35:10",
       "confidence": "high"
     },
-    "87bb19c03859": {
-      "id": "87bb19c03859",
-      "description": "JAYO The Anti-Depressants Tour at Teragram Ballroom, Westlake (8pm, all ages).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-09T12:35:10",
-      "confidence": "high"
-    },
     "af54b8c37360": {
       "id": "af54b8c37360",
       "description": "CORTIS <Put Your Phone Down> tour at YouTube Theater, Inglewood (8pm).",
@@ -4050,13 +3906,6 @@
       "description": "Thirsty Thursdays drag show at Hamburger Mary's, Long Beach (8pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-09T12:35:10",
-      "confidence": "high"
-    },
-    "7904c1e2a503": {
-      "id": "7904c1e2a503",
-      "description": "The Odyssey in 70mm at Vista Theater Los Feliz (7:15pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-10T12:44:28",
       "confidence": "high"
     },
     "f3d0e2a6f2be": {
@@ -4922,13 +4771,6 @@
       "enriched_at": "2026-07-20T12:26:53",
       "enriched_tier": "full"
     },
-    "1262700504bb": {
-      "id": "1262700504bb",
-      "description": "Live show at Zebulon, Frogtown (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-12T12:22:50",
-      "confidence": "low"
-    },
     "e33452e75fe6": {
       "id": "e33452e75fe6",
       "description": "Live show at Zebulon with Jackie-O Motherfucker, Syko Friend, and Cockfighter (8pm).",
@@ -5640,13 +5482,6 @@
       "enriched_at": "2026-07-13T12:32:18",
       "confidence": "high"
     },
-    "bb15790cb9e7": {
-      "id": "bb15790cb9e7",
-      "description": "Live band karaoke at Harvelle's.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-13T12:32:18",
-      "confidence": "high"
-    },
     "f795c8e301fd": {
       "id": "f795c8e301fd",
       "description": "Live show at 2220 Arts + Archives in Historic Filipinotown.",
@@ -5839,13 +5674,6 @@
     "3ccb6e90790d": {
       "id": "3ccb6e90790d",
       "description": "Indie/electronic artist G Flip performs at Roxy Theatre in West Hollywood (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-14T12:35:05",
-      "confidence": "high"
-    },
-    "97e3e46d97a5": {
-      "id": "97e3e46d97a5",
-      "description": "Jazz ensemble Adi Meyerson & Dark Matter explores the balance between composition and improvisation at Sam First (7:30pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-14T12:35:05",
       "confidence": "high"
@@ -6103,26 +5931,6 @@
       "enriched_at": "2026-07-15T12:33:59",
       "confidence": "medium"
     },
-    "bd951db3fbc4": {
-      "id": "bd951db3fbc4",
-      "type": "film",
-      "subgenres": [
-        "rep/arthouse"
-      ],
-      "label_orbit": [],
-      "energy": "listening",
-      "setting": "cinema",
-      "vibe": [
-        "analog-film"
-      ],
-      "sounds_like": [],
-      "artist_notes": [],
-      "curator_note": "A rare theatrical 35mm print of Interview with the Vampire — Neil Jordan's lush, gothic '94 adaptation holds up as pure mood, and the format is the whole reason to go instead of streaming it.",
-      "description": "Interview with the Vampire (1994) screened on 35mm at Vidiots, 7:30pm.",
-      "confidence": "high",
-      "enriched_at": "2026-07-18T12:30:56",
-      "enriched_tier": "full"
-    },
     "7c650dc81dc0": {
       "id": "7c650dc81dc0",
       "type": "club",
@@ -6171,18 +5979,6 @@
     "df93da6917d0": {
       "id": "df93da6917d0",
       "description": "The Signal Tour with f.mph, Lionmilk, Kitsune Kawai at 2220 Arts + Archives (7:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-16T16:15:22"
-    },
-    "e4802e011df5": {
-      "id": "e4802e011df5",
-      "description": "Run Lola Run (1998) screened at Vidiots, Eagle Rock (1pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-16T16:15:22"
-    },
-    "15b4661d9ae4": {
-      "id": "15b4661d9ae4",
-      "description": "DJ Prince Spectre at Sid The Cat Auditorium, South Pasadena (5pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-16T16:15:22"
     },
@@ -6373,13 +6169,6 @@
       "enriched_at": "2026-07-17T12:37:10",
       "confidence": "high"
     },
-    "75ec53b4dd2e": {
-      "id": "75ec53b4dd2e",
-      "description": "Free all-night electronic dance party at Kiss Kiss Bang Bang (Koreatown), 10pm w/RSVP.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-17T12:37:10",
-      "confidence": "high"
-    },
     "e11dc7facd5c": {
       "id": "e11dc7facd5c",
       "description": "Free Grateful Dead dance tribute (deep house) at Teragram Ballroom (Westlake), 9pm.",
@@ -6418,13 +6207,6 @@
     "b71fa91d6ecd": {
       "id": "b71fa91d6ecd",
       "description": "Rock band Sanglorians at The Redwood Bar and Grill (DTLA), 8pm.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-17T12:37:10",
-      "confidence": "high"
-    },
-    "6b7b2907e8dd": {
-      "id": "6b7b2907e8dd",
-      "description": "Documentary screening: American Pachuco: The Legend of Luis Valdez at Vidiots (7pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-17T12:37:10",
       "confidence": "high"
@@ -8331,13 +8113,6 @@
       "enriched_at": "2026-07-20T12:26:46",
       "confidence": "low"
     },
-    "d3cdcc9ddefb": {
-      "id": "d3cdcc9ddefb",
-      "description": "Electronic night featuring Motorist at The Offbeat Bar (9pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "high"
-    },
     "936d1d3650d9": {
       "id": "936d1d3650d9",
       "description": "Live music night \"very good mondays\" at Gold Diggers (East Hollywood, 7pm).",
@@ -8535,13 +8310,6 @@
     "fd904574d207": {
       "id": "fd904574d207",
       "description": "The Fast and the Furious 25th Anniversary screening at Vista Theater Los Feliz (7:30pm Tue).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-21T12:27:27",
-      "confidence": "high"
-    },
-    "bfac3c0c03e6": {
-      "id": "bfac3c0c03e6",
-      "description": "Clinic: tech house & deep house at Jungle Hollywood (10pm-2:30am Tue, 21+).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-21T12:27:27",
       "confidence": "high"
@@ -9520,13 +9288,6 @@
       "enriched_at": "2026-07-22T12:28:21",
       "confidence": "high"
     },
-    "301ec528a950": {
-      "id": "301ec528a950",
-      "description": "Prolific Experience with special guests at The Novo in Downtown LA.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-22T12:28:21",
-      "confidence": "medium"
-    },
     "21dbd6be17ef": {
       "id": "21dbd6be17ef",
       "description": "The Spazmatics and Alta Avenue perform at The Venice West bar in Venice.",
@@ -9617,13 +9378,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-22T12:28:21",
       "confidence": "high"
-    },
-    "e0c9d7e98606": {
-      "id": "e0c9d7e98606",
-      "description": "Free afrobeats day party at Vuuka House (4pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-22T12:28:21",
-      "confidence": "medium"
     },
     "6c94d2452f44": {
       "id": "6c94d2452f44",
@@ -10345,13 +10099,6 @@
       "enriched_at": "2026-07-24",
       "confidence": "high"
     },
-    "642500cc4bbf": {
-      "id": "642500cc4bbf",
-      "description": "Nightshift After Hours at The Lexington, DTLA (11pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-24",
-      "confidence": "high"
-    },
     "3cbfb6111742": {
       "id": "3cbfb6111742",
       "description": "Nightshift After Hours at The Lexington, DTLA (11pm).",
@@ -11026,13 +10773,6 @@
       "enriched_at": "2026-07-24",
       "confidence": "high"
     },
-    "252a3a635476": {
-      "id": "252a3a635476",
-      "description": "Electronic show at Wayfarer with Stasis, Lost Angeles, Kung Fu Mike, Vero Muerte, and Weekend Fixers (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-24",
-      "confidence": "medium"
-    },
     "981e6281135e": {
       "id": "981e6281135e",
       "description": "2010s EDM tribute night at Time Nightclub (10pm).",
@@ -11417,13 +11157,6 @@
       "enriched_at": "2026-07-26T12:34:22",
       "confidence": "high"
     },
-    "935b2ddcc1e8": {
-      "id": "935b2ddcc1e8",
-      "description": "Weekly Wednesday happy hour at Wildcrust: wood-fired pizzas and sides (5-7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
     "6a57a9e6f292": {
       "id": "6a57a9e6f292",
       "description": "House of Chic Radio DJ set with GraceBones.",
@@ -11573,13 +11306,6 @@
       "enriched_at": "2026-07-26T12:34:22",
       "confidence": "high"
     },
-    "dceb0ca60368": {
-      "id": "dceb0ca60368",
-      "description": "Rooftop flea market in Los Feliz, 10am-4pm.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
     "514a7503847c": {
       "id": "514a7503847c",
       "description": "Electronic DJ set at Sid The Cat Auditorium in South Pasadena.",
@@ -11685,13 +11411,6 @@
       "enriched_at": "2026-07-26T12:34:22",
       "confidence": "high"
     },
-    "de345a11980a": {
-      "id": "de345a11980a",
-      "description": "Weekly Wednesday jazz jam at The Dresden, 8:30-11:30pm, no cover.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
     "d07d0579a314": {
       "id": "d07d0579a314",
       "description": "Sapphic electronic dance party at Club Lagos.",
@@ -11713,23 +11432,9 @@
       "enriched_at": "2026-07-26T12:34:22",
       "confidence": "high"
     },
-    "1ff7bfb9df0b": {
-      "id": "1ff7bfb9df0b",
-      "description": "Flea market in Los Feliz, 10am-4pm with Saturday/Sunday bundle discount.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
     "3dd8b566e809": {
       "id": "3dd8b566e809",
       "description": "Jazz trio at The Dresden, 1st & 3rd Sundays 7:30-10:30pm, no cover.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
-    "f0335b3017ec": {
-      "id": "f0335b3017ec",
-      "description": "Flea market in Los Feliz, 10am-4pm.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-26T12:34:22",
       "confidence": "high"
@@ -11786,13 +11491,6 @@
     "5e3c5bc9d657": {
       "id": "5e3c5bc9d657",
       "description": "Miki Yamanaka Breathe night two at Sam First, second set broadcast on KJazz, Sat 8/22.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
-    "d5a34361c9c6": {
-      "id": "d5a34361c9c6",
-      "description": "Vintage and antique flea market at Los Feliz Flea on Sat 8/22 (10am–4pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-26T12:34:22",
       "confidence": "high"
@@ -11916,13 +11614,6 @@
       "enriched_at": "2026-07-26T12:34:22",
       "confidence": "high"
     },
-    "e321ba670f67": {
-      "id": "e321ba670f67",
-      "description": "Vintage and antique flea market at Los Feliz Flea on Sat 8/29 (10am–4pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
     "26bd612bf019": {
       "id": "26bd612bf019",
       "description": "Grand Ole Echo (country) at The Echo in Echo Park on Sun 8/30 (5:30pm).",
@@ -11958,20 +11649,6 @@
       "enriched_at": "2026-07-26T12:34:22",
       "confidence": "high"
     },
-    "e769d22ad5d8": {
-      "id": "e769d22ad5d8",
-      "description": "Vintage and antique flea market at Los Feliz Flea on Sun 8/2 (10am–4pm, free with Saturday booking).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
-    "cfecfe3acd54": {
-      "id": "cfecfe3acd54",
-      "description": "Vintage and antique flea market at Los Feliz Flea on Sun 8/9 (10am–4pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
     "ea16a537951d": {
       "id": "ea16a537951d",
       "description": "Live show (Luke Revyn, Noah Cunane, Louis Cxlins, Haden Spence) at The Venice West in Venice on Thu 8/13 (7pm).",
@@ -11996,20 +11673,6 @@
     "dd32c1d00ab7": {
       "id": "dd32c1d00ab7",
       "description": "Jazz residency at Venice's Del Monte Speakeasy.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
-    "0328406885a8": {
-      "id": "0328406885a8",
-      "description": "Los Feliz Flea Sunday market, 10am–4pm.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
-    "0e77b046a607": {
-      "id": "0e77b046a607",
-      "description": "Los Feliz Flea Sunday market, 10am–4pm.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-26T12:34:22",
       "confidence": "high"
@@ -12108,13 +11771,6 @@
     "527cca669585": {
       "id": "527cca669585",
       "description": "Tab Benoit and The Zac Schulze Gang at The Venice West (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-26T12:34:22",
-      "confidence": "high"
-    },
-    "a4b88a8cc3f6": {
-      "id": "a4b88a8cc3f6",
-      "description": "Los Feliz Flea Sunday market, 10am–4pm.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-26T12:34:22",
       "confidence": "high"
@@ -12336,13 +11992,6 @@
     "6df8080a6aba": {
       "id": "6df8080a6aba",
       "description": "Arc Iris Movie Night: iTMRW screening at 2220 Arts + Archives in Historic Filipinotown (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-27T12:34:46",
-      "confidence": "high"
-    },
-    "a63b231faff1": {
-      "id": "a63b231faff1",
-      "description": "Dredd screening at New Beverly Cinema in Fairfax (7:30pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-27T12:34:46",
       "confidence": "high"
@@ -12680,12 +12329,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-28T12:36:35"
     },
-    "b96dde242dca": {
-      "id": "b96dde242dca",
-      "description": "Free electronic after-hours party at DTLA location (11pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-28T12:36:35"
-    },
     "843e69af3c84": {
       "id": "843e69af3c84",
       "description": "Free queer house and tech-house night at Beaches Tropicana (9pm).",
@@ -12913,20 +12556,6 @@
       "enriched_at": "2026-07-28T12:36:35",
       "confidence": "medium"
     },
-    "47f0419c11b3": {
-      "id": "47f0419c11b3",
-      "description": "Party event listing at UCLA (title/timing mismatch suggests data error).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-28T12:36:35",
-      "confidence": "low"
-    },
-    "0f5c7a675ad5": {
-      "id": "0f5c7a675ad5",
-      "description": "Free DJ crew meeting/gathering at District 7.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-28T12:36:35",
-      "confidence": "medium"
-    },
     "f3916cf433d8": {
       "id": "f3916cf433d8",
       "description": "Electronic music night at listening bar Bar Franca (DTLA).",
@@ -13114,12 +12743,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-28T12:36:35"
     },
-    "3e50a17f17d3": {
-      "id": "3e50a17f17d3",
-      "description": "Open air electronic party at UTOPIA with secret guest headliner.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-28T12:36:35"
-    },
     "3d3f174b7279": {
       "id": "3d3f174b7279",
       "description": "Electronic party featuring Brandy Haze, The PRVLG, MarcLo, Deezy, and Ant Clemons at 929 S Broadway.",
@@ -13276,18 +12899,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-28T12:36:35"
     },
-    "24715dbfaa2c": {
-      "id": "24715dbfaa2c",
-      "description": "Fashion show and white party at SUR Restaurant and Lounge.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-28T12:36:35"
-    },
-    "f6be3a2e5d2a": {
-      "id": "f6be3a2e5d2a",
-      "description": "Electronic party hosted by D.Sharp at The Let's Go.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-28T12:36:35"
-    },
     "79f7abdec311": {
       "id": "79f7abdec311",
       "description": "Electronic night with Daniel Rincon, DJ Niko C, and NAP (MX) at Plaza Nightclub.",
@@ -13435,18 +13046,6 @@
     "4f14f55b80da": {
       "id": "4f14f55b80da",
       "description": "J. Cole hip-hop headliner at Crypto.com Arena.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-28T12:36:35"
-    },
-    "0f464e1a019c": {
-      "id": "0f464e1a019c",
-      "description": "Jazz performance by Sun Suede and Skye Smith at Del Monte Speakeasy in Venice.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-28T12:36:35"
-    },
-    "618dbd44abb9": {
-      "id": "618dbd44abb9",
-      "description": "Sound Collective live showcase at Troubadour in West Hollywood.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-28T12:36:35"
     },
@@ -13647,10 +13246,21 @@
     },
     "2b5f5507fd67": {
       "id": "2b5f5507fd67",
-      "description": "Arthouse screening of Nights of Cabiria at Vista Theater, Los Feliz (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "cinema",
+      "vibe": [],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Giulietta Masina's performance as a small-time Roman prostitute who keeps getting her heart broken and keeps getting back up is one of the great heartbreaking-but-hopeful turns in Fellini's catalog — the basis for Sweet Charity, minus the jazz hands.",
+      "description": "Federico Fellini's 1957 Nights of Cabiria, starring Giulietta Masina, at the Vista.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "4b919cac1172": {
       "id": "4b919cac1172",
@@ -13661,17 +13271,35 @@
     },
     "c867628d2d69": {
       "id": "c867628d2d69",
-      "description": "Christopher Nolan's The Prestige in 35mm at Academy Museum of Motion Pictures.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "setting": "cinema",
+      "energy": "listening",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Nolan on 35mm is basically a standing order — this one's a back-half twist movie that plays even better off a real print than off a stream.",
+      "description": "Christopher Nolan's 2006 magician-rivalry thriller The Prestige, screened in 35mm at the Academy Museum.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "03f4985eaa8e": {
       "id": "03f4985eaa8e",
-      "description": "Arthouse screening of Christiane F. at Vista Theater, Los Feliz (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "setting": "cinema",
+      "energy": "listening",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "A real cult object that almost never gets a proper theatrical booking — the Vista's one of the best rooms in town to actually watch it instead of just knowing the Bowie cameo secondhand.",
+      "description": "Christiane F. (1981), the German cult drama about teenage addiction in West Berlin, with a David Bowie soundtrack cameo, at the Vista Theater.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "df9fb29f778c": {
       "id": "df9fb29f778c",
@@ -13689,17 +13317,23 @@
     },
     "0c1391d2d832": {
       "id": "0c1391d2d832",
-      "description": "Repertory screening of Michael Mann's Manhunter: The Final Cut at Alamo Drafthouse DTLA (12:45pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "6c03f30b34c9": {
-      "id": "6c03f30b34c9",
-      "description": "Free afterhours LA party with two stages and surprise guests (10pm, location TBA).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "medium"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "cinema",
+      "vibe": [
+        "matinee"
+      ],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "The film that invented screen Hannibal Lecter (spelled 'Lecktor' here) five years before Anthony Hopkins — Mann's icy neon-blue procedural look holds up, and this is his own 2011 approved recut, not the botched '86 theatrical version.",
+      "description": "Michael Mann's 1986 Hannibal Lecter procedural Manhunter, in the director's 2011 approved Final Cut.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "12af4e691426": {
       "id": "12af4e691426",
@@ -13738,10 +13372,30 @@
     },
     "6b07bf104ab3": {
       "id": "6b07bf104ab3",
-      "description": "Director Agnieszka Holland's Europa Europa in 35mm with Holland in person at Academy Museum.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "cinema",
+      "vibe": [
+        "analog-film",
+        "guest-in-person",
+        "q&a"
+      ],
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Agnieszka Holland",
+          "note": "Polish director (In Darkness, Green Border, plus Wire/Treme TV episodes) — Europa Europa, her Oscar-nominated 1990 WWII drama, is her signature film. In-person Q&A here is a genuine get, not a mid-tier tribute booking."
+        }
+      ],
+      "curator_note": "A real director-in-the-room night — Holland herself doing a Q&A after her own Oscar-nominated WWII drama, in 35mm. This is the format-plus-guest combo that makes rep cinema worth building an evening around.",
+      "description": "1990 WWII drama Europa Europa, directed by Agnieszka Holland, screening in 35mm with Holland in person for a Q&A.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "6471cf922093": {
       "id": "6471cf922093",
@@ -13780,10 +13434,42 @@
     },
     "d3e25eb26f47": {
       "id": "d3e25eb26f47",
-      "description": "DJ Seinfeld, salute, and Chloedees at Beatport Live x HARD Selects Takeover (7pm, free RSVP, 21+, complimentary drinks).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house"
+      ],
+      "label_orbit": [
+        "Ninja Tune"
+      ],
+      "energy": "groove / early-evening",
+      "setting": "club",
+      "vibe": [
+        "free-rsvp",
+        "tba-location"
+      ],
+      "sounds_like": [
+        "DJ Seinfeld's hazy lo-fi house",
+        "salute's punchier Ninja Tune house"
+      ],
+      "artist_notes": [
+        {
+          "name": "DJ Seinfeld",
+          "note": "Swedish-Argentine producer (Armand Jakobsson) who pioneered 'lo-fi house' — tracked name; hazy, nostalgic house that's a shade more tasteful than most of this bill."
+        },
+        {
+          "name": "salute",
+          "note": "Austrian-born, Brighton-based producer signed to Ninja Tune — fast, soulful house with a UK garage-adjacent bounce; has been playing bigger US festival stages (EDC) this year."
+        },
+        {
+          "name": "Chloëdees",
+          "note": "LA-based DJ and radio host known for genre-blending, eclectic sets rather than a single lane — less pedigree info available, so treat as the wildcard on this bill."
+        }
+      ],
+      "curator_note": "Free RSVP industry showcase at Beatport's LA HQ during HARD Summer weekend — DJ Seinfeld's hazy lo-fi house next to salute's punchier stuff is a solid pairing for a freebie, just don't expect a proper club room.",
+      "description": "Free RSVP DJ showcase at Beatport's LA HQ during HARD Summer weekend, with DJ Seinfeld, salute, and Chloëdees.",
+      "confidence": "medium",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "a97fc55812d1": {
       "id": "a97fc55812d1",
@@ -13822,10 +13508,28 @@
     },
     "1576282b6683": {
       "id": "1576282b6683",
-      "description": "Paul Verhoeven's The 4th Man in 35mm at Academy Museum of Motion Pictures.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "cinema",
+      "vibe": [
+        "analog-film"
+      ],
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Paul Verhoeven",
+          "note": "Before RoboCop/Total Recall/Basic Instinct, Verhoeven made kinky, Catholic-guilt-soaked Dutch thrillers — The 4th Man is the clearest preview of the button-pushing instincts he'd bring to Hollywood."
+        }
+      ],
+      "curator_note": "Verhoeven's Dutch period is the less-seen half of his filmography and this is arguably the best of it — sexy, sacrilegious, genuinely unhinged in a way the studio films could only hint at.",
+      "description": "Paul Verhoeven's 1983 Dutch psychosexual thriller The 4th Man, screening in 35mm.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "5420fbe840de": {
       "id": "5420fbe840de",
@@ -13843,10 +13547,28 @@
     },
     "1ab9d4f6c523": {
       "id": "1ab9d4f6c523",
-      "description": "Arthouse screening of Broken Lullaby at Vista Theater, Los Feliz (2pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "cinema",
+      "vibe": [
+        "matinee"
+      ],
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Ernst Lubitsch",
+          "note": "Mostly known for the light comic touch (Ninotchka, The Shop Around the Corner) — Broken Lullaby is his one dead-serious drama, a 1932 anti-war film with none of the usual wit."
+        }
+      ],
+      "curator_note": "No 'Lubitsch touch' comedy here — a genuinely devastating 1932 anti-war drama about a French soldier trying to atone to the family of the German he killed. Worth it precisely because it's the outlier in his catalog.",
+      "description": "Ernst Lubitsch's atypical 1932 anti-war drama Broken Lullaby (aka The Man I Killed), at the Vista.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "3ad7dfd21580": {
       "id": "3ad7dfd21580",
@@ -13857,10 +13579,27 @@
     },
     "03003ccdbe58": {
       "id": "03003ccdbe58",
-      "description": "Director Adrian Lyne's Unfaithful in 35mm with Lyne in person at Academy Museum.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "setting": "cinema",
+      "vibe": [
+        "guest-in-person"
+      ],
+      "energy": "listening",
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Adrian Lyne",
+          "note": "American director of Flashdance, Fatal Attraction, 9½ Weeks and Indecent Proposal — the go-to guy for glossy '80s/'90s erotic thrillers; Unfaithful (2002) is one of his later, less-discussed entries in that lane."
+        }
+      ],
+      "curator_note": "Not Lyne's best-known film, but a director Q&A on 35mm still beats a stream, and it's a rare chance to hear him talk through the erotic-thriller playbook he basically wrote.",
+      "description": "Adrian Lyne's 2002 erotic thriller Unfaithful, screened in 35mm with Lyne in person at the Academy Museum.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "92817628d36e": {
       "id": "92817628d36e",
@@ -13878,10 +13617,29 @@
     },
     "a405c73531cb": {
       "id": "a405c73531cb",
-      "description": "Special event screening of Where is the Friend's House? at Alamo Drafthouse DTLA (12:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse",
+        "world"
+      ],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "cinema",
+      "vibe": [
+        "matinee"
+      ],
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Abbas Kiarostami",
+          "note": "Iranian New Wave pioneer; this 1987 film (first of his loose Koker trilogy) is his breakthrough — a boy's small odyssey to return a classmate's notebook, deceptively simple and genuinely moving."
+        }
+      ],
+      "curator_note": "Filed under Alamo's kids-camp series, but don't let that undersell it — it's a real Kiarostami classic, gentle enough for a family matinee and substantial enough to be worth catching solo.",
+      "description": "Abbas Kiarostami's 1987 Iranian classic about a boy's journey to return his friend's notebook, part of Alamo's Kids Camp series.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "9c5d6edf2c39": {
       "id": "9c5d6edf2c39",
@@ -13941,10 +13699,29 @@
     },
     "1b624707a36e": {
       "id": "1b624707a36e",
-      "description": "Arthouse screening of Theorem at Vista Theater, Los Feliz (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "cinema",
+      "vibe": [],
+      "sounds_like": [
+        "Buñuel's bourgeois-disruption satires",
+        "Pasolini's own Salò (much colder, later)"
+      ],
+      "artist_notes": [
+        {
+          "name": "Pier Paolo Pasolini",
+          "note": "Italian poet-turned-director; Teorema (this film's Italian title) is his most controlled provocation — a mysterious stranger seduces every member of a bourgeois family, then vanishes, unraveling each of them differently."
+        }
+      ],
+      "curator_note": "Cold, strange, essential '68 arthouse — Terence Stamp as the stranger who wrecks a whole family just by being desired. Not a fun watch, but a foundational one if you're building out the rep-cinema habit.",
+      "description": "Pier Paolo Pasolini's 1968 Teorema (English title Theorem), screening at the Vista.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "8b7bdaa624e4": {
       "id": "8b7bdaa624e4",
@@ -13981,48 +13758,6 @@
       "enriched_at": "2026-07-29T12:57:48",
       "confidence": "high"
     },
-    "b641dd6ac148": {
-      "id": "b641dd6ac148",
-      "description": "Repertory screening of Casualties of War at Alamo Drafthouse DTLA (Tue 10:15pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "c04e1a29a22b": {
-      "id": "c04e1a29a22b",
-      "description": "Interactive Jeopardy! screening at Alamo Drafthouse DTLA (Tue 7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "8a652a61ff2f": {
-      "id": "8a652a61ff2f",
-      "description": "Michael Mann's Manhunter: The Final Cut matinee at Alamo Drafthouse DTLA (12:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "f025601a5e6f": {
-      "id": "f025601a5e6f",
-      "description": "Kurosawa's Rashomon matinee at Alamo Drafthouse DTLA (1:15pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "8e0d1530bae0": {
-      "id": "8e0d1530bae0",
-      "description": "Repertory screening of The Thing Called Love at Alamo Drafthouse DTLA (3:50pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "ff02da11592c": {
-      "id": "ff02da11592c",
-      "description": "David Cronenberg's eXistenZ at Alamo Drafthouse DTLA (7:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
     "c0cf820f4a22": {
       "id": "c0cf820f4a22",
       "description": "Michael Mann's Manhunter: The Final Cut matinee at Alamo Drafthouse DTLA (12:30pm).",
@@ -14046,10 +13781,27 @@
     },
     "af972e4bb84e": {
       "id": "af972e4bb84e",
-      "description": "Green Border (2023) directed by Agnieszka Holland in DCP + director in person at Academy Museum.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "setting": "cinema",
+      "vibe": [
+        "guest-in-person"
+      ],
+      "energy": "listening",
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Agnieszka Holland",
+          "note": "Polish director (Europa Europa, In Darkness) known for confronting political and wartime subject matter head-on; Green Border tackles the Polish-Belarusian refugee crisis and was genuinely controversial in Poland."
+        }
+      ],
+      "curator_note": "Holland's most overtly political film in years — stark black-and-white, no easy answers about the border crisis — and she's there in person to talk through it.",
+      "description": "Agnieszka Holland's 2023 refugee-crisis drama Green Border, with Holland in person at the Academy Museum.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "a5960253c60e": {
       "id": "a5960253c60e",
@@ -14144,10 +13896,24 @@
     },
     "3ddcc550eb98": {
       "id": "3ddcc550eb98",
-      "description": "A Man Escaped (1956, Robert Bresson) in 35mm at Academy Museum.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "setting": "cinema",
+      "energy": "listening",
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Robert Bresson",
+          "note": "French director (Pickpocket, Au Hasard Balthazar) known for austere, non-professional-actor 'models' and a spare, almost devotional style — A Man Escaped (1956) is one of his most acclaimed."
+        }
+      ],
+      "curator_note": "Bresson strips a prison-escape plot down to nothing but process and it still hits harder than most thrillers — a real reason to catch a 35mm print if you've never seen his work.",
+      "description": "Robert Bresson's 1956 prison-escape drama A Man Escaped, screened in 35mm at the Academy Museum.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "bafbf8f24394": {
       "id": "bafbf8f24394",
@@ -14291,10 +14057,19 @@
     },
     "0c8af588d561": {
       "id": "0c8af588d561",
-      "description": "Repertory screening of Tarantino's 1994 crime drama at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "setting": "cinema",
+      "energy": "listening",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Pulp Fiction on a real screen never really gets old, though this listing doesn't say what print or format it's running — worth a call to the Nuart if that matters to you.",
+      "description": "Repertory screening of Tarantino's 1994 crime classic Pulp Fiction at the Nuart Theatre.",
+      "confidence": "medium",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "1e79ef885865": {
       "id": "1e79ef885865",
@@ -14508,10 +14283,27 @@
     },
     "6a62184d1d0f": {
       "id": "6a62184d1d0f",
-      "description": "Train to Busan (2016) in 4K DCP with director Yeon Sang-ho in person at Academy Museum.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "setting": "cinema",
+      "vibe": [
+        "guest-in-person"
+      ],
+      "energy": "listening",
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Yeon Sang-ho",
+          "note": "South Korean director of Train to Busan and the Netflix series Hellbound — genre horror with real social/political bite underneath the zombie mechanics."
+        }
+      ],
+      "curator_note": "Still one of the best genre movies of the last decade, and you get the director in the room for it — worth building a rep-cinema night around.",
+      "description": "Train to Busan (2016), Yeon Sang-ho's zombie-outbreak thriller, in 4K DCP with the director in person.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "7355f3207a13": {
       "id": "7355f3207a13",
@@ -14620,10 +14412,23 @@
     },
     "2251586c6a9b": {
       "id": "2251586c6a9b",
-      "description": "John Ford's 1956 Western in 70mm at Academy Museum.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "cinema",
+      "vibe": [
+        "analog-film"
+      ],
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "One of the greatest westerns ever made, and one of the vanishingly rare chances to see it the way it was shot — Ford's VistaVision landscapes in actual 70mm, not a DCP pretending to be one.",
+      "description": "John Ford's 1956 western The Searchers, starring John Wayne, presented in 70mm.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "b05a0a369f34": {
       "id": "b05a0a369f34",
@@ -14634,10 +14439,35 @@
     },
     "b69a75ba9b8d": {
       "id": "b69a75ba9b8d",
-      "description": "Six hours of deep house with Monkey Safari and Marques Wyatt under the 6th Street Bridge, open air (9pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "deep-house"
+      ],
+      "setting": "outdoor",
+      "energy": "groove / night",
+      "label_orbit": [
+        "Get Physical",
+        "Anjunadeep"
+      ],
+      "sounds_like": [
+        "Bedouin",
+        "Applescal"
+      ],
+      "artist_notes": [
+        {
+          "name": "Monkey Safari",
+          "note": "German duo (Get Physical, Anjunadeep, Bedrock) making sunny, melodic organic house — run their own Hommage label and own a club in their hometown of Halle."
+        },
+        {
+          "name": "Marques Wyatt",
+          "note": "West Coast deep house legend — ran LA's long-running Deep party/residency from the late '90s into the 2010s and is generally credited with helping put LA's dance scene on the map alongside NYC and Miami."
+        }
+      ],
+      "curator_note": "Marques Wyatt basically built the LA deep house scene from the ground up, and pairing him with Monkey Safari's sunnier melodic sound for six hours under the bridge is a genuinely thoughtful booking, not just a location flex.",
+      "description": "Six-hour open-air deep house party under the 6th Street Bridge with Monkey Safari and LA scene veteran Marques Wyatt.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "22778506d988": {
       "id": "22778506d988",
@@ -14704,10 +14534,22 @@
     },
     "1b55726703a8": {
       "id": "1b55726703a8",
-      "description": "Charlize Theron in conversation followed by Mad Max: Fury Road screening at Academy Museum.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "setting": "cinema",
+      "vibe": [
+        "guest-in-person"
+      ],
+      "energy": "listening",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Fury Road holds up as one of the best pure-action films of the last 20 years no matter the format, and Theron talking Furiosa before it rolls is the actual reason to show up.",
+      "description": "Charlize Theron in conversation, followed by a screening of Mad Max: Fury Road (2015, DCP) at the Academy Museum.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "b452ed8bb2ea": {
       "id": "b452ed8bb2ea",
@@ -14789,104 +14631,6 @@
     "7301db1f02ef": {
       "id": "7301db1f02ef",
       "description": "David Moscoe & Company play instrumental jazz Saturday nights at The Dresden, no cover (9:15pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "7f43a8e5b934": {
-      "id": "7f43a8e5b934",
-      "description": "Posh event listing.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "low"
-    },
-    "eb5900a25227": {
-      "id": "eb5900a25227",
-      "description": "Posh event listing.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "low"
-    },
-    "30aff649c481": {
-      "id": "30aff649c481",
-      "description": "Posh event listing.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "low"
-    },
-    "b672a28fec77": {
-      "id": "b672a28fec77",
-      "description": "Posh event listing.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "low"
-    },
-    "6c449774e935": {
-      "id": "6c449774e935",
-      "description": "The Iron Giant (1999) animated action-adventure repertory screening at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "7519c8ae1de3": {
-      "id": "7519c8ae1de3",
-      "description": "The Dark Knight Rises (2012) repertory screening at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "76ecc1e7ede9": {
-      "id": "76ecc1e7ede9",
-      "description": "Supergirl (1984) action-fantasy repertory screening at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "738fa2f23131": {
-      "id": "738fa2f23131",
-      "description": "Reading Lolita in Tehran drama repertory screening at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "5d06aaf0f12e": {
-      "id": "5d06aaf0f12e",
-      "description": "Brunello: The Gracious Visionary documentary repertory screening at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "5590c3c87308": {
-      "id": "5590c3c87308",
-      "description": "Young Washington war-action repertory screening at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "77e3d4d2d25a": {
-      "id": "77e3d4d2d25a",
-      "description": "Maddie's Secret comedy-drama repertory screening at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "9218b9c895af": {
-      "id": "9218b9c895af",
-      "description": "Mary Oliver: Saved by the Beauty of the World documentary at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "2c07e0fd98ff": {
-      "id": "2c07e0fd98ff",
-      "description": "Summer Tour documentary-music repertory screening at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "2019ea59a6e0": {
-      "id": "2019ea59a6e0",
-      "description": "Hadestown: The Musical repertory screening at Nuart Theatre.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-29T12:57:48",
       "confidence": "high"
@@ -14977,10 +14721,24 @@
     },
     "605ece3bd918": {
       "id": "605ece3bd918",
-      "description": "HÄXAN silent film with live orchestral accompaniment by Quarkestra at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "setting": "cinema",
+      "energy": "listening",
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Quarkestra",
+          "note": "Touring silent-film orchestra (Denver-based) that writes original live scores for classic silent films — Häxan and Nosferatu are their regular touring pairing, played off audience reaction and the room in the moment."
+        }
+      ],
+      "curator_note": "Häxan's surreal 1922 witchcraft-history visuals plus a live original score is the kind of format-first night rep cinema exists for — Quarkestra does the same treatment for Nosferatu and it plays well.",
+      "description": "Häxan (1922), the Swedish-Danish silent classic about the history of witchcraft, screened with a live original score by touring orchestra Quarkestra.",
+      "confidence": "high",
+      "enriched_at": "2026-07-30",
+      "enriched_tier": "full"
     },
     "dcbc13b90e1c": {
       "id": "dcbc13b90e1c",
@@ -15569,6 +15327,727 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-29T12:57:48",
       "confidence": "high"
+    },
+    "4036cae600a8": {
+      "id": "4036cae600a8",
+      "description": "Free electronic dance party at Kiss Kiss Bang Bang in Koreatown with DJ STONE and special guests (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "bd21eaca80f3": {
+      "id": "bd21eaca80f3",
+      "description": "Electronic DJs Michelle Leshem, Dor, and Shabzi at Bar Franca in DTLA (9pm–2am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "d81ec33e21ae": {
+      "id": "d81ec33e21ae",
+      "description": "Late-night party at Palmilla.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "4570236c376b": {
+      "id": "4570236c376b",
+      "description": "After-hours rooftop party at Sunset Rooftop Hollywood (11:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "bb0f9ea4b221": {
+      "id": "bb0f9ea4b221",
+      "description": "Electronic party with Spank Rock and Travis Holcombe at Club Tee Gee in Atwater Village (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "7a022bc2bbaf": {
+      "id": "7a022bc2bbaf",
+      "description": "Electronic DJs Alex From Tokyo, Tony Watson, and Juan Nunez at Bar Franca in DTLA (9pm–2am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "014619beadb2": {
+      "id": "014619beadb2",
+      "description": "Trance night in Downtown LA.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "dfb1faadbfa6": {
+      "id": "dfb1faadbfa6",
+      "description": "Late-night electronic after-hours at The Lexington in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "4b20a83df3c8": {
+      "id": "4b20a83df3c8",
+      "description": "After-hours party at 129 E 3rd St in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "6921c4628e21": {
+      "id": "6921c4628e21",
+      "description": "Late-night electronic after-hours at The Lexington in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "9d4ddd875d4f": {
+      "id": "9d4ddd875d4f",
+      "description": "After-hours party at 129 E 3rd St in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "bffdabd331c6": {
+      "id": "bffdabd331c6",
+      "description": "Pre-festival mega after-hours party at UTOPIA with special guests (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "0a28dddbbe2f": {
+      "id": "0a28dddbbe2f",
+      "description": "Two-stage mega after-hours party with techno, house, and tech house at UTOPIA x REUNITE (9pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "2c54eded9d0c": {
+      "id": "2c54eded9d0c",
+      "description": "Pool party at 2346 W 111th St (2:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "533ce1bb2c4f": {
+      "id": "533ce1bb2c4f",
+      "description": "DJ SMOKE ONE hosts Smash Saturdays Summer party (21+) at Manhattan Beach Bar Lounge (9pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "3ed2f6917c54": {
+      "id": "3ed2f6917c54",
+      "description": "OASIS LA × Friends N Strangers × Freakuency LA after-hours party (venue TBA, 10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "0d0b532611d8": {
+      "id": "0d0b532611d8",
+      "description": "Late-night electronic after-hours at The Lexington in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "3023c8ed6137": {
+      "id": "3023c8ed6137",
+      "description": "After-hours party at 129 E 3rd St in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "2a4c2461ba9b": {
+      "id": "2a4c2461ba9b",
+      "description": "Late-night electronic after-hours at The Lexington in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "d1e479d03ad6": {
+      "id": "d1e479d03ad6",
+      "description": "After-hours party at 129 E 3rd St in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "8b7f96875de8": {
+      "id": "8b7f96875de8",
+      "description": "Late-night electronic after-hours at The Lexington in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "a70b2c7e7150": {
+      "id": "a70b2c7e7150",
+      "description": "After-hours party at 129 E 3rd St in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "c73ba305a4ee": {
+      "id": "c73ba305a4ee",
+      "description": "Late-night electronic after-hours at The Lexington in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "a6d9f81fb758": {
+      "id": "a6d9f81fb758",
+      "description": "After-hours party at 129 E 3rd St in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "fa76692e84cf": {
+      "id": "fa76692e84cf",
+      "description": "Late-night electronic after-hours at The Lexington in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "6beb29d5e94d": {
+      "id": "6beb29d5e94d",
+      "description": "After-hours party at 129 E 3rd St in DTLA (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "2c87700628ce": {
+      "id": "2c87700628ce",
+      "description": "KCON afterparty electronic event at Clifton's Republic in downtown LA.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "426f3b7cfe06": {
+      "id": "426f3b7cfe06",
+      "description": "Screening of the classic film Of Human Bondage at Vista Theater in Los Feliz.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "2c3e98b2bc43": {
+      "id": "2c3e98b2bc43",
+      "description": "Late-night electronic event (venue TBA).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "b1b47ae8779c": {
+      "id": "b1b47ae8779c",
+      "description": "Free Friday night dance party at Kiss Kiss Bang Bang with DJ Tamara Lanza and special guests.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "3cc003b9e382": {
+      "id": "3cc003b9e382",
+      "description": "Electronic event 9pm-2am at Somewhere Special.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "192481945e47": {
+      "id": "192481945e47",
+      "description": "Aurat zine release party at The Monty Bar featuring Aurat and mimi cry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "47cb27e950d2": {
+      "id": "47cb27e950d2",
+      "description": "Two-stage electronic afterparty at Utopia with RCKSLVR, KHROME, GRLFRND, Tempo, and a secret guest.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "bd685d1f9057": {
+      "id": "bd685d1f9057",
+      "description": "Aug Fest 2026 at SlideThruTheVenue with Lennonxg, GreedyBoyz, Awxy, Pak Joko, and others.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "1724544d4b6f": {
+      "id": "1724544d4b6f",
+      "description": "Party at 5175 N Figueroa St featuring DJs NAMELESS, AB, and ISSAMAU.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "64635ef65aeb": {
+      "id": "64635ef65aeb",
+      "description": "DJ Grae Matter at Sid The Cat Auditorium in South Pasadena.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "6091641f9208": {
+      "id": "6091641f9208",
+      "description": "DJ Shroomdaddy at Sid The Cat Auditorium in South Pasadena.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "489677f71163": {
+      "id": "489677f71163",
+      "description": "KCRW DJ Boogie Boudreaux at Sid The Cat Auditorium in South Pasadena.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "41d942d81139": {
+      "id": "41d942d81139",
+      "description": "Museo curated techno night at Que Sera in Long Beach (9pm-2am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "d9ff6e169768": {
+      "id": "d9ff6e169768",
+      "description": "Sundaze open-air party at Utopia (7:30pm) with a secret headliner.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "8c8280ddc39c": {
+      "id": "8c8280ddc39c",
+      "description": "Screening of Mary Oliver: Saved by the Beauty of the World at Vidiots in Eagle Rock.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "e8d8906e0223": {
+      "id": "e8d8906e0223",
+      "description": "Screening of Manhunter: The Final Cut at Vidiots in Eagle Rock.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "40278cd989b9": {
+      "id": "40278cd989b9",
+      "description": "Rooftop flea market at Los Feliz Flea (10am-4pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "cdc9afd566f8": {
+      "id": "cdc9afd566f8",
+      "description": "21+ show at The Regent Theater in DTLA with Scam and Jam and Von Kiss.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "52d4cf31cf9c": {
+      "id": "52d4cf31cf9c",
+      "description": "Afrobeats day party at Sofitel Hotel Beverly Hills (4pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "d5312e21ff8e": {
+      "id": "d5312e21ff8e",
+      "description": "DJ Janet LaBelle at Sid The Cat Auditorium in South Pasadena.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "1762644b9ca6": {
+      "id": "1762644b9ca6",
+      "description": "DJ Coffin Prick at Sid The Cat Auditorium in South Pasadena.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "81bf1478fd74": {
+      "id": "81bf1478fd74",
+      "description": "Electronic event at Zebulon in Frogtown with Will Worden, Same Ol' Smile, and DJ Al Lover.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "7d4c33ae75fb": {
+      "id": "7d4c33ae75fb",
+      "description": "Screening of Rob Tregenza's Talking to Strangers (1988) at 2220 Arts + Archives in Historic Filipinotown.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "1f9c054dbbf8": {
+      "id": "1f9c054dbbf8",
+      "description": "Lucky Me at The Moroccan Lounge in the Arts District (doors 6:30pm, 18+).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "56ffbf8664ed": {
+      "id": "56ffbf8664ed",
+      "description": "Mia Castillo \"In The Moonlight\" record release party at The Regent Theater in DTLA (8pm, 18+).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "9421597ae34e": {
+      "id": "9421597ae34e",
+      "description": "Unknown event.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "a8b5275a548e": {
+      "id": "a8b5275a548e",
+      "description": "LAWWSS party in Pasadena at 3pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "105fa314d8a4": {
+      "id": "105fa314d8a4",
+      "description": "Pie launch at Proof Bakery featuring Caramel Corn Cream and Passionfruit Meringue varieties.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "f4fa9ac1e9f2": {
+      "id": "f4fa9ac1e9f2",
+      "description": "Free alfresco jazz and world music series at Norton Simon Museum with admission.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "b901f4e48de4": {
+      "id": "b901f4e48de4",
+      "description": "Weekly vintage and maker flea market, 10am-4pm, free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "a6d523edde44": {
+      "id": "a6d523edde44",
+      "description": "Two-stage closing party with techno and house music at UTOPIA.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "93d3b0633d72": {
+      "id": "93d3b0633d72",
+      "description": "Multi-stage closing party with RCKSLVR, DJ Alden, DENYC, Paparazzi, and Frida Henson at Utopia.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "2e7ec3723713": {
+      "id": "2e7ec3723713",
+      "description": "Official Zeta day-after party at The Club Lagos.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "63556b1e9a1b": {
+      "id": "63556b1e9a1b",
+      "description": "Prince-themed party at Uncle Ollie's Penthouse.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "778875d6fbc8": {
+      "id": "778875d6fbc8",
+      "description": "Two-stage closing party with techno and house music at UTOPIA.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "71d74e5308d6": {
+      "id": "71d74e5308d6",
+      "description": "Rave and arcade gaming event at Dave & Buster's Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "4208798d707d": {
+      "id": "4208798d707d",
+      "description": "Weekly vintage and maker flea market, 10am-4pm, free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "70270e90afb9": {
+      "id": "70270e90afb9",
+      "description": "Romantic jazz night at Harun.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "ce1dd451ff21": {
+      "id": "ce1dd451ff21",
+      "description": "JayO's Anti-Depressants Tour with Johnny Valentine at Teragram Ballroom (all ages).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "a3cf6ee4cdf2": {
+      "id": "a3cf6ee4cdf2",
+      "description": "PROLIFIC Experience with special guests at The Novo (DTLA).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "8d4ba388cc2e": {
+      "id": "8d4ba388cc2e",
+      "description": "Mel Muñiz performs at Gold Diggers in East Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "e0e13d5a5a63": {
+      "id": "e0e13d5a5a63",
+      "description": "Weekly vintage and maker flea market, 10am-4pm, free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "f9b070d21df8": {
+      "id": "f9b070d21df8",
+      "description": "Weekly vintage and maker flea market, 10am-4pm, free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "ef0b4defc2ff": {
+      "id": "ef0b4defc2ff",
+      "description": "Digital Underground celebrates 35 years of Sex Packets at The Regent Theater (18+).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "b90309d49e7d": {
+      "id": "b90309d49e7d",
+      "description": "Eagles of Death Metal's Death By Sexy 20th anniversary tour with Paradise Vultures at The Bellwether.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "2484fc5db095": {
+      "id": "2484fc5db095",
+      "description": "Lil Eazzyy performs at The Echo in Echo Park.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "bdc769fe8d5e": {
+      "id": "bdc769fe8d5e",
+      "description": "Pallbearer with Ordh at Echoplex in Echo Park.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "f41b2a3ce0eb": {
+      "id": "f41b2a3ce0eb",
+      "description": "Angelo Mota performs at The Moroccan Lounge in the Arts District (all ages).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "ef9664f90afe": {
+      "id": "ef9664f90afe",
+      "description": "Cold Gawd and Soft Blue Shimmer at The Moroccan Lounge in the Arts District (all ages).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "eda70054cf84": {
+      "id": "eda70054cf84",
+      "description": "Baja-inspired seafood collaboration at Wildcrust with Chef Paco Moran of Loreto featuring bluefin tuna pizza and scallop tostadas.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "6886bc0dfddd": {
+      "id": "6886bc0dfddd",
+      "description": "Bistecca alla Fiorentina dinner at All'Antico Vinaio in Santa Monica ($130 per pair, 30 spots).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "8d4dd388280f": {
+      "id": "8d4dd388280f",
+      "description": "Makers' market with sustainable fashion and live screen-printing at Craft Contemporary (8/1-8/2).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "c0df93e7d77e": {
+      "id": "c0df93e7d77e",
+      "description": "Free market celebrating AAPI artists, creatives, and entrepreneurs at ROW DTLA.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "8845ef2f7033": {
+      "id": "8845ef2f7033",
+      "description": "Family-friendly performances in the Getty Museum's Central Garden; free with timed reservation.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "5eb0350d197f": {
+      "id": "5eb0350d197f",
+      "description": "Free sci-fi-twist production of Two Gentlemen of Verona touring Burbank and Palms through 8/30.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "85330fce39fa": {
+      "id": "85330fce39fa",
+      "description": "Afrobeats day party at Vuuka House; 4pm start.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
+    },
+    "2bb8d1201653": {
+      "id": "2bb8d1201653",
+      "description": "Weekly vintage and maker flea market at Los Feliz Flea; 10am–4pm, free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "11ad91e230f2": {
+      "id": "11ad91e230f2",
+      "description": "Jazz show at Del Monte Speakeasy featuring Eternal and Shaw & Black Flute Brigade; 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "fe55f4a68a77": {
+      "id": "fe55f4a68a77",
+      "description": "Weekly vintage and maker flea market; 10am–4pm, free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "354ac56c6226": {
+      "id": "354ac56c6226",
+      "description": "Weekly vintage and maker flea market; 10am–4pm, free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "c478da610dd4": {
+      "id": "c478da610dd4",
+      "description": "Live show at The Mint featuring Tina Tara, Marvin Dark, and Xander Taylor; 7:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "b67cf8b63dd0": {
+      "id": "b67cf8b63dd0",
+      "description": "Weekly vintage and maker flea market; 10am–4pm, free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "b20b8c2189cb": {
+      "id": "b20b8c2189cb",
+      "description": "Live performance by Rachel Chinouriri at El Rey Theatre; 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "e1e7e1b3e033": {
+      "id": "e1e7e1b3e033",
+      "description": "Weekly vintage and maker flea market; 10am–4pm, free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "e820ce8edfb4": {
+      "id": "e820ce8edfb4",
+      "description": "Disney's Beauty and the Beast touring production at Hollywood Pantages Theatre; 7:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "e5fac071e776": {
+      "id": "e5fac071e776",
+      "description": "Hip-hop artist J. Cole performs The Fall-Off Tour at Intuit Dome; 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "05c0a1e876d3": {
+      "id": "05c0a1e876d3",
+      "description": "Performance of Echoes of our Ancestors 2 at Greek Theatre; 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "low"
+    },
+    "3f610988c09a": {
+      "id": "3f610988c09a",
+      "description": "Roger Clyne & The Peacemakers at The Venice West; 8pm, 21+.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "49454d070b2b": {
+      "id": "49454d070b2b",
+      "description": "Live show by Mad Caddies at Garden Amphitheatre; 6pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "a6cb232607aa": {
+      "id": "a6cb232607aa",
+      "description": "Free public NFL training camp practices for the LA Chargers with bleacher seating through 8/17.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "6b542958ce2b": {
+      "id": "6b542958ce2b",
+      "description": "Garden Brothers Circus at Santa Anita Park; 4:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "1c94fd68e8c1": {
+      "id": "1c94fd68e8c1",
+      "description": "Pageant of the Masters at Festival of Arts in Laguna Beach; 8:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "1d8917b64090": {
+      "id": "1d8917b64090",
+      "description": "Drag show Roll Call at Hamburger Mary's West Hollywood; 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "f57e8f059d91": {
+      "id": "f57e8f059d91",
+      "description": "Rock show at The Observatory with The Charlatans UK and The Dandy Warhols; 6:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "26d12bbbc0ee": {
+      "id": "26d12bbbc0ee",
+      "description": "Drag show Thirsty Thursdays at Hamburger Mary's Long Beach; 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "259f69fd6895": {
+      "id": "259f69fd6895",
+      "description": "Electronic and hip-hop at Pacific Amphitheatre with Steve Aoki, Tyga, and Twinsick; 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "high"
+    },
+    "130f0dbbda99": {
+      "id": "130f0dbbda99",
+      "description": "Live show by bar italia at Constellation Room; 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-07-30",
+      "confidence": "medium"
     }
   },
   "artists": {
@@ -17483,6 +17962,62 @@
     "dj crenshaw": {
       "note": "Name recurs around Sid The Cat and, separately, as a pre-show DJ credit at rooms like the Hollywood Bowl and Forest Hills Stadium — couldn't pin down a clean genre lane or bio; unverified.",
       "seen": "2026-07-29T12:57:48"
+    },
+    "robert bresson": {
+      "note": "French director (Pickpocket, Au Hasard Balthazar) known for austere, non-professional-actor 'models' and a spare, almost devotional style — A Man Escaped (1956) is one of his most acclaimed.",
+      "seen": "2026-07-30"
+    },
+    "yeon sang ho": {
+      "note": "South Korean director of Train to Busan and the Netflix series Hellbound — genre horror with real social/political bite underneath the zombie mechanics.",
+      "seen": "2026-07-30"
+    },
+    "agnieszka holland": {
+      "note": "Polish director (Europa Europa, In Darkness) known for confronting political and wartime subject matter head-on; Green Border tackles the Polish-Belarusian refugee crisis and was genuinely controversial in Poland.",
+      "seen": "2026-07-30"
+    },
+    "monkey safari": {
+      "note": "German duo (Get Physical, Anjunadeep, Bedrock) making sunny, melodic organic house — run their own Hommage label and own a club in their hometown of Halle.",
+      "seen": "2026-07-30"
+    },
+    "marques wyatt": {
+      "note": "West Coast deep house legend — ran LA's long-running Deep party/residency from the late '90s into the 2010s and is generally credited with helping put LA's dance scene on the map alongside NYC and Miami.",
+      "seen": "2026-07-30"
+    },
+    "quarkestra": {
+      "note": "Touring silent-film orchestra (Denver-based) that writes original live scores for classic silent films — Häxan and Nosferatu are their regular touring pairing, played off audience reaction and the room in the moment.",
+      "seen": "2026-07-30"
+    },
+    "adrian lyne": {
+      "note": "American director of Flashdance, Fatal Attraction, 9½ Weeks and Indecent Proposal — the go-to guy for glossy '80s/'90s erotic thrillers; Unfaithful (2002) is one of his later, less-discussed entries in that lane.",
+      "seen": "2026-07-30"
+    },
+    "pier paolo pasolini": {
+      "note": "Italian poet-turned-director; Teorema (this film's Italian title) is his most controlled provocation — a mysterious stranger seduces every member of a bourgeois family, then vanishes, unraveling each of them differently.",
+      "seen": "2026-07-30"
+    },
+    "abbas kiarostami": {
+      "note": "Iranian New Wave pioneer; this 1987 film (first of his loose Koker trilogy) is his breakthrough — a boy's small odyssey to return a classmate's notebook, deceptively simple and genuinely moving.",
+      "seen": "2026-07-30"
+    },
+    "nation of language": {
+      "note": "Brooklyn synth-pop trio doing earnest, era-accurate New Order/early Human League worship — the more interesting reason to show up early on this bill if you like that cold-wave-gone-warm sound.",
+      "seen": "2026-07-30"
+    },
+    "salute": {
+      "note": "Austrian-born, Brighton-based producer signed to Ninja Tune — fast, soulful house with a UK garage-adjacent bounce; has been playing bigger US festival stages (EDC) this year.",
+      "seen": "2026-07-30"
+    },
+    "chloëdees": {
+      "note": "LA-based DJ and radio host known for genre-blending, eclectic sets rather than a single lane — less pedigree info available, so treat as the wildcard on this bill.",
+      "seen": "2026-07-30"
+    },
+    "paul verhoeven": {
+      "note": "Before RoboCop/Total Recall/Basic Instinct, Verhoeven made kinky, Catholic-guilt-soaked Dutch thrillers — The 4th Man is the clearest preview of the button-pushing instincts he'd bring to Hollywood.",
+      "seen": "2026-07-30"
+    },
+    "ernst lubitsch": {
+      "note": "Mostly known for the light comic touch (Ninotchka, The Shop Around the Corner) — Broken Lullaby is his one dead-serious drama, a 1932 anti-war film with none of the usual wit.",
+      "seen": "2026-07-30"
     }
   }
 }
