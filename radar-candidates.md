@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/30/2026 deterministically (no API). 333 candidates. Signals: big-venue 296, festival 34, tracked 5._
+_Generated 7/31/2026 deterministically (no API). 330 candidates. Signals: big-venue 294, festival 33, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -111,7 +111,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 9/3 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZa) |
 | Sat 9/12 | 1 | Island Fest  | The Show at Agua Caliente Casino R | festival | [link](https://www.ticketmaster.com/island-fest-rancho-mirage-california-09-12-2026/event/090064B3408D0F38) |
 
 ## November 2026
@@ -355,8 +354,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 9/3 | 2 | J. Cole: The Fall-Off Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/j-cole-the-falloff-tour-inglewood-california-09-03-2026/event/0900644AFA1DD2BD) |
-| Thu 9/3 | 2 | Echoes of our Ancestors 2 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/echoes-of-our-ancestors-2-los-angeles-california-09-03-2026/event/0900644DC8232D23) |
 | Sun 9/6 | 2 | Chicago & Styx: The Windy Cities Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/chicago-styx-the-windy-cities-tour-inglewood-california-09-06-2026/event/09006379EB8CC553) |
 | Sun 9/6 | 2 | BTS WORLD TOUR 'ARIRANG' IN LOS ANGELES | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bts-world-tour-arirang-in-los-inglewood-california-09-06-2026/event/0A006429B353645F) |
 | Sun 9/6 | 2 | Deep Purple with Kansas (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
