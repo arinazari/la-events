@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T07:58:26+00:00",
+  "generated_at": "2026-07-31T08:00:12+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "3dda1b9bb96f",
@@ -1352,38 +1352,8 @@
       "e74445643f72",
       "43b49098d6bc"
     ],
-    "radar": [
-      "96782c900568",
-      "a275d78b3f74",
-      "d535a0dbfe40",
-      "edab80bd44cb",
-      "84882da12558",
-      "d49eb8554c26",
-      "1edb63fd2e80",
-      "fb68efb436c1",
-      "33c2216d15dc",
-      "3d1950382c1d",
-      "f8270a79763f",
-      "5cfd176b0544",
-      "cf6cd35ddcc5",
-      "5900ac0a20b0",
-      "d9ec6d0e3a23",
-      "85ff43f3e43e"
-    ],
-    "around": [
-      "cb768b413e65",
-      "82c5013339e2",
-      "3602c9b750bf",
-      "52241f8a3d48",
-      "e5ab9e3ca172",
-      "ce01e1ad0890",
-      "b2d6fe30fbdb",
-      "cec7f396634c",
-      "3a0eb2bd963e",
-      "e0899913b815",
-      "981ec1e26eb6",
-      "ce698b6377ec"
-    ],
+    "radar": [],
+    "around": [],
     "festivals": [
       {
         "name": "Outside Lands 2026",
@@ -22018,6 +21988,12 @@
       },
       "lane": "live-music:big",
       "key": "ce01e1ad0890",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "final_rank": 277
     },
     {
