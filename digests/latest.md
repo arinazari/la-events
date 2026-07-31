@@ -365,3 +365,5 @@ Take it Outside at The Bridge (6pm) is the pick — Masha Mar and Heidi Lawden's
 
 ---
 *⚠️ Stale sources (not refreshed — these events may be out of date): alvas 15d (23 events)*
+*⚠️ Failed this run: beatport (listing fetch timed out), Eater LA (WebFetch couldn't reach la.eater.com — likely JS-gated)*
+*No Gmail "Events" label exists yet on the digest account (Phase 1 item still open) — that layer is skipped until it's set up.*
