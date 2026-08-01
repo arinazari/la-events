@@ -199,15 +199,18 @@ def digest_take(md: str):
 
 def _fp_windows(today):
     """The four time-lens windows (inclusive ISO bounds). weekend = the next Fri–Sun cluster
-    (today-inclusive when already inside one)."""
+    (today-inclusive when already inside one). "twoweeks" is the NEXT 3 WEEKS lens (the id
+    survives the widening — it's a stored key in feeds): through the THIRD Sunday out, i.e.
+    this week + two full Mon–Sun weeks, matching the client's marquee week-rows exactly."""
     t = today
     fri = t + timedelta(days=(4 - t.weekday()) % 7)
     start_wknd = t if t.weekday() in (4, 5, 6) else fri
     sun = start_wknd + timedelta(days=6 - start_wknd.weekday())
+    this_sun = t + timedelta(days=(6 - t.weekday()) % 7)
     return {
         "today": (t.isoformat(), t.isoformat()),
         "weekend": (start_wknd.isoformat(), sun.isoformat()),
-        "twoweeks": (t.isoformat(), (t + timedelta(days=13)).isoformat()),
+        "twoweeks": (t.isoformat(), (this_sun + timedelta(days=14)).isoformat()),
         "ahead": ((t + timedelta(days=14)).isoformat(), (t + timedelta(days=60)).isoformat()),
     }
 
@@ -325,8 +328,9 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
         window = [e for e in marquee_pool if lo <= e["iso_date"] <= hi]
         hero[lens] = [e["key"] for e in top_picks(window, verdicts)]
 
-    # Marquee key-lists split NEAR (days 0–13: the today/weekend/two-weeks lenses) vs AHEAD
-    # (14–60: plan-ahead). One global-rank cut would starve plan-ahead by construction —
+    # Marquee key-lists split NEAR (days 0–13) vs AHEAD (14–60). The today/weekend lenses live
+    # in NEAR, plan-ahead in AHEAD, and the 3-week lens spans the seam (the client concats both
+    # zones before windowing). One global-rank cut would starve plan-ahead by construction —
     # rank_key is two-zone (judged/near events sort structurally above the unjudged far tail),
     # so a busy section's top-40 can sit entirely inside the near window. The client windows
     # each list with its LIVE date (a stale feed thins honestly rather than showing yesterday).
@@ -692,6 +696,18 @@ def main() -> int:
         try:
             take = digest_take(dpath.read_text(encoding="utf-8"))
         except OSError:
+            pass
+    if take is None and not is_sample:
+        # Keep-last: a deterministic re-render (owner re-rank, no-change day) rewrites the doc
+        # with an UNFILLED take slot — the previous feed's take, which carries its own date, is
+        # still the operative read. Dropping it is what blanked the front page's digest block
+        # (2026-08-01); a dated stale take degrades honestly instead.
+        try:
+            prev = json.loads(resolve(args.out).read_text(encoding="utf-8"))
+            prev_take = (prev.get("front_page") or {}).get("take")
+            if isinstance(prev_take, dict) and prev_take.get("text"):
+                take = prev_take
+        except (json.JSONDecodeError, OSError, AttributeError):
             pass
     # Festivals watch-list — sample builds skip it (a demo feed shouldn't carry the real list).
     festivals = [] if is_sample else load_festivals(REPO / "festivals.yaml")

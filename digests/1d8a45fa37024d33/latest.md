@@ -2,7 +2,7 @@
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Fri 7/31 · no new or changed events since the last pull*
 
-<!-- take: -->
+<!-- take: The Vista's new 70mm Nolan run is the real anchor this weekend — everything else is a strong supporting cast. -->
 <!-- tier3:intro -->
 
 ## Tonight & tomorrow

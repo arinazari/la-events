@@ -279,7 +279,8 @@ def test_windows_shape_and_radar_join():
     w = B._fp_windows(TODAY)
     assert w["today"] == ("2026-07-15", "2026-07-15")
     assert w["weekend"] == ("2026-07-17", "2026-07-19")
-    assert w["twoweeks"] == ("2026-07-15", "2026-07-28")
+    # the NEXT 3 WEEKS lens: through the third Sunday out (7/15 is a Wed → Sun 7/19 + 14d)
+    assert w["twoweeks"] == ("2026-07-15", "2026-08-02")
     evs = [ev("a", "2026-08-20", "club:underground", 1)]
     fp = B.build_front_page(evs, {}, TODAY,
                             radar_rows=[{"key": "a"}, {"key": "ghost"}])

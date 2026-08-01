@@ -129,14 +129,17 @@
         </div>
       </sc-if>
 
-      <!-- THE LEAD -->
+      <!-- THE LEAD + SHORTLIST — desktop puts the hero on the left and "Also high on your
+           list" as a compact rail on the right (its cards stretch to share the hero's
+           height, so neither side strands whitespace); mobile stacks them. -->
       <sc-if value="{{ hasLead }}" hint-placeholder-val="{{ true }}">
-      <section style="margin-bottom:26px;">
+      <section style="margin-bottom:28px;">
         <div style="display:flex; align-items:center; gap:9px; margin-bottom:9px;">
           <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#2b5cd9;">◆ {{ leadKicker }}</span>
           <span style="flex:1; height:1px; background:#dedcd4;"></span>
         </div>
-        <article onClick="{{ lead.onOpen }}" style="position:relative; display:flex; flex-wrap:wrap; gap:22px; background:#fff; border:1px solid #c9c7bd; border-radius:5px; padding:0; overflow:hidden; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ lead.glow }};" style-hover="border-color:#a7a59b;">
+        <div style="{{ heroRowStyle }}">
+        <article onClick="{{ lead.onOpen }}" style="{{ leadCardStyle }} box-shadow: {{ lead.glow }};" style-hover="border-color:#a7a59b;">
           <div style="position:absolute; top:0; left:0; right:0; height:3px; background: {{ lead.matchColor }};"></div>
           <sc-if value="{{ lead.photoCol.show }}" hint-placeholder-val="{{ false }}"><div style="{{ lead.photoCol.style }}"></div></sc-if>
           <sc-if value="{{ lead.poster.show }}" hint-placeholder-val="{{ false }}">
@@ -145,7 +148,7 @@
               <span style="font:800 20px/1.05 -apple-system,system-ui,sans-serif; color: {{ lead.poster.fg }};">{{ lead.poster.label }}</span>
             </div>
           </sc-if>
-          <div style="flex:1 1 380px; min-width:0; padding:22px 24px 20px; display:flex; flex-direction:column; gap:12px;">
+          <div style="{{ leadBodyStyle }}">
             <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
               <div style="min-width:0;">
                 <div style="display:flex; align-items:center; gap:9px; margin-bottom:7px;">
@@ -168,7 +171,7 @@
               </div>
               </sc-if>
             </div>
-            <p style="margin:0; font:400 14.5px/1.55 -apple-system,system-ui,sans-serif; color:#3f3d36; max-width:62ch; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;">{{ lead.why }}</p>
+            <p style="{{ leadWhyStyle }}">{{ lead.why }}</p>
             <sc-if value="{{ lead.hasTags }}" hint-placeholder-val="{{ true }}">
               <div style="display:flex; flex-wrap:wrap; gap:5px;">
                 <sc-for list="{{ lead.tags }}" as="t" hint-placeholder-count="4"><span onClick="{{ t.onTag }}" title="See more like this in Explore" style="cursor:pointer; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:4px 6px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};" style-hover="text-decoration:underline;">{{ t.text }}</span></sc-for>
@@ -185,19 +188,15 @@
             </div>
           </div>
         </article>
-      </section>
-      </sc-if>
-
-      <!-- SHORTLIST -->
-      <sc-if value="{{ hasShortlist }}" hint-placeholder-val="{{ true }}">
-      <section style="margin-bottom:28px;">
-        <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:11px;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Also high on your list</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">ranked by match</span>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:11px;">
+        <sc-if value="{{ hasShortlist }}" hint-placeholder-val="{{ true }}">
+        <aside style="{{ shortWrapStyle }}">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:9px;">
+            <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Also high on your list</span>
+            <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">ranked by match</span>
+          </div>
+          <div style="{{ shortListStyle }}">
           <sc-for list="{{ shortlist }}" as="c" hint-placeholder-count="4">
-            <article onClick="{{ c.onOpen }}" style="display:flex; gap:12px; background:#fff; border:1px solid #dedcd4; border-radius:4px; padding:13px 14px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
+            <article onClick="{{ c.onOpen }}" style="{{ shortCardStyle }} box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
               <sc-if value="{{ c.thumb.show }}" hint-placeholder-val="{{ false }}"><div style="{{ c.thumb.style }}"></div></sc-if>
               <sc-if value="{{ c.poster.show }}" hint-placeholder-val="{{ false }}"><div style="flex:0 0 52px; height:66px; border-radius:3px; background: {{ c.poster.bg }};"></div></sc-if>
               <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:6px;">
@@ -214,7 +213,7 @@
                   </span>
                   </sc-if>
                 </div>
-                <div style="font:600 14px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ c.title }}</div>
+                <div style="{{ shortTitleStyle }}">{{ c.title }}</div>
                 <div style="font:500 10.5px/1.3 ui-monospace,Menlo,monospace; color:#76746b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ c.venue }}</div>
                 <sc-if value="{{ c.hasWhy }}" hint-placeholder-val="{{ true }}"><div style="font:400 11.5px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;">{{ c.why }}</div></sc-if>
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:6px;">
@@ -231,6 +230,9 @@
               </div>
             </article>
           </sc-for>
+          </div>
+        </aside>
+        </sc-if>
         </div>
       </section>
       </sc-if>
@@ -257,7 +259,10 @@
       </section>
       </sc-if>
 
-      <!-- THE MARQUEES — Sets and shows / Events (the featured card shelves) -->
+      <!-- THE MARQUEES — three TIME rows that follow the header lens (weekend → Fri/Sat/Sun,
+           next 3 weeks → this/next/in-two, tonight → daytime/evening/late, plan ahead → its
+           months). Cards merge every marquee shelf in rank order; each keeps its lane's color
+           on the left edge. "all N →" opens Explore pinned to that row's dates. -->
       <sc-if value="{{ hasScenes }}" hint-placeholder-val="{{ true }}">
       <section style="margin-bottom:28px;">
         <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:11px;">
@@ -265,21 +270,24 @@
           <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">ranked by match</span>
         </div>
         <div style="display:flex; flex-direction:column; gap:13px;">
-          <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="4">
+          <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="3">
             <div style="background:#eeebe3; border-radius:9px; padding:14px 15px 13px;">
               <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:12px;">
-                <span style="display:inline-flex; align-items:center; gap:8px; min-width:0;">
-                  <span style="flex:none; width:9px; height:9px; border-radius:50%; background: {{ sc.dot }};"></span>
+                <span style="display:inline-flex; align-items:baseline; gap:9px; min-width:0;">
                   <span style="font:700 13px/1.1 -apple-system,system-ui,sans-serif; color:#161512;">{{ sc.label }}</span>
+                  <span style="font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ sc.sub }}</span>
                 </span>
-                <span style="flex:none; display:inline-flex; align-items:baseline; gap:12px;">
-                  <sc-if value="{{ sc.hasExtra }}" hint-placeholder-val="{{ false }}"><span onClick="{{ sc.onExtra }}" title="Every film program — boards, openings, one-nights" style="cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.extraLabel }} →</span></sc-if>
-                  <span onClick="{{ sc.onAll }}" title="See this lane in full" style="cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.allLabel }} →</span>
-                </span>
+                <sc-if value="{{ sc.hasAll }}" hint-placeholder-val="{{ true }}">
+                  <span onClick="{{ sc.onAll }}" title="See these dates in Explore" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.allLabel }} →</span>
+                </sc-if>
               </div>
-              <div class="scry" style="display:grid; grid-auto-flow:column; grid-template-rows: {{ sc.rowsCss }}; grid-auto-columns: {{ sceneColW }}; gap:11px; overflow-x:auto; padding:2px 2px 9px; scroll-snap-type:x proximity;">
+              <sc-if value="{{ sc.isQuiet }}" hint-placeholder-val="{{ false }}">
+                <div style="font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; padding:0 2px 4px;">quiet — nothing featured here yet</div>
+              </sc-if>
+              <sc-if value="{{ sc.hasCards }}" hint-placeholder-val="{{ true }}">
+              <div class="scry" style="display:grid; grid-auto-flow:column; grid-template-rows:repeat(1,1fr); grid-auto-columns: {{ sceneColW }}; gap:11px; overflow-x:auto; padding:2px 2px 9px; scroll-snap-type:x proximity;">
                 <sc-for list="{{ sc.cards }}" as="c" hint-placeholder-count="4">
-                  <article onClick="{{ c.onOpen }}" style="scroll-snap-align:start; display:flex; flex-direction:column; gap:7px; background:#fff; border:1px solid #e4e2d9; border-left:3px solid {{ sc.dot }}; border-radius:5px; padding:12px 13px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
+                  <article onClick="{{ c.onOpen }}" style="scroll-snap-align:start; display:flex; flex-direction:column; gap:7px; background:#fff; border:1px solid #e4e2d9; border-left:3px solid {{ c.dot }}; border-radius:5px; padding:12px 13px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
                     <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
                       <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.when }}</span>
                       <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span style="flex:none; font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 5px; border-radius:2px; color:#1f7a4d; background:rgba(31,122,77,0.12);">NEW</span></sc-if>
@@ -308,6 +316,7 @@
                   </article>
                 </sc-for>
               </div>
+              </sc-if>
             </div>
           </sc-for>
         </div>
@@ -1503,6 +1512,9 @@ class Component extends DCLogic {
       id: (r.id != null ? String(r.id) : this.slugId(r, i)),
       iso: d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()),
       time: p(d.getHours()) + ':' + p(d.getMinutes()),
+      // The listing's raw start ('4pm-12am', '7:30pm') — parseEvent's strict HH:MM parse
+      // sentinels these to 20:00, so daypart logic must read the raw string, not e.time.
+      startRaw: (typeof r.start === 'string' && !r.start.includes('T')) ? r.start : '',
       title: r.title || r.name || 'Untitled',
       venue: r.venue || 'TBA',
       hood: r.neighborhood || r.hood || r.area || 'Los Angeles',
@@ -1825,7 +1837,69 @@ class Component extends DCLogic {
     if (lens==='today') return [T,T];
     if (lens==='weekend') { const [a,b] = this.weekendRange(); return [a < T ? T : a, b]; }  // clamp: no already-past nights on Sat/Sun
     if (lens==='ahead') return [this.addDays(T,14), this.addDays(T,60)];
-    return [T, this.addDays(T,13)];
+    // NEXT 3 WEEKS = through the THIRD Sunday out (this week + two full Mon–Sun weeks), so the
+    // lens window and its marquee week-rows always agree on where the lens ends.
+    return [T, this.addDays(this.thisSunday(), 14)];
+  }
+  thisSunday() { const dow = this.fmt(this.TODAY,'').dow; return this.addDays(this.TODAY, (7 - dow) % 7); }
+  // The marquee TIME rows — up to three per lens, each a date-window slice of the featured
+  // pool (weekend rows already past are never generated; the compute may still render a
+  // generated-but-empty row as a one-line "quiet" note so a dead Sunday reads as a fact,
+  // not a bug). `test` further splits a same-day lens (tonight's dayparts).
+  MONTH_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  WDL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  marqueeRows(lens) {
+    const T = this.TODAY;
+    const span = (a,b) => a===b ? this.labelISO(a) : this.labelISO(a) + ' – ' + this.labelISO(b);
+    if (lens === 'today') {
+      // Daypart from the listed start — the RAW string first ('4pm-12am' day parties would
+      // otherwise ride parseEvent's 20:00 sentinel into Evening), then the parsed clock.
+      // Afterhours (or a 10pm-to-5am start) is Late; timeless listings read as Evening —
+      // the lane most of the catalog lives in.
+      const part = e => {
+        let h = null;
+        const raw = String(e.startRaw||'').match(/(\d{1,2})(?::\d{2})?\s*(am|pm)/i);
+        if (raw) { h = (+raw[1]) % 12; if (/pm/i.test(raw[2])) h += 12; }
+        else { const m = String(e.time||'').match(/^(\d{1,2})/); h = m ? +m[1] : null; }
+        if (e.ah || (h!=null && (h>=22 || h<6))) return 'late';
+        if (h!=null && h<18) return 'day';
+        return 'eve'; };
+      return [
+        { label:'Daytime', sub:'until 6pm', a:T, b:T, test:e => part(e)==='day' },
+        { label:'Evening', sub:'6–10pm', a:T, b:T, test:e => part(e)==='eve' },
+        { label:'Late night', sub:'10pm on & afterhours', a:T, b:T, test:e => part(e)==='late' },
+      ];
+    }
+    if (lens === 'weekend') {
+      const [wa, wb] = this.windowFor('weekend');
+      const rows = [];
+      for (let d = wa; d <= wb; d = this.addDays(d, 1)) {
+        const f = this.fmt(d, '');
+        rows.push({ label: d===T ? 'Tonight' : this.WDL[f.dow], sub:this.labelISO(d), a:d, b:d });
+      }
+      return rows.slice(0, 3);
+    }
+    if (lens === 'ahead') {
+      const [aa, ab] = this.windowFor('ahead');
+      const rows = [];
+      let s = aa;
+      while (s <= ab && rows.length < 3) {
+        const [y, m] = s.split('-').map(Number);
+        const mEnd = this.addDays((m===12 ? (y+1)+'-01-01' : y+'-'+String(m+1).padStart(2,'0')+'-01'), -1);
+        const b = mEnd < ab ? mEnd : ab;
+        rows.push({ label: (s.slice(8) !== '01' ? 'Later in ' : '') + this.MONTH_FULL[m-1], sub:span(s, b), a:s, b });
+        s = this.addDays(mEnd, 1);
+      }
+      return rows;
+    }
+    // twoweeks lens (NEXT 3 WEEKS): this week through Sunday, then two full Mon–Sun weeks.
+    const sun = this.thisSunday();
+    const w2a = this.addDays(sun, 1), w3a = this.addDays(sun, 8);
+    return [
+      { label:'This week', sub:span(T, sun), a:T, b:sun },
+      { label:'Next week', sub:span(w2a, this.addDays(sun, 7)), a:w2a, b:this.addDays(sun, 7) },
+      { label:'In two weeks', sub:span(w3a, this.addDays(sun, 14)), a:w3a, b:this.addDays(sun, 14) },
+    ];
   }
 
   // ---------- scoring / display ----------
@@ -2229,8 +2303,7 @@ class Component extends DCLogic {
   toggleChat = () => {
     const opening = !this.state.chatOpen;
     if (opening && !this.state.chatMsgs.length) {
-      let take = this.META.front_page && this.META.front_page.take;
-      if (!(take && take.text)) { const lede = this.teaserOf(this.digestLede()); if (lede && !this.DIGEST_FALLBACK) take = { text: lede, date: (this.digestRegenDate() || {}).label ? null : null }; }
+      const { take } = this.resolveTake();   // same chain as the front-page dispatch \u2014 the two surfaces must agree
       const takeLine = (take && take.text) ? ('\n\n*Today\u2019s read' + (take.date ? ' \u00b7 ' + this.labelISO(take.date) : '') + ':* ' + take.text) : '';
       const hi = 'I\u2019m your LA concierge \u2014 the best of what\u2019s on, ranked to your taste. A few things I can do:\n'
         + '- **Find shows** \u2014 `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n'
@@ -2658,7 +2731,38 @@ class Component extends DCLogic {
     const t = String(text || '').replace(/\s+/g, ' ').trim();
     if (!t) return '';
     const m = t.match(/^.{20,200}?[.!?](?=\s|$)/);
-    return (m ? m[0] : t.slice(0, 160)).trim();
+    if (m) return m[0].trim();
+    return t.length <= 160 ? t : t.slice(0, 158).replace(/\s+\S*$/, '') + '…';  // word-boundary, never mid-word
+  }
+  // The current take, richest source first: the feed's structural take → the loaded digest
+  // doc's own <!-- take: --> slot → the doc's lede opening (marked fromLede). Doc-derived
+  // takes carry the doc's own date, sanity-guarded because digestRegenDate() guesses the
+  // year on M/D-only headers (a December doc read in January lands a year forward). Null
+  // take when the loaded doc is the house digest shown to a signed-in profile (wrong voice).
+  // ONE chain shared by the front-page dispatch and the chat welcome, so they never disagree.
+  resolveTake() {
+    const srv = this.META.front_page && this.META.front_page.take;
+    let take = (srv && srv.text) ? srv : null;
+    let lede = '';
+    if (!(this.DIGEST_FALLBACK && this.state.loggedIn)) {
+      lede = (this.digestLede() || '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
+      if (!take) {
+        const p2 = n => String(n).padStart(2, '0');
+        let docDate = null;
+        const reg = this.digestRegenDate();
+        if (reg && reg.date) {
+          let d = reg.date;
+          const now = Date.now();
+          if (d.getTime() - now > 2 * 86400000) d = new Date(d.getFullYear() - 1, d.getMonth(), d.getDate());
+          if (Math.abs(now - d.getTime()) <= 180 * 86400000) docDate = d.getFullYear() + '-' + p2(d.getMonth() + 1) + '-' + p2(d.getDate());
+        }
+        const slot = (this.DIGEST_MD || '').match(/<!--\s*take:(?!start\b|end\b)([^<]*?)-->/);
+        const slotText = slot ? slot[1].replace(/\s+/g, ' ').trim() : '';
+        if (slotText) take = { text: slotText, date: docDate };
+        else if (lede) take = { text: this.teaserOf(lede), date: docDate, fromLede: true };
+      }
+    }
+    return { take, lede };
   }
   downloadDigest = () => {
     const md = this.shownDigestMd();
@@ -3288,9 +3392,11 @@ class Component extends DCLogic {
     if (k === 'all') { this.setState({ exFrom:'', exTo:'' }); return; }
     if (k === 'today') { this.setState({ exFrom:T, exTo:T }); return; }
     if (k === 'weekend') { const [a,b] = this.weekendRange(); this.setState({ exFrom:a, exTo:b }); return; }
-    if (k === 'twoweeks') { this.setState({ exFrom:T, exTo:this.addDays(T,13) }); return; }
+    if (k === 'twoweeks') { const [a,b] = this.windowFor('twoweeks'); this.setState({ exFrom:a, exTo:b }); return; }
     if (k === 'month') { this.setState({ exFrom:T, exTo:this.addDays(T,30) }); return; }
   }
+  // A marquee row's "all N →": Explore, pinned to that row's dates.
+  openExploreRange = (a, b) => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null, navHidden:false, openFilter:null, exFrom:a, exTo:b }); };
   // Event's values for a filter axis (scalar axes wrapped as one-element lists).
   exValsFor(e, axis) {
     if (axis === 'cat') return [e.cat];
@@ -3338,7 +3444,7 @@ class Component extends DCLogic {
     "",
     "## Find something to do",
     "",
-    "- The **front page** opens on your window — *tonight · this weekend · next 2 weeks · plan ahead* — with the lead pick, a shortlist, and a lane per scene. Tap any card for details + tickets.",
+    "- The **front page** opens on your window — *tonight · this weekend · next 3 weeks · plan ahead* — with the lead pick, a shortlist beside it, and the marquees split into that window's days, weeks, or months. Tap any card for details + tickets.",
     "- **Explore** (top right) is the full table. **Sort** by tapping the `DATE`, `EVENT`, `NEIGHBORHOOD`, `CATEGORY`, `RANK`, `MATCH` or `SOURCE` headers.",
     "- **Filter from the columns**: the little funnel in a header opens that column's menu — `DATE` holds the presets + a custom range, `NEIGHBORHOOD` also carries region, `CATEGORY / VIBE` carries category, genre, vibe and setting side by side, `SOURCE` stands alone. Click a value once to **✓ keep** only matches, again to **✕ hide** it, once more to clear; a blue funnel means that column is filtering. On a phone the same headers ride a strip pinned above the list — tap a label to sort, tap its funnel for the menu.",
     "- **Tap any tag** on a card (like *techno* or *warehouse*) to jump into Explore filtered to exactly that tag.",
@@ -3420,7 +3526,7 @@ class Component extends DCLogic {
     "- **Tags on every card — tap one to explore.** Cards wear their tags (genre + vibe: *techno*, *queer*, *warehouse*, …) right on the front, and every tag is a link: tap it to jump into Explore filtered to exactly that tag.",
     "- **Listen links.** Opening an event shows its lineup as artist rows: quiet **Spotify / SoundCloud** glyphs per name — straight to the artist's Spotify page once the nightly resolver has matched them, a search otherwise — and, where the research exists, a one-line bio of who that artist is.",
     "- **The concierge opens with the take.** The chat's welcome folds in the day's *take* — the digest's opening read — so you can ask a follow-up (`what's the move tonight then?`) right where it's said.",
-    "- **A front page.** The site opens on an editorial home: the lead pick and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). The full table lives on as **Explore** (the switch is in the header).",
+    "- **A front page.** The site opens on an editorial home: the lead pick with its shortlist, and the marquees split into the days, weeks, or months of the window you pick (*tonight · this weekend · next 3 weeks · plan ahead*). The full table lives on as **Explore** (the switch is in the header).",
     "- **Cleaner categories.** A large batch of events (mostly Ticketmaster's) were sitting in an 'other' bucket — they're now properly typed as live music, stage, comedy and film, so lane filters and shelves actually cover the catalog.",
     "- **You control your refresh.** Your feed still picks up new events nightly, but your curated layer — the editorial pass behind your final ranks, and your written digest — refreshes when your **taste changes** or when **you hit Update** in Settings.",
     "",
@@ -3564,7 +3670,7 @@ class Component extends DCLogic {
     const mf = this.matchFlags();
     const T = this.TODAY;
     const dLabel = (() => { const f = this.fmt(T, ''); return (f.wd + ' · ' + f.md).toUpperCase(); })();
-    const lensDefs = [['today','TONIGHT'],['weekend','THIS WEEKEND'],['twoweeks','NEXT 2 WEEKS'],['ahead','PLAN AHEAD']];
+    const lensDefs = [['today','TONIGHT'],['weekend','THIS WEEKEND'],['twoweeks','NEXT 3 WEEKS'],['ahead','PLAN AHEAD']];
 
     const exploreableCount = this.ALL.filter(e => e.iso>=T && !this.isSeen(e)).length;
 
@@ -3622,44 +3728,77 @@ class Component extends DCLogic {
       const top5 = heroSrv.length ? heroSrv.slice(0, 5) : pool.slice(0, 5);
       const lead = top5[0] ? { ...this.cardFor(top5[0]), rank:'01', photoCol:this.photoStyle(top5[0], 'flex:0 0 210px; align-self:stretch; min-height:230px;') } : null;
       out.hasLead = !!lead; out.lead = lead || {};
-      out.leadKicker = { today:"TONIGHT'S LEAD", weekend:"THE WEEKEND'S LEAD", twoweeks:'TOP OF THE NEXT TWO WEEKS', ahead:'THE ONE TO PLAN AROUND' }[lens] || 'YOUR LEAD';
+      out.leadKicker = { today:"TONIGHT'S LEAD", weekend:"THE WEEKEND'S LEAD", twoweeks:'TOP OF THE NEXT THREE WEEKS', ahead:'THE ONE TO PLAN AROUND' }[lens] || 'YOUR LEAD';
       const short = top5.slice(1,5).map((e,i) => ({ ...this.cardFor(e), rank:String(i+2).padStart(2,'0') }));
       out.hasShortlist = short.length>0; out.shortlist = short;
+      // Hero geometry: desktop = hero card left + the shortlist as a right-hand rail whose
+      // cards stretch to split the hero's height (no ragged grid tail, no stranded hero
+      // whitespace); mobile stacks hero over a one-column list.
+      out.heroRowStyle = mob ? 'display:flex; flex-direction:column; gap:24px;'
+                             : 'display:flex; gap:16px; align-items:stretch;';
+      out.leadCardStyle = 'position:relative; display:flex; flex-wrap:wrap; gap:22px; background:#fff; border:1px solid #c9c7bd; border-radius:5px; padding:0; overflow:hidden; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease;'
+                        + (mob ? '' : ' flex:1 1 0; min-width:0;');
+      out.shortWrapStyle = mob ? '' : 'flex:0 0 345px; min-width:0; display:flex; flex-direction:column;';
+      // Hero body: desktop spreads its blocks over the card's height (the rail sets the row's
+      // height, so a short why must not strand one dead block of whitespace at the bottom) and
+      // lets the why run longer — the rail dropped its whys, the lead's is the one that counts.
+      out.leadBodyStyle = 'flex:1 1 380px; min-width:0; padding:22px 24px 20px; display:flex; flex-direction:column; gap:12px;'
+                        + (mob ? '' : ' justify-content:space-between;');
+      out.leadWhyStyle = 'margin:0; font:400 14.5px/1.55 -apple-system,system-ui,sans-serif; color:#3f3d36; max-width:62ch; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden;'
+                       + (mob ? ' -webkit-line-clamp:3;' : ' -webkit-line-clamp:5;');
+      out.shortListStyle = mob ? 'display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:11px;'
+                               : 'display:flex; flex-direction:column; gap:10px; flex:1; min-height:0;';
+      out.shortCardStyle = 'display:flex; gap:12px; background:#fff; border:1px solid #dedcd4; border-radius:4px; padding:12px 13px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease;'
+                         + (mob ? '' : ' flex:1 0 auto;');   // grow to split the column, never crush content
+      out.shortTitleStyle = 'font:600 14px/1.25 -apple-system,system-ui,sans-serif; color:#161512;'
+                          + (mob ? '' : ' display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;');
+      // Rail cards are the COMPACT tier: on desktop the why comes off (it lives on the card
+      // detail and the marquee cards below), so four cards split the hero's height cleanly
+      // instead of spilling their bottom rows into the next section.
+      if (!mob) for (const c of short) c.hasWhy = false;
 
       const topIds = new Set(top5.map(e => e.id));
-      // "Your scenes" — the server shelves (slate order, near+ahead zones) filtered to the active
-      // lens window; the client sceneOf() bucketing is only the no-shelves fallback.
+      // THE MARQUEES — three TIME rows per lens (marqueeRows), sliced from the merged marquee
+      // pool: every server shelf's events (slate membership = featured; the card keeps its own
+      // shelf's color), re-sorted by rank because a per-row merge across shelves has no single
+      // server order. The client sceneOf() pool is only the no-shelves legacy fallback.
       const shs = this.fpShelves();
-      let scenes;
+      const dotOf = new Map();
+      let mqPool;
       if (shs) {
-        const [wa, wb] = this.windowFor(lens);
-        scenes = shs.map(sh => {
-          const evs = this.lessSink(this.shelfEvents(sh).filter(e => e.iso >= wa && e.iso <= wb && e.iso >= T && !topIds.has(e.id)));
-          const cards = evs.slice(0,6).map((e,i) => {
-            const card = this.cardFor(e);
-            card.mustSee = i===0 && (!!(e.verdict && e.verdict.tier==='must-see') || (e.rating != null && e.rating >= 5));
-            return card;
-          });
-          return { id:sh.id, label:sh.label, dot:this.SHELF_DOT[sh.id] || '#76746b', allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(sh.id),
-                   hasExtra:false };   // the movies door now lives on the Movies table header
-        }).filter(s => s.cards.length>0).slice(0,8);   // server shelf ORDER (2 marquees on a current feed; legacy feeds carry more)
+        mqPool = [];
+        for (const sh of shs) for (const e of this.shelfEvents(sh)) {
+          if (dotOf.has(e.id)) continue;
+          dotOf.set(e.id, this.SHELF_DOT[sh.id] || '#76746b');
+          mqPool.push(e);
+        }
       } else {
-        const buckets = new Map();
-        for (const e of pool) { const s = this.sceneOf(e); if (!buckets.has(s.id)) buckets.set(s.id,{ scene:s, evs:[] }); buckets.get(s.id).evs.push(e); }
-        scenes = [...buckets.values()].map(({ scene, evs }) => {
-          const laneEvs = evs.filter(e => !topIds.has(e.id)).slice(0,6);
-          const cards = laneEvs.map((e,i) => {
-            const card = this.cardFor(e);
-            card.mustSee = i===0 && (e.score>=6 || !!(e.verdict && e.verdict.tier==='must-see'));
-            return card;
-          });
-          return { id:scene.id, label:scene.label, dot:scene.dot, allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(scene.id) };
-        }).filter(s => s.cards.length>0).sort((a,b) => b.cards.length-a.cards.length).slice(0,6);
+        mqPool = pool.slice();
+        for (const e of mqPool) dotOf.set(e.id, this.sceneOf(e).dot);
       }
-      out.hasScenes = scenes.length>0; out.scenes = scenes;
-      out.sceneColW = mob ? '100%' : 'calc((100% - 11px) / 2)';
+      const [mwa, mwb] = this.windowFor(lens);
+      mqPool = mqPool.filter(e => e.iso >= T && e.iso >= mwa && e.iso <= mwb && !topIds.has(e.id)).sort(this.rankCmp);
+      const scenes = this.marqueeRows(lens).map(spec => {
+        const evs = this.lessSink(mqPool.filter(e => e.iso >= spec.a && e.iso <= spec.b && (!spec.test || spec.test(e))));
+        const cards = evs.slice(0,8).map((e,i) => {
+          const card = this.cardFor(e);
+          card.dot = dotOf.get(e.id) || '#76746b';
+          card.mustSee = i===0 && (!!(e.verdict && e.verdict.tier==='must-see') || (e.rating != null && e.rating >= 5));
+          return card;
+        });
+        // Daypart rows (tonight's lens) get no "all N →": Explore can only pin dates, not
+        // times-of-day, so the link's count and its destination would disagree.
+        return { label:spec.label, sub:spec.sub, cards, hasCards:cards.length>0, isQuiet:cards.length===0,
+                 hasAll:evs.length>0 && !spec.test, allLabel:'all '+evs.length, onAll:() => this.openExploreRange(spec.a, spec.b) };
+      });
+      out.hasScenes = scenes.some(s => s.hasCards); out.scenes = scenes;
+      out.sceneColW = mob ? '100%' : 'calc((100% - 22px) / 3)';
 
-      const take = this.META.front_page && this.META.front_page.take;
+      // THE DISPATCH — the digest headline block. resolveTake() is the one fallback chain
+      // (feed take → the loaded doc's slot → its lede), shared with the chat welcome; per-
+      // profile feeds never carry a structural take and a no-change day leaves even the
+      // house slot unfilled, so the doc-derived fallbacks are what keep this block alive.
+      const { take, lede } = this.resolveTake();
       if (take && take.text) {
         const heroKeys = (((this.META.front_page || {}).hero || {})[lens] || []).slice(0, 5);
         const chips = heroKeys.map(k => this.ALL.find(e => e.key === k)).filter(e => e && !this.isSeen(e)).slice(0, 3).map(e => {
@@ -3674,15 +3813,20 @@ class Component extends DCLogic {
           };
         });
         out.hasDispatch = true;
-        // Descriptive headline = the day's take sentence itself (not the label "The take") — the
-        // take reads as an editorial deck; the kicker carries the digest's own date. The blurb
-        // under it is the digest's opening prose (the lede), clipped to two sentences — skipped
-        // when the loaded digest is the house fallback for a signed-in profile (wrong voice).
+        // Descriptive headline = the take sentence itself (server or doc-derived) — it reads
+        // as an editorial deck; the kicker carries the digest's own date. The blurb under it
+        // is the lede clipped to two sentences — minus the headline when the headline came
+        // FROM the lede, and only when the headline is a whole sentence (a word-boundary
+        // truncation must not leave the blurb opening mid-sentence on the severed tail).
         let blurb = '';
-        if (!(this.DIGEST_FALLBACK && this.state.loggedIn)) {
-          const lede = (this.digestLede() || '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
-          if (lede && lede !== take.text) {
-            const sents = lede.match(/[^.!?]+[.!?]+(?:\s|$)/g) || [lede];
+        if (lede) {
+          let rest = lede;
+          if (take.fromLede) {
+            rest = (/[.!?]$/.test(take.text) && lede.slice(0, take.text.length) === take.text)
+                 ? lede.slice(take.text.length).trim() : '';
+          }
+          if (rest && rest !== take.text) {
+            const sents = rest.match(/[^.!?]+[.!?]+(?:\s|$)/g) || [rest];
             blurb = sents.slice(0, 2).join(' ').replace(/\s+/g, ' ').trim();
             if (blurb.length > 320) blurb = blurb.slice(0, 300).replace(/\s+\S*$/, '') + '…';
           }
@@ -3968,7 +4112,7 @@ class Component extends DCLogic {
         ['All dates', 'all', rng('','')],
         ['Tonight', 'today', rng(T,T)],
         ['This weekend', 'weekend', rng(wa,wb)],
-        ['Next 2 wks', 'twoweeks', rng(T,this.addDays(T,13))],
+        ['Next 3 wks', 'twoweeks', rng(...this.windowFor('twoweeks'))],
         ['Next month', 'month', rng(T,this.addDays(T,30))],
       ].map(([label, k, on]) => ({ label,
         box: on ? '✓' : '□', boxColor: on ? '#1f7a4d' : '#cbc9bf',
