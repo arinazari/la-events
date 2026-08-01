@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T08:17:05+00:00",
+  "generated_at": "2026-08-01T08:44:52+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "0d3c8ab35445",
@@ -1123,8 +1123,38 @@
         ]
       }
     ],
-    "radar": [],
-    "around": [],
+    "radar": [
+      "96782c900568",
+      "a275d78b3f74",
+      "d535a0dbfe40",
+      "edab80bd44cb",
+      "84882da12558",
+      "d49eb8554c26",
+      "1edb63fd2e80",
+      "fb68efb436c1",
+      "33c2216d15dc",
+      "3d1950382c1d",
+      "f8270a79763f",
+      "5cfd176b0544",
+      "cf6cd35ddcc5",
+      "5900ac0a20b0",
+      "d9ec6d0e3a23",
+      "85ff43f3e43e"
+    ],
+    "around": [
+      "cb768b413e65",
+      "82c5013339e2",
+      "3602c9b750bf",
+      "1927230f3149",
+      "ce01e1ad0890",
+      "b2d6fe30fbdb",
+      "cec7f396634c",
+      "3a0eb2bd963e",
+      "981ec1e26eb6",
+      "ce698b6377ec",
+      "0c920f69e1ab",
+      "246a42146c27"
+    ],
     "festivals": [
       {
         "name": "Outside Lands 2026",
@@ -13670,6 +13700,12 @@
       },
       "lane": "live-music",
       "key": "981ec1e26eb6",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "price_check": {
         "checked_at": "2026-08-01T08:16:22+00:00",
         "options": [
