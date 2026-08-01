@@ -122,8 +122,16 @@ jobs:
 
       # LLM pass: fresh event-editor verdicts + scene enrichment + the narrative digest. Bounded by
       # the prompt (top-N only) so it finishes within turns; best-effort. Auto-discovers .claude/agents/.
+      #
+      # timeout-minutes is the WALL-CLOCK bound --max-turns can't provide (one Task batch = one turn,
+      # however long it runs): a drift-flooded verdict cache once pushed this step to 27m40s and the
+      # dashboard's Update button ticked "re-ranking" to the edge of its 30-min poll cap. The kill is
+      # safe by design — the deterministic feed is already committed above, whatever the agent left in
+      # the working tree (merged verdict batches, enrichment) is committed by the receipt step below,
+      # and the receipt + deploy are what the page is actually waiting on. Click → receipt ≤ ~13 min.
       - name: LLM editor + enrichment + digest (best-effort)
         continue-on-error: true
+        timeout-minutes: 10
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}

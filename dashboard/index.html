@@ -2279,7 +2279,7 @@ class Component extends DCLogic {
         if (this._lastTasteChanged) {
           this._lastTasteChanged = false;
           this.setTasteDirty(true);
-          out.push({ role:'assistant', welcome:true, content:'✓ Saved to your profile. Hit “Ranks & Digest” in Settings (☰) to re-rank with it — takes a minute or two.' });
+          out.push({ role:'assistant', welcome:true, content:'✓ Saved to your profile. Hit “Ranks & Digest” in Settings (☰) to re-rank with it — takes a few minutes.' });
         }
         this.setChat(out); this.setState({ chatBusy:false, liveReply:null });
         return;
@@ -2899,7 +2899,7 @@ class Component extends DCLogic {
     const ageLine = (day && llmDays != null && llmDays >= 1)
       ? 'Your curated picks were last refreshed **' + day + '** — ' + llmDays + ' day' + (llmDays === 1 ? '' : 's') + ' ago.'
       : 'New events have landed since your picks were last curated.';
-    const short = [ageLine, '', "Events added since are in your feed, but they haven't had your editorial pass yet. **Update now** re-ranks them to your taste and rewrites your digest — takes ~2–3 minutes."];
+    const short = [ageLine, '', "Events added since are in your feed, but they haven't had your editorial pass yet. **Update now** re-ranks them to your taste and rewrites your digest — usually a few minutes, capped at ~12."];
     if (!this.state.nudgeMore) return short.join('\n');
     return short.concat(['', '---',
       "**How refreshing works.** The events database and your ranked feed update every night. The **curated layer** on top — the editor's verdicts behind your final rank and ⭐ picks, plus your written digest — is yours, and it only rebuilds when:",
@@ -3327,7 +3327,7 @@ class Component extends DCLogic {
     "",
     "## Tune your taste",
     "",
-    "You never edit settings by hand — tell the concierge: `more techno, less comedy`, `track Peggy Gou`, or `I'm in Echo Park now`. It rewrites your profile and re-ranks you within a minute or two.",
+    "You never edit settings by hand — tell the concierge: `more techno, less comedy`, `track Peggy Gou`, or `I'm in Echo Park now`. It rewrites your profile and re-ranks you within a few minutes.",
     "",
     "## Install it",
     "",
@@ -3408,7 +3408,7 @@ class Component extends DCLogic {
       "",
       "Your **taste, neighborhood and Spotify don't change your list until you fold them in.**",
       "",
-      "- Open **Settings (☰)** and hit **Ranks & Digest** to re-rank against everything you just set up, plus the latest events. Takes a minute or two.",
+      "- Open **Settings (☰)** and hit **Ranks & Digest** to re-rank against everything you just set up, plus the latest events. Takes a few minutes.",
       "- New events still flow in nightly on their own; the button reads **Update available** whenever there's a taste edit or fresh data worth folding in."
     ].join('\n'),
     [
