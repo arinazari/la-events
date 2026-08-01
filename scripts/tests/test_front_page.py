@@ -286,6 +286,25 @@ def test_windows_shape_and_radar_join():
     assert fp["radar"] == ["a"]          # joins only keys present in the feed
 
 
+def test_radar_artifact_freshness():
+    """The rails' self-heal trigger: missing, unreadable, wrong-day, or older-than-catalog
+    artifacts read as stale; a same-day artifact newer than the catalog reads as fresh."""
+    import json
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        p = Path(td) / "radar.json"
+        assert not B._radar_artifacts_fresh([p], 0.0, TODAY)                    # missing
+        p.write_text(json.dumps({"today": TODAY.isoformat()}))
+        assert B._radar_artifacts_fresh([p], 0.0, TODAY)                        # fresh
+        assert not B._radar_artifacts_fresh([p], p.stat().st_mtime + 1, TODAY)  # catalog newer
+        p.write_text(json.dumps({"today": "2020-01-01"}))
+        assert not B._radar_artifacts_fresh([p], 0.0, TODAY)                    # built another day
+        p.write_text(json.dumps({"count": 3}))
+        assert not B._radar_artifacts_fresh([p], 0.0, TODAY)                    # legacy: no stamp
+        p.write_text("not json")
+        assert not B._radar_artifacts_fresh([p], 0.0, TODAY)                    # unreadable
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
