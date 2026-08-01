@@ -909,10 +909,38 @@
     },
     "cd7672b88551": {
       "id": "cd7672b88551",
-      "description": "Kim Gordon Play Me Tour at Pacific Electric, DTLA.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-01T03:19:17",
-      "confidence": "high"
+      "type": "live-music",
+      "subgenres": [
+        "rock",
+        "experimental"
+      ],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": "raw / abrasive",
+      "setting": null,
+      "sounds_like": [
+        "Sonic Youth",
+        "Yves Tumor"
+      ],
+      "artist_notes": [
+        {
+          "name": "Kim Gordon",
+          "note": "Sonic Youth co-founder now several solo albums deep into a genuinely strange run — industrial-tinged, spoken-word noise-rock, not a legacy-act victory lap."
+        },
+        {
+          "name": "Sarah Register",
+          "note": "LA experimental guitarist who plays in Gordon's live band and co-produced her Grammy-nominated 'The Collective' — cut her teeth in NYC avant-pop duo Talk Normal; also a Grammy-nominated mastering engineer (Black Midi, Faye Webster)."
+        },
+        {
+          "name": "Sleepie Louie",
+          "note": "UK-born, LA-based rapper/artist — thin public footprint beyond opener billings; a wildcard support slot."
+        }
+      ],
+      "curator_note": "Gordon's solo material is still genuinely confrontational — industrial noise and spoken word, not a Sonic Youth reunion tour in disguise — and Sarah Register's own pedigree (Talk Normal, plus mastering credits) makes this a real bill top to bottom.",
+      "description": "Sonic Youth co-founder Kim Gordon brings her noise-rock solo project to Pacific Electric, with Sarah Register and Sleepie Louie opening.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "d08ce1644c58": {
       "id": "d08ce1644c58",
@@ -9943,10 +9971,32 @@
     },
     "b368b043c331": {
       "id": "b368b043c331",
-      "description": "RIKHTER headlines a 4-hour electronic set with EMILIANA at a TBA LA venue (11pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-24",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "hard-techno"
+      ],
+      "vibe": [
+        "all-night-set"
+      ],
+      "label_orbit": [],
+      "energy": "peak / hypnotic",
+      "setting": null,
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "RIKHTER",
+          "note": "Yakutsk-born, Berlin-based hard/hypnotic techno producer signed to Kobosil's R Label Group — reverberating kicks and rolling, high-tempo intensity; Berghain-caliber."
+        },
+        {
+          "name": "EMILIANA",
+          "note": "LA-based hard-techno producer/DJ, founder of the CTHRTC label and a WORK Harder resident — distorted drums and ominous, experimental-noise-inflected techno."
+        }
+      ],
+      "curator_note": "RIKHTER's the real get — Berlin-based, R Label Group pedigree, Berghain-caliber hard techno — and a 4-hour slot is long enough for him to actually build something instead of just hitting peak-time bangers.",
+      "description": "A 4-hour hard-techno set from Berlin's RIKHTER with WORK Harder resident EMILIANA, location TBA.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "34ebf2e93083": {
       "id": "34ebf2e93083",
@@ -11801,9 +11851,34 @@
     },
     "5fb15a9f62e4": {
       "id": "5fb15a9f62e4",
-      "description": "Electronic night with Shane Thomas, Banoffee & Geoboi in Silverlake.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-28T12:36:35"
+      "type": "club",
+      "subgenres": [],
+      "vibe": [
+        "queer"
+      ],
+      "label_orbit": [],
+      "energy": "eclectic",
+      "setting": null,
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Shane Thomas",
+          "note": "LA producer/DJ, Ace Hotel-residency host of the party blush! — experimental house and techno spliced with reggaeton, dancehall and ballroom edits."
+        },
+        {
+          "name": "Banoffee",
+          "note": "Melbourne-born, LA-based alt-pop producer/singer — SOPHIE collaborator and Charli XCX/Empress Of associate with deep roots in the queer club circuit; more pop-production pedigree than a straight DJ set."
+        },
+        {
+          "name": "Geoboi",
+          "note": "LA DJ with a thin public bio but a real footprint on the Echo Park/queer-underground circuit — a dancefloor-first selector."
+        }
+      ],
+      "curator_note": "Rob Aquino and Bebe's Panic Room leans queer-underground and genre-loose — Banoffee brings pop/production pedigree rather than a straight DJ set, with Geoboi and Shane Thomas holding down the dancefloor end.",
+      "description": "Queer underground party in Silver Lake (location TBA) with alt-pop artist Banoffee alongside LA DJs Shane Thomas and Geoboi.",
+      "confidence": "medium",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "a6766293cb78": {
       "id": "a6766293cb78",
@@ -12761,10 +12836,21 @@
     },
     "3e011ad0520b": {
       "id": "3e011ad0520b",
-      "description": "Arthouse screening of A New Leaf at Vista Theater, Los Feliz (2pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [
+        "matinee"
+      ],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Elaine May at her sharpest — Walter Matthau as a broke playboy scheming to marry into money, before the film quietly turns sweeter than its premise suggests.",
+      "description": "Matinee screening of Elaine May's 1971 comedy starring Walter Matthau.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "d3e25eb26f47": {
       "id": "d3e25eb26f47",
@@ -12906,10 +12992,19 @@
     },
     "3ad7dfd21580": {
       "id": "3ad7dfd21580",
-      "description": "Arthouse screening of Man Bites Dog at Vista Theater, Los Feliz (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Belgian mockumentary that still shocks decades later — a fake documentary crew embeds with a serial killer and gets pulled into his violence, one of the nastiest and funniest satires of media complicity ever made.",
+      "description": "Rep screening of the 1992 Belgian mockumentary black comedy about a film crew following a serial killer.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "03003ccdbe58": {
       "id": "03003ccdbe58",
@@ -12944,10 +13039,19 @@
     },
     "8bafa5e5b59b": {
       "id": "8bafa5e5b59b",
-      "description": "Repertory screening of Blow Out at Alamo Drafthouse DTLA (10pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "De Palma again, earlier and stranger — Travolta's sound engineer accidentally records evidence of a political assassination, and De Palma turns it into an Antonioni/Coppola-quoting thriller with one of cinema's bleakest endings.",
+      "description": "Brian De Palma's 1981 political thriller starring John Travolta as a sound engineer who stumbles onto a murder.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "a405c73531cb": {
       "id": "a405c73531cb",
@@ -12977,10 +13081,21 @@
     },
     "9c5d6edf2c39": {
       "id": "9c5d6edf2c39",
-      "description": "Mysterious Skin (4K Restoration) with live Q&A at Alamo Drafthouse DTLA (6pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [
+        "q&a"
+      ],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Araki's most emotionally serious film — Joseph Gordon-Levitt is genuinely unsettling as a teenage hustler processing childhood abuse — a heavy watch, and the Q&A is worth sticking around for.",
+      "description": "4K restoration of Gregg Araki's 2004 drama starring Joseph Gordon-Levitt, with a live Q&A.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "75783a97ffb2": {
       "id": "75783a97ffb2",
@@ -13019,10 +13134,21 @@
     },
     "e5b330dba0b0": {
       "id": "e5b330dba0b0",
-      "description": "Arthouse screening of Joe Kidd at Vista Theater, Los Feliz (2pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [
+        "matinee"
+      ],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Minor-key Eastwood western scripted by Elmore Leonard and directed by John Sturges — not top-tier work from either man, but a solid matinee if you like your westerns terse and morally murky.",
+      "description": "Matinee screening of the 1972 Clint Eastwood western Joe Kidd, written by Elmore Leonard.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "cedcc788a826": {
       "id": "cedcc788a826",
@@ -13202,10 +13328,21 @@
     },
     "974747e4a4e1": {
       "id": "974747e4a4e1",
-      "description": "Michael Mann's Manhunter: The Final Cut matinee at Alamo Drafthouse DTLA (12:45pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [
+        "matinee"
+      ],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Mann's cool-blue, synth-scored Hannibal Lecter debut (billed 'Lecktor' here) predates Silence of the Lambs by five years and still looks more modern — this Final Cut restoration is the version Mann actually wanted released.",
+      "description": "Matinee screening of Michael Mann's 1986 Red Dragon adaptation in its director-approved Final Cut restoration.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "9aa3d8064e42": {
       "id": "9aa3d8064e42",
@@ -13258,10 +13395,19 @@
     },
     "5bac8b22e29a": {
       "id": "5bac8b22e29a",
-      "description": "The Untouchables at Alamo Drafthouse DTLA (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "De Palma's Chicago runs on operatic set-pieces — the Union Station stairway shootout alone is worth the ticket — and De Niro's Capone chews through every scene he's in.",
+      "description": "Brian De Palma's 1987 Prohibition-era gangster film with Kevin Costner, Sean Connery and Robert De Niro as Capone.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "ffa2ee4e3ecf": {
       "id": "ffa2ee4e3ecf",
@@ -13526,10 +13672,19 @@
     },
     "adadca9e4267": {
       "id": "adadca9e4267",
-      "description": "Michael Mann's Manhunter: The Final Cut at Alamo Drafthouse DTLA (7:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Second crack at the same Final Cut restoration, this time slotted as Terror Tuesday — fitting, given how much of the modern serial-killer thriller's DNA traces back to this movie.",
+      "description": "Terror Tuesday screening of Michael Mann's 1986 Manhunter in its Final Cut restoration.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "3e9cc8f6652a": {
       "id": "3e9cc8f6652a",
@@ -14842,10 +14997,21 @@
     },
     "426f3b7cfe06": {
       "id": "426f3b7cfe06",
-      "description": "Screening of the classic film Of Human Bondage at Vista Theater in Los Feliz.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-30",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [
+        "matinee"
+      ],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Bette Davis's star-making turn as a venomous waitress opposite Leslie Howard — the performance that reportedly made the Academy invent the write-in ballot after she got snubbed.",
+      "description": "Matinee screening of the 1934 Maugham adaptation that made Bette Davis a star.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "2c3e98b2bc43": {
       "id": "2c3e98b2bc43",
@@ -14856,10 +15022,27 @@
     },
     "b1b47ae8779c": {
       "id": "b1b47ae8779c",
-      "description": "Free Friday night dance party at Kiss Kiss Bang Bang with DJ Tamara Lanza and special guests.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-30",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house",
+        "disco"
+      ],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": "groove",
+      "setting": "club",
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Tamara Lanza",
+          "note": "LA multi-genre DJ and Level 8 / Sunset Sessions regular — ranges disco house through deep and melodic; reliable rooftop-groove selector."
+        }
+      ],
+      "curator_note": "Tamara Lanza's one of the steadier Sunset Sessions/Level 8 selectors — this is the free-RSVP Friday version of that same disco-into-deep-house feel, minus the rooftop.",
+      "description": "Free RSVP Friday dance party at Kiss Kiss Bang Bang with Sunset Sessions regular Tamara Lanza.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "192481945e47": {
       "id": "192481945e47",
@@ -15364,24 +15547,92 @@
     },
     "1927230f3149": {
       "id": "1927230f3149",
-      "description": "Heat Advisory: Day 2 Hard Summer unofficial afterparty with Amelie Lens, Zedd, DJ Snake, RL Grime, and more (free, 21+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-31T12:35:38",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "tech-house",
+        "techno",
+        "electro"
+      ],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": "peak / festival",
+      "setting": null,
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Amelie Lens",
+          "note": "Belgian techno star, Exhale label — driving, hypnotic peak-time techno with real European club credibility."
+        },
+        {
+          "name": "Vintage Culture",
+          "note": "Brazilian tech-house export, Solotoko boss — huge festival draw, big-room but genuinely well-selected house."
+        },
+        {
+          "name": "2hollis",
+          "note": "LA-raised rage-rap/hyperpop artist on Interscope — genre-blurring pop/rap/EDM chaos, not a house/techno name."
+        },
+        {
+          "name": "Frost Children",
+          "note": "NYC sibling duo splicing hyperpop, EDM, Jersey club and bloghouse into overclocked pop — festival-pop chaos more than a DJ set."
+        },
+        {
+          "name": "Snow Strippers",
+          "note": "Detroit-formed electroclash duo doing bleary electro-pop shot through with witch house and hardstyle — indie-sleaze revival energy."
+        },
+        {
+          "name": "underscores",
+          "note": "Genre-hopping hyperpop/indie/dubstep producer (April Harper Grey) — a real, well-reviewed act, but outside the house/techno lane."
+        },
+        {
+          "name": "MCR-T",
+          "note": "Berlin rapper/producer who raps live over a hip-hop/hard-techno/ghettotech hybrid — a different texture than a straight DJ set."
+        },
+        {
+          "name": "Oppidan",
+          "note": "Rising UK garage producer blending 2-step with 4x4 NUKG and bass — the garage-leaning name on an otherwise bass/EDM-heavy bill."
+        },
+        {
+          "name": "Ranger Trucco",
+          "note": "Michigan tech-house producer/vocalist, Space Yacht signee — clean, warbling tech-house with sung hooks."
+        }
+      ],
+      "curator_note": "Amelie Lens, VTSS and Boys Noize are the real techno/tech-house draw inside a lineup that's mostly festival bass and hyperpop-adjacent acts (Frost Children, Snow Strippers, underscores, 2hollis) — free RSVP makes it low-risk to just show up for their windows and skip the rest.",
+      "description": "Free unofficial Hard Summer afters at Hollywood Park Grounds spanning techno (Amelie Lens, VTSS) to festival bass/EDM and hyperpop-adjacent acts.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "3d451a6e1b39": {
       "id": "3d451a6e1b39",
-      "description": "Stanley Kubrick's 2001: A Space Odyssey in 70mm at the Vista Theater (6:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-31T12:35:38",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Same reel, one night earlier — the Vista's 70mm print of Nolan's Odyssey is one of a small handful in the country and has reportedly been selling out weeks out. Grab whichever date works.",
+      "description": "Christopher Nolan's Imax-70mm Homer adaptation (Damon, Holland, Hathaway, Pattinson, Zendaya) on the big screen at the Vista.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "a6e548ae8fee": {
       "id": "a6e548ae8fee",
-      "description": "Stanley Kubrick's 2001: A Space Odyssey in 70mm at the Vista Theater (6:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-31T12:35:38",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": null,
+      "setting": "cinema",
+      "sounds_like": [],
+      "artist_notes": [],
+      "curator_note": "Nolan shot this entirely on Imax 70mm cameras and there are only 25 US screens that can even run the actual film print — the Vista is one of them, and demand's been pushing the run into September. Build the night around this one.",
+      "description": "Christopher Nolan's Imax-70mm Homer adaptation (Damon, Holland, Hathaway, Pattinson, Zendaya) on the big screen at the Vista.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "b5a2364487bd": {
       "id": "b5a2364487bd",
@@ -15560,17 +15811,49 @@
     },
     "dc9ebcb5c559": {
       "id": "dc9ebcb5c559",
-      "description": "All-vinyl open-air session with DJ Krane at The Bridge DTLA (5pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-31T12:35:38",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house"
+      ],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": "groove / daytime",
+      "setting": "outdoor",
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Krane",
+          "note": "Longtime Sunday Sessions LA resident — vinyl-only house DJ recorded across the series' open-air sets."
+        }
+      ],
+      "curator_note": "Krane's a steady Sunday Sessions resident, and this is the vinyl-only, open-air version of that rooftop-groove feel — a 5pm start gets you the golden-hour window without giving up the whole night.",
+      "description": "All-vinyl, open-air house session at The Bridge with longtime Sunday Sessions resident Krane playing all night.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "5ca137af7510": {
       "id": "5ca137af7510",
-      "description": "Late-night afterhours with Romance Planet, Rocket Rese and Her Blood at Mayan Theatre (10pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-31T12:35:38",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "hard-dance"
+      ],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": "peak / hard",
+      "setting": null,
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Rocket Rese",
+          "note": "Rawstyle/gangsta-rap-inflected hard-dance producer — couldn't verify much beyond recent streaming output, so treat as a minor supporting name."
+        }
+      ],
+      "curator_note": "Reads like the rawstyle/hardstyle branch of the Hard Summer afters circuit rather than a house or techno night — pass unless that's specifically the energy you're chasing.",
+      "description": "Hard Summer-adjacent afters at the Mayan Theater leaning hardstyle/rawstyle, with Romance Planet, Rocket Rese and Her Blood.",
+      "confidence": "low",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "cd96cb9a5257": {
       "id": "cd96cb9a5257",
@@ -15581,10 +15864,31 @@
     },
     "d068c90ad9f1": {
       "id": "d068c90ad9f1",
-      "description": "Electronic show with Captain Planet and Jeremy Sole at The Airliner.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-31T12:35:38",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "world",
+        "disco"
+      ],
+      "vibe": [],
+      "label_orbit": [],
+      "energy": "eclectic / groove",
+      "setting": "bar",
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Jeremy Sole",
+          "note": "KCRW DJ/host — 30+ years digging vinyl across house, Afro-Latin, funk and global grooves; runs the 'Bajo' residency at this same Airliner series."
+        },
+        {
+          "name": "Captain Planet",
+          "note": "LA DJ/producer (Charlie Wilder) known for eclectic, high-energy sets blending Afrobeat, Latin, funk, disco, reggae and house — releases on Bastard Jazz."
+        }
+      ],
+      "curator_note": "Jeremy Sole's KCRW ear and Captain Planet's global-bass digging make for one of the more well-traveled record collections in town — less a house/techno night, more an Afrobeat-funk-disco crate dig out loud.",
+      "description": "KCRW's Jeremy Sole and eclectic global-bass selector Captain Planet team up for a vinyl night at The Airliner.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "c25a0e805f99": {
       "id": "c25a0e805f99",
@@ -15756,10 +16060,32 @@
     },
     "d0f235d8523b": {
       "id": "d0f235d8523b",
-      "description": "KCRW presents Latroit House Ensemble with Jason Bentley at Say Yes (9pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-31T12:35:38",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house"
+      ],
+      "vibe": [],
+      "label_orbit": [
+        "House of Latroit"
+      ],
+      "energy": "groove",
+      "setting": null,
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Latroit",
+          "note": "Dennis White — Detroit-rooted, LA-based house producer since the late '80s; won a 2018 Grammy for Best Remixed Recording on his Depeche Mode 'You Move' remix and runs the House of Latroit label/podcast."
+        },
+        {
+          "name": "Jason Bentley",
+          "note": "KCRW's longtime music director and Metropolis host — a tastemaker DJ who's shaped the station's house/downtempo/global sound for decades."
+        }
+      ],
+      "curator_note": "Latroit's got real house pedigree — Detroit roots, a Grammy for that Depeche Mode remix — so pairing him with Jason Bentley's KCRW ear reads like a legit live-house-band show, not a DJ-booth filler slot.",
+      "description": "KCRW's Jason Bentley joins Grammy-winning house producer Latroit's live ensemble at Say Yes.",
+      "confidence": "high",
+      "enriched_at": "2026-08-01T12:35:27",
+      "enriched_tier": "full"
     },
     "8dba3303b479": {
       "id": "8dba3303b479",
@@ -16102,6 +16428,657 @@
       "description": "Bee Gees tribute band Bee Gees Fever at The Venice West in Venice (8pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-31T12:35:38",
+      "confidence": "high"
+    },
+    "73e643cb7095": {
+      "id": "73e643cb7095",
+      "description": "Community-minded 1-year anniversary party with SOLTERA spinning alternative scene cuts (new wave, post-punk, hyperpop) at The Airliner.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "f32e99937543": {
+      "id": "f32e99937543",
+      "description": "Studio Barnhus summer day party with Axel Boman, Kornél Kovács, and Nikki Nair at The Bridge (5pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "956e5fc378e0": {
+      "id": "956e5fc378e0",
+      "description": "DJ Sneak all-night vinyl set, afterhours at a TBA downtown location.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "c7a06b654837": {
+      "id": "c7a06b654837",
+      "description": "Free afterhours all-girl party at Melrose House (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "medium"
+    },
+    "5997a24526ee": {
+      "id": "5997a24526ee",
+      "description": "All-ages rock day party at The Belasco with Wavves, Modern Color, Waax, and others (3pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "f9b50c196afe": {
+      "id": "f9b50c196afe",
+      "description": "Deep house pool-party brunch with Scotty Boy at White Rabbit Sky Lounge (1pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "f4b29ac7c475": {
+      "id": "f4b29ac7c475",
+      "description": "Afterhours party with ICE THOMPSON and Milan at 1926 Wilshire Blvd (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "f124e62708c4": {
+      "id": "f124e62708c4",
+      "description": "Free Juptr x Recollect Underground night with ARISA, Lavenge, and Max Rush at Dusty Vinyl.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "4f96e2ed7137": {
+      "id": "4f96e2ed7137",
+      "description": "Free afterhours Cumbias En El Club at Hollywood Nightclub (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "5ce1f2aa4325": {
+      "id": "5ce1f2aa4325",
+      "description": "Free afterhours 2000s-themed party at a five-million-dollar mansion.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "medium"
+    },
+    "1f1de415da85": {
+      "id": "1f1de415da85",
+      "description": "Afterhours electronic night with Mesmé, Ms. Ed, and Ambrocenide at Silverlake Lounge.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "99b8cfeec824": {
+      "id": "99b8cfeec824",
+      "description": "JUPTR x Recollect Underground with Lavenge and Max Rush at Dusty Vinyl (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "dacfb379a82a": {
+      "id": "dacfb379a82a",
+      "description": "Film screening of The Invite at Vidiots in Eagle Rock (7:20pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "de83fec4bcea": {
+      "id": "de83fec4bcea",
+      "description": "Film screening of Magic Mike at Vidiots in Eagle Rock (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "2fcc8330a008": {
+      "id": "2fcc8330a008",
+      "description": "Film screening of Commando at Vidiots in Eagle Rock (9:45pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "3b6d2b0c5fe6": {
+      "id": "3b6d2b0c5fe6",
+      "description": "Film screening of Lockjaw at Vidiots in Eagle Rock (10:15pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "94798e8a0b3e": {
+      "id": "94798e8a0b3e",
+      "description": "Detention event with DJ Naeem at Sid The Cat Auditorium in South Pasadena (5pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "29939e4e9557": {
+      "id": "29939e4e9557",
+      "description": "Reverberation Radio DJ night at Zebulon in Frogtown (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "8ad225c7aa2d": {
+      "id": "8ad225c7aa2d",
+      "description": "18+ rock showcase with Dancing Plague, Sacred Skin, ms.boan headlining The Regent Theater, with support bands and DJs across two stages.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "cee1a18ba438": {
+      "id": "cee1a18ba438",
+      "description": "Indie vintage, vinyl, and handmade market; free entry and parking (Fri 10am–3:30pm, Sat 8:30am–3:30pm, Sun 9:30am–3:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "43b0fbb29a65": {
+      "id": "43b0fbb29a65",
+      "description": "TUNNEL afterhours with DJ Gigola, Annie Lew, Etari, and OZA at a TBA downtown location (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "6b877afff2ca": {
+      "id": "6b877afff2ca",
+      "description": "Afterhours electronic set with Korolova at Avalon Hollywood (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "8b21ecb4a80b": {
+      "id": "8b21ecb4a80b",
+      "description": "TableBud launch day party at Venice Whaler (2pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "medium"
+    },
+    "26ac493f2cde": {
+      "id": "26ac493f2cde",
+      "description": "Free-with-RSVP or $5 afterhours bass/dubstep party at Catch One Jewel Room (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "53b8f8f0b0c5": {
+      "id": "53b8f8f0b0c5",
+      "description": "Free Afro Fever day party at LOST DTLA by Diaspora Dance (3pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "ad4300ff0462": {
+      "id": "ad4300ff0462",
+      "description": "Comedy show and afterparty hosted by Hood 2 Hood Comedy at Rockwell Lounge (7:30pm, $21.83).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "a8ff6651872b": {
+      "id": "a8ff6651872b",
+      "description": "Club Underground dance party at Grand Star Jazz Club in Chinatown (9:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "0fb75ffd3d90": {
+      "id": "0fb75ffd3d90",
+      "description": "Free Pure Play Fest day party at Exposition Park (10am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "6c5f99508886": {
+      "id": "6c5f99508886",
+      "description": "Free album release party for YENVI's 'Welcome To The Lab' in Norwalk (6pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "4514f0debd8c": {
+      "id": "4514f0debd8c",
+      "description": "Windgrease Cinema film matinee at 2220 Arts + Archives in Historic Filipinotown (2pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "ada3e6c5e020": {
+      "id": "ada3e6c5e020",
+      "description": "DJ Kelcey Ayer plays electronic at Sid The Cat Auditorium in South Pasadena.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "f7aaa0b5e7e8": {
+      "id": "f7aaa0b5e7e8",
+      "description": "Windgrease Festival at 2220 Arts + Archives.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "3f12eadc9a6c": {
+      "id": "3f12eadc9a6c",
+      "description": "DJ Amy plays electronic at Sid The Cat Auditorium.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "438b05aa8407": {
+      "id": "438b05aa8407",
+      "description": "15 Years of Ethio Cali anniversary party with DJ Nu-Mark at Grand Performances (free).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "74fe35b4063d": {
+      "id": "74fe35b4063d",
+      "description": "Tech house headliners Rufus Du Sol and Ben Bohmer at Petco Park, San Diego.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "e22f6a85208e": {
+      "id": "e22f6a85208e",
+      "description": "Tower Trance release party with Sienna Sleep and others, Tabula Rasa Records ($25).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "639cddfae0e2": {
+      "id": "639cddfae0e2",
+      "description": "Late-night electronic afterhours—location TBA, check @recollectunderground.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "medium"
+    },
+    "1e200d8eaa5b": {
+      "id": "1e200d8eaa5b",
+      "description": "DJ Lionmilk plays electronic at Sid The Cat Auditorium.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "ddfc81771779": {
+      "id": "ddfc81771779",
+      "description": "Steve Von Till and Six Organs of Admittance at Zebulon.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "83a8ad399267": {
+      "id": "83a8ad399267",
+      "description": "Los Tranquilos En Vivo and Burgundy Blues at Gold Diggers.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "aaeb9dbca6c2": {
+      "id": "aaeb9dbca6c2",
+      "description": "Kingdom themed rave at Catch One.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "2e1416ed71f4": {
+      "id": "2e1416ed71f4",
+      "description": "VILENA and Shredy play late-night electronic afterhours (location TBA).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "medium"
+    },
+    "1edb63fd2e80": {
+      "id": "1edb63fd2e80",
+      "description": "Two-day all-ages indie rock festival at Teragram Ballroom—Ringo Deathstarr (9/5), Airiel (9/6).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "126e0b8e548a": {
+      "id": "126e0b8e548a",
+      "description": "R&B artist Chxrry performs at Echoplex on The Ego Tour.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "d24f8bbe5393": {
+      "id": "d24f8bbe5393",
+      "description": "Los Angeles Philharmonic classical concert at Hollywood Bowl.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "15e3a2711438": {
+      "id": "15e3a2711438",
+      "description": "Rock artist DannyV at The Moroccan Lounge (all-ages).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "1ade9ad8aac6": {
+      "id": "1ade9ad8aac6",
+      "description": "Electronic/pop artist William Black at Hollywood Palladium.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "a9118918124d": {
+      "id": "a9118918124d",
+      "description": "80s/90s/00s throwback electronic day party for 30+ at Avalon Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "f4192230d549": {
+      "id": "f4192230d549",
+      "description": "Electronic artist Tonic Walter at The Moroccan Lounge (21+).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "f2ed12fc6e76": {
+      "id": "f2ed12fc6e76",
+      "description": "Comedy performance: Morgan Jay at The Lido Theater, Newport Beach.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "55b9e5704b5c": {
+      "id": "55b9e5704b5c",
+      "description": "Instrumental jazz quartet David Moscoe & Company at The Dresden (no cover).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "64869ff9b14e": {
+      "id": "64869ff9b14e",
+      "description": "Hard dance afterhours following HARD Summer at CODE RED†TRAP RAVE ($19).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "1fbe1ceefb0a": {
+      "id": "1fbe1ceefb0a",
+      "description": "Free electronic day party (365 Surprise).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "medium"
+    },
+    "a12b54288fb3": {
+      "id": "a12b54288fb3",
+      "description": "Electronic night at Water & Power.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "1bcaa9865bda": {
+      "id": "1bcaa9865bda",
+      "description": "R&B artists PLAYLUNCH and Yagki at The Echo.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "f22b3a44f6c4": {
+      "id": "f22b3a44f6c4",
+      "description": "The Phantom of the Opera (touring production) at Segerstrom Center for the Arts, Costa Mesa.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "ca06068f3546": {
+      "id": "ca06068f3546",
+      "description": "The Phantom of the Opera (touring production) at Segerstrom Center for the Arts, Costa Mesa.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "3438ab7869a8": {
+      "id": "3438ab7869a8",
+      "description": "The Phantom of the Opera (touring production) at Segerstrom Center for the Arts, Costa Mesa.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "c8f30a9b9a28": {
+      "id": "c8f30a9b9a28",
+      "description": "The Phantom of the Opera (touring production) at Segerstrom Center for the Arts, Costa Mesa.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "f21090bbc908": {
+      "id": "f21090bbc908",
+      "description": "The Phantom of the Opera (touring production) at Segerstrom Center for the Arts, Costa Mesa.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "e26afb0ba1d8": {
+      "id": "e26afb0ba1d8",
+      "description": "Jungle night with DJ ERS-ONE at EOS Lounge (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "01ce376bd249": {
+      "id": "01ce376bd249",
+      "description": "The Phantom of the Opera touring production at Segerstrom Center for the Arts, Costa Mesa (7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "55fdf7b38430": {
+      "id": "55fdf7b38430",
+      "description": "North Mississippi Allstars and Angela Petrilli play blues and jazz at The Mint (7:15pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "cbd48868e09c": {
+      "id": "cbd48868e09c",
+      "description": "The Phantom of the Opera touring production at Segerstrom Center for the Arts, Costa Mesa (6:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "7d8f48c8a326": {
+      "id": "7d8f48c8a326",
+      "description": "The Phantom of the Opera touring production at Segerstrom Center for the Arts, Costa Mesa (7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "cabc7aec6eba": {
+      "id": "cabc7aec6eba",
+      "description": "The Phantom of the Opera touring production at Segerstrom Center for the Arts, Costa Mesa (7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "e1377ec2abd0": {
+      "id": "e1377ec2abd0",
+      "description": "The Phantom of the Opera touring production at Segerstrom Center for the Arts, Costa Mesa (7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "66e8dab395a7": {
+      "id": "66e8dab395a7",
+      "description": "The Phantom of the Opera touring production at Segerstrom Center for the Arts, Costa Mesa (6:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "d0ad758770f4": {
+      "id": "d0ad758770f4",
+      "description": "Alligator Beach's New Orleans funk party at Harvelle's, Santa Monica (6:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "c0c3f35a2724": {
+      "id": "c0c3f35a2724",
+      "description": "Guns N' Roses with Ice Cube at Rose Bowl, Pasadena (6:25pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "870b25cbc42b": {
+      "id": "870b25cbc42b",
+      "description": "BTS 'Arirang' world tour at SoFi Stadium, Inglewood (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "a062313e034a": {
+      "id": "a062313e034a",
+      "description": "Los Angeles Azules perform cumbia at F&M Bank Amphitheater, Long Beach (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "d7bb2d8f9556": {
+      "id": "d7bb2d8f9556",
+      "description": "Disney's Beauty and the Beast touring production at Hollywood Pantages Theatre (1pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "19c197c29737": {
+      "id": "19c197c29737",
+      "description": "Nitzer Ebb and Lead Into Gold at The Fonda Theatre, Hollywood (8:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "c26f8dc68600": {
+      "id": "c26f8dc68600",
+      "description": "Future Nobodies and Sinnerella & We Cults at Roxy Theatre, West Hollywood (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "554b152e72d8": {
+      "id": "554b152e72d8",
+      "description": "Asleep At the Wheel country show at Troubadour, West Hollywood (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "fca684c2833f": {
+      "id": "fca684c2833f",
+      "description": "Hello Vee, R&B at The Peppermint Club, West Hollywood (9pm, 21+).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "49af0d9d6b0d": {
+      "id": "49af0d9d6b0d",
+      "description": "Karaoke and chill night at The Hype Spot, free (9:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "medium"
+    },
+    "ecbed512d595": {
+      "id": "ecbed512d595",
+      "description": "Natasha Leggero comedy at Hollywood Palladium's Vinyl Room (8pm, 21+).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "a6b69cf0a41a": {
+      "id": "a6b69cf0a41a",
+      "description": "Saturday drag brunch at Hamburger Mary's, West Hollywood (2:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "0830e3883c50": {
+      "id": "0830e3883c50",
+      "description": "DevilDriver Strike and Kill Tour with Upon a Burning Body and Ov Sulfur at House of Blues Anaheim (6pm, all-ages).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "aab0668d1df6": {
+      "id": "aab0668d1df6",
+      "description": "Salami Rose Joe Louis and Brandon at Farm House Collective, Riverside (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "773a150cf018": {
+      "id": "773a150cf018",
+      "description": "Garden Brothers Circus at Santa Anita Park, Arcadia (4pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "01d6bd405ffc": {
+      "id": "01d6bd405ffc",
+      "description": "Ballet Folklórico Rey Coliman presents Novias de Mexico at Luckman Fine Arts Complex (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "addfc99019ac": {
+      "id": "addfc99019ac",
+      "description": "Love Galore karaoke at LoveNote, free (9pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "medium"
+    },
+    "fa6f4e1485c9": {
+      "id": "fa6f4e1485c9",
+      "description": "All Shall Perish 20-year anniversary performance at The Observatory, Santa Ana (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "e077ea22fdd0": {
+      "id": "e077ea22fdd0",
+      "description": "The Erections with multiple bands at Riverside Municipal Auditorium (7pm, all-ages).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "7206d0af90c9": {
+      "id": "7206d0af90c9",
+      "description": "BXS (Bryndis x Siempre) at Fox Performing Arts Center, Riverside (8pm, all-ages).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "ab225f925679": {
+      "id": "ab225f925679",
+      "description": "MC Magic hip-hop show at Ventura Music Hall (7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "3448f7cb28bc": {
+      "id": "3448f7cb28bc",
+      "description": "Daj Dolla hip-hop performance at Constellation Room, Santa Ana (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "f19b89e261c3": {
+      "id": "f19b89e261c3",
+      "description": "Walk-in ceramics workshop at Junior High with 2-hour clay access, tools, and instruction in pinch, coil, and slab techniques (ages 12+, $25).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "08da8dd73c16": {
+      "id": "08da8dd73c16",
+      "description": "Amor Prohibido tribute to Selena at House of Blues Anaheim (all-ages, 7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
+      "confidence": "high"
+    },
+    "67a69ffb0c9e": {
+      "id": "67a69ffb0c9e",
+      "description": "The Broken Hearts perform a Tom Petty tribute at House of Blues Anaheim (rock, all-ages, 7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-01T12:35:27",
       "confidence": "high"
     }
   },
@@ -18101,6 +19078,74 @@
     "rob tregenza": {
       "note": "American structuralist filmmaker — Talking to Strangers (1988) is his triple-threat debut (writer/director/cinematographer): nine unbroken 10-minute 35mm takes, shot once each, sequenced by computer-randomized order. The NYT called it an antidote to jazzy montage; a genuine formalist curio, not a normal narrative feature.",
       "seen": "2026-07-31T12:35:38"
+    },
+    "sarah register": {
+      "note": "LA experimental guitarist who plays in Kim Gordon's live band and co-produced her Grammy-nominated 'The Collective' — cut her teeth in NYC avant-pop duo Talk Normal (a Sonic Youth/Wire favorite) and is also a Grammy-nominated mastering engineer (Black Midi, Faye Webster).",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "sleepie louie": {
+      "note": "UK-born, LA-based rapper/artist (Louie Hillcoat) — thin public footprint beyond opener billings, so take this one as a wildcard support slot.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "2hollis": {
+      "note": "LA-raised rage-rap/hyperpop artist (Hollis Frazier-Herndon) on Interscope — self-produced, genre-blurring pop/rap/EDM chaos out of the Playboi Carti/Opium orbit, not a house/techno name.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "frost children": {
+      "note": "NYC sibling duo (Angel & Lulu Prost) splicing hyperpop, EDM, Jersey club and bloghouse into overclocked pop — their newest EP leans hardstyle/trance; more festival-pop chaos than a DJ set.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "snow strippers": {
+      "note": "Detroit-formed electroclash duo (Tatiana Schwaninger & Graham Perez, Surf Gang/Mad Decent) doing bleary electro-pop shot through with witch house, trance and hardstyle — indie-sleaze revival energy, not house/techno.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "underscores": {
+      "note": "SF-born, NYC-based producer April Harper Grey — genre-hopping hyperpop/indie/dubstep project (Mom + Pop), started on dubstep SoundCloud as a teenager; outside the house/techno lane but a real, well-reviewed act.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "mcr-t": {
+      "note": "Berlin rapper/producer (Viktor Macha) out of the Live From Earth crew — raps live over a raw hip-hop/hard-techno/ghettotech hybrid; a genuinely different texture than a straight DJ set.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "oppidan": {
+      "note": "UK garage producer, one of the faster-rising names in the current UKG wave — blends 2-step with 4x4 NUKG and bass; the garage-leaning name on an otherwise bass/EDM-heavy bill.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "ranger trucco": {
+      "note": "Michigan-born tech-house producer/vocalist, Space Yacht signee — clean, warbling tech-house with his own sung hooks; the more house-adjacent name on a festival-bass-heavy bill.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "rocket rese": {
+      "note": "LA-adjacent producer working rawstyle/gangsta-rap-inflected hard dance — couldn't verify much beyond recent streaming output, so treat as a minor supporting name.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "geoboi": {
+      "note": "LA DJ with a thin public bio but a real footprint on the Echo Park/queer-underground circuit (played Sorbet at TBA - Echo Park alongside Shane Thomas) — a dancefloor-first selector.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "banoffee": {
+      "note": "Melbourne-born, LA-based alt-pop producer/singer (Martha Brown) — SOPHIE collaborator and Charli XCX/Empress Of/King Princess associate with deep roots in the queer club circuit; more pop-production pedigree than a straight DJ.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "captain planet": {
+      "note": "LA DJ/producer (Charlie Wilder) known for eclectic, high-energy sets blending Afrobeat, Latin, funk, disco, reggae and house — releases on Bastard Jazz; a genuine crate-digger's crate-digger.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "latroit": {
+      "note": "Dennis White — Detroit-rooted, LA-based house producer since the late '80s (Berklee grad); won a 2018 Grammy for Best Remixed Recording on his Depeche Mode 'You Move' remix and runs the House of Latroit label/podcast.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "rikhter": {
+      "note": "Yakutsk-born, Berlin-based hard/hypnotic techno producer signed to Kobosil's R Label Group — reverberating kicks and rolling, high-tempo intensity; Berghain resident-caliber, plays Rotterdam Rave and ADE.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "emiliana": {
+      "note": "LA-based hard-techno producer/DJ, founder of the CTHRTC label and a WORK Harder (6AM Group) resident — distorted drums and ominous, experimental-noise-inflected techno.",
+      "seen": "2026-08-01T00:00:00"
+    },
+    "mcr t": {
+      "note": "Berlin rapper/producer who raps live over a hip-hop/hard-techno/ghettotech hybrid — a different texture than a straight DJ set.",
+      "seen": "2026-08-01T12:35:27"
     }
   }
 }
