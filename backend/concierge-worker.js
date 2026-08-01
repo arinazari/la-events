@@ -1604,9 +1604,16 @@ async function handleReact(request, env, cors) {
   const FEEDBACK_KIND = { star: "loved", hide: "hide", less: "skipped", seen: "went" };
   let learned = false;
   if (FEEDBACK_KIND[kind] && (artists.length || genres.length)) {
-    const fpath = `data/feedback.${hash}.jsonl`;
+    // OWNER taps belong in the ROOT log: the owner's builds (nightly digest, default feed, their
+    // own per-hash feed) all score against data/feedback.jsonl — a per-hash file for the owner is
+    // a dead store nothing reads (their taps sat unread there until 2026-08.)
+    const fpath = prof.owner ? "data/feedback.jsonl" : `data/feedback.${hash}.jsonl`;
     const ffile = await ghGetFile(env, fpath);
-    const frec = { ts, kind: FEEDBACK_KIND[kind],
+    // Full-ISO ts (not the date-only social stamp): editor._stale compares it against a
+    // verdict's judged_at to decide whether a tap postdates the last judge — second precision
+    // makes same-day taps exact instead of day-granular.
+    const fts = new Date().toISOString().slice(0, 19) + "Z";
+    const frec = { ts: fts, kind: FEEDBACK_KIND[kind],
                    ...(artists.length ? { artists } : {}), ...(genres.length ? { genres } : {}),
                    event_key: key, ...(title ? { note: `${kind}: ${title}` } : {}) };
     const ff = foldFeedback(ffile ? ffile.text : "", frec);

@@ -293,7 +293,12 @@ def main() -> int:
             # Owner keeps build_dashboard's default --digest (digests/latest.md, the flagship):
             # digests/<hash>/latest.md is a copy of it made AFTER feeds build in the routine, so
             # reading the flagship directly avoids lifting yesterday's Take from the stale copy.
-            ok = run_build("taste.yaml", "profile.yaml", out)
+            # DO emit the per-hash editor pool: the on-demand rebuild's LLM pass loads
+            # data/editor_pool.<hash>.json for every profile, owner included — without it the
+            # owner's Update has nothing to judge from. Pool contents are the default layer
+            # (root taste/affinity, default.json verdicts), which IS the owner's layer.
+            ok = run_build("taste.yaml", "profile.yaml", out,
+                           editor_pool_out=str(REPO / "data" / f"editor_pool.{h}.json"))
         else:
             # Friend: their OWN profiles/<name>/profile.yaml if present, else ABSENT — the scorer
             # then falls back to their taste.yaml's `scoring` block (then DEFAULT_*). Friends do NOT

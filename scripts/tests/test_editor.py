@@ -84,8 +84,77 @@ def test_select_for_verdict_reselects_on_score_drift():
                               "input_version": ED.EDITOR_INPUT_VERSION,
                               "judged_at": "2026-06-19T00:00:00"}}}
     assert ED.select_for_verdict([ev], cache) == []          # score unchanged -> skip
-    ev2 = dict(ev); ev2["score"] = 8                          # lineup/feedback moved the score
+    ev1 = dict(ev); ev1["score"] = 6                          # ±1 ripple (reaction/policy nudge):
+    assert ED.select_for_verdict([ev1], cache) == []          #   below DRIFT_MIN -> verdict kept
+    ev2 = dict(ev); ev2["score"] = 7                          # real move (>= DRIFT_MIN)
     assert [m["id"] for m in ED.select_for_verdict([ev2], cache)] == [k]
+    ev3 = dict(ev); ev3["score"] = 3                          # downward drift counts the same
+    assert [m["id"] for m in ED.select_for_verdict([ev3], cache)] == [k]
+
+
+def test_score_drift_creep_accumulates_to_reselect():
+    """A kept verdict's score_at_judge is NOT refreshed, so sub-threshold creep accumulates
+    against the stored score and re-selects once it totals DRIFT_MIN."""
+    ev = _ev("Creeper", CLUB_U, 5)
+    k = ED.event_key(ev)
+    cache = {"verdicts": {k: {"tier": "solid", "score_at_judge": 5,
+                              "input_version": ED.EDITOR_INPUT_VERSION,
+                              "judged_at": "2026-06-19T00:00:00"}}}
+    ev1 = dict(ev); ev1["score"] = 6                          # +1: kept, stamp stays at 5
+    assert ED.select_for_verdict([ev1], cache) == []
+    ev2 = dict(ev); ev2["score"] = 7                          # +1 again: Δ2 vs stored -> re-judge
+    assert [m["id"] for m in ED.select_for_verdict([ev2], cache)] == [k]
+
+
+def test_reaction_on_event_reselects_regardless_of_drift():
+    """An explicit tap on an event (reacted_at newer than judged_at) forces a re-judge even when
+    the score didn't move DRIFT_MIN; a tap the judge already saw (older stamp) stays cached."""
+    ev = _ev("Tapped", CLUB_U, 5)
+    k = ED.event_key(ev)
+    cache = {"verdicts": {k: {"tier": "great", "score_at_judge": 5,
+                              "input_version": ED.EDITOR_INPUT_VERSION,
+                              "judged_at": "2026-07-31T07:00:00"}}}
+    assert ED.select_for_verdict([ev], cache) == []                # no tap, no drift -> kept
+    ev_t = dict(ev); ev_t["reacted_at"] = "2026-08-01T05:00:00Z"   # tap after the judge, score flat
+    assert [m["id"] for m in ED.select_for_verdict([ev_t], cache)] == [k]
+    ev_o = dict(ev); ev_o["reacted_at"] = "2026-07-30T23:59:59Z"   # tap BEFORE the judge -> folded
+    assert ED.select_for_verdict([ev_o], cache) == []
+
+
+def test_reaction_dateonly_stamp_and_rejudge_stability():
+    """Legacy date-only reaction stamps compare day-granular (same-day tap re-judges); once the
+    verdict is re-judged with a later clock, a full-ISO stamp older than judged_at goes quiet."""
+    ev = _ev("Tapped2", CLUB_U, 5)
+    k = ED.event_key(ev)
+    cache = {"verdicts": {k: {"tier": "great", "score_at_judge": 5,
+                              "input_version": ED.EDITOR_INPUT_VERSION,
+                              "judged_at": "2026-08-01T07:00:00"}}}
+    ev_d = dict(ev); ev_d["reacted_at"] = "2026-08-01"             # date-only: same day -> re-judge
+    assert [m["id"] for m in ED.select_for_verdict([ev_d], cache)] == [k]
+    ED.update_verdicts(cache, [{"id": k, "tier": "solid"}], scores={k: 5},
+                       now="2026-08-01T10:00:00")
+    ev_f = dict(ev); ev_f["reacted_at"] = "2026-08-01T09:00:00Z"   # tap predates the re-judge
+    assert ED.select_for_verdict([ev_f], cache) == []
+
+
+def test_pool_doc_records_carry_reacted_at():
+    ev = _ev("Tapped3", CLUB_U, 5)
+    ev["reacted_at"] = "2026-08-01T05:00:00Z"
+    doc = ED.pool_doc([ev], today=date(2026, 8, 1), window_days=14, per_lane=0, floor=4)
+    assert doc["events"][0]["reacted_at"] == "2026-08-01T05:00:00Z"
+
+
+def test_resolve_store_hash_owner_maps_to_default():
+    import hashlib
+    man = {"salt": "s:", "profiles": [{"username": "Own "},  # non-owner, case/space-insensitive hash
+                                      {"username": "own", "owner": True},
+                                      {"username": "friend"}]}
+    oh = hashlib.sha256(b"s:own").hexdigest()[:16]
+    fh = hashlib.sha256(b"s:friend").hexdigest()[:16]
+    assert ED.resolve_store_hash(oh, man) is None      # owner feed hash -> the default store
+    assert ED.resolve_store_hash(fh, man) == fh        # friend hash passes through
+    assert ED.resolve_store_hash(fh, {}) == fh         # no manifest -> passthrough
+    assert ED.resolve_store_hash(None, man) is None    # default profile stays default
 
 
 def test_select_for_verdict_refresh_days():

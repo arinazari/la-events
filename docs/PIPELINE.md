@@ -33,7 +33,7 @@ and the consolidated digest keep the full nightly treatment — they ARE the can
 |---|---|---|---|---|
 | **Daily routine** (`routines/daily-digest-prompt.md`) | scheduled (cron) → commits `main` | fetch → dedupe → score → editor → enrich → render consolidated + weekend look-aheads → build ALL feeds (deterministic) → **taste-change gate** → per-profile LLM pass (REFRESH profiles only) → commit → deploy | editor (delta only), enrich (misses only), consolidated intro, per-profile editor+narrative (taste-gated) | editor=`select_for_verdict`, enrich=`select_for_enrichment` write-once, friends' LLM layer=`profile_refresh_gate` (taste changed since last enrichment — catalog movement doesn't count), subagents pinned Sonnet |
 | **Owner "Refresh events DB"** | page → Worker `/refresh-events` → `refresh-events.yml` | deterministic: fetch → catalog → default feed → render consolidated → commit → deploy | **none** | Worker **debounce** (`REFRESH_MIN_MINUTES`, default 15) → 429 if pulled recently |
-| **User "Update my ranking & digest"** | page → Worker `/rebuild-profile` → `rebuild-profile.yml` | deterministic feed (commit), then full LLM pass (editor + enrich + narrative) for **one** profile | medium (1 profile, Sonnet) | client enables only when `feedStale ‖ tasteDirty` + busy-lock; deterministic feed lands even if the LLM step times out |
+| **User "Update my ranking & digest"** | page → Worker `/rebuild-profile` → `rebuild-profile.yml` | deterministic feed (commit), then full LLM pass (editor + enrich + narrative) for **one** profile | medium (1 profile, Sonnet) | client enables only when `feedStale ‖ tasteDirty` + busy-lock; LLM step is wall-clock-capped (`timeout-minutes: 10`) and the prompt caps judging at 24 events/click (a drift backlog is the nightly's job), so the receipt lands ≤ ~13 min after the click; deterministic feed lands even if the LLM step is killed |
 | **Concierge taste/profile self-edit** | Worker commits YAML → `build-profiles.yml` (path filter) | deterministic re-score of that one feed → commit → deploy | **none** (defers the narrative to Update) | path-filtered to `profiles/**/taste.yaml` + `profiles.yaml`; client marks the profile "dirty" |
 | **Spotify connect** | Worker `/spotify/callback` → `dispatchSync` → `spotify-sync.yml` | sync that profile's listening → rebuild its feed → deploy | **none** | per-connect; token never leaves Cloudflare |
 
@@ -126,7 +126,7 @@ no backend; the static page just renders it.
 
 ## Cost ledger — where tokens go, and the bound on each
 
-1. **Nightly editor** — only new/score-drifted events are judged; cached + committed per profile. Sonnet.
+1. **Nightly editor** — only new or score-drifted (Δ ≥ 2 — `editor.DRIFT_MIN`; ±1 ripples from a reaction or small policy tweak keep the cached verdict) events are judged, plus any event the person explicitly reacted to since its last judge (the tap's feedback row carries `event_key`; `feedback.stamp_reacted` → `editor._stale` re-judges that ONE event regardless of drift); cached + committed per profile. Sonnet. The OWNER's store is `data/verdicts/default.json` — `merge_verdicts` resolves the owner's feed hash to it (`editor.resolve_store_hash`), and their dashboard taps land in the root `data/feedback.jsonl`.
    The editor record now carries a read-only `scene` block — the **taste-neutral** factual subset of
    the shared enrichment cache (`editor._record` → `enrich.scene_facts`: type/subgenres/label_orbit/
    setting/sounds_like/description + artist bios; **never** curator_note/energy, which are taste-voiced)

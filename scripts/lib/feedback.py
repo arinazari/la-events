@@ -21,6 +21,7 @@ import json
 from pathlib import Path
 
 from .affinity import normalize_name, _tier_for
+from .enrich import event_key
 
 # Per-reaction weight nudge applied to an artist/genre. Overridable via
 # profile.yaml `scoring.feedback.weights`. `hide` is large + negative so it forces
@@ -120,6 +121,39 @@ def apply_feedback(affinity: dict, agg: dict) -> dict:
     if has_feedback:
         out["source"] = "spotify+feedback" if had_music else "feedback"
     return out
+
+
+def reacted_keys(reactions: list) -> dict:
+    """{event_key: latest reaction ts} for rows that TARGET a specific event. The Worker stamps
+    `event_key` on every dashboard-tap feedback row (star/less/seen/hide); artist/genre-level
+    rows from the concierge/CLI carry none and don't gate verdicts. Latest ts wins — ISO strings
+    compare lexicographically, full-timestamp or date-only alike."""
+    out = {}
+    for r in reactions:
+        k = (r or {}).get("event_key")
+        ts = str((r or {}).get("ts") or "").strip()
+        if not k or not ts:
+            continue
+        if ts > out.get(k, ""):
+            out[k] = ts
+    return out
+
+
+def stamp_reacted(events: list, reactions: list) -> int:
+    """Stamp `reacted_at` onto events the user explicitly reacted to (matched by event key), so
+    editor._stale re-judges exactly those regardless of the DRIFT_MIN score gate — one tap earns
+    one targeted re-judge, while diffuse affinity ripples stay dampened. Mutates in place;
+    returns how many events got stamped."""
+    keys = reacted_keys(reactions)
+    if not keys:
+        return 0
+    n = 0
+    for e in events:
+        ts = keys.get(event_key(e))
+        if ts:
+            e["reacted_at"] = ts
+            n += 1
+    return n
 
 
 def affinity_paths(repo, profile_hash: str = None) -> tuple:

@@ -122,8 +122,16 @@ jobs:
 
       # LLM pass: fresh event-editor verdicts + scene enrichment + the narrative digest. Bounded by
       # the prompt (top-N only) so it finishes within turns; best-effort. Auto-discovers .claude/agents/.
+      #
+      # timeout-minutes is the WALL-CLOCK bound --max-turns can't provide (one Task batch = one turn,
+      # however long it runs): a drift-flooded verdict cache once pushed this step to 27m40s and the
+      # dashboard's Update button ticked "re-ranking" to the edge of its 30-min poll cap. The kill is
+      # safe by design — the deterministic feed is already committed above, whatever the agent left in
+      # the working tree (merged verdict batches, enrichment) is committed by the receipt step below,
+      # and the receipt + deploy are what the page is actually waiting on. Click → receipt ≤ ~13 min.
       - name: LLM editor + enrichment + digest (best-effort)
         continue-on-error: true
+        timeout-minutes: 10
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -156,6 +164,9 @@ jobs:
           tmp="$(mktemp -d)"
           [ -f "digests/$HASH/latest.md" ] && cp "digests/$HASH/latest.md" "$tmp/digest.md" || true
           [ -f "data/verdicts/$HASH.json" ] && cp "data/verdicts/$HASH.json" "$tmp/verdicts.json" || true
+          # The OWNER's verdicts merge into the default store (merge_verdicts resolves their feed
+          # hash -> default.json), so carry it too — for friends it's untouched and stages nothing.
+          [ -f data/verdicts/default.json ] && cp data/verdicts/default.json "$tmp/verdicts-default.json" || true
           [ -f data/enrichment.json ] && cp data/enrichment.json "$tmp/enrichment.json" || true
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config user.name "github-actions[bot]"
@@ -164,11 +175,12 @@ jobs:
           git reset --hard origin/main -q || true     # clean tree on the feed commit pushed above
           [ -f "$tmp/digest.md" ] && mkdir -p "digests/$HASH" && cp "$tmp/digest.md" "digests/$HASH/latest.md" || true
           [ -f "$tmp/verdicts.json" ] && mkdir -p data/verdicts && cp "$tmp/verdicts.json" "data/verdicts/$HASH.json" || true
+          [ -f "$tmp/verdicts-default.json" ] && mkdir -p data/verdicts && cp "$tmp/verdicts-default.json" data/verdicts/default.json || true
           [ -f "$tmp/enrichment.json" ] && cp "$tmp/enrichment.json" data/enrichment.json || true
           printf '{"rebuilt_at":"%s","run_id":"%s"}\n' "$(date -u +%FT%TZ)" "$GITHUB_RUN_ID" > "dashboard/rebuilt.$HASH.json"
           # One add per path: a single multi-path `git add` stages NOTHING if any pathspec is
           # missing (new profile with no digest/verdicts yet), silently dropping the rest.
-          for f in "data/verdicts/$HASH.json" data/enrichment.json "digests/$HASH/latest.md" "dashboard/rebuilt.$HASH.json"; do
+          for f in "data/verdicts/$HASH.json" data/verdicts/default.json data/enrichment.json "digests/$HASH/latest.md" "dashboard/rebuilt.$HASH.json"; do
             [ -f "$f" ] && git add -- "$f" || true
           done
           # The receipt is unique per run, so this commit always lands — that's the point: the

@@ -13,7 +13,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # scripts/ on path
 from lib.feedback import (affinity_paths, aggregate, apply_feedback,  # noqa: E402
-                          load_feedback, merged_affinity)
+                          load_feedback, merged_affinity, reacted_keys, stamp_reacted)
+from lib.enrich import event_key  # noqa: E402
 from lib.scoring import score_event  # noqa: E402
 from lib.config import load_profile  # noqa: E402
 
@@ -138,6 +139,27 @@ def test_committed_feedback_log_is_valid_jsonl():
     assert isinstance(rx, list)                       # no crash on the real file
     agg = aggregate(rx, PROFILE)                       # aggregate handles it (even when empty)
     assert set(agg) == {"artist_delta", "genre_delta", "hide", "names"}
+
+
+def test_reacted_keys_targets_only_event_rows_latest_wins():
+    rx = [
+        {"ts": "2026-08-01", "kind": "loved", "artists": ["A"], "event_key": "abc123abc123"},
+        {"ts": "2026-08-02T04:05:06Z", "kind": "skipped", "artists": ["A"], "event_key": "abc123abc123"},
+        {"ts": "2026-08-03", "kind": "loved", "genres": ["house"]},   # no event target -> ignored
+        {"kind": "loved", "artists": ["B"], "event_key": "ffffffffffff"},  # no ts -> ignored
+    ]
+    assert reacted_keys(rx) == {"abc123abc123": "2026-08-02T04:05:06Z"}
+
+
+def test_stamp_reacted_marks_matching_events_only():
+    ev = {"title": "Warehouse Night", "venue": "1642", "iso_date": "2026-08-09", "score": 5}
+    other = {"title": "Other Show", "venue": "Elsewhere", "iso_date": "2026-08-10", "score": 5}
+    rx = [{"ts": "2026-08-01T05:00:00Z", "kind": "skipped", "artists": ["A"],
+           "event_key": event_key(ev)}]
+    assert stamp_reacted([ev, other], rx) == 1
+    assert ev["reacted_at"] == "2026-08-01T05:00:00Z"
+    assert "reacted_at" not in other
+    assert stamp_reacted([other], []) == 0        # no rows -> no-op
 
 
 if __name__ == "__main__":

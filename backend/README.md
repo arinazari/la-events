@@ -38,7 +38,8 @@ It does **a few** things, depending on what the POST body carries:
        ─► commits data/reactions.jsonl (last-wins per person+event) ─► everyone's dashboard
           overlays it in seconds via GET /stars (below); the nightly routine bakes `stars`
           into feeds + digests durably; the starrer's saved calendar picks it up
-       ─► star/hide with artists also appends loved/hide to feedback.<hash>.jsonl (teaches ranking)
+       ─► star/hide with artists also appends loved/hide to feedback.<hash>.jsonl (ROOT
+          feedback.jsonl for the owner — their builds read only that; teaches ranking)
              ◄──────── { ok, changed, learned } ────────   gate = valid profile hash + GITHUB_TOKEN
 
 5c. LIVE STAR MAP (GET /stars — display freshness, no auth, no LLM)
@@ -99,9 +100,15 @@ to everyone** two ways: within seconds via the live **`GET /stars`** overlay (th
 fetches the folded map at boot/refocus and lays it over the baked feed), and durably at the next
 feed/digest bake as `stars: [{name, hash}]` — "★ Lori" on the card and beside the event in every
 digest. It also drives that person's **Starred calendar** (`GET /calendar.ics?saved=1`). AND — for `star`/`hide` with `artists` attached — it appends a
-`loved`/`hide` line to that profile's `data/feedback.<hash>.jsonl`, which the existing tested
-feedback→scoring fold picks up with **zero new ranking code** (append-once per event+kind, so
-flapping can't stack weight; `unstar` never teaches — a past star still meant interest).
+`loved`/`hide` line to that profile's `data/feedback.<hash>.jsonl` — **except the owner, whose
+taps go to the ROOT `data/feedback.jsonl`**: the owner's builds (nightly digest, default feed,
+their own per-hash feed) all score against the root log, so a per-hash file for the owner is a
+dead store nothing reads. The existing tested feedback→scoring fold picks it up with **zero new
+ranking code** (append-once per event+kind, so flapping can't stack weight; `unstar` never
+teaches — a past star still meant interest). Feedback rows carry a **full-ISO `ts`** + the
+`event_key`: the editor uses them to force a fresh verdict for exactly the tapped event
+(`editor._stale` re-judges a reaction newer than `judged_at`, bypassing the `DRIFT_MIN` score
+gate that dampens diffuse ripples). Routing changes here ship on the next `wrangler deploy`.
 
 Gate = a **valid profile hash** (`resolveProfile` maps it via `profiles.yaml` — a name-derived
 feed hash today; a capability token once Track A lands) **+ `GITHUB_TOKEN`**. There is **no
