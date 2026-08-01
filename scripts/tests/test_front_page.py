@@ -180,6 +180,25 @@ def test_festival_tagged_rows_go_to_festivals_table():
     assert "hardsummer" not in fp["hero"]["twoweeks"]
 
 
+def test_festivals_table_rolls_up_sub_events():
+    """A festival's per-night sub-events ("Windgrease Festival: <program>") share ONE table
+    row — the earliest night represents the program. Distinct festivals keep their rows, and
+    the leading article can't split the group."""
+    subs = [ev(f"wg{i}", f"2026-08-{7 + i:02d}", "club:mainstream", i + 2, vibe=["festival"])
+            for i in range(3)]
+    subs[0]["title"] = "The Windgrease Festival: Full Festival Passes"
+    subs[1]["title"] = "Windgrease Festival: Revolving Piano Concert"
+    subs[2]["title"] = "Windgrease Festival: Wall of Synthprayer"
+    hard = ev("hard", "2026-08-02", "club:mainstream", 1, vibe=["festival"])
+    hard["title"] = "HARD Summer Music Festival"
+    days = [ev("ow1", "2026-09-26", "club:mainstream", 9, vibe=["festival"]),
+            ev("ow2", "2026-09-27", "club:mainstream", 10, vibe=["festival"])]
+    days[0]["title"] = "Ocean Way Festival - 09/26 Saturday"    # per-day passes = one program
+    days[1]["title"] = "Ocean Way Festival - 09/27 Sunday"
+    fp = B.build_front_page(subs + [hard] + days, {}, TODAY)
+    assert table(fp, "festivals")["keys"] == ["hard", "wg0", "ow1"]   # date order, one row per festival
+
+
 def test_radar_leftovers_join_fyi_placed_rows_dont():
     """Radar rows not already placed in a section fold into FYI (resolved via the feed);
     a radar row that IS placed (e.g. a featured set) never duplicates into FYI."""

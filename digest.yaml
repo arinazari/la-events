@@ -17,14 +17,18 @@ group_by: day             # day | neighborhood | category — the day-by-day age
 max_picks_per_day: null   # optional hard cap on events listed per day (null = the renderer's default)
 
 # Which sections to include, in order. Omit the key to take the full default set below. Known
-# sections: tonight · dont_miss · changes · day_by_day · around_town · radar.
+# sections: tonight · dont_miss · changes · day_by_day · marquee · around_town · radar.
 # (day_by_day is the body; don't drop it. tonight = the next-48h actionable slice;
-# changes = what's new/updated since the last pull, omitted automatically on quiet days.)
+# changes = what's new/updated since the last pull, omitted automatically on quiet days;
+# marquee = the ONE movies block — film runs opening this stretch + notable one-night
+# screenings; movies appear nowhere else in the doc, so this section is forced in even
+# when unlisted here.)
 sections:
   - tonight
   - dont_miss
   - changes
   - day_by_day
+  - marquee
   - around_town
   - radar
 

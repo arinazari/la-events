@@ -47,6 +47,7 @@ from lib import editor as ED  # noqa: E402
 from lib.assemble import rank_key, event_lane, top_picks, TOP_PICKS_LANE_CAP  # noqa: E402
 from lib.series import group_series, series_summary, is_film, showtimes_url  # noqa: E402
 from lib.festivals import load_festivals  # noqa: E402  (festivals.yaml -> front_page.festivals)
+from lib.dedupe import _fest_core, _FEST_SIGNAL, normalize as _norm  # noqa: E402  (festival rollup)
 from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
@@ -265,6 +266,29 @@ def _program_order(e: dict, today_iso: str):
     return (1, first, last)
 
 
+_WS_RE = re.compile(r"\s+")
+
+
+def _fest_rollup_key(title: str) -> str:
+    """One Festivals-table row per FESTIVAL, not per sub-event. Sub-events title as
+    "<Festival name>: <night/program>" — when the pre-colon head reads festival-ish, IT is
+    the program's identity; then dedupe's _fest_core strips edition/pass/year filler and a
+    leading article, so "The Windgrease Festival: Full Festival Passes" and "Windgrease
+    Festival: Billy Higgins' Drumline" share a key. (Series consolidation can't group these:
+    the titles differ, deliberately — each night IS a distinct catalog event.)"""
+    t = str(title or "")
+    head = t.split(":", 1)[0]
+    if ":" not in t or not _FEST_SIGNAL.search(_norm(head)):
+        head = t
+    core = re.sub(r"^the\s+", "", _fest_core(head))
+    # Per-day passes differ only by a date/weekday tail ("Ocean Way Festival - 09/26
+    # Saturday" / "- 09/27 Sunday") — display grouping strips those tokens too. Safe at this
+    # layer: this keys a TABLE ROW, never a dedupe merge.
+    core = _WS_RE.sub(" ", re.sub(
+        r"\b(?:mon|tues?|wednes|thurs?|fri|satur|sun)day\b|\b\d+\b", " ", core)).strip()
+    return core or _norm(t)
+
+
 def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
                      take=None, festivals=None) -> dict:
     """The front_page block: hero keys per lens, the two MARQUEE shelves (Sets and shows /
@@ -323,6 +347,13 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
     movies = sorted(by_sec.get("movies") or [], key=lambda e: _program_order(e, t_iso))
     theater = sorted(by_sec.get("theater") or [], key=lambda e: _program_order(e, t_iso))
     fest_evs = sorted(by_sec.get("festivals") or [], key=lambda e: e["iso_date"])
+    seen_fest, rolled = set(), []
+    for e in fest_evs:            # one row per festival — earliest night represents it
+        fk = _fest_rollup_key(e.get("title") or "")
+        if fk not in seen_fest:
+            seen_fest.add(fk)
+            rolled.append(e)
+    fest_evs = rolled
 
     # FYI = the arena tier that isn't a taste match — including judged SKIPS (excluded from
     # every other surface, but "big show I'd skip" is exactly what FYI exists to list) — plus

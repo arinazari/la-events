@@ -85,11 +85,13 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    `lib/assemble.top_picks`, tier-primary with lane/family diversity caps, same as the
    dashboard hero, so lower-ranked same-lane picks are displaced by design; whys prefilled
    from curator notes/verdicts, priced + urgency-chipped), **What changed** (new/updated since the last pull;
-   auto-omitted on quiet days), the day-by-day body (next 14 days, lane-grouped + tier-scaled) +
-   **Weekends ahead** (days 15–35 compressed to top-4 per weekend + a link to its
-   digests/weekends/<Fri>.md), **Around town** (city-pulse, NOT taste-ranked, de-duped
-   against the slate), and **on the radar**. All slate content is the editor slate (assemble over
-   the scored pool + verdicts); ⭐ = the editor's must-sees. Ops notices (Posh-token expiry,
+   auto-omitted on quiet days), the day-by-day body (next 14 days, lane-grouped + tier-scaled,
+   **movie-free by design**) + **Weekends ahead** (days 15–35 compressed to top-4 per weekend + a
+   link to its digests/weekends/<Fri>.md), **On the marquee** (the ONE movies block — film runs
+   opening this stretch + notable one-night screenings; films appear in no other section, the
+   site's marquee page carries what's now playing), **Around town** (city-pulse, NOT
+   taste-ranked, de-duped against the slate, film-free), and **on the radar**. All slate content
+   is the editor slate (assemble over the scored pool + verdicts); ⭐ = the editor's must-sees. Ops notices (Posh-token expiry,
    coverage gaps) render in the FOOTER — never restate them in the intro. Also keep the
    **per-weekend look-ahead** (backend option for the dashboard's per-weekend view): for each of the
    next ~16 weekends keyed by the **Friday**, `python scripts/render_digest.py --from <Fri> --to <Sun>
