@@ -409,6 +409,49 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
     }
 
 
+def _radar_artifacts_fresh(paths, catalog_mtime, today) -> bool:
+    """True when every rail artifact exists, was built for `today`, and is no older than
+    the catalog it summarizes. Unreadable or legacy docs (no `today` stamp) count as stale."""
+    for p in paths:
+        try:
+            if p.stat().st_mtime < catalog_mtime:
+                return False
+            if json.loads(p.read_text()).get("today") != today.isoformat():
+                return False
+        except (OSError, json.JSONDecodeError):
+            return False
+    return True
+
+
+def ensure_radar_artifacts(today) -> None:
+    """Self-heal the front-page rails' inputs (data/radar.json + data/around_town.json).
+
+    Both are gitignored runtime artifacts, so a feed rebuild in a tree where the radar step
+    never ran — a fresh clone's ad-hoc "rebuild feeds" pass (how the 2026-08-01 post-merge
+    rebuild shipped every feed with empty radar/Around-town rails), or a workflow whose
+    `build_radar.py || true` failed — silently degrades the flagship surface. When they're
+    missing or stale (built for another day, or older than data/catalog.json), rebuild them
+    via build_radar.refresh_files(): deterministic, no network, sub-second. Always from the
+    ROOT taste/profile — the rails are the shared city-pulse layer, identical across profile
+    feeds, so build_profiles' per-profile shell-outs reuse the first rebuild instead of
+    recomputing per feed. A rebuild failure warns and leaves the rails empty (degrade
+    gracefully) rather than blocking the feed build."""
+    paths = (REPO / "data" / "radar.json", REPO / "data" / "around_town.json")
+    try:
+        catalog_mtime = (REPO / "data" / "catalog.json").stat().st_mtime
+    except OSError:
+        catalog_mtime = 0.0
+    if _radar_artifacts_fresh(paths, catalog_mtime, today):
+        return
+    try:
+        import build_radar
+        r = build_radar.refresh_files()
+        print(f"  radar rails rebuilt: {r['radar']} radar + {r['around']} around-town")
+    except Exception as e:  # noqa: BLE001 — a rail failure never blocks the feed build
+        print(f"WARN: radar/around-town rebuild failed ({e}); front-page rails will be empty",
+              file=sys.stderr)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("-i", "--input", default="data/catalog.json",
@@ -632,9 +675,14 @@ def main() -> int:
         "vocab": TAG_VOCAB,
     }
 
-    # Front page — hero per time-lens + per-lane shelves (+ radar/around when the runtime sets
-    # exist; graceful when absent). Same rank the final_rank column shows; per-profile for free
-    # since this whole build already runs per profile.
+    # Front page — hero per time-lens + per-lane shelves + the radar/Around-town rails. The
+    # rail inputs are gitignored runtime artifacts: self-heal them (missing/stale -> rebuild)
+    # so a feed rebuild from a fresh clone can't ship empty rails. Sample builds don't rebuild
+    # (a demo build must not write real-catalog artifacts into data/) but still read what's
+    # there. Same rank the final_rank column shows; per-profile for free since this whole
+    # build already runs per profile.
+    if not is_sample:
+        ensure_radar_artifacts(today)
     radar_rows, around_rows = [], []
     for p, target in ((REPO / "data" / "radar.json", "radar"),
                       (REPO / "data" / "around_town.json", "around")):

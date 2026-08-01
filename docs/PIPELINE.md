@@ -122,6 +122,7 @@ no backend; the static page just renders it.
 | consolidated voice pass (Tier-3: intro + Don't-miss whys + Around-town gloss, routine step 5b) | every routine run | — (cheap; the slate/sections are deterministic scaffold, the pass fills marked slots only) | small |
 | **per-profile narrative** | routine (gate-REFRESH profiles) + per-user rebuild | `profile_refresh_gate` says SKIP (nightly), i.e. taste unchanged — picks moving with the catalog no longer regenerates it | gated; one narrative per *taste-changed* profile |
 | `build_dashboard` / `build_profiles` | end of routine (ALL feeds, nightly) / on edit / per-user rebuild | — (deterministic, free; folds each profile's *cached* verdicts — fresh ones only arrive via the gate or an Update) | none |
+| `build_radar` (front-page rails + digest radar/Around-town inputs) | routine step 5, refresh/rebuild workflows, **and build_dashboard itself** | `build_dashboard` self-heals: it rebuilds `data/radar.json` + `data/around_town.json` (gitignored runtime artifacts) whenever they're missing or stale — built for another day, or older than `data/catalog.json` — so an ad-hoc feed rebuild in a fresh clone can't ship empty rails (bit us 2026-08-01) | none (deterministic, no network) |
 | renderers (`render_digest`) | every routine run | — (deterministic) | none |
 
 ## Cost ledger — where tokens go, and the bound on each

@@ -294,11 +294,10 @@
                     </sc-if>
                     <div style="font:400 12px/1.5 -apple-system,system-ui,sans-serif; color:#3f3d36; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;">{{ c.why }}</div>
                     <div style="margin-top:auto; padding-top:4px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                      <sc-if value="{{ c.hasChips }}" hint-placeholder-val="{{ false }}">
                       <div style="display:flex; align-items:center; padding-left:5px;">
                         <sc-for list="{{ c.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:19px; height:19px; margin-left:-5px; border-radius:50%; border:2px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;" title="{{ ch.t }}">{{ ch.i }}</span></sc-for>
+                        <button onClick="{{ c.onChip }}" title="{{ c.addTitle }}" style="{{ c.addStyle }}">{{ c.addGlyph }}</button>
                       </div>
-                      </sc-if>
                       <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}">
                       <span style="flex:none; margin-left:auto; display:inline-flex; align-items:center; gap:5px;">
                         <span style="font:700 10px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span>
@@ -338,6 +337,12 @@
               </div>
               <sc-if value="{{ tbSideVenue }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap; max-width:34%; overflow:hidden; text-overflow:ellipsis;">{{ r.venue }}</span></sc-if>
               <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color: {{ r.tagColor }}; background: {{ r.tagBg }};">{{ r.tag }}</span></sc-if>
+              <sc-if value="{{ r.canStar }}" hint-placeholder-val="{{ true }}">
+                <span style="flex:none; display:inline-flex; align-items:center; margin-left:-2px;">
+                  <sc-for list="{{ r.friendChips }}" as="ch" hint-placeholder-count="1"><span style="width:16px; height:16px; margin-left:-5px; border-radius:50%; border:1.5px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 7px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;" title="{{ ch.t }}">{{ ch.i }}</span></sc-for>
+                  <span onClick="{{ r.onStar }}" title="{{ r.starTitle }}" style="flex:none; width:20px; height:20px; margin-left:2px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:11px; line-height:1; color: {{ r.starColor }}; background: {{ r.starBg }};" style-hover="background:#eef1f7;">{{ r.starGlyph }}</span>
+                </span>
+              </sc-if>
             </div>
           </sc-for>
           <sc-if value="{{ tb.hasMore }}" hint-placeholder-val="{{ false }}"><div onClick="{{ tb.onMore }}" style="padding:8px 14px; border-top:1px solid #f0efe8; font:600 10px/1 ui-monospace,Menlo,monospace; color: {{ tb.moreColor }}; cursor: {{ tb.moreCursor }};">{{ tb.more }}</div></sc-if>
@@ -1567,10 +1572,37 @@ class Component extends DCLogic {
     this.BYKEY = new Map();
     for (const e of mapped) if (e.key) this.BYKEY.set(e.key, e);
     this.META = (raw && !Array.isArray(raw)) ? raw : {};
+    this.applyLiveStars();   // a fresh feed carries baked stars — re-overlay the live map
     this.setState({ dataSource: 'live' });
     return true;
   }
   byKey(k) { return (this.BYKEY && this.BYKEY.get(k)) || null; }
+  // ---------- live stars overlay (Worker GET /stars) ----------
+  // The feed's baked `stars` refresh only on rebuild; the Worker folds reactions.jsonl live.
+  // Fetch after each feed load (+ on tab refocus, ~30s TTL) and REPLACE per-event stars by key —
+  // the log is the source of truth and strictly fresher than the bake, so a friend's star (or
+  // unstar) shows in seconds instead of after the next rebuild. Worker down → keep baked stars.
+  applyLiveStars() {
+    const map = this._liveStars;
+    if (!map) return;
+    let dirty = false;
+    for (const e of this.ALL) {
+      if (!e.key) continue;
+      const live = Array.isArray(map[e.key]) ? map[e.key].filter(s => s && s.name && s.hash) : [];
+      const same = live.length === (e.stars || []).length && live.every((s, i) => e.stars[i].hash === s.hash && e.stars[i].name === s.name);
+      if (!same) { e.stars = live; dirty = true; }
+    }
+    if (dirty) this.forceUpdate();
+  }
+  syncStars() {
+    if (!this.BACKEND_URL) return;
+    if (this._starsAt && Date.now() - this._starsAt < 30000) return;
+    this._starsAt = Date.now();
+    fetch(new URL('/stars', this.BACKEND_URL).href)
+      .then(r => (r.ok ? r.json() : null))
+      .then(j => { if (j && j.ok && j.stars && typeof j.stars === 'object') { this._liveStars = j.stars; this.applyLiveStars(); } })
+      .catch(() => {});
+  }
   // ?e=<event_key> → that event's card, once per boot (digest links + shared URLs land here)
   openDeepLink() {
     const k = this._deepKey;
@@ -1752,7 +1784,11 @@ class Component extends DCLogic {
       this.reattachJobs();
       if (this.state.profile) this.maybeNudge();
       this.openDeepLink();
+      this.syncStars();
     });
+    // Live stars re-sync when the tab comes back into view (30s TTL inside syncStars).
+    this._onVis = () => { if (!document.hidden) this.syncStars(); };
+    document.addEventListener('visibilitychange', this._onVis);
     this.loadDigest();
     if (this.BACKEND_URL) this.pingBackend();
     this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m, navHidden: false }); };
@@ -1795,7 +1831,7 @@ class Component extends DCLogic {
     };
     window.addEventListener('storage', this._onStorage);
   }
-  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._bindT) clearTimeout(this._bindT); if (this._mainEl && this._onMainScroll) this._mainEl.removeEventListener('scroll', this._onMainScroll); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onStorage) window.removeEventListener('storage', this._onStorage); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
+  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._bindT) clearTimeout(this._bindT); if (this._mainEl && this._onMainScroll) this._mainEl.removeEventListener('scroll', this._onMainScroll); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onStorage) window.removeEventListener('storage', this._onStorage); if (this._onVis) document.removeEventListener('visibilitychange', this._onVis); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
 
   // ---------- date + format ----------
   fmt(iso, time) {
@@ -2078,10 +2114,28 @@ class Component extends DCLogic {
   ticketLabel(e) { return this.LINK_LABELS[e.source] || e.source || 'Tickets'; }
   // Friends who've "chipped" this event — their initials-tokens ride on the card. Count scales
   // with how hot the event is; some events have none (so the glow varies).
+  // My OWN star is not a friend token: signed in, the feed's copy of it (my hash in e.stars)
+  // renders as the gold ★ via myStar/chipProps, so it's filtered out of this cluster.
   friendChipsFor(e) {
     if ((this.props.showChips ?? true) === false) return [];
+    const h = this.myHash();
     const init = n => { const w = String(n).trim().split(/\s+/); return ((w[0] || '?')[0] + (w[1] ? w[1][0] : String(w[0] || '').slice(1, 2))).toUpperCase(); };
-    return (e.stars || []).slice(0, 5).map(s => ({ i: init(s.name), t: s.name, bg: this.AVBG[this.hash(s.name) % this.AVBG.length] }));
+    return (e.stars || []).filter(s => s.hash !== h).slice(0, 5).map(s => ({ i: init(s.name), t: s.name, bg: this.AVBG[this.hash(s.name) % this.AVBG.length] }));
+  }
+  // The feed's copy of my star: the server folds reactions.jsonl into every event's
+  // stars [{name, hash}] on each rebuild; mine is the entry carrying my profile hash.
+  serverStar(e) { const h = this.myHash(); return !!(h && e && (e.stars || []).some(s => s.hash === h)); }
+  // Effective "my star" — the ONE state every star affordance renders and toggles. A live
+  // local tap ('chip') wins; un-starring a server star leaves an 'unchip' tombstone that
+  // suppresses the feed's copy until a rebuild folds the unstar out; otherwise the server
+  // star counts — so a star survives logout and feed rebuilds, following the profile
+  // rather than this browser's localStorage.
+  myStar(e) {
+    if (!e) return false;
+    const r = this.state.reactions[e.id];
+    if (r === 'chip') return true;
+    if (r === 'unchip') return false;
+    return this.serverStar(e);
   }
   // chip-count → soft social glow on the card
   glowFor(count, color) {
@@ -2092,9 +2146,11 @@ class Component extends DCLogic {
     const tint = (color && color.indexOf('oklch')===0) ? color.replace(')', ' / '+a+')') : 'rgba(43,92,217,'+a+')';
     return '0 1px 2px rgba(27,26,23,0.05), 0 0 ' + (3 + i*2.4).toFixed(1) + 'px ' + tint;
   }
-  // Your token joins the cluster; the add-affordance visual is the `chipAdd` tweak.
+  // the gold "your star" chip for clusters with no add-chip button (the explore table rows)
+  youStarCss(px) { return 'width:'+px+'px; height:'+px+'px; margin-left:-5px; border-radius:50%; border:1.5px solid #fff; background:#c89b2f ' + this.STAR_BG + ' center/90% no-repeat; background-clip:padding-box; flex:none;'; }
+  // Your star joins the cluster; the add-affordance visual is the `chipAdd` tweak.
   chipProps(e) {
-    const mine = this.state.reactions[e.id]==='chip';
+    const mine = this.myStar(e);
     const friends = this.friendChipsFor(e);
     const count = friends.length + (mine?1:0);
     const base = 'width:20px; height:20px; border-radius:50%; margin-left:-5px; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:none; position:relative; z-index:2;';
@@ -2109,7 +2165,7 @@ class Component extends DCLogic {
       friendChips: friends, hasChips: friends.length>0 || mine,
       youChipped: mine, chipCount: count,
       glow: (this.props.glow ? this.glowFor(count, this.scoreColorFor(e.score)) : 'none'),
-      youStarStyle: 'width:16px; height:16px; margin-left:-5px; border-radius:50%; border:1.5px solid #fff; background:#c89b2f ' + this.STAR_BG + ' center/90% no-repeat; background-clip:padding-box; flex:none;',
+      youStarStyle: this.youStarCss(16),
       addGlyph, addStyle, addTitle: mine?'Remove your chip':'Add your chip',
       chipBtnLabel: mine?'✓ Chipped':'＋ Add your chip',
       chipBtnBg: mine?'#eaf0fe':'#fff', chipBtnColor: mine?'#2b5cd9':'#3f3d36', chipBtnBorder: mine?'#2b5cd9':'#d2d0c7',
@@ -2793,10 +2849,11 @@ class Component extends DCLogic {
       this.setState({ backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); });
       this.loadDigest(); this.checkSpotify();
       this.reattachJobs(hash);   // this profile may have a rebuild still in flight from a previous visit
+      this.syncStars();
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.syncStars(); this.showToast('Signed out — back to the house feed', null); };
   // ---------- pipeline jobs: per-profile Update + owner Refresh, persisted across reloads ----------
   workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
   checkCatalogFreshness() { return this.loadMeta(); }
@@ -3191,14 +3248,11 @@ class Component extends DCLogic {
 
   // ---------- calendar subscription feed (Top picks / Starred) — CalendarCore is the shared filter+ICS ----------
   myHash() { const p = this.state.profile; return (p && p.hash) || null; }
-  // My starred event keys = server stars folded into the feed (by my hash) ∪ this session's ☆ taps.
+  // My starred event keys = the effective star state (myStar): server stars folded into the
+  // feed (by my hash) ∪ this session's ☆ taps, minus this session's un-stars.
   savedList() {
-    const h = this.myHash(); const set = new Set();
-    for (const e of this.ALL) {
-      if (!e.key) continue;
-      if (this.state.reactions[e.id] === 'chip') set.add(e.key);
-      else if (h && (e.stars || []).some(s => s.hash === h)) set.add(e.key);
-    }
+    const set = new Set();
+    for (const e of this.ALL) if (e.key && this.myStar(e)) set.add(e.key);
     return [...set];
   }
   savedCount() { return this.savedList().length; }
@@ -3637,8 +3691,12 @@ class Component extends DCLogic {
     const r = { ...this.state.reactions };
     const e = this.byId(id);
     if (kind==='chip') {
-      const next = r[id]!=='chip';
-      if (next) r[id]='chip'; else delete r[id];
+      // toggles the EFFECTIVE state (myStar): un-starring a star the feed carries needs the
+      // 'unchip' tombstone — e.stars keeps listing me until a rebuild folds the unstar out.
+      const next = !this.myStar(e);
+      if (next) r[id]='chip';
+      else if (this.serverStar(e)) r[id]='unchip';
+      else delete r[id];
       this.reactPost(e, next ? 'star' : 'unstar');
     }
     else {
@@ -3733,7 +3791,6 @@ class Component extends DCLogic {
           const cards = evs.slice(0,6).map((e,i) => {
             const card = this.cardFor(e);
             card.mustSee = i===0 && (!!(e.verdict && e.verdict.tier==='must-see') || (e.rating != null && e.rating >= 5));
-            card.hasChips = (card.friendChips||[]).length>0;
             return card;
           });
           return { id:sh.id, label:sh.label, dot:this.SHELF_DOT[sh.id] || '#76746b', allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(sh.id),
@@ -3747,7 +3804,6 @@ class Component extends DCLogic {
           const cards = laneEvs.map((e,i) => {
             const card = this.cardFor(e);
             card.mustSee = i===0 && (e.score>=6 || !!(e.verdict && e.verdict.tier==='must-see'));
-            card.hasChips = (card.friendChips||[]).length>0;
             return card;
           });
           return { id:scene.id, label:scene.label, dot:scene.dot, allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(scene.id) };
@@ -3760,7 +3816,7 @@ class Component extends DCLogic {
       if (take && take.text) {
         const heroKeys = (((this.META.front_page || {}).hero || {})[lens] || []).slice(0, 5);
         const chips = heroKeys.map(k => this.ALL.find(e => e.key === k)).filter(e => e && !this.isSeen(e)).slice(0, 3).map(e => {
-          const mine = this.state.reactions[e.id] === 'chip';
+          const mine = this.myStar(e);
           return {
             when: this.labelISO(e.iso), text: this.shortTitle(e.title), full: e.title,
             onClick: () => this.openDetail(e.id),
@@ -3801,11 +3857,21 @@ class Component extends DCLogic {
       const TAG_TONE = { green:['#1f7a4d','rgba(31,122,77,0.1)'], amber:['#b06a00','rgba(176,106,0,0.1)'],
                          blue:['#2b5cd9','rgba(43,92,217,0.1)'], gray:['#76746b','rgba(118,116,107,0.12)'] };
       const tone = (r, t) => { const [c, b] = TAG_TONE[t || 'green']; r.tagColor = c; r.tagBg = b; return r; };
+      // Every catalog-backed table row carries the social column: friend tokens + a ☆/★
+      // save toggle (the dispatch-chip affordance — the round add-button is too heavy for
+      // these packed rows). Watch-list fixtures (id:null, not catalog events) can't star.
+      const rowStar = (e) => { const mine = this.myStar(e); return {
+        canStar:true, friendChips:this.friendChipsFor(e).slice(0, 3),
+        onStar:(ev) => this.react(e.id, 'chip', ev),
+        starGlyph: mine ? '★' : '☆', starColor: mine ? '#c89b2f' : '#b5b3a9',
+        starBg: mine ? '#fdf4e3' : 'transparent',
+        starTitle: mine ? 'Saved — tap to unsave' : 'Save this one' }; };
       const tRow = (e, tag, t) => { const f = this.fmt(e.iso, e.time);
         return tone({ id:e.id, sortDate:(e.series && e.series.first) || e.iso,
           dateShort:f.wd+' '+f.md, title:e.title,
           venue:this.venueDisplay(e.venue)+(e.hood?' · '+e.hood:''),
-          tag:String(tag||'').toUpperCase(), hasTag:!!tag, onOpen:() => this.openDetail(e.id) }, t); };
+          tag:String(tag||'').toUpperCase(), hasTag:!!tag, onOpen:() => this.openDetail(e.id),
+          ...rowStar(e) }, t); };
       const progRow = e => {           // movies/theater: the program's span leads the row
         const run = this.runLabel(e);
         let r;
@@ -3819,7 +3885,7 @@ class Component extends DCLogic {
       const tblEvents = id => this.resolveKeys((((tablesSrv||[]).find(t => t.id===id))||{}).keys)
         .filter(e => !this.isSeen(e) && (e.series && e.series.last ? e.series.last >= T : e.iso >= T));
       const FEST_TONE = { on_sale:'green', announced:'blue', lineup_pending:'amber', annual_watch:'gray' };
-      const festFixture = (FP.festivals || []).map(fx => tone({ id:null, sortDate: fx.first_date || '9998',
+      const festFixture = (FP.festivals || []).map(fx => tone({ id:null, canStar:false, friendChips:[], sortDate: fx.first_date || '9998',
         dateShort: fx.first_date ? (() => { const f = this.fmt(fx.first_date, ''); return f.wd + ' ' + f.md; })()
                                  : String(fx.when||'').replace(/\.\./g,' – '), title:fx.name, venue:fx.location||'',
         tag:(fx.status ? String(fx.status).replace(/_/g,' ') : '').toUpperCase(), hasTag:!!fx.status,
