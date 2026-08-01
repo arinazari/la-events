@@ -1541,10 +1541,37 @@ class Component extends DCLogic {
     this.BYKEY = new Map();
     for (const e of mapped) if (e.key) this.BYKEY.set(e.key, e);
     this.META = (raw && !Array.isArray(raw)) ? raw : {};
+    this.applyLiveStars();   // a fresh feed carries baked stars — re-overlay the live map
     this.setState({ dataSource: 'live' });
     return true;
   }
   byKey(k) { return (this.BYKEY && this.BYKEY.get(k)) || null; }
+  // ---------- live stars overlay (Worker GET /stars) ----------
+  // The feed's baked `stars` refresh only on rebuild; the Worker folds reactions.jsonl live.
+  // Fetch after each feed load (+ on tab refocus, ~30s TTL) and REPLACE per-event stars by key —
+  // the log is the source of truth and strictly fresher than the bake, so a friend's star (or
+  // unstar) shows in seconds instead of after the next rebuild. Worker down → keep baked stars.
+  applyLiveStars() {
+    const map = this._liveStars;
+    if (!map) return;
+    let dirty = false;
+    for (const e of this.ALL) {
+      if (!e.key) continue;
+      const live = Array.isArray(map[e.key]) ? map[e.key].filter(s => s && s.name && s.hash) : [];
+      const same = live.length === (e.stars || []).length && live.every((s, i) => e.stars[i].hash === s.hash && e.stars[i].name === s.name);
+      if (!same) { e.stars = live; dirty = true; }
+    }
+    if (dirty) this.forceUpdate();
+  }
+  syncStars() {
+    if (!this.BACKEND_URL) return;
+    if (this._starsAt && Date.now() - this._starsAt < 30000) return;
+    this._starsAt = Date.now();
+    fetch(new URL('/stars', this.BACKEND_URL).href)
+      .then(r => (r.ok ? r.json() : null))
+      .then(j => { if (j && j.ok && j.stars && typeof j.stars === 'object') { this._liveStars = j.stars; this.applyLiveStars(); } })
+      .catch(() => {});
+  }
   // ?e=<event_key> → that event's card, once per boot (digest links + shared URLs land here)
   openDeepLink() {
     const k = this._deepKey;
@@ -1725,7 +1752,11 @@ class Component extends DCLogic {
       this.reattachJobs();
       if (this.state.profile) this.maybeNudge();
       this.openDeepLink();
+      this.syncStars();
     });
+    // Live stars re-sync when the tab comes back into view (30s TTL inside syncStars).
+    this._onVis = () => { if (!document.hidden) this.syncStars(); };
+    document.addEventListener('visibilitychange', this._onVis);
     this.loadDigest();
     if (this.BACKEND_URL) this.pingBackend();
     this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m, navHidden: false }); };
@@ -1768,7 +1799,7 @@ class Component extends DCLogic {
     };
     window.addEventListener('storage', this._onStorage);
   }
-  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._bindT) clearTimeout(this._bindT); if (this._mainEl && this._onMainScroll) this._mainEl.removeEventListener('scroll', this._onMainScroll); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onStorage) window.removeEventListener('storage', this._onStorage); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
+  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._bindT) clearTimeout(this._bindT); if (this._mainEl && this._onMainScroll) this._mainEl.removeEventListener('scroll', this._onMainScroll); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onStorage) window.removeEventListener('storage', this._onStorage); if (this._onVis) document.removeEventListener('visibilitychange', this._onVis); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
 
   // ---------- date + format ----------
   fmt(iso, time) {
@@ -2665,10 +2696,11 @@ class Component extends DCLogic {
       this.setState({ backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); });
       this.loadDigest(); this.checkSpotify();
       this.reattachJobs(hash);   // this profile may have a rebuild still in flight from a previous visit
+      this.syncStars();
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.syncStars(); this.showToast('Signed out — back to the house feed', null); };
   // ---------- pipeline jobs: per-profile Update + owner Refresh, persisted across reloads ----------
   workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
   checkCatalogFreshness() { return this.loadMeta(); }

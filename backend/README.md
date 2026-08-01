@@ -35,10 +35,17 @@ It does **a few** things, depending on what the POST body carries:
 
 5b. STARS (POST /react — the one social save, no LLM, no CONCIERGE_TOKEN)
    ☆ Star on a card ─► worker POST /react {profile, event_key, kind, title?, artists?}
-       ─► commits data/reactions.jsonl (last-wins per person+event) ─► CI re-folds `stars` onto the
-          feeds ─► everyone sees "★ Lori" on that card + in digests; the starrer's saved calendar picks it up
+       ─► commits data/reactions.jsonl (last-wins per person+event) ─► everyone's dashboard
+          overlays it in seconds via GET /stars (below); the nightly routine bakes `stars`
+          into feeds + digests durably; the starrer's saved calendar picks it up
        ─► star/hide with artists also appends loved/hide to feedback.<hash>.jsonl (teaches ranking)
              ◄──────── { ok, changed, learned } ────────   gate = valid profile hash + GITHUB_TOKEN
+
+5c. LIVE STAR MAP (GET /stars — display freshness, no auth, no LLM)
+   page boot / tab refocus ─► worker GET /stars ─► reads data/reactions.jsonl + profiles.yaml,
+       folds the ACTIVE star map (same rules as the build-time fold; ~30s cache)
+             ◄──── { ok, ts, stars: {event_key: [{name, hash}]} } ────   page overlays it on the
+          baked feed, so a friend's star (or unstar) shows without waiting for any rebuild
 
 6. CALENDAR FEED (GET, no auth, no LLM — Google/Apple Calendar poll this)
    GET /calendar.ics?p=<hash>&min=&perday=&horizon=&days=&types=&xtypes=&genres=&xgenres=
@@ -87,10 +94,11 @@ POST /react { profile: "<feed-hash>", event_key: "<12-hex>", kind: "star"|"unsta
 ```
 
 A star is double-duty by design. The Worker commits it to `data/reactions.jsonl` (the shared
-log — star state is **last-wins per person+event**, idempotent taps), and CI folds it onto every
-feed as `stars: [{name, hash}]`, so the star is **visible to everyone**: "★ Lori" on the card and
-beside the event in every digest, and it drives that person's **Starred calendar**
-(`GET /calendar.ics?saved=1`). AND — for `star`/`hide` with `artists` attached — it appends a
+log — star state is **last-wins per person+event**, idempotent taps), and the star is **visible
+to everyone** two ways: within seconds via the live **`GET /stars`** overlay (the dashboard
+fetches the folded map at boot/refocus and lays it over the baked feed), and durably at the next
+feed/digest bake as `stars: [{name, hash}]` — "★ Lori" on the card and beside the event in every
+digest. It also drives that person's **Starred calendar** (`GET /calendar.ics?saved=1`). AND — for `star`/`hide` with `artists` attached — it appends a
 `loved`/`hide` line to that profile's `data/feedback.<hash>.jsonl`, which the existing tested
 feedback→scoring fold picks up with **zero new ranking code** (append-once per event+kind, so
 flapping can't stack weight; `unstar` never teaches — a past star still meant interest).
@@ -100,9 +108,14 @@ feed hash today; a capability token once Track A lands) **+ `GITHUB_TOKEN`**. Th
 `CONCIERGE_TOKEN` check**: that token guards LLM spend and `/react` spends none, so a friend who
 never set up the concierge can still star. Blast radius is a revertible commit to the shared
 reactions log — same "obfuscation, not security" model as the feeds. Committing to the repo is
-what makes stars mutual and durable (no per-viewer state); the feeds re-fold on the
-`data/reactions.jsonl` push (`build-profiles.yml`). Ported from Track A "A4: stars" with the
-reactions.jsonl schema kept identical, so that branch's eventual merge is a clean overlap.
+what makes stars mutual and durable (no per-viewer state); display freshness is `GET /stars`
+(a reactions push deliberately does NOT trigger `build-profiles.yml` — a tap shouldn't cost a
+fleet re-score + Pages deploy; the nightly routine bakes stars durably, and the feedback line
+still triggers the starrer's re-rank). `GET /stars` folds the log with the SAME rules as the
+build-time fold (`scripts/lib/reactions.py`): last-wins, unstar/hide clear, names resolved
+through the CURRENT profiles.yaml (stale identities never leak), ~30s cache. Ported from Track A
+"A4: stars" with the reactions.jsonl schema kept identical, so that branch's eventual merge is a
+clean overlap.
 
 ## Contract
 
@@ -131,6 +144,10 @@ GET /calendar.ics (no auth) -> text/calendar   the calendar-subscription feed. S
       keys=k1,k2,…         legacy per-event key list baked into the url (the pre-server saves + the
                            client snapshot). Still honored so old subscriptions keep working.
 POST /react (no CONCIERGE_TOKEN — see Stars) -> { ok, changed, learned }   star / unstar / hide.
+GET /stars (no auth) -> { ok, ts, stars: {event_key: [{name, hash}]} }   the LIVE star map,
+    folded from data/reactions.jsonl on demand (~30s cache). The dashboard overlays it on the
+    baked feed at boot/refocus so stars appear in seconds. Public: stars already ship in every
+    public feed; this re-serves the same data fresher.
     UNAUTHENTICATED BY DESIGN: calendar clients poll server-side and can't send Bearer headers,
     and the route spends nothing — no LLM call, no commit; it only re-serves the already-public
     Pages feed reshaped. Same obfuscation-not-security model as the feed hashes themselves.
