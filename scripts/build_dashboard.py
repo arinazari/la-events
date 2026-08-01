@@ -138,36 +138,34 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
 # uses — the page does zero ranking of its own (the drift rule). Events are referenced by their
 # stable `key` (event_key, also stamped on every feed row); the client date-windows the
 # pre-ranked lists and slices — selection, never re-sorting.
-FP_SHELVES = [
-    ("underground", "Warehouse & underground", ("club:underground",)),
-    ("afters", "Afterhours", ("club:afters",)),
-    ("day", "Day parties & rooftops", ("club:day",)),
-    ("bigroom", "Big-name club nights", ("club:mainstream",)),
-    ("live", "Bands & small rooms", ("live-music",)),   # bare lane = the sub-hall live tier
-    ("bigstage", "Arenas & halls", ("live-music:big",)),  # arena/hall concerts — "stay informed"
-    ("culture", "Movies, comedy & theater", ("film", "comedy", "stage")),
-    ("more", "Markets, art & more", None),       # catch-all: market/art/community/…
+#
+# The front-page shape (Ari, 2026-08-01): two MARQUEE sections (rich card shelves) carry what
+# gets *featured* — "Sets and shows" (the music: club lanes + live rooms + any big concert the
+# editor calls must-see/great) and "Events" (comedy + one-off happenings). Everything seasonal,
+# repeating, or program-shaped is *listed*, not featured, in five TABLES each formatted to its
+# category: "Seasonal and repeating" (standing markets/fleas/showcase series), "Movies" (film
+# programs — the dedicated marquee view holds the full boards), "Theater" (stage runs +
+# one-offs), "Festivals" (date-sorted: festivals.yaml fixture + festival-tagged catalog rows),
+# and "FYI" (big/far shows worth knowing about that aren't taste matches — the non-must-see
+# arena tier, judged-skip stadium bookings, and the radar leftovers). Marquee sections are
+# lens-windowed; the tables are fixtures (lens-independent). Only marquee-class rows are
+# hero-eligible: a movie, a season, or a festival is never the featured card.
+FP_MARQUEES = [
+    ("sets", "Sets and shows", ("club:underground", "club:afters", "club:day",
+                                "club:mainstream", "live-music", "live-music:big")),
+    ("events", "Events", None),   # comedy + unclaimed one-offs (art/community/one-off markets…)
 ]
-FP_SHELF_CAP = 40      # keys per shelf list (near + ahead each) — deep enough for a lens to fill
-# Long runs (a Pantages season, a month of Odyssey showtimes) leave the lane shelves for the
-# fixed "Now running" shelf: lane shelves answer "what's happening on a date", Now running
-# answers "what's in town for a while" — without it a strong run squats a lane's top slot for
-# weeks. Span is measured over the REMAINING nights (series summaries cover upcoming members
-# only), so a run re-enters its lane shelf — and hero eligibility — for its final fortnight,
-# when "closes Sunday" is news again. Three guards keep "running" honest:
-#   nights >= 3          two bookings weeks apart are two dated picks, not a run;
+FP_SHELF_CAP = 40      # keys per marquee list (near + ahead each) — deep enough for a lens to fill
+FP_TABLE_CAP = 40      # keys per table emit — the page slices its visible rows
+# "Seasonal and repeating" membership = the old Now-running density guards, minus the "opened"
+# gate (an unopened standing market is still a standing market — the table shows its next date):
+#   nights >= 3          two bookings weeks apart are two dated picks, not a series;
 #   ~weekly density      count >= span/7 — an Usher stadium date rebooked twice months later
-#                        and a monthly party are TOUR STOPS/dated picks, not a season
-#                        (weekly residencies and markets pass; sparser series stay dated);
-#   first <= today       a season that hasn't OPENED is plan-ahead news, not "in town" —
-#                        it stays on the dated surfaces until opening night.
-# The list is ordered CLOSING-SOONEST (final_rank as tiebreak): a Continuing list is urgency-
-# ordered, and the two-zone rank would bury far-out unjudged seasons below weekly markets.
-# Only the capped, emitted list leaves the dated pool — an over-cap run keeps its lane-shelf
-# card rather than silently vanishing from every surface.
+#                        and a monthly party are TOUR STOPS/dated picks, not a season.
+# Music lanes never take this exit: a weekly club residency stays one rep card in "Sets and
+# shows" (its card wears the run label); film/stage runs have their own tables.
 FP_RUN_MIN_DAYS = 14
 FP_RUN_MIN_NIGHTS = 3
-FP_NOWRUNNING_CAP = 12   # matches the client's visible rows — emitted == shown
 # Hero size/diversity knobs live in lib/assemble (TOP_PICKS_*): the hero row IS the shared
 # Don't-miss policy (assemble.top_picks — one shelf definition with the digest's "Don't miss").
 
@@ -226,31 +224,56 @@ def _run_span_days(e: dict) -> int:
         return 0
 
 
-def _interleave(rows_by_lane: list) -> list:
-    """Round-robin merge of per-lane rank-ordered rows. A multi-lane shelf list gets windowed
-    by the client's date lens and sliced, so ONLY a mix-at-every-prefix order keeps the
-    high-volume lane (film) from monopolizing whatever slice survives; a lane floor computed
-    here would be defeated by the windowing. Rank order is preserved within each lane."""
-    out, idx = [], [0] * len(rows_by_lane)
-    progressed = True
-    while progressed:
-        progressed = False
-        for i, rows in enumerate(rows_by_lane):
-            if idx[i] < len(rows):
-                out.append(rows[idx[i]])
-                idx[i] += 1
-                progressed = True
-    return out
+def _is_standing(e: dict) -> bool:
+    """A standing series: 3+ remaining nights at ~weekly-or-denser cadence over 14+ days.
+    (The old Now-running guards without the opened gate — see the FP_RUN_* comment.)"""
+    span = _run_span_days(e)
+    count = ((e.get("series") or {}).get("count")) or 0
+    return span >= FP_RUN_MIN_DAYS and count >= FP_RUN_MIN_NIGHTS and count >= span / 7
+
+
+def _fp_section(e: dict) -> str:
+    """Which front-page section a (rep) row belongs to. Festival-tagged rows are checked first
+    — a festival bill's lane is club:mainstream, but it's a Festivals-table row, not a set."""
+    if "festival" in ((e.get("tags") or {}).get("vibe") or []):
+        return "festivals"
+    lane = e.get("lane") or "other"
+    if lane == "film":
+        return "movies"
+    if lane == "stage":
+        return "theater"
+    if lane == "live-music:big":
+        # A big concert the editor rates IS of interest — it belongs with the featured music.
+        # The rest of the arena tier is exactly "FYI": know about it, not featured.
+        tier = (e.get("verdict") or {}).get("tier")
+        return "sets" if tier in ("must-see", "great") else "fyi"
+    if lane.startswith("club:") or lane == "live-music":
+        return "sets"
+    if _is_standing(e):
+        return "seasonal"
+    return "events"
+
+
+def _program_order(e: dict, today_iso: str):
+    """Movies/Theater table order: open runs first, closing-soonest (urgency), then upcoming
+    programs and one-nighters by opening date. A one-nighter's first == last == its date."""
+    s = e.get("series") or {}
+    first = s.get("first") or e.get("iso_date") or "9999"
+    last = s.get("last") or e.get("iso_date") or "9999"
+    if first <= today_iso:
+        return (0, last, first)
+    return (1, first, last)
 
 
 def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
                      take=None, festivals=None) -> dict:
-    """The front_page block: hero keys per lens + shelf keys per lane (+ nowrunning/radar/
-    around joins, + "The Take" — the digest's dated one-sentence teaser, {text, date}, carried
-    structurally for the concierge chat's welcome, + the festivals watch-list rows for the
-    dedicated Festivals view). One card per PROGRAM: series members (lib/series — multi-night
-    runs, cross-theater film programs, stamped by the consolidation pass in main()) enter only
-    via their rep night, the same unit final_rank ranks."""
+    """The front_page block: hero keys per lens, the two MARQUEE shelves (Sets and shows /
+    Events), the five category TABLES (seasonal/movies/theater/festivals/fyi — see the
+    FP_MARQUEES comment for the shape), radar/around joins, "The Take" ({text, date}, carried
+    structurally for the concierge chat's welcome), and the festivals.yaml fixture rows. One
+    card per PROGRAM: series members (lib/series — multi-night runs, cross-theater film
+    programs, stamped by the consolidation pass in main()) enter only via their rep night,
+    the same unit final_rank ranks."""
     pool = [e for e in events
             if not e.get("is_past") and e.get("iso_date") and (e.get("score") or 0) >= 0
             and (e.get("verdict") or {}).get("tier") != "skip"
@@ -259,59 +282,77 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
     # main() — so the front page can never disagree with the Explore table's rank column (no
     # second copy of the ranking expression to drift).
     ranked = sorted(pool, key=lambda e: e.get("final_rank") or 10 ** 9)
+    t_iso = today.isoformat()
 
-    # Long runs split off first: they hold their own fixed shelf (visible under every lens —
-    # a run IS an option tonight) and leave the dated surfaces (hero + lane shelves) until
-    # their remaining span drops under FP_RUN_MIN_DAYS — the closing-window re-entry.
-    # Guards (see the FP_RUN_* comment): >=3 nights, ~weekly density, and already OPEN.
-    def _is_running(e):
-        span = _run_span_days(e)
-        s = e.get("series") or {}
-        count = s.get("count") or 0
-        return (span >= FP_RUN_MIN_DAYS and count >= FP_RUN_MIN_NIGHTS
-                and count >= span / 7                       # ~weekly or denser
-                and (s.get("first") or "") <= today.isoformat())   # opened — "in town", not "opens Sep 8"
-    # Closing-soonest order (a Continuing list is urgency-ordered; rank breaks ties), capped
-    # to what the client shows; ONLY the emitted keys leave the dated pool, so an over-cap
-    # run keeps its lane-shelf card instead of vanishing from every surface.
-    running = sorted((e for e in ranked if _is_running(e)),
-                     key=lambda e: ((e.get("series") or {}).get("last") or "9999",
-                                    e.get("final_rank") or 10 ** 9))[:FP_NOWRUNNING_CAP]
-    running_keys = {e["key"] for e in running}
-    dated = [e for e in ranked if e["key"] not in running_keys]
+    by_sec = {}
+    for e in ranked:
+        by_sec.setdefault(_fp_section(e), []).append(e)
 
     # The hero row is the shared Don't-miss policy (lib/assemble.top_picks — one shelf
     # definition with the flagship digest's shelf), applied per time-lens window over the
-    # DATED pool (long runs live in Now running, not the hero). Skips are re-checked
-    # harmlessly (top_picks reads the same verdicts map), but program collapse is NOT
-    # re-applied here (no series_of) — the reps-only pool filter above is the only thing
-    # keeping a multi-night run to one hero card.
+    # MARQUEE pool only: a movie, a season, a market, or a festival is listed in its table,
+    # never featured. Skips are re-checked harmlessly (top_picks reads the same verdicts
+    # map), but program collapse is NOT re-applied here (no series_of) — the reps-only pool
+    # filter above is the only thing keeping a multi-night run to one hero card.
+    marquee_pool = sorted((by_sec.get("sets") or []) + (by_sec.get("events") or []),
+                          key=lambda e: e.get("final_rank") or 10 ** 9)
     hero = {}
     for lens, (lo, hi) in _fp_windows(today).items():
-        window = [e for e in dated if lo <= e["iso_date"] <= hi]
+        window = [e for e in marquee_pool if lo <= e["iso_date"] <= hi]
         hero[lens] = [e["key"] for e in top_picks(window, verdicts)]
 
-    # Shelf key-lists split NEAR (days 0–13: the today/weekend/two-weeks lenses) vs AHEAD
+    # Marquee key-lists split NEAR (days 0–13: the today/weekend/two-weeks lenses) vs AHEAD
     # (14–60: plan-ahead). One global-rank cut would starve plan-ahead by construction —
     # rank_key is two-zone (judged/near events sort structurally above the unjudged far tail),
-    # so a busy lane's top-40 can sit entirely inside the near window. The client windows each
-    # list with its LIVE date (a stale feed thins honestly rather than showing yesterday).
+    # so a busy section's top-40 can sit entirely inside the near window. The client windows
+    # each list with its LIVE date (a stale feed thins honestly rather than showing yesterday).
     near_end = (today + timedelta(days=13)).isoformat()
     shelves = []
-    claimed = {ln for _, _, lanes in FP_SHELVES if lanes for ln in lanes}
-    for sid, label, lanes in FP_SHELVES:
-        if lanes:
-            rows = [e for e in dated if (e.get("lane") or "other") in lanes]
-            if len(lanes) > 1:      # merged shelf (culture): mix lanes at every prefix
-                rows = _interleave([[e for e in rows if (e.get("lane") or "other") == ln]
-                                    for ln in lanes])
-        else:
-            rows = [e for e in dated if (e.get("lane") or "other") not in claimed]
+    for sid, label, lanes in FP_MARQUEES:
+        rows = by_sec.get(sid) or []
         near = [e["key"] for e in rows if e["iso_date"] <= near_end][:FP_SHELF_CAP]
         ahead = [e["key"] for e in rows if e["iso_date"] > near_end][:FP_SHELF_CAP]
         if near or ahead:
-            shelves.append({"id": sid, "label": label, "lanes": list(lanes or ()),
-                            "near": near, "ahead": ahead})
+            shelves.append({"id": sid, "label": label, "kind": "marquee",
+                            "lanes": list(lanes or ()), "near": near, "ahead": ahead})
+
+    # The five tables. Each is a fixture (lens-independent) in the order its category reads
+    # best: programs by urgency (_program_order), standing series by next night, FYI by date.
+    seasonal = sorted(by_sec.get("seasonal") or [],
+                      key=lambda e: ((e.get("series") or {}).get("first") or e["iso_date"]))
+    movies = sorted(by_sec.get("movies") or [], key=lambda e: _program_order(e, t_iso))
+    theater = sorted(by_sec.get("theater") or [], key=lambda e: _program_order(e, t_iso))
+    fest_evs = sorted(by_sec.get("festivals") or [], key=lambda e: e["iso_date"])
+
+    # FYI = the arena tier that isn't a taste match — including judged SKIPS (excluded from
+    # every other surface, but "big show I'd skip" is exactly what FYI exists to list) — plus
+    # any radar row not already placed in a section. Date-sorted: it reads as a calendar of
+    # things to know about, not a ranking.
+    reps = {e["key"]: e for e in events
+            if not e.get("is_past") and e.get("iso_date")
+            and (e.get("series_rep") or "series_key" not in e)}
+    fyi = list(by_sec.get("fyi") or [])
+    fyi += [e for e in reps.values()
+            if (e.get("lane") or "") == "live-music:big"
+            and (e.get("verdict") or {}).get("tier") == "skip"]
+    placed = {e["key"] for sec in ("sets", "events", "seasonal", "movies", "theater",
+                                   "festivals") for e in (by_sec.get(sec) or [])}
+    fyi_keys = {e["key"] for e in fyi}
+    for r in (radar_rows or []):
+        k = r.get("key") or event_key(r)
+        e = reps.get(k)
+        if e is not None and k not in placed and k not in fyi_keys:
+            fyi.append(e)
+            fyi_keys.add(k)
+    fyi.sort(key=lambda e: e["iso_date"])
+
+    tables = [{"id": sid, "label": label, "keys": [e["key"] for e in rows[:FP_TABLE_CAP]]}
+              for sid, label, rows in (
+                  ("seasonal", "Seasonal and repeating", seasonal),
+                  ("movies", "Movies", movies),
+                  ("theater", "Theater", theater),
+                  ("festivals", "Festivals", fest_evs),
+                  ("fyi", "FYI", fyi))]
 
     feed_keys = {e["key"] for e in events if not e.get("is_past")}
     def join(rows, cap):
@@ -329,7 +370,7 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
         "take": take,
         "hero": hero,
         "shelves": shelves,
-        "nowrunning": [e["key"] for e in running],
+        "tables": tables,
         "radar": join(radar_rows, 16),
         "around": join(around_rows, 12),
         "festivals": festivals or [],

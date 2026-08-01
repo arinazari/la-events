@@ -1,6 +1,13 @@
 # PROPOSAL — Programs vs. dated picks: one display model (2026-07-29)
 
-**Status: proposal — awaiting Ari's call on the decision points at the bottom.**
+**Status: RESOLVED 2026-08-01 — superseded by Ari's explicit front-page spec** (two marquee
+shelves: *Sets and shows* / *Events*; five category tables: *Seasonal and repeating* /
+*Movies* / *Theater* / *Festivals* / *FYI*). Implemented on this branch — see the ROADMAP
+"2026-08-01 — Marquees & tables front page" entry. Notable deltas from this proposal:
+movies DO get a compact front-page table (openings/now-playing rows), the hero row stays
+(marquee-pool-only), and decision point 2 resolved as: a must-see/great big concert joins
+*Sets and shows*, the rest of the arena tier is *FYI*. The digest-side movie policy
+(section "Digest" below) is still open work.
 Prompted by Ari (2026-07-29): movies shouldn't be featured except at opening — and even
 then in the digest + a dedicated movie section, never the front page; theater, movies,
 markets, and festivals (anything repeating/seasonal) should share ONE display treatment,

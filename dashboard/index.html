@@ -257,12 +257,12 @@
       </section>
       </sc-if>
 
-      <!-- YOUR SCENES (lanes) -->
+      <!-- THE MARQUEES — Sets and shows / Events (the featured card shelves) -->
       <sc-if value="{{ hasScenes }}" hint-placeholder-val="{{ true }}">
       <section style="margin-bottom:28px;">
         <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:11px;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Your scenes</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">by lane · ranked by match</span>
+          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">The marquees</span>
+          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">ranked by match</span>
         </div>
         <div style="display:flex; flex-direction:column; gap:13px;">
           <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="4">
@@ -315,66 +315,33 @@
       </section>
       </sc-if>
 
-      <!-- NOW RUNNING — long runs & seasons: in town for a while, not one-night picks -->
-      <sc-if value="{{ hasNowRunning }}" hint-placeholder-val="{{ false }}">
-      <section style="margin-bottom:24px;">
-        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Now running</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">runs & seasons — in town for a while</span>
-        </div>
-        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
-          <sc-for list="{{ nowRunning }}" as="r" hint-placeholder-count="4">
-            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
-              <span style="flex:0 0 96px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
-              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
-              <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
-              <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color:#1f7a4d; background:rgba(31,122,77,0.1);">{{ r.tag }}</span></sc-if>
-            </div>
-          </sc-for>
-        </div>
-      </section>
-      </sc-if>
-
-      <!-- ON THE RADAR -->
-      <sc-if value="{{ hasRadar }}" hint-placeholder-val="{{ false }}">
+      <!-- CATEGORY TABLES — Seasonal and repeating / Movies / Theater / Festivals / FYI.
+           Fixtures (shown under every lens), each formatted to its category via the row
+           builders in the FRONT compute; the marquee shelves above carry what's FEATURED. -->
+      <sc-for list="{{ fpTables }}" as="tb" hint-placeholder-count="2">
       <section style="margin-bottom:24px;">
         <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px; flex-wrap:wrap;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">On the radar</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">just announced · on sale now</span>
+          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">{{ tb.label }}</span>
+          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ tb.sub }}</span>
           <span style="flex:1;"></span>
-          <span onClick="{{ openFestivals }}" title="The standing festival watch-list" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">the festival watch-list →</span>
+          <sc-if value="{{ tb.hasLink }}" hint-placeholder-val="{{ false }}"><span onClick="{{ tb.onLink }}" title="{{ tb.linkTitle }}" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ tb.linkLabel }} →</span></sc-if>
         </div>
         <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
-          <sc-for list="{{ radar }}" as="r" hint-placeholder-count="4">
+          <sc-for list="{{ tb.rows }}" as="r" hint-placeholder-count="4">
             <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
-              <span style="flex:0 0 66px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
-              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
-              <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
-              <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color:#b06a00; background:rgba(176,106,0,0.1);">{{ r.tag }}</span></sc-if>
+              <span style="flex:0 0 {{ tbDateW }}; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
+              <div style="flex:1; min-width:0;">
+                <div style="font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</div>
+                <sc-if value="{{ tbStackVenue }}" hint-placeholder-val="{{ false }}"><div style="margin-top:2px; font:500 9.5px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.venue }}</div></sc-if>
+              </div>
+              <sc-if value="{{ tbSideVenue }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap; max-width:34%; overflow:hidden; text-overflow:ellipsis;">{{ r.venue }}</span></sc-if>
+              <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color: {{ r.tagColor }}; background: {{ r.tagBg }};">{{ r.tag }}</span></sc-if>
             </div>
           </sc-for>
+          <sc-if value="{{ tb.hasMore }}" hint-placeholder-val="{{ false }}"><div onClick="{{ tb.onMore }}" style="padding:8px 14px; border-top:1px solid #f0efe8; font:600 10px/1 ui-monospace,Menlo,monospace; color: {{ tb.moreColor }}; cursor: {{ tb.moreCursor }};">{{ tb.more }}</div></sc-if>
         </div>
       </section>
-      </sc-if>
-
-      <!-- AROUND TOWN -->
-      <sc-if value="{{ hasAround }}" hint-placeholder-val="{{ false }}">
-      <section style="margin-bottom:24px;">
-        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Around town</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">the city's pulse beyond your lanes</span>
-        </div>
-        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
-          <sc-for list="{{ around }}" as="r" hint-placeholder-count="4">
-            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
-              <span style="flex:0 0 66px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
-              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
-              <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
-            </div>
-          </sc-for>
-        </div>
-      </section>
-      </sc-if>
+      </sc-for>
 
       <sc-if value="{{ fpEmpty }}" hint-placeholder-val="{{ false }}">
         <div style="padding:60px 0; text-align:center; font:500 13px/1.6 ui-monospace,Menlo,monospace; color:#a7a59b;">Quiet in this window.<br/><span onClick="{{ resetReactions }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">Reset your reactions</span> or try a wider lens.</div>
@@ -2031,8 +1998,11 @@ class Component extends DCLogic {
     return this.SCENES[this.SCENES.length-1];
   }
   // ---------- server shelves (front_page.shelves — the assemble slate's lanes) ----------
-  SHELF_DOT = { underground:'oklch(0.52 0.14 285)', afters:'oklch(0.5 0.14 300)', day:'oklch(0.55 0.12 60)', bigroom:'oklch(0.53 0.12 250)', live:'oklch(0.52 0.13 32)', bigstage:'oklch(0.5 0.12 10)', culture:'oklch(0.5 0.1 205)', film:'oklch(0.5 0.1 205)', stage:'oklch(0.5 0.13 350)', more:'oklch(0.5 0.12 255)' };
+  SHELF_DOT = { sets:'oklch(0.52 0.14 285)', events:'oklch(0.5 0.12 255)',
+    underground:'oklch(0.52 0.14 285)', afters:'oklch(0.5 0.14 300)', day:'oklch(0.55 0.12 60)', bigroom:'oklch(0.53 0.12 250)', live:'oklch(0.52 0.13 32)', bigstage:'oklch(0.5 0.12 10)', culture:'oklch(0.5 0.1 205)', film:'oklch(0.5 0.1 205)', stage:'oklch(0.5 0.13 350)', more:'oklch(0.5 0.12 255)' };
   SHELF_DESC = {
+    sets:'DJ sets, club nights, and live rooms — the music, ranked to your taste.',
+    events:'Comedy, art, and one-off happenings around town.',
     underground:'Location-TBA parties, acid, and the after-dark techno core.', afters:'Late stretches and afterhours — the 2am-and-beyond lane.',
     day:'Rooftops, open-airs, and golden-hour grooves.', bigroom:'The marquee club bookings.', live:'Bands and live sets — post-punk, shoegaze, psych and beyond.',
     bigstage:'Arena and amphitheater nights.',
@@ -3365,6 +3335,11 @@ class Component extends DCLogic {
     "",
     "Recent upgrades to the site. See **how it works** (Settings → About) any time for the full tour.",
     "",
+    "## August 2026 — marquees & tables",
+    "",
+    "- **The front page reorganized around two marquees.** What's *featured* — the lead, the shortlist, and two card shelves: **Sets and shows** (DJ sets, club nights, live rooms, plus any big concert the editor rates must-see) and **Events** (comedy, art, and one-off happenings). Everything program-shaped moved out of the shelves into compact **tables**, each formatted to its kind: **Seasonal and repeating** (markets, fleas, standing series — with their cadence: *Every Sunday*), **Movies** (now playing by closing date, then openings — *the marquee →* still holds the full boards), **Theater** (runs + one-night stages), **Festivals** (the date-sorted season: catalog festivals merged with the hand-curated watch-list), and **FYI** (big or far shows worth knowing about that aren't your lanes — arena bookings, on-sales, radar finds). A movie, a season, or a festival is never a featured card anymore; it's listed where you expect it.",
+    "- **Retired:** the *Now running*, *On the radar*, and *Around town* sections — their contents live in the new tables.",
+    "",
     "## Late July 2026 — the redesign, restored",
     "",
     "- **Explore's filters moved back into the columns** — the original design. Each header wears a small funnel: `NEIGHBORHOOD` opens neighborhood + region side by side, `CATEGORY / VIBE` opens category, genre, vibe and setting, `DATE` holds the presets + a custom range, `SOURCE` its list. ✓ keep / ✕ hide per value, a blue funnel where a filter is live. The `RANK · MATCH` column is back too — the editor's `#` running order and the transparent match %, each sortable. Phones get the same system, not a separate panel: the column headers ride a sticky strip above the card list, funnels open full-width menus, and cards show their `#` rank beside the match.",
@@ -3606,9 +3581,8 @@ class Component extends DCLogic {
             return card;
           });
           return { id:sh.id, label:sh.label, dot:this.SHELF_DOT[sh.id] || '#76746b', allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(sh.id),
-                   // the culture lane carries the door to the dedicated movies marquee
-                   hasExtra: sh.id==='culture' || sh.id==='film', extraLabel:'the marquee', onExtra:this.openMovies };
-        }).filter(s => s.cards.length>0).slice(0,8);   // server shelf ORDER, not by-size (8 = the full reshaped lane set)
+                   hasExtra:false };   // the movies door now lives on the Movies table header
+        }).filter(s => s.cards.length>0).slice(0,8);   // server shelf ORDER (2 marquees on a current feed; legacy feeds carry more)
       } else {
         const buckets = new Map();
         for (const e of pool) { const s = this.sceneOf(e); if (!buckets.has(s.id)) buckets.set(s.id,{ scene:s, evs:[] }); buckets.get(s.id).evs.push(e); }
@@ -3661,32 +3635,78 @@ class Component extends DCLogic {
       const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
       const isNewE = e => !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef);
       const onSaleE = e => (e.xb || []).some(x => /on.?sale/i.test(x));
-      const mkRow = (e, tag) => { const f = this.fmt(e.iso,e.time); return { id:e.id, dateShort:f.wd+' '+f.md, title:e.title, venue:e.venue+' · '+e.hood, tag, hasTag:!!tag, onOpen:() => this.openDetail(e.id) }; };
-      // NOW RUNNING — long runs/seasons (front_page.nowrunning: series reps with 3+ remaining
-      // nights spanning 14+ days). A fixed section under every lens — a run IS an option
-      // tonight — so a Pantages season can't squat a scene box for six weeks. A run stays
-      // while any night remains; it re-enters the dated surfaces for its closing fortnight
-      // (the server measures span over remaining nights only).
-      const nowr = this.lessSink(this.resolveKeys(FP.nowrunning)
-        .filter(e => (e.series && e.series.last ? e.series.last >= T : e.iso >= T)));
-      out.nowRunning = nowr.slice(0, 12).map(e => {
-        const run = this.runLabel(e) || { span: this.fmt(e.iso, '').wd + ' ' + this.fmt(e.iso, '').md, count: '' };
-        return { id: e.id, dateShort: run.span, title: e.title, venue: this.venueDisplay(e.venue) + ' · ' + e.hood,
-                 tag: run.count.toUpperCase(), hasTag: !!run.count, onOpen: () => this.openDetail(e.id) };
-      });
-      out.hasNowRunning = out.nowRunning.length > 0;
-      // ON THE RADAR — the server-curated set (build_radar/festivals.yaml via front_page.radar);
-      // the just-announced/on-sale heuristic only fills in when the feed carries none.
-      const radarSrv = this.resolveKeys(FP.radar).filter(e => e.iso >= T && !this.isSeen(e));
-      const radar = radarSrv.length
-        ? radarSrv.slice(0,8).map(e => mkRow(e, onSaleE(e) ? 'ON SALE' : (isNewE(e) || (e.xb||[]).some(x => /just announced/i.test(x))) ? 'JUST ANNOUNCED' : 'RADAR'))
-        : this.ALL.filter(e => e.iso >= T && !this.isSeen(e) && (onSaleE(e) || isNewE(e) || (e.xb || []).some(x => /just announced/i.test(x))))
-            .sort((a,b) => a.iso<b.iso?-1:1).slice(0,6).map(e => mkRow(e, onSaleE(e)?'ON SALE':'JUST ANNOUNCED'));
-      out.hasRadar = radar.length>0; out.radar = radar;
-      // AROUND TOWN — the server's near-city-pulse keys (was dropped in the redesign)
-      const around = this.resolveKeys(FP.around).filter(e => e.iso >= T && !topIds.has(e.id) && !this.isSeen(e)).slice(0,6).map(e => mkRow(e, ''));
-      out.hasAround = around.length>0; out.around = around;
-      out.fpEmpty = !lead;
+      // CATEGORY TABLES (Ari 2026-08-01) — the five fixtures under every lens: Seasonal and
+      // repeating / Movies / Theater / Festivals / FYI (front_page.tables). The marquee
+      // shelves above carry what's FEATURED; these list what's program-shaped, standing, or
+      // stay-informed. Movies/Theater lead with the program's span (server order: open runs
+      // closing-soonest, then openings by date); Festivals merges the catalog's festival
+      // rows with the festivals.yaml watch-list fixture, date-sorted; FYI is the big/far
+      // know-about tier, date-sorted.
+      const TAG_TONE = { green:['#1f7a4d','rgba(31,122,77,0.1)'], amber:['#b06a00','rgba(176,106,0,0.1)'],
+                         blue:['#2b5cd9','rgba(43,92,217,0.1)'], gray:['#76746b','rgba(118,116,107,0.12)'] };
+      const tone = (r, t) => { const [c, b] = TAG_TONE[t || 'green']; r.tagColor = c; r.tagBg = b; return r; };
+      const tRow = (e, tag, t) => { const f = this.fmt(e.iso, e.time);
+        return tone({ id:e.id, sortDate:(e.series && e.series.first) || e.iso,
+          dateShort:f.wd+' '+f.md, title:e.title,
+          venue:this.venueDisplay(e.venue)+(e.hood?' · '+e.hood:''),
+          tag:String(tag||'').toUpperCase(), hasTag:!!tag, onOpen:() => this.openDetail(e.id) }, t); };
+      const progRow = e => {           // movies/theater: the program's span leads the row
+        const run = this.runLabel(e);
+        let r;
+        if (run && e.series.first <= T) { r = tRow(e, run.count, 'green'); r.dateShort = run.span; }
+        else if (run) { const lf = this.fmt(e.series.first, ''); r = tRow(e, run.count, 'blue'); r.dateShort = 'Opens ' + lf.wd + ' ' + lf.md; }
+        else r = tRow(e, '', 'gray');
+        const vs = (e.series && e.series.venues) || [];
+        if (vs.length > 1) r.venue = vs.slice(0,2).map(v => this.venueDisplay(v)).join(' · ') + (vs.length>2 ? ' +'+(vs.length-2) : '');
+        return r; };
+      const tablesSrv = Array.isArray(FP.tables) ? FP.tables : null;
+      const tblEvents = id => this.resolveKeys((((tablesSrv||[]).find(t => t.id===id))||{}).keys)
+        .filter(e => !this.isSeen(e) && (e.series && e.series.last ? e.series.last >= T : e.iso >= T));
+      const FEST_TONE = { on_sale:'green', announced:'blue', lineup_pending:'amber', annual_watch:'gray' };
+      const festFixture = (FP.festivals || []).map(fx => tone({ id:null, sortDate: fx.first_date || '9998',
+        dateShort: fx.first_date ? (() => { const f = this.fmt(fx.first_date, ''); return f.wd + ' ' + f.md; })()
+                                 : String(fx.when||'').replace(/\.\./g,' – '), title:fx.name, venue:fx.location||'',
+        tag:(fx.status ? String(fx.status).replace(/_/g,' ') : '').toUpperCase(), hasTag:!!fx.status,
+        onOpen: fx.tickets ? (() => window.open(fx.tickets, '_blank', 'noopener')) : (() => {}) }, FEST_TONE[fx.status] || 'gray'));
+      const TABLE_SUB = { seasonal:'markets, fleas & standing series', movies:'now playing & opening',
+                          theater:'runs & one-night stages', festivals:'date-sorted — the season ahead',
+                          fyi:'big & far — worth knowing about' };
+      const TABLE_CAP = { seasonal:10, movies:10, theater:10, festivals:12, fyi:12 };
+      const fpTables = [];
+      const pushTable = (id, label, rows, link) => {
+        if (!rows.length) return;
+        const cap = TABLE_CAP[id] || 10;
+        fpTables.push({ id, label, sub:TABLE_SUB[id] || '', rows:rows.slice(0, cap),
+          hasMore: rows.length > cap, more:'+' + (rows.length - cap) + ' more' + (link ? ' →' : ''),
+          onMore: link ? link[1] : (() => {}), moreColor: link ? '#2b5cd9' : '#a7a59b', moreCursor: link ? 'pointer' : 'default',
+          hasLink: !!link, linkLabel: link ? link[0] : '', linkTitle: link ? link[2] : '', onLink: link ? link[1] : null });
+      };
+      if (tablesSrv) {
+        for (const t of tablesSrv) {
+          if (t.id === 'seasonal') pushTable(t.id, t.label, tblEvents(t.id).map(e => {
+            const run = this.runLabel(e); const r = tRow(e, run ? run.count : '', 'green');
+            if (run) r.dateShort = run.span; return r; }), null);
+          else if (t.id === 'movies') pushTable(t.id, t.label, tblEvents(t.id).map(progRow),
+            ['the marquee', this.openMovies, 'Every film program — boards, openings, one-nights']);
+          else if (t.id === 'theater') pushTable(t.id, t.label, tblEvents(t.id).map(progRow), null);
+          else if (t.id === 'festivals') pushTable(t.id, t.label,
+            tblEvents(t.id).map(progRow).concat(festFixture).sort((a,b) => a.sortDate < b.sortDate ? -1 : 1),
+            ['the festival watch-list', this.openFestivals, 'The standing festival watch-list']);
+          else if (t.id === 'fyi') pushTable(t.id, t.label, tblEvents(t.id).map(e =>
+            tRow(e, onSaleE(e) ? 'on sale' : (isNewE(e) ? 'just announced' : ''), onSaleE(e) ? 'green' : 'amber')), null);
+        }
+      } else {
+        // Legacy feed (no front_page.tables yet): keep the old radar list alive as FYI so the
+        // page isn't suddenly thinner than its data until the feed rebuilds.
+        const radarSrv = this.resolveKeys(FP.radar).filter(e => e.iso >= T && !this.isSeen(e));
+        pushTable('fyi', 'FYI', radarSrv.slice(0, 10).map(e =>
+          tRow(e, onSaleE(e) ? 'on sale' : 'radar', onSaleE(e) ? 'green' : 'amber')), null);
+      }
+      out.fpTables = fpTables;
+      // Table row geometry: desktop keeps the venue as a right column; mobile stacks it
+      // under the title (side-by-side truncated both into uselessness at 390px).
+      out.tbStackVenue = mob; out.tbSideVenue = !mob; out.tbDateW = mob ? '82px' : '96px';
+      out.fpEmpty = !lead && !fpTables.length;
     }
 
     // ---- SCENE ----
