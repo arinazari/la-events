@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T07:01:18+00:00",
+  "generated_at": "2026-08-01T07:29:53+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "0d3c8ab35445",
@@ -1123,38 +1123,8 @@
         ]
       }
     ],
-    "radar": [
-      "96782c900568",
-      "a275d78b3f74",
-      "d535a0dbfe40",
-      "edab80bd44cb",
-      "84882da12558",
-      "d49eb8554c26",
-      "1edb63fd2e80",
-      "fb68efb436c1",
-      "33c2216d15dc",
-      "3d1950382c1d",
-      "f8270a79763f",
-      "5cfd176b0544",
-      "cf6cd35ddcc5",
-      "5900ac0a20b0",
-      "d9ec6d0e3a23",
-      "85ff43f3e43e"
-    ],
-    "around": [
-      "cb768b413e65",
-      "82c5013339e2",
-      "3602c9b750bf",
-      "1927230f3149",
-      "ce01e1ad0890",
-      "b2d6fe30fbdb",
-      "cec7f396634c",
-      "3a0eb2bd963e",
-      "981ec1e26eb6",
-      "ce698b6377ec",
-      "0c920f69e1ab",
-      "246a42146c27"
-    ],
+    "radar": [],
+    "around": [],
     "festivals": [
       {
         "name": "Outside Lands 2026",
@@ -16615,12 +16585,6 @@
       },
       "lane": "live-music:big",
       "key": "ce01e1ad0890",
-      "stars": [
-        {
-          "name": "Ari",
-          "hash": "1d8a45fa37024d33"
-        }
-      ],
       "final_rank": 273
     },
     {
@@ -118512,6 +118476,12 @@
       },
       "lane": "club:mainstream",
       "key": "e653cbe40068",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "final_rank": 3
     },
     {
@@ -313669,7 +313639,7 @@
         "diff": "diff --git a/taste.yaml b/taste.yaml\nindex 20825c5..2f9a78e 100644\n--- a/taste.yaml\n+++ b/taste.yaml\n@@ -9,66 +9,86 @@\n # The narrative \u2014 the taste in prose. This is the highest-signal part of the editor's brief;\n # keep it current as your taste moves.\n narrative: >\n-  Curated as an electronic head: the spine is house / techno / tech-house across the spectrum \u2014\n-  from rooftop-vinyl-groove and proper European club nights all the way to mainstream\n-  festival/big-room headliners (Chris Lake, FISHER, etc. ARE priority, not noise). A recurring\n-  favorite \u2014 one kind of event he likes, not the be-all: \"Sunset Sessions at Golden Hour DTLA\" \u2014\n-  chill rooftop, vinyl, house, European feel. But don't let \"tasteful\" exclude the big fun\n-  mainstream sets. Film is a real lane, not filler: a rep/arthouse regular (Vidiots, Vista,\n-  New Bev, Cinematheque) where the format is part of the draw \u2014 70mm/35mm prints, restorations,\n-  Q&As \u2014 and a director-event (Nolan, PTA, Tarantino, Lynch tier) is worth building a night\n-  around; judge the movie and the print, not just the room (see the `film:` block).\n+  Curated as an electronic head: the spine is house / techno / tech-house across\n+  the spectrum \u2014 from rooftop-vinyl-groove and proper European club nights all\n+  the way to mainstream festival/big-room headliners (Chris Lake, FISHER, etc.\n+  ARE priority, not noise). A recurring favorite \u2014 one kind of event he likes,\n+  not the be-all: \"Sunset Sessions at Golden Hour DTLA\" \u2014 chill rooftop, vinyl,\n+  house, European feel. But don't let \"tasteful\" exclude the big fun mainstream\n+  sets. Film is a real lane, not filler: a rep/arthouse regular (Vidiots, Vista,\n+  New Bev, Cinematheque) where the format is part of the draw \u2014 70mm/35mm\n+  prints, restorations, Q&As \u2014 and a director-event (Nolan, PTA, Tarantino,\n+  Lynch tier) is worth building a night around; judge the movie and the print,\n+  not just the room (see the `film:` block).\n \n categories:\n-  high:    # weight +3 each match\n-    - house / techno / tech-house / acid / electro / minimal / melodic \u2014 DJ sets of all sizes\n+  high:\n+    # weight +3 each match\n+    - house / techno / tech-house / acid / electro / minimal / melodic \u2014 DJ sets\n+      of all sizes\n     - mainstream & festival-scale house / tech-house headliners (John Summit,\n-      Dom Dolla, Gorgon City, etc.) \u2014 big-room fun counts, not just the underground\n+      Dom Dolla, Gorgon City, etc.) \u2014 big-room fun counts, not just the\n+      underground\n     - fabric-London-style proper club nights / European-leaning dance lineups\n     - rooftop / sunset / daytime open-air house, disco, Balearic, groove sets\n     - vinyl-only / all-vinyl / listening-bar DJ sets\n     - warehouse and afterhours parties (incl. location-TBA)\n-    - melodic/organic/afro house + progressive (Anjuna/Innervisions/Keinemusik/Afterlife orbit)\n+    - melodic/organic/afro house + progressive\n+      (Anjuna/Innervisions/Keinemusik/Afterlife orbit)\n     - rep & arthouse cinema (Vidiots, Vista, Brain Dead, Cinematheque, New Bev)\n-    - small rock / indie band shows at clubs (Troubadour, Echo, Zebulon, Moroccan, Lodge Room,\n-      Teragram) \u2014 post-punk, indie, garage, dream-pop, experimental, krautrock-y\n+    - small rock / indie band shows at clubs (Troubadour, Echo, Zebulon,\n+      Moroccan, Lodge Room, Teragram) \u2014 post-punk, indie, garage, dream-pop,\n+      experimental, krautrock-y\n     - Goldenvoice events\n-  medium:  # weight +2\n-    - live electronic / electronic-adjacent acts (R\u00fcf\u00fcs Du Sol, ODESZA, Bonobo, Jamie xx tier)\n-    - daytime & lifestyle \u2014 flea / vintage / design markets (Rose Bowl Flea, Melrose Trading\n-      Post), farmers markets (esp. Silver Lake/eastside), food & drink pop-ups, brand activations\n-      / block parties / spritz-type parties, neighborhood street fairs\n+  medium:\n+    # weight +2\n+    - live electronic / electronic-adjacent acts (R\u00fcf\u00fcs Du Sol, ODESZA, Bonobo,\n+      Jamie xx tier)\n+    - daytime & lifestyle \u2014 flea / vintage / design markets (Rose Bowl Flea,\n+      Melrose Trading Post), farmers markets (esp. Silver Lake/eastside), food &\n+      drink pop-ups, brand activations / block parties / spritz-type parties,\n+      neighborhood street fairs\n     - record fairs, listening bars, food events with a music angle\n     - craft beer events / brewery takeovers / festivals\n     - theater (Pantages-scale and black-box)\n-    - concerts of big name artists (Kendrick Lamar, Kacey Musgraves, Tame Impala) \u2014 mostly to stay informed\n-  low:     # weight +1, include only if exceptional\n-    - standup comedy \u2014 NOT generally wanted; only known/favorite names (see comedians_loved)\n+    - concerts of big name artists (Kendrick Lamar, Kacey Musgraves, Tame\n+      Impala) \u2014 mostly to stay informed\n+  low:\n+    # weight +1, include only if exceptional\n+    - standup comedy \u2014 NOT generally wanted; only known/favorite names (see\n+      comedians_loved)\n \n-boosts:    # +1 each (stack)\n+boosts:\n+  # +1 each (stack)\n   - rooftop / open-air / sunset / golden-hour setting\n   - vinyl-only or \"all night long\" / open-to-close single-DJ sets\n-  - European vibe/feel \u2014 UK/EU DJs, labels (fabric, Rush Hour, Running Back, Defected, Hot Creations,\n-    Innervisions, Keinemusik) / Balearic-disco\n+  - European vibe/feel \u2014 UK/EU DJs, labels (fabric, Rush Hour, Running Back,\n+    Defected, Hot Creations, Innervisions, Keinemusik) / Balearic-disco\n   - groove / soulful / deep / dub / disco-leaning house\n-  - lineup artist in artists_tracked (also gets a \"tracked\" badge; effectively +2 via the list)\n+  - lineup artist in artists_tracked (also gets a \"tracked\" badge; effectively\n+    +2 via the list)\n   - walkable or short drive from Silver Lake (Hyperion & Del Mar)\n   - Friday or Saturday night\n-  - independent editorial mention (LAist, Time Out, DiscoverLA, 6AM, Dirty Epic) \u2014 +1 per source\n+  - independent editorial mention (LAist, Time Out, DiscoverLA, 6AM, Dirty Epic)\n+    \u2014 +1 per source\n   - RA pick flag\n   - early-bird ticket tier still available / on-sale or selling fast\n+  - headliner / big-name act in a small or intimate venue\n \n-penalties: # -2 each (the expanded non-priority list)\n+penalties:\n+  # -2 each (the expanded non-priority list)\n   - Vegas-style bottle-service / table-service clubs (Hakkasan/Marquee energy)\n   - generic Top-40 / open-format / hip-hop \"club night\" with no real DJ billing\n-  - hardstyle / gabber / happy-hardcore / hard-dance as the main draw (not the lane)\n+  - hardstyle / gabber / happy-hardcore / hard-dance as the main draw (not the\n+    lane)\n   - dubstep / riddim / bass-music mega-shows, brostep\n   - 18+ EDM mega-raves built on production over selection\n   - tribute / cover bands, \"[decade] night\" nostalgia club nights\n   - sports-bar watch parties, trivia, open-mics, networking mixers, webinars\n     (World Cup etc. belongs in \"Around town,\" not the picks)\n   - country, Christian, kids/family programming\n-  - far-flung (Temecula / Anaheim / OC / SD / Ventura / SF) unless genuinely worth the trip\n+  - far-flung (Temecula / Anaheim / OC / SD / Ventura / SF) unless genuinely\n+    worth the trip\n   - Coachella-tier logistics without Coachella-tier payoff\n \n # Tracked artists \u2014 match in a lineup => +2 and a \"tracked\" badge. Curated across the spectrum;\n@@ -153,8 +173,19 @@ artists_tracked:\n   - Robert Hood\n   - Tini Gessler\n \n-comedians_loved: [Stavros Halkias, Chris D'Elia, Larry David, Conan O'Brien]   # the comedy exception \u2014 these get surfaced; others don't\n-venues_loved: [Vista, Lodge Room, 2220 Arts, The Greek, Pantages, Hollywood Bowl, Landmark Pasadena, Old Sears, Sid the Cat]   # +1\n+comedians_loved: [ Stavros Halkias, Chris D'Elia, Larry David, Conan O'Brien ] # the comedy exception \u2014 these get surfaced; others don't\n+venues_loved:\n+  [\n+    Vista,\n+    Lodge Room,\n+    2220 Arts,\n+    The Greek,\n+    Pantages,\n+    Hollywood Bowl,\n+    Landmark Pasadena,\n+    Old Sears,\n+    Sid the Cat\n+  ] # +1\n \n # Film taste \u2014 the MOVIE, not just the theater (venues_loved already boosts the Vista etc.).\n # Deterministic layer: directors_tracked = +2 per match (like artists_tracked), formats_loved =\n@@ -169,18 +200,27 @@ film:\n     - Quentin Tarantino\n     - David Lynch\n     - Denis Villeneuve\n-  formats_loved: [70mm, 35mm, 16mm, nitrate]\n+  formats_loved: [ 70mm, 35mm, 16mm, nitrate ]\n \n # Feedback log \u2014 append reactions here (\"more like X\", \"never show Y\");\n # periodically fold them into the weights above.\n feedback:\n-  - \"2026-06-16: rooftop vinyl house w/ European feel is a core lane; Sunset Sessions is one example (don't overstate it).\"\n-  - \"2026-06-16: techno + house both mainstream and underground (fabric-London energy).\"\n-  - \"2026-06-16: not a comedy fan generally; surface known names only (loves Stavros Halkias).\"\n-  - \"2026-06-16: surface Sunset Sessions @ Level 8 when it's on \u2014 a recurring favorite / one kind of event I like (not a headline).\"\n-  - \"2026-06-16: festival radar should be compact + urgency-driven, not a curated list dump.\"\n-  - \"2026-06-16: mainstream big-room headliners (John Summit et al.) ARE priority too \u2014 don't\n-     down-rank them as 'mainstream EDM'. Curate like an electronic head.\"\n-  - \"2026-06-16: surface the live-band lane too (indie/rock/experimental \u2014 Zebulon, Troubadour,\n-     Echo, Moroccan, Lodge Room, Teragram); don't let electronic crowd it out of the digest.\n-     NOTE: Zebulon is JS-rendered and currently uncaptured (e.g. Mamas Gun) \u2014 needs a real fetcher.\"\n+  - \"2026-06-16: rooftop vinyl house w/ European feel is a core lane; Sunset\n+    Sessions is one example (don't overstate it).\"\n+  - \"2026-06-16: techno + house both mainstream and underground (fabric-London\n+    energy).\"\n+  - \"2026-06-16: not a comedy fan generally; surface known names only (loves\n+    Stavros Halkias).\"\n+  - \"2026-06-16: surface Sunset Sessions @ Level 8 when it's on \u2014 a recurring\n+    favorite / one kind of event I like (not a headline).\"\n+  - \"2026-06-16: festival radar should be compact + urgency-driven, not a\n+    curated list dump.\"\n+  - \"2026-06-16: mainstream big-room headliners (John Summit et al.) ARE\n+    priority too \u2014 don't down-rank them as 'mainstream EDM'. Curate like an\n+    electronic head.\"\n+  - \"2026-06-16: surface the live-band lane too (indie/rock/experimental \u2014\n+    Zebulon, Troubadour, Echo, Moroccan, Lodge Room, Teragram); don't let\n+    electronic crowd it out of the digest. NOTE: Zebulon is JS-rendered and\n+    currently uncaptured (e.g. Mamas Gun) \u2014 needs a real fetcher.\"\n+  - \"2026-07-20: Boost big-name acts booked in small/intimate venues (\\\"big name\n+    in a place you wouldn't expect\\\"). (self-edit via concierge)\"",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-07-31"
+        "enriched_at": "2026-08-01"
       },
       "profile": {
         "file": "profile.yaml",
@@ -313703,7 +313673,7 @@
         "diff": "diff --git a/profile.yaml b/profile.yaml\nindex 75fa2ab..dbfedbb 100644\n--- a/profile.yaml\n+++ b/profile.yaml\n@@ -32,6 +32,11 @@ dashboard:\n sources:\n   ticketmaster_dma_id: \"324\" # LA DMA \u2014 fetch_ticketmaster.py\n   ra_area_id: 23 # RA's internal LA area number \u2014 fetch_ra.py\n+  # Beatportal (Beatport Tickets) geo filter \u2014 fetch_beatport.py; their own LA preset.\n+  beatportal_city:\n+    city_name: Los Angeles\n+    country_code: US\n+    radius: \"100\"\n \n pipeline:\n   # Out-of-market drop (Ari, 2026-07-17): TM's DMA 324 reaches Palm Springs / Paso Robles /",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-07-31"
+        "enriched_at": "2026-08-01"
       }
     },
     "digest_prefs": {
