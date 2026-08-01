@@ -191,7 +191,7 @@ VENUE_SETTING = {
 }
 REP_CINEMA = ("vidiots", "new beverly", "vista", "cinematheque", "brain dead",
               "aero", "egyptian", "academy museum", "cinespia",
-              "palm springs cultural center")
+              "palm springs cultural center", "nuart")
 
 # ── Axis 4: SCALE — the venue TIER, a pure fact axis. Explicit gazetteer only (no
 #    name-keyword sweep: "Garden Amphitheatre" is a Garden Grove punk shed and "Libbey

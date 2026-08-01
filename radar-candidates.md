@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/28/2026 deterministically (no API). 332 candidates. Signals: big-venue 294, festival 35, tracked 5._
+_Generated 7/31/2026 deterministically (no API). 330 candidates. Signals: big-venue 294, festival 33, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -49,6 +49,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 11/7 | 4 | And Always Forever 2026 - 2-DAY PASS | Echoplex | festival | [link](https://www.ticketmaster.com/and-always-forever-2026-2day-pass-los-angeles-california-11-07-2026/event/090064F8C0F8A145) |
 | Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
 | Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
 
@@ -110,9 +111,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 9/1 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZ6) |
-| Wed 9/2 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZF) |
-| Thu 9/3 | 1 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZa) |
 | Sat 9/12 | 1 | Island Fest  | The Show at Agua Caliente Casino R | festival | [link](https://www.ticketmaster.com/island-fest-rancho-mirage-california-09-12-2026/event/090064B3408D0F38) |
 
 ## November 2026
@@ -183,6 +181,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 11/7 | 4 | Jimmy Eat World + The Format: Sing It Back! | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jimmy-eat-world-the-format-sing-hollywood-california-11-07-2026/event/0B0064F5C75F3BBB) |
 | Fri 11/20 | 4 | BOYNEXTDOOR | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 11/21 | 4 | KATSEYE: THE WILDWORLD TOUR | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/katseye-the-wildworld-tour-los-angeles-california-11-21-2026/event/2C0064ABC62217BE) |
 | Sat 11/21 | 4 | El Fantasma | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
@@ -198,7 +197,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 9/1 | 3 | J. Cole: The Fall-Off Tour | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/j-cole-the-falloff-tour-los-angeles-california-09-01-2026/event/2C006435D8180F20) |
 | Fri 9/4 | 3 | J. Cole: The Fall-Off Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/j-cole-the-falloff-tour-inglewood-california-09-04-2026/event/0900644EB2069C06) |
 | Sat 9/5 | 3 | Guns N' Roses: World Tour 2026 | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/guns-n-roses-world-tour-2026-pasadena-california-09-05-2026/event/0B006375B6DA8A5E) |
 | Sat 9/5 | 3 | BTS WORLD TOUR 'ARIRANG' IN LOS ANGELES | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bts-world-tour-arirang-in-los-inglewood-california-09-05-2026/event/0A006429B2CB6418) |
@@ -350,15 +348,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 1/16 | 3 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-16-2027/event/0900649DE84C64CD) |
+| Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
 
 ## September 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 9/1 | 2 | BTS WORLD TOUR 'ARIRANG' IN LOS ANGELES | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bts-world-tour-arirang-in-los-inglewood-california-09-01-2026/event/0A006429AB3C5EF1) |
-| Wed 9/2 | 2 | BTS WORLD TOUR 'ARIRANG' IN LOS ANGELES | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bts-world-tour-arirang-in-los-inglewood-california-09-02-2026/event/0A006429B1B363A4) |
-| Thu 9/3 | 2 | J. Cole: The Fall-Off Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/j-cole-the-falloff-tour-inglewood-california-09-03-2026/event/0900644AFA1DD2BD) |
-| Thu 9/3 | 2 | Echoes of our Ancestors 2 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/echoes-of-our-ancestors-2-los-angeles-california-09-03-2026/event/0900644DC8232D23) |
 | Sun 9/6 | 2 | Chicago & Styx: The Windy Cities Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/chicago-styx-the-windy-cities-tour-inglewood-california-09-06-2026/event/09006379EB8CC553) |
 | Sun 9/6 | 2 | BTS WORLD TOUR 'ARIRANG' IN LOS ANGELES | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bts-world-tour-arirang-in-los-inglewood-california-09-06-2026/event/0A006429B353645F) |
 | Sun 9/6 | 2 | Deep Purple with Kansas (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -424,7 +419,9 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Thu 10/22 | 2 | Doja Cat - Tour Ma Vie World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/doja-cat-tour-ma-vie-world-inglewood-california-10-22-2026/event/0900633A1B2389F9) |
 | Sun 10/25 | 2 | Bryson Tiller Presents: The Neo Trapsoul Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/bryson-tiller-presents-the-neo-trapsoul-inglewood-california-10-25-2026/event/090064B9EC44AB68) |
 | Sun 10/25 | 2 | Mon Laferte (21+ event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Sun 10/25 | 2 | Jodeci - 35th Anniversary Tour of Forever My Lady | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jodeci-35th-anniversary-tour-of-forever-inglewood-california-10-25-2026/event/0A0064F7D00DB5D5) |
 | Tue 10/27 | 2 | Morissette Live In Los Angeles! | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/morissette-live-in-los-angeles-inglewood-california-10-27-2026/event/0A0064F0D87DC06E) |
+| Tue 10/27 | 2 | Jodeci - 35th Anniversary Tour of Forever My Lady | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jodeci-35th-anniversary-tour-of-forever-ontario-california-10-27-2026/event/090064F8C7A6AA1D) |
 | Thu 10/29 | 2 | Knocked Loose w/ Denzel Curry | Shrine LA Outdoors | big-venue | [link](https://www.shrineauditorium.com) |
 | Thu 10/29 | 2 | Tom Jones (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7P6r4) |
 | Thu 10/29 | 2 | Don Omar "The Last King World Tour" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-ontario-california-10-29-2026/event/090064AFE55AB260) |
@@ -448,6 +445,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Sun 11/15 | 2 | RAWAYANA - ¿Dónde es el after? World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rawayana-donde-es-el-after-world-inglewood-california-11-15-2026/event/0900646DB256B395) |
 | Tue 11/17 | 2 | Enrique Bunbury (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 11/18 | 2 | Teddy Swims: The UGLY Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/teddy-swims-the-ugly-tour-inglewood-california-11-18-2026/event/0900648DE2F4A831) |
+| Fri 11/20 | 2 | Martin Lawrence with Nate Jackson, Karlous Miller and more | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/martin-lawrence-yall-still-know-what-ontario-california-11-20-2026/event/090064F6CAC4B270) |
 | Sun 11/22 | 2 | El Tri - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Tue 11/24 | 2 | Los Tucanes de Tijuana (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7Paao) |
 
@@ -471,6 +469,8 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Sun 1/17 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-17-2027/event/0900649DE899654B) |
 | Wed 1/20 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-20-2027/event/090064A4B79AF95E) |
 | Thu 1/21 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-21-2027/event/090064A4B7A6F97C) |
+| Sun 1/24 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-24-2027/event/090064A4B7B2F9A0) |
+| Mon 1/25 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-25-2027/event/090064A4B7BFF9BB) |
 
 ## September 2026
 
@@ -517,8 +517,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 9/1 | 0 | ZAYN: The Konnakol Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/zayn-the-konnakol-tour-anaheim-california-09-01-2026/event/0900643E930C7F41) |
-| Wed 9/2 | 0 | Chicago & Styx: The Windy Cities Tour | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/chicago-styx-the-windy-cities-tour-palm-desert-california-09-02-2026/event/0A006378DDF992FB) |
 | Thu 9/17 | 0 | GODSMACK - The Rise of Rock World Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/godsmack-the-rise-of-rock-world-anaheim-california-09-17-2026/event/09006435A321E22F) |
 | Sat 9/19 | 0 | "Weird Al" Yankovic: Bigger & Weirder 2026 Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/weird-al-yankovic-bigger-weirder-2026-anaheim-california-09-19-2026/event/09006366923698BD) |
 
