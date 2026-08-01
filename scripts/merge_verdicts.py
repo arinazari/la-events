@@ -19,6 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # scripts/ on path
 from lib import editor as ED  # noqa: E402
+from lib.config import load_yaml  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -62,7 +63,13 @@ def main() -> int:
     args = ap.parse_args()
 
     h = args.profile_hash
-    verdicts_path = _resolve(args.verdicts) if args.verdicts else ED.verdict_path(h)
+    # The verdict STORE for the owner's feed hash is default.json (editor.resolve_store_hash):
+    # the on-demand rebuild hands us the owner's public hash, but every ranking consumer — the
+    # nightly, the feed build, render_digest — reads the default store for the owner. The pool
+    # stays keyed by the given hash (build_profiles emits data/editor_pool.<hash>.json for the
+    # owner too).
+    store_h = ED.resolve_store_hash(h, load_yaml(REPO / "profiles.yaml"))
+    verdicts_path = _resolve(args.verdicts) if args.verdicts else ED.verdict_path(store_h)
     pool_path = _resolve(args.editor_pool) if args.editor_pool else \
         _resolve(f"data/editor_pool.{h}.json" if h else "data/editor_pool.json")
 

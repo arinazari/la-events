@@ -25,6 +25,7 @@ default.json) — NOT in the shared enrichment.json (that's scene facts, which a
   prune_verdicts(cache, catalog)          -> drop verdicts for events gone from the catalog
 """
 
+import hashlib
 import json
 from collections import defaultdict
 from datetime import date, datetime
@@ -71,6 +72,27 @@ EDITOR_INPUT_VERSION = 2
 def verdict_path(profile_hash: str = None) -> Path:
     """data/verdicts/<hash>.json — the default profile is `default.json`."""
     return VERDICTS_DIR / f"{profile_hash or 'default'}.json"
+
+
+def resolve_store_hash(profile_hash: str, manifest: dict):
+    """Map a profile FEED hash to its verdict-STORE hash. The owner's store is the default
+    (returns None -> data/verdicts/default.json): their taste IS the root taste, and the nightly
+    judge, the feed build, and render_digest all read the default store for them. An on-demand
+    rebuild only knows the owner's public feed hash, so without this mapping its merged verdicts
+    land in a per-hash file no ranking consumer reads (the 2026-08-01 owner Update judged 75
+    events into exactly that dead store). Any other hash — or an empty manifest — passes
+    through unchanged."""
+    if not profile_hash or not isinstance(manifest, dict):
+        return profile_hash
+    salt = manifest.get("salt") or "la-events/v1:"
+    want = str(profile_hash).strip().lower()
+    for p in manifest.get("profiles") or []:
+        if p and p.get("owner") and p.get("username"):
+            h = hashlib.sha256((salt + str(p["username"]).strip().lower()).encode("utf-8")) \
+                .hexdigest()[:16]
+            if h == want:
+                return None
+    return profile_hash
 
 
 def load_verdicts(path=None, profile_hash: str = None) -> dict:
@@ -192,6 +214,11 @@ def _record(ev: dict, affinity: dict, enrichment: dict = None) -> dict:
         scene = scene_facts(ev, enrichment)
         if scene:
             rec["scene"] = scene
+    # Selection bookkeeping, not editor input (no EDITOR_INPUT_VERSION bump): rides the record so
+    # select_for_verdict sees it when the agent loads the pool doc (feedback.stamp_reacted put it
+    # on the scored event; _record would otherwise drop it).
+    if ev.get("reacted_at"):
+        rec["reacted_at"] = ev["reacted_at"]
     return rec
 
 
@@ -279,6 +306,17 @@ def _stale(hit: dict, ev: dict, refresh_days, today: date) -> bool:
     input_version reads as version-mismatched and re-judges once, then carries the current stamp."""
     if hit.get("input_version") != EDITOR_INPUT_VERSION:
         return True
+    # An explicit reaction on THIS event (a dashboard tap → feedback row with event_key, stamped
+    # onto the record as `reacted_at` by feedback.stamp_reacted) forces a re-judge no matter how
+    # little the score moved: DRIFT_MIN dampens diffuse ripples, never a direct tap. Compare at
+    # the stamp's own precision — full-ISO stamps are exact (stable once judged_at passes them);
+    # legacy date-only stamps are day-granular (a same-day tap re-judges on each pass that day,
+    # bounded to that one event, gone once the Worker's full-ISO ts rolls out).
+    ra = str(ev.get("reacted_at") or "").strip()[:19]
+    if ra:
+        ja = str(hit.get("judged_at") or "")[:19]
+        if not ja or ra >= ja[:len(ra)]:
+            return True
     saj = hit.get("score_at_judge")
     if saj is not None and abs((ev.get("score") or 0) - saj) >= DRIFT_MIN:
         return True

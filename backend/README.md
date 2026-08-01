@@ -91,9 +91,15 @@ log — star state is **last-wins per person+event**, idempotent taps), and CI f
 feed as `stars: [{name, hash}]`, so the star is **visible to everyone**: "★ Lori" on the card and
 beside the event in every digest, and it drives that person's **Starred calendar**
 (`GET /calendar.ics?saved=1`). AND — for `star`/`hide` with `artists` attached — it appends a
-`loved`/`hide` line to that profile's `data/feedback.<hash>.jsonl`, which the existing tested
-feedback→scoring fold picks up with **zero new ranking code** (append-once per event+kind, so
-flapping can't stack weight; `unstar` never teaches — a past star still meant interest).
+`loved`/`hide` line to that profile's `data/feedback.<hash>.jsonl` — **except the owner, whose
+taps go to the ROOT `data/feedback.jsonl`**: the owner's builds (nightly digest, default feed,
+their own per-hash feed) all score against the root log, so a per-hash file for the owner is a
+dead store nothing reads. The existing tested feedback→scoring fold picks it up with **zero new
+ranking code** (append-once per event+kind, so flapping can't stack weight; `unstar` never
+teaches — a past star still meant interest). Feedback rows carry a **full-ISO `ts`** + the
+`event_key`: the editor uses them to force a fresh verdict for exactly the tapped event
+(`editor._stale` re-judges a reaction newer than `judged_at`, bypassing the `DRIFT_MIN` score
+gate that dampens diffuse ripples). Routing changes here ship on the next `wrangler deploy`.
 
 Gate = a **valid profile hash** (`resolveProfile` maps it via `profiles.yaml` — a name-derived
 feed hash today; a capability token once Track A lands) **+ `GITHUB_TOKEN`**. There is **no

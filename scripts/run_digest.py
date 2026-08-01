@@ -294,6 +294,10 @@ def main() -> int:
     pool = P.score_pool(catalog, taste, profile, today, window_days=args.editor_window, affinity=affinity)
     pool = [e for e in pool if (e.get("score") or 0) >= 0]          # negatives auto-skip; don't judge
     judge = ED.editor_pool(pool, per_lane=args.editor_per_lane, floor=args.editor_floor)
+    # Event-targeted reactions (dashboard taps carry event_key on their feedback rows) force a
+    # fresh verdict for exactly that event: stamp reacted_at so select_for_verdict re-judges it
+    # even when the score moved less than DRIFT_MIN.
+    FB.stamp_reacted(judge, FB.load_feedback(FB.affinity_paths(REPO)[1]))
     # Fold the shared scene cache (last run's write-once enrichment) into each editor record so the
     # judge sees verified facts about unfamiliar lineups instead of re-deriving them. Read-only;
     # taste-neutral (scene_facts excludes curator_note/energy). Empty cache = prior behavior exactly.

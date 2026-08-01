@@ -38,7 +38,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.config import load_yaml  # noqa: E402
 from lib.scoring import score_event, score_to_rating, parse_event_date  # noqa: E402
-from lib.feedback import merged_affinity  # noqa: E402
+from lib.feedback import merged_affinity, load_feedback, affinity_paths, stamp_reacted  # noqa: E402
 from lib import affinity as AF  # noqa: E402  (ambiguous_set gates title-token bio folds)
 from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
 from lib.reactions import load_reactions, star_map, stars_for  # noqa: E402  (stars — the social fold)
@@ -724,6 +724,10 @@ def main() -> int:
         epool = [e for e in events if not e.get("is_past") and e.get("iso_date")
                  and e["iso_date"] <= end_iso and (e.get("score") or 0) >= 0]
         judge = ED.editor_pool(epool, per_lane=args.editor_per_lane, floor=args.editor_floor)
+        # Event-targeted reactions force a fresh verdict for exactly that event (see run_digest's
+        # twin stamp): reacted_at rides the pool record so select_for_verdict re-judges the tap
+        # even when the score moved less than DRIFT_MIN.
+        stamp_reacted(judge, load_feedback(affinity_paths(REPO, args.profile_hash)[1]))
         ep_doc = ED.pool_doc(judge, today=today, window_days=args.editor_window,
                              per_lane=args.editor_per_lane, floor=args.editor_floor,
                              affinity=affinity, enrichment=cache, taste=taste)
