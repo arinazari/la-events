@@ -303,9 +303,10 @@ def main() -> int:
             # Friend: their OWN profiles/<name>/profile.yaml if present, else ABSENT — the scorer
             # then falls back to their taste.yaml's `scoring` block (then DEFAULT_*). Friends do NOT
             # inherit the root (Ari's) profile.yaml, so a friend's taste.yaml fully drives their feed.
-            # --digest points at THEIR digest: free-form (no `<!-- take: -->` slot) today, so
-            # front_page.take stays null and the page falls back to its clipped lede heuristic
-            # — but never Ari's teaser.
+            # --digest points at THEIR digest: its `<!-- take: -->` slot rides into
+            # front_page.take when the voice pass filled it; when unfilled, build_dashboard
+            # keeps the previous feed's dated take, and the page can still lift the loaded
+            # doc's own slot/lede client-side — but never Ari's teaser.
             profile = p.get("profile") or f"profiles/{u}/profile.yaml"
             ok = run_build(taste, profile, out, profile_hash=h,
                            editor_pool_out=str(REPO / "data" / f"editor_pool.{h}.json"),
