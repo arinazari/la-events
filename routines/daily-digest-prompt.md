@@ -132,6 +132,12 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    - First, if the per-profile music layer is configured (env `SPOTIFY_SYNC_URL` +
      `SPOTIFY_SYNC_TOKEN` — the concierge Worker), `python scripts/sync_profiles_spotify.py`
      (SKIPs cleanly if unset).
+   - Refresh resale floors: `python scripts/check_prices.py --auto` — one Gametime query per
+     featured act (the ranked head + starred events, ~60 max) + SeatGeek when
+     `SEATGEEK_CLIENT_ID` is set → `data/ticket_prices.json`, which the feed build folds onto
+     cards as `price_check` (the "Cheapest tickets" block). Taste-neutral market data, checked
+     once for everyone; run it BEFORE the feed build so tonight's floors ship. Degrades
+     gracefully — a dead marketplace just means stale/absent rows, never a blocked run.
    - Then `python scripts/build_profiles.py` — the default `dashboard/data.json` AND every
      per-profile feed `dashboard/data.<hash>.json`, each scored against **its own** music layer,
      folding in that profile's **cached** verdicts (`data/verdicts/<hash>.json`) → verdict + final
@@ -172,7 +178,8 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    a day even if they never click Update.
 9. Commit catalog + **`data/catalog_meta.json`** (the version stamp the dashboard's staleness
    check keys off — written by `run_digest`) + `data/enrichment.json` + `data/verdicts/` (only the
-   refreshed profiles' files change) + **`digests/latest.md`** (the consolidated digest) +
+   refreshed profiles' files change) + `data/ticket_prices.json` (the resale-floor store) +
+   **`digests/latest.md`** (the consolidated digest) +
    `radar-candidates.md` + the changed weekend `.md` + index + **all `dashboard/data*.json`** feeds
    (the deterministic re-rank touches every one nightly)
    + **`dashboard/catalog_meta.json`** (published by `build_dashboard`) + the refreshed

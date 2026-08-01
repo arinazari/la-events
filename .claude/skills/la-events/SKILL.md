@@ -31,6 +31,7 @@ around the corner.
 | `/la-events` or `/la-events digest [N days]` | **Digest** — fetch, dedupe, rank, brief |
 | `/la-events discover` | **Discover** — hunt for new sources, propose registry additions |
 | `/la-events flyer` + pasted image/text | **Capture** — normalize a flyer/blast into a catalog entry |
+| `/la-events prices <act/event>` or "cheapest tickets for X" | **Prices** — resale floors vs listed price (Mode 4) |
 | `/la-events sources` | Show registry status from `sources.yaml` |
 
 ---
@@ -298,6 +299,32 @@ normalized entry, and if the promoter isn't in `sources.yaml`, offer to add them
 organizer from its JSON-LD and adds the promoter to the Eventbrite `organizers:` list
 (deduped), so all of their *future* events get pulled automatically. Parsing one flyer
 thus permanently subscribes us to that promoter — the intended way Eventbrite coverage grows.
+
+---
+
+## Mode 4 — Cheapest tickets
+
+Resale floors routinely undercut face price (the canonical case: Kim Gordon $19 all-in on
+Gametime vs ~$45 on Ticketmaster) and the pipeline can't see primary prices for most TM
+inventory, so price comparison is its own pass (`scripts/check_prices.py` + `lib/prices.py`
+→ `data/ticket_prices.json`, committed; the feed folds it onto cards as `price_check`).
+
+1. **Run the deterministic check:** `python scripts/check_prices.py --query "<act>"` (or
+   `--key <event_key>`). It resolves the catalog events, queries **Gametime** (open API —
+   real all-in floors, one query covers all their LA dates), **SeatGeek** when
+   `SEATGEEK_CLIENT_ID` is set, and records the catalog's own listed price as the anchor.
+2. **Cover the walled marketplaces when asked to dig:** StubHub / Vivid Seats / TickPick
+   block datacenter fetches — `--links` prints their prefilled search URLs; try WebFetch on
+   the event pages (JSON-LD `offers.lowPrice` when it renders), and save anything found:
+   `python scripts/check_prices.py --record --key <k> --source stubhub --price 20 --url <listing>`.
+3. **Answer in voice, cheapest first, fees called out** ("$19 all-in on Gametime — TM wants
+   ~$45 before fees"), with the check date. If the store changed and the ask came from the
+   dashboard flow, rebuild feeds (`build_profiles.py`) or let the nightly run fold it.
+
+The nightly routine runs `check_prices.py --auto` (featured head + starred, ~60 acts) so
+the dashboard card's **Cheapest tickets** block is fresh without any ask; the card's
+**↻ live check** re-queries Gametime through the concierge Worker's `GET /prices` relay.
+Free events, films, and markets are never checked — no resale market exists for them.
 
 ---
 

@@ -114,6 +114,7 @@ no backend; the static page just renders it.
 |---|---|---|---|
 | fetch + dedupe + expire + score (`run_digest`) | every routine run / refresh | — (always; deterministic, cheap). Merge is **freshest-wins** for price/time/lineup/status, so in-place updates land. Also each run: `recurring.yaml` markets materialize into dated rows (idempotent), and out-of-market rows (profile `pipeline.out_of_market`) drop unless radar-worthy (festival / tracked artist / arena venue) | none |
 | artist-link resolver (`lib/artist_links`, inside `run_digest`) | every fetch run (creds-gated) | every current lineup/scene-graph artist already in `data/artist_links.json` (misses re-check after 45d); no `SPOTIFY_CLIENT_ID/SECRET` → SKIP | none (Spotify API, ≤250 lookups/run, converges) |
+| resale price check (`check_prices.py --auto` → `data/ticket_prices.json`) | routine step 7, before the feed build | one Gametime query per unique featured act (`--top` 60 cap; starred events always in); free/film/market lanes and judged skips never queried; past entries pruned by date | none (open Gametime API + optional SeatGeek key; ~60 reqs, throttled) |
 | **event-editor** (Tier 1 verdicts, default profile) | routine + per-user rebuild | event already judged at this score AND editor-input version unchanged (`select_for_verdict`) | Sonnet, delta only |
 | **event-editor** (per-friend verdicts) | routine (gate-REFRESH profiles only) + per-user rebuild | `profile_refresh_gate` says SKIP — that profile's taste/profile/prefs/feedback unchanged since its last enrichment | Sonnet, taste-gated |
 | **scene-researcher** (Tier 1 full enrichment, top-100 head) | routine + per-user rebuild | event already full-tier in `enrichment.json` (write-once; a blurb-tier event in the head is *re-selected* to upgrade) | Sonnet, misses + upgrades only |
@@ -197,6 +198,7 @@ no backend; the static page just renders it.
 | `--blurb-window` / `--blurb-top` | `run_digest` | 35d / 0 | blurb (cheap-tier) pool span (the real bound) + optional safety cap (0 = off, cover the whole window) |
 | `refresh_days` | `select_for_verdict` / `select_for_enrichment` | `None` (write-once) | optional periodic re-judge / re-research |
 | `--top-n` | `digest_gate` | 25 | how many picks define a digest's signature |
+| `--top` / `--days` | `check_prices` | 60 / 21 | unique acts per nightly resale sweep + its window |
 | `NUDGE_AFTER_DAYS` | `dashboard/index.html` | 3 | curated-layer age (or days away) before the refresh-nudge popup offers a signed-in profile the Update |
 
 ## File map
@@ -211,7 +213,10 @@ no backend; the static page just renders it.
 - `scripts/profile_refresh_gate.py` — the nightly taste-change gate: REFRESH/SKIP/OWNER per profile
   (config changed since last enrichment, from git — same bar as the reflected badge).
 - `scripts/build_profiles.py` — per-profile feeds + the `profile.self_edit` diff/reflected block (from git).
-- `backend/concierge-worker.js` — `/refresh-events` (debounced) + `/rebuild-profile` + BYOK model.
+- `scripts/check_prices.py` + `scripts/lib/prices.py` — the cheapest-ticket pass (Gametime/SeatGeek +
+  `--record` for browser finds) → `data/ticket_prices.json` → each card's `price_check` block.
+- `backend/concierge-worker.js` — `/refresh-events` (debounced) + `/rebuild-profile` + BYOK model +
+  `/prices` (the card's live Gametime re-check relay).
 - `.github/workflows/{refresh-events,rebuild-profile,build-profiles,spotify-sync,deploy-dashboard}.yml`.
 - `dashboard/index.html` — staleness badge, "what changed" readout, refresh/update buttons, taste/profile diff modal, the 3-day refresh-nudge popup + per-profile visit stamps, the persistent update dot (☰) + digest-modal chip.
 - `routines/daily-digest-prompt.md` — the nightly orchestration.
