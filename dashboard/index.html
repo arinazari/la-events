@@ -910,6 +910,36 @@
         </div>
       </sc-if>
 
+      <!-- CHEAPEST TICKETS — the price-comparison block: baked rows from the nightly
+           check (cheapest flagged, check date shown honestly — resale floors move daily),
+           an ↻ live re-check through the Worker's Gametime relay, and one-tap marketplace
+           searches that work in the browser even where datacenter fetches are bot-walled.
+           Films, free events, and past dates skip the block (priceEligible). -->
+      <sc-if value="{{ detail.hasPrices }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:16px;">
+          <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:2px;">
+            <span style="font:800 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b;">CHEAPEST TICKETS</span>
+            <sc-if value="{{ detail.priceStamp }}" hint-placeholder-val="{{ false }}"><span style="font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ detail.priceStamp }}</span></sc-if>
+            <span onClick="{{ detail.onPriceCheck }}" title="Re-check resale floors live (via Gametime)" style="cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ detail.priceCheckLabel }}</span>
+          </div>
+          <sc-for list="{{ detail.priceRows }}" as="pr" hint-placeholder-count="2">
+            <div style="display:flex; align-items:center; gap:10px; padding:8px 0 9px; border-top:1px solid #eeece4;">
+              <span style="font:700 13.5px/1 ui-monospace,Menlo,monospace; color: {{ pr.color }}; min-width:54px; flex:none;">{{ pr.price }}</span>
+              <sc-if value="{{ pr.hasUrl }}" hint-placeholder-val="{{ true }}"><a href="{{ pr.url }}" target="_blank" rel="noopener" onClick="{{ pr.stop }}" title="Open this listing" style="font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; text-decoration:none; border-bottom:1px solid #dedcd4;" style-hover="color:#2b5cd9; border-color:#2b5cd9;">{{ pr.label }} ↗</a></sc-if>
+              <sc-if value="{{ pr.noUrl }}" hint-placeholder-val="{{ false }}"><span style="font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">{{ pr.label }}</span></sc-if>
+              <sc-if value="{{ pr.hasSub }}" hint-placeholder-val="{{ false }}"><span style="font:500 10.5px/1.3 ui-monospace,Menlo,monospace; color:#8a887e; min-width:0;">{{ pr.sub }}</span></sc-if>
+              <sc-if value="{{ pr.cheapest }}" hint-placeholder-val="{{ false }}"><span style="font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; padding:3px 6px; border-radius:2px; color:#1f7a4d; background:#e9efe9; flex:none;">CHEAPEST</span></sc-if>
+            </div>
+          </sc-for>
+          <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-top:8px;">
+            <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">compare:</span>
+            <sc-for list="{{ detail.priceLinks }}" as="pl" hint-placeholder-count="5">
+              <a href="{{ pl.url }}" target="_blank" rel="noopener" onClick="{{ pl.stop }}" title="Search “{{ pl.q }}” on {{ pl.label }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; border:1px solid #dedcd4; color:#5a584f; border-radius:999px; text-decoration:none;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ pl.label }} ↗</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
       <div style="margin-top:18px; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
         <sc-for list="{{ detail.ticketLinks }}" as="tk" hint-placeholder-count="1"><span onClick="{{ tk.onGo }}" style="font:700 11px/1 ui-monospace,Menlo,monospace; padding:11px 16px; background:transparent; color:#2b5cd9; border:1px solid #2b5cd9; border-radius:999px; cursor:pointer;" style-hover="background:#2b5cd9; color:#fff;">{{ tk.label }} ↗</span></sc-for>
         <button onClick="{{ detail.onCal }}" style="display:inline-flex; align-items:center; gap:6px; font:700 11px/1 ui-monospace,Menlo,monospace; padding:11px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#a7a59b;">Add to calendar ↓</button>
@@ -1520,6 +1550,7 @@ class Component extends DCLogic {
       seriesRank: (typeof r.series_rank === 'number' ? r.series_rank : null),
       series: (r.series && typeof r.series === 'object') ? r.series : null,
       showtimesUrl: r.showtimes_url || null,
+      priceCheck: (r.price_check && typeof r.price_check === 'object' && Array.isArray(r.price_check.options)) ? r.price_check : null,
       why, whyCurated,
       desc: (enr.description || r.detail || ''),
       xb: Array.isArray(r.badges) ? r.badges : (Array.isArray(r.xb) ? r.xb : []),
@@ -1703,7 +1734,8 @@ class Component extends DCLogic {
     calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null,
     openFilter:null, exFrom:'', exTo:'',
     exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] },
-    guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, nudgeOpen:false, nudgeMore:false, digestMenuOpen:false, digestEmailOpen:false, digestPast:null, digestEmail:'', spotifyModalOpen:false };
+    guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, nudgeOpen:false, nudgeMore:false, digestMenuOpen:false, digestEmailOpen:false, digestPast:null, digestEmail:'', spotifyModalOpen:false,
+    priceLive:null, priceLiveFor:null, priceLiveStatus:null };
 
   componentDidMount() {
     try { const r = JSON.parse(localStorage.getItem('la-fp-reactions-v1') || '{}'); if (r && typeof r === 'object') this.setState({ reactions:r }); } catch (e) {}
@@ -1857,6 +1889,127 @@ class Component extends DCLogic {
     if (e.showtimesUrl) out.push({ label: 'All LA showtimes', url: e.showtimesUrl });
     return { buttons: out.slice(0, 6), showtimes: [...groups].map(g => ({ venue: g[0], times: g[1] })) };
   }
+  // ── Cheapest tickets (the card's price-comparison block) ─────────────────────────────
+  // Baked rows ride the feed's `price_check` (data/ticket_prices.json — the nightly
+  // check_prices.py --auto pass over the featured head + starred events); ↻ live check hits
+  // the Worker's GET /prices (a trimmed Gametime relay — resale floors move daily) and its
+  // rows replace the same source's baked row. The compare links mirror lib/prices.MARKETPLACES:
+  // browser-side marketplace searches that work even where datacenter fetches are bot-walled
+  // (StubHub / SeatGeek / Vivid). Films, free events, and past dates don't get the block.
+  PRICE_SRC_LABELS = { gametime:'Gametime', stubhub:'StubHub', seatgeek:'SeatGeek', tickpick:'TickPick', vividseats:'Vivid Seats', 'vivid seats':'Vivid Seats' };
+  MARKETPLACES = [
+    ['StubHub', q => 'https://www.stubhub.com/search?q=' + encodeURIComponent(q)],
+    ['SeatGeek', q => 'https://seatgeek.com/search?search=' + encodeURIComponent(q)],
+    ['Gametime', q => 'https://gametime.co/search?query=' + encodeURIComponent(q)],
+    ['TickPick', q => 'https://www.tickpick.com/search/?q=' + encodeURIComponent(q)],
+    ['Vivid Seats', q => 'https://www.vividseats.com/search?searchTerm=' + encodeURIComponent(q)],
+  ];
+  // The marketplace query — lib/prices.search_name mirrored (headliner, else the title with
+  // tour-tail / parenthetical / "an evening with" dressing stripped; same _artistNorm-style
+  // mirroring precedent as artist links).
+  resaleQuery(e) {
+    const paren = s => String(s || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+    if (e.lineup && e.lineup.length && String(e.lineup[0]).trim()) return paren(e.lineup[0]) || String(e.lineup[0]).trim();
+    const t = paren(String(e.title || '').replace(/^an evening with\s+/i, ''));
+    const cut = t.replace(/\s*[-–—:]\s*[^-–—:]*\b(tour|live|residency)\b[^-–—:]*$/i, '').trim();
+    if (cut !== t && cut.length >= 3) return cut;
+    const parts = t.split(/\s+[-–—]\s+/);
+    if (parts.length > 1 && parts[0].trim().length >= 3) return parts[0].trim();
+    return t || String(e.title || '').trim();
+  }
+  PRICE_FAMILIES = ['club', 'live-music', 'comedy', 'stage'];
+  priceEligible(e) {
+    if (e.priceCheck) return true;                       // a check on file always renders
+    if (e.iso < this.TODAY) return false;                // no market for a past night
+    if (e.pmin === 0 && !(e.pmax > 0)) return false;     // free — no floor to find
+    const fam = String(e.lane || '').split(':')[0];
+    if (fam) return this.PRICE_FAMILIES.indexOf(fam) !== -1;
+    return (e.links || []).length > 0 && e.cat !== 'Film';
+  }
+  _fmtDollars(p) { if (p == null) return '?'; const r = Math.round(p * 100) / 100; return '$' + (Number.isInteger(r) ? r : r.toFixed(2)); }
+  priceSrcLabel(s) { const k = String(s || '').toLowerCase(); return this.PRICE_SRC_LABELS[k] || this.LINK_SRC_LABELS[k] || (k ? k.charAt(0).toUpperCase() + k.slice(1) : 'Listing'); }
+  priceRowsFor(e) {
+    const baked = (e.priceCheck && e.priceCheck.options) || [];
+    const live = (this.state.priceLiveFor === e.id && Array.isArray(this.state.priceLive)) ? this.state.priceLive : [];
+    const bySrc = new Map();
+    for (const o of baked) if (o && o.source) bySrc.set(o.source, { ...o });
+    for (const o of live) if (o && o.source) bySrc.set(o.source, { ...o, live: true });
+    return [...bySrc.values()].sort((a, b) => ((a.price ?? 1e9) - (b.price ?? 1e9)));
+  }
+  checkedMD(iso) {
+    const d = String(iso || '').slice(0, 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return '';
+    return d === this.TODAY ? 'today' : this.fmt(d, '').md;
+  }
+  priceBlockFor(e) {
+    if (!this.priceEligible(e)) return { hasPrices: false, priceRows: [], priceLinks: [] };
+    const raw = this.priceRowsFor(e);
+    const rows = raw.map((o, i) => {
+      const listed = o.kind === 'listed';
+      let sub = '';
+      if (listed) sub = o.note ? 'listed · ' + o.note : 'listed price';
+      else if (o.prefee != null) sub = 'all-in · ' + this._fmtDollars(o.prefee) + ' + fees';
+      else if (o.note && o.note !== 'all-in') sub = o.note;
+      else if (o.note === 'all-in') sub = 'all-in';
+      if (o.live) sub = (sub ? sub + ' · ' : '') + 'live';
+      return {
+        price: (listed && o.price === 0) ? 'free' : this._fmtDollars(o.price),
+        label: this.priceSrcLabel(o.source), sub, hasSub: !!sub,
+        url: o.url || '', hasUrl: !!o.url, noUrl: !o.url,
+        cheapest: i === 0 && raw.length > 1,
+        color: (i === 0 && raw.length > 1) ? '#1f7a4d' : '#3f3d36',
+        stop: (ev) => ev.stopPropagation(),
+      };
+    });
+    const q = this.resaleQuery(e);
+    const links = this.MARKETPLACES.map(([label, mk]) => ({ label, q, url: mk(q), stop: (ev) => ev.stopPropagation() }));
+    const st = this.state.priceLiveFor === e.id ? this.state.priceLiveStatus : null;
+    let stamp = '';
+    if (st === 'ok' || st === 'none') stamp = 'checked just now';
+    else if (e.priceCheck && e.priceCheck.checked_at) stamp = 'checked ' + this.checkedMD(e.priceCheck.checked_at);
+    return {
+      hasPrices: true, priceRows: rows, priceLinks: links, priceStamp: stamp,
+      priceCheckLabel: st === 'loading' ? 'checking…' : (st === 'err' ? '↻ retry live check' : '↻ live check'),
+      onPriceCheck: () => this.checkLivePrices(e),
+    };
+  }
+  _venueToks(v) {
+    const stop = ['the','los','angeles','theatre','theater','presents','and','hall','club'];
+    return String(v || '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/)
+      .filter(t => t.length >= 3 && stop.indexOf(t) === -1);
+  }
+  matchLivePrices(e, items) {
+    const blob = ' ' + String(e.title + ' ' + (e.lineup || []).join(' ')).toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
+    const mine = this._venueToks(e.venue);
+    const out = [];
+    for (const it of (items || [])) {
+      if ((it.metro || '') !== 'losangeles' || (it.date || '') !== e.iso || !(it.price > 0)) continue;
+      const theirs = this._venueToks(it.venue);
+      const venueOk = mine.some(t => theirs.indexOf(t) !== -1);
+      const nameToks = String(it.name || '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter(Boolean);
+      const nameOk = nameToks.length > 0 && nameToks.every(t => blob.indexOf(' ' + t + ' ') !== -1);
+      if (venueOk || nameOk) out.push({ source: 'gametime', kind: 'resale', price: it.price, prefee: it.prefee, url: it.url, note: 'all-in' });
+    }
+    out.sort((a, b) => ((a.price ?? 1e9) - (b.price ?? 1e9)));
+    return out.slice(0, 1);   // one row per source — the floor
+  }
+  checkLivePrices = async (e) => {
+    if (this.state.priceLiveStatus === 'loading') return;
+    if (!this.BACKEND_URL) { this.showToast('No backend connected — the compare links search each marketplace directly', null); return; }
+    this.setState({ priceLiveFor: e.id, priceLive: null, priceLiveStatus: 'loading' });
+    try {
+      const u = new URL('/prices', this.BACKEND_URL); u.searchParams.set('q', this.resaleQuery(e));
+      const res = await fetch(u.href);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      const rows = this.matchLivePrices(e, data.events || []);
+      this.setState({ priceLive: rows, priceLiveStatus: rows.length ? 'ok' : 'none' });
+      if (!rows.length) this.showToast('No live resale listings for this date — the compare links search each marketplace directly', null);
+    } catch (err) {
+      this.setState({ priceLiveStatus: 'err' });
+      this.showToast('Live check failed — the Worker may need a redeploy; compare links still work', null);
+    }
+  };
   // Run span for a series REP card — the PROGRAM's dates, not its rep night: {span, count}
   // like ("Thru Sun Sep 6", "12 nights"), or null for one-nighters/same-day programs and for
   // NON-rep member rows (a date-sorted Explore list shows each night under its own date; only
@@ -2062,7 +2215,7 @@ class Component extends DCLogic {
     };
     setTimeout(() => hand(2), 120);
   };
-  openDetail = (id) => this.setState({ detailId:id });
+  openDetail = (id) => this.setState({ detailId:id, priceLive:null, priceLiveFor:null, priceLiveStatus:null });
   closeDetail = () => this.setState({ detailId:null });
   // Same column twice flips direction (OLD behavior); a new column starts at its natural direction.
   setSort = (k) => this.setState(s => ({ exploreSort:k, exploreDir: s.exploreSort === k ? -(s.exploreDir || 1) : 1 }));
@@ -3954,6 +4107,7 @@ class Component extends DCLogic {
         onSeen:(ev) => this.markSeen(de, ev),
         seenLabel: this.isSeen(de) ? '✓ Marked seen' : 'Saw this — hide it',
         seenColor: this.isSeen(de) ? '#8a887e' : '#a9a79d',
+        ...this.priceBlockFor(de),
         ...this.chipProps(de),
       };
     } else out.detail = { poster:{show:false}, photo:{show:false}, friendChips:[] };

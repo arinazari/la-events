@@ -62,7 +62,7 @@ import CalendarCore from "../dashboard/calendar-core.js";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-07-26-posh-relay";
+const VERSION = "2026-08-01-prices";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
@@ -116,6 +116,8 @@ async function handleRequest(request, env, cors, ctx) {
   // Posh relay — the digest fetcher's escape hatch when posh.vip's Cloudflare challenges the
   // runner's datacenter IP (cloud sessions, GH Actions). See handlePoshRelay for the contract.
   if (url.pathname === "/posh") return handlePoshRelay(url, request, env, cors);
+  // Live cheapest-ticket check for the card (GET, unauthenticated — public market data).
+  if (url.pathname === "/prices") return handlePrices(url, request, env, cors);
 
   // Unauthenticated deploy fingerprint: which build is live (no secrets — see VERSION).
   if (request.method === "GET" && url.pathname === "/")
@@ -1560,6 +1562,57 @@ async function handlePoshRelay(url, request, env, cors) {
   const cfm = r.headers.get("cf-mitigated");
   if (cfm) headers["cf-mitigated"] = cfm;   // let the fetcher see an upstream challenge as-is
   return new Response(body, { status: r.status, headers });
+}
+
+/* GET /prices?q=<act> — the card's LIVE cheapest-ticket check: a trimmed relay of Gametime's
+ * open mobile search (the same API scripts/check_prices.py hits nightly for the baked
+ * `price_check` rows; this route is how the card re-checks on demand, since resale floors
+ * move daily and the browser can't call mobile.gametime.co cross-origin itself).
+ *
+ * Unauthenticated by design, like /calendar.ics: public market data, no secrets read, no
+ * repo writes — the gate elsewhere protects Anthropic spend and commits, neither of which
+ * this touches. The payload is stripped to exactly what the card renders (name / local
+ * date-time / venue+metro / all-in floor in DOLLARS / listing URL); the page does its own
+ * date+venue matching, mirroring lib/prices.match_gametime. 5-minute edge cache keeps
+ * repeat opens of a hot card from re-hitting the upstream. */
+const GAMETIME_SEARCH = "https://mobile.gametime.co/v1/search";
+const GAMETIME_UA = POSH_UA;   // same logged-in-browser fingerprint the other relays present
+
+async function handlePrices(url, request, env, cors) {
+  if (request.method !== "GET") return json({ error: "GET only" }, 405, cors);
+  const q = (url.searchParams.get("q") || "").trim();
+  if (!q || q.length > 200) return json({ error: "need ?q=<act or title>" }, 400, cors);
+  let r;
+  try {
+    r = await fetch(`${GAMETIME_SEARCH}?q=${encodeURIComponent(q)}`, {
+      headers: { accept: "application/json", "user-agent": GAMETIME_UA },
+    });
+  } catch (e) {
+    return json({ error: "upstream fetch failed", detail: String((e && e.message) || e).slice(0, 200) }, 502, cors);
+  }
+  if (!r.ok) return json({ error: "upstream " + r.status }, 502, cors);
+  let data;
+  try { data = await r.json(); } catch { return json({ error: "bad upstream json" }, 502, cors); }
+  const events = [];
+  for (const it of (Array.isArray(data.events) ? data.events : []).slice(0, 40)) {
+    const e = (it && it.event) || {}, v = (it && it.venue) || {};
+    const total = Number(((e.min_price || {}).total) || 0);
+    if (!(total > 0)) continue;   // no listings -> nothing to compare
+    const prefee = Number(((e.min_price || {}).prefee) || 0);
+    const dt = String(e.datetime_local || "");
+    events.push({
+      name: String(e.name || ""),
+      date: dt.slice(0, 10),
+      time: dt.slice(11, 16),
+      venue: String(v.name || ""),
+      metro: String(v.metro || "").toLowerCase(),
+      price: Math.round(total) / 100,                                  // all-in, dollars
+      prefee: prefee > 0 ? Math.round(prefee) / 100 : null,            // sticker before fees
+      url: String(e.seo_url || ""),
+    });
+  }
+  return json({ query: q, source: "gametime", checked_at: new Date().toISOString(), events },
+              200, { ...cors, "cache-control": "public, max-age=300" });
 }
 
 async function handleReact(request, env, cors) {
