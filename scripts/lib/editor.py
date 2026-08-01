@@ -18,7 +18,7 @@ default.json) — NOT in the shared enrichment.json (that's scene facts, which a
   editor_pool(scored, per_lane, floor)    -> ranked subset worth judging (PER-LANE, not a flat cut)
   pool_doc(judge, ..., affinity, profile) -> the editor-pool doc (records + the profile's Spotify lane)
   verdict_path / load_verdicts / save_verdicts  -> per-profile verdict store I/O
-  select_for_verdict(pool, cache, ...)    -> pool minus already-judged (misses / stale / score-drift)
+  select_for_verdict(pool, cache, ...)    -> pool minus already-judged (misses / stale / score drift >= DRIFT_MIN)
   verdict_map(cache)                      -> {event_key: verdict} for assemble()
   update_verdicts(cache, results, scores) -> fold a judging batch back in (validated)
   validate_verdict(v)                     -> coerce/validate one LLM verdict; None if unusable
@@ -42,6 +42,15 @@ TIERS = ("must-see", "great", "solid", "skip")
 CONFIDENCE = ("low", "med", "high")
 ADJUST_MIN, ADJUST_MAX = -3, 3
 WHY_MAX = 280            # verdict `why` budget — rendered verbatim in compact digest lines
+
+# Score-drift re-judge threshold: a cached verdict is re-judged only when the deterministic score
+# has moved by at least this much since it was judged. Scores ripple by ±1 all the time without
+# changing what the editor would say — one reaction folds into affinity and nudges every matching
+# event, a small policy tweak re-scores a whole category — and exact-match drift once flipped ~75
+# owner verdicts "stale" at once, turning one Update click into a 27-minute judging flood
+# (2026-08-01). Creep still triggers: a kept verdict's score_at_judge is NOT refreshed, so two +1
+# steps accumulate to Δ2 against the stored score and re-select.
+DRIFT_MIN = 2
 _VERDICT_FIELDS = ("tier", "lane", "adjust", "why", "confidence")
 
 # Lanes that never surface in the going-out slate — judged only if they clear the floor, never
@@ -205,8 +214,8 @@ def _series_context(judge: list) -> dict:
     same film across theaters — lib/series grouping). The editor needs this to spend its top
     tiers on PROGRAMS, not nights: without it, every night of a 15-night 70mm run reads as a
     fresh marquee event and five of them come back must-see. Additive record context — like the
-    taste brief, deliberately NOT an EDITOR_INPUT_VERSION bump (film-score changes re-select the
-    affected verdicts via score drift anyway)."""
+    taste brief, deliberately NOT an EDITOR_INPUT_VERSION bump (film-score changes big enough to
+    matter re-select the affected verdicts via score drift anyway)."""
     out = {}
     for members in group_series(judge).values():
         ms = sorted(members, key=lambda e: str(e.get("iso_date") or e.get("date") or ""))
@@ -264,13 +273,14 @@ def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict
 def _stale(hit: dict, ev: dict, refresh_days, today: date) -> bool:
     """Re-judge if the editor's input SHAPE changed since the verdict (input_version bump — e.g. the
     scene block was added, so an old blind verdict must be re-judged once), if the deterministic
-    score moved (new lineup, or feedback/affinity shifted it), or — when refresh_days is set — the
-    verdict is older than that. A legacy verdict with no input_version reads as version-mismatched
-    and re-judges once, then carries the current stamp."""
+    score moved by >= DRIFT_MIN (a real lineup/feedback shift — ±1 ripples keep the verdict, and
+    since score_at_judge stays put on a kept verdict, creep accumulates and re-selects at Δ2), or —
+    when refresh_days is set — the verdict is older than that. A legacy verdict with no
+    input_version reads as version-mismatched and re-judges once, then carries the current stamp."""
     if hit.get("input_version") != EDITOR_INPUT_VERSION:
         return True
     saj = hit.get("score_at_judge")
-    if saj is not None and (ev.get("score") or 0) != saj:
+    if saj is not None and abs((ev.get("score") or 0) - saj) >= DRIFT_MIN:
         return True
     if refresh_days is None:
         return False
@@ -283,8 +293,9 @@ def _stale(hit: dict, ev: dict, refresh_days, today: date) -> bool:
 
 
 def select_for_verdict(pool: list, cache: dict, refresh_days=None, today: date = None) -> list:
-    """Events still needing a verdict: never judged, score-drifted, or (with refresh_days) stale.
-    Each carries `id` (= event_key) for the editor to echo back. Default = write-once delta."""
+    """Events still needing a verdict: never judged, score-drifted (>= DRIFT_MIN), or (with
+    refresh_days) stale. Each carries `id` (= event_key) for the editor to echo back.
+    Default = write-once delta."""
     verdicts = cache.get("verdicts") or {}
     out = []
     for e in pool:
@@ -336,7 +347,7 @@ def update_verdicts(cache: dict, results: list, scores: dict = None, now: str = 
                     model: str = None) -> dict:
     """Fold a judging batch (verdict dicts, each with `id` = event_key) into the cache. Stamps
     `judged_at`, `model`, and `score_at_judge` (from `scores[key]`, or the result's own `score`)
-    so a later score drift re-selects it. Invalid verdicts are skipped."""
+    so a later score drift (>= DRIFT_MIN) re-selects it. Invalid verdicts are skipped."""
     cache.setdefault("verdicts", {})
     now = now or datetime.now().isoformat(timespec="seconds")
     scores = scores or {}

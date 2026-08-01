@@ -125,7 +125,7 @@ no backend; the static page just renders it.
 
 ## Cost ledger — where tokens go, and the bound on each
 
-1. **Nightly editor** — only new/score-drifted events are judged; cached + committed per profile. Sonnet.
+1. **Nightly editor** — only new or score-drifted (Δ ≥ 2 — `editor.DRIFT_MIN`; ±1 ripples from a reaction or small policy tweak keep the cached verdict) events are judged; cached + committed per profile. Sonnet.
    The editor record now carries a read-only `scene` block — the **taste-neutral** factual subset of
    the shared enrichment cache (`editor._record` → `enrich.scene_facts`: type/subgenres/label_orbit/
    setting/sounds_like/description + artist bios; **never** curator_note/energy, which are taste-voiced)

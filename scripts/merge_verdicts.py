@@ -3,7 +3,7 @@
 
 The event-editor agent returns a JSON array of verdicts (one per event, each with `id`). This
 folds them into data/enrichment.json via editor.update_verdicts — validating each, stamping
-judged_at, and recording score_at_judge from data/editor_pool.json so a later score drift
+judged_at, and recording score_at_judge from data/editor_pool.json so a later score drift (>= editor.DRIFT_MIN)
 re-selects the event. Mirrors how scene-researcher results land via enrich.update_cache.
 
 Usage:

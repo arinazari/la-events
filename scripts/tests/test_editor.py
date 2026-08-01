@@ -84,7 +84,25 @@ def test_select_for_verdict_reselects_on_score_drift():
                               "input_version": ED.EDITOR_INPUT_VERSION,
                               "judged_at": "2026-06-19T00:00:00"}}}
     assert ED.select_for_verdict([ev], cache) == []          # score unchanged -> skip
-    ev2 = dict(ev); ev2["score"] = 8                          # lineup/feedback moved the score
+    ev1 = dict(ev); ev1["score"] = 6                          # ±1 ripple (reaction/policy nudge):
+    assert ED.select_for_verdict([ev1], cache) == []          #   below DRIFT_MIN -> verdict kept
+    ev2 = dict(ev); ev2["score"] = 7                          # real move (>= DRIFT_MIN)
+    assert [m["id"] for m in ED.select_for_verdict([ev2], cache)] == [k]
+    ev3 = dict(ev); ev3["score"] = 3                          # downward drift counts the same
+    assert [m["id"] for m in ED.select_for_verdict([ev3], cache)] == [k]
+
+
+def test_score_drift_creep_accumulates_to_reselect():
+    """A kept verdict's score_at_judge is NOT refreshed, so sub-threshold creep accumulates
+    against the stored score and re-selects once it totals DRIFT_MIN."""
+    ev = _ev("Creeper", CLUB_U, 5)
+    k = ED.event_key(ev)
+    cache = {"verdicts": {k: {"tier": "solid", "score_at_judge": 5,
+                              "input_version": ED.EDITOR_INPUT_VERSION,
+                              "judged_at": "2026-06-19T00:00:00"}}}
+    ev1 = dict(ev); ev1["score"] = 6                          # +1: kept, stamp stays at 5
+    assert ED.select_for_verdict([ev1], cache) == []
+    ev2 = dict(ev); ev2["score"] = 7                          # +1 again: Δ2 vs stored -> re-judge
     assert [m["id"] for m in ED.select_for_verdict([ev2], cache)] == [k]
 
 
