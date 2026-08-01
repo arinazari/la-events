@@ -73,6 +73,13 @@ The page opens on the **Front page** — an editorial home rendered from the fee
   shelves when the runtime sets exist. Card click → a detail modal (what/why/lineup/links/
   add-to-calendar); *see all →* jumps into Explore pre-filtered via the same `filtered`
   id-list mechanism the chat uses.
+- **Cheapest tickets (detail modal)** — when the nightly `check_prices.py --auto` pass has a
+  check on file (feed `price_check`), the card shows the comparison cheapest-first (resale
+  floors all-in vs the listed price, CHEAPEST flag, check date), an **↻ live check** that
+  re-queries Gametime through the Worker's `GET /prices` relay (fails soft to a toast when
+  the backend's down), and prefilled StubHub/SeatGeek/Gametime/TickPick/Vivid **compare**
+  searches that always work browser-side. Films, free events, and past dates skip the block
+  (`priceEligible`); the query mirrors `lib/prices.search_name` (headliner, dressing stripped).
 
 **Explore** is the original table (search, facets, date range, rank/score sort), one click
 away in the header switch; the choice persists per device (`la-view` in localStorage). A feed

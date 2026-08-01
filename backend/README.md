@@ -124,6 +124,26 @@ through the CURRENT profiles.yaml (stale identities never leak), ~30s cache. Por
 "A4: stars" with the reactions.jsonl schema kept identical, so that branch's eventual merge is a
 clean overlap.
 
+## Live cheapest-ticket check (`GET /prices`) — the card's ↻ re-check
+
+```
+GET /prices?q=<act or title>
+->  200 { query, source: "gametime", checked_at,
+          events: [{ name, date, time, venue, metro, price, prefee, url }] }   // price = all-in dollars
+```
+
+A trimmed relay of Gametime's open mobile search — the same API the nightly
+`scripts/check_prices.py --auto` pass hits for the baked `price_check` rows. The card's
+**Cheapest tickets → ↻ live check** calls it because resale floors move daily and the
+browser can't reach `mobile.gametime.co` cross-origin itself; the page date+venue-matches
+the payload client-side (mirroring `lib/prices.match_gametime`) and swaps the fresh floor
+in. **Unauthenticated by design**, like `/calendar.ics`: public market data, no secrets
+read, no repo writes — the auth gate exists to protect Anthropic spend and commits, and
+this route touches neither. Responses carry a 5-minute edge cache so a hot card doesn't
+hammer the upstream. Ships in `VERSION 2026-08-01-prices` — **needs a `wrangler deploy`**
+to go live; until then the page's live check fails soft (toast; baked rows + the compare
+links keep working).
+
 ## Contract
 
 ```

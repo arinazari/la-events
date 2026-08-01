@@ -79,6 +79,7 @@ root files.)
 | "where should I eat," "dinner spot Friday," "best new restaurant," `/la-dining` | **la-dining — Query** | Hand off occasion / area / party size / price. |
 | "what's trending in dining," "new openings" | **la-dining — Radar** | Trending digest, not occasion-specific. |
 | pasted **flyer / screenshot / promoter blast** | **capture** | Event flyer → la-events flyer mode; restaurant/popup/truck → la-dining capture. Route by what it is. |
+| "cheapest tickets for X," "is there a cheaper way into [show]," "what's X going for" | **la-events — Prices (Mode 4)** | `python scripts/check_prices.py --query "<act>"` → resale floors (Gametime/SeatGeek) vs the listed price; WebFetch the walled marketplaces if he wants it dug out, `--record` finds. Answer cheapest-first with fees called out. |
 | "find new sources," "what are we missing," a venue/IG/Linktree to vet | **`source-scout` agent** (Discover) | Returns a proposal table; you present it for approval. |
 | "show me the registry / source status" | la-events or la-dining **sources** | Read the relevant `*-sources.yaml`. |
 

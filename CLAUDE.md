@@ -93,6 +93,9 @@ scripts/render_digest.py            # scored pool + verdicts → digest slate (M
 scripts/travel.py                   # night-planner travel CLI: rough LA drive/walk times (lib/geo.py + dining.json)
 scripts/make_ics.py                 # turn a night-planner itinerary into a calendar .ics (lib/ics.py)
 scripts/log_feedback.py             # concierge: append a reaction to data/feedback.jsonl (the learned loop)
+scripts/check_prices.py             # cheapest-ticket pass (lib/prices, tested): Gametime/SeatGeek resale
+                                    #   floors + listed-price anchor + --record for browser finds →
+                                    #   data/ticket_prices.json; nightly --auto covers the featured head
 scripts/fetch_*.py                  # 12 source fetchers (run BY run_digest, or in Step-2 layering):
                                     #   ticketmaster (TM_API_KEY), ra, 19hz, goldenvoice, filmbot,
                                     #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld,
@@ -111,6 +114,7 @@ data/radar.json                     # "on the radar" set for the consolidated di
 data/verdicts/<hash>.json           # event-editor verdicts, per profile (committed; only the delta is judged each run)
 data/enrichment.json                # scene-graph cache: per-event enrichment (full + blurb tiers) + artist notes (committed; grows each run)
 data/artist_links.json              # Spotify artist-page cache (lib/artist_links; committed) → feed `artist_links` = direct ▶ listen links
+data/ticket_prices.json             # resale-floor store (committed; date-pruned) → feed `price_check` = the card's "Cheapest tickets" block
 data/spotify_affinity.json          # Spotify music-affinity artifact (runtime; gitignored)
 data/feedback.jsonl                 # append-only reaction log (committed); folds into scoring each run
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)

@@ -52,6 +52,7 @@ from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
 from lib import artist_links as ALINK  # noqa: E402  (direct ▶ listen links for the feed)
+from lib import prices as PR  # noqa: E402  (cheapest-ticket checks -> price_check on the card)
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -560,6 +561,12 @@ def main() -> int:
     smap = star_map(load_reactions(REPO / "data" / "reactions.jsonl"))
     star_names = hash_names(load_yaml(REPO / "profiles.yaml") or {}) if smap else {}
 
+    # Cheapest-ticket checks (scripts/check_prices.py -> data/ticket_prices.json, committed) —
+    # folded onto matching events as `price_check` so the card can render the comparison with
+    # the cheapest flagged. Taste-neutral market data: the same fold in every profile's feed.
+    # Graceful: no store -> no field.
+    pmap = PR.price_map(PR.load_store(REPO / "data" / "ticket_prices.json"))
+
     is_sample = "sample" in catalog_path.name
     # LA-local today (NOT the runner's UTC date) — otherwise, in CI (UTC) past midnight UTC, events
     # still happening tonight in LA get marked is_past and lose their final_rank / highlight.
@@ -596,6 +603,10 @@ def main() -> int:
         starred = stars_for(smap, star_names, k)
         if starred:
             out["stars"] = starred                   # [{name, hash}] — who starred it (social)
+
+        pc = pmap.get(k)
+        if pc:
+            out["price_check"] = pc                  # {checked_at, options[]} cheapest-first
 
         events.append(out)
 

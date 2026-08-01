@@ -531,6 +531,25 @@ per-day passes group). NOTE: the old "wire festivals.yaml into the digest" gap w
 closed (build_radar folds `timely(load_festivals())` → `_watchlist_md` under On the radar) —
 the 2026-07-21 REMAINING note below is stale.
 
+### 2026-08-01 — Cheapest tickets on the card (Ari's ask, in-session)
+"Kim Gordon is $20 on StubHub but ~$45 on Ticketmaster" — resale floors routinely undercut
+face price and nothing in the pipeline knew (TM Discovery returns 0% priceRanges for LA, so
+even the primary price is usually blank). Shipped as an option on the opened card, three
+layers: (1) **automated floors** — `scripts/check_prices.py` + `lib/prices.py` (tested) hit
+Gametime's open mobile API (real all-in floors, one query per act covers all their LA dates;
+SeatGeek rides along when `SEATGEEK_CLIENT_ID` is set) and record the catalog's own listed
+price as the anchor → `data/ticket_prices.json` (committed, date-pruned), folded onto feeds
+as `price_check`; the nightly routine sweeps the featured head + starred events (~60 acts,
+step 7). (2) **The card block** — "CHEAPEST TICKETS": comparison rows cheapest-first with a
+CHEAPEST flag, fees called out ("all-in · $16 + fees" vs "listed"), the check date shown
+honestly, plus an **↻ live check** that re-queries Gametime through the Worker's new
+unauthenticated `GET /prices` relay (public market data; needs a `wrangler deploy`).
+(3) **Compare links** — prefilled StubHub/SeatGeek/Gametime/TickPick/Vivid searches (those
+walls block datacenter fetches but not Ari's browser; StubHub's current search path is
+`/search?q=`, the old `/find/s/` 404s). Concierge routes "cheapest tickets for X" to the new
+la-events **Mode 4** (`--query` → optional WebFetch dig → `--record`). Films, free events,
+and markets never get the block — no resale market exists for them.
+
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
   ships plain JS (dc-runtime `support.js` evaluates the template directly; no in-browser Babel),
@@ -666,7 +685,10 @@ the 2026-07-21 REMAINING note below is stale.
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
 - [ ] Flyer-forwarding bot + Twilio SMS/MMS intake (`sms-ingestion.md`). Capture-by-hand still works.
-- [ ] On-sale sniper / price tracking across ticket links (DICE vs TM fees). Nice-to-have.
+- [~] On-sale sniper / price tracking across ticket links (DICE vs TM fees). **Un-tabled in part
+      (Ari's ask, 2026-08-01)** — the *cheapest-tickets* half shipped (see the dated entry under
+      Delivery): resale floors vs listed price on every card + nightly sweep + live re-check.
+      Still open from the original idea: on-sale alerts and DICE-vs-TM fee tracking over time.
 - [ ] SQLite instead of `catalog.json` if volume ever demands it.
 - [ ] **Shared lane corrections** (surfaced by the 2026-07-17 taxonomy revamp; Ari wants lanes
       standardized across profiles). Tags + deterministic lanes are already one shared, taste-neutral
