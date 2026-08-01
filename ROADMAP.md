@@ -502,6 +502,35 @@ surfaced nowhere. REMAINING: the digest-side gap — the voice-pass "fold in fes
 instruction still contributes zero lines to "On the radar"; wire the same load into
 build_radar/render_digest if the digest should carry the watch-list too.
 
+### 2026-08-01 — Marquees & tables front page (Ari's spec, in-session)
+The front page reorganized per Ari's explicit structure: two **marquee** card shelves carry
+what's *featured* — **Sets and shows** (club lanes + live rooms + big concerts the editor
+rates must-see/great) and **Events** (comedy + one-off happenings) — and everything
+program-shaped is *listed* in five category **tables** (fixtures, shown under every lens):
+**Seasonal and repeating** (standing series at ~weekly density — fleas, farmers markets;
+music residencies deliberately stay in Sets and shows), **Movies** (open runs
+closing-soonest then openings; *the marquee →* keeps the full boards), **Theater** (stage
+runs + one-offs), **Festivals** (festival-tagged catalog rows merged date-sorted with the
+festivals.yaml fixture; *the festival watch-list →* keeps the dedicated view), and **FYI**
+(the arena tier that isn't a taste match — including judged skips, which this table alone
+surfaces — plus radar leftovers, date-sorted). The hero (lead + shortlist) draws from the
+marquee pool ONLY: a movie/season/festival is never a featured card. Server:
+`build_front_page` emits `shelves` (2 marquees) + `tables` (5 key-lists); `nowrunning` is
+retired (subsumed), `radar`/`around` still emitted for the chat but no longer rendered as
+sections. Tests rewritten (`test_front_page.py`). **Digest side shipped in the same pass:**
+the consolidated doc's slate pool is film-free before assembly (tonight / Don't-miss /
+day-by-day / weekends all render movie-free; Around town drops film rows too) and films get
+ONE **"On the marquee"** block — runs *opening* this stretch (strictly-ahead first night, or
+a today-start that's new on the latest pull: expired past nights make every mid-run look
+like it "opens tonight" otherwise — the Odyssey bug, caught on a live render) + 4★ one-night
+screenings, with tier3:gloss slots; the section is forced into any `sections:` order so a
+pre-marquee digest.yaml can't silently lose movies. Per-weekend files stay full reference
+listings (films included), deliberately. Festivals table rolls sub-events into one row per
+festival (`_fest_rollup_key` over dedupe's `_fest_core`; "Windgrease: <night>" ×8 → 1,
+per-day passes group). NOTE: the old "wire festivals.yaml into the digest" gap was already
+closed (build_radar folds `timely(load_festivals())` → `_watchlist_md` under On the radar) —
+the 2026-07-21 REMAINING note below is stale.
+
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
   ships plain JS (dc-runtime `support.js` evaluates the template directly; no in-browser Babel),

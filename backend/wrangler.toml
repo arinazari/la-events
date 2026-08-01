@@ -3,6 +3,9 @@
 # Secrets: npx wrangler secret put ANTHROPIC_API_KEY
 #          npx wrangler secret put CONCIERGE_TOKEN     (optional shared token — recommended)
 #          npx wrangler secret put GITHUB_TOKEN        (optional — taste self-edit + Spotify rebuild kick)
+#          npx wrangler secret put POSH_TOKEN          (optional — /posh relay so the digest's
+#                                                       fetcher can dodge posh.vip's bot wall;
+#                                                       keep in sync at each monthly re-capture)
 # Per-profile Spotify (optional — adds the music layer per friend):
 #          npx wrangler kv namespace create SPOTIFY_KV   # paste the id below
 #          npx wrangler secret put SPOTIFY_CLIENT_ID     # from developer.spotify.com

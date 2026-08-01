@@ -69,6 +69,11 @@ FETCHERS = [
     {"name": "Eventbrite", "source": "eventbrite", "script": "fetch_eventbrite.py",
      "args": ["--days", "{days}"]},
     {"name": "DICE", "source": "dice", "script": "fetch_dice.py", "args": []},
+    # Beatport Tickets / Beatport Live (beatportal.com listing -> per-event JSON-LD).
+    # far: True — the platform lists festivals/tours months out. LA inventory was EMPTY at
+    # wiring time (2026-07-27); returns 0 cleanly (one page fetch) until Beatport lists LA.
+    {"name": "Beatport", "source": "beatport", "script": "fetch_beatport.py",
+     "args": ["--days", "{days}"], "far": True},
 ]
 
 

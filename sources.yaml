@@ -4,7 +4,7 @@
 #   name:      display name
 #   category:  electronic | live_music | comedy | film | theater | editorial |
 #              general | beer_food | market | multi
-#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | dice | veezi | seetickets | squarespace | rss | ics | gmail | manual
+#   method:    api | graphql | jsonld | scrape | webfetch | eventbrite | dice | veezi | seetickets | squarespace | rss | ics | gmail | manual | beatport
 #              (webfetch = read at digest time via the WebFetch tool; for bot-walled/JS pages)
 #   url:       endpoint or calendar page (or IG handle for manual)
 #   priority:  1 (always fetch) .. 3 (only on category-specific requests)
@@ -14,7 +14,7 @@
 # last_discovery: updated whenever Discover mode runs
 # ---------------------------------------------------------------------------
 
-last_discovery: 2026-07-17
+last_discovery: 2026-07-28
 
 sources:
 
@@ -77,6 +77,34 @@ sources:
       ticket URL). MANDATORY: a real Chrome User-Agent — DICE 403s the default urllib agent.
       scripts/fetch_dice.py (verified 2026-06-16: 112 events across 9 venues, incl. Zebulon's
       "Mama's Gun" 6/17). Some shows also hit RA/TM — dedupe expected.
+
+  - name: Beatport (Beatport Tickets / Beatport Live)
+    category: electronic
+    method: beatport
+    url: https://www.beatportal.com/events?city_name=Los+Angeles&country_code=US&radius=100
+    priority: 2
+    status: active
+    notes: >
+      Beatport's ticketing arm (Beatport Tickets, powered by Weeztix) incl. the touring
+      "Beatport Live" event/stage brand. TWO lanes, one fetcher (scripts/fetch_beatport.py,
+      run by run_digest; city overridable via profile.yaml sources.beatportal_city):
+      (1) TICKETED LISTING — beatport.com/events is Cloudflare-walled, but
+      beatportal.com/events serves the same inventory server-rendered (real Chrome UA) with
+      geo + date query params (city_name/country_code/radius, ISO from/to), each event page
+      embedding clean Event JSON-LD (the eventbrite pattern). Verified 2026-07-27 on Las
+      Vegas (5 events, "Beatport Fridays" Marquee residency); LA is a FEATURED city filter
+      but this lane is EMPTY for LA so far — returns 0 cheaply until their US expansion
+      lists LA rows (promote to priority 1 then; heavy RA/DICE/TM overlap expected, dedupe
+      handles). tz quirk: startDate offsets can be wrong; dates solid, times best-effort.
+      (2) "RSVP NOW" ARTICLE DROPS — Beatport Live's own free LA parties are announced as
+      beatportal.com/articles/<id>-rsvp-now-... posts with a drop.cobrand.com RSVP link and
+      NEVER hit the /events listing (caught by Ari 2026-07-28: the 8/6 Beatport Live x HARD
+      Selects Takeover — DJ Seinfeld, salute, Chloëdees at Beatport's LA HQ, free/21+).
+      The fetcher sweeps the server-rendered homepage for rsvp-now slugs, parses the
+      formulaic article (doors line, og: dek, Cobrand link), gates on the profile city.
+      Venue usually TBA-until-RSVP -> rows carry "TBA (RSVP)" (Posh-style tradeoff: a later
+      real-venue listing elsewhere may not fuzzy-merge). These drops are limited-cap
+      first-come — surface them EARLY when they appear.
 
   - name: Gmail "Events" label
     category: multi

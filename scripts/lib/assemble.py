@@ -44,7 +44,7 @@ BIG_VENUE = ("hollywood bowl", "kia forum", "the forum", "crypto.com arena", "bm
 # THE canonical lane vocabulary (family = the part before ':'). Every non-club type is its
 # own lane; club splits four ways; live-music splits big vs. the rest. This tuple is the one
 # source of truth the other surfaces must agree with (editor.validate_verdict whitelists
-# against it; render GROUPS family-match it; build_dashboard FP_SHELVES enumerate from it;
+# against it; render GROUPS family-match it; build_dashboard FP_MARQUEES/_fp_section route on it;
 # .claude/agents/event-editor.md quotes it).
 LANES = tuple(t for t in TYPES if t != "club") + (
     "live-music:big", "club:mainstream", "club:afters", "club:day", "club:underground")

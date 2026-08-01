@@ -1,8 +1,8 @@
-# Taste profile — STARTER for the dashboard profile-switcher (username: dr_ganesan).
+# Taste profile — STARTER for the dashboard profile-switcher (username: vish).
 #
 # This is a neutral, broad LA going-out baseline, NOT a tailored profile yet. It's meant to
 # be edited down to Dr. Ganesan's actual taste — tell Ari/Claude what they're into, or edit
-# this file directly, then rerun:  python scripts/build_profiles.py --only dr_ganesan
+# this file directly, then rerun:  python scripts/build_profiles.py --only vish
 # Schema mirrors taste.yaml: events accumulate points from category/genre/context matches;
 # the feed sorts by score. Weights noted per block.
 
