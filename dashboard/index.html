@@ -317,9 +317,11 @@
 
       <!-- CATEGORY TABLES — Seasonal and repeating / Movies / Theater / Festivals / FYI.
            Fixtures (shown under every lens), each formatted to its category via the row
-           builders in the FRONT compute; the marquee shelves above carry what's FEATURED. -->
+           builders in the FRONT compute; the marquee shelves above carry what's FEATURED.
+           Desktop packs them two-up (CSS columns — sections never split); mobile stacks. -->
+      <div style="{{ tbWrapStyle }}">
       <sc-for list="{{ fpTables }}" as="tb" hint-placeholder-count="2">
-      <section style="margin-bottom:24px;">
+      <section style="{{ tbSecStyle }}">
         <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px; flex-wrap:wrap;">
           <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">{{ tb.label }}</span>
           <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ tb.sub }}</span>
@@ -342,6 +344,7 @@
         </div>
       </section>
       </sc-for>
+      </div>
 
       <sc-if value="{{ fpEmpty }}" hint-placeholder-val="{{ false }}">
         <div style="padding:60px 0; text-align:center; font:500 13px/1.6 ui-monospace,Menlo,monospace; color:#a7a59b;">Quiet in this window.<br/><span onClick="{{ resetReactions }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">Reset your reactions</span> or try a wider lens.</div>
@@ -3703,9 +3706,13 @@ class Component extends DCLogic {
           tRow(e, onSaleE(e) ? 'on sale' : 'radar', onSaleE(e) ? 'green' : 'amber')), null);
       }
       out.fpTables = fpTables;
-      // Table row geometry: desktop keeps the venue as a right column; mobile stacks it
-      // under the title (side-by-side truncated both into uselessness at 390px).
-      out.tbStackVenue = mob; out.tbSideVenue = !mob; out.tbDateW = mob ? '82px' : '96px';
+      // Table geometry: desktop packs the five sections two-up (CSS columns; break-inside
+      // keeps a section whole), mobile stacks. At half width the venue can't ride beside the
+      // title (both truncate into uselessness), so it stacks underneath everywhere.
+      out.tbWrapStyle = mob ? 'margin-bottom:24px;'
+                            : 'columns:2; column-gap:16px; margin-bottom:24px;';
+      out.tbSecStyle = 'break-inside:avoid; margin-bottom:20px;';
+      out.tbStackVenue = true; out.tbSideVenue = false; out.tbDateW = mob ? '82px' : '96px';
       out.fpEmpty = !lead && !fpTables.length;
     }
 
