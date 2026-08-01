@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 7/31/2026 deterministically (no API). 330 candidates. Signals: big-venue 294, festival 33, tracked 5._
+_Generated 8/1/2026 deterministically (no API). 327 candidates. Signals: big-venue 292, festival 32, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -82,7 +82,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/4 | 2 | Pageant of the Masters | Festival of Arts Pageant of the Ma | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZ8) |
 | Sun 9/27 | 2 | Ohana Music Festival | Doheny State Beach | festival | [link](https://on.fgtix.com/trk/ycJM) |
 | Wed 9/30 | 2 | Leap - Entropy World Tour | The Parish at House of Blues Anahe | festival | [link](https://www.ticketmaster.com/leap-entropy-world-tour-anaheim-california-09-30-2026/event/090064AEB253F4FD) |
 
@@ -142,7 +141,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/4 | 4 | Los Angeles Philharmonic | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sat 9/5 | 4 | Los Angeles Philharmonic | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Fri 9/11 | 4 | Chris Tomlin / Official Ticket + Hotel Packages | Greek Theatre | big-venue | [link](https://travel.ticketmaster.com/tm-event/090064548D778939?_uid=ac74da7d-8f54-4d50-8b7e-dbdb135f1d70&utm_source=TPR&utm_medium=TMADP_ChrisTomlin_911) |
 | Fri 9/11 | 4 | OneRepublic | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
@@ -197,7 +195,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/4 | 3 | J. Cole: The Fall-Off Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/j-cole-the-falloff-tour-inglewood-california-09-04-2026/event/0900644EB2069C06) |
 | Sat 9/5 | 3 | Guns N' Roses: World Tour 2026 | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/guns-n-roses-world-tour-2026-pasadena-california-09-05-2026/event/0B006375B6DA8A5E) |
 | Sat 9/5 | 3 | BTS WORLD TOUR 'ARIRANG' IN LOS ANGELES | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bts-world-tour-arirang-in-los-inglewood-california-09-05-2026/event/0A006429B2CB6418) |
 | Sun 9/6 | 3 | ASAKE | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
