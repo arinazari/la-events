@@ -8829,11 +8829,11 @@
       "model": "sonnet"
     },
     "84ca22ca09ae": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "TBA-location afterhours house — precisely the format the brief calls a priority, regardless of unfamiliar names on the bill.",
-      "confidence": "med",
-      "judged_at": "2026-07-21T12:31:54",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "$59+ for Omar+, who carries no recognizable draw — the TBA warehouse vibe is right but that's a steep price to gamble on an unofficial HARD afters with an unfamiliar headliner.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 4
     },
@@ -8847,11 +8847,11 @@
       "score_at_judge": 5
     },
     "f45740099378": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Poolside vinyl-house residency hits the daytime open-air lane directly, even with unfamiliar DJs.",
-      "confidence": "med",
-      "judged_at": "2026-07-21T12:31:54",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "House/disco pool residency at a Hollywood hotel — the format is right but the lineup is unknown and the Palihotel setting leans generic hotel party rather than curated day rave.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 4
     },
@@ -14998,12 +14998,12 @@
     },
     "4234ce8abea8": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Punk/rock bar set at Permanent Records Roadhouse, unknown headliner — fine if you're in Cypress Park, not a draw on its own.",
+      "adjust": -2,
+      "why": "Permanent Records Roadhouse is a fine neighborhood spot but there's zero intel on Casi — tagged punk/rock with no lineup details and an empty scene block, so this is a blind bet on a name.",
       "confidence": "low",
-      "judged_at": "2026-07-21T12:31:54",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 4
     },
     "9b06fa8054a8": {
       "tier": "skip",
@@ -15281,10 +15281,10 @@
     },
     "cee64ac26e3f": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Mislabeled electronic — reads like a bar rock booking with no info to back a stronger call.",
+      "adjust": -2,
+      "why": "Wax Owls is a blank name with no scene notes, and The Redwood is a DTLA pirate-themed dive bar — not a destination room for electronic music regardless of the category tag.",
       "confidence": "low",
-      "judged_at": "2026-07-21T12:31:54",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 4
     },
@@ -16103,11 +16103,12 @@
       "score_at_judge": 4
     },
     "8f62ab0a1b91": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Niche Fluxus documentary at a venue he loves — a genuine change-of-pace pick for the art-adjacent side.",
+      "tier": "great",
+      "lane": "film",
+      "adjust": 0,
+      "why": "LA Filmforum documentary on George Maciunas and Fluxus at 2220 Arts — this is a film screening (lane is wrong), the subject is genuinely interesting arthouse territory, and the venue is loved. Earns the bump.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:54",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 4
     },
@@ -18133,23 +18134,22 @@
       "score_at_judge": 3
     },
     "b2d6fe30fbdb": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "The Greek is a loved room and this is night one of a two-night stand — the Sunday date to actually plan around; skip the Monday sibling.",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Death Cab is medium-interest indie rock — the Greek and Nation of Language (earnest New Order-ish synth-pop, the more interesting half of this bill) help, but there's no electronic draw. Same show both nights; pick whichever date works.",
       "confidence": "high",
-      "judged_at": "2026-07-30T12:36:35",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 5
     },
     "cd7672b88551": {
       "tier": "great",
-      "adjust": 0,
-      "why": "Same tour, same room as 8/1 — go that night instead, this is the redundant second date.",
+      "adjust": 1,
+      "why": "Kim Gordon's solo project is genuinely strange — industrial noise-rock, not a Sonic Youth nostalgia tour — and Sarah Register co-produced The Collective and plays in her live band, making this a proper double-header of strong-affinity acts, not just a headliner with filler …",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 8,
-      "model": "sonnet"
+      "score_at_judge": 8
     },
     "d08ce1644c58": {
       "tier": "skip",
@@ -18161,13 +18161,13 @@
       "score_at_judge": 3
     },
     "cec7f396634c": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "St. Vincent at the Bowl is a real headliner in a loved room — worth surfacing above the rest of the score-4 pack even though rock isn't the core lane.",
+      "why": "Hollywood Bowl is loved and St. Vincent is adventurous enough to earn the venue — light Spotify signal, art-rock spectacle, right room — just not the lane.",
       "confidence": "high",
-      "judged_at": "2026-07-30T12:36:35",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5
     },
     "609a31986356": {
       "tier": "skip",
@@ -19417,14 +19417,13 @@
       "score_at_judge": 2
     },
     "34dd06558f6c": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Another Phantom performance — 8/1 is the date to actually plan around.",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Highest Spotify affinity weight in the entire batch (core, 6.0) plus Pantages is a loved venue — the score of 6 ignores both signals entirely. Night 1 of 7 is a Sunday; the Fri 8/7 or Sat 8/8 show would be the better night to build around if you can wait.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "b1ab84a571c8": {
       "tier": "solid",
@@ -24050,19 +24049,19 @@
     },
     "149a6fd48fca": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Loved venue, but it's a kids'-matinee classic, not the draw.",
+      "adjust": -2,
+      "why": "Vidiots is loved but 101 Dalmatians is a Disney kids' matinee with no special format or restoration mentioned — not the rep cinema draw that earns prioritization for this profile.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:54",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 4
     },
     "7bdf90ba9126": {
       "tier": "great",
       "adjust": 1,
-      "why": "Persepolis is real rep-canon (Cannes-acclaimed) at a loved venue — easy pick.",
+      "why": "Persepolis is a genuine arthouse classic — Satrapi's graphic memoir animated, the kind of rep cinema Vidiots does best — and the 4pm slot fits neatly before an evening of music.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:54",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 4
     },
@@ -24545,11 +24544,11 @@
       "score_at_judge": 4
     },
     "2ff8dce9e369": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Open-air, all-vinyl deep house/minimal, free before 7 — this is the Sunset Sessions format itself.",
-      "confidence": "med",
-      "judged_at": "2026-07-21T12:31:54",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same Sunday Sessions vinyl-only outdoor format as the Krane show but with no lineup named at all — you already have the stronger version of this night with an identified resident.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 4
     },
@@ -26553,13 +26552,13 @@
       "score_at_judge": 6
     },
     "d9e1f95cd3ca": {
-      "tier": "great",
-      "adjust": 0,
-      "why": "Third night of the same Odyssey run — Saturday's the one to build around, Sunday's just another shot at the same print.",
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Nolan in 70mm at the Vista — the exact combination the film block exists to flag. Score of 7 is a significant undercount for a tracked director in a loved format at a loved venue. Night 1 of 12; the run is finite and any night works, but the opener is tonight.",
       "confidence": "high",
-      "judged_at": "2026-07-24T12:27:39",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "ca836913f282": {
       "tier": "solid",
@@ -26942,19 +26941,19 @@
     },
     "708f78b58ae0": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "Hard-techno/hard-dance/DnB billing — the exact genre the brief calls out as not the lane, RA pick or not.",
-      "confidence": "med",
-      "judged_at": "2026-07-30T12:36:35",
+      "adjust": -1,
+      "why": "RA-picked and TBA-located, which usually counts for something, but the hard-techno/hard-dance genre tag lands in the explicit penalty zone — not the deep house warehouse groove, just harder and faster.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "cdb13915b595": {
       "tier": "solid",
       "adjust": 1,
-      "why": "Broken Shaker pool day-party hits the daytime open-air groove the brief boosts, even without a read on the three DJs.",
+      "why": "RA-picked queer house day party at Broken Shaker with a pool; the format and day-party vibe are genuinely on-lane but the lineup is unfamiliar enough to cap confidence.",
       "confidence": "low",
-      "judged_at": "2026-07-30T12:36:35",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -26968,13 +26967,13 @@
       "score_at_judge": 5
     },
     "3564d3732ef0": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Last night of this Vista run — the W.C. Fields rep screening at a venue you love, so it's the one to catch before it's gone.",
-      "confidence": "med",
-      "judged_at": "2026-07-24T12:27:39",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Vista is the right room but a 10am W.C. Fields comedy is a filler matinee — no tracked director, no format signal (no 35mm/70mm noted), and The Odyssey in 70mm is showing the same evening at the same venue.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "98240dd4a01e": {
       "tier": "great",
@@ -27177,10 +27176,10 @@
     },
     "1c5ddc013f3c": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Pool day-party with a decent-sized house bill, but none of the names register against your list.",
-      "confidence": "low",
-      "judged_at": "2026-07-24T12:27:39",
+      "adjust": -1,
+      "why": "Banoffee is a SOPHIE/Charli XCX-circuit alt-pop producer, not a house DJ per the artist notes — the pool party format is right but the headliner tilts this toward pop-adjacent rather than the groove you're after, and the rest of the lineup is unknown.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 4
     },
@@ -27432,12 +27431,12 @@
     },
     "e5721ef5c1af": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Boys Noize is a real techno/electro headliner with a distorted, high-energy pedigree — undervalued at this score.",
+      "adjust": 1,
+      "why": "Boys Noize is a legitimate Berlin electro/techno name — Boysnoize Records, distorted industrial-leaning club sets going back 20 years, still weird and high-energy. Score of 4 misses that this is squarely high-interest music; $40 at Avalon is fair for the draw.",
       "confidence": "high",
-      "judged_at": "2026-07-24T12:27:39",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 4
     },
     "f3c27cb1c13d": {
       "tier": "solid",
@@ -29630,11 +29629,11 @@
     "ade500d35053": {
       "tier": "skip",
       "adjust": -2,
-      "why": "This is at the loved Level 8 room but it's a \"Young Hollywood\" pool pop-up, not the Sunset Sessions vinyl/house night — reads bottle-service, not the groove lane.",
-      "confidence": "med",
-      "judged_at": "2026-07-28T12:33:37",
+      "why": "No lineup listed, 'Young Hollywood' hotel-rooftop branding, and $28–80 tickets for a 2am pool party — this is the Moxy's generic afterhours promo event, not a curated underground night.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "b96dde242dca": {
       "tier": "skip",
@@ -30987,9 +30986,9 @@
       "tier": "skip",
       "lane": "club:mainstream",
       "adjust": -2,
-      "why": "Same OT Genasis-hosted night as the other Los Globos listing — no real DJ billing here either.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "OT Genasis is a hip-hop host, not an electronic act; this scored off the 'electronic' genre tag and Silver Lake proximity, but it's a generic 18+ club night — the lane tag of club:day on a 10pm booking is also wrong.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -31120,13 +31119,13 @@
       "score_at_judge": 5
     },
     "fa659242378b": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Hard techno's in the family (Amelie Lens/Charlotte de Witte tier) but this bill is unnamed, so it's a coin flip on quality.",
-      "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "All-caps 'HARD TECHNO' branding with zero lineup — hard techno as the explicit draw is in the penalty zone, and no names to evaluate makes this a blind jump into a genre that isn't the lane.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "ddef3ae91ac0": {
       "tier": "solid",
@@ -34247,10 +34246,11 @@
     },
     "1927230f3149": {
       "tier": "great",
+      "lane": "club:day",
       "adjust": 1,
-      "why": "Amelie Lens and Vintage Culture are both tracked names on one bill — two real draws — but Hollywood Park festival grounds plus the Inglewood haul moderate it; best caught if you're already in the area for the weekend.",
+      "why": "Amelie Lens and Vintage Culture are both tracked names giving this real teeth, and free with a 2pm door means no commitment; the Hard Summer EDM sprawl around them is noise you can ignore. Labeled afters but a 14:00 start is a day party by any definition.",
       "confidence": "high",
-      "judged_at": "2026-08-01T07:28:10",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -34491,21 +34491,20 @@
     "dc9ebcb5c559": {
       "tier": "great",
       "adjust": 2,
-      "why": "Vinyl-only, open-air, all-night, DTLA — Sunday Sessions is basically the Golden Hour rooftop archetype under a different name, and Krane's a genuine resident of the series, not a rando booking.",
+      "why": "Every boost stacks: Krane playing all-night vinyl-only in an open-air setting is exactly the Sunday Sessions format you keep going back to — vinyl, outdoor, house, resident set. The score undersells a format hat-trick.",
       "confidence": "high",
-      "judged_at": "2026-07-31T12:35:32",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
       "score_at_judge": 5
     },
     "5ca137af7510": {
-      "tier": "great",
-      "lane": "live-music",
-      "adjust": 2,
-      "why": "This isn't a DJ afters despite the Hard Fest branding — Rocket's a shoegaze-leaning band that's opened arena dates for Smashing Pumpkins, which is exactly the small-venue rising-band lane the brief loves.",
-      "confidence": "med",
-      "judged_at": "2026-07-31T12:35:32",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hard Summer overflow with rawstyle/hard-dance acts — Rocket Rese's genre is squarely in the penalty zone and nothing in the rest of the bill rescues it.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T08:47:50",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "cd96cb9a5257": {
       "tier": "skip",
