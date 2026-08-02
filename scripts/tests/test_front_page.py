@@ -19,7 +19,7 @@ import build_dashboard as B  # noqa: E402
 TODAY = date(2026, 7, 15)  # a Wednesday -> weekend = Fri 7/17 .. Sun 7/19
 
 
-def ev(key, iso, lane, rank, tier=None, series=None, rep=None, score=5, vibe=None):
+def ev(key, iso, lane, rank, tier=None, series=None, rep=None, score=5, vibe=None, scale=None):
     e = {"key": key, "iso_date": iso, "lane": lane, "score": score,
          "is_past": False, "title": key, "venue": "V", "date": iso}
     if rank is not None:
@@ -29,8 +29,8 @@ def ev(key, iso, lane, rank, tier=None, series=None, rep=None, score=5, vibe=Non
     if series:
         e["series_key"] = series
         e["series_rep"] = bool(rep)
-    if vibe:
-        e["tags"] = {"vibe": list(vibe)}
+    if vibe or scale:
+        e["tags"] = {"vibe": list(vibe or []), "scale": scale}
     return e
 
 
@@ -167,17 +167,27 @@ def test_big_shows_split_by_editor_interest():
     assert "hot" in fp["hero"]["twoweeks"]
 
 
-def test_festival_tagged_rows_go_to_festivals_table():
-    """A festival bill's lane is club:mainstream, but the festival vibe tag routes it to the
-    Festivals table (date-sorted with the festivals.yaml fixture on the page)."""
-    fest = ev("hardsummer", "2026-08-01", "club:mainstream", 1, vibe=["festival"])
-    club = ev("club1", "2026-07-17", "club:mainstream", 2)
-    fp = B.build_front_page([fest, club], {}, TODAY)
-    assert table(fp, "festivals")["keys"] == ["hardsummer"]
+def test_festival_routing_destination_vs_local():
+    """Festival-tagged rows split (Ari 2026-08-02): the DESTINATION class (hall/arena scale,
+    the big-live lane, or a multi-day run) is table-only and never featured; the LOCAL
+    one-day tier (a free block fest, a room-scale arts festival's night) is events-class —
+    featured in the Events lane and hero-eligible, while STILL listed in the Festivals
+    table (its scan is independent of sections, so the season list stays complete)."""
+    fest = ev("hardsummer", "2026-08-01", "club:mainstream", 1, vibe=["festival"], scale="arena")
+    block = ev("blockfest", "2026-07-18", "community", 2, vibe=["festival"])
+    multi = ev("ohana", "2026-07-20", "live-music", 3, vibe=["festival"], series="oh", rep=True)
+    multi["series"] = {"first": "2026-07-20", "last": "2026-07-22", "count": 3}
+    club = ev("club1", "2026-07-17", "club:mainstream", 4)
+    fp = B.build_front_page([fest, block, multi, club], {}, TODAY)
+    assert table(fp, "festivals")["keys"] == ["blockfest", "ohana", "hardsummer"]  # date order, ALL listed
     sets = next(s for s in fp["shelves"] if s["id"] == "sets")
-    assert "hardsummer" not in sets["near"] + sets["ahead"]
+    events = next(s for s in fp["shelves"] if s["id"] == "events")
+    for k in ("hardsummer", "ohana"):
+        assert k not in sets["near"] + sets["ahead"] + events["near"] + events["ahead"]
+        assert k not in fp["hero"]["twoweeks"]
+    assert "blockfest" in events["near"]
+    assert "blockfest" in fp["hero"]["twoweeks"]
     assert "club1" in sets["near"]
-    assert "hardsummer" not in fp["hero"]["twoweeks"]
 
 
 def test_festivals_table_rolls_up_sub_events():

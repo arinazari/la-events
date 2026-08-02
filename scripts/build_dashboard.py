@@ -151,11 +151,14 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
 # and "FYI" (big/far shows worth knowing about that aren't taste matches — the non-must-see
 # arena tier, judged-skip stadium bookings, and the radar leftovers). Marquee sections are
 # lens-windowed; the tables are fixtures (lens-independent). Only marquee-class rows are
-# hero-eligible: a movie, a season, or a festival is never the featured card.
+# hero-eligible: a movie, a season, or a destination festival is never the featured card —
+# but the LOCAL one-day fest tier is events-class (Ari 2026-08-02: a block fest or popup is
+# an "event", a happening — only the destination class stays table-only).
 FP_MARQUEES = [
     ("sets", "Sets and shows", ("club:underground", "club:afters", "club:day",
                                 "club:mainstream", "live-music", "live-music:big")),
-    ("events", "Events", None),   # comedy + unclaimed one-offs (art/community/one-off markets…)
+    ("events", "Events", None),   # happenings: local one-day fests, popups, comedy, art,
+                                  # community, one-off markets + unclaimed one-offs
 ]
 FP_SHELF_CAP = 40      # keys per marquee list (near + ahead each) — deep enough for a lens to fill
 FP_TABLE_CAP = 40      # keys per table emit — the page slices its visible rows
@@ -239,9 +242,19 @@ def _is_standing(e: dict) -> bool:
 
 def _fp_section(e: dict) -> str:
     """Which front-page section a (rep) row belongs to. Festival-tagged rows are checked first
-    — a festival bill's lane is club:mainstream, but it's a Festivals-table row, not a set."""
-    if "festival" in ((e.get("tags") or {}).get("vibe") or []):
-        return "festivals"
+    — a festival bill's lane is club:mainstream, but it isn't a set. Within them, the
+    DESTINATION class (hall/arena scale, the big-live tier, or a multi-day run) is the
+    Festivals table's season list; the LOCAL one-day tier — a free block fest, a room-scale
+    arts festival's nights — is an EVENT (a happening you might just go to, per Ari
+    2026-08-02) and lands featured in the Events lane. The Festivals table scans
+    festival-tagged rows independently (build_front_page), so the season list stays
+    complete either way."""
+    tags = e.get("tags") or {}
+    if "festival" in (tags.get("vibe") or []):
+        big = (tags.get("scale") in ("hall", "arena")
+               or (e.get("lane") or "") == "live-music:big"
+               or _run_span_days(e) > 0)
+        return "festivals" if big else "events"
     lane = e.get("lane") or "other"
     if lane == "film":
         return "movies"
@@ -318,8 +331,9 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
 
     # The hero row is the shared Don't-miss policy (lib/assemble.top_picks — one shelf
     # definition with the flagship digest's shelf), applied per time-lens window over the
-    # MARQUEE pool only: a movie, a season, a market, or a festival is listed in its table,
-    # never featured. Skips are re-checked harmlessly (top_picks reads the same verdicts
+    # MARQUEE pool only: a movie, a season, a market, or a destination festival is listed
+    # in its table, never featured (the LOCAL one-day fest tier is events-class and IS
+    # featured-eligible). Skips are re-checked harmlessly (top_picks reads the same verdicts
     # map), but program collapse is NOT re-applied here (no series_of) — the reps-only pool
     # filter above is the only thing keeping a multi-night run to one hero card.
     marquee_pool = sorted((by_sec.get("sets") or []) + (by_sec.get("events") or []),
@@ -351,7 +365,12 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
                       key=lambda e: ((e.get("series") or {}).get("first") or e["iso_date"]))
     movies = sorted(by_sec.get("movies") or [], key=lambda e: _program_order(e, t_iso))
     theater = sorted(by_sec.get("theater") or [], key=lambda e: _program_order(e, t_iso))
-    fest_evs = sorted(by_sec.get("festivals") or [], key=lambda e: e["iso_date"])
+    # The Festivals table scans ALL festival-tagged rows — including the local one-day tier
+    # that _fp_section routes to the Events lane — so the date-sorted season list stays
+    # complete while those rows are also featured-eligible.
+    fest_evs = sorted([e for e in ranked
+                       if "festival" in ((e.get("tags") or {}).get("vibe") or [])],
+                      key=lambda e: e["iso_date"])
     seen_fest, rolled = set(), []
     for e in fest_evs:            # one row per festival — earliest night represents it
         fk = _fest_rollup_key(e.get("title") or "")
