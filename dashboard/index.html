@@ -262,23 +262,18 @@
       </section>
       </sc-if>
 
-      <!-- THE MARQUEES — the two lane boxes (Sets and shows / Events), each split into the
-           active lens's TIME rows (weekend → Fri/Sat/Sun, next 3 weeks → this/next/in-two,
-           tonight → daytime/evening/late, plan ahead → its months): two sets of three rows.
-           The box header's "all N →" opens that lane in full (the scene page), as before. -->
+      <!-- THE MARQUEE LANES — a plain section per lane ("Sets and shows" / "Events" — no
+           box chrome, no umbrella header), each split into the active lens's TIME rows
+           (weekend → Fri/Sat/Sun, next 3 weeks → this/next/in-two, tonight → daytime/
+           evening/late, plan ahead → its months). "all N →" opens the lane in full. -->
       <sc-if value="{{ hasScenes }}" hint-placeholder-val="{{ true }}">
-      <section style="margin-bottom:28px;">
-        <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:11px;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">The marquees</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">ranked by match</span>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:13px;">
           <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="2">
-            <div style="background:#eeebe3; border-radius:9px; padding:14px 15px 13px;">
-              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:11px;">
+            <section style="margin-bottom:26px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:10px;">
                 <span style="display:inline-flex; align-items:center; gap:8px; min-width:0;">
                   <span style="flex:none; width:9px; height:9px; border-radius:50%; background: {{ sc.dot }};"></span>
                   <span style="font:700 13px/1.1 -apple-system,system-ui,sans-serif; color:#161512;">{{ sc.label }}</span>
+                  <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">ranked by match</span>
                 </span>
                 <span onClick="{{ sc.onAll }}" title="See this lane in full" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.allLabel }} →</span>
               </div>
@@ -287,7 +282,7 @@
                 <div style="display:flex; align-items:baseline; gap:8px; margin:3px 2px 8px;">
                   <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; text-transform:uppercase; color:#5a584f;">{{ rw.label }}</span>
                   <span style="font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ rw.sub }}</span>
-                  <span style="flex:1; height:1px; background:#dfdccf;"></span>
+                  <span style="flex:1; height:1px; background:#e2e0d8;"></span>
                 </div>
                 <sc-if value="{{ rw.isQuiet }}" hint-placeholder-val="{{ false }}">
                   <div style="font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; padding:0 2px 10px;">quiet — nothing featured here yet</div>
@@ -327,10 +322,8 @@
                 </sc-if>
               </div>
               </sc-for>
-            </div>
+            </section>
           </sc-for>
-        </div>
-      </section>
       </sc-if>
 
       <!-- CATEGORY TABLES — Seasonal and repeating / Movies / Theater / Festivals / FYI.
@@ -3885,8 +3878,20 @@ class Component extends DCLogic {
       // it renders the server order, only sinking events the person downvoted. The client pool
       // is the fallback for a feed with no slate.
       const [hwa, hwb] = this.windowFor(lens);
-      const heroSrv = this.lessSink(this.resolveKeys((FP.hero || {})[lens]).filter(e => e.iso >= T && e.iso >= hwa && e.iso <= hwb));
-      const top5 = heroSrv.length ? heroSrv.slice(0, 5) : pool.slice(0, 5);
+      const heroSrv = this.resolveKeys((FP.hero || {})[lens]).filter(e => e.iso >= T && e.iso >= hwa && e.iso <= hwb);
+      // Backfill the slate from the ranked pool when the live date has thinned it — on a
+      // Sunday, "this weekend" is just tonight and most of the server's weekend picks are
+      // behind us, which used to leave one lonely rail card stretched down the column.
+      // Backfill must clear the server slate's own eligibility bar (no judged skips, no
+      // negative scores — the pool carries both in its tail), and the downvote sink runs
+      // over the MERGED list (per-segment sinking would seat a downvoted hero pick above
+      // fresh backfill). On desktop, under three picks total the rail is dropped entirely
+      // (lead only; hero + dispatch run full width) — mobile keeps a 1-2 card shortlist,
+      // its stacked cards don't stretch. Un-railed picks stay eligible for the lanes below.
+      const heroIds = new Set(heroSrv.map(e => e.id));
+      const fillOk = e => !heroIds.has(e.id) && (e.verdict || {}).tier !== 'skip' && !(e.score < 0);
+      let top5 = this.lessSink(heroSrv.concat(pool.filter(fillOk))).slice(0, 5);
+      if (!mob && top5.length < 3) top5 = top5.slice(0, 1);
       const lead = top5[0] ? { ...this.cardFor(top5[0]), rank:'01', photoCol:this.photoStyle(top5[0], 'flex:0 0 210px; align-self:stretch; min-height:230px;') } : null;
       out.hasLead = !!lead; out.lead = lead || {};
       out.leadKicker = { today:"TONIGHT'S LEAD", weekend:"THE WEEKEND'S LEAD", twoweeks:'TOP OF THE NEXT THREE WEEKS', ahead:'THE ONE TO PLAN AROUND' }[lens] || 'YOUR LEAD';
