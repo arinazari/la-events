@@ -139,6 +139,7 @@
           <span style="flex:1; height:1px; background:#dedcd4;"></span>
         </div>
         <div style="{{ heroRowStyle }}">
+        <div style="{{ leadColStyle }}">
         <article onClick="{{ lead.onOpen }}" style="{{ leadCardStyle }} box-shadow: {{ lead.glow }};" style-hover="border-color:#a7a59b;">
           <div style="position:absolute; top:0; left:0; right:0; height:3px; background: {{ lead.matchColor }};"></div>
           <sc-if value="{{ lead.photoCol.show }}" hint-placeholder-val="{{ false }}"><div style="{{ lead.photoCol.style }}"></div></sc-if>
@@ -188,6 +189,30 @@
             </div>
           </div>
         </article>
+        <!-- DISPATCH — the digest headline box rides the lead column (desktop: under the
+             hero, absorbing the height the rail sets; mobile: between hero and shortlist),
+             so the hero card never has to stretch its own whitespace to match the rail. -->
+        <sc-if value="{{ hasDispatch }}" hint-placeholder-val="{{ false }}">
+        <section style="{{ dispatchBoxStyle }}">
+          <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:8px;">TODAY'S DIGEST · {{ dispatch.kicker }}</div>
+          <h3 style="margin:0 0 8px; font:700 17px/1.35 -apple-system,system-ui,sans-serif; color:#161512; max-width:74ch; text-wrap:pretty;">{{ dispatch.headline }}</h3>
+          <sc-if value="{{ dispatch.hasBlurb }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0 0 10px; font:400 13px/1.6 -apple-system,system-ui,sans-serif; color:#5a584f; max-width:74ch; text-wrap:pretty;">{{ dispatch.blurb }}</p>
+          </sc-if>
+          <p style="margin:0 0 12px; font:400 13.5px/1.6 -apple-system,system-ui,sans-serif; color:#3f3d36;"><span onClick="{{ openDigest }}" style="cursor:pointer; font-weight:600; color:#2b5cd9; white-space:nowrap;" style-hover="color:#1d49b8;">Read the full digest →</span></p>
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">IN THIS DIGEST</span>
+            <sc-for list="{{ dispatch.chips }}" as="ch" hint-placeholder-count="3">
+              <span onClick="{{ ch.onClick }}" title="{{ ch.full }}" style="cursor:pointer; display:inline-flex; align-items:center; gap:7px; max-width:280px; font:600 10.5px/1.2 ui-monospace,Menlo,monospace; padding:4px 5px 4px 10px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; white-space:nowrap;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">
+                <span style="flex:none; font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ ch.when }}</span>
+                <span style="min-width:0; overflow:hidden; text-overflow:ellipsis;">{{ ch.text }}</span>
+                <span onClick="{{ ch.onStar }}" title="{{ ch.starTitle }}" style="flex:none; width:21px; height:21px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:12px; line-height:1; color: {{ ch.starColor }}; background: {{ ch.starBg }};" style-hover="background:#eef1f7;">{{ ch.starGlyph }}</span>
+              </span>
+            </sc-for>
+          </div>
+        </section>
+        </sc-if>
+        </div>
         <sc-if value="{{ hasShortlist }}" hint-placeholder-val="{{ true }}">
         <aside style="{{ shortWrapStyle }}">
           <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:9px;">
@@ -237,32 +262,10 @@
       </section>
       </sc-if>
 
-      <!-- DISPATCH -->
-      <sc-if value="{{ hasDispatch }}" hint-placeholder-val="{{ false }}">
-      <section style="margin-bottom:28px; background:#fdfcf9; border:1px solid #e2e0d8; border-left:3px solid #1b1a17; border-radius:4px; padding:18px 20px;">
-        <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:8px;">TODAY'S DIGEST · {{ dispatch.kicker }}</div>
-        <h3 style="margin:0 0 8px; font:700 17px/1.35 -apple-system,system-ui,sans-serif; color:#161512; max-width:74ch; text-wrap:pretty;">{{ dispatch.headline }}</h3>
-        <sc-if value="{{ dispatch.hasBlurb }}" hint-placeholder-val="{{ false }}">
-          <p style="margin:0 0 10px; font:400 13px/1.6 -apple-system,system-ui,sans-serif; color:#5a584f; max-width:74ch; text-wrap:pretty;">{{ dispatch.blurb }}</p>
-        </sc-if>
-        <p style="margin:0 0 12px; font:400 13.5px/1.6 -apple-system,system-ui,sans-serif; color:#3f3d36;"><span onClick="{{ openDigest }}" style="cursor:pointer; font-weight:600; color:#2b5cd9; white-space:nowrap;" style-hover="color:#1d49b8;">Read the full digest →</span></p>
-        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-          <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">IN THIS DIGEST</span>
-          <sc-for list="{{ dispatch.chips }}" as="ch" hint-placeholder-count="3">
-            <span onClick="{{ ch.onClick }}" title="{{ ch.full }}" style="cursor:pointer; display:inline-flex; align-items:center; gap:7px; max-width:280px; font:600 10.5px/1.2 ui-monospace,Menlo,monospace; padding:4px 5px 4px 10px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; white-space:nowrap;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">
-              <span style="flex:none; font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ ch.when }}</span>
-              <span style="min-width:0; overflow:hidden; text-overflow:ellipsis;">{{ ch.text }}</span>
-              <span onClick="{{ ch.onStar }}" title="{{ ch.starTitle }}" style="flex:none; width:21px; height:21px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:12px; line-height:1; color: {{ ch.starColor }}; background: {{ ch.starBg }};" style-hover="background:#eef1f7;">{{ ch.starGlyph }}</span>
-            </span>
-          </sc-for>
-        </div>
-      </section>
-      </sc-if>
-
-      <!-- THE MARQUEES — three TIME rows that follow the header lens (weekend → Fri/Sat/Sun,
-           next 3 weeks → this/next/in-two, tonight → daytime/evening/late, plan ahead → its
-           months). Cards merge every marquee shelf in rank order; each keeps its lane's color
-           on the left edge. "all N →" opens Explore pinned to that row's dates. -->
+      <!-- THE MARQUEES — the two lane boxes (Sets and shows / Events), each split into the
+           active lens's TIME rows (weekend → Fri/Sat/Sun, next 3 weeks → this/next/in-two,
+           tonight → daytime/evening/late, plan ahead → its months): two sets of three rows.
+           The box header's "all N →" opens that lane in full (the scene page), as before. -->
       <sc-if value="{{ hasScenes }}" hint-placeholder-val="{{ true }}">
       <section style="margin-bottom:28px;">
         <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:11px;">
@@ -270,24 +273,29 @@
           <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">ranked by match</span>
         </div>
         <div style="display:flex; flex-direction:column; gap:13px;">
-          <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="3">
+          <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="2">
             <div style="background:#eeebe3; border-radius:9px; padding:14px 15px 13px;">
-              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:12px;">
-                <span style="display:inline-flex; align-items:baseline; gap:9px; min-width:0;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:11px;">
+                <span style="display:inline-flex; align-items:center; gap:8px; min-width:0;">
+                  <span style="flex:none; width:9px; height:9px; border-radius:50%; background: {{ sc.dot }};"></span>
                   <span style="font:700 13px/1.1 -apple-system,system-ui,sans-serif; color:#161512;">{{ sc.label }}</span>
-                  <span style="font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ sc.sub }}</span>
                 </span>
-                <sc-if value="{{ sc.hasAll }}" hint-placeholder-val="{{ true }}">
-                  <span onClick="{{ sc.onAll }}" title="See these dates in Explore" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.allLabel }} →</span>
-                </sc-if>
+                <span onClick="{{ sc.onAll }}" title="See this lane in full" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.allLabel }} →</span>
               </div>
-              <sc-if value="{{ sc.isQuiet }}" hint-placeholder-val="{{ false }}">
-                <div style="font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; padding:0 2px 4px;">quiet — nothing featured here yet</div>
-              </sc-if>
-              <sc-if value="{{ sc.hasCards }}" hint-placeholder-val="{{ true }}">
-              <div class="scry" style="display:grid; grid-auto-flow:column; grid-template-rows:repeat(1,1fr); grid-auto-columns: {{ sceneColW }}; gap:11px; overflow-x:auto; padding:2px 2px 9px; scroll-snap-type:x proximity;">
-                <sc-for list="{{ sc.cards }}" as="c" hint-placeholder-count="4">
-                  <article onClick="{{ c.onOpen }}" style="scroll-snap-align:start; display:flex; flex-direction:column; gap:7px; background:#fff; border:1px solid #e4e2d9; border-left:3px solid {{ c.dot }}; border-radius:5px; padding:12px 13px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
+              <sc-for list="{{ sc.rows }}" as="rw" hint-placeholder-count="3">
+              <div>
+                <div style="display:flex; align-items:baseline; gap:8px; margin:3px 2px 8px;">
+                  <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; text-transform:uppercase; color:#5a584f;">{{ rw.label }}</span>
+                  <span style="font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ rw.sub }}</span>
+                  <span style="flex:1; height:1px; background:#dfdccf;"></span>
+                </div>
+                <sc-if value="{{ rw.isQuiet }}" hint-placeholder-val="{{ false }}">
+                  <div style="font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; padding:0 2px 10px;">quiet — nothing featured here yet</div>
+                </sc-if>
+                <sc-if value="{{ rw.hasCards }}" hint-placeholder-val="{{ true }}">
+                <div class="scry" style="display:grid; grid-auto-flow:column; grid-template-rows:repeat(1,1fr); grid-auto-columns: {{ sceneColW }}; gap:11px; overflow-x:auto; padding:2px 2px 9px; scroll-snap-type:x proximity;">
+                <sc-for list="{{ rw.cards }}" as="c" hint-placeholder-count="4">
+                  <article onClick="{{ c.onOpen }}" style="scroll-snap-align:start; display:flex; flex-direction:column; gap:7px; background:#fff; border:1px solid #e4e2d9; border-left:3px solid {{ sc.dot }}; border-radius:5px; padding:12px 13px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
                     <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
                       <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.when }}</span>
                       <sc-if value="{{ c.isNew }}" hint-placeholder-val="{{ false }}"><span style="flex:none; font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 5px; border-radius:2px; color:#1f7a4d; background:rgba(31,122,77,0.12);">NEW</span></sc-if>
@@ -315,8 +323,10 @@
                     </div>
                   </article>
                 </sc-for>
+                </div>
+                </sc-if>
               </div>
-              </sc-if>
+              </sc-for>
             </div>
           </sc-for>
         </div>
@@ -3548,8 +3558,6 @@ class Component extends DCLogic {
     if (k === 'twoweeks') { const [a,b] = this.windowFor('twoweeks'); this.setState({ exFrom:a, exTo:b }); return; }
     if (k === 'month') { this.setState({ exFrom:T, exTo:this.addDays(T,30) }); return; }
   }
-  // A marquee row's "all N →": Explore, pinned to that row's dates.
-  openExploreRange = (a, b) => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null, navHidden:false, openFilter:null, exFrom:a, exTo:b }); };
   // Event's values for a filter axis (scalar axes wrapped as one-element lists).
   exValsFor(e, axis) {
     if (axis === 'cat') return [e.cat];
@@ -3884,19 +3892,22 @@ class Component extends DCLogic {
       out.leadKicker = { today:"TONIGHT'S LEAD", weekend:"THE WEEKEND'S LEAD", twoweeks:'TOP OF THE NEXT THREE WEEKS', ahead:'THE ONE TO PLAN AROUND' }[lens] || 'YOUR LEAD';
       const short = top5.slice(1,5).map((e,i) => ({ ...this.cardFor(e), rank:String(i+2).padStart(2,'0') }));
       out.hasShortlist = short.length>0; out.shortlist = short;
-      // Hero geometry: desktop = hero card left + the shortlist as a right-hand rail whose
-      // cards stretch to split the hero's height (no ragged grid tail, no stranded hero
-      // whitespace); mobile stacks hero over a one-column list.
+      // Hero geometry: desktop = a LEAD COLUMN (hero at its natural height + the dispatch
+      // box under it, absorbing whatever height the rail sets) beside the shortlist rail.
+      // Real content fills the column — the hero card never stretches its own whitespace.
+      // Mobile stacks: hero, dispatch, shortlist.
       out.heroRowStyle = mob ? 'display:flex; flex-direction:column; gap:24px;'
                              : 'display:flex; gap:16px; align-items:stretch;';
-      out.leadCardStyle = 'position:relative; display:flex; flex-wrap:wrap; gap:22px; background:#fff; border:1px solid #c9c7bd; border-radius:5px; padding:0; overflow:hidden; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease;'
-                        + (mob ? '' : ' flex:1 1 0; min-width:0;');
+      out.leadColStyle = mob ? 'display:flex; flex-direction:column; gap:24px;'
+                             : 'flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:16px;';
+      out.leadCardStyle = 'position:relative; display:flex; flex-wrap:wrap; gap:22px; background:#fff; border:1px solid #c9c7bd; border-radius:5px; padding:0; overflow:hidden; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease;';
+      out.dispatchBoxStyle = 'background:#fdfcf9; border:1px solid #e2e0d8; border-left:3px solid #1b1a17; border-radius:4px; padding:18px 20px;'
+                           + (mob ? '' : ' flex:1 1 auto;');
       out.shortWrapStyle = mob ? '' : 'flex:0 0 345px; min-width:0; display:flex; flex-direction:column;';
-      // Hero body: desktop spreads its blocks over the card's height (the rail sets the row's
-      // height, so a short why must not strand one dead block of whitespace at the bottom) and
-      // lets the why run longer — the rail dropped its whys, the lead's is the one that counts.
-      out.leadBodyStyle = 'flex:1 1 380px; min-width:0; padding:22px 24px 20px; display:flex; flex-direction:column; gap:12px;'
-                        + (mob ? '' : ' justify-content:space-between;');
+      // Hero body: top-packed at natural height (the dispatch below it absorbs the column's
+      // spare height); desktop lets the why run longer — the rail dropped its whys, the
+      // lead's is the one that counts.
+      out.leadBodyStyle = 'flex:1 1 380px; min-width:0; padding:22px 24px 20px; display:flex; flex-direction:column; gap:12px;';
       out.leadWhyStyle = 'margin:0; font:400 14.5px/1.55 -apple-system,system-ui,sans-serif; color:#3f3d36; max-width:62ch; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden;'
                        + (mob ? ' -webkit-line-clamp:3;' : ' -webkit-line-clamp:5;');
       out.shortListStyle = mob ? 'display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:11px;'
@@ -3911,40 +3922,38 @@ class Component extends DCLogic {
       if (!mob) for (const c of short) c.hasWhy = false;
 
       const topIds = new Set(top5.map(e => e.id));
-      // THE MARQUEES — three TIME rows per lens (marqueeRows), sliced from the merged marquee
-      // pool: every server shelf's events (slate membership = featured; the card keeps its own
-      // shelf's color), re-sorted by rank because a per-row merge across shelves has no single
-      // server order. The client sceneOf() pool is only the no-shelves legacy fallback.
-      const shs = this.fpShelves();
-      const dotOf = new Map();
-      let mqPool;
-      if (shs) {
-        mqPool = [];
-        for (const sh of shs) for (const e of this.shelfEvents(sh)) {
-          if (dotOf.has(e.id)) continue;
-          dotOf.set(e.id, this.SHELF_DOT[sh.id] || '#76746b');
-          mqPool.push(e);
-        }
-      } else {
-        mqPool = pool.slice();
-        for (const e of mqPool) dotOf.set(e.id, this.sceneOf(e).dot);
-      }
+      // THE MARQUEES — the two lane boxes (server shelves; sceneOf() buckets on a legacy
+      // feed), each split into the lens's TIME rows (marqueeRows): two sets of three rows.
+      // Rows slice the shelf's slate in its server order (a merged-lane shelf's interleave
+      // is the front-row mixing device); a generated-but-empty row renders as a one-line
+      // "quiet" note so the row structure reads as fact, not bug. Every windowed event
+      // lands in exactly one row — the specs partition the lens window.
       const [mwa, mwb] = this.windowFor(lens);
-      mqPool = mqPool.filter(e => e.iso >= T && e.iso >= mwa && e.iso <= mwb && !topIds.has(e.id)).sort(this.rankCmp);
-      const scenes = this.marqueeRows(lens).map(spec => {
-        const evs = this.lessSink(mqPool.filter(e => e.iso >= spec.a && e.iso <= spec.b && (!spec.test || spec.test(e))));
-        const cards = evs.slice(0,8).map((e,i) => {
-          const card = this.cardFor(e);
-          card.dot = dotOf.get(e.id) || '#76746b';
-          card.mustSee = i===0 && (!!(e.verdict && e.verdict.tier==='must-see') || (e.rating != null && e.rating >= 5));
-          return card;
-        });
-        // Daypart rows (tonight's lens) get no "all N →": Explore can only pin dates, not
-        // times-of-day, so the link's count and its destination would disagree.
-        return { label:spec.label, sub:spec.sub, cards, hasCards:cards.length>0, isQuiet:cards.length===0,
-                 hasAll:evs.length>0 && !spec.test, allLabel:'all '+evs.length, onAll:() => this.openExploreRange(spec.a, spec.b) };
+      const rowSpecs = this.marqueeRows(lens);
+      const isMustSee = e => !!(e.verdict && e.verdict.tier==='must-see') || (e.rating != null && e.rating >= 5);
+      const mkRows = evs => rowSpecs.map(spec => {
+        const cards = evs.filter(e => e.iso >= spec.a && e.iso <= spec.b && (!spec.test || spec.test(e)))
+          .slice(0,8).map((e,i) => { const card = this.cardFor(e); card.mustSee = i===0 && isMustSee(e); return card; });
+        return { label:spec.label, sub:spec.sub, cards, hasCards:cards.length>0, isQuiet:cards.length===0 };
       });
-      out.hasScenes = scenes.some(s => s.hasCards); out.scenes = scenes;
+      const inWindow = e => e.iso >= T && e.iso >= mwa && e.iso <= mwb && !topIds.has(e.id);
+      const shs = this.fpShelves();
+      let scenes;
+      if (shs) {
+        scenes = shs.map(sh => {
+          const evs = this.lessSink(this.shelfEvents(sh).filter(inWindow));
+          return { label:sh.label, dot:this.SHELF_DOT[sh.id] || '#76746b', allLabel:'all '+evs.length,
+                   onAll:() => this.openScene(sh.id), rows:mkRows(evs), n:evs.length };
+        }).filter(s => s.n > 0).slice(0,8);   // server shelf ORDER (2 marquees on a current feed; legacy feeds carry more)
+      } else {
+        const buckets = new Map();
+        for (const e of pool) { if (!inWindow(e)) continue; const s = this.sceneOf(e); if (!buckets.has(s.id)) buckets.set(s.id,{ scene:s, evs:[] }); buckets.get(s.id).evs.push(e); }
+        scenes = [...buckets.values()].map(({ scene, evs }) => (
+          { label:scene.label, dot:scene.dot, allLabel:'all '+evs.length,
+            onAll:() => this.openScene(scene.id), rows:mkRows(evs), n:evs.length }
+        )).filter(s => s.n > 0).sort((a,b) => b.n-a.n).slice(0,6);
+      }
+      out.hasScenes = scenes.length>0; out.scenes = scenes;
       out.sceneColW = mob ? '100%' : 'calc((100% - 22px) / 3)';
 
       // THE DISPATCH — the digest headline block. resolveTake() is the one fallback chain
