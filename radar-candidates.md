@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/1/2026 deterministically (no API). 327 candidates. Signals: big-venue 292, festival 32, tracked 5._
+_Generated 8/2/2026 deterministically (no API). 324 candidates. Signals: big-venue 290, festival 31, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -35,7 +35,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/5 | 4 | Hypnotique Presents: Sway Festival - 2 DAY PASS | Teragram Ballroom | festival | [link](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE) |
 | Fri 9/11 | 4 | Cold Waves 2-Day (9/11/26-9/12/26) | Pacific Electric | festival | [link](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76) |
 | Sat 9/19 | 4 | Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustB | Echoplex | festival | [link](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA) |
 
@@ -141,7 +140,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/5 | 4 | Los Angeles Philharmonic | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Fri 9/11 | 4 | Chris Tomlin / Official Ticket + Hotel Packages | Greek Theatre | big-venue | [link](https://travel.ticketmaster.com/tm-event/090064548D778939?_uid=ac74da7d-8f54-4d50-8b7e-dbdb135f1d70&utm_source=TPR&utm_medium=TMADP_ChrisTomlin_911) |
 | Fri 9/11 | 4 | OneRepublic | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sat 9/12 | 4 | Journey | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
@@ -195,8 +193,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/5 | 3 | Guns N' Roses: World Tour 2026 | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/guns-n-roses-world-tour-2026-pasadena-california-09-05-2026/event/0B006375B6DA8A5E) |
-| Sat 9/5 | 3 | BTS WORLD TOUR 'ARIRANG' IN LOS ANGELES | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bts-world-tour-arirang-in-los-inglewood-california-09-05-2026/event/0A006429B2CB6418) |
 | Sun 9/6 | 3 | ASAKE | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Sun 9/6 | 3 | Los Angeles Philharmonic | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Mon 9/7 | 3 | J. Cole: The Fall-Off Tour | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/j-cole-the-falloff-tour-los-angeles-california-09-07-2026/event/2C0064529BE01DBE) |
@@ -468,6 +464,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Thu 1/21 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-21-2027/event/090064A4B7A6F97C) |
 | Sun 1/24 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-24-2027/event/090064A4B7B2F9A0) |
 | Mon 1/25 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-25-2027/event/090064A4B7BFF9BB) |
+| Thu 1/28 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-28-2027/event/090064A4B7CBF9E1) |
 
 ## September 2026
 
