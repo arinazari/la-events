@@ -18134,22 +18134,24 @@
       "score_at_judge": 3
     },
     "b2d6fe30fbdb": {
-      "tier": "solid",
+      "tier": "great",
       "adjust": 0,
-      "why": "Death Cab is medium-interest indie rock — the Greek and Nation of Language (earnest New Order-ish synth-pop, the more interesting half of this bill) help, but there's no electronic draw. Same show both nights; pick whichever date works.",
-      "confidence": "high",
-      "judged_at": "2026-08-02T08:47:50",
+      "why": "Real editorial buzz and a genuine headliner, but it's stadium indie-rock rather than the club lane this profile leans hardest into — night one of two is the one to go.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 7,
+      "model": "claude-sonnet-5"
     },
     "cd7672b88551": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Kim Gordon's solo project is genuinely strange — industrial noise-rock, not a Sonic Youth nostalgia tour — and Sarah Register co-produced The Collective and plays in her live band, making this a proper double-header of strong-affinity acts, not just a headliner with filler …",
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Sonic Youth's Kim Gordon in a genuinely strange solo phase, backed by Sarah Register who co-produced her Grammy-nominated record — not a legacy-act lap, an actual show.",
       "confidence": "high",
-      "judged_at": "2026-08-02T08:47:50",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 8
+      "score_at_judge": 10,
+      "model": "claude-sonnet-5"
     },
     "d08ce1644c58": {
       "tier": "skip",
@@ -19591,13 +19593,14 @@
       "score_at_judge": 2
     },
     "ae10a6de8cfe": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Another night of the nightly Pageant run.",
-      "confidence": "high",
-      "judged_at": "2026-07-16T16:12:47",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Pick this one night of the Pageant run — earliest date, same nightly production as the rest of the month.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "f4251b86f704": {
       "tier": "solid",
@@ -19654,13 +19657,14 @@
       "score_at_judge": 2
     },
     "7873c1e515bc": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "Same nightly living-pictures show, 19 nights deep into a 29-night run in Laguna - not a distinct event worth the trek.",
+      "why": "Same nightly Pageant of the Masters production as every other date this run — go once, not eight times.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "3c549ec5a2fc": {
       "tier": "great",
@@ -20593,31 +20597,34 @@
       "score_at_judge": 1
     },
     "58d7b50a3231": {
-      "tier": "skip",
-      "adjust": 0,
-      "why": "Same production, different night of the 29-night run — see the 8/13 closing-night note instead.",
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Same beloved outdoor pageant run you've picked before — worth one trip to Laguna this month, so flagging opening week over the 14 repeats.",
       "confidence": "high",
-      "judged_at": "2026-07-16T16:12:47",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "45678a897a88": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same production, different night of the 29-night run — see the 8/13 closing-night note instead.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — no need to resurface every performance.",
       "confidence": "high",
-      "judged_at": "2026-07-16T16:12:47",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "ddbd40bd60f9": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same production, different night of the 29-night run — see the 8/13 closing-night note instead.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-16T16:12:47",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "35044686ef87": {
       "tier": "skip",
@@ -20630,12 +20637,13 @@
     },
     "65e8a3460efb": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same production, different night of the 29-night run — see the 8/13 closing-night note instead.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-16T16:12:47",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "8676b841b0bc": {
       "tier": "skip",
@@ -20648,12 +20656,13 @@
     },
     "481e21a357d6": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same production, different night of the 29-night run — see the 8/13 closing-night note instead.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-16T16:12:47",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "94d22744ef2b": {
       "tier": "skip",
@@ -20765,39 +20774,43 @@
     },
     "3109018afbc5": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Historic-tableaux pageant in Laguna — zero overlap with your taste; applies to the whole 29-night run, not just this date.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "e1fdaf7a464a": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same Pageant of the Masters run — skip.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "275e26a212d4": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same Pageant of the Masters run — skip.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "36cda0196832": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same Pageant of the Masters run — skip.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "fc83416f7c98": {
       "tier": "solid",
@@ -20810,12 +20823,13 @@
     },
     "ebde36a1e77f": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same Pageant of the Masters run — skip.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "c4eba153c9d5": {
       "tier": "skip",
@@ -22447,13 +22461,14 @@
       "score_at_judge": 2
     },
     "8d448b260c8a": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "Same recurring living-pictures show.",
+      "why": "Same nightly Pageant production — already featured elsewhere in the run.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "1cb4aaba68b6": {
       "tier": "great",
@@ -23315,13 +23330,14 @@
       "score_at_judge": 2
     },
     "f0de888b1d44": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "Same recurring living-pictures show.",
+      "why": "Same nightly Pageant production — already featured elsewhere in the run.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "06ef082deb8f": {
       "tier": "solid",
@@ -23886,12 +23902,13 @@
     },
     "282edf2165a7": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same Pageant of the Masters run — skip.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "63c1810b8fc8": {
       "tier": "skip",
@@ -24265,12 +24282,13 @@
     },
     "20cdd7392222": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same Pageant of the Masters run — skip.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "d4842c111542": {
       "tier": "skip",
@@ -24518,12 +24536,13 @@
     },
     "0c4733c3a759": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Closing night of the same Pageant of the Masters run — skip.",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "41f9f535385e": {
       "tier": "solid",
@@ -24752,12 +24771,13 @@
     },
     "adf1e264f20e": {
       "tier": "great",
-      "adjust": 2,
-      "why": "John Tejada's Kompakt/Cocoon/Pokerflat pedigree is the European-orbit melodic techno this profile is built around; headlining his own TBA warehouse night on a Saturday is a real event, not just a booking. Score of 7 is flat for this caliber.",
+      "adjust": 1,
+      "why": "John Tejada headlining his own TBA warehouse night with real Palette Recordings pedigree — the Certified Groovers residents round it out well.",
       "confidence": "high",
-      "judged_at": "2026-08-01T07:28:10",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 9,
+      "model": "claude-sonnet-5"
     },
     "7185340c04e5": {
       "tier": "great",
@@ -25728,12 +25748,12 @@
     "875a4f371af1": {
       "tier": "must-see",
       "adjust": 3,
-      "why": "Herbie Hancock at the Hollywood Bowl — a legend at a venue you love; the score's flat 3 badly undersells this.",
+      "why": "Herbie Hancock at the Bowl is as close to a lock as this month gets — a jazz legend at a venue you already love, and you flagged it yourself.",
       "confidence": "high",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "0944cd4b3dff": {
       "tier": "skip",
@@ -25975,14 +25995,14 @@
       "model": "sonnet"
     },
     "10ad1ba801d5": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "The living-pictures pageant is a genuine only-in-LA novelty worth knowing about even if it's not this profile's usual lane; Laguna's a haul but it's a once-a-summer thing.",
-      "confidence": "low",
-      "judged_at": "2026-07-22T12:28:09",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1,
-      "model": "sonnet"
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "6493e6459529": {
       "tier": "skip",
@@ -26343,13 +26363,14 @@
       "score_at_judge": 2
     },
     "01f2bd2aea78": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Genuinely one-of-a-kind living-pictures spectacle and this is the closing night of its 29-performance run, but Laguna Beach is a real haul for an art-category event outside the core lanes.",
-      "confidence": "med",
-      "judged_at": "2026-07-23T12:26:57",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same Pageant of the Masters run already flagged opening week — redundant night.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "ba29fb77980e": {
       "tier": "skip",
@@ -27667,12 +27688,13 @@
     },
     "99fd038a03e1": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Last performance of this year's Pageant of the Masters run — a genuine only-in-Laguna spectacle, but it's theater/pageantry outside the core lane so it's a once-a-summer flag, not a must-drive.",
-      "confidence": "low",
-      "judged_at": "2026-07-24T12:27:39",
+      "adjust": -1,
+      "why": "Same nightly Pageant production — already featured elsewhere in the run.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "d41e1d9f0e17": {
       "tier": "skip",
@@ -28607,13 +28629,14 @@
     },
     "e653cbe40068": {
       "tier": "great",
+      "lane": "club:mainstream",
       "adjust": 2,
-      "why": "Noizu's the HOWSLA/Chris Lake-adjacent mainstream tech-house you explicitly want more of, not less — this lane is a named priority, not noise to filter out.",
+      "why": "This is a DJ set in a big room, not a band — Noizu is exactly the Chris Lake/Dom Dolla/Fisher lane the brief wants, just mistagged as live-music.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
       "score_at_judge": 7,
-      "model": "sonnet"
+      "model": "claude-sonnet-5"
     },
     "149381cfb3e6": {
       "tier": "skip",
@@ -28834,11 +28857,12 @@
     "3f1472984470": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Pageant of the Masters is a genuine only-in-Laguna spectacle, but this is night 28 of 29 — same show as the 8/23 record, go that one instead.",
-      "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "why": "Same nightly Pageant production — already featured elsewhere in the run.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "d82a64c61f96": {
       "tier": "skip",
@@ -29021,13 +29045,14 @@
       "score_at_judge": 1
     },
     "e74445643f72": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Last night of the Pageant of the Masters run — the one to actually plan for if you're going, over the earlier date.",
-      "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same nightly Pageant of Masters run as the 8/30 closer — no need to flag every performance, and the format's outside your electronic/film lane anyway.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "a5945e188a31": {
       "tier": "skip",
@@ -29450,13 +29475,14 @@
       "score_at_judge": 1
     },
     "ece4642c45a9": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Pageant of the Masters closing night of its summer-long run — a genuine only-in-LA spectacle, just outside your electronic/film core so it stays a maybe, not a build-around.",
-      "confidence": "med",
-      "judged_at": "2026-07-27T12:34:40",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Another night of the same Pageant of the Masters run — the 8/30 closer is the one worth flagging.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "00638d75ff7a": {
       "tier": "skip",
@@ -30911,12 +30937,13 @@
     },
     "8461e506534c": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Closing night of the Pageant of the Masters run — a real Laguna institution, but tableau theater in a far city isn't your lane.",
-      "confidence": "med",
-      "judged_at": "2026-07-28T12:33:37",
+      "adjust": -2,
+      "why": "Repeat night of the identical Pageant show, same as the rest of the run.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "68a806613d9f": {
       "tier": "skip",
@@ -31011,13 +31038,14 @@
       "score_at_judge": 6
     },
     "c867628d2d69": {
-      "tier": "must-see",
+      "tier": "great",
       "adjust": 2,
-      "why": "Nolan on 35mm at the Academy Museum is the exact director-plus-format combo this taste is calibrated for.",
+      "why": "Tracked director plus a loved format in one listing — a Nolan 35mm print is exactly the film ask, just a standard rep screening rather than a Q&A event to build a whole night around.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
     },
     "03f4985eaa8e": {
       "tier": "great",
@@ -32323,11 +32351,12 @@
     "1b55726703a8": {
       "tier": "must-see",
       "adjust": 3,
-      "why": "Theron in person for Fury Road is a real event, not just a screening — the marquee booking in this batch.",
+      "why": "Charlize Theron in person for Fury Road at the Academy Museum is a real event, not a rep-house rerun — you already flagged this one.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "b452ed8bb2ea": {
       "tier": "solid",
@@ -33367,12 +33396,13 @@
     },
     "f83a1b19470f": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Iconic as it is, this is a family art pageant an hour south — the far-flung waiver doesn't make it your kind of night.",
+      "adjust": -2,
+      "why": "Same Pageant run, different date — nothing distinguishes this night from the others.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "f559fffb7ac1": {
       "tier": "skip",
@@ -33384,14 +33414,14 @@
       "score_at_judge": 0
     },
     "b69a75ba9b8d": {
-      "tier": "must-see",
-      "lane": "club:underground",
-      "adjust": 3,
-      "why": "Marques Wyatt is LA house royalty and Monkey Safari brings real melodic-techno pedigree — an outdoor bridge setting the generic 'other' tag completely undersells.",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Marques Wyatt basically built this city's deep house scene, paired with Monkey Safari's sunny Get Physical sound for a six-hour open-air set under the bridge — the daytime groove lane in full.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 9,
+      "model": "claude-sonnet-5"
     },
     "4036cae600a8": {
       "tier": "solid",
@@ -34163,12 +34193,13 @@
     },
     "f81ad6876205": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "Iconic as it is, this is the last night of a 29-night Laguna Beach run — an hour-plus each way for a stage format that's only a medium interest to begin with.",
-      "confidence": "med",
-      "judged_at": "2026-07-30T12:36:35",
+      "adjust": -2,
+      "why": "Yet another night of the same Pageant program — go with the closing night instead.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "164fee40d08b": {
       "tier": "skip",
@@ -35169,12 +35200,13 @@
     },
     "cab403618e6f": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Last performance of this summer's Pageant of the Masters run — a genuine only-in-SoCal spectacle, just outside the core music/film lanes.",
-      "confidence": "med",
-      "judged_at": "2026-07-31T12:35:32",
+      "adjust": -1,
+      "why": "Same nightly Pageant production — already featured elsewhere in the run.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "12f01fe40a5d": {
       "tier": "skip",
@@ -37013,12 +37045,12 @@
     "2a083e764594": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Closing night of the annual living-pictures tradition — a genuine only-in-LA oddity, but Laguna is a long way for a low-interest category.",
-      "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "why": "Same nightly Pageant production — already featured elsewhere in the run.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
       "input_version": 2,
-      "score_at_judge": 2,
-      "model": "sonnet"
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "addfc99019ac": {
       "tier": "skip",
@@ -37219,6 +37251,811 @@
       "input_version": 2,
       "score_at_judge": 4,
       "model": "sonnet"
+    },
+    "04bf02a83f9e": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Matias Aguayo is Cómeme's founder and a real minimal-house original — the score missed him since he's not in the Spotify data, but this is a legit headliner for a TBA warehouse afterhours.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-5"
+    },
+    "82f3af99d4f8": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Tamara Lanza is a Sunset Sessions regular — this DTLA sunset deep-house release party is the exact golden-hour format that keeps coming up as a favorite.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "2381fcc9b98b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Rooftop tech-house till 3am checks the boxes but there's no lineup listed to gauge who's actually playing.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "3d3b0118714f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free rooftop afters, fine filler, but no billed talent to judge the draw against.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "54cf6dc1d5fa": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "Nurko's melodic-dubstep/bass lane at a bottle-service superclub like Exchange is the mega-rave energy this profile explicitly steers away from.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "0b44940fef54": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Unclear what this Vista booking actually is beyond a matinee slot — the loved venue carries it, but there's no read on the program itself.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "0e72026f300c": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "O.T. Genasis's free residency night reads as a generic hip-hop club night, not the DJ-driven lane this profile wants even at zero cost and close to home.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "ccc7a7a8e38a": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Vague 'festival weekend kickoff' pregame with no billed lineup — not worth the Palm Springs trip on its own.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "e1dc3e777bea": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Generic TBA tech-house/minimal warehouse night, on-genre but nothing to confirm the actual draw.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "9246334c8d3e": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "DJ Seinfeld is a tracked name and salute's genuinely the more interesting billing than the score reflects — a real lineup in Beatport's own room.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "e50c9a88313e": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hard-dance/bass lineup is the explicit skip lane here, free or not.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "384baa91aa2f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Muddled bill mixing house/techno with dubstep and garage bass — nothing reads as a cohesive draw, and Banoffee's more pop-producer than DJ.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "c6c7e4165e52": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "DnB/breakbeat-leaning rave out in Commerce, off the house/techno spine and a haul from home.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "addcd7bb6027": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Academy's a bass/EDM room and this bill leans that way — not the tasteful end of tech-house the profile wants.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "7a8f02e00027": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "This is an underground hip-hop producer showcase, not electronic — the 'on-taste genre' credit in the score is a mistag.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "4bd4d317c4f2": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free house night near Chinatown, on-genre but an unfamiliar local lineup.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "0b6c98a00df3": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Nostalgic Goofy Movie matinee at a loved rep house — fun filler, no format hook to push it higher.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "308c6ece672e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Niche poetry documentary matinee, second of two Vidiots bookings that day — fine if the subject grabs you.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "0a7a4d7d2178": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Scarlet Street is a genuine Fritz Lang noir classic, not filler programming — the strongest of the three Vidiots matinees that day.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "34c5b9a5f044": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Second half of a two-night rep slot with no format or guest hook — a placeholder next to the Edgar Wright night down the hall.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "ff2a429ab246": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Edgar Wright in person for his most beloved film — the one to build the night around if you only do one Vidiots show that weekend.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "f2a3422fae52": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Unclear draw beyond the rep slot — no format or guest angle in the listing.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "046ec7392a59": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Same Edgar Wright evening, deeper cut — go for Scott Pilgrim if you're only catching one screening.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "7eafcc2659f5": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Free house day party in the park near home — a solid Sunday hang even without a name you'd recognize on the bill.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "a0fb16d30ebf": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Emoji-flyer energy, no billed names, and a real haul out to Rowland Heights — nothing here earns the trip.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "67ff601868d5": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Hardstyle is explicitly off your lane no matter how late the doors are.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "94be20ceef7d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free Venice day party with unfamiliar local DJs — fine filler, nothing to plan around.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "f653932df375": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "TBA afters with zero lineup info — can't gauge the draw, treat as a maybe.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "80bdac5a2e0f": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "Hyde Sunset is a bottle-service Strip lounge dressed up as a sunset session, not the rooftop-groove vibe the tags implied.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "8bb4ae7414a1": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Unbilled house night at Sound — no names to judge the draw by.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "564158013a2b": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Vinyl-only open-air deep house/minimal in Boyle Heights hits the groove-session boost hard even without a headliner name.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "330e63d7dd56": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Sid the Cat is a room you trust — worth the drive even without knowing the DJ.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "7b92185c1ddb": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Simon Raymonde of Cocteau Twins DJing at Zebulon is a legit crossover pull for the dream-pop/indie side of your taste.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "a8308138ea4b": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Loco Dice — Desolat founder, Ibiza resident — headlining a daytime park party minutes from home is a real techno booking the score is underrating.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "cbc3a0c8319a": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Vinyl-only, open-to-close single-DJ set hits the exact rooftop-groove format you chase, but Mazko A and the TBA room are both unknowns — can't gauge the draw yet.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "4dd6d819ead2": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Ska/hardcore-punk memorial bill (Union 13, Death By Stereo, Go Betty Go), not the post-punk/dream-pop lane you actually track — a nice tribute for that scene, not yours.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "709beb9fc3c7": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No DJ names, no genre detail beyond 'electronic' — generic Beverly Hills party listing, can't back the draw.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "18015026d73f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Techno/dub night at Que Sera with unfamiliar names — genre's right, but the Long Beach trek needs a stronger bill than two unknowns to justify it.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "ede63c28de18": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Free beachside disco/house day party in its 9th year with JJ Flores on the bill — exactly the outdoor groove format you go for, distance aside.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "794f027b67aa": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Brunch party with zero lineup info — can't tell if it's house or open-format, skip until it's more than a bare listing.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "dab0f335e12b": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No DJ names given for this recurring free night — too thin to bank on.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "a6e354b40cbe": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Unnamed four-DJ lineup at a Rowland Heights restaurant — far out with nothing to confirm it's your genre and not just a generic night.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "bf4cc1526718": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Ynfynyt Scroll trends bass/experimental rather than house-techno, and the far Long Beach trip isn't earning a slot on an unclear bill.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "73988d18839d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Roy McCurdy (Cannonball Adderley/Sonny Rollins alum) leading real players at Sam First — outside your usual lane but legit jazz pedigree if that's the mood.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "dd69df691285": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Zebulon show but 'Summer Shriek!' gives no real read on the lineup or genre — could be a fun horror-themed night, could be filler.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "cdea640ebf41": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Indie album-release show at a small East Hollywood room fits your small-club shape, even though Mulholland's an unknown quantity.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "ce76f726516b": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Eddie Spaghetti (Supersuckers) sitting in with The Yawpers at Gold Diggers is a real garage-rock bill, not a throwaway Sunday show.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "2e29647ffb72": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Jazz jam at The Mint is a pleasant hang but the names (Weatherwax, Kanner) don't carry a draw you'd recognize.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "26bd612bf019": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Country show at The Echo — explicitly off your lane, the Silver Lake proximity bump doesn't change that.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "5975e300dec5": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "All-ages pop bill at Moroccan Lounge — nice room, but a generic pop pairing with no name recognition.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "a03363cdd1bd": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Josh Tatofi is a respected Hawaiian/island-soul singer, but world music isn't really your lane — worth knowing about, not a real pull.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "04ccd5e09a70": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "This is exactly the nostalgia-tour format you don't want — an 80s package bill at the Greek doesn't stop being a tribute show because a few original members are on it.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "66e8dab395a7": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Your own feedback has this as a core, weight-6 pick, and this is the closing performance of the Segerstrom run — the night to actually go, far drive notwithstanding.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "f587e40df806": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Closing night of the Pageant run — if you're going at all, this is the one, though it's still a big trek outside your usual lanes.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "65a2fc4c41e6": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Latin/soul brunch set at Vibrato — nice but adjacent to your jazz-adjacent taste, not a real draw.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "7d4c59cf88f0": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "New Bev rep Bond screening is exactly the kind of repertory outing you build a Sunday around, even if it's the lesser Roger Moore entry.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "f45d752ab7cd": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "No-cover piano lounge at The Dresden — pleasant, easy, but not a night you'd plan around.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "bba0be6d4d4d": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "2000s post-hardcore bill at 1720 — a different lane than the indie/garage/post-punk clubs you actually chase.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "e3613c03a0b2": {
+      "tier": "skip",
+      "lane": "community",
+      "adjust": -2,
+      "why": "Family-festival programming is squarely off-taste, and the comedy/improv tagging here looks like a mis-tag — it's a Little Tokyo community festival.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "934aa9679f5b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tech-house day party has the right genre, but Huntington Beach with an unproven headliner (Okayval's still building a bio) doesn't clear the far-flung bar.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "869174501827": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Sam First is a serious listening-bar room and a Lena Horne tribute set fits your jazz-adjacent taste even without marquee names.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "e2930ebba7dd": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Lupe Fiasco and Hieroglyphics headlining is a genuinely strong hip-hop bill, just outside your electronic/indie lanes.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "727ae1f08938": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Stadium rock/metalcore package tour — worth knowing it's happening, not remotely your genre.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "7a8687ea2dc8": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Disney touring musical is textbook family programming — loving the Pantages doesn't rescue this booking.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "3bf104235913": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Indian playback-singer world-music night at a big Hollywood room, nothing to do with your lane.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "eb8b6914d439": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Crankdat is dubstep/riddim — exactly the bass-mega-show penalty category, the tags just didn't catch the genre.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "63ca61817c1f": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Latin romantic-pop singer at a casino out past San Bernardino, off-genre and off-map.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "7b675aa5d320": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Stacked with real session pedigree (Los Lobos' Hidalgo, Mitchell Froom, Pete Thomas) but it's sold out and folk isn't your lane anyway.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "c7c89a301ce8": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Generic weekly residency title with no billed names — funk/blues loosely fits but there's nothing here to actually judge.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "527cca669585": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Tab Benoit is a legit touring blues guitarist playing a tiny Venice room — real headliner-in-a-small-room pull, just outside your core lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "8a26dbd4f511": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Four tribute acts (Zeppelin/Sabbath/Sly/Aerosmith covers) — the exact nostalgia-night the brief says to bury.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
+    },
+    "9d67886248d5": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No billed DJs to judge and it's an Orange County drive — not worth it blind.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
+    },
+    "a236a84d685d": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Latin show in Anaheim, off-genre and far.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
+    },
+    "158e9b5d666e": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Generic promoter placeholder with no lineup, all-ages Anaheim room — nothing to build a case for.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
+    },
+    "d72d2447237d": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Family nostalgia beach screening in Long Beach, not the print/format-driven rep-cinema lane you actually chase.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "claude-sonnet-5"
+    },
+    "981628476198": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Grammy-winning band worth knowing about, but Observatory Santa Ana is a real drive for a night that isn't your primary lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "claude-sonnet-5"
+    },
+    "0b3dbfe0b8f7": {
+      "tier": "skip",
+      "lane": "workshop",
+      "adjust": -1,
+      "why": "Scene notes say this is a volunteer native-garden workshop, not a show — mistagged as live-music.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "claude-sonnet-5"
+    },
+    "927ac97ee032": {
+      "tier": "skip",
+      "lane": "workshop",
+      "adjust": -1,
+      "why": "Educational workshop (sex & disability), not a live-music event, and off-taste regardless.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "claude-sonnet-5"
+    },
+    "9058dd41554a": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free daytime beach pop-up fits the lifestyle/market lane, but it's unclear beyond the name what SMPL actually is.",
+      "confidence": "low",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "58cbe91614df": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Easy near-home indie/vintage flea for a Saturday morning, but it's the same weekly market, not a one-off to plan around.",
+      "confidence": "high",
+      "judged_at": "2026-08-02T12:37:08",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     }
   }
 }
