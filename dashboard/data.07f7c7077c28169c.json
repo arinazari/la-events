@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-08-03T13:05:53+00:00",
+  "generated_at": "2026-08-03T14:06:44+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "926dfe90249e",
   "catalog_content_version": "0c6fe4714b74",
   "catalog_fetched_at": "2026-08-03T12:48:58+00:00",
   "count": 3597,
-  "enriched_count": 1627,
+  "enriched_count": 1634,
   "music": {
     "layer": "none",
     "artists": 0,
@@ -1394,6 +1394,7 @@
     "shi shi": "https://open.spotify.com/artist/4XKp9GFAQfsh2NflSRnHQi",
     "pacer": "https://open.spotify.com/artist/2AHY4CK2dZ6lcLZptbTHHL",
     "ava blank": "https://open.spotify.com/artist/759DyhS6uvTAquVA8UHXMj",
+    "katseye": "https://open.spotify.com/artist/3c0gDdb9lhnHGFtP4prQpn",
     "veggi": "https://open.spotify.com/artist/1hrOvw6197WGlXcIBJAp7v",
     "lowgo": "https://open.spotify.com/artist/3KqP7d4TwVfuAZIeRMxen4",
     "tomi tribe": "https://open.spotify.com/artist/3Rk3u5yJYynTAwt50Fbm51",
@@ -1967,7 +1968,6 @@
     "chappell roan": "https://open.spotify.com/artist/7GlBOeep6PqTfFi59PTUUN",
     "doechii": "https://open.spotify.com/artist/4E2rKHVDssGJm2SCDOMMJB",
     "garbage": "https://open.spotify.com/artist/6S0GHTqz5sxK5f9HtLXn9q",
-    "katseye": "https://open.spotify.com/artist/3c0gDdb9lhnHGFtP4prQpn",
     "mitski": "https://open.spotify.com/artist/2uYWxilOVlUdk4oV9DvwqK",
     "not for radio": "https://open.spotify.com/artist/0oXhGlRUQ8aVTx8eO4MoMT",
     "quiet light": "https://open.spotify.com/artist/6Uy2IwBjxdF0MxQVIN18n9",
@@ -10505,7 +10505,29 @@
       "iso_date": "2026-08-05",
       "is_past": false,
       "enrichment": {
-        "description": "Meridian Brothers and Mexican Institute of Sound at The Regent Theater DTLA (9pm doors 8pm, 18+)."
+        "type": "live-music",
+        "subgenres": [
+          "latin",
+          "experimental"
+        ],
+        "label_orbit": [
+          "Ansonia Records",
+          "Bongo Joe"
+        ],
+        "energy": "dance / eclectic",
+        "setting": "theater",
+        "sounds_like": [
+          "Combo Chimbita",
+          "Helado Negro"
+        ],
+        "artist_notes": [
+          {
+            "name": "Mexican Institute of Sound",
+            "note": "Camilo Lara's long-running Mexico City project \u2014 cumbia, mambo and sonidero samples run through electronic production; a Latin Grammy-nominated producer and former EMI Mexico exec who co-founded Suave Records."
+          }
+        ],
+        "curator_note": "Two of the sharpest minds in Latin alternative on one stage \u2014 Eblis \u00c1lvarez's surreal, tape-warped take on cumbia and vallenato next to Camilo Lara's sample-heavy Mexico City funk. They've even recorded a collaborative album together, so expect them to trade songs.",
+        "description": "A Latin-alternative double bill at the Regent Theater: Colombia's avant-cumbia Meridian Brothers and Mexico City's electro-cumbia project Mexican Institute of Sound."
       },
       "lane": "live-music",
       "key": "d240aa4d35ce",
@@ -18344,7 +18366,27 @@
       "iso_date": "2026-08-07",
       "is_past": false,
       "enrichment": {
-        "description": "Hip-hop live show with Steven G, Tayy Tarantino, and Pofsky at The Echo, Echo Park, Fri, Aug 7 at 7pm."
+        "type": "live-music",
+        "subgenres": [
+          "hip-hop"
+        ],
+        "energy": "high-energy / rap show",
+        "artist_notes": [
+          {
+            "name": "Steven G",
+            "note": "Bay Area hip-hop MC known for tracks like 'Pull Up' and 'Bag' \u2014 smooth, narrative-driven flow (not the Miami freestyle DJ who shares the name)."
+          },
+          {
+            "name": "Tayy Tarantino",
+            "note": "Anchorage, Alaska rapper \u2014 a rare touring booking from a small but real regional scene; has opened for Nas and Wu-Tang Clan up north."
+          },
+          {
+            "name": "Pofsky",
+            "note": "LA-via-805 singer/songwriter signed to Eric Bellinger's All Wins Entertainment \u2014 melodic, R&B-leaning hip-hop; also co-runs UNDRGRND Magazine."
+          }
+        ],
+        "curator_note": "Solid local hip-hop bill, but nothing here is chasing the desert-blues/garage-rock spine she actually lives in \u2014 fine if she's already at The Echo that night, not a reason to go out of your way.",
+        "description": "A hip-hop bill at The Echo headlined by Bay Area rapper Steven G, with support from Anchorage's Tayy Tarantino and LA's Pofsky."
       },
       "lane": "live-music",
       "key": "6752c300c13f",
@@ -21064,7 +21106,14 @@
       "iso_date": "2026-08-07",
       "is_past": false,
       "enrichment": {
-        "description": "Stan Society's Olivia Rodrigo night electronic party at The Regent Theater (18+)."
+        "type": "club",
+        "subgenres": [
+          "pop"
+        ],
+        "energy": "dance-party / fandom",
+        "setting": "theater",
+        "curator_note": "Worth knowing before buying a ticket: this isn't an Olivia Rodrigo show, it's a DJ spinning her catalog for a room of fans \u2014 a themed dance party, not a gig.",
+        "description": "A DJ-hosted 18+ fan dance party at the Regent Theater built entirely around Olivia Rodrigo's catalog \u2014 not a performance by her."
       },
       "lane": "live-music",
       "key": "6e85816eff94",
@@ -28450,7 +28499,23 @@
       "iso_date": "2026-08-08",
       "is_past": false,
       "enrichment": {
-        "description": "Queen Serene live at Permanent Records Roadhouse, Cypress Park (9pm)."
+        "type": "live-music",
+        "subgenres": [
+          "indie"
+        ],
+        "energy": "dreamy / atmospheric",
+        "setting": "bar",
+        "sounds_like": [
+          "hazy shoegaze/dream-pop"
+        ],
+        "artist_notes": [
+          {
+            "name": "Queen Serene",
+            "note": "Austin four-piece (Sarah Ronan, Matt Galceran, Riley Corcoran, Dale Pohly) playing hazy, synth-tinged shoegaze \u2014 self-titled debut album out in 2023."
+          }
+        ],
+        "curator_note": "A total unknown outside Austin's DIY circuit, but a hazy shoegaze band playing a record-store roadhouse for cheap is a low-risk way to find a new favorite.",
+        "description": "Austin shoegaze/dream-pop band Queen Serene plays Permanent Records Roadhouse."
       },
       "lane": "live-music",
       "key": "d0ab8baa3577",
@@ -28733,7 +28798,40 @@
       "iso_date": "2026-08-08",
       "is_past": false,
       "enrichment": {
-        "description": "Head in the Clouds Los Angeles music festival featuring KATSEYE, XG, Rich Brian, Tiffany Day, UMI, Warren Hue at Brookside at the Rose Bowl, Pasadena (2pm)."
+        "type": "live-music",
+        "subgenres": [
+          "hip-hop",
+          "pop"
+        ],
+        "label_orbit": [
+          "88rising"
+        ],
+        "energy": "festival / daytime-into-evening",
+        "setting": "outdoor",
+        "artist_notes": [
+          {
+            "name": "KATSEYE",
+            "note": "Six-member multinational girl group formed via HYBE and Geffen's reality competition 'The Debut: Dream Academy' \u2014 K-pop-style idol pop, not a band."
+          },
+          {
+            "name": "XG",
+            "note": "Japan-formed, LA-based girl group under XGALX doing hip-hop/R&B-leaning idol pop, sung mostly in English."
+          },
+          {
+            "name": "Rich Brian",
+            "note": "Indonesian rapper and original 88rising signee, broke out with 2016's viral 'Dat Stick.'"
+          },
+          {
+            "name": "UMI",
+            "note": "Seattle-born R&B/neo-soul singer-songwriter \u2014 the closest thing on this bill to her jazz/soul lane."
+          },
+          {
+            "name": "Warren Hue",
+            "note": "Indonesian rapper on 88rising with a laid-back, melodic hip-hop style."
+          }
+        ],
+        "curator_note": "This is 88rising's big pop/hip-hop day festival \u2014 mostly outside her lane of garage rock and diaspora music, but UMI's neo-soul set is a genuine reason to wander over if she's in Pasadena that Saturday.",
+        "description": "88rising's annual pan-Asian pop/hip-hop festival at Brookside, Rose Bowl, with KATSEYE, XG, Rich Brian, UMI, Tiffany Day and Warren Hue."
       },
       "lane": "live-music:big",
       "key": "5c223ffdd3d5",
@@ -53455,7 +53553,12 @@
       "iso_date": "2026-08-14",
       "is_past": false,
       "enrichment": {
-        "description": "KCON Korean pop culture festival and music showcase at LA Convention Center."
+        "type": "live-music",
+        "subgenres": [
+          "pop"
+        ],
+        "curator_note": "A K-pop convention more than a concert, and no artist lineup is public yet \u2014 hard pass unless that's specifically her thing, which it isn't per her profile.",
+        "description": "KCON's annual K-pop convention and concert series at the LA Convention Center; artist lineup not yet announced."
       },
       "lane": "live-music",
       "key": "15b55ff4006a",
@@ -54363,7 +54466,26 @@
       "iso_date": "2026-08-14",
       "is_past": false,
       "enrichment": {
-        "description": "Pop artist Will Swinton at The Echo in Echo Park."
+        "type": "live-music",
+        "subgenres": [
+          "pop"
+        ],
+        "label_orbit": [
+          "Capitol Records"
+        ],
+        "energy": "anthemic / pop",
+        "sounds_like": [
+          "the Kid Laroi",
+          "Ekkstacy"
+        ],
+        "artist_notes": [
+          {
+            "name": "Will Swinton",
+            "note": "Auckland-born, now LA-based pop songwriter \u2014 bedroom-pop turned Capitol signee, gravelly-voiced and TikTok-friendly; drew notice from Machine Gun Kelly after a chance meeting."
+          }
+        ],
+        "curator_note": "Radio-ready alt-pop in the Kid Laroi vein \u2014 pleasant enough, but closer to the mainstream end of her craft-pop tolerance than to Mitski or Olivia Rodrigo's specificity.",
+        "description": "New Zealand-born, LA-based pop songwriter Will Swinton headlines The Echo."
       },
       "lane": "live-music",
       "key": "8926af10ee3c",
@@ -55558,7 +55680,23 @@
       "iso_date": "2026-08-14",
       "is_past": false,
       "enrichment": {
-        "description": "Music show at Permanent Records Roadhouse, Cypress Park (6pm)."
+        "type": "live-music",
+        "subgenres": [
+          "rock"
+        ],
+        "label_orbit": [
+          "Den Tapes"
+        ],
+        "energy": "raw / high-energy",
+        "setting": "bar",
+        "artist_notes": [
+          {
+            "name": "Chico Detour",
+            "note": "Seattle garage-rock band with an EP ('Wash It Down') out on Den Tapes \u2014 a small touring DIY act, not an LA regular."
+          }
+        ],
+        "curator_note": "A touring Seattle garage-rock band on a random Thursday at the Roadhouse \u2014 exactly the kind of unheralded dive bill she'd be glad someone flagged.",
+        "description": "Seattle garage-rock band Chico Detour plays Permanent Records Roadhouse."
       },
       "lane": "live-music",
       "key": "97d18dba1052",
@@ -77855,13 +77993,24 @@
       "iso_date": "2026-08-19",
       "is_past": false,
       "enrichment": {
+        "type": "live-music",
+        "subgenres": [
+          "pop",
+          "punk"
+        ],
+        "energy": "punky / pop",
         "artist_notes": [
+          {
+            "name": "Sizzy Rocket",
+            "note": "Queer alt-pop artist blending punk attitude with pop hooks \u2014 genre-blending electropop/pop-rock, profiled by Office Magazine for her unapologetic queer pop stance."
+          },
           {
             "name": "Rocket",
             "note": "LA alt-rock band (formed 2021) with a shoegaze-leaning edge \u2014 recently opened arena dates for Smashing Pumpkins."
           }
         ],
-        "description": "Rock artist Sizzy Rocket at The Echo (Echo Park)."
+        "curator_note": "A distinct queer punk-pop voice rather than another interchangeable Echo indie bill \u2014 worth a look if she wants something scrappier than the usual songwriter fare.",
+        "description": "Queer alt-pop/punk artist Sizzy Rocket headlines The Echo."
       },
       "lane": "live-music",
       "key": "53630a69d501",
@@ -114979,6 +115128,10 @@
           {
             "name": "Rachel Chinouriri",
             "note": "London-born, Zimbabwean-British indie/alt-pop singer-songwriter \u2014 2024 debut album charted UK top 20, two BRIT nominations; toured with Sabrina Carpenter."
+          },
+          {
+            "name": "KATSEYE",
+            "note": "Six-member multinational girl group formed via HYBE and Geffen's reality competition 'The Debut: Dream Academy' \u2014 K-pop-style idol pop, not a band."
           }
         ],
         "curator_note": "Olivia Rodrigo's first festival is a genuinely stacked, curated bill \u2014 Bikini Kill next to Mitski next to Stevie Nicks is a real lineup, not just a pop show \u2014 but it's Irvine on a Saturday and this isn't the electronic lane at all, so it's more 'worth knowing about' than 'worth the drive' unless the day is already built around it.",
@@ -138709,6 +138862,12 @@
       },
       "lane": "club:underground",
       "key": "8a862e604d08",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "final_rank": 129
     },
     {
@@ -182481,6 +182640,34 @@
       ],
       "iso_date": "2026-10-02",
       "is_past": false,
+      "enrichment": {
+        "type": "live-music",
+        "subgenres": [
+          "rock",
+          "punk",
+          "experimental"
+        ],
+        "label_orbit": [
+          "Castle Face Records"
+        ],
+        "energy": "peak / raucous",
+        "sounds_like": [
+          "Ty Segall",
+          "King Gizzard & the Lizard Wizard"
+        ],
+        "artist_notes": [
+          {
+            "name": "Brigid Dawson",
+            "note": "Longtime Thee Oh Sees/Osees co-vocalist and keyboardist who left the band years ago and has just rejoined for this LA residency run, revisiting songs from the Carrion Crawler/Help era; also has a solo career (2020's Ballet of Apes)."
+          },
+          {
+            "name": "George Chen",
+            "note": "Likely the Bay Area experimental/noise musician and longtime scene organizer (Zum zine/label, bands like Chen Santa Maria) \u2014 a fittingly oddball opener rather than a straight rock act."
+          }
+        ],
+        "curator_note": "Brigid Dawson stepping back into the band for this residency run is real news for anyone who followed Thee Oh Sees through the Carrion Crawler era \u2014 Dwyer's outfit live is still one of the most unhinged, physical shows in town.",
+        "description": "Osees play a run of older material at the Bellwether with longtime member Brigid Dawson back in the band, plus support from George Chen."
+      },
       "lane": "live-music:big",
       "key": "a3388ccb7f28",
       "final_rank": 421
@@ -201804,6 +201991,20 @@
       ],
       "iso_date": "2026-10-10",
       "is_past": false,
+      "enrichment": {
+        "type": "live-music",
+        "subgenres": [
+          "folk",
+          "world"
+        ],
+        "energy": "chill / sunset listening",
+        "setting": "amphitheater",
+        "sounds_like": [
+          "Khruangbin's cinematic instrumental groove"
+        ],
+        "curator_note": "Skip out on the mellow surf-folk headliner if you must, but get there for Hermanos Guti\u00e9rrez \u2014 their wordless, cinematic guitar duets are exactly the desert-blues wavelength she runs on.",
+        "description": "Jack Johnson's 'SURFILMUSIC' tour stops at the Hollywood Bowl, with Swiss-Ecuadorian instrumental duo Hermanos Guti\u00e9rrez opening."
+      },
       "lane": "live-music:big",
       "key": "770573bb005f",
       "series_key": "run:jack johnson surfilmusic tour 2026|hollywood bowl",
@@ -240357,6 +240558,14 @@
       ],
       "iso_date": "2026-11-05",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "XG",
+            "note": "Japan-formed, LA-based girl group under XGALX doing hip-hop/R&B-leaning idol pop, sung mostly in English."
+          }
+        ]
+      },
       "lane": "live-music:big",
       "key": "42d8683e5e02",
       "final_rank": 1421
@@ -263531,6 +263740,14 @@
       ],
       "iso_date": "2026-11-21",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "KATSEYE",
+            "note": "Six-member multinational girl group formed via HYBE and Geffen's reality competition 'The Debut: Dream Academy' \u2014 K-pop-style idol pop, not a band."
+          }
+        ]
+      },
       "lane": "live-music:big",
       "key": "a85719c06750",
       "series_key": "run:katseye the wildworld tour|crypto com arena",
@@ -263777,6 +263994,14 @@
       ],
       "iso_date": "2026-11-21",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "Katseye",
+            "note": "Six-member multinational girl group formed via HYBE and Geffen's reality competition 'The Debut: Dream Academy' \u2014 K-pop-style idol pop, not a band."
+          }
+        ]
+      },
       "lane": "club:underground",
       "key": "919225edae85",
       "final_rank": 449
@@ -265944,6 +266169,14 @@
       ],
       "iso_date": "2026-11-22",
       "is_past": false,
+      "enrichment": {
+        "artist_notes": [
+          {
+            "name": "KATSEYE",
+            "note": "Six-member multinational girl group formed via HYBE and Geffen's reality competition 'The Debut: Dream Academy' \u2014 K-pop-style idol pop, not a band."
+          }
+        ]
+      },
       "lane": "live-music:big",
       "key": "f54ba6503b9b",
       "series_key": "run:katseye the wildworld tour|crypto com arena",
@@ -275441,6 +275674,23 @@
       ],
       "iso_date": "2026-12-05",
       "is_past": false,
+      "enrichment": {
+        "type": "live-music",
+        "subgenres": [
+          "funk-soul",
+          "jazz"
+        ],
+        "label_orbit": [
+          "Brainfeeder"
+        ],
+        "energy": "groove / virtuosic",
+        "sounds_like": [
+          "BadBadNotGood",
+          "Kamasi Washington"
+        ],
+        "curator_note": "One of her tracked names playing a real room \u2014 the bass playing alone justifies the Palladium ticket, Brainfeeder jazz-funk at its most virtuosic.",
+        "description": "Thundercat's 'Distracted AF' tour hits the Hollywood Palladium, with support from fera."
+      },
       "lane": "live-music:big",
       "key": "f177a55bf75a",
       "final_rank": 803
