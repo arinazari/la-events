@@ -73,10 +73,10 @@ scoring:
   # (suppressed unless a loved comedian). Unknown categories default to 1.
   category_weights:
     electronic: 3
-    party: 3 # club / warehouse / afterhours
-    film: 3 # rep & arthouse cinema
-    music: 2 # live music (catalog's term)
-    live_music: 2
+    party: 3
+    film: 3
+    music: 2
+    live_music: 3
     theater: 2
     beer_food: 2
     comedy: 1
@@ -136,6 +136,9 @@ scoring:
     - poolside
     - pool party
     - beach
+    - small venue
+    - intimate
+    - club show
 
   # +1: European label / vibe.
   eu_terms:
