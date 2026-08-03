@@ -122,6 +122,19 @@ _JUNK_FIN_ACTION = re.compile(
     r"cancel(?:lation)?s?|policy|grace\s+period|claims?|refunds?|credentials?|"
     r"account\s+access|phone|number|support)\b")
 
+# "FAQ guide" hotline-spam format ('%@FAQ'S(tm)GUide: @SeVen Ways to Get United to Respond
+# Quickly? | [ Best Contact Tips Guide ]') — brand-agnostic (any airline/carrier name),
+# caught instead by the templated scam phrasing itself.
+_JUNK_FAQ_SPAM = re.compile(
+    r"(?i)\bfaq\b.{0,80}(ways?\s+to\s+get|respond\s+quickly|contact\s+(?:tips|options)\s+guide|"
+    r"communication\s+tips)")
+
+# Any airline/carrier name (generic word + "airlines?/airways") co-occurring with a long digit
+# run (a fake terminal/hotline number) — catches brands not in _JUNK_TRAVEL_BRAND (United,
+# Delta, Allegiant, American, Southwest, ...) without hard-coding every carrier.
+_JUNK_AIRLINE_GENERIC = re.compile(r"(?i)\b\w+\s+air(?:lines?|ways)\b")
+_JUNK_LONG_DIGIT_RUN = re.compile(r"\d{2}-?\d{7,}|\d{9,}")
+
 
 def is_junk_event(ev: dict):
     """Deterministic scam/SEO-spam gate. Returns a reason string for a junk
@@ -136,6 +149,12 @@ def is_junk_event(ev: dict):
         return "airline-hotline spam title"
     if _JUNK_FIN_BRAND.search(title) and _JUNK_FIN_ACTION.search(title):
         return "insurance/account-service spam title"
+    if _JUNK_FAQ_SPAM.search(title):
+        return "FAQ-guide hotline spam title"
+    if _JUNK_AIRLINE_GENERIC.search(title) and (
+        _JUNK_TRAVEL_ACTION.search(title) or _JUNK_LONG_DIGIT_RUN.search(title)
+    ):
+        return "airline-hotline spam title"
     return None
 
 

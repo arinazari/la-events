@@ -733,13 +733,14 @@
       "score_at_judge": 6
     },
     "d95b156bb459": {
-      "tier": "great",
-      "adjust": -1,
-      "why": "Album release energy at The Echo on a Saturday, KROQ alt-rock airplay, and 8+ years of road-tested SoCal gigging — the right genre in the right room, just not a name she'd know to seek out.",
-      "confidence": "med",
-      "judged_at": "2026-07-20T09:14:35",
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Three strong-tier picks on one bill for an album release at your favorite Echo Park room — this is the night to build the weekend around.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 11,
+      "model": "sonnet"
     },
     "0e247841b964": {
       "tier": "must-see",
@@ -1799,6 +1800,217 @@
       "judged_at": "2026-08-03T02:11:27",
       "input_version": 2,
       "score_at_judge": 2
+    },
+    "4fde9ef71293": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "J'cuuzi's costumed art-punk (Viagra Boys/Warmduscher tour support) on a scrappy DIY bill at Gold Diggers is exactly the garage/post-punk lane you live in, even without a name you'd recognize.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "f5fa123eb456": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Momma's loving Breeders/Nirvana-via-Pavement revival on Polyvinyl, with Rocket's shoegaze edge opening, is a real critical-buzz bill, not just another rock date.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "53630a69d501": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Sizzy Rocket leans glam-pop-rock rather than the art-rock/post-punk end you actually chase, and the attached scene note is misfiled (describes a different band) — go in with modest expectations.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "4048ae982880": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hulvey is Reach Records Christian hip-hop, not indie — the genre tags mislead, this isn't your lane at all.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "f89226be5e5e": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Mehldau, Chris Thile and Blake Mills doing chamber reinterpretations of Elliott Smith is serious musicianship, not a tribute-band nostalgia trip — worth the Orpheum ticket.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "2e3e86b1f247": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -1,
+      "why": "This reads as a themed DJ party spinning indie-rock hits rather than actual bands — closer to a mainstream nostalgia night at Echoplex than underground club programming.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "b7a22c4df631": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Death Cab is a real headliner in your indie-rock wheelhouse with Nation of Language's cold-wave synth-pop a genuinely good opener — the editorial-mention-only bump undersells a legit big show.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "661810bd07d3": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Alejandro Aranda (American Idol's Scarypoolparty) writing in your loved Echo room — solid songwriter bill, though I can't gauge how big a draw he still is.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "2368c637023c": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Poppy's bill leans metalcore (LANDMVRKS, Thousand Below) rather than the goth/art-rock end of your taste — closer to a heavy show than a glam-goth crossover.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "a7a8f0f27ed0": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Old 97's alt-country veterans at Teragram, a room you already love — dependable, well-played rock, easy include.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "ce2681dff5d3": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "This is Corinne Bailey Rae herself on an anniversary tour, not a cover act despite the 'Celebrating 20 Years' framing — soulful songwriter fare that fits your craft-pop lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "8a4e8ecfdc9b": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Gipsy Kings are the flamenco-rumba legends your ethnomusicologist streak was built for — the flat scoring badly undersells a marquee world-music booking at the Greek.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "492a5e47701a": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Straight country bill with no crossover hook for your taste — pass unless you know Ole 60 specifically.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "3e976b515868": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Mainstream country arena pop, nothing here for your lane.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "228005af5a28": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Juan de Marcos and the actual Afro-Cuban All Stars — Buena Vista Social Club's own architects doing Cuban son at a real theater — this is the ethnomusicologist-core pick of the week, and the score has no idea.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "ae6bc3908106": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Judy Collins and Bruce Cockburn, two folk lifers, at the Ford's outdoor garden setting — squarely the roots/folk end of your taste in the exact setting you love.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "9d77efd700d9": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Nikki Nair and George Daniel (The 1975's drummer moonlighting) are interesting but not marquee enough to justify a warehouse afterhours booking outside your usual lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "1c5658a19b7d": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Solid pedigree (Drumcode-adjacent Mha iri) but still just warehouse techno without a truly special name — stays in the 'only if marquee' bucket for you.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "44cb7ee32c64": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "The Smell's DIY punk grime is your garage/post-punk wheelhouse even with unknown names — Black Cat Coalition's noisy queer post-grunge fits the room.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "c1876cd78086": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "New Age spotlight programming at the Grammy Museum doesn't touch your indie/global lane, and there's nothing else to go on for this artist.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "d3d3bb892f9e": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "No info on this bill beyond the names, but Zebulon is a room you trust for exactly this kind of live-band night — worth a flier.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T13:08:51",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
     }
   }
 }

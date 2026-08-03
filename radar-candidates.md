@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/2/2026 deterministically (no API). 324 candidates. Signals: big-venue 290, festival 31, tracked 5._
+_Generated 8/3/2026 deterministically (no API). 320 candidates. Signals: big-venue 286, festival 31, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -56,7 +56,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/6 | 3 | Hypnotique Presents: Sway Festival - DAY 2 | Teragram Ballroom | festival | [link](https://www.ticketmaster.com/hypnotique-presents-sway-festival-day-2-los-angeles-california-09-06-2026/event/090064C8A6207A7D) |
 | Sat 9/19 | 3 | AFI | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/afi-santa-ana-california-09-19-2026/event/09006494A5578640) |
 | Sat 9/19 | 3 | 6th Annual Lake Elsinore Mariachi Fest 2026 | LAKE ELSINORE DIAMOND STADIUM | festival | [link](https://www.ticketmaster.com/6th-annual-lake-elsinore-mariachi-fest-lake-elsinore-california-09-19-2026/event/090064F0954D6982) |
 | Thu 9/24 | 3 | Laurie Anderson | Orpheum Theatre | festival | [link](https://www.ticketmaster.com/laurie-anderson-los-angeles-california-09-24-2026/event/090064CAD9E9F3B2) |
@@ -110,6 +109,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 9/12 | 1 | Island Fest  | The Show at Agua Caliente Casino R | festival | [link](https://www.ticketmaster.com/island-fest-rancho-mirage-california-09-12-2026/event/090064B3408D0F38) |
+| Wed 9/16 | 1 | Elliott Brothers Present COMEDY BLOCK PARTY Hosted by Chri | The Miracle Theater | festival | [link](https://www.ticketmaster.com/elliott-brothers-present-comedy-block-party-inglewood-california-09-16-2026/event/0B0065028D851D7E) |
 
 ## November 2026
 
@@ -193,8 +193,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/6 | 3 | ASAKE | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
-| Sun 9/6 | 3 | Los Angeles Philharmonic | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Mon 9/7 | 3 | J. Cole: The Fall-Off Tour | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/j-cole-the-falloff-tour-los-angeles-california-09-07-2026/event/2C0064529BE01DBE) |
 | Tue 9/8 | 3 | Liz Phair & Sleater‐Kinney | Greek Theatre | big-venue | [link](https://www.axs.com/events/1364312/liz-phair-sleaterykinney-tickets) |
 | Wed 9/9 | 3 | wave to earth - the pieces tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/wave-to-earth-the-pieces-tour-los-angeles-california-09-09-2026/event/090064ADB561EDC8) |
@@ -342,14 +340,12 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 1/16 | 3 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-16-2027/event/0900649DE84C64CD) |
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
+| Fri 1/29 | 3 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
 
 ## September 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/6 | 2 | Chicago & Styx: The Windy Cities Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/chicago-styx-the-windy-cities-tour-inglewood-california-09-06-2026/event/09006379EB8CC553) |
-| Sun 9/6 | 2 | BTS WORLD TOUR 'ARIRANG' IN LOS ANGELES | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bts-world-tour-arirang-in-los-inglewood-california-09-06-2026/event/0A006429B353645F) |
-| Sun 9/6 | 2 | Deep Purple with Kansas (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Mon 9/7 | 2 | Kany Garcia: Puerta Abierta Tour (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1405898/kany-garcia-tickets) |
 | Thu 9/10 | 2 | Palomazo Norteno -  21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 9/11 | 2 | Dane Cook (21+) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |

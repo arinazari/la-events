@@ -14727,12 +14727,13 @@
     },
     "d95b156bb459": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Rock trio headlining The Echo — another one of the named small-venue rock rooms, and the live-band lane needs surfacing per your own feedback note.",
+      "adjust": 1,
+      "why": "Echo album-release show for a KROQ-adjacent local rock band with two affinity-confirmed openers — this is the small-room indie/rock lane the score labeled 'medium' but taste.yaml actually files as high.",
       "confidence": "med",
-      "judged_at": "2026-07-11T12:26:43",
+      "judged_at": "2026-08-03T12:52:36",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 9,
+      "model": "sonnet"
     },
     "0a303182e8c6": {
       "tier": "solid",
@@ -22190,12 +22191,13 @@
     },
     "b7fda605070e": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "Audiofreq/Codeblack/Toneshifterz is a hardstyle bill at Avalon — precisely the production-over-selection mega-rave category the brief flags to bury.",
+      "adjust": -1,
+      "why": "Audiofreq/Codeblack/Toneshifterz is a hardstyle bill — the taste brief flags hard-dance as a hard no even when it's the score's own -2 already, this belongs at the bottom.",
       "confidence": "high",
-      "judged_at": "2026-07-31T12:35:32",
+      "judged_at": "2026-08-03T12:52:36",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "sonnet"
     },
     "c40505be50e3": {
       "tier": "skip",
@@ -38056,6 +38058,397 @@
       "input_version": 2,
       "score_at_judge": 4,
       "model": "claude-sonnet-5"
+    },
+    "1ba60083ebbe": {
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Demuir's Hot Creations groove-house pedigree plus Juliet Mendoza's Defected/Jill's House lineage in a warehouse TBA is the exact booking the capped score can't fully credit.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 9,
+      "model": "sonnet"
+    },
+    "7e7ee602e8de": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "No lineup, no genre detail — a generic 'festival hangover' blowout riding late-start and free-entry bumps, not a curated booking.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "sonnet"
+    },
+    "67cff7099d69": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Reads as a reggae/dancehall Jamaican Independence night, mistagged electronic — no house/techno draw here.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "6f6029bdb369": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Club Tee Gee's house/techno series has real underground credibility even with unfamiliar names on this particular bill.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "cff952ddf66a": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Venue string ('TBA - Select Radio London') smells like a mis-scraped stream listing rather than an actual LA day party.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "d937ff5208e9": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Generic glow-party format with zero lineup — not the underground house/techno scene this profile is chasing.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "39a9147144e2": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "TBA, no lineup, night 1 of a recurring promoter series with nothing to distinguish it.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "1a54911e0b7f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No lineup to back up the 'groove' tag, and it's a trek out to the PCH for an unverified beach day party.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "a26049c57474": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same blank-slate TeckMEout promoter series, no lineup or venue to evaluate.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "sonnet"
+    },
+    "1ab685024fca": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "'8pm to Close' with no billed act is just a bar's regular night, not a booking worth surfacing.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "69ced78bcc17": {
+      "tier": "skip",
+      "lane": "food-drink",
+      "adjust": -2,
+      "why": "A $130 gospel food tour at a high school has nothing to do with the electronic/film lanes this profile runs on — mistagged as a club day-party.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "6d895412285f": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Album-playback-and-covers tribute format built around Summer Walker — exactly the nostalgia-night pattern to bury, and off-genre besides.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "be6b38fee217": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "The score's 'on-taste genre (opera)' bump is a false keyword hit on the venue name CineOpera, not a real signal — no scene data to say what this actually is.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "a1d2d6d71d1e": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Night 2 of the same blank TeckMEout series as its sibling — still nothing to go on.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "d80c91c82d3d": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Weekly recurring free night with no lineup, nothing distinguishing it from any other Tuesday.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "3a865c1fdf6e": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Scene notes confirm VILENA is a genuine groovy/driving techno selector — a legit underground afters even without a marquee name on the bill.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "8cbabe9b166a": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No lineup or genre info — reads like a generic lounge night, not a DJ booking.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "73896873c436": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "English-dubbed Ponyo matinee is family/kids programming — an explicit pass even at a loved rep house.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "c15f2fa0e2e1": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Fun Bond matinee at Vidiots, a trusted rep venue, even without a format hook like 70mm behind it.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "8d618ed0823b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Closing night of a Mary Oliver doc run — nice matinee at a loved room, but a poetry doc isn't the format/director draw that makes New Bev/Vidiots a build-around night here.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "acf86e4102fa": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Vidiots screening with no format or director hook to judge — a generic-title indie you'd catch if you're already there, not a reason to go.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "1e2116c0fa6c": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Closing night of another obscure Vidiots run, same as the sibling screenings this week — fine filler, no real pull.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "683c6d1d570d": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Scene notes peg this as gospel-tinged deep/soulful house, all-night-long format — exactly the groove-leaning boost the taste brief calls out, and the score's flat 4 undersells it.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "sonnet"
+    },
+    "73ebf1d4bd98": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Taxi Driver on a New Bev print tonight — a genuine classic-revival night, not just another rep slot, even without a tracked director attached.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "842744a4c063": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "1953 MGM swashbuckler on a weeknight — pleasant New Bev programming, not a marquee classic like the Taxi Driver booking this week.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "590ff718113b": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same Knights of the Round Table run, second night — go the Tuesday if you're going at all, this is the redundant sibling.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "7e753183f1b3": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Jazz at a Venice speakeasy on a Friday is a fine setting but the lineup names mean nothing to check against taste — modest as-is.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "67838b645f74": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free open-studio electronic party with zero lineup info — could be a real warehouse night or could be background music at an art thing, no way to tell.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "ed37921d1de6": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "TBA-location free party fits the warehouse/afterhours boost in principle, but there's no lineup to confirm it's a selection-driven night vs. just an RSVP mixer.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "8e2e5aa03962": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "\"The Art of a Compliment\" reads more like a social/wellness mixer than a DJ night despite the electronic tag — the exact kind of event the taste brief tells you to skip if that's what it is.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "7bdc9eaafb6e": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Private-address Sonder booking with named DJs (not just a generic banner) — the TBA-adjacent warehouse setup is the kind of thing worth a flier even unrecognized.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "38e7f37eff82": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Sapphic speakeasy social night at Rouge Room — reads as a mixer/singles event more than a DJ-driven dance night, so the electronic tag is likely just a label.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "33c9b91badf0": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Gold Diggers residency night with no lineup listed — trusted room, but nothing here to judge beyond the venue itself.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "b10cc6a34b44": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Hippie Death Cult / Earth Tongue is exactly the heavier psych-rock end of the small-club lane at a venue (Zebulon) explicitly in the loved list — the score's flat medium-tier 3 undersells the venue match.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "27da6b2226f6": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Muse plus Portugal. The Man at the Bowl is a legit marquee bill at a favorite venue — rock isn't the core electronic lane, but this is worth surfacing over the medium-tier score.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "ec923f579e38": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Closing night of the season for a show you've already flagged as a personal favorite — worth the Laguna trip on principle, and this is the last chance before it's gone for the year.",
+      "confidence": "high",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "9e4070d8cf5a": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Closing night of the Bond run — a fun, crowd-pleasing classic on a New Bev print, a notch above ordinary rep programming even without a tracked director.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "sonnet"
+    },
+    "4d7cf70493df": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Sold out already and folk isn't in the taste lane despite the notable session-musician pedigree (Hidalgo, Froom) — nothing actionable here.",
+      "confidence": "med",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
+    },
+    "5ff56ac784bc": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Blues/funk-soul night at Harvelle's under a generic banner with no named act — pleasant but nothing to distinguish it.",
+      "confidence": "low",
+      "judged_at": "2026-08-03T12:52:36",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "sonnet"
     }
   }
 }
