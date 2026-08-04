@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/3/2026 deterministically (no API). 320 candidates. Signals: big-venue 286, festival 31, tracked 5._
+_Generated 8/4/2026 deterministically (no API). 319 candidates. Signals: big-venue 284, festival 31, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -29,6 +29,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Fri 10/30 | 5 | Escape | NOS Events Center | tracked:Cloonee,Richie Hawtin | [link](https://on.fgtix.com/trk/Ni5m) |
 | Sat 10/31 | 5 | THE MAZE Halloween: Arts District Block Party | TBA - Arts District Los Angeles | festival | [link](https://ra.co/events/2491883) |
 
 ## September 2026
@@ -193,7 +194,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 9/7 | 3 | J. Cole: The Fall-Off Tour | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/j-cole-the-falloff-tour-los-angeles-california-09-07-2026/event/2C0064529BE01DBE) |
 | Tue 9/8 | 3 | Liz Phair & Sleater‐Kinney | Greek Theatre | big-venue | [link](https://www.axs.com/events/1364312/liz-phair-sleaterykinney-tickets) |
 | Wed 9/9 | 3 | wave to earth - the pieces tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/wave-to-earth-the-pieces-tour-los-angeles-california-09-09-2026/event/090064ADB561EDC8) |
 | Wed 9/9 | 3 | Buddy Guy | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
@@ -346,7 +346,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 9/7 | 2 | Kany Garcia: Puerta Abierta Tour (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1405898/kany-garcia-tickets) |
 | Thu 9/10 | 2 | Palomazo Norteno -  21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 9/11 | 2 | Dane Cook (21+) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 9/13 | 2 | Los Angeles Azules (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -478,7 +477,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 10/2 | 1 | Thomas Rhett: The Soundtrack to Life Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/thomas-rhett-the-soundtrack-to-life-anaheim-california-10-02-2026/event/0900646409D672A2) |
-| Sat 10/3 | 1 | Breaking Benjamin | Honda Center | big-venue | [link](https://www.ticketmaster.com/breaking-benjamin-anaheim-california-10-03-2026/event/0900644BB38E9BE4) |
+| Sat 10/3 | 1 | Premium Club Seats - Breaking Benjamin | Honda Center | big-venue | [link](https://www.ticketmaster.com/breaking-benjamin-anaheim-california-10-03-2026/event/0900644BB38E9BE4) |
 | Thu 10/8 | 1 | Insecure: The 10th Anniversary Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/insecure-the-10th-anniversary-tour-inglewood-california-10-08-2026/event/0A0064DA9DF5740E) |
 | Fri 10/9 | 1 | SOMBR - You Are The Reason Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/sombr-you-are-the-reason-tour-anaheim-california-10-09-2026/event/090064891741C9C1) |
 | Sun 10/11 | 1 | Rose Bowl Flea Market Sunday, October 11, 2026 | Rose Bowl Stadium | big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-october-11-2026-tickets-1977731925428) |
