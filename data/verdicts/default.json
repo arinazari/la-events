@@ -9953,12 +9953,13 @@
     },
     "3827914c0cac": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "Late-night jazz big band at Vibrato — fine background music, no real hook for this profile.",
-      "confidence": "med",
-      "judged_at": "2026-07-21T12:31:54",
+      "adjust": -2,
+      "why": "Big-band swing act — jazz isn't in the brief at all; the scorer's 'on-taste genre' credit here looks like a mistag.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "b0dafb5b173a": {
       "tier": "skip",
@@ -10663,13 +10664,13 @@
       "score_at_judge": 3
     },
     "7757954dd08c": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Solid jazz booking on its own terms, but it's off the house/techno/indie-rock lane and a late trek to Bel Air for it.",
-      "confidence": "high",
-      "judged_at": "2026-07-08T12:32:03",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Roy McCurdy (Cannonball Adderley's old drummer) gives this jazz combo real pedigree, but it's still outside the core electronic lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2,
+      "score_at_judge": 4,
       "model": "claude-sonnet-5"
     },
     "4b9e0daa4c9a": {
@@ -11424,13 +11425,13 @@
       "model": "claude-sonnet-5"
     },
     "f40e0e5e182b": {
-      "tier": "skip",
-      "adjust": 0,
-      "why": "Celebrity lounge act with a chamber orchestra doing dinner-theater vocal jazz — nowhere near the house/techno or indie-rock lanes.",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Celebrity vanity lounge act (Seth MacFarlane's dinner-theater chamber orchestra) — harmless, not a real pull for this taste.",
       "confidence": "high",
-      "judged_at": "2026-07-09T12:26:39",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2,
+      "score_at_judge": 4,
       "model": "claude-sonnet-5"
     },
     "ea879ee0d158": {
@@ -13228,12 +13229,13 @@
     },
     "37b3772b4555": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "Late-night jazz combo, no real name to hang a recommendation on.",
-      "confidence": "med",
-      "judged_at": "2026-07-21T12:31:54",
+      "adjust": -2,
+      "why": "Standard Vibrato jazz-quintet booking, no reason to send this profile across town for it.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "c988c2c52521": {
       "tier": "skip",
@@ -14501,12 +14503,14 @@
     },
     "cf801f54930c": {
       "tier": "skip",
+      "lane": "club:mainstream",
       "adjust": -2,
-      "why": "Gimme Gimme Disco is a touring disco-hits nostalgia party, not a DJ/artist booking — the tired-format penalty applies even though 'disco' reads on-taste.",
-      "confidence": "high",
-      "judged_at": "2026-07-11T12:26:43",
+      "why": "Branded disco nostalgia dance night, not a groove DJ set — the exact '[decade]-style' nostalgia format the brief says to bury.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
     },
     "19621d0ce2ef": {
       "tier": "skip",
@@ -14601,12 +14605,13 @@
     },
     "7368ae830d9d": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "Session-musician jazz/soul collective, pleasant but no real draw.",
-      "confidence": "low",
-      "judged_at": "2026-07-21T12:31:54",
+      "adjust": -2,
+      "why": "Contemporary jazz/soul collective, same off-lane Bel Air room.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "0ce2f4572614": {
       "tier": "solid",
@@ -14629,11 +14634,12 @@
     "7d40d561803d": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Gerald Clayton is a real jazz-piano name hosting a weekly series at a serious room — low-key but credible.",
-      "confidence": "med",
-      "judged_at": "2026-07-11T12:26:43",
+      "why": "Gerald Clayton's weekly jazz jam — solid and recurring, not a special-occasion night; take this date over the 8/11 repeat.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "9cf174fb7959": {
       "tier": "solid",
@@ -14745,13 +14751,14 @@
       "score_at_judge": 4
     },
     "769b81a452e4": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "R&B deep-cuts night at the Regent — outside the house/techno spine and not a name you track.",
-      "confidence": "med",
-      "judged_at": "2026-07-11T12:26:43",
+      "why": "Funk/soul DJ set at a theater — pleasant but off the house/techno spine, and Bobby Nsenga's actual draw is unverified.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
     },
     "3610738b9990": {
       "tier": "skip",
@@ -15052,31 +15059,34 @@
       "score_at_judge": 2
     },
     "f3138227c160": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Teen electronic showcase night, not a real club outing.",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Teen electronic showcase at an all-ages DIY spot — sweet community booking, but not really programmed for an adult house-head's night out.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "a8b86b26a673": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "Generic bar booking with no lineup detail - blues/funk-soul isn't a lane you've flagged.",
+      "why": "'DORTI Presents' doesn't even name who's playing — too thin to rate above filler.",
       "confidence": "low",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "435d81d1db8f": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "House trad-jazz night, no standout names - low-interest-jazz filler.",
+      "why": "Weekly South Bay jazz club series, generic and a haul from home.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "e744ba333e35": {
       "tier": "skip",
@@ -15098,12 +15108,13 @@
     },
     "865303749265": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "Luther Vandross tribute set at a late-night jazz room — tribute penalty.",
+      "adjust": -1,
+      "why": "Luther Vandross tribute set at 11pm — the score already flagged the tribute penalty, confirming the bury.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 1
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "7210967968cd": {
       "tier": "must-see",
@@ -16494,21 +16505,23 @@
     },
     "d2cc8dd2faed": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Brazilian jazz specialists at Sam First — a genuinely niche booking worth a mention even though it's off the house/techno spine.",
+      "adjust": 0,
+      "why": "Brazilian-jazz mandolin niche booking — nicely specific, still a genre stretch for this taste.",
       "confidence": "med",
-      "judged_at": "2026-07-14T12:31:13",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "f62fe0a5634a": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "Legacy lounge act (Billy Vera & the Beaters) doing a standing big-band residency - nostalgia, not your lane.",
+      "why": "Standard big-band jazz night at Vibrato, nothing distinguishing it from the rest of the run.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "174e6ffda442": {
       "tier": "skip",
@@ -16997,13 +17010,14 @@
       "score_at_judge": 2
     },
     "f22248d02581": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Retro-soul birthday party lounge night - Laurence Juber's Wings pedigree doesn't save the format.",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Laurence Juber (former Wings guitarist) gives this retro-soul night some real name value, but it's still a jazz-club booking outside the lane.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "e1d760545806": {
       "tier": "skip",
@@ -18672,11 +18686,12 @@
     "e8925cfb2896": {
       "tier": "skip",
       "adjust": -3,
-      "why": "This 'FISHER' is a 70s rock-and-disco covers duo at a jazz-grill listening bar, not the techno DJ FISHER the Spotify match latched onto — it's a covers act, exactly the tribute-night penalty the score missed.",
+      "why": "Explicitly a 70s rock-and-disco covers duo ('modern-day Sonny and Cher') — textbook cover-band booking the brief says to bury.",
       "confidence": "high",
-      "judged_at": "2026-07-16T16:12:47",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "e769bc164137": {
       "tier": "great",
@@ -19576,13 +19591,14 @@
       "score_at_judge": 2
     },
     "51dfc2b73cf8": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Another solid night on the Sam First jazz calendar, big-band arrangement led by Pritesh Walia.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "17-piece big band explicitly working cinematic/electronic textures — the closest thing in this Sam First run to actually touching the house/techno lane.",
       "confidence": "med",
-      "judged_at": "2026-07-16T16:12:47",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "78c66cd0b5ec": {
       "tier": "solid",
@@ -19876,13 +19892,14 @@
       "score_at_judge": 2
     },
     "4340d9e79186": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": 0,
-      "why": "Eclectic afrobeat/reggae/jazz ensemble - interesting on paper but off your stated lanes.",
-      "confidence": "low",
-      "judged_at": "2026-07-21T12:31:24",
+      "why": "Eclectic afrobeat/funk/reggae ensemble, interesting booking but a real haul to San Pedro for a non-electronic night.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "923e48eb9d6a": {
       "tier": "skip",
@@ -22181,13 +22198,14 @@
       "score_at_judge": 4
     },
     "9730ff1b2c69": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Pleasant vintage-jazz vocal set at a Bel Air supper club — fine, but off the core lane and a trek from home.",
-      "confidence": "med",
-      "judged_at": "2026-07-17T12:29:13",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Vintage-jazz vocal combo — jazz never shows up in this profile's brief, and Bel Air's a trek for a generic dinner-jazz booking.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
     },
     "b7fda605070e": {
       "tier": "skip",
@@ -22445,13 +22463,14 @@
       "score_at_judge": 2
     },
     "3c94a2859d5a": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Nostalgia screening with the original Audrey hosting, but it's Riverside for a non-rep, non-format film - a big ask relative to the draw.",
+      "why": "Original Audrey in person is a nice hook, but Riverside is too far for a musical-horror nostalgia screening.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 0,
+      "model": "claude-sonnet-5"
     },
     "e25a710ec339": {
       "tier": "skip",
@@ -23225,12 +23244,13 @@
     },
     "971ac6dcf2e8": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "Vintage-jazz/pop bar gig — pleasant but off every genre lane this profile tracks.",
-      "confidence": "low",
-      "judged_at": "2026-07-18T12:30:40",
+      "adjust": -2,
+      "why": "Vintage jazz/swing/pop combo, off-lane and off-map for this profile.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "6624f30f025b": {
       "tier": "skip",
@@ -23831,22 +23851,24 @@
       "score_at_judge": 2
     },
     "ba9119940074": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "Unknown classical-soul duo, low-interest jazz-adjacent filler.",
-      "confidence": "low",
-      "judged_at": "2026-07-21T12:31:24",
+      "why": "Classical-soul crossover technically clears your listening (classical shows up in your Spotify), but it's a recurring Bel Air brunch booking, not a real pull.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "920e0ced9662": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "Legacy-act folk night, not a lane you've flagged.",
-      "confidence": "low",
-      "judged_at": "2026-07-21T12:31:24",
+      "why": "McCabe's listening room is legit, but John Stewart Band is legacy folk-rock, not the indie/post-punk vein you actually chase.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "fdd147d917d7": {
       "tier": "skip",
@@ -23878,11 +23900,12 @@
     "0bea148ab9c8": {
       "tier": "skip",
       "adjust": -1,
-      "why": "Local jazz trio, no standout name.",
-      "confidence": "low",
-      "judged_at": "2026-07-21T12:31:24",
+      "why": "Standing Sunday jazz trio at a bar — pleasant background music, nowhere near your lane.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "081f4a063e2c": {
       "tier": "skip",
@@ -24655,40 +24678,44 @@
       "score_at_judge": 3
     },
     "8fea7382e5a2": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Taxi Driver is genuine rep-canon, opening night of a four-night run — the one to go to.",
+      "tier": "solid",
+      "adjust": 2,
+      "why": "Scorsese's classic on the big screen — take this Thursday 7:30 slot over the Sunday repeat.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:54",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "97917fbcbb26": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Last night of this New Bev run but a fairly conventional Arthurian matinee — no format/director hook to push it higher.",
-      "confidence": "low",
-      "judged_at": "2026-07-21T12:31:54",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Same scattered Knights of the Round Table booking, now a 2pm matinee — still no real draw.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "c696b1d53731": {
       "tier": "solid",
       "adjust": 1,
-      "why": "Silent-era spectacle restoration, a genuine rep-cinema curio — catch it this Sunday rather than the weeknight repeats.",
+      "why": "Silent-era sci-fi curiosity opens a four-night run — take this first date over the repeats.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:54",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "2f9457e66232": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Same New Bev run as Sunday's screening — go that night instead.",
+      "why": "Same 20,000 Leagues run as the 8/16 pick.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:54",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "d4c153c2c952": {
       "tier": "skip",
@@ -24718,13 +24745,14 @@
       "score_at_judge": 3
     },
     "ea2dec6c93c8": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "15-horn big band swing party at a real listening room — fun but not your core lane.",
-      "confidence": "med",
-      "judged_at": "2026-07-21T12:31:54",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Big-band jazz party, no house/techno or groove signal here despite the notable sideman.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "b2193901dba1": {
       "tier": "skip",
@@ -24754,13 +24782,14 @@
       "score_at_judge": 3
     },
     "57d9e43a18f2": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Third and final night of the same New Bev run — already flagged Sunday as the one to go.",
+      "why": "Same 20,000 Leagues run as the 8/16 pick.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:54",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "3db57a8269b6": {
       "tier": "skip",
@@ -25220,22 +25249,22 @@
     "0de0351467c1": {
       "tier": "great",
       "adjust": 1,
-      "why": "Phantom of the Paradise at Vidiots — a cult-classic matinee squarely in the rep-house lane you want.",
+      "why": "De Palma's cult rock-horror musical is a genuinely fun matinee pick for a rep regular, more than the low-interest film tag suggests.",
       "confidence": "high",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "39aa0c2a5531": {
       "tier": "great",
       "adjust": 2,
-      "why": "The Third Man's evening slot at Vidiots is the better print-and-mood pairing than the matinee down the hall.",
+      "why": "Carol Reed's noir masterpiece — an actual canon classic on this list; the generic low-interest film score undersells it.",
       "confidence": "high",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "02eb76005dd9": {
       "tier": "great",
@@ -25260,22 +25289,22 @@
     "ef25f9517a41": {
       "tier": "great",
       "adjust": 2,
-      "why": "Taxi Driver on the big New Bev screen — the classic-cinema night worth the trip out to Fairfax.",
-      "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "why": "Scorsese's Taxi Driver at Tarantino's own house — an actual canon classic, deserves to rank above the assorted matinee filler this week.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "8f8318f03358": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Pulp Fiction's midnight slot — a great film, but this is one date of a recurring late show, not a one-off event.",
+      "adjust": 2,
+      "why": "Tarantino is a tracked director and this is his own theater running his own movie at midnight — the marquee pick of this multi-venue run.",
       "confidence": "high",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "4fde9ef71293": {
       "tier": "great",
@@ -25300,12 +25329,12 @@
     "74ae6281c75e": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Sat-morning cartoon compilation slot — pleasant but the least essential thing on New Bev's calendar this weekend.",
-      "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "why": "Saturday-morning kids cartoon block, pure filler next to the evening rep picks.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "14454d9d629f": {
       "tier": "solid",
@@ -25320,22 +25349,22 @@
     "28e77d86da4e": {
       "tier": "great",
       "adjust": 2,
-      "why": "Scorsese's Taxi Driver at New Bev earns its own trip even without a tracked-director tag — take the Saturday 7:30 slot over Sunday's repeat.",
-      "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "why": "Taxi Driver at New Bev on a Saturday is the kind of rep classic this lane exists for — the score's flat 2 undersells it.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "95134e9c1e0e": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Notorious grindhouse cult classic in the midnight slot — exactly the kind of programming New Bev regulars show up for.",
+      "adjust": 0,
+      "why": "Midnight Cannibal Holocaust is a legit cult-classic booking but a narrower draw than the rest of this week's rep slate.",
       "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "7855b664c34c": {
       "tier": "great",
@@ -25380,22 +25409,22 @@
     "05387b36cd94": {
       "tier": "great",
       "adjust": 1,
-      "why": "Fosse's Cabaret is a legit big-screen classic worth building a Friday around — take this date over the Saturday repeat.",
-      "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "why": "Fosse's Cabaret is a real classic — take the Friday night of this two-night run.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "8c0bc4860ba5": {
       "tier": "great",
-      "adjust": 3,
-      "why": "Tarantino at his own theater, midnight Pulp Fiction — a tracked-director booking even without a special print attached.",
-      "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "adjust": 2,
+      "why": "Tarantino's on the tracked-director list — midnight Pulp Fiction is a legit pull even as a standing rep rerun.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "f3c39279dd91": {
       "tier": "solid",
@@ -25419,33 +25448,33 @@
     },
     "0a4d4a50eba8": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Generic classic-matinee slot in a long-running series — fine filler, nothing that builds a night around it.",
+      "adjust": 0,
+      "why": "Minor '50s swashbuckler matinee — pleasant but not a real draw.",
       "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "d76b060a0bb0": {
       "tier": "solid",
-      "adjust": -1,
+      "adjust": 0,
       "why": "Same Cabaret run as Friday — go that night instead, this is the redundant second showing.",
       "confidence": "high",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "c206e52d480a": {
       "tier": "solid",
       "adjust": 1,
-      "why": "Cult mockumentary with a devoted following — a fun oddball pick for the midnight slot.",
+      "why": "Cult midnight comedy with a devoted following — a fun, low-stakes late-night pick.",
       "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "4acc33f34f07": {
       "tier": "solid",
@@ -25540,12 +25569,12 @@
     "daf291de89d4": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Grateful Dead tribute brunch act — exactly the nostalgia-covers format the taste brief says to bury.",
+      "why": "Grateful Dead tribute brunch — cover-band format the brief flags to bury.",
       "confidence": "high",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "68fe10ae922e": {
       "tier": "solid",
@@ -25558,34 +25587,34 @@
       "model": "sonnet"
     },
     "f812fe6743b9": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Same Taxi Driver run as Saturday's 7:30 show — go that date, this is the last-chance repeat.",
+      "why": "Same Taxi Driver run as the Thursday pick — this later Sunday slot is the redundant one.",
       "confidence": "high",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "735d3bf82b9a": {
       "tier": "solid",
       "adjust": 1,
-      "why": "Cult B-movie horror-comedy touring both Vista and New Bev — good silly midnight-adjacent programming, just one stop of several in the run.",
+      "why": "Cult Clint Howard schlock-horror making the Vista/New Bev rounds — fun midnight pick, this is the date to take.",
       "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "7e52753ceea5": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Cult Clint Howard oddity, not a tracked director or a print-forward showing — fine rep-house filler, not the night to prioritize.",
-      "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Same Ice Cream Man run as the 8/10 pick.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "d13f30577b08": {
       "tier": "solid",
@@ -25608,14 +25637,14 @@
       "model": "sonnet"
     },
     "8826c721421c": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Same Ice Cream Man run, middle night — the 8/13 closer is the one to actually go to.",
-      "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Same Ice Cream Man run as the 8/10 pick.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "74db50ea0516": {
       "tier": "solid",
@@ -25638,14 +25667,14 @@
       "model": "sonnet"
     },
     "3c19b668a111": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Closing night of the six-night Ice Cream Man run — last chance beats the two nights before it, though the film itself is still just a cult curio.",
-      "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Last night of the same Ice Cream Man run.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "301ec528a950": {
       "tier": "solid",
@@ -25700,12 +25729,12 @@
     "9e1ede1c2ffb": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Grateful Dead-themed cover brunch — the nostalgia tribute format this taste explicitly wants buried.",
+      "why": "Second Grateful Dead-brunch tribute booking this batch — same cover-format penalty.",
       "confidence": "high",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "53630a69d501": {
       "tier": "great",
@@ -25768,14 +25797,14 @@
       "model": "sonnet"
     },
     "23e4ae300145": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "A silent-era classic on the big screen, closing its four-night run — the rare rep-cinema booking actually worth building a night around.",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Last night of the same 20,000 Leagues run.",
       "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "b56b6929ebee": {
       "tier": "skip",
@@ -25830,12 +25859,12 @@
     "b9247cf8589d": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Tommy Newport reads more mainstream pop than the indie/garage clubs this taste favors — fine fill, no real pull.",
+      "why": "Unremarkable pop bar bill — score's about right, no particular reason to chase it.",
       "confidence": "low",
-      "judged_at": "2026-07-22T12:28:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2,
-      "model": "sonnet"
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "6c94d2452f44": {
       "tier": "solid",
@@ -25899,13 +25928,13 @@
     },
     "c71222ffc608": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "Tribute act — Buddy Rich's own band with his daughter fronting, but still a legacy tribute booking, exactly the format to bury.",
-      "confidence": "high",
-      "judged_at": "2026-07-22T12:28:09",
+      "adjust": -1,
+      "why": "Buddy Rich legacy big band fronted by his daughter — a tribute act in all but name, and jazz big band isn't your lane anyway.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2,
-      "model": "sonnet"
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "063675b00ba6": {
       "tier": "skip",
@@ -26086,13 +26115,14 @@
       "score_at_judge": 5
     },
     "b2cfccad86b3": {
-      "tier": "solid",
+      "tier": "great",
       "adjust": 1,
-      "why": "Vidiots is a loved room and rep/arthouse is a real lane for him even without a tracked director on the bill; no print format listed so it's not quite a format-driven event to build the night around.",
+      "why": "Araki's most acclaimed film, dark and well-regarded arthouse — flagging it above the generic rep filler around it.",
       "confidence": "med",
-      "judged_at": "2026-07-23T12:26:57",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "15137a1130a3": {
       "tier": "skip",
@@ -26196,11 +26226,12 @@
     "fccfe64b652e": {
       "tier": "solid",
       "adjust": 1,
-      "why": "New Beverly's a trusted room even without a stated print format, and Moneyball's a real watch — the venue alone earns a bump over the score's flat film credit.",
+      "why": "Sorkin/Pitt baseball drama at New Bev, dependable rep pick, night one of a short two-night run.",
       "confidence": "med",
-      "judged_at": "2026-07-23T12:26:57",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "b9331e425fba": {
       "tier": "skip",
@@ -26275,13 +26306,14 @@
       "score_at_judge": 2
     },
     "174016f1a59b": {
-      "tier": "skip",
-      "adjust": 0,
-      "why": "Jazz-soul brunch set in Bel Air, no venue relationship and a trek from home — skip.",
-      "confidence": "high",
-      "judged_at": "2026-07-23T12:26:57",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Voice-alum doing her own soul/jazz set, not a cover act, but still a Bel Air supper-club booking outside your actual lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "34710c9ba811": {
       "tier": "skip",
@@ -26304,11 +26336,12 @@
     "34c594b5da84": {
       "tier": "great",
       "adjust": 2,
-      "why": "Jane Schoenbrun's cult creepypasta-horror film at Vidiots, this profile's favorite rep house — worth the matinee even without a tracked director attached.",
+      "why": "Jane Schoenbrun is one of the sharper current indie voices (I Saw the TV Glow) — exactly the arthouse discovery the score can't spot from keywords.",
       "confidence": "high",
-      "judged_at": "2026-07-23T12:26:57",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "736e2b50d141": {
       "tier": "solid",
@@ -27334,12 +27367,13 @@
     },
     "7db519e00f3d": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "Daytime Latin-funk/jazz set at a Bel Air dinner club — pleasant, no name recognition, and a haul from home.",
-      "confidence": "med",
-      "judged_at": "2026-07-24T12:27:39",
+      "adjust": -2,
+      "why": "Latin jazz/salsa revue at the same Bel Air room — closer to the groove boost than most jazz bookings here but still outside the house/techno spine this profile runs on.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
     },
     "7825b14e7488": {
       "tier": "solid",
@@ -27372,20 +27406,22 @@
     "5594834128bc": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Solid rep pick, but Bennett Miller isn't a tracked director and there's no format hook — the late-night New Bev slot tonight is the one to build around.",
+      "why": "Solid crowd-pleaser but no format or director hook — filler next to the stronger picks on this slate.",
       "confidence": "med",
-      "judged_at": "2026-07-24T12:27:39",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "67798eb8c2d9": {
-      "tier": "must-see",
+      "tier": "great",
       "adjust": 2,
-      "why": "Tarantino at his own theater, late night — the exact director-event this brief is built to flag.",
+      "why": "Tarantino's a tracked director and this is the quintessential New Bev midnight booking — take this date over the 8/28 repeat.",
       "confidence": "high",
-      "judged_at": "2026-07-24T12:27:39",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "d7b0f487c70a": {
       "tier": "skip",
@@ -27618,12 +27654,13 @@
     },
     "a3e7d4b912fd": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "AHEE/XOTIX/PIERCE reads bass-music/trap-adjacent rather than the house-techno lane, and none of the three are a known quantity here — passing rather than betting on an unfamiliar bass bill.",
-      "confidence": "low",
-      "judged_at": "2026-07-24T12:27:39",
+      "adjust": -2,
+      "why": "AHEE is a Bassrush/Wakaan bass-music and dubstep producer — this is a big-room bass mega-show, exactly the penalized lane despite the correct mainstream-club tags.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "59e7dd9762c4": {
       "tier": "skip",
@@ -27828,11 +27865,12 @@
     "7cbb12310116": {
       "tier": "great",
       "adjust": 1,
-      "why": "Woodstock projected on 35mm at Vidiots — the print is the draw here, not just the film.",
+      "why": "35mm Woodstock at Vidiots, a loved rep house — format-plus-venue combo the brief calls out directly.",
       "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "9d35ede97ee7": {
       "tier": "solid",
@@ -27925,40 +27963,44 @@
       "score_at_judge": 5
     },
     "585627b26875": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Jackass compilation, no format hook — a fun rowdy crowd movie, not a must-plan-around night.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Vidiots' cult triple-header opener — go this Friday rather than the repeat nights later in the run.",
       "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "7901ac01738f": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Solid Vidiots comedy pick, no real format or rarity angle to push it higher.",
-      "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "why": "Solid rep-house comedy classic, no real hook beyond the venue.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "56bf4f00905c": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Breakin' 2 is peak so-bad-it's-great cult programming — the kind of rep pick that's actually more fun than the prestige titles.",
+      "adjust": 0,
+      "why": "Cult breakdance sequel in Vidiots' late slot — fine filler, no special format hook.",
       "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "172713d609e8": {
       "tier": "great",
       "adjust": 1,
-      "why": "Lynch is a tracked director and Twin Peaks is his defining work — this is the Friday half of a two-night run, go Saturday instead.",
+      "why": "Episode 8 is a Lynch-directed hour of Twin Peaks — that's your tracked director, even in TV form; catch this Friday screening over the Saturday repeat.",
       "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "074d433a8185": {
       "tier": "solid",
@@ -27981,56 +28023,62 @@
     "0041c1356521": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Cat video compilation — cute, but not the kind of screening that belongs above the line.",
-      "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "why": "CatVideoFest is a crowd-pleasing novelty matinee, not really building on your film taste beyond the venue.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "9e0cab9cfeba": {
       "tier": "solid",
       "adjust": 0,
-      "why": "No info to go on beyond the Vidiots matinee slot — treating this as routine rep programming.",
+      "why": "Unfamiliar title, no format or director hook to lean on.",
       "confidence": "low",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "7383ec68e7bb": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Mel Brooks cult comedy at Vidiots — reliable crowd-pleaser rep programming.",
-      "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "adjust": 0,
+      "why": "Mel Brooks classic, fun rep booking, no format or director angle to lift it further.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "6e261bb2f5c5": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "The Saturday half of the Twin Peaks run — Lynch is a tracked director and this is the night to build around if you're only doing one.",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same Twin Peaks block as the Friday screening — go to that one instead of this repeat.",
       "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "3d058dd2acc4": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Carpenter's Christine at Vidiots — solid genre-fan rep pick.",
-      "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "adjust": 0,
+      "why": "Carpenter's Christine, a good late-night rep booking, no special format hook here.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "6a421087df08": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Saturday half of the Jackass run — take this one over the Friday date.",
+      "adjust": -1,
+      "why": "Second night of the same Jackass run — go Friday instead.",
       "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "bcc416a6bbe6": {
       "tier": "solid",
@@ -28425,20 +28473,22 @@
     "f9468d1334fd": {
       "tier": "solid",
       "adjust": 1,
-      "why": "New Bev cult-classic revival — fun pick, but it's the first of a 2-night run so save the top marks for a director/format standout elsewhere.",
-      "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "why": "Fun weeklong New Bev booking of a beloved 90s adventure pic — take the first night over the closing-week repeat.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "7d7bff3edd3a": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "Ghost World at New Bev, midnight slot — a real rep-cinema draw (beloved Zwigoff cult film), no series discount needed since it's a one-off.",
+      "why": "Genuine indie-cult classic (Zwigoff/Birch/Johansson) — a stronger late-night pick than most of the straight rep filler this stretch.",
       "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "8cc9ae1a6789": {
       "tier": "great",
@@ -28659,22 +28709,24 @@
       "score_at_judge": 3
     },
     "7edeaffe995f": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "Generic funk-soul bar set out in Bel Air, no lineup detail to judge.",
-      "confidence": "low",
-      "judged_at": "2026-07-26T12:29:12",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "R&B/soul/pop combo at the same jazz room — pleasant dinner music, not this profile's night out.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "3d3e60f6de1b": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "Solid jazz trio but a San Pedro schlep for an unremarkable bill.",
-      "confidence": "low",
-      "judged_at": "2026-07-26T12:29:12",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Modern jazz trio in San Pedro — off-lane and a real haul from Silver Lake.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "1455fe7790b2": {
       "tier": "solid",
@@ -28697,11 +28749,12 @@
     "63d46bece0c8": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Grateful Dead cover-band brunch — the tribute-act penalty applies whether it's dinner or brunch.",
+      "why": "Grateful Dead tribute act at a Sunday brunch — that's the tired-cover-band format the brief says bury, house tag be damned.",
       "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "5e3c5bc9d657": {
       "tier": "solid",
@@ -28767,13 +28820,14 @@
       "score_at_judge": 3
     },
     "e52ba6f0a258": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "New Bev rep programming is core lane; The Mummy is the fun crowd-pleaser night of this two-night run.",
-      "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "The Mummy runs nightly at New Bev all week with no special presentation — pick this one, skip the repeats.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "077a6b5b3c58": {
       "tier": "solid",
@@ -28921,13 +28975,14 @@
       "score_at_judge": 2
     },
     "3844aab5aeda": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Bossa-Bacharach set at a Bel Air jazz room — nice but low-stakes daytime jazz, no lineup depth beyond the leader.",
+      "why": "Bacharach songbook covers at brunch hour — charming, but a standards set nowhere near house/techno or your rep-film lane.",
       "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "958166464be1": {
       "tier": "solid",
@@ -29241,47 +29296,52 @@
     "252601387a87": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Cat-video compilation matinee at Vidiots — cute and harmless, not the rep-cinema draw the venue usually earns.",
+      "why": "Fun annual charity matinee, but a novelty compilation isn't the format/director draw this lane is built for.",
       "confidence": "high",
-      "judged_at": "2026-07-27T12:34:40",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "308aff72fa3a": {
       "tier": "great",
       "adjust": 2,
-      "why": "Rashomon is the actual pick of that whole Vidiots slate that day — a real classic worth the trip, not just a matinee filler slot.",
+      "why": "Kurosawa's Rashomon at Vidiots is as core to the rep lane as it gets.",
       "confidence": "high",
-      "judged_at": "2026-07-27T12:34:40",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "89cde07b10a3": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Unfamiliar title with no scene notes to go on — can't tell if this is a real draw or filler in the Vidiots day lineup.",
+      "adjust": 0,
+      "why": "Niche documentary — worth a matinee slot but not a headline pick.",
       "confidence": "low",
-      "judged_at": "2026-07-27T12:34:40",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "7818b53882b8": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Fun 90s teen-comedy nostalgia at Vidiots, but a notch below Rashomon on the same day's card.",
+      "why": "Nostalgic teen-comedy rep pick, crowd-pleasing but not a real draw for this taste.",
       "confidence": "high",
-      "judged_at": "2026-07-27T12:34:40",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "a58464f413b1": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Jackass clip-show nostalgia — good time, but the least essential of the five Vidiots bookings that day.",
-      "confidence": "med",
-      "judged_at": "2026-07-27T12:34:40",
+      "adjust": 0,
+      "why": "Jackass doc has a built-in audience but doesn't push past filler for this profile.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "6df8080a6aba": {
       "tier": "great",
@@ -29374,13 +29434,14 @@
       "score_at_judge": 3
     },
     "afc9ca58c057": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Last night of this Mummy run at New Bev — rep-house love plus it's your one shot before it's gone.",
-      "confidence": "high",
-      "judged_at": "2026-07-27T12:34:40",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Same nightly Mummy run at New Bev — already covered by the earlier pick this week.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "26c456d85c0b": {
       "tier": "solid",
@@ -30674,13 +30735,14 @@
       "score_at_judge": 3
     },
     "3914a9419c77": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Last night of the New Bev's Mummy run — the closing date to catch it on, not a director-tracked title but solid rep-cinema fun.",
-      "confidence": "high",
-      "judged_at": "2026-07-28T12:33:37",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Another night of the same nightly Mummy run at New Bev.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "56df3dd71d0c": {
       "tier": "skip",
@@ -30829,12 +30891,13 @@
     },
     "7c9c8951430b": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "Temptations tribute act — tired format, correctly buried.",
+      "adjust": -2,
+      "why": "Straight Temptations/Motown tribute act — exactly the cover-band format your taste rejects.",
       "confidence": "high",
-      "judged_at": "2026-07-28T12:33:37",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "c71e2d5e75ed": {
       "tier": "skip",
@@ -31040,13 +31103,13 @@
       "score_at_judge": 6
     },
     "c867628d2d69": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Tracked director plus a loved format in one listing — a Nolan 35mm print is exactly the film ask, just a standard rep screening rather than a Q&A event to build a whole night around.",
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Nolan on 35mm at the Academy Museum is exactly the tracked-director-plus-loved-format combo the brief calls a night to build around — you already flagged interest in this one.",
       "confidence": "high",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 6,
+      "score_at_judge": 4,
       "model": "claude-sonnet-5"
     },
     "03f4985eaa8e": {
@@ -31241,11 +31304,12 @@
     "1576282b6683": {
       "tier": "great",
       "adjust": 1,
-      "why": "Verhoeven's kinkiest Dutch thriller on 35mm at the Academy Museum — real format-driven rep programming.",
+      "why": "35mm print of an underseen, kinky Verhoeven thriller — exactly the format-driven pick your film taste rewards, tracked director or not.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "5420fbe840de": {
       "tier": "skip",
@@ -31284,22 +31348,24 @@
       "score_at_judge": 5
     },
     "03003ccdbe58": {
-      "tier": "great",
+      "tier": "must-see",
       "adjust": 2,
-      "why": "Adrian Lyne in person plus a 35mm print — another of the Academy Museum's genuine Q&A-driven format nights.",
+      "why": "Adrian Lyne in person with a 35mm print of Unfaithful — a rare director Q&A in your favorite format, the kind of night worth building a plan around.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "92817628d36e": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Fun 35mm print, but it's a kids matinee, not the arthouse night the format tag implies.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "The scene data attached here actually describes Ponyo, not Scooby-Doo — taking the title at face value: fun format-loved matinee, not a priority.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "6f8392f7f178": {
       "tier": "skip",
@@ -31340,11 +31406,12 @@
     "8b7bdaa624e4": {
       "tier": "great",
       "adjust": 1,
-      "why": "Miyazaki on 35mm, last night of the run — the format is the whole reason to go.",
+      "why": "Miyazaki in 35mm is the loved-format case working as intended, and it's the last night of this run.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "8bafa5e5b59b": {
       "tier": "great",
@@ -31782,12 +31849,13 @@
     },
     "e024906dff7b": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Campion's underrated erotic thriller on an actual 35mm print — real format value the score didn't credit this time.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": 1,
+      "why": "Jane Campion in 35mm, the loved-format bump doing its job — a real rep pick, not a Thursday filler slot.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "67bf80d364ee": {
       "tier": "solid",
@@ -31799,58 +31867,64 @@
       "score_at_judge": 4
     },
     "5c03f8a22b67": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Verhoeven's camp-classic erotic thriller in 4K — a fun, easy Friday rep pick.",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Verhoeven's trashy-classy thriller in 4K, decent Friday counterprogramming, not a build-around pick.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "de055e0cbaa6": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Ghibli favorite, but this is the family-matinee slot of a run rather than a format or Q&A event.",
+      "why": "Pleasant Ghibli matinee, no format bump noted here so nothing elevates it above the pack.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "3131ea441acc": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "Streep/Hawn body-horror camp classic — one of the stronger Friday rep picks on the slate.",
+      "why": "Beloved camp classic, a fun midnight-adjacent choice at a good rep house.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "0c8af588d561": {
-      "tier": "must-see",
-      "adjust": 2,
-      "why": "Tarantino's a tracked name and this is exactly the director-event worth building a night around — if a New Beverly date on this same run turns up, that one has the extra home-turf pull, but this works.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Same Pulp Fiction run as New Bev's midnight show — that one's the pick for the Tarantino-owns-the-theater angle; this is the redundant sibling.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "1e79ef885865": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "The reigning midnight-movie cult standard — the communal so-bad-it's-good energy Alamo does best.",
+      "why": "Famous midnight-movie so-bad-it's-good cult classic, genuinely fun communal watch even without a format bump.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "ba161483c6a5": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Unfamiliar newer arthouse title opening a week-long Nuart run — nothing here to gauge it by beyond the score.",
+      "adjust": -1,
+      "why": "No scene info on this one at all — can't gauge the draw beyond the generic listing.",
       "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "b8aa3723019a": {
       "tier": "skip",
@@ -31920,21 +31994,23 @@
     },
     "d56cc8c98dfb": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Lang's noir landmark with an in-person intro at the Academy — the rep pick worth building the night around.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": 2,
+      "why": "Fritz Lang's M with an in-person Academy Governor is exactly the format-plus-context rep night worth building around.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "915599cde6be": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Kids-nostalgia rewatch, not the format-driven arthouse pick this lane wants — squarely the family programming your taste skips.",
+      "why": "Kids' matinee fare — off-lane for this profile no matter the venue.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "e9c29113414a": {
       "tier": "solid",
@@ -31948,38 +32024,42 @@
     "0124031cca00": {
       "tier": "skip",
       "adjust": -2,
-      "why": "DreamWorks family animation rerun — kids programming, not a rep-cinema pick.",
+      "why": "Animated family rerun at the Nuart, not this lane.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "43a9e901b394": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Newer festival-circuit indie (Eimbcke) — reasonable rep booking, not a title you're chasing.",
+      "why": "Small foreign drama with no distinguishing pull beyond the rep-house setting — fine filler, not a build-around.",
       "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "6757c7299001": {
       "tier": "skip",
       "adjust": -1,
-      "why": "Deadhead fan event with archival concert footage — off your electronic/arthouse lane entirely.",
+      "why": "Jam-band concert doc is off this profile's music lane entirely — house/techno head, not Deadhead.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "842806861776": {
       "tier": "great",
       "adjust": 2,
-      "why": "Malick's WWII masterpiece on 35mm — exactly the print-matters booking this lane exists for.",
+      "why": "Malick's Thin Red Line in 35mm hits the loved-format signal directly — this is the pick of the Academy's weekend slate.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "f5baf0fa02db": {
       "tier": "skip",
@@ -32001,12 +32081,13 @@
     },
     "1ab9fd0d8763": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Vidiots booking — likely the '98 Newman/Hackman noir rather than the vampire franchise, worth a look if so.",
-      "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": 0,
+      "why": "Ironic-rewatch rep pick, easy Tuesday plan but not a marquee night.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "adadca9e4267": {
       "tier": "great",
@@ -32046,12 +32127,13 @@
     },
     "2cb884a0b0ab": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Ghibli on the big screen always plays — a crossover rep pick, not just a kids matinee.",
+      "adjust": 2,
+      "why": "Miyazaki/Hisaishi — Joe Hisaishi shows up as a strong-tier artist in this profile's own listening, so Howl's is more than a family-anime booking here.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "0146079ca25e": {
       "tier": "skip",
@@ -32065,11 +32147,12 @@
     "71381e705c5c": {
       "tier": "great",
       "adjust": 1,
-      "why": "Scott's road-movie classic — a real rep pick, no gimmick needed.",
+      "why": "Thelma & Louise is a genuine classic revival, just a notch below the format/director-tracked picks this week.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "f0a48de172ba": {
       "tier": "solid",
@@ -32100,21 +32183,23 @@
     },
     "5d6cc445c583": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Same-day companion to the Train to Busan screening — worth it for the Q&A if you're already there.",
+      "adjust": 2,
+      "why": "Yeon Sang-ho in person for his new film — the companion piece to the Train to Busan Q&A, worth it if you're already going.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "6a62184d1d0f": {
       "tier": "must-see",
       "adjust": 3,
-      "why": "Yeon Sang-ho in person for his own zombie-thriller in 4K — the rare rep booking where the room actually knows the film.",
+      "why": "Train to Busan in 4K with Yeon Sang-ho himself — his signature film, in person, the clear headliner of the Academy's whole week.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "7355f3207a13": {
       "tier": "skip",
@@ -32127,30 +32212,33 @@
     },
     "d4644a53d0b0": {
       "tier": "skip",
-      "adjust": -3,
-      "why": "Same family-film run, later date — still not the pick.",
+      "adjust": -2,
+      "why": "Same animated family rerun, second week — still off-lane.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "3507b54f4a2b": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Filmed pop-musical event cinema — off your lane, no format or director hook.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Filmed musical-theater screening, pleasant but well outside this profile's actual lanes.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "d08cc9aaa433": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Small indie drama, unremarkable but a fine rep slot if nothing else grabs you.",
+      "why": "Unremarkable indie drama with no distinguishing hook beyond the room.",
       "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "80392faa118b": {
       "tier": "skip",
@@ -32173,11 +32261,12 @@
     "65b63c7ecd5e": {
       "tier": "great",
       "adjust": 2,
-      "why": "Spielberg's Munich on 35mm — prestige title plus the print format your taste explicitly boosts.",
+      "why": "Spielberg's Munich in 35mm — the loved-format signal plus a major director makes this an easy standout.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "d04c34da1637": {
       "tier": "great",
@@ -32190,12 +32279,13 @@
     },
     "c8e6b43278a4": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Miyazaki on 35mm — catch this date, the print's the same both nights so no need to double up.",
+      "adjust": 2,
+      "why": "Miyazaki in 35mm — the format's on your loved list and Joe Hisaishi's score is deep in your rotation; take the 8/17 date.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "2421c88e7bf9": {
       "tier": "great",
@@ -32226,12 +32316,13 @@
     },
     "742c2e566a70": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Same 35mm Ponyo run, second date — go 8/17 instead, this one's redundant.",
+      "adjust": 0,
+      "why": "Same 35mm Ponyo run — 8/17 is the date to go, this is just the repeat.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "4312e3179140": {
       "tier": "solid",
@@ -32254,11 +32345,12 @@
     "2251586c6a9b": {
       "tier": "great",
       "adjust": 2,
-      "why": "Ford's classic in genuine 70mm at the Academy — exactly the format-first booking worth building an afternoon around.",
+      "why": "Ford's western in true 70mm — the print is the whole event, exactly the format-first rep pick you build a night around.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "b05a0a369f34": {
       "tier": "solid",
@@ -32279,13 +32371,14 @@
       "score_at_judge": 4
     },
     "8fb102fa0178": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Rare VistaVision revival of a classic western — same format-driven appeal as the Searchers booking this week.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "solid",
+      "adjust": 1,
+      "why": "VistaVision is a real specialty presentation even though it's not on your named-formats list — a classic western worth a look.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "de26a652b83e": {
       "tier": "solid",
@@ -32298,48 +32391,53 @@
     },
     "bc34c4352f36": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Henson's puppet-fantasy classic on the big screen — no format hook, but a genuinely rewarding rep pick.",
+      "adjust": 0,
+      "why": "Cult puppet classic, straightforward rep booking without a format or guest angle to push it higher.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "d0caad6730b4": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "Mann's heist classic on a real screen earns a push over the average rep booking even without a format tag.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "Mann's crime epic is one of the stronger classics in this stretch even without a format hook.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "807158095d71": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Family-nostalgia programming rather than a rep pick for you — leave it in the footer.",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Reliable crowd-pleaser rep booking, nothing that specifically fits your format/director draw.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "f8071f4ac4b7": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "The rarer director's-cut edit of the musical is the specific-version booking worth chasing over a standard revival.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Niche cult-musical booking — fine if you're already at the Nuart that night, not a destination pick.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "e441e48cd43b": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Obscure goth-teen indie cult film with nothing in the scene cache on it — the first of a six-night run if you want to gamble.",
+      "adjust": -1,
+      "why": "Low-profile indie title running six straight nights — catch it on a whim, not something to plan around.",
       "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "183ad904f5b3": {
       "tier": "skip",
@@ -32353,30 +32451,32 @@
     "1b55726703a8": {
       "tier": "must-see",
       "adjust": 3,
-      "why": "Charlize Theron in person for Fury Road at the Academy Museum is a real event, not a rep-house rerun — you already flagged this one.",
+      "why": "Theron in conversation plus a Fury Road screening — exactly the in-person-guest film event this taste is built for, and you already flagged interest in it.",
       "confidence": "high",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
+      "score_at_judge": 2,
       "model": "claude-sonnet-5"
     },
     "b452ed8bb2ea": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Unclear which Nancy Drew and nothing in the scene cache to go on — low-stakes rep filler either way.",
-      "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "Minor 2007 family mystery pic — reads closer to kids programming than the rep/arthouse lane you actually want.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "8133191bc3fa": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "DeMille's epic in its original widescreen format — the same format-first draw as the other Academy VistaVision booking this week.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "solid",
+      "adjust": 1,
+      "why": "DeMille's epic in VistaVision is a real presentation event even off your named-format list.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "cfcdb4ebff33": {
       "tier": "solid",
@@ -32388,13 +32488,14 @@
       "score_at_judge": 4
     },
     "97c9fa50531b": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "Same unfamiliar title screening again the next night — skip unless the first date sells out.",
+      "why": "Same low-profile run as the 8/21 date — go to that one if you're going at all.",
       "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "e66e9065e801": {
       "tier": "solid",
@@ -32561,11 +32662,12 @@
     "71801b10a6f2": {
       "tier": "great",
       "adjust": 2,
-      "why": "Wiseman's Titicut Follies in a new 4K restoration with a guest in person — a real reason to leave the house, not just another rep slot.",
+      "why": "Wiseman's landmark documentary with editor Kate Amend in person — a real guest-driven film event, the kind this taste flags as worth building a night around.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "961a8a534b7b": {
       "tier": "great",
@@ -32579,38 +32681,42 @@
     "a5b8cb4f9162": {
       "tier": "great",
       "adjust": 2,
-      "why": "La Dolce Vita on the big screen is a genuine classic revival, not filler programming.",
+      "why": "Fellini's landmark, 174 minutes of the real arthouse-classic lane this profile is actually built for — no format gimmick needed.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "ae95bfc04b44": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 2,
-      "why": "Polanski's The Tenant is exactly the cult-arthouse title this rep lane is built for.",
+      "why": "Polanski's paranoid-horror classic, standalone booking with no gimmick needed — a genuine rep highlight.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "1695b4003459": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Preminger's Bunny Lake Is Missing back in a 4K restoration — the restoration hook, not a random title.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "solid",
+      "adjust": 2,
+      "why": "Preminger's underseen 4K restoration — legit repertory catch, doubles up with Elle same day at the Academy.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "092b22028c30": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "Howl's Moving Castle on the first night of its Academy run — pick this date if you're doing the Ghibli run at all.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "Miyazaki classic always plays great on a big screen — take this first date over the 8/12 repeat.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "373f9b5a229d": {
       "tier": "great",
@@ -32631,22 +32737,24 @@
       "score_at_judge": 3
     },
     "a16947fd9b62": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "The Hunger is a proper cult vampire classic (Bowie/Deneuve/Sarandon), a good genre-rep pick even without a special format.",
+      "why": "Bowie/Deneuve cult classic — a stronger rep booking than the average filler slot this week.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "d67269834d98": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Verhoeven's Elle is a solid arthouse rewatch, just nothing rare enough about the booking to push it higher.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "great",
+      "adjust": 3,
+      "why": "Verhoeven's twisty, Oscar-nominated Huppert thriller — a real arthouse catch, not filler.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "dcbc13b90e1c": {
       "tier": "solid",
@@ -32659,39 +32767,43 @@
     },
     "9dfc3edead1a": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Same Cat Returns run as the 8/3 date — go that night instead, this is the repeat.",
+      "adjust": 1,
+      "why": "Ghibli-orbit anime rep pick, a notch above the straight filler even without a format angle.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "c1ed022f057f": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Olmo is a well-reviewed festival title but this is night 3 of 7 with no special hook — any night in the run works about the same.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": 1,
+      "why": "New release opening a week-long run at the Nuart — earliest date to catch it, but the scene notes don't tell you if it's actually good.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "8df7a20adc6e": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Same Olmo run, just a Monday slot — no reason to prioritize over the other nights.",
+      "why": "Same Olmo run as the 8/9 pick.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "1804fd2f4b61": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Same Olmo run again — one of these nights is plenty, this one's the weakest slot (Tuesday).",
+      "why": "Same Olmo run as the 8/9 pick.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "f7855dedfef4": {
       "tier": "solid",
@@ -32829,31 +32941,34 @@
       "score_at_judge": 3
     },
     "fa5ca531407e": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "A Broken Lizard fan-event screening is nostalgia/comedy programming, not the format-driven rep lane this profile wants.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Comedy fan-event booking, likely with cast in the room, but outside the rep/arthouse lane this taste actually prioritizes.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "7beb5af73231": {
       "tier": "skip",
       "adjust": -2,
-      "why": "A Dead-fan meetup screening with no stated tie to this profile's music or film taste.",
+      "why": "Deadhead community screening — off the electronic/arthouse lane.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "5ccebac1d49d": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Kids animated-nostalgia screening — family programming is an explicit penalty here.",
+      "why": "Kids-matinee DreamWorks rerun, outside the lane entirely.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "174986a65819": {
       "tier": "skip",
@@ -32875,58 +32990,64 @@
       "score_at_judge": 3
     },
     "08befb748853": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "Lubitsch's To Be or Not to Be at the Academy — exactly the kind of classic rep booking this profile shows up for.",
+      "why": "Lubitsch's screwball classic — reliable repertory pick, no gimmick required.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "b4ba9151c852": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Ghibli on the big screen is a real draw, but it's night 2 of 3 of the same run — one night to plan around, not three.",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Same Howl's Moving Castle run as the 8/10 pick.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "943f48438b8f": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Nuart cult-nostalgia booking, fun but not the format-driven repertory pick this taste prioritizes.",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Tom Cruise racing cheese with no format hook — pass unless you're just craving nostalgia.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "a093100eed61": {
       "tier": "skip",
-      "adjust": -3,
-      "why": "Kids animated matinee mid-run — flatly off-taste for this profile.",
+      "adjust": -2,
+      "why": "Same kids-matinee Over the Hedge run.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "772be5c1ebfc": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Early Hitchcock rarely gets a rep booking — genuine repertory value beyond the usual Nuart fare.",
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Early Hitchcock, short and sharp — a solid pick for the genre-curious.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "55c66ee75d0b": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Recent indie release, not a classic-rep draw — fine if the date works, not worth chasing.",
-      "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "Same Olmo run as the 8/9 pick.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "9481cc51aaa8": {
       "tier": "solid",
@@ -32948,21 +33069,23 @@
     },
     "30078beec3b8": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Adrian Lyne in person for Fatal Attraction — the Q&A is what elevates this past a standard print screening.",
+      "adjust": 3,
+      "why": "Adrian Lyne in person for Fatal Attraction in 4K — exactly the Q&A format this profile builds nights around.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "4feb90497018": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Same Olmo run, last night — last-chance option if the earlier date doesn't work, not a second must-catch.",
-      "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "Last night of the same Olmo run.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "7879bdf138ca": {
       "tier": "solid",
@@ -32984,57 +33107,63 @@
     },
     "3a5bc4ffdfa9": {
       "tier": "skip",
-      "adjust": -3,
-      "why": "Same kids-movie run as the other Over the Hedge dates — off-taste regardless of which night.",
+      "adjust": -2,
+      "why": "Same kids-matinee Over the Hedge run.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "0aa92bf7f3df": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "Filmed musical broadcast, not the repertory-cinema draw this profile actually goes out for.",
+      "adjust": -1,
+      "why": "Filmed stage-musical capture, not really a cinema pick for this lane.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "e16de076ec5e": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Unfamiliar title, closing night of a 2-night run — no way to gauge the draw, treat as a maybe.",
+      "why": "Unbranded indie drama with nothing in the scene notes to go on.",
       "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "794427837a2a": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Tsukamoto's A Snake of June is genuine cult-arthouse programming — real repertory pull for this profile.",
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Tsukamoto's rain-soaked cult oddity — a genuine arthouse deep-cut, not a generic catalog title.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "c180ba9a75f1": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 2,
-      "why": "Bound is a real repertory catch — sharp, well-loved neo-noir, worth building an evening around.",
+      "why": "Wachowskis' stylish neo-noir debut — a real cult classic worth the trip on its own.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "14cfb03fc369": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "A cult horror marathon day is the kind of format-forward event night the Nuart does well.",
+      "tier": "solid",
+      "adjust": 2,
+      "why": "All-day horror marathon — the kind of format-driven programming worth planning a Tuesday around.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "7f2a7e3f27be": {
       "tier": "great",
@@ -33093,38 +33222,42 @@
     "3af1f84e716f": {
       "tier": "great",
       "adjust": 2,
-      "why": "Out of Sight with an in-person guest is a real event, not just a rep-house rerun.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "Editors and an Academy Governor in person for Out of Sight — a genuinely great Soderbergh, not just another slotted screening.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "5d1ccc3306e3": {
       "tier": "skip",
-      "adjust": -3,
-      "why": "Final night of the same Over the Hedge run — still a kids matinee, still off-taste.",
+      "adjust": -1,
+      "why": "Animated kids' film — off-lane no matter how loved the format side of this taste is.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "978d3f64bac3": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Blade Runner: The Final Cut on the big screen is a legit repertory anchor, no series dilution here.",
+      "tier": "solid",
+      "adjust": 1,
+      "why": "The original Blade Runner still holds up on a big screen, solid rep pick even without a special print noted.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "ac7914820671": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "Closing night of the same SIX broadcast run — same non-draw as the earlier date.",
+      "adjust": -1,
+      "why": "A filmed Broadway musical, not repertory cinema — closing night of a short multi-venue run, still not the format-driven draw this taste wants.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "79dfc6e6ecf6": {
       "tier": "skip",
@@ -33147,110 +33280,122 @@
     "48e322458ad9": {
       "tier": "solid",
       "adjust": 1,
-      "why": "Funny Face in 4K is a crowd-pleasing classic restoration — solid rep pick, not a format event.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "Astaire/Hepburn musical in 4K, clean standalone rep pick at the Academy.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "675ab09c8f25": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Jackie is a respected recent drama, but not the vintage-format repertory pull this profile leans toward.",
+      "why": "Larraín's Jackie, well made but not the classic-format event this taste chases hardest.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "fcd09e212daf": {
       "tier": "great",
-      "adjust": 1,
-      "why": "A VistaVision print of White Christmas is exactly the format-driven screening worth chasing, holiday content aside.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": 2,
+      "why": "VistaVision is a rare, real presentation format — this is the kind of screening the format-chasing part of the taste is built for.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "fb9b9d90e43a": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Obscure Shirley Booth restoration — real film-nerd catnip but too niche to call a confident draw.",
+      "adjust": 0,
+      "why": "Deep-cut 1958 drama in 4K — can't gauge the draw, but the Academy's programming is usually worth the seat.",
       "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "61563302b365": {
       "tier": "great",
       "adjust": 2,
-      "why": "Live orchestral score under a silent-horror classic — a genuine one-off, not just another revival showtime.",
+      "why": "Silent Nosferatu with a live orchestra is exactly the format-as-the-draw event this taste rewards, not just another rep slot.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "26c940d1ee82": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Cult teen-goth rerelease running most of the week at the Nuart — go this night, the other dates are the same movie.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "One of six straight nights of the same director's-cut run at the Nuart — go the closing night instead.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "8ae4eb68e735": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Ghibli on the big screen at the Academy Museum is always worth it — take this first night, the 8/26 repeat is the same print.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": 2,
+      "why": "Ghibli's Arrietty with Hisaishi's score — Hisaishi shows up in this profile's own listening, and Academy Museum on 35/DCP restorations is a treat.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "a2b516082d5e": {
       "tier": "great",
-      "adjust": 1,
-      "why": "VistaVision is the actual draw here — a genuine large-format curiosity, not just another title on the calendar.",
+      "adjust": 2,
+      "why": "Another VistaVision presentation this week — the same rare-format draw as the Curtiz musical.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "0ab5eea85867": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "Same Gypsy 83 run already covered on 8/23 — just another date on the same rerelease.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": -1,
+      "why": "Same Gypsy 83 run repeating — the closing night is the one worth flagging, not this middle date.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "5af9b9ee3ffd": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Reliable rock-nostalgia revival, no format hook, but a good hang at the Nuart.",
+      "adjust": 1,
+      "why": "Almost Famous is a crowd-pleaser rep pick, no special format but reliably good on a big screen.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "d04d106a7d52": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "Third instance of the same Gypsy 83 run in this stretch — the 8/23 date is the one to catch.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": -1,
+      "why": "Same Gypsy 83 run, one night before the closing pick.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "1ec357e47dda": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Nine-piece funk-soul brunch set — fine daytime filler, well outside the house/techno lane.",
+      "adjust": -1,
+      "why": "Nine-piece blues-rock/soul bar band — fine background, nowhere near the house/techno spine, no name here to chase.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "af0f305243c7": {
       "tier": "skip",
@@ -33271,13 +33416,14 @@
       "score_at_judge": 3
     },
     "2dadabc85a99": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "New Bev doing a crowd-pleaser revival midweek — exactly the rep-house habit you keep.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Same nightly Mummy run at New Bev, penultimate date.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "c916aaa30aa9": {
       "tier": "solid",
@@ -33290,66 +33436,73 @@
     },
     "c53c5e7f44e3": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Same Ghibli booking already flagged for 8/24 — second showing, lower priority.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": 0,
+      "why": "Second of two Arrietty nights — the earlier date already gets the higher call on this Ghibli/Hisaishi run.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "59dc41f1a2f2": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Hitchcock in a clean restoration, no vintage print to chase, but a solid rep pick on its own night.",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Hitchcock's most purely enjoyable thriller in 4K restoration — the strongest of this week's Academy classics.",
       "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "0aebfce79957": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Deep-cut Hitchcock rep booking, straightforward revival with no format angle noted.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": 1,
+      "why": "Lesser-seen Hitchcock, worth a rep-house look but not the marquee pull of To Catch a Thief the same week.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "3707ac66f80c": {
       "tier": "great",
       "adjust": 2,
-      "why": "Villeneuve is a tracked director for you — exactly the kind of rep-house rewatch worth building the night around.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "Villeneuve is on the tracked-directors list — this is a rep screening of one of his own films, not just a sci-fi classic slot.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "a211262b7446": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Closing night of the same Gypsy 83 run — the 8/23 date already carries the pick.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Closing night of the six-night Gypsy 83 director's-cut run at the Nuart — the one to catch if you're going.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "055cdbce1e5b": {
       "tier": "skip",
       "adjust": -1,
-      "why": "No signal this is anything but a niche one-off outside the rep/arthouse or house-DJ lanes you track.",
-      "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "why": "Metal concert film, well outside both the electronic and indie-rock lanes this taste actually wants.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "f31cebe72e9c": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Gerald Clayton is a genuinely respected jazz pianist curating this — a cut above the average listening-bar night.",
-      "confidence": "med",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": -1,
+      "why": "Same Gerald Clayton weekly jam as the 8/4 date — go once, not twice; this is the redundant sibling.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "d9596d97f3b9": {
       "tier": "skip",
@@ -33790,20 +33943,22 @@
     "8c8280ddc39c": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Second and last night of this doc's mini-run — fine arthouse programming but no format or director hook to build around.",
+      "why": "Literary doc, first of a three-night run — fine if the topic pulls you, not a must-build-around.",
       "confidence": "med",
-      "judged_at": "2026-07-30T12:36:35",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "e8d8906e0223": {
       "tier": "great",
       "adjust": 2,
-      "why": "Manhunter's new Final Cut restoration is exactly the cult-Mann-in-a-fresh-print booking Vidiots exists for.",
-      "confidence": "high",
-      "judged_at": "2026-07-30T12:36:35",
+      "why": "Manhunter's Final Cut restoration is a genuine event for genre-cinema heads, not just another rep rerun.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "cdc9afd566f8": {
       "tier": "skip",
@@ -34041,13 +34196,14 @@
       "score_at_judge": 3
     },
     "89002369ee0f": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Last night of the New Bev's Mummy run — the exact rep-house popcorn-classic energy the taste calls out, and it's now-or-never.",
-      "confidence": "high",
-      "judged_at": "2026-07-30T12:36:35",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Last covered night of the nightly Mummy run at New Bev.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "9f0473f1f83c": {
       "tier": "solid",
@@ -34151,11 +34307,12 @@
     "bc8b4fb098cd": {
       "tier": "skip",
       "adjust": -1,
-      "why": "Brunch-hour French chanson set at a Bel Air jazz room, no connection to the taste.",
-      "confidence": "high",
-      "judged_at": "2026-07-30T12:36:35",
+      "why": "French chansons brunch set — charming but off-lane like the rest of this Vibrato run.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     },
     "0b7edb0dcc83": {
       "tier": "skip",
@@ -34864,13 +35021,14 @@
       "score_at_judge": 4
     },
     "33997e21b919": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Pleasant jazz/blues bar set, but nothing here moves it up or down.",
-      "confidence": "low",
-      "judged_at": "2026-07-31T12:35:32",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Another generic Vibrato night — jazz/blues revue with no connection to the taste brief's lane.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
     },
     "78e0f4057e8b": {
       "tier": "solid",
@@ -34893,29 +35051,32 @@
     "237ec4ac0387": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Fun revival but no format hook — no 70mm, no Q&A — and Stephen Sommers isn't a tracked director; it's just the last night of the week-long run.",
+      "why": "Closing night of the same Mummy week — go 8/22 if you can, this is just the last chance.",
       "confidence": "med",
-      "judged_at": "2026-07-31T12:35:32",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "7a2040a2fa51": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Tarantino's tracked, this is the last night of the run across both theaters, and a midnight Pulp Fiction is exactly the kind of print-and-vibe event to build the night around.",
-      "confidence": "high",
-      "judged_at": "2026-07-31T12:35:32",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "8dba3303b479": {
       "tier": "solid",
       "adjust": 0,
-      "why": "No-cover jazz residency, night two — pleasant filler, not a real pull.",
-      "confidence": "low",
-      "judged_at": "2026-07-31T12:35:32",
+      "why": "Same Tarantino midnight run as 8/21 — that date's the one to build the night around, this is the repeat.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "8dba3303b479": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Biweekly jazz residency, night 2 of 2 — same off-lane genre as the rest of this batch's jazz bookings.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
     },
     "955a5beca6df": {
       "tier": "great",
@@ -35098,13 +35259,14 @@
       "score_at_judge": 3
     },
     "e525c3fcee83": {
-      "tier": "skip",
-      "adjust": 0,
-      "why": "All-female mariachi at a jazz supper club — nice booking, wrong profile entirely.",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "All-female mariachi set is a nice novelty booking at Vibrato but neither electronic nor rep-cinema — pure filler for this taste.",
       "confidence": "high",
-      "judged_at": "2026-07-31T12:35:32",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "827f6111a2e8": {
       "tier": "skip",
@@ -35119,12 +35281,13 @@
     "ca3208f1208a": {
       "tier": "solid",
       "lane": "film",
-      "adjust": 0,
-      "why": "Queer experimental film screening, not a music show — worth a mention for the film-curious crowd but no info on the actual titles.",
-      "confidence": "low",
-      "judged_at": "2026-07-31T12:35:32",
+      "adjust": 1,
+      "why": "This is a queer experimental-film screening, not a live set — tags mislabeled it; rep/arthouse in an all-ages DIY room earns a small bump once the lane's fixed.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "35e9667001ec": {
       "tier": "solid",
@@ -36100,33 +36263,33 @@
     },
     "bad8d59fed08": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Vista matinee, but not enough to go on for how good a pick this specific title is.",
+      "adjust": -1,
+      "why": "Thin listing for a 10am matinee slot — Vista/rep-arthouse counts for something but it's the least of the day's three Vista bookings.",
       "confidence": "low",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "sonnet"
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "0528c56e4568": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "The Dr. Seuss surreal musical is a genuine cult title, and Vista's the right room for it — a real reason to build the evening around a movie, not filler programming.",
+      "why": "1953 Seuss-scripted surrealist musical at the Vista — a genuinely odd, fun rep pick even outside core electronic taste.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "sonnet"
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "d09e2e17a3b9": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Walter Hill's The Driver (the film that inspired Drive) at midnight is a proper cult booking for a rep regular.",
+      "adjust": 2,
+      "why": "Walter Hill's minimalist heist noir at midnight, sounds-like Drive/Thief — the best of the three Vista bookings that day, and it's the last night of this run.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "sonnet"
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "c7a06b654837": {
       "tier": "skip",
@@ -36223,42 +36386,42 @@
     "dacfb379a82a": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Don't know this title well enough to call it above the pack.",
+      "why": "Unknown new release with no scene signal beyond the title — decent Friday rep pick, nothing to prioritize.",
       "confidence": "low",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "de83fec4bcea": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Soderbergh's Magic Mike is decent midnight-movie fun but not a rarity worth building around.",
+      "adjust": -1,
+      "why": "Just a straight screening of the 2012 film, no special format or angle — filler next to the noir/cult picks this week.",
       "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "2fcc8330a008": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Commando is peak dumb-fun action cult classic — the one title in this Vidiots run actually worth planning a night around.",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Fun late-night Arnold cult pick, no format bump — good if you're already at Vidiots that night.",
       "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "3b6d2b0c5fe6": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Don't recognize this title well enough to vouch for it.",
+      "adjust": -1,
+      "why": "No info on this title beyond the listing, and it repeats Saturday too — no reason to lock in this specific night.",
       "confidence": "low",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
     },
     "94798e8a0b3e": {
       "tier": "solid",
@@ -36623,24 +36786,24 @@
       "model": "sonnet"
     },
     "925732ee5bea": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Classic Bond print at New Bev — exactly the rep-cinema habit this taste file treats as a real lane.",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Bond rep booking, decent fun but no format/director hook to lift it.",
       "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "22a833ad6b3b": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Same New Bev night's midnight cult slot — fun if you're already out for the Bond film, not the header on its own.",
-      "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "adjust": -1,
+      "why": "Deep-cut Canadian cult comedy — amusing if you're already there, not a draw on its own.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "0f4dc87a86de": {
       "tier": "skip",
@@ -36916,23 +37079,23 @@
     },
     "dffe1aa3100a": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Swing/Latin/blues sextet at a solid jazz room — pleasant Saturday filler, not a real draw either way.",
-      "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "adjust": -1,
+      "why": "Another generic swing/Latin/blues sextet night at Vibrato — pleasant, not a real draw for a house head.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "ec009f1cab46": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Respected Americana songwriter in McCabe's listening-room format — fine if you're already on the westside, not worth crossing town for.",
+      "why": "McCabe's listening-room folk is a respected format but outside the lane; the score already has it about right.",
       "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
     },
     "0868686c0ca9": {
       "tier": "great",
@@ -37308,11 +37471,11 @@
     "0b44940fef54": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Unclear what this Vista booking actually is beyond a matinee slot — the loved venue carries it, but there's no read on the program itself.",
+      "why": "Vista's a loved room and rep cinema is a real lane for you, but this is an obscure title in an early matinee slot with nothing to build a night around.",
       "confidence": "low",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 6,
+      "score_at_judge": 4,
       "model": "claude-sonnet-5"
     },
     "0e72026f300c": {
@@ -37417,72 +37580,72 @@
     },
     "0b6c98a00df3": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Nostalgic Goofy Movie matinee at a loved rep house — fun filler, no format hook to push it higher.",
-      "confidence": "med",
-      "judged_at": "2026-08-02T12:37:08",
+      "adjust": -1,
+      "why": "Kids-matinee filler, no format or director hook.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
+      "score_at_judge": 3,
       "model": "claude-sonnet-5"
     },
     "308c6ece672e": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Niche poetry documentary matinee, second of two Vidiots bookings that day — fine if the subject grabs you.",
-      "confidence": "low",
-      "judged_at": "2026-08-02T12:37:08",
+      "why": "Niche poet doc, decent rep-house counterprogramming but not a lineup that needs pushing.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
+      "score_at_judge": 3,
       "model": "claude-sonnet-5"
     },
     "0a7a4d7d2178": {
       "tier": "great",
       "adjust": 1,
-      "why": "Scarlet Street is a genuine Fritz Lang noir classic, not filler programming — the strongest of the three Vidiots matinees that day.",
+      "why": "Fritz Lang noir classic — the kind of matinee a rep regular builds an afternoon around; the score just had no 'classic' signal to grab onto.",
       "confidence": "high",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
+      "score_at_judge": 3,
       "model": "claude-sonnet-5"
     },
     "34c5b9a5f044": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Second half of a two-night rep slot with no format or guest hook — a placeholder next to the Edgar Wright night down the hall.",
+      "why": "Same three-night run as Thursday's showing of this — no reason to prioritize this specific night over the other.",
       "confidence": "low",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
+      "score_at_judge": 3,
       "model": "claude-sonnet-5"
     },
     "ff2a429ab246": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "Edgar Wright in person for his most beloved film — the one to build the night around if you only do one Vidiots show that weekend.",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Edgar Wright presenting Scott Pilgrim in person is exactly the director-event-you-build-a-night-around case; the score has no slot for an in-person marquee director outside the tracked five.",
       "confidence": "high",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
+      "score_at_judge": 3,
       "model": "claude-sonnet-5"
     },
     "f2a3422fae52": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Unclear draw beyond the rep slot — no format or guest angle in the listing.",
+      "why": "Second night of the same Lockjaw run as Friday — go to that one if you're going.",
       "confidence": "low",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
+      "score_at_judge": 3,
       "model": "claude-sonnet-5"
     },
     "046ec7392a59": {
       "tier": "great",
       "adjust": 1,
-      "why": "Same Edgar Wright evening, deeper cut — go for Scott Pilgrim if you're only catching one screening.",
-      "confidence": "med",
-      "judged_at": "2026-08-02T12:37:08",
+      "why": "Second half of the same Edgar Wright evening — the deep-cut Russ Meyer pick, still part of the marquee night.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 5,
+      "score_at_judge": 3,
       "model": "claude-sonnet-5"
     },
     "7eafcc2659f5": {
@@ -37807,13 +37970,13 @@
       "model": "claude-sonnet-5"
     },
     "7d4c59cf88f0": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "New Bev rep Bond screening is exactly the kind of repertory outing you build a Sunday around, even if it's the lesser Roger Moore entry.",
+      "why": "Bond rep double-bill day (2pm/6:30pm) — take this one over the Monday repeat.",
       "confidence": "med",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
+      "score_at_judge": 1,
       "model": "claude-sonnet-5"
     },
     "f45d752ab7cd": {
@@ -38231,54 +38394,54 @@
       "model": "sonnet"
     },
     "73896873c436": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "English-dubbed Ponyo matinee is family/kids programming — an explicit pass even at a loved rep house.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T12:52:36",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Another Hisaishi score (Ponyo) — same signal as Howl's, this profile's listening data backs the Ghibli pull.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "c15f2fa0e2e1": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Fun Bond matinee at Vidiots, a trusted rep venue, even without a format hook like 70mm behind it.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T12:52:36",
+      "adjust": 0,
+      "why": "Lesser-tier Bond matinee, fun but not a real pull.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "8d618ed0823b": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Closing night of a Mary Oliver doc run — nice matinee at a loved room, but a poetry doc isn't the format/director draw that makes New Bev/Vidiots a build-around night here.",
+      "why": "Last night of the Mary Oliver run — same call as the 8/12 showing, take whichever date fits.",
       "confidence": "med",
-      "judged_at": "2026-08-03T12:52:36",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "acf86e4102fa": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Vidiots screening with no format or director hook to judge — a generic-title indie you'd catch if you're already there, not a reason to go.",
+      "adjust": 0,
+      "why": "Low-profile indie drama with no format or Q&A hook — a fine drop-in rep pick, nothing that builds a night around it.",
       "confidence": "low",
-      "judged_at": "2026-08-03T12:52:36",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "1e2116c0fa6c": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Closing night of another obscure Vidiots run, same as the sibling screenings this week — fine filler, no real pull.",
+      "why": "Last night of a short run for a title that isn't ringing any bells — no format or guest noted to make the trip worth it.",
       "confidence": "low",
-      "judged_at": "2026-08-03T12:52:36",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
     },
     "683c6d1d570d": {
       "tier": "great",
@@ -38302,23 +38465,23 @@
     },
     "842744a4c063": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "1953 MGM swashbuckler on a weeknight — pleasant New Bev programming, not a marquee classic like the Taxi Driver booking this week.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T12:52:36",
+      "adjust": -1,
+      "why": "Minor 50s MGM programmer, straightforward rep filler.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "590ff718113b": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -1,
-      "why": "Same Knights of the Round Table run, second night — go the Tuesday if you're going at all, this is the redundant sibling.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T12:52:36",
+      "why": "Forgettable 1953 MGM Arthurian programmer with no format or guest hook to build a night around.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "7e753183f1b3": {
       "tier": "solid",
@@ -38421,14 +38584,14 @@
       "model": "sonnet"
     },
     "9e4070d8cf5a": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Closing night of the Bond run — a fun, crowd-pleasing classic on a New Bev print, a notch above ordinary rep programming even without a tracked director.",
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Same Golden Gun run, one night later — Sunday's the better date to go.",
       "confidence": "med",
-      "judged_at": "2026-08-03T12:52:36",
+      "judged_at": "2026-08-04T12:39:43",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
     },
     "4d7cf70493df": {
       "tier": "solid",
@@ -38449,6 +38612,708 @@
       "input_version": 2,
       "score_at_judge": 2,
       "model": "sonnet"
+    },
+    "504b3373a342": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Ten names on this bill sit in your Spotify rotation (Masha Mar at core, six more at strong) — Lovefingers is ESP Institute's own shaman and Heidi Lawden's a longtime DJ Harvey road partner; this is the deep-crate groove night the brief actually describes, not a hypothetical.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 14,
+      "model": "claude-sonnet-5"
+    },
+    "1ccbb75ccfd8": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free hard-techno rave close to home fits the lane, but no names on the bill to judge the selection — worth a look, not a plan.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-5"
+    },
+    "b96fc4793f02": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Generic hosted sunset night with no billed selector to vouch for it — fine filler, not a draw.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "f7850f577de4": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "BL SUEDE is a real Afro-house/deep-tech selector with Kevin Saunderson and Armada credits — free poolside rooftop day party is exactly the boosted setting.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "c19731939c66": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Shane Thomas (Ace Hotel's blush! host) and Rob Aquino (Loose party) are legit queer-underground selectors splicing house/techno with weirder edits — TBA afterhours in Silver Lake, near-automatic for this lane.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "228a15657ea6": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Afro-house/amapiano free weekly — genre's boosted even without a billed name to vouch for the set.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "ecb813f78c23": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Literal Y2K-2010s throwback night — the nostalgia-club-night penalty by name.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "c23ce58bdc25": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Emo-branded party, not the house/techno groove lane regardless of the generic electronic tag.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "5b746e8070f6": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Rooftop free party with a decent local DJ stack, but none of the four names are verifiable draws.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "7d5b2c4f101e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free live set at a restaurant/club, nothing to gauge the actual draw.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "1b339a949840": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Throb at Honey's at Star Love leans house/acid — the queer-underground party brand carries some weight even without known names on the bill.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "a6e20ddf3099": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "MONEYCAT is the same room BL SUEDE holds down elsewhere in this batch — enough pedigree to trust even with no lineup listed here.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "7590229a38ee": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Generic afterparty, nothing to differentiate it from the rest of the free-party pile.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "bb297ff3a2b6": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "TBA-location RSVP-gated party with gimmicky branding and zero lineup info — pass unless something surfaces.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "22c9561d4dac": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Address-only free party, nothing to distinguish it.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "8ff790b9aa0c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Secret-location residents night, no names to judge.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "e2411b3c7bd9": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Another address-only free party with no lineup signal.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "3968eb8627a4": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Bar-scale electronic night close to home, no billed DJ to size up.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "8d12565019e6": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Shane Thomas (Ace Hotel's blush! residency) is a real experimental house/techno selector on this TBA bill, worth more than the generic 'CAGE' branding suggests.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "ee62daae40c9": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Dance Mania is a legit ghetto-house/juke lineage name — TBA-location warehouse energy is exactly the boosted category here; score undersold it.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "5ed7b42ec9e3": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Title reads like garbled scrape data (flight-terminal text bleeding into the event name) at 5:45am — can't confirm this is even a real party.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "0b35466e2bee": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "The Smell is the real DIY punk/experimental room the brief wants — messy pasted-flyer title aside, this is squarely the small-club experimental lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "7d84080945eb": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Fabiano do Nascimento (Leaving Records/Tiny Desk) and John Carroll Kirby (Stones Throw, Frank Ocean/Solange sessions) at Zebulon with a DJ close by Muku — real pedigree the flat +4 score completely missed.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "5fddc2727c4b": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Sky Rivers is a real deep-vinyl acid-house lifer, Sunday Sessions regular — exactly the vinyl-only listening-bar category the brief boosts.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "4b377c4b1212": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hard-techno/hard-dance at Dave & Buster's — the brief explicitly keeps hard-dance out of the lane, and the arcade-bar setting is the opposite of a real underground night.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "97a9992818f3": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "R&B/hip-hop throwback day party with no real DJ billing — score already docked it for hip-hop, but this is precisely the generic open-format night the brief wants buried.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "a850529813d2": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Daytime afro-house penthouse rave — the rooftop/daytime open-air house boost lands right on this, even with an unfamiliar bill.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "8b015dc8c44f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Can't tell from the listing if 'Romantic Jazz Night' is a live combo or a DJ set — leaving it where the score put it.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "7a06693382e4": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Free b2b night at The Airliner with Ava Blank (BIOTEAM, house/IDM/UK garage) — near-home, tech-house-leaning, and free; a real sleeper the flat +4 score buried.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "6c56c13598c8": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "No lineup listed and an address stands in for a venue name — too thin to rate as anything but a maybe.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "8456c4613e9b": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Karol G afterparty at a literal sports-bar chain — the exact watch-bar cash-grab format the brief keeps out of the picks, zero house/techno DNA.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "ebe7ca8f77fb": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Synth-club jam night reads more DIY modular meetup than DJ set — could be your thing, could be a noodle session, can't tell from here.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "c661e663880e": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Sid the Cat is a venue you actually love, and it's an electronic booking there — worth the trust even with an unfamiliar DJ.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "67364ed83ea8": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Yacht-rock tribute band at a Newport Beach hotel — the far-flung nostalgia booking your taste explicitly flags to bury.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "ad83d4204f0c": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "2220 Arts is a venue you love and the bill reads DIY/heavy indie — the small-club rock pocket you actually want, even blind on the bands.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "44a043b9cd8e": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "UK electronic import via an underground promoter on a Saturday night — the European club-night feel you specifically chase.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "4f14f55b80da": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Arena hip-hop headliner — the stay-informed-on-big-names bucket, not a real draw for you (the 'opera' genre tag on this one is a scoring glitch).",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "d0ad758770f4": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "New Orleans funk band leaning into the groove/soulful boost even though it's a live band, not a DJ.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "70b20163123b": {
+      "tier": "skip",
+      "lane": "live-music",
+      "adjust": -1,
+      "why": "Mislabeled as film — it's actually a Cash/Neil Diamond tribute double-set at Vibrato, a textbook nostalgia covers night.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "d23a096995d8": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Funk-soul artist you don't have a read on; genre fits the groove boost loosely, nothing more to go on.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "3fd216ac414c": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Cheap techno bill squarely in your core genre; unfamiliar names but a $10 door makes the risk easy.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "d8749e1def11": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Band names read post-punk/goth, your small-club rock pocket, at a trusted East Hollywood room — just can't confirm the sound.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "6b988d8268be": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tea Party with the Artist at Junior High's DIY space — unclear if it's a set or an art happening, hard to gauge the draw.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "998e40746098": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "\"Invite only\" lounge night with zero DJ billing — the bottle-service Hollywood booking your taste explicitly flags.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "50568c708b5c": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "TBA-location afters is exactly the warehouse/afterhours format you're boosted for, even blind on the lineup.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "7eeb8ade7e59": {
+      "tier": "skip",
+      "lane": "art",
+      "adjust": -1,
+      "why": "Reads as an artist's open-studio sale, not a live-music booking — tags mislabeled it into the music lane.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "8027bcad0b4e": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Yacht-rock cover band — exactly the tribute-act format the profile dings; the score just saw 'music' and 'Saturday' and missed it.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "3ad874f68e34": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "No scene data or affinity on this lineup — Gold Diggers is a decent room but nothing here confirms a real draw.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "b4184158e047": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Earthless is a legit heavy-psych power trio and Zebulon is exactly the small-room-real-band venue this profile likes — 'medium interest music' undersells it.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "a52f93b290d0": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Unfamiliar support-tier act tagged metal at a small room — no draw signal to lean on.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "50ed166ab3ee": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Closing night of the season, and it's already flagged in your own feedback as a favorite — last chance to catch it this year.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "d9baf9a0dafb": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "It's an open mic — the profile excludes those outright regardless of genre; the blues/rock tags just tricked the scorer into a high-interest bump.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "59f685e2da70": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Local-band showcase with names I have no read on — generic bar bill, not worth a special push.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "6527ac9b2774": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Drag show is an explicit penalty in the profile — the score missed it and gave it a plain arts & theatre bump instead.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "a64803d0b343": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hardstyle in Huntington Beach hits both hard penalties at once — wrong genre, wrong commute.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "ded53f3e0d79": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Karaoke night, already correctly downgraded by the score — nothing here to rescue it.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "6d0bcaa0ceb6": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Azure's a real selector (Lemon Pepper, Sinoclub) so the booking's credible, but the HB drive and price knock it down from a must-do.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "9f8ef268df81": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Drag show — explicitly off this profile's taste regardless of venue.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "8be5d30b197b": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Drag revue is a flagged penalty in your taste profile — the score under-punished this one.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "e7234a453951": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Slushii's bass-heavy/dubstep lane is a flagged penalty and Huntington Beach is a real haul for it.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "813d70feefd8": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same drag-revue penalty as the 8/21 date.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "11b19dbf5cf3": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Fontana is a serious haul and there's no lineup detail here beyond a promoter name — not worth the drive on spec.",
+      "confidence": "low",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "b87f1efefe4d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Pantages is a loved room, but this is a family-musical touring booking, not the kind of night this taste is built around.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "614c62d37464": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Massive arena booking worth knowing about, but pop/K-pop is a stay-informed category here, not a personal draw.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "bf8e6adb0f8f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Respected underground hip-hop name in a good mid-size room, but outside the electronic/film core of this taste.",
+      "confidence": "med",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "e4ba384da585": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Latin band in Ventura — off the house/techno spine and not worth the drive.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
+    },
+    "80d4c21a0c4d": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Fun indie band but Ventura's a haul for a bill that isn't a special trip.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 1,
+      "model": "claude-sonnet-5"
+    },
+    "b220a9cedf8d": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Emo/indie bill in Ventura, off the electronic spine and not worth the drive.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "claude-sonnet-5"
+    },
+    "6814068efd12": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Country bill, explicitly off this taste, and Ventura on top of it.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "claude-sonnet-5"
+    },
+    "588709edc59c": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Arena pop tour in Anaheim — big name, but neither the sound nor the trip this taste is built around.",
+      "confidence": "high",
+      "judged_at": "2026-08-04T12:39:43",
+      "input_version": 2,
+      "score_at_judge": 0,
+      "model": "claude-sonnet-5"
     }
   }
 }
