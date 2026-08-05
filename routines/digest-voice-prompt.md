@@ -19,9 +19,10 @@ Run, for the profile feed hash `<HASH>`:
    - If `todo` is 0: skip the agents. Read the work doc's TASTE BRIEF yourself and Write
      `data/digest_whys.<HASH>.json` containing just `{"intro": ..., "regen_clause": ...,
      "whys": []}` — a fresh take over fully cached sentences.
-   - Otherwise fan out the **why-writer** agent (Task tool): 1 batch when `todo` ≤ 15, else
-     2 batches splitting the uncached pick numbers roughly in half, **both launched in ONE
-     message so they run in parallel**. Tell each: the work-doc path, its pick numbers, its
+   - Otherwise fan out the **why-writer** agent (Task tool): 1 batch when `todo` ≤ 15,
+     2 batches when ≤ 30, else 3 — splitting the uncached pick numbers evenly, **all launched
+     in ONE message so they run in parallel** (the wall is the slowest batch; a 27-why batch
+     measured ~8 minutes, so keep batches under ~20). Tell each: the work-doc path, its pick numbers, its
      output path (`data/digest_whys.<HASH>.part1.json` / `.part2.json`), and that ONLY batch 1
      writes `intro` + `regen_clause`. Then merge the parts into
      `data/digest_whys.<HASH>.json` (concatenate `whys`, take `intro`/`regen_clause` from
