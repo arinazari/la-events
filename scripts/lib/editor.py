@@ -114,13 +114,20 @@ def save_verdicts(cache: dict, path=None, profile_hash: str = None) -> None:
 # ── Selection: who to judge ───────────────────────────────────────────────────────────
 
 def editor_pool(scored: list, per_lane: int = 0, floor: int = 4,
-                skip_lanes=NON_SLATE_LANES, today: date = None) -> list:
+                skip_lanes=NON_SLATE_LANES, today: date = None, top_k: int = None) -> list:
     """The set worth spending LLM judgment on.
 
     Hygiene first (2026-08 shadow-eval): rows dated before `today` and junk listings
     (pipeline.is_junk_event — upsells, placeholders, spam) never enter the pool. Both
     classes were reaching the editor and burning verdicts on non-events ("past event"
     skips, a must-see'd presale-offer row). Undated rows pass — TBA is not past.
+
+    `top_k` (2026-08 demotion, step 3): cap the recall-mode slate-lane admissions to the
+    best `top_k` of `scored` (which arrives best-first). The census showed the editor's
+    residual value concentrates at the head (boundary calls + per-user taste-crossing);
+    with the event card carrying draw/rarity deterministically, judging every slate-lane
+    event in the window is spend below the fold. The `floor` union still applies, so a
+    high-scoring non-slate outlier is judged regardless. None = uncapped (old behavior).
 
     `per_lane=0` (the default — LLM-first recall mode, Track B1): EVERY slate-lane event in the
     window is judged, so the deterministic score never gates what the editor sees. Non-slate
@@ -156,9 +163,13 @@ def editor_pool(scored: list, per_lane: int = 0, floor: int = 4,
                 picked[event_key(e)] = e
     else:
         for e in scored:
+            if top_k is not None and len(picked) >= top_k:
+                break
             if event_lane(e) not in skip:
                 picked[event_key(e)] = e
     for e in scored:
+        if top_k is not None and event_lane(e) not in skip:
+            continue   # capped mode: slate lanes were bounded above; floor stays the non-slate side door
         if (e.get("score") or 0) >= floor:
             picked[event_key(e)] = e
     return list(picked.values())

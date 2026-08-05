@@ -117,38 +117,43 @@ def test_lanes_vocab_covers_types_and_sublanes():
     assert "club" not in A.LANES                       # club only exists as sub-lanes
 
 
-def test_effective_key_tier_primary():
-    """Within the slate, tier dominates: a must-see leads its day over a higher raw score."""
+def test_effective_key_bounded_blend():
+    """2026-08 demotion: within the slate the verdict is a bounded lift, not a zone — a
+    must-see (+3) leads over comparable scores but cannot bury a clearly better one."""
     low_ms = _ev("low", UG, 4)
-    high = _ev("high", UG, 9)
     v = {A.event_key(low_ms): {"tier": "must-see"}}
-    assert A.effective_key(low_ms, v) > A.effective_key(high, {})
+    assert A.effective_key(low_ms, v) > A.effective_key(_ev("mid", UG, 6), {})   # 7 > 6
+    assert A.effective_key(low_ms, v) < A.effective_key(_ev("high", UG, 9), {})  # 7 < 9
 
 
 def test_rank_score_additive():
-    """Globally, tier is a bounded bonus: a must-see lifts hard but doesn't bury a big raw score."""
+    """Tier is a bounded bonus: a must-see lifts hard but doesn't bury a bigger raw score."""
     ms = _ev("ms", UG, 4)
     v = {A.event_key(ms): {"tier": "must-see"}}
-    assert A.rank_score(ms, v) == 10                       # 4 + must-see(6)
-    assert A.rank_score(ms, v) > A.rank_score(_ev("n9", UG, 9), {})    # 10 > 9
-    assert A.rank_score(ms, v) < A.rank_score(_ev("n12", UG, 12), {})  # 10 < 12
-    assert A.rank_score(_ev("sk", UG, 8), {A.event_key(_ev("sk", UG, 8)): {"tier": "skip"}}) == 2
+    assert A.rank_score(ms, v) == 7                        # 4 + must-see(3)
+    assert A.rank_score(ms, v) > A.rank_score(_ev("n6", UG, 6), {})    # 7 > 6
+    assert A.rank_score(ms, v) < A.rank_score(_ev("n9", UG, 9), {})    # 7 < 9
+    assert A.rank_score(_ev("sk", UG, 8), {A.event_key(_ev("sk", UG, 8)): {"tier": "skip"}}) == 3
 
 
-def test_rank_key_two_zone():
-    """Dashboard ordering (Track B2): judged non-skip beats ANY unjudged (tier-primary);
-    unjudged sorts by raw score in the middle; judged skips sink below everything."""
+def test_rank_key_one_merit_scale():
+    """2026-08 demotion: no zones — judged and unjudged compete on one bounded blend, so a
+    sparse/stale verdict set can no longer monopolize the head (the Lori regression: her 29
+    stale judged events sat above 3,600 unjudged ones under the old two-zone ordering)."""
     solid2 = _ev("solid2", UG, 2)
     skip8 = _ev("skip8", UG, 8)
     v = {A.event_key(solid2): {"tier": "solid"},
          A.event_key(skip8): {"tier": "skip"}}
     unjudged12 = _ev("n12", UG, 12)
-    # judged solid score-2 > unjudged score-12 > judged skip score-8
-    assert A.rank_key(solid2, v) > A.rank_key(unjudged12, v) > A.rank_key(skip8, v)
-    # within the judged zone, tier is primary: a score-3 must-see beats a score-9 great
-    ms3, gr9 = _ev("ms3", UG, 3), _ev("gr9", UG, 9)
-    v2 = {A.event_key(ms3): {"tier": "must-see"}, A.event_key(gr9): {"tier": "great"}}
-    assert A.rank_key(ms3, v2) > A.rank_key(gr9, v2)
+    # merit rules: unjudged score-12 > judged solid score-2; skips still sink hard
+    assert A.rank_key(unjudged12, v) > A.rank_key(solid2, v)           # 12 > 3
+    assert A.rank_key(unjudged12, v) > A.rank_key(skip8, v)            # 12 > 3
+    # a stale must-see on a weak score cannot outrank a clearly better unjudged event
+    ms5 = _ev("ms5", UG, 5)
+    v2 = {A.event_key(ms5): {"tier": "must-see"}}
+    assert A.rank_key(ms5, v2) < A.rank_key(_ev("n9", UG, 9), {})      # 8 < 9
+    # ...but within comparable scores the editor's call still leads
+    assert A.rank_key(ms5, v2) > A.rank_key(_ev("n7", UG, 7), {})      # 8 > 7
 
 
 def test_slate_elastic_no_lane_cap():

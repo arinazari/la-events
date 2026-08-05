@@ -74,3 +74,17 @@ Plan, in order, each step scored against feedback.jsonl before the next:
    stale/wrong ones); keep a thin top-K editor pass gated on taste change for the 12%.
 4. **Digest**: scaffold render + parallel cached why-writers (measured separately:
    6m24s cold, delta-only warm) — already the plan.
+
+## Status (2026-08-05)
+
+All three steps landed on this branch, each measured:
+1. **Hygiene** — junk gate extended (upsells/placeholders), accent-folded artist matching,
+   editor-pool past/junk guards. Lori's junk #1 died; catalog self-healed.
+2. **Event card** — draw/rarity/lineup_depth on shared enrichment, one capped scoring term;
+   144 cards backfilled from cached prose. Score↔tier concordance on 130 paired events:
+   0.382 → 0.611 (+0.23).
+3. **Demotion** — rank_key/effective_key off tier-primary onto the one bounded blend
+   (RANK_TIER_BONUS ±6 → +3/-5); editor recall capped top-120 (Lori's pool 1290 → 133).
+   Shuffled-tier null control no longer hijacks the shelf (real slate 4/6 stable with no
+   verdicts at all); feedback join: loved/starred events improve +3.2 mean percentile,
+   negative reactions flat. Remaining: keep scoring against feedback.jsonl as it grows.

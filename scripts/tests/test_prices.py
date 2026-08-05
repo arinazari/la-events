@@ -188,13 +188,20 @@ def test_auto_pool_stars_ride_any_horizon_and_lead():
     assert [e["title"] for e in pool] == ["Portola Sat", "Kim Gordon"]
 
 
-def test_auto_pool_ranks_by_verdict_tier_first():
+def test_auto_pool_ranks_by_bounded_blend():
+    """2026-08 demotion: the featured head orders by the one bounded blend — a verdict lifts
+    within reach (must-see 8+3=11 over solid 9+1=10) but a weak-scored must-see can no longer
+    leapfrog a clearly stronger show."""
     today = "2026-08-01"
     a = _tagged("Solid Show", "2026-08-02", "Zebulon", "live-music", score=9)
-    b = _tagged("Must See", "2026-08-03", "2220 Arts", "live-music", score=2)
+    b = _tagged("Must See", "2026-08-03", "2220 Arts", "live-music", score=8)
     verdicts = {event_key(a): {"tier": "solid"}, event_key(b): {"tier": "must-see"}}
     pool = PR.auto_pool([a, b], verdicts, today, days=21)
     assert [e["title"] for e in pool] == ["Must See", "Solid Show"]
+    c = _tagged("Weak Must See", "2026-08-04", "The Echo", "live-music", score=2)
+    verdicts[event_key(c)] = {"tier": "must-see"}
+    pool = PR.auto_pool([a, b, c], verdicts, today, days=21)
+    assert pool[-1]["title"] == "Weak Must See"          # 5: merit outranks the stale lift
 
 
 if __name__ == "__main__":

@@ -184,6 +184,8 @@ def main() -> int:
                     help="0 (default) = judge EVERY slate-lane event in the window (LLM-first, "
                          "Track B1); >0 = legacy top-K per lane per day")
     ap.add_argument("--editor-floor", type=int, default=4, help="also judge everything scoring >= this")
+    ap.add_argument("--editor-top-k", type=int, default=120,
+                    help="cap recall-mode judging to the best K (0/negative = uncapped)")
     args = ap.parse_args()
 
     cat_path = REPO / args.catalog if not Path(args.catalog).is_absolute() else Path(args.catalog)
@@ -298,7 +300,8 @@ def main() -> int:
     pool = P.score_pool(catalog, taste, profile, today, window_days=args.editor_window,
                         affinity=affinity, enrich_cache=enr_cache)
     pool = [e for e in pool if (e.get("score") or 0) >= 0]          # negatives auto-skip; don't judge
-    judge = ED.editor_pool(pool, per_lane=args.editor_per_lane, floor=args.editor_floor)
+    judge = ED.editor_pool(pool, per_lane=args.editor_per_lane, floor=args.editor_floor,
+                           top_k=(args.editor_top_k if args.editor_top_k and args.editor_top_k>0 else None))
     # Event-targeted reactions (dashboard taps carry event_key on their feedback rows) force a
     # fresh verdict for exactly that event: stamp reacted_at so select_for_verdict re-judges it
     # even when the score moved less than DRIFT_MIN.

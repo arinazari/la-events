@@ -337,6 +337,18 @@ def test_editor_pool_drops_past_and_junk_rows():
     assert "Verizon offer - Daisy Chain Fields" not in titles, "junk must not be judged"
 
 
+def test_editor_pool_top_k_caps_recall_mode():
+    """2026-08 demotion: top_k bounds the slate-lane judging head; the floor stays the
+    non-slate side door; top_k=None keeps the old judge-everything recall."""
+    from datetime import date as _date
+    pool = [_ev(f"U{i}", CLUB_U, 9 - i) for i in range(6)] + [_ev("Other8", OTHER, 8)]
+    got = ED.editor_pool(pool, top_k=3, today=_date(2026, 7, 4))
+    titles = {e["title"] for e in got}
+    assert {"U0", "U1", "U2"} <= titles and "U5" not in titles
+    assert "Other8" in titles, "high-scoring non-slate outlier still judged via floor"
+    assert len(ED.editor_pool(pool, today=_date(2026, 7, 4))) == 7   # None = uncapped
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
