@@ -12352,10 +12352,38 @@
     },
     "c25a0e805f99": {
       "id": "c25a0e805f99",
-      "description": "Open-air electronic set with Kim Anh and Physical Therapy (venue TBA).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-31T12:35:38",
-      "confidence": "medium"
+      "type": "club",
+      "subgenres": [
+        "house",
+        "techno",
+        "breakbeat"
+      ],
+      "label_orbit": [
+        "Allergy Season"
+      ],
+      "energy": "peak / late-night",
+      "setting": "outdoor",
+      "sounds_like": [],
+      "card": {
+        "draw": 2,
+        "rarity": 1,
+        "lineup_depth": 0
+      },
+      "artist_notes": [
+        {
+          "name": "Kim Anh",
+          "note": "LA queer-underground institution, two decades deep — classic house, garage, minimal-wave leaning; founded the beloved Booby Trap! party and Can U Not Talk Records."
+        },
+        {
+          "name": "Physical Therapy",
+          "note": "Daniel Fisher — Queens-via-Berlin producer known for genre-hopping, slightly off-kilter techno (bongo-flecked, breakbeat-inflected); runs Allergy Season and holds a residency at Nowadays. Real cult following, not a big-room name."
+        }
+      ],
+      "curator_note": "TBA-location open-air afterhours booking pairing Kim Anh's two decades of LA queer-underground house pedigree with Physical Therapy's genuinely odd, breakbeat-flecked techno — a legit pairing worth waiting on the location drop for.",
+      "description": "TBA-location open-air afterhours party with LA house veteran Kim Anh and NYC's genre-bending Physical Therapy.",
+      "confidence": "high",
+      "enriched_at": "2026-08-05T12:37:23",
+      "enriched_tier": "full"
     },
     "ae1a67cfb5ad": {
       "id": "ae1a67cfb5ad",
@@ -15529,13 +15557,6 @@
       "enriched_at": "2026-08-05T07:08:12",
       "confidence": "high"
     },
-    "c0f70cd87c07": {
-      "id": "c0f70cd87c07",
-      "description": "Late-night warehouse electronic event (venue TBA, DTLA, 11:59pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-05T07:08:12",
-      "confidence": "medium"
-    },
     "6284898f76d9": {
       "id": "6284898f76d9",
       "description": "Soulful house night at Gold Diggers, East Hollywood (10:30pm).",
@@ -15552,17 +15573,61 @@
     },
     "5f1f22c708d2": {
       "id": "5f1f22c708d2",
-      "description": "Surface DIY night featuring Sinéad, Xica Soul, and Capes at Better Tomorrow (10pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-05T07:08:12",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house"
+      ],
+      "label_orbit": [],
+      "energy": "listening / intimate",
+      "setting": "diy",
+      "sounds_like": [],
+      "card": {
+        "draw": 1,
+        "rarity": 0,
+        "lineup_depth": 1
+      },
+      "artist_notes": [
+        {
+          "name": "Xica Soul",
+          "note": "LA scene fixture (real name Daniela Zepeda) — roams disco, boogie, soul, and house; radio resident on Worldwide FM and KQBH, regular at Goldline and Homage Brewing. Warm, eclectic selector, not a big-room name."
+        },
+        {
+          "name": "Capes",
+          "note": "LA underground house DJ/producer (Ray Barragan), half of club tularosa — small-room circuit, emotionally-charged sets over pure peak-time function."
+        },
+        {
+          "name": "Sinéad",
+          "note": "Reads as a San Francisco-based selector — groove-forward, house-heavy, hypnotic sets. Couldn't confirm this is the same Sinéad playing LA regularly, so treat as unverified."
+        }
+      ],
+      "curator_note": "A hundred-capacity DIY room that just went phones-off on the floor — Xica Soul's the reason to actually go, roaming through disco and soulful house the way she always does; the rest of the bill is a bit of an unknown quantity.",
+      "description": "Small-room underground house night at Better Tomorrow with LA selector Xica Soul, plus Capes and Sinéad.",
+      "confidence": "medium",
+      "enriched_at": "2026-08-05T12:37:23",
+      "enriched_tier": "full"
     },
     "00cb31da36e7": {
       "id": "00cb31da36e7",
-      "description": "70mm screening of The Odyssey at Vista Theater, Los Feliz (6:20pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-05T07:08:12",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "epic / immersive",
+      "setting": "cinema",
+      "sounds_like": [
+        "Oppenheimer (70mm)",
+        "Dunkirk"
+      ],
+      "card": {
+        "draw": 3,
+        "rarity": 1,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "Nolan's Odyssey printed and projected in actual 70mm at the Vista — this is the version of seeing it that's worth building an evening around instead of waiting to stream it.",
+      "description": "Christopher Nolan's big-screen adaptation of Homer's Odyssey, screening in true 70mm film at the Vista.",
+      "confidence": "high",
+      "enriched_at": "2026-08-05T12:37:23",
+      "enriched_tier": "full"
     },
     "1e6a9a7fa6d7": {
       "id": "1e6a9a7fa6d7",
@@ -15990,6 +16055,188 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-05T07:08:12",
       "confidence": "high"
+    },
+    "b55dc359c0e1": {
+      "id": "b55dc359c0e1",
+      "type": "club",
+      "subgenres": [
+        "techno",
+        "tech-house",
+        "house"
+      ],
+      "label_orbit": [
+        "M-Plant",
+        "4 Tha Luv"
+      ],
+      "energy": "peak / day-into-night",
+      "setting": null,
+      "sounds_like": [],
+      "card": {
+        "draw": 3,
+        "rarity": 1,
+        "lineup_depth": 2
+      },
+      "artist_notes": [
+        {
+          "name": "Floorplan",
+          "note": "Robert Hood & daughter Lyric Hood — Detroit techno royalty (M-Plant) turned deep, gospel-inflected house. 'Baby Baby' fills a floor for a reason."
+        },
+        {
+          "name": "HoneyLuv",
+          "note": "Cleveland-born, ex-Navy — one of the biggest tech-house breakouts of the last few years; soulful, groovy end of the genre, runs her own 4 Tha Luv label."
+        },
+        {
+          "name": "Hannah Laing",
+          "note": "Dundee DJ, ex-dental technician turned fast-rising UK name — high-energy trance and hard house, runs the doof label and just launched her own festival."
+        },
+        {
+          "name": "Coco & Breezy",
+          "note": "Twin sisters (also the eyewear-brand founders) turned house/dance DJ duo — danceable, R&B-tinged, more crossover-pop energy than underground."
+        },
+        {
+          "name": "STRAWBRY",
+          "note": "LA underground fixture (South Florida-raised) — breaks-and-house sets, runs the STUDIO5400 party series."
+        },
+        {
+          "name": "Vieze Asbak",
+          "note": "Dutch 'memecore'/troll-rave artist out of Amsterdam's Pestcore Collectief — hard-dance-adjacent chaos, not clean house or techno. A sign this bill gets weird in spots."
+        },
+        {
+          "name": "Jazzy (IRL)",
+          "note": "Couldn't pin down a confident bio for this one — flagging as unverified rather than guessing."
+        }
+      ],
+      "curator_note": "Boiler Room's Sunday day party stacks Floorplan's gospel house and HoneyLuv's tech-house heat against Hannah Laing's hard-house hype and a Dutch memecore act, with several names even RA barely has bios for — genuinely one of the most eclectic single-day bills on the radar, go in expecting variety over consistency.",
+      "description": "Boiler Room's LA day party (venue TBA) — a 14-act, multi-genre bill headlined by Floorplan, HoneyLuv, and Hannah Laing.",
+      "confidence": "medium",
+      "enriched_at": "2026-08-05T12:37:23",
+      "enriched_tier": "full"
+    },
+    "2b8a61c7a36c": {
+      "id": "2b8a61c7a36c",
+      "description": "House and techno warehouse rave with CASMALIA, RYUMA, EMMBER, and NEDA in DTLA (11:45pm, free).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "6e79232b9596": {
+      "id": "6e79232b9596",
+      "description": "House day party at Perry's Beach with Bones, Lee Wells, Shae B, and others (3pm, $20).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "ec8851ecc9a0": {
+      "id": "ec8851ecc9a0",
+      "description": "80's goth and dark wave night at The Virgil (10pm, $10).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "4d5b243e1b77": {
+      "id": "4d5b243e1b77",
+      "description": "New wave en español night at The Virgil (10pm, $10).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "e688a90fe795": {
+      "id": "e688a90fe795",
+      "description": "Late-night party in Downtown LA (11pm, $5).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "medium"
+    },
+    "97adc4fa5d2b": {
+      "id": "97adc4fa5d2b",
+      "description": "SPICE presents electronic event at The Melrose House with Aku, Bianca Maieli, DJ SUDI, and MTooray (9pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "700e2c2479c8": {
+      "id": "700e2c2479c8",
+      "description": "Free electronic day party at 8th & Santa Fe (4pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "ee474280e622": {
+      "id": "ee474280e622",
+      "description": "Black Girl Whiskey Club social at The Hoxton Downtown LA (7pm, $21.83).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "d5e00c418218": {
+      "id": "d5e00c418218",
+      "description": "Perreo night at Bath House (9pm, free).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "77cdea8d2ff3": {
+      "id": "77cdea8d2ff3",
+      "description": "Queer day-party rave at Beaches Tropicana (3pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "054183041f63": {
+      "id": "054183041f63",
+      "description": "Afterhours party at 11th and Central hosted by Underground LA (4am, free).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "medium"
+    },
+    "a86a56489b02": {
+      "id": "a86a56489b02",
+      "description": "Afterhours party at 11th and Central hosted by Underground LA (4am, free).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "medium"
+    },
+    "a5720344be2a": {
+      "id": "a5720344be2a",
+      "description": "Day party featuring Elle Blink, venue TBA (11am, $59.10).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "medium"
+    },
+    "56119c2c297f": {
+      "id": "56119c2c297f",
+      "description": "Day party at Los Angeles Center Studios featuring Bino Rideaux (1pm, $15).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "4017f2b814e8": {
+      "id": "4017f2b814e8",
+      "description": "Event listed at Universal Studios Hollywood (8:15am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "low"
+    },
+    "664132e472e7": {
+      "id": "664132e472e7",
+      "description": "Live music at Gold Diggers in East Hollywood (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "medium"
+    },
+    "5a1b21ef3aca": {
+      "id": "5a1b21ef3aca",
+      "description": "Live music featuring Kid Congo & Naim Amor and Escape-ism at Zebulon (8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "high"
+    },
+    "a2605fc37d88": {
+      "id": "a2605fc37d88",
+      "description": "Film screening at Vidiots in Eagle Rock (7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-05T12:37:23",
+      "confidence": "medium"
     }
   },
   "artists": {
@@ -18228,6 +18475,46 @@
     "propersoundco": {
       "note": "No clear public bio surfaced — reads as this session's co-presenting sound/production crew (the 'Vol. 2' branding) rather than a separate DJ booking; can't verify further.",
       "seen": "2026-08-05T07:08:12"
+    },
+    "capes": {
+      "note": "LA underground house DJ/producer (Ray Barragan), half of club tularosa — small-room circuit, emotionally-charged sets over pure peak-time function.",
+      "seen": "2026-08-05T12:37:23"
+    },
+    "sinéad": {
+      "note": "Reads as a San Francisco-based selector — groove-forward, house-heavy, hypnotic sets. Couldn't confirm this is the same Sinéad playing LA regularly, so treat as unverified.",
+      "seen": "2026-08-05T12:37:23"
+    },
+    "floorplan": {
+      "note": "Robert Hood & daughter Lyric Hood — Detroit techno royalty (M-Plant) turned deep, gospel-inflected house. 'Baby Baby' fills a floor for a reason.",
+      "seen": "2026-08-05T12:37:23"
+    },
+    "honeyluv": {
+      "note": "Cleveland-born, ex-Navy — one of the biggest tech-house breakouts of the last few years; soulful, groovy end of the genre, runs her own 4 Tha Luv label.",
+      "seen": "2026-08-05T12:37:23"
+    },
+    "coco and breezy": {
+      "note": "Twin sisters (also the eyewear-brand founders) turned house/dance DJ duo — danceable, R&B-tinged, more crossover-pop energy than underground.",
+      "seen": "2026-08-05T12:37:23"
+    },
+    "strawbry": {
+      "note": "LA underground fixture (South Florida-raised) — breaks-and-house sets, runs the STUDIO5400 party series.",
+      "seen": "2026-08-05T12:37:23"
+    },
+    "vieze asbak": {
+      "note": "Dutch 'memecore'/troll-rave artist out of Amsterdam's Pestcore Collectief — hard-dance-adjacent chaos, not clean house or techno. A sign this bill gets weird in spots.",
+      "seen": "2026-08-05T12:37:23"
+    },
+    "jazzy irl": {
+      "note": "Couldn't pin down a confident bio for this one — flagging as unverified rather than guessing.",
+      "seen": "2026-08-05T12:37:23"
+    },
+    "kim anh": {
+      "note": "LA queer-underground institution, two decades deep — classic house, garage, minimal-wave leaning; founded the beloved Booby Trap! party and Can U Not Talk Records.",
+      "seen": "2026-08-05T12:37:23"
+    },
+    "physical therapy": {
+      "note": "Daniel Fisher — Queens-via-Berlin producer known for genre-hopping, slightly off-kilter techno (bongo-flecked, breakbeat-inflected); runs Allergy Season and holds a residency at Nowadays. Real cult following, not a big-room name.",
+      "seen": "2026-08-05T12:37:23"
     }
   }
 }
