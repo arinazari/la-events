@@ -62,6 +62,7 @@ unless special) + `restaurants_loved`; ranking honors it.
 .claude/skills/concierge/SKILL.md   # concierge — NL front door routing to the modes/agents (primary interface)
 .claude/agents/                     # worker agents: event-editor (ranking verdicts), scene-researcher (full enrichment,
                                     #   top-100 head), blurb-writer (cheap one-line descriptions for the band below the head),
+                                    #   why-writer (digest voice tier — one-line whys over the rendered slate),
                                     #   night-planner (events×dining itinerary), source-scout (discovery)
 sources.yaml                        # events source registry — schema in file header
 dining-sources.yaml                 # dining source registry — schema in file header
@@ -90,6 +91,9 @@ scripts/profile_refresh_gate.py     # nightly taste-change gate: per profile REF
 scripts/build_radar.py              # deterministic "on the radar" set (festival/big-venue/tracked/editorial) → data/radar.json
 scripts/render_digest.py            # scored pool + verdicts → digest slate (Markdown). `--consolidated` = one daily doc
                                     #   (next 2 wks + weekends ahead + radar); `--from/--to` = per-weekend look-ahead
+scripts/digest_voice.py             # render+voice digest plumbing (rebuild-profile): `prep` emits the why-writer
+                                    #   work doc (why-cache-aware), `splice` folds the words back with hard verify;
+                                    #   the rendered scaffold is always the shippable fallback
 scripts/travel.py                   # night-planner travel CLI: rough LA drive/walk times (lib/geo.py + dining.json)
 scripts/make_ics.py                 # turn a night-planner itinerary into a calendar .ics (lib/ics.py)
 scripts/log_feedback.py             # concierge: append a reaction to data/feedback.jsonl (the learned loop)
@@ -115,6 +119,8 @@ data/verdicts/<hash>.json           # event-editor verdicts, per profile (commit
 data/enrichment.json                # scene-graph cache: per-event enrichment (full + blurb tiers) + artist notes (committed; grows each run)
 data/artist_links.json              # Spotify artist-page cache (lib/artist_links; committed) → feed `artist_links` = direct ▶ listen links
 data/ticket_prices.json             # resale-floor store (committed; date-pruned) → feed `price_check` = the card's "Cheapest tickets" block
+data/why_cache.<hash>.json          # per-profile digest why-cache (committed): one sentence per pick, keyed to a
+                                    #   taste-hash — repeat Update clicks only write NEW sentences
 data/spotify_affinity.json          # Spotify music-affinity artifact (runtime; gitignored)
 data/feedback.jsonl                 # append-only reaction log (committed); folds into scoring each run
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)
