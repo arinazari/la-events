@@ -136,10 +136,22 @@ _JUNK_AIRLINE_GENERIC = re.compile(r"(?i)\b\w+\s+air(?:lines?|ways)\b")
 _JUNK_LONG_DIGIT_RUN = re.compile(r"\d{2}-?\d{7,}|\d{9,}")
 
 
+# Ticket add-ons and carrier-presale offers that TM lists as sibling "events" of the real
+# show ("slayr - VIP Ticketless Upgrade", "Verizon offer - Daisy Chain Fields"). Anchored
+# shapes only: a bare band named "Upgrade" or a "Parking Lot Party" must survive.
+_JUNK_UPSELL = re.compile(
+    r"(?i)\bticketless\s+upgrade\b|\bvip\s+upgrade\b|\bupgrade\s+(?:pass|package)\b|"
+    r"\bparking\s+(?:pass|package)\b|\b(?:pre-?sale)\s+offer\b")
+_JUNK_OFFER_PREFIX = re.compile(
+    r"(?i)^[\w&+.']+(?:\s+[\w&+.']+)?\s+offer\s*[-–—:]")   # "Verizon offer - <show>"
+
+
 def is_junk_event(ev: dict):
     """Deterministic scam/SEO-spam gate. Returns a reason string for a junk
     listing, or None for a real event. Judged on the TITLE only — phones and
-    service-speak in detail/venue fields occur legitimately (box-office lines)."""
+    service-speak in detail/venue fields occur legitimately (box-office lines).
+    (Exception: the venue-placeholder rule also reads venue + lineup, since the
+    defect IS the title/venue relationship.)"""
     title = str(ev.get("title") or "")
     if _JUNK_PHONE_IN_TITLE.search(title):
         return "phone number in title (call-center spam)"
@@ -155,6 +167,14 @@ def is_junk_event(ev: dict):
         _JUNK_TRAVEL_ACTION.search(title) or _JUNK_LONG_DIGIT_RUN.search(title)
     ):
         return "airline-hotline spam title"
+    if _JUNK_UPSELL.search(title) or _JUNK_OFFER_PREFIX.search(title):
+        return "ticket add-on / presale-offer listing, not an event"
+    # Venue-calendar placeholder: the "event" is just the room's own name with nothing billed
+    # ("Hollywood Palladium" at Hollywood Palladium). A real self-titled bill lists a lineup.
+    venue = str(ev.get("venue") or "")
+    if title and venue and not (ev.get("lineup") or []):
+        if " ".join(title.lower().split()) == " ".join(venue.lower().split()):
+            return "title is just the venue (placeholder listing)"
     return None
 
 
@@ -619,9 +639,10 @@ def normalize_locations(catalog: list, profile: dict = None) -> list:
     return catalog
 
 
-def score_view(ev: dict, taste: dict, profile: dict, affinity: dict = None) -> dict:
+def score_view(ev: dict, taste: dict, profile: dict, affinity: dict = None,
+               card: dict = None) -> dict:
     """A scored copy of an event (catalog stays score-free; scores live in the candidate set)."""
-    s = score_event(ev, taste, profile, affinity)
+    s = score_event(ev, taste, profile, affinity, card=card)
     d = parse_event_date(ev)
     out = dict(ev)
     out["score"] = s["score"]
@@ -631,7 +652,8 @@ def score_view(ev: dict, taste: dict, profile: dict, affinity: dict = None) -> d
     return out
 
 
-def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=None) -> list:
+def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=None,
+               enrich_cache=None) -> list:
     """All upcoming events in the window, scored and sorted best-first (no top-N cut).
 
     The shared scored set: select_candidates slices the enrichment top-N off it, and the editor
@@ -645,7 +667,8 @@ def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=N
     for ev in catalog:
         if ev.get("status") == "unlisted":          # ghost (dropped from all its sources) — don't surface
             continue
-        v = score_view(ev, taste, profile, affinity)
+        card = ((enrich_cache or {}).get("events", {}).get(event_key(ev)) or {}).get("card")
+        v = score_view(ev, taste, profile, affinity, card=card)
         if not v["iso_date"] or v["iso_date"] < start:
             continue
         if end and v["iso_date"] > end:
@@ -657,7 +680,7 @@ def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=N
 
 
 def select_candidates(catalog, taste, profile, today=None, window_days=None,
-                      top_n=40, affinity=None, verdicts=None) -> list:
+                      top_n=40, affinity=None, verdicts=None, enrich_cache=None) -> list:
     """The enrichment candidate set: upcoming events, best-first, top N.
 
     `affinity` (optional) layers the Spotify + feedback music profile into the scoring.
@@ -667,7 +690,8 @@ def select_candidates(catalog, taste, profile, today=None, window_days=None,
     treatment. Unjudged (brand-new) events compete on raw score — they're judged the same
     run and slot correctly the next.
     """
-    pool = score_pool(catalog, taste, profile, today, window_days, affinity)
+    pool = score_pool(catalog, taste, profile, today, window_days, affinity,
+                      enrich_cache=enrich_cache)
     if verdicts:
         from .assemble import rank_score
         pool = sorted(pool, key=lambda e: (-rank_score(e, verdicts), event_key(e)))

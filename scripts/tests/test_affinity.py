@@ -153,6 +153,32 @@ def test_ambiguous_set_resolves_profile_then_taste_then_default():
     assert "fisher" in base and "drama" in base and "future" in base
 
 
+# ── 2026-08 shadow-eval additions: accent folding + the historical Ame phantom class ──
+
+def test_tracked_accent_fold_both_directions():
+    # taste says ascii "Ame", the bill says "\u00c2me" — and the reverse. Both must hit.
+    assert tracked_hits(["Ame"], "\u00c2me at Sound Nightclub", []) == {"Ame"}
+    assert tracked_hits(["\u00c2me"], "AME all night long", ["AME"]) == {"\u00c2me"}
+
+
+def test_tracked_ame_phantom_collisions_stay_dead():
+    # June 2026: substring matching credited "Ame" on all of these (31 phantom verdicts).
+    # The whole-token matcher must keep every one dead, accent folding must not revive them.
+    for title in ("Chinese American Bear", "An American in Paris",
+                  "The Americana at Brand block party", "Americana night at Pappy's",
+                  "Wyatt Cote live at Pechanga"):
+        assert tracked_hits(["Ame"], title, []) == set(), title
+
+
+def test_artist_affinity_accent_folded_artifact_key():
+    # Artifact keys are normalize_name output, but a pre-fix artifact may carry accented
+    # keys ("\u00e2me") — matching must fold the stored key at use, not trust it.
+    aff = {"artists": {"\u00e2me": {"name": "\u00c2me", "tier": "core", "weight": 4.0,
+                                     "sources": ["followed"]}}}
+    pts, reasons = artist_affinity("ame b2b dixon at sound", "ame b2b dixon", aff)
+    assert pts > 0 and any("\u00c2me" in r for r in reasons)
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

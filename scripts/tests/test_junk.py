@@ -130,6 +130,40 @@ def test_merge_new_junk_titles_sample_is_bounded():
     assert len(stats["junk_titles"]) == 5
 
 
+# ── 2026-08 shadow-eval additions: upsell/offer add-ons + venue placeholders ─────
+
+def test_junk_ticketless_upgrade_row():
+    # Real TM sibling row of the slayr show (2026-08 catalog).
+    r = P.is_junk_event(_ev("slayr - VIP Ticketless Upgrade", venue="The Belasco"))
+    assert r is not None, "TM ticketless-upgrade add-on must be junk"
+
+
+def test_junk_carrier_offer_prefix_row():
+    # Real carrier-presale row that a stale must-see verdict put at a profile's #1.
+    r = P.is_junk_event(_ev("Verizon offer - Daisy Chain Fields", venue="Great Park Live"))
+    assert r is not None, "carrier presale-offer listing must be junk"
+
+
+def test_junk_venue_placeholder_row():
+    # Real ra+tm merged placeholder: the "event" is just the room's name, nothing billed.
+    r = P.is_junk_event(_ev("Hollywood Palladium", venue="Hollywood Palladium"))
+    assert r is not None, "title==venue with no lineup must be junk"
+
+
+def test_junk_self_titled_bill_with_lineup_survives():
+    # A self-titled residency night IS real when someone is billed.
+    r = P.is_junk_event(_ev("Hollywood Palladium", venue="Hollywood Palladium",
+                            lineup=["Perfume Genius"]))
+    assert r is None, "placeholder rule must not fire when a lineup is billed"
+
+
+def test_junk_upsell_lookalikes_survive():
+    # Band named Upgrade / a parking-lot party / an "offer" mid-title are all real events.
+    for t in ("Upgrade — album release show", "Parking Lot Party w/ Dublab DJs",
+              "What the Water Gave Me — final offer night"):
+        assert P.is_junk_event(_ev(t)) is None, t
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

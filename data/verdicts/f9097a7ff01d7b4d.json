@@ -733,14 +733,13 @@
       "score_at_judge": 6
     },
     "d95b156bb459": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "Three strong-tier picks on one bill for an album release at your favorite Echo Park room — this is the night to build the weekend around.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
+      "tier": "great",
+      "adjust": -1,
+      "why": "Album release energy at The Echo on a Saturday, KROQ alt-rock airplay, and 8+ years of road-tested SoCal gigging — the right genre in the right room, just not a name she'd know to seek out.",
+      "confidence": "med",
+      "judged_at": "2026-07-20T09:14:35",
       "input_version": 2,
-      "score_at_judge": 11,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "0e247841b964": {
       "tier": "must-see",
@@ -1583,434 +1582,222 @@
       "input_version": 2,
       "score_at_judge": 5
     },
-    "d08ce1644c58": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Large-room worship praise concert — big-venue religious event with zero overlap with Lori's taste in any direction.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "dc9ebcb5c559": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "All-vinyl open-air format is the right spirit but Krane is still a house resident doing a DJ set — fits the vinyl-curiosity lane, not the band-forward one.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "bbc675ebc484": {
+    "9d77efd700d9": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Applied Communications (DC) playing The Smell — DIY punk/experimental at the exact intimate-club-scene venue she's after; score of 4 undersells this badly.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "cdb13915b595": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "All-DJ lineup day party; the queer pool party format is fine culturally but there's no band draw and the DJs aren't a compelling pull for her lane.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "a8f8c2f977a8": {
-      "tier": "solid",
       "adjust": 1,
-      "why": "Cut Chemist's Jurassic 5/Ozomatli pedigree and sample-collage funk make this genuinely interesting for an ethnomusicologist; listening-bar format is the right vibe even if it's westside and DJ-format.",
+      "why": "Nikki Nair's genre-blurring pedigree (Dirtybird, an early Mike Banks co-sign) clears the bar for a warehouse night — genuinely the best techno booking of the batch, just not your main lane.",
       "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 8
     },
-    "9b06fa8054a8": {
+    "63a4694717d7": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Gold Diggers is exactly her East Hollywood neighborhood and generally books well, but 'Young Bull' has no genre or lineup info to gauge the actual draw.",
-      "confidence": "low",
-      "judged_at": "2026-08-03T02:10:16",
+      "adjust": -1,
+      "why": "Fills arenas for good reason, but Anjunadeep-adjacent dance-pop sits at the bottom of your list — Friday's the night to catch it over Thursday's date.",
+      "confidence": "high",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 7
     },
-    "58fd18418469": {
+    "0016dfad8af5": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "The Beths are the real draw here — sharp, well-reviewed indie rock — with Beach Bunny's grown-up viral-pop rounding out a real co-bill; Pomona's just a haul on a Friday.",
+      "confidence": "high",
+      "judged_at": "2026-08-05T05:30:35",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "1c5658a19b7d": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "RA-pick warehouse techno with Mha iri — Drumcode-released, already playing Tomorrowland and Awakenings — about as good as this genre gets, which still caps it below your core lanes.",
+      "confidence": "med",
+      "judged_at": "2026-08-05T05:30:35",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "98240dd4a01e": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Oscar G's an actual Murk-era house legend, but it's a solo late set in a room you show no other pull toward — a real name, not necessarily a real event.",
+      "confidence": "med",
+      "judged_at": "2026-08-05T05:30:35",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "02eb76005dd9": {
       "tier": "must-see",
+      "lane": "live-music",
       "adjust": 3,
-      "why": "Tortoise at Zebulon (loved venue, Frogtown) — a Chicago post-rock institution playing an intimate room, paired with the perfectly matched Tara Jane O'Neil; the Sunday night anchor.",
+      "why": "This is filed as a club night but it's really three serious jazz/experimental players — Kirby's Stones Throw catalog, Pasillas's session pedigree — at a venue you already love; the DJ set is a footnote, not the draw.",
       "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 4
-    },
-    "3dd8b566e809": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Jazz trio no-cover residency at The Dresden in Los Feliz — easy-access listening-room jazz on her doorstep, a relaxed find even if it's a recurring slot rather than a marquee booking.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "541506492b1a": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Tech-house afterhours with no lineup at all — unbilled late-night electronic is the exact format her taste profile buries.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "9ef1425bceb9": {
-      "tier": "skip",
-      "lane": "club:mainstream",
-      "adjust": -2,
-      "why": "OT Genasis as celebrity host at a free 10pm Los Globos party reads as generic open-format club night; lane was misfiled as day (10pm start, afterhours run).",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "08d22ab728a8": {
-      "tier": "skip",
-      "lane": "club:mainstream",
-      "adjust": -3,
-      "why": "Duplicate of the OT Genasis Los Globos listing above — same event, same problems, buried on both grounds.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "67ff601868d5": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Hardstyle after-party with no lineup — farthest possible genre from her taste and zero billing to redeem it.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:10:16",
-      "input_version": 2,
-      "score_at_judge": 4
-    },
-    "745e90686fa0": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Fan convention for a reality TV dance show in Palm Desert — 90+ miles away and the format has nothing to do with music. Doubly buried.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "f45740099378": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Pool-party DJ residency in house/disco — she wants live bands first, and nothing in this lineup crosses into the electronic corner worth her attention.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "b18515b70c6b": {
-      "tier": "skip",
-      "adjust": 0,
-      "why": "Improvised puppet comedy theater — sits in the medium-theater bucket only loosely; not the cultural or arthouse programming she'd actually seek out.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "34dd06558f6c": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Blockbuster Lloyd Webber touring production — medium theater interest but this is exactly the mainstream spectacle she'd skip for something more alive.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 2
-    },
-    "b1ab84a571c8": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Latin live at The Wiltern but zero scene detail on what kind of Latin — could be her cumbia/alt lane or mainstream pop; big-venue booking and sparse info mean low confidence either way.",
-      "confidence": "low",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "f8ea6866b61f": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Norteño at Toyota Arena in Ontario — the geography alone kills it from Glendale, and Grupo Frontera's mainstream accordion-and-bajo-sexto sound is a different Latin branch from the cumbia and alt-Latin she follows.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "84ca22ca09ae": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "House DJ afters off a festival she doesn't follow at a TBA location for $59+ — wrong lane, wrong price, no artist connection to justify the bet.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "fc0a48038d3d": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "PMJ-affiliated vocalist doing jazz covers at a Bel Air supper club at 11pm — The Voice lineage and covers-heavy format put this outside the authentic listening-room jazz she actually wants.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "15590e98a814": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "Blues/funk format at a small Westside bar is right on paper, but no lineup info makes it a gamble, and the Santa Monica trek from Glendale isn't worth unknown talent.",
-      "confidence": "low",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "6c3352e12ce4": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Live jazz at The Mint — big band plus jazz combo in a proper listening-room setting, Mid-City is reachable from Glendale, and this is exactly the live-jazz-in-a-small-club format she actively seeks.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "cee64ac26e3f": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Rock-sounding name but scene confirms DJ night at Redwood — DTLA location is ideal but confirmed electronic-only format puts this at the bottom for someone firmly in the live-band camp.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 3
-    },
-    "1c5ddc013f3c": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "Banoffee's SOPHIE/alt-pop pedigree lifts this above generic pool house, but it's still a DJ day party at an unknown location — marginal for someone whose entry point is live bands over selectors.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T02:11:27",
-      "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 6
     },
     "4fde9ef71293": {
       "tier": "great",
-      "adjust": 1,
-      "why": "J'cuuzi's costumed art-punk (Viagra Boys/Warmduscher tour support) on a scrappy DIY bill at Gold Diggers is exactly the garage/post-punk lane you live in, even without a name you'd recognize.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
-      "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
-    },
-    "f5fa123eb456": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Momma's loving Breeders/Nirvana-via-Pavement revival on Polyvinyl, with Rocket's shoegaze edge opening, is a real critical-buzz bill, not just another rock date.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
-      "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
-    },
-    "53630a69d501": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Sizzy Rocket leans glam-pop-rock rather than the art-rock/post-punk end you actually chase, and the attached scene note is misfiled (describes a different band) — go in with modest expectations.",
-      "confidence": "low",
-      "judged_at": "2026-08-03T13:08:51",
-      "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
-    },
-    "4048ae982880": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Hulvey is Reach Records Christian hip-hop, not indie — the genre tags mislead, this isn't your lane at all.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
-      "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
-    },
-    "f89226be5e5e": {
-      "tier": "great",
       "adjust": 2,
-      "why": "Mehldau, Chris Thile and Blake Mills doing chamber reinterpretations of Elliott Smith is serious musicianship, not a tribute-band nostalgia trip — worth the Orpheum ticket.",
-      "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
-      "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
-    },
-    "2e3e86b1f247": {
-      "tier": "skip",
-      "lane": "club:mainstream",
-      "adjust": -1,
-      "why": "This reads as a themed DJ party spinning indie-rock hits rather than actual bands — closer to a mainstream nostalgia night at Echoplex than underground club programming.",
+      "why": "DIY rock bill at Gold Diggers — J'cuuzi has opened for Viagra Boys, 3371's fuzzy Long Beach grunge is straight down your alley — the score undersold this one.",
       "confidence": "med",
-      "judged_at": "2026-08-03T13:08:51",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
-    "b7a22c4df631": {
+    "3d451a6e1b39": {
       "tier": "great",
       "adjust": 2,
-      "why": "Death Cab is a real headliner in your indie-rock wheelhouse with Nation of Language's cold-wave synth-pop a genuinely good opener — the editorial-mention-only bump undersells a legit big show.",
+      "why": "Last of the three 70mm nights at the Vista — this is the screening to actually build the evening around, not Thursday's morning matinee.",
       "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "661810bd07d3": {
-      "tier": "solid",
+      "tier": "great",
       "adjust": 1,
-      "why": "Alejandro Aranda (American Idol's Scarypoolparty) writing in your loved Echo room — solid songwriter bill, though I can't gauge how big a draw he still is.",
-      "confidence": "low",
-      "judged_at": "2026-08-03T13:08:51",
+      "why": "Aranda's a real songwriter, not just his American Idol run, at a venue you already love — the quieter, low-key pick for Thursday.",
+      "confidence": "med",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 5
+    },
+    "129c423641ef": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Same 70mm run as Friday's 6:30 show at the same theater — this is just the 10am matinee slot, go to the evening screening instead.",
+      "confidence": "high",
+      "judged_at": "2026-08-05T05:30:35",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "d3e25eb26f47": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free industry DJ showcase — salute's legitimately on the rise and Seinfeld's a known, tasteful quantity, but it's still a genre you keep at arm's length.",
+      "confidence": "med",
+      "judged_at": "2026-08-05T05:30:35",
+      "input_version": 2,
+      "score_at_judge": 5
     },
     "2368c637023c": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "Poppy's bill leans metalcore (LANDMVRKS, Thousand Below) rather than the goth/art-rock end of your taste — closer to a heavy show than a glam-goth crossover.",
+      "why": "LANDMVRKS and Thousand Below put this closer to metalcore than the goth/alt lane you're actually in, even with Poppy's own genre-hopping range.",
       "confidence": "med",
-      "judged_at": "2026-08-03T13:08:51",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 5
     },
     "a7a8f0f27ed0": {
       "tier": "great",
       "adjust": 1,
-      "why": "Old 97's alt-country veterans at Teragram, a room you already love — dependable, well-played rock, easy include.",
+      "why": "Alt-country lifers at a room this profile already loves — Rhett Miller's band still puts on a hooky, high-energy set, not legacy-act autopilot.",
       "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 5
     },
     "ce2681dff5d3": {
-      "tier": "solid",
+      "tier": "great",
       "adjust": 1,
-      "why": "This is Corinne Bailey Rae herself on an anniversary tour, not a cover act despite the 'Celebrating 20 Years' framing — soulful songwriter fare that fits your craft-pop lane.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T13:08:51",
+      "why": "Verified this is Bailey Rae herself playing her 4x-platinum debut start to finish for its 20th, not a covers night — a genuinely rare full-album show.",
+      "confidence": "high",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 5
     },
     "8a4e8ecfdc9b": {
       "tier": "great",
       "adjust": 2,
-      "why": "Gipsy Kings are the flamenco-rumba legends your ethnomusicologist streak was built for — the flat scoring badly undersells a marquee world-music booking at the Greek.",
+      "why": "Flamenco-rumba legends at the Greek, a venue this profile already loves — the scorer never matched 'Greek Theatre' to 'The Greek' so that bump never landed.",
       "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 5
+    },
+    "0ec7074e8d8a": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "A UK post-punk two-piece — stripped down, self-released, built on volume — the exact register this profile shows up for in small rooms, but I can't vouch for how this specific set lands live.",
+      "confidence": "low",
+      "judged_at": "2026-08-05T05:30:35",
+      "input_version": 2,
+      "score_at_judge": 5
     },
     "492a5e47701a": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Straight country bill with no crossover hook for your taste — pass unless you know Ole 60 specifically.",
-      "confidence": "low",
-      "judged_at": "2026-08-03T13:08:51",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "A rising Nashville country bill in a mid-size room — proximity and the Friday bump carry the score; the genre itself isn't pulling this profile in.",
+      "confidence": "med",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 5
     },
     "3e976b515868": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Mainstream country arena pop, nothing here for your lane.",
+      "why": "Arena pop-country for a different listener entirely — the blanket music-category bump does all the work; nothing in the genre or setting matches the brief.",
       "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 5
     },
     "228005af5a28": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "Juan de Marcos and the actual Afro-Cuban All Stars — Buena Vista Social Club's own architects doing Cuban son at a real theater — this is the ethnomusicologist-core pick of the week, and the score has no idea.",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Juan de Marcos's Buena Vista Social Club lineage is the roots/diaspora catnip this brief calls out by name — the flat score has no way to flag how rare that booking is.",
       "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 5
     },
     "ae6bc3908106": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Judy Collins and Bruce Cockburn, two folk lifers, at the Ford's outdoor garden setting — squarely the roots/folk end of your taste in the exact setting you love.",
+      "adjust": 1,
+      "why": "Two genuine songwriting legends at the prettiest outdoor room in town — tagged 'country' by the tagger, but this is folk royalty, not Nashville.",
       "confidence": "high",
-      "judged_at": "2026-08-03T13:08:51",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 5
     },
-    "9d77efd700d9": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Nikki Nair and George Daniel (The 1975's drummer moonlighting) are interesting but not marquee enough to justify a warehouse afterhours booking outside your usual lane.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T13:08:51",
-      "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
-    },
-    "1c5658a19b7d": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Solid pedigree (Drumcode-adjacent Mha iri) but still just warehouse techno without a truly special name — stays in the 'only if marquee' bucket for you.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T13:08:51",
-      "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
-    },
-    "44cb7ee32c64": {
+    "49bdc213584b": {
       "tier": "great",
-      "adjust": 1,
-      "why": "The Smell's DIY punk grime is your garage/post-punk wheelhouse even with unknown names — Black Cat Coalition's noisy queer post-grunge fits the room.",
-      "confidence": "med",
-      "judged_at": "2026-08-03T13:08:51",
+      "adjust": 2,
+      "why": "Another Greek Theatre booking where the venue-love bump missed on the same string mismatch, and Allison Russell opening is a genuine draw, not a nostalgia-tour afterthought.",
+      "confidence": "high",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 4
     },
-    "c1876cd78086": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "New Age spotlight programming at the Grammy Museum doesn't touch your indie/global lane, and there's nothing else to go on for this artist.",
-      "confidence": "low",
-      "judged_at": "2026-08-03T13:08:51",
+    "530eec9fc23c": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Two actual classic-rock Hall of Famers, still playing their own catalog, at the best outdoor room in the city — build the Wednesday around this.",
+      "confidence": "high",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 4
     },
-    "d3d3bb892f9e": {
+    "bd4f574c0403": {
       "tier": "great",
-      "adjust": 1,
-      "why": "No info on this bill beyond the names, but Zebulon is a room you trust for exactly this kind of live-band night — worth a flier.",
-      "confidence": "low",
-      "judged_at": "2026-08-03T13:08:51",
+      "adjust": 2,
+      "why": "Live-looped music plus live animation from Adventure Time's creator, at a room this brief names outright as the intimate-club sweet spot — exactly the sleeper a flat 4 buries.",
+      "confidence": "med",
+      "judged_at": "2026-08-05T05:30:35",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 4
+    },
+    "987a3c20b578": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "A well-reviewed, delicate indie-folk songwriter in a DIY room — good enough to include, just nothing here distinguishes it from the rest of the pack.",
+      "confidence": "med",
+      "judged_at": "2026-08-05T05:30:35",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }

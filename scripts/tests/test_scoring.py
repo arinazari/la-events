@@ -114,9 +114,11 @@ def test_profile_preserves_code_defaults():
                           ("penalty", DEFAULT_PENALTY_TERMS), ("far", DEFAULT_FAR_TERMS)]:
         dropped = set(default) - set(cfg[name])
         assert not dropped, f"profile.yaml {name}_terms dropped baseline default(s): {sorted(dropped)}"
-    changed = {k: (cfg["category_weights"].get(k), v)
-               for k, v in DEFAULT_CATEGORY_WEIGHTS.items() if cfg["category_weights"].get(k) != v}
-    assert not changed, f"profile.yaml category_weights changed/dropped baseline (got, want): {changed}"
+    # category_weights: every baseline CATEGORY must stay present (a silently dropped key
+    # zeroes a whole slice of coverage), but the VALUES are the owner's editable knob —
+    # e.g. the 2026-08-04 owner edit (film 3->1, live_music 2->3) is intent, not drift.
+    missing = [k for k in DEFAULT_CATEGORY_WEIGHTS if k not in cfg["category_weights"]]
+    assert not missing, f"profile.yaml category_weights dropped baseline categorie(s): {missing}"
 
 
 def test_parse_event_date_tm_utc_evening_is_local_day():
@@ -195,6 +197,40 @@ def test_tm_date_windows_defeat_the_1000_cap():
     assert len(wins) == 7                                      # 181 / 30 -> 7 slices
     # The default 21-day horizon collapses to ONE window — behaviour-preserving at the near default.
     assert len(tm.date_windows(start, datetime(2026, 1, 22, tzinfo=timezone.utc), 30)) == 1
+
+
+# ── 2026-08 event card term ──────────────────────────────────────────────────────
+
+def test_card_term_bounded_and_absent_card_identical():
+    ev = {"title": "Somebody", "venue": "The Echo", "category": "music"}
+    base = score_event(ev, {}, {})
+    carded = score_event(ev, {}, {}, None, card={"draw": 2, "rarity": 1, "lineup_depth": 2})
+    assert carded["score"] == base["score"] + 4
+    assert any("event card" in r for r in carded["reasons"])
+    maxed = score_event(ev, {}, {}, None, card={"draw": 3, "rarity": 2, "lineup_depth": 2})
+    assert maxed["score"] == base["score"] + 4, "card term must cap (default card_cap=4)"
+    off = score_event(ev, {}, {"scoring": {"card_cap": 0}}, None,
+                      card={"draw": 3, "rarity": 2, "lineup_depth": 2})
+    assert off["score"] == base["score"], "card_cap 0 disables the term"
+    empty = score_event(ev, {}, {}, None, card={"draw": 0})
+    assert empty["score"] == base["score"] and not any("event card" in r for r in empty["reasons"])
+    assert score_event(ev, {}, {}, None, card=None)["score"] == base["score"]
+
+
+def test_venue_loved_article_and_direction_insensitive():
+    """2026-08 test-run catch: taste 'The Greek' never matched venue 'Greek Theatre' under
+    one-way bare substring. Both directions, article-stripped, token-bounded."""
+    from lib.scoring import venue_loved
+    assert venue_loved("Greek Theatre", ["The Greek"])            # the measured miss
+    assert venue_loved("The Greek", ["Greek Theatre"])            # reverse direction
+    assert venue_loved("2220 Arts + Archives", ["2220 Arts"])     # old behavior preserved
+    assert venue_loved("Hollywood Bowl", ["The Hollywood Bowl"])
+    assert not venue_loved("Greektown Social", ["The Greek"])     # token boundary holds
+    assert not venue_loved("The Echoplex", ["The Echo"])          # 'echo' can't leak sideways
+    assert not venue_loved("Zebulon", ["Zeb"])                    # sub-4-char entries ignored
+    ev = {"title": "Someone", "venue": "Greek Theatre", "category": "music"}
+    r = score_event(ev, {"venues_loved": ["The Greek"]}, {})
+    assert any("venue you love" in x for x in r["reasons"])
 
 
 if __name__ == "__main__":

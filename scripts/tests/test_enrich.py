@@ -199,6 +199,33 @@ def test_blurb_skips_results_without_description():
     assert k not in cache["events"]
 
 
+# ── 2026-08 event card (shadow-eval step 2) ──────────────────────────────────────
+
+def test_validate_card_clamps_and_drops():
+    assert E.validate_card({"draw": 5, "rarity": -1, "lineup_depth": 2}) == \
+        {"draw": 3, "rarity": 0, "lineup_depth": 2}
+    assert E.validate_card({"draw": "2", "bogus": 9}) == {"draw": 2}
+    assert E.validate_card({"draw": "loud", "rarity": None}) is None
+    assert E.validate_card({"draw": True}) is None          # bools are not ratings
+    assert E.validate_card("nope") is None and E.validate_card({}) is None
+
+
+def test_update_cache_validates_card_and_scene_facts_exposes_it():
+    cache = {"events": {}, "artists": {}}
+    E.update_cache(cache, [{"id": "k1", "type": "club", "description": "x",
+                             "card": {"draw": 9, "rarity": 1, "junk": "y"}}],
+                    now="2026-08-04T00:00:00")
+    assert cache["events"]["k1"]["card"] == {"draw": 3, "rarity": 1}
+    E.update_cache(cache, [{"id": "k2", "type": "club", "card": "garbage"}],
+                    now="2026-08-04T00:00:00")
+    assert "card" not in cache["events"]["k2"]
+    ev = {"title": "T", "venue": "V", "date": "2026-08-10"}
+    k = E.event_key(ev)
+    cache["events"][k] = {"id": k, "type": "club", "card": {"draw": 2}}
+    facts = E.scene_facts(ev, cache)
+    assert facts.get("card") == {"draw": 2}, "editor must see the card via scene_facts"
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

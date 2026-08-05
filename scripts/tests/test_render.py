@@ -112,15 +112,18 @@ def _dm_cands():
     return [great, ms]
 
 
-def test_dont_miss_is_tier_primary_with_why_slots():
-    """Track B4: the shelf is the top slice of the full ranking — tier beats raw score — and
-    every item carries a prefilled why + a tier3 slot marker."""
+def test_dont_miss_is_blend_ranked_with_why_slots():
+    """2026-08 demotion: the shelf is the top slice of the ONE bounded blend — a great on a
+    strong score (9+2=11) now leads a must-see on a weak one (3+3=6) — and every item still
+    carries a prefilled why + a tier3 slot marker."""
     out = R._dont_miss_md(_dm_cands(), limit=1)
     md = "\n".join(out)
     assert "## Don't miss" in md
-    assert "MustSee3" in md and "Great9" not in md      # must-see (score 3) beats great (score 9)
-    assert "Rare LA date." in md                        # curator note preferred as the why
-    assert "<!-- tier3:why" in md
+    assert "Great9" in md and "MustSee3" not in md      # blend: 11 beats 6
+    out2 = R._dont_miss_md(_dm_cands(), limit=2)
+    md2 = "\n".join(out2)
+    assert "MustSee3" in md2 and "Rare LA date." in md2  # curator note preferred as the why
+    assert "<!-- tier3:why" in md2
 
 
 def test_dont_miss_shares_the_front_page_diversity_policy():

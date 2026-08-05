@@ -15,7 +15,9 @@ contract; this file is the scoped version.
 > connected, and (b) made the catalog + `data/catalog_meta.json` current. You start from there.
 > **Do NOT `git commit` or `git push`** — leave every changed file in the working tree; the workflow
 > commits and deploys. Degrade gracefully: if a step has nothing to do, skip it; never block the run.
-> The one exception is step 5 — the digest is ALWAYS rewritten, even when steps 1–4 were all no-ops.
+> **The digest is NOT this step's job** (2026-08 render+voice redesign): the workflow renders the
+> deterministic scaffold to `digests/<HASH>/latest.md` and runs the voice pass
+> (routines/digest-voice-prompt.md) AFTER you finish. Never write that file here.
 
 Run, for the profile feed hash `<HASH>`:
 
@@ -29,18 +31,17 @@ Run, for the profile feed hash `<HASH>`:
 > launched together in ONE message so they run in parallel**; at most **1 scene-researcher batch**.
 > If more than 24 are unjudged or stale (a scoring change or a reaction can re-select a pile of
 > already-judged events at once), take the top 24 and leave the rest — **a backlog is the nightly
-> routine's job, never this click's.** The single most important deliverable is the written digest at
-> step 5 — start it by minute ~7 no matter what's undone; if you're running low on turns or clock,
-> skip enrichment (step 2) and go straight to writing it. After each editor batch returns, merge its
-> verdicts immediately (step 1) so a mid-run kill keeps the work. Never re-fetch the catalog or judge
-> the whole backlog.
+> routine's job, never this click's.** The deliverable is the VERDICT layer: merge each editor batch
+> the moment it returns (step 1) so a mid-run kill keeps the work, then re-score (step 3). If you're
+> low on turns or clock, skip enrichment (step 2) — never the merge or the re-score. Never re-fetch
+> the catalog or judge the whole backlog.
 
-1. **Judge the top of the ranking (event-editor) — ≤24 events, ≤2 parallel batches.** Load
+1. **Judge the top of the ranking (event-editor) — ≤24 events, ≤4 parallel batches.** Load
    `data/editor_pool.<HASH>.json`. Take the **top ~40 by score** and select the not-yet-judged ones
    with `editor.select_for_verdict` against `data/verdicts/<HASH>.json` (the cache carries the rest —
    only new/changed events cost a call). **Cap the selection at 24** (highest score first; the rest
-   is the nightly's backlog). Fan the **event-editor** agent (Task tool) over them in **at most 2
-   batches, both launched in one message** so they run concurrently; each record carries the
+   is the nightly's backlog). Fan the **event-editor** agent (Task tool) over them in **at most 4
+   batches (~6 events each), all launched in one message** so they run concurrently; each record carries the
    deterministic score + reasons + tags + lane, plus its Spotify `affinity_hint` / `profile_affinity`
    when connected. Merge each batch as it returns: `python scripts/merge_verdicts.py <results.json>
    --profile-hash <HASH>` → `data/verdicts/<HASH>.json`. If nothing needs judging, skip.
@@ -56,25 +57,9 @@ Run, for the profile feed hash `<HASH>`:
 
 4. **Refresh the radar (best-effort).** `python scripts/build_radar.py` → `data/radar.json`.
 
-5. **Write the personalized digest (the key deliverable — NEVER skip this step).** Even if steps 1–4
-   all had nothing to do (verdict cache warm, no enrichment misses), rewrite the digest against the
-   current feed with a fresh regenerated-date line (e.g. `*Digest regenerated <Day M/D> — …*`): the
-   person clicked Update and the dashboard reads that date to decide whether their digest is current —
-   a stale stamp re-lights the Update button and invites another paid click that changes nothing.
-   Read `dashboard/data.<HASH>.json` (display
-   name in `feed.profile.name`). **If `feed.profile.owner` is true, copy — never prose, never a
-   stub/pointer:** the owner's taste IS the root taste and the workflow already re-rendered the
-   consolidated digest, so just `cp digests/latest.md digests/<HASH>/latest.md` and skip the rest of
-   this step (the committed per-hash file must always BE the full digest — GitHub and local
-   dashboards read it directly). Otherwise write a concise, conversational, **opinionated** narrative digest to
-   `digests/<HASH>/latest.md` (overwrite) — the LA-insider voice, ranked to THIS person: top picks across
-   the next ~2–3 weeks + weekends ahead, grouped by day, a one-line *why* each, ⭐ on the editor's
-   must-sees. Thin feed → a couple of honest lines, don't pad. The dashboard's digest modal loads this.
-   **Honor this person's format prefs** if present in `feed.profile.digest_prefs` (`length` ·
-   `group_by` · `sections` · `max_picks_per_day` · `emphasis` · `tone` · `notes`) — that's HOW they want
-   it to read (presentation only; the ranking already happened above). Stay within the bounded turn
-   budget regardless: if `length: detailed` would blow the cap, honor its spirit but keep it shippable.
-
-6. **Stop.** Leave the changed files (`dashboard/data.<HASH>.json`, `data/verdicts/<HASH>.json`,
-   `data/enrichment.json`, `data/images/`, `digests/<HASH>/latest.md`) in the working tree. The
-   workflow commits + redeploys. Do not commit or push yourself.
+5. **Stop — the digest is not yours.** The workflow's next steps render the deterministic
+   scaffold straight to `digests/<HASH>/latest.md` and run the voice pass
+   (routines/digest-voice-prompt.md) over it; a digest ships even if every LLM step dies.
+   Leave the changed files (`dashboard/data.<HASH>.json`, `data/verdicts/<HASH>.json`,
+   `data/enrichment.json`, `data/images/`) in the working tree. The workflow commits +
+   redeploys. Do not commit or push yourself.

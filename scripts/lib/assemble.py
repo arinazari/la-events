@@ -156,14 +156,15 @@ def _resolve_per_day(per_day, iso_date: str) -> int:
 
 
 def effective_key(ev: dict, verdicts: dict):
-    """Deterministic ranking key: (tier, score+adjust, stable event_key tiebreak).
-    The event_key tiebreak kills run-to-run thrash — equal-ranked events hold a fixed order."""
-    v = verdicts.get(event_key(ev)) or {}
-    return (
-        _TIER_RANK.get(v.get("tier"), 0),
-        (ev.get("score") or 0) + (v.get("adjust") or 0),
-        event_key(ev),
-    )
+    """Deterministic ranking key: (score+adjust+bounded tier bonus, stable event_key tiebreak).
+    The event_key tiebreak kills run-to-run thrash — equal-ranked events hold a fixed order.
+
+    2026-08 shadow-eval demotion: this was tier-PRIMARY (a must-see led its day outright).
+    A shuffled-tier null control showed tier-primary ordering lets ANY judgment — including a
+    stale or wrong one — dominate the slate (a junk row a stale must-see verdict put at a
+    profile's #1). With the event card carrying draw/rarity deterministically, the verdict is
+    now a bounded REFINEMENT on merit, not a zone."""
+    return (rank_score(ev, verdicts), event_key(ev))
 
 
 def _eff_score(ev: dict, verdicts: dict):
@@ -171,11 +172,13 @@ def _eff_score(ev: dict, verdicts: dict):
     return (ev.get("score") or 0) + ((verdicts.get(event_key(ev)) or {}).get("adjust") or 0)
 
 
-# Additive tier weight for the GLOBAL rank (dashboard's final_rank), distinct from effective_key's
-# tier-PRIMARY ordering. Within the slate a must-see leads its day outright (tier-primary, fine —
-# the window is fully judged). Globally, mixing judged and unjudged events, an unjudged high score
-# must not sink below a judged "solid" — so here tier is a bounded bonus on top of score+adjust.
-RANK_TIER_BONUS = {"must-see": 6, "great": 3, "solid": 1, None: 0, "skip": -6}
+# Additive tier weight — the ONE verdict weight in the ranking (2026-08 demotion). Sized against
+# the score scale (sd ~1.7, card term 0..4): a must-see is a strong lift that usually leads its
+# day but cannot bury a clearly better-scoring unjudged event, and a skip sinks well below the
+# median while staying recoverable by real merit. The old ±6 (with tier-primary orderings on top)
+# let any tier assignment — real, stale, or random — dominate the slate; the shuffled-tier null
+# control reshaped it MORE than genuine verdicts. Verdicts refine; they don't zone.
+RANK_TIER_BONUS = {"must-see": 3, "great": 2, "solid": 1, None: 0, "skip": -5}
 
 
 def rank_score(ev: dict, verdicts: dict):
@@ -187,22 +190,16 @@ def rank_score(ev: dict, verdicts: dict):
 
 
 def rank_key(ev: dict, verdicts: dict):
-    """Two-zone ordering for the dashboard's final_rank (Track B2, LLM-first): judged non-skip
-    events sort TIER-PRIMARY (the editor's call is the ranking; score+adjust orders within a
-    tier), the unjudged tail (far-out / junk-lane / judged-any-second-now) sorts below them by
-    raw score, and judged skips sink to the very bottom. Descending sort — higher tuple wins.
+    """Ordering for the dashboard's final_rank: the SAME bounded blend as rank_score
+    (score + adjust + RANK_TIER_BONUS), judged and unjudged competing on one scale.
 
-    Rationale vs rank_score's blend: the near window is fully judged (Track B1), so on the
-    global list "judged" ≈ "near + surfaceable" and the far unjudged tail *should* rank below
-    it in a default view (date filters cover plan-ahead)."""
-    v = verdicts.get(event_key(ev)) or {}
-    tier = v.get("tier")
-    eff = (ev.get("score") or 0) + (v.get("adjust") or 0)
-    if tier == "skip":
-        return (0, 0, eff)
-    if tier:
-        return (2, _TIER_RANK.get(tier, 0), eff)
-    return (1, 0, ev.get("score") or 0)
+    2026-08 shadow-eval demotion — this was two-zone (any judged non-skip structurally above
+    every unjudged event, tier-primary within the zone). Under sparse/stale verdict coverage
+    the zone privilege let a profile's handful of stale judged events monopolize the entire
+    head (a stale must-see on a junk row sat at #1 site-wide). One merit scale ends that:
+    verdicts lift or sink within RANK_TIER_BONUS, and coverage gaps degrade gracefully.
+    Returns a comparable scalar tuple; callers append their own event_key tiebreak."""
+    return (rank_score(ev, verdicts),)
 
 
 # ── One Don't-miss policy across surfaces (2026-07-16 redesign follow-up) ────────────────────

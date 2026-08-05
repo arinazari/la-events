@@ -503,6 +503,8 @@ def main() -> int:
     ap.add_argument("--editor-per-lane", type=int, default=0,
                     help="0 (default) = judge every slate-lane event in the window (LLM-first)")
     ap.add_argument("--editor-floor", type=int, default=4)
+    ap.add_argument("--editor-top-k", type=int, default=120,
+                    help="cap recall-mode judging to the best K (0/negative = uncapped)")
     args = ap.parse_args()
 
     def resolve(p):
@@ -602,7 +604,8 @@ def main() -> int:
     events = []
     enriched_hits = 0
     for ev, merged in zip(catalog, merged_all):
-        scored = score_event(ev, taste, profile, affinity)
+        card = (cache.get("events", {}).get(event_key(ev)) or {}).get("card")
+        scored = score_event(ev, taste, profile, affinity, card=card)
         d = parse_event_date(ev)
         out = dict(ev)
         out["score"] = scored["score"]
@@ -817,7 +820,8 @@ def main() -> int:
         end_iso = (today + timedelta(days=args.editor_window)).isoformat()
         epool = [e for e in events if not e.get("is_past") and e.get("iso_date")
                  and e["iso_date"] <= end_iso and (e.get("score") or 0) >= 0]
-        judge = ED.editor_pool(epool, per_lane=args.editor_per_lane, floor=args.editor_floor)
+        judge = ED.editor_pool(epool, per_lane=args.editor_per_lane, floor=args.editor_floor,
+                               top_k=(args.editor_top_k if args.editor_top_k and args.editor_top_k>0 else None))
         # Event-targeted reactions force a fresh verdict for exactly that event (see run_digest's
         # twin stamp): reacted_at rides the pool record so select_for_verdict re-judges the tap
         # even when the score moved less than DRIFT_MIN.
