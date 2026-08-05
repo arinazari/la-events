@@ -36,12 +36,12 @@ Run, for the profile feed hash `<HASH>`:
 > low on turns or clock, skip enrichment (step 2) — never the merge or the re-score. Never re-fetch
 > the catalog or judge the whole backlog.
 
-1. **Judge the top of the ranking (event-editor) — ≤24 events, ≤2 parallel batches.** Load
+1. **Judge the top of the ranking (event-editor) — ≤24 events, ≤4 parallel batches.** Load
    `data/editor_pool.<HASH>.json`. Take the **top ~40 by score** and select the not-yet-judged ones
    with `editor.select_for_verdict` against `data/verdicts/<HASH>.json` (the cache carries the rest —
    only new/changed events cost a call). **Cap the selection at 24** (highest score first; the rest
-   is the nightly's backlog). Fan the **event-editor** agent (Task tool) over them in **at most 2
-   batches, both launched in one message** so they run concurrently; each record carries the
+   is the nightly's backlog). Fan the **event-editor** agent (Task tool) over them in **at most 4
+   batches (~6 events each), all launched in one message** so they run concurrently; each record carries the
    deterministic score + reasons + tags + lane, plus its Spotify `affinity_hint` / `profile_affinity`
    when connected. Merge each batch as it returns: `python scripts/merge_verdicts.py <results.json>
    --profile-hash <HASH>` → `data/verdicts/<HASH>.json`. If nothing needs judging, skip.
