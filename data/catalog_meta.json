@@ -1,20 +1,35 @@
 {
-  "version": "35759a7e49f1",
-  "content_version": "ba74b69c0909",
-  "count": 3741,
-  "fetched_at": "2026-08-04T12:34:46+00:00",
-  "added": 0,
+  "version": "7b9dcb0a4a27",
+  "content_version": "a186a93fe7fc",
+  "count": 3780,
+  "fetched_at": "2026-08-05T07:02:12+00:00",
+  "added": 1,
   "updated": 0,
   "stale_sources": [
     {
       "source": "alvas",
-      "days": 19,
+      "days": 20,
       "count": 22
     },
     {
       "source": "editorial",
-      "days": 6,
-      "count": 222
+      "days": 7,
+      "count": 213
+    },
+    {
+      "source": "webfetch",
+      "days": 3,
+      "count": 208
+    },
+    {
+      "source": "harvelles",
+      "days": 3,
+      "count": 57
+    },
+    {
+      "source": "venicewest",
+      "days": 3,
+      "count": 73
     }
   ]
 }
