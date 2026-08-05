@@ -114,9 +114,11 @@ def test_profile_preserves_code_defaults():
                           ("penalty", DEFAULT_PENALTY_TERMS), ("far", DEFAULT_FAR_TERMS)]:
         dropped = set(default) - set(cfg[name])
         assert not dropped, f"profile.yaml {name}_terms dropped baseline default(s): {sorted(dropped)}"
-    changed = {k: (cfg["category_weights"].get(k), v)
-               for k, v in DEFAULT_CATEGORY_WEIGHTS.items() if cfg["category_weights"].get(k) != v}
-    assert not changed, f"profile.yaml category_weights changed/dropped baseline (got, want): {changed}"
+    # category_weights: every baseline CATEGORY must stay present (a silently dropped key
+    # zeroes a whole slice of coverage), but the VALUES are the owner's editable knob —
+    # e.g. the 2026-08-04 owner edit (film 3->1, live_music 2->3) is intent, not drift.
+    missing = [k for k in DEFAULT_CATEGORY_WEIGHTS if k not in cfg["category_weights"]]
+    assert not missing, f"profile.yaml category_weights dropped baseline categorie(s): {missing}"
 
 
 def test_parse_event_date_tm_utc_evening_is_local_day():
