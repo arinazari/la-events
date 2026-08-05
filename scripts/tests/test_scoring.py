@@ -197,6 +197,24 @@ def test_tm_date_windows_defeat_the_1000_cap():
     assert len(tm.date_windows(start, datetime(2026, 1, 22, tzinfo=timezone.utc), 30)) == 1
 
 
+# ── 2026-08 event card term ──────────────────────────────────────────────────────
+
+def test_card_term_bounded_and_absent_card_identical():
+    ev = {"title": "Somebody", "venue": "The Echo", "category": "music"}
+    base = score_event(ev, {}, {})
+    carded = score_event(ev, {}, {}, None, card={"draw": 2, "rarity": 1, "lineup_depth": 2})
+    assert carded["score"] == base["score"] + 4
+    assert any("event card" in r for r in carded["reasons"])
+    maxed = score_event(ev, {}, {}, None, card={"draw": 3, "rarity": 2, "lineup_depth": 2})
+    assert maxed["score"] == base["score"] + 4, "card term must cap (default card_cap=4)"
+    off = score_event(ev, {}, {"scoring": {"card_cap": 0}}, None,
+                      card={"draw": 3, "rarity": 2, "lineup_depth": 2})
+    assert off["score"] == base["score"], "card_cap 0 disables the term"
+    empty = score_event(ev, {}, {}, None, card={"draw": 0})
+    assert empty["score"] == base["score"] and not any("event card" in r for r in empty["reasons"])
+    assert score_event(ev, {}, {}, None, card=None)["score"] == base["score"]
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

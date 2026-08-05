@@ -58,6 +58,18 @@ knowledgeable scene insider wrote it. You do research + tagging + a draft curato
    lane", "the lane explicitly wants", "on-taste", "squarely in the lane", or similar. Be specific
    and vary how each note opens; no two should sound templated.
 6. **Description:** one tight, factual line for someone who's never heard of it.
+7. **Event card** — three TASTE-NEUTRAL ints (`scripts/lib/enrich.py CARD_FIELDS` is the
+   contract; the scorer consumes them deterministically for every profile, so judge the
+   EVENT, never any person's taste):
+   - `draw` 0–3 — the strongest billed act's pull: 0 unknown/local, 1 scene/cult name,
+     2 strong headliner (tours real rooms, real following), 3 major or genuinely rare draw.
+   - `rarity` 0–2 — how special THIS booking is: 0 routine tour stop / recurring night,
+     1 notable (album-release show, first LA date in years, unusual pairing, closing night),
+     2 exceptional one-off you would not expect to repeat.
+   - `lineup_depth` 0–2 — beyond the headliner: 0 headliner-only or unknown support,
+     1 solid support, 2 genuinely stacked bill.
+   Under-claim when unsure (unverified hype is a 0, not a 2) — a wrong card mis-ranks the
+   event for every profile at once.
 
 ## Output
 Write a JSON array to the cache path (one object per event) **and** return a one-line summary
@@ -72,6 +84,7 @@ Write a JSON array to the cache path (one object per event) **and** return a one
   "energy": "groove / daytime",
   "setting": "rooftop",
   "sounds_like": ["Hunee", "Young Marco"],
+  "card": {"draw": 2, "rarity": 1, "lineup_depth": 1},
   "artist_notes": [{"name": "Antal", "note": "Rush Hour boss — Dutch digger, deep/disco selector."}],
   "curator_note": "An all-afternoon rooftop groove from one of the best diggers alive — worth building the day around.",
   "description": "All-day open-air party with Rhythm Section's Bradley Zero and Antal.",

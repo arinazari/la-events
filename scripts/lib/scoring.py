@@ -104,6 +104,7 @@ def _scoring_cfg(profile: dict, taste: dict = None) -> dict:
         "penalty": tuple(pick("penalty_terms", DEFAULT_PENALTY_TERMS)),
         "far": tuple(pick("far_terms", DEFAULT_FAR_TERMS)),
         "rating_thresholds": [tuple(t) for t in pick("rating_thresholds", DEFAULT_RATING_THRESHOLDS)],
+        "card_cap": pick("card_cap", 4),   # max points from the shared event card (0 disables)
     }
 
 
@@ -132,12 +133,16 @@ def parse_event_date(ev: dict):
 
 
 def score_event(ev: dict, taste: dict = None, profile: dict = None,
-                affinity: dict = None) -> dict:
+                affinity: dict = None, card: dict = None) -> dict:
     """Return {score, reasons[]} for an event. Mirrors the digest's ranking.
 
     `affinity` (optional) = the merged Spotify + feedback music layer (Phase C). When
     absent, scoring is byte-identical to the taste.yaml/profile.yaml-only path — the
     music layer only ever ENRICHES; it never replaces the human spine in taste.yaml.
+
+    `card` (optional) = the shared enrichment's taste-neutral event card
+    (enrich.CARD_FIELDS: draw/rarity/lineup_depth), scored as ONE bounded additive
+    term (card_cap). Absent card -> byte-identical scores, same as affinity.
     """
     taste = taste or {}
     cfg = _scoring_cfg(profile, taste)
@@ -278,6 +283,26 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         else:
             score -= 2
             reasons.append("-2 far from LA")
+
+    # Shared event card (taste-neutral facts from enrichment): draw + rarity + a stacked
+    # bill, as one capped term so the card refines the taste ranking, never drives it.
+    if card and cfg["card_cap"] > 0:
+        parts, cp = [], 0
+        d = int(card.get("draw") or 0)
+        if d > 0:
+            cp += d
+            parts.append(f"+{d} draw")
+        r = int(card.get("rarity") or 0)
+        if r > 0:
+            cp += r
+            parts.append(f"+{r} rare booking")
+        if int(card.get("lineup_depth") or 0) >= 2:
+            cp += 1
+            parts.append("+1 stacked bill")
+        cp = min(cp, cfg["card_cap"])
+        if cp > 0:
+            score += cp
+            reasons.append(f"+{cp} event card ({', '.join(parts)})")
 
     return {"score": score, "reasons": reasons}
 

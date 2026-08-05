@@ -207,7 +207,38 @@ def merge_enrichment(candidates: list, cache: dict, ambiguous=frozenset()) -> li
 # taste voice (scene-researcher reads taste.yaml first), and energy reads as taste-adjacent — so
 # folding either into another profile's editor would leak one person's verdict into another's.
 # Facts only ("what is this / who is playing"), never opinion.
-SCENE_FACT_FIELDS = ("type", "subgenres", "label_orbit", "setting", "sounds_like", "description")
+# ── The event card (2026-08 shadow-eval, step 2) ─────────────────────────────────────
+# Structured, taste-NEUTRAL judgments asserted once per event by the scene-researcher and
+# consumed deterministically by the scorer (score_event's card term) — the cacheable 75%
+# of what the editor was re-deriving per profile. Bounded small ints by contract so the
+# scoring term refines the rank instead of dominating it (the ±6 tier-bonus lesson).
+CARD_FIELDS = {
+    "draw": (0, 3),          # 0 unknown/local · 1 scene/cult name · 2 strong headliner · 3 major/rare draw
+    "rarity": (0, 2),        # 0 routine stop · 1 notable (release show, first-LA-in-years, special pairing) · 2 exceptional one-off
+    "lineup_depth": (0, 2),  # 0 headliner-only/unknown support · 1 solid support · 2 stacked bill
+}
+
+
+def validate_card(raw):
+    """Clamp a raw LLM card to the contract; None if nothing usable. Unknown keys drop,
+    non-int values drop, in-range ints pass, out-of-range ints clamp."""
+    if not isinstance(raw, dict):
+        return None
+    out = {}
+    for f, (lo, hi) in CARD_FIELDS.items():
+        v = raw.get(f)
+        if isinstance(v, bool):
+            continue
+        try:
+            v = int(v)
+        except (TypeError, ValueError):
+            continue
+        out[f] = max(lo, min(hi, v))
+    return out or None
+
+
+SCENE_FACT_FIELDS = ("type", "subgenres", "label_orbit", "setting", "sounds_like", "description",
+                     "card")
 
 
 def scene_facts(ev: dict, cache: dict, max_artists: int = 8) -> dict:
@@ -245,6 +276,11 @@ def update_cache(cache: dict, results: list, now: str = None) -> dict:
         rec = dict(r)
         rec["enriched_at"] = now
         rec.setdefault("enriched_tier", "full")
+        card = validate_card(r.get("card"))
+        if card:
+            rec["card"] = card
+        else:
+            rec.pop("card", None)
         cache["events"][k] = rec
         for an in r.get("artist_notes") or []:
             name = normalize(an.get("name", ""))

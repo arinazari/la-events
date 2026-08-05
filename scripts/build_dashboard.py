@@ -602,7 +602,8 @@ def main() -> int:
     events = []
     enriched_hits = 0
     for ev, merged in zip(catalog, merged_all):
-        scored = score_event(ev, taste, profile, affinity)
+        card = (cache.get("events", {}).get(event_key(ev)) or {}).get("card")
+        scored = score_event(ev, taste, profile, affinity, card=card)
         d = parse_event_date(ev)
         out = dict(ev)
         out["score"] = scored["score"]

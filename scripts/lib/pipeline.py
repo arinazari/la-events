@@ -620,9 +620,10 @@ def normalize_locations(catalog: list, profile: dict = None) -> list:
     return catalog
 
 
-def score_view(ev: dict, taste: dict, profile: dict, affinity: dict = None) -> dict:
+def score_view(ev: dict, taste: dict, profile: dict, affinity: dict = None,
+               card: dict = None) -> dict:
     """A scored copy of an event (catalog stays score-free; scores live in the candidate set)."""
-    s = score_event(ev, taste, profile, affinity)
+    s = score_event(ev, taste, profile, affinity, card=card)
     d = parse_event_date(ev)
     out = dict(ev)
     out["score"] = s["score"]
@@ -632,7 +633,8 @@ def score_view(ev: dict, taste: dict, profile: dict, affinity: dict = None) -> d
     return out
 
 
-def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=None) -> list:
+def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=None,
+               enrich_cache=None) -> list:
     """All upcoming events in the window, scored and sorted best-first (no top-N cut).
 
     The shared scored set: select_candidates slices the enrichment top-N off it, and the editor
@@ -646,7 +648,8 @@ def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=N
     for ev in catalog:
         if ev.get("status") == "unlisted":          # ghost (dropped from all its sources) — don't surface
             continue
-        v = score_view(ev, taste, profile, affinity)
+        card = ((enrich_cache or {}).get("events", {}).get(event_key(ev)) or {}).get("card")
+        v = score_view(ev, taste, profile, affinity, card=card)
         if not v["iso_date"] or v["iso_date"] < start:
             continue
         if end and v["iso_date"] > end:
@@ -658,7 +661,7 @@ def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=N
 
 
 def select_candidates(catalog, taste, profile, today=None, window_days=None,
-                      top_n=40, affinity=None, verdicts=None) -> list:
+                      top_n=40, affinity=None, verdicts=None, enrich_cache=None) -> list:
     """The enrichment candidate set: upcoming events, best-first, top N.
 
     `affinity` (optional) layers the Spotify + feedback music profile into the scoring.
@@ -668,7 +671,8 @@ def select_candidates(catalog, taste, profile, today=None, window_days=None,
     treatment. Unjudged (brand-new) events compete on raw score — they're judged the same
     run and slot correctly the next.
     """
-    pool = score_pool(catalog, taste, profile, today, window_days, affinity)
+    pool = score_pool(catalog, taste, profile, today, window_days, affinity,
+                      enrich_cache=enrich_cache)
     if verdicts:
         from .assemble import rank_score
         pool = sorted(pool, key=lambda e: (-rank_score(e, verdicts), event_key(e)))
