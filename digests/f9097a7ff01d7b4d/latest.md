@@ -1,19 +1,11 @@
-# LA Events — 2026-08-04
-*76 picks across 22 days · ⭐ = top pick · ranked for your taste*
-*Checked Tue 8/4 · no new or changed events since the last pull*
-
-## Tuesday · August 4
-
-**Electronic & dance**
-- `11pm-5am` (Tue 8/4 +5 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2501434)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23
-
-**Live music**
-- `7:30pm` **[Sarah McLachlan - Better Broken Tour](https://www.ticketmaster.com/sarah-mclachlan-better-broken-tour-los-angeles-california-08-04-2026/event/09006445CDD8A699)** — Greek Theatre, Los Feliz · big venue
-- `8pm` **[Rio Da Yung Og](https://www.ticketmaster.com/rio-da-yung-og-los-angeles-california-08-04-2026/event/090064CFF277CE18)** — The Regent Theater, DTLA
-
-- *Also:* [The Thief and The Cobbler](https://ticketing.uswest.veezi.com/purchase/3912?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww) (Vista Theater)
+# LA Events — 2026-08-05
+*73 picks across 22 days · ⭐ = top pick · ranked for your taste*
+*Updated Wed 8/5 · 1 new since the last pull · 🆕 new · ↻ updated*
 
 ## Wednesday · August 5
+
+**Electronic & dance**
+- `11pm-5am` (Wed 8/5 +4 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2501434)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23
 
 **Live music**
 - `8pm` ⭐ **[Meridian Brothers + Mexican Institute of Sound](https://www.ticketmaster.com/meridian-brothers-mexican-institute-of-sound-los-angeles-california-08-05-2026/event/0900648DEE27B236)** — The Regent Theater, DTLA  
@@ -26,7 +18,7 @@
 ## Thursday · August 6
 
 **Electronic & dance**
-- `11pm-5am` **[Recollect Underground: Xuliet, Alex G Son, Mama J, Undress](https://www.eventbrite.com/e/recollect-underground-special-guest-xuliet-tickets-1995864462334)** — TBA (DTLA/Los Angeles), DTLA · $12.51-23.18
+- `11pm` **[Recollect Underground: Xuliet, Alex G Son, Mama J, Undress](https://www.eventbrite.com/e/recollect-underground-special-guest-xuliet-tickets-1995864462334)** — TBA (DTLA/Los Angeles), DTLA · $12.51
 
 **Live music**
 - `7pm` **[Alejandro Aranda with afterthought, TJ Minor & Tyler Stone](https://www.ticketmaster.com/alejandro-aranda-with-afterthought-tj-minor-los-angeles-california-08-06-2026/event/090064790F050DB4)** — The Echo, Echo Park  
@@ -59,7 +51,7 @@
 ## Sunday · August 9
 
 **Electronic & dance**
-- `10pm` 🆕 **[Sunset Sundays 18+ Host DJ SMOKE ONE](https://posh.vip/e/sunset-3)** — Los Globos, Silver Lake · day party · free
+- `10pm` **[Sunset Sundays 18+ Host DJ SMOKE ONE](https://posh.vip/e/sunset-3)** — Los Globos, Silver Lake · day party · free
 
 **Live music**
 - `5:30pm` (Sun 8/9 +2 more) **[Grand Ole Echo](https://www.ticketmaster.com/grand-ole-echo-los-angeles-california-08-09-2026/event/0900646425C4A88C)** — The Echo, Echo Park
@@ -71,7 +63,7 @@
 **Live music**
 - `7pm` **[Benjamin William Hastings & Aodhan King](https://www.axs.com/events/1467239/benjamin-william-hastings-aodhan-king-tickets)** — Fonda Theatre, Hollywood
 - `8pm` **[Benson Boone](https://www.cryptoarena.com/)** — Crypto.com Arena, DTLA · big venue
-- `7pm` **[very good mondays](https://dice.fm/event/l878qp-very-good-mondays-10th-aug-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood · ↻ updated (status)
+- `7pm` **[very good mondays](https://dice.fm/event/l878qp-very-good-mondays-10th-aug-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood
 
 **Film**
 - `time TBA` **[Grateful Dead Meet-Up At The Movies 2026](https://www.landmarktheatres.com/los-angeles/nuart-theatre/)** — Nuart Theatre, West LA · [more LA showtimes](https://www.google.com/search?q=%22grateful+dead+meet+up+at+the+movies+2026%22+showtimes+Los+Angeles)
@@ -89,7 +81,7 @@
 
 **Live music**
 - `7pm` **[PLAYLUNCH with Yagki](https://www.ticketmaster.com/playlunch-los-angeles-california-08-12-2026/event/0900645315DE8AF6)** — The Echo, Echo Park
-- `8:30pm` **[Luke Strand & Friends](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover
+- `8:30pm` (Wed 8/12 + Wed 8/26) **[Luke Strand & Friends](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover
 
 - *Also:* [Manhunter: The Final Cut](https://vidiotsfoundation.org/showtimes/manhunter-the-final-cut-8-12-26-730-pm/) (Vidiots) · [Disney's Beauty and the Beast (Touring)](https://www.ticketmaster.com/disneys-beauty-and-the-beast-touring-los-angeles-california-08-12-2026/event/0B006452B07A5F78) (Hollywood Pantages Theatre)
 
@@ -103,8 +95,8 @@
 ## Friday · August 14
 
 **Electronic & dance**
-- `4pm` 🆕 **[Cali Caliente Rooftop Poolside Sessions Vol. 2: PROPERSOUNDco](https://posh.vip/e/cali-caliente-rooftop-poolside-sessions-vol-2-propersoundco-2026-8-15-2-0)** — Broken Shaker at Freehand Los Angeles, DTLA · day party · free
-- `8pm` **[JUPTR X RECOLLECT UNDERGROUND](https://ra.co/events/2503032)** — Dusty Vinyl, Los Angeles · afters · free · ↻ updated (price)
+- `4pm` **[Cali Caliente Rooftop Poolside Sessions Vol. 2: PROPERSOUNDco](https://posh.vip/e/cali-caliente-rooftop-poolside-sessions-vol-2-propersoundco-2026-8-15-2-0)** — Broken Shaker at Freehand Los Angeles, DTLA · day party · free
+- `8pm` **[JUPTR X RECOLLECT UNDERGROUND](https://ra.co/events/2503032)** — Dusty Vinyl, Los Angeles · afters · free
 
 **Live music**
 - `8pm` **[Momma](https://www.ticketmaster.com/momma-los-angeles-california-08-14-2026/event/0900649CED2D20A4)** — The Bellwether, DTLA · big venue  
@@ -114,8 +106,8 @@
 ## Saturday · August 15
 
 **Electronic & dance**
-- `10pm-2am` **[Ferry Corsten](https://ra.co/events/2447405)** — Avalon Hollywood, Hollywood · big room · $23 pre · ↻ updated (start)
-- `2pm-8pm` **[FLOAT Rooftop Pool Party feat. Massane [2-8 PM]](https://ra.co/events/2449788)** — Level 8 DTLA, DTLA · day party · $25
+- `10pm-2am` **[Ferry Corsten](https://ra.co/events/2447405)** — Avalon Hollywood, Hollywood · big room · $23 pre
+- `2pm` **[FLOAT Rooftop Pool Party feat. Massane [2-8 PM]](https://ra.co/events/2449788)** — Level 8 DTLA, DTLA · day party · $31.58
 
 **Live music**
 - `6pm` **[SOULDIES FROM OLDIES](https://www.axs.com/events/1429536/souldies-from-oldies-tickets)** — Greek Theatre, Los Feliz · big venue  
@@ -127,16 +119,14 @@
 **Elsewhere**
 - `10am` **[Silverlake Flea](https://www.silverlakeflea.com/)** — 4561 W Colorado Blvd (Atwater Village), Atwater Village
 
-- *Also:* [Gloria Molina Grand Park's Sunday Sessions](https://ra.co/events/2500256) (Gloria Molina Grand Park) · [The Piano](https://drafthouse.com/los-angeles/show/sad-girl-cinema-club-the-piano) (Alamo Drafthouse DTLA)
+- *Also:* [Gloria Molina Grand Park's Sunday Sessions](https://ra.co/events/2500256) (Gloria Molina Grand Park) · [The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3951?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww) (Vista Theater)
 
 ## Monday · August 17
 
 **Live music**
 - `7pm` **[Rucci](https://www.ticketmaster.com/rucci-los-angeles-california-08-17-2026/event/090064E7C0EC8557)** — The Echo, Echo Park
-- `7pm` **[Desert Daze presents: Angine de Poitrine](https://www.ticketmaster.com/desert-daze-presents-angine-de-poitrine-los-angeles-california-08-17-2026/event/09006474BDD4BBFF)** — Teragram Ballroom, Westlake · ↻ updated (lineup)
+- `7pm` **[Desert Daze presents: Angine de Poitrine](https://www.ticketmaster.com/desert-daze-presents-angine-de-poitrine-los-angeles-california-08-17-2026/event/09006474BDD4BBFF)** — Teragram Ballroom, Westlake
 - `6pm` **[The Black Crowes, Tedeschi Trucks Band, Whiskey Myers](https://www.ticketmaster.com/the-black-crowes-tedeschi-trucks-band-hollywood-california-08-17-2026/event/0B00643ABF0C3FD9)** — Hollywood Bowl, Hollywood · big venue
-
-- *Also:* [Wet Hot American Summer: 25th Anniversary](https://drafthouse.com/los-angeles/show/special-event-wet-hot-american-summer-25th-anniversary-party) (Alamo Drafthouse DTLA)
 
 ## Tuesday · August 18
 
@@ -148,6 +138,9 @@
 
 ## Wednesday · August 19
 
+**Electronic & dance**
+- `8pm` **[Passion Pit - The Pretty Penny Tour](https://www.ticketmaster.com/passion-pit-the-pretty-penny-tour-los-angeles-california-08-19-2026/event/0900648AA4ED926B)** — The Bellwether, DTLA · big room · $48
+
 **Live music**
 - `7pm` **[Sizzy Rocket](https://www.ticketmaster.com/sizzy-rocket-los-angeles-california-08-19-2026/event/090064B4D8907B51)** — The Echo, Echo Park  
   A distinct queer punk-pop voice rather than another interchangeable Echo indie bill — worth a look if she wants something scrappier than the usual songwriter fare.
@@ -156,15 +149,11 @@
 **Comedy & stage**
 - `7:30pm` **[Popular Kids Club Comedy Show](https://dice.fm/event/av5rnv-popular-kids-club-comedy-show-19th-aug-permanent-records-roadhouse-los-angeles-tickets)** — Permanent Records Roadhouse, Cypress Park
 
-- *Also:* [Joe Kidd](https://ticketing.uswest.veezi.com/purchase/3926?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww) (Vista Theater)
-
 ## Thursday · August 20
 
 **Live music**
 - `7pm` **[Jacklen Ro with LavaLove & Sun Casino](https://www.ticketmaster.com/jacklen-ro-with-lavalove-sun-casino-los-angeles-california-08-20-2026/event/090064C1FC031223)** — The Echo, Echo Park
 - `8pm` **[Mt. Joy 2026: 2 Day Ticket (08/20 - 08/21) Valid Both Days](https://www.ticketmaster.com/mt-joy-2026-2-day-ticket-los-angeles-california-08-20-2026/event/0900637A9E4A8605)** — Greek Theatre, Los Feliz · big venue
-
-- *Also:* [Phantom of the Paradise](https://drafthouse.com/los-angeles/show/phantom-of-the-paradise) (Alamo Drafthouse DTLA)
 
 ## Friday · August 21
 
@@ -183,7 +172,7 @@
 ## Saturday · August 22
 
 **Electronic & dance**
-- `2pm` **[FLOAT Rooftop Pool Party feat. Durante [2-8 PM]](https://ra.co/events/2480989)** — Level 8 DTLA, DTLA · day party · $30.73
+- `2pm` **[FLOAT Rooftop Pool Party feat. Durante [2-8 PM]](https://ra.co/events/2480989)** — Level 8 DTLA, DTLA · day party · $31.58
 
 **Live music**
 - `7pm` **[Livingmore](https://www.ticketmaster.com/livingmore-los-angeles-california-08-22-2026/event/090064E6278A0906)** — The Echo, Echo Park  
@@ -213,5 +202,12 @@
 - `8pm` **[Tori Amos: In Times of Dragons Tour](https://www.ticketmaster.com/tori-amos-in-times-of-dragons-los-angeles-california-08-25-2026/event/09006382EBCBB72A)** — Greek Theatre, Los Feliz · big venue
 - `7pm` **[Millkzy - Extension Of You Tour](https://www.ticketmaster.com/millkzy-extension-of-you-tour-los-angeles-california-08-25-2026/event/0900649723918D66)** — The Echo, Echo Park
 
+## Wednesday · August 26
+
+**Live music**
+- `7pm` **[Fabiø Guerra](https://www.ticketmaster.com/fabi-guerra-los-angeles-california-08-26-2026/event/090064E6F43BA1F0)** — The Echo, Echo Park
+
+- *Also:* [Jeopardy! Interactive](https://drafthouse.com/los-angeles/show/jeopardy-interactive) (Alamo Drafthouse DTLA)
+
 ---
-*⚠️ Stale sources (not refreshed — these events may be out of date): alvas 19d (22 events), editorial 6d (222 events)*
+*⚠️ Stale sources (not refreshed — these events may be out of date): alvas 20d (22 events), editorial 7d (213 events), webfetch 3d (208 events), harvelles 3d (57 events), venicewest 3d (73 events)*
