@@ -47,7 +47,7 @@ def test_editor_pool_per_lane_includes_thin_lane_below_floor():
     sub-floor events in a flooded lane are dropped."""
     pool = [_ev("U7", CLUB_U, 7), _ev("U6", CLUB_U, 6), _ev("U5", CLUB_U, 5),
             _ev("U3", CLUB_U, 3), _ev("Stage2", STAGE, 2), _ev("Other3", OTHER, 3)]
-    keys = {ED.event_key(e) for e in ED.editor_pool(pool, per_lane=3, floor=4)}
+    keys = {ED.event_key(e) for e in ED.editor_pool(pool, per_lane=3, floor=4, today=date(2026, 7, 4))}
     assert ED.event_key(_ev("Stage2", STAGE, 2)) in keys     # thin lane's best, despite score 2
     assert ED.event_key(_ev("U3", CLUB_U, 3)) not in keys    # below floor AND outside lane top-3
     assert ED.event_key(_ev("U7", CLUB_U, 7)) in keys        # high-absolute via floor
@@ -59,7 +59,7 @@ def test_editor_pool_default_judges_every_slate_lane_event():
     enters the pool regardless of score; non-slate lanes still need the floor."""
     pool = [_ev("U7", CLUB_U, 7), _ev("U1", CLUB_U, 1), _ev("Stage0", STAGE, 0),
             _ev("Other3", OTHER, 3), _ev("Other5", OTHER, 5)]
-    keys = {ED.event_key(e) for e in ED.editor_pool(pool)}
+    keys = {ED.event_key(e) for e in ED.editor_pool(pool, today=date(2026, 7, 4))}
     assert ED.event_key(_ev("U1", CLUB_U, 1)) in keys        # score-1 slate event: judged anyway
     assert ED.event_key(_ev("Stage0", STAGE, 0)) in keys     # score-0 slate event: judged anyway
     assert ED.event_key(_ev("Other3", OTHER, 3)) not in keys  # non-slate below floor: still out
@@ -314,6 +314,27 @@ def test_verdict_path_per_profile():
     assert ED.verdict_path("abc123").name == "abc123.json"
     assert ED.verdict_path().name == "default.json"
     assert ED.verdict_path("abc123").parent.name == "verdicts"
+
+
+# ── 2026-08 shadow-eval additions: pool hygiene (past + junk rows never judged) ──
+
+def test_editor_pool_drops_past_and_junk_rows():
+    from datetime import date as _date
+    pool = ED.editor_pool([
+        {"title": "Real Show", "venue": "Zebulon", "date": "2026-08-10",
+         "score": 6, "tags": {}, "lineup": ["Someone"]},
+        {"title": "Already Happened", "venue": "The Echo", "date": "2026-08-01",
+         "score": 9, "tags": {}, "lineup": ["Someone Else"]},
+        {"title": "Verizon offer - Daisy Chain Fields", "venue": "Great Park Live",
+         "date": "2026-08-29", "score": 7, "tags": {}, "lineup": []},
+        {"title": "TBA Warehouse Night", "venue": "TBA", "date": None,
+         "score": 5, "tags": {}, "lineup": []},
+    ], today=_date(2026, 8, 4))
+    titles = {e["title"] for e in pool}
+    assert "Real Show" in titles
+    assert "TBA Warehouse Night" in titles, "undated rows must survive (TBA is not past)"
+    assert "Already Happened" not in titles, "past rows must not be judged"
+    assert "Verizon offer - Daisy Chain Fields" not in titles, "junk must not be judged"
 
 
 if __name__ == "__main__":

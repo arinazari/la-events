@@ -33,7 +33,7 @@ from pathlib import Path
 
 from .enrich import event_key, scene_facts
 from .assemble import LANES, event_lane
-from .affinity import _token_pat
+from .affinity import _token_pat, fold
 from .series import group_series
 
 REPO = Path(__file__).resolve().parent.parent.parent
@@ -114,8 +114,13 @@ def save_verdicts(cache: dict, path=None, profile_hash: str = None) -> None:
 # ── Selection: who to judge ───────────────────────────────────────────────────────────
 
 def editor_pool(scored: list, per_lane: int = 0, floor: int = 4,
-                skip_lanes=NON_SLATE_LANES) -> list:
+                skip_lanes=NON_SLATE_LANES, today: date = None) -> list:
     """The set worth spending LLM judgment on.
+
+    Hygiene first (2026-08 shadow-eval): rows dated before `today` and junk listings
+    (pipeline.is_junk_event — upsells, placeholders, spam) never enter the pool. Both
+    classes were reaching the editor and burning verdicts on non-events ("past event"
+    skips, a must-see'd presale-offer row). Undated rows pass — TBA is not past.
 
     `per_lane=0` (the default — LLM-first recall mode, Track B1): EVERY slate-lane event in the
     window is judged, so the deterministic score never gates what the editor sees. Non-slate
@@ -126,6 +131,17 @@ def editor_pool(scored: list, per_lane: int = 0, floor: int = 4,
     `per_lane>0` (legacy shape, kept for cheap ad-hoc runs): union of (a) the top `per_lane`
     events of each lane *per day* and (b) everything scoring >= `floor`. De-duped by event_key;
     lane is the deterministic one (no verdicts yet)."""
+    from .pipeline import is_junk_event   # local: keep lib import graph acyclic
+    cutoff = (today or date.today()).isoformat()
+    kept = []
+    for e in scored:
+        d = str(e.get("date") or e.get("iso_date") or "")[:10]
+        if d and d < cutoff:
+            continue
+        if is_junk_event(e):
+            continue
+        kept.append(e)
+    scored = kept
     skip = set(skip_lanes)
     picked = {}
     if per_lane and per_lane > 0:
@@ -162,7 +178,7 @@ def affinity_hint(ev: dict, affinity: dict) -> dict:
     lineup = ev.get("lineup") or []
     if not isinstance(lineup, list):
         lineup = [str(lineup)]
-    name_text = (title + " " + " ".join(str(a) for a in lineup)).lower()
+    name_text = fold(title + " " + " ".join(str(a) for a in lineup))
 
     hit_a = [{"name": info.get("name", key), "tier": info.get("tier"), "weight": info.get("weight")}
              for key, info in artists.items()

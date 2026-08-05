@@ -123,10 +123,22 @@ _JUNK_FIN_ACTION = re.compile(
     r"account\s+access|phone|number|support)\b")
 
 
+# Ticket add-ons and carrier-presale offers that TM lists as sibling "events" of the real
+# show ("slayr - VIP Ticketless Upgrade", "Verizon offer - Daisy Chain Fields"). Anchored
+# shapes only: a bare band named "Upgrade" or a "Parking Lot Party" must survive.
+_JUNK_UPSELL = re.compile(
+    r"(?i)\bticketless\s+upgrade\b|\bvip\s+upgrade\b|\bupgrade\s+(?:pass|package)\b|"
+    r"\bparking\s+(?:pass|package)\b|\b(?:pre-?sale)\s+offer\b")
+_JUNK_OFFER_PREFIX = re.compile(
+    r"(?i)^[\w&+.']+(?:\s+[\w&+.']+)?\s+offer\s*[-–—:]")   # "Verizon offer - <show>"
+
+
 def is_junk_event(ev: dict):
     """Deterministic scam/SEO-spam gate. Returns a reason string for a junk
     listing, or None for a real event. Judged on the TITLE only — phones and
-    service-speak in detail/venue fields occur legitimately (box-office lines)."""
+    service-speak in detail/venue fields occur legitimately (box-office lines).
+    (Exception: the venue-placeholder rule also reads venue + lineup, since the
+    defect IS the title/venue relationship.)"""
     title = str(ev.get("title") or "")
     if _JUNK_PHONE_IN_TITLE.search(title):
         return "phone number in title (call-center spam)"
@@ -136,6 +148,14 @@ def is_junk_event(ev: dict):
         return "airline-hotline spam title"
     if _JUNK_FIN_BRAND.search(title) and _JUNK_FIN_ACTION.search(title):
         return "insurance/account-service spam title"
+    if _JUNK_UPSELL.search(title) or _JUNK_OFFER_PREFIX.search(title):
+        return "ticket add-on / presale-offer listing, not an event"
+    # Venue-calendar placeholder: the "event" is just the room's own name with nothing billed
+    # ("Hollywood Palladium" at Hollywood Palladium). A real self-titled bill lists a lineup.
+    venue = str(ev.get("venue") or "")
+    if title and venue and not (ev.get("lineup") or []):
+        if " ".join(title.lower().split()) == " ".join(venue.lower().split()):
+            return "title is just the venue (placeholder listing)"
     return None
 
 
