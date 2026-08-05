@@ -27,7 +27,8 @@ try:
 except Exception:  # pragma: no cover - zoneinfo always present on py3.9+
     _LA = None
 
-from .affinity import artist_affinity, genre_affinity, tracked_hits, ambiguous_set
+from .affinity import artist_affinity, genre_affinity, tracked_hits, ambiguous_set, \
+    fold, _token_pat
 
 # ── Defaults (verbatim from pre-refactor build_dashboard.py) ─────────────────
 DEFAULT_CATEGORY_WEIGHTS = {
@@ -132,6 +133,26 @@ def parse_event_date(ev: dict):
             return None
 
 
+def _strip_article(s: str) -> str:
+    s = " ".join((s or "").split())
+    return s[4:] if s.lower().startswith("the ") else s
+
+
+def venue_loved(venue: str, loved: list) -> bool:
+    """Does `venue` match any venues_loved entry? Accent-folded, leading-'The' stripped on
+    both sides, then token-bounded containment in EITHER direction (see call-site comment)."""
+    v = fold(_strip_article(venue))
+    if not v:
+        return False
+    for entry in loved:
+        e = fold(_strip_article(str(entry)))
+        if len(e) < 4:
+            continue
+        if _token_pat(e).search(v) or _token_pat(v).search(e):
+            return True
+    return False
+
+
 def score_event(ev: dict, taste: dict = None, profile: dict = None,
                 affinity: dict = None, card: dict = None) -> dict:
     """Return {score, reasons[]} for an event. Mirrors the digest's ranking.
@@ -161,7 +182,7 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
                     str(ev.get("organizers") or "")]).lower()
 
     tracked = [a for a in (taste.get("artists_tracked") or []) if a]
-    loved = [v.lower() for v in (taste.get("venues_loved") or [])]
+    loved = [v for v in (taste.get("venues_loved") or []) if v]
     comics = [c.lower() for c in (taste.get("comedians_loved") or [])]
 
     # Base category weight (comedy is special — suppressed unless a loved name).
@@ -189,8 +210,12 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         score += 2 * len(hits)
         reasons.append(f"+{2 * len(hits)} tracked artist ({', '.join(hits)})")
 
-    # Loved venue (substring match — "2220 Arts" ~ "2220 Arts + Archives").
-    if any(l in vlow for l in loved):
+    # Loved venue — leading-"The" insensitive, accent-folded, token-bounded, BOTH directions:
+    # taste "The Greek" matches venue "Greek Theatre" (and the reverse), "2220 Arts" still
+    # matches "2220 Arts + Archives", and "greek" can never match inside "Greektown". The old
+    # one-way bare substring silently missed every article/suffix variant (2026-08 test-run
+    # caught the Greek Theatre bonus never firing).
+    if venue_loved(venue, loved):
         score += 1
         reasons.append("+1 venue you love")
 

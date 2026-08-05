@@ -215,6 +215,22 @@ def test_card_term_bounded_and_absent_card_identical():
     assert score_event(ev, {}, {}, None, card=None)["score"] == base["score"]
 
 
+def test_venue_loved_article_and_direction_insensitive():
+    """2026-08 test-run catch: taste 'The Greek' never matched venue 'Greek Theatre' under
+    one-way bare substring. Both directions, article-stripped, token-bounded."""
+    from lib.scoring import venue_loved
+    assert venue_loved("Greek Theatre", ["The Greek"])            # the measured miss
+    assert venue_loved("The Greek", ["Greek Theatre"])            # reverse direction
+    assert venue_loved("2220 Arts + Archives", ["2220 Arts"])     # old behavior preserved
+    assert venue_loved("Hollywood Bowl", ["The Hollywood Bowl"])
+    assert not venue_loved("Greektown Social", ["The Greek"])     # token boundary holds
+    assert not venue_loved("The Echoplex", ["The Echo"])          # 'echo' can't leak sideways
+    assert not venue_loved("Zebulon", ["Zeb"])                    # sub-4-char entries ignored
+    ev = {"title": "Someone", "venue": "Greek Theatre", "category": "music"}
+    r = score_event(ev, {"venues_loved": ["The Greek"]}, {})
+    assert any("venue you love" in x for x in r["reasons"])
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
