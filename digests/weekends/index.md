@@ -20,3 +20,5 @@
 | [11/6–11/8](./2026-11-06.md) | 19 | Wuki |
 | [11/13–11/15](./2026-11-13.md) | 18 | RIOT: The Machine World Tour |
 | [11/20–11/22](./2026-11-20.md) | 17 | Funky Fridays @ The Dresden |
+
+*Regenerated Wed 8/5 (later run) — content unchanged from the morning pull (0 new/changed events this cycle); listed here for completeness of the checkpoint.*
