@@ -1,35 +1,237 @@
 {
-  "version": "b85184c76f98",
-  "content_version": "f639f9d7cf81",
-  "count": 3798,
-  "fetched_at": "2026-08-05T12:30:56+00:00",
-  "added": 0,
-  "updated": 0,
+  "version": "e1b3d1d939f2",
+  "content_version": "104b4457d567",
+  "count": 3806,
+  "fetched_at": "2026-08-06T12:29:53+00:00",
+  "added": 67,
+  "updated": 30,
+  "changes": [
+    {
+      "title": "MALFUNCTION  08.07.26",
+      "date": "2026-08-07",
+      "venue": "TBA",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "I JUST WANNA PARTY - RE\u2019D UP PART 3",
+      "date": "2026-08-08",
+      "venue": "The Club Lagos",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Lion's Gate Black Mirror Initiation",
+      "date": "2026-08-08",
+      "venue": "TBA (drops after RSVP/approval)",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "The Flipabeatclub x The CookUp Fest",
+      "date": "2026-08-08",
+      "venue": "1260 W 2nd St",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Certified Groovers with Demuir, Juliet Mendoza & More\u2026",
+      "date": "2026-08-08",
+      "venue": "TBA - Downtown LA",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Free Therapy Presents: Wine & Dine w/ Summer Walker",
+      "date": "2026-08-08",
+      "venue": "Flavors From Afar",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Sounds Of Summer: Romantic Jazz Night (9:00PM)",
+      "date": "2026-08-09",
+      "venue": "Harun",
+      "fields": [
+        "start"
+      ]
+    },
+    {
+      "title": "SUNDAZE - OPEN AIR EVENT\nat UTOPIA by REUNITE -\nSECRET GUEST HEADLINER",
+      "date": "2026-08-09",
+      "venue": "UTOPIA",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Kid Fury's 305 Live",
+      "date": "2026-08-09",
+      "venue": "Jungle Hollywood",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "INVITE  ONLY HOLLYWOOD",
+      "date": "2026-08-10",
+      "venue": "The well lounge",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Love Galore Karaoke",
+      "date": "2026-08-11",
+      "venue": "LoveNote",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "9PM SHARP hosted by D.Sharp",
+      "date": "2026-08-12",
+      "venue": "The Let's Go",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "PROLIFIC Experience with Special Guests",
+      "date": "2026-08-13",
+      "venue": "The Novo",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Sonder Presents: Truman Sinclair, Oscar Lindsey, James Eichman, + Special Guest...",
+      "date": "2026-08-13",
+      "venue": "1524 Benton Wy",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Vibes & Verses Thursday August  13th",
+      "date": "2026-08-13",
+      "venue": "Dirty Laundry",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "bar italia",
+      "date": "2026-09-03",
+      "venue": "Constellation Room",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Club Cielo x Keep Hush",
+      "date": "2026-09-04",
+      "venue": "El Cid",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "San Holo presents TRUE LOVE IN A MADE UP WORLD",
+      "date": "2026-09-11",
+      "venue": "Hollywood Palladium",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Luke Bower - It's The Wind Tour",
+      "date": "2026-09-14",
+      "venue": "The Peppermint Club",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "The Tear Garden (The Legendary Pink Dots & cEvin Key)",
+      "date": "2026-09-14",
+      "venue": "Pacific Electric",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "The Midnight: Time Machines",
+      "date": "2026-09-19",
+      "venue": "House of Blues Anaheim",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "American Football",
+      "date": "2026-09-24",
+      "venue": "The Observatory",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Swapmeet",
+      "date": "2026-10-08",
+      "venue": "El Cid",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "almost monday - THANK GOD IT'S ALMOST MONDAY",
+      "date": "2026-10-20",
+      "venue": "The Belasco",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "The Paradox",
+      "date": "2026-10-22",
+      "venue": "The Moroccan Lounge",
+      "fields": [
+        "lineup"
+      ]
+    }
+  ],
   "stale_sources": [
     {
       "source": "alvas",
-      "days": 20,
+      "days": 21,
       "count": 22
     },
     {
       "source": "editorial",
-      "days": 7,
-      "count": 213
+      "days": 8,
+      "count": 201
     },
     {
       "source": "webfetch",
-      "days": 3,
-      "count": 208
+      "days": 4,
+      "count": 205
     },
     {
       "source": "harvelles",
-      "days": 3,
-      "count": 57
+      "days": 4,
+      "count": 56
     },
     {
       "source": "venicewest",
-      "days": 3,
-      "count": 73
+      "days": 4,
+      "count": 72
     }
   ]
 }
