@@ -12253,10 +12253,10 @@
     },
     "1c5658a19b7d": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Mha iri's genuinely on the rise — fresh Drumcode signing, Awakenings/Tomorrowland this year — but it's a trek with no home-turf boost and Tauceti's an unproven booking, so go mainly for her set.",
+      "adjust": -1,
+      "why": "On-genre techno but TBA and not near home, with one act the scene notes admit is 'more promising than proven' — fine if you're out that way, not worth planning around.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 9
     },
@@ -14027,11 +14027,11 @@
       "score_at_judge": 4
     },
     "0016dfad8af5": {
-      "tier": "solid",
-      "adjust": -2,
-      "why": "Solid double bill of well-reviewed indie acts, but Pomona's a real haul for a Friday and neither name pulls from your core electronic lane.",
-      "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "tier": "great",
+      "adjust": 0,
+      "why": "The Beths' hooky, well-reviewed indie rock plus Beach Bunny is a real double bill — just a haul out to Pomona.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -14120,19 +14120,18 @@
     "ccfacd3e3b24": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Textbook sunset-rooftop mood off Lane 8's own label roster, but it's a single downtempo-leaning set — good happy hour, not a night to build plans around.",
+      "why": "Rooftop sunset melodic house checks the boxes but it's a single support-tier act (Lane 8's label roster, not Lane 8 himself) — pleasant, not a draw.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 9
     },
     "6a22d168fab3": {
       "tier": "great",
-      "lane": "club:afters",
       "adjust": 0,
-      "why": "Isaac Carter carries real cosigns (Ben UFO, Joy Orbison, Seth Troxler) for his vocal-led deep house — but midnight doors running to 6am under the name Midnight Lovers is the actual afters, not the main underground event.",
+      "why": "UK deep house with real cosigns — Isaac Carter is championed by Ben UFO and Seth Troxler — TBA afterhours built for the vinyl-groove lane.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 10
     },
@@ -14501,24 +14500,22 @@
       "score_at_judge": 4
     },
     "cf801f54930c": {
-      "tier": "skip",
-      "lane": "club:mainstream",
-      "adjust": -2,
-      "why": "Branded disco nostalgia dance night, not a groove DJ set — the exact '[decade]-style' nostalgia format the brief says to bury.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Gimme Gimme Disco is a reliable, long-running disco dance night — hits the groove/disco taste directly.",
       "confidence": "med",
-      "judged_at": "2026-08-04T12:39:43",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "19621d0ce2ef": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "A '90s decade-nostalgia night is the exact tired format the taste profile flags to bury, even dressed up as house/rave.",
+      "adjust": -2,
+      "why": "'90s house and rave classics' is throwback programming, not a current selector set — same bucket as the decade-nostalgia penalty.",
       "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "43f46a7f6f08": {
       "tier": "skip",
@@ -14722,20 +14719,20 @@
       "score_at_judge": 4
     },
     "3e33fdb8bb49": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Pop-punk/emo package tour (Massachusetts headliner, two direct-support openers) — miles from the post-punk/garage/dream-pop lane you actually track; the score's stacked-bill bump overstates the real draw here.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Pop-punk/emo touring bill at Teragram — right venue, but off from your post-punk/indie/experimental rock lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
     "d95b156bb459": {
       "tier": "great",
-      "adjust": 0,
-      "why": "All three acts are ones you've flagged before, and The Echo is the exact small-club indie-rock lane you go for — a real album-release night, not filler.",
+      "adjust": 1,
+      "why": "Album release night at The Echo with three strong-affinity acts on the bill — exactly the small-room indie/rock lane you asked not to let electronic crowd out.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 11
     },
@@ -14750,13 +14747,12 @@
     },
     "769b81a452e4": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Funk/soul DJ set at a theater — pleasant but off the house/techno spine, and Bobby Nsenga's actual draw is unverified.",
+      "adjust": 0,
+      "why": "Bobby Nsenga's deep-cuts R&B set hits the groove/soulful boost, but his actual draw is unverified.",
       "confidence": "low",
-      "judged_at": "2026-08-04T12:39:43",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "3610738b9990": {
       "tier": "skip",
@@ -14851,9 +14847,9 @@
     "7474456564c6": {
       "tier": "great",
       "adjust": 2,
-      "why": "Apollonia's Shonky doing an extended set at a DTLA day party, walkable from home — the exact stripped-back groove-house thing the 'Sunset Sessions' favorite describes.",
+      "why": "Shonky's extended set plus a groove-first support bill (Enzo Muro runs his own vinyl-only label) is exactly the DTLA day-party lane you're in for.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -14978,9 +14974,9 @@
     "6ee76fc1b912": {
       "tier": "great",
       "adjust": 2,
-      "why": "Lee Foss co-founded Hot Creations — literally a label on your boost list — and this is a sunset daytime house session at Cielo Farms, the exact Sunset-Sessions vibe you build weekends around.",
+      "why": "Lee Foss co-founded Hot Creations — a real underground-house name, not just a festival booking — playing a daytime Malibu set that's the sunset-groove lane in full.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -15152,13 +15148,13 @@
       "score_at_judge": 5
     },
     "f16d6568bfa6": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "Miscategorized as electronic — it's actually the annual indie/power-pop marathon at Redwood; overlaps your indie taste but no lineup here to judge.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Long-running multi-band pop showcase with zero lineup detail — the 'electronic' tag driving the score is a mis-classification, this is just a generic pop night.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "bcc911625c56": {
       "tier": "solid",
@@ -18347,12 +18343,12 @@
       "score_at_judge": 3
     },
     "63a4694717d7": {
-      "tier": "great",
+      "tier": "must-see",
       "lane": "live-music:big",
-      "adjust": 1,
-      "why": "This is the live band show, not a club set — tags had it as club:mainstream but it's an arena concert; it's night 1 of a two-night run, take this Friday over the Thursday repeat.",
+      "adjust": 3,
+      "why": "Arena victory lap for a tracked act with Ben Böhmer (a real Anjuna-orbit name) opening — filed as a club night but this is a full concert, not a DJ set.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -18375,14 +18371,13 @@
       "score_at_judge": 3
     },
     "9a43f0e03a30": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Same Phantom run — the 8/1 date already covers this program, this is just another performance of it.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "You explicitly flagged this run — the Pantages Phantom touring stop is the one you reacted to; catch this Friday date over the Saturday repeat.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "sonnet"
+      "score_at_judge": 7
     },
     "e47f793764fa": {
       "tier": "skip",
@@ -18485,13 +18480,12 @@
     },
     "cc4eb0a7e7fa": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Another performance of the same Phantom run already flagged on 8/1.",
+      "adjust": -1,
+      "why": "Same touring Phantom run — go the Friday matinee instead, this is the redundant repeat.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "sonnet"
+      "score_at_judge": 7
     },
     "0e247841b964": {
       "tier": "great",
@@ -19544,14 +19538,13 @@
       "score_at_judge": 2
     },
     "908220cf3818": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Same run as the flagged 8/1 date.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Opening night of this Pantages run and the affinity data flags it as a repeat favorite of yours — catch this one, skip the rest of the run.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "b163150e7814": {
       "tier": "skip",
@@ -19694,12 +19687,11 @@
     "788767c39c4d": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Closing-adjacent Phantom date — same program as 8/1, skip the duplicate unless the date's what works for your calendar.",
-      "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "why": "Loved venue and a known touring musical, but this is closing night of a 4-night run and musical theater isn't the core lane — solid, not a must-build-around pick.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "0f83f63e0063": {
       "tier": "solid",
@@ -19838,10 +19830,10 @@
     },
     "2ae4c53899f3": {
       "tier": "great",
-      "adjust": 0,
-      "why": "RÜFÜS DU SOL is a tracked act and Ben Böhmer's a genuinely good Anjuna-orbit opener, but this is the second of two Forum nights on the same tour — either date scratches the itch, don't build around both.",
+      "adjust": 2,
+      "why": "Tracked act, arena show, Ben Böhmer's Anjunadeep melodic-house opening — this is the second of two Forum dates, so grab it if Friday's already spoken for.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -21691,30 +21683,31 @@
     },
     "669799304969": {
       "tier": "solid",
+      "lane": "club:mainstream",
       "adjust": -1,
-      "why": "\"House and hits\" framing plus no lineup suggests a crowd-pleaser bar night rather than a real DJ booking.",
+      "why": "\"House and hits\" at a hotel bar reads more chart-night than underground groove — fine background plans, not a destination.",
       "confidence": "med",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "1c14235e465f": {
       "tier": "must-see",
       "adjust": 2,
-      "why": "DJ Rashida wasn't hired for the gimmick — she was Prince's actual touring DJ for a decade — and pairing her with a tracked headliner like Moodymann for an all-Prince set makes this a genuinely rare booking, not a tribute night.",
+      "why": "Moodymann is a tracked name and DJ Rashida spent a decade as Prince's own touring DJ — an all-Prince set with real authority behind it, not a novelty theme night.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 14
     },
     "36aa6be5efaf": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Colette's a legit 2000s vocal-house name, but it's a TBA Redondo Beach room — a real schlep for a nice-not-essential set.",
+      "adjust": 0,
+      "why": "Colette's a legit 2000s vocal-house veteran, but a TBA Redondo Beach showcase with a thin bill is a modest ask for the drive.",
       "confidence": "med",
-      "judged_at": "2026-07-17T12:29:13",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "ad227fd0be5d": {
       "tier": "solid",
@@ -21890,10 +21883,10 @@
     },
     "9851924f54a8": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Free house/disco night with an unbilled headliner — fine if you're already out in Koreatown, not a destination.",
+      "adjust": 1,
+      "why": "Free Friday house/disco set at a Koreatown club — solid default pick, though Barrett's actual draw is unverified.",
       "confidence": "low",
-      "judged_at": "2026-07-24T12:27:39",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -21918,9 +21911,9 @@
     "9111f44bad10": {
       "tier": "great",
       "adjust": 2,
-      "why": "Alan Fitzpatrick's a real headliner — We Are The Brave founder running the same Beyer/de Witte peak-techno lane you track — anchoring an actual warehouse-techno bill, not just TBA filler.",
+      "why": "Alan Fitzpatrick's a genuine European techno headliner (We Are The Brave) touring the Beyer/de Witte circuit — a real warehouse booking, not a filler TBA.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -21943,11 +21936,11 @@
       "score_at_judge": 5
     },
     "9df4c24ef8b4": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Post Present Medium's 25th is a deep six-band DIY/experimental bill anchored by Gun Outfit — real for the indie lane, though none of these names have crossed your radar before.",
+      "tier": "great",
+      "adjust": 0,
+      "why": "A real label's 25th anniversary at The Smell with its foundational act (Gun Outfit) — the DIY punk/experimental corner of the indie lane you want represented, even without a name you already track.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 9
     },
@@ -21962,12 +21955,12 @@
     },
     "3432075f520d": {
       "tier": "great",
-      "adjust": 1,
-      "why": "OC garage-punk institution since '94 in the Dirtnap/Rip Off lineage — the volatile-live-show format your indie/garage taste calls for.",
+      "adjust": 2,
+      "why": "OC garage-punk lifers since '94, Dirtnap/Rip Off lane — exactly the snotty small-club rock the taste calls out, and the scene notes confirm they're a genuinely fun, volatile live act.",
       "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "c4f74a9a8100": {
       "tier": "solid",
@@ -22106,10 +22099,10 @@
     },
     "a940acee75c4": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Goose is a devoted jam-band draw but sits well outside your electronic/indie lane — the Greek being a loved room carries it to solid, not further.",
+      "adjust": 0,
+      "why": "Devoted jam-band following and a loved room, but Goose sits outside the electronic/indie lane — stay-informed territory, not a must.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -22134,9 +22127,9 @@
     "f5fa123eb456": {
       "tier": "great",
       "adjust": 1,
-      "why": "Momma's 90s alt-rock revival (Household Name) is squarely the small-room indie/rock lane you're in for, and the Bellwether bill has real depth with Rocket opening.",
+      "why": "Polyvinyl 90s-alt-revival done well, with LA's Rocket fresh off Smashing Pumpkins dates opening — the small-club indie-rock lane the brief wants more of.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -22161,9 +22154,9 @@
     "fb112c9c7dc6": {
       "tier": "great",
       "adjust": 0,
-      "why": "Soul legend at a venue you already love, with the Womack Sisters dropping their Daptone debut the same night — outside the house/techno lane but a genuine special-occasion booking.",
+      "why": "Al Green at the Bowl is a rare legend booking, plus the Womack Sisters dropping their Daptone debut the same night — worth knowing about even outside your usual lane.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -22186,23 +22179,22 @@
       "score_at_judge": 4
     },
     "046699d77e4b": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Skramz/screamo revival bill — genuinely respected within that scene (Loma Prieta's a foundational name) but a different animal from the post-punk/dream-pop indie lane you actually track.",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Loved venue, but this is a skramz/hardcore diehard bill (Loma Prieta, Nuvolascura) — a different rock lane than the post-punk/dream-pop taste calls for.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
     "9730ff1b2c69": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Vintage-jazz vocal combo — jazz never shows up in this profile's brief, and Bel Air's a trek for a generic dinner-jazz booking.",
-      "confidence": "high",
-      "judged_at": "2026-08-04T12:39:43",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Pleasant vintage-jazz vocal set at a real jazz room, but nothing here rises above a nice-if-nearby night out — not a genre the taste prioritizes.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "b7fda605070e": {
       "tier": "skip",
@@ -22679,40 +22671,40 @@
       "score_at_judge": 4
     },
     "c3e8f432ff6f": {
-      "tier": "skip",
-      "adjust": 0,
-      "why": "Same recurring Silverlake Flea, later date in the run — already covered.",
+      "tier": "solid",
+      "adjust": 1,
+      "why": "First swing through this recurring vintage/vinyl/handmade flea for the month — feature this date, the weekly repeats aren't new news.",
       "confidence": "high",
-      "judged_at": "2026-07-17T12:29:13",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5
     },
     "b448976d26f5": {
-      "tier": "skip",
-      "adjust": 0,
-      "why": "Same recurring Silver Lake Farmers Market, final date in the run — already covered.",
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Walkable Silver Lake Saturday staple right on Sunset — worth a standing mention, not a headline.",
       "confidence": "high",
-      "judged_at": "2026-07-17T12:29:13",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 4
     },
     "7339dfecbcf1": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same recurring Silverlake Flea, later date in the run — already covered.",
+      "adjust": -2,
+      "why": "Same weekly flea as Friday's listing one day later — no need to double up back-to-back days.",
       "confidence": "high",
-      "judged_at": "2026-07-17T12:29:13",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5
     },
     "da88f4acee0d": {
       "tier": "skip",
-      "adjust": 0,
-      "why": "Same recurring Silverlake Flea, final date in the run — already covered.",
+      "adjust": -2,
+      "why": "Recurring weekly market already covered on 8/7 — this is just next week's date on the same flea.",
       "confidence": "high",
-      "judged_at": "2026-07-17T12:29:13",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5
     },
     "177f79bbe0c6": {
       "tier": "must-see",
@@ -22744,39 +22736,38 @@
     "cf4ad9ed7a48": {
       "tier": "great",
       "adjust": 1,
-      "why": "Massane is Lane 8's own guitar-melodic-house signing (This Never Happened) sitting right next to Yotto/Lane 8 sound-wise — rooftop pool party 2-8pm five minutes from Silver Lake is exactly the daytime groove slot this profile builds weekends around.",
+      "why": "This is the rooftop-pool-at-Level-8 pattern you keep responding to, with a genuinely good melodic name on the decks — same recurring lane, book it.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
     "7de9287d2683": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Recurring disco/nu-disco night that sounds like the Eddie C end of your groove taste — fine pick if the Saturday's open.",
-      "confidence": "med",
-      "judged_at": "2026-07-18T12:30:40",
+      "adjust": -1,
+      "why": "Dimitri From Paris/Eddie C vibe on paper, but no actual DJ is billed — a recurring night, not a draw to plan around.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "46fd23deaf71": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Things You Say keeps showing up on your affinity list — a two-DJ rooftop set, modest but on-brand.",
+      "adjust": -1,
+      "why": "Hits the rooftop-sunset boosts on paper, but Zen Freeman's own scene notes peg this as a luxury-brand crowd-pleaser rather than a digger's night — fine backup, not the real thing.",
       "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 8,
-      "model": "sonnet"
+      "score_at_judge": 9
     },
     "984fe4bfb4d4": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Andrey Pushkarev has real credibility in the melodic/dub-techno underground — a TBA midnight slot that actually fits the afters lane.",
-      "confidence": "med",
-      "judged_at": "2026-07-18T12:30:40",
+      "adjust": 2,
+      "why": "Pushkarev's a genuine 25-year deep-techno veteran and Taimur earned his own fabric London slot — a real warehouse booking, not just TBA hype.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "ab3f6a3f7f6e": {
       "tier": "solid",
@@ -22843,10 +22834,10 @@
     },
     "86d48f0b672d": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "2220 is a loved room but this is Harmony Holiday's spoken-word/jazz-history performance piece, not a set — closer to a lecture than the music night the score's venue bump implies.",
+      "adjust": 0,
+      "why": "A genuinely rare booking at a loved room, but Harmony Holiday's piece is a jazz-history lecture-performance more than a show — know that going in.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -22862,9 +22853,9 @@
     "ea64a8bc0c7b": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Real trance lineage (System F, Gouryella) but it's trance on Avalon's mainstream Friday circuit, not the house/tech-house lane this profile actually lives in — fine if bored, not a build-around.",
+      "why": "Real trance lineage (System F, Gouryella) but this is Avalon's standard mainstream Friday circuit, not a special booking.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -23006,19 +22997,19 @@
     },
     "4819e7c77dd7": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Man Man's theatrical, maximalist art-punk (sousaphone and marimba over Modest Mouse-adjacent chaos) is exactly the small-club experimental-rock lane you track, headlining an intimate Echoplex bill.",
+      "adjust": 2,
+      "why": "Man Man's theatrical carnival-punk maximalism at the Echoplex is the exact small-room experimental-rock lane the taste wants more of, and it's a five-minute drive from home.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
     "151376b4c602": {
       "tier": "great",
-      "adjust": 0,
-      "why": "Mike Patton's Tomahawk co-headlining with Melvins is a legit heavy-rock pairing — bigger room than the Troubadour/Zebulon ideal but the two acts alone justify the score's draw bump.",
+      "adjust": 2,
+      "why": "Mike Patton's Tomahawk co-headlining with Melvins is a genuinely weird, heavy double bill worth the Belasco trip.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -23061,9 +23052,9 @@
     "0215505472f1": {
       "tier": "great",
       "adjust": 1,
-      "why": "The Smell doing a 25th-anniversary night with an Abe Vigoda reunion plus Callahan & Witscher and The Intima is a genuinely rare DIY-punk lineup, squarely in the post-punk/experimental lane this profile chases at small rooms.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "why": "The Smell's own 25th-anniversary run with an Abe Vigoda reunion is the authentic DIY-punk lane you want more of.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -23458,22 +23449,22 @@
       "model": "sonnet"
     },
     "28bd406d1fb7": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "The reliable Saturday-morning Silver Lake market, walkable from home — steady medium-interest pick, not a special edition this week.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same weekly Silver Lake market already flagged for 8/8 — recurring, no new draw.",
       "confidence": "high",
-      "judged_at": "2026-07-18T12:30:40",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 4
     },
     "79247f61cb8d": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Vinyl and vintage specifically, which is closer to his actual taste than a generic flea — free, close to home, worth a Saturday-morning stop.",
-      "confidence": "med",
-      "judged_at": "2026-07-18T12:30:40",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same recurring flea, week 2 — no new information over the 8/7 pick.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5
     },
     "f2553c28d65b": {
       "tier": "solid",
@@ -23758,9 +23749,9 @@
     "feb06e67be72": {
       "tier": "must-see",
       "adjust": 3,
-      "why": "Danny Tenaglia is a bona fide house/techno legend — Twilo/Sound Factory-era marathon sets — headlining the finale of a beloved Long Beach pier day-party series; build the day around this.",
+      "why": "Danny Tenaglia headlining a pier day party is legend-tier — marathon NYC house/techno royalty in an outdoor setting you build a Sunday around.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -24798,10 +24789,10 @@
     },
     "adf1e264f20e": {
       "tier": "great",
-      "adjust": 2,
-      "why": "John Tejada headlining his own TBA night is real pedigree — Kompakt/Cocoon since the mid-90s — and it lands exactly in the vinyl/warehouse afterhours lane you chase.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "adjust": 1,
+      "why": "John Tejada is genuine underground pedigree (Kompakt/Cocoon since the mid-90s) headlining his own TBA night — the afterhours groove lane at its most legit.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 11
     },
@@ -25304,9 +25295,9 @@
     "4fde9ef71293": {
       "tier": "great",
       "adjust": 1,
-      "why": "J'cuuzi's the real deal — Viagra Boys/Warmduscher tour support — and this is exactly the small-room art-punk bill your rock lane is built for.",
-      "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "why": "J'cuuzi's touring art-punk (has opened for Viagra Boys/Warmduscher) with Long Beach's 3371 — exactly the DIY rock-club lane you like.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -25382,10 +25373,10 @@
     },
     "0b33b4b2a300": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Off your usual house/techno lane, but a real one — Angel Bat Dawid and Georgia Anne Muldrow are legit International Anthem-orbit spiritual-jazz names, and it's at 2220, a room you already love.",
-      "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "adjust": 2,
+      "why": "Angel Bat Dawid and Georgia Anne Muldrow together is a legit International Anthem-orbit spiritual-jazz double bill at a loved room, not filler.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -25770,11 +25761,11 @@
       "model": "sonnet"
     },
     "875a4f371af1": {
-      "tier": "must-see",
-      "adjust": 2,
-      "why": "You already flagged this one and it's at a venue you love — Herbie Hancock at this stage of his career isn't a guaranteed rain-check.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "tier": "great",
+      "adjust": 0,
+      "why": "Herbie Hancock at your favorite amphitheater is a stay-informed big-name booking rather than core lane — worth knowing about, not an electronic-head must.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 9
     },
@@ -26636,22 +26627,22 @@
       "score_at_judge": 6
     },
     "129c423641ef": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Last screening before the Vista's Odyssey 70mm run closes — the 10am matinee slot is the tradeoff for being the final chance.",
-      "confidence": "med",
-      "judged_at": "2026-07-24T12:27:39",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same Odyssey 70mm run, just the weekday 10am matinee — go the Friday or Saturday evening screening instead.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "9d77efd700d9": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Nikki Nair is the substance here — UR-mentored, genre-blurring electro on Dirtybird/Lobster Theremin — George Daniel's celebrity-DJ angle is just the hook that gets it noticed.",
+      "adjust": 0,
+      "why": "RA pick with a genuinely interesting crossover booking — Nikki Nair's genre-agnostic electro/breaks catalog plus George Daniel's crate-digger side project, worth the risk on an unfamiliar bill.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 9
+      "score_at_judge": 10
     },
     "ab24433ca450": {
       "tier": "great",
@@ -26665,20 +26656,20 @@
     "6a8488cd7027": {
       "tier": "skip",
       "adjust": -3,
-      "why": "Bass/dubstep bill at an unnamed warehouse — the exact genre you don't want, and the score didn't dock for it.",
+      "why": "Dubstep/bass lineup at a TBA warehouse — exactly the genre your taste flags to bury, the afterhours boost doesn't save it.",
       "confidence": "high",
-      "judged_at": "2026-07-24T12:27:39",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
     "2dcc0cfa5aeb": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Nolan is a tracked director and a midnight Dark Knight Rises screening at the Vista is worth the late show — take the Friday date over the Saturday repeat.",
+      "adjust": 2,
+      "why": "Nolan's a tracked director and the Vista's a loved room, but this is a straight late show with no special print — good, not rare.",
       "confidence": "high",
-      "judged_at": "2026-07-24T12:27:39",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "cf7270da63b4": {
       "tier": "solid",
@@ -26699,20 +26690,20 @@
       "score_at_judge": 6
     },
     "d6d919ad1b86": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "Maddix's Revealed Recordings trance-techno is neither the European underground (Beyer / Hawtin / Charlotte de Witte tier) nor the correct flavor of big-room mainstream (Chris Lake / John Summit orbit) — wrong side of both lines.",
-      "confidence": "high",
-      "judged_at": "2026-08-01T07:28:10",
+      "why": "Maddix is festival-trance-adjacent big-room stuff, harder and less refined than the techno you actually track.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 8
     },
     "28b893e6e79d": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Fun nostalgia at a loved theater, but it's a franchise anniversary screening, not a tracked-director or format event — the venue-love is doing most of the score's lifting here.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "adjust": 0,
+      "why": "Fun nostalgia booking at a loved room, but no format draw here — no 70mm/35mm mentioned, just an anniversary re-run.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -27026,9 +27017,9 @@
     "98240dd4a01e": {
       "tier": "great",
       "adjust": 1,
-      "why": "Murk Records tribal-house legend playing a late-night set — the deep/soulful pocket the boosts are built for, even at an unfamiliar room.",
+      "why": "Oscar G is a genuine Murk/Miami house legend working a small room late — the big-name-in-an-intimate-venue booking worth chasing.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -27053,11 +27044,11 @@
     "cb295c390f3e": {
       "tier": "great",
       "adjust": 1,
-      "why": "Gerard Not Gerald co-founded INCOGNITO and has shared decks with Kevin Saunderson, Kenny Larkin and DJ Pierre — real Detroit-techno-adjacent pedigree, not just a generic hard-techno rager.",
+      "why": "INCOGNITO's TBA hard-techno/trance afters has a real decade-deep resident (Gerard Not Gerald) — the warehouse energy you want, even with an unproven guest slot.",
       "confidence": "med",
-      "judged_at": "2026-07-24T12:27:39",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "a565821c0219": {
       "tier": "great",
@@ -27069,13 +27060,13 @@
       "score_at_judge": 5
     },
     "20ef0b662124": {
-      "tier": "great",
+      "tier": "solid",
       "adjust": 1,
-      "why": "2220 Arts is a room you already trust, and a 26-hour marathon opening night is the kind of format worth catching regardless of who's playing.",
+      "why": "2220 is a loved room and a 26-hour marathon opener has real curiosity value, but the lineup/format is too thin at listing time to call it more than a maybe.",
       "confidence": "low",
-      "judged_at": "2026-07-24T12:27:39",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "1b4ec976d350": {
       "tier": "solid",
@@ -27114,23 +27105,22 @@
       "score_at_judge": 5
     },
     "623a61c809c9": {
-      "tier": "must-see",
+      "tier": "great",
       "adjust": 2,
-      "why": "DJ Bone and Stacey Hotwaxx Hale are genuine Detroit techno/house pioneers on a TBA-warehouse afters bill — this is the exact rare, build-a-plan-around booking the score's flat 8 undersells next to the anniversary screenings on the same date.",
+      "why": "DJ Bone and Stacey Hotwaxx Hale are literal Detroit techno/house pioneers on a TBA warehouse afterhours — exactly the underground-legend booking worth chasing blind.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
     "c6279f96f092": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Rimarkable hosts the actual Defected Radio Show and Juliet Mendoza's a Defected 'Unsung Heroes' alum — two real names in the soulful-house lane you like, at a bar-scale room.",
+      "adjust": 2,
+      "why": "Juliet Mendoza's someone you've already reacted well to, and a small Eastside bar booking is the intimate-venue pattern that works for you.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "sonnet"
+      "score_at_judge": 8
     },
     "c7e09d5cec80": {
       "tier": "solid",
@@ -27379,9 +27369,9 @@
     "145fe9813772": {
       "tier": "solid",
       "adjust": 1,
-      "why": "Rare touring French boogie-funk act (MoFunk/Dam-Funk lineage) — great groove pick, just live funk band not the house/techno DJ lane the score's \"electronic\" tag implies.",
+      "why": "Ameega barely tours and this pairs her with MoFunk's own XL Middleton & Moniquea — good if boogie/funk is your speed, just adjacent to the house/techno spine, not in it.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -27818,13 +27808,13 @@
       "model": "sonnet"
     },
     "536916afedf6": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Near-home vintage/vinyl/handmade market hits the flea-market medium-interest bucket plus the Silver Lake-adjacent boost — an easy weekend-morning add.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Week 3 of the same recurring flea market — not a distinct draw.",
       "confidence": "high",
-      "judged_at": "2026-07-24T12:27:39",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5
     },
     "f5eb08d7fe1d": {
       "tier": "solid",
@@ -27875,47 +27865,47 @@
     "763aed7ec594": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Salon Recordings is a legit LA house/techno imprint but the three names on the bill are unknowns to me — can't call the draw with confidence.",
+      "why": "Salon Recordings' El Cid night in Silver Lake ticks the location/electronic boxes but the billed names are unverified locals with no scene read on their draw.",
       "confidence": "low",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
     "da318fa65965": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "No lineup listed, but a disco night at Gold Diggers is squarely the groove/soulful lane you like — worth a look even blind.",
-      "confidence": "med",
-      "judged_at": "2026-07-26T12:29:12",
+      "adjust": -1,
+      "why": "Recurring Gold Diggers disco night with no lineup info at all — fine filler, not a headline.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "a4fbb098114f": {
       "tier": "great",
       "adjust": 1,
-      "why": "Oguz is proper peak-time techno in the de Witte/Amelie Lens vein — Exchange LA's the right room for it.",
+      "why": "Peak-time techno in the de Witte/Amelie Lens vein at Exchange LA — hits your techno lane even without a marquee name.",
       "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "880d4a67db6c": {
       "tier": "solid",
-      "adjust": -2,
-      "why": "Same 25th-anniversary run as Friday's screening — go the earlier night instead of doubling up on the same film.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "adjust": -1,
+      "why": "Same Fast & Furious 25th-anniversary run as the 21st — go that night, this is the redundant sibling screening.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
     "dcc3f7d675a5": {
       "tier": "great",
       "adjust": 2,
-      "why": "Durante's an Anjunadeep artist in the Lane 8/Yotto lane, and it's at Level 8 — the exact rooftop-pool spot you've flagged wanting surfaced when it's on.",
+      "why": "Durante's Anjunadeep pedigree puts this rooftop pool party in the same melodic lane as Lane 8/Yotto — a real daytime draw at a room you already like.",
       "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "82624009a9e0": {
       "tier": "solid",
@@ -28005,9 +27995,9 @@
     "7dae73038215": {
       "tier": "great",
       "adjust": 1,
-      "why": "Mha Iri's a genuine on-the-rise Drumcode signee playing Awakenings/Tomorrowland/Hi Ibiza this year, and a TBA-warehouse afterhours is exactly your lane — hard-techno/trance leans harder than your usual pocket, but the draw is real.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "why": "Mha Iri is a real rising Drumcode signee off Awakenings/Tomorrowland dates — worth the TBA-warehouse gamble even filed under hard-techno/trance.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -28082,10 +28072,10 @@
     },
     "8f29fc1fbe44": {
       "tier": "great",
-      "adjust": 0,
-      "why": "Two tracked headliners (Lane 8, Yotto) plus deep Anjunadeep-orbit support makes this one of the rare San Diego trips actually worth the drive; the score's distance penalty already accounts for the haul fairly.",
-      "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "adjust": 1,
+      "why": "Two tracked names (Lane 8, Yotto) headline a real CRSSD-orbit day festival — whether the SD haul is worth it is the actual judgment call here.",
+      "confidence": "low",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -28145,10 +28135,10 @@
     },
     "4b408a85f3df": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Afriqua's a legit R&S producer with a real point of view, and Azzecca's a genuine 2025 name — this DTLA bill is more substantive than the score's low draw number suggests.",
-      "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "adjust": 1,
+      "why": "Afriqua's a genuinely respected R&S name — arguably the most substantive booking on the electronic slate this weekend, not just a Saturday filler DJ.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -28156,27 +28146,27 @@
       "tier": "great",
       "lane": "live-music",
       "adjust": 1,
-      "why": "This is a live ambient/electronic performance, not a club DJ set — Rival Consoles is Erased Tapes, closer to Jon Hopkins/Floating Points territory, worth catching on that basis, not as a warehouse night.",
+      "why": "This is a seated ambient/experimental live set from Erased Tapes' Rival Consoles (Jon Hopkins/Nils Frahm territory), not a club DJ night — the club tag undersells what it actually is.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
     "8a34951dcd50": {
-      "tier": "must-see",
-      "adjust": 2,
-      "why": "TBA warehouse night with a real headliner in the Solomun/Tale of Us melodic-techno lane, plus a legit LA techno undercard (Luis Miranda's got Hawtin/Rødhåd co-signs) — clear a Saturday for this one.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Joris Voorn isn't on your tracked list but plays in the exact Solomun/Tale of Us melodic-techno lane those tracked names occupy — a genuine headliner, not TBA filler.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 9
     },
     "32e506bb3cfe": {
-      "tier": "solid",
+      "tier": "skip",
       "adjust": -2,
-      "why": "TechnoMetal is a different animal than the groove/melodic lane — industrial, aggression-first hard techno closer to Sara Landry than anything on your tracked list; the TBA-warehouse rarity boost overstates it.",
-      "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "why": "TechnoMetal/industrial hard techno is the harder, more extreme lane you've explicitly said isn't the draw — the 'house' tag undersells how far this is from rooftop groove.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 9
     },
@@ -28191,10 +28181,10 @@
     },
     "38fb45a7c54c": {
       "tier": "great",
-      "adjust": 1,
-      "why": "TBA warehouse techno residency is exactly the format you chase, and John Bryars is a genuinely eclectic local selector — though worth flagging there's real ambiguity about which \"Boris\" this actually is.",
+      "adjust": 0,
+      "why": "Boris's Berghain-resident billing checks out per SWXCH's own copy, and a warehouse techno residency is squarely your lane — though there's more than one touring 'Boris' so hold the pedigree loosely.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -28228,9 +28218,9 @@
     "6f3b45e0c905": {
       "tier": "great",
       "adjust": 2,
-      "why": "Stil vor Talent founder with real European melodic-house pedigree (the Dixon/Adriatique lane) — the score's treating this like a generic club booking when it's a legit headliner.",
+      "why": "Oliver Koletzki basically built the melodic-house sound your Dixon/Adriatique taste already runs on — a real headliner, not a filler club booking.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -28317,10 +28307,10 @@
     },
     "56ad1221ad34": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Fifteen-plus years running and it shows — Bears in Space has pulled DJ Harvey and Horse Meat Disco through this lot before, and this bill (Warehouse Preservation Society, Perfect Lovers) keeps that same disco-house thread going.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "adjust": 0,
+      "why": "Long-running queer disco day party in a Silver Lake parking lot with real pedigree (this crew has pulled DJ Harvey and Horse Meat Disco before) — solid neighborhood hang, not a headline night.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 11
     },
@@ -28635,11 +28625,11 @@
       "score_at_judge": 3
     },
     "b21b8dd126a4": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Strokes/LCD Soundsystem day fest is a real event worth knowing about, but it's indie/dance-punk, not the house/techno lane you build a night around — A Club Called Rhonda's the one set actually in your pocket.",
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "The Strokes and LCD Soundsystem headlining a day festival is a big-name concert you don't skip, plus A Club Called Rhonda closing it out in your disco lane.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -28674,9 +28664,9 @@
       "tier": "great",
       "lane": "club:mainstream",
       "adjust": 1,
-      "why": "Tech-house DJ set filed as live-music — really a big-room club night, and Noizu's the Chris Lake/Fisher-orbit mainstream sound you've already reacted well to on SecondCity and Galo.",
+      "why": "This is a tech-house club show tagged as a concert — Noizu is squarely the Chris Lake/Dom Dolla/FISHER mainstream tier you explicitly want prioritized, not background live music.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 9
     },
@@ -29184,22 +29174,22 @@
       "score_at_judge": 4
     },
     "e7229fd01e39": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "The standing Sunset Blvd farmers market — always nice and walkable, but it's the weekly default, not a standout pick.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same weekly Silver Lake market, third occurrence — redundant.",
       "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 4
     },
     "cdf38dbb2c7e": {
-      "tier": "great",
-      "adjust": 0,
-      "why": "Vintage/vinyl/handmade flea in Atwater Village, close to home on a Saturday — a genuine browse-worthy market, not just background filler.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Week 3 Saturday leg of the same recurring flea — redundant.",
       "confidence": "high",
-      "judged_at": "2026-07-26T12:29:12",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5
     },
     "ae9dcca1fba9": {
       "tier": "solid",
@@ -29241,9 +29231,9 @@
     "20e0841279b0": {
       "tier": "solid",
       "adjust": 0,
-      "why": "If you're doing the F&F 25th run, go Monday — Vista's a room you love, but it's a nostalgia romp, not a format-driven print night.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "why": "Fun nostalgia screening but a Monday night and pop entertainment more than an arthouse pick — go if F&F is your thing, not a night to build around.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -29986,13 +29976,13 @@
       "score_at_judge": 5
     },
     "2fc7a7d1ca74": {
-      "tier": "solid",
+      "tier": "great",
       "adjust": 1,
-      "why": "Small bar-scale electronic bill in Lincoln Heights with four named DJs — none tracked, but an intimate eastside night worth a flyer check before writing off.",
-      "confidence": "low",
-      "judged_at": "2026-07-28T12:33:37",
+      "why": "RA-picked free night at The Airliner in Lincoln Heights — outside curator validation plus a house/techno/dub bill right in your lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "678ef5c28bdb": {
       "tier": "skip",
@@ -30040,11 +30030,11 @@
       "score_at_judge": 5
     },
     "fd904574d207": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Same screening as the Monday night — don't double up, go the 24th instead.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same F&F run as Monday's showing at the same theater — Tuesday's just a rerun, no reason to flag both nights.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -31084,11 +31074,11 @@
       "score_at_judge": 6
     },
     "4b919cac1172": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Phantoms are ODESZA's Foreign Family act — hooky and radio-adjacent rather than a selector's set, fine for a Saturday pool party but not a night to build around.",
-      "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Phantoms (ODESZA's Foreign Family, house-meets-indie-dance) at a Level 8 pool party — hooky and radio-adjacent, but a real electronic-adjacent name in your medium tier.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -31105,11 +31095,11 @@
     "03f4985eaa8e": {
       "tier": "great",
       "adjust": 1,
-      "why": "Cult Bowie-scored Berlin classic at Vista — same rep-house draw as Cabiria, just no special print to push it higher.",
+      "why": "Bowie-scored Berlin cult classic at the Vista, one of your favorite rooms — a real rep pick, not just a film checkbox.",
       "confidence": "high",
-      "judged_at": "2026-07-29T12:52:52",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "c53eba5ed7d2": {
       "tier": "solid",
@@ -31240,9 +31230,9 @@
     "d3e25eb26f47": {
       "tier": "great",
       "adjust": 1,
-      "why": "Free RSVP and DJ Seinfeld's your tracked lo-fi-house name — salute brings real Ninja Tune pedigree too, low cost for a genuinely good bill.",
+      "why": "DJ Seinfeld is a tracked name and this is free — low-stakes way to catch a lo-fi house pioneer plus a solid Ninja Tune support slot.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -31339,10 +31329,10 @@
     },
     "03003ccdbe58": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Adrian Lyne in person for a 35mm Unfaithful screening at the Academy Museum — not a tracked director, but a genuinely rare glossy-erotic-thriller booking with the format and guest that make a rep night worth building around.",
+      "adjust": 2,
+      "why": "35mm print of Unfaithful with Adrian Lyne in person — Lyne's not tracked-director tier but a format-plus-Q&A rep booking like this is exactly what the film lane is for.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -31421,11 +31411,11 @@
       "score_at_judge": 5
     },
     "9c5d6edf2c39": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Fun Araki restoration with a Q&A, but Araki's not a tracked director and it's a 4K DCP, not the print-driven format night that usually earns the build-a-night-around treatment.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "4K restoration of a genuine Araki cult film with a live Q&A — real rep-cinema event, not a rerun.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -33559,10 +33549,11 @@
     },
     "b69a75ba9b8d": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Marques Wyatt basically built LA's deep-house scene and Monkey Safari brings real Get Physical/Anjunadeep pedigree — six hours open-air under the bridge on a Friday, ten minutes from home.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "lane": "club:underground",
+      "adjust": 1,
+      "why": "9pm-start six-hour outdoor rave under the bridge is a night party, not a day party — and Marques Wyatt basically invented LA's deep house scene, still worth the trip for that alone.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 12
     },
@@ -33630,38 +33621,38 @@
       "score_at_judge": 6
     },
     "dfb1faadbfa6": {
-      "tier": "skip",
-      "adjust": -1,
-      "why": "Night 9 of an 11-night Lexington afters residency with no lineup ever attached — nothing distinguishes this date from the others.",
-      "confidence": "med",
-      "judged_at": "2026-07-30T12:36:35",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Generic tech-house afters at The Lexington, no lineup to actually judge — fine as a late-night fallback, nothing more.",
+      "confidence": "low",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
     "4b20a83df3c8": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Generic free afters flyer, no artists named — filler.",
-      "confidence": "med",
-      "judged_at": "2026-07-30T12:36:35",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Bare-bones 'Afters' listing with no genre or lineup specifics — filler until it proves otherwise.",
+      "confidence": "low",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
     "6921c4628e21": {
-      "tier": "skip",
-      "adjust": -2,
-      "why": "Same Lexington afters residency a week later in the same run, still no lineup — lower priority than the earlier date already in this batch.",
-      "confidence": "med",
-      "judged_at": "2026-07-30T12:36:35",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tech-house/minimal afters at a trusted Lexington slot, but no lineup names to confirm the draw — closing night of the 2-night run.",
+      "confidence": "low",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
     "9d4ddd875d4f": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Same 129 E 3rd St afters format as the Friday date, still no names attached.",
+      "why": "Generic 'afters' listing with no lineup or venue character beyond an address — nothing here to distinguish it from a hundred others.",
       "confidence": "med",
-      "judged_at": "2026-07-30T12:36:35",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -34405,10 +34396,10 @@
     },
     "40278cd989b9": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Walkable Saturday-morning flea right in the Los Feliz/Silver Lake pocket — an easy, low-effort fit for the daytime-market bucket.",
-      "confidence": "high",
-      "judged_at": "2026-07-30T12:36:35",
+      "adjust": 0,
+      "why": "Rooftop flea in Los Feliz — fine Saturday-morning browse, nothing that pulls it above filler.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 4
     },
@@ -34433,22 +34424,22 @@
       "score_at_judge": 8
     },
     "3d451a6e1b39": {
-      "tier": "great",
-      "adjust": 0,
-      "why": "Same 70mm Nolan run at Vista; series rule keeps it below the opening-night must-see, but if you missed Aug 1 this is the obvious Friday pickup.",
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Nolan in 70mm at the Vista is the textbook director-event this profile is built around — go Friday, this is the pick of the run.",
       "confidence": "high",
-      "judged_at": "2026-08-01T07:28:10",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 8
     },
     "a6e548ae8fee": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Saturday is the prime sibling pick of this Nolan run; one tier below the Aug 1 opening night, but the format (70mm, Vista) is identical.",
+      "adjust": 0,
+      "why": "Same Odyssey 70mm run as Friday — go that night instead, this is the sibling screening.",
       "confidence": "high",
-      "judged_at": "2026-08-01T07:28:10",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 8
     },
     "b5a2364487bd": {
       "tier": "great",
@@ -34532,11 +34523,11 @@
       "score_at_judge": 6
     },
     "df8b0494b803": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Habstrakt's a dubstep/bass producer, not tech-house — the tag's wrong and so is the lane for this taste.",
-      "confidence": "high",
-      "judged_at": "2026-07-31T12:35:32",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Habstrakt's bass-house leans closer to the penalized bass-music mega-show end than proper tech-house — fine if nearby, not a draw to chase.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
@@ -34686,30 +34677,30 @@
     },
     "cd96cb9a5257": {
       "tier": "skip",
-      "adjust": -1,
-      "why": "No lineup, free door, generic party title — reads like a filler night with no real DJ booking behind it.",
+      "adjust": -2,
+      "why": "Freaknik-branded party with no lineup and no location detail — the 'house' reason tag reads like a keyword grab, not an actual booking.",
       "confidence": "med",
-      "judged_at": "2026-07-31T12:35:32",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "d068c90ad9f1": {
       "tier": "great",
       "adjust": 2,
-      "why": "Jeremy Sole's a 30-year KCRW crate-digger running his own Bajo residency at a bar in his own eastside backyard — the eclectic groove selector the brief rewards even without a marquee name.",
+      "why": "Jeremy Sole's KCRW-honed vinyl digging (Afro-Latin/funk/global/house) with Captain Planet is the groove-disco crate-digger lane the taste rewards, at a small eastside bar.",
       "confidence": "high",
-      "judged_at": "2026-07-31T12:35:32",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 6
     },
     "c25a0e805f99": {
       "tier": "great",
       "adjust": 1,
-      "why": "Physical Therapy's a legit underground house/techno name on an open-air TBA bill — the rooftop-groove setting plus a real selector lifts this past the generic day-party crowd.",
+      "why": "Kim Anh is an actual LA queer-underground institution and Physical Therapy runs Nowadays' Allergy Season — deep-cut TBA booking with real cult weight behind two unfamiliar-to-you names.",
       "confidence": "med",
-      "judged_at": "2026-07-31T12:35:32",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 9
     },
     "ae1a67cfb5ad": {
       "tier": "great",
@@ -34739,11 +34730,11 @@
       "score_at_judge": 5
     },
     "b368b043c331": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "RIKHTER's Kobosil-orbit hard/hypnotic techno is harder-edged than the groove/soulful/melodic end this profile gravitates to — a 4-hour set is a real commitment for a sound that's adjacent, not core.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "RIKHTER's a Berghain-caliber hard-techno name doing a 4-hour set, TBA warehouse — harder-edged than your usual melodic lane but real underground credibility.",
       "confidence": "med",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -34939,9 +34930,9 @@
     "d0f235d8523b": {
       "tier": "great",
       "adjust": 1,
-      "why": "Jason Bentley is a real tastemaker and Latroit's a Grammy-winning Detroit-rooted house producer with his own live ensemble — legit house booking the score's draw bump undersells since neither name reads flashy on paper.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "why": "A Grammy-winning house producer's live ensemble with KCRW's Jason Bentley is a more interesting format than a straight DJ set.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 8
     },
@@ -35463,13 +35454,13 @@
       "model": "sonnet"
     },
     "487cd0e37dce": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Walkable vintage/vinyl flea right by Silver Lake — an easy Saturday-morning add even if it's just the regular weekly market.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Week 4 of the same recurring flea market — the digest doesn't need a fifth mention of the same stall lineup.",
       "confidence": "high",
-      "judged_at": "2026-07-31T12:35:32",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 5
     },
     "d535a0dbfe40": {
       "tier": "great",
@@ -36280,24 +36271,22 @@
       "model": "claude-sonnet-5"
     },
     "c7a06b654837": {
-      "tier": "skip",
+      "tier": "solid",
       "adjust": -1,
-      "why": "No lineup, no venue detail, generic 'all girl party' branding — reads like a mixer, not a DJ night.",
-      "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "why": "Free 'all-girl party' with no DJ billing — could be fun but nothing here confirms real selection over open-format.",
+      "confidence": "low",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "a56bf892f5d4": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Bollywood-fusion rooftop day party, fun but off your house/techno spine — fine if the date works.",
+      "adjust": -1,
+      "why": "Chai Rave anniversary party — rooftop house/afro-house setting is right, but no lineup listed so it reads as a themed cultural party rather than a curated selector night.",
       "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
+      "score_at_judge": 7
     },
     "0a292467fdb1": {
       "tier": "skip",
@@ -36495,9 +36484,9 @@
     "7c1e9e366dce": {
       "tier": "great",
       "adjust": 1,
-      "why": "Not a nostalgia DJ night — actual house-anthem originators (Ultra Naté, Crystal Waters, Robin S) singing their own catalog outdoors at Pershing Square, an easy trip from Silver Lake.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "why": "These are the actual original house vocalists behind genuine genre landmarks (Robin S, Crystal Waters), not a tribute act — an outdoor day party built on real catalog, not nostalgia karaoke.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 9
     },
@@ -37345,14 +37334,13 @@
       "model": "sonnet"
     },
     "d1d125b94350": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Walkable Atwater flea on a Saturday — the reliable low-key pick this profile actually wants nearby.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Week 4 Saturday leg of the same recurring flea — redundant.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 5
     },
     "a79e2f7a1165": {
       "tier": "solid",
@@ -37365,64 +37353,58 @@
       "model": "sonnet"
     },
     "5cc8605eebe9": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Same weekly flea, another easy Sunday option.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Third day of the same weekly flea run — already flagged Friday, this is filler.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 4
     },
     "c53cd0e09ee5": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Same standing market, nothing new to add this week.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same recurring flea, week 2 Sunday leg — redundant with the earlier feature.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 4
     },
     "0e3b5b7e338b": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Same weekly flea at its Atwater location — steady, not a special week.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Week 3 Sunday leg of the same recurring flea — redundant.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 4
     },
     "86ecf1c06b8c": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Walking-distance Sunset farmers market — an easy, reliable near-home pick.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same weekly Silver Lake market, fourth occurrence — redundant.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 4
     },
     "04bf02a83f9e": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Matias Aguayo is Cómeme's founder and a real minimal-house original — the score missed him since he's not in the Spotify data, but this is a legit headliner for a TBA warehouse afterhours.",
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Matias Aguayo — Cómeme founder, ex-Kompakt — in a TBA warehouse till 5am is the exact European-pedigree minimal house/techno night to build the weekend around.",
       "confidence": "high",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 7
     },
     "82f3af99d4f8": {
       "tier": "great",
       "adjust": 2,
-      "why": "Tamara Lanza is a Sunset Sessions regular — this DTLA sunset deep-house release party is the exact golden-hour format that keeps coming up as a favorite.",
-      "confidence": "med",
-      "judged_at": "2026-08-02T12:37:08",
+      "why": "This is the Sunset Sessions rooftop with Tamara Lanza, a known Level 8 regular running disco-through-deep-house — the recurring favorite you keep coming back to.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "2381fcc9b98b": {
       "tier": "solid",
@@ -37437,23 +37419,20 @@
     "3d3b0118714f": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Free rooftop afters, fine filler, but no billed talent to judge the draw against.",
+      "why": "Rooftop afters with zero lineup info — the setting fits the taste but there's nothing concrete to judge.",
       "confidence": "low",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "54cf6dc1d5fa": {
       "tier": "skip",
-      "lane": "club:mainstream",
       "adjust": -2,
-      "why": "Nurko's melodic-dubstep/bass lane at a bottle-service superclub like Exchange is the mega-rave energy this profile explicitly steers away from.",
-      "confidence": "med",
-      "judged_at": "2026-08-02T12:37:08",
+      "why": "Nurko is melodic dubstep — squarely the bass-music-mega-show lane the taste flags to down-rank, not the house/techno spine.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "0b44940fef54": {
       "tier": "solid",
@@ -38190,24 +38169,22 @@
       "model": "claude-sonnet-5"
     },
     "9058dd41554a": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Free daytime beach pop-up fits the lifestyle/market lane, but it's unclear beyond the name what SMPL actually is.",
-      "confidence": "low",
-      "judged_at": "2026-08-02T12:37:08",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Kids' pop-up beach library — books, crafts, stories for children, not a music or lifestyle draw for this taste.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 4
     },
     "58cbe91614df": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Easy near-home indie/vintage flea for a Saturday morning, but it's the same weekly market, not a one-off to plan around.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Final Sunday leg of the same month-long recurring flea — redundant with the earlier feature.",
       "confidence": "high",
-      "judged_at": "2026-08-02T12:37:08",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 4
     },
     "1ba60083ebbe": {
       "tier": "must-see",
@@ -38221,13 +38198,12 @@
     },
     "7e7ee602e8de": {
       "tier": "skip",
-      "adjust": -2,
-      "why": "No lineup, no genre detail — a generic 'festival hangover' blowout riding late-start and free-entry bumps, not a curated booking.",
+      "adjust": -1,
+      "why": "Post-festival hangover party with no lineup — riding the free/Friday boosts with nothing underneath.",
       "confidence": "med",
-      "judged_at": "2026-08-03T12:52:36",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "67cff7099d69": {
       "tier": "skip",
@@ -38602,23 +38578,21 @@
     },
     "504b3373a342": {
       "tier": "must-see",
-      "adjust": 3,
-      "why": "Ten names on this bill sit in your Spotify rotation (Masha Mar at core, six more at strong) — Lovefingers is ESP Institute's own shaman and Heidi Lawden's a longtime DJ Harvey road partner; this is the deep-crate groove night the brief actually describes, not a hypothetical.",
+      "adjust": 2,
+      "why": "ESP Institute/DJ Harvey lineage day-into-night at The Bridge — Lovefingers is a two-decade Harvey collaborator, Masha Mar is core-rotation for you, and this is exactly the rooftop-vinyl-groove-into-disco arc the Sunset Sessions itch wants.",
       "confidence": "high",
-      "judged_at": "2026-08-04T12:39:43",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 14,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 14
     },
     "1ccbb75ccfd8": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Free hard-techno rave close to home fits the lane, but no names on the bill to judge the selection — worth a look, not a plan.",
-      "confidence": "low",
-      "judged_at": "2026-08-04T12:39:43",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Generic secret-location hard-techno party with no billed lineup — the hard-dance-as-main-draw lane the brief steers away from.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 7
     },
     "b96fc4793f02": {
       "tier": "solid",
@@ -38632,23 +38606,21 @@
     },
     "f7850f577de4": {
       "tier": "great",
-      "adjust": 2,
-      "why": "BL SUEDE is a real Afro-house/deep-tech selector with Kevin Saunderson and Armada credits — free poolside rooftop day party is exactly the boosted setting.",
-      "confidence": "med",
-      "judged_at": "2026-08-04T12:39:43",
+      "adjust": 1,
+      "why": "Free rooftop pool party in the afro-house/Keinemusik-soulful lane you go for on a Friday afternoon — BL SUEDE's got real production credits (Kevin Saunderson, Armada).",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 7
     },
     "c19731939c66": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Shane Thomas (Ace Hotel's blush! host) and Rob Aquino (Loose party) are legit queer-underground selectors splicing house/techno with weirder edits — TBA afterhours in Silver Lake, near-automatic for this lane.",
+      "adjust": 1,
+      "why": "Rob Aquino's Loose crew plus Banoffee (a real SOPHIE-orbit name) makes this more than a random TBA Silver Lake afters.",
       "confidence": "high",
-      "judged_at": "2026-08-04T12:39:43",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 7
     },
     "228a15657ea6": {
       "tier": "solid",
@@ -39304,19 +39276,19 @@
     },
     "f469067f1faf": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "No lineup detail or scene read to confirm the draw here — generic warehouse party tags with a vocalist-leaning headliner name, keeping it mid-pack until there's more to go on.",
+      "adjust": 0,
+      "why": "Warehouse party in the Arts District fits the lane, but there's no lineup or scene read to gauge the actual draw.",
       "confidence": "low",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
     "05437f9c2b82": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "Free hard-techno afterhours with zero lineup listed — could be a fine backyard-style party but nothing here distinguishes it from a hundred similar TBA nights.",
-      "confidence": "low",
-      "judged_at": "2026-08-05T07:08:03",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same templated secret-DTLA hard-techno series as Friday's — no lineup, not the lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
@@ -39331,58 +39303,121 @@
     },
     "6284898f76d9": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Soulful house at Gold Diggers, five minutes from home — hits the pocket on paper, but no lineup listed so the actual draw is a guess.",
-      "confidence": "low",
-      "judged_at": "2026-08-05T07:08:03",
+      "adjust": -1,
+      "why": "Another Gold Diggers night with 'soulful house' in the title and no DJ named — same problem as The Hustle down the list.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
     },
     "69be97309880": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "No lineup listed under a generic party-brand name — can't gauge who's actually playing, so leaving the score's placement alone.",
-      "confidence": "low",
-      "judged_at": "2026-08-05T07:08:03",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "No lineup, no distinguishing detail beyond 'party in DTLA' — generic club night, not a real DJ booking.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
     "5f1f22c708d2": {
       "tier": "great",
       "adjust": 1,
-      "why": "Xica Soul is a real find — an In Sheep's Clothing-circuit soul/funk/house selector, exactly the groove lane you chase, and she's a strong-affinity name in your library.",
-      "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "why": "Xica Soul's a real In Sheep's Clothing-circuit LA selector — small-room underground house right in the pocket.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 7
     },
     "00cb31da36e7": {
       "tier": "must-see",
-      "adjust": 3,
-      "why": "This is Christopher Nolan's Odyssey — a tracked-director epic in 70mm at your favorite room, and it's the last night of the run, so this is the Friday to build around, not a lesser earlier date.",
+      "adjust": 2,
+      "why": "Last night of the run, a Friday, true 70mm at your favorite screen — Nolan is a tracked director and the print is the whole point.",
       "confidence": "high",
-      "judged_at": "2026-08-05T07:08:03",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 10
     },
     "1e6a9a7fa6d7": {
       "tier": "skip",
-      "lane": "club:mainstream",
       "adjust": -2,
-      "why": "No DJ or music info at all, and a 10pm start despite the day-party tag — reads like a celebrity birthday scene bash, not the sunset-groove session the rooftop tag implies.",
-      "confidence": "low",
-      "judged_at": "2026-08-05T07:08:03",
+      "why": "Celebrity birthday bash with no DJ billing at all — a rooftop setting doesn't rescue a see-and-be-seen party with nothing musical behind it.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 6
     },
     "2b8a61c7a36c": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Free TBA warehouse, house/techno, Saturday night in DTLA — the exact afterhours archetype the taste brief calls out by name, even though none of Casmalia/Ryuma/Emmber/Neda are known quantities yet.",
-      "confidence": "med",
-      "judged_at": "2026-08-05T12:37:04",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free warehouse rave hits every format box (TBA, late, DTLA) but the four names on the bill have no verifiable track record to lift it further.",
+      "confidence": "low",
+      "judged_at": "2026-08-06T12:43:49",
       "input_version": 2,
       "score_at_judge": 7
+    },
+    "3bacf5bc5ee9": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Rooftop tech-house checks the setting box, but \"Yet More\" is a name with no footprint I can verify — treat as a maybe, not a plan.",
+      "confidence": "low",
+      "judged_at": "2026-08-06T12:43:49",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "44e6ba8b936e": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Shane Thomas open-to-close — the Ace Hotel blush! host doing experimental house/techno, the single-DJ all-night format you like.",
+      "confidence": "med",
+      "judged_at": "2026-08-06T12:43:49",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "0b68a15dc8b0": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "2000s nostalgia night — the exact throwback-club format your taste says to bury.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "f4341c80a8fa": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "College red-cup free-RSVP night at Los Globos — exactly the generic bottle-service/no-real-DJ booking the taste says to bury.",
+      "confidence": "high",
+      "judged_at": "2026-08-06T12:43:49",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "e487cb3d12da": {
+      "tier": "great",
+      "lane": "club:underground",
+      "adjust": 1,
+      "why": "TBA-location open-air secret party at 11pm-doors is the warehouse/TBA lane the taste explicitly loves — it's a main-event booking, not a daytime lane, so moving it out of club:day; no confirmed lineup keeps it a notch below great.",
+      "confidence": "low",
+      "judged_at": "2026-08-06T12:43:49",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "7c720b7339fb": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "River-park community festival right near home, but no lineup or scene info to judge a real music draw — keep it modest.",
+      "confidence": "low",
+      "judged_at": "2026-08-06T12:43:49",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "04402e03f265": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Echo Park's free multi-venue indie/rock block festival, walkable from home — exactly the small-club band lane the brief says not to let electronic crowd out, and the score's empty lineup field badly undersold it.",
+      "confidence": "low",
+      "judged_at": "2026-08-06T12:43:49",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }
