@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/5/2026 deterministically (no API). 323 candidates. Signals: big-venue 288, festival 31, tracked 6._
+_Generated 8/6/2026 deterministically (no API). 321 candidates. Signals: big-venue 286, festival 31, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -151,7 +151,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 9/9 | 4 | wave to earth - the pieces tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/wave-to-earth-the-pieces-tour-los-angeles-california-09-09-2026/event/090064ADB561EDC8) |
 | Fri 9/11 | 4 | OneRepublic | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sat 9/12 | 4 | Morgan Jay: The Goofy Guy Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/morgan-jay-the-goofy-guy-tour-los-angeles-california-09-12-2026/event/09006445D5ADACD0) |
 | Sat 9/12 | 4 | Journey | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
@@ -220,7 +219,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 9/9 | 3 | Buddy Guy | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Fri 9/11 | 3 | Johnny Blue Skies & the Dark Clouds - Mutiny for the Masse | Kia Forum | big-venue | [link](https://www.ticketmaster.com/johnny-blue-skies-the-dark-clouds-inglewood-california-09-11-2026/event/0900647E948C5A6D) |
 | Fri 9/11 | 3 | KCRW Presents Thievery Corporation: 30th Anniversary Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/kcrw-presents-thievery-corporation-30th-anniversary-inglewood-california-09-11-2026/event/0A0064A8D42CCFE8) |
 | Sat 9/12 | 3 | The Red Clay Strays | Toyota Arena-CA | big-venue | [link](https://vanandelarena.com/) |
