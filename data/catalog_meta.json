@@ -1,20 +1,45 @@
 {
-  "version": "926dfe90249e",
-  "content_version": "0c6fe4714b74",
-  "count": 3620,
-  "fetched_at": "2026-08-03T12:48:58+00:00",
+  "version": "089011111032",
+  "content_version": "70662ad742fa",
+  "count": 3812,
+  "fetched_at": "2026-08-07T12:50:25+00:00",
   "added": 0,
   "updated": 0,
   "stale_sources": [
     {
       "source": "alvas",
-      "days": 18,
+      "days": 22,
       "count": 22
     },
     {
       "source": "editorial",
+      "days": 9,
+      "count": 200
+    },
+    {
+      "source": "webfetch",
       "days": 5,
-      "count": 231
+      "count": 187
+    },
+    {
+      "source": "harvelles",
+      "days": 5,
+      "count": 56
+    },
+    {
+      "source": "venicewest",
+      "days": 5,
+      "count": 71
+    },
+    {
+      "source": "webfetch_mccabes",
+      "days": 5,
+      "count": 22
+    },
+    {
+      "source": "mccabes",
+      "days": 5,
+      "count": 32
     }
   ]
 }
