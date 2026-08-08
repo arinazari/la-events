@@ -1,20 +1,223 @@
 {
-  "version": "3ab5c657554c",
-  "content_version": "ae1312af1b58",
-  "count": 3817,
-  "fetched_at": "2026-08-06T12:39:17+00:00",
-  "added": 0,
-  "updated": 0,
+  "version": "66f0b8315b47",
+  "content_version": "9868896f34b3",
+  "count": 3783,
+  "fetched_at": "2026-08-08T12:22:20+00:00",
+  "added": 197,
+  "updated": 82,
+  "changes": [
+    {
+      "title": "Beyonce Night",
+      "date": "2026-08-08",
+      "venue": "The Virgil",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "FREAKNIK PT.2",
+      "date": "2026-08-08",
+      "venue": "Club House",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "The Flipabeatclub x The CookUp Fest",
+      "date": "2026-08-08",
+      "venue": "1260 W 2nd St",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "THE NGHBRS + SPECIAL GUESTS Perry\u2019s Beach ONE ANNIVERSARY \u2022 Sat,  Aug 8th",
+      "date": "2026-08-08",
+      "venue": "930 CA-1",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Free Therapy Presents: Wine & Dine w/ Summer Walker",
+      "date": "2026-08-08",
+      "venue": "Flavors From Afar",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "FESTIVAL HANGOVER",
+      "date": "2026-08-08",
+      "venue": "LOS GLOBOS",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "WA$TED x TRINITY: LNY TNZ",
+      "date": "2026-08-08",
+      "venue": "The Circle OC (Huntington Beach)",
+      "fields": [
+        "start"
+      ]
+    },
+    {
+      "title": "\"ONCE AND FOR ALL\"",
+      "date": "2026-08-08",
+      "venue": "MONEYCAT",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "\ud83d\udc0d AMAZON After Dark",
+      "date": "2026-08-08",
+      "venue": "TBA (drops after RSVP/approval)",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "SOLDOUT SATURDAYS",
+      "date": "2026-08-08",
+      "venue": "126 E 6th St",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "House Of Tempo",
+      "date": "2026-08-08",
+      "venue": "The Woods Weho",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Ape Gabriel W/ Thrash Mob N\u2019 Friends",
+      "date": "2026-08-08",
+      "venue": "Hazheart",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "The Afterz Party",
+      "date": "2026-08-08",
+      "venue": "Kultur Lounge",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Sounds Of Summer: Romantic Jazz Night (9:00PM)",
+      "date": "2026-08-09",
+      "venue": "Harun",
+      "fields": [
+        "start"
+      ]
+    },
+    {
+      "title": "SUNDAZE - OPEN AIR EVENT\nat UTOPIA by REUNITE -\nSECRET GUEST HEADLINER",
+      "date": "2026-08-09",
+      "venue": "UTOPIA",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "AFTERS 8-09 ( SUNDAY )",
+      "date": "2026-08-09",
+      "venue": "129 E 3rd St",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Kid Fury's 305 Live",
+      "date": "2026-08-09",
+      "venue": "Jungle Hollywood",
+      "fields": [
+        "price",
+        "status"
+      ]
+    },
+    {
+      "title": "PRJKT KARMA presents CASA de BRUNCH",
+      "date": "2026-08-09",
+      "venue": "Baja's Grill",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Sunset Sundays 18+ Host DJ SMOKE ONE",
+      "date": "2026-08-09",
+      "venue": "Los Globos",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "House Of Tempo",
+      "date": "2026-08-09",
+      "venue": "The Woods Weho",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "LICKNDIP X LOS PERROS 8/9",
+      "date": "2026-08-09",
+      "venue": "Secret Location",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Latin Grooves Festival After Party 18+ Host DJ SMOKE ONE",
+      "date": "2026-08-09",
+      "venue": "Los Angeles Venue",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "18+ SUNDAY ABOUT LAST NIGHT FREE WITH RSVP",
+      "date": "2026-08-09",
+      "venue": "LOS GLOBOS",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "SUNDAYS PEREEO CITY FREE WITH RSVP",
+      "date": "2026-08-09",
+      "venue": "LOS GLOBOS",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "House Of Tempo",
+      "date": "2026-08-10",
+      "venue": "The Woods Weho",
+      "fields": [
+        "status"
+      ]
+    }
+  ],
   "stale_sources": [
     {
       "source": "alvas",
-      "days": 21,
+      "days": 23,
       "count": 22
     },
     {
       "source": "editorial",
-      "days": 8,
-      "count": 201
+      "days": 10,
+      "count": 185
     }
   ]
 }
