@@ -307,7 +307,10 @@
       "start"
     ],
     "image": "https://s1.ticketm.net/dam/a/7ac/222f0ea8-3b7e-4039-b40b-04a68ccde7ac_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-    "lineup_genre": "Pop"
+    "lineup_genre": "Pop",
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "O.A.R. Three Decades Tour",
@@ -1615,9 +1618,11 @@
     "ra_pick": false,
     "afterhours": true,
     "start": "10pm-2am",
-    "updated_at": "2026-08-04",
+    "updated_at": "2026-08-08",
     "changed_fields": [
-      "start"
+      "price",
+      "start",
+      "lineup"
     ]
   },
   {
@@ -1672,7 +1677,11 @@
     "organizers": null,
     "genre": "folk/acoustic/Americana",
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "source": "Harvelle's Santa Monica",
@@ -1836,7 +1845,7 @@
     "genre": "disco",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-08",
     "changed_fields": [
       "lineup"
     ]
@@ -2780,7 +2789,8 @@
       "near_home": false
     },
     "editorial_mentions": [
-      "We Like LA"
+      "We Like LA",
+      "We Like LA / Discover Los Angeles"
     ]
   },
   {
@@ -3076,7 +3086,7 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-08",
     "changed_fields": [
       "lineup"
     ]
@@ -6802,6 +6812,35 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "The Madame Dee Show",
+    "date": "2026-08-08",
+    "start": "21:30",
+    "venue": "Harvelle's Santa Monica",
+    "neighborhood": "Santa Monica",
+    "lineup": [],
+    "category": "music",
+    "price": null,
+    "url": "https://santamonica.harvelles.com/shows/382595",
+    "detail": "",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
     "title": "Dialogue: Shonky (extended set) - Day Party",
     "date": "2026-08-09",
     "start": "4pm-1am",
@@ -7139,7 +7178,10 @@
       "start"
     ],
     "image": "https://s1.ticketm.net/dam/a/f8e/4195d6cf-435f-42e5-a4c5-529b6a222f8e_SOURCE",
-    "lineup_genre": "Pop"
+    "lineup_genre": "Pop",
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "KCRW Presents: Flore Laurentienne w/ Henry Solomon",
@@ -9832,7 +9874,7 @@
       "editorial"
     ],
     "organizers": null,
-    "detail": "Free, all-ages riverside festival with live performances, an art gallery, a vendor marketplace, eco family activities and food trucks.",
+    "detail": "Free all-ages riverfront festival with live local performances, a visual art gallery, vendor marketplace, eco-family activities, and food trucks (We Like LA pick).",
     "price": "Free (suggested $5 donation)",
     "ra_pick": false,
     "afterhours": false,
@@ -10671,6 +10713,59 @@
         "free"
       ],
       "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "New Arrival Supper Club — Syrian Dinner",
+    "date": "2026-08-09",
+    "start": null,
+    "venue": "Scribble",
+    "neighborhood": "Highland Park",
+    "lineup": [],
+    "category": "food-drink",
+    "price": "$55",
+    "url": "https://www.welikela.com/",
+    "detail": "Community supper club serving an authentic Syrian dinner, benefiting refugee resettlement programs (We Like LA pick).",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "The Toledo Show",
+    "date": "2026-08-09",
+    "start": "21:30",
+    "venue": "Harvelle's Santa Monica",
+    "neighborhood": "Santa Monica",
+    "lineup": [],
+    "category": "music",
+    "price": null,
+    "url": "https://santamonica.harvelles.com/shows/378971",
+    "detail": "",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
       "near_home": false
     }
   },
@@ -11613,6 +11708,35 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "All-Star Jam Session Benefit",
+    "date": "2026-08-10",
+    "start": "21:30",
+    "venue": "Harvelle's Santa Monica",
+    "neighborhood": "Santa Monica",
+    "lineup": [],
+    "category": "music",
+    "price": null,
+    "url": "https://santamonica.harvelles.com/shows/378976",
+    "detail": "Benefit jam session.",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
     "title": "Day We Ran",
     "date": "2026-08-11",
     "start": "18:30",
@@ -12128,13 +12252,14 @@
   },
   {
     "source": "The Venice West",
-    "title": "Lorelei Marcell",
+    "title": "Lorelei Marcell w/ Hana Effron",
     "date": "2026-08-11",
     "start": "20:00",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
-      "Lorelei Marcell"
+      "Lorelei Marcell",
+      "Hana Effron"
     ],
     "category": "live_music",
     "price": null,
@@ -12543,7 +12668,10 @@
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "lineup": [
-      "Gerald Clayton"
+      "Gerald Clayton",
+      "Devin Daniels",
+      "Luca Alemanno",
+      "Christian Euman"
     ],
     "category": "live_music",
     "price": null,
@@ -13977,7 +14105,8 @@
     "genre": "contemporary jazz",
     "lineup": [
       "Nicolaus Gelin",
-      "trio"
+      "Miles Lennox",
+      "Jermaine Paul"
     ],
     "links": [
       {
@@ -14018,7 +14147,11 @@
       "region": "westside",
       "near_home": false
     },
-    "image": "https://static.wixstatic.com/media/8573fb_020cd2122cd042f598e0c82ef5c42106~mv2.jpg"
+    "image": "https://static.wixstatic.com/media/8573fb_020cd2122cd042f598e0c82ef5c42106~mv2.jpg",
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "It's Probably Nothing....",
@@ -15161,6 +15294,35 @@
       "scale": "bar",
       "vibe": [],
       "region": "valley",
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Come Sing With the Band - Live Band Karaoke",
+    "date": "2026-08-12",
+    "start": "21:00",
+    "venue": "Harvelle's Santa Monica",
+    "neighborhood": "Santa Monica",
+    "lineup": [],
+    "category": "music",
+    "price": null,
+    "url": "https://santamonica.harvelles.com/shows/378981",
+    "detail": "Live band karaoke night.",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
       "near_home": false
     }
   },
@@ -17416,13 +17578,14 @@
     "lineup": [
       "Like Zeppelin",
       "Planet Caravan",
-      "Little Sister"
+      "Little Sister",
+      "Hairosmith"
     ],
     "category": "live_music",
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/icons-of-rock-ft-like-zeppelin-planet-caravan-little-sister-198992",
-    "detail": "Multi-band rock tribute night",
+    "detail": "Multi-band classic rock tribute night.",
     "first_seen": "2026-07-31",
     "last_seen": "2026-08-06",
     "tags": {
@@ -18278,7 +18441,36 @@
     }
   },
   {
-    "title": "KCON",
+    "source": "webfetch",
+    "title": "Ryan Presents: The 90s!",
+    "date": "2026-08-13",
+    "start": "21:00",
+    "venue": "Harvelle's Santa Monica",
+    "neighborhood": "Santa Monica",
+    "lineup": [],
+    "category": "music",
+    "price": null,
+    "url": "https://santamonica.harvelles.com/shows/377434",
+    "detail": "90s themed dance/party night.",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "KCON LA",
     "date": "2026-08-14",
     "start": "10:00",
     "venue": "Los Angeles Convention Center",
@@ -18302,8 +18494,8 @@
       "ticketmaster"
     ],
     "organizers": null,
-    "detail": null,
-    "price": null,
+    "detail": "Three-day Korean culture festival (Aug 14-16) with 100,000+ expected attendees, live performances, brand activations, meet-and-greets (We Like LA pick).",
+    "price": "GA from $74.36/day",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-06-19",
@@ -18317,9 +18509,10 @@
       "region": "dtla",
       "near_home": true
     },
-    "updated_at": "2026-06-30",
+    "updated_at": "2026-08-08",
     "changed_fields": [
-      "start"
+      "start",
+      "lineup"
     ],
     "image": "https://s1.ticketm.net/dam/a/061/203e84f7-1f58-46a3-9dca-55e6c8a5e061_SOURCE",
     "lineup_genre": "World",
@@ -20184,8 +20377,9 @@
     "ra_pick": false,
     "afterhours": true,
     "start": "10pm-2am",
-    "updated_at": "2026-08-04",
+    "updated_at": "2026-08-08",
     "changed_fields": [
+      "price",
       "start"
     ]
   },
@@ -23247,6 +23441,37 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Western Revenge",
+    "date": "2026-08-14",
+    "start": "21:30",
+    "venue": "Harvelle's Santa Monica",
+    "neighborhood": "Santa Monica",
+    "lineup": [
+      "Western Revenge"
+    ],
+    "category": "music",
+    "price": null,
+    "url": "https://santamonica.harvelles.com/shows/378986",
+    "detail": "",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
     "title": "KCON",
     "date": "2026-08-15",
     "start": "10:00",
@@ -23511,8 +23736,9 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-08-04",
+    "updated_at": "2026-08-08",
     "changed_fields": [
+      "price",
       "start"
     ]
   },
@@ -26124,7 +26350,7 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-08",
     "changed_fields": [
       "lineup"
     ]
@@ -28116,7 +28342,12 @@
       ],
       "region": "dtla",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "price",
+      "start"
+    ]
   },
   {
     "title": "Integrate: Aali Rehman, LAFF, Piste",
@@ -29631,6 +29862,37 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Smokestack Lightning (formerly Blowin Smoke)",
+    "date": "2026-08-15",
+    "start": "21:30",
+    "venue": "Harvelle's Santa Monica",
+    "neighborhood": "Santa Monica",
+    "lineup": [
+      "Smokestack Lightning"
+    ],
+    "category": "music",
+    "price": null,
+    "url": "https://santamonica.harvelles.com/shows/378989",
+    "detail": "",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
     "title": "KCON",
     "date": "2026-08-16",
     "start": "10:00",
@@ -30750,7 +31012,11 @@
     "organizers": null,
     "genre": "folk/acoustic/Americana",
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "source": "Harvelle's Santa Monica",
@@ -31260,7 +31526,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-08",
     "changed_fields": [
       "lineup"
     ]
@@ -38986,6 +39252,34 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Bryce Alakai",
+    "date": "2026-08-20",
+    "start": null,
+    "venue": "Avalon Hollywood",
+    "neighborhood": "Hollywood",
+    "lineup": [
+      "Bryce Alakai"
+    ],
+    "category": "music",
+    "price": null,
+    "url": "https://avalonhollywood.com/event/bryce-alakai-nightclub-near-me-discover-avalon-hollywood-2026-august-20-best-night-club-near-me-hollywood-los-angeles/",
+    "detail": "",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
     "title": "Hollywood Palladium",
     "date": "2026-08-21",
     "start": "8pm",
@@ -40611,7 +40905,11 @@
       ],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "start"
+    ]
   },
   {
     "title": "Sanglorians",
@@ -44799,7 +45097,12 @@
     "genre": "Hip-Hop/Urban",
     "ra_pick": false,
     "afterhours": false,
-    "start": "16:00"
+    "start": "16:00",
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "start",
+      "lineup"
+    ]
   },
   {
     "source": "Harvelle's Santa Monica",
@@ -45452,7 +45755,7 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-08",
     "changed_fields": [
       "lineup"
     ]
@@ -46327,7 +46630,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "start"
+    ]
   },
   {
     "title": "Detention W/ DJ Naeem",
@@ -48425,7 +48732,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "The Dancing Skeletons",
@@ -50980,7 +51291,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-08",
     "changed_fields": [
       "start"
     ]
@@ -55980,7 +56291,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Saved by the 90s",
@@ -56821,7 +57136,11 @@
     "neighborhood": "Westchester",
     "category": "live-music",
     "genre": "jazz",
-    "lineup": [],
+    "lineup": [
+      "Marlonius",
+      "Olivia Kuper Harris",
+      "Mara Kaye"
+    ],
     "links": [
       {
         "source": "samfirst",
@@ -56890,7 +57209,11 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Drag Show \"Pumped Fridays\" @ Mary's West Hollywood",
@@ -58783,7 +59106,11 @@
     "organizers": null,
     "genre": "folk/acoustic/Americana",
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "source": "Harvelle's Santa Monica",
@@ -59372,7 +59699,7 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-08",
     "changed_fields": [
       "lineup"
     ]
@@ -60087,7 +60414,7 @@
     "afterhours": false
   },
   {
-    "title": "Spinning Sunset",
+    "title": "Spinning Sunset Vinyl Record Fair",
     "date": "2026-08-29",
     "start": "13:00",
     "venue": "Sunset Plaza",
@@ -60105,7 +60432,7 @@
       "editorial"
     ],
     "organizers": null,
-    "detail": "Free vinyl fair with 80+ record vendors, live DJs, food trucks, and beer garden; RSVP required. (We Like LA pick)",
+    "detail": "Vinyl record fair with 80+ vendors, music memorabilia, vintage clothing, DJ sets, food trucks, and giveaways (We Like LA pick).",
     "price": "Free",
     "ra_pick": false,
     "afterhours": false,
@@ -60114,9 +60441,7 @@
     "tags": {
       "type": "market",
       "genre": [],
-      "setting": [
-        "outdoor"
-      ],
+      "setting": [],
       "scale": null,
       "vibe": [
         "sunset",
@@ -60124,7 +60449,11 @@
       ],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "start"
+    ]
   },
   {
     "title": "HOOD RAVE x DANCE MANIA",
@@ -60352,9 +60681,9 @@
     "neighborhood": "Echo Park",
     "lineup": [],
     "category": "community",
-    "price": null,
+    "price": "Free",
     "url": "https://epr.la/",
-    "detail": "Two-day (Aug 29-30) free community music festival with live sets and activations at multiple Echo Park venues. (We Like LA pick)",
+    "detail": "Two-day (Aug 29-30) free community music festival with live sets and activations across Echo Park's Sunset Blvd corridor (We Like LA pick).",
     "first_seen": "2026-08-06",
     "last_seen": "2026-08-06",
     "tags": {
@@ -60363,11 +60692,22 @@
       "setting": [],
       "scale": null,
       "vibe": [
-        "sunset"
+        "sunset",
+        "free"
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "source": "editorial",
@@ -60376,9 +60716,13 @@
     "start": "11:30",
     "venue": "Baldwin Hills Crenshaw Plaza (rooftop deck)",
     "neighborhood": "Leimert Park",
-    "lineup": [],
+    "lineup": [
+      "Jose James",
+      "Bobby West",
+      "Melena"
+    ],
     "category": "community",
-    "price": null,
+    "price": "Free / pay-what-you-wish",
     "url": "https://www.leimertparkjazzfestival.org/",
     "detail": "Free/pay-what-you-wish neighborhood jazz festival featuring Jose James, Bobby West, Melena, and a Ryan Porter tribute. (We Like LA pick)",
     "first_seen": "2026-08-06",
@@ -60391,11 +60735,23 @@
       ],
       "scale": null,
       "vibe": [
-        "tribute"
+        "tribute",
+        "free"
       ],
       "region": null,
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "price",
+      "lineup"
+    ]
   },
   {
     "title": "ICT: Conscience",
@@ -60714,6 +61070,38 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "John Beasley Presents: The Birthday Hang",
+    "date": "2026-08-29",
+    "start": "19:30",
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "lineup": [
+      "John Beasley",
+      "Bob Sheppard",
+      "Ralph Moore"
+    ],
+    "category": "music",
+    "price": null,
+    "url": "https://www.samfirstbar.com/events/john-beasley-presents-the-birthday-hang-celebrating-bird-pres-sonny-wayne",
+    "detail": "Celebrating Bird pres. Sonny Wayne.",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -63121,7 +63509,9 @@
     "neighborhood": "Westchester",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Gerald Clayton"
+    ],
     "links": [
       {
         "source": "samfirst",
@@ -63710,7 +64100,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-08",
     "changed_fields": [
       "start",
       "lineup"
@@ -64977,7 +65367,13 @@
     "category": "live_music",
     "url": "https://www.samfirstbar.com/events/aubrey-situmorang-with-tristan-cappel-keelan-walters-adam-hersh-jordan-proffer-2",
     "start": "19:30",
-    "lineup": [],
+    "lineup": [
+      "Aubrey Situmorang",
+      "Tristan Cappel",
+      "Keelan Walters",
+      "Adam Hersh",
+      "Jordan Proffer"
+    ],
     "price": null,
     "detail": "Doors 6pm, 21+. Additional 9:30pm set listed for Tuesday Happenings.",
     "first_seen": "2026-08-06",
@@ -64996,7 +65392,17 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "ICT: Conscience",
@@ -66533,7 +66939,13 @@
     "category": "live_music",
     "url": "https://www.samfirstbar.com/events/clay-jenkins-quintet-with-larry-koonse-ivan-malespin-jonathan-richards-joe-la-barbera",
     "start": "19:30",
-    "lineup": [],
+    "lineup": [
+      "Clay Jenkins",
+      "Larry Koonse",
+      "Ivan Malespin",
+      "Jonathan Richards",
+      "Joe La Barbera"
+    ],
     "price": null,
     "detail": "Doors 6pm, 21+. Additional 9:30pm set listed for Tuesday Happenings.",
     "first_seen": "2026-08-06",
@@ -66552,7 +66964,17 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "ICT: Conscience",
@@ -67917,7 +68339,12 @@
     "genre": "EDM",
     "ra_pick": false,
     "afterhours": false,
-    "start": "16:00"
+    "start": "16:00",
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "start",
+      "lineup"
+    ]
   },
   {
     "title": "Tonic Walter",
@@ -68149,7 +68576,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "start"
+    ]
   },
   {
     "title": "Deep House Brunch POOL PARTY [Labor Day Saturday]",
@@ -68752,6 +69183,68 @@
       "scale": null,
       "vibe": [],
       "region": "south-bay",
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Clay Jenkins Quintet",
+    "date": "2026-09-05",
+    "start": "19:30",
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "lineup": [
+      "Clay Jenkins",
+      "Larry Koonse",
+      "Ivan Malespin",
+      "Jonathan Richards",
+      "Joe La Barbera"
+    ],
+    "category": "music",
+    "price": null,
+    "url": "https://www.samfirstbar.com/events/clay-jenkins-quintet-with-larry-koonse-ivan-malespin-jonathan-richards-joe-la-barbera-2",
+    "detail": "",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Brazilian Independence Day - Baile Funk Venice Beach",
+    "date": "2026-09-05",
+    "start": "20:00",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "lineup": [],
+    "category": "music",
+    "price": null,
+    "url": "https://www.tixr.com/groups/thevenicewest/events/brazilian-independence-day-baile-funk-venice-beach-201889",
+    "detail": "Brazilian Independence Day baile funk party.",
+    "first_seen": "2026-08-08",
+    "last_seen": "2026-08-08",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
       "near_home": false
     }
   },
@@ -70280,7 +70773,9 @@
     "category": "live_music",
     "url": "https://www.tixr.com/groups/thevenicewest/events/beatles-brunch-w-the-beat-5-201694",
     "start": "11:00",
-    "lineup": [],
+    "lineup": [
+      "The Beat 5"
+    ],
     "price": null,
     "first_seen": "2026-08-06",
     "last_seen": "2026-08-06",
@@ -70291,10 +70786,19 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "tribute"
+      ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "detail": "Beatles tribute brunch.",
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "ICT: Conscience",
@@ -71012,7 +71516,9 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
-      "Stella Prince"
+      "Stella Prince",
+      "Peyton Noell",
+      "Maxine Louise"
     ],
     "category": "live_music",
     "price": null,
@@ -78917,7 +79423,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-08",
+    "changed_fields": [
+      "start"
+    ]
   },
   {
     "title": "Slaughter To Prevail: North America 2026 Leg 2",
