@@ -1,36 +1,10 @@
 {
-  "version": "ecf0c4ed1744",
-  "content_version": "9846d007a5e1",
-  "count": 3679,
-  "fetched_at": "2026-08-09T12:28:09+00:00",
-  "added": 6,
-  "updated": 3,
-  "changes": [
-    {
-      "title": "The Phantom of the Opera (Touring)",
-      "date": "2026-08-09",
-      "venue": "Hollywood Pantages Theatre",
-      "fields": [
-        "start"
-      ]
-    },
-    {
-      "title": "Disney's Beauty and the Beast (Touring)",
-      "date": "2026-08-29",
-      "venue": "Hollywood Pantages Theatre",
-      "fields": [
-        "start"
-      ]
-    },
-    {
-      "title": "Phantom Of The Opera (Touring)",
-      "date": "2026-08-29",
-      "venue": "Segerstrom Center for the Arts-Segerstrom Hall",
-      "fields": [
-        "start"
-      ]
-    }
-  ],
+  "version": "91cf1ba5e651",
+  "content_version": "256e42cf158e",
+  "count": 3688,
+  "fetched_at": "2026-08-09T12:41:59+00:00",
+  "added": 0,
+  "updated": 0,
   "stale_sources": [
     {
       "source": "alvas",
@@ -40,7 +14,7 @@
     {
       "source": "editorial",
       "days": 11,
-      "count": 172
+      "count": 176
     },
     {
       "source": "squarespace",
@@ -50,7 +24,7 @@
     {
       "source": "webfetch",
       "days": 3,
-      "count": 189
+      "count": 194
     },
     {
       "source": "harvelles",

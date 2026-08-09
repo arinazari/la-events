@@ -343,7 +343,8 @@
     "image": "https://s1.ticketm.net/dam/a/f8e/4195d6cf-435f-42e5-a4c5-529b6a222f8e_SOURCE",
     "lineup_genre": "Pop",
     "editorial_mentions": [
-      "Discover Los Angeles"
+      "Discover Los Angeles",
+      "Discover LA"
     ]
   },
   {
@@ -1242,7 +1243,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "Rose Bowl Flea Market Sunday, August 9, 2026",
@@ -1283,7 +1287,10 @@
       "region": "valley",
       "near_home": false
     },
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1020579583%2F2425515024101%2F1%2Foriginal.20250430-222709?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=37f040bb709571a349c9855b321d2807"
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1020579583%2F2425515024101%2F1%2Foriginal.20250430-222709?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=37f040bb709571a349c9855b321d2807",
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "Silverlake Flea",
@@ -1855,7 +1862,10 @@
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "Rashomon",
@@ -2346,7 +2356,10 @@
       ],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "Over the Hedge",
@@ -3089,7 +3102,10 @@
       "vibe": [],
       "region": null,
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "LAist"
+    ]
   },
   {
     "title": "OPEN STUDIO - 6° LA",
@@ -4048,6 +4064,46 @@
       ],
       "region": null,
       "near_home": false
+    }
+  },
+  {
+    "title": "RiverFest",
+    "date": "2026-08-09",
+    "start": "11:00",
+    "venue": "Los Angeles State Historic Park",
+    "neighborhood": "Chinatown",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://support.folar.org/event/riverfest-2026/e793286"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Annual community river festival: live performances, an environmental art gallery, and interactive eco-activities along the LA River.",
+    "price": "Free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-09",
+    "last_seen": "2026-08-09",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "outdoor",
+        "gallery"
+      ],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "dtla",
+      "near_home": true
     }
   },
   {
@@ -5201,7 +5257,10 @@
       "start"
     ],
     "image": "https://s1.ticketm.net/dam/a/404/1d8668b5-4925-4633-8230-d1f69db4a404_SOURCE",
-    "lineup_genre": "Dance/Electronic"
+    "lineup_genre": "Dance/Electronic",
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "George Thorogood & The Destroyers",
@@ -6759,7 +6818,10 @@
       "start"
     ],
     "image": "https://s1.ticketm.net/dam/a/404/1d8668b5-4925-4633-8230-d1f69db4a404_SOURCE",
-    "lineup_genre": "Dance/Electronic"
+    "lineup_genre": "Dance/Electronic",
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "Disney's Beauty and the Beast (Touring)",
@@ -8926,7 +8988,10 @@
       "start"
     ],
     "image": "https://s1.ticketm.net/dam/a/404/1d8668b5-4925-4633-8230-d1f69db4a404_SOURCE",
-    "lineup_genre": "Dance/Electronic"
+    "lineup_genre": "Dance/Electronic",
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "Quicksand & Bane",
@@ -16866,6 +16931,47 @@
     }
   },
   {
+    "title": "SUMMER SENDOFF",
+    "date": "2026-08-14",
+    "start": "21:00",
+    "venue": "The Circle OC",
+    "neighborhood": "Huntington Beach",
+    "category": "electronic",
+    "genre": null,
+    "lineup": [
+      "SUMMER SENDOFF"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thecircleoc.com/upcoming-events/summer-sendoff"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Night party at The Circle OC.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-09",
+    "last_seen": "2026-08-09",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "far",
+      "near_home": false
+    }
+  },
+  {
     "title": "KCON",
     "date": "2026-08-15",
     "start": "10:00",
@@ -23416,6 +23522,44 @@
     }
   },
   {
+    "title": "Los Feliz Art & Music Block Party + Mural Festival",
+    "date": "2026-08-15",
+    "start": "12:00",
+    "venue": "Hollywood Blvd & Vermont Ave (Wacko / La Luz De Jesus block)",
+    "neighborhood": "Los Feliz",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.timeout.com/los-angeles/art/los-feliz-art-music-block-party-mural-festival"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Free, all-ages block party and mural festival with live painting, performances, local artisan booths, and community displays. Featured muralists include Shepard Fairey, Nychos, Victor Ving, Eric \"Zoueh\" Skotnes, Angelica Navarro, and Jason Filipow; mural program curated by Ryan \"Yanoe\" Sarfati.",
+    "price": "Free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-09",
+    "last_seen": "2026-08-09",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "block-party",
+        "free"
+      ],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
     "title": "KCON",
     "date": "2026-08-16",
     "start": "10:00",
@@ -25159,7 +25303,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "Silverlake Flea",
@@ -43061,7 +43208,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "Silverlake Flea",
@@ -56871,7 +57021,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "Silverlake Flea",
@@ -61711,6 +61864,43 @@
     }
   },
   {
+    "title": "Frogtown First Fridays",
+    "date": "2026-09-04",
+    "start": "18:00",
+    "venue": "Frogtown riverfront",
+    "neighborhood": "Frogtown Elysian Valley",
+    "category": "market",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.timeout.com/los-angeles/things-to-do/frogtown-first-fridays"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Monthly first-Friday community market along the LA River: food, arts and crafts vendors, games, and live music.",
+    "price": "Free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-09",
+    "last_seen": "2026-08-09",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "Hypnotique Presents: Sway Festival - 2 DAY PASS",
     "date": "2026-09-05",
     "start": "18:00",
@@ -65210,7 +65400,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "Silverlake Flea",
@@ -73024,7 +73217,10 @@
       "region": "valley",
       "near_home": false
     },
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1020579583%2F2425515024101%2F1%2Foriginal.20250430-222709?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=37f040bb709571a349c9855b321d2807"
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1020579583%2F2425515024101%2F1%2Foriginal.20250430-222709?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=37f040bb709571a349c9855b321d2807",
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "The Weasels - Rock n' Roll Sundays",
@@ -81306,6 +81502,45 @@
       "scale": null,
       "vibe": [],
       "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "Pulse Theory",
+    "date": "2026-09-19",
+    "start": "22:30",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "Pulse Theory"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/pulse-theory-202261"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Late-night set at The Venice West (same night as Boogaloo Assassins' earlier show).",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-09",
+    "last_seen": "2026-08-09",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
       "near_home": false
     }
   },
@@ -97818,6 +98053,43 @@
     }
   },
   {
+    "title": "Frogtown First Fridays",
+    "date": "2026-10-02",
+    "start": "18:00",
+    "venue": "Frogtown riverfront",
+    "neighborhood": "Frogtown Elysian Valley",
+    "category": "market",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.timeout.com/los-angeles/things-to-do/frogtown-first-fridays"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Monthly first-Friday community market along the LA River: food, arts and crafts vendors, games, and live music.",
+    "price": "Free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-09",
+    "last_seen": "2026-08-09",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
     "date": "2026-10-03",
     "start": "14:30",
@@ -109509,7 +109781,10 @@
       "region": "valley",
       "near_home": false
     },
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1020579583%2F2425515024101%2F1%2Foriginal.20250430-222709?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=37f040bb709571a349c9855b321d2807"
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1020579583%2F2425515024101%2F1%2Foriginal.20250430-222709?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=37f040bb709571a349c9855b321d2807",
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "JO1",
@@ -123028,6 +123303,47 @@
       "scale": "arena",
       "vibe": [],
       "region": "dtla",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Chromeo",
+    "date": "2026-10-23",
+    "start": "21:00",
+    "venue": "Avalon Hollywood",
+    "neighborhood": "Hollywood",
+    "category": "electronic",
+    "genre": "funk/electronic",
+    "lineup": [
+      "Chromeo"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://avalonhollywood.com/event/chromeo-nightclub-near-me-discover-avalon-hollywood-2026-october-23-best-night-club-near-me-hollywood-los-angeles/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Chromeo at Avalon Hollywood.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-09",
+    "last_seen": "2026-08-09",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "hollywood",
       "near_home": false
     }
   },
@@ -136766,7 +137082,10 @@
       "region": "valley",
       "near_home": false
     },
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1020579583%2F2425515024101%2F1%2Foriginal.20250430-222709?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=37f040bb709571a349c9855b321d2807"
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1020579583%2F2425515024101%2F1%2Foriginal.20250430-222709?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=37f040bb709571a349c9855b321d2807",
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "PJ Morton",
@@ -150906,6 +151225,48 @@
     }
   },
   {
+    "title": "Elf The Musical (Touring)",
+    "date": "2026-12-01",
+    "start": null,
+    "venue": "Hollywood Pantages Theatre",
+    "neighborhood": "Hollywood",
+    "category": "Arts & Theatre",
+    "genre": "Theatre",
+    "lineup": [
+      "Elf The Musical (Touring)"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.broadwayinhollywood.com/events"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "\"Every Buddy's Favorite Holiday Musical\" opens its run at the Pantages (through Dec 13, 2026).",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-09",
+    "last_seen": "2026-08-09",
+    "tags": {
+      "type": "stage",
+      "genre": [
+        "theater",
+        "musical"
+      ],
+      "setting": [
+        "theater"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
     "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
     "date": "2026-12-02",
     "start": "19:30",
@@ -156410,6 +156771,47 @@
       "genre": [],
       "setting": [],
       "scale": "room",
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Disney's The Lion King (Touring)",
+    "date": "2026-12-17",
+    "start": null,
+    "venue": "Hollywood Pantages Theatre",
+    "neighborhood": "Hollywood",
+    "category": "Arts & Theatre",
+    "genre": "Theatre",
+    "lineup": [
+      "Disney's The Lion King (Touring)"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.broadwayinhollywood.com/events"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "\"Roaring Back to L.A.\" — opens its run at the Pantages (through Feb 13, 2027).",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-09",
+    "last_seen": "2026-08-09",
+    "tags": {
+      "type": "stage",
+      "genre": [
+        "theater"
+      ],
+      "setting": [
+        "theater"
+      ],
+      "scale": "hall",
       "vibe": [],
       "region": "hollywood",
       "near_home": false
