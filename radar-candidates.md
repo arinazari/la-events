@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/8/2026 deterministically (no API). 328 candidates. Signals: big-venue 292, festival 30, tracked 8._
+_Generated 8/9/2026 deterministically (no API). 320 candidates. Signals: big-venue 285, festival 29, tracked 8, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -10,11 +10,19 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 9/26 | 6 | Ocean Way Festival - 09/26 Saturday | The Beach at Santa Monica | festival, tracked:DJ Harvey | [link](https://www.axs.com/events/1459419/ocean-way-festival-tickets) |
+| Sun 9/13 | 2 | Rose Bowl Flea Market Sunday, September 13, 2026 | Rose Bowl Stadium | editorial, big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-september-13-2026-tickets-1977731831146) |
+
+## October 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sun 10/11 | 2 | Rose Bowl Flea Market Sunday, October 11, 2026 | Rose Bowl Stadium | editorial, big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-october-11-2026-tickets-1977731925428) |
 
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sun 11/8 | 2 | Rose Bowl Flea Market Sunday, November 8, 2026 | Rose Bowl Stadium | editorial, big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-november-8-2026-tickets-1977731982599) |
 | Sun 11/22 | 2 | Three Days Grace - Alienation Tour  | Intuit Dome | festival, big-venue | [link](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0) |
 
 ## September 2026
@@ -110,7 +118,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/12 | 1 | Island Fest  | The Show at Agua Caliente Casino R | festival | [link](https://www.ticketmaster.com/island-fest-rancho-mirage-california-09-12-2026/event/090064B3408D0F38) |
 | Wed 9/16 | 1 | Elliott Brothers Present COMEDY BLOCK PARTY Hosted by Chri | The Miracle Theater | festival | [link](https://www.ticketmaster.com/elliott-brothers-present-comedy-block-party-inglewood-california-09-16-2026/event/0B0065028D851D7E) |
 
 ## November 2026
@@ -151,9 +158,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/12 | 4 | Morgan Jay: The Goofy Guy Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/morgan-jay-the-goofy-guy-tour-los-angeles-california-09-12-2026/event/09006445D5ADACD0) |
-| Sat 9/12 | 4 | Journey | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
-| Sat 9/12 | 4 | OneRepublic | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sun 9/13 | 4 | Ryan Beatty - Arms Over Armor North American Tour '26 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/ryan-beatty-arms-over-armor-north-los-angeles-california-09-13-2026/event/090064CA0B05A3E1) |
 | Wed 9/16 | 4 | Masego: Fix Your Face Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/masego-fix-your-face-tour-los-angeles-california-09-16-2026/event/090064C4FE427889) |
 | Fri 9/18 | 4 | Matute: Disco Stereo Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/matute-disco-stereo-tour-inglewood-california-09-18-2026/event/0A00645BB13F8D0D) |
@@ -224,10 +228,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/12 | 3 | The Red Clay Strays | Toyota Arena-CA | big-venue | [link](https://vanandelarena.com/) |
-| Sat 9/12 | 3 | Soda Stereo - ECOS Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/soda-stereo-ecos-tour-inglewood-california-09-12-2026/event/090064A1F4CCBBC7) |
-| Sat 9/12 | 3 | Alejandro Fernández: de Rey a Rey | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alejandro-fernandez-de-rey-a-rey-inglewood-california-09-12-2026/event/0A00644AC88392E1) |
-| Sat 9/12 | 3 | Richie Jen (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 9/13 | 3 | Lucy Dacus | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Tue 9/15 | 3 | ANDREA BOCELLI "Romanza - 30th Anniversary World Tour" | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/andrea-bocelli-romanza-30th-anniversary-world-hollywood-california-09-15-2026/event/0B00643AAF963918) |
 | Wed 9/16 | 3 | LE SSERAFIM | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
@@ -480,7 +480,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/13 | 1 | Rose Bowl Flea Market Sunday, September 13, 2026 | Rose Bowl Stadium | big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-september-13-2026-tickets-1977731831146) |
 | Fri 9/18 | 1 | Zach Top: Cold Beer & Country Music Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/zach-top-cold-beer-country-music-anaheim-california-09-18-2026/event/090064BCAA896620) |
 | Fri 9/25 | 1 | Disney Descendants, ZOMBIES & Camp Rock: Worlds Collide Co | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/disney-descendants-zombies-camp-rock-worlds-palm-desert-california-09-25-2026/event/0A0064671331B7B8) |
 | Sat 9/26 | 1 | Danzig | Honda Center | big-venue | [link](https://www.ticketmaster.com/danzig-anaheim-california-09-26-2026/event/090064D2BFA6BDAB) |
@@ -494,7 +493,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Sat 10/3 | 1 | Premium Club Seats - Breaking Benjamin | Honda Center | big-venue | [link](https://www.ticketmaster.com/breaking-benjamin-anaheim-california-10-03-2026/event/0900644BB38E9BE4) |
 | Thu 10/8 | 1 | Insecure: The 10th Anniversary Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/insecure-the-10th-anniversary-tour-inglewood-california-10-08-2026/event/0A0064DA9DF5740E) |
 | Fri 10/9 | 1 | SOMBR - You Are The Reason Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/sombr-you-are-the-reason-tour-anaheim-california-10-09-2026/event/090064891741C9C1) |
-| Sun 10/11 | 1 | Rose Bowl Flea Market Sunday, October 11, 2026 | Rose Bowl Stadium | big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-october-11-2026-tickets-1977731925428) |
 | Sat 10/17 | 1 | Los Tigres Del Norte: Los Tigres Del Mundo Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-los-tigres-anaheim-california-10-17-2026/event/09006458A0D5CC52) |
 | Sat 10/24 | 1 | Intocable: Cultura Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/intocable-cultura-tour-2026-anaheim-california-10-24-2026/event/090064E1B08C886A) |
 | Sat 10/31 | 1 | THE B-52s * DEVO:  COSMIC DE-EVOLUTION TOUR | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/the-b52s-devo-cosmic-deevolution-tour-palm-desert-california-10-31-2026/event/0A0064D093588054) |
@@ -505,7 +503,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 |---|---|---|---|---|---|
 | Fri 11/6 | 1 | Dan + Shay - The Young Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/dan-shay-the-young-tour-anaheim-california-11-06-2026/event/090064AEC5BA3C3B) |
 | Sat 11/7 | 1 | Brand New | Honda Center | big-venue | [link](https://www.ticketmaster.com/brand-new-anaheim-california-11-07-2026/event/090064D08DD25B6F) |
-| Sun 11/8 | 1 | Rose Bowl Flea Market Sunday, November 8, 2026 | Rose Bowl Stadium | big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-november-8-2026-tickets-1977731982599) |
 | Fri 11/13 | 1 | Los Tigres del Norte | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-palm-desert-california-11-13-2026/event/0A0064588664F5A1) |
 | Sat 11/14 | 1 | 90s Corridos Tour 2026 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/90s-corridos-tour-2026-palm-desert-california-11-14-2026/event/0A00649D95C0C8DC) |
 | Thu 11/19 | 1 | Nikki Glaser | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |

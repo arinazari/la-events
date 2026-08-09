@@ -5,7 +5,7 @@
 | Weekend | Events | Top pick |
 |---|---|---|
 | [8/14–8/16](./2026-08-14.md) | 19 | Moodymann Plays Prince with DJ Rashida |
-| [8/21–8/23](./2026-08-21.md) | 19 | Swxch 007: Boris, John Bryars, Kittamami |
+| [8/21–8/23](./2026-08-21.md) | 19 | Matthew Dear B2B The Juan MacLean, Mesme |
 | [8/28–8/30](./2026-08-28.md) | 20 | Phantom Of The Opera (Touring) |
 | [9/4–9/6](./2026-09-04.md) | 20 | Studio Barnhus Summer Dance Party with Axel Boman, Kornel Kovacs, Nikki Nair |
 | [9/11–9/13](./2026-09-11.md) | 10 | Deep in Dis showcase presented by Capsule x Groove Inc |
