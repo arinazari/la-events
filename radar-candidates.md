@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/9/2026 deterministically (no API). 320 candidates. Signals: big-venue 285, festival 29, tracked 8, editorial 3._
+_Generated 8/10/2026 deterministically (no API). 315 candidates. Signals: big-venue 280, festival 29, tracked 8, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -10,7 +10,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 9/26 | 6 | Ocean Way Festival - 09/26 Saturday | The Beach at Santa Monica | festival, tracked:DJ Harvey | [link](https://www.axs.com/events/1459419/ocean-way-festival-tickets) |
-| Sun 9/13 | 2 | Rose Bowl Flea Market Sunday, September 13, 2026 | Rose Bowl Stadium | editorial, big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-september-13-2026-tickets-1977731831146) |
 
 ## October 2026
 
@@ -158,7 +157,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/13 | 4 | Ryan Beatty - Arms Over Armor North American Tour '26 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/ryan-beatty-arms-over-armor-north-los-angeles-california-09-13-2026/event/090064CA0B05A3E1) |
 | Wed 9/16 | 4 | Masego: Fix Your Face Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/masego-fix-your-face-tour-los-angeles-california-09-16-2026/event/090064C4FE427889) |
 | Fri 9/18 | 4 | Matute: Disco Stereo Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/matute-disco-stereo-tour-inglewood-california-09-18-2026/event/0A00645BB13F8D0D) |
 | Sat 9/19 | 4 | Squeeze w/ Adam Ant | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
@@ -228,7 +226,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/13 | 3 | Lucy Dacus | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Tue 9/15 | 3 | ANDREA BOCELLI "Romanza - 30th Anniversary World Tour" | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/andrea-bocelli-romanza-30th-anniversary-world-hollywood-california-09-15-2026/event/0B00643AAF963918) |
 | Wed 9/16 | 3 | LE SSERAFIM | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Wed 9/16 | 3 | ANDREA BOCELLI "Romanza - 30th Anniversary World Tour" | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/andrea-bocelli-romanza-30th-anniversary-world-hollywood-california-09-16-2026/event/0B00643CD21961B4) |
@@ -354,7 +351,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/13 | 2 | Los Angeles Azules (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 9/17 | 2 | Matute - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 9/17 | 2 | Kany Garcia: Puerta Abierta Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/kany-garcia-puerta-abierta-tour-inglewood-california-09-17-2026/event/0A00647EDA97CAA0) |
 | Fri 9/18 | 2 | Ralph Barbosa | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -534,9 +530,3 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Tue 11/24 | 0 | JOURNEY - Final Frontier Tour (An Evening With) | Honda Center | big-venue | [link](https://www.ticketmaster.com/journey-final-frontier-tour-an-evening-anaheim-california-11-24-2026/event/090064A695B5BA92) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 9/13 | -1 | "Weird Al" Yankovic: Bigger & Weirder 2026 Tour | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/weird-al-yankovic-bigger-weirder-2026-palm-desert-california-09-13-2026/event/0A006368E0F484B4) |

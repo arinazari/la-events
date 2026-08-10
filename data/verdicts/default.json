@@ -19722,12 +19722,13 @@
     },
     "28be60b4e8ba": {
       "tier": "great",
+      "lane": "live-music:big",
       "adjust": 1,
-      "why": "Tracked act, but this is one of three nights you've got in this Forum run - go for the closing night instead.",
-      "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "why": "Full-band arena show, not a club night, so this reads as live-music rather than club:mainstream — tracked act, and night 1 has the cheaper tickets of the run.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 8
     },
     "be41a0654351": {
       "tier": "skip",
@@ -19775,13 +19776,14 @@
       "score_at_judge": 2
     },
     "0c6374bb1835": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Same Forum run, middle night - take the closer instead.",
-      "confidence": "high",
-      "judged_at": "2026-07-21T12:31:24",
+      "tier": "solid",
+      "lane": "live-music:big",
+      "adjust": -1,
+      "why": "Same tour, same band, pricier ticket tier than night 1 — go the Tuesday show instead.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
       "input_version": 2,
-      "score_at_judge": 2
+      "score_at_judge": 8
     },
     "a893c69fd870": {
       "tier": "skip",
@@ -39445,12 +39447,12 @@
     },
     "f32e99937543": {
       "tier": "must-see",
-      "adjust": 3,
-      "why": "Studio Barnhus is a genuine European house institution and Masha Mar — your top Spotify artist — is on the bill; this is the one to build the weekend around.",
-      "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "adjust": 2,
+      "why": "Boman and Kovács are basically throwing their own label's home party outdoors in DTLA, and Masha Mar — someone you're deep in rotation on — is on the same bill. Build the Saturday around this.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
       "input_version": 2,
-      "score_at_judge": 8
+      "score_at_judge": 12
     },
     "291b21ce50a3": {
       "tier": "solid",
@@ -39490,13 +39492,13 @@
       "score_at_judge": 7
     },
     "956e5fc378e0": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "DJ Sneak all-night on vinyl is the exact open-to-close single-DJ format you're wired for, from a genuine Chicago house OG — the standout sleeper in this batch.",
-      "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "tier": "great",
+      "adjust": 1,
+      "why": "DJ Sneak vinyl-only all night at a TBA DTLA warehouse is peak-lane material — a real Chicago OG, just a solo bill with no support so it sits a notch under the label showcases on the slate.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 10
     },
     "bdaa149d5a20": {
       "tier": "skip",
@@ -39554,12 +39556,12 @@
     },
     "714bb6e1e284": {
       "tier": "must-see",
-      "adjust": 3,
-      "why": "Nolan's own film in 70mm at the loved Vista — the thing to build the Friday around.",
-      "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "adjust": 2,
+      "why": "Nolan on 70mm at the Vista is the exact director+format combo this taste is built around — second of two nights, but the Saturday slot is the one to catch.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 10
     },
     "ec8851ecc9a0": {
       "tier": "skip",
@@ -39607,13 +39609,13 @@
       "score_at_judge": 6
     },
     "92a8a34eb43c": {
-      "tier": "must-see",
+      "tier": "great",
       "adjust": 3,
-      "why": "Two veteran producers with real Ghostly/DFA pedigree B2B at the loved Lodge Room — a real event, not just another club night.",
-      "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "why": "Matthew Dear b2b The Juan MacLean is a genuine Ghostly-meets-DFA pairing at a venue you already love for $26 — great value, just not quite marquee-headliner scale.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 9
     },
     "76420ee6e4f7": {
       "tier": "great",
@@ -39636,11 +39638,11 @@
     "10d14d81a47a": {
       "tier": "great",
       "adjust": 2,
-      "why": "Noizu's the actual headliner here even though the lineup array buries him under his openers — exactly the crowd-pleasing mainstream tech-house this taste explicitly wants, and Spotify backs a strong existing listen.",
-      "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "why": "Noizu is exactly the mainstream tech-house lane this brief says counts, and Secondcity has real production pedigree (they've got a track together) so it's more than a paycheck booking.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "cee1a18ba438": {
       "tier": "skip",
@@ -39848,6 +39850,51 @@
       "judged_at": "2026-08-09T12:46:43",
       "input_version": 2,
       "score_at_judge": 4
+    },
+    "fa47efaab8a8": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Disco day party in the right neighborhood with the right vibe, but 'Discotheke DJs' with no names attached leaves no way to judge the actual draw.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "4ce69aa4f315": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Recurring bar afters with zero lineup listed — a fine backup, not a pick.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "2e22837f6010": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "All-night-long secret-location party but no DJ names to go on — genre-fit only, can't vouch for the set.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a28d783a891a": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Free, secret-location, no DJ billing at all — the name reads like the generic promo-party format this taste explicitly wants buried, not a real electronic booking.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "0a8738039957": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same recurring afters series as the Friday date, still no lineup — no reason to prefer this night over the other.",
+      "confidence": "med",
+      "judged_at": "2026-08-10T12:46:32",
+      "input_version": 2,
+      "score_at_judge": 6
     }
   }
 }
