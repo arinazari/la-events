@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T09:53:26+00:00",
+  "generated_at": "2026-08-10T09:55:08+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "91cf1ba5e651",
@@ -297874,7 +297874,7 @@
         "diff": "diff --git a/taste.yaml b/taste.yaml\nindex 2f9a78e..5a54fdd 100644\n--- a/taste.yaml\n+++ b/taste.yaml\n@@ -90,6 +90,9 @@ penalties:\n   - far-flung (Temecula / Anaheim / OC / SD / Ventura / SF) unless genuinely\n     worth the trip\n   - Coachella-tier logistics without Coachella-tier payoff\n+  - drag show\n+  - drag revue\n+  - cabaret\n \n # Tracked artists \u2014 match in a lineup => +2 and a \"tracked\" badge. Curated across the spectrum;\n # grow this as you react. (Underground/European \u2192 mainstream tech-house \u2192 techno \u2192 live.)\n@@ -224,3 +227,5 @@ feedback:\n     currently uncaptured (e.g. Mamas Gun) \u2014 needs a real fetcher.\"\n   - \"2026-07-20: Boost big-name acts booked in small/intimate venues (\\\"big name\n     in a place you wouldn't expect\\\"). (self-edit via concierge)\"\n+  - \"2026-08-02: Down-rank drag / cabaret performance events (self-edit via\n+    concierge)\"",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-09"
+        "enriched_at": "2026-08-10"
       },
       "profile": {
         "file": "profile.yaml",
@@ -297908,7 +297908,7 @@
         "diff": "diff --git a/profile.yaml b/profile.yaml\nindex 4f2f079..fd13a1d 100644\n--- a/profile.yaml\n+++ b/profile.yaml\n@@ -74,7 +74,7 @@ scoring:\n   category_weights:\n     electronic: 3\n     party: 3\n-    film: 3\n+    film: 1\n     music: 2\n     live_music: 3\n     theater: 2",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-09"
+        "enriched_at": "2026-08-10"
       }
     },
     "digest_prefs": {
