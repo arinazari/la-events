@@ -25413,14 +25413,13 @@
       "model": "claude-sonnet-5"
     },
     "f3c39279dd91": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Legacy soul revue (Blue Magic, The Intruders, Mayer Hawthorne) at the Greek — real acts, not a tribute band, but a nostalgia bill outside your core lane.",
-      "confidence": "med",
-      "judged_at": "2026-07-22T12:28:09",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Mayer Hawthorne-led soul revue at a venue you love — a genuine crossover pick even outside the house/techno lane.",
+      "confidence": "high",
+      "judged_at": "2026-08-11T12:50:01",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "e4cffb8b582f": {
       "tier": "skip",
@@ -39895,6 +39894,105 @@
       "judged_at": "2026-08-10T12:46:32",
       "input_version": 2,
       "score_at_judge": 6
+    },
+    "7633f5e2909f": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Apotheke's disco booth is usually reliable but Aiden Ramos/Reedster are unknowns to you — genre-on-taste, draw unverified.",
+      "confidence": "low",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "e3d041357468": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free hard-techno afterhours with no lineup listed — fine if you're already out, not a destination booking.",
+      "confidence": "low",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "2faa04cb1e64": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "LUCKI is a Chicago rapper, not a DJ — this is a hip-hop show mistagged as an on-taste house/electronic party.",
+      "confidence": "med",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "1cad70c3ba70": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "No DJ billing, just 'girls night' branding at a Venice speakeasy — the rooftop/groove credit is a mistag, this reads open-format.",
+      "confidence": "med",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "6d85a25e4372": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Dublab x VPN with Sonrisita (Lowrider Sundays boogie/disco digger) and Akumen (Rinse FM/NTS credits) — real eastside underground pedigree, not a generic party.",
+      "confidence": "high",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "d1d3f06777a6": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Shane Thomas (Ace Hotel's blush! resident) on a TBA warehouse bill is the kind of booking a title-only score can't see.",
+      "confidence": "high",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "9bcbc7c08311": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "This is a cumbia night, not a house rooftop set — the groove/vinyl boost is a genre mismatch.",
+      "confidence": "med",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "c0699ef0cef5": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Real house billing but a secret location with zero lineup info — can't gauge the actual draw.",
+      "confidence": "low",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "fa024bd15093": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Denis Dekay is a legit Italian techno name in the 999999999/Amelie Lens orbit making his US debut — a sleeper the score underrates.",
+      "confidence": "high",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "8bffb7ff5f6d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free public salsa dance party — pleasant filler, well outside the electronic/film core.",
+      "confidence": "high",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "6ae590440d8d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Standard night-market pop-up — fine lifestyle filler, nothing that needs a push.",
+      "confidence": "high",
+      "judged_at": "2026-08-11T12:50:01",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }

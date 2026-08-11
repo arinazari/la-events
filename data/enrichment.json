@@ -904,41 +904,6 @@
         "lineup_depth": 0
       }
     },
-    "8a39855f2375": {
-      "id": "8a39855f2375",
-      "description": "John Mellencamp plays his greatest hits at the Hollywood Bowl (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-06T12:23:26",
-      "confidence": "high"
-    },
-    "c012262a3f5e": {
-      "id": "c012262a3f5e",
-      "description": "Rock artist Benson Boone performs at Crypto.com Arena in DTLA (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-06T12:23:26",
-      "confidence": "high"
-    },
-    "1ea3d123d91c": {
-      "id": "1ea3d123d91c",
-      "description": "Comedian Friendlyjordies performs 'Alien Hunter,' a comedy show exploring the UFO phenomenon, at The Moroccan Lounge in the Arts District (6:30pm, $35, 21+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-06T12:23:26",
-      "confidence": "high"
-    },
-    "6622b70c9fe8": {
-      "id": "6622b70c9fe8",
-      "description": "The Scorch Sisters lead an all-female blues and soul revue at Harvelle's Santa Monica (9:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-06T12:23:26",
-      "confidence": "high"
-    },
-    "e1fdaf7a464a": {
-      "id": "e1fdaf7a464a",
-      "description": "The Pageant of the Masters, a live theatrical production from the Festival of Arts in Laguna Beach (8:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-06T12:23:26",
-      "confidence": "high"
-    },
     "77edf8383cb9": {
       "id": "77edf8383cb9",
       "description": "Rock: Day We Ran with Still Blank at The Moroccan Lounge, Arts District (all ages, $20-25).",
@@ -2449,13 +2414,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-13T12:32:18",
       "confidence": "high"
-    },
-    "16c656e13b42": {
-      "id": "16c656e13b42",
-      "description": "Electronic music at The Redwood Bar And Grill.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-13T12:32:18",
-      "confidence": "low"
     },
     "072be1189401": {
       "id": "072be1189401",
@@ -4020,13 +3978,6 @@
         "lineup_depth": 0
       }
     },
-    "86848a6fa12c": {
-      "id": "86848a6fa12c",
-      "description": "Windgrease Festival with Billy Higgins' Drumline of the Leaves at 2220 Arts + Archives, Aug 10 (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "high"
-    },
     "4acc33f34f07": {
       "id": "4acc33f34f07",
       "description": "An evening with at The Redwood Bar and Grill, DTLA, Aug 19 (8pm).",
@@ -4040,27 +3991,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-20T12:26:46",
       "confidence": "low"
-    },
-    "936d1d3650d9": {
-      "id": "936d1d3650d9",
-      "description": "Live music night \"very good mondays\" at Gold Diggers (East Hollywood, 7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "medium"
-    },
-    "60b06eeb638b": {
-      "id": "60b06eeb638b",
-      "description": "Live show with Greg Mendez at Sid The Cat Auditorium (South Pasadena, 7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "medium"
-    },
-    "5224ad59c627": {
-      "id": "5224ad59c627",
-      "description": "Bondo record release show with Semi-Trucks at Zebulon (Frogtown, 8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "high"
     },
     "386991cd9518": {
       "id": "386991cd9518",
@@ -4269,13 +4199,6 @@
       "enriched_at": "2026-07-21T12:27:27",
       "confidence": "high"
     },
-    "735d3bf82b9a": {
-      "id": "735d3bf82b9a",
-      "description": "Ice Cream Man at New Beverly Cinema (7:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-21T12:27:27",
-      "confidence": "high"
-    },
     "7e52753ceea5": {
       "id": "7e52753ceea5",
       "description": "Ice Cream Man at New Beverly Cinema (7:30pm).",
@@ -4405,13 +4328,6 @@
     "afc9ca58c057": {
       "id": "afc9ca58c057",
       "description": "The Mummy (1999) at New Beverly Cinema (7:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-21T12:27:27",
-      "confidence": "high"
-    },
-    "c71560681685": {
-      "id": "c71560681685",
-      "description": "Benjamin William Hastings & Aodhan King live at Fonda Theatre (7pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-21T12:27:27",
       "confidence": "high"
@@ -6647,27 +6563,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-28T12:36:35"
     },
-    "c867628d2d69": {
-      "id": "c867628d2d69",
-      "type": "film",
-      "subgenres": [
-        "rep/arthouse"
-      ],
-      "setting": "cinema",
-      "energy": "listening",
-      "sounds_like": [],
-      "artist_notes": [],
-      "curator_note": "Nolan on 35mm is basically a standing order — this one's a back-half twist movie that plays even better off a real print than off a stream.",
-      "description": "Christopher Nolan's 2006 magician-rivalry thriller The Prestige, screened in 35mm at the Academy Museum.",
-      "confidence": "high",
-      "enriched_at": "2026-07-30",
-      "enriched_tier": "full",
-      "card": {
-        "draw": 0,
-        "rarity": 0,
-        "lineup_depth": 0
-      }
-    },
     "03f4985eaa8e": {
       "id": "03f4985eaa8e",
       "type": "film",
@@ -6988,13 +6883,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-29T12:57:48",
       "confidence": "high"
-    },
-    "d7bd0fc9499b": {
-      "id": "d7bd0fc9499b",
-      "description": "Repertory screening at Alamo Drafthouse DTLA (7:15pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "medium"
     },
     "1ab9fd0d8763": {
       "id": "1ab9fd0d8763",
@@ -7454,27 +7342,6 @@
       "enriched_at": "2026-07-29T12:57:48",
       "confidence": "high"
     },
-    "092b22028c30": {
-      "id": "092b22028c30",
-      "description": "Howl's Moving Castle (2004) Miyazaki anime screening at Academy Museum.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "8df7a20adc6e": {
-      "id": "8df7a20adc6e",
-      "description": "Olmo drama repertory screening at Nuart Theatre (84 min).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "7beb5af73231": {
-      "id": "7beb5af73231",
-      "description": "Grateful Dead Meet-Up community screening at Nuart Theatre (166 min).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
     "e7f005599ae2": {
       "id": "e7f005599ae2",
       "description": "Free New Moon Party with snakeslutz, tokyofrenzy, ihavedreams, ser4ph, tomfaygo, kushion hip-hop/trap (7-10pm, TBA location).",
@@ -7572,13 +7439,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-29T12:57:48",
       "confidence": "high"
-    },
-    "7879bdf138ca": {
-      "id": "7879bdf138ca",
-      "description": "CRUMPLER live show at Gold Diggers East Hollywood (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "medium"
     },
     "4da7244f1d51": {
       "id": "4da7244f1d51",
@@ -8306,13 +8166,6 @@
       "enriched_at": "2026-07-30",
       "confidence": "medium"
     },
-    "24450ad104f8": {
-      "id": "24450ad104f8",
-      "description": "Stanley Kubrick's 2001: A Space Odyssey in 70mm at the Vista Theater (7:15pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-31T12:35:38",
-      "confidence": "high"
-    },
     "9f5cf020bf03": {
       "id": "9f5cf020bf03",
       "description": "Stanley Kubrick's 2001: A Space Odyssey in 70mm at the Vista Theater (7:15pm).",
@@ -8490,45 +8343,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-07-31T12:35:38",
       "confidence": "high"
-    },
-    "f4b8e92bcb6c": {
-      "id": "f4b8e92bcb6c",
-      "type": "live-music",
-      "subgenres": [
-        "indie",
-        "rock"
-      ],
-      "label_orbit": [],
-      "energy": "listening / emotive",
-      "setting": "diy",
-      "vibe": [
-        "album-release"
-      ],
-      "sounds_like": [
-        "Sunny Day Real Estate",
-        "Mineral",
-        "Autolux"
-      ],
-      "artist_notes": [
-        {
-          "name": "MyVeronica",
-          "note": "LA emotional-rock band dropping their debut LP 'I Hope There's Music in Heaven' on Sunday Drive Records the night of this show — channels Mineral/Sunny Day Real Estate-style emo with Sonic Youth-y noise-guitar."
-        },
-        {
-          "name": "Young Lovers",
-          "note": "LA post-rock/shoegaze four-piece (Anxiety Blanket Records) — dense, guitar-driven and increasingly orchestral on their new record 'The Circle's End.'"
-        }
-      ],
-      "curator_note": "An actual release-day show for MyVeronica's debut LP with a genuinely complementary co-bill in Young Lovers — 2220 is the right small room for emo/shoegaze that wants some volume behind it.",
-      "description": "MyVeronica's debut-album release show with co-headliners Young Lovers at 2220 Arts + Archives.",
-      "confidence": "high",
-      "enriched_at": "2026-08-02T12:41:45",
-      "enriched_tier": "full",
-      "card": {
-        "draw": 0,
-        "rarity": 1,
-        "lineup_depth": 1
-      }
     },
     "7c1e9e366dce": {
       "id": "7c1e9e366dce",
@@ -10590,13 +10404,6 @@
       "enriched_at": "2026-08-04T12:38:35",
       "confidence": "high"
     },
-    "998e40746098": {
-      "id": "998e40746098",
-      "description": "Invite-only electronic party at The Well Lounge (8pm, free).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-04T12:38:35",
-      "confidence": "medium"
-    },
     "50568c708b5c": {
       "id": "50568c708b5c",
       "description": "Free electronic party with TBA location (reveals after RSVP) via Sensory Studios (9pm).",
@@ -10979,20 +10786,6 @@
     "3b25beebffc9": {
       "id": "3b25beebffc9",
       "description": "Free rock show at The Regent Theater featuring Matamoska (8pm, 18+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-05T07:08:12",
-      "confidence": "high"
-    },
-    "4a0b3bcb414f": {
-      "id": "4a0b3bcb414f",
-      "description": "House music at The Woods WeHo (free entry).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-05T07:08:12",
-      "confidence": "high"
-    },
-    "19ebfbaa9a5c": {
-      "id": "19ebfbaa9a5c",
-      "description": "Electronic DJ set at Sid The Cat Auditorium in South Pasadena.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-05T07:08:12",
       "confidence": "high"
@@ -11497,13 +11290,6 @@
       "enriched_at": "2026-08-06T12:46:20",
       "confidence": "high"
     },
-    "4be7001319c9": {
-      "id": "4be7001319c9",
-      "description": "All-ages multimedia group exhibition opening at Junior High (Glendale), $5–10 suggested donation.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-06T12:46:20",
-      "confidence": "high"
-    },
     "e7f7114d2dd0": {
       "id": "e7f7114d2dd0",
       "description": "Electronic club night at Snorricam ($5.01).",
@@ -11552,13 +11338,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-06T12:46:20",
       "confidence": "medium"
-    },
-    "2fc3a88cafe3": {
-      "id": "2fc3a88cafe3",
-      "description": "Introductory DJ workshop at IO Music Academy LA (Hollywood).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-06T12:46:20",
-      "confidence": "high"
     },
     "5a27d7b33f75": {
       "id": "5a27d7b33f75",
@@ -11691,13 +11470,6 @@
     "f7560c0c0251": {
       "id": "f7560c0c0251",
       "description": "Haylie Davis record-release show at Gold Diggers (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-06T12:46:20",
-      "confidence": "high"
-    },
-    "7aa4e56e0f13": {
-      "id": "7aa4e56e0f13",
-      "description": "Live show with UK artist DITZ at Zebulon (8pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-06T12:46:20",
       "confidence": "high"
@@ -12423,13 +12195,6 @@
     "5d9c6cb6c066": {
       "id": "5d9c6cb6c066",
       "description": "Lounge instrumental jazz quartet with rotating guest musicians at The Dresden (Fri 9/12, 9:15pm, no cover).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-08T12:40:45",
-      "confidence": "high"
-    },
-    "8355cb9abcbc": {
-      "id": "8355cb9abcbc",
-      "description": "Free electronic afterhours party by NIGHTSHIFT at DTLA (Mon 8/10, 11pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-08T12:40:45",
       "confidence": "high"
@@ -13617,13 +13382,6 @@
       "enriched_at": "2026-08-08T12:40:45",
       "confidence": "low"
     },
-    "8b2e925a2c36": {
-      "id": "8b2e925a2c36",
-      "description": "Benefit jam session at Harvelle's Santa Monica bar.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-08T12:40:45",
-      "confidence": "high"
-    },
     "ef8585a73823": {
       "id": "ef8585a73823",
       "description": "Comedian Usama Siddiquee performs stand-up in the Vinyl Room (21+) at the Hollywood Palladium.",
@@ -14030,13 +13788,6 @@
       "enriched_at": "2026-08-09T12:54:54",
       "confidence": "high"
     },
-    "c88cc2dbc676": {
-      "id": "c88cc2dbc676",
-      "description": "Salsa and bachata dancing at The Continental Club (Sat 5pm, $12.74).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-09T12:54:54",
-      "confidence": "high"
-    },
     "e1cb6549da43": {
       "id": "e1cb6549da43",
       "description": "Evening electronic party at The Let's Go hosted by D.Sharp (Mon 9pm, free).",
@@ -14380,13 +14131,6 @@
       "enriched_at": "2026-08-10T12:50:09",
       "confidence": "high"
     },
-    "19b6b8701132": {
-      "id": "19b6b8701132",
-      "description": "Afterhours electronic set at The Lexington in DTLA (Sun 8/10, 11pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-10T12:50:09",
-      "confidence": "high"
-    },
     "640e22a197cb": {
       "id": "640e22a197cb",
       "description": "Afterhours electronic set at The Lexington in DTLA (Mon 8/11, 11pm).",
@@ -14446,13 +14190,6 @@
     "496a791a6635": {
       "id": "496a791a6635",
       "description": "Afterhours electronic set at The Lexington in DTLA (Sat 8/16, 11pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-10T12:50:09",
-      "confidence": "high"
-    },
-    "1139559b0704": {
-      "id": "1139559b0704",
-      "description": "Sepp and Josh Lee (US) DJ for Utopia's Dialed Records at a TBA location (Thurs 8/21, 11pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-10T12:50:09",
       "confidence": "high"
@@ -14550,12 +14287,6 @@
     "2fb08bffcba7": {
       "id": "2fb08bffcba7",
       "description": "Indie vintage, vinyl, and handmade goods flea market in Atwater Village; free entry.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-10T12:50:09"
-    },
-    "1ee8139e4896": {
-      "id": "1ee8139e4896",
-      "description": "Free electronic party at The Clover (9:30pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-10T12:50:09"
     },
@@ -14708,6 +14439,767 @@
       "description": "Indie-rock: The New Pornographers + The Bug Club at The Observatory in Santa Ana (7pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-10T12:50:09"
+    },
+    "7ff48879d1e5": {
+      "id": "7ff48879d1e5",
+      "type": "club",
+      "subgenres": [
+        "house"
+      ],
+      "label_orbit": [
+        "Classic Music Company",
+        "Relief"
+      ],
+      "energy": "groove / all-day",
+      "setting": null,
+      "vibe": [],
+      "sounds_like": [],
+      "artist_notes": [
+        {
+          "name": "Derrick Carter",
+          "note": "Chicago house legend since the late-'80s Warehouse/Muzic Box lineage — co-runs Classic Music Company with Luke Solomon; funky, genre-agnostic, unmistakable house selection still headlining at this level."
+        },
+        {
+          "name": "DJ Sneak",
+          "note": "Chicago house OG ('the Turntable Terrorist') — jacking, sample-heavy garage-house going back to the early-'90s Cajmere/Relief era, still DJing at that level today."
+        },
+        {
+          "name": "DJ Heather",
+          "note": "Chicago house DJ, co-founder of the pioneering all-female Superjane crew (with DJ Colette, Dayhota, Lady D) — soulful, genre-blurring sets rooted in Gramaphone Records digging."
+        },
+        {
+          "name": "H-Foundation",
+          "note": "San Diego duo (Hipp-E & Halo) — dub-inflected deep/tech-house with a Fabric London residency and a Chemical Brothers remix credit to their name; not a frequent LA booking."
+        },
+        {
+          "name": "Hector Moralez",
+          "note": "Oakland-raised, now LA-based house DJ/producer (Minority Music, The Factory labels) — Chicago/Detroit-rooted, soul-deep selections; a regular in Sneak's LA circle."
+        },
+        {
+          "name": "J-Dub",
+          "note": "Chicago-bred new-school house DJ and frequent DJ Sneak collaborator on the LA circuit (CHI♡LA, Certified Groovers) — funky, percussive, seamless-blend style."
+        },
+        {
+          "name": "Juliet Mendoza",
+          "note": "LA-native house DJ and dancer — founder/resident of Jill's House (Jackin Jills), a Defected 'Unsung Heroes' alum; melodic, soulful, deep house rooted in the city's Black/Latin house dance lineage."
+        },
+        {
+          "name": "Masha Mar",
+          "note": "Serbian-born, LA-based DJ/curator (the Midnight Lovers crew) with NTS and Dublab residencies — Italo disco, house and dancefloor edits."
+        },
+        {
+          "name": "Ian Llorens",
+          "note": "Certified Groovers resident, LA-based (Puerto Rico-born) — rhythm-forward house/techno selector, also plays as O God / Soundprism."
+        },
+        {
+          "name": "Stacy Christine",
+          "note": "LA warehouse-scene DJ since 2012 (Music For Dancers, Critter Control, Machine Club lineage) — joyful house into kinetic techno; has opened for DJ Harvey, Moodymann, and Honey Dijon."
+        }
+      ],
+      "curator_note": "Sneak's birthday parties are always deep, but pulling Derrick Carter, DJ Heather and H-Foundation back into the same room is a real reunion of the Chicago class that built this sound — worth clearing the whole afternoon for, even with the venue still a mystery.",
+      "description": "DJ Sneak's annual birthday day-party (TBA DTLA-area location, Sat 11/14, 4pm) stacks Chicago house legends Derrick Carter, DJ Heather and H-Foundation with LA scene regulars Hector Moralez, J-Dub, Juliet Mendoza, Masha Mar, Ian Llorens and Stacy Christine.",
+      "card": {
+        "draw": 2,
+        "rarity": 1,
+        "lineup_depth": 2
+      },
+      "confidence": "high",
+      "enriched_at": "2026-08-11T12:50:08",
+      "enriched_tier": "full"
+    },
+    "4d33fae4bb60": {
+      "id": "4d33fae4bb60",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "disco"
+      ],
+      "label_orbit": [
+        "Innervisions",
+        "Watergate",
+        "Defected"
+      ],
+      "energy": "groove / all-night",
+      "setting": "outdoor",
+      "vibe": [],
+      "sounds_like": [
+        "Dixon",
+        "Ame"
+      ],
+      "artist_notes": [
+        {
+          "name": "Jimi Jules",
+          "note": "Zurich-born, Berlin-based (longtime Watergate resident) house producer now signed to Innervisions — jazzy, soulful, musician's-ear house that broke through via 2014's Defected hit 'Pushing On.'"
+        }
+      ],
+      "curator_note": "An open-to-close booking from an Innervisions/Watergate name is the kind of set where the arc matters more than any single hour — Gin Ling Way's alley setting should suit his deeper, jazzier register.",
+      "description": "Swiss house/disco producer Jimi Jules (Innervisions, longtime Watergate resident) plays a rare open-to-close set at Gin Ling Way in Chinatown (Sat 9/26).",
+      "card": {
+        "draw": 2,
+        "rarity": 1,
+        "lineup_depth": 0
+      },
+      "confidence": "high",
+      "enriched_at": "2026-08-11T12:50:08",
+      "enriched_tier": "full"
+    },
+    "7633f5e2909f": {
+      "id": "7633f5e2909f",
+      "description": "Aiden Ramos B2B Reedster disco DJ set at Apotheke Chinatown, 9:30pm Friday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "e3d041357468": {
+      "id": "e3d041357468",
+      "description": "Free hard techno afterhours party in secret DTLA location (23:45 start), organized by Climax Events.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "2faa04cb1e64": {
+      "id": "2faa04cb1e64",
+      "description": "Code Red warehouse party at 1720 in Arts District, 10pm ($30), afterhours format.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "1cad70c3ba70": {
+      "id": "1cad70c3ba70",
+      "description": "JSTAGIRL free speakeasy night at Townhouse Venice Beach, 10pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "6d85a25e4372": {
+      "id": "6d85a25e4372",
+      "description": "Dublab-curated electronic lineup (Sonrisita, Akumen, Andy Oro, more) at The Airliner Lincoln Heights, 9pm Friday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "d1d3f06777a6": {
+      "id": "d1d3f06777a6",
+      "description": "Whatever Underground: 8-DJ afterhours set at TBA venue, 11pm Friday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "9bcbc7c08311": {
+      "id": "9bcbc7c08311",
+      "description": "LA Sonidera cumbia party on rooftop at Sunset Rooftop, 10pm Saturday, free.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "c0699ef0cef5": {
+      "id": "c0699ef0cef5",
+      "description": "Lickndip house party at secret location, 11:45pm Friday ($7.52).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "fa024bd15093": {
+      "id": "fa024bd15093",
+      "description": "Techtonik presents Denis Dekay (US debut) afterhours in DTLA, 11:45pm Friday ($8.68).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "0ce5ee86b287": {
+      "id": "0ce5ee86b287",
+      "description": "Techno Night Market free Wednesday techno at Jungle Hollywood, 10pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "b33589c38508": {
+      "id": "b33589c38508",
+      "description": "Beat Cinema film screening with DJs at Hello Stranger, 9pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "a8f49decd8c6": {
+      "id": "a8f49decd8c6",
+      "description": "Undr's Crystal Castles rave: witch house and synthpop, 9pm-2am Thursday ($15).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "b0d7e45b0cdd": {
+      "id": "b0d7e45b0cdd",
+      "description": "Rodeo Party: free afterhours at TBA location, 10pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "fa2212d87b01": {
+      "id": "fa2212d87b01",
+      "description": "Lickndip Toxic Hais takeover at secret location, 11:45pm Wednesday ($7.52).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "49129f58d4b0": {
+      "id": "49129f58d4b0",
+      "description": "KCRW Summer Nights with J.Rocc & Luxxury at Union Station, 6pm Friday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "27a5f69c1b5f": {
+      "id": "27a5f69c1b5f",
+      "description": "Stoplight Mansion free afterhours party at TBA location, 10pm Friday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "07c1ab0631fc": {
+      "id": "07c1ab0631fc",
+      "description": "Sxtcy x Wasted: DJ Flapjack set at secret location, 11:45pm Friday ($10).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "ccf3422c4e0b": {
+      "id": "ccf3422c4e0b",
+      "description": "H.I.G.H. Collective afterhours party at BlueMoon, 11:45pm Friday, free.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "c0c8d314f228": {
+      "id": "c0c8d314f228",
+      "description": "Young Lovers & MyVeronica LP release show at 2220 Arts + Archives (Filipinotown DIY venue), 7pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "d8602df92c82": {
+      "id": "d8602df92c82",
+      "description": "Utopia Fridays: tech house & minimal with Sepp & Josh Lee, 11pm-5am ($12-67, free w/RSVP before 1am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "498e6efaef0e": {
+      "id": "498e6efaef0e",
+      "description": "Project X D4 pool day party at 1pm Thursday ($3.65).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "312b7e2da9c8": {
+      "id": "312b7e2da9c8",
+      "description": "Grand Opening: free afterhours at Palace, 10pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "320f79b05cb0": {
+      "id": "320f79b05cb0",
+      "description": "Artist Wars: RSVP-only artist competition at TBA, 10pm Thursday, free.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "1631f5f3d902": {
+      "id": "1631f5f3d902",
+      "description": "TeckMeOut free afterhours party, 11:45pm Friday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "8756ce545d74": {
+      "id": "8756ce545d74",
+      "description": "Potion 001: electronic lineup (Choopsie, Glo Phase, Newty) at Apotheke Chinatown, 9pm Saturday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "9f51ee6f2660": {
+      "id": "9f51ee6f2660",
+      "description": "Reflections with Jamma D, denseinthehead, and Miche at The Airliner Lincoln Heights, 9pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "3fec9298c2ef": {
+      "id": "3fec9298c2ef",
+      "description": "Members club presents Kimonos (afterhours electronic DJ), 10pm Friday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "ca88c2e3b674": {
+      "id": "ca88c2e3b674",
+      "description": "Skabashed! ska show: South Central Skankers, Los P2, Fuerza, Leftover Ska at Regent Theater DTLA, 8pm (doors 7pm), 18+.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "d427e61b7768": {
+      "id": "d427e61b7768",
+      "description": "Members club presents Lohrasp Kansara (electronic DJ set), 2am Friday afterhours.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "553c99abd4be": {
+      "id": "553c99abd4be",
+      "description": "Underground.la afterhours party at 11th & Central, 4am Monday, free.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "216e36bdb882": {
+      "id": "216e36bdb882",
+      "description": "Group exhibition opening by recent high school art graduates at Junior High (Glendale DIY), 7pm Thursday, $5-10 suggested, all ages.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "c8af6dd3eda6": {
+      "id": "c8af6dd3eda6",
+      "description": "KCRW Summer Nights (Good Food edition) electronic at Wende Museum, 6pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "6ae590440d8d": {
+      "id": "6ae590440d8d",
+      "description": "Ivy Station Camp Ivy: camping-themed night market pop-up in Culver City with vendors and outdoor evening programming.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "0a2610a05e2e": {
+      "id": "0a2610a05e2e",
+      "description": "The Scrub Jays live rock band at Redwood Bar & Grill (DTLA), 3pm Saturday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "633fdd70e619": {
+      "id": "633fdd70e619",
+      "description": "Sun Honey free day party at Hotel Figueroa DTLA, 1pm Saturday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "76d8f5c864f0": {
+      "id": "76d8f5c864f0",
+      "description": "2070s Jam & House Party free night at Club Lagos, 9pm Wednesday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "a7c80843dcc6": {
+      "id": "a7c80843dcc6",
+      "description": "Hot Space feat. Holly Dodson & SLACKMACHINE at Zero Lounge, 10pm Wednesday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "6b4ab655ce04": {
+      "id": "6b4ab655ce04",
+      "description": "Staff Only presents PTO: free afterhours at 4567 Studios, 10pm Wednesday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "aaa41673ba18": {
+      "id": "aaa41673ba18",
+      "description": "LA Back to School Party free afterhours at Catch One LA (Mid-City), 10pm Wednesday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "a3dd85ce18ea": {
+      "id": "a3dd85ce18ea",
+      "description": "WLW LA Leather & Lace Edition free party at Dragonfly Hollywood, 9pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "661fa87cba32": {
+      "id": "661fa87cba32",
+      "description": "Tarde de Bellakeo free party at 3680 Wilshire Blvd, 9pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "2b2025d88364": {
+      "id": "2b2025d88364",
+      "description": "Sweet Talk free party at Songbird Cafe, 9pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "b18647334646": {
+      "id": "b18647334646",
+      "description": "Midnight Club YOP Angeles: free party at TBA, 9pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "7383d319081a": {
+      "id": "7383d319081a",
+      "description": "The Clover free party at downtown address, 9pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "93d0da20dc43": {
+      "id": "93d0da20dc43",
+      "description": "Intro to DJing workshop with Miles Otway at IO Music Academy LA (Hollywood), 3pm Saturday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "45325bf9ec50": {
+      "id": "45325bf9ec50",
+      "description": "Not In Love: Crystal Castles & The Cure tribute night at Gold Diggers (East Hollywood), 10:30pm Thursday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "dba09133df66": {
+      "id": "dba09133df66",
+      "description": "YOUNA x Silver Panda electronic DJs at Avalon Hollywood nightclub, Friday.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "f03b85962333": {
+      "id": "f03b85962333",
+      "description": "Electronic music afterhours night at Members (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "64d37dc1f575": {
+      "id": "64d37dc1f575",
+      "description": "Music production workshop with Angelica Hay at IO Music Academy LA (Hollywood).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "38ce73709798": {
+      "id": "38ce73709798",
+      "description": "Collaborative electronic DJ set by Jakone and A.V.G at Avalon Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "978040e7fc13": {
+      "id": "978040e7fc13",
+      "description": "Italian-American crooner Sal \"The Voice\" Valentinetti performs with Dave Damiani's Rat Pack-style big band at Vibrato Grill Jazz.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "f9e5b807441e": {
+      "id": "f9e5b807441e",
+      "description": "Free 2000s-themed day party.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "9e74fd4ccc6d": {
+      "id": "9e74fd4ccc6d",
+      "description": "Live heavy/hardcore bill with Hole Dweller, Diplodocus, and Gargoyle at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "1153beea6b9b": {
+      "id": "1153beea6b9b",
+      "description": "Egyptian Lover performs with Funk Freaks at Farm House Collective (Riverside) — electro, funk, hip-hop, and boogie.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "edc6385df3e8": {
+      "id": "edc6385df3e8",
+      "description": "Repertory screening of Young Frankenstein at Vidiots (Eagle Rock).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "6d1f577987f1": {
+      "id": "6d1f577987f1",
+      "description": "Live show featuring CRUMPLER, Ughh, and Red Rot at Gold Diggers.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "f1326187726f": {
+      "id": "f1326187726f",
+      "description": "Free invite-only electronic party at The Well Lounge.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "e07b38c2ba83": {
+      "id": "e07b38c2ba83",
+      "description": "Electronic party presented by Ugly Flower Productions at Purgatory Pizza ($8.19).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "8e4518124120": {
+      "id": "8e4518124120",
+      "description": "Pop-up genre-film festival programmed with Severin Films at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "edd5ded08eed": {
+      "id": "edd5ded08eed",
+      "description": "Live performance by the Patrick Shiroishi Trio at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "9ded0b6200b4": {
+      "id": "9ded0b6200b4",
+      "description": "Live show with DITZ (uk) and Love Fiend at Zebulon (Frogtown).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "83294243e4c0": {
+      "id": "83294243e4c0",
+      "description": "Saxophone and keyboard improvisation duo (Taylor Plenn and JT Thomas) at Zebulon.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "275c7a2cb1d8": {
+      "id": "275c7a2cb1d8",
+      "description": "Night Talks single release show at Gold Diggers.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "bc1e1bb4da97": {
+      "id": "bc1e1bb4da97",
+      "description": "Papa Mbye performs on the JAKAARLO Tour at The Echo (Echo Park).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "9846c58161ba": {
+      "id": "9846c58161ba",
+      "description": "Classical tenor Andrea Bocelli performs his Romanza 30th Anniversary show at Hollywood Bowl.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "5a14868837c0": {
+      "id": "5a14868837c0",
+      "description": "Live music open mic night at Maui Sugar Mill Saloon (Tarzana).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "med"
+    },
+    "966b4b250781": {
+      "id": "966b4b250781",
+      "description": "Reggae and worldbeat performance by Black Uhuru with Self Control at The Venice West (Venice).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "589a5b95f0b1": {
+      "id": "589a5b95f0b1",
+      "description": "Blues and funk performance by Smokestack Lightning at Harvelle's (Santa Monica).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "0adcb22f55b3": {
+      "id": "0adcb22f55b3",
+      "description": "Double feature screening of Cam and Faces of Death with Q&A featuring director Daniel Goldhaber and co-writer Isa Mazzei at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "465c4d3d336a": {
+      "id": "465c4d3d336a",
+      "description": "Repertory screening of Jacob's Ladder at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "3968eec93b3c": {
+      "id": "3968eec93b3c",
+      "description": "Repertory screening of Deep Water at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "9fc7a3764685": {
+      "id": "9fc7a3764685",
+      "description": "Repertory screening of Jane Campion's The Piano at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "c6c2f5b7f7ac": {
+      "id": "c6c2f5b7f7ac",
+      "description": "Repertory screening of Dark City at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "dd03d5069d1b": {
+      "id": "dd03d5069d1b",
+      "description": "Repertory screening of Bob & Carol & Ted & Alice at Vidiots (Eagle Rock).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "83f7679d5cad": {
+      "id": "83f7679d5cad",
+      "description": "Repertory screening of Alfred Hitchcock's Psycho at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "a18656238f96": {
+      "id": "a18656238f96",
+      "description": "Repertory screening of One Missed Call at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "6abc579c08f7": {
+      "id": "6abc579c08f7",
+      "description": "Repertory screening of Long Day's Journey Into Night at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "1f3d6e990921": {
+      "id": "1f3d6e990921",
+      "description": "Repertory screening of Jim Jarmusch's Down by Law at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "f585955e6600": {
+      "id": "f585955e6600",
+      "description": "Live show by rommulas at The Roxy (West Hollywood).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "73e611194b0f": {
+      "id": "73e611194b0f",
+      "description": "Touring production of Water for Elephants at Hollywood Pantages Theatre.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "830753af85f4": {
+      "id": "830753af85f4",
+      "description": "Alternative music performance by Haute & Freddy with Rubin Brothers at The Fonda Theatre (Hollywood).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "fc891b412477": {
+      "id": "fc891b412477",
+      "description": "Alternative band Bleachers performs at Troubadour (West Hollywood).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "c8a31a621d75": {
+      "id": "c8a31a621d75",
+      "description": "Documentary on hardcore band Anti-Cimex with Q&A (Sound and Fury series) at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "dcc7e64d10f3": {
+      "id": "dcc7e64d10f3",
+      "description": "Free event (Clinic ft. Amore) at Jungle Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "low"
+    },
+    "5719b6deeadb": {
+      "id": "5719b6deeadb",
+      "description": "Repertory screening of Bernardo Bertolucci's The Dreamers at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "e48bcec2de00": {
+      "id": "e48bcec2de00",
+      "description": "Screening at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "low"
+    },
+    "8a9268b07c61": {
+      "id": "8a9268b07c61",
+      "description": "Repertory screening of Cosmos at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "0e570fd1b608": {
+      "id": "0e570fd1b608",
+      "description": "Free karaoke party at Dave & Buster's Torrance.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "49f1db3c2872": {
+      "id": "49f1db3c2872",
+      "description": "Repertory screening of La Piscine at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "0a6a8ee0286a": {
+      "id": "0a6a8ee0286a",
+      "description": "Repertory screening of Hirokazu Kore-eda's Shoplifters at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "dae111d736d7": {
+      "id": "dae111d736d7",
+      "description": "Repertory screening of Clash of the Titans at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "1dd691e40b70": {
+      "id": "1dd691e40b70",
+      "description": "Repertory screening of Valerie and Her Week of Wonders at Brain Dead Studios.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "46f8f429cf5f": {
+      "id": "46f8f429cf5f",
+      "description": "Metal band Slaughter To Prevail with Rev3rent at House of Blues Anaheim (all-ages, doors 7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
+    },
+    "aa4f6af5a0cd": {
+      "id": "aa4f6af5a0cd",
+      "description": "Musical production Dogman: The Musical at Kirk Douglas Theatre (Culver City).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-11T12:50:08",
+      "confidence": "high"
     }
   },
   "artists": {
@@ -17066,6 +17558,30 @@
     "ben annand": {
       "note": "LA electronic scene fixture since the mid-'90s — longtime resident at Moontribe and founder of the Tropical party series (boats, warehouses, the desert); Balearic/tribal-leaning outdoor-party lane.",
       "seen": "2026-08-10T12:50:09"
+    },
+    "derrick carter": {
+      "note": "Chicago house legend since the late-'80s Warehouse/Muzic Box lineage — co-runs Classic Music Company with Luke Solomon; funky, genre-agnostic, unmistakable house selection still headlining at this level.",
+      "seen": "2026-08-11T12:50:08"
+    },
+    "dj heather": {
+      "note": "Chicago house DJ, co-founder of the pioneering all-female Superjane crew (with DJ Colette, Dayhota, Lady D) — soulful, genre-blurring sets rooted in Gramaphone Records digging.",
+      "seen": "2026-08-11T12:50:08"
+    },
+    "h foundation": {
+      "note": "San Diego duo (Hipp-E & Halo) — dub-inflected deep/tech-house with a Fabric London residency and a Chemical Brothers remix credit to their name; not a frequent LA booking.",
+      "seen": "2026-08-11T12:50:08"
+    },
+    "hector moralez": {
+      "note": "Oakland-raised, now LA-based house DJ/producer (Minority Music, The Factory labels) — Chicago/Detroit-rooted, soul-deep selections; a regular in Sneak's LA circle.",
+      "seen": "2026-08-11T12:50:08"
+    },
+    "j dub": {
+      "note": "Chicago-bred new-school house DJ and frequent DJ Sneak collaborator on the LA circuit (CHI♡LA, Certified Groovers) — funky, percussive, seamless-blend style.",
+      "seen": "2026-08-11T12:50:08"
+    },
+    "jimi jules": {
+      "note": "Zurich-born, Berlin-based (longtime Watergate resident) house producer now signed to Innervisions — jazzy, soulful, musician's-ear house that broke through via 2014's Defected hit 'Pushing On.'",
+      "seen": "2026-08-11T12:50:08"
     }
   }
 }
