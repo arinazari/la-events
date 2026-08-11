@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/10/2026 deterministically (no API). 315 candidates. Signals: big-venue 280, festival 29, tracked 8, editorial 2._
+_Generated 8/11/2026 deterministically (no API). 316 candidates. Signals: big-venue 281, festival 29, tracked 8, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -159,6 +159,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Wed 9/16 | 4 | Masego: Fix Your Face Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/masego-fix-your-face-tour-los-angeles-california-09-16-2026/event/090064C4FE427889) |
 | Fri 9/18 | 4 | Matute: Disco Stereo Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/matute-disco-stereo-tour-inglewood-california-09-18-2026/event/0A00645BB13F8D0D) |
+| Fri 9/18 | 4 | Orville Peck | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sat 9/19 | 4 | Squeeze w/ Adam Ant | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sun 9/20 | 4 | KCRW Presents Haruomi Hosono: The Yours Sincerely Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/kcrw-presents-haruomi-hosono-the-yours-los-angeles-california-09-20-2026/event/090064AEAECDEA57) |
 | Mon 9/21 | 4 | Lily Allen Performs West End Girl | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lily-allen-performs-west-end-girl-los-angeles-california-09-21-2026/event/090064E8F349EC5D) |
