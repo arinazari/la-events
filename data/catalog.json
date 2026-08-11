@@ -56,7 +56,8 @@
     "category": "Music",
     "genre": "Rock",
     "lineup": [
-      "The Braymores"
+      "The Braymores",
+      "Juleser"
     ],
     "links": [
       {
@@ -391,7 +392,7 @@
     "url": "https://www.vibratogrilljazz.com/music/billy-vera-big-band-featuring-special-guest-tamela-damico",
     "detail": "Join us for an unforgettable night with the Billy Vera Big Band featuring special guest Tamela D’Amico and opener Rosie Webber  Show: 7pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -433,7 +434,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1786503600000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -897,7 +898,7 @@
     "url": "https://www.thesmell.org/events/tuesday-august-11-2026",
     "detail": "Minty Boi    presents…      away with words   (Miami,  FL)    my precious solitude ‍  ‍ (Miami, FL)      8:00 pm   $15 in advance, $20 at the door   Advance tickets available    here   .",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -1596,6 +1597,37 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Sound and Fury: JAWBREAKER — Anti-Cimex Documentary w/ Q+A",
+    "date": "2026-08-11",
+    "start": "19:30",
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [
+      "Anti-Cimex"
+    ],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/sound-and-fury-jawbreaker-anti-cimex-documentary-w-qa/",
+    "detail": "Documentary screening on hardcore band Anti-Cimex followed by a Q+A, part of the Sound and Fury series at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "PLAYLUNCH with Yagki",
     "date": "2026-08-12",
     "start": "19:00",
@@ -1842,7 +1874,7 @@
   {
     "title": "Disney's Beauty and the Beast (Touring)",
     "date": "2026-08-12",
-    "start": "14:00",
+    "start": "2026-08-12T19:30:00-07:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Arts & Theatre",
@@ -1894,7 +1926,10 @@
       "start"
     ],
     "image": "https://www.broadwayinhollywood.com/assets/img/580x580_BatB_2-46cb34b859.png",
-    "lineup_genre": "Theatre"
+    "lineup_genre": "Theatre",
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "Jill Scott - To Whom This May Concern Tour",
@@ -2285,7 +2320,7 @@
     "url": "https://www.vibratogrilljazz.com/music/christena-rich-featuring-laurence-juber-and-his-guitar-noir-",
     "detail": "Christena Rich’s Birthday Celebration: Songs from her album 'Jimmy’s', featuring Laurence Juber & her band, plus retro-soul favorites  Show: 7pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -2371,7 +2406,7 @@
   {
     "title": "Fet-ish | August",
     "date": "2026-08-12",
-    "start": "18:00",
+    "start": "19:00",
     "venue": "Junior High",
     "neighborhood": "Glendale",
     "category": "live_music",
@@ -2392,7 +2427,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -3843,6 +3878,35 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "The Dreamers",
+    "date": "2026-08-12",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/the-dreamers/",
+    "detail": "Repertory screening of Bertolucci's The Dreamers at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "tig3r Lewis",
     "date": "2026-08-13",
     "start": "18:30",
@@ -4765,7 +4829,7 @@
     "url": "https://www.vibratogrilljazz.com/music/fisher-and-thames-sounds-of-the-70s",
     "detail": "A modern-day Sonny and Cher playing your favorite 70s rock and disco hits  Show: 7pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -4807,7 +4871,7 @@
     "url": "https://www.thesmell.org/events/thursday-august-13-2026",
     "detail": "Post Present Medium    25 Year Anniversary Celebration, Night I…      Behavior    Flaccid Mojo   Early Dog   (4/5 of    Mika Miko   )    Barr    My Generation      Plus DJ Roy Tatum!      8:00 pm    Advance $20 single day tickets available    here   .    Advance $50 three day tickets available    he",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -5643,7 +5707,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/healing-with-clay-8-13-2026",
     "detail": "WORKSHOP | PAY-WHAT-YOU-CAN | AGES 12+ | MASK MANDATORY | Walk in at your leisure between 6-9pm for 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures. Join instructor Chelsie Rivera (@la_rosebud ) for loosely guided hand building practice.  Attendees of Healing With Clay will",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -7029,6 +7093,39 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Sound and Fury presents HOLE DWELLER, DIPLODOCUS & GARGOYLE",
+    "date": "2026-08-13",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [
+      "Hole Dweller",
+      "Diplodocus",
+      "Gargoyle"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/special_events/sound-and-fury-presents-hole-dweller-diplodocus-gargoyle/",
+    "detail": "Live heavy/hardcore bill at Brain Dead Studios under the Sound and Fury banner.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "punk"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "KCON LA",
     "date": "2026-08-14",
     "start": "10:00",
@@ -7502,7 +7599,10 @@
       "start"
     ],
     "image": "https://s1.ticketm.net/dam/a/ff9/230bc504-e335-44b6-9d57-24509c477ff9_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-    "lineup_genre": "Rock"
+    "lineup_genre": "Rock",
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "Saliva with Satellite Citi",
@@ -7642,7 +7742,10 @@
       "lineup"
     ],
     "image": "https://s1.ticketm.net/dam/a/aae/d27e184b-9f69-4963-9027-d3b5572a4aae_SOURCE",
-    "lineup_genre": "Latin"
+    "lineup_genre": "Latin",
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "Little Shop of Horrors 40th Anniversary Screening",
@@ -8232,7 +8335,10 @@
       "start"
     ],
     "image": "https://s1.ticketm.net/dam/a/a40/6f5b0c11-7fe9-4950-99bd-8c798c224a40_SOURCE",
-    "lineup_genre": "R&B"
+    "lineup_genre": "R&B",
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "Robert Cray Band",
@@ -8584,7 +8690,8 @@
     "category": "Music",
     "genre": "Pop",
     "lineup": [
-      "Will Swinton"
+      "Will Swinton",
+      "Tyler Vincent"
     ],
     "links": [
       {
@@ -8763,7 +8870,7 @@
     "url": "https://www.vibratogrilljazz.com/music/brenna-whitaker-little-big-band-vintage-jazz-soulful-vocals",
     "detail": "Brenna Whitaker brings her stunning voice and deep storytelling to a night of vintage jazz and soul  Shows: 7pm & 9:30pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -8849,7 +8956,7 @@
     "url": "https://www.thesmell.org/events/friday-august-14-2026",
     "detail": "Post Present Medium    25 Year Anniversary Celebration, Night II…      Gun Outfit    The Spatulas ‍  ‍ (Bloomington, IN)    Chronophage ‍  ‍ (Austin, TX)    Guiding Light ‍  ‍ (Austin, TX)    Semi Trucks    Muscle Beach      Plus DJ Kate Hall!      7:30 pm    Advance $20 single day tickets available",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -9560,7 +9667,7 @@
       "eventbrite"
     ],
     "organizers": null,
-    "detail": "Experience 626 Night Market, the original Asian night market in the U.S., with iconic street food, handcrafted merch, and live performances.",
+    "detail": "The long-running Asian night market returns to Santa Anita Park for a three-day run (Aug 14-16) with food vendors, games, and live entertainment.",
     "price": "$8",
     "ra_pick": false,
     "afterhours": false,
@@ -9575,7 +9682,10 @@
       "region": "valley",
       "near_home": false
     },
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1176281729%2F2526720971111%2F1%2Foriginal.20260130-190234?w=940&auto=format%2Ccompress&q=75&sharp=10&s=858b1fa0a33bc3a2a71673a969cf6b42"
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1176281729%2F2526720971111%2F1%2Foriginal.20260130-190234?w=940&auto=format%2Ccompress&q=75&sharp=10&s=858b1fa0a33bc3a2a71673a969cf6b42",
+    "editorial_mentions": [
+      "We Like LA"
+    ]
   },
   {
     "title": "Cabaret",
@@ -10970,12 +11080,12 @@
       "editorial"
     ],
     "organizers": null,
-    "detail": "Monthly free dance party with a live salsa band, DJ and free dance lessons.",
+    "detail": "A free community salsa dance night at LA Plaza de Cultura y Artes with live music and dancing under the stars.",
     "price": "free",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-02",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -10986,7 +11096,10 @@
       ],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "We Like LA"
+    ]
   },
   {
     "title": "Drag Show \"Pumped Fridays\" @ Mary's West Hollywood",
@@ -11510,7 +11623,7 @@
   },
   {
     "source": "squarespace",
-    "title": "Group Exhibition Opening | One More For My true Friends",
+    "title": "Group Exhibition Opening | One More For All My True Friends",
     "date": "2026-08-14",
     "start": "19:00",
     "venue": "Junior High",
@@ -11522,7 +11635,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/exhibition-omfamtf-august",
     "detail": "GALLERY | $5-10 SUGGESTED DONATION | ALL AGES |  This multimedia collection of work was put together by (mostly) recent graduates of a high school for the arts in Los Angeles.   The group of artists has appeared in different combinations at art exhibitions at Plaza de la Rasa, film screenings at Vid",
     "first_seen": "2026-08-06",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -12155,7 +12268,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-09",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -12687,6 +12800,72 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "CAM & FACES OF DEATH double feature + Q&A w/ Daniel Goldhaber, Isa Mazzei",
+    "date": "2026-08-14",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [
+      "Daniel Goldhaber",
+      "Isa Mazzei"
+    ],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/cam-face-of-death-double-feature-qa-w-daniel-goldhaber-isa-mazzei/",
+    "detail": "Double feature screening with a Q&A from Cam director Daniel Goldhaber and co-writer Isa Mazzei.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [
+        "q&a"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Ivy Station Night Market: Camp Ivy",
+    "date": "2026-08-14",
+    "start": null,
+    "venue": "Ivy Station",
+    "neighborhood": "Culver City",
+    "lineup": [],
+    "category": "market",
+    "price": null,
+    "image": null,
+    "url": "https://www.welikela.com/feed/",
+    "detail": "A camping-themed night market pop-up at Ivy Station with vendors, food, and outdoor evening programming.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [
+        "pop-up"
+      ],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
     "title": "KCON",
     "date": "2026-08-15",
     "start": "10:00",
@@ -12955,6 +13134,9 @@
     "changed_fields": [
       "price",
       "start"
+    ],
+    "editorial_mentions": [
+      "Discover LA"
     ]
   },
   {
@@ -14344,7 +14526,7 @@
     "url": "https://www.vibratogrilljazz.com/music/9l87n9tyx5ewkbxze8gzrc5p6xdpny",
     "detail": "Fusing vintage jazz, New Orleans swing, and classic pop into a vibrant, high-energy musical experience  Shows: 7pm & 9:30pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -14387,7 +14569,7 @@
     "url": "https://www.thesmell.org/events/saturday-august-15-2026",
     "detail": "Post Present Medium    25 Year Anniversary Celebration, Night III…      Abe Vigoda    Callahan & Witscher ‍  ‍ (NYC)    Debt Rag ‍  ‍ (Olympia, WA)    The Intima ‍  ‍ (Portland, OR)    DREAM_MEGA      Plus DJ Cate Kennan!      8:00 pm    Advance $20 single day tickets available    here   .    Advanc",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -15214,7 +15396,10 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "Plosivs",
@@ -16246,7 +16431,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-6-15-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | MASK MANDATORY | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, ",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -17518,7 +17703,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-06",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -19584,7 +19769,10 @@
       "vibe": [],
       "region": null,
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "STOPLIGHT MANSION PARTY 🚦",
@@ -19821,6 +20009,64 @@
         "house"
       ],
       "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Jacob's Ladder",
+    "date": "2026-08-15",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/jacobs-ladder/",
+    "detail": "Repertory screening of Jacob's Ladder at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Deep Water",
+    "date": "2026-08-15",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/deep-water/",
+    "detail": "Repertory screening of Deep Water at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
       "scale": null,
       "vibe": [],
       "region": null,
@@ -20771,7 +21017,10 @@
       ],
       "region": null,
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "The Soul Space f/ Tamara Jade & Orlando Dixon, Mark Evich, DJ Rosegawd at Summer Sounds",
@@ -20868,7 +21117,7 @@
     "url": "https://www.vibratogrilljazz.com/music/ronee-martin-van-anh-nguyen-2",
     "detail": "Soul vocalist Ronee Martin & virtuoso pianist Van-Anh Nguyen present a genre-bending show where classical meets soul unexpectedly  Show: 7:30pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21227,7 +21476,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -22873,7 +23122,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -24407,6 +24656,35 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "MIDNIGHT DROP",
+    "date": "2026-08-17",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/midnight-drop/",
+    "detail": "Screening at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "Dirty Heads and 311: So Glad You Made It Tour",
     "date": "2026-08-18",
     "start": "17:30",
@@ -24855,7 +25133,7 @@
     "url": "https://www.vibratogrilljazz.com/music/elliot-deutschs-pandemonium-big-band-featuring-richie-labamba-rosenberg",
     "detail": "A rocking and soulful jazz party — think The Blues Brothers meets the Count Basie Orchestra, with surprise special guests  Show:7pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -24899,7 +25177,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/figuredrawing-drawntogetherla-august-2026",
     "detail": "WORKSHOP | $15 | 21+ | Drawn Together LA is a community-centered unguided figure drawing event where people of all skill levels are welcome to draw from a model, be inspired by fellow artists, and enjoy a creative, safe space. Bring your sketchbook, favorite drawing supplies, or borrow from our mate",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -24941,7 +25219,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1787108400000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -26038,7 +26316,7 @@
     "url": "https://www.thesmell.org/events/tuesday-august-18-2026",
     "detail": "Pillow Fight    Palefire   ( Denton, TX)   Stomping Plastic     8:00 pm    $10    Advance tickets available    here   .",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -26052,7 +26330,13 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Claude Cowork for Marketing | AI Edge Virtual Training",
@@ -26812,7 +27096,7 @@
     "url": "https://www.vibratogrilljazz.com/music/buddy-rich-big-band-machine-featuring-cathy-rich-gregg-potter",
     "detail": "Grooving through Buddy's richest charts, featuring Buddy's daughter, Cathy Rich and Emmy Award Winning drummer Gregg Potter  Show: 7pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -28062,6 +28346,35 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Cosmos",
+    "date": "2026-08-19",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/cosmos/",
+    "detail": "Repertory screening of Cosmos at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "Mt. Joy 2026: 2 Day Ticket (08/20 - 08/21) Valid Both Days",
     "date": "2026-08-20",
     "start": "20:00",
@@ -28167,7 +28480,7 @@
     "genre": "Pop",
     "lineup": [
       "Jacklen Ro",
-      "Lavalove",
+      "LavaLove",
       "Sun Casino"
     ],
     "links": [
@@ -28635,7 +28948,7 @@
     "url": "https://www.vibratogrilljazz.com/music/the-soul-of-ms-mont",
     "detail": "Ms. Monét — The Voice alum and award-winning vocalist — brings jazz, smooth soul, and timeless R&B to the stage  Show: 7pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -29031,7 +29344,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-aug-20-feeling-w-clay",
     "detail": "GUEST ARTIST WORKSHOP | $35 | AGES 16+ |  Join emerging artist,  Christina Joseph , in this hands on ceramics workshop! The class will begin with a guided meditation, using the clay as a modality for sensing and navigating time and space through meditation. From there, we will use our clay experimen",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -29772,7 +30085,7 @@
     "url": "https://avalonhollywood.com/event/bryce-alakai-nightclub-near-me-discover-avalon-hollywood-2026-august-20-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Electronic music artist performance",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -31154,7 +31467,7 @@
     "url": "https://www.vibratogrilljazz.com/music/gabrielito-y-la-verdad-latin-world-salsa-funk-latin-jazz",
     "detail": "High-energy Latin World Salsa Funk blending traditional roots with original grooves in salsa, Latin jazz, boogaloo, soul & funk  Shows: 7pm & 9:30pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -31684,7 +31997,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-11",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -33290,7 +33603,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/georgiagetsbymusic-aug2026",
     "detail": "MUSIC | $15 | ALL AGES | Femme fairy folk lineup.   COVID-19 vaccinations are highly recommended to attend events at Junior High.    Learn more here.     This event will be indoors.   \n\n\n  \n #block-dcaf83806ff2e208036d {\n    \n    --stroke-style: none;--stroke-thickness: 6px;\n    \n      \n      \n     ",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -34646,6 +34959,64 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "The Piano",
+    "date": "2026-08-21",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/the-piano/",
+    "detail": "Repertory screening of Jane Campion's The Piano at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Dark City",
+    "date": "2026-08-21",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/dark-city/",
+    "detail": "Repertory screening of Dark City at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
     "date": "2026-08-22",
     "start": "14:30",
@@ -34891,7 +35262,7 @@
     ]
   },
   {
-    "title": "Rossi",
+    "title": "Rossi.",
     "date": "2026-08-22",
     "start": "5pm",
     "venue": "Expo Lawn West",
@@ -34899,7 +35270,8 @@
     "category": "electronic",
     "genre": "tech house",
     "lineup": [
-      "Rossi"
+      "Rossi.",
+      "JAMBACK"
     ],
     "links": [
       {
@@ -34916,7 +35288,7 @@
       "19hz"
     ],
     "organizers": "Framework",
-    "detail": null,
+    "detail": "Framework-presented outdoor house/techno set from Rossi. at Expo Lawn, with JAMBACK opening.",
     "price": "$80",
     "ra_pick": false,
     "afterhours": false,
@@ -34925,9 +35297,12 @@
     "tags": {
       "type": "club",
       "genre": [
-        "tech-house"
+        "tech-house",
+        "techno"
       ],
-      "setting": [],
+      "setting": [
+        "outdoor"
+      ],
       "scale": null,
       "vibe": [],
       "region": null,
@@ -36430,7 +36805,7 @@
     "url": "https://www.vibratogrilljazz.com/music/vi-jordan-and-the-collective",
     "detail": "An eclectic show of old-school rhythm & blues, soul and pop  Shows: 7pm & 9:30pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -36477,7 +36852,7 @@
     "url": "https://avalonhollywood.com/event/for-the-culture-3-nightclub-near-me-discover-avalon-hollywood-2026-august-22-best-night-club-near-me-los-angeles/",
     "detail": "Afternoon hip-hop/R&B day party, third installment of the 'For the Culture' series.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -37362,7 +37737,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-6-22-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | MASK MANDATORY | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, ",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -37493,7 +37868,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/mixedmaterials-readingqna-2026",
     "detail": "COMMUNITY | $15 | 18+ |  Faces  is a short narrative film following an engaged couple seemingly living a happy life in LA on the fringes of major success in the entertainment industry. Their relationship is thrown into question when a chance encounter with a classmate leads to sexual assault accusat",
     "first_seen": "2026-07-28",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -38020,7 +38395,7 @@
     "url": "https://avalonhollywood.com/event/time-machine-nightclub-near-me-discover-avalon-hollywood-2026-august-22-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Nostalgic dance party featuring 90s and 2000s music",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -38432,7 +38807,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -39406,7 +39781,7 @@
     "url": "https://www.thesmell.org/events/saturday-august-22-2026",
     "detail": "Friends In Real Life ‍  ‍ (AZ)    Michael Motorcycle    Moon Bandits      9:00 pm",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -39420,7 +39795,13 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "COMMONTHREAD - RADIO4RADIO (DUBLAB x VPN)",
@@ -39506,6 +39887,37 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Severin's Super-Shock Pop-Up Film Festival 2026",
+    "date": "2026-08-22",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/severins-super-shock-pop-up-film-festival-2026/",
+    "detail": "Pop-up genre-film festival programmed with Severin Films at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [
+        "pop-up"
+      ],
+      "region": null,
+      "near_home": false
     }
   },
   {
@@ -40407,7 +40819,7 @@
     "url": "https://www.vibratogrilljazz.com/music/anne-walsh-bossa-to-bacharach-and-more",
     "detail": "A groovy 1960s-inspired evening of Burt Bacharach classics in bossa nova style, plus favorites from Astrud Gilberto and Brasil ’66  Show: 7:30pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41404,7 +41816,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/cookzinefest-aug2026",
     "detail": "COMMUNITY | DONATE-WHAT-YOU-CAN | ALL AGES | Southern California's premier rat-themed zinefest is back for a threequel! Anyone Can Cook Zinefest is coming to Junior High LA on Sunday August 23rd from 12-4 PM! Showcasing the work of 20+ local zinesters, come check out zines, comics, prints, stickers ",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -42073,6 +42485,64 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "La Piscine",
+    "date": "2026-08-23",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/la-piscine/",
+    "detail": "Repertory screening of La Piscine at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Shoplifters",
+    "date": "2026-08-23",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/shoplifters/",
+    "detail": "Repertory screening of Hirokazu Kore-eda's Shoplifters at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
     }
   },
   {
@@ -43429,7 +43899,7 @@
     "url": "https://www.vibratogrilljazz.com/music/the-genesis-project-simply-temptin",
     "detail": "An electric celebration of The Temptations & classic R&B, featuring powerful vocals, tight harmonies and unforgettable Motown hits  Show: 7:30pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43471,7 +43941,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1787713200000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43943,7 +44413,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/juniorhigh-bookclub-august2026",
     "detail": "COMMUNITY | FREE | ALL AGES |  We're throwing it back to bring us forward. The ancestors gave us invaluable tools for us current organizers, but it's up to us to make sure they're adapted to these times. Similarly, it's our obligation to ensure the seeds we plant come to fruition for future generati",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -44372,7 +44842,7 @@
     "url": "https://www.vibratogrilljazz.com/music/phatback-earl-me",
     "detail": "A powerhouse 9-piece blues-rock & soul band with high-energy grooves, rich dual vocals, bold horns & deep roots in classic R&B  Show: 7pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -45388,6 +45858,35 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Patrick Shiroishi Trio Live",
+    "date": "2026-08-26",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [
+      "Patrick Shiroishi Trio"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/patrick-shiroishi-trio-live/",
+    "detail": "Live performance from the Patrick Shiroishi Trio at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "Wax + DJ Hoppa",
     "date": "2026-08-27",
     "start": "19:00",
@@ -46076,7 +46575,7 @@
     "url": "https://www.vibratogrilljazz.com/music/tgd3tgw6yzkzsf75bjen3d5kam9rge",
     "detail": "French music, with a global twist  Show: 7:30pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -46565,7 +47064,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/healing-with-clay-8-27-26",
     "detail": "WORKSHOP | PAY-WHAT-YOU-CAN | AGES 12+ | MASK MANDATORY | Walk in at your leisure between 6-9pm for 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures. Join instructor Chelsie Rivera (@la_rosebud ) for loosely guided hand building practice.  Attendees of Healing With Clay will",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -47361,7 +47860,7 @@
     "url": "https://www.thesmell.org/events/thursday-august-27-2026",
     "detail": "Sun Spoiler   Deep Green Pools  Sky Plant    8 :00 pm    $10    Advance tickets available    here   .",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47375,7 +47874,13 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "El Tri",
@@ -48788,7 +49293,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -48868,7 +49373,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-19",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -49056,7 +49561,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/cherrymovienight-aug2026",
     "detail": "SCREENING | $20 | ALL AGES | A night of queer cinema, music videos & experimental film. come watch, connect, and celebrate queer artists with us.   COVID-19 vaccinations are highly recommended to attend events at Junior High.    Learn more here.     This event will be indoors.   \n\n\n  \n #block-e247e0",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -49487,7 +49992,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/sew-silly-august2026",
     "detail": "WORKSHOP | SUGGESTED $5-10 DONATION | ALL AGES | Join Jr Hi buds Chelsie and Eden in this monthly fiber arts meet up to practice your textile skills! Whether you prefer crocheting, knitting, sewing, or have never picked up a needle (or hook) — all are welcome! The Sew Silly Crafting Circle will be f",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -49670,7 +50175,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-05",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -50390,6 +50895,64 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Psycho",
+    "date": "2026-08-28",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/psycho/",
+    "detail": "Repertory screening of Hitchcock's Psycho at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "One Missed Call",
+    "date": "2026-08-28",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/one-missed-call/",
+    "detail": "Repertory screening of One Missed Call at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
     }
   },
   {
@@ -51570,7 +52133,7 @@
     "url": "https://www.vibratogrilljazz.com/music/7c78ef49pkwalfbwker7678ajksekk",
     "detail": "High energy swing, latin and blues sextet performing timeless music from the golden age with vintage charm and modern precision  Shows: 7pm & 9:30pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -52272,7 +52835,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-23",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -52313,7 +52876,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-23",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -52500,7 +53063,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-6-29-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | MASK MANDATORY | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, ",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -53989,6 +54552,96 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Long Day's Journey Into Night",
+    "date": "2026-08-29",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/long-days-journey-into-night/",
+    "detail": "Repertory screening of Long Day's Journey Into Night at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Down by Law",
+    "date": "2026-08-29",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/down-by-law/",
+    "detail": "Repertory screening of Jim Jarmusch's Down by Law at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "YOUNA x Silver Panda",
+    "date": "2026-08-29",
+    "start": null,
+    "venue": "Avalon Hollywood",
+    "neighborhood": "Hollywood",
+    "lineup": [
+      "YOUNA",
+      "Silver Panda"
+    ],
+    "category": "electronic",
+    "price": null,
+    "image": null,
+    "url": "https://avalonhollywood.com/event/youna-x-silver-panda-nightclub-near-me-discover-avalon-hollywood-2026-august-29-best-night-club-near-me-hollywood-los-angeles/",
+    "detail": null,
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
     "title": "Day Trip In The Park LA: Loco Dice, Archie Hamilton",
     "date": "2026-08-30",
     "start": "14:00",
@@ -54707,7 +55360,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/club-gay-gardens-2026-august",
     "detail": "WORKSHOP | FREE | ALL AGES | Come get your hands dirty caring for native plants in the Junior High garden! Our besties Maggie Smart-McCabe and Linnea Torres lead a workshop/volunteer session actively tending to our   Native Garden   on the last Sunday of every month.  Not ready to wriggle with the w",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -54751,7 +55404,7 @@
     "url": "https://www.vibratogrilljazz.com/music/freddie-ravel-sizzling-sensuous-salsa-soul-4",
     "detail": "The Freddie Ravel Power Band is back! Latin, R&B, samba, salsa & romantic vibes to move your heart, soul and feet  Show: 7:30pm   Reserve Now",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -54794,7 +55447,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/sexanddisability101-2026",
     "detail": "WORKSHOP | $15 | 18+ | Join us for Sex & Disability 101, an open, honest, and educational class held in a completely safe, accessible, and welcoming space. We will be diving into important conversations, breaking down barriers, and exploring intimacy and disability together.  Proof of COVID-19 vacci",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -55860,6 +56513,64 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Clash of the Titans",
+    "date": "2026-08-30",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/clash-of-the-titans/",
+    "detail": "Repertory screening of Clash of the Titans at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Valerie and Her Week of Wonders",
+    "date": "2026-08-30",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/movies/valerie-and-her-week-of-wonders/",
+    "detail": "Repertory screening of Valerie and Her Week of Wonders at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "Muse - The Wow! Signal Tour",
     "date": "2026-08-31",
     "start": "19:00",
@@ -56570,7 +57281,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1788318000000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -56723,7 +57434,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -56804,7 +57515,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "film",
       "genre": [],
@@ -57501,7 +58212,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "The Toledo Show"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -57522,7 +58235,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -57562,7 +58275,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -58558,7 +59271,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "All-Star Jam Session"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -58579,7 +59294,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -58617,7 +59332,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -58780,7 +59495,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-linocutsandclay-9-3",
     "detail": "GUEST ARTIST WORKSHOP | $60 | AGES 16+ |  Join Clay Date instructor Ash for a fun and informative experience!  Create repeatable designs on clay by cutting your own lino block. First we carve the lino block from scratch, then we print onto clay! We will be using underglaze lino block ink and ink pad",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -58791,7 +59506,13 @@
       "vibe": [],
       "region": "valley",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Hayla",
@@ -60014,7 +60735,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "The No Chasers"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -60035,7 +60758,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -60119,7 +60842,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -61639,7 +62362,7 @@
     "url": "https://avalonhollywood.com/event/bed-by-10-nightclub-near-me-discover-avalon-hollywood-2026-september-5-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "80s/90s/00s throwback dance party for the 30+ crowd.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -62115,7 +62838,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-9-5-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, and slab techniqu",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -62250,7 +62973,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Live Band Karaoke"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -62266,7 +62991,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -62345,7 +63070,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -62386,7 +63111,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -62428,7 +63153,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -63868,7 +64593,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -64140,7 +64865,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -64480,7 +65205,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -64638,7 +65363,7 @@
   {
     "title": "Water for Elephants (Touring)",
     "date": "2026-09-08",
-    "start": "19:30",
+    "start": "2026-09-08T19:30:00-07:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Arts & Theatre",
@@ -64744,7 +65469,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1788922800000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65056,7 +65781,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65081,7 +65806,9 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Madame Dee"
+    ],
     "links": [
       {
         "source": "webfetch",
@@ -65097,7 +65824,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65730,7 +66457,7 @@
     "source": "squarespace",
     "title": "Fet-ish | September",
     "date": "2026-09-09",
-    "start": "18:30",
+    "start": "19:00",
     "venue": "Junior High",
     "neighborhood": "Glendale",
     "lineup": [],
@@ -65740,7 +66467,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/fet-ish-workshop-sept2026",
     "detail": "WORKSHOP | $25 One Session // $100 Bundle | 18+ | Fet-ish is a 5 week course on kink, bdsm, and fetish taught by Grace Vee, a Pro Domme of 8 years. The full course will cover everything from safety and protocol, to safe play and building a scene including demonstrations and hands on exercises.   Jul",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -65845,7 +66572,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "The Toledo Show"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -65861,7 +66590,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -65942,7 +66671,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66725,7 +67454,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "All-Star Jam Session"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -66741,7 +67472,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -66818,7 +67549,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66858,7 +67589,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -66926,7 +67657,7 @@
     "url": "https://www.thesmell.org/events/thursday-september-10-2026",
     "detail": "Shuggie presents…      Glass Generation   It’s Always You   alberta*      8:30 pm    $10    Advance tickets available    here   .",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66940,7 +67671,13 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Members X Dizka presents: Amour Propre",
@@ -68552,7 +69289,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "The No Chasers"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -68568,7 +69307,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -68652,7 +69391,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -68981,7 +69720,7 @@
       "ra"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Framework-presented Planet X house/techno night at California Plaza with Ben Sterling, Rafael, and Dean Turnley.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
@@ -68990,7 +69729,8 @@
     "tags": {
       "type": "club",
       "genre": [
-        "electronic"
+        "house",
+        "techno"
       ],
       "setting": [],
       "scale": null,
@@ -70842,7 +71582,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-9-12-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, and slab techniqu",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -70905,7 +71645,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Live Band Karaoke"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -70921,7 +71663,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -71046,7 +71788,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -72270,7 +73012,9 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Ryan"
+    ],
     "links": [
       {
         "source": "webfetch",
@@ -72287,7 +73031,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -72369,7 +73113,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -72921,7 +73665,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Western Revenge"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -72937,7 +73683,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -73198,7 +73944,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1789527600000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -73259,7 +74005,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-11",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -73482,7 +74228,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -73523,7 +74269,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -74267,7 +75013,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "The Toledo Show"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -74283,7 +75031,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -74362,7 +75110,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -75443,7 +76191,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "All-Star Jam Session"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -75459,7 +76209,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -75497,7 +76247,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -77259,7 +78009,7 @@
     "url": "https://avalonhollywood.com/event/partiboi69-nightclub-near-me-discover-avalon-hollywood-2026-september-18-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Electronic music show with supporting artists",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -77496,7 +78246,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "The No Chasers"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -77512,7 +78264,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -77596,7 +78348,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -79423,7 +80175,7 @@
     "url": "https://avalonhollywood.com/event/rnb-fest-nightclub-near-me-discover-avalon-hollywood-2026-september-19-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "R&B-focused music event; lineup not published yet.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -80118,7 +80870,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-9-19-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, and slab techniqu",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -80181,7 +80933,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Live Band Karaoke"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -80197,7 +80951,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -80318,7 +81072,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -80358,7 +81112,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -80616,6 +81370,36 @@
       ],
       "region": "hollywood",
       "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Francis Mercier",
+    "date": "2026-09-19",
+    "start": null,
+    "venue": "Reframe Studios Outdoors",
+    "neighborhood": "Elysian Valley",
+    "lineup": [
+      "Francis Mercier",
+      "Shimza"
+    ],
+    "category": "electronic",
+    "price": null,
+    "image": null,
+    "url": "https://link.dice.fm/Nc059a2b37d3",
+    "detail": "Afro house heavyweight Francis Mercier plays outdoors at Reframe Studios with Shimza.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "afro-house"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
     }
   },
   {
@@ -81728,7 +82512,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -81812,7 +82596,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -82139,7 +82923,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1790132400000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -82322,7 +83106,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -82407,7 +83191,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -83127,7 +83911,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -83151,7 +83935,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "The Toledo Show"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -83167,7 +83953,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -83207,7 +83993,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -84258,7 +85044,7 @@
     "url": "https://avalonhollywood.com/event/janaga-nightclub-near-me-discover-avalon-hollywood-2026-24-september-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Touring Russian rap/pop artist stop on his 2026 USA tour.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -84588,7 +85374,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "All-Star Jam Session"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -84604,7 +85392,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -84642,7 +85430,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -84682,7 +85470,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -86671,7 +87459,7 @@
     "url": "https://www.thesmell.org/events/friday-september-25-2026",
     "detail": "Sleep Again Records and Frowny Face Records present…      Von’s Island   Pulse  Honk!     8:00 pm    $10 in advance, $15 at the door    Advance tickets available    here   .",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -86887,7 +87675,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/sew-silly-septem2026",
     "detail": "WORKSHOP | SUGGESTED $5-10 DONATION | ALL AGES | Join Jr Hi buds Chelsie and Eden in this monthly fiber arts meet up to practice your textile skills! Whether you prefer crocheting, knitting, sewing, or have never picked up a needle (or hook) — all are welcome! The Sew Silly Crafting Circle will be f",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -86929,7 +87717,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/wamrshowershow-sept2026",
     "detail": "MUSIC | $15 | ALL AGES | Come get weird and have fun with Warm Shower and the Towels, Lucas Hole, and Sheila. From across the land they bring you musical humor,  honesty and unwasted emotion to help you feel understood in the strange world we live in. Composer/bandleader Luc Ostroff writes and recor",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -86994,7 +87782,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "The No Chasers"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -87010,7 +87800,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -87094,7 +87884,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -87236,6 +88026,33 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Build Your Own Synth @ Brain Dead Studios",
+    "date": "2026-09-25",
+    "start": null,
+    "venue": "Brain Dead Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "other",
+    "price": null,
+    "image": null,
+    "url": "https://studios.wearebraindead.com/special_events/build-your-own-synth-brain-dead-studios-2/",
+    "detail": "Hands-on synth-building workshop hosted at Brain Dead Studios.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "workshop",
+      "genre": [],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
     }
   },
   {
@@ -88785,14 +89602,16 @@
     "venue": "Avalon Hollywood",
     "neighborhood": "Hollywood",
     "lineup": [
-      "Tritonal"
+      "Tritonal",
+      "Laerz",
+      "Julian Gray"
     ],
     "category": "electronic",
     "price": null,
     "url": "https://avalonhollywood.com/event/tritonal-nightclub-near-me-discover-avalon-hollywood-2026-september-26-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Performance by the progressive house and trance duo.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -89382,7 +90201,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-9-26-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | MASK MANDATORY | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, ",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -89445,7 +90264,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Live Band Karaoke"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -89461,7 +90282,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -89542,7 +90363,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -89582,7 +90403,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -89841,6 +90662,38 @@
       "vibe": [],
       "region": null,
       "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Jimi Jules (Open To Close)",
+    "date": "2026-09-26",
+    "start": null,
+    "venue": "Gin Ling Way",
+    "neighborhood": "Chinatown",
+    "lineup": [
+      "Jimi Jules"
+    ],
+    "category": "electronic",
+    "price": null,
+    "image": null,
+    "url": "https://link.dice.fm/M42f9afa8f51",
+    "detail": "Swiss house/disco selector Jimi Jules plays a rare open-to-close set at Gin Ling Way in Chinatown — European-leaning, fabric-style booking.",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house",
+        "disco"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "all-night-set"
+      ],
+      "region": "dtla",
+      "near_home": true
     }
   },
   {
@@ -91249,7 +92102,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Harvelle's"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -91265,7 +92120,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -91343,7 +92198,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -91385,7 +92240,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -91585,7 +92440,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/legalsalonforartist-sept2026",
     "detail": "COMMUNITY | FREE | 21+ | Inspired by the long tradition of the salon as a space for interdisciplinary dialogue, Creative Practice is an informal gathering hosted by California Lawyers for the Arts centered on the realities of building and sustaining an artistic life. The vitality of artistic practic",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -91598,7 +92453,13 @@
       ],
       "region": "valley",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "source": "squarespace",
@@ -91614,7 +92475,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/sexycowfolkworkshop-2026",
     "detail": "WORKSHOP | $35 | 18+ | Tired of boring old sexy cowboys and cowgirls? Saddle up for this workshop all about embellishing some hunks and babes with needle and thread.   Embroidery artist Jamie Maloney will show you how to decorate already printed fabric of cowboys and cowgirls with tattoos, fringe an",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -91627,7 +92488,13 @@
       ],
       "region": "valley",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "The Walker Roaders",
@@ -91993,7 +92860,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Western Revenge"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -92009,7 +92878,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -92534,7 +93403,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1790737200000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -92861,7 +93730,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/juniorhigh-bookclub-september2026",
     "detail": "COMMUNITY | FREE | ALL AGES |  We're throwing it back to bring us forward. The ancestors gave us invaluable tools for us current organizers, but it's up to us to make sure they're adapted to these times. Similarly, it's our obligation to ensure the seeds we plant come to fruition for future generati",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -92916,7 +93785,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -92998,7 +93867,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -93103,7 +93972,7 @@
   {
     "title": "The Outsiders (Touring)",
     "date": "2026-09-30",
-    "start": "14:00",
+    "start": "2026-09-30T19:30:00-07:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Arts & Theatre",
@@ -94050,7 +94919,7 @@
     "category": "music",
     "genre": null,
     "lineup": [
-      "KETTAMA - 3rd Night Added!"
+      "Kettama"
     ],
     "links": [
       {
@@ -94062,7 +94931,7 @@
       "goldenvoice"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Irish house/techno star Kettama's 3rd added LA night at Shrine Expo Hall.",
     "image": "https://images.discovery-prod.axs.com/2026/05/kettama-3rd-night-added-tickets_09-30-26_86_6a0c978e606b0.jpg",
     "price": null,
     "ra_pick": false,
@@ -94246,7 +95115,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "The Toledo Show"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -94262,7 +95133,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -94333,7 +95204,7 @@
     "url": "https://www.vibratogrilljazz.com/music/h9tjnk6zmfnafetenj8gghsyyndfyt-yey2m",
     "detail": "The Bee Gees Gold tribute is the ultimate salute, and experience of seeing ‪the Bee Gees‬ in their prime, LIVE ONCE AGAIN!  Show: 7:30pm   Reserve Now",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -94348,7 +95219,13 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "The Outsiders (Touring)",
@@ -95432,7 +96309,7 @@
     "category": "music",
     "genre": null,
     "lineup": [
-      "KETTAMA"
+      "Kettama"
     ],
     "links": [
       {
@@ -95444,7 +96321,7 @@
       "goldenvoice"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Kettama's second consecutive night at Shrine Expo Hall.",
     "image": "https://images.discovery-prod.axs.com/2026/05/kettama-tickets_10-01-26_86_6a0ba1ed4dc6a.jpg",
     "price": null,
     "ra_pick": false,
@@ -97264,7 +98141,7 @@
     "category": "music",
     "genre": null,
     "lineup": [
-      "KETTAMA - 2nd Night Added!"
+      "Kettama"
     ],
     "links": [
       {
@@ -97276,7 +98153,7 @@
       "goldenvoice"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Kettama closes out a three-night LA run at Shrine Expo Hall.",
     "image": "https://images.discovery-prod.axs.com/2026/05/kettama-2nd-night-added-tickets_10-02-26_86_6a0c970c1da1f.jpg",
     "price": null,
     "ra_pick": false,
@@ -101561,7 +102438,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1791342000000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -106365,7 +107242,7 @@
     ],
     "price": null,
     "first_seen": "2026-08-06",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -109254,7 +110131,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -110204,7 +111081,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1791946800000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -111471,6 +112348,35 @@
       "scale": "arena",
       "vibe": [],
       "region": "dtla",
+      "near_home": false
+    }
+  },
+  {
+    "source": "squarespace",
+    "title": "Fet-ish | October",
+    "date": "2026-10-14",
+    "start": "19:00",
+    "venue": "Junior High",
+    "neighborhood": "Glendale",
+    "lineup": [],
+    "category": "live_music",
+    "price": null,
+    "image": "https://static1.squarespace.com/static/56eadb72d51cd4a1f93f5e10/5720e2974d088efedb858d1e/6a7a6fdfbc6db3767e460d1d/1786409374401/",
+    "url": "https://juniorhighlosangeles.com/calendar/fet-ish-workshop-oct2026",
+    "detail": "WORKSHOP | $25 | 18+ | Fet-ish is a 5 week course on kink, bdsm, and fetish taught by Grace Vee, a Pro Domme of 8 years. The full course will cover everything from safety and protocol, to safe play and building a scene including demonstrations and hands on exercises.   July 8th - Intro to Kink & Ter",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "diy"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "18+"
+      ],
+      "region": "valley",
       "near_home": false
     }
   },
@@ -114677,7 +115583,9 @@
     "neighborhood": "Santa Monica",
     "category": "live-music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Western Revenge"
+    ],
     "links": [
       {
         "source": "harvelles",
@@ -114693,7 +115601,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "other",
       "genre": [],
@@ -119087,7 +119995,7 @@
   {
     "title": "Bonnie Raitt: Live 2026 with Special Guest Jon Cleary",
     "date": "2026-10-20",
-    "start": "19:30",
+    "start": "2026-10-20T19:30:00-07:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Music",
@@ -119328,7 +120236,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1792551600000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -121400,7 +122308,7 @@
   {
     "title": "Bluey's Big Play",
     "date": "2026-10-23",
-    "start": "18:00",
+    "start": "2026-10-23T18:00:00-07:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Arts & Theatre",
@@ -123107,7 +124015,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-09",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -126281,7 +127189,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1793156400000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -126315,7 +127223,7 @@
     "id": "https://www.broadwayinhollywood.com/events/detail/the-whos-tommy",
     "title": "The Who's Tommy (Touring)",
     "date": "2026-10-27",
-    "start": "19:30",
+    "start": "2026-10-27T19:30:00-07:00",
     "end": "2026-11-15T20:30:00-08:00",
     "venue": "Pantages Theatre",
     "neighborhood": "Hollywood",
@@ -132211,7 +133119,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-06",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -137848,7 +138756,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -143457,7 +144365,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
@@ -144125,7 +145033,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -144830,6 +145738,35 @@
     }
   },
   {
+    "source": "squarespace",
+    "title": "Fet-ish | November",
+    "date": "2026-11-18",
+    "start": "19:00",
+    "venue": "Junior High",
+    "neighborhood": "Glendale",
+    "lineup": [],
+    "category": "live_music",
+    "price": null,
+    "image": "https://static1.squarespace.com/static/56eadb72d51cd4a1f93f5e10/5720e2974d088efedb858d1e/6a7a70e4bc3f1d3117d3eb2f/1786409388727/",
+    "url": "https://juniorhighlosangeles.com/calendar/fet-ish-workshop-nov2026",
+    "detail": "WORKSHOP | $25 | 18+ | Fet-ish is a 5 week course on kink, bdsm, and fetish taught by Grace Vee, a Pro Domme of 8 years. The full course will cover everything from safety and protocol, to safe play and building a scene including demonstrations and hands on exercises.   July 8th - Intro to Kink & Ter",
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "diy"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "18+"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
     "title": "Of Mice & Men",
     "date": "2026-11-19",
     "start": "18:00",
@@ -145494,7 +146431,7 @@
   {
     "title": "Jackson Browne",
     "date": "2026-11-19",
-    "start": "20:00",
+    "start": "2026-11-19T20:00:00-08:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Music",
@@ -145513,7 +146450,7 @@
       "ticketmaster"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Legendary singer-songwriter Jackson Browne has added a fourth and final show to his string of performances the Hollywood Pantages Theatre on November 23.  Renowned for timeless songs including “Running on Empty,” “Doctor My Eyes,” and “These Days,” Browne continues to captivate audiences with his masterful songwriting and acclaimed live performances.In addition, special Benefit Tickets to support arts & education, the environment and social justice are available for these upcoming shows. These seats are limited and available at JacksonBrowne.com, with a portion being tax-deductible.",
     "image": "https://s1.ticketm.net/dam/e/308/287c3115-f709-4bad-8f38-1dcec8ffb308_SOURCE",
     "price": null,
     "ra_pick": false,
@@ -145523,6 +146460,7 @@
     "tags": {
       "type": "live-music",
       "genre": [
+        "folk",
         "rock"
       ],
       "setting": [
@@ -149124,7 +150062,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -151271,7 +152209,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -154412,7 +155350,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -155173,7 +156111,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-08-10",
+    "last_seen": "2026-08-11",
     "tags": {
       "type": "club",
       "genre": [
