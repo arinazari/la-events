@@ -20,10 +20,6 @@ home:
 # City-specific source ids (lifted from the fetchers; they fall back to these literals).
 dashboard:
   # Page-presentation knobs (the static dashboard reads these via feed config).
-  # photos: real event images on the front page's top picks (lead + shortlist) for
-  # signed-in profiles. Default false — flip here (or preview via the owner's in-page
-  # Settings toggle) to turn them on site-wide at the next feed build.
-  photos: false
   # Public URL of the deployed dashboard. Digest event lines add a `card ↗` link to
   # <site_url>?e=<event_key>, which opens that event's card (details + save) on the site.
   # Blank/absent = digests carry ticket links only.

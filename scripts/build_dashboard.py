@@ -99,12 +99,8 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
             "priority": s.get("priority"),
             "status": s.get("status"),
         })
-    dashboard_knobs = profile.get("dashboard") or {}
     return {
         "files": {"taste": "taste.yaml", "profile": "profile.yaml", "sources": "sources.yaml"},
-        # profile.yaml `dashboard:` — page-presentation knobs (admin-controlled, per Ari
-        # 2026-07-24: event photos are opt-in, top-picks-only; the page defaults them OFF).
-        "photos": bool(dashboard_knobs.get("photos", False)),
         "taste": {
             "categories": {
                 "high": cats.get("high") or [],
