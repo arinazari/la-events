@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/11/2026 deterministically (no API). 316 candidates. Signals: big-venue 281, festival 29, tracked 8, editorial 2._
+_Generated 8/12/2026 deterministically (no API). 317 candidates. Signals: big-venue 281, festival 30, tracked 8, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -31,7 +31,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 9/26 | 8 | Factory 93 presents: Amelie Lens at Grand Park Block 2 | Grand Park | tracked:Amelie Lens | [link](https://ra.co/events/2400834) |
 | Sat 9/19 | 7 | Âme, DJ Tennis, Kaz James - Chinatown Block Party | Gin Ling Way, Chinatown | festival | [link](https://ra.co/events/2487802) |
 | Fri 9/25 | 7 | Overmono - Pure Devotion World Tour | Hollywood Palladium | tracked:Overmono | [link](https://ra.co/events/2446440) |
-| Fri 9/25 | 7 | A Club Called Rhonda with DJ Minx, DJ Holographic, Anastaz | Los Globos | tracked:DJ Minx | [link](https://ra.co/events/2506362) |
 | Sun 9/27 | 6 | Into The Woods presents Theo Parrish (Open To Close) | TBA | tracked:Theo Parrish | [link](https://ra.co/events/2502776) |
 
 ## October 2026
@@ -118,6 +117,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Wed 9/16 | 1 | Elliott Brothers Present COMEDY BLOCK PARTY Hosted by Chri | The Miracle Theater | festival | [link](https://www.ticketmaster.com/elliott-brothers-present-comedy-block-party-inglewood-california-09-16-2026/event/0B0065028D851D7E) |
+| Fri 9/25 | 1 | A Club Called Rhonda with DJ Minx, DJ Holographic, Anastaz | Los Globos | tracked:DJ Minx | [link](https://ra.co/events/2506362) |
 
 ## November 2026
 
@@ -137,6 +137,17 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Wed 9/30 | 0 | Latin Music Conference- 2 DAY PASS | Luckman Fine Arts Complex | festival | [link](https://www.ticketmaster.com/latin-music-conference-2-day-pass-los-angeles-california-09-30-2026/event/0B0064D8B7114353) |
+
+## December 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sun 12/13 | 0 | Slackfest West | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/slackfest-west-anaheim-california-12-13-2026/event/09006506EF9C1651) |
+
+## September 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
 | Sat 9/19 | 5 | Sofi Tukker w/ DRAMA | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 9/25 | 5 | Riley Green: Cowboy As It Gets Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/riley-green-cowboy-as-it-gets-los-angeles-california-09-25-2026/event/090064BCCDA4CFFB) |
 
@@ -227,7 +238,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 9/15 | 3 | ANDREA BOCELLI "Romanza - 30th Anniversary World Tour" | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/andrea-bocelli-romanza-30th-anniversary-world-hollywood-california-09-15-2026/event/0B00643AAF963918) |
 | Wed 9/16 | 3 | LE SSERAFIM | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Wed 9/16 | 3 | ANDREA BOCELLI "Romanza - 30th Anniversary World Tour" | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/andrea-bocelli-romanza-30th-anniversary-world-hollywood-california-09-16-2026/event/0B00643CD21961B4) |
 | Thu 9/17 | 3 | Morgan Jay: The Goofy Guy Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/morgan-jay-the-goofy-guy-tour-los-angeles-california-09-17-2026/event/0900644C0AB37D8C) |
@@ -360,9 +370,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sun 9/20 | 2 | Carin Leon - De Sonora Para El Mundo Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/carin-leon-de-sonora-para-el-los-angeles-california-09-20-2026/event/0A00644328E0E003) |
 | Sun 9/20 | 2 | Dierks Bentley (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 9/23 | 2 | Dropkick Murphys - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Wed 9/23 | 2 | Robyn - The Sexistential Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/robyn-the-sexistential-tour-inglewood-california-09-23-2026/event/0900643CE7CDE833) |
 | Thu 9/24 | 2 | THE KEHLANI WORLD TOUR: North America | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/the-kehlani-world-tour-north-america-inglewood-california-09-24-2026/event/090064B6E25E61FE) |
-| Thu 9/24 | 2 | Robyn - The Sexistential Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/robyn-the-sexistential-tour-inglewood-california-09-24-2026/event/09006443DF9D9804) |
 | Fri 9/25 | 2 | The Concert: A Tribute To ABBA | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sun 9/27 | 2 | Iron Maiden: Run For Your Lives World Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/iron-maiden-run-for-your-lives-los-angeles-california-09-27-2026/event/0A00635B10E0C0D4) |
 | Sun 9/27 | 2 | Shreya Ghoshal | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
@@ -397,6 +405,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Thu 10/15 | 2 | Cynthia Erivo: Let Me Sing To You | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/cynthia-erivo-let-me-sing-to-hollywood-california-10-15-2026/event/0B0064A783483613) |
 | Thu 10/15 | 2 | Prospa present Prophecy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1443876/prospa-present-prophecy-tickets) |
 | Thu 10/15 | 2 | Nelly (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Thu 10/15 | 2 | Pedro Fernández - Ave Fénix Two'r | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/pedro-fernandez-ave-fenix-twor-inglewood-california-10-15-2026/event/0A006503C05DB7D2) |
 | Sun 10/18 | 2 | Phil Wickham / Official Ticket + Hotel Packages | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/song-of-the-saints-tour-with-ontario-california-10-18-2026/event/0900644DDDEA6E26) |
 | Sun 10/18 | 2 | Charli xcx - Music, Fashion, Film Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/charli-xcx-music-fashion-film-tour-inglewood-california-10-18-2026/event/090064C5F509BA04) |
 | Sun 10/18 | 2 | it's murph - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1511170/it-s-murph-2nd-night-added-tickets) |
@@ -531,3 +540,10 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Tue 11/24 | 0 | JOURNEY - Final Frontier Tour (An Evening With) | Honda Center | big-venue | [link](https://www.ticketmaster.com/journey-final-frontier-tour-an-evening-anaheim-california-11-24-2026/event/090064A695B5BA92) |
+
+## September 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Wed 9/23 | -4 | Robyn - The Sexistential Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/robyn-the-sexistential-tour-inglewood-california-09-23-2026/event/0900643CE7CDE833) |
+| Thu 9/24 | -4 | Robyn - The Sexistential Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/robyn-the-sexistential-tour-inglewood-california-09-24-2026/event/09006443DF9D9804) |
