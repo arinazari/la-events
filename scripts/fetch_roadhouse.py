@@ -55,12 +55,14 @@ DATE_I = re.compile(
 STATUS_SKIP = re.compile(r"\b(rescheduled|cancell?ed|postponed|moved to)\b", re.I)
 CLOSED = re.compile(r"record\s+store\s+open|venue\s+closed", re.I)
 # Lineup lines that are billing notes, not artist names — kept as detail, not lineup.
-NOTE_LINE = re.compile(r"^(w/|with\s|feat|plus\s|\+\s|special\s+guest)", re.I)
+# `feat` needs its boundary/suffix so bands named "Feathers"/"Featherweight" stay billed.
+NOTE_LINE = re.compile(r"^(w/|with\s|feat(\.|uring)?\b|plus\s|\+\s|special\s+guest)", re.I)
 
 MONTHS = {m.lower(): i for i, m in enumerate(
     ["January", "February", "March", "April", "May", "June", "July",
      "August", "September", "October", "November", "December"], 1)}
 MONTHS.update({m[:3]: i for m, i in list(MONTHS.items())})
+MONTHS["sept"] = 9  # the one common 4-letter abbreviation
 
 
 def strip(s: str) -> str:
@@ -85,16 +87,26 @@ def to_hhmm(timetext):
 
 def infer_date(month: int, day: int, anchor: date, img_src: str):
     """Resolve the year-less month/day. The flyer image path (images/2026/08aug/…) is the
-    site's own year stamp — trust it when present; else nearest future occurrence (a
-    month/day more than ~6 weeks past rolls to next year)."""
+    site's own year stamp — but flyers get REUSED for months (the same triva2026.jpg rides
+    every trivia row Aug→Dec), so a hint that lands meaningfully in the past is a stale
+    reused flyer, not a past event: ignore it and fall through to nearest-future
+    inference (else every January+ recurring row would silently drop from October on)."""
     ym = IMGYEAR.search(img_src or "")
-    try:
-        if ym:
-            return date(int(ym.group(1)), month, day)
-        d = date(anchor.year, month, day)
-        return date(anchor.year + 1, month, day) if d < anchor - timedelta(days=45) else d
-    except ValueError:
-        return None
+    if ym:
+        try:
+            d = date(int(ym.group(1)), month, day)
+            if d >= anchor - timedelta(days=45):
+                return d
+        except ValueError:
+            pass  # e.g. Feb 29 under a stale year — fall through
+    for year in (anchor.year, anchor.year + 1):
+        try:
+            d = date(year, month, day)
+        except ValueError:  # Feb 29 in a non-leap year — try the next
+            continue
+        if d >= anchor - timedelta(days=45):
+            return d
+    return None
 
 
 def parse_calendar(page: str, lo: date, hi: date) -> list:
@@ -125,7 +137,10 @@ def parse_calendar(page: str, lo: date, hi: date) -> list:
         artists = [l for l in lines if not NOTE_LINE.match(l)]
         notes = [l for l in lines if NOTE_LINE.match(l)]
         if not artists:
-            continue
+            # A bill can't be ALL billing-notes — a solo act named "With Confidence" or
+            # "Plus One" just tripped the note heuristic. Keep the lines as the bill
+            # rather than silently dropping the event.
+            artists, notes = lines, []
 
         # Price/tickets ride in the NEXT cell — unless that cell is the next row's
         # image or its own date heading (hand-edited rows sometimes drop the third td).
@@ -188,7 +203,11 @@ def main() -> int:
         print(f"WARN: roadhouse fetch failed: {e}", file=sys.stderr)
         with open(args.out, "w") as f:
             json.dump([], f)
-        return 0
+        # Non-zero ON PURPOSE: run_digest then records a FAILED fetch (run continues,
+        # footer lists it). Exiting 0 with [] would count as ok:0, put 'roadhouse' in
+        # fetched_ok, and the ghost sweep would unlist the venue's entire future
+        # calendar as "dropped from its source".
+        return 1
 
     today = date.today()
     uniq = parse_calendar(page, today, today + timedelta(days=args.days))

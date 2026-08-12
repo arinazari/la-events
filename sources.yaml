@@ -128,6 +128,8 @@ sources:
       ignores the hand-typed (sometimes wrong) weekday names. Overlap with the DICE slug
       dedupes; the main permanentrecordsla.com store site is Cloudflare-walled and NOT
       needed — the subdomain has everything.
+
+  - name: Gmail "Events" label
     category: multi
     method: gmail
     url: label:Events

@@ -134,6 +134,35 @@ def test_year_rollover_without_image_hint():
     assert ev["date"] == "2027-01-10"
 
 
+def test_stale_reused_flyer_year_hint_ignored():
+    # The live page reuses the SAME year-stamped trivia flyer (images/2026/08aug/
+    # triva2026.jpg) on rows months later — a January row carrying it must roll to
+    # the next year, not resolve into the past and silently drop.
+    jan = row('<img src="images/2026/08aug/triva2026.jpg">',
+              '<i>Thursday, January 7th - 6PM</i><BR><BR>\nMusic Trivia', '$5 PER PLAYER')
+    (ev,) = parse_calendar(jan, date(2026, 11, 20), date(2027, 6, 1))
+    assert ev["date"] == "2027-01-07"
+
+
+def test_feb_29_resolves_to_the_leap_year():
+    leap = row('<img src="images/leapshow.jpg">',
+               '<i>Tuesday, February 29th - 9PM</i><BR><BR>\nLeap Day Band', '$10')
+    (ev,) = parse_calendar(leap, date(2027, 12, 1), date(2028, 6, 1))
+    assert ev["date"] == "2028-02-29"
+
+
+def test_band_names_starting_like_notes_stay_billed():
+    solo = row('<img src="images/2026/08aug/feathers.jpg">',
+               '<i>Thursday, August 20th - 9PM</i><BR><BR>\nFeathers', '$10')
+    (ev,) = parse_calendar(solo, LO, HI)  # not dropped, not misfiled
+    assert ev["title"] == "Feathers" and ev["lineup"] == ["Feathers"]
+
+    trip = row('<img src="images/2026/08aug/wc.jpg">',
+               '<i>Friday, August 21st - 9PM</i><BR><BR>\nWith Confidence', '$12')
+    (ev,) = parse_calendar(trip, LO, HI)  # all-notes fallback keeps the bill
+    assert ev["title"] == "With Confidence" and ev["detail"] is None
+
+
 def test_consecutive_rows_price_not_stolen_from_next_row():
     # An event row with NO third td (hand-edited rows drop it), followed by another
     # event: the next cell in document order is the next row's image — must not be
