@@ -1608,6 +1608,26 @@ class Component extends DCLogic {
       if (!same) { e.stars = live; dirty = true; }
     }
     if (dirty) this.forceUpdate();
+    this.reconcileStars();
+  }
+  // Drop chip/unchip tombstones the LIVE map has confirmed (star committed / unstar folded
+  // out) — from then on the server copy carries the star, so it follows the profile across
+  // browsers. Only ever called under a live map: pruning 'unchip' against a stale BAKED feed
+  // would resurrect the star it suppresses.
+  reconcileStars() {
+    const h = this.myHash();
+    const map = this._liveStars;
+    if (!h || !map) return;
+    const r = { ...this.state.reactions };
+    let changed = false;
+    for (const k of Object.keys(r)) {
+      const v = r[k];
+      if (v !== 'chip' && v !== 'unchip') continue;
+      if (!(k in map) && !this.byKey(k)) continue;   // key unknown to the live map AND the feed — leave it
+      const srv = (Array.isArray(map[k]) ? map[k] : []).some(s => s && s.hash === h);
+      if ((v === 'chip' && srv) || (v === 'unchip' && !srv)) { delete r[k]; changed = true; }
+    }
+    if (changed) this.setReactions(r);
   }
   syncStars() {
     if (!this.BACKEND_URL) return;
@@ -1785,13 +1805,12 @@ class Component extends DCLogic {
     priceLive:null, priceLiveFor:null, priceLiveStatus:null };
 
   componentDidMount() {
-    try { const r = JSON.parse(localStorage.getItem('la-fp-reactions-v1') || '{}'); if (r && typeof r === 'object') this.setState({ reactions:r }); } catch (e) {}
-    try { const s = JSON.parse(localStorage.getItem('la-seen-v1') || '{}'); if (s && typeof s === 'object') this.setState({ seen:s }); } catch (e) {}
     this.migrateLegacyConn();
     this.BACKEND_TOKEN = this.readConn().token || '';   // authoritative: post-migration, TTL-checked
     let prof = null;
     try { prof = JSON.parse(localStorage.getItem('la-profile') || 'null'); } catch (e) {}
     if (prof && prof.hash) this.setState({ profile: prof, loggedIn: true, username: prof.u || '' });
+    this.adoptLocalState(prof && prof.hash);   // per-profile reactions/seen buckets (+ one-time v1 migration)
     // ?e=<event_key> deep link (the digest's "card ↗" links) — opened once the feed is in
     try { this._deepKey = new URLSearchParams(location.search).get('e') || null; } catch (e) { this._deepKey = null; }
     // meta first (161 bytes, no-store) so the big feed fetch can use a content-version cache key
@@ -2202,6 +2221,10 @@ class Component extends DCLogic {
   // The feed's copy of my star: the server folds reactions.jsonl into every event's
   // stars [{name, hash}] on each rebuild; mine is the entry carrying my profile hash.
   serverStar(e) { const h = this.myHash(); return !!(h && e && (e.stars || []).some(s => s.hash === h)); }
+  // Reaction key: the stable pipeline event key — identical across feeds, rebuilds and
+  // profiles. The row id is positional (slug-<feedIndex>; any rebuild reshuffles it) and only
+  // a fallback for keyless rows, which can't reach the server anyway (reactPost needs e.key).
+  rkey(e) { return (e && (e.key || e.id)) || ''; }
   // Effective "my star" — the ONE state every star affordance renders and toggles. A live
   // local tap ('chip') wins; un-starring a server star leaves an 'unchip' tombstone that
   // suppresses the feed's copy until a rebuild folds the unstar out; otherwise the server
@@ -2209,7 +2232,7 @@ class Component extends DCLogic {
   // rather than this browser's localStorage.
   myStar(e) {
     if (!e) return false;
-    const r = this.state.reactions[e.id];
+    const r = this.state.reactions[this.rkey(e)];
     if (r === 'chip') return true;
     if (r === 'unchip') return false;
     return this.serverStar(e);
@@ -2305,7 +2328,7 @@ class Component extends DCLogic {
 
   poolFor(lens) {
     const [a,b] = this.windowFor(lens);
-    const less = e => this.state.reactions[e.id]==='less' ? 1 : 0; // downvoted sinks, never hides
+    const less = e => this.state.reactions[this.rkey(e)]==='less' ? 1 : 0; // downvoted sinks, never hides
     return this.collapseSeries(this.ALL.filter(e => e.iso>=a && e.iso<=b && !this.isSeen(e)))
       .sort((x,y) => less(x)-less(y) || this.rankCmp(x,y));
   }
@@ -2313,7 +2336,7 @@ class Component extends DCLogic {
   // "Seen" events (Saw this) drop out entirely — that's the one reaction that hides.
   lessSink(evs) {
     const kept = evs.filter(e => !this.isSeen(e));
-    const less = e => this.state.reactions[e.id]==='less';
+    const less = e => this.state.reactions[this.rkey(e)]==='less';
     return kept.filter(e => !less(e)).concat(kept.filter(less));
   }
 
@@ -2692,7 +2715,7 @@ class Component extends DCLogic {
     this.setState({ chatBusy:false, chatFiltered: list.length ? list.map(e => e.id) : null, chatFilterLabel: list.length ? label : '', view: list.length ? 'explore' : this.state.view, exploreSort: spec.sortBy === 'date' ? 'date' : 'rank', exploreDir: 1 });
   }
   clearChatFilter = () => this.setState({ chatFiltered:null, chatFilterLabel:'' });
-  resetReactions = () => { this.setState({ reactions:{}, seen:{} }); try { localStorage.removeItem('la-fp-reactions-v1'); localStorage.removeItem('la-seen-v1'); } catch (e) {} };
+  resetReactions = () => { const h = this.myHash(); this.setState({ reactions:{}, seen:{} }); try { localStorage.removeItem(this.reactionsKey(h)); localStorage.removeItem(this.seenStoreKey(h)); } catch (e) {} };
 
   // ---------- digest reader — renders ./digests/<hash>/latest.md (the full editorial digest) ----------
   DIGEST_MD = '';
@@ -2949,9 +2972,29 @@ class Component extends DCLogic {
       if (!this._applyFeed(raw)) { this.showToast('That profile\u2019s feed is empty', null); return; }
       const prof = { u, hash };
       try { localStorage.setItem('la-profile', JSON.stringify(prof)); } catch (e) {}
-      this.setState({ profile:prof, loggedIn:true, settingsOpen:false });
-      this.setReactions({});   // chips/less are per-person — server stars for this profile ride the feed
-      this.setSeen({});        // "Saw this" is per-person too — a fresh profile starts unhidden
+      this.setState({ profile:prof, loggedIn:true, settingsOpen:false }, () => {
+        // Reactions + seen are per-person: SWITCH to this profile's buckets (never wipe).
+        // Whoever signs in claims the signed-out taps: their stars post server-side now that
+        // we know who tapped ('less'/seen just carry over locally), then the default buckets
+        // reset for the next signed-out visitor.
+        const mine = this.loadReactionsFor(hash);
+        const anonR = this.loadReactionsFor(null);
+        for (const k of Object.keys(anonR)) {
+          if (anonR[k] === 'chip') {
+            const e = this.byKey(k);
+            if (e && !this.serverStar(e)) this.reactPost(e, 'star');
+            if (!mine[k]) mine[k] = 'chip';   // optimistic cover until /stars confirms (reconcile prunes)
+          }
+          else if (anonR[k] === 'less' && !mine[k]) mine[k] = 'less';
+        }
+        const seen = this.loadSeenFor(hash);
+        const anonS = this.loadSeenFor(null);
+        for (const k of Object.keys(anonS)) if (!seen[k]) seen[k] = anonS[k];
+        try { localStorage.removeItem(this.reactionsKey(null)); localStorage.removeItem(this.seenStoreKey(null)); } catch (e) {}
+        this.setReactions(mine, hash);
+        this.setSeen(seen, hash);
+        this.reconcileStars();
+      });
       this.BACKEND_TOKEN = this.readConn(prof).token || '';   // connection is per-profile
       this.setState({ backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); });
       this.loadDigest(); this.checkSpotify();
@@ -2960,7 +3003,7 @@ class Component extends DCLogic {
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.syncStars(); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions(this.loadReactionsFor(null), null); this.setSeen(this.loadSeenFor(null), null); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.syncStars(); this.showToast('Signed out — back to the house feed', null); };
   // ---------- pipeline jobs: per-profile Update + owner Refresh, persisted across reloads ----------
   workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
   checkCatalogFreshness() { return this.loadMeta(); }
@@ -3654,6 +3697,7 @@ class Component extends DCLogic {
     "",
     "## August 2026 — marquees & tables",
     "",
+    "- **Signing out no longer forgets you.** Your pending star taps, *show less* nudges, and *Saw this* hides now follow your profile on this browser instead of being wiped at every sign-in/out — and stars tapped while signed out are claimed by your profile the next time you sign in.",
     "- **The front page reorganized around two marquees.** What's *featured* — the lead, the shortlist, and two card shelves: **Sets and shows** (DJ sets, club nights, live rooms, plus any big concert the editor rates must-see) and **Events** (comedy, art, and one-off happenings). Everything program-shaped moved out of the shelves into compact **tables**, each formatted to its kind: **Seasonal and repeating** (markets, fleas, standing series — with their cadence: *Every Sunday*), **Movies** (now playing by closing date, then openings — *the marquee →* still holds the full boards), **Theater** (runs + one-night stages), **Festivals** (the date-sorted season: catalog festivals merged with the hand-curated watch-list), and **FYI** (big or far shows worth knowing about that aren't your lanes — arena bookings, on-sales, radar finds). A movie, a season, or a festival is never a featured card anymore; it's listed where you expect it.",
     "- **Retired:** the *Now running*, *On the radar*, and *Around town* sections — their contents live in the new tables.",
     "",
@@ -3744,7 +3788,37 @@ class Component extends DCLogic {
   welcomeBack = () => this.setState({ welcomeStep: Math.max(0, this.state.welcomeStep - 1) });
   welcomeNext = () => { if (this.state.welcomeStep >= this.WELCOME.length - 1) this.closeWelcome(); else this.setState({ welcomeStep: this.state.welcomeStep + 1 }); };
 
-  setReactions(r) { this.setState({ reactions:r }); try { localStorage.setItem('la-fp-reactions-v1', JSON.stringify(r)); } catch (e) {} }
+  // ---------- per-profile local state buckets (reactions + seen) ----------
+  // One bucket per profile ('default' signed out — same convention as connKey), so signing
+  // in/out SWITCHES state instead of wiping it: your pending taps and seen-hides follow your
+  // profile on this browser. Reactions are keyed by rkey (the stable event key, never the
+  // per-build row id); values 'chip'/'unchip' are tombstones the live-stars reconcile drops
+  // once the server confirms them, 'less' is a local-only soft sink.
+  reactionsKey(hash) { return 'la-fp-reactions-v2:' + (hash || 'default'); }
+  seenStoreKey(hash) { return 'la-seen-v2:' + (hash || 'default'); }
+  _loadBucket(key) { try { const v = JSON.parse(localStorage.getItem(key) || '{}'); return (v && typeof v === 'object') ? v : {}; } catch (e) { return {}; } }
+  loadReactionsFor(hash) { return this._loadBucket(this.reactionsKey(hash)); }
+  loadSeenFor(hash) { return this._loadBucket(this.seenStoreKey(hash)); }
+  // Boot: adopt the stored profile's buckets. One-time migration: la-seen-v1 was already
+  // stable-keyed — fold it into this profile's bucket so existing hides survive; the v1
+  // reactions were keyed by feed POSITION (slug-<index>), unrecoverable — drop them (stars
+  // live server-side; 'less' signals were already posted).
+  adoptLocalState(hash) {
+    const seen = this.loadSeenFor(hash);
+    let migrated = false;
+    try {
+      const v1 = JSON.parse(localStorage.getItem('la-seen-v1') || 'null');
+      if (v1 && typeof v1 === 'object') { for (const k of Object.keys(v1)) if (!seen[k]) { seen[k] = v1[k]; migrated = true; } }
+    } catch (e) {}
+    try { localStorage.removeItem('la-seen-v1'); localStorage.removeItem('la-fp-reactions-v1'); } catch (e) {}
+    this.setState({ reactions: this.loadReactionsFor(hash) });
+    if (migrated) this.setSeen(seen, hash); else this.setState({ seen });
+  }
+  setReactions(r, hash) {
+    this.setState({ reactions:r });
+    const h = hash !== undefined ? hash : (this.state.profile && this.state.profile.hash);
+    try { localStorage.setItem(this.reactionsKey(h), JSON.stringify(r)); } catch (e) {}
+  }
   // ---------- "Saw this" — hide an event (and, for repeating programs, ALL its dates) ----------
   // Keyed by the stable series/event key (NOT the per-build row id), so it survives feed rebuilds.
   // Repeating programs ALSO store a title fingerprint: the server only stamps series_key on runs
@@ -3762,7 +3836,11 @@ class Component extends DCLogic {
     return ks;
   }
   isSeen(e) { if (!e) return false; const m = this.state.seen; for (const k of this._seenKeysOf(e)) if (m[k]) return true; return false; }
-  setSeen(m) { this.setState({ seen:m }); try { localStorage.setItem('la-seen-v1', JSON.stringify(m)); } catch (e) {} }
+  setSeen(m, hash) {
+    this.setState({ seen:m });
+    const h = hash !== undefined ? hash : (this.state.profile && this.state.profile.hash);
+    try { localStorage.setItem(this.seenStoreKey(h), JSON.stringify(m)); } catch (e) {}
+  }
   markSeen(e, ev) {
     if (ev && ev.stopPropagation) ev.stopPropagation();
     const ks = this._seenKeysOf(e);
@@ -3795,22 +3873,24 @@ class Component extends DCLogic {
   }
   react(id, kind, ev) {
     if (ev && ev.stopPropagation) ev.stopPropagation();
-    const r = { ...this.state.reactions };
     const e = this.byId(id);
+    if (!e) return;
+    const r = { ...this.state.reactions };
+    const k = this.rkey(e);
     if (kind==='chip') {
       // toggles the EFFECTIVE state (myStar): un-starring a star the feed carries needs the
       // 'unchip' tombstone — e.stars keeps listing me until a rebuild folds the unstar out.
       const next = !this.myStar(e);
-      if (next) r[id]='chip';
-      else if (this.serverStar(e)) r[id]='unchip';
-      else delete r[id];
+      if (next) r[k]='chip';
+      else if (this.serverStar(e)) r[k]='unchip';
+      else delete r[k];
       this.reactPost(e, next ? 'star' : 'unstar');
     }
     else {
       // soft "show less" — sinks locally (never hides), and files a soft negative signal
       // (feedback kind `skipped`) so the next re-rank actually learns it. Undo is local-only.
-      const next = r[id]!=='less';
-      if (next) r[id]='less'; else delete r[id];
+      const next = r[k]!=='less';
+      if (next) r[k]='less'; else delete r[k];
       if (next && this.reactPost(e, 'less')) this.showToast('Noted — less like this in your ranking', null);
     }
     this.setReactions(r);
@@ -4108,7 +4188,7 @@ class Component extends DCLogic {
         out.sceneDot = this.SHELF_DOT[shelf.id] || '#76746b'; out.sceneCount = list.length; out.sceneList = list;
       } else {
         const sc = this.SCENES.find(s => s.id===this.state.sceneId) || this.SCENES[0];
-        const lessS = e => this.state.reactions[e.id]==='less' ? 1 : 0;
+        const lessS = e => this.state.reactions[this.rkey(e)]==='less' ? 1 : 0;
         const list = this.collapseSeries(this.ALL.filter(e => e.iso>=T && this.sceneOf(e).id===sc.id && !this.isSeen(e)))
           .sort((x,y) => lessS(x)-lessS(y) || this.rankCmp(x,y)).map(e => this.cardFor(e));
         out.sceneTitle = sc.label; out.sceneDesc = sc.desc; out.sceneDot = sc.dot; out.sceneCount = list.length; out.sceneList = list;
@@ -4188,7 +4268,7 @@ class Component extends DCLogic {
       if (this.state.chatFiltered) { const cf = new Set(this.state.chatFiltered); rows = rows.filter(e => cf.has(e.id)); }
       if (q) rows = rows.filter(e => (e.title+' '+e.venue+' '+e.hood+' '+e.genre+' '+e.cat+' '+e.source+' '+e.lineup.join(' ')).toLowerCase().includes(q));
       const sk = this.state.exploreSort;
-      const lessE = e => this.state.reactions[e.id]==='less' ? 1 : 0;
+      const lessE = e => this.state.reactions[this.rkey(e)]==='less' ? 1 : 0;
       const strSort = (fn) => (x,y) => fn(x).localeCompare(fn(y)) || y.score-x.score || (x.iso<y.iso?-1:1);
       const dir = this.state.exploreDir || 1;
       const base = sk==='date' ? ((x,y) => x.iso<y.iso?-1:x.iso>y.iso?1:0)
@@ -4326,8 +4406,8 @@ class Component extends DCLogic {
         photo:this.photoStyle(de, 'height:150px;'),
         onCal:() => { this.downloadIcs(de); this.showToast('Calendar file downloaded — open it to add', null); },
         onLess:(ev) => this.react(de.id,'less',ev),
-        lessLabel: this.state.reactions[de.id]==='less' ? '✓ Showing less like this' : 'Show less like this',
-        lessColor: this.state.reactions[de.id]==='less' ? '#8a887e' : '#a9a79d',
+        lessLabel: this.state.reactions[this.rkey(de)]==='less' ? '✓ Showing less like this' : 'Show less like this',
+        lessColor: this.state.reactions[this.rkey(de)]==='less' ? '#8a887e' : '#a9a79d',
         onSeen:(ev) => this.markSeen(de, ev),
         seenLabel: this.isSeen(de) ? '✓ Marked seen' : 'Saw this — hide it',
         seenColor: this.isSeen(de) ? '#8a887e' : '#a9a79d',
