@@ -69,6 +69,12 @@ FETCHERS = [
     {"name": "Eventbrite", "source": "eventbrite", "script": "fetch_eventbrite.py",
      "args": ["--days", "{days}"]},
     {"name": "DICE", "source": "dice", "script": "fetch_dice.py", "args": []},
+    # Permanent Records Roadhouse's own hand-authored calendar (HTTP-only — WebFetch can't
+    # read it). The venue moved ticketing DICE -> Opendate mid-2026, so the DICE slug now
+    # sees a sliver; this page is the calendar of record (~4 months out -> far: True) and
+    # the only source of its free in-stores/vinyl happy hours. Overlap dedupes.
+    {"name": "Permanent Records Roadhouse", "source": "roadhouse", "script": "fetch_roadhouse.py",
+     "args": ["--days", "{days}"], "far": True},
     # Beatport Tickets / Beatport Live (beatportal.com listing -> per-event JSON-LD).
     # far: True — the platform lists festivals/tours months out. LA inventory was EMPTY at
     # wiring time (2026-07-27); returns 0 cleanly (one page fetch) until Beatport lists LA.
