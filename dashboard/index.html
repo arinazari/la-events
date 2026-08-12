@@ -142,7 +142,6 @@
         <div style="{{ leadColStyle }}">
         <article onClick="{{ lead.onOpen }}" style="{{ leadCardStyle }} box-shadow: {{ lead.glow }};" style-hover="border-color:#a7a59b;">
           <div style="position:absolute; top:0; left:0; right:0; height:3px; background: {{ lead.matchColor }};"></div>
-          <sc-if value="{{ lead.photoCol.show }}" hint-placeholder-val="{{ false }}"><div style="{{ lead.photoCol.style }}"></div></sc-if>
           <sc-if value="{{ lead.poster.show }}" hint-placeholder-val="{{ false }}">
             <div style="flex:0 0 210px; align-self:stretch; min-height:230px; background: {{ lead.poster.bg }}; display:flex; flex-direction:column; justify-content:space-between; padding:16px;">
               <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color: {{ lead.poster.fg }}; opacity:0.85;">◍ ART</span>
@@ -222,7 +221,6 @@
           <div style="{{ shortListStyle }}">
           <sc-for list="{{ shortlist }}" as="c" hint-placeholder-count="4">
             <article onClick="{{ c.onOpen }}" style="{{ shortCardStyle }} box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
-              <sc-if value="{{ c.thumb.show }}" hint-placeholder-val="{{ false }}"><div style="{{ c.thumb.style }}"></div></sc-if>
               <sc-if value="{{ c.poster.show }}" hint-placeholder-val="{{ false }}"><div style="flex:0 0 52px; height:66px; border-radius:3px; background: {{ c.poster.bg }};"></div></sc-if>
               <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:6px;">
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
@@ -852,7 +850,6 @@
   <button onClick="{{ closeDetail }}" title="Close (Esc)" style="position:absolute; top:16px; right:20px; z-index:3; width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,0.28); background:rgba(27,26,23,0.55); color:#fff; cursor:pointer; font-size:16px; line-height:1; display:flex; align-items:center; justify-content:center; -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);" style-hover="background:rgba(27,26,23,0.82);">✕</button>
   <div style="position:relative; z-index:1; width:100%; max-width:600px; max-height:100%; overflow-y:auto; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:5px; box-shadow:0 24px 60px rgba(0,0,0,0.3);" class="scry">
     <div style="height:3px; background: {{ detail.matchColor }};"></div>
-    <sc-if value="{{ detail.photo.show }}" hint-placeholder-val="{{ false }}"><div style="{{ detail.photo.style }}"></div></sc-if>
     <sc-if value="{{ detail.poster.show }}" hint-placeholder-val="{{ false }}"><div style="height:150px; background: {{ detail.poster.bg }}; display:flex; align-items:flex-end; padding:14px;"><span style="font:800 22px/1 -apple-system,system-ui,sans-serif; color: {{ detail.poster.fg }};">{{ detail.poster.label }}</span></div></sc-if>
     <div style="padding:20px 22px 16px;">
       <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
@@ -1097,18 +1094,6 @@
           </div>
           <sc-if value="{{ isRefreshing }}" hint-placeholder-val="{{ false }}"><div class="la-prog" style="background:#e4e2d9; margin-top:7px;"><i style="background:#2b5cd9;"></i></div></sc-if>
         </div>
-        <sc-if value="{{ showAdminRows }}" hint-placeholder-val="{{ false }}">
-        <div title="{{ photosStatusText }}" style="padding:9px 11px; border-top:1px solid #f0efe8;">
-          <div style="display:flex; align-items:center; gap:9px;">
-            <span style="flex:none; width:17px; text-align:center; font-size:11px; color:#76746b;">◍</span>
-            <span style="flex:none; font:600 12.5px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Event photos</span>
-            <span style="flex:none; font:700 7.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#8a887e; background:#f1f0ea; border:1px solid #e0ded5; border-radius:3px; padding:2px 4px;">ADMIN</span>
-            <span style="flex:1;"></span>
-            <span onClick="{{ togglePhotos }}" style="{{ photosSwTrack }}"><span style="{{ photosSwKnob }}"></span></span>
-          </div>
-          <div style="margin-top:4px; padding-left:26px; font:400 9.5px/1.35 ui-monospace,Menlo,monospace; color:#a7a59b; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ photosStatusText }}</div>
-        </div>
-        </sc-if>
       </div>
     </sc-if>
 
@@ -1553,7 +1538,6 @@ class Component extends DCLogic {
       hood: r.neighborhood || r.hood || r.area || 'Los Angeles',
       cat, genre,
       genres: genreArr, vibes: axOf('vibe'), settings: axOf('setting'), regions: axOf('region'),
-      image: (typeof r.image === 'string' && /^https:\/\//.test(r.image)) ? r.image : '',
       lineup: Array.isArray(r.lineup) ? r.lineup : [],
       artistNotes: Array.isArray(enr.artist_notes) ? enr.artist_notes.filter(n => n && n.name) : [],
       pmin: pr.pmin, pmax: pr.pmax, priceDisplay: pr.display,
@@ -2276,7 +2260,6 @@ class Component extends DCLogic {
       tags, hasTags:tags.length>0, miniTags:tags.slice(0,2), ticketLabel:this.ticketLabel(e),
       isNew:(e.xb||[]).some(x => /just announced/i.test(x)) || !!(((this.META||{}).catalog_fetched_at||'') && e.firstSeen && String(e.firstSeen).slice(0,10) >= String(this.META.catalog_fetched_at).slice(0,10)),
       poster:this.posterFor(e),
-      thumb:this.photoStyle(e, 'flex:0 0 52px; height:66px; border-radius:3px;'),
       onOpen:() => this.openDetail(e.id),
       ...this.chipProps(e),
     };
@@ -3490,30 +3473,7 @@ class Component extends DCLogic {
     });
   }
 
-  // ---------- real event photos (feed `image`, https-gated in parseEvent) ----------
-  // Policy (Ari, 2026-07-24): photos are OFF by default, admin-controlled, and appear only on the
-  // top events of a signed-in profile's feed (the lead + shortlist) — not the house feed, not the
-  // whole catalog. The durable switch is profile.yaml `dashboard.photos` → feed `config.photos`;
-  // the owner's settings toggle overrides it on this device (preview).
   isOwner() { return !!(this.META && this.META.profile && this.META.profile.owner); }
-  photosOverride() { try { return localStorage.getItem('la-photos-override'); } catch (e) { return null; } }
-  photosOn() {
-    if (!this.state.loggedIn) return false;
-    const ov = this.photosOverride();
-    if (ov === 'on') return true;
-    if (ov === 'off') return false;
-    return ((this.META.config || {}).photos) === true;
-  }
-  togglePhotos = () => {
-    const next = this.photosOn() ? 'off' : 'on';
-    try { localStorage.setItem('la-photos-override', next); } catch (e) {}
-    this.forceUpdate();
-    this.showToast(next === 'on' ? 'Event photos on (this device) — top picks only' : 'Event photos off (this device)', null);
-  };
-  photoStyle(e, css) {
-    if (!this.photosOn() || !e || !e.image) return { show:false, style:'' };
-    return { show:true, style: css + ' background:#e8e6de url("' + e.image.replace(/"/g, '%22') + '") center/cover no-repeat;' };
-  }
 
   // ---------- Explore faceted filters ----------
   // The filters live IN the columns (the original explore design) — a funnel per header opens
@@ -3668,7 +3628,7 @@ class Component extends DCLogic {
     "- **Two dedicated views: the marquee, and the festival watch-list.** **The marquee** (via *the marquee →* on the movies lane) is a full movies page: every film program with its dates board inline — now playing, opens soon, and the one-night screenings for the next two weeks. **Festivals & big shows** (via *the festival watch-list →* under On the radar) finally surfaces the hand-curated watch-list — Portola, CRSSD, Coachella and co. with dates, where tickets stand (*on sale · lineup pending · annual watch*), and the one-line why. That list existed all along; it just never reached the site until now.",
     "- **Clearer scene names + a home for long runs.** The scene lanes got plainer names — **Afterhours**, **Big-name club nights**, **Arenas & halls**, **Markets, art & more** — and movies, comedy and theater share one **Movies, comedy & theater** lane. Multi-week runs and seasons (a Pantages musical, a month of rep showtimes) moved to their own **Now running** section instead of squatting a scene box for weeks; they rejoin the dated lanes for their final two weeks, when *closes Sunday* is news. Run cards show the span (*Thru Sun Sep 6 · 12 nights*), and their detail popup carries an **All dates** board — every remaining night as a chip straight to that night's tickets, grouped by theater, sold-out nights crossed out.",
     "- **A new front page** — the lead pick, your shortlist, a lane per scene, and the day's digest headline up top, with the detail popup and settings rebuilt to match.",
-    "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, real **event photos** on cards, the **tutorial / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
+    "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, the **tutorial / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
     "- **Stars teach again, and “less” learns too.** The + chip commits your star server-side (friends see it; the lineup boosts your ranking), and **Show less like this** now files a soft negative signal instead of only hiding locally.",
     "- **Retired:** the ✦ Artist intel button (the lineup rows' Spotify/SoundCloud links and bios remain).",
     "- **The front page is the server's slate again.** The lead, shortlist, scene lanes, radar and the returning **Around town** section render the editorial slate (the same ranking your digest uses) instead of a client-side re-sort; film runs show **showtimes** and **also-showing** nights again; the concierge **streams** its replies (with a ■ stop) and falls back to an instant offline filter; phones get a proper **card list**; and the feed only re-downloads when the catalog actually changed.",
@@ -3892,7 +3852,7 @@ class Component extends DCLogic {
       const fillOk = e => !heroIds.has(e.id) && (e.verdict || {}).tier !== 'skip' && !(e.score < 0);
       let top5 = this.lessSink(heroSrv.concat(pool.filter(fillOk))).slice(0, 5);
       if (!mob && top5.length < 3) top5 = top5.slice(0, 1);
-      const lead = top5[0] ? { ...this.cardFor(top5[0]), rank:'01', photoCol:this.photoStyle(top5[0], 'flex:0 0 210px; align-self:stretch; min-height:230px;') } : null;
+      const lead = top5[0] ? { ...this.cardFor(top5[0]), rank:'01' } : null;
       out.hasLead = !!lead; out.lead = lead || {};
       out.leadKicker = { today:"TONIGHT'S LEAD", weekend:"THE WEEKEND'S LEAD", twoweeks:'TOP OF THE NEXT THREE WEEKS', ahead:'THE ONE TO PLAN AROUND' }[lens] || 'YOUR LEAD';
       const short = top5.slice(1,5).map((e,i) => ({ ...this.cardFor(e), rank:String(i+2).padStart(2,'0') }));
@@ -4323,7 +4283,6 @@ class Component extends DCLogic {
         seriesMore: board.more, hasSeriesMore: !!board.more,
         seriesBadge: (de.series && de.series.count > 1) ? ((de.series.venues || []).length > 1 ? (de.series.count + ' dates · ' + de.series.venues.length + ' theaters') : (de.series.count + ' nights')) : '',
         sceneLabel:(this.shelfOf(de) || sc).label, onScene:() => { const shf = this.shelfOf(de); this.openScene(shf ? shf.id : sc.id); }, poster:this.posterFor(de),
-        photo:this.photoStyle(de, 'height:150px;'),
         onCal:() => { this.downloadIcs(de); this.showToast('Calendar file downloaded — open it to add', null); },
         onLess:(ev) => this.react(de.id,'less',ev),
         lessLabel: this.state.reactions[de.id]==='less' ? '✓ Showing less like this' : 'Show less like this',
@@ -4334,7 +4293,7 @@ class Component extends DCLogic {
         ...this.priceBlockFor(de),
         ...this.chipProps(de),
       };
-    } else out.detail = { poster:{show:false}, photo:{show:false}, friendChips:[] };
+    } else out.detail = { poster:{show:false}, friendChips:[] };
 
     // ---- SETTINGS + MODALS ----
     const sw = (on) => ({ track:'width:36px; height:20px; border-radius:999px; background:'+(on?'#2b5cd9':'#cfcdc4')+'; position:relative; cursor:pointer; flex:none; transition:background .15s;', knob:'position:absolute; top:2px; left:'+(on?'18px':'2px')+'; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.3); transition:left .15s;', label:on?'ON':'OFF' });
@@ -4394,13 +4353,6 @@ class Component extends DCLogic {
           : 'Not connected. Link your Spotify so your picks re-rank to what you actually listen to.';
       })(),
       showAdminRows: this.isOwner(),
-      photosStatusText: (() => {
-        const on = this.photosOn(); const ov = this.photosOverride();
-        const base = ((this.META.config || {}).photos) === true;
-        return (on ? 'on' : 'off') + ' — top picks only' + (ov ? ' · device override (site default: ' + (base ? 'on' : 'off') + ', set in profile.yaml)' : ' · site default (profile.yaml dashboard.photos)');
-      })(),
-      togglePhotos: this.togglePhotos,
-      photosSwTrack: sw(this.photosOn()).track, photosSwKnob: sw(this.photosOn()).knob,
       apiKeyStatus: (() => {
         const key = this.byokKey();
         const idn = key ? ('your key (' + key.slice(0, 11) + '…)') : (this.BACKEND_TOKEN ? 'shared token' : 'not set');
