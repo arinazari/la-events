@@ -221,7 +221,10 @@ CARD_FIELDS = {
 
 def validate_card(raw):
     """Clamp a raw LLM card to the contract; None if nothing usable. Unknown keys drop,
-    non-int values drop, in-range ints pass, out-of-range ints clamp."""
+    non-int values drop, in-range ints pass, out-of-range ints clamp. `vibes` is the one
+    non-int field: scene identities the researcher can assert confidently (vibe vocab —
+    queer, goth, …) even when the listing text never says so; scoring's penalty_vibes
+    opt-outs read them."""
     if not isinstance(raw, dict):
         return None
     out = {}
@@ -234,6 +237,12 @@ def validate_card(raw):
         except (TypeError, ValueError):
             continue
         out[f] = max(lo, min(hi, v))
+    vibes = raw.get("vibes")
+    if isinstance(vibes, (list, tuple)):
+        vibes = [str(x).strip().lower() for x in vibes
+                 if isinstance(x, str) and x.strip()][:4]
+        if vibes:
+            out["vibes"] = vibes
     return out or None
 
 

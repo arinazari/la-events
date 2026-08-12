@@ -233,6 +233,24 @@ def test_venue_loved_article_and_direction_insensitive():
     assert any("venue you love" in x for x in r["reasons"])
 
 
+def test_penalty_vibes_hard_opt_out():
+    """2026-08: 'queer-specific or determined queer-oriented' opt-out — fires on the
+    deterministic vibe TAG and on enrichment-card `vibes` (implicit cases like Bears in
+    Space, whose listing text never says the word), -6 each, off when unconfigured."""
+    taste = {"scoring": {"penalty_vibes": ["queer"]}}
+    tagged = {"title": "Some Party", "venue": "Akbar", "category": "electronic",
+              "tags": {"vibe": ["queer", "day-party"]}}
+    r = score_event(tagged, taste, {})
+    assert any("opted out of (queer)" in x for x in r["reasons"])
+    plain = dict(tagged); plain["tags"] = {"vibe": ["day-party"]}
+    base = score_event(plain, taste, {})
+    assert r["score"] == base["score"] - 6
+    carded = score_event(plain, taste, {}, None, card={"draw": 2, "vibes": ["queer"]})
+    assert any("opted out of (queer)" in x for x in carded["reasons"])
+    off = score_event(tagged, {}, {})           # no penalty_vibes configured -> no effect
+    assert not any("opted out" in x for x in off["reasons"])
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

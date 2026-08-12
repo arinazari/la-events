@@ -68,6 +68,12 @@ knowledgeable scene insider wrote it. You do research + tagging + a draft curato
      2 exceptional one-off you would not expect to repeat.
    - `lineup_depth` 0–2 — beyond the headliner: 0 headliner-only or unknown support,
      1 solid support, 2 genuinely stacked bill.
+   - `vibes[]` — OPTIONAL scene identities from the vibe vocab (queer, goth, …) you can
+     assert confidently about the EVENT even when its listing text never says so (Bears in
+     Space is a queer disco party whether or not the flyer mentions it). Rule: if your
+     curator note or description asserts a scene identity in prose, the matching vibe MUST
+     be on the card — per-profile opt-outs (scoring.penalty_vibes) read it, and a prose-only
+     assertion is invisible to them.
    Under-claim when unsure (unverified hype is a 0, not a 2) — a wrong card mis-ranks the
    event for every profile at once.
 
@@ -84,7 +90,7 @@ Write a JSON array to the cache path (one object per event) **and** return a one
   "energy": "groove / daytime",
   "setting": "rooftop",
   "sounds_like": ["Hunee", "Young Marco"],
-  "card": {"draw": 2, "rarity": 1, "lineup_depth": 1},
+  "card": {"draw": 2, "rarity": 1, "lineup_depth": 1, "vibes": ["queer"]},
   "artist_notes": [{"name": "Antal", "note": "Rush Hour boss — Dutch digger, deep/disco selector."}],
   "curator_note": "An all-afternoon rooftop groove from one of the best diggers alive — worth building the day around.",
   "description": "All-day open-air party with Rhythm Section's Bradley Zero and Antal.",
