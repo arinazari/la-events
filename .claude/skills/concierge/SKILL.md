@@ -79,6 +79,7 @@ root files.)
 | "where should I eat," "dinner spot Friday," "best new restaurant," `/la-dining` | **la-dining — Query** | Hand off occasion / area / party size / price. |
 | "what's trending in dining," "new openings" | **la-dining — Radar** | Trending digest, not occasion-specific. |
 | pasted **flyer / screenshot / promoter blast** | **capture** | Event flyer → la-events flyer mode; restaurant/popup/truck → la-dining capture. Route by what it is. |
+| "cheapest tickets for X," "is there a cheaper way into [show]," "what's X going for" | **la-events — Prices (Mode 4)** | `python scripts/check_prices.py --query "<act>"` → resale floors (Gametime/SeatGeek) vs the listed price; WebFetch the walled marketplaces if he wants it dug out, `--record` finds. Answer cheapest-first with fees called out. |
 | "find new sources," "what are we missing," a venue/IG/Linktree to vet | **`source-scout` agent** (Discover) | Returns a proposal table; you present it for approval. |
 | "show me the registry / source status" | la-events or la-dining **sources** | Read the relevant `*-sources.yaml`. |
 
@@ -90,7 +91,7 @@ skill's mode directly rather than ceremony. The concierge earns its keep on the 
 When the ask names other people — "what would me + Lori be into," "find a show the three of us would
 like," "plan something for me and Dr. Ganesan" — don't just use Ari's taste. Run the group scorer:
 
-`python scripts/group_picks.py --people me,lori,dr_ganesan [--days N | --from <ISO> --to <ISO>]`
+`python scripts/group_picks.py --people me,lori,vish [--days N | --from <ISO> --to <ISO>]`
 
 It scores the catalog against **each person's own** taste / mechanics / music layer (the same scorer
 as their solo feed, so it can't drift) and prints a per-event matrix: every shared upcoming event with
@@ -98,7 +99,7 @@ each person's score + ★ + a `⛔` when it's a hard down-rank for them, plus `a
 `me` (or `default`) = Ari/the owner; friends are their `profiles.yaml` entries.
 
 **Don't ask for a username — resolve the name yourself.** `--people` takes a profile's display **name
-or** username, case-insensitively (`Lori` == `lori`, `Dr. Ganesan` == `dr_ganesan`), so pass whatever
+or** username, case-insensitively (`Lori` == `lori`, `Dr. Ganesan` == `vish`), so pass whatever
 Ari called them. When he says "me + Lori," run `--people me,Lori` directly — asking him to confirm
 "Lori's username" is a pointless extra step when the name already maps to a profile. Only stop to ask
 when the name is genuinely **ambiguous** (matches two different people you both know) or **has no

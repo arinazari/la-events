@@ -69,6 +69,11 @@ FETCHERS = [
     {"name": "Eventbrite", "source": "eventbrite", "script": "fetch_eventbrite.py",
      "args": ["--days", "{days}"]},
     {"name": "DICE", "source": "dice", "script": "fetch_dice.py", "args": []},
+    # Beatport Tickets / Beatport Live (beatportal.com listing -> per-event JSON-LD).
+    # far: True — the platform lists festivals/tours months out. LA inventory was EMPTY at
+    # wiring time (2026-07-27); returns 0 cleanly (one page fetch) until Beatport lists LA.
+    {"name": "Beatport", "source": "beatport", "script": "fetch_beatport.py",
+     "args": ["--days", "{days}"], "far": True},
 ]
 
 
@@ -179,6 +184,8 @@ def main() -> int:
                     help="0 (default) = judge EVERY slate-lane event in the window (LLM-first, "
                          "Track B1); >0 = legacy top-K per lane per day")
     ap.add_argument("--editor-floor", type=int, default=4, help="also judge everything scoring >= this")
+    ap.add_argument("--editor-top-k", type=int, default=120,
+                    help="cap recall-mode judging to the best K (0/negative = uncapped)")
     args = ap.parse_args()
 
     cat_path = REPO / args.catalog if not Path(args.catalog).is_absolute() else Path(args.catalog)
@@ -263,13 +270,17 @@ def main() -> int:
                   file=sys.stderr)
 
     affinity = load_affinity_layer(args.no_fetch, report, profile)
+    # Shared enrichment cache is now ALSO a scoring input (the event card term), so load it
+    # before the scored pools, not just for the editor records below.
+    enr_cache = EN.load_cache()
     # Track B2: the enrichment head is ordered by the editor's cached judgment (rank_score =
     # score + adjust + bounded tier bonus), not raw keyword score. Brand-new events fall back
     # to raw score for this one run (they're judged below, and slot correctly next run).
     verdict_map = ED.verdict_map(ED.load_verdicts())
     candidates = P.select_candidates(catalog, taste, profile, today,
                                      window_days=args.window, top_n=args.top,
-                                     affinity=affinity, verdicts=verdict_map)
+                                     affinity=affinity, verdicts=verdict_map,
+                                     enrich_cache=enr_cache)
     cand_doc = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "today": today.isoformat(),
@@ -286,13 +297,18 @@ def main() -> int:
     # selection over the same scored set; the event-editor agent judges this at digest time and
     # writes verdicts into enrichment.json, which assemble() then folds onto the slate.
     ep_path = REPO / args.editor_pool if not Path(args.editor_pool).is_absolute() else Path(args.editor_pool)
-    pool = P.score_pool(catalog, taste, profile, today, window_days=args.editor_window, affinity=affinity)
+    pool = P.score_pool(catalog, taste, profile, today, window_days=args.editor_window,
+                        affinity=affinity, enrich_cache=enr_cache)
     pool = [e for e in pool if (e.get("score") or 0) >= 0]          # negatives auto-skip; don't judge
-    judge = ED.editor_pool(pool, per_lane=args.editor_per_lane, floor=args.editor_floor)
+    judge = ED.editor_pool(pool, per_lane=args.editor_per_lane, floor=args.editor_floor,
+                           top_k=(args.editor_top_k if args.editor_top_k and args.editor_top_k>0 else None))
+    # Event-targeted reactions (dashboard taps carry event_key on their feedback rows) force a
+    # fresh verdict for exactly that event: stamp reacted_at so select_for_verdict re-judges it
+    # even when the score moved less than DRIFT_MIN.
+    FB.stamp_reacted(judge, FB.load_feedback(FB.affinity_paths(REPO)[1]))
     # Fold the shared scene cache (last run's write-once enrichment) into each editor record so the
     # judge sees verified facts about unfamiliar lineups instead of re-deriving them. Read-only;
     # taste-neutral (scene_facts excludes curator_note/energy). Empty cache = prior behavior exactly.
-    enr_cache = EN.load_cache()
     ep_doc = ED.pool_doc(judge, today=today, window_days=args.editor_window,
                          per_lane=args.editor_per_lane, floor=args.editor_floor,
                          affinity=affinity, enrichment=enr_cache, taste=taste)
@@ -306,7 +322,8 @@ def main() -> int:
     # (0 = off) for pathological catalogs, and any overflow past it falls back to source detail.
     bp_path = REPO / args.blurb_pool if not Path(args.blurb_pool).is_absolute() else Path(args.blurb_pool)
     head_keys = {P.event_key(c) for c in candidates}
-    bpool = P.score_pool(catalog, taste, profile, today, window_days=args.blurb_window, affinity=affinity)
+    bpool = P.score_pool(catalog, taste, profile, today, window_days=args.blurb_window,
+                         affinity=affinity, enrich_cache=enr_cache)
     bpool = [e for e in bpool if (e.get("score") or 0) >= 0 and P.event_key(e) not in head_keys]
     if args.blurb_top and args.blurb_top > 0:
         blurb_overflow = max(0, len(bpool) - args.blurb_top)

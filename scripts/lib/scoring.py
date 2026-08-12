@@ -27,7 +27,8 @@ try:
 except Exception:  # pragma: no cover - zoneinfo always present on py3.9+
     _LA = None
 
-from .affinity import artist_affinity, genre_affinity, tracked_hits, ambiguous_set
+from .affinity import artist_affinity, genre_affinity, tracked_hits, ambiguous_set, \
+    fold, _token_pat
 
 # ── Defaults (verbatim from pre-refactor build_dashboard.py) ─────────────────
 DEFAULT_CATEGORY_WEIGHTS = {
@@ -104,6 +105,7 @@ def _scoring_cfg(profile: dict, taste: dict = None) -> dict:
         "penalty": tuple(pick("penalty_terms", DEFAULT_PENALTY_TERMS)),
         "far": tuple(pick("far_terms", DEFAULT_FAR_TERMS)),
         "rating_thresholds": [tuple(t) for t in pick("rating_thresholds", DEFAULT_RATING_THRESHOLDS)],
+        "card_cap": pick("card_cap", 4),   # max points from the shared event card (0 disables)
     }
 
 
@@ -131,13 +133,37 @@ def parse_event_date(ev: dict):
             return None
 
 
+def _strip_article(s: str) -> str:
+    s = " ".join((s or "").split())
+    return s[4:] if s.lower().startswith("the ") else s
+
+
+def venue_loved(venue: str, loved: list) -> bool:
+    """Does `venue` match any venues_loved entry? Accent-folded, leading-'The' stripped on
+    both sides, then token-bounded containment in EITHER direction (see call-site comment)."""
+    v = fold(_strip_article(venue))
+    if not v:
+        return False
+    for entry in loved:
+        e = fold(_strip_article(str(entry)))
+        if len(e) < 4:
+            continue
+        if _token_pat(e).search(v) or _token_pat(v).search(e):
+            return True
+    return False
+
+
 def score_event(ev: dict, taste: dict = None, profile: dict = None,
-                affinity: dict = None) -> dict:
+                affinity: dict = None, card: dict = None) -> dict:
     """Return {score, reasons[]} for an event. Mirrors the digest's ranking.
 
     `affinity` (optional) = the merged Spotify + feedback music layer (Phase C). When
     absent, scoring is byte-identical to the taste.yaml/profile.yaml-only path — the
     music layer only ever ENRICHES; it never replaces the human spine in taste.yaml.
+
+    `card` (optional) = the shared enrichment's taste-neutral event card
+    (enrich.CARD_FIELDS: draw/rarity/lineup_depth), scored as ONE bounded additive
+    term (card_cap). Absent card -> byte-identical scores, same as affinity.
     """
     taste = taste or {}
     cfg = _scoring_cfg(profile, taste)
@@ -156,7 +182,7 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
                     str(ev.get("organizers") or "")]).lower()
 
     tracked = [a for a in (taste.get("artists_tracked") or []) if a]
-    loved = [v.lower() for v in (taste.get("venues_loved") or [])]
+    loved = [v for v in (taste.get("venues_loved") or []) if v]
     comics = [c.lower() for c in (taste.get("comedians_loved") or [])]
 
     # Base category weight (comedy is special — suppressed unless a loved name).
@@ -184,8 +210,12 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         score += 2 * len(hits)
         reasons.append(f"+{2 * len(hits)} tracked artist ({', '.join(hits)})")
 
-    # Loved venue (substring match — "2220 Arts" ~ "2220 Arts + Archives").
-    if any(l in vlow for l in loved):
+    # Loved venue — leading-"The" insensitive, accent-folded, token-bounded, BOTH directions:
+    # taste "The Greek" matches venue "Greek Theatre" (and the reverse), "2220 Arts" still
+    # matches "2220 Arts + Archives", and "greek" can never match inside "Greektown". The old
+    # one-way bare substring silently missed every article/suffix variant (2026-08 test-run
+    # caught the Greek Theatre bonus never firing).
+    if venue_loved(venue, loved):
         score += 1
         reasons.append("+1 venue you love")
 
@@ -278,6 +308,26 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         else:
             score -= 2
             reasons.append("-2 far from LA")
+
+    # Shared event card (taste-neutral facts from enrichment): draw + rarity + a stacked
+    # bill, as one capped term so the card refines the taste ranking, never drives it.
+    if card and cfg["card_cap"] > 0:
+        parts, cp = [], 0
+        d = int(card.get("draw") or 0)
+        if d > 0:
+            cp += d
+            parts.append(f"+{d} draw")
+        r = int(card.get("rarity") or 0)
+        if r > 0:
+            cp += r
+            parts.append(f"+{r} rare booking")
+        if int(card.get("lineup_depth") or 0) >= 2:
+            cp += 1
+            parts.append("+1 stacked bill")
+        cp = min(cp, cfg["card_cap"])
+        if cp > 0:
+            score += cp
+            reasons.append(f"+{cp} event card ({', '.join(parts)})")
 
     return {"score": score, "reasons": reasons}
 

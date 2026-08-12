@@ -31,6 +31,7 @@ around the corner.
 | `/la-events` or `/la-events digest [N days]` | **Digest** — fetch, dedupe, rank, brief |
 | `/la-events discover` | **Discover** — hunt for new sources, propose registry additions |
 | `/la-events flyer` + pasted image/text | **Capture** — normalize a flyer/blast into a catalog entry |
+| `/la-events prices <act/event>` or "cheapest tickets for X" | **Prices** — resale floors vs listed price (Mode 4) |
 | `/la-events sources` | Show registry status from `sources.yaml` |
 
 ---
@@ -52,7 +53,8 @@ expire → score — and writes `data/catalog.json` (durable, score-free) plus `
 (the scored, ranked, upcoming top-N). **Don't fetch / dedupe /
 score these by hand anymore.** It covers the single-endpoint structured fetchers: Ticketmaster
 (`TM_API_KEY`), Resident Advisor, 19hz, Goldenvoice, Vidiots (Filmbot), Posh (`POSH_TOKEN`),
-Eventbrite (curated organizers), DICE. It **degrades gracefully** — any fetcher that errors / times
+Eventbrite (curated organizers), DICE, Beatport (beatportal.com — ticketed listing still
+empty for LA, but its "RSVP Now" article sweep catches Beatport Live's free LA drops). It **degrades gracefully** — any fetcher that errors / times
 out / is missing its key is listed in the printed run report (carry that into the footer), never
 blocking the run.
 
@@ -303,6 +305,32 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
 
 ---
 
+## Mode 4 — Cheapest tickets
+
+Resale floors routinely undercut face price (the canonical case: Kim Gordon $19 all-in on
+Gametime vs ~$45 on Ticketmaster) and the pipeline can't see primary prices for most TM
+inventory, so price comparison is its own pass (`scripts/check_prices.py` + `lib/prices.py`
+→ `data/ticket_prices.json`, committed; the feed folds it onto cards as `price_check`).
+
+1. **Run the deterministic check:** `python scripts/check_prices.py --query "<act>"` (or
+   `--key <event_key>`). It resolves the catalog events, queries **Gametime** (open API —
+   real all-in floors, one query covers all their LA dates), **SeatGeek** when
+   `SEATGEEK_CLIENT_ID` is set, and records the catalog's own listed price as the anchor.
+2. **Cover the walled marketplaces when asked to dig:** StubHub / Vivid Seats / TickPick
+   block datacenter fetches — `--links` prints their prefilled search URLs; try WebFetch on
+   the event pages (JSON-LD `offers.lowPrice` when it renders), and save anything found:
+   `python scripts/check_prices.py --record --key <k> --source stubhub --price 20 --url <listing>`.
+3. **Answer in voice, cheapest first, fees called out** ("$19 all-in on Gametime — TM wants
+   ~$45 before fees"), with the check date. If the store changed and the ask came from the
+   dashboard flow, rebuild feeds (`build_profiles.py`) or let the nightly run fold it.
+
+The nightly routine runs `check_prices.py --auto` (featured head + starred, ~60 acts) so
+the dashboard card's **Cheapest tickets** block is fresh without any ask; the card's
+**↻ live check** re-queries Gametime through the concierge Worker's `GET /prices` relay.
+Free events, films, and markets are never checked — no resale market exists for them.
+
+---
+
 ## Files (paths relative to repo root)
 
 - `sources.yaml` — the registry. Read at the start of every mode. Schema documented in
@@ -341,6 +369,7 @@ thus permanently subscribes us to that promoter — the intended way Eventbrite 
 - `scripts/fetch_filmbot.py` — Nightjar/Filmbot cinema REST API (`--site`; Vidiots default)
 - `scripts/fetch_posh.py` — Posh authenticated tRPC explore (needs `POSH_TOKEN`)
 - `scripts/fetch_eventbrite.py` — curated-organizer crawler + `--harvest` / `--scan-catalog`
+- `scripts/fetch_beatport.py` — Beatport Tickets/Live via beatportal.com (geo-filtered listing → JSON-LD + "RSVP Now" free-party article drops)
 - `scripts/fetch_jsonld.py` — generic schema.org/Event scraper (curl fallback)
 
 ## Practical notes

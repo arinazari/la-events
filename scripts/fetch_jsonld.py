@@ -106,6 +106,8 @@ def normalize(ev: dict, source: str) -> dict:
     offers = ev.get("offers") or {}
     if isinstance(offers, list):
         offers = offers[0] if offers else {}
+    if not isinstance(offers, dict):  # beatportal stamps offers as a bare string
+        offers = {}
     start = ev.get("startDate") or ""
     return {
         "source": source,

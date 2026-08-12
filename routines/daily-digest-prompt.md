@@ -85,11 +85,13 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    `lib/assemble.top_picks`, tier-primary with lane/family diversity caps, same as the
    dashboard hero, so lower-ranked same-lane picks are displaced by design; whys prefilled
    from curator notes/verdicts, priced + urgency-chipped), **What changed** (new/updated since the last pull;
-   auto-omitted on quiet days), the day-by-day body (next 14 days, lane-grouped + tier-scaled) +
-   **Weekends ahead** (days 15–35 compressed to top-4 per weekend + a link to its
-   digests/weekends/<Fri>.md), **Around town** (city-pulse, NOT taste-ranked, de-duped
-   against the slate), and **on the radar**. All slate content is the editor slate (assemble over
-   the scored pool + verdicts); ⭐ = the editor's must-sees. Ops notices (Posh-token expiry,
+   auto-omitted on quiet days), the day-by-day body (next 14 days, lane-grouped + tier-scaled,
+   **movie-free by design**) + **Weekends ahead** (days 15–35 compressed to top-4 per weekend + a
+   link to its digests/weekends/<Fri>.md), **On the marquee** (the ONE movies block — film runs
+   opening this stretch + notable one-night screenings; films appear in no other section, the
+   site's marquee page carries what's now playing), **Around town** (city-pulse, NOT
+   taste-ranked, de-duped against the slate, film-free), and **on the radar**. All slate content
+   is the editor slate (assemble over the scored pool + verdicts); ⭐ = the editor's must-sees. Ops notices (Posh-token expiry,
    coverage gaps) render in the FOOTER — never restate them in the intro. Also keep the
    **per-weekend look-ahead** (backend option for the dashboard's per-weekend view): for each of the
    next ~16 weekends keyed by the **Friday**, `python scripts/render_digest.py --from <Fri> --to <Sun>
@@ -130,6 +132,12 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    - First, if the per-profile music layer is configured (env `SPOTIFY_SYNC_URL` +
      `SPOTIFY_SYNC_TOKEN` — the concierge Worker), `python scripts/sync_profiles_spotify.py`
      (SKIPs cleanly if unset).
+   - Refresh resale floors: `python scripts/check_prices.py --auto` — one Gametime query per
+     featured act (the ranked head + starred events, ~60 max) + SeatGeek when
+     `SEATGEEK_CLIENT_ID` is set → `data/ticket_prices.json`, which the feed build folds onto
+     cards as `price_check` (the "Cheapest tickets" block). Taste-neutral market data, checked
+     once for everyone; run it BEFORE the feed build so tonight's floors ship. Degrades
+     gracefully — a dead marketplace just means stale/absent rows, never a blocked run.
    - Then `python scripts/build_profiles.py` — the default `dashboard/data.json` AND every
      per-profile feed `dashboard/data.<hash>.json`, each scored against **its own** music layer,
      folding in that profile's **cached** verdicts (`data/verdicts/<hash>.json`) → verdict + final
@@ -170,7 +178,8 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    a day even if they never click Update.
 9. Commit catalog + **`data/catalog_meta.json`** (the version stamp the dashboard's staleness
    check keys off — written by `run_digest`) + `data/enrichment.json` + `data/verdicts/` (only the
-   refreshed profiles' files change) + **`digests/latest.md`** (the consolidated digest) +
+   refreshed profiles' files change) + `data/ticket_prices.json` (the resale-floor store) +
+   **`digests/latest.md`** (the consolidated digest) +
    `radar-candidates.md` + the changed weekend `.md` + index + **all `dashboard/data*.json`** feeds
    (the deterministic re-rank touches every one nightly)
    + **`dashboard/catalog_meta.json`** (published by `build_dashboard`) + the refreshed

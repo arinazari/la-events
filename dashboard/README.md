@@ -73,6 +73,13 @@ The page opens on the **Front page** — an editorial home rendered from the fee
   shelves when the runtime sets exist. Card click → a detail modal (what/why/lineup/links/
   add-to-calendar); *see all →* jumps into Explore pre-filtered via the same `filtered`
   id-list mechanism the chat uses.
+- **Cheapest tickets (detail modal)** — when the nightly `check_prices.py --auto` pass has a
+  check on file (feed `price_check`), the card shows the comparison cheapest-first (resale
+  floors all-in vs the listed price, CHEAPEST flag, check date), an **↻ live check** that
+  re-queries Gametime through the Worker's `GET /prices` relay (fails soft to a toast when
+  the backend's down), and prefilled StubHub/SeatGeek/Gametime/TickPick/Vivid **compare**
+  searches that always work browser-side. Films, free events, and past dates skip the block
+  (`priceEligible`); the query mirrors `lib/prices.search_name` (headliner, dressing stripped).
 
 **Explore** is the original table (search, facets, date range, rank/score sort), one click
 away in the header switch; the choice persists per device (`la-view` in localStorage). A feed
@@ -156,31 +163,40 @@ Each profile also gets its own **personalized digest** (the daily routine writes
 from their feed; the popup's "digest ↗" shows it). Until the routine has run for a new profile, the page
 shows a "ranked picks are live in the table" placeholder.
 
-## Onboarding — first-run welcome, guide & "What's new"
+## Onboarding — tutorial, guide & "What's new"
 
 There are two onboarding surfaces, both authored as Markdown strings in `index.html` and rendered
-through the same `renderMarkdown` the digest modal uses (so they match its look exactly — no new styling):
+through the same `renderMarkdown` the digest modal uses. **Both are opt-in — nothing auto-opens.**
 
-**1. First-run welcome (auto-opens after sign-in).** A short, **stepped** quick-start (`WELCOME` — four
-steps: how the picks are made → **set yourself up** (connect the concierge with Ari's token / your own
-key → tell it your neighborhood + tastes → connect Spotify) → **refresh your ranks** to fold it all in →
-where everything else lives). It **auto-opens the first time someone signs into a profile** — on a fresh sign-in and on a
-persisted-login reload (`maybeOnboard`, called from `applyProfile` and, guarded by a logged-in profile,
-`componentDidMount`). It **never pops up on the logged-out default view**; the owner/default can preview
-it from Settings → ABOUT → quick start. It is keyed per profile in localStorage (`la-onboarded:<hash>`),
-and the **"Don't show this again" checkbox is the dismissal**: ticked → the flag is set and it never
-auto-opens for that profile again; left un-ticked → closing it just hides it for now and it greets you
-again next visit (deliberate — it nags until acknowledged). Re-openable any time from
-**Settings → ABOUT → quick start**.
+**1. Tutorial (manual).** A short, **stepped** walkthrough (`WELCOME` — four steps: how the picks are
+made → **set yourself up** (connect the concierge with Ari's token / your own key → tell it your
+neighborhood + tastes → connect Spotify) → **refresh your ranks** to fold it all in → where everything
+else lives). It **never opens on its own** — not on sign-in, not on a persisted-login reload. The single
+entry point is **Settings → ABOUT → tutorial**, which always starts at step 1 (`openWelcome`). Because
+it can't interrupt anyone, there is no per-profile "seen" flag and no "don't show this again" dismissal
+to persist — closing it (Got it / × / Esc) just closes it. The footer shows a `Step N of 4` counter.
+
+Its body carries the `la-tut` class (see the `<style>` block), which bumps the prose to reading sizes
+(14px/1.62, larger `h1`) — tutorial-only, so the digest keeps its denser default. `renderMarkdown` sets
+size and leading inline, so those overrides need `!important`.
+
+### A note on `font-family`
+
+The app font stack is declared on **`html, body`**, not just on `.app-shell`. Every modal — digest,
+guide, tutorial, nudge, detail, settings — mounts *outside* `.app-shell`, so when that rule was the only
+`font-family` in the file, anything relying on inheritance fell through to the browser default serif.
+`renderMarkdown` sets only size and leading on `<p>`/`<li>`, which is why digest and guide prose rendered
+in Times New Roman. Declaring the stack at the root fixes every surface at once. **If you add a modal or
+a renderer, you get the right font for free — don't re-declare it.**
 
 **2. Guide & changelog (manual).** A two-tab modal — **How it works** (the full plain-language tour:
 the table, rank-vs-score, the concierge, signing in, tuning taste, installing the PWA) and **What's new**
-(a short changelog of friend-facing features), `GUIDE_HOW` / `GUIDE_NEW`. These stay **manual and quiet** —
-no auto-open; reached under Settings → ABOUT (*how it works* / *what's new*).
+(a short changelog of friend-facing features), `GUIDE_HOW` / `GUIDE_NEW`. Reached under
+Settings → ABOUT (*how it works* / *what's new*).
 
-**Where it lives:** the **ABOUT** group in the **⚷ / ☰** settings popup (footer) — *quick start* (re-open
-the welcome), *how it works* (tour), *what's new* (changelog). That group sits outside the logged-in /
-logged-out branches, so it's reachable whether or not someone is signed in.
+**Where it lives:** the **ABOUT** group in the **⚷ / ☰** settings popup (footer) — *tutorial*, *how it
+works* (tour), *what's new* (changelog). That group sits outside the logged-in / logged-out branches,
+so it's reachable whether or not someone is signed in.
 
 **When you ship a friend-facing change, add a bullet to `GUIDE_NEW`** (and a `## <month>` heading when a
 new period starts). That's the only upkeep — friends find it under Settings → ABOUT.

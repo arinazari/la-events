@@ -502,6 +502,54 @@ surfaced nowhere. REMAINING: the digest-side gap — the voice-pass "fold in fes
 instruction still contributes zero lines to "On the radar"; wire the same load into
 build_radar/render_digest if the digest should carry the watch-list too.
 
+### 2026-08-01 — Marquees & tables front page (Ari's spec, in-session)
+The front page reorganized per Ari's explicit structure: two **marquee** card shelves carry
+what's *featured* — **Sets and shows** (club lanes + live rooms + big concerts the editor
+rates must-see/great) and **Events** (comedy + one-off happenings) — and everything
+program-shaped is *listed* in five category **tables** (fixtures, shown under every lens):
+**Seasonal and repeating** (standing series at ~weekly density — fleas, farmers markets;
+music residencies deliberately stay in Sets and shows), **Movies** (open runs
+closing-soonest then openings; *the marquee →* keeps the full boards), **Theater** (stage
+runs + one-offs), **Festivals** (festival-tagged catalog rows merged date-sorted with the
+festivals.yaml fixture; *the festival watch-list →* keeps the dedicated view), and **FYI**
+(the arena tier that isn't a taste match — including judged skips, which this table alone
+surfaces — plus radar leftovers, date-sorted). The hero (lead + shortlist) draws from the
+marquee pool ONLY: a movie/season/festival is never a featured card. Server:
+`build_front_page` emits `shelves` (2 marquees) + `tables` (5 key-lists); `nowrunning` is
+retired (subsumed), `radar`/`around` still emitted for the chat but no longer rendered as
+sections. Tests rewritten (`test_front_page.py`). **Digest side shipped in the same pass:**
+the consolidated doc's slate pool is film-free before assembly (tonight / Don't-miss /
+day-by-day / weekends all render movie-free; Around town drops film rows too) and films get
+ONE **"On the marquee"** block — runs *opening* this stretch (strictly-ahead first night, or
+a today-start that's new on the latest pull: expired past nights make every mid-run look
+like it "opens tonight" otherwise — the Odyssey bug, caught on a live render) + 4★ one-night
+screenings, with tier3:gloss slots; the section is forced into any `sections:` order so a
+pre-marquee digest.yaml can't silently lose movies. Per-weekend files stay full reference
+listings (films included), deliberately. Festivals table rolls sub-events into one row per
+festival (`_fest_rollup_key` over dedupe's `_fest_core`; "Windgrease: <night>" ×8 → 1,
+per-day passes group). NOTE: the old "wire festivals.yaml into the digest" gap was already
+closed (build_radar folds `timely(load_festivals())` → `_watchlist_md` under On the radar) —
+the 2026-07-21 REMAINING note below is stale.
+
+### 2026-08-01 — Cheapest tickets on the card (Ari's ask, in-session)
+"Kim Gordon is $20 on StubHub but ~$45 on Ticketmaster" — resale floors routinely undercut
+face price and nothing in the pipeline knew (TM Discovery returns 0% priceRanges for LA, so
+even the primary price is usually blank). Shipped as an option on the opened card, three
+layers: (1) **automated floors** — `scripts/check_prices.py` + `lib/prices.py` (tested) hit
+Gametime's open mobile API (real all-in floors, one query per act covers all their LA dates;
+SeatGeek rides along when `SEATGEEK_CLIENT_ID` is set) and record the catalog's own listed
+price as the anchor → `data/ticket_prices.json` (committed, date-pruned), folded onto feeds
+as `price_check`; the nightly routine sweeps the featured head + starred events (~60 acts,
+step 7). (2) **The card block** — "CHEAPEST TICKETS": comparison rows cheapest-first with a
+CHEAPEST flag, fees called out ("all-in · $16 + fees" vs "listed"), the check date shown
+honestly, plus an **↻ live check** that re-queries Gametime through the Worker's new
+unauthenticated `GET /prices` relay (public market data; needs a `wrangler deploy`).
+(3) **Compare links** — prefilled StubHub/SeatGeek/Gametime/TickPick/Vivid searches (those
+walls block datacenter fetches but not Ari's browser; StubHub's current search path is
+`/search?q=`, the old `/find/s/` 404s). Concierge routes "cheapest tickets for X" to the new
+la-events **Mode 4** (`--query` → optional WebFetch dig → `--record`). Films, free events,
+and markets never get the block — no resale market exists for them.
+
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
   ships plain JS (dc-runtime `support.js` evaluates the template directly; no in-browser Babel),
@@ -637,7 +685,10 @@ build_radar/render_digest if the digest should carry the watch-list too.
 ## Tabled — deliberately deferred (Ari's call)
 - → Explorer / dashboard page is **no longer tabled** — it evolves into the **Hosted page** (above).
 - [ ] Flyer-forwarding bot + Twilio SMS/MMS intake (`sms-ingestion.md`). Capture-by-hand still works.
-- [ ] On-sale sniper / price tracking across ticket links (DICE vs TM fees). Nice-to-have.
+- [~] On-sale sniper / price tracking across ticket links (DICE vs TM fees). **Un-tabled in part
+      (Ari's ask, 2026-08-01)** — the *cheapest-tickets* half shipped (see the dated entry under
+      Delivery): resale floors vs listed price on every card + nightly sweep + live re-check.
+      Still open from the original idea: on-sale alerts and DICE-vs-TM fee tracking over time.
 - [ ] SQLite instead of `catalog.json` if volume ever demands it.
 - [ ] **Shared lane corrections** (surfaced by the 2026-07-17 taxonomy revamp; Ari wants lanes
       standardized across profiles). Tags + deterministic lanes are already one shared, taste-neutral

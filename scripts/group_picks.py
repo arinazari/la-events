@@ -9,7 +9,7 @@ matters most tonight, how to weigh a lukewarm friend, when a veto kills a pick �
 "Find something me + Lori + Dr. Ganesan would all be into."
 
 People are profiles.yaml usernames OR display names (case-insensitive — "Lori" resolves the same as
-"lori", "Dr. Ganesan" the same as "dr_ganesan"), so the concierge can pass whatever name Ari said
+"lori", "Dr. Ganesan" the same as "vish"), so the concierge can pass whatever name Ari said
 without a username-lookup step. "me" / "default" / the owner's username resolves to the ROOT
 taste.yaml + profile.yaml (the canonical feed). Each person is scored against THEIR OWN taste,
 profile mechanics, and music layer — exactly like build_profiles.py, reusing the same scorer, so a
@@ -20,7 +20,7 @@ call — knowing the username is permission enough). Someone with no profile? Pl
 spin one up first.
 
 Usage:
-  python scripts/group_picks.py --people me lori dr_ganesan --days 21
+  python scripts/group_picks.py --people me lori vish --days 21
   python scripts/group_picks.py --people me,lori --from 2026-07-01 --to 2026-07-07 --json /tmp/g.json
 """
 

@@ -440,7 +440,10 @@ DONT_MISS_LIMIT = TOP_PICKS_N
 AROUND_LIMIT = 12
 TONIGHT_TOP = 3      # picks listed per day in Tonight & tomorrow
 CHANGES_TOP = 8      # rows per list in What changed
-DEFAULT_SECTIONS = ["tonight", "dont_miss", "changes", "day_by_day", "around_town", "radar"]
+MARQUEE_OPENINGS = 8  # opening film runs listed in On the marquee
+MARQUEE_SINGLES = 8   # one-night screenings listed (4★+ only)
+DEFAULT_SECTIONS = ["tonight", "dont_miss", "changes", "day_by_day", "marquee",
+                    "around_town", "radar"]
 
 
 def _tonight_md(cands: list, today_iso: str) -> list:
@@ -555,11 +558,73 @@ def _dont_miss_md(cands: list, limit: int = DONT_MISS_LIMIT, picked: list = None
     return out + [""]
 
 
+def _marquee_md(cands: list, today_iso: str) -> list:
+    """"On the marquee" — the digest's ONE movies block (the film policy, Ari 2026-07-29:
+    a movie is featured only when it first comes out; the rest is the site marquee page's
+    business). Runs OPENING this stretch lead, dated by opening night with span + venues —
+    an already-open run is deliberately absent (it was news when it opened). Then the
+    one-night screenings worth a seat (4★+ / editor great-or-better), next two weeks,
+    compact. Films appear in no other section of the consolidated doc: the slate pool is
+    film-free before assembly (tonight / Don't-miss / day-by-day / weekends), and Around
+    town drops film rows."""
+    rows = collapse_runs(cands)
+    tod = today_iso[:10]
+    end14 = (date.fromisoformat(tod) + timedelta(days=14)).isoformat()
+    # "Opening" must mean OPENING: past nights expire from the catalog, so a mid-run
+    # program's first REMAINING night lands on today and would masquerade as an opening
+    # (The Odyssey, two weeks into its run, read "opens tonight"). A run is an opening only
+    # when its first night is strictly ahead — genuinely unopened — or when it starts today
+    # AND is new to the catalog on the latest pull (a same-day announcement, the one case
+    # a today-start is a real opening we can prove). Everything mid-run is absent by design:
+    # it was news when it opened; the site's marquee page carries what's now playing.
+    openings = [r for r in rows if len(r["_dates"]) > 1
+                and (r["_earliest"] > tod or (r["_earliest"] == tod and _is_new(r)))]
+    singles = [r for r in rows if len(r["_dates"]) == 1
+               and tod <= r["_earliest"] <= end14
+               and int(r.get("rating") or 0) >= FULL_MIN_RATING]
+    if not (openings or singles):
+        return []
+    out = ["## On the marquee\n",
+           "*Movies live here (and on the site's marquee page): runs opening this stretch, "
+           "then the one-night screenings worth a seat.*"]
+    for r in sorted(openings, key=lambda r: r["_earliest"])[:MARQUEE_OPENINGS]:
+        d = date.fromisoformat(r["_earliest"])
+        title, url = r.get("title") or "Untitled", _link(r)
+        head = f"[{title}]({url})" if url else title
+        opens = "opens tonight" if r["_earliest"] == tod else "opens"
+        last = date.fromisoformat(r["_dates"][-1])
+        span = f"{len(r['_dates'])} nights thru {DOW[last.weekday()]} {last.month}/{last.day}"
+        vens = r.get("_venues") or ([r.get("venue")] if r.get("venue") else [])
+        ven = " / ".join(vens[:2]) + (f" +{len(vens) - 2}" if len(vens) > 2 else "")
+        e = r.get("enrichment") or {}
+        why = e.get("curator_note") or (r.get("verdict") or {}).get("why") or ""
+        card = _card_md(event_key(r))
+        line = (f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}** — *{opens} · {span}*"
+                + (f" · {ven}" if ven else "") + (f" · {card}" if card else ""))
+        out.append(line + (f"  \n  {why} <!-- tier3:gloss {event_key(r)} -->" if why
+                           else f" <!-- tier3:gloss {event_key(r)} -->"))
+    if singles:
+        out.append("\n**One-nighters**")
+        for r in sorted(singles, key=lambda r: r["_earliest"])[:MARQUEE_SINGLES]:
+            d = date.fromisoformat(r["_earliest"])
+            title, url = r.get("title") or "Untitled", _link(r)
+            head = f"[{title}]({url})" if url else title
+            card = _card_md(event_key(r))
+            loc = _loc(r)
+            out.append(f"- `{DOW[d.weekday()]} {d.month}/{d.day}` **{head}**"
+                       + (f" — {loc}" if loc else "")
+                       + (f" · {card}" if card else "")
+                       + f" <!-- tier3:gloss {event_key(r)} -->")
+    return out + [""]
+
+
 def _around_md(rows: list, slate_keys: set, limit: int = AROUND_LIMIT) -> list:
     """Around town (Track B4, the city-pulse): notable around LA this stretch — civic/seasonal
     one-offs, arena bookings, festivals — deliberately NOT taste-ranked ('stay apprised'), and
-    de-duped against the slate: this section is what the taste lanes DIDN'T surface."""
-    rows = [r for r in rows if r.get("key") not in slate_keys]
+    de-duped against the slate: this section is what the taste lanes DIDN'T surface. Film rows
+    are dropped here too — the movies policy holds doc-wide (On the marquee is film's ONE home)."""
+    rows = [r for r in rows if r.get("key") not in slate_keys
+            and (r.get("category") or "").lower() != "film"]
     if not rows:
         return []
     out = ["## Around town\n",
@@ -686,7 +751,7 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
                            dont_miss: list = None, around: list = None, order: list = None,
                            weekends: list = None, dm_keys: frozenset = frozenset(),
                            tonight: list = None, changes: list = None,
-                           watchlist: list = None) -> str:
+                           watchlist: list = None, marquee: list = None) -> str:
     """The consolidated scaffold. Section inclusion + order follow digest.yaml `sections`
     (Track B4 — the renderer finally honors it); day_by_day is the body and is never droppable.
     The `<!-- tier3:… -->` markers are the Tier-3 voice pass's slots: it fills the intro and may
@@ -710,6 +775,11 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
     order = [s for s in (order or DEFAULT_SECTIONS) if s in DEFAULT_SECTIONS]
     if "day_by_day" not in order:
         order.append("day_by_day")
+    # The marquee is forced in like the body: the slate arrives film-free (the movies policy),
+    # so a sections list predating "marquee" (root or a friend's digest.yaml) must not silently
+    # lose movies from the whole doc — the block lands after the body when unlisted.
+    if "marquee" not in order:
+        order.insert(order.index("day_by_day") + 1, "marquee")
     for sec in order:
         if sec == "tonight" and tonight:
             out.extend(tonight)
@@ -735,6 +805,8 @@ def render_consolidated_md(today_iso: str, sections: list, radar: list, doc: dic
             if weekends:
                 out.append("## Weekends ahead\n")
                 out.extend(weekends)
+        elif sec == "marquee" and marquee:
+            out.extend(marquee)
         elif sec == "around_town" and around:
             out.extend(around)
         elif sec == "radar":
@@ -820,6 +892,16 @@ def main() -> int:
         # is a pure date filter over identically-scored events), so assemble sees identical inputs.
         wide_pool = [e for e in score_pool(catalog, taste, profile, today, window_days=36, affinity=affinity)
                      if (e.get("score") or 0) >= 0]
+        # The movies policy (Ari, 2026-07-29 / 08-01): films leave the slate POOL before
+        # assembly — tonight / Don't-miss / day-by-day / weekends ahead all render movie-free,
+        # and their slate slots go to events instead. Films get ONE block: "On the marquee"
+        # (openings + notable one-nighters, _marquee_md). The per-weekend files (windowed mode
+        # below) deliberately keep full listings, films included — they're the linked
+        # reference deep-dives, not the feature surfaces.
+        film_pool, rest = [], []
+        for e in wide_pool:
+            (film_pool if event_lane(e, verdicts) == "film" else rest).append(e)
+        wide_pool = rest
         end14 = (today + timedelta(days=14)).isoformat()
         near_pool = [e for e in wide_pool if e["iso_date"] <= end14]
         sec1 = build_slate_cands(catalog, taste, profile, today, verdicts, window=14, per_day=cap,
@@ -846,6 +928,20 @@ def main() -> int:
                 pass
         amb = ambiguous_set(profile, taste)
         enr1, enr2 = merge_enrichment(sec1, cache, amb), merge_enrichment(sec2, cache, amb)
+        # Film candidates for the marquee block: same verdict fold as build_slate_cands
+        # (tier -> rating, adjust -> score; judged skips out), then enrichment for the whys.
+        film_cands = []
+        for ev in film_pool:
+            v = verdicts.get(event_key(ev))
+            if v:
+                if v.get("tier") == "skip":
+                    continue
+                ev = dict(ev)
+                ev["rating"] = TIER_RATING.get(v.get("tier"), ev.get("rating"))
+                ev["score"] = (ev.get("score") or 0) + (v.get("adjust") or 0)
+                ev["verdict"] = v
+            film_cands.append(ev)
+        marquee = _marquee_md(merge_enrichment(film_cands, cache, amb), doc["today"])
         sections = [("Next two weeks", enr1)]
         weekends = _weekends_md(enr2)
         slate_keys = {event_key(e) for e in enr1 + enr2}
@@ -860,11 +956,13 @@ def main() -> int:
             doc["today"], sections, radar, doc, notice,
             dont_miss=dont_miss, around=around, order=prefs.get("sections"),
             weekends=weekends, dm_keys=dm_keys, tonight=tonight, changes=changes,
-            watchlist=watchlist))
+            watchlist=watchlist, marquee=marquee))
         print(f"rendered consolidated digest: {max(len(tonight) - 4, 0)} tonight/tomorrow + "
               f"{max(len(dont_miss) - 2, 0)} don't-miss + "
               f"{max(len(changes) - 2, 0)} changed + "
-              f"{len(sec1)} + {len(sec2)} picks + {max(len(around) - 3, 0)} around town + "
+              f"{len(sec1)} + {len(sec2)} picks (film-free) + "
+              f"{max(len(marquee) - 3, 0)} on the marquee + "
+              f"{max(len(around) - 3, 0)} around town + "
               f"{min(len(radar), 18)} on the radar (+{len(watchlist)} watch-list) -> {args.md}")
         return 0
 

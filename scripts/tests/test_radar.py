@@ -4,8 +4,10 @@
 Run: python scripts/tests/test_radar.py
 """
 
+import json
 import sys
-from datetime import date
+import tempfile
+from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -66,6 +68,32 @@ def test_build_radar_respects_cutoff_and_ranks():
     assert "Near Fest" not in titles and "Nothing Special" not in titles
     assert titles[0] == "Far Festival"          # festival(2) outranks big-venue(1)
     assert set(titles) == {"Far Festival", "Arena Show"}
+
+
+def test_refresh_files_roundtrip():
+    """refresh_files writes both rail artifacts with the doc shape build_dashboard's
+    self-heal checks (a `today` stamp + events) — the one regeneration path every entry
+    point (CLI, workflows, dashboard fallback) shares."""
+    today = BR.today_la()
+    catalog = [
+        {"title": "626 Night Market", "venue": "Arcadia",
+         "date": (today + timedelta(days=3)).isoformat(), "lineup": []},    # civic -> around
+        {"title": "Dune Groove Festival", "venue": "X",
+         "date": (today + timedelta(days=60)).isoformat(), "lineup": []},   # festival -> radar
+    ]
+    with tempfile.TemporaryDirectory() as td:
+        tdp = Path(td)
+        (tdp / "catalog.json").write_text(json.dumps(catalog))
+        r = BR.refresh_files(catalog_path=tdp / "catalog.json", out=tdp / "radar.json",
+                             taste_path=tdp / "no-taste.yaml", profile_path=tdp / "no-profile.yaml",
+                             around_out=tdp / "around.json")
+        radar = json.loads((tdp / "radar.json").read_text())
+        around = json.loads((tdp / "around.json").read_text())
+        assert radar["today"] == today.isoformat() == around["today"]
+        assert [e["title"] for e in radar["events"]] == ["Dune Groove Festival"]
+        assert [e["title"] for e in around["events"]] == ["626 Night Market"]
+        assert (r["radar"], r["around"]) == (1, 1) and r["out"] == tdp / "radar.json"
+        assert "watchlist" in radar                      # festivals.yaml block rides along
 
 
 if __name__ == "__main__":

@@ -462,6 +462,27 @@ def test_dub_not_from_hyphenated_artist_or_venue_leak():
     assert "dub" not in g and "dnb" not in g
 
 
+def test_uncategorized_detail_blob_is_the_last_resort():
+    """An Eventbrite harvest: category 'general', off-gazetteer venue, bare band-name
+    title — the promoter's own blurb is the only signal and must type the show."""
+    e = ev(category="general", venue="1720", title="From First To Last",
+           detail="A rare intimate evening. Don't miss one of post-hardcore's most "
+                  "influential bands")
+    assert T.tag_event(e)["type"] == "live-music"
+    # electronic-genre words in the blob (no DJ/club keyword anywhere) -> club
+    e2 = ev(category="general", venue="Somewhere", title="Secret Function",
+            detail="deep house and techno all night long")
+    assert T.tag_event(e2)["type"] == "club"
+    # a categorized event NEVER consults detail (the Bad Brains rule)
+    e3 = ev(category="music", venue="X", title="Bad Brains",
+            detail="with a partial film screening between sets")
+    assert T.tag_event(e3)["type"] == "live-music"
+    # no signal anywhere stays an honest 'other'
+    e4 = ev(category="general", venue="Somewhere", title="Mystery Thing",
+            detail="an unforgettable evening for everyone")
+    assert T.tag_event(e4)["type"] == "other"
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

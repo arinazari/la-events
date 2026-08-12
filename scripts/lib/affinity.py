@@ -25,6 +25,7 @@ Affinity artifact schema (data/spotify_affinity.json):
 
 import functools
 import re
+import unicodedata
 from datetime import datetime
 
 # ── Sync-side weighting (how raw Spotify signals become a per-artist weight) ──────────
@@ -60,16 +61,26 @@ DEFAULT_SCORING = {
 }
 
 
+def fold(s: str) -> str:
+    """Accent-fold + lowercase for matching: 'Âme' -> 'ame', 'Rosalía' -> 'rosalia'.
+    Diacritics differ between the taste/affinity side and venue listings for the SAME
+    artist (taste says 'Ame', the bill says 'Âme' — or the reverse), so both sides of
+    every artist match fold through here before comparing."""
+    return "".join(c for c in unicodedata.normalize("NFKD", s or "")
+                   if not unicodedata.combining(c)).lower()
+
+
 @functools.lru_cache(maxsize=8192)
 def _token_pat(name: str):
     """Compiled whole-token matcher: the name bounded by non-alphanumerics (so 'hanson' does
-    not match inside 'chansons', but 'antal' matches at a space/punct/edge). Cached per name."""
-    return re.compile(r"(?<![a-z0-9])" + re.escape(name) + r"(?![a-z0-9])")
+    not match inside 'chansons', but 'antal' matches at a space/punct/edge). Cached per name.
+    The name is accent-folded here; callers must fold the TEXT they search (fold())."""
+    return re.compile(r"(?<![a-z0-9])" + re.escape(fold(name)) + r"(?![a-z0-9])")
 
 
 def normalize_name(name: str) -> str:
-    """Match key for an artist name: lowercased, whitespace-collapsed."""
-    return " ".join((name or "").split()).lower()
+    """Match key for an artist name: accent-folded, lowercased, whitespace-collapsed."""
+    return " ".join(fold(name).split())
 
 
 def ambiguous_set(profile, taste=None) -> set:
@@ -108,7 +119,7 @@ def tracked_hits(names, title, lineup, ambiguous=frozenset(), min_len=2) -> set:
     for a in lineup:
         for part in _ENTRY_SPLIT.split(a):
             entries.add(normalize_name(part))
-    text = ((title or "") + " " + " ".join(lineup)).lower()
+    text = fold((title or "") + " " + " ".join(lineup))
     hits = set()
     for a in names or []:
         k = normalize_name(a)
@@ -250,7 +261,7 @@ def artist_affinity(name_text: str, lineup_text: str, affinity: dict, profile: d
     for key, info in artists.items():
         if len(key) < minlen:
             continue
-        target = lineup_text if key in ambiguous else name_text
+        target = fold(lineup_text if key in ambiguous else name_text)
         if not _token_pat(key).search(target):
             continue
         tier = info.get("tier", "light")

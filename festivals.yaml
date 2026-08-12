@@ -26,12 +26,12 @@ festivals:
     location: Golden Gate Park, San Francisco
     scope: travel
     when: 2026-08-07..09
-    status: on_sale
+    status: past
     tickets: https://www.sfoutsidelands.com/
     why: >
       Rüfüs Du Sol + The xx headline the on-taste end; Charli xcx, The Strokes, Turnstile,
-      Empire of the Sun broaden it. ~2 months out, travel weekend. 3-day GA from ~$569.
-    refresh: confirm single-day availability + any electronic-stage adds
+      Empire of the Sun broaden it. 3-day GA from ~$569.
+    refresh: happened 8/7-8/9/2026 — drop from radar, revisit for 2027
 
   - name: Portola 2026
     location: Pier 80, San Francisco
@@ -56,7 +56,7 @@ festivals:
       Armada (DJ set), Helena Hauff, Ben UFO, I Hate Models, Mathame, Carlita, salute. House/
       techno/melodic, European lean, waterfront, 21+. NOTE: same weekend as Portola (SF) —
       can't do both; pick one.
-    refresh: single-day availability + set times; resolve the Portola clash
+    refresh: single-day availability (from ~$68, on sale now via crssdfest.com/Showclix) + set times; resolve the Portola clash
 
   - name: Coachella 2027
     location: Empire Polo Club, Indio CA
@@ -84,15 +84,16 @@ festivals:
     location: Great Park Live, Irvine (OC — ~45 mi, worth the drive)
     scope: local
     when: 2026-08-29
-    status: announced   # general on-sale Wed 6/24 10am PT — timely NOW
+    status: sold_out   # presale sold out in 30 min (6/24); organizers confirmed no general sale
     tickets: https://www.daisychainfields.com/tickets
     why: >
       Olivia Rodrigo's first festival — a one-day, all-women lineup (Chappell Roan, Doechii,
       Mitski, The Breeders, Bikini Kill, Garbage, Santigold + special guests Stevie Nicks, Karen O,
       Sarah McLachlan), 100% of net proceeds to women/girls nonprofits. Off the core house/techno
       lane, but a marquee must-know — and squarely on-taste for the Lori profile (she tracks Olivia
-      Rodrigo + Mitski). Tickets via Front Gate; from $250.
-    refresh: confirm the 6/24 on-sale held; watch single-day sellout + price-tier climbs
+      Rodrigo + Mitski). Sold out; only path in now is the L.A. Works volunteer-drive ticket
+      lottery (125 pairs) or resale.
+    refresh: watch resale prices as 8/29 nears; note the volunteer-drive lottery for Lori's profile
 
 big_concerts:
   # seed sparingly with travel-worthy / must-know shows; the digest also pulls far-dated

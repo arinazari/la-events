@@ -183,6 +183,56 @@ def _write_md(rows: list, path: Path, today) -> None:
     path.write_text("\n".join(L) + "\n")
 
 
+def refresh_files(catalog_path="data/catalog.json", out="data/radar.json",
+                  taste_path="taste.yaml", profile_path="profile.yaml",
+                  cutoff_days=35, md=None, around_days=14,
+                  around_out="data/around_town.json") -> dict:
+    """Build + write the rail artifacts: data/radar.json (+ data/around_town.json).
+
+    The ONE regeneration path — the CLI below and build_dashboard's missing/stale
+    self-heal both land here, so the artifact shape can't drift between callers.
+    Relative paths resolve against the repo root (cwd-independent, like lib.config).
+    Returns {today, radar, watchlist, around, out} for the caller's summary line.
+    """
+
+    def resolve(p):
+        return REPO / p if not Path(p).is_absolute() else Path(p)
+
+    catalog = json.loads(resolve(catalog_path).read_text())
+    taste, profile = load_taste(taste_path), load_profile(profile_path)
+    today = today_la()
+    rows = build_radar(catalog, taste, profile, today, cutoff_days=cutoff_days)
+
+    # The festivals.yaml watch-list rides radar.json under its own key — TIMELY items only
+    # (the yaml header's relevance gate: a live ticket story). These are out-of-catalog rows
+    # (no event key), so they never enter `events`/the dashboard radar join; render_digest
+    # gives them their own block under "On the radar".
+    watchlist = timely(load_festivals(REPO / "festivals.yaml"))
+
+    doc = {"generated_at": datetime.now().isoformat(timespec="seconds"),
+           "today": today.isoformat(), "cutoff_days": cutoff_days,
+           "count": len(rows), "events": rows, "watchlist": watchlist}
+    out_path = resolve(out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+    if md:
+        _write_md(rows, resolve(md), today)
+
+    n_around = 0
+    if around_days > 0:
+        around = build_around_town(catalog, taste, profile, today, days=around_days)
+        n_around = len(around)
+        a_doc = {"generated_at": datetime.now().isoformat(timespec="seconds"),
+                 "today": today.isoformat(), "days": around_days,
+                 "count": n_around, "events": around}
+        a_path = resolve(around_out)
+        a_path.parent.mkdir(parents=True, exist_ok=True)
+        a_path.write_text(json.dumps(a_doc, indent=2, ensure_ascii=False) + "\n")
+
+    return {"today": today, "radar": len(rows), "watchlist": len(watchlist),
+            "around": n_around, "out": out_path}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("-i", "--input", default="data/catalog.json")
@@ -198,42 +248,12 @@ def main() -> int:
                     help="Around-town set output (the consolidated renderer reads it)")
     args = ap.parse_args()
 
-    def resolve(p):
-        return REPO / p if not Path(p).is_absolute() else Path(p)
-
-    catalog = json.loads(resolve(args.input).read_text())
-    taste, profile = load_taste(args.taste), load_profile(args.profile)
-    today = today_la()
-    rows = build_radar(catalog, taste, profile, today, cutoff_days=args.cutoff_days)
-
-    # The festivals.yaml watch-list rides radar.json under its own key — TIMELY items only
-    # (the yaml header's relevance gate: a live ticket story). These are out-of-catalog rows
-    # (no event key), so they never enter `events`/the dashboard radar join; render_digest
-    # gives them their own block under "On the radar".
-    watchlist = timely(load_festivals(REPO / "festivals.yaml"))
-
-    doc = {"generated_at": datetime.now().isoformat(timespec="seconds"),
-           "today": today.isoformat(), "cutoff_days": args.cutoff_days,
-           "count": len(rows), "events": rows, "watchlist": watchlist}
-    out_path = resolve(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
-    if args.md:
-        _write_md(rows, resolve(args.md), today)
-
-    n_around = 0
-    if args.around_days > 0:
-        around = build_around_town(catalog, taste, profile, today, days=args.around_days)
-        n_around = len(around)
-        a_doc = {"generated_at": datetime.now().isoformat(timespec="seconds"),
-                 "today": today.isoformat(), "days": args.around_days,
-                 "count": n_around, "events": around}
-        a_path = resolve(args.around_out)
-        a_path.parent.mkdir(parents=True, exist_ok=True)
-        a_path.write_text(json.dumps(a_doc, indent=2, ensure_ascii=False) + "\n")
-
-    print(f"build_radar {today}: {len(rows)} radar candidates (>{args.cutoff_days}d)"
-          f" + {len(watchlist)} watch-list"
+    r = refresh_files(catalog_path=args.input, out=args.out, taste_path=args.taste,
+                      profile_path=args.profile, cutoff_days=args.cutoff_days, md=args.md,
+                      around_days=args.around_days, around_out=args.around_out)
+    n_around, out_path = r["around"], r["out"]
+    print(f"build_radar {r['today']}: {r['radar']} radar candidates (>{args.cutoff_days}d)"
+          f" + {r['watchlist']} watch-list"
           f"{f' + {n_around} around-town (<{args.around_days}d)' if args.around_days > 0 else ''} -> "
           f"{out_path.relative_to(REPO) if out_path.is_relative_to(REPO) else out_path}"
           f"{' + ' + args.md if args.md else ''}")

@@ -32,7 +32,9 @@ The structured path is orchestrated by `scripts/run_digest.py` (fetch → dedupe
 - **Structured fetchers** (`scripts/fetch_*.py`) — APIs / JSON feeds / parseable pages: TM, RA,
   19hz, Goldenvoice, Filmbot, Eventbrite, Posh, **DICE** (dice.fm/venue/<slug> — MusicEvent JSON-LD
   under a Place's `event` key, real Chrome UA required), **Squarespace** (`?format=json-pretty`),
-  **ICS/Tockify**. They emit normalized event JSON; the run merges + dedupes into `data/catalog.json`.
+  **ICS/Tockify**, **Beatport** (Beatport Tickets/Live via beatportal.com — geo-filtered
+  /events listing → per-event JSON-LD, plus the homepage's "RSVP Now" article drops for
+  Beatport Live's free LA parties, which never hit the listing). They emit normalized event JSON; the run merges + dedupes into `data/catalog.json`.
 - **`webfetch`-at-digest** — venues with no JSON-LD/feed and heterogeneous CMSs (McCabe's, The
   Dresden, Harvelle's, Sam First, Alva's, …) and editorial roundups: read the rendered page via the
   WebFetch tool during the digest run rather than maintaining brittle per-CMS scrapers.
@@ -60,6 +62,7 @@ unless special) + `restaurants_loved`; ranking honors it.
 .claude/skills/concierge/SKILL.md   # concierge — NL front door routing to the modes/agents (primary interface)
 .claude/agents/                     # worker agents: event-editor (ranking verdicts), scene-researcher (full enrichment,
                                     #   top-100 head), blurb-writer (cheap one-line descriptions for the band below the head),
+                                    #   why-writer (digest voice tier — one-line whys over the rendered slate),
                                     #   night-planner (events×dining itinerary), source-scout (discovery)
 sources.yaml                        # events source registry — schema in file header
 dining-sources.yaml                 # dining source registry — schema in file header
@@ -88,12 +91,19 @@ scripts/profile_refresh_gate.py     # nightly taste-change gate: per profile REF
 scripts/build_radar.py              # deterministic "on the radar" set (festival/big-venue/tracked/editorial) → data/radar.json
 scripts/render_digest.py            # scored pool + verdicts → digest slate (Markdown). `--consolidated` = one daily doc
                                     #   (next 2 wks + weekends ahead + radar); `--from/--to` = per-weekend look-ahead
+scripts/digest_voice.py             # render+voice digest plumbing (rebuild-profile): `prep` emits the why-writer
+                                    #   work doc (why-cache-aware), `splice` folds the words back with hard verify;
+                                    #   the rendered scaffold is always the shippable fallback
 scripts/travel.py                   # night-planner travel CLI: rough LA drive/walk times (lib/geo.py + dining.json)
 scripts/make_ics.py                 # turn a night-planner itinerary into a calendar .ics (lib/ics.py)
 scripts/log_feedback.py             # concierge: append a reaction to data/feedback.jsonl (the learned loop)
-scripts/fetch_*.py                  # 11 source fetchers (run BY run_digest, or in Step-2 layering):
+scripts/check_prices.py             # cheapest-ticket pass (lib/prices, tested): Gametime/SeatGeek resale
+                                    #   floors + listed-price anchor + --record for browser finds →
+                                    #   data/ticket_prices.json; nightly --auto covers the featured head
+scripts/fetch_*.py                  # 12 source fetchers (run BY run_digest, or in Step-2 layering):
                                     #   ticketmaster (TM_API_KEY), ra, 19hz, goldenvoice, filmbot,
-                                    #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld
+                                    #   eventbrite, posh (POSH_TOKEN), dice, squarespace, ics, jsonld,
+                                    #   beatport (beatportal.com listing → JSON-LD)
 scripts/fetch_spotify.py            # Phase C: Spotify sync (SPOTIFY_* creds) → data/spotify_affinity.json
 scripts/sync_profiles_spotify.py    # per-profile Spotify: pull friends' connected accounts (via the concierge
                                     #   Worker) → data/spotify/<hash>.json (gitignored); routine + spotify-sync CI
@@ -108,6 +118,9 @@ data/radar.json                     # "on the radar" set for the consolidated di
 data/verdicts/<hash>.json           # event-editor verdicts, per profile (committed; only the delta is judged each run)
 data/enrichment.json                # scene-graph cache: per-event enrichment (full + blurb tiers) + artist notes (committed; grows each run)
 data/artist_links.json              # Spotify artist-page cache (lib/artist_links; committed) → feed `artist_links` = direct ▶ listen links
+data/ticket_prices.json             # resale-floor store (committed; date-pruned) → feed `price_check` = the card's "Cheapest tickets" block
+data/why_cache.<hash>.json          # per-profile digest why-cache (committed): one sentence per pick, keyed to a
+                                    #   taste-hash — repeat Update clicks only write NEW sentences
 data/spotify_affinity.json          # Spotify music-affinity artifact (runtime; gitignored)
 data/feedback.jsonl                 # append-only reaction log (committed); folds into scoring each run
 data/inbox.jsonl                    # SMS receiver appends here; digest consumes (runtime-created)

@@ -62,7 +62,7 @@ import CalendarCore from "../dashboard/calendar-core.js";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-07-26-posh-relay";
+const VERSION = "2026-08-01-stars-prices";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
@@ -113,9 +113,13 @@ async function handleRequest(request, env, cors, ctx) {
   if (url.pathname === "/calendar.ics") return handleCalendar(url, request, env, cors);
   // Stars — the one social save signal, committed to the shared reactions log (see handleReact).
   if (url.pathname === "/react") return handleReact(request, env, cors);
+  // Live star map (GET) — the dashboard's freshness overlay over its baked feed (see handleStars).
+  if (url.pathname === "/stars") return handleStars(request, env, cors);
   // Posh relay — the digest fetcher's escape hatch when posh.vip's Cloudflare challenges the
   // runner's datacenter IP (cloud sessions, GH Actions). See handlePoshRelay for the contract.
   if (url.pathname === "/posh") return handlePoshRelay(url, request, env, cors);
+  // Live cheapest-ticket check for the card (GET, unauthenticated — public market data).
+  if (url.pathname === "/prices") return handlePrices(url, request, env, cors);
 
   // Unauthenticated deploy fingerprint: which build is live (no secrets — see VERSION).
   if (request.method === "GET" && url.pathname === "/")
@@ -1562,6 +1566,57 @@ async function handlePoshRelay(url, request, env, cors) {
   return new Response(body, { status: r.status, headers });
 }
 
+/* GET /prices?q=<act> — the card's LIVE cheapest-ticket check: a trimmed relay of Gametime's
+ * open mobile search (the same API scripts/check_prices.py hits nightly for the baked
+ * `price_check` rows; this route is how the card re-checks on demand, since resale floors
+ * move daily and the browser can't call mobile.gametime.co cross-origin itself).
+ *
+ * Unauthenticated by design, like /calendar.ics: public market data, no secrets read, no
+ * repo writes — the gate elsewhere protects Anthropic spend and commits, neither of which
+ * this touches. The payload is stripped to exactly what the card renders (name / local
+ * date-time / venue+metro / all-in floor in DOLLARS / listing URL); the page does its own
+ * date+venue matching, mirroring lib/prices.match_gametime. 5-minute edge cache keeps
+ * repeat opens of a hot card from re-hitting the upstream. */
+const GAMETIME_SEARCH = "https://mobile.gametime.co/v1/search";
+const GAMETIME_UA = POSH_UA;   // same logged-in-browser fingerprint the other relays present
+
+async function handlePrices(url, request, env, cors) {
+  if (request.method !== "GET") return json({ error: "GET only" }, 405, cors);
+  const q = (url.searchParams.get("q") || "").trim();
+  if (!q || q.length > 200) return json({ error: "need ?q=<act or title>" }, 400, cors);
+  let r;
+  try {
+    r = await fetch(`${GAMETIME_SEARCH}?q=${encodeURIComponent(q)}`, {
+      headers: { accept: "application/json", "user-agent": GAMETIME_UA },
+    });
+  } catch (e) {
+    return json({ error: "upstream fetch failed", detail: String((e && e.message) || e).slice(0, 200) }, 502, cors);
+  }
+  if (!r.ok) return json({ error: "upstream " + r.status }, 502, cors);
+  let data;
+  try { data = await r.json(); } catch { return json({ error: "bad upstream json" }, 502, cors); }
+  const events = [];
+  for (const it of (Array.isArray(data.events) ? data.events : []).slice(0, 40)) {
+    const e = (it && it.event) || {}, v = (it && it.venue) || {};
+    const total = Number(((e.min_price || {}).total) || 0);
+    if (!(total > 0)) continue;   // no listings -> nothing to compare
+    const prefee = Number(((e.min_price || {}).prefee) || 0);
+    const dt = String(e.datetime_local || "");
+    events.push({
+      name: String(e.name || ""),
+      date: dt.slice(0, 10),
+      time: dt.slice(11, 16),
+      venue: String(v.name || ""),
+      metro: String(v.metro || "").toLowerCase(),
+      price: Math.round(total) / 100,                                  // all-in, dollars
+      prefee: prefee > 0 ? Math.round(prefee) / 100 : null,            // sticker before fees
+      url: String(e.seo_url || ""),
+    });
+  }
+  return json({ query: q, source: "gametime", checked_at: new Date().toISOString(), events },
+              200, { ...cors, "cache-control": "public, max-age=300" });
+}
+
 async function handleReact(request, env, cors) {
   if (request.method !== "POST") return json({ error: "POST only" }, 405, cors);
   if (!env.GITHUB_TOKEN) return json({ error: "reactions not enabled (no GITHUB_TOKEN)" }, 501, cors);
@@ -1602,9 +1657,16 @@ async function handleReact(request, env, cors) {
   const FEEDBACK_KIND = { star: "loved", hide: "hide", less: "skipped", seen: "went" };
   let learned = false;
   if (FEEDBACK_KIND[kind] && (artists.length || genres.length)) {
-    const fpath = `data/feedback.${hash}.jsonl`;
+    // OWNER taps belong in the ROOT log: the owner's builds (nightly digest, default feed, their
+    // own per-hash feed) all score against data/feedback.jsonl — a per-hash file for the owner is
+    // a dead store nothing reads (their taps sat unread there until 2026-08.)
+    const fpath = prof.owner ? "data/feedback.jsonl" : `data/feedback.${hash}.jsonl`;
     const ffile = await ghGetFile(env, fpath);
-    const frec = { ts, kind: FEEDBACK_KIND[kind],
+    // Full-ISO ts (not the date-only social stamp): editor._stale compares it against a
+    // verdict's judged_at to decide whether a tap postdates the last judge — second precision
+    // makes same-day taps exact instead of day-granular.
+    const fts = new Date().toISOString().slice(0, 19) + "Z";
+    const frec = { ts: fts, kind: FEEDBACK_KIND[kind],
                    ...(artists.length ? { artists } : {}), ...(genres.length ? { genres } : {}),
                    event_key: key, ...(title ? { note: `${kind}: ${title}` } : {}) };
     const ff = foldFeedback(ffile ? ffile.text : "", frec);
@@ -1616,6 +1678,75 @@ async function handleReact(request, env, cors) {
     }
   }
   return json({ ok: true, changed: folded.changed, learned }, 200, cors);
+}
+
+/* Every profile's feed-hash -> display name, for the live star fold — the same resolution rule
+ * as the build-time fold (lib/profiles.hash_names): only CURRENT profiles.yaml entries map, so
+ * a stale log line can never leak an old identity into the overlay. */
+async function hashNames(env) {
+  const f = await ghGetFile(env, "profiles.yaml");
+  if (!f) return null;   // registry unreadable → caller treats it as a failed read, not "no names"
+  const manifest = yamlParse(f.text) || {};
+  const salt = manifest.salt || DEFAULTS.PROFILE_SALT;
+  const out = {};
+  for (const p of manifest.profiles || []) {
+    if (!p || !p.username) continue;
+    out[await profileHash(p.username, salt)] = p.name || p.username;
+  }
+  return out;
+}
+
+/* The active star map from a reactions.jsonl text: {event_key: [{name, hash}]}. Last state wins
+ * per (profile, event); `unstar` and `hide` both clear. Mirrors lib/reactions.star_map +
+ * stars_for exactly — stub names for unmapped hashes, (name.lower, hash) sort — so the live
+ * overlay always agrees with what the next feed rebuild will bake. Exported for tests. */
+export function foldStarMap(text, names) {
+  const state = {};
+  for (const r of jsonlRecords(text)) {
+    if (!r || typeof r.profile !== "string" || !r.profile || typeof r.event_key !== "string" || !r.event_key) continue;
+    const kind = String(r.kind || "").toLowerCase();
+    if (kind !== "star" && kind !== "unstar" && kind !== "hide") continue;
+    (state[r.event_key] = state[r.event_key] || {})[r.profile] = kind === "star";
+  }
+  const stars = {};
+  for (const key of Object.keys(state)) {
+    const row = Object.keys(state[key]).filter((h) => state[key][h])
+      .map((h) => ({ name: (names || {})[h] || "friend·" + h.slice(0, 4), hash: h }));
+    if (!row.length) continue;
+    row.sort((a, b) => {
+      const an = a.name.toLowerCase(), bn = b.name.toLowerCase();
+      return an < bn ? -1 : an > bn ? 1 : a.hash < b.hash ? -1 : a.hash > b.hash ? 1 : 0;
+    });
+    stars[key] = row;
+  }
+  return stars;
+}
+
+/* GET /stars — the LIVE star map, folded on demand from data/reactions.jsonl, so the dashboard
+ * can overlay seconds-fresh stars onto its baked feed instead of waiting for the next rebuild
+ * (the display was the slow half of a star; the commit itself lands in ~1s). Public like the
+ * feeds — stars already ship in every data.<hash>.json — and needs only GITHUB_TOKEN, mirroring
+ * /react's no-CONCIERGE_TOKEN stance. The ~30s in-isolate cache + matching max-age is
+ * friends-scale politeness for the contents API; correctness doesn't depend on it. */
+let starsCache = { at: 0, body: null };
+async function handleStars(request, env, cors) {
+  if (request.method !== "GET") return json({ error: "GET only" }, 405, cors);
+  if (!env.GITHUB_TOKEN) return json({ error: "stars not enabled (no GITHUB_TOKEN)" }, 501, cors);
+  const hdrs = { ...cors, "cache-control": "public, max-age=30" };
+  if (starsCache.body && Date.now() - starsCache.at < 30000) return json(starsCache.body, 200, hdrs);
+  // Read with status awareness: 404 = no reactions yet (legitimately empty map), but any OTHER
+  // failure must 502 — an empty map served on a GitHub hiccup would make every dashboard blank
+  // its stars for a cache window (the client replaces baked stars with whatever this returns).
+  const repo = env.GITHUB_REPO || DEFAULTS.GITHUB_REPO;
+  const branch = env.GITHUB_BRANCH || DEFAULTS.GITHUB_BRANCH;
+  const r = await fetch(`https://api.github.com/repos/${repo}/contents/data/reactions.jsonl?ref=${branch}`, { headers: ghHeaders(env) });
+  if (!r.ok && r.status !== 404) return json({ error: "reactions read failed (" + r.status + ")" }, 502, cors);
+  const text = r.ok ? b64decodeUtf8((await r.json()).content) : "";
+  const names = await hashNames(env);
+  if (!names) return json({ error: "profiles read failed" }, 502, cors);
+  const body = { ok: true, ts: new Date().toISOString(), stars: foldStarMap(text, names) };
+  starsCache = { at: Date.now(), body };
+  return json(body, 200, hdrs);
 }
 
 /* ============================== CALENDAR-SUBSCRIPTION FEED ==============================

@@ -120,23 +120,78 @@ jobs:
             git push origin HEAD:main
           fi
 
-      # LLM pass: fresh event-editor verdicts + scene enrichment + the narrative digest. Bounded by
-      # the prompt (top-N only) so it finishes within turns; best-effort. Auto-discovers .claude/agents/.
-      - name: LLM editor + enrichment + digest (best-effort)
+      # LLM pass: fresh event-editor verdicts (+ optional enrichment). The digest is NOT here
+      # anymore (2026-08 render+voice redesign): the two steps below render the deterministic
+      # scaffold and voice it, so a kill in this step costs judgment freshness, never the digest.
+      #
+      # timeout-minutes is the WALL-CLOCK bound --max-turns can't provide (one Task batch = one turn,
+      # however long it runs). The kill is safe by design — the deterministic feed is already
+      # committed above, and whatever the agent left in the working tree (merged verdict batches,
+      # enrichment) is committed by the receipt step below.
+      - name: LLM editor pass (best-effort)
         continue-on-error: true
+        timeout-minutes: 8
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
             Execute routines/profile-digest-prompt.md exactly, for the single profile whose dashboard
             feed hash is ${{ steps.target.outputs.hash }}. Wherever the file says <HASH>, use that hash.
-            The deterministic feed has already been built + committed — focus on the LLM layer + digest,
-            and stay within the per-step caps in that file so you finish. Do NOT git commit or push —
-            leave every changed file in the working tree; the workflow commits and deploys after you finish.
+            The deterministic feed has already been built + committed — your job is the VERDICT layer
+            (the digest is rendered + voiced by later workflow steps); stay within the per-step caps
+            in that file so you finish. Do NOT git commit or push — leave every changed file in the
+            working tree; the workflow commits and deploys after you finish.
           claude_args: |
             --max-turns 80
             --model ${{ steps.target.outputs.model }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash,Task,WebSearch,WebFetch"
+
+      # Digest scaffold — deterministic, seconds, ALWAYS ships. For friends the rendered slate
+      # IS the digest file (picks/days/⭐/links correct by construction; the voice step below
+      # makes it read well). The owner's displayed digest is the consolidated doc the re-score
+      # step already re-rendered — just copy it. Re-scores this profile's feed first so the
+      # slate folds in the verdicts the LLM step just merged.
+      - name: Render the digest scaffold
+        continue-on-error: true
+        env:
+          HASH: ${{ steps.target.outputs.hash }}
+          IS_OWNER: ${{ steps.target.outputs.is_owner }}
+        run: |
+          mkdir -p "digests/$HASH"
+          if [ "$IS_OWNER" = "true" ]; then
+            cp digests/latest.md "digests/$HASH/latest.md"
+          else
+            python scripts/build_profiles.py --only-hash "$HASH" || true
+            RES="$(python scripts/digest_voice.py resolve --hash "$HASH")"
+            TASTE="$(echo "$RES"   | python -c 'import json,sys; print(json.load(sys.stdin)["taste"])')"
+            PROFILE="$(echo "$RES" | python -c 'import json,sys; print(json.load(sys.stdin)["profile"] or "")')"
+            PREFS="$(echo "$RES"   | python -c 'import json,sys; print(json.load(sys.stdin)["prefs"] or "")')"
+            python scripts/render_digest.py --profile-hash "$HASH" --taste "$TASTE" \
+              ${PROFILE:+--profile "$PROFILE"} ${PREFS:+--digest-prefs "$PREFS"} \
+              --window 21 --per-day 4 --md "digests/$HASH/latest.md"
+            python scripts/digest_voice.py prep --hash "$HASH"
+          fi
+
+      # Voice pass — WORDS ONLY over the scaffold (routines/digest-voice-prompt.md): an intro +
+      # a one-line why per uncached pick via parallel why-writer agents, spliced back by
+      # scripts/digest_voice.py with hard verification (link sequence + alignment). The why-cache
+      # makes repeat clicks cheap (only new picks cost sentences; a taste edit invalidates all).
+      # Failure-safe by construction: a bad or killed pass leaves the scaffold, which is correct.
+      - name: Digest voice pass (best-effort)
+        if: steps.target.outputs.is_owner != 'true'
+        continue-on-error: true
+        timeout-minutes: 10  # cold test-run measured 8m17s outside the action (55 whys, 2 batches); warm runs ~5m
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Execute routines/digest-voice-prompt.md exactly, for the profile whose feed hash is
+            ${{ steps.target.outputs.hash }}. Wherever the file says <HASH>, use that hash.
+            Do NOT git commit or push — leave every changed file in the working tree.
+          claude_args: |
+            --max-turns 30
+            --model ${{ steps.target.outputs.model }}
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash,Task"
 
       # Best-effort: durably commit the LLM digest + verdicts (warm cache => cheaper next click), and
       # ALWAYS stamp dashboard/rebuilt.<hash>.json — the completion receipt the dashboard's Update
@@ -156,6 +211,10 @@ jobs:
           tmp="$(mktemp -d)"
           [ -f "digests/$HASH/latest.md" ] && cp "digests/$HASH/latest.md" "$tmp/digest.md" || true
           [ -f "data/verdicts/$HASH.json" ] && cp "data/verdicts/$HASH.json" "$tmp/verdicts.json" || true
+          [ -f "data/why_cache.$HASH.json" ] && cp "data/why_cache.$HASH.json" "$tmp/why_cache.json" || true
+          # The OWNER's verdicts merge into the default store (merge_verdicts resolves their feed
+          # hash -> default.json), so carry it too — for friends it's untouched and stages nothing.
+          [ -f data/verdicts/default.json ] && cp data/verdicts/default.json "$tmp/verdicts-default.json" || true
           [ -f data/enrichment.json ] && cp data/enrichment.json "$tmp/enrichment.json" || true
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config user.name "github-actions[bot]"
@@ -164,11 +223,13 @@ jobs:
           git reset --hard origin/main -q || true     # clean tree on the feed commit pushed above
           [ -f "$tmp/digest.md" ] && mkdir -p "digests/$HASH" && cp "$tmp/digest.md" "digests/$HASH/latest.md" || true
           [ -f "$tmp/verdicts.json" ] && mkdir -p data/verdicts && cp "$tmp/verdicts.json" "data/verdicts/$HASH.json" || true
+          [ -f "$tmp/why_cache.json" ] && cp "$tmp/why_cache.json" "data/why_cache.$HASH.json" || true
+          [ -f "$tmp/verdicts-default.json" ] && mkdir -p data/verdicts && cp "$tmp/verdicts-default.json" data/verdicts/default.json || true
           [ -f "$tmp/enrichment.json" ] && cp "$tmp/enrichment.json" data/enrichment.json || true
           printf '{"rebuilt_at":"%s","run_id":"%s"}\n' "$(date -u +%FT%TZ)" "$GITHUB_RUN_ID" > "dashboard/rebuilt.$HASH.json"
           # One add per path: a single multi-path `git add` stages NOTHING if any pathspec is
           # missing (new profile with no digest/verdicts yet), silently dropping the rest.
-          for f in "data/verdicts/$HASH.json" data/enrichment.json "digests/$HASH/latest.md" "dashboard/rebuilt.$HASH.json"; do
+          for f in "data/verdicts/$HASH.json" data/verdicts/default.json data/enrichment.json "digests/$HASH/latest.md" "data/why_cache.$HASH.json" "dashboard/rebuilt.$HASH.json"; do
             [ -f "$f" ] && git add -- "$f" || true
           done
           # The receipt is unique per run, so this commit always lands — that's the point: the

@@ -47,7 +47,7 @@ def test_editor_pool_per_lane_includes_thin_lane_below_floor():
     sub-floor events in a flooded lane are dropped."""
     pool = [_ev("U7", CLUB_U, 7), _ev("U6", CLUB_U, 6), _ev("U5", CLUB_U, 5),
             _ev("U3", CLUB_U, 3), _ev("Stage2", STAGE, 2), _ev("Other3", OTHER, 3)]
-    keys = {ED.event_key(e) for e in ED.editor_pool(pool, per_lane=3, floor=4)}
+    keys = {ED.event_key(e) for e in ED.editor_pool(pool, per_lane=3, floor=4, today=date(2026, 7, 4))}
     assert ED.event_key(_ev("Stage2", STAGE, 2)) in keys     # thin lane's best, despite score 2
     assert ED.event_key(_ev("U3", CLUB_U, 3)) not in keys    # below floor AND outside lane top-3
     assert ED.event_key(_ev("U7", CLUB_U, 7)) in keys        # high-absolute via floor
@@ -59,7 +59,7 @@ def test_editor_pool_default_judges_every_slate_lane_event():
     enters the pool regardless of score; non-slate lanes still need the floor."""
     pool = [_ev("U7", CLUB_U, 7), _ev("U1", CLUB_U, 1), _ev("Stage0", STAGE, 0),
             _ev("Other3", OTHER, 3), _ev("Other5", OTHER, 5)]
-    keys = {ED.event_key(e) for e in ED.editor_pool(pool)}
+    keys = {ED.event_key(e) for e in ED.editor_pool(pool, today=date(2026, 7, 4))}
     assert ED.event_key(_ev("U1", CLUB_U, 1)) in keys        # score-1 slate event: judged anyway
     assert ED.event_key(_ev("Stage0", STAGE, 0)) in keys     # score-0 slate event: judged anyway
     assert ED.event_key(_ev("Other3", OTHER, 3)) not in keys  # non-slate below floor: still out
@@ -84,8 +84,77 @@ def test_select_for_verdict_reselects_on_score_drift():
                               "input_version": ED.EDITOR_INPUT_VERSION,
                               "judged_at": "2026-06-19T00:00:00"}}}
     assert ED.select_for_verdict([ev], cache) == []          # score unchanged -> skip
-    ev2 = dict(ev); ev2["score"] = 8                          # lineup/feedback moved the score
+    ev1 = dict(ev); ev1["score"] = 6                          # ±1 ripple (reaction/policy nudge):
+    assert ED.select_for_verdict([ev1], cache) == []          #   below DRIFT_MIN -> verdict kept
+    ev2 = dict(ev); ev2["score"] = 7                          # real move (>= DRIFT_MIN)
     assert [m["id"] for m in ED.select_for_verdict([ev2], cache)] == [k]
+    ev3 = dict(ev); ev3["score"] = 3                          # downward drift counts the same
+    assert [m["id"] for m in ED.select_for_verdict([ev3], cache)] == [k]
+
+
+def test_score_drift_creep_accumulates_to_reselect():
+    """A kept verdict's score_at_judge is NOT refreshed, so sub-threshold creep accumulates
+    against the stored score and re-selects once it totals DRIFT_MIN."""
+    ev = _ev("Creeper", CLUB_U, 5)
+    k = ED.event_key(ev)
+    cache = {"verdicts": {k: {"tier": "solid", "score_at_judge": 5,
+                              "input_version": ED.EDITOR_INPUT_VERSION,
+                              "judged_at": "2026-06-19T00:00:00"}}}
+    ev1 = dict(ev); ev1["score"] = 6                          # +1: kept, stamp stays at 5
+    assert ED.select_for_verdict([ev1], cache) == []
+    ev2 = dict(ev); ev2["score"] = 7                          # +1 again: Δ2 vs stored -> re-judge
+    assert [m["id"] for m in ED.select_for_verdict([ev2], cache)] == [k]
+
+
+def test_reaction_on_event_reselects_regardless_of_drift():
+    """An explicit tap on an event (reacted_at newer than judged_at) forces a re-judge even when
+    the score didn't move DRIFT_MIN; a tap the judge already saw (older stamp) stays cached."""
+    ev = _ev("Tapped", CLUB_U, 5)
+    k = ED.event_key(ev)
+    cache = {"verdicts": {k: {"tier": "great", "score_at_judge": 5,
+                              "input_version": ED.EDITOR_INPUT_VERSION,
+                              "judged_at": "2026-07-31T07:00:00"}}}
+    assert ED.select_for_verdict([ev], cache) == []                # no tap, no drift -> kept
+    ev_t = dict(ev); ev_t["reacted_at"] = "2026-08-01T05:00:00Z"   # tap after the judge, score flat
+    assert [m["id"] for m in ED.select_for_verdict([ev_t], cache)] == [k]
+    ev_o = dict(ev); ev_o["reacted_at"] = "2026-07-30T23:59:59Z"   # tap BEFORE the judge -> folded
+    assert ED.select_for_verdict([ev_o], cache) == []
+
+
+def test_reaction_dateonly_stamp_and_rejudge_stability():
+    """Legacy date-only reaction stamps compare day-granular (same-day tap re-judges); once the
+    verdict is re-judged with a later clock, a full-ISO stamp older than judged_at goes quiet."""
+    ev = _ev("Tapped2", CLUB_U, 5)
+    k = ED.event_key(ev)
+    cache = {"verdicts": {k: {"tier": "great", "score_at_judge": 5,
+                              "input_version": ED.EDITOR_INPUT_VERSION,
+                              "judged_at": "2026-08-01T07:00:00"}}}
+    ev_d = dict(ev); ev_d["reacted_at"] = "2026-08-01"             # date-only: same day -> re-judge
+    assert [m["id"] for m in ED.select_for_verdict([ev_d], cache)] == [k]
+    ED.update_verdicts(cache, [{"id": k, "tier": "solid"}], scores={k: 5},
+                       now="2026-08-01T10:00:00")
+    ev_f = dict(ev); ev_f["reacted_at"] = "2026-08-01T09:00:00Z"   # tap predates the re-judge
+    assert ED.select_for_verdict([ev_f], cache) == []
+
+
+def test_pool_doc_records_carry_reacted_at():
+    ev = _ev("Tapped3", CLUB_U, 5)
+    ev["reacted_at"] = "2026-08-01T05:00:00Z"
+    doc = ED.pool_doc([ev], today=date(2026, 8, 1), window_days=14, per_lane=0, floor=4)
+    assert doc["events"][0]["reacted_at"] == "2026-08-01T05:00:00Z"
+
+
+def test_resolve_store_hash_owner_maps_to_default():
+    import hashlib
+    man = {"salt": "s:", "profiles": [{"username": "Own "},  # non-owner, case/space-insensitive hash
+                                      {"username": "own", "owner": True},
+                                      {"username": "friend"}]}
+    oh = hashlib.sha256(b"s:own").hexdigest()[:16]
+    fh = hashlib.sha256(b"s:friend").hexdigest()[:16]
+    assert ED.resolve_store_hash(oh, man) is None      # owner feed hash -> the default store
+    assert ED.resolve_store_hash(fh, man) == fh        # friend hash passes through
+    assert ED.resolve_store_hash(fh, {}) == fh         # no manifest -> passthrough
+    assert ED.resolve_store_hash(None, man) is None    # default profile stays default
 
 
 def test_select_for_verdict_refresh_days():
@@ -245,6 +314,39 @@ def test_verdict_path_per_profile():
     assert ED.verdict_path("abc123").name == "abc123.json"
     assert ED.verdict_path().name == "default.json"
     assert ED.verdict_path("abc123").parent.name == "verdicts"
+
+
+# ── 2026-08 shadow-eval additions: pool hygiene (past + junk rows never judged) ──
+
+def test_editor_pool_drops_past_and_junk_rows():
+    from datetime import date as _date
+    pool = ED.editor_pool([
+        {"title": "Real Show", "venue": "Zebulon", "date": "2026-08-10",
+         "score": 6, "tags": {}, "lineup": ["Someone"]},
+        {"title": "Already Happened", "venue": "The Echo", "date": "2026-08-01",
+         "score": 9, "tags": {}, "lineup": ["Someone Else"]},
+        {"title": "Verizon offer - Daisy Chain Fields", "venue": "Great Park Live",
+         "date": "2026-08-29", "score": 7, "tags": {}, "lineup": []},
+        {"title": "TBA Warehouse Night", "venue": "TBA", "date": None,
+         "score": 5, "tags": {}, "lineup": []},
+    ], today=_date(2026, 8, 4))
+    titles = {e["title"] for e in pool}
+    assert "Real Show" in titles
+    assert "TBA Warehouse Night" in titles, "undated rows must survive (TBA is not past)"
+    assert "Already Happened" not in titles, "past rows must not be judged"
+    assert "Verizon offer - Daisy Chain Fields" not in titles, "junk must not be judged"
+
+
+def test_editor_pool_top_k_caps_recall_mode():
+    """2026-08 demotion: top_k bounds the slate-lane judging head; the floor stays the
+    non-slate side door; top_k=None keeps the old judge-everything recall."""
+    from datetime import date as _date
+    pool = [_ev(f"U{i}", CLUB_U, 9 - i) for i in range(6)] + [_ev("Other8", OTHER, 8)]
+    got = ED.editor_pool(pool, top_k=3, today=_date(2026, 7, 4))
+    titles = {e["title"] for e in got}
+    assert {"U0", "U1", "U2"} <= titles and "U5" not in titles
+    assert "Other8" in titles, "high-scoring non-slate outlier still judged via floor"
+    assert len(ED.editor_pool(pool, today=_date(2026, 7, 4))) == 7   # None = uncapped
 
 
 if __name__ == "__main__":

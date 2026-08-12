@@ -20,7 +20,12 @@
 <x-dc>
 <helmet>
 <style>
-  html, body { margin:0; padding:0; height:100%; background:#f4f3ef; }
+  /* The app font stack lives HERE, not only on .app-shell — every modal (digest, guide, tutorial,
+     nudge, detail, settings…) mounts outside .app-shell, so anything relying on inheritance used to
+     fall through to the browser default serif. renderMarkdown's <p>/<li> set only size+leading, which
+     is why digest and guide prose rendered in Times. Inherit from the root and they all follow. */
+  html, body { margin:0; padding:0; height:100%; background:#f4f3ef;
+    font-family:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif; }
   * { box-sizing:border-box; }
   ::selection { background:#2b5cd9; color:#fff; }
   a { color:#2b5cd9; text-decoration:none; } a:hover { color:#1d49b8; }
@@ -28,6 +33,10 @@
   .scry::-webkit-scrollbar-thumb { background:#cdcbc3; border-radius:0; }
   .scry::-webkit-scrollbar-track { background:transparent; }
   .lchips::-webkit-scrollbar { height:0; }
+  .fcol::-webkit-scrollbar { width:6px; }
+  .fcol::-webkit-scrollbar-thumb { background:#d7d5cc; border-radius:3px; }
+  .fcol::-webkit-scrollbar-track { background:transparent; }
+  .fcol { scrollbar-width:thin; scrollbar-color:#d7d5cc transparent; }
   @keyframes la-pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
   @keyframes la-pop { 0%{transform:scale(.5);} 60%{transform:scale(1.2);} 100%{transform:scale(1);} }
   @keyframes om-scan { 0%{transform:translateX(-100%);} 100%{transform:translateX(300%);} }
@@ -42,6 +51,12 @@
   .chat-intro code { cursor:pointer; }
   .chat-intro code:hover { background:#dde4fb !important; color:#1d49b8 !important; }
   #dg-scroll a { color:#1b1a17; }
+  /* Tutorial-only reading sizes (the family comes from the root rule above). renderMarkdown sets
+     size+leading inline for the digest's density, so overriding them here needs !important. */
+  .la-tut p, .la-tut li { font-size:14px !important; line-height:1.62 !important; }
+  .la-tut h1 { font-size:22px !important; letter-spacing:-0.015em; margin-bottom:9px !important; }
+  .la-tut ul { gap:9px !important; }
+  .la-tut strong { color:#161512; }
 </style>
 </helmet>
 
@@ -84,16 +99,6 @@
           </sc-for>
         </div>
       </sc-if>
-      <sc-if value="{{ showSort }}" hint-placeholder-val="{{ false }}">
-        <div class="lchips" style="display:flex; align-items:center; gap:6px; overflow-x:auto; padding:1px;">
-          <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; padding-right:2px;">SORT</span>
-          <sc-for list="{{ sortOpts }}" as="s" hint-placeholder-count="3">
-            <span onClick="{{ s.onClick }}" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 12px; border:1px solid {{ s.border }}; background: {{ s.bg }}; color: {{ s.color }}; border-radius:999px;">{{ s.label }}</span>
-          </sc-for>
-          <span style="width:1px; height:16px; background:#dedcd4; margin:0 2px;"></span>
-          <span onClick="{{ toggleFilters }}" title="Filter by category, genre, vibe, neighborhood, date and more" style="cursor:pointer; white-space:nowrap; font:700 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:8px 12px; border:1px solid {{ filtersBtnBorder }}; background: {{ filtersBtnBg }}; color: {{ filtersBtnColor }}; border-radius:999px;">☰ {{ filtersBtnLabel }}</span>
-        </div>
-      </sc-if>
       <sc-if value="{{ showHeaderSearch }}" hint-placeholder-val="{{ true }}">
       <span style="flex:none; width:280px; margin-left:auto; display:inline-flex; align-items:center; gap:7px; padding:7px 11px; border:1px solid #d2d0c7; background:#fff; border-radius:999px; transition:width .18s ease, border-color .12s ease;" style-focus-within="border-color:#a7a59b; width:340px;">
         <span style="flex:none; color:#9a988e; font-size:17px;">⌕</span>
@@ -124,14 +129,18 @@
         </div>
       </sc-if>
 
-      <!-- THE LEAD -->
+      <!-- THE LEAD + SHORTLIST — desktop puts the hero on the left and "Also high on your
+           list" as a compact rail on the right (its cards stretch to share the hero's
+           height, so neither side strands whitespace); mobile stacks them. -->
       <sc-if value="{{ hasLead }}" hint-placeholder-val="{{ true }}">
-      <section style="margin-bottom:26px;">
+      <section style="margin-bottom:28px;">
         <div style="display:flex; align-items:center; gap:9px; margin-bottom:9px;">
           <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#2b5cd9;">◆ {{ leadKicker }}</span>
           <span style="flex:1; height:1px; background:#dedcd4;"></span>
         </div>
-        <article onClick="{{ lead.onOpen }}" style="position:relative; display:flex; flex-wrap:wrap; gap:22px; background:#fff; border:1px solid #c9c7bd; border-radius:5px; padding:0; overflow:hidden; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ lead.glow }};" style-hover="border-color:#a7a59b;">
+        <div style="{{ heroRowStyle }}">
+        <div style="{{ leadColStyle }}">
+        <article onClick="{{ lead.onOpen }}" style="{{ leadCardStyle }} box-shadow: {{ lead.glow }};" style-hover="border-color:#a7a59b;">
           <div style="position:absolute; top:0; left:0; right:0; height:3px; background: {{ lead.matchColor }};"></div>
           <sc-if value="{{ lead.photoCol.show }}" hint-placeholder-val="{{ false }}"><div style="{{ lead.photoCol.style }}"></div></sc-if>
           <sc-if value="{{ lead.poster.show }}" hint-placeholder-val="{{ false }}">
@@ -140,7 +149,7 @@
               <span style="font:800 20px/1.05 -apple-system,system-ui,sans-serif; color: {{ lead.poster.fg }};">{{ lead.poster.label }}</span>
             </div>
           </sc-if>
-          <div style="flex:1 1 380px; min-width:0; padding:22px 24px 20px; display:flex; flex-direction:column; gap:12px;">
+          <div style="{{ leadBodyStyle }}">
             <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
               <div style="min-width:0;">
                 <div style="display:flex; align-items:center; gap:9px; margin-bottom:7px;">
@@ -163,7 +172,7 @@
               </div>
               </sc-if>
             </div>
-            <p style="margin:0; font:400 14.5px/1.55 -apple-system,system-ui,sans-serif; color:#3f3d36; max-width:62ch; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;">{{ lead.why }}</p>
+            <p style="{{ leadWhyStyle }}">{{ lead.why }}</p>
             <sc-if value="{{ lead.hasTags }}" hint-placeholder-val="{{ true }}">
               <div style="display:flex; flex-wrap:wrap; gap:5px;">
                 <sc-for list="{{ lead.tags }}" as="t" hint-placeholder-count="4"><span onClick="{{ t.onTag }}" title="See more like this in Explore" style="cursor:pointer; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; padding:4px 6px; border-radius:2px; color: {{ t.color }}; background: {{ t.bg }};" style-hover="text-decoration:underline;">{{ t.text }}</span></sc-for>
@@ -180,19 +189,39 @@
             </div>
           </div>
         </article>
-      </section>
-      </sc-if>
-
-      <!-- SHORTLIST -->
-      <sc-if value="{{ hasShortlist }}" hint-placeholder-val="{{ true }}">
-      <section style="margin-bottom:28px;">
-        <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:11px;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Also high on your list</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">ranked by match</span>
+        <!-- DISPATCH — the digest headline box rides the lead column (desktop: under the
+             hero, absorbing the height the rail sets; mobile: between hero and shortlist),
+             so the hero card never has to stretch its own whitespace to match the rail. -->
+        <sc-if value="{{ hasDispatch }}" hint-placeholder-val="{{ false }}">
+        <section style="{{ dispatchBoxStyle }}">
+          <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:8px;">TODAY'S DIGEST · {{ dispatch.kicker }}</div>
+          <h3 style="margin:0 0 8px; font:700 17px/1.35 -apple-system,system-ui,sans-serif; color:#161512; max-width:74ch; text-wrap:pretty;">{{ dispatch.headline }}</h3>
+          <sc-if value="{{ dispatch.hasBlurb }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0 0 10px; font:400 13px/1.6 -apple-system,system-ui,sans-serif; color:#5a584f; max-width:74ch; text-wrap:pretty;">{{ dispatch.blurb }}</p>
+          </sc-if>
+          <p style="margin:0 0 12px; font:400 13.5px/1.6 -apple-system,system-ui,sans-serif; color:#3f3d36;"><span onClick="{{ openDigest }}" style="cursor:pointer; font-weight:600; color:#2b5cd9; white-space:nowrap;" style-hover="color:#1d49b8;">Read the full digest →</span></p>
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">IN THIS DIGEST</span>
+            <sc-for list="{{ dispatch.chips }}" as="ch" hint-placeholder-count="3">
+              <span onClick="{{ ch.onClick }}" title="{{ ch.full }}" style="cursor:pointer; display:inline-flex; align-items:center; gap:7px; max-width:280px; font:600 10.5px/1.2 ui-monospace,Menlo,monospace; padding:4px 5px 4px 10px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; white-space:nowrap;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">
+                <span style="flex:none; font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ ch.when }}</span>
+                <span style="min-width:0; overflow:hidden; text-overflow:ellipsis;">{{ ch.text }}</span>
+                <span onClick="{{ ch.onStar }}" title="{{ ch.starTitle }}" style="flex:none; width:21px; height:21px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:12px; line-height:1; color: {{ ch.starColor }}; background: {{ ch.starBg }};" style-hover="background:#eef1f7;">{{ ch.starGlyph }}</span>
+              </span>
+            </sc-for>
+          </div>
+        </section>
+        </sc-if>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:11px;">
+        <sc-if value="{{ hasShortlist }}" hint-placeholder-val="{{ true }}">
+        <aside style="{{ shortWrapStyle }}">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:9px;">
+            <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Also high on your list</span>
+            <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">ranked by match</span>
+          </div>
+          <div style="{{ shortListStyle }}">
           <sc-for list="{{ shortlist }}" as="c" hint-placeholder-count="4">
-            <article onClick="{{ c.onOpen }}" style="display:flex; gap:12px; background:#fff; border:1px solid #dedcd4; border-radius:4px; padding:13px 14px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
+            <article onClick="{{ c.onOpen }}" style="{{ shortCardStyle }} box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
               <sc-if value="{{ c.thumb.show }}" hint-placeholder-val="{{ false }}"><div style="{{ c.thumb.style }}"></div></sc-if>
               <sc-if value="{{ c.poster.show }}" hint-placeholder-val="{{ false }}"><div style="flex:0 0 52px; height:66px; border-radius:3px; background: {{ c.poster.bg }};"></div></sc-if>
               <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:6px;">
@@ -209,7 +238,7 @@
                   </span>
                   </sc-if>
                 </div>
-                <div style="font:600 14px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ c.title }}</div>
+                <div style="{{ shortTitleStyle }}">{{ c.title }}</div>
                 <div style="font:500 10.5px/1.3 ui-monospace,Menlo,monospace; color:#76746b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ c.venue }}</div>
                 <sc-if value="{{ c.hasWhy }}" hint-placeholder-val="{{ true }}"><div style="font:400 11.5px/1.45 -apple-system,system-ui,sans-serif; color:#3f3d36; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;">{{ c.why }}</div></sc-if>
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:6px;">
@@ -226,54 +255,41 @@
               </div>
             </article>
           </sc-for>
-        </div>
-      </section>
-      </sc-if>
-
-      <!-- DISPATCH -->
-      <sc-if value="{{ hasDispatch }}" hint-placeholder-val="{{ false }}">
-      <section style="margin-bottom:28px; background:#fdfcf9; border:1px solid #e2e0d8; border-left:3px solid #1b1a17; border-radius:4px; padding:18px 20px;">
-        <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:8px;">TODAY'S DIGEST · {{ dispatch.kicker }}</div>
-        <h3 style="margin:0 0 8px; font:700 17px/1.35 -apple-system,system-ui,sans-serif; color:#161512; max-width:74ch; text-wrap:pretty;">{{ dispatch.headline }}</h3>
-        <sc-if value="{{ dispatch.hasBlurb }}" hint-placeholder-val="{{ false }}">
-          <p style="margin:0 0 10px; font:400 13px/1.6 -apple-system,system-ui,sans-serif; color:#5a584f; max-width:74ch; text-wrap:pretty;">{{ dispatch.blurb }}</p>
+          </div>
+        </aside>
         </sc-if>
-        <p style="margin:0 0 12px; font:400 13.5px/1.6 -apple-system,system-ui,sans-serif; color:#3f3d36;"><span onClick="{{ openDigest }}" style="cursor:pointer; font-weight:600; color:#2b5cd9; white-space:nowrap;" style-hover="color:#1d49b8;">Read the full digest →</span></p>
-        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-          <span style="font:700 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">IN THIS DIGEST</span>
-          <sc-for list="{{ dispatch.chips }}" as="ch" hint-placeholder-count="3">
-            <span onClick="{{ ch.onClick }}" title="{{ ch.full }}" style="cursor:pointer; display:inline-flex; align-items:center; gap:7px; max-width:280px; font:600 10.5px/1.2 ui-monospace,Menlo,monospace; padding:4px 5px 4px 10px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; white-space:nowrap;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">
-              <span style="flex:none; font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ ch.when }}</span>
-              <span style="min-width:0; overflow:hidden; text-overflow:ellipsis;">{{ ch.text }}</span>
-              <span onClick="{{ ch.onStar }}" title="{{ ch.starTitle }}" style="flex:none; width:21px; height:21px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:12px; line-height:1; color: {{ ch.starColor }}; background: {{ ch.starBg }};" style-hover="background:#eef1f7;">{{ ch.starGlyph }}</span>
-            </span>
-          </sc-for>
         </div>
       </section>
       </sc-if>
 
-      <!-- YOUR SCENES (lanes) -->
+      <!-- THE MARQUEE LANES — a plain section per lane ("Sets and shows" / "Events" — no
+           box chrome, no umbrella header), each split into the active lens's TIME rows
+           (weekend → Fri/Sat/Sun, next 3 weeks → this/next/in-two, tonight → daytime/
+           evening/late, plan ahead → its months). "all N →" opens the lane in full. -->
       <sc-if value="{{ hasScenes }}" hint-placeholder-val="{{ true }}">
-      <section style="margin-bottom:28px;">
-        <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:11px;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Your scenes</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">by lane · ranked by match</span>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:13px;">
-          <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="4">
-            <div style="background:#eeebe3; border-radius:9px; padding:14px 15px 13px;">
-              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:12px;">
+          <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="2">
+            <section style="margin-bottom:26px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:10px;">
                 <span style="display:inline-flex; align-items:center; gap:8px; min-width:0;">
                   <span style="flex:none; width:9px; height:9px; border-radius:50%; background: {{ sc.dot }};"></span>
                   <span style="font:700 13px/1.1 -apple-system,system-ui,sans-serif; color:#161512;">{{ sc.label }}</span>
+                  <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">ranked by match</span>
                 </span>
-                <span style="flex:none; display:inline-flex; align-items:baseline; gap:12px;">
-                  <sc-if value="{{ sc.hasExtra }}" hint-placeholder-val="{{ false }}"><span onClick="{{ sc.onExtra }}" title="Every film program — boards, openings, one-nights" style="cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.extraLabel }} →</span></sc-if>
-                  <span onClick="{{ sc.onAll }}" title="See this lane in full" style="cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.allLabel }} →</span>
-                </span>
+                <span onClick="{{ sc.onAll }}" title="See this lane in full" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ sc.allLabel }} →</span>
               </div>
-              <div class="scry" style="display:grid; grid-auto-flow:column; grid-template-rows: {{ sc.rowsCss }}; grid-auto-columns: {{ sceneColW }}; gap:11px; overflow-x:auto; padding:2px 2px 9px; scroll-snap-type:x proximity;">
-                <sc-for list="{{ sc.cards }}" as="c" hint-placeholder-count="4">
+              <sc-for list="{{ sc.rows }}" as="rw" hint-placeholder-count="3">
+              <div>
+                <div style="display:flex; align-items:baseline; gap:8px; margin:3px 2px 8px;">
+                  <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; text-transform:uppercase; color:#5a584f;">{{ rw.label }}</span>
+                  <span style="font:600 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ rw.sub }}</span>
+                  <span style="flex:1; height:1px; background:#e2e0d8;"></span>
+                </div>
+                <sc-if value="{{ rw.isQuiet }}" hint-placeholder-val="{{ false }}">
+                  <div style="font:500 10.5px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b; padding:0 2px 10px;">quiet — nothing featured here yet</div>
+                </sc-if>
+                <sc-if value="{{ rw.hasCards }}" hint-placeholder-val="{{ true }}">
+                <div class="scry" style="display:grid; grid-auto-flow:column; grid-template-rows:repeat(1,1fr); grid-auto-columns: {{ sceneColW }}; gap:11px; overflow-x:auto; padding:2px 2px 9px; scroll-snap-type:x proximity;">
+                <sc-for list="{{ rw.cards }}" as="c" hint-placeholder-count="4">
                   <article onClick="{{ c.onOpen }}" style="scroll-snap-align:start; display:flex; flex-direction:column; gap:7px; background:#fff; border:1px solid #e4e2d9; border-left:3px solid {{ sc.dot }}; border-radius:5px; padding:12px 13px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease; box-shadow: {{ c.glow }};" style-hover="border-color:#a7a59b;">
                     <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
                       <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.when }}</span>
@@ -289,11 +305,10 @@
                     </sc-if>
                     <div style="font:400 12px/1.5 -apple-system,system-ui,sans-serif; color:#3f3d36; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;">{{ c.why }}</div>
                     <div style="margin-top:auto; padding-top:4px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
-                      <sc-if value="{{ c.hasChips }}" hint-placeholder-val="{{ false }}">
                       <div style="display:flex; align-items:center; padding-left:5px;">
                         <sc-for list="{{ c.friendChips }}" as="ch" hint-placeholder-count="2"><span style="width:19px; height:19px; margin-left:-5px; border-radius:50%; border:2px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;" title="{{ ch.t }}">{{ ch.i }}</span></sc-for>
+                        <button onClick="{{ c.onChip }}" title="{{ c.addTitle }}" style="{{ c.addStyle }}">{{ c.addGlyph }}</button>
                       </div>
-                      </sc-if>
                       <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}">
                       <span style="flex:none; margin-left:auto; display:inline-flex; align-items:center; gap:5px;">
                         <span style="font:700 10px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span>
@@ -303,109 +318,50 @@
                     </div>
                   </article>
                 </sc-for>
+                </div>
+                </sc-if>
               </div>
-            </div>
+              </sc-for>
+            </section>
           </sc-for>
-        </div>
-      </section>
       </sc-if>
 
-      <!-- NOW RUNNING — long runs & seasons: in town for a while, not one-night picks -->
-      <sc-if value="{{ hasNowRunning }}" hint-placeholder-val="{{ false }}">
-      <section style="margin-bottom:24px;">
-        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Now running</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">runs & seasons — in town for a while</span>
-        </div>
-        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
-          <sc-for list="{{ nowRunning }}" as="r" hint-placeholder-count="4">
-            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
-              <span style="flex:0 0 96px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
-              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
-              <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
-              <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color:#1f7a4d; background:rgba(31,122,77,0.1);">{{ r.tag }}</span></sc-if>
-            </div>
-          </sc-for>
-        </div>
-      </section>
-      </sc-if>
-
-      <!-- ON THE RADAR -->
-      <sc-if value="{{ hasRadar }}" hint-placeholder-val="{{ false }}">
-      <section style="margin-bottom:24px;">
+      <!-- CATEGORY TABLES — Seasonal and repeating / Movies / Theater / Festivals / FYI.
+           Fixtures (shown under every lens), each formatted to its category via the row
+           builders in the FRONT compute; the marquee shelves above carry what's FEATURED.
+           Desktop packs them two-up (CSS columns — sections never split); mobile stacks. -->
+      <div style="{{ tbWrapStyle }}">
+      <sc-for list="{{ fpTables }}" as="tb" hint-placeholder-count="2">
+      <section style="{{ tbSecStyle }}">
         <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px; flex-wrap:wrap;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">On the radar</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">just announced · on sale now</span>
-        </div>
-        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
-          <sc-for list="{{ radar }}" as="r" hint-placeholder-count="4">
-            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
-              <span style="flex:0 0 66px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
-              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
-              <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
-              <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color:#b06a00; background:rgba(176,106,0,0.1);">{{ r.tag }}</span></sc-if>
-            </div>
-          </sc-for>
-        </div>
-      </section>
-      </sc-if>
-
-      <!-- AROUND TOWN -->
-      <sc-if value="{{ hasAround }}" hint-placeholder-val="{{ false }}">
-      <section style="margin-bottom:24px;">
-        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Around town</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">the city's pulse beyond your lanes</span>
-        </div>
-        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
-          <sc-for list="{{ around }}" as="r" hint-placeholder-count="4">
-            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
-              <span style="flex:0 0 66px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
-              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</span>
-              <span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap;">{{ r.venue }}</span>
-            </div>
-          </sc-for>
-        </div>
-      </section>
-      </sc-if>
-
-      <!-- FESTIVALS — the standing watch-list, a permanent fixture: close to home vs worth the trip -->
-      <sc-if value="{{ hasFestFP }}" hint-placeholder-val="{{ false }}">
-      <section style="margin-bottom:24px;">
-        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:8px; flex-wrap:wrap;">
-          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">Festivals</span>
-          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">the standing watch-list — near &amp; far</span>
+          <span style="font:700 13px/1 -apple-system,system-ui,sans-serif; color:#161512;">{{ tb.label }}</span>
+          <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ tb.sub }}</span>
           <span style="flex:1;"></span>
-          <span onClick="{{ openFestivals }}" title="The full festival watch-list, with the why on each" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">the full watch-list →</span>
+          <sc-if value="{{ tb.hasLink }}" hint-placeholder-val="{{ false }}"><span onClick="{{ tb.onLink }}" title="{{ tb.linkTitle }}" style="flex:none; cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ tb.linkLabel }} →</span></sc-if>
         </div>
-        <sc-if value="{{ hasFestLocal }}" hint-placeholder-val="{{ false }}">
-        <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin:2px 0 7px;">CLOSE TO HOME</div>
-        <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden; margin-bottom:12px;">
-          <sc-for list="{{ festLocal }}" as="f" hint-placeholder-count="2">
-            <div onClick="{{ openFestivals }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
-              <span style="flex:0 0 96px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ f.whenShort }}</span>
-              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ f.name }}</span>
-              <span style="flex:none; max-width:34%; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ f.location }}</span>
-              <sc-if value="{{ f.hasStatus }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color: {{ f.stColor }}; background: {{ f.stBg }};">{{ f.stLabel }}</span></sc-if>
-            </div>
-          </sc-for>
-        </div>
-        </sc-if>
-        <sc-if value="{{ hasFestTravel }}" hint-placeholder-val="{{ false }}">
-        <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b; margin:2px 0 7px;">WORTH THE TRIP</div>
         <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
-          <sc-for list="{{ festTravel }}" as="f" hint-placeholder-count="4">
-            <div onClick="{{ openFestivals }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
-              <span style="flex:0 0 96px; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ f.whenShort }}</span>
-              <span style="flex:1; min-width:0; font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ f.name }}</span>
-              <span style="flex:none; max-width:34%; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ f.location }}</span>
-              <sc-if value="{{ f.hasStatus }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color: {{ f.stColor }}; background: {{ f.stBg }};">{{ f.stLabel }}</span></sc-if>
+          <sc-for list="{{ tb.rows }}" as="r" hint-placeholder-count="4">
+            <div onClick="{{ r.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-top:1px solid #f0efe8; cursor:pointer;" style-hover="background:#faf9f5;">
+              <span style="flex:0 0 {{ tbDateW }}; font:600 10px/1.3 ui-monospace,Menlo,monospace; color:#76746b;">{{ r.dateShort }}</span>
+              <div style="flex:1; min-width:0;">
+                <div style="font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.title }}</div>
+                <sc-if value="{{ tbStackVenue }}" hint-placeholder-val="{{ false }}"><div style="margin-top:2px; font:500 9.5px/1.3 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.venue }}</div></sc-if>
+              </div>
+              <sc-if value="{{ tbSideVenue }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b; white-space:nowrap; max-width:34%; overflow:hidden; text-overflow:ellipsis;">{{ r.venue }}</span></sc-if>
+              <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}"><span style="flex:none; font:700 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.05em; padding:3px 6px; border-radius:2px; color: {{ r.tagColor }}; background: {{ r.tagBg }};">{{ r.tag }}</span></sc-if>
+              <sc-if value="{{ r.canStar }}" hint-placeholder-val="{{ true }}">
+                <span style="flex:none; display:inline-flex; align-items:center; margin-left:-2px;">
+                  <sc-for list="{{ r.friendChips }}" as="ch" hint-placeholder-count="1"><span style="width:16px; height:16px; margin-left:-5px; border-radius:50%; border:1.5px solid #fff; background: {{ ch.bg }}; color:#3f3d36; font:700 7px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; flex:none;" title="{{ ch.t }}">{{ ch.i }}</span></sc-for>
+                  <span onClick="{{ r.onStar }}" title="{{ r.starTitle }}" style="flex:none; width:20px; height:20px; margin-left:2px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:11px; line-height:1; color: {{ r.starColor }}; background: {{ r.starBg }};" style-hover="background:#eef1f7;">{{ r.starGlyph }}</span>
+                </span>
+              </sc-if>
             </div>
           </sc-for>
+          <sc-if value="{{ tb.hasMore }}" hint-placeholder-val="{{ false }}"><div onClick="{{ tb.onMore }}" style="padding:8px 14px; border-top:1px solid #f0efe8; font:600 10px/1 ui-monospace,Menlo,monospace; color: {{ tb.moreColor }}; cursor: {{ tb.moreCursor }};">{{ tb.more }}</div></sc-if>
         </div>
-        </sc-if>
       </section>
-      </sc-if>
+      </sc-for>
+      </div>
 
       <sc-if value="{{ fpEmpty }}" hint-placeholder-val="{{ false }}">
         <div style="padding:60px 0; text-align:center; font:500 13px/1.6 ui-monospace,Menlo,monospace; color:#a7a59b;">Quiet in this window.<br/><span onClick="{{ resetReactions }}" style="color:#2b5cd9; cursor:pointer; text-decoration:underline;">Reset your reactions</span> or try a wider lens.</div>
@@ -588,31 +544,6 @@
         </div>
       </sc-if>
 
-      <!-- FILTER PANEL -->
-      <sc-if value="{{ filtersOpen }}" hint-placeholder-val="{{ false }}">
-      <div id="ex-filter-panel" style="margin-bottom:14px; background:#fdfcf9; border:1px solid #dedcd4; border-radius:6px; padding:14px 16px 15px;">
-        <div style="display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
-          <span style="flex:none; width:96px; font:700 8.5px/2.6 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;">DATES</span>
-          <sc-for list="{{ exDateChips }}" as="c" hint-placeholder-count="5"><span onClick="{{ c.onClick }}" style="cursor:pointer; padding:6px 11px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
-          <span style="display:inline-flex; align-items:center; gap:5px; font:600 10px/1 ui-monospace,Menlo,monospace; color:#76746b;">
-            <input type="date" value="{{ exFrom }}" onChange="{{ onExFrom }}" style="border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:5px 7px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;" />
-            –
-            <input type="date" value="{{ exTo }}" onChange="{{ onExTo }}" style="border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:5px 7px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;" />
-          </span>
-        </div>
-        <sc-for list="{{ exRows }}" as="fr" hint-placeholder-count="7">
-          <div style="margin-top:9px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;">
-            <span style="flex:none; width:96px; font:700 8.5px/2.6 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#a7a59b;" title="tap to cycle: ✓ only these → ✕ hide → off">{{ fr.label }}</span>
-            <sc-for list="{{ fr.chips }}" as="c" hint-placeholder-count="8"><span onClick="{{ c.onClick }}" title="{{ c.title }}" style="cursor:pointer; padding:6px 11px; border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.color }}; font:700 10px/1 ui-monospace,Menlo,monospace;">{{ c.label }}</span></sc-for>
-          </div>
-        </sc-for>
-        <div style="margin-top:11px; padding-top:10px; border-top:1px solid #eeece4; display:flex; align-items:center; justify-content:space-between; gap:10px;">
-          <span style="font:500 9.5px/1.4 ui-monospace,Menlo,monospace; color:#bdbbb1;">tap a value: ✓ only these → ✕ hide → off · tags on any card filter here too</span>
-          <span onClick="{{ exResetFn }}" style="cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#b4453a;" style-hover="text-decoration:underline;">reset all</span>
-        </div>
-      </div>
-      </sc-if>
-
       <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; flex-wrap:wrap;">
         <span style="display:inline-flex; align-items:center; gap:9px; min-width:0;">
           <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreCountLabel }}</span>
@@ -620,8 +551,102 @@
         </span>
         <sc-if value="{{ exHasActive }}" hint-placeholder-val="{{ false }}"><span onClick="{{ exResetFn }}" style="flex:none; cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear filters ×</span></sc-if>
       </div>
-      <!-- mobile: flat card list (the table is a desktop surface) -->
+      <!-- mobile: flat card list (the table is a desktop surface) topped by the SAME column
+           controls as the desktop table, condensed into one sticky strip — tap a label to sort,
+           tap its funnel for that column's menu (full-width dropdown, sub-columns wrap) -->
       <sc-if value="{{ isMobileCards }}" hint-placeholder-val="{{ false }}">
+        <div style="position:sticky; top:0; z-index:3; background:#efeee9; box-shadow:0 1px 0 #d9d7cf; border-radius:3px; margin-bottom:12px;">
+          <div class="lchips" style="display:flex; align-items:center; justify-content:space-between; gap:7px; overflow-x:auto; padding:10px 9px;">
+            <span style="flex:none; display:inline-flex; align-items:center; gap:4px; white-space:nowrap;">
+              <span onClick="{{ sortDateCol }}" style="cursor:pointer; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">DATE <span style="color:#2b5cd9;">{{ arrowDate }}</span></span>
+              <span onClick="{{ openDateF }}" title="Dates — a preset or a custom range" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:4px 2px; color: {{ dateIcon }};"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+            </span>
+            <span onClick="{{ sortTitleCol }}" style="flex:none; cursor:pointer; white-space:nowrap; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">EVENT <span style="color:#2b5cd9;">{{ arrowTitle }}</span></span>
+            <span style="flex:none; display:inline-flex; align-items:center; gap:4px; white-space:nowrap;">
+              <span onClick="{{ sortHoodCol }}" style="cursor:pointer; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">HOOD <span style="color:#2b5cd9;">{{ arrowHood }}</span></span>
+              <span onClick="{{ openHoodF }}" title="Neighborhood / region — tap a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:4px 2px; color: {{ hoodIcon }};"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+            </span>
+            <span style="flex:none; display:inline-flex; align-items:center; gap:4px; white-space:nowrap;">
+              <span onClick="{{ sortCatCol }}" style="cursor:pointer; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">CAT/VIBE <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
+              <span onClick="{{ openCatF }}" title="Category / genre / vibe / setting — tap a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:4px 2px; color: {{ catIcon }};"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+            </span>
+            <span style="flex:none; white-space:nowrap; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em;"><span onClick="{{ sortRankCol }}" style="cursor:pointer; color: {{ rankHeadColor }};">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span><span style="color:#d2d0c7;">·</span> <span onClick="{{ sortScoreCol }}" style="cursor:pointer; color: {{ scoreHeadColor }};">MATCH <span style="color:#2b5cd9;">{{ arrowScore }}</span></span></span>
+            <span style="flex:none; display:inline-flex; align-items:center; gap:4px; white-space:nowrap;">
+              <span onClick="{{ sortSourceCol }}" style="cursor:pointer; font:600 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.03em; color:#76746b;">SRC <span style="color:#2b5cd9;">{{ arrowSource }}</span></span>
+              <span onClick="{{ openSourceF }}" title="Source — tap a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:4px 2px; color: {{ sourceIcon }};"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+            </span>
+          </div>
+          <sc-if value="{{ dateOpen }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+            <div style="position:absolute; top:100%; left:0; right:0; z-index:51; display:flex; flex-wrap:wrap; background:#fff; border:1px solid #c9c7bd; border-radius:0 0 6px 6px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:8px 6px;">
+              <div class="fcol" style="flex:1 1 150px; min-width:140px; max-height:32vh; overflow-y:auto; padding:0 9px 6px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                  <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">DATES</span>
+                  <sc-if value="{{ dateHasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearDates }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;">clear</span></sc-if>
+                </div>
+                <sc-for list="{{ dateMenu }}" as="o" hint-placeholder-count="5">
+                  <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:7px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 12px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};"><span style="font-size:11px; color: {{ o.boxColor }};">{{ o.box }}</span><span>{{ o.label }}</span></div>
+                </sc-for>
+              </div>
+              <div style="flex:1 1 150px; min-width:140px; padding:0 9px 6px;">
+                <div style="padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:8px;">
+                  <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">CUSTOM RANGE</span>
+                </div>
+                <input type="date" value="{{ exFrom }}" onChange="{{ onExFrom }}" style="width:100%; border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:6px 8px; font:600 11px/1.2 ui-monospace,Menlo,monospace; color:#3f3d36;" />
+                <div style="text-align:center; font:600 9px/1.8 ui-monospace,Menlo,monospace; color:#bdbbb1;">to</div>
+                <input type="date" value="{{ exTo }}" onChange="{{ onExTo }}" style="width:100%; border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:6px 8px; font:600 11px/1.2 ui-monospace,Menlo,monospace; color:#3f3d36;" />
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ hoodOpen }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+            <div style="position:absolute; top:100%; left:0; right:0; z-index:51; display:flex; flex-wrap:wrap; background:#fff; border:1px solid #c9c7bd; border-radius:0 0 6px 6px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:8px 6px;">
+              <sc-for list="{{ hoodFCols }}" as="fc" hint-placeholder-count="2">
+                <div class="fcol" style="flex:1 1 150px; min-width:140px; max-height:32vh; overflow-y:auto; padding:0 9px 6px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                    <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;">clear</span></sc-if>
+                  </div>
+                  <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="8">
+                    <div onClick="{{ o.onClick }}" title="tap: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:7px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 12px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};"><span style="font-size:11px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ catOpen }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+            <div style="position:absolute; top:100%; left:0; right:0; z-index:51; display:flex; flex-wrap:wrap; background:#fff; border:1px solid #c9c7bd; border-radius:0 0 6px 6px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:8px 6px;">
+              <sc-for list="{{ catFCols }}" as="fc" hint-placeholder-count="4">
+                <div class="fcol" style="flex:1 1 150px; min-width:140px; max-height:28vh; overflow-y:auto; padding:0 9px 6px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                    <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;">clear</span></sc-if>
+                  </div>
+                  <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="8">
+                    <div onClick="{{ o.onClick }}" title="tap: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:7px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 12px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};"><span style="font-size:11px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ sourceOpen }}" hint-placeholder-val="{{ false }}">
+            <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+            <div style="position:absolute; top:100%; left:0; right:0; z-index:51; display:flex; flex-wrap:wrap; background:#fff; border:1px solid #c9c7bd; border-radius:0 0 6px 6px; box-shadow:0 12px 30px rgba(0,0,0,0.18); padding:8px 6px;">
+              <sc-for list="{{ sourceFCols }}" as="fc" hint-placeholder-count="1">
+                <div class="fcol" style="flex:1 1 150px; min-width:140px; max-height:32vh; overflow-y:auto; padding:0 9px 6px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                    <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                    <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;">clear</span></sc-if>
+                  </div>
+                  <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="6">
+                    <div onClick="{{ o.onClick }}" title="tap: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:7px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 12px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};"><span style="font-size:11px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
         <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden;">
           <sc-for list="{{ exploreRows }}" as="c" hint-placeholder-count="8">
             <div onClick="{{ c.onOpen }}" style="border-bottom:1px solid #e8e6de; padding:13px 15px; cursor:pointer;">
@@ -630,9 +655,10 @@
                   <div style="font:600 10.5px/1.2 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.dateShort }} · {{ c.t }}</div>
                   <div style="margin-top:4px; font:600 14.5px/1.25 -apple-system,system-ui,sans-serif; color:#161512;">{{ c.title }}</div>
                 </div>
-                <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}">
-                  <span style="flex:none; font:700 12px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span>
-                </sc-if>
+                <span style="flex:none; display:inline-flex; align-items:baseline; gap:6px;">
+                  <sc-if value="{{ c.hasRank }}" hint-placeholder-val="{{ true }}"><span title="{{ c.rankTitle }}" style="font:500 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">#{{ c.rankNum }}</span></sc-if>
+                  <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}"><span style="font:700 12px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span></sc-if>
+                </span>
               </div>
               <div style="margin-top:5px; font:500 11px/1.4 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.venue }}</div>
               <div style="margin-top:7px; display:flex; flex-wrap:wrap; align-items:center; gap:6px;">
@@ -645,16 +671,102 @@
         </div>
       </sc-if>
       <sc-if value="{{ notMobileCards }}" hint-placeholder-val="{{ true }}">
-      <div style="background:#fff; border:1px solid #e2e0d8; border-radius:4px; overflow:hidden; overflow-x:auto;">
-        <table style="width:100%; border-collapse:collapse; font-size:12.5px; min-width:720px;">
+      <!-- the original explore design: a bare ranked table, filters living IN the columns -->
+      <table style="width:100%; border-collapse:collapse; font-size:12.5px;">
           <thead>
             <tr style="position:sticky; top:0; z-index:2; background:#efeee9; box-shadow:0 1px 0 #d9d7cf;">
-              <th onClick="{{ sortDateCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:92px;" style-hover="color:#2b5cd9;">DATE <span style="color:#2b5cd9;">{{ arrowDate }}</span></th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:96px; position:relative;">
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                  <span onClick="{{ sortDateCol }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">DATE <span style="color:#2b5cd9;">{{ arrowDate }}</span></span>
+                  <span onClick="{{ openDateF }}" title="Dates — a preset or a custom range" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ dateIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                </span>
+                <sc-if value="{{ dateOpen }}" hint-placeholder-val="{{ false }}">
+                  <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+                  <div style="position:absolute; top:30px; left:12px; z-index:51; width:196px; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 10px;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 2px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                      <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">DATES</span>
+                      <sc-if value="{{ dateHasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearDates }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                    </div>
+                    <sc-for list="{{ dateMenu }}" as="o" hint-placeholder-count="5">
+                      <div onClick="{{ o.onClick }}" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span>{{ o.label }}</span></div>
+                    </sc-for>
+                    <div style="border-top:1px solid #eceae2; margin-top:6px; padding:8px 4px 3px;">
+                      <div style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b; margin-bottom:7px;">CUSTOM RANGE</div>
+                      <input type="date" value="{{ exFrom }}" onChange="{{ onExFrom }}" style="width:100%; border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:5px 7px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;" />
+                      <div style="text-align:center; font:600 9px/1.7 ui-monospace,Menlo,monospace; color:#bdbbb1;">to</div>
+                      <input type="date" value="{{ exTo }}" onChange="{{ onExTo }}" style="width:100%; border:1px solid #dedcd4; border-radius:4px; background:#fff; padding:5px 7px; font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#3f3d36;" />
+                    </div>
+                  </div>
+                </sc-if>
+              </th>
               <th onClick="{{ sortTitleCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; user-select:none;" style-hover="color:#2b5cd9;">EVENT / LINEUP <span style="color:#2b5cd9;">{{ arrowTitle }}</span></th>
-              <th onClick="{{ sortHoodCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:132px;" style-hover="color:#2b5cd9;">NEIGHBORHOOD <span style="color:#2b5cd9;">{{ arrowHood }}</span></th>
-              <th onClick="{{ sortCatCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:148px;" style-hover="color:#2b5cd9;">CATEGORY / VIBE <span style="color:#2b5cd9;">{{ arrowCat }}</span></th>
-              <th onClick="{{ sortScoreCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:116px;" style-hover="color:#2b5cd9;">MATCH <span style="color:#2b5cd9;">{{ arrowScore }}</span></th>
-              <th onClick="{{ sortSourceCol }}" style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; cursor:pointer; white-space:nowrap; user-select:none; width:86px;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:140px; position:relative;">
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                  <span onClick="{{ sortHoodCol }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">NEIGHBORHOOD <span style="color:#2b5cd9;">{{ arrowHood }}</span></span>
+                  <span onClick="{{ openHoodF }}" title="Neighborhood / region — click a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ hoodIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                </span>
+                <sc-if value="{{ hoodOpen }}" hint-placeholder-val="{{ false }}">
+                  <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+                  <div style="position:absolute; top:30px; left:12px; z-index:51; display:flex; align-items:stretch; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                    <sc-for list="{{ hoodFCols }}" as="fc" hint-placeholder-count="2">
+                      <div class="fcol" style="flex:0 0 auto; width: {{ fc.w }}; max-height:320px; overflow-y:auto; padding:0 9px; border-left: {{ fc.bl }};">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                          <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                          <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                        </div>
+                        <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="8">
+                          <div onClick="{{ o.onClick }}" title="click: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:150px; position:relative;">
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                  <span onClick="{{ sortCatCol }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">CATEGORY / VIBE <span style="color:#2b5cd9;">{{ arrowCat }}</span></span>
+                  <span onClick="{{ openCatF }}" title="Category / genre / vibe / setting — click a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ catIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                </span>
+                <sc-if value="{{ catOpen }}" hint-placeholder-val="{{ false }}">
+                  <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+                  <div style="position:absolute; top:30px; right:12px; z-index:51; display:flex; align-items:stretch; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                    <sc-for list="{{ catFCols }}" as="fc" hint-placeholder-count="4">
+                      <div class="fcol" style="flex:0 0 auto; width: {{ fc.w }}; max-height:340px; overflow-y:auto; padding:0 9px; border-left: {{ fc.bl }};">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                          <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                          <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                        </div>
+                        <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="8">
+                          <div onClick="{{ o.onClick }}" title="click: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:150px;"><span onClick="{{ sortRankCol }}" title="The editor's final running order — sort by it" style="cursor:pointer; color: {{ rankHeadColor }};" style-hover="color:#2b5cd9;">RANK <span style="color:#2b5cd9;">{{ arrowRank }}</span></span><span style="color:#d2d0c7;"> · </span><span onClick="{{ sortScoreCol }}" title="The transparent taste-match — sort by it" style="cursor:pointer; color: {{ scoreHeadColor }};" style-hover="color:#2b5cd9;">MATCH <span style="color:#2b5cd9;">{{ arrowScore }}</span></span></th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:104px; position:relative;">
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                  <span onClick="{{ sortSourceCol }}" style="cursor:pointer;" style-hover="color:#2b5cd9;">SOURCE <span style="color:#2b5cd9;">{{ arrowSource }}</span></span>
+                  <span onClick="{{ openSourceF }}" title="Source — click a value to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ sourceIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                </span>
+                <sc-if value="{{ sourceOpen }}" hint-placeholder-val="{{ false }}">
+                  <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+                  <div style="position:absolute; top:30px; right:12px; z-index:51; display:flex; align-items:stretch; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                    <sc-for list="{{ sourceFCols }}" as="fc" hint-placeholder-count="1">
+                      <div class="fcol" style="flex:0 0 auto; width: {{ fc.w }}; max-height:300px; overflow-y:auto; padding:0 9px; border-left: {{ fc.bl }};">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                          <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                          <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                        </div>
+                        <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="6">
+                          <div onClick="{{ o.onClick }}" title="click: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </th>
               <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:68px;">WHO</th>
             </tr>
           </thead>
@@ -681,7 +793,19 @@
                   <div style="margin-top:3px; font-size:11px; color:#a7a59b;">{{ c.genre }}</div>
                 </td>
                 <td style="padding:11px 12px; vertical-align:top; white-space:nowrap;">
-                  <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex; align-items:center; gap:6px;"><span style="font:700 11px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span><sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex; align-items:flex-end; gap:1.5px; height:8px;"><sc-for list="{{ c.segs }}" as="s" hint-placeholder-count="9"><span style="width:1.5px; height:8px; border-radius:1px; background: {{ s.bg }};"></span></sc-for></span></sc-if></span></sc-if>
+                  <div style="display:flex; align-items:center; gap:10px;">
+                    <span title="{{ c.rankTitle }}" style="display:inline-flex; align-items:baseline; justify-content:flex-end; gap:1px; min-width:26px;">
+                      <sc-if value="{{ c.hasRank }}" hint-placeholder-val="{{ true }}"><span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#c2c0b6;">#</span></sc-if>
+                      <span style="font:500 15px/1 ui-monospace,Menlo,monospace; letter-spacing:-0.02em; color: {{ c.rankColor }};">{{ c.rankNum }}</span>
+                    </span>
+                    <sc-if value="{{ showMatch }}" hint-placeholder-val="{{ true }}">
+                      <span style="width:1px; height:16px; background:#e2e0d8;"></span>
+                      <span style="display:inline-flex; align-items:center; gap:6px;">
+                        <span style="font:700 11px/1 ui-monospace,Menlo,monospace; color: {{ c.matchColor }};">{{ c.matchPct }}</span>
+                        <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex; align-items:flex-end; gap:1.5px; height:8px;"><sc-for list="{{ c.segs }}" as="s" hint-placeholder-count="9"><span style="width:1.5px; height:8px; border-radius:1px; background: {{ s.bg }};"></span></sc-for></span></sc-if>
+                      </span>
+                    </sc-if>
+                  </div>
                 </td>
                 <td style="padding:11px 12px; vertical-align:top;"><span style="font:500 10.5px/1 ui-monospace,Menlo,monospace; color:#76746b;">{{ c.source }}</span></td>
                 <td style="padding:11px 12px; vertical-align:top;">
@@ -690,8 +814,7 @@
               </tr>
             </sc-for>
           </tbody>
-        </table>
-      </div>
+      </table>
       </sc-if>
       <sc-if value="{{ exploreClipped }}" hint-placeholder-val="{{ false }}"><div style="padding:12px 0; text-align:center; font:500 10.5px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreClipped }}</div></sc-if>
       <sc-if value="{{ exploreEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding:40px 0; text-align:center; font:500 12px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b;">No events match “{{ searchVal }}”.</div></sc-if>
@@ -801,6 +924,36 @@
           <sc-if value="{{ detail.hasSeriesMore }}" hint-placeholder-val="{{ false }}">
             <span style="font:500 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ detail.seriesMore }}</span>
           </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- CHEAPEST TICKETS — the price-comparison block: baked rows from the nightly
+           check (cheapest flagged, check date shown honestly — resale floors move daily),
+           an ↻ live re-check through the Worker's Gametime relay, and one-tap marketplace
+           searches that work in the browser even where datacenter fetches are bot-walled.
+           Films, free events, and past dates skip the block (priceEligible). -->
+      <sc-if value="{{ detail.hasPrices }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:16px;">
+          <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:2px;">
+            <span style="font:800 9px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; color:#a7a59b;">CHEAPEST TICKETS</span>
+            <sc-if value="{{ detail.priceStamp }}" hint-placeholder-val="{{ false }}"><span style="font:500 9.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ detail.priceStamp }}</span></sc-if>
+            <span onClick="{{ detail.onPriceCheck }}" title="Re-check resale floors live (via Gametime)" style="cursor:pointer; font:700 9.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="color:#1d49b8;">{{ detail.priceCheckLabel }}</span>
+          </div>
+          <sc-for list="{{ detail.priceRows }}" as="pr" hint-placeholder-count="2">
+            <div style="display:flex; align-items:center; gap:10px; padding:8px 0 9px; border-top:1px solid #eeece4;">
+              <span style="font:700 13.5px/1 ui-monospace,Menlo,monospace; color: {{ pr.color }}; min-width:54px; flex:none;">{{ pr.price }}</span>
+              <sc-if value="{{ pr.hasUrl }}" hint-placeholder-val="{{ true }}"><a href="{{ pr.url }}" target="_blank" rel="noopener" onClick="{{ pr.stop }}" title="Open this listing" style="font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512; text-decoration:none; border-bottom:1px solid #dedcd4;" style-hover="color:#2b5cd9; border-color:#2b5cd9;">{{ pr.label }} ↗</a></sc-if>
+              <sc-if value="{{ pr.noUrl }}" hint-placeholder-val="{{ false }}"><span style="font:600 12.5px/1.3 -apple-system,system-ui,sans-serif; color:#161512;">{{ pr.label }}</span></sc-if>
+              <sc-if value="{{ pr.hasSub }}" hint-placeholder-val="{{ false }}"><span style="font:500 10.5px/1.3 ui-monospace,Menlo,monospace; color:#8a887e; min-width:0;">{{ pr.sub }}</span></sc-if>
+              <sc-if value="{{ pr.cheapest }}" hint-placeholder-val="{{ false }}"><span style="font:800 8px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; padding:3px 6px; border-radius:2px; color:#1f7a4d; background:#e9efe9; flex:none;">CHEAPEST</span></sc-if>
+            </div>
+          </sc-for>
+          <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-top:8px;">
+            <span style="font:600 10px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">compare:</span>
+            <sc-for list="{{ detail.priceLinks }}" as="pl" hint-placeholder-count="5">
+              <a href="{{ pl.url }}" target="_blank" rel="noopener" onClick="{{ pl.stop }}" title="Search “{{ pl.q }}” on {{ pl.label }}" style="font:600 10px/1 ui-monospace,Menlo,monospace; padding:6px 8px; border:1px solid #dedcd4; color:#5a584f; border-radius:999px; text-decoration:none;" style-hover="border-color:#2b5cd9; color:#2b5cd9;">{{ pl.label }} ↗</a>
+            </sc-for>
+          </div>
         </div>
       </sc-if>
 
@@ -971,7 +1124,7 @@
     <div style="height:1px; background:#e4e2d9; margin:11px 0;"></div>
     <div style="font:800 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.14em; color:#8a887e; margin-bottom:5px;">ABOUT</div>
     <div onClick="{{ openDigest }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>today's digest</span><span style="color:#2b5cd9;">read ↗</span></div>
-    <div onClick="{{ openWelcome }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>quick start</span><span style="color:#2b5cd9;">welcome ↗</span></div>
+    <div onClick="{{ openWelcome }}" title="The four-step quick start — how the picks are made and how to set yourself up" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>tutorial</span><span style="color:#2b5cd9;">open ↗</span></div>
     <div onClick="{{ openTour }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>how it works</span><span style="color:#2b5cd9;">tour ↗</span></div>
     <div onClick="{{ openChangelog }}" style="cursor:pointer; display:flex; justify-content:space-between; gap:10px; font:500 11px/1.85 ui-monospace,Menlo,monospace; color:#8a887e;" style-hover="color:#2b5cd9;"><span>what's new</span><span style="color:#2b5cd9;">changelog ↗</span></div>
   </div>
@@ -1230,19 +1383,16 @@
   <div style="position:relative; z-index:1; width:100%; max-width:560px; max-height:calc(100dvh - 48px); display:flex; flex-direction:column; background:#fdfcf9; border:1px solid #c9c7bd; border-radius:5px; box-shadow:0 24px 60px rgba(0,0,0,0.28);">
     <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 14px 13px 20px; border-bottom:1px solid #e2e0d8; background:#faf9f5; border-radius:5px 5px 0 0;">
       <div style="display:flex; align-items:center; gap:11px; min-width:0;">
-        <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; text-transform:uppercase; color:#a7a59b;">Quick start</span>
+        <span style="font:800 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.12em; text-transform:uppercase; color:#a7a59b;">Tutorial</span>
         <span style="display:inline-flex; gap:5px; align-items:center;">
           <sc-for list="{{ welcomeDots }}" as="d" hint-placeholder-count="4"><span style="width:6px; height:6px; border-radius:50%; background: {{ d.bg }};"></span></sc-for>
         </span>
       </div>
       <button onClick="{{ closeWelcome }}" title="Close (Esc)" style="flex:none; width:28px; height:28px; border:1px solid #d2d0c7; background:#f7f6f2; color:#76746b; border-radius:999px; cursor:pointer; font:600 14px/1 ui-monospace,Menlo,monospace;" style-hover="border-color:#1b1a17; color:#161512;">×</button>
     </div>
-    <div class="scry" style="flex:1; min-height:0; overflow-y:auto; padding:22px 26px 24px;">{{ welcomeBody }}</div>
+    <div class="scry la-tut" style="flex:1; min-height:0; overflow-y:auto; padding:22px 26px 24px;">{{ welcomeBody }}</div>
     <div style="flex:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 18px; border-top:1px solid #e2e0d8; background:#faf9f5; border-radius:0 0 5px 5px;">
-      <div onClick="{{ toggleWelcomeDismiss }}" title="Tick this once you've read it — otherwise it'll greet you again next time" style="display:inline-flex; align-items:center; gap:8px; cursor:pointer;">
-        <span style="width:15px; height:15px; flex:none; border:1px solid {{ welcomeCheckBorder }}; background: {{ welcomeCheckBg }}; border-radius:3px; display:inline-flex; align-items:center; justify-content:center; font:700 10px/1 ui-monospace,Menlo,monospace; color:#fff;">{{ welcomeCheckMark }}</span>
-        <span style="font:500 11px/1.4 -apple-system,system-ui,sans-serif; color:#76746b;">Don't show this again</span>
-      </div>
+      <span style="font:500 11px/1.4 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ welcomeStepLabel }}</span>
       <div style="display:flex; align-items:center; gap:8px;">
         <sc-if value="{{ welcomeHasBack }}" hint-placeholder-val="{{ false }}">
           <button onClick="{{ welcomeBack }}" style="flex:none; font:700 11px/1 ui-monospace,Menlo,monospace; padding:9px 15px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#1b1a17; color:#161512;">Back</button>
@@ -1395,11 +1545,16 @@ class Component extends DCLogic {
       id: (r.id != null ? String(r.id) : this.slugId(r, i)),
       iso: d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()),
       time: p(d.getHours()) + ':' + p(d.getMinutes()),
+      // The listing's raw start ('4pm-12am', '7:30pm') — parseEvent's strict HH:MM parse
+      // sentinels these to 20:00, so daypart logic must read the raw string, not e.time.
+      startRaw: (typeof r.start === 'string' && !r.start.includes('T')) ? r.start : '',
       title: r.title || r.name || 'Untitled',
       venue: r.venue || 'TBA',
       hood: r.neighborhood || r.hood || r.area || 'Los Angeles',
       cat, genre,
       genres: genreArr, vibes: axOf('vibe'), settings: axOf('setting'), regions: axOf('region'),
+      // region is a scalar axis in the tagger ('far', 'eastside', …) — axOf reads arrays only
+      region: (typeof tags.region === 'string' ? tags.region : (Array.isArray(tags.region) && tags.region[0]) || ''),
       image: (typeof r.image === 'string' && /^https:\/\//.test(r.image)) ? r.image : '',
       lineup: Array.isArray(r.lineup) ? r.lineup : [],
       artistNotes: Array.isArray(enr.artist_notes) ? enr.artist_notes.filter(n => n && n.name) : [],
@@ -1417,6 +1572,7 @@ class Component extends DCLogic {
       seriesRank: (typeof r.series_rank === 'number' ? r.series_rank : null),
       series: (r.series && typeof r.series === 'object') ? r.series : null,
       showtimesUrl: r.showtimes_url || null,
+      priceCheck: (r.price_check && typeof r.price_check === 'object' && Array.isArray(r.price_check.options)) ? r.price_check : null,
       why, whyCurated,
       desc: (enr.description || r.detail || ''),
       xb: Array.isArray(r.badges) ? r.badges : (Array.isArray(r.xb) ? r.xb : []),
@@ -1433,10 +1589,37 @@ class Component extends DCLogic {
     this.BYKEY = new Map();
     for (const e of mapped) if (e.key) this.BYKEY.set(e.key, e);
     this.META = (raw && !Array.isArray(raw)) ? raw : {};
+    this.applyLiveStars();   // a fresh feed carries baked stars — re-overlay the live map
     this.setState({ dataSource: 'live' });
     return true;
   }
   byKey(k) { return (this.BYKEY && this.BYKEY.get(k)) || null; }
+  // ---------- live stars overlay (Worker GET /stars) ----------
+  // The feed's baked `stars` refresh only on rebuild; the Worker folds reactions.jsonl live.
+  // Fetch after each feed load (+ on tab refocus, ~30s TTL) and REPLACE per-event stars by key —
+  // the log is the source of truth and strictly fresher than the bake, so a friend's star (or
+  // unstar) shows in seconds instead of after the next rebuild. Worker down → keep baked stars.
+  applyLiveStars() {
+    const map = this._liveStars;
+    if (!map) return;
+    let dirty = false;
+    for (const e of this.ALL) {
+      if (!e.key) continue;
+      const live = Array.isArray(map[e.key]) ? map[e.key].filter(s => s && s.name && s.hash) : [];
+      const same = live.length === (e.stars || []).length && live.every((s, i) => e.stars[i].hash === s.hash && e.stars[i].name === s.name);
+      if (!same) { e.stars = live; dirty = true; }
+    }
+    if (dirty) this.forceUpdate();
+  }
+  syncStars() {
+    if (!this.BACKEND_URL) return;
+    if (this._starsAt && Date.now() - this._starsAt < 30000) return;
+    this._starsAt = Date.now();
+    fetch(new URL('/stars', this.BACKEND_URL).href)
+      .then(r => (r.ok ? r.json() : null))
+      .then(j => { if (j && j.ok && j.stars && typeof j.stars === 'object') { this._liveStars = j.stars; this.applyLiveStars(); } })
+      .catch(() => {});
+  }
   // ?e=<event_key> → that event's card, once per boot (digest links + shared URLs land here)
   openDeepLink() {
     const k = this._deepKey;
@@ -1591,16 +1774,17 @@ class Component extends DCLogic {
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   }
 
-  state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, seen:{}, navHidden:false, isMobile:false, exploreSort:'match', exploreDir:1, exploreSearch:'', toast:null, dataSource:'loading', profile:null,
+  state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, seen:{}, navHidden:false, isMobile:false, exploreSort:'rank', exploreDir:1, exploreSearch:'', toast:null, dataSource:'loading', profile:null,
     settingsOpen:false, loggedIn:false, apiModal:false, tasteModal:false, tasteTab:'taste', username:'',
     apiKeyOn:false, opusOn:false, apiKey:'', sharedToken:'',
     chatOpen:false, chatInput:'', chatMsgs:[], chatBusy:false, updating:null,
     backendStatus:null, backendVer:null, liveReply:null, chatFiltered:null, chatFilterLabel:'',
     digestModalOpen:false, spotifyStatus:null, spotifyName:'',
     calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null,
-    filtersOpen:false, exFrom:'', exTo:'',
+    openFilter:null, exFrom:'', exTo:'',
     exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] },
-    guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, welcomeDismiss:false, nudgeOpen:false, nudgeMore:false, digestMenuOpen:false, digestEmailOpen:false, digestPast:null, digestEmail:'', spotifyModalOpen:false };
+    guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, nudgeOpen:false, nudgeMore:false, digestMenuOpen:false, digestEmailOpen:false, digestPast:null, digestEmail:'', spotifyModalOpen:false,
+    priceLive:null, priceLiveFor:null, priceLiveStatus:null };
 
   componentDidMount() {
     try { const r = JSON.parse(localStorage.getItem('la-fp-reactions-v1') || '{}'); if (r && typeof r === 'object') this.setState({ reactions:r }); } catch (e) {}
@@ -1609,7 +1793,7 @@ class Component extends DCLogic {
     this.BACKEND_TOKEN = this.readConn().token || '';   // authoritative: post-migration, TTL-checked
     let prof = null;
     try { prof = JSON.parse(localStorage.getItem('la-profile') || 'null'); } catch (e) {}
-    if (prof && prof.hash) { this.setState({ profile: prof, loggedIn: true, username: prof.u || '' }); this.maybeOnboard(prof); }
+    if (prof && prof.hash) this.setState({ profile: prof, loggedIn: true, username: prof.u || '' });
     // ?e=<event_key> deep link (the digest's "card ↗" links) — opened once the feed is in
     try { this._deepKey = new URLSearchParams(location.search).get('e') || null; } catch (e) { this._deepKey = null; }
     // meta first (161 bytes, no-store) so the big feed fetch can use a content-version cache key
@@ -1617,7 +1801,11 @@ class Component extends DCLogic {
       this.reattachJobs();
       if (this.state.profile) this.maybeNudge();
       this.openDeepLink();
+      this.syncStars();
     });
+    // Live stars re-sync when the tab comes back into view (30s TTL inside syncStars).
+    this._onVis = () => { if (!document.hidden) this.syncStars(); };
+    document.addEventListener('visibilitychange', this._onVis);
     this.loadDigest();
     if (this.BACKEND_URL) this.pingBackend();
     this._onResize = () => { const m = window.innerWidth <= 720; if (m !== this.state.isMobile) this.setState({ isMobile: m, navHidden: false }); };
@@ -1660,7 +1848,7 @@ class Component extends DCLogic {
     };
     window.addEventListener('storage', this._onStorage);
   }
-  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._bindT) clearTimeout(this._bindT); if (this._mainEl && this._onMainScroll) this._mainEl.removeEventListener('scroll', this._onMainScroll); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onStorage) window.removeEventListener('storage', this._onStorage); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
+  componentWillUnmount() { if (this._toastT) clearTimeout(this._toastT); if (this._bindT) clearTimeout(this._bindT); if (this._mainEl && this._onMainScroll) this._mainEl.removeEventListener('scroll', this._onMainScroll); if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onStorage) window.removeEventListener('storage', this._onStorage); if (this._onVis) document.removeEventListener('visibilitychange', this._onVis); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this._jobTick) clearInterval(this._jobTick); if (this._freshPoll) clearInterval(this._freshPoll); if (this._refreshPoll) clearInterval(this._refreshPoll); if (this._spotifyPoll) clearInterval(this._spotifyPoll); this._clearLiveTimer(); if (this._abort) { try { this._abort.abort(); } catch (e) {} } }
 
   // ---------- date + format ----------
   fmt(iso, time) {
@@ -1686,7 +1874,69 @@ class Component extends DCLogic {
     if (lens==='today') return [T,T];
     if (lens==='weekend') { const [a,b] = this.weekendRange(); return [a < T ? T : a, b]; }  // clamp: no already-past nights on Sat/Sun
     if (lens==='ahead') return [this.addDays(T,14), this.addDays(T,60)];
-    return [T, this.addDays(T,13)];
+    // NEXT 3 WEEKS = through the THIRD Sunday out (this week + two full Mon–Sun weeks), so the
+    // lens window and its marquee week-rows always agree on where the lens ends.
+    return [T, this.addDays(this.thisSunday(), 14)];
+  }
+  thisSunday() { const dow = this.fmt(this.TODAY,'').dow; return this.addDays(this.TODAY, (7 - dow) % 7); }
+  // The marquee TIME rows — up to three per lens, each a date-window slice of the featured
+  // pool (weekend rows already past are never generated; the compute may still render a
+  // generated-but-empty row as a one-line "quiet" note so a dead Sunday reads as a fact,
+  // not a bug). `test` further splits a same-day lens (tonight's dayparts).
+  MONTH_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  WDL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  marqueeRows(lens) {
+    const T = this.TODAY;
+    const span = (a,b) => a===b ? this.labelISO(a) : this.labelISO(a) + ' – ' + this.labelISO(b);
+    if (lens === 'today') {
+      // Daypart from the listed start — the RAW string first ('4pm-12am' day parties would
+      // otherwise ride parseEvent's 20:00 sentinel into Evening), then the parsed clock.
+      // Afterhours (or a 10pm-to-5am start) is Late; timeless listings read as Evening —
+      // the lane most of the catalog lives in.
+      const part = e => {
+        let h = null;
+        const raw = String(e.startRaw||'').match(/(\d{1,2})(?::\d{2})?\s*(am|pm)/i);
+        if (raw) { h = (+raw[1]) % 12; if (/pm/i.test(raw[2])) h += 12; }
+        else { const m = String(e.time||'').match(/^(\d{1,2})/); h = m ? +m[1] : null; }
+        if (e.ah || (h!=null && (h>=22 || h<6))) return 'late';
+        if (h!=null && h<18) return 'day';
+        return 'eve'; };
+      return [
+        { label:'Daytime', sub:'until 6pm', a:T, b:T, test:e => part(e)==='day' },
+        { label:'Evening', sub:'6–10pm', a:T, b:T, test:e => part(e)==='eve' },
+        { label:'Late night', sub:'10pm on & afterhours', a:T, b:T, test:e => part(e)==='late' },
+      ];
+    }
+    if (lens === 'weekend') {
+      const [wa, wb] = this.windowFor('weekend');
+      const rows = [];
+      for (let d = wa; d <= wb; d = this.addDays(d, 1)) {
+        const f = this.fmt(d, '');
+        rows.push({ label: d===T ? 'Tonight' : this.WDL[f.dow], sub:this.labelISO(d), a:d, b:d });
+      }
+      return rows.slice(0, 3);
+    }
+    if (lens === 'ahead') {
+      const [aa, ab] = this.windowFor('ahead');
+      const rows = [];
+      let s = aa;
+      while (s <= ab && rows.length < 3) {
+        const [y, m] = s.split('-').map(Number);
+        const mEnd = this.addDays((m===12 ? (y+1)+'-01-01' : y+'-'+String(m+1).padStart(2,'0')+'-01'), -1);
+        const b = mEnd < ab ? mEnd : ab;
+        rows.push({ label: (s.slice(8) !== '01' ? 'Later in ' : '') + this.MONTH_FULL[m-1], sub:span(s, b), a:s, b });
+        s = this.addDays(mEnd, 1);
+      }
+      return rows;
+    }
+    // twoweeks lens (NEXT 3 WEEKS): this week through Sunday, then two full Mon–Sun weeks.
+    const sun = this.thisSunday();
+    const w2a = this.addDays(sun, 1), w3a = this.addDays(sun, 8);
+    return [
+      { label:'This week', sub:span(T, sun), a:T, b:sun },
+      { label:'Next week', sub:span(w2a, this.addDays(sun, 7)), a:w2a, b:this.addDays(sun, 7) },
+      { label:'In two weeks', sub:span(w3a, this.addDays(sun, 14)), a:w3a, b:this.addDays(sun, 14) },
+    ];
   }
 
   // ---------- scoring / display ----------
@@ -1754,6 +2004,127 @@ class Component extends DCLogic {
     if (e.showtimesUrl) out.push({ label: 'All LA showtimes', url: e.showtimesUrl });
     return { buttons: out.slice(0, 6), showtimes: [...groups].map(g => ({ venue: g[0], times: g[1] })) };
   }
+  // ── Cheapest tickets (the card's price-comparison block) ─────────────────────────────
+  // Baked rows ride the feed's `price_check` (data/ticket_prices.json — the nightly
+  // check_prices.py --auto pass over the featured head + starred events); ↻ live check hits
+  // the Worker's GET /prices (a trimmed Gametime relay — resale floors move daily) and its
+  // rows replace the same source's baked row. The compare links mirror lib/prices.MARKETPLACES:
+  // browser-side marketplace searches that work even where datacenter fetches are bot-walled
+  // (StubHub / SeatGeek / Vivid). Films, free events, and past dates don't get the block.
+  PRICE_SRC_LABELS = { gametime:'Gametime', stubhub:'StubHub', seatgeek:'SeatGeek', tickpick:'TickPick', vividseats:'Vivid Seats', 'vivid seats':'Vivid Seats' };
+  MARKETPLACES = [
+    ['StubHub', q => 'https://www.stubhub.com/search?q=' + encodeURIComponent(q)],
+    ['SeatGeek', q => 'https://seatgeek.com/search?search=' + encodeURIComponent(q)],
+    ['Gametime', q => 'https://gametime.co/search?query=' + encodeURIComponent(q)],
+    ['TickPick', q => 'https://www.tickpick.com/search/?q=' + encodeURIComponent(q)],
+    ['Vivid Seats', q => 'https://www.vividseats.com/search?searchTerm=' + encodeURIComponent(q)],
+  ];
+  // The marketplace query — lib/prices.search_name mirrored (headliner, else the title with
+  // tour-tail / parenthetical / "an evening with" dressing stripped; same _artistNorm-style
+  // mirroring precedent as artist links).
+  resaleQuery(e) {
+    const paren = s => String(s || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+    if (e.lineup && e.lineup.length && String(e.lineup[0]).trim()) return paren(e.lineup[0]) || String(e.lineup[0]).trim();
+    const t = paren(String(e.title || '').replace(/^an evening with\s+/i, ''));
+    const cut = t.replace(/\s*[-–—:]\s*[^-–—:]*\b(tour|live|residency)\b[^-–—:]*$/i, '').trim();
+    if (cut !== t && cut.length >= 3) return cut;
+    const parts = t.split(/\s+[-–—]\s+/);
+    if (parts.length > 1 && parts[0].trim().length >= 3) return parts[0].trim();
+    return t || String(e.title || '').trim();
+  }
+  PRICE_FAMILIES = ['club', 'live-music', 'comedy', 'stage'];
+  priceEligible(e) {
+    if (e.priceCheck) return true;                       // a check on file always renders
+    if (e.iso < this.TODAY) return false;                // no market for a past night
+    if (e.pmin === 0 && !(e.pmax > 0)) return false;     // free — no floor to find
+    const fam = String(e.lane || '').split(':')[0];
+    if (fam) return this.PRICE_FAMILIES.indexOf(fam) !== -1;
+    return (e.links || []).length > 0 && e.cat !== 'Film';
+  }
+  _fmtDollars(p) { if (p == null) return '?'; const r = Math.round(p * 100) / 100; return '$' + (Number.isInteger(r) ? r : r.toFixed(2)); }
+  priceSrcLabel(s) { const k = String(s || '').toLowerCase(); return this.PRICE_SRC_LABELS[k] || this.LINK_SRC_LABELS[k] || (k ? k.charAt(0).toUpperCase() + k.slice(1) : 'Listing'); }
+  priceRowsFor(e) {
+    const baked = (e.priceCheck && e.priceCheck.options) || [];
+    const live = (this.state.priceLiveFor === e.id && Array.isArray(this.state.priceLive)) ? this.state.priceLive : [];
+    const bySrc = new Map();
+    for (const o of baked) if (o && o.source) bySrc.set(o.source, { ...o });
+    for (const o of live) if (o && o.source) bySrc.set(o.source, { ...o, live: true });
+    return [...bySrc.values()].sort((a, b) => ((a.price ?? 1e9) - (b.price ?? 1e9)));
+  }
+  checkedMD(iso) {
+    const d = String(iso || '').slice(0, 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return '';
+    return d === this.TODAY ? 'today' : this.fmt(d, '').md;
+  }
+  priceBlockFor(e) {
+    if (!this.priceEligible(e)) return { hasPrices: false, priceRows: [], priceLinks: [] };
+    const raw = this.priceRowsFor(e);
+    const rows = raw.map((o, i) => {
+      const listed = o.kind === 'listed';
+      let sub = '';
+      if (listed) sub = o.note ? 'listed · ' + o.note : 'listed price';
+      else if (o.prefee != null) sub = 'all-in · ' + this._fmtDollars(o.prefee) + ' + fees';
+      else if (o.note && o.note !== 'all-in') sub = o.note;
+      else if (o.note === 'all-in') sub = 'all-in';
+      if (o.live) sub = (sub ? sub + ' · ' : '') + 'live';
+      return {
+        price: (listed && o.price === 0) ? 'free' : this._fmtDollars(o.price),
+        label: this.priceSrcLabel(o.source), sub, hasSub: !!sub,
+        url: o.url || '', hasUrl: !!o.url, noUrl: !o.url,
+        cheapest: i === 0 && raw.length > 1,
+        color: (i === 0 && raw.length > 1) ? '#1f7a4d' : '#3f3d36',
+        stop: (ev) => ev.stopPropagation(),
+      };
+    });
+    const q = this.resaleQuery(e);
+    const links = this.MARKETPLACES.map(([label, mk]) => ({ label, q, url: mk(q), stop: (ev) => ev.stopPropagation() }));
+    const st = this.state.priceLiveFor === e.id ? this.state.priceLiveStatus : null;
+    let stamp = '';
+    if (st === 'ok' || st === 'none') stamp = 'checked just now';
+    else if (e.priceCheck && e.priceCheck.checked_at) stamp = 'checked ' + this.checkedMD(e.priceCheck.checked_at);
+    return {
+      hasPrices: true, priceRows: rows, priceLinks: links, priceStamp: stamp,
+      priceCheckLabel: st === 'loading' ? 'checking…' : (st === 'err' ? '↻ retry live check' : '↻ live check'),
+      onPriceCheck: () => this.checkLivePrices(e),
+    };
+  }
+  _venueToks(v) {
+    const stop = ['the','los','angeles','theatre','theater','presents','and','hall','club'];
+    return String(v || '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/)
+      .filter(t => t.length >= 3 && stop.indexOf(t) === -1);
+  }
+  matchLivePrices(e, items) {
+    const blob = ' ' + String(e.title + ' ' + (e.lineup || []).join(' ')).toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
+    const mine = this._venueToks(e.venue);
+    const out = [];
+    for (const it of (items || [])) {
+      if ((it.metro || '') !== 'losangeles' || (it.date || '') !== e.iso || !(it.price > 0)) continue;
+      const theirs = this._venueToks(it.venue);
+      const venueOk = mine.some(t => theirs.indexOf(t) !== -1);
+      const nameToks = String(it.name || '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter(Boolean);
+      const nameOk = nameToks.length > 0 && nameToks.every(t => blob.indexOf(' ' + t + ' ') !== -1);
+      if (venueOk || nameOk) out.push({ source: 'gametime', kind: 'resale', price: it.price, prefee: it.prefee, url: it.url, note: 'all-in' });
+    }
+    out.sort((a, b) => ((a.price ?? 1e9) - (b.price ?? 1e9)));
+    return out.slice(0, 1);   // one row per source — the floor
+  }
+  checkLivePrices = async (e) => {
+    if (this.state.priceLiveStatus === 'loading') return;
+    if (!this.BACKEND_URL) { this.showToast('No backend connected — the compare links search each marketplace directly', null); return; }
+    this.setState({ priceLiveFor: e.id, priceLive: null, priceLiveStatus: 'loading' });
+    try {
+      const u = new URL('/prices', this.BACKEND_URL); u.searchParams.set('q', this.resaleQuery(e));
+      const res = await fetch(u.href);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      const rows = this.matchLivePrices(e, data.events || []);
+      this.setState({ priceLive: rows, priceLiveStatus: rows.length ? 'ok' : 'none' });
+      if (!rows.length) this.showToast('No live resale listings for this date — the compare links search each marketplace directly', null);
+    } catch (err) {
+      this.setState({ priceLiveStatus: 'err' });
+      this.showToast('Live check failed — the Worker may need a redeploy; compare links still work', null);
+    }
+  };
   // Run span for a series REP card — the PROGRAM's dates, not its rep night: {span, count}
   // like ("Thru Sun Sep 6", "12 nights"), or null for one-nighters/same-day programs and for
   // NON-rep member rows (a date-sorted Explore list shows each night under its own date; only
@@ -1822,10 +2193,28 @@ class Component extends DCLogic {
   ticketLabel(e) { return this.LINK_LABELS[e.source] || e.source || 'Tickets'; }
   // Friends who've "chipped" this event — their initials-tokens ride on the card. Count scales
   // with how hot the event is; some events have none (so the glow varies).
+  // My OWN star is not a friend token: signed in, the feed's copy of it (my hash in e.stars)
+  // renders as the gold ★ via myStar/chipProps, so it's filtered out of this cluster.
   friendChipsFor(e) {
     if ((this.props.showChips ?? true) === false) return [];
+    const h = this.myHash();
     const init = n => { const w = String(n).trim().split(/\s+/); return ((w[0] || '?')[0] + (w[1] ? w[1][0] : String(w[0] || '').slice(1, 2))).toUpperCase(); };
-    return (e.stars || []).slice(0, 5).map(s => ({ i: init(s.name), t: s.name, bg: this.AVBG[this.hash(s.name) % this.AVBG.length] }));
+    return (e.stars || []).filter(s => s.hash !== h).slice(0, 5).map(s => ({ i: init(s.name), t: s.name, bg: this.AVBG[this.hash(s.name) % this.AVBG.length] }));
+  }
+  // The feed's copy of my star: the server folds reactions.jsonl into every event's
+  // stars [{name, hash}] on each rebuild; mine is the entry carrying my profile hash.
+  serverStar(e) { const h = this.myHash(); return !!(h && e && (e.stars || []).some(s => s.hash === h)); }
+  // Effective "my star" — the ONE state every star affordance renders and toggles. A live
+  // local tap ('chip') wins; un-starring a server star leaves an 'unchip' tombstone that
+  // suppresses the feed's copy until a rebuild folds the unstar out; otherwise the server
+  // star counts — so a star survives logout and feed rebuilds, following the profile
+  // rather than this browser's localStorage.
+  myStar(e) {
+    if (!e) return false;
+    const r = this.state.reactions[e.id];
+    if (r === 'chip') return true;
+    if (r === 'unchip') return false;
+    return this.serverStar(e);
   }
   // chip-count → soft social glow on the card
   glowFor(count, color) {
@@ -1836,9 +2225,11 @@ class Component extends DCLogic {
     const tint = (color && color.indexOf('oklch')===0) ? color.replace(')', ' / '+a+')') : 'rgba(43,92,217,'+a+')';
     return '0 1px 2px rgba(27,26,23,0.05), 0 0 ' + (3 + i*2.4).toFixed(1) + 'px ' + tint;
   }
-  // Your token joins the cluster; the add-affordance visual is the `chipAdd` tweak.
+  // the gold "your star" chip for clusters with no add-chip button (the explore table rows)
+  youStarCss(px) { return 'width:'+px+'px; height:'+px+'px; margin-left:-5px; border-radius:50%; border:1.5px solid #fff; background:#c89b2f ' + this.STAR_BG + ' center/90% no-repeat; background-clip:padding-box; flex:none;'; }
+  // Your star joins the cluster; the add-affordance visual is the `chipAdd` tweak.
   chipProps(e) {
-    const mine = this.state.reactions[e.id]==='chip';
+    const mine = this.myStar(e);
     const friends = this.friendChipsFor(e);
     const count = friends.length + (mine?1:0);
     const base = 'width:20px; height:20px; border-radius:50%; margin-left:-5px; font:700 8px/1 ui-monospace,Menlo,monospace; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:none; position:relative; z-index:2;';
@@ -1853,7 +2244,7 @@ class Component extends DCLogic {
       friendChips: friends, hasChips: friends.length>0 || mine,
       youChipped: mine, chipCount: count,
       glow: (this.props.glow ? this.glowFor(count, this.scoreColorFor(e.score)) : 'none'),
-      youStarStyle: 'width:16px; height:16px; margin-left:-5px; border-radius:50%; border:1.5px solid #fff; background:#c89b2f ' + this.STAR_BG + ' center/90% no-repeat; background-clip:padding-box; flex:none;',
+      youStarStyle: this.youStarCss(16),
       addGlyph, addStyle, addTitle: mine?'Remove your chip':'Add your chip',
       chipBtnLabel: mine?'✓ Chipped':'＋ Add your chip',
       chipBtnBg: mine?'#eaf0fe':'#fff', chipBtnColor: mine?'#2b5cd9':'#3f3d36', chipBtnBorder: mine?'#2b5cd9':'#d2d0c7',
@@ -1898,31 +2289,17 @@ class Component extends DCLogic {
     return this.SCENES[this.SCENES.length-1];
   }
   // ---------- server shelves (front_page.shelves — the assemble slate's lanes) ----------
-  SHELF_DOT = { underground:'oklch(0.52 0.14 285)', afters:'oklch(0.5 0.14 300)', day:'oklch(0.55 0.12 60)', bigroom:'oklch(0.53 0.12 250)', live:'oklch(0.52 0.13 32)', bigstage:'oklch(0.5 0.12 10)', culture:'oklch(0.5 0.1 205)', film:'oklch(0.5 0.1 205)', stage:'oklch(0.5 0.13 350)', more:'oklch(0.5 0.12 255)' };
+  SHELF_DOT = { sets:'oklch(0.52 0.14 285)', events:'oklch(0.5 0.12 255)',
+    underground:'oklch(0.52 0.14 285)', afters:'oklch(0.5 0.14 300)', day:'oklch(0.55 0.12 60)', bigroom:'oklch(0.53 0.12 250)', live:'oklch(0.52 0.13 32)', bigstage:'oklch(0.5 0.12 10)', culture:'oklch(0.5 0.1 205)', film:'oklch(0.5 0.1 205)', stage:'oklch(0.5 0.13 350)', more:'oklch(0.5 0.12 255)' };
   SHELF_DESC = {
+    sets:'DJ sets, club nights, and live rooms — the music, ranked to your taste.',
+    events:'Happenings — local fests, popups, comedy, art, and one-offs around town.',
     underground:'Location-TBA parties, acid, and the after-dark techno core.', afters:'Late stretches and afterhours — the 2am-and-beyond lane.',
     day:'Rooftops, open-airs, and golden-hour grooves.', bigroom:'The marquee club bookings.', live:'Bands and live sets — post-punk, shoegaze, psych and beyond.',
     bigstage:'Arena and amphitheater nights.',
     culture:'One-night culture — rep screenings, standup, and the stage.',
     film:'35mm and 70mm revival programming across the city.', stage:'Theater, premieres, and the rest of the stage.',
     more:'Markets, art walks, and the rest of the city.' };
-  // Festival watch-list chip palette + row shape — shared by the front page's permanent
-  // Festivals section and the dedicated watch-list view (one copy, no drift). Rows come
-  // from front_page.festivals (festivals.yaml via lib/festivals); `scope` (local|travel,
-  // stamped server-side) splits close-to-home vs worth-the-trip on the front page.
-  FEST_STATUS = { on_sale:{label:'ON SALE', color:'#1f7a4d', bg:'rgba(31,122,77,0.1)'},
-                  announced:{label:'ANNOUNCED', color:'#2b5cd9', bg:'rgba(43,92,217,0.1)'},
-                  lineup_pending:{label:'LINEUP PENDING', color:'#b06a00', bg:'rgba(176,106,0,0.1)'},
-                  annual_watch:{label:'ANNUAL WATCH', color:'#76746b', bg:'rgba(118,116,107,0.12)'} };
-  festRow(f) {
-    const st = this.FEST_STATUS[f.status]
-      || (f.status ? { label:String(f.status).replace(/_/g,' ').toUpperCase(), color:'#76746b', bg:'rgba(118,116,107,0.12)' } : null);
-    const when = f.when_pretty || String(f.when||'').replace(/\.\./g,' – ');
-    return { name:f.name, when, whenShort:when.replace(/\s*\(.*$/, ''), location:f.location||'',
-      why:f.why||'', hasWhy:!!f.why, tickets:f.tickets||'', hasTickets:!!f.tickets,
-      hasStatus:!!st, stLabel:st?st.label:'', stColor:st?st.color:'', stBg:st?st.bg:'',
-      stop:(ev)=>ev.stopPropagation() };
-  }
   fpShelves() { const sh = (this.META.front_page || {}).shelves; return Array.isArray(sh) && sh.length ? sh : null; }
   shelfOf(e) { const shs = this.fpShelves(); if (!shs || !e.lane) return null; return shs.find(s => (s.lanes || []).indexOf(e.lane) !== -1) || null; }
   shelfEvents(sh) { return this.resolveKeys((sh.near || []).concat(sh.ahead || [])); }
@@ -1945,8 +2322,8 @@ class Component extends DCLogic {
   // ---------- actions ----------
   persistView(v) { try { localStorage.setItem('la-view', v); } catch (e) {} }
   setLens = (k) => { this.persistView('front'); this.setState({ lens:k, view:'front', sceneId:null, navHidden:false }); };
-  viewFront = () => { this.persistView('front'); this.setState({ view:'front', sceneId:null, navHidden:false }); };
-  viewExplore = () => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null, navHidden:false }); };
+  viewFront = () => { this.persistView('front'); this.setState({ view:'front', sceneId:null, navHidden:false, openFilter:null }); };
+  viewExplore = () => { this.persistView('explore'); this.setState({ view:'explore', sceneId:null, navHidden:false, openFilter:null }); };
   openScene = (id) => this.setState({ view:'scene', sceneId:id, detailId:null, navHidden:false });
   closeScene = () => this.setState({ view:'front', sceneId:null, navHidden:false });
   // Dedicated sub-views (2026-07-25): the movies marquee + the festivals watch-list.
@@ -1973,7 +2350,7 @@ class Component extends DCLogic {
     };
     setTimeout(() => hand(2), 120);
   };
-  openDetail = (id) => this.setState({ detailId:id });
+  openDetail = (id) => this.setState({ detailId:id, priceLive:null, priceLiveFor:null, priceLiveStatus:null });
   closeDetail = () => this.setState({ detailId:null });
   // Same column twice flips direction (OLD behavior); a new column starts at its natural direction.
   setSort = (k) => this.setState(s => ({ exploreSort:k, exploreDir: s.exploreSort === k ? -(s.exploreDir || 1) : 1 }));
@@ -2084,8 +2461,7 @@ class Component extends DCLogic {
   toggleChat = () => {
     const opening = !this.state.chatOpen;
     if (opening && !this.state.chatMsgs.length) {
-      let take = this.META.front_page && this.META.front_page.take;
-      if (!(take && take.text)) { const lede = this.teaserOf(this.digestLede()); if (lede && !this.DIGEST_FALLBACK) take = { text: lede, date: (this.digestRegenDate() || {}).label ? null : null }; }
+      const { take } = this.resolveTake();   // same chain as the front-page dispatch \u2014 the two surfaces must agree
       const takeLine = (take && take.text) ? ('\n\n*Today\u2019s read' + (take.date ? ' \u00b7 ' + this.labelISO(take.date) : '') + ':* ' + take.text) : '';
       const hi = 'I\u2019m your LA concierge \u2014 the best of what\u2019s on, ranked to your taste. A few things I can do:\n'
         + '- **Find shows** \u2014 `techno this weekend`, warehouse afterhours, free shows, comedy, live music.\n'
@@ -2190,7 +2566,7 @@ class Component extends DCLogic {
         if (this._lastTasteChanged) {
           this._lastTasteChanged = false;
           this.setTasteDirty(true);
-          out.push({ role:'assistant', welcome:true, content:'✓ Saved to your profile. Hit “Ranks & Digest” in Settings (☰) to re-rank with it — takes a minute or two.' });
+          out.push({ role:'assistant', welcome:true, content:'✓ Saved to your profile. Hit “Ranks & Digest” in Settings (☰) to re-rank with it — takes a few minutes.' });
         }
         this.setChat(out); this.setState({ chatBusy:false, liveReply:null });
         return;
@@ -2315,7 +2691,7 @@ class Component extends DCLogic {
       ? 'Offline filter: **' + list.length + '** match' + (list.length === 1 ? '' : 'es') + ' for “' + label + '” — the Explore table is filtered to them.' + (top ? '\n' + top : '')
       : 'Offline filter: nothing matched “' + label + '” — try a genre, a neighborhood, or a vibe (`techno`, `silver lake`, `day party`).';
     this.setChat([...this.state.chatMsgs, { role:'assistant', content: reply }]);
-    this.setState({ chatBusy:false, chatFiltered: list.length ? list.map(e => e.id) : null, chatFilterLabel: list.length ? label : '', view: list.length ? 'explore' : this.state.view, exploreSort: spec.sortBy === 'date' ? 'date' : 'match', exploreDir: 1 });
+    this.setState({ chatBusy:false, chatFiltered: list.length ? list.map(e => e.id) : null, chatFilterLabel: list.length ? label : '', view: list.length ? 'explore' : this.state.view, exploreSort: spec.sortBy === 'date' ? 'date' : 'rank', exploreDir: 1 });
   }
   clearChatFilter = () => this.setState({ chatFiltered:null, chatFilterLabel:'' });
   resetReactions = () => { this.setState({ reactions:{}, seen:{} }); try { localStorage.removeItem('la-fp-reactions-v1'); localStorage.removeItem('la-seen-v1'); } catch (e) {} };
@@ -2513,7 +2889,38 @@ class Component extends DCLogic {
     const t = String(text || '').replace(/\s+/g, ' ').trim();
     if (!t) return '';
     const m = t.match(/^.{20,200}?[.!?](?=\s|$)/);
-    return (m ? m[0] : t.slice(0, 160)).trim();
+    if (m) return m[0].trim();
+    return t.length <= 160 ? t : t.slice(0, 158).replace(/\s+\S*$/, '') + '…';  // word-boundary, never mid-word
+  }
+  // The current take, richest source first: the feed's structural take → the loaded digest
+  // doc's own <!-- take: --> slot → the doc's lede opening (marked fromLede). Doc-derived
+  // takes carry the doc's own date, sanity-guarded because digestRegenDate() guesses the
+  // year on M/D-only headers (a December doc read in January lands a year forward). Null
+  // take when the loaded doc is the house digest shown to a signed-in profile (wrong voice).
+  // ONE chain shared by the front-page dispatch and the chat welcome, so they never disagree.
+  resolveTake() {
+    const srv = this.META.front_page && this.META.front_page.take;
+    let take = (srv && srv.text) ? srv : null;
+    let lede = '';
+    if (!(this.DIGEST_FALLBACK && this.state.loggedIn)) {
+      lede = (this.digestLede() || '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
+      if (!take) {
+        const p2 = n => String(n).padStart(2, '0');
+        let docDate = null;
+        const reg = this.digestRegenDate();
+        if (reg && reg.date) {
+          let d = reg.date;
+          const now = Date.now();
+          if (d.getTime() - now > 2 * 86400000) d = new Date(d.getFullYear() - 1, d.getMonth(), d.getDate());
+          if (Math.abs(now - d.getTime()) <= 180 * 86400000) docDate = d.getFullYear() + '-' + p2(d.getMonth() + 1) + '-' + p2(d.getDate());
+        }
+        const slot = (this.DIGEST_MD || '').match(/<!--\s*take:(?!start\b|end\b)([^<]*?)-->/);
+        const slotText = slot ? slot[1].replace(/\s+/g, ' ').trim() : '';
+        if (slotText) take = { text: slotText, date: docDate };
+        else if (lede) take = { text: this.teaserOf(lede), date: docDate, fromLede: true };
+      }
+    }
+    return { take, lede };
   }
   downloadDigest = () => {
     const md = this.shownDigestMd();
@@ -2549,12 +2956,13 @@ class Component extends DCLogic {
       this.setSeen({});        // "Saw this" is per-person too — a fresh profile starts unhidden
       this.BACKEND_TOKEN = this.readConn(prof).token || '';   // connection is per-profile
       this.setState({ backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); });
-      this.loadDigest(); this.checkSpotify(); this.maybeOnboard(prof);
+      this.loadDigest(); this.checkSpotify();
       this.reattachJobs(hash);   // this profile may have a rebuild still in flight from a previous visit
+      this.syncStars();
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.syncStars(); this.showToast('Signed out — back to the house feed', null); };
   // ---------- pipeline jobs: per-profile Update + owner Refresh, persisted across reloads ----------
   workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
   checkCatalogFreshness() { return this.loadMeta(); }
@@ -2786,8 +3194,10 @@ class Component extends DCLogic {
       prevVisit = localStorage.getItem(this.visitKey(p.hash));
       localStorage.setItem(this.visitKey(p.hash), new Date().toISOString());
     } catch (e) {}
-    if (!this.hasOnboarded(p)) return;
     if (this.getUpdating(p.hash)) return;
+    // Never nudge a first-ever visit — no prior visit stamp means we've never seen this profile here.
+    // (This used to ride on the onboarding flag, back when the tutorial auto-opened and set one.)
+    if (!prevVisit) return;
     try { if (localStorage.getItem(this.nudgeSnoozeKey(p.hash)) === this.todayKey()) return; } catch (e) {}
     const llmDays = this.daysSince(this.lastEnrichedAt());
     const awayDays = this.daysSince(prevVisit);
@@ -2808,7 +3218,7 @@ class Component extends DCLogic {
     const ageLine = (day && llmDays != null && llmDays >= 1)
       ? 'Your curated picks were last refreshed **' + day + '** — ' + llmDays + ' day' + (llmDays === 1 ? '' : 's') + ' ago.'
       : 'New events have landed since your picks were last curated.';
-    const short = [ageLine, '', "Events added since are in your feed, but they haven't had your editorial pass yet. **Update now** re-ranks them to your taste and rewrites your digest — takes ~2–3 minutes."];
+    const short = [ageLine, '', "Events added since are in your feed, but they haven't had your editorial pass yet. **Update now** re-ranks them to your taste and rewrites your digest — usually a few minutes, capped at ~12."];
     if (!this.state.nudgeMore) return short.join('\n');
     return short.concat(['', '---',
       "**How refreshing works.** The events database and your ranked feed update every night. The **curated layer** on top — the editor's verdicts behind your final rank and ⭐ picks, plus your written digest — is yours, and it only rebuilds when:",
@@ -2947,14 +3357,11 @@ class Component extends DCLogic {
 
   // ---------- calendar subscription feed (Top picks / Starred) — CalendarCore is the shared filter+ICS ----------
   myHash() { const p = this.state.profile; return (p && p.hash) || null; }
-  // My starred event keys = server stars folded into the feed (by my hash) ∪ this session's ☆ taps.
+  // My starred event keys = the effective star state (myStar): server stars folded into the
+  // feed (by my hash) ∪ this session's ☆ taps, minus this session's un-stars.
   savedList() {
-    const h = this.myHash(); const set = new Set();
-    for (const e of this.ALL) {
-      if (!e.key) continue;
-      if (this.state.reactions[e.id] === 'chip') set.add(e.key);
-      else if (h && (e.stars || []).some(s => s.hash === h)) set.add(e.key);
-    }
+    const set = new Set();
+    for (const e of this.ALL) if (e.key && this.myStar(e)) set.add(e.key);
     return [...set];
   }
   savedCount() { return this.savedList().length; }
@@ -3111,8 +3518,14 @@ class Component extends DCLogic {
   }
 
   // ---------- Explore faceted filters ----------
+  // The filters live IN the columns (the original explore design) — a funnel per header opens
+  // an anchored menu of that column's values (hood+region; cat+genre+vibe+setting; source;
+  // dates). Desktop anchors them to the table headers; mobile mirrors the same headers as a
+  // sticky strip over the card list, with full-width dropdowns. One state, two anchorings.
   EX_AXES = ['cat','genre','vibe','setting','hood','region','source'];
-  toggleFilters = () => this.setState(s => ({ filtersOpen: !s.filtersOpen, view:'explore' }));
+  openFilterMenu = (col) => this.setState(s => ({ openFilter: s.openFilter === col ? null : col }));
+  closeFilterMenu = () => this.setState({ openFilter:null });
+  exClearAxis = (ax) => this.setState(s => { const nf = { ...s.exFilters }; nf[ax] = []; nf['x'+ax] = []; return { exFilters:nf }; });
   exCycle(axis, val) {
     const f = this.state.exFilters;
     const inc = f[axis].slice(), exc = f['x'+axis].slice();
@@ -3137,7 +3550,7 @@ class Component extends DCLogic {
     if (k === 'all') { this.setState({ exFrom:'', exTo:'' }); return; }
     if (k === 'today') { this.setState({ exFrom:T, exTo:T }); return; }
     if (k === 'weekend') { const [a,b] = this.weekendRange(); this.setState({ exFrom:a, exTo:b }); return; }
-    if (k === 'twoweeks') { this.setState({ exFrom:T, exTo:this.addDays(T,13) }); return; }
+    if (k === 'twoweeks') { const [a,b] = this.windowFor('twoweeks'); this.setState({ exFrom:a, exTo:b }); return; }
     if (k === 'month') { this.setState({ exFrom:T, exTo:this.addDays(T,30) }); return; }
   }
   // Event's values for a filter axis (scalar axes wrapped as one-element lists).
@@ -3173,7 +3586,7 @@ class Component extends DCLogic {
     if (axis) {
       const f = this.state.exFilters;
       if (f[axis].indexOf(t) === -1) { const nf = { ...f }; nf[axis] = f[axis].concat([t]); nf['x'+axis] = f['x'+axis].filter(v => v !== t); this.setState({ exFilters:nf }); }
-      this.setState({ view:'explore', filtersOpen:true, detailId:null });
+      this.setState({ view:'explore', detailId:null });
     } else {
       this.setState({ view:'explore', exploreSearch:String(text||'').trim(), detailId:null });
     }
@@ -3187,15 +3600,15 @@ class Component extends DCLogic {
     "",
     "## Find something to do",
     "",
-    "- The **front page** opens on your window — *tonight · this weekend · next 2 weeks · plan ahead* — with the lead pick, a shortlist, and a lane per scene. Tap any card for details + tickets.",
-    "- **Explore** (top right) is the full table. **Sort** by tapping the `DATE`, `EVENT`, `NEIGHBORHOOD`, `CATEGORY` or `SOURCE` headers.",
-    "- **Filter** with the `FILTERS` chip next to the sort options: tap a value once to **✓ keep** only matches, again to **✕ hide** it, once more to clear — categories, genres, vibe, setting, neighborhood, region and source, plus a date range with presets.",
+    "- The **front page** opens on your window — *tonight · this weekend · next 3 weeks · plan ahead* — with the lead pick, a shortlist beside it, and the marquees split into that window's days, weeks, or months. Tap any card for details + tickets.",
+    "- **Explore** (top right) is the full table. **Sort** by tapping the `DATE`, `EVENT`, `NEIGHBORHOOD`, `CATEGORY`, `RANK`, `MATCH` or `SOURCE` headers.",
+    "- **Filter from the columns**: the little funnel in a header opens that column's menu — `DATE` holds the presets + a custom range, `NEIGHBORHOOD` also carries region, `CATEGORY / VIBE` carries category, genre, vibe and setting side by side, `SOURCE` stands alone. Click a value once to **✓ keep** only matches, again to **✕ hide** it, once more to clear; a blue funnel means that column is filtering. On a phone the same headers ride a strip pinned above the list — tap a label to sort, tap its funnel for the menu.",
     "- **Tap any tag** on a card (like *techno* or *warehouse*) to jump into Explore filtered to exactly that tag.",
     "- **Search** everything from the box in the header.",
     "",
-    "## The match number",
+    "## Rank vs. match",
     "",
-    "Each event's **match %** (with the little bar) is the transparent taste score — deterministic, the same math behind the digest, refined by a light editorial pass.",
+    "Explore's `RANK · MATCH` column shows two things. The **match %** (with the little bar) is the transparent taste score — deterministic, the same math behind the digest. The **rank** (the `#`) is the final running order after a light editorial pass nudges a few picks up or down. Sort by either.",
     "",
     "## Read the digest",
     "",
@@ -3230,7 +3643,7 @@ class Component extends DCLogic {
     "",
     "## Tune your taste",
     "",
-    "You never edit settings by hand — tell the concierge: `more techno, less comedy`, `track Peggy Gou`, or `I'm in Echo Park now`. It rewrites your profile and re-ranks you within a minute or two.",
+    "You never edit settings by hand — tell the concierge: `more techno, less comedy`, `track Peggy Gou`, or `I'm in Echo Park now`. It rewrites your profile and re-ranks you within a few minutes.",
     "",
     "## Install it",
     "",
@@ -3241,9 +3654,15 @@ class Component extends DCLogic {
     "",
     "Recent upgrades to the site. See **how it works** (Settings → About) any time for the full tour.",
     "",
+    "## August 2026 — marquees & tables",
+    "",
+    "- **Festivals split near & far.** The Festivals table is now two: **Close to home** (Greater LA — block the date) and **Worth the trip** (the destination end — SF, San Diego, London — plan the trip). The watch-list's hand-tagged scope decides which side; catalog festivals split on their region tag (OC still counts as home turf). Dates read *9/26–27* style throughout.",
+    "- **The front page reorganized around two marquees.** What's *featured* — the lead, the shortlist, and two card shelves: **Sets and shows** (DJ sets, club nights, live rooms, plus any big concert the editor rates must-see) and **Events** (comedy, art, and one-off happenings). Everything program-shaped moved out of the shelves into compact **tables**, each formatted to its kind: **Seasonal and repeating** (markets, fleas, standing series — with their cadence: *Every Sunday*), **Movies** (now playing by closing date, then openings — *the marquee →* still holds the full boards), **Theater** (runs + one-night stages), **Festivals** (the date-sorted season: catalog festivals merged with the hand-curated watch-list), and **FYI** (big or far shows worth knowing about that aren't your lanes — arena bookings, on-sales, radar finds). A movie, a season, or a festival is never a featured card anymore; it's listed where you expect it.",
+    "- **Retired:** the *Now running*, *On the radar*, and *Around town* sections — their contents live in the new tables.",
+    "",
     "## Late July 2026 — the redesign, restored",
     "",
-    "- **Festivals moved onto the front page — near & far.** A permanent **Festivals** section now sits at the bottom of the front page in two groups: **Close to home** (Greater LA — block the date) and **Worth the trip** (the destination end — SF, San Diego, London — plan the trip), each row with dates and where tickets stand. The full watch-list, with the one-line why on each, is one tap away via *the full watch-list →* (the link moved down from On the radar).",
+    "- **Explore's filters moved back into the columns** — the original design. Each header wears a small funnel: `NEIGHBORHOOD` opens neighborhood + region side by side, `CATEGORY / VIBE` opens category, genre, vibe and setting, `DATE` holds the presets + a custom range, `SOURCE` its list. ✓ keep / ✕ hide per value, a blue funnel where a filter is live. The `RANK · MATCH` column is back too — the editor's `#` running order and the transparent match %, each sortable. Phones get the same system, not a separate panel: the column headers ride a sticky strip above the card list, funnels open full-width menus, and cards show their `#` rank beside the match.",
     "- **“Saw this” hides what you've already seen.** On any event's card: *Saw this — hide it* removes the event — and every other date of a repeating run (that 70mm you already caught) — from your feed. Undo from the toast, or *reset your reactions* any time.",
     "- **Digest links now land on the card.** Event lines in the written digest carry a `card ↗` link that opens that event right on the site — details, lineup, save star and all. Inside the digest reader it opens in place, and the link works from an emailed digest too.",
     "- **The day's digest, fleshed out.** The front-page digest box now runs the digest's opening read under the headline, and the *In this digest* chips got dates, tighter titles, and a ★ save button of their own.",
@@ -3252,7 +3671,7 @@ class Component extends DCLogic {
     "- **Two dedicated views: the marquee, and the festival watch-list.** **The marquee** (via *the marquee →* on the movies lane) is a full movies page: every film program with its dates board inline — now playing, opens soon, and the one-night screenings for the next two weeks. **Festivals & big shows** (via *the festival watch-list →* under On the radar) finally surfaces the hand-curated watch-list — Portola, CRSSD, Coachella and co. with dates, where tickets stand (*on sale · lineup pending · annual watch*), and the one-line why. That list existed all along; it just never reached the site until now.",
     "- **Clearer scene names + a home for long runs.** The scene lanes got plainer names — **Afterhours**, **Big-name club nights**, **Arenas & halls**, **Markets, art & more** — and movies, comedy and theater share one **Movies, comedy & theater** lane. Multi-week runs and seasons (a Pantages musical, a month of rep showtimes) moved to their own **Now running** section instead of squatting a scene box for weeks; they rejoin the dated lanes for their final two weeks, when *closes Sunday* is news. Run cards show the span (*Thru Sun Sep 6 · 12 nights*), and their detail popup carries an **All dates** board — every remaining night as a chip straight to that night's tickets, grouped by theater, sold-out nights crossed out.",
     "- **A new front page** — the lead pick, your shortlist, a lane per scene, and the day's digest headline up top, with the detail popup and settings rebuilt to match.",
-    "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, real **event photos** on cards, the **quick start / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
+    "- **Everything the swap dropped is back**: the written **digest reader**, the **Calendar feed** (Top picks + Starred), **Spotify connect**, the concierge's starter prompts, real **event photos** on cards, the **tutorial / tour / changelog** you're reading, and full **Explore filters** (categories, genres, vibe, setting, neighborhood, region, source, date range — tap a tag anywhere to filter).",
     "- **Stars teach again, and “less” learns too.** The + chip commits your star server-side (friends see it; the lineup boosts your ranking), and **Show less like this** now files a soft negative signal instead of only hiding locally.",
     "- **Retired:** the ✦ Artist intel button (the lineup rows' Spotify/SoundCloud links and bios remain).",
     "- **The front page is the server's slate again.** The lead, shortlist, scene lanes, radar and the returning **Around town** section render the editorial slate (the same ranking your digest uses) instead of a client-side re-sort; film runs show **showtimes** and **also-showing** nights again; the concierge **streams** its replies (with a ■ stop) and falls back to an instant offline filter; phones get a proper **card list**; and the feed only re-downloads when the catalog actually changed.",
@@ -3264,13 +3683,13 @@ class Component extends DCLogic {
     "- **Tags on every card — tap one to explore.** Cards wear their tags (genre + vibe: *techno*, *queer*, *warehouse*, …) right on the front, and every tag is a link: tap it to jump into Explore filtered to exactly that tag.",
     "- **Listen links.** Opening an event shows its lineup as artist rows: quiet **Spotify / SoundCloud** glyphs per name — straight to the artist's Spotify page once the nightly resolver has matched them, a search otherwise — and, where the research exists, a one-line bio of who that artist is.",
     "- **The concierge opens with the take.** The chat's welcome folds in the day's *take* — the digest's opening read — so you can ask a follow-up (`what's the move tonight then?`) right where it's said.",
-    "- **A front page.** The site opens on an editorial home: the lead pick and a shelf per lane — warehouse & underground, afters, day parties, live music, film, comedy & stage — for the window you pick (*tonight · this weekend · next 2 weeks · plan ahead*). The full table lives on as **Explore** (the switch is in the header).",
+    "- **A front page.** The site opens on an editorial home: the lead pick with its shortlist, and the marquees split into the days, weeks, or months of the window you pick (*tonight · this weekend · next 3 weeks · plan ahead*). The full table lives on as **Explore** (the switch is in the header).",
     "- **Cleaner categories.** A large batch of events (mostly Ticketmaster's) were sitting in an 'other' bucket — they're now properly typed as live music, stage, comedy and film, so lane filters and shelves actually cover the catalog.",
     "- **You control your refresh.** Your feed still picks up new events nightly, but your curated layer — the editorial pass behind your final ranks, and your written digest — refreshes when your **taste changes** or when **you hit Update** in Settings.",
     "",
     "## June 2026",
     "",
-    "- **A quick-start welcome.** The first time you sign in, a short four-step tour walks you through how the picks are made and setting yourself up. Tick *don't show this again* to dismiss it; re-open it any time from **Settings → quick start**.",
+    "- **A tutorial, on demand.** A short four-step walkthrough of how the picks are made and how to set yourself up. It no longer interrupts you on sign-in — open it whenever you want from **Settings → tutorial**.",
     "- **See your taste edits land.** *View taste & profile* (Settings) shows a diff of every change the concierge made to your taste or profile.",
     "- **Festivals & further ahead.** The digest surfaces big destination festivals and looks up to ~6 months out, so you can catch the major stuff while tickets last.",
     "- **Personal profiles & digests.** Sign in with a username to get your own taste-ranked feed and a written digest made just for you.",
@@ -3306,7 +3725,7 @@ class Component extends DCLogic {
       "",
       "Your **taste, neighborhood and Spotify don't change your list until you fold them in.**",
       "",
-      "- Open **Settings (☰)** and hit **Ranks & Digest** to re-rank against everything you just set up, plus the latest events. Takes a minute or two.",
+      "- Open **Settings (☰)** and hit **Ranks & Digest** to re-rank against everything you just set up, plus the latest events. Takes a few minutes.",
       "- New events still flow in nightly on their own; the button reads **Update available** whenever there's a taste edit or fresh data worth folding in."
     ].join('\n'),
     [
@@ -3315,21 +3734,18 @@ class Component extends DCLogic {
       "- The front page's **TODAY'S DIGEST** box opens your written **digest** — top picks with a sentence each, grouped by day.",
       "- The **+ chip** on any card stars it — friends see your star, it teaches your ranking, and **Settings → Calendar feed** turns picks or stars into a live calendar.",
       "- **View taste & profile** (Settings) shows every edit the concierge made.",
-      "- Want this tour again, or the full walkthrough? **Settings → quick start / how it works**. That's it — go find something good."
+      "- Want this again, or the full walkthrough? **Settings → tutorial / how it works**. That's it — go find something good."
     ].join('\n')
   ];
   openGuide = (tab) => this.setState({ guideOpen:true, guideTab: tab || 'how', settingsOpen:false });
   closeGuide = () => this.setState({ guideOpen:false });
   setGuideTab = (t) => this.setState({ guideTab:t });
-  onboardKey(p) { return 'la-onboarded:' + ((p && p.hash) || 'default'); }
-  hasOnboarded(p) { try { return localStorage.getItem(this.onboardKey(p)) === '1'; } catch (e) { return false; } }
-  maybeOnboard(p) { if (!p || !p.hash || this.hasOnboarded(p)) return; this.setState({ welcomeOpen:true, welcomeStep:0, welcomeDismiss:false }); }
-  openWelcome = () => this.setState({ welcomeOpen:true, welcomeStep:0, welcomeDismiss:this.hasOnboarded(this.state.profile), settingsOpen:false });
-  persistOnboard() { const k = this.onboardKey(this.state.profile); try { this.state.welcomeDismiss ? localStorage.setItem(k, '1') : localStorage.removeItem(k); } catch (e) {} }
-  closeWelcome = () => { this.persistOnboard(); this.setState({ welcomeOpen:false }); };
+  // Opt-in only: the tutorial never auto-opens. Settings → ABOUT → tutorial is the single entry point,
+  // so there's no per-profile "seen" flag and no "don't show this again" dismissal to persist.
+  openWelcome = () => this.setState({ welcomeOpen:true, welcomeStep:0, settingsOpen:false });
+  closeWelcome = () => this.setState({ welcomeOpen:false });
   welcomeBack = () => this.setState({ welcomeStep: Math.max(0, this.state.welcomeStep - 1) });
   welcomeNext = () => { if (this.state.welcomeStep >= this.WELCOME.length - 1) this.closeWelcome(); else this.setState({ welcomeStep: this.state.welcomeStep + 1 }); };
-  toggleWelcomeDismiss = () => this.setState(s => ({ welcomeDismiss: !s.welcomeDismiss }));
 
   setReactions(r) { this.setState({ reactions:r }); try { localStorage.setItem('la-fp-reactions-v1', JSON.stringify(r)); } catch (e) {} }
   // ---------- "Saw this" — hide an event (and, for repeating programs, ALL its dates) ----------
@@ -3385,8 +3801,12 @@ class Component extends DCLogic {
     const r = { ...this.state.reactions };
     const e = this.byId(id);
     if (kind==='chip') {
-      const next = r[id]!=='chip';
-      if (next) r[id]='chip'; else delete r[id];
+      // toggles the EFFECTIVE state (myStar): un-starring a star the feed carries needs the
+      // 'unchip' tombstone — e.stars keeps listing me until a rebuild folds the unstar out.
+      const next = !this.myStar(e);
+      if (next) r[id]='chip';
+      else if (this.serverStar(e)) r[id]='unchip';
+      else delete r[id];
       this.reactPost(e, next ? 'star' : 'unstar');
     }
     else {
@@ -3407,7 +3827,7 @@ class Component extends DCLogic {
     const mf = this.matchFlags();
     const T = this.TODAY;
     const dLabel = (() => { const f = this.fmt(T, ''); return (f.wd + ' · ' + f.md).toUpperCase(); })();
-    const lensDefs = [['today','TONIGHT'],['weekend','THIS WEEKEND'],['twoweeks','NEXT 2 WEEKS'],['ahead','PLAN AHEAD']];
+    const lensDefs = [['today','TONIGHT'],['weekend','THIS WEEKEND'],['twoweeks','NEXT 3 WEEKS'],['ahead','PLAN AHEAD']];
 
     const exploreableCount = this.ALL.filter(e => e.iso>=T && !this.isSeen(e)).length;
 
@@ -3422,9 +3842,8 @@ class Component extends DCLogic {
       frontTabBg: view==='front'?'#1b1a17':'transparent', frontTabColor: view==='front'?'#fff':'#76746b',
       exploreTabBg: view==='explore'?'#1b1a17':'transparent', exploreTabColor: view==='explore'?'#fff':'#76746b',
       viewFront:this.viewFront, viewExplore:this.viewExplore,
-      showLenses: view==='front' || view==='scene', showSort: view==='explore',
+      showLenses: view==='front' || view==='scene',   // explore sorts/filters live in the column headers (desktop table + mobile strip)
       lenses: lensDefs.map(([k,label]) => ({ label, onClick:() => this.setLens(k), border: lens===k?'#1b1a17':'#d2d0c7', bg: lens===k?'#1b1a17':'#fff', color: lens===k?'#fff':'#76746b' })),
-      sortOpts: [['match','MATCH'],['date','DATE'],['title','A–Z']].map(([k,label]) => ({ label, onClick:() => this.setSort(k), border: this.state.exploreSort===k?'#2b5cd9':'#d2d0c7', bg: this.state.exploreSort===k?'#eaf0fe':'#fff', color: this.state.exploreSort===k?'#2b5cd9':'#76746b' })),
       searchVal:this.state.exploreSearch, onSearch:this.onSearch, hasSearch:!!this.state.exploreSearch.trim(), clearSearch:this.clearSearch,
       showHeaderSearch: !mob, showMobileSearch: mob, mobileSearchTap: this.mobileSearchTap,
       showSlashHint: !mob && !this.state.exploreSearch.trim(),
@@ -3462,55 +3881,98 @@ class Component extends DCLogic {
       // it renders the server order, only sinking events the person downvoted. The client pool
       // is the fallback for a feed with no slate.
       const [hwa, hwb] = this.windowFor(lens);
-      const heroSrv = this.lessSink(this.resolveKeys((FP.hero || {})[lens]).filter(e => e.iso >= T && e.iso >= hwa && e.iso <= hwb));
-      const top5 = heroSrv.length ? heroSrv.slice(0, 5) : pool.slice(0, 5);
+      const heroSrv = this.resolveKeys((FP.hero || {})[lens]).filter(e => e.iso >= T && e.iso >= hwa && e.iso <= hwb);
+      // Backfill the slate from the ranked pool when the live date has thinned it — on a
+      // Sunday, "this weekend" is just tonight and most of the server's weekend picks are
+      // behind us, which used to leave one lonely rail card stretched down the column.
+      // Backfill must clear the server slate's own eligibility bar (no judged skips, no
+      // negative scores — the pool carries both in its tail), and the downvote sink runs
+      // over the MERGED list (per-segment sinking would seat a downvoted hero pick above
+      // fresh backfill). On desktop, under three picks total the rail is dropped entirely
+      // (lead only; hero + dispatch run full width) — mobile keeps a 1-2 card shortlist,
+      // its stacked cards don't stretch. Un-railed picks stay eligible for the lanes below.
+      const heroIds = new Set(heroSrv.map(e => e.id));
+      const fillOk = e => !heroIds.has(e.id) && (e.verdict || {}).tier !== 'skip' && !(e.score < 0);
+      let top5 = this.lessSink(heroSrv.concat(pool.filter(fillOk))).slice(0, 5);
+      if (!mob && top5.length < 3) top5 = top5.slice(0, 1);
       const lead = top5[0] ? { ...this.cardFor(top5[0]), rank:'01', photoCol:this.photoStyle(top5[0], 'flex:0 0 210px; align-self:stretch; min-height:230px;') } : null;
       out.hasLead = !!lead; out.lead = lead || {};
-      out.leadKicker = { today:"TONIGHT'S LEAD", weekend:"THE WEEKEND'S LEAD", twoweeks:'TOP OF THE NEXT TWO WEEKS', ahead:'THE ONE TO PLAN AROUND' }[lens] || 'YOUR LEAD';
+      out.leadKicker = { today:"TONIGHT'S LEAD", weekend:"THE WEEKEND'S LEAD", twoweeks:'TOP OF THE NEXT THREE WEEKS', ahead:'THE ONE TO PLAN AROUND' }[lens] || 'YOUR LEAD';
       const short = top5.slice(1,5).map((e,i) => ({ ...this.cardFor(e), rank:String(i+2).padStart(2,'0') }));
       out.hasShortlist = short.length>0; out.shortlist = short;
+      // Hero geometry: desktop = a LEAD COLUMN (hero at its natural height + the dispatch
+      // box under it, absorbing whatever height the rail sets) beside the shortlist rail.
+      // Real content fills the column — the hero card never stretches its own whitespace.
+      // Mobile stacks: hero, dispatch, shortlist.
+      out.heroRowStyle = mob ? 'display:flex; flex-direction:column; gap:24px;'
+                             : 'display:flex; gap:16px; align-items:stretch;';
+      out.leadColStyle = mob ? 'display:flex; flex-direction:column; gap:24px;'
+                             : 'flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:16px;';
+      out.leadCardStyle = 'position:relative; display:flex; flex-wrap:wrap; gap:22px; background:#fff; border:1px solid #c9c7bd; border-radius:5px; padding:0; overflow:hidden; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease;';
+      out.dispatchBoxStyle = 'background:#fdfcf9; border:1px solid #e2e0d8; border-left:3px solid #1b1a17; border-radius:4px; padding:18px 20px;'
+                           + (mob ? '' : ' flex:1 1 auto;');
+      out.shortWrapStyle = mob ? '' : 'flex:0 0 345px; min-width:0; display:flex; flex-direction:column;';
+      // Hero body: top-packed at natural height (the dispatch below it absorbs the column's
+      // spare height); desktop lets the why run longer — the rail dropped its whys, the
+      // lead's is the one that counts.
+      out.leadBodyStyle = 'flex:1 1 380px; min-width:0; padding:22px 24px 20px; display:flex; flex-direction:column; gap:12px;';
+      out.leadWhyStyle = 'margin:0; font:400 14.5px/1.55 -apple-system,system-ui,sans-serif; color:#3f3d36; max-width:62ch; text-wrap:pretty; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden;'
+                       + (mob ? ' -webkit-line-clamp:3;' : ' -webkit-line-clamp:5;');
+      out.shortListStyle = mob ? 'display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:11px;'
+                               : 'display:flex; flex-direction:column; gap:10px; flex:1; min-height:0;';
+      out.shortCardStyle = 'display:flex; gap:12px; background:#fff; border:1px solid #dedcd4; border-radius:4px; padding:12px 13px; cursor:pointer; transition:box-shadow .2s ease, border-color .12s ease;'
+                         + (mob ? '' : ' flex:1 0 auto;');   // grow to split the column, never crush content
+      out.shortTitleStyle = 'font:600 14px/1.25 -apple-system,system-ui,sans-serif; color:#161512;'
+                          + (mob ? '' : ' display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;');
+      // Rail cards are the COMPACT tier: on desktop the why comes off (it lives on the card
+      // detail and the marquee cards below), so four cards split the hero's height cleanly
+      // instead of spilling their bottom rows into the next section.
+      if (!mob) for (const c of short) c.hasWhy = false;
 
       const topIds = new Set(top5.map(e => e.id));
-      // "Your scenes" — the server shelves (slate order, near+ahead zones) filtered to the active
-      // lens window; the client sceneOf() bucketing is only the no-shelves fallback.
+      // THE MARQUEES — the two lane boxes (server shelves; sceneOf() buckets on a legacy
+      // feed), each split into the lens's TIME rows (marqueeRows): two sets of three rows.
+      // Rows slice the shelf's slate in its server order (a merged-lane shelf's interleave
+      // is the front-row mixing device); a generated-but-empty row renders as a one-line
+      // "quiet" note so the row structure reads as fact, not bug. Every windowed event
+      // lands in exactly one row — the specs partition the lens window.
+      const [mwa, mwb] = this.windowFor(lens);
+      const rowSpecs = this.marqueeRows(lens);
+      const isMustSee = e => !!(e.verdict && e.verdict.tier==='must-see') || (e.rating != null && e.rating >= 5);
+      const mkRows = evs => rowSpecs.map(spec => {
+        const cards = evs.filter(e => e.iso >= spec.a && e.iso <= spec.b && (!spec.test || spec.test(e)))
+          .slice(0,8).map((e,i) => { const card = this.cardFor(e); card.mustSee = i===0 && isMustSee(e); return card; });
+        return { label:spec.label, sub:spec.sub, cards, hasCards:cards.length>0, isQuiet:cards.length===0 };
+      });
+      const inWindow = e => e.iso >= T && e.iso >= mwa && e.iso <= mwb && !topIds.has(e.id);
       const shs = this.fpShelves();
       let scenes;
       if (shs) {
-        const [wa, wb] = this.windowFor(lens);
         scenes = shs.map(sh => {
-          const evs = this.lessSink(this.shelfEvents(sh).filter(e => e.iso >= wa && e.iso <= wb && e.iso >= T && !topIds.has(e.id)));
-          const cards = evs.slice(0,6).map((e,i) => {
-            const card = this.cardFor(e);
-            card.mustSee = i===0 && (!!(e.verdict && e.verdict.tier==='must-see') || (e.rating != null && e.rating >= 5));
-            card.hasChips = (card.friendChips||[]).length>0;
-            return card;
-          });
-          return { id:sh.id, label:sh.label, dot:this.SHELF_DOT[sh.id] || '#76746b', allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(sh.id),
-                   // the culture lane carries the door to the dedicated movies marquee
-                   hasExtra: sh.id==='culture' || sh.id==='film', extraLabel:'the marquee', onExtra:this.openMovies };
-        }).filter(s => s.cards.length>0).slice(0,8);   // server shelf ORDER, not by-size (8 = the full reshaped lane set)
+          const evs = this.lessSink(this.shelfEvents(sh).filter(inWindow));
+          return { label:sh.label, dot:this.SHELF_DOT[sh.id] || '#76746b', allLabel:'all '+evs.length,
+                   onAll:() => this.openScene(sh.id), rows:mkRows(evs), n:evs.length };
+        }).filter(s => s.n > 0).slice(0,8);   // server shelf ORDER (2 marquees on a current feed; legacy feeds carry more)
       } else {
         const buckets = new Map();
-        for (const e of pool) { const s = this.sceneOf(e); if (!buckets.has(s.id)) buckets.set(s.id,{ scene:s, evs:[] }); buckets.get(s.id).evs.push(e); }
-        scenes = [...buckets.values()].map(({ scene, evs }) => {
-          const laneEvs = evs.filter(e => !topIds.has(e.id)).slice(0,6);
-          const cards = laneEvs.map((e,i) => {
-            const card = this.cardFor(e);
-            card.mustSee = i===0 && (e.score>=6 || !!(e.verdict && e.verdict.tier==='must-see'));
-            card.hasChips = (card.friendChips||[]).length>0;
-            return card;
-          });
-          return { id:scene.id, label:scene.label, dot:scene.dot, allLabel:'all '+evs.length, cards, rowsCss: cards.length<=3 ? 'repeat(1,1fr)' : 'repeat(2,1fr)', onAll:() => this.openScene(scene.id) };
-        }).filter(s => s.cards.length>0).sort((a,b) => b.cards.length-a.cards.length).slice(0,6);
+        for (const e of pool) { if (!inWindow(e)) continue; const s = this.sceneOf(e); if (!buckets.has(s.id)) buckets.set(s.id,{ scene:s, evs:[] }); buckets.get(s.id).evs.push(e); }
+        scenes = [...buckets.values()].map(({ scene, evs }) => (
+          { label:scene.label, dot:scene.dot, allLabel:'all '+evs.length,
+            onAll:() => this.openScene(scene.id), rows:mkRows(evs), n:evs.length }
+        )).filter(s => s.n > 0).sort((a,b) => b.n-a.n).slice(0,6);
       }
       out.hasScenes = scenes.length>0; out.scenes = scenes;
-      out.sceneColW = mob ? '100%' : 'calc((100% - 11px) / 2)';
+      out.sceneColW = mob ? '100%' : 'calc((100% - 22px) / 3)';
 
-      const take = this.META.front_page && this.META.front_page.take;
+      // THE DISPATCH — the digest headline block. resolveTake() is the one fallback chain
+      // (feed take → the loaded doc's slot → its lede), shared with the chat welcome; per-
+      // profile feeds never carry a structural take and a no-change day leaves even the
+      // house slot unfilled, so the doc-derived fallbacks are what keep this block alive.
+      const { take, lede } = this.resolveTake();
       if (take && take.text) {
         const heroKeys = (((this.META.front_page || {}).hero || {})[lens] || []).slice(0, 5);
         const chips = heroKeys.map(k => this.ALL.find(e => e.key === k)).filter(e => e && !this.isSeen(e)).slice(0, 3).map(e => {
-          const mine = this.state.reactions[e.id] === 'chip';
+          const mine = this.myStar(e);
           return {
             when: this.labelISO(e.iso), text: this.shortTitle(e.title), full: e.title,
             onClick: () => this.openDetail(e.id),
@@ -3521,15 +3983,20 @@ class Component extends DCLogic {
           };
         });
         out.hasDispatch = true;
-        // Descriptive headline = the day's take sentence itself (not the label "The take") — the
-        // take reads as an editorial deck; the kicker carries the digest's own date. The blurb
-        // under it is the digest's opening prose (the lede), clipped to two sentences — skipped
-        // when the loaded digest is the house fallback for a signed-in profile (wrong voice).
+        // Descriptive headline = the take sentence itself (server or doc-derived) — it reads
+        // as an editorial deck; the kicker carries the digest's own date. The blurb under it
+        // is the lede clipped to two sentences — minus the headline when the headline came
+        // FROM the lede, and only when the headline is a whole sentence (a word-boundary
+        // truncation must not leave the blurb opening mid-sentence on the severed tail).
         let blurb = '';
-        if (!(this.DIGEST_FALLBACK && this.state.loggedIn)) {
-          const lede = (this.digestLede() || '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
-          if (lede && lede !== take.text) {
-            const sents = lede.match(/[^.!?]+[.!?]+(?:\s|$)/g) || [lede];
+        if (lede) {
+          let rest = lede;
+          if (take.fromLede) {
+            rest = (/[.!?]$/.test(take.text) && lede.slice(0, take.text.length) === take.text)
+                 ? lede.slice(take.text.length).trim() : '';
+          }
+          if (rest && rest !== take.text) {
+            const sents = rest.match(/[^.!?]+[.!?]+(?:\s|$)/g) || [rest];
             blurb = sents.slice(0, 2).join(' ').replace(/\s+/g, ' ').trim();
             if (blurb.length > 320) blurb = blurb.slice(0, 300).replace(/\s+\S*$/, '') + '…';
           }
@@ -3541,42 +4008,107 @@ class Component extends DCLogic {
       const fetchedRef = ((this.META && this.META.catalog_fetched_at) || '').slice(0, 10);
       const isNewE = e => !!(fetchedRef && e.firstSeen && String(e.firstSeen).slice(0, 10) >= fetchedRef);
       const onSaleE = e => (e.xb || []).some(x => /on.?sale/i.test(x));
-      const mkRow = (e, tag) => { const f = this.fmt(e.iso,e.time); return { id:e.id, dateShort:f.wd+' '+f.md, title:e.title, venue:e.venue+' · '+e.hood, tag, hasTag:!!tag, onOpen:() => this.openDetail(e.id) }; };
-      // NOW RUNNING — long runs/seasons (front_page.nowrunning: series reps with 3+ remaining
-      // nights spanning 14+ days). A fixed section under every lens — a run IS an option
-      // tonight — so a Pantages season can't squat a scene box for six weeks. A run stays
-      // while any night remains; it re-enters the dated surfaces for its closing fortnight
-      // (the server measures span over remaining nights only).
-      const nowr = this.lessSink(this.resolveKeys(FP.nowrunning)
-        .filter(e => (e.series && e.series.last ? e.series.last >= T : e.iso >= T)));
-      out.nowRunning = nowr.slice(0, 12).map(e => {
-        const run = this.runLabel(e) || { span: this.fmt(e.iso, '').wd + ' ' + this.fmt(e.iso, '').md, count: '' };
-        return { id: e.id, dateShort: run.span, title: e.title, venue: this.venueDisplay(e.venue) + ' · ' + e.hood,
-                 tag: run.count.toUpperCase(), hasTag: !!run.count, onOpen: () => this.openDetail(e.id) };
-      });
-      out.hasNowRunning = out.nowRunning.length > 0;
-      // ON THE RADAR — the server-curated set (build_radar/festivals.yaml via front_page.radar);
-      // the just-announced/on-sale heuristic only fills in when the feed carries none.
-      const radarSrv = this.resolveKeys(FP.radar).filter(e => e.iso >= T && !this.isSeen(e));
-      const radar = radarSrv.length
-        ? radarSrv.slice(0,8).map(e => mkRow(e, onSaleE(e) ? 'ON SALE' : (isNewE(e) || (e.xb||[]).some(x => /just announced/i.test(x))) ? 'JUST ANNOUNCED' : 'RADAR'))
-        : this.ALL.filter(e => e.iso >= T && !this.isSeen(e) && (onSaleE(e) || isNewE(e) || (e.xb || []).some(x => /just announced/i.test(x))))
-            .sort((a,b) => a.iso<b.iso?-1:1).slice(0,6).map(e => mkRow(e, onSaleE(e)?'ON SALE':'JUST ANNOUNCED'));
-      out.hasRadar = radar.length>0; out.radar = radar;
-      // AROUND TOWN — the server's near-city-pulse keys (was dropped in the redesign)
-      const around = this.resolveKeys(FP.around).filter(e => e.iso >= T && !topIds.has(e.id) && !this.isSeen(e)).slice(0,6).map(e => mkRow(e, ''));
-      out.hasAround = around.length>0; out.around = around;
-      // FESTIVALS — the standing watch-list (festivals.yaml), a permanent bottom fixture in
-      // two groups: close to home (Greater LA — block the date) vs worth the trip (the
-      // destination end — plan the trip). Dated rows whose start has passed drop out here;
-      // the dedicated view keeps the full list.
-      const festsFP = (((this.META.front_page || {}).festivals) || []).filter(f => !f.first_date || f.first_date >= T);
-      const festLocal = festsFP.filter(f => f.scope !== 'travel').slice(0,8).map(f => this.festRow(f));
-      const festTravel = festsFP.filter(f => f.scope === 'travel').slice(0,8).map(f => this.festRow(f));
-      out.festLocal = festLocal; out.hasFestLocal = festLocal.length>0;
-      out.festTravel = festTravel; out.hasFestTravel = festTravel.length>0;
-      out.hasFestFP = festLocal.length>0 || festTravel.length>0;
-      out.fpEmpty = !lead;
+      // CATEGORY TABLES (Ari 2026-08-01) — the five fixtures under every lens: Seasonal and
+      // repeating / Movies / Theater / Festivals / FYI (front_page.tables). The marquee
+      // shelves above carry what's FEATURED; these list what's program-shaped, standing, or
+      // stay-informed. Movies/Theater lead with the program's span (server order: open runs
+      // closing-soonest, then openings by date); Festivals merges the catalog's festival
+      // rows with the festivals.yaml watch-list fixture, date-sorted; FYI is the big/far
+      // know-about tier, date-sorted.
+      const TAG_TONE = { green:['#1f7a4d','rgba(31,122,77,0.1)'], amber:['#b06a00','rgba(176,106,0,0.1)'],
+                         blue:['#2b5cd9','rgba(43,92,217,0.1)'], gray:['#76746b','rgba(118,116,107,0.12)'] };
+      const tone = (r, t) => { const [c, b] = TAG_TONE[t || 'green']; r.tagColor = c; r.tagBg = b; return r; };
+      // Every catalog-backed table row carries the social column: friend tokens + a ☆/★
+      // save toggle (the dispatch-chip affordance — the round add-button is too heavy for
+      // these packed rows). Watch-list fixtures (id:null, not catalog events) can't star.
+      const rowStar = (e) => { const mine = this.myStar(e); return {
+        canStar:true, friendChips:this.friendChipsFor(e).slice(0, 3),
+        onStar:(ev) => this.react(e.id, 'chip', ev),
+        starGlyph: mine ? '★' : '☆', starColor: mine ? '#c89b2f' : '#b5b3a9',
+        starBg: mine ? '#fdf4e3' : 'transparent',
+        starTitle: mine ? 'Saved — tap to unsave' : 'Save this one' }; };
+      const tRow = (e, tag, t) => { const f = this.fmt(e.iso, e.time);
+        return tone({ id:e.id, sortDate:(e.series && e.series.first) || e.iso,
+          dateShort:f.wd+' '+f.md, title:e.title,
+          venue:this.venueDisplay(e.venue)+(e.hood?' · '+e.hood:''),
+          tag:String(tag||'').toUpperCase(), hasTag:!!tag, onOpen:() => this.openDetail(e.id),
+          ...rowStar(e) }, t); };
+      const progRow = e => {           // movies/theater: the program's span leads the row
+        const run = this.runLabel(e);
+        let r;
+        if (run && e.series.first <= T) { r = tRow(e, run.count, 'green'); r.dateShort = run.span; }
+        else if (run) { const lf = this.fmt(e.series.first, ''); r = tRow(e, run.count, 'blue'); r.dateShort = 'Opens ' + lf.wd + ' ' + lf.md; }
+        else r = tRow(e, '', 'gray');
+        const vs = (e.series && e.series.venues) || [];
+        if (vs.length > 1) r.venue = vs.slice(0,2).map(v => this.venueDisplay(v)).join(' · ') + (vs.length>2 ? ' +'+(vs.length-2) : '');
+        return r; };
+      const tablesSrv = Array.isArray(FP.tables) ? FP.tables : null;
+      const tblEvents = id => this.resolveKeys((((tablesSrv||[]).find(t => t.id===id))||{}).keys)
+        .filter(e => !this.isSeen(e) && (e.series && e.series.last ? e.series.last >= T : e.iso >= T));
+      const FEST_TONE = { on_sale:'green', announced:'blue', lineup_pending:'amber', annual_watch:'gray' };
+      // Watch-list fixture rows carry a server-stamped scope (local|travel, lib/festivals);
+      // rows from feeds predating it default travel — the watch-list skews destination.
+      const festFixture = (FP.festivals || []).map(fx => tone({ id:null, canStar:false, friendChips:[], sortDate: fx.first_date || '9998',
+        scope: fx.scope || 'travel',
+        dateShort: fx.first_date ? (() => { const f = this.fmt(fx.first_date, ''); return f.wd + ' ' + f.md; })()
+                                 : (fx.when_pretty || String(fx.when||'').replace(/\.\./g,' – ')).replace(/\s*\(.*$/, ''), title:fx.name, venue:fx.location||'',
+        tag:(fx.status ? String(fx.status).replace(/_/g,' ') : '').toUpperCase(), hasTag:!!fx.status,
+        onOpen: fx.tickets ? (() => window.open(fx.tickets, '_blank', 'noopener')) : (() => {}) }, FEST_TONE[fx.status] || 'gray'));
+      const TABLE_SUB = { seasonal:'markets, fleas & standing series', movies:'now playing & opening',
+                          theater:'runs & one-night stages', festivals:'Greater LA — block the date',
+                          'festivals-trip':'worth traveling for — plan the trip',
+                          fyi:'big & far — worth knowing about' };
+      const TABLE_CAP = { seasonal:10, movies:10, theater:10, festivals:12, 'festivals-trip':12, fyi:12 };
+      const fpTables = [];
+      const pushTable = (id, label, rows, link) => {
+        if (!rows.length) return;
+        const cap = TABLE_CAP[id] || 10;
+        fpTables.push({ id, label, sub:TABLE_SUB[id] || '', rows:rows.slice(0, cap),
+          hasMore: rows.length > cap, more:'+' + (rows.length - cap) + ' more' + (link ? ' →' : ''),
+          onMore: link ? link[1] : (() => {}), moreColor: link ? '#2b5cd9' : '#a7a59b', moreCursor: link ? 'pointer' : 'default',
+          hasLink: !!link, linkLabel: link ? link[0] : '', linkTitle: link ? link[2] : '', onLink: link ? link[1] : null });
+      };
+      if (tablesSrv) {
+        for (const t of tablesSrv) {
+          if (t.id === 'seasonal') pushTable(t.id, t.label, tblEvents(t.id).map(e => {
+            const run = this.runLabel(e); const r = tRow(e, run ? run.count : '', 'green');
+            if (run) r.dateShort = run.span; return r; }), null);
+          else if (t.id === 'movies') pushTable(t.id, t.label, tblEvents(t.id).map(progRow),
+            ['the marquee', this.openMovies, 'Every film program — boards, openings, one-nights']);
+          else if (t.id === 'theater') pushTable(t.id, t.label, tblEvents(t.id).map(progRow), null);
+          else if (t.id === 'festivals') {
+            // Split local vs travel (Ari 2026-08-12): destination festivals are worth the
+            // trip but they're a different decision — separate table, same section. Fixture
+            // rows split on their server-stamped scope; catalog rows on the region tag —
+            // 'far' means travel unless the venue text reads OC (Irvine/Dana Point are
+            // worth-the-drive home turf, same line the yaml heuristic draws).
+            const OC_RE = /irvine|anaheim|santa ana|costa mesa|dana point|huntington beach|newport|fullerton|laguna|san juan capistrano|garden grove/i;
+            const catScope = e => (e.region === 'far' && !OC_RE.test((e.venue||'')+' '+(e.hood||''))) ? 'travel' : 'local';
+            const festAll = tblEvents(t.id).map(e => Object.assign(progRow(e), { scope: catScope(e) }))
+              .concat(festFixture).sort((a,b) => a.sortDate < b.sortDate ? -1 : 1);
+            const wl = ['the festival watch-list', this.openFestivals, 'The standing festival watch-list'];
+            pushTable(t.id, 'Festivals: close to home', festAll.filter(r => r.scope !== 'travel'), wl);
+            pushTable('festivals-trip', 'Festivals: worth the trip', festAll.filter(r => r.scope === 'travel'), wl);
+          }
+          else if (t.id === 'fyi') pushTable(t.id, t.label, tblEvents(t.id).map(e =>
+            tRow(e, onSaleE(e) ? 'on sale' : (isNewE(e) ? 'just announced' : ''), onSaleE(e) ? 'green' : 'amber')), null);
+        }
+      } else {
+        // Legacy feed (no front_page.tables yet): keep the old radar list alive as FYI so the
+        // page isn't suddenly thinner than its data until the feed rebuilds.
+        const radarSrv = this.resolveKeys(FP.radar).filter(e => e.iso >= T && !this.isSeen(e));
+        pushTable('fyi', 'FYI', radarSrv.slice(0, 10).map(e =>
+          tRow(e, onSaleE(e) ? 'on sale' : 'radar', onSaleE(e) ? 'green' : 'amber')), null);
+      }
+      out.fpTables = fpTables;
+      // Table geometry: desktop packs the five sections two-up (CSS columns; break-inside
+      // keeps a section whole), mobile stacks. At half width the venue can't ride beside the
+      // title (both truncate into uselessness), so it stacks underneath everywhere.
+      out.tbWrapStyle = mob ? 'margin-bottom:24px;'
+                            : 'columns:2; column-gap:16px; margin-bottom:24px;';
+      out.tbSecStyle = 'break-inside:avoid; margin-bottom:20px;';
+      out.tbStackVenue = true; out.tbSideVenue = false; out.tbDateW = mob ? '82px' : '96px';
+      out.fpEmpty = !lead && !fpTables.length;
     }
 
     // ---- SCENE ----
@@ -3648,7 +4180,16 @@ class Component extends DCLogic {
     // ---- FESTIVALS — the standing watch-list (festivals.yaml via front_page.festivals) ----
     if (view==='festivals') {
       const fests = ((this.META.front_page || {}).festivals) || [];
-      const mk = f => this.festRow(f);
+      const STATUS = { on_sale:{label:'ON SALE', color:'#1f7a4d', bg:'rgba(31,122,77,0.1)'},
+                       announced:{label:'ANNOUNCED', color:'#2b5cd9', bg:'rgba(43,92,217,0.1)'},
+                       lineup_pending:{label:'LINEUP PENDING', color:'#b06a00', bg:'rgba(176,106,0,0.1)'},
+                       annual_watch:{label:'ANNUAL WATCH', color:'#76746b', bg:'rgba(118,116,107,0.12)'} };
+      const mk = f => { const st = STATUS[f.status]
+          || (f.status ? { label:String(f.status).replace(/_/g,' ').toUpperCase(), color:'#76746b', bg:'rgba(118,116,107,0.12)' } : null);
+        return { name:f.name, when:f.when_pretty || String(f.when||'').replace(/\.\./g,' – '), location:f.location||'',
+          why:f.why||'', hasWhy:!!f.why, tickets:f.tickets||'', hasTickets:!!f.tickets,
+          hasStatus:!!st, stLabel:st?st.label:'', stColor:st?st.color:'', stBg:st?st.bg:'',
+          stop:(ev)=>ev.stopPropagation() }; };
       const dated = fests.filter(f => f.first_date).map(mk);
       const watch = fests.filter(f => !f.first_date).map(mk);
       out.festDated = dated; out.hasFestDated = dated.length>0;
@@ -3673,61 +4214,95 @@ class Component extends DCLogic {
         : sk==='hood' ? strSort(e => e.hood)
         : sk==='cat' ? strSort(e => e.cat)
         : sk==='source' ? strSort(e => e.source)
-        : ((x,y) => lessE(x)-lessE(y) || this.rankCmp(x,y));
-      if (sk === 'match') rows = this.collapseSeries(rows);   // a ranking shows each program once
+        : sk==='match' ? ((x,y) => y.score-x.score || (x.iso<y.iso?-1:x.iso>y.iso?1:0) || x.title.localeCompare(y.title))
+        : ((x,y) => lessE(x)-lessE(y) || this.rankCmp(x,y));   // rank — the editor's final running order
+      if (sk === 'rank') rows = this.collapseSeries(rows);   // a ranking shows each program once
       rows.sort(dir === 1 ? base : (x,y) => -base(x,y));
       const EX_CAP = 1200;
-      out.exploreRows = rows.slice(0, EX_CAP).map((e,i) => ({ ...this.cardFor(e), rank:String(i+1) }));
+      out.exploreRows = rows.slice(0, EX_CAP).map((e) => ({ ...this.cardFor(e),
+        hasRank: e.rank != null, rankNum: (e.rank != null ? String(e.rank) : '—'),
+        rankColor: (e.rank != null ? '#161512' : '#cfcdc4'),
+        rankTitle: (e.verdict ? (String(e.verdict.tier || '').toUpperCase() + (e.verdict.why ? ' — ' + e.verdict.why : '')) : (e.rank != null ? "the editor's final running order" : 'not ranked by the editor — falls back to score')) }));
       out.exploreClipped = rows.length > EX_CAP ? ('showing the first ' + EX_CAP + ' — narrow with filters or search') : '';
       out.exploreEmpty = rows.length===0;
       out.isMobileCards = mob; out.notMobileCards = !mob;
       const arr = dir === 1 ? '↓' : '↑';
-      out.arrowDate = sk==='date' ? arr : ''; out.arrowTitle = sk==='title' ? arr : ''; out.arrowScore = sk==='match' ? arr : '';
+      out.arrowDate = sk==='date' ? arr : ''; out.arrowTitle = sk==='title' ? arr : ''; out.arrowScore = sk==='match' ? arr : ''; out.arrowRank = sk==='rank' ? arr : '';
       out.arrowHood = sk==='hood' ? arr : ''; out.arrowCat = sk==='cat' ? arr : ''; out.arrowSource = sk==='source' ? arr : '';
-      out.sortDateCol = () => this.setSort('date'); out.sortTitleCol = () => this.setSort('title'); out.sortScoreCol = () => this.setSort('match');
+      out.sortDateCol = () => this.setSort('date'); out.sortTitleCol = () => this.setSort('title'); out.sortScoreCol = () => this.setSort('match'); out.sortRankCol = () => this.setSort('rank');
       out.sortHoodCol = () => this.setSort('hood'); out.sortCatCol = () => this.setSort('cat'); out.sortSourceCol = () => this.setSort('source');
+      out.rankHeadColor = sk==='rank' ? '#2b5cd9' : '#76746b'; out.scoreHeadColor = sk==='match' ? '#2b5cd9' : '#76746b';
       const nAct = this.exActiveCount();
       out.exploreCountLabel = rows.length + ' events' + ((this.META.count && (nAct || q)) ? '' : ' · ' + (this.META.count || this.ALL.length) + ' in catalog') + (q ? ' · matching “'+this.state.exploreSearch.trim()+'”' : '')
         + (nAct ? ' · ' + nAct + ' filter' + (nAct===1?'':'s') + ' active' : '')
-        + (!q && !nAct ? ' · '+({match:'ranked by match',date:'by date',title:'A–Z',hood:'by neighborhood',cat:'by category',source:'by source'}[sk]) : '');
+        + (!q && !nAct ? ' · '+({rank:'ranked',match:'by match',date:'by date',title:'A–Z',hood:'by neighborhood',cat:'by category',source:'by source'}[sk]) : '');
       out.exHasActive = nAct > 0 || !!q || !!this.state.chatFiltered;
       out.hasChatFilter = !!this.state.chatFiltered; out.chatFilterLabel = this.state.chatFilterLabel; out.clearChatFilter = this.clearChatFilter;
       out.exResetFn = this.exReset;
 
-      // ---- filter panel ----
+      // ---- column-header filter menus (the original explore design) ----
+      // One set of menus, two anchorings: the desktop table headers and the mobile strip.
+      // Full value lists (scrollable): facet order (the feed's frequency-ranked vocab) + an
+      // alphabetical tail of event-derived tags for tag axes; alphabetical for neighborhoods
+      // + sources; catalog frequency for categories.
       const f = this.state.exFilters;
-      const fchip = (label, mode, onClick, title) => ({ label, onClick, title: title || '',
-        border: mode==='in'?'#1f7a4d':mode==='out'?'#c75146':mode==='on'?'#2b5cd9':'#dedcd4',
-        bg: mode==='in'?'#eaf6ee':mode==='out'?'#fbeae8':mode==='on'?'#eaf0fe':'#fff',
-        color: mode==='in'?'#1f7a4d':mode==='out'?'#b4453a':mode==='on'?'#2b5cd9':'#5f5d54' });
       const counts = (vals) => { const m = new Map(); for (const v of vals) { if (!v || /^undefined$/i.test(v)) continue; m.set(v, (m.get(v)||0)+1); } return [...m.entries()].sort((a,b) => b[1]-a[1]).map(x => x[0]); };
-      const facet = (ax, cap) => (this.META && this.META.tag_facets && Array.isArray(this.META.tag_facets[ax])) ? this.META.tag_facets[ax].slice(0, cap).map(x => x.value) : [];
+      const facet = (ax) => (this.META && this.META.tag_facets && Array.isArray(this.META.tag_facets[ax])) ? this.META.tag_facets[ax].map(x => x.value) : [];
       const withSel = (vals, ax) => { const all = vals.slice(); for (const v of f[ax].concat(f['x'+ax])) if (all.indexOf(v)===-1) all.push(v); return all; };
-      const triRow = (label, ax, vals) => ({ label, chips: withSel(vals, ax).map(v => {
-        const mode = f[ax].indexOf(v)!==-1 ? 'in' : f['x'+ax].indexOf(v)!==-1 ? 'out' : 'off';
-        const mark = mode==='in' ? '✓ ' : mode==='out' ? '✕ ' : '';
-        return fchip(mark + v, mode, () => this.exCycle(ax, v), 'tap to cycle: ✓ only these → ✕ hide → off');
-      }) });
-      out.exRows = [
-        triRow('CATEGORY', 'cat', counts(upcoming.map(e => e.cat))),
-        triRow('GENRE', 'genre', facet('genre', 16)),
-        triRow('VIBE', 'vibe', facet('vibe', 12)),
-        triRow('SETTING', 'setting', facet('setting', 10)),
-        triRow('NEIGHBORHOOD', 'hood', counts(upcoming.map(e => e.hood)).slice(0, 18)),
-        triRow('REGION', 'region', facet('region', 10)),
-        triRow('SOURCE', 'source', counts(upcoming.map(e => e.source))),
-      ].filter(r => r.chips.length > 1);
       const rng = (a, b) => this.state.exFrom===a && this.state.exTo===b;
       const [wa, wb] = this.weekendRange();
-      out.exDateChips = [
-        fchip('All dates', rng('','')?'on':'off', () => this.exPreset('all')),
-        fchip('Tonight', rng(T,T)?'on':'off', () => this.exPreset('today')),
-        fchip('This weekend', rng(wa,wb)?'on':'off', () => this.exPreset('weekend')),
-        fchip('Next 2 wks', rng(T,this.addDays(T,13))?'on':'off', () => this.exPreset('twoweeks')),
-        fchip('Next month', rng(T,this.addDays(T,30))?'on':'off', () => this.exPreset('month')),
-      ];
       out.exFrom = this.state.exFrom; out.exTo = this.state.exTo;
       out.onExFrom = this.onExFrom; out.onExTo = this.onExTo;
+      const nsel = (ax) => f[ax].length + f['x'+ax].length;
+      const pretty = (v) => String(v).replace(/-/g, ' ');
+      const uniqV = (arr) => [...new Set(arr)];
+      const tagAxis = (ax, pick) => { const head = facet(ax); const seen = new Set(head);
+        const tail = uniqV(upcoming.flatMap(pick).filter(Boolean)).filter(v => !seen.has(v)).sort((a,b) => a.localeCompare(b));
+        return head.concat(tail); };
+      const mkItems = (ax, vals, lab) => withSel(vals, ax).map(v => {
+        const inq = f[ax].indexOf(v)!==-1, outq = f['x'+ax].indexOf(v)!==-1;   // keep / hide / neutral
+        return { label: lab ? lab(v) : v,
+          box: inq ? '✓' : (outq ? '✕' : '□'),
+          boxColor: inq ? '#1f7a4d' : (outq ? '#b4543f' : '#cbc9bf'),
+          color: outq ? '#a29a90' : (inq ? '#161512' : '#76746b'),
+          bg: inq ? '#e9efe9' : (outq ? '#f5ece8' : 'transparent'),
+          weight: inq ? '600' : '500', deco: outq ? 'line-through' : 'none',
+          onClick: () => this.exCycle(ax, v) };
+      });
+      const fcol = (label, ax, vals, lab, w, first) => ({ label, w, bl: first ? 'none' : '1px solid #eceae2',
+        hasSel: nsel(ax) > 0, onClear: () => this.exClearAxis(ax), items: mkItems(ax, vals, lab) });
+      out.hoodFCols = [
+        fcol('NEIGHBORHOOD', 'hood', uniqV(upcoming.map(e => e.hood).filter(Boolean)).sort((a,b) => a.localeCompare(b)), null, '190px', true),
+        fcol('REGION', 'region', tagAxis('region', e => e.regions || []), pretty, '120px'),
+      ];
+      out.catFCols = [
+        fcol('CATEGORY', 'cat', counts(upcoming.map(e => e.cat)), null, '138px', true),
+        fcol('GENRE', 'genre', tagAxis('genre', e => e.genres || []), pretty, '138px'),
+        fcol('VIBE', 'vibe', tagAxis('vibe', e => e.vibes || []), pretty, '138px'),
+        fcol('SETTING', 'setting', tagAxis('setting', e => e.settings || []), pretty, '138px'),
+      ];
+      out.sourceFCols = [fcol('SOURCE', 'source', uniqV(upcoming.map(e => e.source).filter(Boolean)).sort((a,b) => a.localeCompare(b)), null, '170px', true)];
+      const openF = this.state.openFilter;
+      out.dateOpen = openF==='date'; out.hoodOpen = openF==='hood'; out.catOpen = openF==='cat'; out.sourceOpen = openF==='source';
+      out.openDateF = () => this.openFilterMenu('date'); out.openHoodF = () => this.openFilterMenu('hood');
+      out.openCatF = () => this.openFilterMenu('cat'); out.openSourceF = () => this.openFilterMenu('source');
+      out.closeFilterMenu = this.closeFilterMenu;
+      const dateOn = !!(this.state.exFrom || this.state.exTo);
+      out.dateIcon = dateOn ? '#2b5cd9' : '#bdbbb1';
+      out.hoodIcon = (nsel('hood') + nsel('region')) ? '#2b5cd9' : '#bdbbb1';
+      out.catIcon = (nsel('cat') + nsel('genre') + nsel('vibe') + nsel('setting')) ? '#2b5cd9' : '#bdbbb1';
+      out.sourceIcon = nsel('source') ? '#2b5cd9' : '#bdbbb1';
+      out.dateHasSel = dateOn; out.clearDates = () => this.setState({ exFrom:'', exTo:'' });
+      out.dateMenu = [
+        ['All dates', 'all', rng('','')],
+        ['Tonight', 'today', rng(T,T)],
+        ['This weekend', 'weekend', rng(wa,wb)],
+        ['Next 3 wks', 'twoweeks', rng(...this.windowFor('twoweeks'))],
+        ['Next month', 'month', rng(T,this.addDays(T,30))],
+      ].map(([label, k, on]) => ({ label,
+        box: on ? '✓' : '□', boxColor: on ? '#1f7a4d' : '#cbc9bf',
+        color: on ? '#161512' : '#76746b', bg: on ? '#e9efe9' : 'transparent',
+        weight: on ? '600' : '500', onClick: () => this.exPreset(k) }));
     }
 
     // ---- DETAIL ----
@@ -3774,6 +4349,7 @@ class Component extends DCLogic {
         onSeen:(ev) => this.markSeen(de, ev),
         seenLabel: this.isSeen(de) ? '✓ Marked seen' : 'Saw this — hide it',
         seenColor: this.isSeen(de) ? '#8a887e' : '#a9a79d',
+        ...this.priceBlockFor(de),
         ...this.chipProps(de),
       };
     } else out.detail = { poster:{show:false}, photo:{show:false}, friendChips:[] };
@@ -3929,15 +4505,6 @@ class Component extends DCLogic {
     // ---- CALENDAR FEED ----
     Object.assign(out, this.calVals());
 
-    // ---- FILTERS toggle (explore header) ----
-    const nF = this.exActiveCount();
-    out.toggleFilters = this.toggleFilters;
-    out.filtersBtnLabel = 'FILTERS' + (nF ? ' ('+nF+')' : '');
-    out.filtersBtnBg = this.state.filtersOpen ? '#1b1a17' : (nF ? '#eaf0fe' : '#fff');
-    out.filtersBtnColor = this.state.filtersOpen ? '#fff' : (nF ? '#2b5cd9' : '#76746b');
-    out.filtersBtnBorder = this.state.filtersOpen ? '#1b1a17' : (nF ? '#2b5cd9' : '#d2d0c7');
-    out.filtersOpen = this.state.filtersOpen && view==='explore';
-
     // ---- ABOUT: guide (how / what's new) + first-run welcome ----
     out.guideOpen = this.state.guideOpen;
     out.closeGuide = this.closeGuide;
@@ -3954,10 +4521,7 @@ class Component extends DCLogic {
     out.welcomeHasBack = this.state.welcomeStep > 0;
     out.welcomeBack = this.welcomeBack; out.welcomeNext = this.welcomeNext;
     out.welcomeNextLabel = this.state.welcomeStep >= this.WELCOME.length - 1 ? 'Got it' : 'Next';
-    out.toggleWelcomeDismiss = this.toggleWelcomeDismiss;
-    out.welcomeCheckBg = this.state.welcomeDismiss ? '#2b5cd9' : '#fff';
-    out.welcomeCheckBorder = this.state.welcomeDismiss ? '#2b5cd9' : '#c9c7bd';
-    out.welcomeCheckMark = this.state.welcomeDismiss ? '✓' : '';
+    out.welcomeStepLabel = 'Step ' + (this.state.welcomeStep + 1) + ' of ' + this.WELCOME.length;
     out.nudgeOpen = !!this.state.nudgeOpen;
     out.closeNudge = this.closeNudge; out.nudgeUpdateNow = this.nudgeUpdateNow;
     out.nudgeBody = React.createElement('div', { dangerouslySetInnerHTML: { __html: this.renderMarkdown(this.state.nudgeOpen ? this.nudgeBodyMd() : '') } });

@@ -33,7 +33,7 @@ and the consolidated digest keep the full nightly treatment — they ARE the can
 |---|---|---|---|---|
 | **Daily routine** (`routines/daily-digest-prompt.md`) | scheduled (cron) → commits `main` | fetch → dedupe → score → editor → enrich → render consolidated + weekend look-aheads → build ALL feeds (deterministic) → **taste-change gate** → per-profile LLM pass (REFRESH profiles only) → commit → deploy | editor (delta only), enrich (misses only), consolidated intro, per-profile editor+narrative (taste-gated) | editor=`select_for_verdict`, enrich=`select_for_enrichment` write-once, friends' LLM layer=`profile_refresh_gate` (taste changed since last enrichment — catalog movement doesn't count), subagents pinned Sonnet |
 | **Owner "Refresh events DB"** | page → Worker `/refresh-events` → `refresh-events.yml` | deterministic: fetch → catalog → default feed → render consolidated → commit → deploy | **none** | Worker **debounce** (`REFRESH_MIN_MINUTES`, default 15) → 429 if pulled recently |
-| **User "Update my ranking & digest"** | page → Worker `/rebuild-profile` → `rebuild-profile.yml` | deterministic feed (commit), then full LLM pass (editor + enrich + narrative) for **one** profile | medium (1 profile, Sonnet) | client enables only when `feedStale ‖ tasteDirty` + busy-lock; deterministic feed lands even if the LLM step times out |
+| **User "Update my ranking & digest"** | page → Worker `/rebuild-profile` → `rebuild-profile.yml` | deterministic feed (commit), then full LLM pass (editor + enrich + narrative) for **one** profile | medium (1 profile, Sonnet) | client enables only when `feedStale ‖ tasteDirty` + busy-lock; LLM step is wall-clock-capped (`timeout-minutes: 10`) and the prompt caps judging at 24 events/click (a drift backlog is the nightly's job), so the receipt lands ≤ ~13 min after the click; deterministic feed lands even if the LLM step is killed |
 | **Concierge taste/profile self-edit** | Worker commits YAML → `build-profiles.yml` (path filter) | deterministic re-score of that one feed → commit → deploy | **none** (defers the narrative to Update) | path-filtered to `profiles/**/taste.yaml` + `profiles.yaml`; client marks the profile "dirty" |
 | **Spotify connect** | Worker `/spotify/callback` → `dispatchSync` → `spotify-sync.yml` | sync that profile's listening → rebuild its feed → deploy | **none** | per-connect; token never leaves Cloudflare |
 
@@ -114,6 +114,7 @@ no backend; the static page just renders it.
 |---|---|---|---|
 | fetch + dedupe + expire + score (`run_digest`) | every routine run / refresh | — (always; deterministic, cheap). Merge is **freshest-wins** for price/time/lineup/status, so in-place updates land. Also each run: `recurring.yaml` markets materialize into dated rows (idempotent), and out-of-market rows (profile `pipeline.out_of_market`) drop unless radar-worthy (festival / tracked artist / arena venue) | none |
 | artist-link resolver (`lib/artist_links`, inside `run_digest`) | every fetch run (creds-gated) | every current lineup/scene-graph artist already in `data/artist_links.json` (misses re-check after 45d); no `SPOTIFY_CLIENT_ID/SECRET` → SKIP | none (Spotify API, ≤250 lookups/run, converges) |
+| resale price check (`check_prices.py --auto` → `data/ticket_prices.json`) | routine step 7, before the feed build | one Gametime query per unique featured act (`--top` 60 cap; starred events always in); free/film/market lanes and judged skips never queried; past entries pruned by date | none (open Gametime API + optional SeatGeek key; ~60 reqs, throttled) |
 | **event-editor** (Tier 1 verdicts, default profile) | routine + per-user rebuild | event already judged at this score AND editor-input version unchanged (`select_for_verdict`) | Sonnet, delta only |
 | **event-editor** (per-friend verdicts) | routine (gate-REFRESH profiles only) + per-user rebuild | `profile_refresh_gate` says SKIP — that profile's taste/profile/prefs/feedback unchanged since its last enrichment | Sonnet, taste-gated |
 | **scene-researcher** (Tier 1 full enrichment, top-100 head) | routine + per-user rebuild | event already full-tier in `enrichment.json` (write-once; a blurb-tier event in the head is *re-selected* to upgrade) | Sonnet, misses + upgrades only |
@@ -121,11 +122,12 @@ no backend; the static page just renders it.
 | consolidated voice pass (Tier-3: intro + Don't-miss whys + Around-town gloss, routine step 5b) | every routine run | — (cheap; the slate/sections are deterministic scaffold, the pass fills marked slots only) | small |
 | **per-profile narrative** | routine (gate-REFRESH profiles) + per-user rebuild | `profile_refresh_gate` says SKIP (nightly), i.e. taste unchanged — picks moving with the catalog no longer regenerates it | gated; one narrative per *taste-changed* profile |
 | `build_dashboard` / `build_profiles` | end of routine (ALL feeds, nightly) / on edit / per-user rebuild | — (deterministic, free; folds each profile's *cached* verdicts — fresh ones only arrive via the gate or an Update) | none |
+| `build_radar` (front-page rails + digest radar/Around-town inputs) | routine step 5, refresh/rebuild workflows, **and build_dashboard itself** | `build_dashboard` self-heals: it rebuilds `data/radar.json` + `data/around_town.json` (gitignored runtime artifacts) whenever they're missing or stale — built for another day, or older than `data/catalog.json` — so an ad-hoc feed rebuild in a fresh clone can't ship empty rails (bit us 2026-08-01) | none (deterministic, no network) |
 | renderers (`render_digest`) | every routine run | — (deterministic) | none |
 
 ## Cost ledger — where tokens go, and the bound on each
 
-1. **Nightly editor** — only new/score-drifted events are judged; cached + committed per profile. Sonnet.
+1. **Nightly editor** — only new or score-drifted (Δ ≥ 2 — `editor.DRIFT_MIN`; ±1 ripples from a reaction or small policy tweak keep the cached verdict) events are judged, plus any event the person explicitly reacted to since its last judge (the tap's feedback row carries `event_key`; `feedback.stamp_reacted` → `editor._stale` re-judges that ONE event regardless of drift); cached + committed per profile. Sonnet. The OWNER's store is `data/verdicts/default.json` — `merge_verdicts` resolves the owner's feed hash to it (`editor.resolve_store_hash`), and their dashboard taps land in the root `data/feedback.jsonl`.
    The editor record now carries a read-only `scene` block — the **taste-neutral** factual subset of
    the shared enrichment cache (`editor._record` → `enrich.scene_facts`: type/subgenres/label_orbit/
    setting/sounds_like/description + artist bios; **never** curator_note/energy, which are taste-voiced)
@@ -197,6 +199,7 @@ no backend; the static page just renders it.
 | `--blurb-window` / `--blurb-top` | `run_digest` | 35d / 0 | blurb (cheap-tier) pool span (the real bound) + optional safety cap (0 = off, cover the whole window) |
 | `refresh_days` | `select_for_verdict` / `select_for_enrichment` | `None` (write-once) | optional periodic re-judge / re-research |
 | `--top-n` | `digest_gate` | 25 | how many picks define a digest's signature |
+| `--top` / `--days` | `check_prices` | 60 / 21 | unique acts per nightly resale sweep + its window |
 | `NUDGE_AFTER_DAYS` | `dashboard/index.html` | 3 | curated-layer age (or days away) before the refresh-nudge popup offers a signed-in profile the Update |
 
 ## File map
@@ -211,7 +214,10 @@ no backend; the static page just renders it.
 - `scripts/profile_refresh_gate.py` — the nightly taste-change gate: REFRESH/SKIP/OWNER per profile
   (config changed since last enrichment, from git — same bar as the reflected badge).
 - `scripts/build_profiles.py` — per-profile feeds + the `profile.self_edit` diff/reflected block (from git).
-- `backend/concierge-worker.js` — `/refresh-events` (debounced) + `/rebuild-profile` + BYOK model.
+- `scripts/check_prices.py` + `scripts/lib/prices.py` — the cheapest-ticket pass (Gametime/SeatGeek +
+  `--record` for browser finds) → `data/ticket_prices.json` → each card's `price_check` block.
+- `backend/concierge-worker.js` — `/refresh-events` (debounced) + `/rebuild-profile` + BYOK model +
+  `/prices` (the card's live Gametime re-check relay).
 - `.github/workflows/{refresh-events,rebuild-profile,build-profiles,spotify-sync,deploy-dashboard}.yml`.
 - `dashboard/index.html` — staleness badge, "what changed" readout, refresh/update buttons, taste/profile diff modal, the 3-day refresh-nudge popup + per-profile visit stamps, the persistent update dot (☰) + digest-modal chip.
 - `routines/daily-digest-prompt.md` — the nightly orchestration.

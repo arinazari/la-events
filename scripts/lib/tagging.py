@@ -191,7 +191,7 @@ VENUE_SETTING = {
 }
 REP_CINEMA = ("vidiots", "new beverly", "vista", "cinematheque", "brain dead",
               "aero", "egyptian", "academy museum", "cinespia",
-              "palm springs cultural center")
+              "palm springs cultural center", "nuart")
 
 # ── Axis 4: SCALE — the venue TIER, a pure fact axis. Explicit gazetteer only (no
 #    name-keyword sweep: "Garden Amphitheatre" is a Garden Grove punk shed and "Libbey
@@ -337,6 +337,13 @@ _CLUB_TITLE_KW = re.compile(r"^\s*dj\b|\bdj (set|night)\b|\b(with|w/)\s+dj\b|"
 # Any electronic-genre keyword (the GENRE_ELECTRONIC patterns, \b-bounded) — the other half
 # of the live-room guard.
 _ELECTRONIC_KW = re.compile(r"\b(" + "|".join(p for _, p in GENRE_ELECTRONIC) + r")\b", re.I)
+# Detail-blob signals for the UNCATEGORIZED leftovers only (see _resolve_type's last
+# resort): an unmistakable band/live-show claim, or any live-genre word. Categorized
+# events never consult these — the Bad Brains rule (a concert's detail mentioning a
+# "partial film screening" must not retype it) stays intact.
+_LIVE_DETAIL_KW = re.compile(r"\bbands?\b|\bin concert\b|\blive (music|show|performance)\b|"
+                             r"\bheadlin\w+\b|\b(on|world|north american) tour\b", re.I)
+_LIVE_GENRE_KW = re.compile(r"\b(" + "|".join(p for _, p in GENRE_LIVE) + r")\b", re.I)
 # 19hz's genre annotation. fetch_19hz now emits it as the `genre` field; rows written
 # before it split the swallowed tags <td> out of the venue cell carry it glued to the
 # venue string instead ("The Lexington (Los Angeles) tech house, minimal") — the regex
@@ -538,6 +545,19 @@ def _resolve_type(ev: dict, hay: str, cfg: dict = None) -> str:
             return "stage"                   # The Nutcracker arrives as category Miscellaneous
         if _LIVE_TITLE_KW.search(title_l):
             return "live-music"
+        # LAST resort — the record's own detail blob. An Eventbrite harvest arrives
+        # category 'general' with an off-gazetteer venue and a bare band-name title
+        # ("From First To Last" at 1720), leaving the promoter's blurb as the only
+        # signal — and "one of post-hardcore's most influential bands" IS a live show.
+        # Uncategorized rows only, and only the signals kw_hay didn't already resolve
+        # above (comedy/market/workshop/DJ words in the blob matched long before here):
+        # a band/live claim or live-genre word, then an electronic-genre word.
+        detail_l = str(ev.get("detail") or "").lower()
+        if detail_l:
+            if _LIVE_DETAIL_KW.search(detail_l) or _LIVE_GENRE_KW.search(detail_l):
+                return "live-music"
+            if _ELECTRONIC_KW.search(detail_l):
+                return "club"
     return {"art": "art"}.get(cat, "other")
 
 

@@ -18,7 +18,10 @@ on:
       - "profiles/**/taste.yaml"   # friend taste self-edit
       - "profiles/**/profile.yaml" # friend profile self-edit
       - "profiles.yaml"            # registry change (names/hashes)
-      - "data/reactions.jsonl"     # a star lands -> re-fold `stars` onto the feeds (the social display)
+      # data/reactions.jsonl deliberately does NOT trigger: star DISPLAY freshness is the
+      # Worker's live GET /stars overlay (the dashboard fetches it over the baked feed), so a
+      # tap no longer costs a fleet re-score + Pages deploy. The nightly routine still bakes
+      # stars into feeds + digests durably.
       - "data/feedback.*.jsonl"    # a star's learning line -> re-rank the starrer's feed
   workflow_dispatch:
 

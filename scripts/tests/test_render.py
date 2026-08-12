@@ -112,15 +112,18 @@ def _dm_cands():
     return [great, ms]
 
 
-def test_dont_miss_is_tier_primary_with_why_slots():
-    """Track B4: the shelf is the top slice of the full ranking — tier beats raw score — and
-    every item carries a prefilled why + a tier3 slot marker."""
+def test_dont_miss_is_blend_ranked_with_why_slots():
+    """2026-08 demotion: the shelf is the top slice of the ONE bounded blend — a great on a
+    strong score (9+2=11) now leads a must-see on a weak one (3+3=6) — and every item still
+    carries a prefilled why + a tier3 slot marker."""
     out = R._dont_miss_md(_dm_cands(), limit=1)
     md = "\n".join(out)
     assert "## Don't miss" in md
-    assert "MustSee3" in md and "Great9" not in md      # must-see (score 3) beats great (score 9)
-    assert "Rare LA date." in md                        # curator note preferred as the why
-    assert "<!-- tier3:why" in md
+    assert "Great9" in md and "MustSee3" not in md      # blend: 11 beats 6
+    out2 = R._dont_miss_md(_dm_cands(), limit=2)
+    md2 = "\n".join(out2)
+    assert "MustSee3" in md2 and "Rare LA date." in md2  # curator note preferred as the why
+    assert "<!-- tier3:why" in md2
 
 
 def test_dont_miss_shares_the_front_page_diversity_policy():
@@ -166,6 +169,84 @@ def test_around_md_excludes_slate_and_caps():
     assert "Civic0" not in md                           # already in the slate -> excluded
     assert md.count("- `") == 12                        # cap holds
     assert R._around_md([], set()) == []                # empty -> section omitted entirely
+
+
+def test_around_md_drops_film_rows():
+    """The movies policy holds doc-wide: a film that fires an around signal (an editorial
+    mention, say) still never reaches Around town — On the marquee is film's one home."""
+    rows = [{"key": "f1", "title": "The Big Parade", "venue": "Vista", "iso_date": "2026-06-21",
+             "signals": ["editorial"], "link": None, "category": "film"},
+            {"key": "c1", "title": "LA Marathon", "venue": "DTLA", "iso_date": "2026-06-21",
+             "signals": ["civic"], "link": None, "category": "sports"}]
+    md = "\n".join(R._around_md(rows, set()))
+    assert "LA Marathon" in md and "The Big Parade" not in md
+
+
+def _film(title, iso, rating=4, venue="Vista Theater"):
+    return {"title": title, "iso_date": iso, "score": 5, "rating": rating, "venue": venue,
+            "neighborhood": "Los Feliz", "category": "film",
+            "links": [{"source": "venue", "url": f"https://x/{iso}"}]}
+
+
+def test_marquee_block_openings_lead_open_runs_absent():
+    """On the marquee: runs OPENING this stretch lead (dated by opening night, span on the
+    line); an already-open run is absent (it was news when it opened); one-nighters need 4★+
+    and the 14-day window. Grouping is the film core title (collapse_runs), so a run's nights
+    collapse to one line."""
+    cands = [
+        _film("The Odyssey (70mm)", "2026-06-20"), _film("The Odyssey 70MM", "2026-06-25"),
+        _film("Old News", "2026-06-15"), _film("Old News", "2026-06-22"),   # opened pre-today
+        _film("Great One-Nighter", "2026-06-19", rating=4),
+        _film("Routine Matinee", "2026-06-19", rating=3),                   # below the bar
+        _film("Too Far Out", "2026-07-10", rating=5),                       # outside 14 days
+    ]
+    md = "\n".join(R._marquee_md(cands, "2026-06-17"))
+    assert "## On the marquee" in md
+    assert "The Odyssey (70mm)" in md and "opens · 2 nights thru Thu 6/25" in md
+    assert "`Sat 6/20`" in md                       # dated by OPENING night
+    assert "Old News" not in md
+    assert "**One-nighters**" in md and "Great One-Nighter" in md
+    assert "Routine Matinee" not in md and "Too Far Out" not in md
+    assert "tier3:gloss" in md                      # voice-pass slots ride the lines
+    assert R._marquee_md([], "2026-06-17") == []    # nothing to say -> no section
+
+
+def test_marquee_midrun_is_not_an_opening():
+    """Past nights EXPIRE from the catalog, so a mid-run program's first remaining night is
+    today — it must not read as an opening (the live-render Odyssey bug). A today-start run
+    is an opening only when it's genuinely new to the catalog on the latest pull."""
+    old_ref = R.FETCH_REF
+    R.FETCH_REF = "2026-06-17"
+    try:
+        # Two weeks into its run: earliest REMAINING night is today, first_seen long ago.
+        midrun = [_film("The Odyssey", "2026-06-17"), _film("The Odyssey", "2026-06-21")]
+        for f in midrun:
+            f["first_seen"] = "2026-06-01"
+        assert R._marquee_md(midrun, "2026-06-17") == []
+        # Same shape but announced on the latest pull: a real same-day opening.
+        fresh = [_film("Pop-up Run", "2026-06-17"), _film("Pop-up Run", "2026-06-21")]
+        for f in fresh:
+            f["first_seen"] = "2026-06-17T08:00:00"
+        md = "\n".join(R._marquee_md(fresh, "2026-06-17"))
+        assert "opens tonight" in md
+    finally:
+        R.FETCH_REF = old_ref
+
+
+def test_marquee_forced_into_order():
+    """A sections list predating "marquee" (root or a friend's digest.yaml) must not silently
+    lose movies from the whole doc — the block is forced in after the body, like day_by_day."""
+    doc = {"today": "2026-06-17", "meta": {}}
+    marquee = R._marquee_md([_film("The Odyssey", "2026-06-20"),
+                             _film("The Odyssey", "2026-06-25")], "2026-06-17")
+    md = R.render_consolidated_md("2026-06-17", [], [], doc, marquee=marquee,
+                                  order=["dont_miss", "day_by_day", "around_town", "radar"])
+    assert "## On the marquee" in md
+    assert md.index("## On the marquee") < md.index("## On the radar")
+    # and no marquee content -> no section, forced order slot or not
+    md2 = R.render_consolidated_md("2026-06-17", [], [], doc, marquee=[],
+                                   order=["day_by_day"])
+    assert "On the marquee" not in md2
 
 
 def test_consolidated_sections_follow_prefs_order():

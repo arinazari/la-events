@@ -46,9 +46,9 @@ profiles:
     owner: true              #   owner -> edits the root taste.yaml (friends can't) + unlocks the
                              #   dashboard's admin settings (Refresh events / Discover sources).
 
-  - username: dr_ganesan     # friend profile. NOTE: username is the access key + is guessable here;
-    name: Dr. Ganesan        #   swap it for something non-obvious before sharing the feed widely.
-    taste: profiles/dr_ganesan/taste.yaml   # starter taste — edit it, then rebuild this profile.
+  - username: vish           # friend profile (Dr. Ganesan). Username is the access key;
+    name: Dr. Ganesan        #   renamed from the guessable dr_ganesan (2026-07).
+    taste: profiles/vish/taste.yaml         # starter taste — edit it, then rebuild this profile.
 
   - username: lori           # friend profile. NOTE: username is the access key + is guessable here;
     name: Lori               #   swap it for something non-obvious before sharing the feed widely.
