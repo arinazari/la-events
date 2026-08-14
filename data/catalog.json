@@ -14352,7 +14352,20 @@
       "Discover Los Angeles"
     ],
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "punk"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "festival"
+      ],
+      "region": "dtla",
+      "near_home": false
+    }
   },
   {
     "title": "Zabrecky on Houdini and the Spirits",
@@ -14383,14 +14396,23 @@
       "Discover Los Angeles"
     ],
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
   },
   {
     "title": "Regarding Paul R. Williams Book Launch",
     "date": "2026-08-15",
     "start": null,
     "venue": "Los Angeles Central Library",
-    "neighborhood": "Downtown LA",
+    "neighborhood": "DTLA",
     "category": "community",
     "genre": null,
     "lineup": [
@@ -14414,14 +14436,23 @@
       "Discover Los Angeles"
     ],
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
   },
   {
     "title": "Los Mirlos at Jerry Moss Plaza",
     "date": "2026-08-15",
     "start": null,
     "venue": "Jerry Moss Plaza at the Music Center",
-    "neighborhood": "Downtown LA",
+    "neighborhood": "DTLA",
     "category": "community",
     "genre": "cumbia",
     "lineup": [
@@ -14445,7 +14476,20 @@
       "Discover Los Angeles"
     ],
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
   },
   {
     "title": "KCON",
@@ -21597,7 +21641,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Corbyn Besson and Soulidified: The Pop'n Out Tour",
@@ -48447,9 +48504,7 @@
         "listening-bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "21+"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -55549,7 +55604,8 @@
         "folk"
       ],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [
@@ -56346,7 +56402,8 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "funk-soul"
+        "funk-soul",
+        "blues"
       ],
       "setting": [
         "bar"
@@ -56392,9 +56449,7 @@
         "listening-bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "21+"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -57202,9 +57257,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -57476,7 +57529,21 @@
     "url": "https://juniorhighlosangeles.com/calendar/queersoundsshow-sept2026",
     "detail": "MUSIC | $10 | 18+ | an evening of queer musical expression accompanied by the vibrant sounds of electric guitar   COVID-19 vaccinations are highly recommended to attend events at Junior High.    Learn more here.     This event will be indoors.   \n\n\n  \n #block-900a07cb800494deab14 {\n    \n    --stroke",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "diy"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "queer",
+        "18+"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "Michael Wolff Quartet with Danny Janklow, Edwin Livingston & Clayton Cameron",
@@ -57504,7 +57571,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Garden Brothers Circus",
@@ -58509,9 +58589,7 @@
         "listening-bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "21+"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     },
@@ -60084,9 +60162,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -60302,9 +60378,7 @@
         "listening-bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "21+"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     },
@@ -60745,7 +60819,20 @@
     "url": "https://juniorhighlosangeles.com/calendar/art4palestine-sept2026",
     "detail": "COMMUNITY | $8 PRE // $10 DOS | ALL AGES | An art and music show benefitting education in Palestine: All profit from tickets and print sales will be directly donated to The Excellence Center in Hebron, Palestine. They provide educational classes to students in Hebron and neighboring Al Fawwar and Al",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "diy"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "all-ages"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "Emo Nite",
@@ -60773,7 +60860,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "Hypnotique Presents: Sway Festival - 2 DAY PASS",
@@ -63095,7 +63195,21 @@
     "url": "https://www.thesmell.org/events/saturday-september-5-2026",
     "detail": "The Outside Agitators    Terminous   Gamma     8:30 pm    $10    Advance tickets available    here   .",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "punk",
+        "experimental"
+      ],
+      "setting": [
+        "diy"
+      ],
+      "scale": "room",
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
   },
   {
     "title": "Intercell LA: Annika Wolfe, DAX J, Grace Dahl, Max Gardner b2b Lorely Mur, & Stef Mendesidis",
@@ -64339,8 +64453,7 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "blues"
       ],
       "setting": [
         "bar"
@@ -64796,7 +64909,22 @@
     "url": "https://juniorhighlosangeles.com/calendar/imnotascreening-sept2026",
     "detail": "COMMUNITY | $15 | 18+ (film rated R) | Help the cast and crew of mixed-media short film “Peta Joy In...I’m Not A Lesbian” fundraise for their next project with a screening and Q&A with the film’s core creatives, accompanied by live music and vendors.  Nightwear dress code encouraged––from harnesses ",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "film",
+      "genre": [],
+      "setting": [
+        "diy"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "q&a",
+        "guest-in-person",
+        "18+"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "J. Cole: The Fall-Off Tour",
@@ -65014,16 +65142,13 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "blues"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -65647,8 +65772,7 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "blues"
       ],
       "setting": [
         "bar"
@@ -65781,9 +65905,7 @@
         "listening-bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "21+"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -66515,9 +66637,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -66665,7 +66785,21 @@
     "url": "https://www.thesmell.org/events/wednesday-september-9-2026",
     "detail": "Pablo House presents…      Racecar Racecar    julie f the rulies    Roxy Green      8:00 pm    $10    Advance tickets available    here   .",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "punk",
+        "experimental"
+      ],
+      "setting": [
+        "diy"
+      ],
+      "scale": "room",
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
   },
   {
     "title": "Ari and Cecil Alexander Quartet",
@@ -66693,7 +66827,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Obscene LA Cold Waves LA Kickoff Party (Goth / Industrial / EBM / Darkwave)",
@@ -69466,9 +69613,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -69785,7 +69930,8 @@
         "folk"
       ],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -69906,7 +70052,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -73569,8 +73728,7 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "blues"
       ],
       "setting": [
         "bar"
@@ -74268,9 +74426,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -74817,8 +74973,7 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "blues"
       ],
       "setting": [
         "bar"
@@ -75666,9 +75821,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -79094,9 +79247,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -83620,8 +83771,7 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "blues"
       ],
       "setting": [
         "bar"
@@ -84214,8 +84364,7 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "blues"
       ],
       "setting": [
         "bar"
@@ -85020,7 +85169,8 @@
       "type": "live-music",
       "genre": [
         "punk",
-        "rock"
+        "rock",
+        "blues"
       ],
       "setting": [
         "bar"
@@ -85066,9 +85216,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -89038,9 +89186,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -94540,9 +94686,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -95154,7 +95298,8 @@
         "folk"
       ],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [
@@ -95489,8 +95634,7 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "blues"
       ],
       "setting": [
         "bar"
@@ -96850,9 +96994,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -100124,7 +100266,8 @@
         "folk"
       ],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -109014,7 +109157,8 @@
         "folk"
       ],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -114516,7 +114660,18 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Cynthia Erivo: Let Me Sing To You",
@@ -115894,7 +116049,8 @@
         "folk"
       ],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -117971,9 +118127,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -121806,7 +121960,8 @@
         "folk"
       ],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -129108,7 +129263,21 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "folk"
+      ],
+      "setting": [
+        "bar",
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Taste Of Chaos",
