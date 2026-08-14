@@ -32170,13 +32170,13 @@
       "model": "claude-sonnet-5"
     },
     "6a62184d1d0f": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "Train to Busan in 4K with Yeon Sang-ho himself — his signature film, in person, the clear headliner of the Academy's whole week.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Train to Busan in 4K with Yeon Sang-ho in person at the Academy — a genuine director-event for a genre film that's earned its canon status, not just a nostalgia screening.",
       "confidence": "high",
-      "judged_at": "2026-08-04T12:39:43",
+      "judged_at": "2026-08-14T14:13:56",
       "input_version": 2,
-      "score_at_judge": 2,
+      "score_at_judge": 6,
       "model": "claude-sonnet-5"
     },
     "7355f3207a13": {
@@ -36592,14 +36592,14 @@
       "model": "sonnet"
     },
     "438b05aa8407": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "DJ Nu-Mark (Jurassic 5) headlining a free Ethio-jazz celebration at Grand Performances is a real, well-booked outdoor night, not just a generic electronic tag.",
-      "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free outdoor Ethio-jazz/funk anniversary set with DJ Nu-Mark spinning after — good crate-digger energy but outside the house/techno spine, so a nice add rather than a headline.",
+      "confidence": "med",
+      "judged_at": "2026-08-14T14:13:56",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
     },
     "74fe35b4063d": {
       "tier": "great",
@@ -40084,6 +40084,106 @@
       "judged_at": "2026-08-13T12:39:38",
       "input_version": 2,
       "score_at_judge": 6
+    },
+    "5f4a75b03fac": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "El Cid house/disco free-RSVP night with no announced DJs — walkable Silver Lake groove but nothing to build a plan around.",
+      "confidence": "med",
+      "judged_at": "2026-08-14T14:13:56",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-5"
+    },
+    "b16a6c79d7b1": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "1720 warehouse booking with zero lineup info and no scene notes — can't tell it apart from generic filler, and the score's mostly time-slot boosts.",
+      "confidence": "low",
+      "judged_at": "2026-08-14T14:13:56",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-5"
+    },
+    "c2758af4be0d": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "K-pop convention/brand-activation expo, not a DJ or band booking — outside the lane no matter the crowd size.",
+      "confidence": "high",
+      "judged_at": "2026-08-14T14:13:56",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "386290752fc9": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "1720 warehouse night with no lineup listed at all — the $48+ door price without a single named DJ is a red flag, not a sleeper.",
+      "confidence": "low",
+      "judged_at": "2026-08-14T14:13:56",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "c5b888935bc7": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Hard techno afterhours with no billed artists, filed oddly (venue field is literally another party's name) — too thin to trust.",
+      "confidence": "low",
+      "judged_at": "2026-08-14T14:13:56",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "319f2fc0fa95": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Free KCRW day-into-evening set at Union Station with J.Rocc and Luxxury — real digger pedigree (J.Rocc is a Beat Junkies/Stones Throw legend) in a striking venue, underrated by the score for being free/no-price-signal.",
+      "confidence": "med",
+      "judged_at": "2026-08-14T14:13:56",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "938acbafe69b": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Generic \"Mas EDM\" branding with local unknowns and no scene read — reads like a bottom-of-the-barrel Hollywood club night, not a real house booking.",
+      "confidence": "low",
+      "judged_at": "2026-08-14T14:13:56",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "04d2c50bb47c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Last night of the 13-night Silverlake Flea run (through 9/11) — the recurring market lane, walkable, no need to flag every date as a must.",
+      "confidence": "high",
+      "judged_at": "2026-08-14T14:13:56",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "496c15a42701": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "A magic-history lecture at PRS — fine only if the comedy/curio bar were lower; doesn't fit the electronic/film/live-band spine this profile actually wants.",
+      "confidence": "med",
+      "judged_at": "2026-08-14T14:13:56",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "6ba9362d542f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Library book-launch talk — informational community programming, not something this taste profile builds a night around.",
+      "confidence": "med",
+      "judged_at": "2026-08-14T14:13:56",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
     }
   }
 }
