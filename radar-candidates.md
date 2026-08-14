@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/13/2026 deterministically (no API). 314 candidates. Signals: big-venue 279, festival 29, tracked 8, editorial 2._
+_Generated 8/14/2026 deterministically (no API). 311 candidates. Signals: big-venue 275, festival 29, tracked 9, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -39,6 +39,12 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 10/30 | 5 | Escape | NOS Events Center | tracked:Cloonee,Richie Hawtin | [link](https://on.fgtix.com/trk/Ni5m) |
 | Sat 10/31 | 5 | THE MAZE Halloween: Arts District Block Party | TBA - Arts District Los Angeles | festival | [link](https://ra.co/events/2491883) |
+
+## December 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 12/12 | 5 | JOHN SUMMIT - CTRL ESCAPE TOUR | Los Angeles Memorial Coliseum | tracked:John Summit | [link](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7) |
 
 ## September 2026
 
@@ -237,7 +243,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 9/17 | 3 | Morgan Jay: The Goofy Guy Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/morgan-jay-the-goofy-guy-tour-los-angeles-california-09-17-2026/event/0900644C0AB37D8C) |
 | Fri 9/18 | 3 | MANÁ: VIVIR SIN AIRE TOUR | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/mana-vivir-sin-aire-tour-inglewood-california-09-18-2026/event/0900637A9D42855B) |
 | Sat 9/19 | 3 | MANÁ: VIVIR SIN AIRE TOUR | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/mana-vivir-sin-aire-tour-inglewood-california-09-19-2026/event/0900637A9D738574) |
 | Sun 9/20 | 3 | Gregory Alan Isakov w/ Jose Gonzalez | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
@@ -359,8 +364,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 9/17 | 2 | Matute - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Thu 9/17 | 2 | Kany Garcia: Puerta Abierta Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/kany-garcia-puerta-abierta-tour-inglewood-california-09-17-2026/event/0A00647EDA97CAA0) |
 | Fri 9/18 | 2 | Ralph Barbosa | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 9/19 | 2 | Mentiras All Stars | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/mentiras-all-stars-inglewood-california-09-19-2026/event/0A006489CA1CA33B) |
 | Sat 9/19 | 2 | Ralph Barbosa | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -520,7 +523,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 9/17 | 0 | GODSMACK - The Rise of Rock World Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/godsmack-the-rise-of-rock-world-anaheim-california-09-17-2026/event/09006435A321E22F) |
 | Sat 9/19 | 0 | "Weird Al" Yankovic: Bigger & Weirder 2026 Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/weird-al-yankovic-bigger-weirder-2026-anaheim-california-09-19-2026/event/09006366923698BD) |
 
 ## October 2026
