@@ -47,7 +47,8 @@
     "image": "https://s1.ticketm.net/dam/a/061/203e84f7-1f58-46a3-9dca-55e6c8a5e061_SOURCE",
     "lineup_genre": "World",
     "editorial_mentions": [
-      "We Like LA"
+      "We Like LA",
+      "Discover Los Angeles"
     ]
   },
   {
@@ -474,7 +475,8 @@
     "image": "https://s1.ticketm.net/dam/a/ff9/230bc504-e335-44b6-9d57-24509c477ff9_TABLET_LANDSCAPE_LARGE_16_9.jpg",
     "lineup_genre": "Rock",
     "editorial_mentions": [
-      "Discover LA"
+      "Discover LA",
+      "Discover Los Angeles"
     ]
   },
   {
@@ -617,7 +619,8 @@
     "image": "https://s1.ticketm.net/dam/a/aae/d27e184b-9f69-4963-9027-d3b5572a4aae_SOURCE",
     "lineup_genre": "Latin",
     "editorial_mentions": [
-      "Discover LA"
+      "Discover LA",
+      "Discover Los Angeles"
     ]
   },
   {
@@ -1005,7 +1008,10 @@
       "start"
     ],
     "image": "https://s1.ticketm.net/dam/e/329/5dba370d-7d21-4318-9fd7-4838e2acf329_SOURCE",
-    "lineup_genre": "Dance/Electronic"
+    "lineup_genre": "Dance/Electronic",
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "XKYLAR",
@@ -1210,7 +1216,8 @@
     "image": "https://s1.ticketm.net/dam/a/a40/6f5b0c11-7fe9-4950-99bd-8c798c224a40_SOURCE",
     "lineup_genre": "R&B",
     "editorial_mentions": [
-      "Discover LA"
+      "Discover LA",
+      "Discover Los Angeles"
     ]
   },
   {
@@ -6685,7 +6692,8 @@
       "start"
     ],
     "editorial_mentions": [
-      "Discover LA"
+      "Discover LA",
+      "Discover Los Angeles"
     ]
   },
   {
@@ -7287,7 +7295,10 @@
       "lineup"
     ],
     "image": "https://s1.ticketm.net/dam/a/aae/d27e184b-9f69-4963-9027-d3b5572a4aae_SOURCE",
-    "lineup_genre": "Latin"
+    "lineup_genre": "Latin",
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "Chin Chin Ent presents The Tony Bennett Experience",
@@ -8961,7 +8972,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Discover LA"
+      "Discover LA",
+      "Discover Los Angeles"
     ]
   },
   {
@@ -10206,7 +10218,10 @@
       ],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "Train to Busan in 4K with Yeon Sang-ho",
@@ -10248,7 +10263,10 @@
       ],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "Scooby-Doo in 35mm",
@@ -10898,6 +10916,9 @@
     "updated_at": "2026-08-04",
     "changed_fields": [
       "start"
+    ],
+    "editorial_mentions": [
+      "Discover Los Angeles"
     ]
   },
   {
@@ -11299,7 +11320,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "2026 Natsumatsuri Family Festival",
@@ -13439,7 +13463,8 @@
       "near_home": false
     },
     "editorial_mentions": [
-      "Discover LA"
+      "Discover LA",
+      "Discover Los Angeles"
     ]
   },
   {
@@ -14280,6 +14305,132 @@
     }
   },
   {
+    "title": "Sound and Fury Festival",
+    "date": "2026-08-15",
+    "start": null,
+    "venue": "Los Angeles Exposition Park",
+    "neighborhood": "Exposition Park",
+    "category": "Music",
+    "genre": "hardcore/punk",
+    "lineup": [
+      "Obituary",
+      "Saves the Day",
+      "Sextile"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Multi-day hardcore/punk festival at Exposition Park (Aug 15-16) featuring Obituary, Saves the Day, and Sextile, with kickoff shows around town throughout the week.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ],
+    "first_seen": "2026-08-14",
+    "last_seen": "2026-08-14"
+  },
+  {
+    "title": "Zabrecky on Houdini and the Spirits",
+    "date": "2026-08-15",
+    "start": null,
+    "venue": "Philosophical Research Society",
+    "neighborhood": "Los Feliz",
+    "category": "community",
+    "genre": null,
+    "lineup": [
+      "Rob Zabrecky"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Magician Rob Zabrecky presents an illustrated talk on Houdini and the spirits, with a live musical performance.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ],
+    "first_seen": "2026-08-14",
+    "last_seen": "2026-08-14"
+  },
+  {
+    "title": "Regarding Paul R. Williams Book Launch",
+    "date": "2026-08-15",
+    "start": null,
+    "venue": "Los Angeles Central Library",
+    "neighborhood": "Downtown LA",
+    "category": "community",
+    "genre": null,
+    "lineup": [
+      "Janna Ireland"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Photographer Janna Ireland celebrates the expanded edition of her book on trailblazing architect Paul R. Williams.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ],
+    "first_seen": "2026-08-14",
+    "last_seen": "2026-08-14"
+  },
+  {
+    "title": "Los Mirlos at Jerry Moss Plaza",
+    "date": "2026-08-15",
+    "start": null,
+    "venue": "Jerry Moss Plaza at the Music Center",
+    "neighborhood": "Downtown LA",
+    "category": "community",
+    "genre": "cumbia",
+    "lineup": [
+      "Los Mirlos"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.discoverlosangeles.com/things-to-do/the-best-things-to-do-in-la-this-weekend"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Free outdoor show: the long-running Peruvian group performs their psychedelic cumbia amazonica sound. Distinct from their ticketed 8/16 Ventura Music Hall date already in the catalog.",
+    "price": "Free",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ],
+    "first_seen": "2026-08-14",
+    "last_seen": "2026-08-14"
+  },
+  {
     "title": "KCON",
     "date": "2026-08-16",
     "start": "10:00",
@@ -14795,7 +14946,10 @@
       "lineup"
     ],
     "image": "https://s1.ticketm.net/dam/a/aae/d27e184b-9f69-4963-9027-d3b5572a4aae_SOURCE",
-    "lineup_genre": "Latin"
+    "lineup_genre": "Latin",
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "YOASOBI: Never Ending Stories Tour",
@@ -15224,7 +15378,8 @@
       "near_home": false
     },
     "editorial_mentions": [
-      "Discover LA"
+      "Discover LA",
+      "Discover Los Angeles"
     ],
     "updated_at": "2026-08-14",
     "changed_fields": [
