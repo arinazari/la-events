@@ -21949,12 +21949,13 @@
     },
     "7b479b4668da": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "House/techno/garage bill with Highkin', a Sunday Sessions vinyl regular, checks the boxes — the rest of the lineup is an unknown quantity.",
+      "adjust": 0,
+      "why": "RA-pick underground slot but the headliner (DJ Perception) isn't identified in what we know — only the local support name checks out, so treat the draw as unproven.",
       "confidence": "low",
-      "judged_at": "2026-08-09T12:46:43",
+      "judged_at": "2026-08-14T14:14:45",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8,
+      "model": "claude-sonnet-5"
     },
     "3432075f520d": {
       "tier": "great",
@@ -22103,11 +22104,12 @@
     "a940acee75c4": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Goose is a jam band, not the rock lane you actually track — the Greek being a favorite room doesn't fix the genre mismatch.",
+      "why": "Loved room but a jam band is nowhere near this lane — the Greek bump and editorial mentions are inflating a genre that's just not on the taste map.",
       "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "judged_at": "2026-08-14T14:14:45",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 9,
+      "model": "claude-sonnet-5"
     },
     "c238ad545572": {
       "tier": "skip",
@@ -22157,11 +22159,12 @@
     "fb112c9c7dc6": {
       "tier": "great",
       "adjust": 1,
-      "why": "Al Green at the Bowl, with the Womack Sisters dropping their debut Daptone album the same night — a genuine soul-legend booking worth the trip outside the usual lane.",
+      "why": "Al Green doesn't tour often and the Bowl is a loved room — genuine soul legend, not a nostalgia-circuit booking, even if it's outside the electronic spine.",
       "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "judged_at": "2026-08-14T14:14:45",
       "input_version": 2,
-      "score_at_judge": 8
+      "score_at_judge": 10,
+      "model": "claude-sonnet-5"
     },
     "dc96bfb44230": {
       "tier": "skip",
@@ -22336,13 +22339,14 @@
       "score_at_judge": 3
     },
     "24a39bacb767": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "Massive booking, but reggaeton/Latin-pop stadium show rather than your electronic spine — file under stay-informed, not a night to build around.",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Stadium reggaeton/latin-pop — off the electronic and rock lanes entirely; the editorial-mention and draw bumps are just stadium-scale noise here.",
       "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "judged_at": "2026-08-14T14:14:45",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8,
+      "model": "claude-sonnet-5"
     },
     "5f5fea7c580b": {
       "tier": "solid",
@@ -22765,12 +22769,13 @@
     },
     "984fe4bfb4d4": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Andrey Pushkarev's a real deep/dub-techno legend and Taimur earned his fabric London debut on the strength of his sets — a genuinely strong afterhours bill, TBA and all.",
+      "adjust": 1,
+      "why": "Pushkarev's a genuine deep-techno/dub veteran and Taimur earned his fabric London debut on merit — this is the real afterhours lane, not a filler TBA night.",
       "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "judged_at": "2026-08-14T14:14:45",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 9,
+      "model": "claude-sonnet-5"
     },
     "ab3f6a3f7f6e": {
       "tier": "solid",
@@ -22856,20 +22861,22 @@
     "ea64a8bc0c7b": {
       "tier": "solid",
       "adjust": -1,
-      "why": "Ferry Corsten's got real trance lineage, but this is Avalon's standard mainstream Friday circuit, not a special booking.",
+      "why": "Real trance lineage but this is Avalon's standard Friday circuit set, not a special booking — fine if you're out, not worth building around.",
       "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "judged_at": "2026-08-14T14:14:45",
       "input_version": 2,
-      "score_at_judge": 8
+      "score_at_judge": 10,
+      "model": "claude-sonnet-5"
     },
     "5bd7f81cf3e4": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Randomer (Hessle Audio/L.I.E.S./Numbers) plus JKS is a genuinely deep UK-bass-inflected techno bill for a TBA warehouse afters — the capped draw score undersells it.",
+      "adjust": 1,
+      "why": "Randomer's a legit UK techno name (Hessle Audio, L.I.E.S., Numbers) doing deep spatial techno with garage/dubstep edges — real warehouse energy, not a generic TBA filler.",
       "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "judged_at": "2026-08-14T14:14:45",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8,
+      "model": "claude-sonnet-5"
     },
     "0b7aa08a4004": {
       "tier": "solid",
@@ -27106,13 +27113,14 @@
       "score_at_judge": 5
     },
     "623a61c809c9": {
-      "tier": "must-see",
-      "adjust": 3,
-      "why": "DJ Bone and Stacey Hotwaxx Hale are Detroit techno/house royalty — the Godmother of House on a TBA warehouse afterhours bill is the real deal, not just a keyword match.",
+      "tier": "great",
+      "adjust": 2,
+      "why": "DJ Bone and Stacey Hotwaxx Hale are actual Detroit techno/house pioneers, not tribute names — a genuine deep-selector afterhours the score's flattening a bit.",
       "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "judged_at": "2026-08-14T14:14:45",
       "input_version": 2,
-      "score_at_judge": 8
+      "score_at_judge": 10,
+      "model": "claude-sonnet-5"
     },
     "c6279f96f092": {
       "tier": "great",
@@ -28154,12 +28162,13 @@
     },
     "8a34951dcd50": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Joris Voorn plays closer to Solomun/Tale of Us than pure techno — a genuine widescreen headliner even off the tracked list, with Luis Miranda a legit local support, not filler.",
+      "adjust": 2,
+      "why": "Joris Voorn is a real widescreen-techno headliner (Billboard Electronic Album of the Year, closer to Solomun than pure techno) with solid LA techno support — an RA pick worth the TBA-location risk.",
       "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "judged_at": "2026-08-14T14:14:45",
       "input_version": 2,
-      "score_at_judge": 9
+      "score_at_judge": 11,
+      "model": "claude-sonnet-5"
     },
     "32e506bb3cfe": {
       "tier": "skip",
@@ -35627,13 +35636,14 @@
       "model": "claude-sonnet-4-6"
     },
     "8a862e604d08": {
-      "tier": "great",
+      "tier": "must-see",
       "adjust": 2,
-      "why": "Massimiliano Pagliara is a Berlin-based Permanent Vacation artist — analogue electro-disco, Balearic house, exactly the European-orbit selector this taste lane is built for, and the score undersells …",
+      "why": "Masha Mar is a core Spotify artist for you and Pagliara's got real Berghain Basement pedigree — European disco-house at a room you can actually plan around, not a TBA gamble.",
       "confidence": "high",
-      "judged_at": "2026-06-23T05:44:00",
-      "score_at_judge": 7,
-      "model": "claude-sonnet-4-6"
+      "judged_at": "2026-08-14T14:14:45",
+      "input_version": 2,
+      "score_at_judge": 12,
+      "model": "claude-sonnet-5"
     },
     "3061917831bd": {
       "tier": "great",
@@ -40022,13 +40032,14 @@
       "score_at_judge": 6
     },
     "6e79232b9596": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Real daytime open-air house booking — Lee Wells is a legit veteran LA house selector, and beach day-party is squarely the groove/vinyl lane, worth the PCH drive.",
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Bones and Lee Wells are legit LA house-scene establishment, but a Santa Monica beach club daytime set is a decent hang, not a must-build-around booking.",
       "confidence": "med",
-      "judged_at": "2026-08-12T12:43:53",
+      "judged_at": "2026-08-14T14:14:45",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8,
+      "model": "claude-sonnet-5"
     },
     "1b3f7051289a": {
       "tier": "skip",
@@ -40183,6 +40194,26 @@
       "judged_at": "2026-08-14T14:13:56",
       "input_version": 2,
       "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "c1d6d7531ce0": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free 100%-vinyl listening-bar night hits the exact format you like, but no lineup's posted so there's no way to gauge who's actually behind the decks.",
+      "confidence": "low",
+      "judged_at": "2026-08-14T14:14:45",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-5"
+    },
+    "140be7d3bc8d": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Free RA-pick park day party with a deep bench of real local house/disco names (Dirtie Blonde et al.) — exactly the daytime open-air groove lane, just needs the crowd to show up for it.",
+      "confidence": "med",
+      "judged_at": "2026-08-14T14:14:45",
+      "input_version": 2,
+      "score_at_judge": 7,
       "model": "claude-sonnet-5"
     }
   }
