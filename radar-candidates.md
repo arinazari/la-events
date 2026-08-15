@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/14/2026 deterministically (no API). 311 candidates. Signals: big-venue 275, festival 29, tracked 9, editorial 2._
+_Generated 8/15/2026 deterministically (no API). 309 candidates. Signals: big-venue 273, festival 29, tracked 9, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -173,8 +173,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/18 | 4 | Matute: Disco Stereo Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/matute-disco-stereo-tour-inglewood-california-09-18-2026/event/0A00645BB13F8D0D) |
-| Fri 9/18 | 4 | Orville Peck | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sat 9/19 | 4 | Squeeze w/ Adam Ant | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sun 9/20 | 4 | KCRW Presents Haruomi Hosono: The Yours Sincerely Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/kcrw-presents-haruomi-hosono-the-yours-los-angeles-california-09-20-2026/event/090064AEAECDEA57) |
 | Mon 9/21 | 4 | Lily Allen Performs West End Girl | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lily-allen-performs-west-end-girl-los-angeles-california-09-21-2026/event/090064E8F349EC5D) |
@@ -243,8 +241,8 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/18 | 3 | MANÁ: VIVIR SIN AIRE TOUR | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/mana-vivir-sin-aire-tour-inglewood-california-09-18-2026/event/0900637A9D42855B) |
 | Sat 9/19 | 3 | MANÁ: VIVIR SIN AIRE TOUR | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/mana-vivir-sin-aire-tour-inglewood-california-09-19-2026/event/0900637A9D738574) |
+| Sat 9/19 | 3 | IDL 2026 LA Series (Day 1) | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1559330/idl-2026-la-series-day-1-tickets) |
 | Sun 9/20 | 3 | Gregory Alan Isakov w/ Jose Gonzalez | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Wed 9/23 | 3 | Jazz at Lincoln Center Orchestra with Wynton Marsalis | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Thu 9/24 | 3 | Jon Bellion | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
@@ -364,11 +362,11 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/18 | 2 | Ralph Barbosa | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 9/19 | 2 | Mentiras All Stars | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/mentiras-all-stars-inglewood-california-09-19-2026/event/0A006489CA1CA33B) |
 | Sat 9/19 | 2 | Ralph Barbosa | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 9/20 | 2 | Carin Leon - De Sonora Para El Mundo Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/carin-leon-de-sonora-para-el-los-angeles-california-09-20-2026/event/0A00644328E0E003) |
 | Sun 9/20 | 2 | Dierks Bentley (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Sun 9/20 | 2 | IDL 2026 Championship (Day 2) | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1570044/idl-2026-championship-day-2-tickets) |
 | Wed 9/23 | 2 | Dropkick Murphys - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 9/24 | 2 | THE KEHLANI WORLD TOUR: North America | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/the-kehlani-world-tour-north-america-inglewood-california-09-24-2026/event/090064B6E25E61FE) |
 | Fri 9/25 | 2 | The Concert: A Tribute To ABBA | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
@@ -486,7 +484,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/18 | 1 | Zach Top: Cold Beer & Country Music Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/zach-top-cold-beer-country-music-anaheim-california-09-18-2026/event/090064BCAA896620) |
 | Fri 9/25 | 1 | Disney Descendants, ZOMBIES & Camp Rock: Worlds Collide Co | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/disney-descendants-zombies-camp-rock-worlds-palm-desert-california-09-25-2026/event/0A0064671331B7B8) |
 | Sat 9/26 | 1 | Danzig | Honda Center | big-venue | [link](https://www.ticketmaster.com/danzig-anaheim-california-09-26-2026/event/090064D2BFA6BDAB) |
 | Sat 9/26 | 1 | MANÁ: VIVIR SIN AIRE TOUR | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/mana-vivir-sin-aire-tour-palm-desert-california-09-26-2026/event/0A006377B1CC73E4) |
@@ -518,6 +515,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 12/6 | 1 | Adrian Uribe: 50 y Pico Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/adrian-uribe-50-y-pico-tour-inglewood-california-12-06-2026/event/0A0064F6C4A3A0B9) |
+| Sun 12/13 | 1 | Rose Bowl Flea Market Sunday, December 13, 2026 | Rose Bowl Stadium | big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-december-13-2026-tickets-1977732048797) |
 
 ## September 2026
 
