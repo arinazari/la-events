@@ -874,7 +874,8 @@
     "image": "https://s1.ticketm.net/dam/a/aae/d27e184b-9f69-4963-9027-d3b5572a4aae_SOURCE",
     "lineup_genre": "Latin",
     "editorial_mentions": [
-      "Discover Los Angeles"
+      "Discover Los Angeles",
+      "Discover LA"
     ]
   },
   {
@@ -1110,7 +1111,10 @@
       "start"
     ],
     "image": "https://s1.ticketm.net/dam/a/d79/77d6e32c-631c-4539-bd38-1b848f90cd79_SOURCE",
-    "lineup_genre": "Theatre"
+    "lineup_genre": "Theatre",
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "Last Nite: The Strokes Dance Party [L.A.]",
@@ -1898,7 +1902,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "source": "The Venice West",
@@ -1950,7 +1958,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Brian Charette's B3 Funk Party",
@@ -2919,7 +2931,7 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
       "lineup"
     ]
@@ -3816,7 +3828,8 @@
       "near_home": false
     },
     "editorial_mentions": [
-      "Discover Los Angeles"
+      "Discover Los Angeles",
+      "Discover LA"
     ]
   },
   {
@@ -4514,7 +4527,8 @@
       "start"
     ],
     "editorial_mentions": [
-      "Discover Los Angeles"
+      "Discover Los Angeles",
+      "Discover LA"
     ]
   },
   {
@@ -4918,7 +4932,8 @@
       "near_home": false
     },
     "editorial_mentions": [
-      "Discover Los Angeles"
+      "Discover Los Angeles",
+      "Discover LA"
     ]
   },
   {
@@ -7930,7 +7945,8 @@
     "ra_pick": false,
     "afterhours": false,
     "editorial_mentions": [
-      "Discover Los Angeles"
+      "Discover Los Angeles",
+      "Discover LA"
     ],
     "first_seen": "2026-08-14",
     "last_seen": "2026-08-14",
@@ -7974,7 +7990,8 @@
     "ra_pick": false,
     "afterhours": false,
     "editorial_mentions": [
-      "Discover Los Angeles"
+      "Discover Los Angeles",
+      "Discover LA"
     ],
     "first_seen": "2026-08-14",
     "last_seen": "2026-08-14",
@@ -8014,7 +8031,8 @@
     "ra_pick": false,
     "afterhours": false,
     "editorial_mentions": [
-      "Discover Los Angeles"
+      "Discover Los Angeles",
+      "Discover LA"
     ],
     "first_seen": "2026-08-14",
     "last_seen": "2026-08-14",
@@ -8054,7 +8072,8 @@
     "ra_pick": false,
     "afterhours": false,
     "editorial_mentions": [
-      "Discover Los Angeles"
+      "Discover Los Angeles",
+      "Discover LA"
     ],
     "first_seen": "2026-08-14",
     "last_seen": "2026-08-14",
@@ -9325,9 +9344,10 @@
     "genre": "folk/acoustic/Americana",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
-      "price"
+      "price",
+      "lineup"
     ]
   },
   {
@@ -9842,7 +9862,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
       "lineup"
     ]
@@ -14262,7 +14282,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Redacted Presents: Future Fusion ft. Sennoh, Joey Naz and more!",
@@ -15417,7 +15441,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "samfirst"
     ],
     "organizers": null,
     "detail": "Devin Daniels leads tonight's Happenings, a unique voice from LA's creative music scene. (Sets at ~7:30pm & 9:30pm.)",
@@ -15438,7 +15463,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Corbyn Besson and Soulidified: The Pop'n Out Tour",
@@ -17176,7 +17205,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "LITTLE BAR, MASSIVE PRESSURE - JUNGLE",
@@ -19363,15 +19396,24 @@
       {
         "source": "venue",
         "url": "https://avalonhollywood.com/event/bryce-alakai-nightclub-near-me-discover-avalon-hollywood-2026-august-20-best-night-club-near-me-hollywood-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "avalon"
     ],
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Ronnie Heard III w/ opening set by Jaay Dover",
@@ -21674,9 +21716,10 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
-      "start"
+      "start",
+      "lineup"
     ]
   },
   {
@@ -25210,6 +25253,48 @@
     }
   },
   {
+    "title": "Georgia Gets By, Anna Schulte &amp; Gal Musette",
+    "date": "2026-08-21",
+    "start": "19:30",
+    "venue": "Junior High",
+    "neighborhood": "Glendale",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://juniorhighlosangeles.com/calendar/georgiagetsbymusic-aug2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
+    "organizers": null,
+    "detail": "MUSIC | $15 | ALL AGES | Femme fairy folk lineup. COVID-19 vaccinations are highly recommended to attend events at Junior High. Learn more here. This event will be indoors. #block-dcaf83806ff2e208036d { --stroke-style: none;--stroke-thickness: 6px;",
+    "image": "https://static1.squarespace.com/static/56eadb72d51cd4a1f93f5e10/5720e2974d088efedb858d1e/6a6c0bc284aaf41e14da0af5/1786757797438/",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-15",
+    "last_seen": "2026-08-15",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "folk"
+      ],
+      "setting": [
+        "diy"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "all-ages"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
     "date": "2026-08-22",
     "start": "14:30",
@@ -27085,7 +27170,7 @@
     "ra_pick": false,
     "afterhours": false,
     "start": "16:00",
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
       "start",
       "lineup"
@@ -27199,7 +27284,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Trio Eclectic",
@@ -27512,7 +27601,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Silver Lake Farmers Market",
@@ -27756,7 +27849,7 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
       "lineup"
     ]
@@ -28632,6 +28725,10 @@
       {
         "source": "webfetch",
         "url": "https://avalonhollywood.com/event/time-machine-nightclub-near-me-discover-avalon-hollywood-2026-august-22-best-night-club-near-me-hollywood-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
@@ -28642,9 +28739,10 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
-      "start"
+      "start",
+      "lineup"
     ]
   },
   {
@@ -31510,6 +31608,47 @@
     }
   },
   {
+    "title": "Friends In Real Life ‍  ‍ (AZ)    Mr",
+    "date": "2026-08-22",
+    "start": "21:00",
+    "venue": "The Smell",
+    "neighborhood": "DTLA",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://www.thesmell.org/events/saturday-august-22-2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
+    "organizers": null,
+    "detail": "Friends In Real Life ‍ ‍ (AZ) Mr. Michael Motorcycle L Moon Bandits 9:00 pm Name your own price at the door Advance $10 tickets available here.",
+    "image": "https://images.squarespace-cdn.com/content/v1/651ce2ca967f580a448e4d46/1786716602738-4XZDVVOU7UHV4209CMPG/ISIMG-800982.jpeg",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-15",
+    "last_seen": "2026-08-15",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "punk",
+        "experimental"
+      ],
+      "setting": [
+        "diy"
+      ],
+      "scale": "room",
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
     "title": "Hatebreed: SUMMER SLAUGHTER TOUR 2026",
     "date": "2026-08-23",
     "start": "16:00",
@@ -32636,7 +32775,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Jason Sinay & John Molo's Mostly Dead w/ Jaden Lehman, Michael Mennell, Emerson Rose & Jerry Joseph",
@@ -36287,9 +36430,10 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
-      "start"
+      "start",
+      "lineup"
     ]
   },
   {
@@ -37528,7 +37672,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "CRANKDAT - 5th Night Added!",
@@ -39219,6 +39367,10 @@
       {
         "source": "venue",
         "url": "https://tixr.com/e/181083"
+      },
+      {
+        "source": "venicewest",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/bob-schneider-w-tom-freund-181083"
       }
     ],
     "sources": [
@@ -39228,7 +39380,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Sweet Pill",
@@ -41900,7 +42056,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Beth Nielsen Chapman",
@@ -41949,9 +42109,10 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
-      "price"
+      "price",
+      "lineup"
     ]
   },
   {
@@ -42797,7 +42958,7 @@
     "afterhours": false
   },
   {
-    "title": "Marlonius Jazz Orchestra! Birthday Bash & Album Promo",
+    "title": "Marlonius Jazz Orchestra (Birthday Bash & Album Promo)",
     "date": "2026-08-28",
     "start": "19:30",
     "venue": "Sam First",
@@ -42836,7 +42997,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Fiesta La Ballona (75th Annual)",
@@ -42940,10 +43105,15 @@
       {
         "source": "webfetch",
         "url": "https://avalonhollywood.com/event/gasolina-nightclub-near-me-discover-avalon-hollywood-2026-august-28-best-night-club-near-me-hollywood-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "avalon"
     ],
     "organizers": null,
     "detail": "Club night at Avalon Hollywood.",
@@ -42962,7 +43132,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "FERAL",
@@ -45497,9 +45671,10 @@
     "genre": "folk/acoustic/Americana",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
-      "price"
+      "price",
+      "lineup"
     ]
   },
   {
@@ -45609,7 +45784,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Amor Prohibido - Tribute to Selena",
@@ -46098,7 +46277,7 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
       "lineup"
     ]
@@ -46823,7 +47002,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Spinning Sunset Vinyl Record Fair",
@@ -47530,7 +47713,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "samfirst"
     ],
     "organizers": null,
     "genre": null,
@@ -47958,15 +48142,24 @@
       {
         "source": "venue",
         "url": "https://avalonhollywood.com/event/youna-x-silver-panda-nightclub-near-me-discover-avalon-hollywood-2026-august-29-best-night-club-near-me-hollywood-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "avalon"
     ],
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "DITCH PARTY Part 3! Haddaway, Ultra Nate, Robin S, Crystal Waters, Richard Vission, Bad Boy Bill, DJ Vice",
@@ -49125,7 +49318,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Sunday Sessions LA: Mazko A. All Night Long (Vinyl Only)",
@@ -51191,7 +51388,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Steve Waddington: Cashin' In + The Feel of Neil (Double Feature)",
@@ -51839,7 +52040,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
       "start",
       "lineup"
@@ -51999,7 +52200,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Syndee Winters: The Makings of a Lady",
@@ -52282,7 +52487,20 @@
       ],
       "region": "valley",
       "near_home": false
-    }
+    },
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://juniorhighlosangeles.com/calendar/queersoundsshow-sept2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Michael Wolff Quartet with Danny Janklow, Edwin Livingston & Clayton Cameron",
@@ -52302,7 +52520,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "samfirst"
     ],
     "organizers": null,
     "detail": "Pianist, composer, and bandleader Michael Wolff's celebrated career spanning jazz. (Sets at ~7:30pm & 9:30pm.)",
@@ -53256,7 +53475,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Billy Valentine: R&B / Soul & Jazz",
@@ -54618,7 +54841,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Warren G",
@@ -54942,7 +55169,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Drag Show \"Pumped Fridays\" @ Mary's West Hollywood",
@@ -55609,7 +55840,20 @@
       ],
       "region": "valley",
       "near_home": false
-    }
+    },
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://juniorhighlosangeles.com/calendar/art4palestine-sept2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Emo Nite",
@@ -55626,10 +55870,15 @@
       {
         "source": "venue",
         "url": "https://avalonhollywood.com/event/emo-nite-nightclub-near-me-discover-avalon-hollywood-2026-september-4-best-night-club-near-me-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "avalon"
     ],
     "organizers": null,
     "detail": "Club night at Avalon Hollywood.",
@@ -55650,7 +55899,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Twisted Teens, Forty Drop Few",
@@ -55687,6 +55940,47 @@
       "scale": "room",
       "vibe": [],
       "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "Moon Bandits    Asunder Sweet ‍  ‍ (Oakland)    The Limes      8:00 pm    $10   ",
+    "date": "2026-09-04",
+    "start": "20:00",
+    "venue": "The Smell",
+    "neighborhood": "DTLA",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://www.thesmell.org/events/friday-september-4-2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
+    "organizers": null,
+    "detail": "Moon Bandits Asunder Sweet ‍ ‍ (Oakland) The Limes 8:00 pm $10 Advance tickets available here.",
+    "image": "https://images.squarespace-cdn.com/content/v1/651ce2ca967f580a448e4d46/1786738847009-9PC0VM28TXP99CEZCF6R/ISIMG-798350.jpeg",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-15",
+    "last_seen": "2026-08-15",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "punk",
+        "experimental"
+      ],
+      "setting": [
+        "diy"
+      ],
+      "scale": "room",
+      "vibe": [],
+      "region": "dtla",
       "near_home": true
     }
   },
@@ -56931,7 +57225,7 @@
     "ra_pick": false,
     "afterhours": false,
     "start": "16:00",
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
       "start",
       "lineup"
@@ -57141,6 +57435,10 @@
       {
         "source": "webfetch",
         "url": "https://avalonhollywood.com/event/korolova-nightclub-near-me-discover-avalon-hollywood-2026-september-5-best-night-club-near-me-hollywood-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
@@ -57168,9 +57466,10 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
-      "start"
+      "start",
+      "lineup"
     ]
   },
   {
@@ -57509,6 +57808,10 @@
       {
         "source": "harvelles",
         "url": "https://santamonica.harvelles.com/events/139982"
+      },
+      {
+        "source": "harvelles",
+        "url": "https://santamonica.harvelles.com/calendar"
       }
     ],
     "sources": [
@@ -57532,7 +57835,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "HAUS OF MAYHEM - A DRAG TRIBUTE",
@@ -57820,7 +58127,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "samfirst"
     ],
     "organizers": null,
     "genre": null,
@@ -57860,15 +58168,24 @@
       {
         "source": "venue",
         "url": "https://tixr.com/e/201889"
+      },
+      {
+        "source": "venicewest",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/brazilian-independence-day-baile-funk-venice-beach-201889"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "venicewest"
     ],
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Skabashed! South Central Skankers, Los P2, Fuerza, Leftover Ska (18+)",
@@ -58024,7 +58341,20 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://www.thesmell.org/events/saturday-september-5-2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Cheap Trick",
@@ -59706,16 +60036,25 @@
       {
         "source": "venue",
         "url": "https://tixr.com/e/201694"
+      },
+      {
+        "source": "venicewest",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/beatles-brunch-w-the-beat-5-201694"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "venicewest"
     ],
     "detail": "Beatles tribute brunch with bottomless mimosas",
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "ICT: Conscience",
@@ -59861,7 +60200,20 @@
       ],
       "region": "valley",
       "near_home": false
-    }
+    },
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://juniorhighlosangeles.com/calendar/imnotascreening-sept2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "J. Cole: The Fall-Off Tour",
@@ -60531,6 +60883,10 @@
       {
         "source": "venue",
         "url": "https://tixr.com/e/201280"
+      },
+      {
+        "source": "venicewest",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/stella-prince-w-peyton-noell-maxine-louise-201280"
       }
     ],
     "sources": [
@@ -60540,7 +60896,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Maddy Hicks: Claw Marks Pt. 1 Release Show",
@@ -60697,7 +61057,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "harvelles"
     ],
     "organizers": null,
     "detail": "Live music/blues club night at Harvelle's Santa Monica.",
@@ -60718,7 +61079,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Silver Lake Farmers Market",
@@ -60845,7 +61210,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "BRICKTOYAFACE PRESENTS: 909 DAY - Garden Room @ RMA",
@@ -61537,7 +61906,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "The Toledo Show",
@@ -61554,6 +61927,10 @@
       {
         "source": "harvelles",
         "url": "https://santamonica.harvelles.com/events/139973"
+      },
+      {
+        "source": "harvelles",
+        "url": "https://santamonica.harvelles.com/calendar"
       }
     ],
     "sources": [
@@ -61577,7 +61954,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Dead Kennedys with Special Guests",
@@ -61736,7 +62117,20 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://www.thesmell.org/events/wednesday-september-9-2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Ari and Cecil Alexander Quartet",
@@ -61756,7 +62150,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "samfirst"
     ],
     "organizers": null,
     "detail": "Ari and Cecil Alexander bring their acclaimed collaboration to the stage, blending inventive originals. (Sets at ~7:30pm & 9:30pm.)",
@@ -61777,7 +62172,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Obscene LA Cold Waves LA Kickoff Party (Goth / Industrial / EBM / Darkwave)",
@@ -62547,7 +62946,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "All-Star Jam Session Benefit",
@@ -62564,6 +62967,10 @@
       {
         "source": "harvelles",
         "url": "https://santamonica.harvelles.com/events/139978"
+      },
+      {
+        "source": "harvelles",
+        "url": "https://santamonica.harvelles.com/calendar"
       }
     ],
     "sources": [
@@ -62587,7 +62994,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "an evening with",
@@ -62947,6 +63358,45 @@
       "scale": "room",
       "vibe": [],
       "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "The Brian Swartz Quintet",
+    "date": "2026-09-10",
+    "start": "19:30",
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "samfirst",
+        "url": "https://www.samfirstbar.com/events/the-brian-swartz-quintet-with-keith-fiddmont-steve-cotter-chris-colangelo-kendall-kay"
+      }
+    ],
+    "sources": [
+      "samfirst"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-15",
+    "last_seen": "2026-08-15",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
       "near_home": false
     }
   },
@@ -64535,6 +64985,10 @@
       {
         "source": "harvelles",
         "url": "https://santamonica.harvelles.com/events/139289"
+      },
+      {
+        "source": "harvelles",
+        "url": "https://santamonica.harvelles.com/calendar"
       }
     ],
     "sources": [
@@ -64558,7 +65012,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Drag Show \"Pumped Fridays\" @ Mary's West Hollywood",
@@ -64857,7 +65315,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "mccabes"
     ],
     "organizers": null,
     "detail": "Concert at McCabe's Guitar Shop's back-room listening room.",
@@ -64879,7 +65338,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "SIGNAL: Nita Aviance // S4M23 // Sevyn // Mez Monty",
@@ -64983,10 +65446,15 @@
       {
         "source": "venue",
         "url": "https://avalonhollywood.com/event/nimda-prosecute-yvm3-nightclub-near-me-discover-avalon-hollywood-2026-september-11-best-night-club-near-me-hollywood-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "avalon"
     ],
     "organizers": null,
     "detail": "Club night at Avalon Hollywood.",
@@ -65007,7 +65475,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Club 90s Presents Ariana Grande Night (18+)",
@@ -66804,7 +67276,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "STEAM Long Beach",
@@ -67109,6 +67585,10 @@
       {
         "source": "harvelles",
         "url": "https://santamonica.harvelles.com/events/139983"
+      },
+      {
+        "source": "harvelles",
+        "url": "https://santamonica.harvelles.com/calendar"
       }
     ],
     "sources": [
@@ -67132,7 +67612,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Deep in Dis showcase presented by Capsule x Groove Inc",
@@ -68372,7 +68856,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Travelin' Man - A salute to Ricky Nelson & Teen Idols of the 50's and 60's",
@@ -68782,6 +69270,10 @@
       {
         "source": "webfetch",
         "url": "https://santamonica.harvelles.com/events/139362"
+      },
+      {
+        "source": "harvelles",
+        "url": "https://santamonica.harvelles.com/calendar"
       }
     ],
     "sources": [
@@ -69820,9 +70312,10 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-15",
     "changed_fields": [
-      "start"
+      "start",
+      "lineup"
     ]
   },
   {
@@ -70006,7 +70499,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Smokestack Lightning (formerly Blowin Smoke)",
@@ -70654,7 +71151,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Fifteen0eight",
@@ -73586,7 +74087,11 @@
     "organizers": null,
     "genre": "house",
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Goodbye June: Good Trouble For All 2026 Tour",
@@ -74073,6 +74578,10 @@
       {
         "source": "avalon",
         "url": "https://avalonhollywood.com/event/partiboi69-nightclub-near-me-discover-avalon-hollywood-2026-september-18-best-night-club-near-me-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
@@ -76434,9 +76943,9 @@
     "genre": "folk/acoustic/Americana",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-15",
     "changed_fields": [
-      "start"
+      "lineup"
     ]
   },
   {
@@ -77322,7 +77831,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "venicewest"
     ],
     "organizers": null,
     "detail": "Show at The Venice West.",
@@ -77341,7 +77851,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "WAKhole: Manuka Honey, Rose Kourts, 1morning",
@@ -77450,7 +77964,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "venicewest"
     ],
     "organizers": null,
     "detail": "Late-night set at The Venice West (same night as Boogaloo Assassins' earlier show).",
@@ -77469,7 +77984,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Preciosa Night (21+)",
@@ -81564,7 +82083,12 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "start": "19:30"
+    "start": "19:30",
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "start",
+      "lineup"
+    ]
   },
   {
     "source": "The Venice West",
@@ -81616,7 +82140,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Grief Sucks: A KevOnStage Comedy Special(Early Show)",
@@ -83847,7 +84375,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "nate sib: reborn tour",
@@ -86517,7 +87049,7 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-15",
     "changed_fields": [
       "lineup"
     ]
@@ -86813,15 +87345,24 @@
       {
         "source": "venue",
         "url": "https://tixr.com/e/199656"
+      },
+      {
+        "source": "venicewest",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/tio-199656"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "venicewest"
     ],
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Dogman: The Musical",
@@ -89456,8 +89997,15 @@
       "region": "valley",
       "near_home": false
     },
-    "links": [],
-    "sources": [],
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://juniorhighlosangeles.com/calendar/legalsalonforartist-sept2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
     "organizers": null,
     "genre": null,
     "ra_pick": false,
@@ -89491,8 +90039,15 @@
       "region": "valley",
       "near_home": false
     },
-    "links": [],
-    "sources": [],
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://juniorhighlosangeles.com/calendar/sexycowfolkworkshop-2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
     "organizers": null,
     "genre": null,
     "ra_pick": false,
@@ -90576,9 +91131,9 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-15",
     "changed_fields": [
-      "price"
+      "lineup"
     ]
   },
   {
@@ -91809,7 +92364,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Earl Sweatshirt & MIKE: Home on the Range Tour 2026",
@@ -92315,8 +92874,15 @@
       "region": "westside",
       "near_home": false
     },
-    "links": [],
-    "sources": [],
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://www.vibratogrilljazz.com/music/h9tjnk6zmfnafetenj8gghsyyndfyt-yey2m"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
     "organizers": null,
     "genre": null,
     "ra_pick": false,
@@ -95495,7 +96061,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "mccabes"
     ],
     "organizers": null,
     "detail": "Concert at McCabe's Guitar Shop's back-room listening room.",
@@ -97201,7 +97768,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Orquesta Ritmo Alegre featuring Candi Sosa & Lazaro Galarraga",
@@ -97300,7 +97871,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Show Me The Body w/ JIVEBOMB",
@@ -97608,7 +98183,11 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Dogman: The Musical",
@@ -98809,7 +99388,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "source": "The Venice West",
@@ -100658,7 +101241,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "rusowsky",
@@ -101958,7 +102545,7 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-15",
     "changed_fields": [
       "lineup"
     ]
@@ -104449,7 +105036,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "source": "webfetch",
@@ -104600,16 +105191,25 @@
       {
         "source": "venue",
         "url": "https://avalonhollywood.com/event/alt8-noise-mafia-peterblue-nightclub-near-me-discover-avalon-hollywood-2026-october-9-best-night-club-near-me-hollywood-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "avalon"
     ],
     "detail": "Multi-artist electronic music showcase",
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "RaiNao",
@@ -106157,7 +106757,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Frank Unzueta Album Release Concert",
@@ -107646,6 +108250,10 @@
       {
         "source": "avalon",
         "url": "https://www.zeffy.com/en-US/ticketing/pioneer-ball"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
@@ -107721,7 +108329,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "South Bay New Orleans Jazz Club",
@@ -109912,8 +110524,15 @@
       "region": "valley",
       "near_home": false
     },
-    "links": [],
-    "sources": [],
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://juniorhighlosangeles.com/calendar/fet-ish-workshop-oct2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
     "organizers": null,
     "genre": null,
     "ra_pick": false,
@@ -109934,10 +110553,15 @@
       {
         "source": "venue",
         "url": "https://tixr.com/e/201122"
+      },
+      {
+        "source": "venicewest",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/souls-of-mischief-201122"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "venicewest"
     ],
     "organizers": null,
     "detail": "Show at The Venice West.",
@@ -109956,7 +110580,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Cynthia Erivo: Let Me Sing To You",
@@ -111349,13 +111977,18 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "mccabes"
     ],
     "detail": "Concert at McCabe's Guitar Shop's back-room listening room.",
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Pedro Fernández - Ave Fénix Two'r",
@@ -112404,7 +113037,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Kelsey Lu",
@@ -115294,7 +115931,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "source": "The Venice West",
@@ -115345,7 +115986,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Incendio",
@@ -115939,6 +116584,10 @@
       {
         "source": "avalon",
         "url": "https://avalonhollywood.com/event/petit-biscuit-nightclub-near-me-discover-avalon-hollywood-2026-october-17-best-night-club-near-me-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
@@ -117004,7 +117653,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Dogman: The Musical",
@@ -117252,7 +117905,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "it's murph",
@@ -120130,16 +120787,25 @@
       {
         "source": "venue",
         "url": "https://tixr.com/e/201896"
+      },
+      {
+        "source": "venicewest",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/love-w-johnny-echols-201896"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "venicewest"
     ],
     "detail": "Show at The Venice West.",
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "The Super Graphic Spectacular",
@@ -121439,7 +122105,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "City of the Sun",
@@ -121922,10 +122592,15 @@
       {
         "source": "webfetch",
         "url": "https://avalonhollywood.com/event/chromeo-nightclub-near-me-discover-avalon-hollywood-2026-october-23-best-night-club-near-me-hollywood-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "avalon"
     ],
     "organizers": null,
     "detail": "Electronic funk duo performance",
@@ -121946,7 +122621,12 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "start",
+      "lineup"
+    ]
   },
   {
     "title": "Bluey's Big Play",
@@ -124540,7 +125220,8 @@
       }
     ],
     "sources": [
-      "webfetch"
+      "webfetch",
+      "mccabes"
     ],
     "organizers": null,
     "detail": "Concert at McCabe's Guitar Shop's back-room listening room.",
@@ -124562,7 +125243,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Taste Of Chaos",
@@ -128093,7 +128778,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "V.sions Halloween: Very Special Lineup TBA",
@@ -132598,7 +133287,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "AFTER",
@@ -133709,7 +134402,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "ZULAN",
@@ -135226,7 +135923,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Yellowman",
@@ -136158,7 +136859,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Keller Williams",
@@ -138711,7 +139416,11 @@
     "organizers": null,
     "genre": null,
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Obscene (Goth / Industrial / EBM / Darkwave)",
@@ -141501,7 +142210,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Yachty By Nature",
@@ -142873,6 +143586,10 @@
       {
         "source": "webfetch",
         "url": "https://avalonhollywood.com/event/inna-nightclub-near-me-discover-avalon-hollywood-2026-november-15-best-night-club-near-me-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
@@ -142898,7 +143615,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Chris Smither (Sunday Show)",
@@ -142946,7 +143667,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Mad Tsai",
@@ -145630,7 +146355,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Ceremony w/ Spelling",
@@ -147040,7 +147769,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Wolf & Bear",
@@ -148302,7 +149035,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Holywatr",
@@ -155571,6 +156308,10 @@
       {
         "source": "webfetch",
         "url": "https://avalonhollywood.com/event/speed-of-sound-nightclub-near-me-discover-avalon-hollywood-2026-december-11-best-night-club-near-me-los-angeles/"
+      },
+      {
+        "source": "avalon",
+        "url": "https://avalonhollywood.com/events"
       }
     ],
     "sources": [
@@ -155596,7 +156337,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-15",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "A Celtic Christmas",
