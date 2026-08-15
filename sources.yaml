@@ -802,9 +802,10 @@ sources:
     method: webfetch
     url: https://alvasshowroom.com/events/
     priority: 3
-    status: flaky
+    status: dead
     notes: 99-cap seated jazz/acoustic/world listening room. Plain HTML, no JSON-LD.
-      Blocking WebFetch with HTTP 403 (bot-blocked) as of 2026-07-21; 5+ days stale before that too.
+      Blocking WebFetch with HTTP 403 (bot-blocked) continuously since 2026-07-21
+      (still 403 as of 2026-08-15) — escalated flaky -> dead, ~1 month unreachable.
   - name: The Venice West
     category: live_music
     method: webfetch
