@@ -23204,13 +23204,13 @@
       "score_at_judge": 3
     },
     "e8ff8c423d38": {
-      "tier": "skip",
-      "adjust": -3,
-      "why": "Stadium Latin-pop tour date (night 2 of 2) — outside the electronic/rock lanes this profile actually wants, draw bump aside.",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Massive stadium draw but pure Latin pop, no house/techno thread — fine to stay informed on, not a real pull for you.",
       "confidence": "high",
-      "judged_at": "2026-08-09T12:46:43",
+      "judged_at": "2026-08-15T12:41:07",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "412cc4dc8635": {
       "tier": "skip",
@@ -40060,13 +40060,13 @@
       "score_at_judge": 6
     },
     "d4b985a374cc": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Juliet Mendoza is real deep/soulful house pedigree (Jill's House, Defected Unsung Heroes) that lines up with your groove lane better than the score's mid-tier number suggests.",
-      "confidence": "med",
-      "judged_at": "2026-08-13T12:39:38",
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Chris Cruse is Panorama Bar-pedigree warehouse house and this sounds like Honey Dijon/Mike Servito, plus Juliet Mendoza, who you actually listen to — a real card, not just a night out.",
+      "confidence": "high",
+      "judged_at": "2026-08-15T12:41:07",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 10
     },
     "6dbbfd5d65db": {
       "tier": "solid",
@@ -40215,6 +40215,151 @@
       "input_version": 2,
       "score_at_judge": 7,
       "model": "claude-sonnet-5"
+    },
+    "44f329b4a7f9": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Two strong-affinity names (Chemtrail Johnny, Hazy) on a deep hypnotic techno bill at a TBA DTLA warehouse — exactly the vinyl-groove lane, and close to home.",
+      "confidence": "high",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 11
+    },
+    "3df8590a8635": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Warehouse party in the Arts District tonight, but no lineup listed — can't gauge the draw beyond the setting.",
+      "confidence": "low",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "a6ee47a923ad": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Xica Soul is a genuine strong-affinity artist for you (In Sheep's Clothing circuit, soul/funk house) and it's free and walkable — underrated by the plain score.",
+      "confidence": "high",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "a9c08462a9cc": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "James Axon's a real deep-house/Balearic DJ you'd otherwise chase, but this Planet Love is explicitly the queer-oriented party he founded — the hard penalty applies regardless of the lineup.",
+      "confidence": "high",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "4a2b26672895": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Disco night in Koreatown, no lineup named — fine if you're already out, nothing here to build a plan around.",
+      "confidence": "low",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "d5e00c418218": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "This is a perreo/reggaeton night, not house — the score's 'on-taste genre' bump is a mistag, it's not your lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "0587778502f4": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Bare-bones recurring afters listing, no names or scene detail — filler unless something better falls through.",
+      "confidence": "low",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a7bc6645297c": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "DnB/jungle isn't your core spine, but it's an RA pick, which is a real quality signal — worth a look if you're curious that night.",
+      "confidence": "med",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "55cb273f24ea": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same generic afters series as the Friday listing, still no lineup — filler.",
+      "confidence": "low",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "8d15a6ad5287": {
+      "tier": "solid",
+      "lane": "club:underground",
+      "adjust": 0,
+      "why": "10:30pm start on a Saturday isn't a day party — the club:day tag is just picking up 'sunset' from the venue name; no lineup detail to say more.",
+      "confidence": "low",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "55a5e044a584": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Blind-ticket warehouse party, free, no lineup — fits the underground boost but too anonymous to call more than a maybe.",
+      "confidence": "low",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "2a433dd0a28a": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Crankdat is dubstep/bass — exactly the mega-show genre your brief penalizes; the score missed that.",
+      "confidence": "high",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "b504b1dfb3a1": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Lights Down Low is a real LA institution (Boiler Room alum Corey Sizemore, founder Richie Panic), and Interplanetary Criminal's UK bassline/2-step is genuinely interesting — undersold by the flat score.",
+      "confidence": "high",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "3ee5f72fa32c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Weekly vintage/vinyl flea, walkable from home — nice but it's the same market every week, not a standout instance.",
+      "confidence": "high",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "3ab6eb6775c7": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Nine-day Nisei Week with a parade and plaza festival is a real neighborhood cultural event, not generic community filler.",
+      "confidence": "med",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "f3e346584349": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Regular walkable Silver Lake farmers market — reliable, not a special pull this particular week.",
+      "confidence": "high",
+      "judged_at": "2026-08-15T12:41:07",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }
