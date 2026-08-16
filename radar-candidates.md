@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/15/2026 deterministically (no API). 309 candidates. Signals: big-venue 273, festival 29, tracked 9, editorial 2._
+_Generated 8/16/2026 deterministically (no API). 298 candidates. Signals: big-venue 266, festival 25, tracked 9, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -29,7 +29,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 9/26 | 8 | Factory 93 presents: Amelie Lens at Grand Park Block 2 | Grand Park | tracked:Amelie Lens | [link](https://ra.co/events/2400834) |
-| Sat 9/19 | 7 | Âme, DJ Tennis, Kaz James - Chinatown Block Party | Gin Ling Way, Chinatown | festival | [link](https://ra.co/events/2487802) |
 | Fri 9/25 | 7 | Overmono - Pure Devotion World Tour | Hollywood Palladium | tracked:Overmono | [link](https://ra.co/events/2446440) |
 | Sun 9/27 | 6 | Into The Woods presents Theo Parrish (Open To Close) | TBA | tracked:Theo Parrish | [link](https://ra.co/events/2502776) |
 
@@ -45,12 +44,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 12/12 | 5 | JOHN SUMMIT - CTRL ESCAPE TOUR | Los Angeles Memorial Coliseum | tracked:John Summit | [link](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 9/19 | 4 | Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustB | Echoplex | festival | [link](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA) |
 
 ## October 2026
 
@@ -70,8 +63,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/19 | 3 | AFI | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/afi-santa-ana-california-09-19-2026/event/09006494A5578640) |
-| Sat 9/19 | 3 | 6th Annual Lake Elsinore Mariachi Fest 2026 | LAKE ELSINORE DIAMOND STADIUM | festival | [link](https://www.ticketmaster.com/6th-annual-lake-elsinore-mariachi-fest-lake-elsinore-california-09-19-2026/event/090064F0954D6982) |
 | Thu 9/24 | 3 | Laurie Anderson | Orpheum Theatre | festival | [link](https://www.ticketmaster.com/laurie-anderson-los-angeles-california-09-24-2026/event/090064CAD9E9F3B2) |
 | Fri 9/25 | 3 | Ohana Music Festival | Doheny State Beach | festival | [link](https://on.fgtix.com/trk/ycJM) |
 | Sat 9/26 | 3 | Ohana Music Festival | Doheny State Beach | festival | [link](https://on.fgtix.com/trk/ycJM) |
@@ -153,7 +144,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/19 | 5 | Sofi Tukker w/ DRAMA | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 9/25 | 5 | Riley Green: Cowboy As It Gets Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/riley-green-cowboy-as-it-gets-los-angeles-california-09-25-2026/event/090064BCCDA4CFFB) |
 
 ## October 2026
@@ -173,7 +163,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/19 | 4 | Squeeze w/ Adam Ant | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sun 9/20 | 4 | KCRW Presents Haruomi Hosono: The Yours Sincerely Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/kcrw-presents-haruomi-hosono-the-yours-los-angeles-california-09-20-2026/event/090064AEAECDEA57) |
 | Mon 9/21 | 4 | Lily Allen Performs West End Girl | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lily-allen-performs-west-end-girl-los-angeles-california-09-21-2026/event/090064E8F349EC5D) |
 | Wed 9/23 | 4 | BECK: RIDE LONESOME TOUR | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/beck-ride-lonesome-tour-los-angeles-california-09-23-2026/event/0900648A40ABD374) |
@@ -241,8 +230,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/19 | 3 | MANÁ: VIVIR SIN AIRE TOUR | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/mana-vivir-sin-aire-tour-inglewood-california-09-19-2026/event/0900637A9D738574) |
-| Sat 9/19 | 3 | IDL 2026 LA Series (Day 1) | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1559330/idl-2026-la-series-day-1-tickets) |
 | Sun 9/20 | 3 | Gregory Alan Isakov w/ Jose Gonzalez | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Wed 9/23 | 3 | Jazz at Lincoln Center Orchestra with Wynton Marsalis | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Thu 9/24 | 3 | Jon Bellion | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
@@ -362,8 +349,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/19 | 2 | Mentiras All Stars | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/mentiras-all-stars-inglewood-california-09-19-2026/event/0A006489CA1CA33B) |
-| Sat 9/19 | 2 | Ralph Barbosa | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 9/20 | 2 | Carin Leon - De Sonora Para El Mundo Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/carin-leon-de-sonora-para-el-los-angeles-california-09-20-2026/event/0A00644328E0E003) |
 | Sun 9/20 | 2 | Dierks Bentley (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 9/20 | 2 | IDL 2026 Championship (Day 2) | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1570044/idl-2026-championship-day-2-tickets) |
@@ -516,12 +501,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 |---|---|---|---|---|---|
 | Sun 12/6 | 1 | Adrian Uribe: 50 y Pico Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/adrian-uribe-50-y-pico-tour-inglewood-california-12-06-2026/event/0A0064F6C4A3A0B9) |
 | Sun 12/13 | 1 | Rose Bowl Flea Market Sunday, December 13, 2026 | Rose Bowl Stadium | big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-december-13-2026-tickets-1977732048797) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 9/19 | 0 | "Weird Al" Yankovic: Bigger & Weirder 2026 Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/weird-al-yankovic-bigger-weirder-2026-anaheim-california-09-19-2026/event/09006366923698BD) |
 
 ## October 2026
 
