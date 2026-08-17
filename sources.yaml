@@ -160,12 +160,15 @@ sources:
     method: webfetch
     url: https://la.eater.com/
     priority: 1
-    status: active
+    status: flaky
     notes: >
       THE source for food & drink pop-ups, restaurant openings, and brand activations (e.g. a
       Campari spritz block party). Read via WebFetch at digest time; extract the on-taste daytime/
       lifestyle happenings (markets, spritz parties, pop-ups, openings worth knowing). Signal +
       catalog when no structured source has it.
+      Marked flaky 2026-08-17 — 2 consecutive fetch failures (8/16: no fetchable content; 8/17:
+      bot-blocked, WebFetch couldn't reach la.eater.com at all after 2 tries). Re-probe periodically;
+      revert to active once it fetches cleanly again.
 
   - name: UncoverLA
     category: editorial
