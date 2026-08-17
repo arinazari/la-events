@@ -39790,13 +39790,12 @@
     },
     "b81b738c54bf": {
       "tier": "great",
-      "adjust": 2,
-      "why": "20-years-of-Incognito warehouse anniversary with Roni Size headlining is a real legend booking, not just generic 'electronic' — the score undersells it.",
+      "adjust": 1,
+      "why": "Roni Size and Dieselboy on a TBA warehouse bill is a rare legacy DnB booking (Mercury Prize pedigree) — not core house/techno but exactly the underground-rave energy the taste rewards.",
       "confidence": "med",
-      "judged_at": "2026-08-16T12:35:42",
+      "judged_at": "2026-08-17T13:17:04",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 10
     },
     "0e63e5b337d6": {
       "tier": "great",
@@ -40000,14 +39999,14 @@
       "score_at_judge": 7
     },
     "2faa04cb1e64": {
-      "tier": "solid",
-      "adjust": -1,
-      "why": "Billed under LUCKI but the scene description just reads 'Code Red warehouse party' — unclear if this is actually a rap show or a DJ night, worth checking before building a plan around it.",
-      "confidence": "low",
-      "judged_at": "2026-08-16T12:35:42",
+      "tier": "skip",
+      "lane": "live-music",
+      "adjust": -3,
+      "why": "Scene note pegs this as a Lucki rap show, not a house/electronic night — the 'on-taste genre (house)' credit is a mis-tag; bury it and fix the lane.",
+      "confidence": "high",
+      "judged_at": "2026-08-17T13:17:04",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 10
     },
     "1cad70c3ba70": {
       "tier": "solid",
@@ -40559,14 +40558,13 @@
       "model": "claude-sonnet-5"
     },
     "2c629685615e": {
-      "tier": "solid",
-      "adjust": 1,
-      "why": "Walfredo Reyes Jr. actually drummed for Santana and Chicago — real pedigree for a Bel Air jazz seating, even if it's a trek.",
-      "confidence": "med",
-      "judged_at": "2026-08-16T12:35:42",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Nice pedigree on the sideman (Santana/Chicago drummer) but this is a Bel Air jazz-club duo set — jazz isn't in this profile's lane at all, and the 'on-taste genre' credit looks like a stray match, not a real signal.",
+      "confidence": "high",
+      "judged_at": "2026-08-17T13:17:04",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 9
     },
     "e2fa13262015": {
       "tier": "solid",
@@ -40714,14 +40712,13 @@
       "model": "claude-sonnet-5"
     },
     "b8b1f12dfa1c": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Same Nolan 70mm Odyssey run, night two — the top pick is the earlier date above, but any night of this run is worth going to.",
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Nolan on 70mm at Vista is the exact director+format+venue combo this profile builds a night around.",
       "confidence": "high",
-      "judged_at": "2026-08-16T12:35:42",
+      "judged_at": "2026-08-17T13:17:04",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 9
     },
     "767d353e208f": {
       "tier": "solid",

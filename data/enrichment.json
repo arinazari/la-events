@@ -7309,10 +7309,23 @@
     },
     "ed868d8f80ef": {
       "id": "ed868d8f80ef",
-      "description": "70mm screening of The Odyssey at Vista Theater, Los Feliz (7:15pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-05T07:08:12",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "communal / big-screen",
+      "setting": "cinema",
+      "sounds_like": [],
+      "card": {
+        "draw": 3,
+        "rarity": 1,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "Nolan shot The Odyssey entirely on IMAX film, and only 25 screens in the US can run the true 70mm print — the Vista's one of them, and shows have been selling out weeks out. This is the way to see it, not the digital fallback.",
+      "description": "70mm theatrical screenings of Christopher Nolan's The Odyssey at Vista Theater, Los Feliz (2:30pm & 7:15pm).",
+      "confidence": "high",
+      "enriched_at": "2026-08-17T13:17:05",
+      "enriched_tier": "full"
     },
     "3b25beebffc9": {
       "id": "3b25beebffc9",
@@ -13759,10 +13772,32 @@
     },
     "c29d7deec873": {
       "id": "c29d7deec873",
-      "description": "Shanto and PERSTEPHANII DJ a late-night electronic set at Ka'teen (10pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-17T13:04:20",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house",
+        "deep-house",
+        "disco"
+      ],
+      "label_orbit": [],
+      "energy": "groove / late-night",
+      "setting": "bar",
+      "sounds_like": [],
+      "card": {
+        "draw": 1,
+        "rarity": 0,
+        "lineup_depth": 1
+      },
+      "artist_notes": [
+        {
+          "name": "Shanto",
+          "note": "LA-based DJ/producer ranging downtempo through deep and indie house to techno — a regular on the city's rooftop/deep-house circuit."
+        }
+      ],
+      "curator_note": "Shanto's the reason to trust this one — a genuine deep/groove-house regular on the LA circuit even in a room this small; Perstephanii's more of an unknown quantity, so treat it as a low-key Friday hang rather than a destination night.",
+      "description": "Shanto and PERSTEPHANII DJ a late-night house/disco set at Ka'teen (Friday, 10pm).",
+      "confidence": "medium",
+      "enriched_at": "2026-08-17T13:17:05",
+      "enriched_tier": "full"
     },
     "583be584840e": {
       "id": "583be584840e",
