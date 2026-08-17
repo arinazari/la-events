@@ -1948,7 +1948,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/black-joe-lewis-w-zg-smith-184075",
     "detail": "Live show at The Venice West headlined by Black Joe Lewis.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -1980,10 +1980,10 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Soul/Rock",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -2342,7 +2342,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
-      "Clever Girl Trivia - 1st & 3rd Tuesdays!"
+      "Clever Girl Trivia (1st & 3rd Tuesdays)"
     ],
     "category": "live_music",
     "price": null,
@@ -2350,7 +2350,7 @@
     "detail": "Recurring trivia night at The Venice West.",
     "organizers": null,
     "first_seen": "2026-07-21",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -2376,7 +2376,7 @@
       "venicewest",
       "webfetch"
     ],
-    "genre": null,
+    "genre": "Trivia",
     "ra_pick": false,
     "afterhours": false
   },
@@ -3127,20 +3127,24 @@
     }
   },
   {
-    "title": "\"Tuesday Happenings\": Hosted by Devin Daniels",
+    "title": "\"Tuesday Happenings\" hosted by Devin Daniels (with Julien Knowles, Luca Alemanno, Nate Friedman)",
     "date": "2026-08-18",
     "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "jazz",
-    "genre": null,
+    "genre": "Jazz",
     "lineup": [
-      "\"Tuesday Happenings\": Hosted by Devin Daniels"
+      " Devin Daniels"
     ],
     "links": [
       {
         "source": "venue",
         "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-devin-daniels-17"
+      },
+      {
+        "source": "webfetch",
+        "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-devin-daniels-with-julien-knowles-luca-alemanno-nate-friedman"
       }
     ],
     "sources": [
@@ -3153,7 +3157,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -4232,7 +4236,7 @@
   },
   {
     "source": "webfetch",
-    "title": "Kenny Washington: Celebrating The Masters with Josh Nelson, Luca Alemanno & Dan Schnelle",
+    "title": "Kenny Washington: Celebrating The Masters (with Josh Nelson, Luca Alemanno, Dan Schnelle)",
     "date": "2026-08-19",
     "start": "19:30",
     "venue": "Sam First",
@@ -4248,7 +4252,7 @@
     "url": "https://www.samfirstbar.com/events/kenny-washington-celebrating-the-masters-with-josh-nelson-luca-alemanno-dan-schnelle",
     "detail": "GRAMMY-nominated vocalist Kenny Washington makes his Sam First debut with pianist Josh Nelson and trio. (Sets at ~7:30pm & 9:30pm.)",
     "first_seen": "2026-07-22",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -4277,9 +4281,9 @@
     "genre": "jazz vocal",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "start"
+      "lineup"
     ],
     "image": "https://static.wixstatic.com/media/8573fb_c99f9314a9934e77a904fd6a2b38ea29~mv2.png"
   },
@@ -4572,7 +4576,8 @@
       }
     ],
     "sources": [
-      "editorial"
+      "editorial",
+      "webfetch"
     ],
     "organizers": null,
     "detail": "Recurring Wednesday-night residency at The Dresden; no cover, lineup subject to change per venue site.",
@@ -4580,7 +4585,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -4593,7 +4598,11 @@
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Out of Sight",
@@ -4961,10 +4970,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/brett-dennen-200757",
     "detail": "Show at The Venice West.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -4988,7 +4999,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Folk",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -6252,10 +6263,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/-venice-western-line-dancing-197733",
     "detail": "Instructional line dancing event with western theme.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "country"
+      ],
       "setting": [
         "bar"
       ],
@@ -6283,7 +6296,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Country",
     "ra_pick": false,
     "afterhours": false
   },
@@ -6488,7 +6501,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-23",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -6684,7 +6697,8 @@
       }
     ],
     "sources": [
-      "editorial"
+      "editorial",
+      "webfetch"
     ],
     "organizers": null,
     "detail": "Recurring Thursday-night residency at The Dresden; no cover, lineup subject to change per venue site.",
@@ -6692,7 +6706,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -6705,7 +6719,11 @@
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "The Searchers in 70mm",
@@ -7296,7 +7314,7 @@
     "url": "https://avalonhollywood.com/event/bryce-alakai-nightclub-near-me-discover-avalon-hollywood-2026-august-20-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Electronic music artist performance",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -7323,12 +7341,12 @@
       "avalon"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Electronic",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "lineup"
+      "start"
     ]
   },
   {
@@ -9628,7 +9646,7 @@
     "venue": "Avalon Hollywood",
     "neighborhood": "Hollywood",
     "category": "live_music",
-    "genre": null,
+    "genre": "Electronic",
     "lineup": [
       "AHEE",
       "XOTIX",
@@ -9658,7 +9676,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-11",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "club",
       "genre": [
@@ -9674,7 +9692,7 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "start",
       "lineup"
@@ -10266,7 +10284,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-24",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -10444,7 +10462,9 @@
     "neighborhood": "Los Feliz",
     "category": "live_music",
     "genre": "funk/motown",
-    "lineup": [],
+    "lineup": [
+      "Funky Fridays @ The Dresden"
+    ],
     "links": [
       {
         "source": "webfetch",
@@ -10452,7 +10472,8 @@
       }
     ],
     "sources": [
-      "editorial"
+      "editorial",
+      "webfetch"
     ],
     "organizers": null,
     "detail": "Recurring biweekly Friday-night residency at The Dresden; no cover, lineup subject to change per venue site.",
@@ -10460,7 +10481,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -10473,7 +10494,11 @@
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Ponyo in 35mm",
@@ -15450,7 +15475,7 @@
     "url": "https://avalonhollywood.com/event/for-the-culture-3-nightclub-near-me-discover-avalon-hollywood-2026-august-22-best-night-club-near-me-los-angeles/",
     "detail": "Afternoon hip-hop/R&B day party, third installment of the 'For the Culture' series.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "club",
       "genre": [
@@ -15486,7 +15511,7 @@
     "ra_pick": false,
     "afterhours": false,
     "start": "16:00",
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "start",
       "lineup"
@@ -15565,10 +15590,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/twisted-gypsy-fleetwood-mac-reimagined-181305",
     "detail": "Tribute show: Twisted Gypsy - Fleetwood Mac Reimagined.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -15598,7 +15625,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Rock",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -15878,7 +15905,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Latin/Dance",
     "lineup": [
       "Casa Nova Presents"
     ],
@@ -15906,7 +15933,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-17",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -16136,7 +16163,7 @@
     "detail": "Sunday Grateful Dead-themed brunch series with a live house band.",
     "organizers": null,
     "first_seen": "2026-07-21",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -16162,10 +16189,10 @@
       "venicewest",
       "webfetch"
     ],
-    "genre": null,
+    "genre": "Jam",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -16280,7 +16307,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "sources": [
       "samfirst",
       "editorial",
@@ -16535,7 +16562,8 @@
       }
     ],
     "sources": [
-      "editorial"
+      "editorial",
+      "webfetch"
     ],
     "organizers": null,
     "detail": "Recurring Saturday-night residency at The Dresden; no cover, lineup subject to change per venue site.",
@@ -16543,7 +16571,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -16556,7 +16584,11 @@
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "An Evening with Charlize Theron Featuring Mad Max: Fury Road",
@@ -17025,7 +17057,7 @@
     "url": "https://avalonhollywood.com/event/time-machine-nightclub-near-me-discover-avalon-hollywood-2026-august-22-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Nostalgic dance party featuring 90s and 2000s music",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -17052,13 +17084,12 @@
       "avalon"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Throwback",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "start",
-      "lineup"
+      "start"
     ]
   },
   {
@@ -20244,6 +20275,45 @@
     }
   },
   {
+    "title": "Nisei Week Plaza Festival",
+    "date": "2026-08-22",
+    "start": "12:00",
+    "venue": "Japanese American Cultural and Community Center (JACCC)",
+    "neighborhood": "Little Tokyo",
+    "category": "community",
+    "genre": null,
+    "lineup": [
+      "Nisei Week Plaza Festival"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.niseiweek.org/"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Outdoor festival day of the 84th annual Nisei Week, a Little Tokyo tradition celebrating Japanese-American culture; live performances, food, and vendors at the JACCC plaza.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-17",
+    "last_seen": "2026-08-17",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": false
+    }
+  },
+  {
     "title": "Hatebreed: SUMMER SLAUGHTER TOUR 2026",
     "date": "2026-08-23",
     "start": "16:00",
@@ -21329,7 +21399,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Latin",
     "lineup": [
       "Salsa & Vinyls Brunch"
     ],
@@ -21357,7 +21427,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21383,7 +21453,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Jam",
     "lineup": [
       "Jason Sinay",
       "John Molo",
@@ -21421,7 +21491,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -21433,7 +21503,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -21769,10 +21839,11 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-17",
     "sources": [
       "dresden",
-      "editorial"
+      "editorial",
+      "webfetch"
     ],
     "tags": {
       "type": "live-music",
@@ -21788,7 +21859,11 @@
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Los Feliz Flea (Sunday)",
@@ -23721,6 +23796,43 @@
     }
   },
   {
+    "title": "Nisei Week Plaza Festival",
+    "date": "2026-08-23",
+    "start": "12:00",
+    "venue": "Japanese American Cultural and Community Center (JACCC)",
+    "neighborhood": "Little Tokyo",
+    "category": "community",
+    "genre": null,
+    "lineup": [
+      "Nisei Week Plaza Festival"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.niseiweek.org/"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Second day of the Plaza Festival closing out the 84th annual Nisei Week in Little Tokyo; live performances, food, and vendors at the JACCC plaza.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-17",
+    "last_seen": "2026-08-17",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": false
+    }
+  },
+  {
     "title": "TRAIN - Drops of Jupiter: 25 Years in the Atmosphere",
     "date": "2026-08-24",
     "start": "18:45",
@@ -25254,7 +25366,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/jeff-dye-early-show--184195",
     "detail": "Stand-up comedy show at The Venice West.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "links": [
       {
         "source": "webfetch",
@@ -25296,7 +25408,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "start",
       "lineup"
@@ -26496,7 +26608,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Rock",
     "lineup": [
       "Asa Anderson",
       "Jacob Thomas",
@@ -26527,10 +26639,12 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-10",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -26539,7 +26653,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -26655,7 +26769,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "sources": [
       "samfirst",
       "webfetch"
@@ -26737,7 +26851,8 @@
       }
     ],
     "sources": [
-      "editorial"
+      "editorial",
+      "webfetch"
     ],
     "organizers": null,
     "detail": "Recurring Wednesday-night residency at The Dresden; no cover, lineup subject to change per venue site.",
@@ -26745,7 +26860,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -26758,7 +26873,11 @@
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "The Secret World of Arrietty",
@@ -28202,17 +28321,19 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
-      "Bob Schneider w/ Tom Freund"
+      "Bob Schneider"
     ],
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/bob-schneider-181083",
     "detail": "Live show at The Venice West: Bob Schneider.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -28244,7 +28365,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Rock",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -28789,7 +28910,8 @@
       }
     ],
     "sources": [
-      "editorial"
+      "editorial",
+      "webfetch"
     ],
     "organizers": null,
     "detail": "Recurring Thursday-night residency at The Dresden; no cover, lineup subject to change per venue site.",
@@ -28797,7 +28919,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -28810,7 +28932,11 @@
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "source": "webfetch",
@@ -28833,7 +28959,7 @@
     "url": "https://www.samfirstbar.com/events/syndee-winters-sings-lena-horne-with-alexis-lombre-john-davis-jay-flat-brad-allen-william-yafeu-tyhimba",
     "detail": "Celebration of Lena Horne's life and music with contemporary arrangements",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -28858,7 +28984,7 @@
       "webfetch"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Jazz",
     "ra_pick": false,
     "afterhours": false
   },
@@ -31008,10 +31134,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/strawberry-fuzz-w-the-abomic-toms-simplystics-182595",
     "detail": "Live show at The Venice West headlined by Strawberry Fuzz.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -31039,10 +31167,10 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Rock",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -31054,7 +31182,7 @@
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Folk",
     "lineup": [
       "Beth Nielsen Chapman"
     ],
@@ -31080,7 +31208,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -31094,10 +31222,9 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "price",
-      "lineup"
+      "price"
     ]
   },
   {
@@ -31784,7 +31911,11 @@
     "neighborhood": "Los Feliz",
     "category": "live_music",
     "genre": "jazz/crooner",
-    "lineup": [],
+    "lineup": [
+      "Matt Forbes",
+      "Jesse Goddard",
+      "David Moscoe Trio"
+    ],
     "links": [
       {
         "source": "webfetch",
@@ -31792,7 +31923,8 @@
       }
     ],
     "sources": [
-      "editorial"
+      "editorial",
+      "webfetch"
     ],
     "organizers": null,
     "detail": "Recurring biweekly Friday-night residency at The Dresden; no cover, lineup subject to change per venue site.",
@@ -31800,7 +31932,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -31815,7 +31947,11 @@
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "MUZIQUE Fridays @ Kiss Kiss Bang Bang w/TAMARA LANZA + Special Guest DJS",
@@ -31971,7 +32107,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -32106,7 +32242,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-05",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -32118,9 +32254,9 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "lineup"
+      "start"
     ]
   },
   {
@@ -34652,7 +34788,7 @@
     "url": "https://www.mccabes.com/product/amy-lavere-featuring-will-sexton/",
     "detail": "Memphis roots/rockabilly singer-bassist Amy LaVere performs with guitarist Will Sexton.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -34686,7 +34822,7 @@
     "genre": "folk/acoustic/Americana",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "price",
       "lineup"
@@ -34765,7 +34901,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/la-luz-186907",
     "detail": "Live show at The Venice West: La Luz.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -34797,7 +34933,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Surf Rock",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -35263,7 +35399,7 @@
     "detail": "Sunday Grateful Dead-themed brunch series with a live house band.",
     "organizers": null,
     "first_seen": "2026-07-21",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -35289,10 +35425,10 @@
       "venicewest",
       "webfetch"
     ],
-    "genre": null,
+    "genre": "Jam",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -35770,7 +35906,8 @@
       }
     ],
     "sources": [
-      "editorial"
+      "editorial",
+      "webfetch"
     ],
     "organizers": null,
     "detail": "Recurring Saturday-night residency at The Dresden; no cover, lineup subject to change per venue site.",
@@ -35778,7 +35915,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -35791,7 +35928,11 @@
       ],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Funk Freaks Present: Mia Castillo",
@@ -35988,7 +36129,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/dead-by-midnight-201053",
     "detail": "Show at The Venice West.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -36015,7 +36156,7 @@
       "webfetch"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Jam",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -36692,7 +36833,7 @@
   },
   {
     "source": "webfetch",
-    "title": "John Beasley Presents: \"The Birthday Hang\" Celebrating Bird, Pres, Sonny & Wayne",
+    "title": "John Beasley Presents: \"The Birthday Hang\" (Celebrating Bird, Pres, Sonny, Wayne)",
     "date": "2026-08-29",
     "start": "19:30",
     "venue": "Sam First",
@@ -36707,7 +36848,7 @@
     "url": "https://www.samfirstbar.com/events/john-beasley-presents-the-birthday-hang-celebrating-bird-pres-sonny-wayne",
     "detail": "Pianist/composer John Beasley celebrates jazz icons with two of today's saxophone icons. (Sets at ~7:30pm & 9:30pm.)",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -36732,9 +36873,13 @@
       "samfirst"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Jazz",
     "ra_pick": false,
-    "afterhours": false
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Generacion Suicida \"Nombre Nuevo\" Record Release Show, Intermission, Crisis Actor",
@@ -37139,7 +37284,7 @@
     "url": "https://avalonhollywood.com/event/youna-x-silver-panda-nightclub-near-me-discover-avalon-hollywood-2026-august-29-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Club night at Avalon Hollywood.",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "club",
       "genre": [
@@ -37168,7 +37313,7 @@
       "avalon"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Electronic",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -38543,7 +38688,7 @@
     "url": "https://www.mccabes.com/product/jim-keller/",
     "detail": "Sold out. Session-heavyweight backing band (Los Lobos' David Hidalgo among them).",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -38575,7 +38720,7 @@
       "editorial"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Folk",
     "ra_pick": false,
     "afterhours": false
   },
@@ -38653,10 +38798,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/tab-benoit-w-the-zac-schulze-gang-176882",
     "detail": "Live show at The Venice West headlined by Tab Benoit.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "blues"
+      ],
       "setting": [
         "bar"
       ],
@@ -38685,10 +38832,10 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Blues",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -40155,7 +40302,7 @@
     "url": "https://www.mccabes.com/product/jim-keller-monday-show/",
     "detail": "Concert at McCabe's Guitar Shop's back-room listening room. Sold out.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -40192,7 +40339,7 @@
       "editorial"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Folk",
     "ra_pick": false,
     "afterhours": false
   },
@@ -40835,7 +40982,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Rock",
     "lineup": [
       "Local's Night",
       "The Strands",
@@ -40871,10 +41018,12 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-17",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -40932,7 +41081,7 @@
     "venue": "Harvelle's",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Funk",
     "lineup": [
       "Alligator Beach 'New Orleans Funk Party'"
     ],
@@ -40956,7 +41105,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -40979,9 +41128,9 @@
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "live-music",
-    "genre": null,
+    "genre": "Jazz",
     "lineup": [
-      "\"Tuesday Happenings\": Hosted by Gerald Clayton"
+      " Gerald Clayton"
     ],
     "links": [
       {
@@ -40999,7 +41148,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -41658,7 +41807,7 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "links": [
       {
         "source": "webfetch",
@@ -41702,7 +41851,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "start",
       "lineup"
@@ -41800,17 +41949,21 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Luke Strand & Friends"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "A modern, soulful, jazzy, jam session performing a range of hits from different decades.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
@@ -41818,7 +41971,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "The Toledo Show",
@@ -41827,7 +41997,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "The Toledo Show"
     ],
@@ -41851,7 +42021,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -42171,9 +42341,9 @@
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "jazz",
-    "genre": null,
+    "genre": "Jazz",
     "lineup": [
-      "Michael Wolff Quartet with Danny Janklow, Edwin Livingston & Clayton Cameron"
+      "Michael Wolff Quartet"
     ],
     "links": [
       {
@@ -42191,7 +42361,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -42204,7 +42374,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Garden Brothers Circus",
@@ -43073,14 +43247,16 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Billy T and the Fam"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "An incredible saxophone-led instrumental jazz night.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43093,7 +43269,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "All-Star Jam Session Benefit",
@@ -43102,7 +43295,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "All-Star Jam Session Benefit"
     ],
@@ -43126,7 +43319,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -43203,7 +43396,7 @@
     "price": null,
     "detail": "Indonesian bass player known for her work with renowned musicians. (Sets at ~7:30pm & 9:30pm.)",
     "first_seen": "2026-08-06",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -44468,7 +44661,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/bee-gees-fever-a-tribute-to-bee-gees--181313",
     "detail": "Tribute show: Bee Gees Fever - A Tribute to Bee Gees!.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -44501,7 +44694,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Disco",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -44732,14 +44925,16 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Funky Fridays @ The Dresden"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "High energy lounge act with Motown, funk covers, and original music.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -44752,7 +44947,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Funk",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Silverlake Flea",
@@ -44796,7 +45008,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "The No Chasers"
     ],
@@ -44820,7 +45032,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -45038,7 +45250,7 @@
     "price": null,
     "detail": "Longtime friends and colleagues appearing regularly as this group. (Sets at ~7:30pm & 9:30pm.)",
     "first_seen": "2026-08-06",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -45524,7 +45736,7 @@
     "venue": "Avalon Hollywood",
     "neighborhood": "Hollywood",
     "category": "electronic",
-    "genre": null,
+    "genre": "Emo/Pop Punk",
     "lineup": [
       "Emo Nite"
     ],
@@ -45548,7 +45760,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "club",
       "genre": [
@@ -46968,7 +47180,7 @@
     "url": "https://avalonhollywood.com/event/bed-by-10-nightclub-near-me-discover-avalon-hollywood-2026-september-5-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "80s/90s/00s throwback dance party for the 30+ crowd.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "club",
       "genre": [
@@ -47008,10 +47220,9 @@
     "ra_pick": false,
     "afterhours": false,
     "start": "16:00",
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "start",
-      "lineup"
+      "start"
     ]
   },
   {
@@ -47206,7 +47417,7 @@
     "venue": "Avalon Hollywood",
     "neighborhood": "Hollywood",
     "category": "electronic",
-    "genre": null,
+    "genre": "Techno",
     "lineup": [
       "Korolova"
     ],
@@ -47249,10 +47460,9 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "start",
-      "lineup"
+      "start"
     ]
   },
   {
@@ -47482,14 +47692,16 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "David Moscoe & Company"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
-    "detail": "Lounge instrumental jazz quartet with rotating guest musicians.",
+    "detail": "Instrumental jazz quartet with rotating guest musicians. No cover.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47502,7 +47714,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Silver Lake Farmers Market",
@@ -47583,7 +47812,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Karaoke",
     "lineup": [
       "Come Sing With the Band - Live Band Karaoke"
     ],
@@ -47607,7 +47836,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -47889,7 +48118,7 @@
     "url": "https://www.samfirstbar.com/events/clay-jenkins-quintet-with-larry-koonse-ivan-malespin-jonathan-richards-joe-la-barbera-2",
     "detail": "Longtime friends and colleagues appearing regularly as this group. (Sets at ~7:30pm & 9:30pm.)",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47914,7 +48143,7 @@
       "samfirst"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Jazz",
     "ra_pick": false,
     "afterhours": false
   },
@@ -47933,7 +48162,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/brazilian-independence-day-baile-funk-venice-beach-201889",
     "detail": "Brazilian Independence Day baile funk party.",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47962,7 +48191,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Baile Funk",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -49621,17 +49850,21 @@
     "start": "19:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Lisa Crawley Trio"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "Piano-driven lounge act with various covers.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
@@ -49639,7 +49872,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Veronica Dub",
@@ -49648,7 +49898,7 @@
     "venue": "Harvelle's",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Reggae/Dub",
     "lineup": [
       "Veronica Dub"
     ],
@@ -49672,7 +49922,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -49970,14 +50220,16 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/beatles-brunch-w-the-beat-5-201694",
     "start": "11:00",
     "lineup": [
-      "Beatles Brunch w/ The Beat 5"
+      "Beatles Brunch"
     ],
     "price": null,
     "first_seen": "2026-08-06",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -50004,7 +50256,7 @@
     ],
     "detail": "Beatles tribute brunch with bottomless mimosas",
     "organizers": null,
-    "genre": null,
+    "genre": "Rock",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -50639,7 +50891,7 @@
     "venue": "Harvelle's",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Rock",
     "lineup": [
       "Western Revenge"
     ],
@@ -50663,11 +50915,12 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues"
+        "blues",
+        "rock"
       ],
       "setting": [
         "bar"
@@ -51137,10 +51390,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/stella-prince-201280",
     "detail": "Show at The Venice West.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "pop"
+      ],
       "setting": [
         "bar"
       ],
@@ -51168,10 +51423,10 @@
       "webfetch"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Pop",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -51316,7 +51571,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Soul",
     "lineup": [
       "The Madame Dee Show"
     ],
@@ -51340,7 +51595,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -51449,7 +51704,7 @@
     "category": "live_music",
     "genre": "Jazz",
     "lineup": [
-      "\"Tuesday Happenings\": Hosted by Gerald Clayton"
+      " Gerald Clayton"
     ],
     "links": [
       {
@@ -51471,7 +51726,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -52115,17 +52370,21 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Luke Strand & Friends"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "A modern, soulful, jazzy, jam session performing a range of hits from different decades.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
@@ -52133,7 +52392,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "source": "webfetch",
@@ -52151,7 +52427,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/emily-laliotis-friends-200937",
     "detail": "Show at The Venice West.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -52178,7 +52454,7 @@
       "webfetch"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Singer-Songwriter",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -52193,7 +52469,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "The Toledo Show"
     ],
@@ -52217,7 +52493,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -52413,7 +52689,7 @@
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "jazz",
-    "genre": null,
+    "genre": "Jazz",
     "lineup": [
       "Ari and Cecil Alexander Quartet"
     ],
@@ -52433,7 +52709,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53152,14 +53428,16 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Billy T and the Fam"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "An incredible saxophone-led instrumental jazz night.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53172,7 +53450,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "source": "webfetch",
@@ -53191,7 +53486,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/dr-spaceman-w-the-royal-huntingtones-201247",
     "detail": "Show at The Venice West.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -53218,10 +53513,10 @@
       "webfetch"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Funk",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -53233,7 +53528,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "All-Star Jam Session Benefit"
     ],
@@ -53257,7 +53552,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -53636,14 +53931,16 @@
     }
   },
   {
-    "title": "The Brian Swartz Quintet",
+    "title": "The Brian Swartz Quintet (Keith Fiddmont, Steve Cotter, Chris Colangelo, Kendall Kay)",
     "date": "2026-09-10",
     "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "live_music",
-    "genre": null,
-    "lineup": [],
+    "genre": "Jazz",
+    "lineup": [
+      "The Brian Swartz Quintet"
+    ],
     "links": [
       {
         "source": "samfirst",
@@ -53651,7 +53948,8 @@
       }
     ],
     "sources": [
-      "samfirst"
+      "samfirst",
+      "webfetch"
     ],
     "organizers": null,
     "detail": null,
@@ -53659,7 +53957,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-15",
-    "last_seen": "2026-08-15",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -55222,14 +55520,18 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Matt Forbes",
+      "Jesse Goddard",
+      "David Moscoe Trio"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "Hosted by Matt Forbes and Jesse Goddard with David Moscoe Trio; 'Old Hollywood' crooner vibe.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -55242,7 +55544,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "The No Chasers",
@@ -55251,7 +55570,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "The No Chasers"
     ],
@@ -55275,7 +55594,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -55578,7 +55897,7 @@
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Folk",
     "lineup": [
       "J. PLANK (Jeff Plankenhorn)"
     ],
@@ -55598,7 +55917,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-12",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -55712,9 +56031,11 @@
     "venue": "Avalon Hollywood",
     "neighborhood": "Hollywood",
     "category": "electronic",
-    "genre": null,
+    "genre": "Bass",
     "lineup": [
-      "Nimda x Prosecute x yvm3"
+      "Nimda",
+      "Prosecute",
+      "yvm3"
     ],
     "links": [
       {
@@ -55736,7 +56057,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "club",
       "genre": [
@@ -57515,7 +57836,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "Music",
-    "genre": null,
+    "genre": "Hip-Hop",
     "lineup": [
       "Evidence"
     ],
@@ -57535,7 +57856,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "sources": [
       "venicewest",
       "webfetch"
@@ -57822,14 +58143,16 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "David Moscoe & Company"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
-    "detail": "Lounge instrumental jazz quartet with rotating guest musicians.",
+    "detail": "Instrumental jazz quartet with rotating guest musicians. No cover.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -57842,7 +58165,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Come Sing With the Band - Live Band Karaoke",
@@ -57851,7 +58191,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Karaoke",
     "lineup": [
       "Come Sing With the Band - Live Band Karaoke"
     ],
@@ -57875,7 +58215,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -59097,7 +59437,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/suzy-williams-songs-of-venice-190744",
     "detail": "Live show at The Venice West: Suzy Williams - Songs of Venice.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -59128,7 +59468,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Singer-Songwriter",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -59238,7 +59578,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Rock",
     "lineup": [
       "The Weasels - Rock n' Roll Sundays"
     ],
@@ -59266,7 +59606,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-18",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -59464,18 +59804,21 @@
     "start": "19:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "The Wes Hutchinson Duo"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "Guitar duo performing rock, yacht rock, and acoustic covers.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
-        "rock"
+        "rock",
+        "jazz"
       ],
       "setting": [
         "bar"
@@ -59484,7 +59827,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "SICK SUNDAY feat. Call Me Karizma, Lisp, and The Audacity",
@@ -59536,7 +59896,7 @@
     "venue": "Harvelle's",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Throwback",
     "lineup": [
       "Ryan Presents: The 90s!"
     ],
@@ -59560,7 +59920,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -60278,7 +60638,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Rock",
     "lineup": [
       "Western Revenge"
     ],
@@ -60298,7 +60658,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -60593,7 +60953,7 @@
     "venue": "Avalon Hollywood",
     "neighborhood": "Hollywood",
     "category": "live_music",
-    "genre": null,
+    "genre": "Electronic",
     "lineup": [
       "Jakone",
       "A.V.G"
@@ -60618,7 +60978,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-11",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -60630,10 +60990,9 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "start",
-      "lineup"
+      "start"
     ]
   },
   {
@@ -60788,10 +61147,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/black-uhuru-w-self-control-184204",
     "detail": "Reggae and worldbeat performance with a supporting act.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "reggae"
+      ],
       "setting": [
         "bar"
       ],
@@ -60815,10 +61176,10 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Reggae",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -60830,7 +61191,7 @@
     "venue": "Harvelle's",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "Smokestack Lightning (formerly Blowin Smoke)"
     ],
@@ -60854,7 +61215,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -60944,6 +61305,47 @@
       ],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "title": "\"Tuesday Happenings\" hosted by Gerald Clayton",
+    "date": "2026-09-15",
+    "start": "19:30",
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "category": "Music",
+    "genre": "Jazz",
+    "lineup": [
+      " Gerald Clayton"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-gerald-clayton-74"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-17",
+    "last_seen": "2026-08-17",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -61436,10 +61838,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/kirk-fletcher-195677",
     "detail": "Live show at The Venice West: Kirk Fletcher.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "blues"
+      ],
       "setting": [
         "bar"
       ],
@@ -61467,7 +61871,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Blues",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -61655,17 +62059,21 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Luke Strand & Friends"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "A modern, soulful, jazzy, jam session performing a range of hits from different decades.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
@@ -61673,7 +62081,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "The Toledo Show",
@@ -61682,7 +62107,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "The Toledo Show"
     ],
@@ -61702,7 +62127,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -62839,14 +63264,16 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Billy T and the Fam"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "An incredible saxophone-led instrumental jazz night.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -62859,7 +63286,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "All-Star Jam Session Benefit",
@@ -62868,7 +63312,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "All-Star Jam Session Benefit"
     ],
@@ -62888,7 +63332,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -64313,7 +64757,7 @@
     "url": "https://www.mccabes.com/product/claudia-russell-bruce-kaplan-milo-binder/",
     "detail": "Listening-room concert at McCabe's Guitar Shop's back room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -64368,7 +64812,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/evan-giia-193447",
     "detail": "Live show at The Venice West: EVAN GIIA.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -64406,7 +64850,7 @@
     "genre": "house",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -64765,13 +65209,13 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187887664%2F238641364409%2F1%2Foriginal.20260630-004201?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.547&fp-y=0.229&s=b3da5a54f53a1b66c4805dd3cb2bc847"
   },
   {
-    "title": "The Halloween Jack ft members of Guns N Roses, Janes Addiction,Garbage, and Alice Cooper (2)",
+    "title": "The Halloween Jack (ft. members of Guns N' Roses, Jane's Addiction, Garbage, and Alice Cooper)",
     "date": "2026-09-18",
     "start": "20:00",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Rock",
     "lineup": [
       "The Halloween Jack",
       "members of Guns N Roses",
@@ -64803,10 +65247,12 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-17",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -64815,9 +65261,9 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-07-26",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "start"
+      "lineup"
     ]
   },
   {
@@ -64876,7 +65322,7 @@
     "url": "https://avalonhollywood.com/event/partiboi69-nightclub-near-me-discover-avalon-hollywood-2026-september-18-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Electronic music show with supporting artists",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -64907,7 +65353,7 @@
       "avalon"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Bass",
     "ra_pick": false,
     "afterhours": false
   },
@@ -65046,14 +65492,16 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Funky Fridays @ The Dresden"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "High energy lounge act with Motown, funk covers, and original music.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65066,7 +65514,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Funk",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Sean Healy Presents - fiveALIVE",
@@ -65116,7 +65581,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "The No Chasers"
     ],
@@ -65136,7 +65601,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -67165,7 +67630,7 @@
     "url": "https://avalonhollywood.com/event/rnb-fest-nightclub-near-me-discover-avalon-hollywood-2026-september-19-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "R&B-focused music event; lineup not published yet.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "club",
       "genre": [
@@ -67227,7 +67692,7 @@
     "url": "https://www.mccabes.com/product/i-see-hawks-in-l-a/",
     "detail": "Performance by I See Hawks in L.A. with additional musicians.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -67902,14 +68367,16 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "David Moscoe & Company"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
-    "detail": "Lounge instrumental jazz quartet with rotating guest musicians.",
+    "detail": "Instrumental jazz quartet with rotating guest musicians. No cover.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -67922,7 +68389,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Come Sing With the Band - Live Band Karaoke",
@@ -67931,7 +68415,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Karaoke",
     "lineup": [
       "Come Sing With the Band - Live Band Karaoke"
     ],
@@ -67951,7 +68435,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -68134,7 +68618,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Funk",
     "lineup": [
       "Boogaloo Assassins"
     ],
@@ -68158,7 +68642,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -68267,7 +68751,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Electronic",
     "lineup": [
       "Pulse Theory"
     ],
@@ -68291,7 +68775,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-09",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -69736,17 +70220,21 @@
     "start": "19:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Lisa Crawley Trio"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "Piano-driven lounge act with various covers.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
@@ -69754,7 +70242,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "source": "webfetch",
@@ -69772,7 +70277,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/rolling-stones-boozy-bingo-brunch-201108",
     "detail": "Brunch event with bingo games",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -69788,6 +70293,10 @@
       {
         "source": "venue",
         "url": "https://tixr.com/e/201108"
+      },
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/rolling-stones-boozy-bingo-brunch-201108"
       }
     ],
     "sources": [
@@ -69805,7 +70314,7 @@
     "venue": "Harvelle's",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Reggae",
     "lineup": [
       "Better Daze"
     ],
@@ -69829,11 +70338,12 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues"
+        "blues",
+        "reggae"
       ],
       "setting": [
         "bar"
@@ -70631,7 +71141,7 @@
     "venue": "Harvelle's",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "Missus Jones"
     ],
@@ -70651,7 +71161,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -71404,17 +71914,21 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Luke Strand & Friends"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "A modern, soulful, jazzy, jam session performing a range of hits from different decades.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
@@ -71422,7 +71936,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Liquid Kitty's Punk Rock BBQ",
@@ -71431,7 +71962,7 @@
     "venue": "Harvelle's",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Punk",
     "lineup": [
       "Liquid Kitty's Punk Rock BBQ"
     ],
@@ -71455,7 +71986,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -71479,7 +72010,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "The Toledo Show"
     ],
@@ -71499,7 +72030,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -72626,7 +73157,7 @@
     "url": "https://avalonhollywood.com/event/janaga-nightclub-near-me-discover-avalon-hollywood-2026-24-september-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Touring Russian rap/pop artist stop on his 2026 USA tour.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "club",
       "genre": [
@@ -72656,14 +73187,13 @@
       "avalon"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Electronic",
     "ra_pick": false,
     "afterhours": false,
     "start": "19:30",
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "start",
-      "lineup"
+      "start"
     ]
   },
   {
@@ -72681,10 +73211,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/red-not-chili-peppers-184205",
     "detail": "Tribute band performing Red Hot Chili Peppers music.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -72714,7 +73246,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Rock",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -72939,14 +73471,16 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Billy T and the Fam"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "An incredible saxophone-led instrumental jazz night.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -72959,7 +73493,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "All-Star Jam Session Benefit",
@@ -72968,7 +73519,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "All-Star Jam Session Benefit"
     ],
@@ -72988,7 +73539,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -74907,7 +75458,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Blues Rock",
     "lineup": [
       "Canned Heat",
       "Delta By The Beach"
@@ -74940,7 +75491,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -74952,7 +75503,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -75433,14 +75984,18 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Matt Forbes",
+      "Jesse Goddard",
+      "David Moscoe Trio"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "Hosted by Matt Forbes and Jesse Goddard with David Moscoe Trio; 'Old Hollywood' crooner vibe.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -75453,7 +76008,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "The No Chasers",
@@ -75462,7 +76034,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "The No Chasers"
     ],
@@ -75482,7 +76054,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -77534,7 +78106,7 @@
     "url": "https://avalonhollywood.com/event/tritonal-nightclub-near-me-discover-avalon-hollywood-2026-september-26-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Performance by the progressive house and trance duo.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "club",
       "genre": [
@@ -77570,7 +78142,7 @@
       "avalon"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Trance",
     "ra_pick": false,
     "afterhours": false,
     "start": null
@@ -77591,10 +78163,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/andy-frasco-the-u-n--189913",
     "detail": "Live show at The Venice West: Andy Frasco & The U.N..",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -77622,10 +78196,10 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Rock",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -77905,7 +78479,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/tio-199656",
     "detail": "Show at The Venice West.",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -77932,7 +78506,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Electronic",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -78177,14 +78751,16 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "David Moscoe & Company"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
-    "detail": "Lounge instrumental jazz quartet with rotating guest musicians.",
+    "detail": "Instrumental jazz quartet with rotating guest musicians. No cover.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -78197,7 +78773,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Come Sing With the Band - Live Band Karaoke",
@@ -78206,7 +78799,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Karaoke",
     "lineup": [
       "Come Sing With the Band - Live Band Karaoke"
     ],
@@ -78226,7 +78819,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -79741,7 +80334,7 @@
     "url": "https://www.mccabes.com/product/deke-dickerson/",
     "detail": "Listening-room concert at McCabe's Guitar Shop's back room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -79772,7 +80365,7 @@
       "editorial"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Folk",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-07-26",
@@ -79795,10 +80388,12 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/wall-of-sound-185855",
     "detail": "Live show at The Venice West: Wall of Sound.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -79826,7 +80421,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Rock",
     "ra_pick": false,
     "afterhours": false
   },
@@ -80185,14 +80780,16 @@
     "start": "19:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Aaron Halford & the Soul Solution"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "Soul, jazz, R&B, and funk performances.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -80206,7 +80803,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Soul",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Harvelle's Presents",
@@ -80235,7 +80849,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -81034,7 +81648,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Rock",
     "lineup": [
       "Western Revenge"
     ],
@@ -81054,7 +81668,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -81708,7 +82322,7 @@
     "url": "https://www.mccabes.com/product/val-mccallum-2/",
     "detail": "Concert at McCabe's Guitar Shop's back-room listening room. Sold out.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -81746,12 +82360,12 @@
       "editorial"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Folk",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
-      "lineup"
+      "price"
     ]
   },
   {
@@ -82027,7 +82641,7 @@
     "venue": "Harvelle's",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "Hemmens Band"
     ],
@@ -82047,7 +82661,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -82949,7 +83563,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/mike-dawes-135433",
     "detail": "Live show at The Venice West: Mike Dawes.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -82980,7 +83594,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Guitar Instrumental",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -83360,17 +83974,21 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Luke Strand & Friends"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "A modern, soulful, jazzy, jam session performing a range of hits from different decades.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
@@ -83378,7 +83996,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "The Toledo Show",
@@ -83387,7 +84022,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Blues",
     "lineup": [
       "The Toledo Show"
     ],
@@ -83407,7 +84042,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
@@ -84756,14 +85391,16 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Billy T and the Fam"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "An incredible saxophone-led instrumental jazz night.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -84776,7 +85413,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Powerhouse Presents: Smirk w/ The Stitches, Situations & Warblob",
@@ -86333,7 +86987,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Funk",
     "lineup": [
       "Steel Beans"
     ],
@@ -86361,7 +87015,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-16",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -86595,14 +87249,16 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Funky Fridays @ The Dresden"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "High energy lounge act with Motown, funk covers, and original music.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -86615,7 +87271,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Funk",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Drag Show \"Pumped Fridays\" @ Mary's West Hollywood",
@@ -86668,7 +87341,7 @@
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Folk",
     "lineup": [
       "Les Frères Savoy"
     ],
@@ -86688,7 +87361,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -88353,7 +89026,7 @@
     "url": "https://www.mccabes.com/product/rebecca-pidgeon/",
     "detail": "Singer-songwriter performs at McCabe's back-room concert series.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -88384,7 +89057,7 @@
       "editorial"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Folk",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -88456,10 +89129,12 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -88487,7 +89162,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Rock",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -88764,7 +89439,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "Music",
-    "genre": null,
+    "genre": "Rock",
     "lineup": [
       "Live Forever - Tribute to Oasis"
     ],
@@ -88784,14 +89459,16 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "sources": [
       "venicewest",
       "webfetch"
     ],
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -88948,14 +89625,16 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "David Moscoe & Company"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
-    "detail": "Lounge instrumental jazz quartet with rotating guest musicians.",
+    "detail": "Instrumental jazz quartet with rotating guest musicians. No cover.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -88968,7 +89647,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "KIDS RAVE - KIDTOPIA",
@@ -89978,7 +90674,7 @@
     "url": "https://www.mccabes.com/product/maya-de-vitry-mark-erelli/",
     "detail": "Listening-room concert at McCabe's Guitar Shop's back room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -90009,10 +90705,10 @@
       "editorial"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Folk",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -90032,7 +90728,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/marcus-rezak-shred-is-dead-196037",
     "detail": "Live show at The Venice West: Marcus Rezak Shred Is Dead.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -90063,7 +90759,7 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Jam",
     "ra_pick": false,
     "afterhours": false
   },
@@ -90375,17 +91071,21 @@
     "start": "19:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Lisa Crawley Trio"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "Piano-driven lounge act with various covers.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
@@ -90393,7 +91093,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Salin",
@@ -91825,7 +92542,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "genre": null,
+    "genre": "Blues Rock",
     "lineup": [
       "Fantastic Negrito"
     ],
@@ -91853,7 +92570,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -92040,17 +92757,21 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Luke Strand & Friends"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "A modern, soulful, jazzy, jam session performing a range of hits from different decades.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
@@ -92058,7 +92779,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "SCHOOLBOY Q - 10 Years of Blank Face LP",
@@ -93134,7 +93872,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/aj-lee-blue-summit-179087",
     "detail": "Live show at The Venice West: Aj Lee & Blue Summit.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -93165,10 +93903,10 @@
       "venicewest"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Bluegrass",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -93615,14 +94353,16 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Billy T and the Fam"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "An incredible saxophone-led instrumental jazz night.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -93635,7 +94375,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "RaiNao",
@@ -95624,7 +96381,7 @@
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Folk",
     "lineup": [
       "Jimmie Dale Gilmore",
       "Butch Hancock"
@@ -95645,7 +96402,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-30",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -95660,7 +96417,7 @@
       "region": "westside",
       "near_home": false
     },
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -95672,14 +96429,18 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Matt Forbes",
+      "Jesse Goddard",
+      "David Moscoe Trio"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "Hosted by Matt Forbes and Jesse Goddard with David Moscoe Trio; 'Old Hollywood' crooner vibe.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -95692,7 +96453,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "Drag Show \"Pumped Fridays\" @ Mary's West Hollywood",
@@ -95796,7 +96574,7 @@
     ],
     "price": null,
     "first_seen": "2026-08-06",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -95826,10 +96604,10 @@
     ],
     "detail": "Multi-artist electronic music showcase",
     "organizers": null,
-    "genre": null,
+    "genre": "Electronic",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -97347,7 +98125,7 @@
     "url": "https://www.mccabes.com/product/amy-speace-jesse-lynn-madera/",
     "detail": "Listening-room concert at McCabe's Guitar Shop's back room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -97378,10 +98156,10 @@
       "editorial"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Folk",
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-17",
     "changed_fields": [
       "lineup"
     ]
@@ -97840,14 +98618,16 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "David Moscoe & Company"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
-    "detail": "Lounge instrumental jazz quartet with rotating guest musicians.",
+    "detail": "Instrumental jazz quartet with rotating guest musicians. No cover.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -97860,7 +98640,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "source": "webfetch",
@@ -97880,7 +98677,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/the-breaks-ft-eddie-roberts-the-new-mastersounds-stanton-moore-galactic-robert-walter-the-greyboy-allstars--175798",
     "detail": "Supergroup collaboration",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -97907,7 +98704,7 @@
       "webfetch"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Funk",
     "ra_pick": false,
     "afterhours": false
   },
@@ -98861,7 +99658,7 @@
     "venue": "Avalon Hollywood",
     "neighborhood": "Hollywood",
     "category": "electronic",
-    "genre": null,
+    "genre": "Electronic",
     "lineup": [
       "Pioneers Ball"
     ],
@@ -98890,7 +99687,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "club",
       "genre": [
@@ -98914,7 +99711,7 @@
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "category": "live_music",
-    "genre": null,
+    "genre": "Folk",
     "lineup": [
       "FolkWorks 25th Anniversary Benefit Concert"
     ],
@@ -98939,7 +99736,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -99310,18 +100107,21 @@
     "start": "19:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "The Wes Hutchinson Duo"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "Guitar duo performing rock, yacht rock, and acoustic covers.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
-        "rock"
+        "rock",
+        "jazz"
       ],
       "setting": [
         "bar"
@@ -99330,7 +100130,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Dead Kennedys with Special Guests",
@@ -101060,17 +101877,21 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Luke Strand & Friends"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "A modern, soulful, jazzy, jam session performing a range of hits from different decades.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
@@ -101078,7 +101899,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Prospa present Prophecy - 3rd night added",
@@ -101168,7 +102006,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "Music",
-    "genre": null,
+    "genre": "Hip-Hop",
     "lineup": [
       "Souls of Mischief"
     ],
@@ -101192,7 +102030,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -102546,14 +103384,16 @@
     "start": "20:30",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Billy T and the Fam"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "An incredible saxophone-led instrumental jazz night.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -102566,7 +103406,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Jazz",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "source": "webfetch",
@@ -102582,7 +103439,7 @@
     ],
     "price": null,
     "first_seen": "2026-08-06",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -102609,7 +103466,7 @@
     ],
     "detail": "Concert at McCabe's Guitar Shop's back-room listening room.",
     "organizers": null,
-    "genre": null,
+    "genre": "Folk",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -103631,7 +104488,7 @@
     "url": "https://www.mccabes.com/product/kim-richey/",
     "detail": "Singer-songwriter performs at McCabe's back-room concert series.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-08-16",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -103662,7 +104519,7 @@
       "editorial"
     ],
     "organizers": null,
-    "genre": null,
+    "genre": "Folk",
     "ra_pick": false,
     "afterhours": false,
     "updated_at": "2026-08-15",
@@ -103893,7 +104750,7 @@
     "detail": "Live show at The Venice West: Cubensis - Bob Weir Birthday Celebration!.",
     "organizers": null,
     "first_seen": "2026-07-21",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -103919,7 +104776,7 @@
       "venicewest",
       "webfetch"
     ],
-    "genre": null,
+    "genre": "Jam",
     "ra_pick": false,
     "afterhours": false
   },
@@ -104016,14 +104873,16 @@
     "start": "21:15",
     "venue": "The Dresden",
     "neighborhood": "Los Feliz",
-    "lineup": [],
+    "lineup": [
+      "Funky Fridays @ The Dresden"
+    ],
     "category": "live_music",
     "price": "No cover",
     "image": null,
     "url": "https://www.thedresden.com/events/",
     "detail": "High energy lounge act with Motown, funk covers, and original music.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -104036,7 +104895,24 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.thedresden.com/events/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "genre": "Funk",
+    "ra_pick": false,
+    "afterhours": false,
+    "updated_at": "2026-08-17",
+    "changed_fields": [
+      "price"
+    ]
   },
   {
     "title": "Sister Sadie",
@@ -104648,7 +105524,7 @@
     "venue": "Harvelle's Santa Monica",
     "neighborhood": "Santa Monica",
     "category": "live-music",
-    "genre": null,
+    "genre": "Rock",
     "lineup": [
       "Western Revenge"
     ],
@@ -104668,7 +105544,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-02",
-    "last_seen": "2026-08-14",
+    "last_seen": "2026-08-17",
     "tags": {
       "type": "other",
       "genre": [],
