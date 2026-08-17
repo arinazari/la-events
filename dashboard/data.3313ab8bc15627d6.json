@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-17T13:12:37+00:00",
+  "generated_at": "2026-08-17T13:17:38+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
-  "catalog_version": "b993a87bc503",
-  "catalog_content_version": "5b61c8c6c4bb",
-  "catalog_fetched_at": "2026-08-17T12:53:09+00:00",
+  "catalog_version": "41db41ce9398",
+  "catalog_content_version": "e592b0114ca4",
+  "catalog_fetched_at": "2026-08-17T13:14:12+00:00",
   "count": 3551,
   "enriched_count": 1631,
   "music": {
@@ -816,6 +816,7 @@
           "08379c5d184e",
           "dcc3f7d675a5",
           "d1d3f06777a6",
+          "c29d7deec873",
           "c19731939c66",
           "b16a6c79d7b1",
           "a56bf892f5d4",
@@ -830,7 +831,6 @@
           "fa47efaab8a8",
           "e03f23b19759",
           "c6279f96f092",
-          "c29d7deec873",
           "b1b47ae8779c",
           "a62b74895e1c",
           "9c614f2dd0e0",
@@ -986,7 +986,7 @@
           "e48bcec2de00",
           "794427837a2a",
           "57d9e43a18f2",
-          "b8b1f12dfa1c",
+          "ed868d8f80ef",
           "8b7bdaa624e4",
           "f9468d1334fd",
           "c1c053b22550",
@@ -5510,9 +5510,9 @@
           }
         ]
       },
-      "series_rep": true,
+      "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22the+odyssey%22+showtimes+Los+Angeles",
-      "final_rank": 15
+      "series_rank": 15
     },
     {
       "title": "20,000 Leagues Under the Sea (1916)",
@@ -10718,7 +10718,7 @@
       "lane": "film",
       "key": "e5b330dba0b0",
       "showtimes_url": "https://www.google.com/search?q=%22joe+kidd%22+showtimes+Los+Angeles",
-      "final_rank": 78
+      "final_rank": 79
     },
     {
       "title": "The Guess Who: Takin' It Back Tour 2026",
@@ -14547,6 +14547,105 @@
       "final_rank": 2620
     },
     {
+      "title": "The Odyssey (70mm)",
+      "date": "2026-08-20",
+      "start": "19:15",
+      "venue": "Vista Theater",
+      "neighborhood": "Los Feliz",
+      "category": "film",
+      "genre": null,
+      "lineup": [],
+      "links": [
+        {
+          "source": "vista",
+          "url": "https://ticketing.uswest.veezi.com/purchase/3958?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+          "label": "2:30pm"
+        },
+        {
+          "source": "vista",
+          "url": "https://ticketing.uswest.veezi.com/purchase/3962?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+          "label": "7:15pm"
+        }
+      ],
+      "sources": [
+        "vista"
+      ],
+      "organizers": null,
+      "detail": "70MM",
+      "image": "https://ticketing.uswest.veezi.com/Media/Poster?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww&code=0000003140",
+      "price": null,
+      "ra_pick": false,
+      "afterhours": false,
+      "first_seen": "2026-08-04",
+      "last_seen": "2026-08-17",
+      "tags": {
+        "type": "film",
+        "genre": [
+          "rep/arthouse"
+        ],
+        "setting": [
+          "cinema"
+        ],
+        "scale": null,
+        "vibe": [
+          "analog-film"
+        ],
+        "region": "eastside",
+        "near_home": true
+      },
+      "score": 9,
+      "rating": 5,
+      "reasons": [
+        "+3 film (high interest)",
+        "+1 venue you love",
+        "+1 close to Silver Lake",
+        "+4 event card (+3 draw, +1 rare booking)"
+      ],
+      "iso_date": "2026-08-20",
+      "is_past": false,
+      "enrichment": {
+        "type": "film",
+        "energy": "communal / big-screen",
+        "setting": "cinema",
+        "curator_note": "Nolan shot The Odyssey entirely on IMAX film, and only 25 screens in the US can run the true 70mm print \u2014 the Vista's one of them, and shows have been selling out weeks out. This is the way to see it, not the digital fallback.",
+        "description": "70mm theatrical screenings of Christopher Nolan's The Odyssey at Vista Theater, Los Feliz (2:30pm & 7:15pm)."
+      },
+      "lane": "film",
+      "key": "ed868d8f80ef",
+      "series_key": "film:the odyssey",
+      "series": {
+        "count": 3,
+        "first": "2026-08-17",
+        "last": "2026-08-20",
+        "venues": [
+          "Vista Theater"
+        ],
+        "entries": [
+          {
+            "date": "2026-08-17",
+            "venue": "Vista Theater",
+            "start": "19:15",
+            "url": "https://ticketing.uswest.veezi.com/purchase/3955?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww"
+          },
+          {
+            "date": "2026-08-18",
+            "venue": "Vista Theater",
+            "start": "19:15",
+            "url": "https://ticketing.uswest.veezi.com/purchase/3956?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww"
+          },
+          {
+            "date": "2026-08-20",
+            "venue": "Vista Theater",
+            "start": "19:15",
+            "url": "https://ticketing.uswest.veezi.com/purchase/3958?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww"
+          }
+        ]
+      },
+      "series_rep": true,
+      "showtimes_url": "https://www.google.com/search?q=%22the+odyssey%22+showtimes+Los+Angeles",
+      "final_rank": 15
+    },
+    {
       "title": "Theorem",
       "date": "2026-08-20",
       "start": "20:00",
@@ -14707,7 +14806,7 @@
       "lane": "film",
       "key": "2251586c6a9b",
       "showtimes_url": "https://www.google.com/search?q=%22the+searchers+in%22+showtimes+Los+Angeles",
-      "final_rank": 71
+      "final_rank": 72
     },
     {
       "title": "Mt. Joy 2026: 2 Day Ticket (08/20 - 08/21) Valid Both Days",
@@ -15242,100 +15341,6 @@
       },
       "series_rep": true,
       "final_rank": 643
-    },
-    {
-      "title": "The Odyssey (70mm)",
-      "date": "2026-08-20",
-      "start": "19:15",
-      "venue": "Vista Theater",
-      "neighborhood": "Los Feliz",
-      "category": "film",
-      "genre": null,
-      "lineup": [],
-      "links": [
-        {
-          "source": "vista",
-          "url": "https://ticketing.uswest.veezi.com/purchase/3958?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
-          "label": "2:30pm"
-        },
-        {
-          "source": "vista",
-          "url": "https://ticketing.uswest.veezi.com/purchase/3962?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
-          "label": "7:15pm"
-        }
-      ],
-      "sources": [
-        "vista"
-      ],
-      "organizers": null,
-      "detail": "70MM",
-      "image": "https://ticketing.uswest.veezi.com/Media/Poster?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww&code=0000003140",
-      "price": null,
-      "ra_pick": false,
-      "afterhours": false,
-      "first_seen": "2026-08-04",
-      "last_seen": "2026-08-17",
-      "tags": {
-        "type": "film",
-        "genre": [
-          "rep/arthouse"
-        ],
-        "setting": [
-          "cinema"
-        ],
-        "scale": null,
-        "vibe": [
-          "analog-film"
-        ],
-        "region": "eastside",
-        "near_home": true
-      },
-      "score": 5,
-      "rating": 3,
-      "reasons": [
-        "+3 film (high interest)",
-        "+1 venue you love",
-        "+1 close to Silver Lake"
-      ],
-      "iso_date": "2026-08-20",
-      "is_past": false,
-      "enrichment": {
-        "description": "70mm screening of The Odyssey at Vista Theater, Los Feliz (7:15pm)."
-      },
-      "lane": "film",
-      "key": "ed868d8f80ef",
-      "series_key": "film:the odyssey",
-      "series": {
-        "count": 3,
-        "first": "2026-08-17",
-        "last": "2026-08-20",
-        "venues": [
-          "Vista Theater"
-        ],
-        "entries": [
-          {
-            "date": "2026-08-17",
-            "venue": "Vista Theater",
-            "start": "19:15",
-            "url": "https://ticketing.uswest.veezi.com/purchase/3955?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww"
-          },
-          {
-            "date": "2026-08-18",
-            "venue": "Vista Theater",
-            "start": "19:15",
-            "url": "https://ticketing.uswest.veezi.com/purchase/3956?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww"
-          },
-          {
-            "date": "2026-08-20",
-            "venue": "Vista Theater",
-            "start": "19:15",
-            "url": "https://ticketing.uswest.veezi.com/purchase/3958?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww"
-          }
-        ]
-      },
-      "series_rep": false,
-      "showtimes_url": "https://www.google.com/search?q=%22the+odyssey%22+showtimes+Los+Angeles",
-      "series_rank": 15
     },
     {
       "title": "Sweet 16mm \u2013 Those Awkward Years",
@@ -19860,7 +19865,7 @@
       },
       "lane": "club:underground",
       "key": "145fe9813772",
-      "final_rank": 72
+      "final_rank": 73
     },
     {
       "title": "The One Hundred",
@@ -19943,7 +19948,7 @@
       },
       "lane": "club:underground",
       "key": "c6279f96f092",
-      "final_rank": 85
+      "final_rank": 86
     },
     {
       "title": "Child's Play",
@@ -20098,7 +20103,7 @@
       "lane": "film",
       "key": "a405c73531cb",
       "showtimes_url": "https://www.google.com/search?q=%22where+is+the+friend+s+house%22+showtimes+Los+Angeles",
-      "final_rank": 57
+      "final_rank": 58
     },
     {
       "title": "Acts of Service Sounds - A Night Of Soulful House",
@@ -20156,7 +20161,7 @@
       },
       "lane": "club:underground",
       "key": "6284898f76d9",
-      "final_rank": 64
+      "final_rank": 65
     },
     {
       "title": "JSTAGIRLSNIGHT 8/21",
@@ -20491,28 +20496,38 @@
         "region": null,
         "near_home": false
       },
-      "score": 6,
+      "score": 7,
       "rating": 4,
       "reasons": [
         "+3 electronic (high interest)",
         "+1 afterhours / late start",
         "+1 rooftop / vinyl / groove",
-        "+1 Friday/Saturday night"
+        "+1 Friday/Saturday night",
+        "+1 event card (+1 draw)"
       ],
       "iso_date": "2026-08-21",
       "is_past": false,
       "enrichment": {
+        "type": "club",
+        "subgenres": [
+          "house",
+          "deep-house",
+          "disco"
+        ],
+        "energy": "groove / late-night",
+        "setting": "bar",
         "artist_notes": [
           {
             "name": "Shanto",
             "note": "LA-based DJ/producer ranging downtempo through deep and indie house to techno \u2014 a regular on the city's rooftop/deep-house circuit."
           }
         ],
-        "description": "Shanto and PERSTEPHANII DJ a late-night electronic set at Ka'teen (10pm)."
+        "curator_note": "Shanto's the reason to trust this one \u2014 a genuine deep/groove-house regular on the LA circuit even in a room this small; Perstephanii's more of an unknown quantity, so treat it as a low-key Friday hang rather than a destination night.",
+        "description": "Shanto and PERSTEPHANII DJ a late-night house/disco set at Ka'teen (Friday, 10pm)."
       },
       "lane": "club:underground",
       "key": "c29d7deec873",
-      "final_rank": 87
+      "final_rank": 50
     },
     {
       "title": "GIRLS NIGHT OUT HARD TECHNO",
@@ -28714,7 +28729,7 @@
           }
         ]
       },
-      "final_rank": 52
+      "final_rank": 53
     },
     {
       "title": "Mutate: Oguz",
@@ -28809,7 +28824,7 @@
           }
         ]
       },
-      "final_rank": 56
+      "final_rank": 57
     },
     {
       "title": "FLOAT Rooftop Pool Party feat. Durante [2-8 PM]",
@@ -29040,7 +29055,7 @@
           }
         ]
       },
-      "final_rank": 61
+      "final_rank": 62
     },
     {
       "title": "SOUNDWAVE & GREAT QUALITY ENTERTAINMNET PRESENT: Oliver Koletzki",
@@ -29141,7 +29156,7 @@
           }
         ]
       },
-      "final_rank": 62
+      "final_rank": 63
     },
     {
       "title": "The Crime of the Century",
@@ -29949,7 +29964,7 @@
       },
       "lane": "club:underground",
       "key": "6d85a25e4372",
-      "final_rank": 63
+      "final_rank": 64
     },
     {
       "title": "AVAIRE^+",
@@ -30006,7 +30021,7 @@
       },
       "lane": "club:underground",
       "key": "b16a6c79d7b1",
-      "final_rank": 53
+      "final_rank": 54
     },
     {
       "title": "AFTERS 8-22 ( SATURDAY )",
@@ -55681,7 +55696,7 @@
       },
       "lane": "club:underground",
       "key": "c19731939c66",
-      "final_rank": 50
+      "final_rank": 51
     },
     {
       "title": "HOUSE WORX (HIGH OCTANE HOUSE ANTHEMS - ALL NITE LONG)",
@@ -55804,7 +55819,7 @@
       "lane": "film",
       "key": "df9fb29f778c",
       "showtimes_url": "https://www.google.com/search?q=%22booksmart%22+showtimes+Los+Angeles",
-      "final_rank": 82
+      "final_rank": 83
     },
     {
       "title": "MUZIQUE Fridays @ Kiss Kiss Bang Bang w/TAMARA LANZA + Special Guest DJS",
@@ -56069,7 +56084,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22speed+racer%22+showtimes+Los+Angeles",
-      "series_rank": 84
+      "series_rank": 85
     },
     {
       "title": "DANG! - A Soulful Electronic Dance Night",
@@ -56227,7 +56242,7 @@
           }
         ]
       },
-      "final_rank": 60
+      "final_rank": 61
     },
     {
       "title": "HANDS ON YOUR HIPS: 1 YEAR ANNIVERSARY",
@@ -61783,7 +61798,7 @@
       },
       "lane": "club:day",
       "key": "a56bf892f5d4",
-      "final_rank": 55
+      "final_rank": 56
     },
     {
       "title": "Black Lips",
@@ -61877,7 +61892,7 @@
           }
         ]
       },
-      "final_rank": 81
+      "final_rank": 82
     },
     {
       "title": "Blonde Ransom",
@@ -62026,7 +62041,7 @@
       "lane": "film",
       "key": "0528c56e4568",
       "showtimes_url": "https://www.google.com/search?q=%22the+5+000+fingers+of+dr+t%22+showtimes+Los+Angeles",
-      "final_rank": 73
+      "final_rank": 74
     },
     {
       "title": "The Driver",
@@ -62231,7 +62246,7 @@
       },
       "series_rep": true,
       "showtimes_url": "https://www.google.com/search?q=%22speed+racer%22+showtimes+Los+Angeles",
-      "final_rank": 84
+      "final_rank": 85
     },
     {
       "title": "DISCOTHEKE",
@@ -62299,7 +62314,7 @@
       },
       "lane": "club:day",
       "key": "fa47efaab8a8",
-      "final_rank": 74
+      "final_rank": 75
     },
     {
       "title": "WHATEVER UNDERGROUND",
@@ -62519,7 +62534,7 @@
       },
       "lane": "club:underground",
       "key": "4df2e7969182",
-      "final_rank": 65
+      "final_rank": 66
     },
     {
       "title": "Soul Source: Jared Jackson B2B blksoap, Lucci, Hans, Mr. Choc, Mantron",
@@ -69553,7 +69568,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22speed+racer%22+showtimes+Los+Angeles",
-      "series_rank": 84
+      "series_rank": 85
     },
     {
       "title": "MAHRAGAN X LEMON PEPPER DAY PARTY",
@@ -73401,7 +73416,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22speed+racer%22+showtimes+Los+Angeles",
-      "series_rank": 84
+      "series_rank": 85
     },
     {
       "source": "McCabe's Guitar Shop",
@@ -74039,7 +74054,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22speed+racer%22+showtimes+Los+Angeles",
-      "series_rank": 84
+      "series_rank": 85
     },
     {
       "title": "Royale Lynn: The Royale Pain In The A$$ Tour",
@@ -77473,7 +77488,7 @@
       },
       "series_rep": false,
       "showtimes_url": "https://www.google.com/search?q=%22speed+racer%22+showtimes+Los+Angeles",
-      "series_rank": 84
+      "series_rank": 85
     },
     {
       "title": "J. Cole: The Fall-Off Tour",
@@ -80293,7 +80308,7 @@
       },
       "lane": "club:underground",
       "key": "9f7eef2703b9",
-      "final_rank": 58
+      "final_rank": 59
     },
     {
       "title": "M\u00c0CHINA by She's in Parties",
@@ -84223,7 +84238,7 @@
           }
         ]
       },
-      "final_rank": 75
+      "final_rank": 76
     },
     {
       "title": "Hypnotique Presents: Sway Festival - 2 DAY PASS",
@@ -97587,7 +97602,7 @@
           "hash": "1d8a45fa37024d33"
         }
       ],
-      "final_rank": 59
+      "final_rank": 60
     },
     {
       "title": "WORK presents: D.Dan [All Night Long]",
@@ -97716,7 +97731,7 @@
       },
       "lane": "live-music",
       "key": "2c629685615e",
-      "final_rank": 69
+      "final_rank": 70
     },
     {
       "title": "SIGNAL: Nita Aviance // S4M23 // Sevyn // Mez Monty",
@@ -97776,7 +97791,7 @@
       },
       "lane": "club:underground",
       "key": "e2fa13262015",
-      "final_rank": 80
+      "final_rank": 81
     },
     {
       "title": "Cold Waves 2-Day (9/11/26-9/12/26)",
@@ -101143,7 +101158,7 @@
       },
       "lane": "club:underground",
       "key": "2423ea535ca4",
-      "final_rank": 70
+      "final_rank": 71
     },
     {
       "title": "CLOSER presents THERMAL with Vladimir Dubyshkin",
@@ -101288,7 +101303,7 @@
       },
       "lane": "club:underground",
       "key": "44f329b4a7f9",
-      "final_rank": 67
+      "final_rank": 68
     },
     {
       "title": "Paradisco",
@@ -101455,7 +101470,7 @@
       },
       "lane": "club:underground",
       "key": "b023dd801ae5",
-      "final_rank": 54
+      "final_rank": 55
     },
     {
       "title": "Pertinence",
@@ -114621,7 +114636,7 @@
       },
       "lane": "club:underground",
       "key": "3311cff0ac9d",
-      "final_rank": 68
+      "final_rank": 69
     },
     {
       "title": "Kybba",
@@ -118752,7 +118767,7 @@
       },
       "lane": "club:day",
       "key": "e46641e7b265",
-      "final_rank": 79
+      "final_rank": 80
     },
     {
       "title": "Sofi Tukker w/ DRAMA",
@@ -118842,7 +118857,7 @@
       },
       "lane": "live-music:big",
       "key": "48e360ba751a",
-      "final_rank": 66
+      "final_rank": 67
     },
     {
       "source": "webfetch",
@@ -132880,7 +132895,7 @@
       "is_past": false,
       "lane": "live-music:big",
       "key": "d10dd781413f",
-      "final_rank": 83
+      "final_rank": 84
     },
     {
       "title": "WORK OVER/TIME: JIA, MARR\u00d8N, NEKTER, Rene Wise, Rrose, Sarah Wreath [Live], & Wata Igarashi",
@@ -141356,7 +141371,7 @@
           "hash": "1d8a45fa37024d33"
         }
       ],
-      "final_rank": 51
+      "final_rank": 52
     },
     {
       "title": "Day Trip In The Park LA: Armand Van Helden, James Poole, Adam Auburn, Athena",
@@ -183907,7 +183922,7 @@
       "is_past": false,
       "lane": "club:underground",
       "key": "f700f98ba924",
-      "final_rank": 76
+      "final_rank": 77
     },
     {
       "title": "Tinzo + Jojo's Dark Library - Los Angeles",
@@ -191954,7 +191969,7 @@
       },
       "lane": "live-music:big",
       "key": "c5a4ec16269a",
-      "final_rank": 86
+      "final_rank": 87
     },
     {
       "title": "Dermot Kennedy: The Weight of the Woods Tour",
@@ -210453,7 +210468,7 @@
       "is_past": false,
       "lane": "club:underground",
       "key": "e7d6828b3c26",
-      "final_rank": 77
+      "final_rank": 78
     },
     {
       "title": "MELT x YOON: Satoshi Tomiie, James Zabiela, Ricardo Roessel, Tom Pickles, Eda, Ika & Usherenko",
