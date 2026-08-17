@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/16/2026 deterministically (no API). 298 candidates. Signals: big-venue 266, festival 25, tracked 9, editorial 2._
+_Generated 8/17/2026 deterministically (no API). 295 candidates. Signals: big-venue 263, festival 25, tracked 9, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -163,7 +163,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/20 | 4 | KCRW Presents Haruomi Hosono: The Yours Sincerely Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/kcrw-presents-haruomi-hosono-the-yours-los-angeles-california-09-20-2026/event/090064AEAECDEA57) |
 | Mon 9/21 | 4 | Lily Allen Performs West End Girl | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lily-allen-performs-west-end-girl-los-angeles-california-09-21-2026/event/090064E8F349EC5D) |
 | Wed 9/23 | 4 | BECK: RIDE LONESOME TOUR | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/beck-ride-lonesome-tour-los-angeles-california-09-23-2026/event/0900648A40ABD374) |
 | Fri 9/25 | 4 | Yandel - SINFÓNICO | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/yandel-sinfonico-los-angeles-california-09-25-2026/event/2C00649EBD941288) |
@@ -230,7 +229,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/20 | 3 | Gregory Alan Isakov w/ Jose Gonzalez | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Wed 9/23 | 3 | Jazz at Lincoln Center Orchestra with Wynton Marsalis | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Thu 9/24 | 3 | Jon Bellion | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Fri 9/25 | 3 | Iron Maiden: Run For Your Lives World Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/iron-maiden-run-for-your-lives-los-angeles-california-09-25-2026/event/0A006355C2E05EEB) |
@@ -345,13 +343,16 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
 | Fri 1/29 | 3 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
 
+## February 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
+
 ## September 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/20 | 2 | Carin Leon - De Sonora Para El Mundo Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/carin-leon-de-sonora-para-el-los-angeles-california-09-20-2026/event/0A00644328E0E003) |
-| Sun 9/20 | 2 | Dierks Bentley (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Sun 9/20 | 2 | IDL 2026 Championship (Day 2) | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1570044/idl-2026-championship-day-2-tickets) |
 | Wed 9/23 | 2 | Dropkick Murphys - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 9/24 | 2 | THE KEHLANI WORLD TOUR: North America | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/the-kehlani-world-tour-north-america-inglewood-california-09-24-2026/event/090064B6E25E61FE) |
 | Fri 9/25 | 2 | The Concert: A Tribute To ABBA | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
@@ -501,6 +502,12 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 |---|---|---|---|---|---|
 | Sun 12/6 | 1 | Adrian Uribe: 50 y Pico Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/adrian-uribe-50-y-pico-tour-inglewood-california-12-06-2026/event/0A0064F6C4A3A0B9) |
 | Sun 12/13 | 1 | Rose Bowl Flea Market Sunday, December 13, 2026 | Rose Bowl Stadium | big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-december-13-2026-tickets-1977732048797) |
+
+## February 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 2/12 | 1 | Cristian Castro: Nada Solo Exitos Tour 2027 | Honda Center | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-anaheim-california-02-12-2027/event/09006454A8EDEE77) |
 
 ## October 2026
 
