@@ -1,15 +1,210 @@
 {
-  "version": "5f732ad7a0d7",
-  "content_version": "86a9ad808d01",
-  "count": 3635,
-  "fetched_at": "2026-08-16T12:26:13+00:00",
-  "added": 0,
-  "updated": 0,
+  "version": "20a29210bc90",
+  "content_version": "d7408d4586a3",
+  "count": 3579,
+  "fetched_at": "2026-08-17T12:45:28+00:00",
+  "added": 46,
+  "updated": 21,
+  "changes": [
+    {
+      "title": "TRC 065 (LA): Stereolab - Dots And Loops",
+      "date": "2026-08-18",
+      "venue": "Zizou",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "On A Tuesday - Every Tuesday",
+      "date": "2026-08-18",
+      "venue": "Lost But Found",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Claude Cowork for Marketing | AI Edge Virtual Training",
+      "date": "2026-08-18",
+      "venue": "Zoom Virtual Link - will be sent in confirmation email",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Pillow Talk | An intimate night of sapphic storytelling",
+      "date": "2026-08-19",
+      "venue": "The Hoxton, Downtown LA",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Tu Casa Presents Free PM",
+      "date": "2026-08-20",
+      "venue": "TBA (drops after RSVP/approval)",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Blavity HealthStack Virtual Summit: GLP-1s and the Black Community",
+      "date": "2026-08-20",
+      "venue": "Virtual - Zoom Webinar",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "TARDE DE BELLAKEO",
+      "date": "2026-08-21",
+      "venue": "3680 Wilshire Blvd",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "MIDNIGHT CLUB YOP ANGELES",
+      "date": "2026-08-21",
+      "venue": "TBA (drops after RSVP/approval)",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Chaotic Singles Game Night (Los Angeles)",
+      "date": "2026-08-21",
+      "venue": "The Waterfront Venice",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Pier to Pier Pub Crawl",
+      "date": "2026-08-22",
+      "venue": "Project Barley",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Last Splash : Freaknic Edition",
+      "date": "2026-08-22",
+      "venue": "Air bnb",
+      "fields": [
+        "price"
+      ]
+    },
+    {
+      "title": "Stories of Love: A Place For The Lovers",
+      "date": "2026-08-22",
+      "venue": "Sole Folks",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "LA SINGLES presents The Body Language Toolbox with @villarvalerie",
+      "date": "2026-08-22",
+      "venue": "Hotel Ziggy on Sunset",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "It\u2019s LEVEL\u2019S TO THICK POOL PARTY",
+      "date": "2026-08-22",
+      "venue": "90036",
+      "fields": [
+        "price"
+      ]
+    },
+    {
+      "title": "DRENCHED I AN LA SUMMER EXPERIENCE \u2600\ufe0f",
+      "date": "2026-08-23",
+      "venue": "Level 8",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "BORNREADYLIVE",
+      "date": "2026-08-23",
+      "venue": "Delicious Pizza\ud83c\udf55",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Deep House Brunch BOAT PARTY ft. MARK FARINA [Labor Day Sunday]",
+      "date": "2026-09-06",
+      "venue": "Catalina Classic Cruises",
+      "fields": [
+        "price"
+      ]
+    },
+    {
+      "title": "The Outsiders (Touring)",
+      "date": "2026-09-30",
+      "venue": "Hollywood Pantages Theatre",
+      "fields": [
+        "start"
+      ]
+    },
+    {
+      "title": "LAUNDRY DAY",
+      "date": "2026-10-04",
+      "venue": "The Fonda Theatre",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Petit Biscuit with Special Guest: Forester",
+      "date": "2026-10-17",
+      "venue": "Avalon Hollywood",
+      "fields": [
+        "start"
+      ]
+    },
+    {
+      "title": "Bonnie Raitt: Live 2026 with Special Guest Jon Cleary",
+      "date": "2026-10-20",
+      "venue": "Hollywood Pantages Theatre",
+      "fields": [
+        "start"
+      ]
+    }
+  ],
   "stale_sources": [
     {
       "source": "editorial",
-      "days": 18,
-      "count": 116
+      "days": 19,
+      "count": 106
+    },
+    {
+      "source": "webfetch",
+      "days": 3,
+      "count": 216
+    },
+    {
+      "source": "harvelles",
+      "days": 3,
+      "count": 46
+    },
+    {
+      "source": "venicewest",
+      "days": 3,
+      "count": 65
+    },
+    {
+      "source": "avalon",
+      "days": 3,
+      "count": 21
+    },
+    {
+      "source": "mccabes",
+      "days": 3,
+      "count": 33
     }
   ]
 }
