@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T00:41:20+00:00",
+  "generated_at": "2026-08-17T00:44:34+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "5f732ad7a0d7",
@@ -299213,7 +299213,7 @@
         "diff": "diff --git a/taste.yaml b/taste.yaml\nindex 5a54fdd..656e428 100644\n--- a/taste.yaml\n+++ b/taste.yaml\n@@ -77,6 +77,9 @@ boosts:\n \n penalties:\n   # -2 each (the expanded non-priority list)\n+  - queer-specific / queer-oriented events (Bears in Space, drag nights, Pride\n+    parties) \u2014 stated 2026-08; enforced hard via scoring.penalty_vibes below,\n+    listed here so the editor/voice briefs carry it too\n   - Vegas-style bottle-service / table-service clubs (Hakkasan/Marquee energy)\n   - generic Top-40 / open-format / hip-hop \"club night\" with no real DJ billing\n   - hardstyle / gabber / happy-hardcore / hard-dance as the main draw (not the\n@@ -229,3 +232,10 @@ feedback:\n     in a place you wouldn't expect\\\"). (self-edit via concierge)\"\n   - \"2026-08-02: Down-rank drag / cabaret performance events (self-edit via\n     concierge)\"\n+\n+# Scoring overrides (mechanism knobs \u2014 profile.yaml wins where both set a key).\n+scoring:\n+  # Hard vibe opt-outs (-6 each): fires on the deterministic `queer` vibe tag AND on\n+  # enrichment-card `vibes` (events the scene-researcher determines are queer-oriented\n+  # even when the listing text never says so \u2014 e.g. Bears in Space). Stated 2026-08.\n+  penalty_vibes: [\"queer\"]",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-16"
+        "enriched_at": "2026-08-17"
       },
       "profile": {
         "file": "profile.yaml",
@@ -299247,7 +299247,7 @@
         "diff": "diff --git a/profile.yaml b/profile.yaml\nindex fd13a1d..fd106f2 100644\n--- a/profile.yaml\n+++ b/profile.yaml\n@@ -20,10 +20,6 @@ home:\n # City-specific source ids (lifted from the fetchers; they fall back to these literals).\n dashboard:\n   # Page-presentation knobs (the static dashboard reads these via feed config).\n-  # photos: real event images on the front page's top picks (lead + shortlist) for\n-  # signed-in profiles. Default false \u2014 flip here (or preview via the owner's in-page\n-  # Settings toggle) to turn them on site-wide at the next feed build.\n-  photos: false\n   # Public URL of the deployed dashboard. Digest event lines add a `card \u2197` link to\n   # <site_url>?e=<event_key>, which opens that event's card (details + save) on the site.\n   # Blank/absent = digests carry ticket links only.",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-16"
+        "enriched_at": "2026-08-17"
       }
     },
     "digest_prefs": {
