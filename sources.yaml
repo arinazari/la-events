@@ -120,17 +120,21 @@ sources:
   - name: LAist — Best Things To Do
     category: editorial
     method: scrape
-    url: https://laist.com/news/la-history/best-things-to-do-los-angeles
+    url: https://laist.com/news/arts-and-entertainment/best-things-to-do
     priority: 1
     status: active
     notes: Weekly roundup; URL pattern varies — search site if stale.
+      URL corrected 2026-08-18 (old la-history path 404s; LAist moved the section).
 
   - name: Time Out Los Angeles
     category: editorial
     method: scrape
-    url: https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-this-weekend
+    url: https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events
     priority: 1
     status: active
+    notes: >
+      URL corrected 2026-08-18 (old "...this-weekend" path 404s / served a stale cache;
+      Time Out restructured its site).
 
   - name: We Like LA
     category: editorial
@@ -193,8 +197,11 @@ sources:
     method: scrape
     url: https://dirtyepic.com/
     priority: 2
-    status: active
-    notes: Underground techno editorial. Newsletter available → Gmail label.
+    status: flaky
+    notes: >
+      Underground techno editorial. Newsletter available → Gmail label.
+      Marked flaky 2026-08-18 — domain resolves to a GoDaddy parking page (site appears
+      expired/lapsed). Re-probe periodically; revert to active once it resolves for real.
 
   - name: Restless Nites
     category: electronic
