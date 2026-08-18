@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/17/2026 deterministically (no API). 295 candidates. Signals: big-venue 263, festival 25, tracked 9, editorial 2._
+_Generated 8/18/2026 deterministically (no API). 310 candidates. Signals: big-venue 271, festival 25, editorial 10, tracked 9._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -10,6 +10,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 9/26 | 6 | Ocean Way Festival - 09/26 Saturday | The Beach at Santa Monica | festival, tracked:DJ Harvey | [link](https://www.axs.com/events/1459419/ocean-way-festival-tickets) |
+
+## November 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sun 11/22 | 3 | El Tri - 21 & Over | Yaamava Resort & Casino at San Man | editorial, big-venue | [link](https://yaamava.com/yaamava-theater) |
 
 ## October 2026
 
@@ -22,6 +28,43 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 11/8 | 2 | Rose Bowl Flea Market Sunday, November 8, 2026 | Rose Bowl Stadium | editorial, big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-november-8-2026-tickets-1977731982599) |
+
+## September 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 9/26 | 5 | Andy Frasco & The U.N. | The Venice West | editorial | [link](https://www.tixr.com/groups/thevenicewest/events/andy-frasco-the-u-n--189913) |
+
+## October 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Thu 10/8 | 4 | Lukas Nelson & Molly Tuttle | The Bellwether | editorial | [link](https://www.ticketmaster.com/lukas-nelson-molly-tuttle-los-angeles-california-10-08-2026/event/090064A6DEE093AB) |
+| Sat 10/17 | 4 | Boots in the Park | Rancho Mission Viejo Riding Park | editorial | [link](https://www.ticketmaster.com/event/Z7r9jZ1A707OS) |
+| Mon 10/19 | 4 | Chinchilla | Pacific Electric | editorial | [link](https://www.ticketmaster.com/chinchilla-los-angeles-california-10-19-2026/event/090064F7158AAC30) |
+
+## December 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 12/4 | 4 | Angine de Poitrine | The Wiltern | editorial | [link](https://www.ticketmaster.com/angine-de-poitrine-los-angeles-california-12-04-2026/event/090064A7ABE2D617) |
+
+## September 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Wed 9/23 | 3 | Melanie C (Live) | The Fonda Theatre | editorial | [link](https://www.fondatheatre.com/) |
+
+## October 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Thu 10/15 | 3 | GEESE | Hollywood Forever Cemetary | editorial | [link](https://www.ticketmaster.com/event/Z7r9jZ1A70vqI) |
+
+## November 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
 | Sun 11/22 | 2 | Three Days Grace - Alienation Tour  | Intuit Dome | festival, big-venue | [link](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0) |
 
 ## September 2026
@@ -145,6 +188,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 9/25 | 5 | Riley Green: Cowboy As It Gets Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/riley-green-cowboy-as-it-gets-los-angeles-california-09-25-2026/event/090064BCCDA4CFFB) |
+| Sat 9/26 | 5 | Rodgers & Hammerstein's The Sound of Music Sing-A-Long | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events) |
 
 ## October 2026
 
@@ -163,13 +207,13 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 9/21 | 4 | Lily Allen Performs West End Girl | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lily-allen-performs-west-end-girl-los-angeles-california-09-21-2026/event/090064E8F349EC5D) |
 | Wed 9/23 | 4 | BECK: RIDE LONESOME TOUR | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/beck-ride-lonesome-tour-los-angeles-california-09-23-2026/event/0900648A40ABD374) |
 | Fri 9/25 | 4 | Yandel - SINFÓNICO | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/yandel-sinfonico-los-angeles-california-09-25-2026/event/2C00649EBD941288) |
 | Sat 9/26 | 4 | BERT KREISCHER: PERMISSION TO PARTY | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/bert-kreischer-permission-to-party-los-angeles-california-09-26-2026/event/0900647FE404EF24) |
 | Sun 9/27 | 4 | Tove Lo w/ Mallrat | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Tue 9/29 | 4 | Zara Larsson | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 9/30 | 4 | Zara Larsson 2nd Show Added! | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
+| Wed 9/30 | 4 | Rubén Blades & Roberto Delgado Big Band: Fotografías Tour | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events) |
 
 ## October 2026
 
@@ -311,6 +355,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/14 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-14-2026/event/09006494FCC71433) |
 | Sat 11/14 | 3 | Camp Flog Gnaw 2026 | Dodger Stadium | big-venue | [link](https://www.axs.com/events/1475989/camp-flog-gnaw-2026-tickets) |
 | Sat 11/14 | 3 | Gladys Knight - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZbO_) |
+| Wed 11/18 | 3 | Jonas Brothers: The Burning Up Tour All Over Again | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-hollywood-california-11-18-2026/event/0B00650ECDC0DD8B) |
 | Fri 11/20 | 3 | Arcángel - La 8va Maravilla World Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/arcangel-la-8va-maravilla-world-tour-inglewood-california-11-20-2026/event/0A0064A792CA7806) |
 | Sat 11/21 | 3 | NieR: Orchestra Concert | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 11/21 | 3 | Bunbury - Nuevas Mutaciones Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/bunbury-nuevas-mutaciones-tour-2026-inglewood-california-11-21-2026/event/0A00644ADAD09F63) |
@@ -348,6 +393,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
+| Sat 2/13 | 3 | Los Tucanes De Tijuana | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/los-tucanes-de-tijuana-inglewood-california-02-13-2027/event/090064DEC0F49512) |
 
 ## September 2026
 
@@ -428,10 +474,10 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Thu 11/12 | 2 | The Smashing Pumpkins: The Rats In A Cage Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-smashing-pumpkins-the-rats-in-inglewood-california-11-12-2026/event/090064AFCB095819) |
 | Sun 11/15 | 2 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-11-15-2026/event/0A006494C5CE878D) |
 | Sun 11/15 | 2 | RAWAYANA - ¿Dónde es el after? World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rawayana-donde-es-el-after-world-inglewood-california-11-15-2026/event/0900646DB256B395) |
+| Mon 11/16 | 2 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-11-16-2026/event/0A006494C82189BE) |
 | Tue 11/17 | 2 | Enrique Bunbury (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 11/18 | 2 | Teddy Swims: The UGLY Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/teddy-swims-the-ugly-tour-inglewood-california-11-18-2026/event/0900648DE2F4A831) |
 | Fri 11/20 | 2 | Martin Lawrence with Nate Jackson, Karlous Miller and more | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/martin-lawrence-yall-still-know-what-ontario-california-11-20-2026/event/090064F6CAC4B270) |
-| Sun 11/22 | 2 | El Tri - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Tue 11/24 | 2 | Los Tucanes de Tijuana (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7Paao) |
 
 ## December 2026
@@ -495,6 +541,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Fri 11/13 | 1 | Los Tigres del Norte | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-palm-desert-california-11-13-2026/event/0A0064588664F5A1) |
 | Sat 11/14 | 1 | 90s Corridos Tour 2026 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/90s-corridos-tour-2026-palm-desert-california-11-14-2026/event/0A00649D95C0C8DC) |
 | Thu 11/19 | 1 | Nikki Glaser | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Sat 11/21 | 1 | V-beyond Concert | Honda Center | big-venue | [link](https://www.ticketmaster.com/vbeyond-concert-anaheim-california-11-21-2026/event/0900650CE60E12D8) |
 
 ## December 2026
 
@@ -508,6 +555,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 2/12 | 1 | Cristian Castro: Nada Solo Exitos Tour 2027 | Honda Center | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-anaheim-california-02-12-2027/event/09006454A8EDEE77) |
+| Sat 2/13 | 1 | Cristian Castro: Nada Solo Éxitos Tour 2027 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-palm-desert-california-02-13-2027/event/0A0064AF217B07C1) |
 
 ## October 2026
 
@@ -522,7 +570,14 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Tue 11/17 | 0 | Jonas Brothers: The Burning Up Tour All Over Again | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-palm-desert-california-11-17-2026/event/0A00650C36443D5D) |
 | Tue 11/24 | 0 | JOURNEY - Final Frontier Tour (An Evening With) | Honda Center | big-venue | [link](https://www.ticketmaster.com/journey-final-frontier-tour-an-evening-anaheim-california-11-24-2026/event/090064A695B5BA92) |
+
+## December 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Wed 12/2 | 0 | Jonas Brothers: The Burning Up Tour All Over Again | Honda Center | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-anaheim-california-12-02-2026/event/0900650C4618D89F) |
 
 ## September 2026
 
