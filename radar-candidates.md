@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/18/2026 deterministically (no API). 310 candidates. Signals: big-venue 271, festival 25, editorial 10, tracked 9._
+_Generated 8/19/2026 deterministically (no API). 311 candidates. Signals: big-venue 271, festival 26, editorial 10, tracked 9._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -101,6 +101,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/7 | 4 | And Always Forever 2026 - 2-DAY PASS | Echoplex | festival | [link](https://www.ticketmaster.com/and-always-forever-2026-2day-pass-los-angeles-california-11-07-2026/event/090064F8C0F8A145) |
 | Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
 | Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
+
+## December 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 12/4 | 4 | Grateful Shred: Holiday Homecoming - 2-DAY Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91) |
 
 ## September 2026
 
@@ -346,7 +352,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Thu 11/5 | 3 | XG | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 11/6 | 3 | Don Omar "The Last King World Tour" | Kia Forum | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-11-06-2026/event/090064B1D40799CD) |
 | Fri 11/6 | 3 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-06-2026/event/0A0064C8F29DE297) |
-| Fri 11/6 | 3 | ZULAN | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1413525/zulan-tickets) |
+| Fri 11/6 | 3 | ZULAN - Ages 18+ | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1413525/zulan-tickets) |
 | Sat 11/7 | 3 | Jorge Medina - Legendario Tour | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1492293/jorge-medina-tickets?skin=yaamava) |
 | Sat 11/7 | 3 | Mon Laferte - Femme Fatale Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mon-laferte-femme-fatale-tour-inglewood-california-11-07-2026/event/0900646CEE46EEFD) |
 | Sat 11/7 | 3 | Eros Ramazzotti - UNA HISTORIA IMPORTANTE | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/eros-ramazzotti-una-historia-importante-inglewood-california-11-07-2026/event/0A00628C082C6464) |

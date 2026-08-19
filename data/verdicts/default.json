@@ -28650,15 +28650,14 @@
       "score_at_judge": 3
     },
     "b21b8dd126a4": {
-      "tier": "solid",
+      "tier": "great",
       "lane": "live-music:big",
-      "adjust": 0,
-      "why": "This is a full-day indie/dance-punk festival with bands (Strokes, LCD Soundsystem, Chromeo), not a club night — tags mislabeled it club:day. Worth knowing about outside your core lane, LCD Soundsystem especially.",
+      "adjust": -2,
+      "why": "Indie/dance-punk day fest (Strokes, LCD, Chromeo) not a house lineup — the 'genre house' tag is bogus, LCD Soundsystem and Rhonda's disco set are the only real overlap with your spine.",
       "confidence": "high",
-      "judged_at": "2026-08-16T12:35:42",
+      "judged_at": "2026-08-19T12:36:17",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 9
     },
     "9cc8a3df6824": {
       "tier": "solid",
@@ -41144,6 +41143,88 @@
       "judged_at": "2026-08-18T12:40:22",
       "input_version": 2,
       "score_at_judge": 5
+    },
+    "25c8166d62d7": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Recurring disco night, no lineup listed so can't gauge selector quality, but the format itself — bar-sized, groove-leaning disco — is right in your Sunset Sessions lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-19T12:36:17",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "de43200b8628": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Dudamel plus a world-premiere Giacchino/Gorman piece at the Bowl — classical shows up in your actual listening, not just a score keyword, and this is a special program not a stock subscription night.",
+      "confidence": "med",
+      "judged_at": "2026-08-19T12:36:17",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "5a884265fb8b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "No lineup and the jazz tag doesn't match what a JLH pre-party at a Chinatown club usually is — could be a DJ set, could be genuinely jazz, can't tell from what's here.",
+      "confidence": "low",
+      "judged_at": "2026-08-19T12:36:17",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "d4997ca9c3d5": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "TBA warehouse doors-to-5am on tech-house/minimal — exactly the genre lane you actually stream most, unknown DJs but the format and genre match are strong enough to bet on.",
+      "confidence": "med",
+      "judged_at": "2026-08-19T12:36:17",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "724cafe0adb4": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "5pm DIY-space afterparty tied to the indie fest above with no lineup — probably rides the same indie/punk crowd rather than your house lane, hard to say without more.",
+      "confidence": "low",
+      "judged_at": "2026-08-19T12:36:17",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "87873684c3dd": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Spiñorita's an NTS Casual Play host with real disco/funk/vinyl-digging cred — a backyard-scene vinyl night that's worth the Pomona drive even if the score doesn't know who she is.",
+      "confidence": "high",
+      "judged_at": "2026-08-19T12:36:17",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "9d5c49ed5a64": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "'2016 RNB Night' is a decade-nostalgia throwback party, not a house/techno night — the electronic tag is a mismatch and this is the tired-format bucket, not your spine.",
+      "confidence": "med",
+      "judged_at": "2026-08-19T12:36:17",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "37a6304b4c8b": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "'Cut-A-Rug' reads more like a general dance-party name than a confirmed house/techno booking, no lineup to check it against — following the score cautiously.",
+      "confidence": "low",
+      "judged_at": "2026-08-19T12:36:17",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "6268db192d76": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "TBA-location free party, no lineup or scene notes to confirm the electronic tag is even right — generic underground-party score, nothing here to lift or bury it.",
+      "confidence": "low",
+      "judged_at": "2026-08-19T12:36:17",
+      "input_version": 2,
+      "score_at_judge": 6
     }
   }
 }
