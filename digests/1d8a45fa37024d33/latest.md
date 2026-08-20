@@ -1,35 +1,33 @@
-# LA Events — 2026-08-19
-*Digest regenerated Wed 8/19 — picks updated.*
+# LA Events — 2026-08-20
+*Digest regenerated Thu 8/20 — picks updated.*
 
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Checked Wed 8/19 · no new or changed events since the last pull*
+*Checked Thu 8/20 · no new or changed events since the last pull*
 
-<!-- take: Dudamel's Bowl send-off collides with Just Like Heaven this weekend, and a Felix Dickinson/Masha Mar body wave on 9/19 is the real sleeper. -->
-<!-- tier3:intro -->
-A quiet Wednesday/Thursday gives way to a stacked weekend: Dudamel's three-night Bowl farewell (Beethoven 9 → a surprise-guest playlist night → Foo Fighters joining the Phil) overlaps directly with Just Like Heaven at the Rose Bowl on Saturday, so Saturday's the one-or-the-other night. If you can only do one: Foo Fighters + LA Phil is the genuine one-off — Just Like Heaven's indie/dance-punk bill (Strokes, LCD, Chromeo) is great but replicable, this pairing isn't. Further out, mark 9/5 (Studio Barnhus day party) and 9/11 (Midnight Lovers with Massimiliano Pagliara) — both legitimate European-club bookings, not filler.
+<!-- take: Friday's the loaded night — Marques Wyatt under the bridge or Matthew Dear b2b The Juan MacLean at Lodge Room — and Laurel Halo plays free at the Getty Saturday. -->
+This is a genuinely stacked stretch, not an even one. Friday alone puts three real bookings on the same night — Marques Wyatt (the guy who basically built LA's deep-house scene) doing six hours under the 6th Street Bridge, Matthew Dear b2b The Juan MacLean at the right-sized Lodge Room, and a DJ Bone/Stacey Hotwaxx Hale afters with actual Detroit pedigree — so it's a real "pick one" night rather than a scrolling exercise. Saturday counters with something outside the usual lane entirely: Foo Fighters sitting in with the full LA Phil at the Bowl, part of the four-night Dudamel send-off, plus a free Laurel Halo set at the Getty that's easy to miss because "ambient" doesn't read as a Saturday-night plan. If you only do one thing all week, make it Friday.
 
 ## Tonight & tomorrow
 
-<!-- tier3:call -->
-Quiet tonight — Sizzy Rocket at The Echo is the one worth leaving for; tomorrow's the real move, with Dudamel's Beethoven 9 at the Bowl and DJ Al Lover's psych-break set at Zebulon both live.
+Tonight's low-key — Zebulon's genre-mash bill (Will Worden, Same Ol' Smile, DJ Al Lover) is the move if you're out, otherwise it's a fine night in. Save the real energy for tomorrow: Marques Wyatt under the bridge and Matthew Dear b2b The Juan MacLean both go head-to-head.
 
-- `Today 7pm` **[Sizzy Rocket](https://www.ticketmaster.com/sizzy-rocket-los-angeles-california-08-19-2026/event/090064B4D8907B51)** — The Echo, Echo Park · [card ↗](https://arinazari.github.io/la-events/?e=53630a69d501) — *Shoegaze-edged LA alt-rock that's opened arena dates for Smashing Pumpkins, at The Echo — a real sleeper the score's flat 3 doesn't reflect.*
-- `Today 10pm` **[Techno Night Market × Pulse](https://posh.vip/e/techno-night-market-pulse)** — Jungle · free · [card ↗](https://arinazari.github.io/la-events/?e=6798eab3b5a7) — *Free techno night market at Jungle — genre's dead-on but no lineup surfaced, so the actual draw is a guess.*
-- `Today 11pm` **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2513698)** — The Lexington, DTLA · afters · [card ↗](https://arinazari.github.io/la-events/?e=65cde1ab90a3) — *Fourth night of the same standing NIGHTSHIFT run, still no billed lineup.*
-- `Tomorrow 8pm` **[Celebrating Gustavo at the Bowl: Beethoven 9](https://www.hollywoodbowl.com/events)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=de43200b8628) — *Dudamel plus a world-premiere Giacchino/Gorman piece at the Bowl — classical shows up in your actual listening, not just a score keyword, and this is a special program not a stock subscription night.*
-- `Tomorrow 8pm` **[Will Worden, Same Ol' Smile, DJ Al Lover](https://dice.fm/event/dkpmko-will-worden-same-ol-smile-dj-al-lover-20th-aug-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=81bf1478fd74) — *DJ Al Lover is a known LA garage/psych selector, and Zebulon is the exact small-room indie bill you go for.*
-- `Tomorrow 10:30pm` **[DALE PLAY ~ Cumbia Villera, Perrero, Latin House](https://dice.fm/event/6dolrb-dale-play-cumbia-villera-perrero-latin-house-20th-aug-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=d9fd3ed48874)
+- `Today 8pm` **[Celebrating Gustavo at the Bowl: Beethoven 9](https://www.hollywoodbowl.com/events)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=de43200b8628) — *Dudamel plus a world-premiere Giacchino/Gorman piece at the Bowl — classical shows up in your actual listening, not just a score keyword, and this is a special program not a stock subscription night.*
+- `Today 8pm` **[Will Worden, Same Ol' Smile, DJ Al Lover](https://dice.fm/event/dkpmko-will-worden-same-ol-smile-dj-al-lover-20th-aug-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=81bf1478fd74) — *DJ Al Lover is a known LA garage/psych selector, and Zebulon is the exact small-room indie bill you go for.*
+- `Today 10:30pm` **[DALE PLAY ~ Cumbia Villera, Perrero, Latin House](https://dice.fm/event/6dolrb-dale-play-cumbia-villera-perrero-latin-house-20th-aug-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=d9fd3ed48874)
+- `Tomorrow 9pm` **[SET & Safra with MONKEY SAFARI & MARQUES WYATT Under the 6th St Bridge, LA](https://www.eventbrite.com/e/set-safra-with-monkey-safari-marques-wyatt-under-the-6th-st-bridge-la-tickets-1995829981200)** — Under the 6th Street Bridge, DTLA · $31.02 · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=b69a75ba9b8d) — *9pm-3am open-air under the bridge, not a day party — Marques Wyatt basically built LA's dance scene and Monkey Safari's melodic Get Physical/Anjunadeep sound is a genuine pairing, though a near-identical listing exists for the same night at a different address.*
+- `Tomorrow 8pm` **[Matthew Dear B2B The Juan MacLean, Mesme](https://www.lodgeroomhlp.com/shows/matthew-dear-b2b-the-juan-maclean-2/)** — Lodge Room (Los Angeles), Highland Park · $26 · [card ↗](https://arinazari.github.io/la-events/?e=92a8a34eb43c) — *Matthew Dear b2b The Juan MacLean at Lodge Room is the exact 'headliner in a small room' boost — Ghostly meets DFA, a real songwriting-into-techno crossover, not just an on-genre b2b.*
+- `Tomorrow 11pm-6am` **[INCOGNITO and Dirty Epic present: Further with DJ Bone, Stacey Hotwaxx Hale & Mapamota](https://ra.co/events/2492445)** — TBA, Los Angeles · $21.35-32 · [card ↗](https://arinazari.github.io/la-events/?e=623a61c809c9) — *DJ Bone and Stacey Hotwaxx Hale are Detroit techno/house royalty — she's literally called the Godmother of House — the score doesn't know these names but they're squarely in the Moodymann/Theo Parrish lineage you already track.*
 
 ## Don't miss
 
 - `Thu 8/20` **[Celebrating Gustavo at the Bowl: Beethoven 9](https://www.hollywoodbowl.com/events)** — Hollywood Bowl, Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=de43200b8628)  
-  Dudamel plus a world-premiere Giacchino/Gorman piece at the Bowl — classical shows up in your actual listening, not just a score keyword, and this is a special program not a stock subscription night. <!-- tier3:why de43200b8628 -->
-- `Sat 8/22` **[Noizu](http://www.shrineauditorium.com/)** — Shrine Expo Hall, University Park · 18+ · [card ↗](https://arinazari.github.io/la-events/?e=e653cbe40068)  
-  Noizu's the kind of big-tent tech-house that earns its Spotify rotation honestly — not the deepest cut of the night but a properly good one for a bigger room like the Shrine. <!-- tier3:why e653cbe40068 -->
+  Not really your lane, but this is the rare classical booking worth treating as an event: opening night of the Bowl's four-night tribute to Dudamel's tenure, with a world-premiere Michael Giacchino/Amanda Gorman piece alongside Beethoven's Ninth — go for the premiere and the LA Phil/Youth Orchestra/Master Chorale scale, not because it's dance music. <!-- tier3:why de43200b8628 -->
 - `Sat 8/22` **[Celebrating Gustavo at the Bowl: Foo Fighters with the LA Phil and YOLA](https://www.hollywoodbowl.com/events/performances/4287/2026-08-22/celebrating-gustavo-at-the-bowl-foo-fighters-with-the-la-phil-and-yola)** — Hollywood Bowl, Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=6f7ecb0929f4)  
   Foo Fighters trading their usual arena setup for the Bowl shell with the full LA Phil behind them is a genuine one-off, not something you'd bet on happening again — it's outside the house/techno lane but this is exactly the kind of unusual pairing worth clearing a Saturday for. <!-- tier3:why 6f7ecb0929f4 -->
-- `Mon 8/31` **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZk)** — Festival of Arts Pageant of the Masters, Laguna Beach · [card ↗](https://arinazari.github.io/la-events/?e=ec923f579e38)  
-  This is the 90-plus-year-old Laguna Beach institution where a live cast poses inside recreations of famous paintings ('living pictures') under a full orchestra — genuinely one-of-a-kind, but it's an Orange County trip for something that has nothing to do with the house/techno or rep-cinema lanes you actually chase. <!-- tier3:why ec923f579e38 -->
+- `Sat 8/22` **[Noizu](http://www.shrineauditorium.com/)** — Shrine Expo Hall, University Park · 18+ · [card ↗](https://arinazari.github.io/la-events/?e=e653cbe40068)  
+  Noizu's the kind of big-tent tech-house that earns its Spotify rotation honestly — not the deepest cut of the night but a properly good one for a bigger room like the Shrine. <!-- tier3:why e653cbe40068 -->
+- `Sat 8/22` **[Laurel Halo](https://www.getty.edu/calendar/off-the-405-laurel-halo/)** — Getty Center (Los Angeles) · free · *free — just RSVP* · [card ↗](https://arinazari.github.io/la-events/?e=685e1d51f436)  
+  Laurel Halo is a legit, respected ambient/experimental producer doing a free outdoor set at the Getty — the score undercounts it because 'ambient' doesn't trip the house/techno keywords, and it's a performance, not a club set. <!-- tier3:why 685e1d51f436 -->
 - `Sat 9/5` **[Studio Barnhus Summer Dance Party with Axel Boman, Kornel Kovacs, Nikki Nair](https://ra.co/events/2423932)** — The Bridge, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=f32e99937543)  
   Both Studio Barnhus co-founders in one room for an outdoor day party is the label doing exactly what it does best — warm, playful house that doesn't take itself too seriously. Nikki Nair going way outside that lane only makes the bill more interesting. <!-- tier3:why f32e99937543 -->
 - `Fri 9/11` **[Midnight Lovers with Massimiliano Pagliara, Masha Mar, James Axon](https://ra.co/events/2432189)** — The Bridge, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=8a862e604d08)  
@@ -39,35 +37,26 @@ Quiet tonight — Sizzy Rocket at The Echo is the one worth leaving for; tomorro
 
 
 **New to the slate**
-- `Fri 8/21` 🆕 **[Utopia Fridays: Dialed Records Presents - Sepp, Josh Lee, DJ Monico, Whois86](https://www.instagram.com/p/DajOcmWtApe/)** — TBA (DTLA/Los Angeles), DTLA · free w/rsvp b4 1 / $12-67 · [card ↗](https://arinazari.github.io/la-events/?e=d4997ca9c3d5) — *TBA warehouse doors-to-5am on tech-house/minimal — exactly the genre lane you actually stream most, unknown DJs but the format and genre match are strong enough to bet on.*
-- `Fri 8/28` 🆕 **[On Vinyl IRL](https://ra.co/events/2516221)** — Homage Brewing, Pomona · [card ↗](https://arinazari.github.io/la-events/?e=87873684c3dd) — *Spiñorita's an NTS Casual Play host with real disco/funk/vinyl-digging cred — a backyard-scene vinyl night that's worth the Pomona drive even if the score doesn't know who she is.*
-- `Sat 9/19` ⭐ 🆕 **[body wave: Felix Dickinson (UK), Masha Mar, Junior](https://ra.co/events/2516016)** — TBA - Downtown Los Angeles, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=e203ae55361e)
+- `Mon 8/24` 🆕 **[AFTERS 8-24 ( MONDAY )](https://posh.vip/e/afters-824-monday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=4373f41f3f64)
+- `Tue 8/25` 🆕 **[AFTERS 8-25 ( TUESDAY )](https://posh.vip/e/afters-825-tuesday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=4e93f8e7af0a)
+- `Wed 8/26` 🆕 **[AFTERS 8-26 ( WEDNESDAY )](https://posh.vip/e/afters-826-wednesday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=196685a3c36e)
+- `Thu 8/27` 🆕 **[AFTERS 8-27 ( THURSDAY )](https://posh.vip/e/afters-827-thursday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=43a40c020d08)
+- `Fri 8/28` 🆕 **[AFTERS 8-28 ( FRIDAY )](https://posh.vip/e/afters-828-friday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=8ceaafc864c8) — *Unbranded afters listing near Silver Lake but nothing to go on beyond the time slot — no lineup, no venue reputation to lean on.*
+- `Sat 8/29` 🆕 **[AFTERS 8-29 ( SATURDAY )](https://posh.vip/e/afters-829-saturday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=49c436c83b98)
+- `Sun 8/30` 🆕 **[AFTERS 8-30 ( SUNDAY )](https://posh.vip/e/afters-830-sunday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=0550164f9d82)
 
 **Updated**
-- `Tue 8/25` **[W.I.T.C.H.](https://www.ticketmaster.com/witch-los-angeles-california-08-25-2026/event/090064AE3E681B0E)** — Teragram Ballroom, Westlake · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=b5ec67f33064) — *This is the actual Zamrock band (We Intend To Cause Havoc) on the Now-Again reissue revival — a genuinely rare booking for the small-rock/groove lane, not a random Teragram date.*
+- `Sat 8/29` **[HOOD RAVE x DANCE MANIA](https://ra.co/events/2504408)** — TBA - LA, Los Angeles · ↻ updated (start) · [card ↗](https://arinazari.github.io/la-events/?e=ee62daae40c9) — *Dance Mania is a legit ghetto-house/juke lineage name — TBA-location warehouse energy is exactly the boosted category here; score undersold it.*
+- `Thu 9/3` **[Digital Underground "Sex Packets" 35th year Anniversary](https://www.ticketmaster.com/digital-underground-sex-packets-35th-year-los-angeles-california-09-03-2026/event/0900649B3AE6B340)** — The Regent Theater, DTLA · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=ef0b4defc2ff)
+- `Sun 9/6` **[Grum POOL PARTY at Level 8 [Labor Day Sunday]](https://ra.co/events/2401748)** — Level 8 DTLA, DTLA · day party · $31.58 · ↻ updated (price) · [card ↗](https://arinazari.github.io/la-events/?e=3e1457e2c218)
 
 ## Next two weeks
-
-### Wednesday · August 19
-
-**Electronic & dance**
-- `10pm` **[Techno Night Market × Pulse](https://posh.vip/e/techno-night-market-pulse)** — Jungle · free · [card ↗](https://arinazari.github.io/la-events/?e=6798eab3b5a7) — *Free techno night market at Jungle — genre's dead-on but no lineup surfaced, so the actual draw is a guess.*
-- `11pm` (Wed 8/19 +3 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2513699)** — The Lexington, DTLA · afters · [card ↗](https://arinazari.github.io/la-events/?e=b5baf457ad84)
-
-**Live music**
-- `7pm` **[Sizzy Rocket](https://www.ticketmaster.com/sizzy-rocket-los-angeles-california-08-19-2026/event/090064B4D8907B51)** — The Echo, Echo Park · [card ↗](https://arinazari.github.io/la-events/?e=53630a69d501)  
-  A distinct queer punk-pop voice rather than another interchangeable Echo indie bill — worth a look if she wants something scrappier than the usual songwriter fare.
-
-**Comedy & stage**
-- `6:30pm` (Wed 8/19 +2 more) ⭐ **[Phantom Of The Opera (Touring)](https://www.scfta.org/)** — Segerstrom Center for the Arts-Segerstrom Hall, Costa Mesa · [card ↗](https://arinazari.github.io/la-events/?e=66e8dab395a7)  
-  The touring Phantom warhorse in Costa Mesa — gorgeous production values if you've somehow never seen it, but it's a long drive for a show that isn't chasing anything new.
-
-- *Also:* [No Reason To Dance](https://posh.vip/e/no-reason-to-dance) (7849 S Marine Ave)
 
 ### Thursday · August 20
 
 **Electronic & dance**
 - `10:30pm` **[DALE PLAY ~ Cumbia Villera, Perrero, Latin House](https://dice.fm/event/6dolrb-dale-play-cumbia-villera-perrero-latin-house-20th-aug-gold-diggers-los-angeles-tickets)** — Gold Diggers, East Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=d9fd3ed48874)
+- `11pm` (Thu 8/20 +2 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2513699)** — The Lexington, DTLA · afters · [card ↗](https://arinazari.github.io/la-events/?e=b5baf457ad84)
 - `10pm` **[LA BACK TO SCHOOL PARTY](https://posh.vip/e/laz-biggest-stoplight-party)** — Catch One LA, Mid-City · day party · free · [card ↗](https://arinazari.github.io/la-events/?e=aaa41673ba18)
 
 **Live music**
@@ -76,18 +65,17 @@ Quiet tonight — Sizzy Rocket at The Echo is the one worth leaving for; tomorro
   Not the electronic lane at all, but a genuinely fun genre-mash bill — Will Worden's countrypolitan croon, Same Ol' Smile's boogie-Beefheart thing, and Al Lover spinning psych breaks between sets, at a room built for exactly this.
 
 ### Friday · August 21
-<!-- tier3:blueprint 2026-08-21 -->
-Dinner in DTLA, then Marques Wyatt & Monkey Safari under the 6th St Bridge from 9 — six hours of proper deep house — and if you're still up, INCOGNITO/Dirty Epic's DJ Bone afterhours (TBA location) is the real Detroit-lineage move past 2am. Ask the concierge for a dinner pick near the bridge.
+Dinner at San Laurel in DTLA sets you up close to the bridge — Marques Wyatt & Monkey Safari run 9pm-3am, so eat around 7 and get there by 10 while the room's still filling. If Lodge Room's the pick instead, grab a bite at Jeff's Table in Highland Park before Matthew Dear b2b The Juan MacLean's 8pm doors.
 
 **Electronic & dance**
 - `9pm` **[SET & Safra with MONKEY SAFARI & MARQUES WYATT Under the 6th St Bridge, LA](https://www.eventbrite.com/e/set-safra-with-monkey-safari-marques-wyatt-under-the-6th-st-bridge-la-tickets-1995829981200)** — Under the 6th Street Bridge, DTLA · $31.02 · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=b69a75ba9b8d)  
   Marques Wyatt basically built the LA deep house scene from the ground up, and pairing him with Monkey Safari's sunnier melodic sound for six hours under the bridge is a genuinely thoughtful booking, not just a location flex.
-- `11pm-6am` **[INCOGNITO and Dirty Epic present: Further with DJ Bone, Stacey Hotwaxx Hale & Mapamota](https://ra.co/events/2492445)** — TBA, Los Angeles · $21.35-32 · [card ↗](https://arinazari.github.io/la-events/?e=623a61c809c9)  
-  A TBA-location afterhours booking with real lineage for once — DJ Bone and Stacey Hotwaxx Hale are actual Detroit techno/house pioneers, not just another anonymous warehouse bill.
-- `11pm-5am` 🆕 **[Utopia Fridays: Dialed Records Presents - Sepp, Josh Lee, DJ Monico, Whois86](https://www.instagram.com/p/DajOcmWtApe/)** — TBA (DTLA/Los Angeles), DTLA · free w/rsvp b4 1 / $12-67 · [card ↗](https://arinazari.github.io/la-events/?e=d4997ca9c3d5)  
-  Electronic DJ night (11pm-5am) feat. Sepp, Josh Lee, DJ Monico, Whois86 in DTLA.
 - `8pm` **[Matthew Dear B2B The Juan MacLean, Mesme](https://www.lodgeroomhlp.com/shows/matthew-dear-b2b-the-juan-maclean-2/)** — Lodge Room (Los Angeles), Highland Park · $26 · [card ↗](https://arinazari.github.io/la-events/?e=92a8a34eb43c)  
   Matthew Dear and The Juan MacLean b2b is a properly odd pairing — Ghostly's moody minimal-techno lineage next to DFA's dance-punk-turned-disco lineage — and Lodge Room is the right-sized room to hear it actually take shape.
+- `11pm-6am` **[INCOGNITO and Dirty Epic present: Further with DJ Bone, Stacey Hotwaxx Hale & Mapamota](https://ra.co/events/2492445)** — TBA, Los Angeles · $21.35-32 · [card ↗](https://arinazari.github.io/la-events/?e=623a61c809c9)  
+  A TBA-location afterhours booking with real lineage for once — DJ Bone and Stacey Hotwaxx Hale are actual Detroit techno/house pioneers, not just another anonymous warehouse bill.
+- `11pm-5am` **[Utopia Fridays: Dialed Records Presents - Sepp, Josh Lee, DJ Monico, Whois86](https://www.instagram.com/p/DajOcmWtApe/)** — TBA (DTLA/Los Angeles), DTLA · free w/rsvp b4 1 / $12-67 · [card ↗](https://arinazari.github.io/la-events/?e=d4997ca9c3d5)  
+  Sepp's the real credential here — Fabric and Shelter Amsterdam on his resume, doing hypnotic rolling minimal tech-house — but the rest (TBA location, unverified support in Josh Lee/DJ Monico/Whois86, free-before-1am RSVP) reads like a standard Dialed Records afters, not a special night.
 - `4pm` **[Grace Bones presents House of Chic](https://ra.co/events/2511720)** — TBA - Select Fm London Live , Los Angeles · day party · [card ↗](https://arinazari.github.io/la-events/?e=b6e215813b9e)
 
 **Live music**
@@ -95,11 +83,11 @@ Dinner in DTLA, then Marques Wyatt & Monkey Safari under the 6th St Bridge from 
   This is the Dance Gavin Dance/Stolas post-hardcore diaspora rather than straight indie rock — a niche but devoted following, all-ages at Teragram.
 
 **Comedy & stage**
-- `8:30pm` (Fri 8/21 +9 more) ⭐ **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZk)** — Festival of Arts Pageant of the Masters, Laguna Beach · [card ↗](https://arinazari.github.io/la-events/?e=ec923f579e38)
+- `8:30pm` (Fri 8/21 +9 more) ⭐ **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZk)** — Festival of Arts Pageant of the Masters, Laguna Beach · [card ↗](https://arinazari.github.io/la-events/?e=ec923f579e38)  
+  This is the 90-plus-year-old Laguna Beach institution where a live cast poses inside recreations of famous paintings ('living pictures') under a full orchestra — genuinely one-of-a-kind, but it's an Orange County trip for something that has nothing to do with the house/techno or rep-cinema lanes you actually chase.
 
 ### Saturday · August 22
-<!-- tier3:blueprint 2026-08-22 -->
-The collision night: Foo Fighters + LA Phil at the Bowl (8pm) is the pick over Just Like Heaven at the Rose Bowl if you're only doing one — both run into the evening, so don't try to double up. Noizu at the Shrine is the late-night fallback if the Bowl show wraps early enough.
+Start with Laurel Halo's free 6pm set at the Getty — no ticket, no plan needed. From there, either Noizu at the Shrine (9pm, big room, ★) or hold out for Joris Voorn's TBA-location show at 11 if you want it deeper. Skip the Bowl unless the Foo Fighters/Phil pairing itself is the actual draw for you.
 
 **Electronic & dance**
 - `9pm` **[Noizu](http://www.shrineauditorium.com/)** — Shrine Expo Hall, University Park · big room · 18+ · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=e653cbe40068)
@@ -113,9 +101,8 @@ The collision night: Foo Fighters + LA Phil at the Bowl (8pm) is the pick over J
   Latroit's got real pedigree — Detroit roots, a Grammy for that Depeche Mode remix — and doing it as a live ensemble instead of a straight DJ booth set is the actual hook here; Bentley's KCRW ear alongside him just sweetens it.
 
 **Live music**
-- `8pm` **[Celebrating Gustavo at the Bowl: Foo Fighters with the LA Phil and YOLA](https://www.hollywoodbowl.com/events/performances/4287/2026-08-22/celebrating-gustavo-at-the-bowl-foo-fighters-with-the-la-phil-and-yola)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=6f7ecb0929f4)
-- `7pm` **[Steve Von Till, Six Organs of Admittance](https://dice.fm/event/avwexx-steve-von-till-six-organs-of-admittance-22nd-aug-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=ddfc81771779)  
-  Two heavyweight solo/psych-folk names sharing a bill at Zebulon instead of headlining separately — this is exactly the 'small room, real weight' pairing that makes the live-band lane worth tracking.
+- `8pm` ⭐ **[Celebrating Gustavo at the Bowl: Foo Fighters with the LA Phil and YOLA](https://www.hollywoodbowl.com/events/performances/4287/2026-08-22/celebrating-gustavo-at-the-bowl-foo-fighters-with-the-la-phil-and-yola)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=6f7ecb0929f4)
+- `6pm` **[Laurel Halo](https://www.getty.edu/calendar/off-the-405-laurel-halo/)** — Getty Center (Los Angeles) · free · [card ↗](https://arinazari.github.io/la-events/?e=685e1d51f436)
 
 ### Sunday · August 23
 
@@ -131,12 +118,14 @@ The collision night: Foo Fighters + LA Phil at the Bowl (8pm) is the pick over J
 
 ### Monday · August 24
 
+**Electronic & dance**
+- `11pm` 🆕 **[AFTERS 8-24 ( MONDAY )](https://posh.vip/e/afters-824-monday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=4373f41f3f64)
+
 **Live music**
 - `6:30pm` **[Kublaii with Postcards for Sympathy](https://www.ticketmaster.com/kublaii-with-postcards-for-sympathy-los-angeles-california-08-24-2026/event/090064CBD2D3E4B9)** — The Moroccan Lounge, Arts District · [card ↗](https://arinazari.github.io/la-events/?e=cadc73517d6f)  
   Kublaii's melancholic PNW-inflected indie-folk streams well above his room size right now — a good bet to catch him at a 300-cap room before he's not playing rooms this size.
 - `8pm` **[Hippie Death Cult, Earth Tongue](https://dice.fm/event/xeopda-hippie-death-cult-earth-tongue-24th-aug-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=b10cc6a34b44)  
   Hippie Death Cult and Earth Tongue at Zebulon, Frogtown (8pm).
-- `7pm` **[The Breeders](https://www.ticketmaster.com/the-breeders-hollywood-california-08-24-2026/event/09006429E509D273)** — Hollywood Palladium, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=d1e83d5febe6) — *The Breeders still have real cult cachet even at Palladium scale — more distinctive than most of the legacy-rock bookings this week.*
 
 **Comedy & stage**
 - `8:30pm` **[Superbloom Comedy](https://www.elysiantheater.com/shows/superbloom0824)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=cbafc8ba7422)
@@ -144,22 +133,25 @@ The collision night: Foo Fighters + LA Phil at the Bowl (8pm) is the pick over J
 ### Tuesday · August 25
 
 **Electronic & dance**
+- `11pm` 🆕 **[AFTERS 8-25 ( TUESDAY )](https://posh.vip/e/afters-825-tuesday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=4e93f8e7af0a)
 - `11pm` **[Copy of PARIS AT NIGHT House Tuesdays at the Iconic Keys Los Angeles](https://www.eventbrite.com/e/copy-of-paris-at-night-house-tuesdays-at-the-iconic-keys-los-angeles-tickets-1994237808970)** — Keys, West Hollywood · free · [card ↗](https://arinazari.github.io/la-events/?e=ebad96eabc30) — *Free weekly house Tuesday at a WeHo bar — right genre, no known selector, just a reliable low-stakes option.*
 
 **Live music**
-- `7pm` **[W.I.T.C.H.](https://www.ticketmaster.com/witch-los-angeles-california-08-25-2026/event/090064AE3E681B0E)** — Teragram Ballroom, Westlake · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=b5ec67f33064)  
+- `7pm` **[W.I.T.C.H.](https://www.ticketmaster.com/witch-los-angeles-california-08-25-2026/event/090064AE3E681B0E)** — Teragram Ballroom, Westlake · [card ↗](https://arinazari.github.io/la-events/?e=b5ec67f33064)  
   W.I.T.C.H. rock band performs at Teragram Ballroom (all ages, doors 7pm).
 - `8pm` **[Tori Amos: In Times of Dragons Tour](https://www.ticketmaster.com/tori-amos-in-times-of-dragons-los-angeles-california-08-25-2026/event/09006382EBCBB72A)** — Greek Theatre, Los Feliz · big venue · [card ↗](https://arinazari.github.io/la-events/?e=5b85f5113666) — *Tori Amos at a loved room with Bartees Strange opening — worth knowing about even off the electronic spine.*
 
-- *Also:* [Finally Off](https://posh.vip/e/finally-off) (White Rabbit Sky Lounge) · [A Conversation With Anthony Hopkins & Gustavo Dudamel](https://www.universe.com/events/a-conversation-with-anthony-hopkins-gustavo-dudamel-tickets-7NJ0R3?ref=ticketmaster) (Grammy Museum LA Live)
+- *Also:* [Finally Off](https://posh.vip/e/finally-off) (White Rabbit Sky Lounge)
 
 ### Wednesday · August 26
+
+**Electronic & dance**
+- `11pm` 🆕 **[AFTERS 8-26 ( WEDNESDAY )](https://posh.vip/e/afters-826-wednesday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=196685a3c36e)
 
 **Live music**
 - `8:30pm` **[CoPilots](https://www.elysiantheater.com/shows/copilots0826)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=c0ffe4d1f610)
 - `7:30pm` **[Caroline and Jack present "The Show"](https://www.elysiantheater.com/shows/carolineandjack0826)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=978f5fc73e07)
 - `7:30pm` **[Steve Lehman & Garden of Klōns with Cory Smythe, Chris Tordini & Jacob Porter](https://www.samfirstbar.com/events/steve-lehman-garden-of-klons-with-cory-smythe-chris-tordini-jacob-porter)** — Sam First, Westchester · [card ↗](https://arinazari.github.io/la-events/?e=81a4623d3e16) — *Electronically augmented acoustic jazz is a genuinely interesting experimental booking, even outside the core house/techno spine.*
-- `9:30pm` **[Boy Bloom: 'Meadow' Album Release Show w/ Ragamuffs & Club Oro](https://www.ticketmaster.com/boy-bloom-meadow-album-release-show-los-angeles-california-08-26-2026/event/090064CFC8FA9C02)** — The Moroccan Lounge, Arts District · [card ↗](https://arinazari.github.io/la-events/?e=3af3d58deea6) — *Album-release show at exactly the small-club circuit you like (Moroccan Lounge), even if the indie-pop lineup is an unknown quantity.*
 
 ### Thursday · August 27
 
@@ -167,25 +159,28 @@ The collision night: Foo Fighters + LA Phil at the Bowl (8pm) is the pick over J
 - `11pm` **[RECOLLECT UNDERGROUND](https://ra.co/events/2503065)** — TBA - Location Link in Bio on Instagram @recollectunderground, Los Angeles · $12.51 · [card ↗](https://arinazari.github.io/la-events/?e=2e1416ed71f4)  
   VILENA — LA-based DJ/producer playing groovy, deep, driving techno with a progressive edge; featured on Spectrum Radio's global techno platform — a solid underground booking, not a marquee name.
 - `10pm` **[Synova's 'D.I.Y.E.D.M' Album Release Party](https://www.instagram.com/p/DbliatYmqSM/?img_index=1)** — El Cid (Los Angeles), Silver Lake · $16 · [card ↗](https://arinazari.github.io/la-events/?e=fe9640b84329)
+- `11pm` 🆕 **[AFTERS 8-27 ( THURSDAY )](https://posh.vip/e/afters-827-thursday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=43a40c020d08)
 
 **Live music**
 - `7pm` **[Wax + DJ Hoppa](https://www.ticketmaster.com/wax-dj-hoppa-los-angeles-california-08-27-2026/event/0900647A1DA47A02)** — The Echo, Echo Park · [card ↗](https://arinazari.github.io/la-events/?e=e6af407b2e3a)  
   Wax and DJ Hoppa with Intuition & Equalibrum at The Echo, Echo Park.
-- `7:30pm` **[Drunk Black History](https://www.elysiantheater.com/shows/drunkblackhistory0827)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=32d5653811db)
+
+**Comedy & stage**
+- `6:30pm` (Thu 8/27 + Sun 8/30) ⭐ **[Phantom Of The Opera (Touring)](https://www.scfta.org/)** — Segerstrom Center for the Arts-Segerstrom Hall, Costa Mesa · [card ↗](https://arinazari.github.io/la-events/?e=66e8dab395a7)  
+  The touring Phantom warhorse in Costa Mesa — gorgeous production values if you've somehow never seen it, but it's a long drive for a show that isn't chasing anything new.
 
 ### Friday · August 28
-<!-- tier3:blueprint 2026-08-28 -->
-Dinner near DTLA, then RIKHTER's 4-hour set (TBA warehouse, 11pm) is the pick — a real Berghain-caliber hard-techno booking with room to build. On Vinyl IRL out in Pomona is the drive-for-it alternative if you want Spiñorita's disco/funk digging instead.
+Brad Mehldau's Elliott Smith reimagining at the Orpheum (8pm) if you want a real sit-down show — otherwise save the night for RIKHTER's 4-hour set at WORK Harder (11pm, TBA-location, ★), the one worth actually building around this week.
 
 **Electronic & dance**
 - `11pm` ⭐ **[WORK Harder presents: RIKHTER [4 HR Set] & EMILIANA](https://ra.co/events/2484883)** — TBA - Los Angeles, Los Angeles · [card ↗](https://arinazari.github.io/la-events/?e=b368b043c331)  
   RIKHTER's the real get — Berlin-based, R Label Group pedigree, Berghain-caliber hard techno — and a 4-hour slot is long enough for him to actually build something instead of just hitting peak-time bangers.
-- `10pm` 🆕 **[On Vinyl IRL](https://ra.co/events/2516221)** — Homage Brewing, Pomona · [card ↗](https://arinazari.github.io/la-events/?e=87873684c3dd)  
-  Spiñorita — Angela Ramirez — Alhambra-raised Chicana DJ and host of NTS's Casual Play; disco, house, funk and vinyl-digging roots, a fixture of LA's underground/backyard party scene since 2010.
+- `10pm` **[On Vinyl IRL](https://ra.co/events/2516221)** — Homage Brewing, Pomona · [card ↗](https://arinazari.github.io/la-events/?e=87873684c3dd)  
+  Spiñorita alone — a real NTS-radio disco/funk digger — makes this worth flagging, but it's a Pomona brewery on a Friday afterhours slot with maxim_ESL's credentials too thin to verify; a trek for the record-crate crowd, not a must-drive.
 - `10pm` **[MUZIQUE Fridays @ Kiss Kiss Bang Bang w/TAMARA LANZA + Special Guest DJS](https://www.eventbrite.com/e/muzique-fridays-kiss-kiss-bang-bang-wtamara-lanza-special-guest-djs-tickets-1996062937980)** — Kiss Kiss Bang Bang, Koreatown · free · [card ↗](https://arinazari.github.io/la-events/?e=b1b47ae8779c)  
   Tamara Lanza's one of the steadier Sunset Sessions/Level 8 selectors — this is the free-RSVP Friday version of that same disco-into-deep-house feel, minus the rooftop.
 - `10pm` **[Tech My House](https://ra.co/events/2510906)** — Exchange LA, DTLA · big room · free w/rsvp b4 11pm / $10-15 · [card ↗](https://arinazari.github.io/la-events/?e=7fd680711147) — *Space Yacht's recurring tech-house night with no lineup posted — dependable but generic; pass unless a name drops.*
-- `11pm` **[AFROBEATS & HIP-HOP — SUNSET ROOFTOP AFTER HOURS 🔥](https://posh.vip/e/afrobeats-hiphop-sunset-rooftop-after-hours-2026-8-29-11-0)** — Sunset Rooftop · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=416694a8b39c)
+- `11pm` 🆕 **[AFTERS 8-28 ( FRIDAY )](https://posh.vip/e/afters-828-friday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=8ceaafc864c8) — *Unbranded afters listing near Silver Lake but nothing to go on beyond the time slot — no lineup, no venue reputation to lean on.*
 
 **Live music**
 - `8pm` **[Brad Mehldau: Ride Into The Sun - The Music Of Elliott Smith](https://www.ticketmaster.com/brad-mehldau-ride-into-the-sun-los-angeles-california-08-28-2026/event/0900646A870B520F)** — Orpheum Theatre, DTLA · big venue · [card ↗](https://arinazari.github.io/la-events/?e=f89226be5e5e)  
@@ -193,16 +188,17 @@ Dinner near DTLA, then RIKHTER's 4-hour set (TBA warehouse, 11pm) is the pick �
 - `9:15pm` **[A Swingin' Jazz Affair (Matt Forbes & Jesse Goddard w/ David Moscoe Trio)](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=8dba3303b479) — *No-cover jazz-crooner residency at The Dresden, walkable from Silver Lake — easy low-stakes Friday, not a headline pick.*
 
 ### Saturday · August 29
-<!-- tier3:blueprint 2026-08-29 -->
-Catch Haddaway/Ultra Naté/Robin S/Crystal Waters at Pershing Square (3pm, free) for the actual house-legends day party, then dinner, then let the night sort itself out — nothing after dark this Saturday clears the bar over the other picks this week.
+Start early with the house-legends day party at Pershing Square (3pm, free — Haddaway, Ultra Naté, Robin S, Crystal Waters, the people who actually made the records). Nothing later that night has a firm-enough lineup yet to plan around — decide once names drop.
 
 **Electronic & dance**
 - `11pm` **[Certified Groovers: Yair [all night long]](https://ra.co/events/2514014)** — TBA - Downtown Los Angeles, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=4df2e7969182)  
   Certified Groovers usually books real deep-house names (DJ Sneak, Mark Farina, Doc Martin have all played this series), but Yair isn't a name I can find anything on — the all-night solo format is the promoter's signature move, just not enough to vouch for this specific date.
-- `10pm` **[HOOD RAVE x DANCE MANIA](https://ra.co/events/2504408)** — TBA - LA, Los Angeles · [card ↗](https://arinazari.github.io/la-events/?e=ee62daae40c9)  
+- `11pm` **[HOOD RAVE x DANCE MANIA](https://ra.co/events/2504408)** — TBA - LA, Los Angeles · ↻ updated (start) · [card ↗](https://arinazari.github.io/la-events/?e=ee62daae40c9)  
   The name namechecks Chicago's legendary ghetto-house label, but there's no lineup posted yet to back that up — could be a real juke/ghetto-house tribute night or could just be a title with no substance behind it. Worth a second look once names drop.
 - `3pm` **[Haddaway, Ultra Naté, Robin S, Crystal Waters & More](https://ra.co/events/2502146)** — Pershing Square, DTLA · day party · [card ↗](https://arinazari.github.io/la-events/?e=7c1e9e366dce)  
   This is a house-legends day party, not a tribute act — Haddaway, Ultra Naté, Robin S and Crystal Waters all made the actual records, so a free outdoor DTLA stage is a genuinely good way to hear 'Show Me Love' and 'Gypsy Woman' from the people who made them.
+- `11pm` 🆕 **[AFTERS 8-29 ( SATURDAY )](https://posh.vip/e/afters-829-saturday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=49c436c83b98)  
+  Free late-night afterhours party by NIGHTSHIFT at 129 E 3rd, DTLA (Fri 11pm).
 - `11pm` **[WHATEVER UNDERGROUND](https://ra.co/events/2509672)** — TBA, Los Angeles · [card ↗](https://arinazari.github.io/la-events/?e=d1d3f06777a6) — *Deep eight-DJ underground bill — Flabbergast founded VICE Underground, Shane Thomas hosts blush! at Ace Hotel — but no single draw beyond Things You Say. Good filler, not a headliner.*
 
 **Live music**
@@ -210,14 +206,13 @@ Catch Haddaway/Ultra Naté/Robin S/Crystal Waters at Pershing Square (3pm, free)
   Robby Krieger reworking Doors songs into Spanish/flamenco arrangements at the Greek is a genuine one-off, not a tribute act — the actual Doors guitarist leaning into 'Spanish Caravan's flamenco roots rather than just replaying the hits.
 - `8:30pm` **[NU NOYZ NITE](https://www.elysiantheater.com/shows/nunoyznite0829)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=f94900d9ea05) — *"NU NOYZ NITE" suggests actual noise/experimental music, the one Elysian booking that could land in the indie/experimental lane liked here — but no lineup to confirm.*
 
-- *Also:* [Afterdat (Crankdat Afters)](https://www.secrettunnel.app/event/6a63104dd7a1ec054242bc61/p_19HZ) (TBA (DTLA/Los Angeles))
-
 ### Sunday · August 30
 
 **Electronic & dance**
 - `2pm-8:30pm` **[Day Trip In The Park LA: Loco Dice, Archie Hamilton](https://ra.co/events/2436979)** — Los Angeles State Historic Park, Chinatown · day party · $48 pre · [card ↗](https://arinazari.github.io/la-events/?e=a8308138ea4b)  
   A genuine international techno name doing a full daytime set in the park instead of a token festival slot — Loco Dice's hip-hop-inflected tech house plus Archie Hamilton's rugged European minimal is close to the platonic ideal of this lane.
 - `6pm` **[Sunday Sessions LA: Mazko A. All Night Long (Vinyl Only)](https://ra.co/events/2482779)** — TBA, Los Angeles · [card ↗](https://arinazari.github.io/la-events/?e=cbc3a0c8319a) — *Vinyl-only, open-to-close single-DJ set hits the exact rooftop-groove format you chase, but Mazko A and the TBA room are both unknowns — can't gauge the draw yet.*
+- `11pm` 🆕 **[AFTERS 8-30 ( SUNDAY )](https://posh.vip/e/afters-830-sunday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=0550164f9d82)
 
 **Live music**
 - `7:30pm` **[Lisa Crawley Trio](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=f45d752ab7cd) — *No-cover piano lounge at The Dresden — pleasant, easy, but not a night you'd plan around.*
@@ -240,6 +235,16 @@ Catch Haddaway/Ultra Naté/Robin S/Crystal Waters at Pershing Square (3pm, free)
 - `8pm` **[ROOMIES with Dylan Adler, Sam Morrison & Kylie Vincent](https://www.elysiantheater.com/shows/roomies0901)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=0ee529c220a7)
 - `6:30pm` **[Alligator Beach 'New Orleans Funk Party'](https://santamonica.harvelles.com/events/139986)** — Harvelle's, Santa Monica · [card ↗](https://arinazari.github.io/la-events/?e=d0ad758770f4) — *New Orleans funk band leaning into the groove/soulful boost even though it's a live band, not a DJ.*
 
+### Wednesday · September 2
+
+**Live music**
+- `8:30pm` **[Luke Strand & Friends](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=d52d06eef0e8) — *Casual no-cover jazz jam at the Dresden — nice hang, not a destination.*
+- `7:30pm` **[Soft Animal](https://www.elysiantheater.com/shows/softanimal0902)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=c225cf6dbcb6)
+- `8pm` **[Adam Lion / Let's Paint TV, Pop Hysteria, Sobbing Honey](https://dice.fm/event/v3xmp7-adam-lion-lets-paint-tv-pop-hysteria-sobbing-honey-2nd-sep-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=906935156b8d)
+
+**Comedy & stage**
+- `7:30pm` **[Popular Kids Club Comedy Show](https://dice.fm/event/bb72ev-popular-kids-club-comedy-show-2nd-sep-permanent-records-roadhouse-los-angeles-tickets)** — Permanent Records Roadhouse, Cypress Park · [card ↗](https://arinazari.github.io/la-events/?e=c4203626c1d1)
+
 ## Weekends ahead
 
 ### Weekend of Fri 9/4
@@ -258,18 +263,20 @@ Catch Haddaway/Ultra Naté/Robin S/Crystal Waters at Pershing Square (3pm, free)
 
 ### Weekend of Fri 9/18
 - `Sat 9/19` ⭐ **[Âme, DJ Tennis, Kaz James - Chinatown Block Party](https://ra.co/events/2487802)** — Gin Ling Way, Chinatown, Chinatown · [card ↗](https://arinazari.github.io/la-events/?e=84882da12558)
-- `Sat 9/19` ⭐ 🆕 **[body wave: Felix Dickinson (UK), Masha Mar, Junior](https://ra.co/events/2516016)** — TBA - Downtown Los Angeles, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=e203ae55361e)
+- `Sat 9/19` ⭐ **[body wave: Felix Dickinson (UK), Masha Mar, Junior](https://ra.co/events/2516016)** — TBA - Downtown Los Angeles, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=e203ae55361e)
 - `Fri 9/18` **[Baile World ft Jyoty, Cquestt, Mango & Ginger, Dj Nico](https://ra.co/events/2514413)** — TBA - DTLA Warehouse, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=01a459c44368)
 - `Sat 9/19` **[Producing Techno with Pilo](https://ra.co/events/2509870)** — IO Music Academy LA, Hollywood · day party · [card ↗](https://arinazari.github.io/la-events/?e=3354902e8555)
 - *…plus 15 more that weekend — full list: [weekend digest](weekends/2026-09-18.md)*
 
+### Weekend of Fri 9/25
+- `Thu 9/24` **[JANAGA](https://avalonhollywood.com/event/janaga-nightclub-near-me-discover-avalon-hollywood-2026-24-september-best-night-club-near-me-hollywood-los-angeles/)** — Avalon Hollywood, Hollywood · big room · [card ↗](https://arinazari.github.io/la-events/?e=f9ce91dd5b3b)
+- `Thu 9/24` **[Harbor Party | Yacht Rock](https://www.vibratogrilljazz.com/music/harbor-party-yacht-rock-4)** — Vibrato Grill Jazz, Bel Air · [card ↗](https://arinazari.github.io/la-events/?e=d660be8bd404)
+- `Thu 9/24` **[Laurie Anderson](https://www.ticketmaster.com/laurie-anderson-los-angeles-california-09-24-2026/event/090064CAD9E9F3B2)** — Orpheum Theatre, DTLA · big venue · [card ↗](https://arinazari.github.io/la-events/?e=713ea1693637)
+- `Thu 9/24` **[Jon Bellion](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=e745dd3d9a6c)
+
 ## On the marquee
 
 *Movies live here (and on the site's marquee page): runs opening this stretch, then the one-night screenings worth a seat.*
-- `Thu 8/20` **[Theorem](https://ticketing.uswest.veezi.com/purchase/3925?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Thu 8/27* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=1b624707a36e)  
-  Cold, strange, essential '68 arthouse — Terence Stamp as the stranger who wrecks a whole family just by being desired. Not a fun watch, but a foundational one if you're building out the rep-cinema habit. <!-- tier3:gloss 1b624707a36e -->
-- `Thu 8/20` **[Moneyball](https://ticketing.uswest.veezi.com/purchase/4879?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 2 nights thru Fri 8/21* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=5594834128bc)  
-  Solid crowd-pleaser but no format or director hook — filler next to the stronger picks on this slate. <!-- tier3:gloss 5594834128bc -->
 - `Fri 8/21` **[The Fast and the Furious (25th Anniversary)](https://ticketing.uswest.veezi.com/purchase/3791?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 6 nights thru Thu 8/27* · Vista Theater / Alamo Drafthouse DTLA · [card ↗](https://arinazari.github.io/la-events/?e=28b893e6e79d)  
   The Fast and the Furious turns 25 — a fun communal big-screen outing at the Vista, but it's blockbuster nostalgia more than a rep-cinema curation pick. <!-- tier3:gloss 28b893e6e79d -->
 - `Fri 8/21` **[Child's Play](https://ticketing.uswest.veezi.com/purchase/3900?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sat 8/22* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=271a2b7e6405)  
@@ -278,16 +285,19 @@ Catch Haddaway/Ultra Naté/Robin S/Crystal Waters at Pershing Square (3pm, free)
   Araki's most emotionally serious film — Joseph Gordon-Levitt is genuinely unsettling as a teenage hustler processing childhood abuse — a heavy watch, and the Q&A is worth sticking around for. <!-- tier3:gloss 9c5d6edf2c39 -->
 - `Fri 8/21` **[The Rocky Horror Picture Show](https://www.landmarktheatres.com/los-angeles/nuart-theatre/)** — *opens · 2 nights thru Sat 8/22* · Nuart Theatre · [card ↗](https://arinazari.github.io/la-events/?e=cfcdb4ebff33)  
   If you're doing Rocky Horror this month, Saturday's the night — same standing weekly show, better date than Friday's. <!-- tier3:gloss cfcdb4ebff33 -->
+- `Fri 8/21` **[Welcome Space Brothers](https://vidiotsfoundation.org/showtimes/welcome-space-brothers-8-21-26-1000-pm/)** — *opens · 5 nights thru Sun 8/30* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=2104c949a229) <!-- tier3:gloss 2104c949a229 -->
 - `Fri 8/21` **[Pulp Fiction](https://ticketing.uswest.veezi.com/purchase/4880?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 2 nights thru Fri 8/28* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=67798eb8c2d9)  
   Tarantino's own theater running his own most iconic film at midnight — no print format called out in the listing, but a screening-not-streaming default is the whole point of the New Bev. <!-- tier3:gloss 67798eb8c2d9 -->
 - `Fri 8/21` **[Gypsy 83: The Director's Cut](https://www.landmarktheatres.com/los-angeles/nuart-theatre/)** — *opens · 3 nights thru Wed 8/26* · Nuart Theatre · [card ↗](https://arinazari.github.io/la-events/?e=e441e48cd43b)  
   Low-profile indie title running six straight nights — catch it on a whim, not something to plan around. <!-- tier3:gloss e441e48cd43b -->
+- `Sat 8/22` **[The Crime of the Century](https://ticketing.uswest.veezi.com/purchase/3904?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sun 8/23* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=82624009a9e0)  
+  Don't have a read on this title beyond the Vista matinee slot — treating it as routine rep programming, not a standout. <!-- tier3:gloss 82624009a9e0 -->
 
 **One-nighters**
-- `Wed 8/19` **[Out of Sight](https://www.academymuseum.org/en/calendar)** — Academy Museum of Motion Pictures, Miracle Mile · [card ↗](https://arinazari.github.io/la-events/?e=3af1f84e716f) <!-- tier3:gloss 3af1f84e716f -->
 - `Thu 8/20` **[The Odyssey (70mm)](https://ticketing.uswest.veezi.com/purchase/3958?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [card ↗](https://arinazari.github.io/la-events/?e=ed868d8f80ef) <!-- tier3:gloss ed868d8f80ef -->
 - `Thu 8/20` **[The Searchers in 70mm](https://www.academymuseum.org/en/calendar)** — Academy Museum of Motion Pictures, Miracle Mile · [card ↗](https://arinazari.github.io/la-events/?e=2251586c6a9b) <!-- tier3:gloss 2251586c6a9b -->
 - `Fri 8/21` **[Where is the Friend's House?](https://drafthouse.com/los-angeles/show/kids-camp-where-is-the-friends-house)** — Alamo Drafthouse DTLA, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=a405c73531cb) <!-- tier3:gloss a405c73531cb -->
+- `Fri 8/21` **[Ponyo in 35mm](https://www.academymuseum.org/en/calendar)** — Academy Museum of Motion Pictures, Miracle Mile · [card ↗](https://arinazari.github.io/la-events/?e=8b7bdaa624e4) <!-- tier3:gloss 8b7bdaa624e4 -->
 - `Sat 8/22` **[An Evening with Charlize Theron Featuring Mad Max: Fury Road](https://www.academymuseum.org/en/calendar)** — Academy Museum of Motion Pictures, Miracle Mile · [card ↗](https://arinazari.github.io/la-events/?e=1b55726703a8) <!-- tier3:gloss 1b55726703a8 -->
 - `Sun 8/23` **[White Christmas in VistaVision](https://www.academymuseum.org/en/calendar)** — Academy Museum of Motion Pictures, Miracle Mile · [card ↗](https://arinazari.github.io/la-events/?e=fcd09e212daf) <!-- tier3:gloss fcd09e212daf -->
 - `Sun 8/23` **[Nosferatu with Live Quarkestra Orchestra](https://www.landmarktheatres.com/los-angeles/nuart-theatre/)** — Nuart Theatre, West LA · [card ↗](https://arinazari.github.io/la-events/?e=61563302b365) <!-- tier3:gloss 61563302b365 -->
@@ -296,24 +306,23 @@ Catch Haddaway/Ultra Naté/Robin S/Crystal Waters at Pershing Square (3pm, free)
 ## Around town
 
 *Notable around the city — not ranked to taste; here so you stay apprised.*
-- `Wed 8/19` **[Herbie Hancock Celebrates Miles Davis](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=6ef2973ef7dc) <!-- tier3:gloss 6ef2973ef7dc -->
-- `Fri 8/21` **[Celebrating Gustavo at the Bowl: Dudamel's Playlist](https://www.hollywoodbowl.com/events/performances/4326/2026-08-21/celebrating-gustavo-at-the-bowl-dudamels-playlist)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=53d9ad8f605f) <!-- tier3:gloss 53d9ad8f605f -->
+- `Thu 8/20` **[Mt. Joy 2026: 2 Day Ticket (08/20 - 08/21) Valid Both Days](https://www.ticketmaster.com/mt-joy-2026-2-day-ticket-los-angeles-california-08-20-2026/event/0900637A9E4A8605)** — Greek Theatre · Los Feliz  ·  *festival, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=25c2c7c04eca) <!-- tier3:gloss 25c2c7c04eca -->
+- `Fri 8/21` **[Celebrating Gustavo at the Bowl: Dudamel's Playlist](https://www.hollywoodbowl.com/events/performances/4326/2026-08-21/celebrating-gustavo-at-the-bowl-dudamels-playlist)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=53d9ad8f605f) — the weaker sibling night of the same 4-night send-off — Thursday's Beethoven 9 and Saturday's Foo Fighters night are the ones actually worth clearing a calendar for. <!-- tier3:gloss 53d9ad8f605f -->
+- `Fri 8/21` **[NE-YO & AKON: Nights Like This Tour 2026](https://www.ticketmaster.com/neyo-akon-nights-like-this-tour-inglewood-california-08-21-2026/event/09006436072615A9)** — Intuit Dome · Inglewood  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=bf86cfc8747e) <!-- tier3:gloss bf86cfc8747e -->
 - `Fri 8/21` **[Underground X Just Like Heaven Pre-Party](https://dice.fm/event/8e98o7-underground-x-just-like-heaven-pre-party-21st-aug-grand-star-jazz-club-los-angeles-tickets)** — Grand Star Jazz Club · Chinatown  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=5a884265fb8b) <!-- tier3:gloss 5a884265fb8b -->
 - `Sat 8/22` **[Just Like Heaven Festival](https://www.axs.com/events/1337483/just-like-heaven-2026-tickets)** — Brookside at the Rose Bowl · Pasadena  ·  *editorial, festival, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=b21b8dd126a4) <!-- tier3:gloss b21b8dd126a4 -->
 - `Sat 8/22` **[VinylCon! LA](https://secretlosangeles.com/vinylcon-returns-to-dtla/)** — California Market Center, Downtown LA · DTLA  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=8b1fd69460e2) <!-- tier3:gloss 8b1fd69460e2 -->
 - `Sat 8/22` **[Nisei Week Plaza Festival](https://www.niseiweek.org/)** — Japanese American Cultural and Community Center (JACCC) · Little Tokyo  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=13bb8d3e2b90) <!-- tier3:gloss 13bb8d3e2b90 -->
 - `Sat 8/22` **[Just Like Heaven Official After Party!](https://dice.fm/event/bb9x9v-just-like-heaven-official-after-party-22nd-aug-sid-the-cat-auditorium-south-pasadena-sids-bar-south-pasadena-tickets)** — Sid The Cat Auditorium · South Pasadena  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=724cafe0adb4) <!-- tier3:gloss 724cafe0adb4 -->
-- `Sat 8/22` **[Laurel Halo](https://www.getty.edu/calendar/off-the-405-laurel-halo/)** — Getty Center (Los Angeles)  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=685e1d51f436) <!-- tier3:gloss 685e1d51f436 -->
 - `Sun 8/23` **[Nisei Week Japanese L.A. Festival: Plaza Festival weekend](https://www.timeout.com/los-angeles/things-to-do/nisei-week-japanese-festival)** — Japanese American Cultural and Community Center, Little Tokyo  ·  *editorial, festival, civic* · [card ↗](https://arinazari.github.io/la-events/?e=d4c0c3ef5257) <!-- tier3:gloss d4c0c3ef5257 -->
 - `Sun 8/23` **[Los Angeles Kids Book Festival](https://www.timeout.com/los-angeles/things-to-do/los-angeles-kids-book-festival)** — West Hollywood Park · West Hollywood  ·  *editorial, festival, civic* · [card ↗](https://arinazari.github.io/la-events/?e=2fc48c042a32) <!-- tier3:gloss 2fc48c042a32 -->
-- `Sun 8/23` **[Celebrating Gustavo at the Bowl: A Musical Legacy](https://www.hollywoodbowl.com/events/performances/4361/2026-08-23/celebrating-gustavo-at-the-bowl-a-musical-legacy)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=8fe1d9020fb9) <!-- tier3:gloss 8fe1d9020fb9 -->
-- `Thu 8/27` **[Taqueando After Dark at Level 8](https://www.eventbrite.com/e/taqueando-after-dark-at-level-8-tickets-1989438988569)** — LEVEL 8 · DTLA  ·  *festival, civic* · [card ↗](https://arinazari.github.io/la-events/?e=dced916e4dd4) <!-- tier3:gloss dced916e4dd4 -->
+- `Sun 8/23` **[Celebrating Gustavo at the Bowl: A Musical Legacy](https://www.hollywoodbowl.com/events/performances/4361/2026-08-23/celebrating-gustavo-at-the-bowl-a-musical-legacy)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=8fe1d9020fb9) — closing night of the same Dudamel send-off run. <!-- tier3:gloss 8fe1d9020fb9 -->
+- `Sun 8/23` **[Slayyyter w/ Pearly Drops](http://www.shrineauditorium.com/)** — Shrine Expo Hall · University Park  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=b0cd3155a402) <!-- tier3:gloss b0cd3155a402 -->
 
 ## On the radar
 
 
 **September 2026**
-- `Wed 9/23` **[Melanie C (Live)](https://www.fondatheatre.com/)** — The Fonda Theatre · Hollywood  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=0871fde2287c) <!-- tier3:gloss 0871fde2287c -->
 - `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono* · [card ↗](https://arinazari.github.io/la-events/?e=edab80bd44cb) <!-- tier3:gloss edab80bd44cb -->
 - `Sat 9/26` **[Ocean Way Festival - 09/26 Saturday](https://www.axs.com/events/1459419/ocean-way-festival-tickets)** — The Beach at Santa Monica · Santa Monica  ·  *festival, DJ Harvey* · [card ↗](https://arinazari.github.io/la-events/?e=96782c900568) <!-- tier3:gloss 96782c900568 -->
 - `Sat 9/26` **[Andy Frasco & The U.N.](https://www.tixr.com/groups/thevenicewest/events/andy-frasco-the-u-n--189913)** — The Venice West · Venice  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=2c565c818f27) <!-- tier3:gloss 2c565c818f27 -->
@@ -322,6 +331,7 @@ Catch Haddaway/Ultra Naté/Robin S/Crystal Waters at Pershing Square (3pm, free)
 
 **October 2026**
 - `Thu 10/8` **[Lukas Nelson & Molly Tuttle](https://www.ticketmaster.com/lukas-nelson-molly-tuttle-los-angeles-california-10-08-2026/event/090064A6DEE093AB)** — The Bellwether · DTLA  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=0a397d2eceb8) <!-- tier3:gloss 0a397d2eceb8 -->
+- `Fri 10/9` **[Parrotfish](https://www.ticketmaster.com/parrotfish-los-angeles-california-10-09-2026/event/090064E905D61695)** — The Moroccan Lounge · Arts District  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=3d1950382c1d) <!-- tier3:gloss 3d1950382c1d -->
 - `Sun 10/11` **[Rose Bowl Flea Market Sunday, October 11, 2026](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-october-11-2026-tickets-1977731925428)** — Rose Bowl Stadium · Pasadena  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=968953e06ebc) <!-- tier3:gloss 968953e06ebc -->
 - `Thu 10/15` **[GEESE](https://www.ticketmaster.com/event/Z7r9jZ1A70vqI)** — Hollywood Forever Cemetary · Hollywood  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=0c813dc323c7) <!-- tier3:gloss 0c813dc323c7 -->
 - `Sat 10/17` **[Boots in the Park](https://www.ticketmaster.com/event/Z7r9jZ1A707OS)** — Rancho Mission Viejo Riding Park · Mission Viejo  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=ef359e9e6ec5) <!-- tier3:gloss ef359e9e6ec5 -->
@@ -345,4 +355,4 @@ Catch Haddaway/Ultra Naté/Robin S/Crystal Waters at Pershing Square (3pm, free)
 
 ---
 > ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
-*⚠️ Stale sources (not refreshed — these events may be out of date): editorial 16d (111 events)*
+*⚠️ Stale sources (not refreshed — these events may be out of date): editorial 11d (103 events), harvelles 3d (43 events)*
