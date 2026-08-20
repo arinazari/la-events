@@ -9376,7 +9376,7 @@
     "date": "2026-08-21",
     "start": null,
     "venue": "Whittier Narrows Recreation Area",
-    "neighborhood": "South El Monte / Whittier Narrows",
+    "neighborhood": "South El Monte Whittier Narrows",
     "category": "market",
     "genre": null,
     "lineup": [],
@@ -9592,7 +9592,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-20"
+    "last_seen": "2026-08-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [
+        "pop-up"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -17494,7 +17507,16 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-20"
+    "last_seen": "2026-08-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": false
+    }
   },
   {
     "title": "Hatebreed: SUMMER SLAUGHTER TOUR 2026",
@@ -21739,7 +21761,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-20"
+    "last_seen": "2026-08-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "diy"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "all-ages"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "Markets at the Villa",
@@ -21765,7 +21800,18 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-20"
+    "last_seen": "2026-08-20",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
   },
   {
     "title": "TRAIN - Drops of Jupiter: 25 Years in the Atmosphere",
@@ -24573,7 +24619,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-20"
+    "last_seen": "2026-08-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Disney's Beauty and the Beast (Touring)",
@@ -57009,7 +57068,9 @@
     "last_seen": "2026-08-20",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -58427,7 +58488,9 @@
     "last_seen": "2026-08-20",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
@@ -61987,7 +62050,7 @@
       ],
       "scale": "bar",
       "vibe": [],
-      "region": null,
+      "region": "westside",
       "near_home": false
     }
   },
@@ -66989,7 +67052,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-20"
+    "last_seen": "2026-08-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "diy"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "18+"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "Emmy Awards After Party @ The Roosevelt Hotel (top media/celebs)",
@@ -69623,7 +69699,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-20"
+    "last_seen": "2026-08-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "John Cameron Mitchell: Hedwig 25th Anniversary Movie Tour",
@@ -78974,7 +79063,9 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "tribute"
+      ],
       "region": "westside",
       "near_home": false
     },
@@ -105314,14 +105405,14 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "folk"
+        "country"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
       "vibe": [],
-      "region": null,
+      "region": "westside",
       "near_home": false
     }
   },
@@ -113391,7 +113482,9 @@
     "last_seen": "2026-08-20",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "hip-hop"
+      ],
       "setting": [
         "bar"
       ],
@@ -157687,7 +157780,20 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-20"
+    "last_seen": "2026-08-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "folk"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Babe Haven",
@@ -161844,7 +161950,9 @@
     "last_seen": "2026-08-20",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -163317,7 +163425,9 @@
     "last_seen": "2026-08-20",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "rock"
+      ],
       "setting": [
         "bar"
       ],
