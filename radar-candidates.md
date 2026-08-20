@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/19/2026 deterministically (no API). 311 candidates. Signals: big-venue 271, festival 26, editorial 10, tracked 9._
+_Generated 8/20/2026 deterministically (no API). 309 candidates. Signals: big-venue 269, festival 27, tracked 9, editorial 9._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -48,12 +48,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Angine de Poitrine | The Wiltern | editorial | [link](https://www.ticketmaster.com/angine-de-poitrine-los-angeles-california-12-04-2026/event/090064A7ABE2D617) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Wed 9/23 | 3 | Melanie C (Live) | The Fonda Theatre | editorial | [link](https://www.fondatheatre.com/) |
 
 ## October 2026
 
@@ -123,6 +117,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 10/3 | 3 | Neverender Festival - Single Day 10/3 | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/neverender-festival-2-day-pass-santa-ana-california-10-03-2026/event/0900648DA22D560C) |
 | Sat 10/17 | 3 | Lost In Dreams & The Observatory Present ARMNHMR (18+) | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/lost-in-dreams-the-observatory-present-santa-ana-california-10-17-2026/event/0900649CF4A8321F) |
+| Sat 10/17 | 3 | Faultline Festival with Dustin Lynch | Morongo Field | festival | [link](https://www.ticketmaster.com/faultline-festival-with-dustin-lynch-rancho-cucamonga-california-10-17-2026/event/0900651220D620B6) |
 
 ## November 2026
 
@@ -213,7 +208,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 9/23 | 4 | BECK: RIDE LONESOME TOUR | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/beck-ride-lonesome-tour-los-angeles-california-09-23-2026/event/0900648A40ABD374) |
 | Fri 9/25 | 4 | Yandel - SINFÓNICO | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/yandel-sinfonico-los-angeles-california-09-25-2026/event/2C00649EBD941288) |
 | Sat 9/26 | 4 | BERT KREISCHER: PERMISSION TO PARTY | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/bert-kreischer-permission-to-party-los-angeles-california-09-26-2026/event/0900647FE404EF24) |
 | Sun 9/27 | 4 | Tove Lo w/ Mallrat | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
@@ -279,7 +273,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 9/23 | 3 | Jazz at Lincoln Center Orchestra with Wynton Marsalis | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Thu 9/24 | 3 | Jon Bellion | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Fri 9/25 | 3 | Iron Maiden: Run For Your Lives World Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/iron-maiden-run-for-your-lives-los-angeles-california-09-25-2026/event/0A006355C2E05EEB) |
 | Fri 9/25 | 3 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-09-25-2026/event/0A006479C16B9A6B) |
@@ -319,6 +312,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 10/16 | 3 | Harry Connick Jr - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 10/16 | 3 | Juanes North America Tour 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/juanes-north-america-tour-2026-inglewood-california-10-16-2026/event/0900644E0BF15E32) |
 | Fri 10/16 | 3 | Prospa present Prophecy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1303213/prospa-present-prophecy-tickets) |
+| Fri 10/16 | 3 | Chuy Lizarraga y Julio Preciado con Luis Angel "El Flaco" | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/chuy-lizarraga-y-julio-preciado-con-los-angeles-california-10-16-2026/event/0A006512F2408494) |
 | Sat 10/17 | 3 | SmartLess Live with Jason Bateman, Sean Hayes, & Will Arne | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/smartless-live-with-jason-bateman-sean-hollywood-california-10-17-2026/event/0B006482D29D6B01) |
 | Sat 10/17 | 3 | Young Miko - Late Checkout Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/young-miko-late-checkout-tour-inglewood-california-10-17-2026/event/09006483C17A7B4A) |
 | Sat 10/17 | 3 | ANGEL TICKETS - Charli xcx - Music, Fashion, Film Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/charli-xcx-music-fashion-film-tour-inglewood-california-10-17-2026/event/090064C5EF12A97C) |
@@ -353,6 +347,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 11/6 | 3 | Don Omar "The Last King World Tour" | Kia Forum | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-11-06-2026/event/090064B1D40799CD) |
 | Fri 11/6 | 3 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-06-2026/event/0A0064C8F29DE297) |
 | Fri 11/6 | 3 | ZULAN - Ages 18+ | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1413525/zulan-tickets) |
+| Fri 11/6 | 3 | ACORDEONES Y CORRIDOS | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/acordeones-y-corridos-ontario-california-11-06-2026/event/09006512100FF95C) |
 | Sat 11/7 | 3 | Jorge Medina - Legendario Tour | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1492293/jorge-medina-tickets?skin=yaamava) |
 | Sat 11/7 | 3 | Mon Laferte - Femme Fatale Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mon-laferte-femme-fatale-tour-inglewood-california-11-07-2026/event/0900646CEE46EEFD) |
 | Sat 11/7 | 3 | Eros Ramazzotti - UNA HISTORIA IMPORTANTE | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/eros-ramazzotti-una-historia-importante-inglewood-california-11-07-2026/event/0A00628C082C6464) |
@@ -405,7 +400,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 9/23 | 2 | Dropkick Murphys - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 9/24 | 2 | THE KEHLANI WORLD TOUR: North America | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/the-kehlani-world-tour-north-america-inglewood-california-09-24-2026/event/090064B6E25E61FE) |
 | Fri 9/25 | 2 | The Concert: A Tribute To ABBA | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sun 9/27 | 2 | Iron Maiden: Run For Your Lives World Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/iron-maiden-run-for-your-lives-los-angeles-california-09-27-2026/event/0A00635B10E0C0D4) |
@@ -589,5 +583,4 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 9/23 | -4 | Robyn - The Sexistential Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/robyn-the-sexistential-tour-inglewood-california-09-23-2026/event/0900643CE7CDE833) |
 | Thu 9/24 | -4 | Robyn - The Sexistential Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/robyn-the-sexistential-tour-inglewood-california-09-24-2026/event/09006443DF9D9804) |
