@@ -40957,12 +40957,13 @@
     },
     "53d9ad8f605f": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Legit Dudamel farewell program at the Bowl, but this is the same run as the Foo Fighters collab the next night — that's the one to actually build the weekend around.",
+      "adjust": -1,
+      "why": "Same farewell run, no Foo Fighters, lower card depth — the weaker of the two Gustavo nights, go 8/22 instead.",
       "confidence": "med",
-      "judged_at": "2026-08-18T12:40:22",
+      "judged_at": "2026-08-20T12:34:19",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 10,
+      "model": "event-editor"
     },
     "f0119d16c807": {
       "tier": "skip",
@@ -41001,13 +41002,14 @@
       "score_at_judge": 6
     },
     "6f7ecb0929f4": {
-      "tier": "great",
+      "tier": "must-see",
       "adjust": 2,
-      "why": "Foo Fighters plus LA Phil for Dudamel's send-off at the Bowl is a genuine one-off collab — the actual pick of this Bowl run over the solo Dudamel night.",
+      "why": "Foo Fighters joining Dudamel/LA Phil/YOLA is a genuine one-off crossover, not just another Bowl date — build the weekend around this one, not the surprise-playlist night before it.",
       "confidence": "high",
-      "judged_at": "2026-08-18T12:40:22",
+      "judged_at": "2026-08-20T12:34:19",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 11,
+      "model": "event-editor"
     },
     "e4b267c8c67e": {
       "tier": "skip",
@@ -41225,6 +41227,57 @@
       "judged_at": "2026-08-19T12:36:17",
       "input_version": 2,
       "score_at_judge": 6
+    },
+    "685e1d51f436": {
+      "tier": "great",
+      "lane": "live-music",
+      "adjust": 2,
+      "why": "Laurel Halo is a legit, respected ambient/experimental producer doing a free outdoor set at the Getty — the score undercounts it because 'ambient' doesn't trip the house/techno keywords, and it's a performance, not a club set.",
+      "confidence": "med",
+      "judged_at": "2026-08-20T12:34:19",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "event-editor"
+    },
+    "ceacb1413fe6": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Late-night electronic at Wurstküche hits the right shape (afterhours, groove) but Galo/Stoley/Kaveh aren't names with a verifiable draw.",
+      "confidence": "low",
+      "judged_at": "2026-08-20T12:34:19",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "event-editor"
+    },
+    "1799036c6e7c": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Free vinyl-bar night running tech-house/minimal — the exact vinyl-groove lane even with no billed lineup to confirm.",
+      "confidence": "low",
+      "judged_at": "2026-08-20T12:34:19",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "event-editor"
+    },
+    "48838ea297a5": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Reads like a generic hard-techno party brand with no lineup listed — fine filler, not a pull.",
+      "confidence": "low",
+      "judged_at": "2026-08-20T12:34:19",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "event-editor"
+    },
+    "8ceaafc864c8": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Unbranded afters listing near Silver Lake but nothing to go on beyond the time slot — no lineup, no venue reputation to lean on.",
+      "confidence": "low",
+      "judged_at": "2026-08-20T12:34:19",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "event-editor"
     }
   }
 }
