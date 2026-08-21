@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/20/2026 deterministically (no API). 309 candidates. Signals: big-venue 269, festival 27, tracked 9, editorial 9._
+_Generated 8/21/2026 deterministically (no API). 305 candidates. Signals: big-venue 266, festival 26, tracked 9, editorial 9._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -106,7 +106,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 9/24 | 3 | Laurie Anderson | Orpheum Theatre | festival | [link](https://www.ticketmaster.com/laurie-anderson-los-angeles-california-09-24-2026/event/090064CAD9E9F3B2) |
 | Fri 9/25 | 3 | Ohana Music Festival | Doheny State Beach | festival | [link](https://on.fgtix.com/trk/ycJM) |
 | Sat 9/26 | 3 | Ohana Music Festival | Doheny State Beach | festival | [link](https://on.fgtix.com/trk/ycJM) |
 | Sun 9/27 | 3 | Ocean Way Festival - 09/27 Sunday | The Beach at Santa Monica | festival | [link](https://www.axs.com/events/1480613/ocean-way-festival-09-27-sunday-tickets) |
@@ -273,7 +272,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 9/24 | 3 | Jon Bellion | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Fri 9/25 | 3 | Iron Maiden: Run For Your Lives World Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/iron-maiden-run-for-your-lives-los-angeles-california-09-25-2026/event/0A006355C2E05EEB) |
 | Fri 9/25 | 3 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-09-25-2026/event/0A006479C16B9A6B) |
 | Fri 9/25 | 3 | Lily Allen Performs West End Girl | Kia Forum | big-venue | [link](https://www.ticketmaster.com/lily-allen-performs-west-end-girl-inglewood-california-09-25-2026/event/09006479C571AE7D) |
@@ -316,7 +314,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 10/17 | 3 | SmartLess Live with Jason Bateman, Sean Hayes, & Will Arne | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/smartless-live-with-jason-bateman-sean-hollywood-california-10-17-2026/event/0B006482D29D6B01) |
 | Sat 10/17 | 3 | Young Miko - Late Checkout Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/young-miko-late-checkout-tour-inglewood-california-10-17-2026/event/09006483C17A7B4A) |
 | Sat 10/17 | 3 | ANGEL TICKETS - Charli xcx - Music, Fashion, Film Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/charli-xcx-music-fashion-film-tour-inglewood-california-10-17-2026/event/090064C5EF12A97C) |
-| Sat 10/17 | 3 | it's murph | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1496233/its-murph-tickets) |
+| Sat 10/17 | 3 | It's Murph - Ages 18+ | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1496233/its-murph-tickets) |
 | Sat 10/17 | 3 | Taking Back Sunday (21+) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 10/18 | 3 | Kacey Musgraves w/ Gabriella Rose | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Sun 10/18 | 3 | it's murph | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507528) |
@@ -400,7 +398,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 9/24 | 2 | THE KEHLANI WORLD TOUR: North America | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/the-kehlani-world-tour-north-america-inglewood-california-09-24-2026/event/090064B6E25E61FE) |
 | Fri 9/25 | 2 | The Concert: A Tribute To ABBA | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sun 9/27 | 2 | Iron Maiden: Run For Your Lives World Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/iron-maiden-run-for-your-lives-los-angeles-california-09-27-2026/event/0A00635B10E0C0D4) |
 | Sun 9/27 | 2 | Shreya Ghoshal | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
@@ -578,9 +575,3 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Wed 12/2 | 0 | Jonas Brothers: The Burning Up Tour All Over Again | Honda Center | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-anaheim-california-12-02-2026/event/0900650C4618D89F) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Thu 9/24 | -4 | Robyn - The Sexistential Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/robyn-the-sexistential-tour-inglewood-california-09-24-2026/event/09006443DF9D9804) |
