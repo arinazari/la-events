@@ -2,12 +2,12 @@
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Fri 8/21 · no new or changed events since the last pull*
 
-<!-- take: Foo Fighters crash the Bowl with the LA Phil Saturday, and the underground's still going deep — Matthew Dear b2b Juan Maclean tonight, Barnhus and Lights Down Low the weekend after. -->
-A loaded stretch that peaks fast: tonight's Matthew Dear/Juan Maclean b2b at Lodge Room and Marques Wyatt under the 6th St Bridge, then Saturday goes wide with Foo Fighters + the LA Phil at the Bowl (a genuine one-off, not just another Bowl date) against Noizu at the Shrine and Joris Voorn TBA. Labor Day weekend brings Studio Barnhus's own founders throwing their DTLA day party, and Lights Down Low's warehouse night the same Friday — that's the one to build around. Posh events are dark until the token gets re-captured, so treat the warehouse/afters lane as thinner than usual this week.
+<!-- take: -->
+<!-- tier3:intro -->
 
 ## Tonight & tomorrow
 
-<!-- tier3:call -->Tonight it's Matthew Dear b2b Juan Maclean at Lodge Room or Marques Wyatt under the 6th St Bridge; tomorrow, skip the Dudamel playlist night and go straight to the real event — Foo Fighters with the LA Phil.
+<!-- tier3:call -->
 
 - `Today 8pm` ⭐ **[Into The Woods x Lodge Room: Matthew Dear B2B Juan Maclean](https://www.lodgeroomhlp.com/shows/matthew-dear-b2b-the-juan-maclean-2/)** — Lodge Room (Los Angeles), Highland Park · $26 · [card ↗](https://arinazari.github.io/la-events/?e=0ef02f2055db) — *Lodge Room is a loved room, and Matthew Dear b2b Juan Maclean is a genuinely rare pairing of two Ghostly/DFA-lineage names — build the Friday around this.*
 - `Today 9pm` **[SET & Safra with MONKEY SAFARI & MARQUES WYATT Under the 6th St Bridge, LA](https://www.eventbrite.com/e/set-safra-with-monkey-safari-marques-wyatt-under-the-6th-st-bridge-la-tickets-1995829981200)** — Under the 6th Street Bridge, DTLA · $31.02 · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=b69a75ba9b8d) — *9pm-3am open-air under the bridge, not a day party — Marques Wyatt basically built LA's dance scene and Monkey Safari's melodic Get Physical/Anjunadeep sound is a genuine pairing, though a near-identical listing exists for the same night at a different address.*
@@ -18,10 +18,10 @@ A loaded stretch that peaks fast: tonight's Matthew Dear/Juan Maclean b2b at Lod
 
 ## Don't miss
 
-- `Sat 8/22` **[Celebrating Gustavo at the Bowl: Foo Fighters with the LA Phil and YOLA](https://www.hollywoodbowl.com/events/performances/4287/2026-08-22/celebrating-gustavo-at-the-bowl-foo-fighters-with-the-la-phil-and-yola)** — Hollywood Bowl, Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=6f7ecb0929f4)  
-  Foo Fighters trading their usual arena setup for the Bowl shell with the full LA Phil behind them is a genuine one-off, not something you'd bet on happening again — it's outside the house/techno lane but this is exactly the kind of unusual pairing worth clearing a Saturday for. <!-- tier3:why 6f7ecb0929f4 -->
 - `Sat 8/22` **[Noizu](http://www.shrineauditorium.com/)** — Shrine Expo Hall, University Park · 18+ · [card ↗](https://arinazari.github.io/la-events/?e=e653cbe40068)  
   Noizu's the kind of big-tent tech-house that earns its Spotify rotation honestly — not the deepest cut of the night but a properly good one for a bigger room like the Shrine. <!-- tier3:why e653cbe40068 -->
+- `Sat 8/22` **[Celebrating Gustavo at the Bowl: Foo Fighters with the LA Phil and YOLA](https://www.hollywoodbowl.com/events/performances/4287/2026-08-22/celebrating-gustavo-at-the-bowl-foo-fighters-with-the-la-phil-and-yola)** — Hollywood Bowl, Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=6f7ecb0929f4)  
+  Foo Fighters trading their usual arena setup for the Bowl shell with the full LA Phil behind them is a genuine one-off, not something you'd bet on happening again — it's outside the house/techno lane but this is exactly the kind of unusual pairing worth clearing a Saturday for. <!-- tier3:why 6f7ecb0929f4 -->
 - `Sat 8/22` **[Laurel Halo](https://www.getty.edu/calendar/off-the-405-laurel-halo/)** — Getty Center (Los Angeles) · free · *free — just RSVP* · [card ↗](https://arinazari.github.io/la-events/?e=685e1d51f436)  
   Real critical pedigree (Wire AOTY, Hyperdub) for a free museum booking, but this is a seated/standing courtyard listening set, not a dancefloor night — go for the sound design, not for a house fix. <!-- tier3:why 685e1d51f436 -->
 - `Mon 8/31` **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZk)** — Festival of Arts Pageant of the Masters, Laguna Beach · [card ↗](https://arinazari.github.io/la-events/?e=ec923f579e38)  
@@ -43,13 +43,12 @@ A loaded stretch that peaks fast: tonight's Matthew Dear/Juan Maclean b2b at Lod
 **Updated**
 - `Fri 8/21` (+1 more date) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2513700)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=80d42f12a5f1) — *Same weekly Lexington afters run as Saturday's listing — go the later night, this one's the redundant sibling.*
 - `Sat 8/22` **[RE/FORM presents Trip To Galaxy: Joris Voorn, LUIS MIRANDA, & Materielle](https://ra.co/events/2474930)** — TBA - Los Angeles, Los Angeles · $40 b4 12 / $50 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=8a34951dcd50) — *Joris Voorn is a legit widescreen headliner, closer to Solomun/Tale of Us territory than his 'techno' tag suggests — RA-picked, TBA location. Not on the tracked list but underrated by that omission, not overrated by the score.*
-- `Sat 8/22` **[COMMONTHREAD - RADIO4RADIO (DUBLAB x VPN)](https://ra.co/events/2509908)** — The Airliner, Lincoln Heights · $16.25 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=6d85a25e4372) — *Sonrisita's boogie/disco sets and dublab's real freeform pedigree, but it's a small bar night with modest pull — good filler, not a headline pick.*
 - `Fri 9/4` ⭐ **[Lights Down Low Feat. Interplanetary Criminal](https://ra.co/events/2510630)** — TBA - Downtown Los Angeles, DTLA · $20-40 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=b504b1dfb3a1) — *Lights Down Low's own warehouse series with Interplanetary Criminal — the bassline/2-step revival name is the real draw, and LDL residents Richie Panic and Corey Sizemore make this the actual warehouse night to build the weekend around.*
 
 ## Next two weeks
 
 ### Friday · August 21
-<!-- tier3:blueprint 2026-08-21 -->Dinner in Highland Park, then Matthew Dear b2b Juan Maclean at Lodge Room from 8 — it's a short enough set to still make Marques Wyatt under the 6th St Bridge by 11 if the night needs a second act.
+<!-- tier3:blueprint 2026-08-21 -->
 
 **Electronic & dance**
 - `8pm` ⭐ **[Into The Woods x Lodge Room: Matthew Dear B2B Juan Maclean](https://www.lodgeroomhlp.com/shows/matthew-dear-b2b-the-juan-maclean-2/)** — Lodge Room (Los Angeles), Highland Park · $26 · [card ↗](https://arinazari.github.io/la-events/?e=0ef02f2055db)  
@@ -73,17 +72,18 @@ A loaded stretch that peaks fast: tonight's Matthew Dear/Juan Maclean b2b at Lod
 - `8:30pm` (Fri 8/21 +11 more) ⭐ **[Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZk)** — Festival of Arts Pageant of the Masters, Laguna Beach · [card ↗](https://arinazari.github.io/la-events/?e=ec923f579e38)
 
 ### Saturday · August 22
-<!-- tier3:blueprint 2026-08-22 -->The Bowl at 8 for Foo Fighters + the LA Phil is the anchor; if you want a second stop after, Noizu at the Shrine runs 9pm and Joris Voorn's TBA warehouse doesn't get going till 11 anyway.
+<!-- tier3:blueprint 2026-08-22 -->
 
 **Electronic & dance**
 - `9pm` **[Noizu](http://www.shrineauditorium.com/)** — Shrine Expo Hall, University Park · big room · 18+ · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=e653cbe40068)
 - `11pm-5am` **[RE/FORM presents Trip To Galaxy: Joris Voorn, LUIS MIRANDA, & Materielle](https://ra.co/events/2474930)** — TBA - Los Angeles, Los Angeles · $40 b4 12 / $50 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=8a34951dcd50)  
   Joris Voorn headlining a TBA-location night is a genuine catch — he's been putting out widescreen, emotive techno-house for two decades — and the local support here (Luis Miranda, Materielle) is real rather than an afterthought.
+- `9pm` **[Noizu](https://ra.co/events/2507509)** — Shrine Auditorium and Expo Hall, University Park · big room · [card ↗](https://arinazari.github.io/la-events/?e=10d14d81a47a)  
+  Noizu and Secondcity already have a track together, so this reads less like a random support slot and more like two guys who genuinely like playing back to back — polished, danceable tech-house that doesn't need underground credibility to sell it.
 - `12pm-8pm` **[FLOAT Rooftop Pool Party feat. Durante [2-8 PM]](https://ra.co/events/2480989)** — Level 8 DTLA, DTLA · day party · $29.62 · [card ↗](https://arinazari.github.io/la-events/?e=dcc3f7d675a5)  
   A rooftop pool party with an Anjunadeep-orbit melodic house DJ is about as close to the Sunset Sessions feeling as it gets on a random weekday afternoon — this is the one to build the day around.
 - `9pm-6am` **[Latroit House Ensemble w/ Jason Bentley](https://www.kcrw.com/events/latroit-house-ensemble-with-jason-bentley)** — 1645 Wilcox Ave (Los Angeles) · afters · 21+ · [card ↗](https://arinazari.github.io/la-events/?e=a62b74895e1c)  
   Latroit's got real pedigree — Detroit roots, a Grammy for that Depeche Mode remix — and doing it as a live ensemble instead of a straight DJ booth set is the actual hook here; Bentley's KCRW ear alongside him just sweetens it.
-- `9pm-2am` **[COMMONTHREAD - RADIO4RADIO (DUBLAB x VPN)](https://ra.co/events/2509908)** — The Airliner, Lincoln Heights · $16.25 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=6d85a25e4372) — *Sonrisita's boogie/disco sets and dublab's real freeform pedigree, but it's a small bar night with modest pull — good filler, not a headline pick.*
 
 **Live music**
 - `8pm` ⭐ **[Celebrating Gustavo at the Bowl: Foo Fighters with the LA Phil and YOLA](https://www.hollywoodbowl.com/events/performances/4287/2026-08-22/celebrating-gustavo-at-the-bowl-foo-fighters-with-the-la-phil-and-yola)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=6f7ecb0929f4)
@@ -126,10 +126,13 @@ A loaded stretch that peaks fast: tonight's Matthew Dear/Juan Maclean b2b at Lod
 
 ### Wednesday · August 26
 
+**Electronic & dance**
+- `11pm` **[AFTERS 8-26 ( WEDNESDAY )](https://posh.vip/e/afters-826-wednesday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=196685a3c36e)  
+  Free late-night afterhours party by NIGHTSHIFT at 129 E 3rd, DTLA (Wed 11pm).
+
 **Live music**
 - `8:30pm` **[CoPilots](https://www.elysiantheater.com/shows/copilots0826)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=c0ffe4d1f610)
 - `7:30pm` **[Caroline and Jack present "The Show"](https://www.elysiantheater.com/shows/carolineandjack0826)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=978f5fc73e07)
-- `7:30pm` **[Steve Lehman & Garden of Klōns with Cory Smythe, Chris Tordini & Jacob Porter](https://www.samfirstbar.com/events/steve-lehman-garden-of-klons-with-cory-smythe-chris-tordini-jacob-porter)** — Sam First, Westchester · [card ↗](https://arinazari.github.io/la-events/?e=81a4623d3e16) — *Electronically augmented acoustic jazz is a genuinely interesting experimental booking, even outside the core house/techno spine.*
 
 ### Thursday · August 27
 
@@ -147,7 +150,7 @@ A loaded stretch that peaks fast: tonight's Matthew Dear/Juan Maclean b2b at Lod
   The touring Phantom warhorse in Costa Mesa — gorgeous production values if you've somehow never seen it, but it's a long drive for a show that isn't chasing anything new.
 
 ### Friday · August 28
-<!-- tier3:blueprint 2026-08-28 -->WORK Harder's RIKHTER 4-hour set (TBA, 11pm) is the real move tonight — build dinner around a late start since it won't peak till well past midnight.
+<!-- tier3:blueprint 2026-08-28 -->
 
 **Electronic & dance**
 - `11pm` ⭐ **[WORK Harder presents: RIKHTER [4 HR Set] & EMILIANA](https://ra.co/events/2484883)** — TBA - Los Angeles, Los Angeles · [card ↗](https://arinazari.github.io/la-events/?e=b368b043c331)  
@@ -163,7 +166,7 @@ A loaded stretch that peaks fast: tonight's Matthew Dear/Juan Maclean b2b at Lod
 - `9:15pm` **[A Swingin' Jazz Affair (Matt Forbes & Jesse Goddard w/ David Moscoe Trio)](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=8dba3303b479) — *No-cover jazz-crooner residency at The Dresden, walkable from Silver Lake — easy low-stakes Friday, not a headline pick.*
 
 ### Saturday · August 29
-<!-- tier3:blueprint 2026-08-29 -->Haddaway/Ultra Naté/Robin S/Crystal Waters at Pershing Square is a free daytime detour worth catching before dinner — the night proper is still TBA-warehouse roulette (Certified Groovers or Whatever Underground), so hold off committing till lineups drop.
+<!-- tier3:blueprint 2026-08-29 -->
 
 **Electronic & dance**
 - `11pm` **[Certified Groovers: Yair [all night long]](https://ra.co/events/2514014)** — TBA - Downtown Los Angeles, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=4df2e7969182)  
@@ -203,8 +206,8 @@ A loaded stretch that peaks fast: tonight's Matthew Dear/Juan Maclean b2b at Lod
 **Live music**
 - `7:30pm` **[Young Storytellers: After Dark](https://www.elysiantheater.com/shows/youngstorytellers0901)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=d71d7ad873fc)
 - `8:30pm` **[GREEN](https://www.elysiantheater.com/shows/green0901)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=21081020dc07)
-- `8pm` **[ROOMIES with Dylan Adler, Sam Morrison & Kylie Vincent](https://www.elysiantheater.com/shows/roomies0901)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=0ee529c220a7)
 - `6:30pm` **[Alligator Beach 'New Orleans Funk Party'](https://santamonica.harvelles.com/events/139986)** — Harvelle's, Santa Monica · [card ↗](https://arinazari.github.io/la-events/?e=d0ad758770f4) — *New Orleans funk band leaning into the groove/soulful boost even though it's a live band, not a DJ.*
+- `8pm` **[Noname](https://www.fondatheatre.com/)** — The Fonda Theatre, Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=bf8e6adb0f8f) — *Respected underground hip-hop name in a good mid-size room, but outside the electronic/film core of this taste.*
 
 ### Wednesday · September 2
 
@@ -243,8 +246,8 @@ A loaded stretch that peaks fast: tonight's Matthew Dear/Juan Maclean b2b at Lod
 ### Weekend of Fri 9/18
 - `Sat 9/19` ⭐ **[Âme, DJ Tennis, Kaz James - Chinatown Block Party](https://ra.co/events/2487802)** — Gin Ling Way, Chinatown, Chinatown · [card ↗](https://arinazari.github.io/la-events/?e=84882da12558)
 - `Sat 9/19` ⭐ **[body wave: Felix Dickinson (UK), Masha Mar, Junior](https://ra.co/events/2516016)** — TBA - Downtown Los Angeles, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=e203ae55361e)
+- `Sat 9/19` ⭐ **[Sofi Tukker w/ DRAMA](https://www.lagreektheatre.com/)** — Greek Theatre-Los Angeles, Los Feliz · big venue · [card ↗](https://arinazari.github.io/la-events/?e=48e360ba751a)
 - `Fri 9/18` **[PARTIBOI69 w/ Strawbry, Coldsweat](https://avalonhollywood.com/event/partiboi69-nightclub-near-me-discover-avalon-hollywood-2026-september-18-best-night-club-near-me-hollywood-los-angeles/)** — Avalon Hollywood, Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=6e710971b68b) — *Strawbry is a strong-rotation name for this profile and this is really a club/DJ night, not the catch-all 'other' lane the tags filed it under.*
-- `Sat 9/19` **[Producing Techno with Pilo](https://ra.co/events/2509870)** — IO Music Academy LA, Hollywood · day party · [card ↗](https://arinazari.github.io/la-events/?e=3354902e8555)
 - *…plus 15 more that weekend — full list: [weekend digest](weekends/2026-09-18.md)*
 
 ### Weekend of Fri 9/25
@@ -331,5 +334,4 @@ A loaded stretch that peaks fast: tonight's Matthew Dear/Juan Maclean b2b at Lod
 - **[Coachella 2027](https://www.coachella.com/)** — 4/9–11 and 4/16–18 · Empire Polo Club, Indio CA · **lineup pending** — Advance GA already sold out (~$549–599); lineup typically drops Sept 2026–Jan 2027. Worth tracking the lineup announce to decide if a resale is worth it.
 
 ---
-> ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
 *⚠️ Stale sources (not refreshed — these events may be out of date): editorial 12d (100 events), harvelles 4d (42 events), webfetch 3d (508 events)*
