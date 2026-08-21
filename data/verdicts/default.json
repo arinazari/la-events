@@ -40142,14 +40142,13 @@
       "model": "claude-sonnet-5"
     },
     "d4b985a374cc": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Chris Cruse founded Spotlight and now plays Panorama Bar — real pedigree hiding under an unfamiliar showcase name, plus Juliet Mendoza again.",
+      "tier": "skip",
+      "adjust": 0,
+      "why": "Chris Cruse and Juliet Mendoza make this a genuinely great lineup on paper, but it's flagged queer-oriented and that's a hard opt-out for this profile regardless of who's booked — the score's -6 already has it right.",
       "confidence": "high",
-      "judged_at": "2026-08-16T12:35:42",
+      "judged_at": "2026-08-21T12:35:14",
       "input_version": 2,
-      "score_at_judge": 10,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "6dbbfd5d65db": {
       "tier": "solid",
@@ -41278,6 +41277,205 @@
       "input_version": 2,
       "score_at_judge": 6,
       "model": "event-editor"
+    },
+    "01a459c44368": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Legit international warehouse booking but the scene notes are clear this is baile funk/dancehall/global-club, not house/techno — the 'on-taste genre (house)' bump in the score is a mistag.",
+      "confidence": "med",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 9
+    },
+    "31170c8c6045": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Juliet Mendoza is a strong-rotation name for this profile and Rimarkable's Defected pedigree is real — a small-bar booking punching well above its room.",
+      "confidence": "high",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 8
+    },
+    "0ef02f2055db": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Lodge Room is a loved room, and Matthew Dear b2b Juan Maclean is a genuinely rare pairing of two Ghostly/DFA-lineage names — build the Friday around this.",
+      "confidence": "high",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "5d2d9f946c71": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free rooftop-adjacent groove night, but Bae Bae's footwork/juke/breaks lane sits outside the house-techno spine — fine low-stakes Friday filler.",
+      "confidence": "med",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "45fec9c3b7f3": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "The Rush Hour label tie-in is the real signal here and the score already credits it; no scene notes on the actual DJs so can't push it further.",
+      "confidence": "low",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "bba298f54256": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Roni Size and Dieselboy on a TBA warehouse bill is a genuinely rare legacy booking the score's flat +1 RA-pick undersells, even if the DnB skew is a step outside the house/techno spine.",
+      "confidence": "med",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "3311cff0ac9d": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "It's a Y2K-decade nostalgia theme night with an alt-hip-hop headliner, not a DJ set — exactly the nostalgia-club-night format this profile opts out of; the genre tag just didn't catch it.",
+      "confidence": "high",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "0f4dda40f894": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "No real read on AHEE/XOTIX/Pierce's draw or sound — big-hall Avalon booking, leaving it as a middling mainstream-lane pick rather than guessing either direction.",
+      "confidence": "low",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "3b3c33b6a60d": {
+      "tier": "great",
+      "adjust": 3,
+      "why": "This is the rooftop-vinyl-house Sunset Sessions format the brief calls out by name, with a regular Level 8 selector — the score's 6 undersells how squarely this fits.",
+      "confidence": "high",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "541bac01c2b5": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Tagged hard-dance as the lead genre with no lineup to redeem it — that's the harder-EDM lane this profile explicitly doesn't want as the main draw.",
+      "confidence": "med",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "bb6d66633223": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Generic TBA Silver Lake house/techno night, unknown lineup — fine as a nearby Friday option, nothing to distinguish it.",
+      "confidence": "low",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "6b316d95d427": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "'2008 Nite' is a decade-nostalgia theme night — the exact format this profile wants buried, missed by the genre tagging.",
+      "confidence": "high",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "107e7e33607a": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Daniel Allan is a decent mainstream house-pop crossover name but no scene data to confirm the room or set style — leaving it mid-pack.",
+      "confidence": "low",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "bb18a1a32ee9": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "'Hard techno' reads closer to the Amelie Lens/Charlotte de Witte lane than to the hardstyle stuff this profile skips, but there's no lineup to confirm it's actually that.",
+      "confidence": "low",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "e8f193124ffd": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Breakbeat-leaning TBA night with an unfamiliar lineup — no strong signal either way.",
+      "confidence": "low",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "367c27aa92db": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Electroclash night, no lineup given — plausible fit for the electro boost but nothing to confirm the draw.",
+      "confidence": "low",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "129cdfeacbe8": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Late outdoor DTLA-adjacent set with zero lineup info — can't call it up or down.",
+      "confidence": "low",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "3f818323bbcc": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Newport Beach is a real trek for an unbilled boat party — falls into the far-flung-without-payoff bucket the taste brief calls out, and there's no lineup to justify the drive.",
+      "confidence": "med",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "c8dbb174bf1f": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Rebolledo is a legit Comeme-orbit house/electro name with real international cachet — worth more than the plain editorial-mention bump the score gave it.",
+      "confidence": "med",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "6e710971b68b": {
+      "tier": "great",
+      "lane": "club:underground",
+      "adjust": 2,
+      "why": "Strawbry is a strong-rotation name for this profile and this is really a club/DJ night, not the catch-all 'other' lane the tags filed it under.",
+      "confidence": "med",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "63ab9a3ae4ed": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Last night of a long-running weekly flea run — a fine indie-vinyl market pick, nothing that needs a special push.",
+      "confidence": "high",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "45eccc1e290a": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Off the usual electronic lane, but three independent editorial mentions for a closing-day cultural festival is real signal worth keeping in the mix.",
+      "confidence": "med",
+      "judged_at": "2026-08-21T12:35:14",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }
