@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/21/2026 deterministically (no API). 305 candidates. Signals: big-venue 266, festival 26, tracked 9, editorial 9._
+_Generated 8/22/2026 deterministically (no API). 295 candidates. Signals: big-venue 259, festival 25, editorial 9, tracked 7._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -66,7 +66,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 9/26 | 8 | Factory 93 presents: Amelie Lens at Grand Park Block 2 | Grand Park | tracked:Amelie Lens | [link](https://ra.co/events/2400834) |
-| Fri 9/25 | 7 | Overmono - Pure Devotion World Tour | Hollywood Palladium | tracked:Overmono | [link](https://ra.co/events/2446440) |
 | Sun 9/27 | 6 | Into The Woods presents Theo Parrish (Open To Close) | TBA | tracked:Theo Parrish | [link](https://ra.co/events/2502776) |
 
 ## October 2026
@@ -106,7 +105,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/25 | 3 | Ohana Music Festival | Doheny State Beach | festival | [link](https://on.fgtix.com/trk/ycJM) |
 | Sat 9/26 | 3 | Ohana Music Festival | Doheny State Beach | festival | [link](https://on.fgtix.com/trk/ycJM) |
 | Sun 9/27 | 3 | Ocean Way Festival - 09/27 Sunday | The Beach at Santa Monica | festival | [link](https://www.axs.com/events/1480613/ocean-way-festival-09-27-sunday-tickets) |
 
@@ -152,12 +150,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 12/18 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-18-2026/event/0B00648CEFEE57B8) |
 | Sat 12/19 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-19-2026/event/0B00648CEFEF57BB) |
 
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Fri 9/25 | 1 | A Club Called Rhonda with DJ Minx, DJ Holographic, Anastaz | Los Globos | tracked:DJ Minx | [link](https://ra.co/events/2506362) |
-
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -187,7 +179,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/25 | 5 | Riley Green: Cowboy As It Gets Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/riley-green-cowboy-as-it-gets-los-angeles-california-09-25-2026/event/090064BCCDA4CFFB) |
 | Sat 9/26 | 5 | Rodgers & Hammerstein's The Sound of Music Sing-A-Long | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events) |
 
 ## October 2026
@@ -207,7 +198,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/25 | 4 | Yandel - SINFÓNICO | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/yandel-sinfonico-los-angeles-california-09-25-2026/event/2C00649EBD941288) |
 | Sat 9/26 | 4 | BERT KREISCHER: PERMISSION TO PARTY | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/bert-kreischer-permission-to-party-los-angeles-california-09-26-2026/event/0900647FE404EF24) |
 | Sun 9/27 | 4 | Tove Lo w/ Mallrat | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Tue 9/29 | 4 | Zara Larsson | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
@@ -272,9 +262,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/25 | 3 | Iron Maiden: Run For Your Lives World Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/iron-maiden-run-for-your-lives-los-angeles-california-09-25-2026/event/0A006355C2E05EEB) |
-| Fri 9/25 | 3 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-09-25-2026/event/0A006479C16B9A6B) |
-| Fri 9/25 | 3 | Lily Allen Performs West End Girl | Kia Forum | big-venue | [link](https://www.ticketmaster.com/lily-allen-performs-west-end-girl-inglewood-california-09-25-2026/event/09006479C571AE7D) |
 | Sat 9/26 | 3 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-09-26-2026/event/0A00648DF226BC72) |
 | Sat 9/26 | 3 | Billy Strings | Kia Forum | big-venue | [link](https://www.ticketmaster.com/billy-strings-inglewood-california-09-26-2026/event/0900647CF670C42D) |
 | Sat 9/26 | 3 | Carin Leon | Toyota Arena-CA | big-venue | [link](https://www.cbbankarena.com) |
@@ -398,7 +385,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/25 | 2 | The Concert: A Tribute To ABBA | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Sun 9/27 | 2 | Iron Maiden: Run For Your Lives World Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/iron-maiden-run-for-your-lives-los-angeles-california-09-27-2026/event/0A00635B10E0C0D4) |
 | Sun 9/27 | 2 | Shreya Ghoshal | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sun 9/27 | 2 | SIN BANDERA - ESCENAS US TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/sin-bandera-escenas-us-tour-inglewood-california-09-27-2026/event/090064E22462E7CC) |
@@ -513,7 +499,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 9/25 | 1 | Disney Descendants, ZOMBIES & Camp Rock: Worlds Collide Co | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/disney-descendants-zombies-camp-rock-worlds-palm-desert-california-09-25-2026/event/0A0064671331B7B8) |
 | Sat 9/26 | 1 | Danzig | Honda Center | big-venue | [link](https://www.ticketmaster.com/danzig-anaheim-california-09-26-2026/event/090064D2BFA6BDAB) |
 | Sat 9/26 | 1 | MANÁ: VIVIR SIN AIRE TOUR | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/mana-vivir-sin-aire-tour-palm-desert-california-09-26-2026/event/0A006377B1CC73E4) |
 
@@ -538,7 +523,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Fri 11/13 | 1 | Los Tigres del Norte | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-palm-desert-california-11-13-2026/event/0A0064588664F5A1) |
 | Sat 11/14 | 1 | 90s Corridos Tour 2026 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/90s-corridos-tour-2026-palm-desert-california-11-14-2026/event/0A00649D95C0C8DC) |
 | Thu 11/19 | 1 | Nikki Glaser | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Sat 11/21 | 1 | V-beyond Concert | Honda Center | big-venue | [link](https://www.ticketmaster.com/vbeyond-concert-anaheim-california-11-21-2026/event/0900650CE60E12D8) |
 
 ## December 2026
 
@@ -575,3 +559,9 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Wed 12/2 | 0 | Jonas Brothers: The Burning Up Tour All Over Again | Honda Center | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-anaheim-california-12-02-2026/event/0900650C4618D89F) |
+
+## November 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 11/21 | -5 | V-beyond Concert | Honda Center | big-venue | [link](https://www.ticketmaster.com/vbeyond-concert-anaheim-california-11-21-2026/event/0900650CE60E12D8) |
