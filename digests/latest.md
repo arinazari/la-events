@@ -2,12 +2,12 @@
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Sat 8/22 · no new or changed events since the last pull*
 
-<!-- take: -->
-<!-- tier3:intro -->
+<!-- take: Foo Fighters crash Dudamel's Bowl finale tonight, then the calendar tips into a run of TBA-warehouse electronic through Labor Day weekend. -->
+Tonight's the one worth building the whole weekend around: Foo Fighters sitting in with Dudamel and the LA Phil at the Bowl is a genuine one-off, and Sunday closes out Dudamel's 17-year Bowl run with the legacy concert. Past that, the next two weeks lean hard into TBA-warehouse electronic — RIKHTER's 4-hour hard-techno set 8/28, Certified Groovers' all-nighter and the Haddaway/Ultra Naté house-legends day party 8/29, then Lights Down Low with Interplanetary Criminal 9/4. The one to actually circle further out is Âme's Chinatown block party on 9/19 — outdoor, Innervisions/Life and Death both on the bill, worth clearing the date now.
 
 ## Tonight & tomorrow
 
-<!-- tier3:call -->
+Go to the Bowl tonight if you can still get in — the Foo Fighters/Dudamel crossover won't happen again; tomorrow's quieter, just the legacy-concert send-off and a couple of low-stakes electronic/DJ options.
 
 - `Today 8pm` ⭐ **[Celebrating Gustavo at the Bowl: Foo Fighters with the LA Phil and YOLA](https://www.hollywoodbowl.com/events/performances/4287/2026-08-22/celebrating-gustavo-at-the-bowl-foo-fighters-with-the-la-phil-and-yola)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=6f7ecb0929f4) — *Foo Fighters joining Dudamel/LA Phil/YOLA is a genuine one-off crossover, not just another Bowl date — build the weekend around this one, not the surprise-playlist night before it.*
 - `Today 9pm` **[Noizu](http://www.shrineauditorium.com/)** — Shrine Expo Hall, University Park · big room · 18+ · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=e653cbe40068) — *Noizu's sound is explicitly benchmarked against Chris Lake/Dom Dolla/Fisher in the scene notes — that's your exact mainstream tech-house sweet spot, not a guess from the genre tag.*
@@ -54,7 +54,7 @@
 ## Next two weeks
 
 ### Saturday · August 22
-<!-- tier3:blueprint 2026-08-22 -->
+<!-- tier3:blueprint 2026-08-22 --> Bowl tickets or bust tonight — Foo Fighters/Dudamel at 8pm is the whole night. No Bowl? Noizu at the Shrine (9pm) into RE/FORM's Joris Voorn warehouse set (doors 11pm, TBA location) covers the tech-house-into-techno arc instead.
 
 **Electronic & dance**
 - `9pm` **[Noizu](http://www.shrineauditorium.com/)** — Shrine Expo Hall, University Park · big room · 18+ · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=e653cbe40068)  
@@ -139,7 +139,7 @@
   The touring Phantom warhorse in Costa Mesa — gorgeous production values if you've somehow never seen it, but it's a long drive for a show that isn't chasing anything new.
 
 ### Friday · August 28
-<!-- tier3:blueprint 2026-08-28 -->
+<!-- tier3:blueprint 2026-08-28 --> Start at Bar Franca (9pm) for Ian Llorens digging vinyl in the listening-bar setup, then head to the TBA warehouse for RIKHTER's 4-hour hard-techno set once it drops (doors 11pm) — mellow into heavy, same night.
 
 **Electronic & dance**
 - `11pm-5am` ⭐ **[WORK Harder presents: RIKHTER [4 HR Set] & EMILIANA](https://ra.co/events/2484883)** — TBA - Los Angeles, Los Angeles · $30 b4 12 / $35-42 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=b368b043c331)  
@@ -156,7 +156,7 @@
 - `9:15pm` **[A Swingin' Jazz Affair (Matt Forbes & Jesse Goddard w/ David Moscoe Trio)](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=8dba3303b479) — *No-cover jazz-crooner residency at The Dresden, walkable from Silver Lake — easy low-stakes Friday, not a headline pick.*
 
 ### Saturday · August 29
-<!-- tier3:blueprint 2026-08-29 -->
+<!-- tier3:blueprint 2026-08-29 --> Free house-legends day party at Pershing Square (3pm — Haddaway, Ultra Naté, Robin S, Crystal Waters) makes for an easy afternoon, then El Cid for Luke Mele's Balearic/dub-techno set (10pm) is the safer bet over the Certified Groovers all-nighter, whose headliner's an unknown quantity.
 
 **Electronic & dance**
 - `11pm-7am` **[Certified Groovers: Yair [all night long]](https://ra.co/events/2514014)** — TBA - Downtown Los Angeles, DTLA · $17.5 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=4df2e7969182)  
@@ -219,7 +219,7 @@
 - `8pm` **[Amadeus in Concert](https://www.hollywoodbowl.com/events)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=df1c20809247)
 
 ### Friday · September 4
-<!-- tier3:blueprint 2026-09-04 -->
+<!-- tier3:blueprint 2026-09-04 --> Lights Down Low with Interplanetary Criminal (TBA, doors 11pm) is the pick for the UK-rave feel; if you want something heavier, INCOGNITO's 20th-anniversary warehouse weekend (10pm, also TBA) brings actual scene royalty in Roni Size and Dieselboy.
 
 **Electronic & dance**
 - `11pm-5am` ⭐ **[Lights Down Low Feat. Interplanetary Criminal](https://ra.co/events/2510630)** — TBA - Downtown Los Angeles, DTLA · $20-40 · [card ↗](https://arinazari.github.io/la-events/?e=b504b1dfb3a1)  
@@ -326,6 +326,7 @@
 - `Sat 10/17` **[Boots in the Park](https://www.ticketmaster.com/event/Z7r9jZ1A707OS)** — Rancho Mission Viejo Riding Park · Mission Viejo  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=ef359e9e6ec5) <!-- tier3:gloss ef359e9e6ec5 -->
 - `Mon 10/19` **[Chinchilla](https://www.ticketmaster.com/chinchilla-los-angeles-california-10-19-2026/event/090064F7158AAC30)** — Pacific Electric · DTLA  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=cb442ff70481) <!-- tier3:gloss cb442ff70481 -->
 - `Fri 10/30` **[Escape](https://on.fgtix.com/trk/Ni5m)** — NOS Events Center · San Bernardino  ·  *Cloonee,Richie Hawtin* · [card ↗](https://arinazari.github.io/la-events/?e=503d09df0288) <!-- tier3:gloss 503d09df0288 -->
+  Annual Insomniac mega-rave, far out in San Bernardino — Hawtin's the only real pull against the scale/distance penalty.
 - `Sat 10/31` **[THE MAZE Halloween: Arts District Block Party](https://ra.co/events/2491883)** — TBA - Arts District Los Angeles · Arts District  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=d49eb8554c26) <!-- tier3:gloss d49eb8554c26 -->
 
 **November 2026**
