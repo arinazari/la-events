@@ -149,7 +149,10 @@ sources:
     url: https://secretlosangeles.com/things-to-do/
     priority: 2
     status: active
-    notes: Site, not the IG. IG account is manual-capture only.
+    notes: >
+      Site, not the IG. IG account is manual-capture only.
+      2026-08-22: WebFetch returned empty content on two attempts — first observed failure,
+      not yet flaky (watch for a repeat before escalating).
 
   - name: LA Times — Things to Do
     category: editorial
@@ -839,7 +842,9 @@ sources:
     status: flaky
     notes: Free nightly local garage/punk/R&B + burlesque. WordPress + Events Manager; no JSON-LD. Close to Silver Lake.
       Marked flaky 2026-07-18 — the /events/ page has served a stale cached month (dates already
-      past by fetch time) two runs in a row (2026-07-17, 2026-07-18).
+      past by fetch time) two runs in a row (2026-07-17, 2026-07-18). Reconfirmed still stale
+      2026-08-22 (over a month later, same symptom — mixed past/recurring dates, no ticket links).
+      Escalate to dead if it hasn't cleared by ~2026-09-22.
   - name: Highland Park Bowl
     category: live_music
     method: webfetch
