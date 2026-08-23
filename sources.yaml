@@ -148,11 +148,11 @@ sources:
     method: scrape
     url: https://secretlosangeles.com/things-to-do/
     priority: 2
-    status: active
+    status: flaky
     notes: >
       Site, not the IG. IG account is manual-capture only.
-      2026-08-22: WebFetch returned empty content on two attempts — first observed failure,
-      not yet flaky (watch for a repeat before escalating).
+      2026-08-22: WebFetch returned empty content on two attempts — first observed failure.
+      2026-08-23: WebFetch returned empty content again (repeat) — marked flaky.
 
   - name: LA Times — Things to Do
     category: editorial
@@ -160,7 +160,10 @@ sources:
     url: https://www.latimes.com/entertainment-arts/things-to-do
     priority: 2
     status: active
-    notes: Possible paywall friction; degrade gracefully.
+    notes: >
+      Possible paywall friction; degrade gracefully.
+      2026-08-23: WebFetch blocked/unable to fetch — first observed failure, not yet flaky
+      (watch for a repeat before escalating).
 
   - name: Eater LA
     category: editorial
