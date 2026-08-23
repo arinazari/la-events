@@ -36513,14 +36513,13 @@
       "model": "sonnet"
     },
     "56ffbf8664ed": {
-      "tier": "solid",
+      "tier": "great",
       "adjust": 1,
-      "why": "Funk Freaks is a real deep-crate soul/funk institution here — a record-release show that fits the groove/vinyl side of your taste even without house/techno on the bill.",
-      "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "why": "Funk Freaks' 13-year all-vinyl crew doing a record release for a Star Creature artist with a Stones Throw duo opening — real boogie/disco pedigree, close to home, Friday.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 7
     },
     "7c1e9e366dce": {
       "tier": "great",
@@ -37751,13 +37750,12 @@
     },
     "7b92185c1ddb": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Simon Raymonde of Cocteau Twins DJing at Zebulon is a legit crossover pull for the dream-pop/indie side of your taste.",
-      "confidence": "med",
-      "judged_at": "2026-08-02T12:37:08",
+      "adjust": 1,
+      "why": "Cocteau Twins' bassist and Bella Union's founder DJing a dream-pop night at Zebulon — the kind of pedigreed one-off in a small room the score can't weight properly.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "a8308138ea4b": {
       "tier": "great",
@@ -38968,13 +38966,12 @@
     },
     "44a043b9cd8e": {
       "tier": "great",
-      "adjust": 1,
-      "why": "UK electronic import via an underground promoter on a Saturday night — the European club-night feel you specifically chase.",
-      "confidence": "low",
-      "judged_at": "2026-08-04T12:39:43",
+      "adjust": 2,
+      "why": "SUBSHIFT has actual Tomorrowland/Ushuaia/Ministry of Sound credits and this is early in his first US tour — the score's flat +3 electronic badly undersells a legit touring headliner in a warehouse room.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 7
     },
     "4f14f55b80da": {
       "tier": "solid",
@@ -41323,12 +41320,12 @@
     },
     "bba298f54256": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Roni Size and Dieselboy on a TBA warehouse bill is a genuinely rare legacy booking the score's flat +1 RA-pick undersells, even if the DnB skew is a step outside the house/techno spine.",
+      "adjust": 0,
+      "why": "Roni Size at a US warehouse is a real rarity, but the bill leans hardgroove techno/jungle-DnB rather than your house/techno spine — go for the legacy factor, not because it's your usual sound.",
       "confidence": "med",
-      "judged_at": "2026-08-21T12:35:14",
+      "judged_at": "2026-08-23T12:28:18",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 11
     },
     "3311cff0ac9d": {
       "tier": "skip",
@@ -41451,11 +41448,11 @@
       "tier": "great",
       "lane": "club:underground",
       "adjust": 2,
-      "why": "Strawbry is a strong-rotation name for this profile and this is really a club/DJ night, not the catch-all 'other' lane the tags filed it under.",
+      "why": "Ghettotech/electro touring headliner plus Strawbry, who you've got real Spotify rotation on — genuine electro pick the 'other' bucket buried.",
       "confidence": "med",
-      "judged_at": "2026-08-21T12:35:14",
+      "judged_at": "2026-08-23T12:28:18",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 7
     },
     "63ab9a3ae4ed": {
       "tier": "solid",
@@ -41549,13 +41546,13 @@
       "score_at_judge": 7
     },
     "8fe1d9020fb9": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Dudamel's Bowl send-off after 17 years leading the Phil — a genuine legacy moment at a venue you love, not a tribute-band gimmick.",
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Loved venue but a generic legacy-tribute program, not a Dudamel headline concert — the Bowl boost is doing the work here, not the booking itself.",
       "confidence": "med",
-      "judged_at": "2026-08-22T12:28:08",
+      "judged_at": "2026-08-23T12:28:18",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 9
     },
     "114666199e4b": {
       "tier": "solid",
@@ -41726,6 +41723,222 @@
       "why": "Silver Lake Farmers Market is the exact eastside farmers-market lane named in the brief — dependable Saturday-morning staple, walkable from home.",
       "confidence": "high",
       "judged_at": "2026-08-22T12:28:08",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "28c7722a04ae": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "City pop/funk/soul vinyl night with a live set — cheap, groove-leaning, exactly the listening-bar lane you go for even if the room's a small one.",
+      "confidence": "med",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "91ac68d9bb7c": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Coldwave/industrial/goth, not house or indie — off your lane entirely despite the afterhours/near-home boosts.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "e8b8e6cd7b80": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Hard-dance/dubstep as the main draw out in the Inland Empire — exactly the genre and distance combo the taste brief says to bury.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "95baa547ce43": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "No lineup listed for this Los Globos night — near home and on-genre but nothing here to confirm it's worth building around.",
+      "confidence": "low",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "db2804cfc7a5": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Exchange's Saturday EDM night with no billed DJs — commercial big-room energy, not the selector-driven house night you actually want.",
+      "confidence": "low",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "07c351bee87b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Small black-box clown-theater WIP at Elysian — fits the medium theater lane fine, nothing more.",
+      "confidence": "med",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "f4a8530162f9": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Improv comedy tournament, not standup from a name you track — the low-interest comedy rule applies even dressed up as 'theater.'",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "c9cd3ae1e978": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Late-night comedy variety hosted by Ron Lynch — not one of your tracked comedians, so it stays buried per the brief.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "004f3886e1b7": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Billed house but tagged with dubstep and zero lineup detail — can't confirm this is the selector-driven night you want over the risk of a bass-heavy set.",
+      "confidence": "low",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a0529e1b9d94": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Lost Lands pre-party is straight dubstep/bass-mega-show territory — the exact genre the taste brief penalizes.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "f3f35ca24114": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Dubstep/DnB headliner — exactly the brostep/bass-mega-show lane the taste sheet flags to avoid, not a bump.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "97ab1bec544f": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "All-vinyl open-air set with Silky, a Frankie Knuckles-mentored deep house/techno selector — this is the core rooftop-vinyl-groove lane the score undersells.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "41a8369f2cc9": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Sold out already — no ticket path, so no reason to surface either night of this immersive play.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "e3b24e0ed9e3": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Unknown stand-up name not on the loved-comedians list — comedy is opt-in only for known favorites.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "15bc87dd25b1": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Improv comedy show mis-tagged with an on-taste 'house' reason — it's not electronic at all, just a scoring glitch.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a84b70220dc9": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same sold-out Caller ID run as Thursday — no seats left, bury both nights.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "eb12f843afa1": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Storytelling salon, not music or film — nice for the right crowd but outside the lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "c1538e2c44d3": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Monthly improv show, straight comedy filler with no tracked names.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "44da72f7a75f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Found-footage clip night reads more like a comedy screening than the format-driven rep cinema this profile actually chases.",
+      "confidence": "low",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "8db40317e24e": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Improv tournament — comedy format, no draw beyond the room.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "9ee41ba4ca18": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Late-night comedy hour, host not on the loved-comedians list.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "9235b9e5d86e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "No-cover jazz jam at a neighborhood bar — pleasant low-stakes hang, not a headline pick.",
+      "confidence": "med",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "d4c0c3ef5257": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Big multi-outlet editorial push for the festival's closing weekend — good 'around town' cultural pick even outside the core electronic lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-23T12:28:18",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "35f2dc42958c": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Standard eastside vintage/vinyl flea — reliable Saturday filler, nothing that needs building a day around.",
+      "confidence": "high",
+      "judged_at": "2026-08-23T12:28:18",
       "input_version": 2,
       "score_at_judge": 4
     }
