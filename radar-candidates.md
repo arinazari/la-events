@@ -1,15 +1,9 @@
 # Radar candidates — on the radar
 
-_Generated 8/22/2026 deterministically (no API). 295 candidates. Signals: big-venue 259, festival 25, editorial 9, tracked 7._
+_Generated 8/23/2026 deterministically (no API). 282 candidates. Signals: big-venue 250, festival 23, editorial 8, tracked 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 9/26 | 6 | Ocean Way Festival - 09/26 Saturday | The Beach at Santa Monica | festival, tracked:DJ Harvey | [link](https://www.axs.com/events/1459419/ocean-way-festival-tickets) |
 
 ## November 2026
 
@@ -28,12 +22,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 11/8 | 2 | Rose Bowl Flea Market Sunday, November 8, 2026 | Rose Bowl Stadium | editorial, big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-november-8-2026-tickets-1977731982599) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 9/26 | 5 | Andy Frasco & The U.N. | The Venice West | editorial | [link](https://www.tixr.com/groups/thevenicewest/events/andy-frasco-the-u-n--189913) |
 
 ## October 2026
 
@@ -65,7 +53,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/26 | 8 | Factory 93 presents: Amelie Lens at Grand Park Block 2 | Grand Park | tracked:Amelie Lens | [link](https://ra.co/events/2400834) |
 | Sun 9/27 | 6 | Into The Woods presents Theo Parrish (Open To Close) | TBA | tracked:Theo Parrish | [link](https://ra.co/events/2502776) |
 
 ## October 2026
@@ -105,7 +92,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/26 | 3 | Ohana Music Festival | Doheny State Beach | festival | [link](https://on.fgtix.com/trk/ycJM) |
 | Sun 9/27 | 3 | Ocean Way Festival - 09/27 Sunday | The Beach at Santa Monica | festival | [link](https://www.axs.com/events/1480613/ocean-way-festival-09-27-sunday-tickets) |
 
 ## October 2026
@@ -175,12 +161,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sun 12/13 | 0 | Slackfest West | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/slackfest-west-anaheim-california-12-13-2026/event/09006506EF9C1651) |
 
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 9/26 | 5 | Rodgers & Hammerstein's The Sound of Music Sing-A-Long | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events) |
-
 ## October 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -198,7 +178,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/26 | 4 | BERT KREISCHER: PERMISSION TO PARTY | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/bert-kreischer-permission-to-party-los-angeles-california-09-26-2026/event/0900647FE404EF24) |
 | Sun 9/27 | 4 | Tove Lo w/ Mallrat | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Tue 9/29 | 4 | Zara Larsson | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 9/30 | 4 | Zara Larsson 2nd Show Added! | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
@@ -262,11 +241,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 9/26 | 3 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-09-26-2026/event/0A00648DF226BC72) |
-| Sat 9/26 | 3 | Billy Strings | Kia Forum | big-venue | [link](https://www.ticketmaster.com/billy-strings-inglewood-california-09-26-2026/event/0900647CF670C42D) |
-| Sat 9/26 | 3 | Carin Leon | Toyota Arena-CA | big-venue | [link](https://www.cbbankarena.com) |
-| Sat 9/26 | 3 | Robert Plant w/ Saving Grace and Suzi Dian (21+) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Sat 9/26 | 3 | Jay Park  with special guest LNGSHOT | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1479418/jay-park-with-special-guest-lngshot-tickets) |
 | Sun 9/27 | 3 | Jon Batiste | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Tue 9/29 | 3 | Erykah Badu w/ DJ Pee .Wee | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 
@@ -494,13 +468,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Tue 2/2 | 2 | Christine D'Clario - La Novia Tour  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/christine-dclario-la-novia-tour-inglewood-california-02-02-2027/event/0A006179983A3029) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 9/26 | 1 | Danzig | Honda Center | big-venue | [link](https://www.ticketmaster.com/danzig-anaheim-california-09-26-2026/event/090064D2BFA6BDAB) |
-| Sat 9/26 | 1 | MANÁ: VIVIR SIN AIRE TOUR | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/mana-vivir-sin-aire-tour-palm-desert-california-09-26-2026/event/0A006377B1CC73E4) |
 
 ## October 2026
 
