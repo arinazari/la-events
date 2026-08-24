@@ -178,6 +178,7 @@ artists_tracked:
   - Waajeed
   - Robert Hood
   - Tini Gessler
+  - Monkey Safari
 
 comedians_loved: [ Stavros Halkias, Chris D'Elia, Larry David, Conan O'Brien ] # the comedy exception — these get surfaced; others don't
 venues_loved:
@@ -232,10 +233,12 @@ feedback:
     in a place you wouldn't expect\"). (self-edit via concierge)"
   - "2026-08-02: Down-rank drag / cabaret performance events (self-edit via
     concierge)"
+  - "2026-08-24: Loved Monkey Safari live — track them (melodic/organic house,
+    Anjuna/Innervisions orbit). (self-edit via concierge)"
 
 # Scoring overrides (mechanism knobs — profile.yaml wins where both set a key).
 scoring:
   # Hard vibe opt-outs (-6 each): fires on the deterministic `queer` vibe tag AND on
   # enrichment-card `vibes` (events the scene-researcher determines are queer-oriented
   # even when the listing text never says so — e.g. Bears in Space). Stated 2026-08.
-  penalty_vibes: ["queer"]
+  penalty_vibes: [ "queer" ]
