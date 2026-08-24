@@ -30711,11 +30711,11 @@
     "b5ec67f33064": {
       "tier": "great",
       "adjust": 2,
-      "why": "This is the actual Zamrock band (We Intend To Cause Havoc) on the Now-Again reissue revival — a genuinely rare booking for the small-rock/groove lane, not a random Teragram date.",
+      "why": "Original Zamrock frontman fronting the Now-Again reissue legend at Teragram — genuine crate-digger history, not a nostalgia cash-in.",
       "confidence": "high",
-      "judged_at": "2026-07-28T12:33:37",
+      "judged_at": "2026-08-24T12:37:19",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 7
     },
     "5b85f5113666": {
       "tier": "solid",
@@ -36463,13 +36463,13 @@
     },
     "8ad225c7aa2d": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "A darkwave/post-punk bill at the Regent — adjacent to the small-room rock lane you like, even if none of these names are known quantities yet.",
+      "lane": "live-music",
+      "adjust": -1,
+      "why": "This is a nine-act goth/deathrock bill with DJ sets, not a club night — real Artoffact/Cleopatra pedigree, just outside your core electronic lane.",
       "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-24T12:37:19",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 8
     },
     "0da3a3b36387": {
       "tier": "skip",
@@ -36792,13 +36792,12 @@
     },
     "be527ebcba24": {
       "tier": "solid",
-      "adjust": 1,
-      "why": "Chris Barron of Spin Doctors sitting in on a jazz-funk-blues bill in San Pedro is more interesting than the average bar gig, just a real trek from home.",
-      "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "adjust": 0,
+      "why": "Solid local fusion guitarist, not a touring draw — fine if you're already in San Pedro, not worth the trip alone.",
+      "confidence": "high",
+      "judged_at": "2026-08-24T12:37:19",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "925732ee5bea": {
       "tier": "solid",
@@ -37085,12 +37084,11 @@
       "tier": "great",
       "lane": "live-music",
       "adjust": 2,
-      "why": "Tagged comedy only because of the venue's name — this is Alex Lahey's rock tour in a small showroom, a real indie songwriter in an intimate room, exactly the lane you want more of.",
+      "why": "This is an indie-rock headline set, not standup — Alvvays/Courtney Barnett lineage oddly booked into a comedy club's showroom.",
       "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "judged_at": "2026-08-24T12:37:19",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "dffe1aa3100a": {
       "tier": "solid",
@@ -39097,13 +39095,12 @@
     },
     "b4184158e047": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Earthless is a legit heavy-psych power trio and Zebulon is exactly the small-room-real-band venue this profile likes — 'medium interest music' undersells it.",
+      "adjust": 3,
+      "why": "Earthless is a bona fide heavy-psych/jam legend playing Zebulon — the exact 'big name in a small room' case you told me to boost.",
       "confidence": "high",
-      "judged_at": "2026-08-04T12:39:43",
+      "judged_at": "2026-08-24T12:37:19",
       "input_version": 2,
-      "score_at_judge": 3,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 6
     },
     "a52f93b290d0": {
       "tier": "solid",
@@ -40532,14 +40529,13 @@
       "model": "claude-sonnet-5"
     },
     "9f1c286d1826": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Unknown DJ, all-night-long format is the right shape but no way to size the actual draw.",
-      "confidence": "low",
-      "judged_at": "2026-08-16T12:35:42",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Berlin's D.Dan is a Mala Junta resident on the Berghain circuit — all-night warehouse set hits vinyl, afterhours, and TBA-location boosts at once.",
+      "confidence": "high",
+      "judged_at": "2026-08-24T12:37:19",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 8
     },
     "3dd470ebd412": {
       "tier": "solid",
@@ -40581,14 +40577,13 @@
       "model": "claude-sonnet-5"
     },
     "764d3a6cf14c": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "TBA techno night, no lineup depth to go on.",
-      "confidence": "low",
-      "judged_at": "2026-08-16T12:35:42",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Dubyshkin's a credible underground import with real rave pedigree, though the bill's thinner than the D.Dan warehouse night the same weekend range.",
+      "confidence": "med",
+      "judged_at": "2026-08-24T12:37:19",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 8
     },
     "5d9c6cb6c066": {
       "tier": "solid",
@@ -41555,13 +41550,13 @@
       "score_at_judge": 9
     },
     "114666199e4b": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Free eastside bar night with live sets from Varrio2Varrio and Bloodhound; the 'Underground Resistance' lineup credit looks like a genre tag bleeding into the bill, not an actual UR appearance.",
-      "confidence": "low",
-      "judged_at": "2026-08-22T12:28:08",
+      "tier": "must-see",
+      "adjust": 1,
+      "why": "Esteban Adame and Nomadico are actual UR alumni, not tribute names — free Lincoln Heights bar show with real Detroit dub-techno pedigree.",
+      "confidence": "high",
+      "judged_at": "2026-08-24T12:37:19",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 10
     },
     "1f2f6acda1da": {
       "tier": "skip",
@@ -41627,13 +41622,13 @@
       "score_at_judge": 6
     },
     "d59b368f65d5": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "First of two El Cid 'Otha' nights (Luke Mele's the same NTS Balearic digger who plays night two) — same deal, just no scene confirmation on this specific date.",
-      "confidence": "med",
-      "judged_at": "2026-08-22T12:28:08",
+      "tier": "great",
+      "adjust": 2,
+      "why": "Otha's Pitchfork-covered rave-pop plus Luke Mele's NTS crate-digging is exactly the Balearic/groove lane you build weekends around.",
+      "confidence": "high",
+      "judged_at": "2026-08-24T12:37:19",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "49c436c83b98": {
       "tier": "solid",
@@ -41941,6 +41936,33 @@
       "judged_at": "2026-08-23T12:28:18",
       "input_version": 2,
       "score_at_judge": 4
+    },
+    "1efe829bdea7": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "No lineup listed and a generic name — can't confirm real hard-techno selection versus another vague secret-location free party.",
+      "confidence": "low",
+      "judged_at": "2026-08-24T12:37:19",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "8abad523603e": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "College-bro 'red cup' free party with no DJ billing — textbook generic top-40 booking the taste explicitly flags to bury.",
+      "confidence": "high",
+      "judged_at": "2026-08-24T12:37:19",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "0c3b84381f65": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "No venue, no lineup, no scene data — can't tell if this pop-up is a real booking or just a flyer with a name on it.",
+      "confidence": "low",
+      "judged_at": "2026-08-24T12:37:19",
+      "input_version": 2,
+      "score_at_judge": 6
     }
   }
 }

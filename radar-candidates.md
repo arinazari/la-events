@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/23/2026 deterministically (no API). 282 candidates. Signals: big-venue 250, festival 23, editorial 8, tracked 5._
+_Generated 8/24/2026 deterministically (no API). 274 candidates. Signals: big-venue 245, festival 21, editorial 8, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -49,12 +49,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sun 11/22 | 2 | Three Days Grace - Alienation Tour  | Intuit Dome | festival, big-venue | [link](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0) |
 
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 9/27 | 6 | Into The Woods presents Theo Parrish (Open To Close) | TBA | tracked:Theo Parrish | [link](https://ra.co/events/2502776) |
-
 ## October 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -88,12 +82,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Grateful Shred: Holiday Homecoming - 2-DAY Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91) |
 
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 9/27 | 3 | Ocean Way Festival - 09/27 Sunday | The Beach at Santa Monica | festival | [link](https://www.axs.com/events/1480613/ocean-way-festival-09-27-sunday-tickets) |
-
 ## October 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -112,7 +100,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/27 | 2 | Ohana Music Festival | Doheny State Beach | festival | [link](https://on.fgtix.com/trk/ycJM) |
 | Wed 9/30 | 2 | Leap - Entropy World Tour | The Parish at House of Blues Anahe | festival | [link](https://www.ticketmaster.com/leap-entropy-world-tour-anaheim-california-09-30-2026/event/090064AEB253F4FD) |
 
 ## October 2026
@@ -178,7 +165,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/27 | 4 | Tove Lo w/ Mallrat | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Tue 9/29 | 4 | Zara Larsson | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 9/30 | 4 | Zara Larsson 2nd Show Added! | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 9/30 | 4 | Rubén Blades & Roberto Delgado Big Band: Fotografías Tour | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events) |
@@ -241,7 +227,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/27 | 3 | Jon Batiste | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 | Tue 9/29 | 3 | Erykah Badu w/ DJ Pee .Wee | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 
 ## October 2026
@@ -359,9 +344,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 9/27 | 2 | Iron Maiden: Run For Your Lives World Tour 2026 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/iron-maiden-run-for-your-lives-los-angeles-california-09-27-2026/event/0A00635B10E0C0D4) |
-| Sun 9/27 | 2 | Shreya Ghoshal | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
-| Sun 9/27 | 2 | SIN BANDERA - ESCENAS US TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/sin-bandera-escenas-us-tour-inglewood-california-09-27-2026/event/090064E22462E7CC) |
 | Mon 9/28 | 2 | Disney Worlds Collide Concert Tour | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Mon 9/28 | 2 | Erykah Badu - 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Tue 9/29 | 2 | Julieta Venegas - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
