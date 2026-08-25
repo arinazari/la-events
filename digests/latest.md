@@ -2,12 +2,14 @@
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Tue 8/25 · no new or changed events since the last pull*
 
-<!-- take: -->
+<!-- take: Quiet week, then three big Saturdays in a row — Subshift's warehouse debut, Âme in Chinatown, and Amelie Lens at Grand Park. -->
 <!-- tier3:intro -->
+A slow start — tonight and tomorrow are genuinely thin — before the run really kicks in. This weekend's the first big one: Subshift's first US warehouse date lands the same night as Black Lips at Teragram, so if you can only do one, make it Subshift (Black Lips earlier at 7pm is the easy add-on if you want a full night out first). After that it's a stacked three-week stretch — Rayko's rare live set 9/4, a full Studio Barnhus day-into-night 9/5, then Âme in Chinatown (9/19) and Amelie Lens at Grand Park (9/26) bookending the month. The Posh feed is dark until the token gets re-captured, so treat the warehouse/afters picture as incomplete until then.
 
 ## Tonight & tomorrow
 
 <!-- tier3:call -->
+Earthless at Zebulon tonight is the one to build around — heavy-psych legends in a room a fraction their usual size; tomorrow's a genuinely quiet night, so save it for the weekend.
 
 - `Today 8pm` **[Earthless, Liberate Elemental Forces (LEF)](https://dice.fm/event/92kkkd-earthless-liberate-elemental-forces-lef-25th-aug-zebulon-los-angeles-tickets)** — Zebulon, Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=b4184158e047) — *Sleeper the score buried at a 6 — Earthless are genuine heavy-psych/jam legends, exactly the krautrock-y small-room booking Zebulon (a venue you love) exists for.*
 - `Today 8pm` **[Tori Amos: In Times of Dragons Tour](https://www.ticketmaster.com/tori-amos-in-times-of-dragons-los-angeles-california-08-25-2026/event/09006382EBCBB72A)** — Greek Theatre, Los Feliz · big venue · [card ↗](https://arinazari.github.io/la-events/?e=5b85f5113666) — *Tori Amos at a loved room with Bartees Strange opening — worth knowing about even off the electronic spine.*
@@ -19,17 +21,17 @@
 ## Don't miss
 
 - `Fri 8/28` **[David Byrne: Who is the Sky?](https://www.hollywoodbowl.com/events/performances/4328/2026-08-28/david-byrne-who-is-the-sky)** — Hollywood Bowl, Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=e4f477ef91c9)  
-  Legend at a venue you love — off your electronic lane but Who Is the Sky is a genuinely distinct art-rock production worth the trip. <!-- tier3:why e4f477ef91c9 -->
+  Off the electronic lane, but a legend at a room you love — Who Is the Sky is a genuinely distinct art-rock production, not a legacy-act victory lap. <!-- tier3:why e4f477ef91c9 -->
 - `Sat 8/29` **[Black Lips](https://www.ticketmaster.com/black-lips-los-angeles-california-08-29-2026/event/090064E2B3AB7361)** — Teragram Ballroom, Westlake · [card ↗](https://arinazari.github.io/la-events/?e=e03f23b19759)  
-  Black Lips are a reliable good time — sloppy, fuzzy Atlanta garage-punk that's been touring for two decades — and Night Beats are a genuinely strong opener, not a warm body. <!-- tier3:why e03f23b19759 -->
+  Sloppy, fuzzy Atlanta garage-punk that's been a reliable good time for two decades, with Night Beats turning in a real opening set instead of a warm body. <!-- tier3:why e03f23b19759 -->
 - `Sat 9/5` **[Penniback Presents: Summer Mass with Wavves, Modern Color, and MORE](https://www.ticketmaster.com/penniback-presents-summer-mass-with-wavves-los-angeles-california-09-05-2026/event/090064D6BEC28C27)** — The Belasco, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=5997a24526ee)  
-  Reads more like a surf-punk/garage day festival than a straight headline show — Wavves still has the songs, but Waax and The Paranoyds are strong enough on their own that it's worth showing up early instead of just catching the top of the bill. <!-- tier3:why 5997a24526ee -->
+  Reads more like a surf-punk day festival than a headline show — Wavves still has the songs, but Waax and The Paranoyds are strong enough to make showing up early worth it. <!-- tier3:why 5997a24526ee -->
 - `Sat 9/19` **[Âme, DJ Tennis, Kaz James - Chinatown Block Party](https://ra.co/events/2487802)** — Gin Ling Way, Chinatown, Chinatown · [card ↗](https://arinazari.github.io/la-events/?e=84882da12558)  
-  Âme running an actual outdoor Chinatown block party — not a warehouse pop-up or a festival stage — is exactly the kind of booking worth clearing a Saturday for; DJ Tennis and Masha Mar rounding out the bill only sweetens it. <!-- tier3:why 84882da12558 -->
+  Âme running an actual outdoor Chinatown block party — not a warehouse pop-up, not a festival stage — is the kind of booking worth clearing a Saturday for. DJ Tennis and Masha Mar just sweeten it. <!-- tier3:why 84882da12558 -->
 - `Fri 9/25` **[Certified Groovers: Gene On Earth in LA](https://ra.co/events/2457514)** — TBA - Downtown Los Angeles, DTLA · *📍 location TBA — watch for the drop* · [card ↗](https://arinazari.github.io/la-events/?e=3061917831bd)  
-  Certified Groovers landing Gene On Earth is a nice get — his Limousine Dream sound is more minimal-and-breaks-leaning than most of the TBA-warehouse bills this month, worth it if you want something a shade weirder than straight house. <!-- tier3:why 3061917831bd -->
+  Gene On Earth's Limousine Dream sound is more minimal-and-breaks-leaning than most of this month's TBA-warehouse bills — a nice get if you want something a shade weirder than straight house. <!-- tier3:why 3061917831bd -->
 - `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=d535a0dbfe40)  
-  A dedicated day-to-dusk Amelie Lens set at Grand Park, not a shared festival stage — genuinely the better way to catch her than the HARD Summer slot the same month. Extended techno-into-acid-into-trance from a real headliner in a proper Factory 93 room. <!-- tier3:why d535a0dbfe40 -->
+  A dedicated day-to-dusk Amelie Lens set, not a shared festival stage — genuinely the better way to catch her than a HARD Summer slot the same month, with room to run the full techno-into-acid-into-trance arc. <!-- tier3:why d535a0dbfe40 -->
 
 ## What changed
 
@@ -81,6 +83,7 @@
 
 ### Friday · August 28
 <!-- tier3:blueprint 2026-08-28 -->
+Dinner at Atrium or Kismet Rotisserie in Los Feliz, then David Byrne at the Bowl (8pm) — bring a picnic and skip the rush. Prefer the electronic lane instead: Agora Records' record-shop takeover at Bar Franca (9pm) is a low-key DTLA digging night.
 
 **Electronic & dance**
 - `9pm` **[Agora Records at Bar Franca](https://ra.co/events/2518594)** — Bar Franca, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=51873cb1fad6)  
@@ -98,6 +101,7 @@
 
 ### Saturday · August 29
 <!-- tier3:blueprint 2026-08-29 -->
+Dinner downtown at San Laurel, then Black Lips at Teragram (7pm) for the first set — cross to Coyote Studios for Subshift's warehouse debut by 9. Short on time? Skip dinner out and just make it Subshift's night.
 
 **Electronic & dance**
 - `9pm` ⭐ **[SUBSHIFT - FRNDZ LA](https://ra.co/events/2504297)** — Coyote Studios, Los Angeles · [card ↗](https://arinazari.github.io/la-events/?e=44a043b9cd8e)  
@@ -167,7 +171,6 @@
 - `8:30pm` **[Billy T and the Fam](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=18fa8c452285)
 
 ### Friday · September 4
-<!-- tier3:blueprint 2026-09-04 -->
 
 **Electronic & dance**
 - `9pm` **[Tokyo Love Song with live performance by Reiko Takahashi](https://ra.co/events/2516227)** — Hello Stranger, Los Angeles · $9.85 · [card ↗](https://arinazari.github.io/la-events/?e=28c7722a04ae)  
@@ -184,6 +187,7 @@
 
 ### Saturday · September 5
 <!-- tier3:blueprint 2026-09-05 -->
+Start at Studio Barnhus's day party at The Bridge (5pm) — dinner's easy to grab downtown between sets — then peel off once DJ Sneak's all-night vinyl set location drops; both land in DTLA so the handoff is short.
 
 **Electronic & dance**
 - `5pm-2am` **[Studio Barnhus Summer Dance Party with Axel Boman, Kornel Kovacs, Nikki Nair](https://ra.co/events/2423932)** — The Bridge, DTLA · $29 pre · [card ↗](https://arinazari.github.io/la-events/?e=f32e99937543)  
@@ -250,7 +254,8 @@
 *Movies live here (and on the site's marquee page): runs opening this stretch, then the one-night screenings worth a seat.*
 - `Fri 8/28` **[The Driver](https://ticketing.uswest.veezi.com/purchase/3948?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sat 8/29* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=d09e2e17a3b9)  
   Walter Hill's stripped-down '78 heist noir — Ryan O'Neal's character never even gets a name — is the direct blueprint for Drive; a proper midnight-movie pick, not a nostalgia stunt. <!-- tier3:gloss d09e2e17a3b9 -->
-- `Fri 8/28` **[Speed Racer](https://ticketing.uswest.veezi.com/purchase/3963?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 6 nights thru Thu 9/3* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=4bd7419feefc) <!-- tier3:gloss 4bd7419feefc -->
+- `Fri 8/28` **[Speed Racer](https://ticketing.uswest.veezi.com/purchase/3963?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 6 nights thru Thu 9/3* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=4bd7419feefc)  
+  Panned in 2008, reclaimed since as one of the most visually radical studio films ever made — the Wachowskis' hyper-saturated CGI-scapes are a trip on a big screen. <!-- tier3:gloss 4bd7419feefc -->
 - `Fri 8/28` **[Welcome Space Brothers](https://vidiotsfoundation.org/showtimes/welcome-space-brothers-8-28-26-430-pm/)** — *opens · 3 nights thru Sun 8/30* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=b4704474c4c8) <!-- tier3:gloss b4704474c4c8 -->
 - `Fri 8/28` **[I Want Your Sex](https://vidiotsfoundation.org/showtimes/i-want-your-sex-8-28-26-730-pm/)** — *opens · 5 nights thru Tue 9/1* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=d435eb6af2d5) <!-- tier3:gloss d435eb6af2d5 -->
 - `Fri 8/28` **[Strange Brew](/purchase/4910?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 2 nights thru Sat 8/29* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=199917dc0ad6) <!-- tier3:gloss 199917dc0ad6 -->
@@ -261,7 +266,8 @@
 
 **One-nighters**
 - `Wed 8/26` **[To Catch a Thief in 4K](https://www.academymuseum.org/en/calendar)** — Academy Museum of Motion Pictures, Miracle Mile · [card ↗](https://arinazari.github.io/la-events/?e=59dc41f1a2f2) <!-- tier3:gloss 59dc41f1a2f2 -->
-- `Wed 8/26` **[Blade Runner 2049](https://www.landmarktheatres.com/los-angeles/nuart-theatre/)** — Nuart Theatre, West LA · [card ↗](https://arinazari.github.io/la-events/?e=3707ac66f80c) <!-- tier3:gloss 3707ac66f80c -->
+- `Wed 8/26` **[Blade Runner 2049](https://www.landmarktheatres.com/los-angeles/nuart-theatre/)** — Nuart Theatre, West LA · [card ↗](https://arinazari.github.io/la-events/?e=3707ac66f80c)  
+  Villeneuve's sequel got overlooked at the box office but might be the best-looking studio film of the last decade — worth the trip for Deakins' cinematography alone. <!-- tier3:gloss 3707ac66f80c -->
 - `Sat 8/29` **[The 5,000 Fingers of Dr. T.](https://ticketing.uswest.veezi.com/sessions?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — Vista Theater, Los Feliz · [card ↗](https://arinazari.github.io/la-events/?e=0528c56e4568) <!-- tier3:gloss 0528c56e4568 -->
 
 ## Around town
@@ -291,13 +297,13 @@
 - `Thu 10/15` **[GEESE](https://www.ticketmaster.com/event/Z7r9jZ1A70vqI)** — Hollywood Forever Cemetary · Hollywood  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=0c813dc323c7) <!-- tier3:gloss 0c813dc323c7 -->
 - `Sat 10/17` **[Boots in the Park](https://www.ticketmaster.com/event/Z7r9jZ1A707OS)** — Rancho Mission Viejo Riding Park · Mission Viejo  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=ef359e9e6ec5) <!-- tier3:gloss ef359e9e6ec5 -->
 - `Mon 10/19` **[Chinchilla](https://www.ticketmaster.com/chinchilla-los-angeles-california-10-19-2026/event/090064F7158AAC30)** — Pacific Electric · DTLA  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=cb442ff70481) <!-- tier3:gloss cb442ff70481 -->
-- `Fri 10/30` **[Escape](https://on.fgtix.com/trk/Ni5m)** — NOS Events Center · San Bernardino  ·  *Cloonee,Richie Hawtin* · [card ↗](https://arinazari.github.io/la-events/?e=503d09df0288) <!-- tier3:gloss 503d09df0288 -->
+- `Fri 10/30` **[Escape](https://on.fgtix.com/trk/Ni5m)** — NOS Events Center · San Bernardino  ·  *Cloonee,Richie Hawtin* · [card ↗](https://arinazari.github.io/la-events/?e=503d09df0288) — Richie Hawtin (Plastikman) headlining a Halloween mega-rave is a real minimal-techno booking buried in a mainstream lineup; the drive to San Bernardino is the actual question. <!-- tier3:gloss 503d09df0288 -->
 - `Sat 10/31` **[THE MAZE Halloween: Arts District Block Party](https://ra.co/events/2491883)** — TBA - Arts District Los Angeles · Arts District  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=d49eb8554c26) <!-- tier3:gloss d49eb8554c26 -->
 
 **November 2026**
 - `Sat 11/7` **[And Always Forever 2026 - 2-DAY PASS](https://www.ticketmaster.com/and-always-forever-2026-2day-pass-los-angeles-california-11-07-2026/event/090064F8C0F8A145)** — Echoplex · Echo Park  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=f8270a79763f) <!-- tier3:gloss f8270a79763f -->
 - `Sun 11/8` **[Rose Bowl Flea Market Sunday, November 8, 2026](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-november-8-2026-tickets-1977731982599)** — Rose Bowl Stadium · Pasadena  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=76c77f040c95) <!-- tier3:gloss 76c77f040c95 -->
-- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* · [card ↗](https://arinazari.github.io/la-events/?e=5cfd176b0544) <!-- tier3:gloss 5cfd176b0544 -->
+- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* · [card ↗](https://arinazari.github.io/la-events/?e=5cfd176b0544) — Two Wiltern nights back to back is a sign this one's tracking to sell out; the live band show tends to move faster than a DJ set does. <!-- tier3:gloss 5cfd176b0544 -->
 - `Thu 11/12` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4)** — The Wiltern · Koreatown  ·  *Bonobo* · [card ↗](https://arinazari.github.io/la-events/?e=cf6cd35ddcc5) <!-- tier3:gloss cf6cd35ddcc5 -->
 - `Sun 11/22` **[El Tri - 21 & Over](https://yaamava.com/yaamava-theater)** — Yaamava Resort & Casino at San Manuel · Highland  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=0d979c907ddb) <!-- tier3:gloss 0d979c907ddb -->
 - `Sun 11/22` **[Three Days Grace - Alienation Tour ](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0)** — Intuit Dome · Inglewood  ·  *festival, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=a275d78b3f74) <!-- tier3:gloss a275d78b3f74 -->
