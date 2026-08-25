@@ -1334,7 +1334,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "We Like LA"
+    ]
   },
   {
     "title": "Mary Oliver: Saved by the Beauty of the World",
@@ -4969,7 +4972,8 @@
       "price"
     ],
     "editorial_mentions": [
-      "We Like LA"
+      "We Like LA",
+      "Time Out LA"
     ]
   },
   {
@@ -7311,6 +7315,64 @@
     }
   },
   {
+    "title": "Taste of RUNWAY",
+    "date": "2026-08-27",
+    "start": null,
+    "venue": "Runway Playa Vista",
+    "neighborhood": "Playa Vista",
+    "category": "food-drink",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.welikela.com/things-to-do-this-week-in-los-angeles-8-24-2026-to-8-28-2026/"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Eight tasting passes sampling local dining; $49.87 tickets.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25"
+  },
+  {
+    "title": "DARKROOM & Three Eyed Tiger Pop-Up",
+    "date": "2026-08-27",
+    "start": null,
+    "venue": "Daisy Margarita Bar",
+    "neighborhood": "Studio City",
+    "category": "food-drink",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.welikela.com/things-to-do-this-week-in-los-angeles-8-24-2026-to-8-28-2026/"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Chef Alan Sanz's third Re:MEX collaboration with cocktails and Mexico-inspired plates.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25"
+  },
+  {
     "title": "El Tri",
     "date": "2026-08-28",
     "start": "19:00",
@@ -7600,7 +7662,10 @@
       "lineup"
     ],
     "image": "https://s1.ticketm.net/dam/a/ff6/6cd634cd-1e25-4486-9a9d-a108d1171ff6_SOURCE",
-    "lineup_genre": "Rock"
+    "lineup_genre": "Rock",
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "Dark Kinetic Ft. Dancing Plague, Sacred Skin, Ms. Boan & More! 18+",
@@ -9077,7 +9142,8 @@
     "ra_pick": false,
     "afterhours": false,
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "We Like LA"
     ]
   },
   {
@@ -9645,6 +9711,9 @@
     "updated_at": "2026-08-08",
     "changed_fields": [
       "price"
+    ],
+    "editorial_mentions": [
+      "We Like LA"
     ]
   },
   {
@@ -9958,7 +10027,10 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "Hearty Har",
@@ -11814,7 +11886,10 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "On Vinyl IRL",
@@ -15937,7 +16012,10 @@
     "changed_fields": [
       "lineup"
     ],
-    "lineup_genre": "Rock"
+    "lineup_genre": "Rock",
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "Haddaway, Ultra Naté, Robin S, Crystal Waters & More",
@@ -16155,6 +16233,9 @@
     "updated_at": "2026-08-08",
     "changed_fields": [
       "start"
+    ],
+    "editorial_mentions": [
+      "Time Out LA"
     ]
   },
   {
@@ -16302,7 +16383,10 @@
       "vibe": [],
       "region": "far",
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "Time Out LA"
+    ]
   },
   {
     "title": "Bobby Dee Presents: MKY & The Intruders",
@@ -16419,6 +16503,10 @@
     "updated_at": "2026-08-08",
     "changed_fields": [
       "price"
+    ],
+    "editorial_mentions": [
+      "Time Out LA",
+      "Discover Los Angeles"
     ]
   },
   {
@@ -19874,6 +19962,35 @@
     }
   },
   {
+    "title": "Los Angeles Hungry Ghost Festival",
+    "date": "2026-08-29",
+    "start": null,
+    "venue": "Chinatown",
+    "neighborhood": "Chinatown",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.timeout.com/los-angeles/things-to-do/los-angeles-hungry-ghost-festival"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "A cultural festival with lion/dragon dances, kung fu, and a costume parade honoring ancestor traditions.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "Time Out LA"
+    ],
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25"
+  },
+  {
     "title": "Day Trip In The Park LA: Loco Dice, Archie Hamilton",
     "date": "2026-08-30",
     "start": "2pm-8:30pm",
@@ -19931,6 +20048,9 @@
     "changed_fields": [
       "price",
       "start"
+    ],
+    "editorial_mentions": [
+      "Discover Los Angeles"
     ]
   },
   {
@@ -20026,7 +20146,10 @@
     ],
     "image": "https://s1.ticketm.net/dam/a/8b9/02aca183-1855-44d9-b7a8-f8a54a1a68b9_SOURCE",
     "lineup_genre": "Hip-Hop/Rap",
-    "status": "unlisted"
+    "status": "unlisted",
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "Avenged Sevenfold, Good Charlotte, and A Day to Remember",
@@ -22517,7 +22640,10 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "Discover Los Angeles"
+    ]
   },
   {
     "title": "REPLENISH",
