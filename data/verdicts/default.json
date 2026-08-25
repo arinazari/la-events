@@ -33438,12 +33438,12 @@
     },
     "c916aaa30aa9": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "No-cover bar residency with no genre signal — pleasant if you're already at the Dresden, not a destination.",
-      "confidence": "low",
-      "judged_at": "2026-07-29T12:52:52",
+      "adjust": -2,
+      "why": "House jam night with no known player beyond the venue's own listing — free and close to home, but there's no real draw here.",
+      "confidence": "high",
+      "judged_at": "2026-08-25T12:47:12",
       "input_version": 2,
-      "score_at_judge": 3
+      "score_at_judge": 6
     },
     "c53c5e7f44e3": {
       "tier": "solid",
@@ -36827,13 +36827,12 @@
     },
     "7301db1f02ef": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Low-key, no-cover weekly jazz residency at a classic Los Feliz lounge — nice to have around, not a headline pick.",
-      "confidence": "med",
-      "judged_at": "2026-08-01T12:34:09",
+      "adjust": -2,
+      "why": "House bandleader's own biweekly crooner night — pleasant free hang, not a booking to plan around.",
+      "confidence": "high",
+      "judged_at": "2026-08-25T12:47:12",
       "input_version": 2,
-      "score_at_judge": 4,
-      "model": "sonnet"
+      "score_at_judge": 6
     },
     "64869ff9b14e": {
       "tier": "skip",
@@ -39432,12 +39431,12 @@
     },
     "04402e03f265": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Two-day free community music crawl right on the Sunset corridor — a genuine annual event, not the weekly-market clutter filling this window.",
+      "adjust": 2,
+      "why": "Free two-day neighborhood music crawl right off Sunset near Silver Lake — the walkable, low-stakes community pick worth carving out time for.",
       "confidence": "med",
-      "judged_at": "2026-08-25T12:39:24",
+      "judged_at": "2026-08-25T12:47:12",
       "input_version": 2,
-      "score_at_judge": 5
+      "score_at_judge": 7
     },
     "d0c7278d32a2": {
       "tier": "must-see",
@@ -41952,6 +41951,60 @@
       "judged_at": "2026-08-25T12:39:24",
       "input_version": 2,
       "score_at_judge": 6
+    },
+    "0d3a22746827": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Nick Waterhouse is a real touring retro-soul/garage act, not a random Friday booking, and Zebulon is exactly the small-room-headliner slot you want.",
+      "confidence": "high",
+      "judged_at": "2026-08-25T12:47:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "e4f477ef91c9": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Legend at a venue you love — off your electronic lane but Who Is the Sky is a genuinely distinct art-rock production worth the trip.",
+      "confidence": "high",
+      "judged_at": "2026-08-25T12:47:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "402d0a6a62f4": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Commodores/Sheila E./Boney James is a legit legacy-funk bill at a venue you love — crowd-pleasing even outside the house/techno lane.",
+      "confidence": "high",
+      "judged_at": "2026-08-25T12:47:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "dced916e4dd4": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Ticketed taco food festival, fine filler for a DTLA night but nothing that plays to the music lane.",
+      "confidence": "med",
+      "judged_at": "2026-08-25T12:47:12",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "382ca9dae662": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "80+ vendor vinyl fair with DJs is squarely your record-fair lane, just a Hollywood trek rather than home turf.",
+      "confidence": "high",
+      "judged_at": "2026-08-25T12:47:12",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "dcab14f8af6f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Cultural street festival with no music angle and barely any info beyond the listing — proximity boosted it more than actual fit.",
+      "confidence": "med",
+      "judged_at": "2026-08-25T12:47:12",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }

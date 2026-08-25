@@ -546,107 +546,6 @@
         "lineup_depth": 0
       }
     },
-    "20e0841279b0": {
-      "id": "20e0841279b0",
-      "type": "film",
-      "subgenres": [
-        "rep/arthouse"
-      ],
-      "label_orbit": [],
-      "energy": "nostalgic / big-screen",
-      "setting": "cinema",
-      "sounds_like": [],
-      "artist_notes": [],
-      "curator_note": "Not exactly a director-tier print event, but a 25th-anniversary screening of the original Fast and the Furious at the Vista is exactly the kind of crowd-pleasing nostalgia the room does best — go for the communal energy, not the cinema-studies angle.",
-      "description": "25th-anniversary theatrical screening of The Fast and the Furious (2001, dir. Rob Cohen) at the Vista Theater, with 4pm and 7:30pm showtimes.",
-      "enriched_tier": "full",
-      "confidence": "high",
-      "enriched_at": "2026-07-28T12:36:35",
-      "card": {
-        "draw": 2,
-        "rarity": 1,
-        "lineup_depth": 0
-      }
-    },
-    "e89924281027": {
-      "id": "e89924281027",
-      "description": "TRAIN performs Drops of Jupiter 25th anniversary with Barenaked Ladies, Matt Nathanson at Greek Theatre (Los Feliz).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "high"
-    },
-    "cadc73517d6f": {
-      "id": "cadc73517d6f",
-      "type": "live-music",
-      "subgenres": [
-        "indie",
-        "folk"
-      ],
-      "label_orbit": [],
-      "energy": "listening / anthemic",
-      "setting": null,
-      "sounds_like": [
-        "Bon Iver-adjacent indie-folk-electronic textures"
-      ],
-      "card": {
-        "draw": 1,
-        "rarity": 0,
-        "lineup_depth": 1
-      },
-      "artist_notes": [
-        {
-          "name": "Kublaii",
-          "note": "Hillsboro, Oregon-raised, Salt Lake City-based indie singer-songwriter blending folk, rock and electronic textures — 40M+ streams and a debut LP ('temujin') due in 2026."
-        }
-      ],
-      "curator_note": "Kublaii's melancholic PNW-inflected indie-folk streams well above his room size right now — a good bet to catch him at a 300-cap room before he's not playing rooms this size.",
-      "description": "Indie singer-songwriter Kublaii headlines the Moroccan Lounge with support from Postcards for Sympathy and Byron Bennett.",
-      "confidence": "medium",
-      "enriched_at": "2026-08-16T12:35:51",
-      "enriched_tier": "full"
-    },
-    "1b5a07111ed0": {
-      "id": "1b5a07111ed0",
-      "description": "KCRW/VLSF rock show with LAPêCHE, Always You at Moroccan Lounge (Arts District, all ages, 9:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "high"
-    },
-    "d1e83d5febe6": {
-      "id": "d1e83d5febe6",
-      "description": "Rock show: The Breeders with Twisted Teens at Hollywood Palladium (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "high"
-    },
-    "78344efbeff1": {
-      "id": "78344efbeff1",
-      "description": "Roger Daltrey live at Yaamava Resort & Casino theater (San Manuel Highland, 18+, 8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "high"
-    },
-    "6d3c4c833cf4": {
-      "id": "6d3c4c833cf4",
-      "description": "Blues/funk-soul: Western Revenge at Harvelle's Santa Monica (9:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "high"
-    },
-    "ece4642c45a9": {
-      "id": "ece4642c45a9",
-      "description": "Pageant of the Masters at Festival of Arts in Laguna Beach (8:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "high"
-    },
-    "31e8247ed1eb": {
-      "id": "31e8247ed1eb",
-      "description": "R&B: Daniel Caesar with 070 Shake at Honda Center in Anaheim (7:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-20T12:26:46",
-      "confidence": "high"
-    },
     "fd904574d207": {
       "id": "fd904574d207",
       "type": "film",
@@ -668,20 +567,6 @@
         "rarity": 1,
         "lineup_depth": 0
       }
-    },
-    "afc9ca58c057": {
-      "id": "afc9ca58c057",
-      "description": "The Mummy (1999) at New Beverly Cinema (7:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-21T12:27:27",
-      "confidence": "high"
-    },
-    "8d15862a5bf6": {
-      "id": "8d15862a5bf6",
-      "description": "Slayyyter with Pearly Drops at Shrine Expo Hall (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-21T12:27:27",
-      "confidence": "high"
     },
     "ad273f1feeca": {
       "id": "ad273f1feeca",
@@ -1154,10 +1039,29 @@
     },
     "da0d7c460ea5": {
       "id": "da0d7c460ea5",
-      "description": "The Temper Trap on the Sungazer Tour at The Bellwether, DTLA (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-24",
-      "confidence": "high"
+      "type": "live-music",
+      "subgenres": [
+        "indie",
+        "rock"
+      ],
+      "label_orbit": [],
+      "energy": "anthemic / soaring",
+      "setting": null,
+      "sounds_like": [
+        "Two Door Cinema Club",
+        "early Bloc Party"
+      ],
+      "card": {
+        "draw": 2,
+        "rarity": 1,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "Sungazer is the Temper Trap's first album in a decade — the 'Sweet Disposition' band actually has new material worth hearing, not just a nostalgia lap. NOAH NOAH opens but isn't a name I can vouch for.",
+      "description": "The Temper Trap tour behind 'Sungazer,' their first album since 2016's Thick as Thieves, at The Bellwether DTLA, with NOAH NOAH opening (8pm).",
+      "confidence": "high",
+      "enriched_at": "2026-08-25T12:47:12",
+      "enriched_tier": "full"
     },
     "9f2487a16e9c": {
       "id": "9f2487a16e9c",
@@ -2286,20 +2190,6 @@
       "enriched_at": "2026-07-29T12:57:48",
       "confidence": "high"
     },
-    "62023397ee5d": {
-      "id": "62023397ee5d",
-      "description": "Carrie (1976) repertory screening at Alamo Drafthouse DTLA (4:15pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "d82ac6a7e6a0": {
-      "id": "d82ac6a7e6a0",
-      "description": "Butthole Surfers: The Hole Truth and Nothing Butt, livestream Q&A screening at Alamo Drafthouse (5:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
     "0e53c20facf8": {
       "id": "0e53c20facf8",
       "description": "The Blackening special event screening at Alamo Drafthouse DTLA (7pm).",
@@ -2323,31 +2213,30 @@
     },
     "7301db1f02ef": {
       "id": "7301db1f02ef",
-      "description": "David Moscoe & Company play instrumental jazz Saturday nights at The Dresden, no cover (9:15pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "8ae4eb68e735": {
-      "id": "8ae4eb68e735",
-      "description": "2010 animated film by Hiromasa Yonebayashi in DCP at Academy Museum.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "a2b516082d5e": {
-      "id": "a2b516082d5e",
-      "description": "1956 musical in VistaVision at Academy Museum.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
-    },
-    "0ab5eea85867": {
-      "id": "0ab5eea85867",
-      "description": "Comedy film repertory screening (138 min) at Nuart Theatre.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-07-29T12:57:48",
-      "confidence": "high"
+      "type": "live-music",
+      "subgenres": [
+        "jazz"
+      ],
+      "label_orbit": [],
+      "energy": "listening",
+      "setting": "bar",
+      "sounds_like": [],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [
+        {
+          "name": "David Moscoe",
+          "note": "The Dresden's house bandleader — his trio anchors the venue's biweekly no-cover jazz/crooner nights alongside rotating singers."
+        }
+      ],
+      "curator_note": "This is the Dresden's standing low-key jazz hang, not a night to build plans around — David Moscoe's quartet with rotating guests, no cover, walk-in energy on a quiet Los Feliz Saturday.",
+      "description": "No-cover instrumental jazz quartet residency at The Dresden, led by house bandleader David Moscoe with rotating guest musicians (9:15pm, weekly Saturdays).",
+      "confidence": "medium",
+      "enriched_at": "2026-08-25T12:47:12",
+      "enriched_tier": "full"
     },
     "5af9b9ee3ffd": {
       "id": "5af9b9ee3ffd",
@@ -3794,49 +3683,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-03T12:59:03",
       "confidence": "high"
-    },
-    "33c9b91badf0": {
-      "id": "33c9b91badf0",
-      "description": "Very Good Mondays at Gold Diggers, East Hollywood (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-03T12:59:03",
-      "confidence": "medium"
-    },
-    "b10cc6a34b44": {
-      "id": "b10cc6a34b44",
-      "type": "live-music",
-      "subgenres": [
-        "doom",
-        "stoner-rock",
-        "psych"
-      ],
-      "setting": "indoor-club",
-      "energy": "heavy / riff-driven",
-      "sounds_like": [
-        "Sleep",
-        "Elder",
-        "King Gizzard (heavy mode)"
-      ],
-      "artist_notes": [
-        {
-          "name": "Hippie Death Cult",
-          "note": "Albuquerque heavy-psych/doom trio on Blues Funeral Recordings — respected in the underground stoner-doom touring circuit."
-        },
-        {
-          "name": "Earth Tongue",
-          "note": "New Zealand psych-doom duo, heavy fuzzed-out riffs with a ritualistic bent — a real name within that scene, not a filler support."
-        }
-      ],
-      "curator_note": "Solid doom/stoner-psych double bill at Zebulon, but it's a genre lane (heavy riffs, not groove) more than a direct hit on the core taste — go if the krautrock/heavy-psych side of the indie interest is calling.",
-      "description": "Heavy-psych/doom bill at Zebulon: Albuquerque's Hippie Death Cult with New Zealand duo Earth Tongue.",
-      "confidence": "med",
-      "card": {
-        "draw": 1,
-        "rarity": 0,
-        "lineup_depth": 1
-      },
-      "enriched_at": "2026-08-23T12:34:37",
-      "enriched_tier": "full"
     },
     "c206a4e20a1a": {
       "id": "c206a4e20a1a",
@@ -6190,10 +6036,23 @@
     },
     "71a56711da05": {
       "id": "71a56711da05",
-      "description": "World-famous Rose Bowl Flea Market with 2,500+ vendors at the stadium (monthly, second Sunday).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-09T12:54:54",
-      "confidence": "high"
+      "type": "market",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "daytime / browsing",
+      "setting": "outdoor",
+      "sounds_like": [],
+      "card": {
+        "draw": 1,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "The big one — 2,500+ vendors sprawling across the Rose Bowl lot. Worth the Pasadena drive if you go early (5am VIP, 9am GA) before the good stalls get picked over.",
+      "description": "Monthly (2nd Sunday) Rose Bowl Flea Market with 2,500+ vendors — vintage, furniture, clothing, collectibles — 9am general admission, 5am VIP early entry.",
+      "confidence": "high",
+      "enriched_at": "2026-08-25T12:47:12",
+      "enriched_tier": "full"
     },
     "6e058871fc3d": {
       "id": "6e058871fc3d",
@@ -6292,12 +6151,6 @@
     "2fb08bffcba7": {
       "id": "2fb08bffcba7",
       "description": "Indie vintage, vinyl, and handmade goods flea market in Atwater Village; free entry.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-10T12:50:09"
-    },
-    "1a12e2b70cf1": {
-      "id": "1a12e2b70cf1",
-      "description": "Slayyyter performs her Wor$T Girl In The World Tour at Shrine Auditorium (8pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-10T12:50:09"
     },
@@ -6500,26 +6353,6 @@
       "enriched_at": "2026-08-11T12:50:08",
       "enriched_tier": "full"
     },
-    "9f51ee6f2660": {
-      "id": "9f51ee6f2660",
-      "type": "club",
-      "subgenres": [
-        "house"
-      ],
-      "energy": "groove / late-night",
-      "setting": "bar",
-      "artist_notes": [],
-      "curator_note": "The Airliner's free late-night house nights are where the after-hours regulars end up once everything else closes — this Low Recordings booking is low-key and unpretentious, worth a stop only if you're already in Lincoln Heights and the lineup isn't the draw.",
-      "description": "Free house night at The Airliner in Lincoln Heights, presented by Low Recordings, with Jamma D, denseinthehead and Miche.",
-      "confidence": "low",
-      "card": {
-        "draw": 0,
-        "rarity": 0,
-        "lineup_depth": 0
-      },
-      "enriched_at": "2026-08-23T12:34:37",
-      "enriched_tier": "full"
-    },
     "3fec9298c2ef": {
       "id": "3fec9298c2ef",
       "description": "Members club presents Kimonos (afterhours electronic DJ), 10pm Friday.",
@@ -6628,13 +6461,6 @@
     "589a5b95f0b1": {
       "id": "589a5b95f0b1",
       "description": "Blues and funk performance by Smokestack Lightning at Harvelle's (Santa Monica).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-11T12:50:08",
-      "confidence": "high"
-    },
-    "dd03d5069d1b": {
-      "id": "dd03d5069d1b",
-      "description": "Repertory screening of Bob & Carol & Ted & Alice at Vidiots (Eagle Rock).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-11T12:50:08",
       "confidence": "high"
@@ -8771,10 +8597,25 @@
     },
     "d8c8f8aec087": {
       "id": "d8c8f8aec087",
-      "description": "House and pop dance party at Gold Diggers in East Hollywood (10:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-16T12:35:51",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house"
+      ],
+      "label_orbit": [],
+      "energy": "party / open-format",
+      "setting": "bar",
+      "sounds_like": [],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "'Groove Room' is a recurring, Boiler Room-inspired local-DJ party blending house with classic/modern hits — no billed names, closer to an open-format hits night than a real DJ booking. Only worth it if you're already at Gold Diggers.",
+      "description": "Recurring free 'Groove Room' dance party at Gold Diggers mixing house music with classic and modern hits, local DJs, no billed lineup (10:30pm).",
+      "confidence": "medium",
+      "enriched_at": "2026-08-25T12:47:12",
+      "enriched_tier": "full"
     },
     "2a1bb8cc1c83": {
       "id": "2a1bb8cc1c83",
@@ -9053,13 +8894,6 @@
     "dd2500d799fd": {
       "id": "dd2500d799fd",
       "description": "IDL 2026 Championship (Day 2) DJ competition at Shrine Expo Hall.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-16T12:35:51",
-      "confidence": "high"
-    },
-    "8e5221d91b1d": {
-      "id": "8e5221d91b1d",
-      "description": "Free financial literacy workshop at Borner's Barber College Pasadena.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-16T12:35:51",
       "confidence": "high"
@@ -9426,10 +9260,31 @@
     },
     "587e3cb8b0be": {
       "id": "587e3cb8b0be",
-      "description": "Full-length play with Kevin Grossman as Marty Scorsese at Elysian (7:30pm, Sat 8/29).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-18T12:40:25",
-      "confidence": "high"
+      "type": "stage",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "theatrical / comedic",
+      "setting": "theater",
+      "sounds_like": [
+        "Bowfinger-style Hollywood satire",
+        "Living in Oblivion"
+      ],
+      "card": {
+        "draw": 1,
+        "rarity": 1,
+        "lineup_depth": 1
+      },
+      "artist_notes": [
+        {
+          "name": "Barry Del Sherman",
+          "note": "Veteran LA character actor — the studio exec who fires Lester Burnham in American Beauty, H.B. Ailman in PTA's There Will Be Blood, plus Independence Day and decades of TV guest spots; a recognizable 'that guy' face for a film-literate crowd."
+        }
+      ],
+      "curator_note": "A scrappy full-length comedy imagining Scorsese mid-meltdown over Taxi Driver's X-rating fight, with Brian De Palma, Spielberg and Milius talking him off the ledge — pure New Hollywood mythology played for laughs, written and directed by Drew Hanks. Barry Del Sherman (the guy who fires Kevin Spacey in American Beauty, and PTA's H.B. Ailman) is in the cast, which is a nice hook if you know the faces.",
+      "description": "Full-length comedy at the Elysian imagining Martin Scorsese in a substance-fueled rage over Taxi Driver's rating fight, with Brian De Palma, Steven Spielberg and John Milius trying to talk him down; written/directed by Drew Hanks.",
+      "confidence": "medium",
+      "enriched_at": "2026-08-25T12:47:12",
+      "enriched_tier": "full"
     },
     "f94900d9ea05": {
       "id": "f94900d9ea05",
@@ -9672,13 +9527,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-18T12:40:25",
       "confidence": "medium"
-    },
-    "cbafc8ba7422": {
-      "id": "cbafc8ba7422",
-      "description": "Weekly stand-up show at Elysian Theater (The Vault).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-18T12:40:25",
-      "confidence": "high"
     },
     "c1d5c661f80c": {
       "id": "c1d5c661f80c",
@@ -9974,13 +9822,6 @@
       "enriched_at": "2026-08-18T12:40:25",
       "confidence": "high"
     },
-    "add13d9c70f9": {
-      "id": "add13d9c70f9",
-      "description": "Electronic music event from MILLK.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-18T12:40:25",
-      "confidence": "low"
-    },
     "582340ed53d6": {
       "id": "582340ed53d6",
       "description": "Show about a multi-season 90s TV show created in someone's head at Elysian Theater.",
@@ -10152,13 +9993,6 @@
     "eb6df4bb1687": {
       "id": "eb6df4bb1687",
       "description": "British jazz vocalist Emma Smith performs at Vibrato Grill Jazz in Bel Air.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-18T12:40:25",
-      "confidence": "high"
-    },
-    "3e98a20df5b8": {
-      "id": "3e98a20df5b8",
-      "description": "Theatrical performance about an earnest nun at an open mic, at Elysian Theater.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-18T12:40:25",
       "confidence": "high"
@@ -11310,13 +11144,6 @@
       "enriched_at": "2026-08-23T12:34:37",
       "enriched_tier": "full"
     },
-    "4373f41f3f64": {
-      "id": "4373f41f3f64",
-      "description": "Free late-night afterhours party by NIGHTSHIFT at 129 E 3rd, DTLA (Mon 11pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-20T12:38:25",
-      "confidence": "high"
-    },
     "4e93f8e7af0a": {
       "id": "4e93f8e7af0a",
       "description": "Free late-night afterhours party by NIGHTSHIFT at 129 E 3rd, DTLA (Tue 11pm).",
@@ -11348,13 +11175,6 @@
     "1cf7fbc34889": {
       "id": "1cf7fbc34889",
       "description": "Party featuring THE NOIR DALIS at Harvard and Stone, East Hollywood (Thu 8pm, free).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-20T12:38:25",
-      "confidence": "high"
-    },
-    "0ea4e59fd4ae": {
-      "id": "0ea4e59fd4ae",
-      "description": "Utopia Fridays free afterhours party at a secret LA location (Thu 11pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-20T12:38:25",
       "confidence": "high"
@@ -11842,10 +11662,26 @@
     },
     "91ac68d9bb7c": {
       "id": "91ac68d9bb7c",
-      "description": "Coldwave, industrial, and goth night with Dean Buckley and Ray Only at The Virgil (10pm–2am, $10+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-21T12:38:52",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "moody / dark",
+      "setting": "bar",
+      "sounds_like": [
+        "Cold Waves LA-style coldwave/industrial DJ sets"
+      ],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "Coldwave/industrial/goth night at the Virgil — a real local scene (LA's Cold Waves crowd), but a hard left turn from the house/techno lane. Dean Buckley and Ray Only aren't names I can verify beyond this listing.",
+      "description": "Machina: coldwave, industrial, and goth DJ night at The Virgil with Dean Buckley and Ray Only (10pm-2am, $10+).",
+      "confidence": "low",
+      "_vocab_gap": "goth/industrial/coldwave have no genre-vocab tag in tagging.py's GENRE_ELECTRONIC/GENRE_LIVE lists — subgenres left empty rather than coining one; flagging for vocab review.",
+      "enriched_at": "2026-08-25T12:47:12",
+      "enriched_tier": "full"
     },
     "e8b8e6cd7b80": {
       "id": "e8b8e6cd7b80",
@@ -11888,13 +11724,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-21T12:38:52",
       "confidence": "high"
-    },
-    "950bf7a1786f": {
-      "id": "950bf7a1786f",
-      "description": "After-hours electronic at The Lexington bar (11pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-21T12:38:52",
-      "confidence": "medium"
     },
     "96e43a29fab1": {
       "id": "96e43a29fab1",
@@ -12067,13 +11896,6 @@
     "85eaf1e1717f": {
       "id": "85eaf1e1717f",
       "description": "Free late-night electronic show with RCKSLVR at Jungle Hollywood.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-21T12:38:52",
-      "confidence": "high"
-    },
-    "e706c1af2bd4": {
-      "id": "e706c1af2bd4",
-      "description": "Free late-night back-to-school party with location revealed after RSVP.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-21T12:38:52",
       "confidence": "high"
@@ -12687,13 +12509,6 @@
       "enriched_at": "2026-08-21T12:38:52",
       "confidence": "high"
     },
-    "b3a9633467bf": {
-      "id": "b3a9633467bf",
-      "description": "Bi-monthly Santa Monica Antique & Vintage Market at Santa Monica Airport featuring mid-century furniture and vintage couture.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-21T12:38:52",
-      "confidence": "high"
-    },
     "fc2a532c0269": {
       "id": "fc2a532c0269",
       "description": "Tuesday jazz series curated by pianist Gerald Clayton at Sam First (sets at 7:30pm & 9:30pm).",
@@ -13274,13 +13089,6 @@
       "enriched_at": "2026-08-22T12:33:07",
       "confidence": "high"
     },
-    "c07b6aab6e52": {
-      "id": "c07b6aab6e52",
-      "description": "Road To Wasteland electronic party at a TBA venue (10pm–5am).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-22T12:33:07",
-      "confidence": "medium"
-    },
     "ab4c4aaefbb6": {
       "id": "ab4c4aaefbb6",
       "description": "Hood Rave X Dance Mania with Traxman, Gant-Man, BAE BAE, and HOUZ'MON at a TBA venue (10pm–5am).",
@@ -13634,13 +13442,6 @@
     "a5350f11eb90": {
       "id": "a5350f11eb90",
       "description": "Liz Phair with Sleater-Kinney and Soccer Mommy at Greek Theatre in Los Feliz.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-22T12:33:07",
-      "confidence": "high"
-    },
-    "9e498a857156": {
-      "id": "9e498a857156",
-      "description": "Alternative rock performance featuring Dr. Spaceman and The Royal Huntingtones at The Venice West.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-08-22T12:33:07",
       "confidence": "high"
@@ -15102,13 +14903,6 @@
       "enriched_at": "2026-08-24T12:39:37",
       "confidence": "high"
     },
-    "d273a1146759": {
-      "id": "d273a1146759",
-      "description": "The Man with the Golden Gun at New Beverly Cinema, 7:30pm.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-24T12:39:37",
-      "confidence": "high"
-    },
     "08aa0bd9b67b": {
       "id": "08aa0bd9b67b",
       "description": "The Man with the Golden Gun at New Beverly Cinema, 7:30pm.",
@@ -15182,17 +14976,69 @@
     },
     "4227aea2f560": {
       "id": "4227aea2f560",
-      "description": "DJ Shroomie spins electronic music at Reflections, The Airliner in Lincoln Heights (9pm-2am).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-25T12:37:42",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house",
+        "deep-house"
+      ],
+      "label_orbit": [
+        "Low Recordings"
+      ],
+      "energy": "groove / late-night",
+      "setting": "bar",
+      "sounds_like": [
+        "Low Recordings' deep-house Airliner nights"
+      ],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [
+        {
+          "name": "DJ Shroomie",
+          "note": "LA deep-house DJ, co-founder of Low Recordings — the collective behind The Airliner's recurring free house nights, also plays around Bar Franca and The Goldfish."
+        }
+      ],
+      "curator_note": "Same Low Recordings/Airliner formula as always — free, unpretentious, deep-house-leaning — worth a stop only if you're already out in Lincoln Heights; denseinthehead and Miche round out the bill but neither is a name to chase.",
+      "description": "Free house night at The Airliner in Lincoln Heights, presented by Low Recordings, headlined by DJ Shroomie with denseinthehead and Miche (9pm-2am).",
+      "confidence": "medium",
+      "enriched_at": "2026-08-25T12:47:12",
+      "enriched_tier": "full"
     },
     "7de5f3535405": {
       "id": "7de5f3535405",
-      "description": "Baby Uniq, BL4ZE, and T3KNO play electronic at Toxic Haus x Perfect Party (DTLA, 10pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-25T12:37:42",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "latin"
+      ],
+      "label_orbit": [
+        "Toxic Haus"
+      ],
+      "energy": "peak / eclectic",
+      "setting": null,
+      "sounds_like": [
+        "BL4ZE's genre-blending Latin-club sets"
+      ],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0,
+        "vibes": [
+          "queer"
+        ]
+      },
+      "artist_notes": [
+        {
+          "name": "BL4ZE",
+          "note": "LA multimedia artist/DJ, founder of Toxic Haus — an LGBTQ+ BIPOC collective throwing eclectic, Latin-club-leaning parties across LA and Mexico City since 2018, now also its own label (2026)."
+        }
+      ],
+      "curator_note": "Toxic Haus is a queer BIPOC collective party leaning Latin-club and genre-blending rather than the house/techno lane — a real scene, just not the one this taste is built around.",
+      "description": "Toxic Haus x Perfect Party at a TBA DTLA location, with BL4ZE (Toxic Haus founder), Baby Uniq and T3KNO (10pm).",
+      "confidence": "medium",
+      "enriched_at": "2026-08-25T12:47:12",
+      "enriched_tier": "full"
     },
     "6131994c3227": {
       "id": "6131994c3227",
@@ -15703,6 +15549,57 @@
       "confidence": "low",
       "enriched_at": "2026-08-25T12:39:33",
       "enriched_tier": "full"
+    },
+    "e4079286ebc6": {
+      "id": "e4079286ebc6",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "deep-house"
+      ],
+      "label_orbit": [],
+      "energy": "groove / all-night",
+      "setting": null,
+      "sounds_like": [],
+      "card": {
+        "draw": 0,
+        "rarity": 1,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "Certified Groovers usually books real deep-house names (DJ Sneak, Mark Farina, Doc Martin, Chez Damier have all played the series) — no lineup posted yet for this Halloween edition, but the promoter's track record makes it worth watching for an announcement.",
+      "description": "Certified Groovers' Halloween Party at a TBA Downtown LA location — no lineup announced yet (10pm, Oct 31).",
+      "confidence": "medium",
+      "enriched_at": "2026-08-25T12:47:12",
+      "enriched_tier": "full"
+    },
+    "dcab14f8af6f": {
+      "id": "dcab14f8af6f",
+      "description": "Chinatown cultural festival featuring lion dances, kung fu, and costume parade honoring ancestor traditions.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-25T12:47:12",
+      "confidence": "high"
+    },
+    "466adb3c34ad": {
+      "id": "466adb3c34ad",
+      "description": "Dr. Spaceman, The Royal Huntingtones, and Andrew Kline & The Warriors Peace play alternative rock at The Venice West (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-25T12:47:12",
+      "confidence": "high"
+    },
+    "bca6ca66adff": {
+      "id": "bca6ca66adff",
+      "description": "Eight-course tasting event at Runway Playa Vista featuring local restaurant dishes ($49.87).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-25T12:47:12",
+      "confidence": "high"
+    },
+    "e10faac5a6d0": {
+      "id": "e10faac5a6d0",
+      "description": "Chef Alan Sanz's Re:MEX pop-up with Mexico-inspired plates and cocktails at Daisy Margarita Bar.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-08-25T12:47:12",
+      "confidence": "high"
     }
   },
   "artists": {
@@ -18537,6 +18434,18 @@
     "george aivaliotis": {
       "note": "LA clown-theater performer named a Just For Laughs 'New Face' in 2019; his solo shows (Soft Animal, Early Man) have toured Hollywood and Edinburgh Fringe.",
       "seen": "2026-08-24T12:42:14"
+    },
+    "barry del sherman": {
+      "note": "Veteran LA character actor — the studio exec who fires Lester Burnham in American Beauty, H.B. Ailman in PTA's There Will Be Blood, plus Independence Day and decades of TV guest spots; a recognizable 'that guy' face for a film-literate crowd.",
+      "seen": "2026-08-25T12:47:12"
+    },
+    "dj shroomie": {
+      "note": "LA deep-house DJ, co-founder of Low Recordings — the collective behind The Airliner's recurring free house nights, also plays around Bar Franca and The Goldfish.",
+      "seen": "2026-08-25T12:47:12"
+    },
+    "bl4ze": {
+      "note": "LA multimedia artist/DJ, founder of Toxic Haus — an LGBTQ+ BIPOC collective throwing eclectic, Latin-club-leaning parties across LA and Mexico City since 2018, now also its own label (2026).",
+      "seen": "2026-08-25T12:47:12"
     }
   }
 }
