@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T09:39:25+00:00",
+  "generated_at": "2026-08-25T09:42:59+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "c2ce2a437d82",
@@ -301657,7 +301657,7 @@
         "diff": "diff --git a/taste.yaml b/taste.yaml\nindex 656e428..e6ac615 100644\n--- a/taste.yaml\n+++ b/taste.yaml\n@@ -178,6 +178,7 @@ artists_tracked:\n   - Waajeed\n   - Robert Hood\n   - Tini Gessler\n+  - Monkey Safari\n \n comedians_loved: [ Stavros Halkias, Chris D'Elia, Larry David, Conan O'Brien ] # the comedy exception \u2014 these get surfaced; others don't\n venues_loved:\n@@ -232,10 +233,12 @@ feedback:\n     in a place you wouldn't expect\\\"). (self-edit via concierge)\"\n   - \"2026-08-02: Down-rank drag / cabaret performance events (self-edit via\n     concierge)\"\n+  - \"2026-08-24: Loved Monkey Safari live \u2014 track them (melodic/organic house,\n+    Anjuna/Innervisions orbit). (self-edit via concierge)\"\n \n # Scoring overrides (mechanism knobs \u2014 profile.yaml wins where both set a key).\n scoring:\n   # Hard vibe opt-outs (-6 each): fires on the deterministic `queer` vibe tag AND on\n   # enrichment-card `vibes` (events the scene-researcher determines are queer-oriented\n   # even when the listing text never says so \u2014 e.g. Bears in Space). Stated 2026-08.\n-  penalty_vibes: [\"queer\"]\n+  penalty_vibes: [ \"queer\" ]",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-24"
+        "enriched_at": "2026-08-25"
       },
       "profile": {
         "file": "profile.yaml",
@@ -301691,7 +301691,7 @@
         "diff": "diff --git a/profile.yaml b/profile.yaml\nindex fd13a1d..fd106f2 100644\n--- a/profile.yaml\n+++ b/profile.yaml\n@@ -20,10 +20,6 @@ home:\n # City-specific source ids (lifted from the fetchers; they fall back to these literals).\n dashboard:\n   # Page-presentation knobs (the static dashboard reads these via feed config).\n-  # photos: real event images on the front page's top picks (lead + shortlist) for\n-  # signed-in profiles. Default false \u2014 flip here (or preview via the owner's in-page\n-  # Settings toggle) to turn them on site-wide at the next feed build.\n-  photos: false\n   # Public URL of the deployed dashboard. Digest event lines add a `card \u2197` link to\n   # <site_url>?e=<event_key>, which opens that event's card (details + save) on the site.\n   # Blank/absent = digests carry ticket links only.",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-24"
+        "enriched_at": "2026-08-25"
       }
     },
     "digest_prefs": {
