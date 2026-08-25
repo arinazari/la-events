@@ -159,11 +159,13 @@ sources:
     method: scrape
     url: https://www.latimes.com/entertainment-arts/things-to-do
     priority: 2
-    status: active
+    status: flaky
     notes: >
       Possible paywall friction; degrade gracefully.
       2026-08-23: WebFetch blocked/unable to fetch — first observed failure, not yet flaky
       (watch for a repeat before escalating).
+      2026-08-25: WebFetch failed again (retried once, failed both times) — second
+      consecutive failure, marked flaky per routine policy.
 
   - name: Eater LA
     category: editorial
