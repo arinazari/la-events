@@ -2701,7 +2701,8 @@
       ],
       "scale": "bar",
       "vibe": [
-        "residency"
+        "residency",
+        "free"
       ],
       "region": "eastside",
       "near_home": true
@@ -5344,13 +5345,16 @@
     "last_seen": "2026-08-25",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
       "vibe": [
-        "residency"
+        "residency",
+        "free"
       ],
       "region": "eastside",
       "near_home": true
@@ -7341,7 +7345,18 @@
       "We Like LA"
     ],
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25"
+    "last_seen": "2026-08-25",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "DARKROOM & Three Eyed Tiger Pop-Up",
@@ -7370,7 +7385,18 @@
       "We Like LA"
     ],
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25"
+    "last_seen": "2026-08-25",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "pop-up"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "El Tri",
@@ -9489,7 +9515,7 @@
       ],
       "scale": "bar",
       "vibe": [
-        "residency"
+        "free"
       ],
       "region": "eastside",
       "near_home": true
@@ -15941,13 +15967,16 @@
     "last_seen": "2026-08-25",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "jazz"
+      ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
       "vibe": [
-        "residency"
+        "residency",
+        "free"
       ],
       "region": "eastside",
       "near_home": true
@@ -19988,7 +20017,16 @@
       "Time Out LA"
     ],
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25"
+    "last_seen": "2026-08-25",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
   },
   {
     "title": "Day Trip In The Park LA: Loco Dice, Archie Hamilton",
@@ -25473,7 +25511,18 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25"
+    "last_seen": "2026-08-25",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "The Garden",
@@ -30023,7 +30072,9 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "free"
+      ],
       "region": "eastside",
       "near_home": true
     },
@@ -38308,7 +38359,9 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "free"
+      ],
       "region": "eastside",
       "near_home": true
     },
@@ -53293,7 +53346,9 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "free"
+      ],
       "region": "eastside",
       "near_home": true
     },
@@ -56348,7 +56403,18 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25"
+    "last_seen": "2026-08-25",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Starbomb featuring DJ Commander Meouch - Probably The Only Tour Ever",
@@ -59242,7 +59308,8 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "jazz"
+        "jazz",
+        "funk-soul"
       ],
       "setting": [
         "listening-bar"
@@ -79919,7 +79986,9 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "free"
+      ],
       "region": "eastside",
       "near_home": true
     },
@@ -101533,7 +101602,21 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25"
+    "last_seen": "2026-08-25",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "diy"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "drag",
+        "18+"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "The Outsiders (Touring)",
