@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/24/2026 deterministically (no API). 274 candidates. Signals: big-venue 245, festival 21, editorial 8, tracked 4._
+_Generated 8/25/2026 deterministically (no API). 278 candidates. Signals: big-venue 249, festival 21, editorial 8, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -296,6 +296,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/7 | 3 | Mon Laferte - Femme Fatale Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mon-laferte-femme-fatale-tour-inglewood-california-11-07-2026/event/0900646CEE46EEFD) |
 | Sat 11/7 | 3 | Eros Ramazzotti - UNA HISTORIA IMPORTANTE | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/eros-ramazzotti-una-historia-importante-inglewood-california-11-07-2026/event/0A00628C082C6464) |
 | Sat 11/7 | 3 | Ramon Ayala " Historia De Un Final" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/ramon-ayala-historia-de-un-final-ontario-california-11-07-2026/event/0900647FAF9A9CF5) |
+| Sat 11/7 | 3 | Moby + Underworld | Brookside at the Rose Bowl | big-venue | [link](https://www.axs.com/events/1527850/moby-underworld-tickets) |
 | Fri 11/13 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B) |
 | Sat 11/14 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-14-2026/event/09006494FCC71433) |
 | Sat 11/14 | 3 | Camp Flog Gnaw 2026 | Dodger Stadium | big-venue | [link](https://www.axs.com/events/1475989/camp-flog-gnaw-2026-tickets) |
@@ -304,6 +305,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 11/20 | 3 | Arcángel - La 8va Maravilla World Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/arcangel-la-8va-maravilla-world-tour-inglewood-california-11-20-2026/event/0A0064A792CA7806) |
 | Sat 11/21 | 3 | NieR: Orchestra Concert | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 11/21 | 3 | Bunbury - Nuevas Mutaciones Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/bunbury-nuevas-mutaciones-tour-2026-inglewood-california-11-21-2026/event/0A00644ADAD09F63) |
+| Sat 11/21 | 3 | Lauren Daigle - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZfot) |
 | Sun 11/22 | 3 | KATSEYE: THE WILDWORLD TOUR | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/katseye-the-wildworld-tour-los-angeles-california-11-22-2026/event/2C0064B3CEC7151F) |
 | Fri 11/27 | 3 | Gerardo Ortiz - El Ejemplar Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/gerardo-ortiz-el-ejemplar-tour-inglewood-california-11-27-2026/event/0A006473C7B5D973) |
 | Fri 11/27 | 3 | Afrojack Presents: CONTROL | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1468576/afrojack-presents-control-tickets) |
@@ -344,8 +346,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 9/28 | 2 | Disney Worlds Collide Concert Tour | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
-| Mon 9/28 | 2 | Erykah Badu - 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Tue 9/29 | 2 | Julieta Venegas - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Tue 9/29 | 2 | ISAIAH RASHAD: The Anniversary Show | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/isaiah-rashad-the-anniversary-show-inglewood-california-09-29-2026/event/0A0064F2085FC86E) |
 | Wed 9/30 | 2 | Disney Descendants, ZOMBIES & Camp Rock: Worlds Collide Co | Kia Forum | big-venue | [link](https://www.ticketmaster.com/disney-descendants-zombies-camp-rock-worlds-inglewood-california-09-30-2026/event/0900646CCB2DC5B5) |
@@ -407,6 +407,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Thu 11/5 | 2 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-05-2026/event/0A0064C5CA9BB7A7) |
 | Sun 11/8 | 2 | Mon Laferte - Femme Fatale Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mon-laferte-femme-fatale-tour-inglewood-california-11-08-2026/event/090064C7E0BCDF3F) |
 | Sun 11/8 | 2 | Jose Mari Chan and The CompanY (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Mon 11/9 | 2 | Jessie Reyez: A Little Vengeance Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/jessie-reyez-a-little-vengeance-tour-inglewood-california-11-09-2026/event/09006513CD44C3BA) |
 | Tue 11/10 | 2 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-10-2026/event/0A0064C8F2ADE2A5) |
 | Wed 11/11 | 2 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-11-2026/event/0A0064C8F2BAE2BF) |
 | Thu 11/12 | 2 | Miranda Lamber (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -425,10 +426,12 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 |---|---|---|---|---|---|
 | Tue 12/1 | 2 | Sin Bandera (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 12/2 | 2 | BEAT: Belew/Vai/Levin/Bozzio Performing the Music of KING  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/beat-belewvailevinbozzio-performing-the-music-of-inglewood-california-12-02-2026/event/0A0064FEFC6652B8) |
+| Thu 12/10 | 2 | Triumph: The Rock & Roll Machine Reloaded Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-inglewood-california-12-10-2026/event/090065149FC06F66) |
 | Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
 | Mon 12/14 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-14-2026/event/090064B49319A5BE) |
 | Wed 12/16 | 2 | TYLA - THE A*POP WORLD TOUR | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/tyla-the-apop-world-tour-inglewood-california-12-16-2026/event/0A0064E99D9E6DC8) |
+| Wed 12/16 | 2 | Wang Leehom - The Best Place II World Tour  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/wang-leehom-the-best-place-ii-inglewood-california-12-16-2026/event/09006515BC62BB28) |
 | Sun 12/20 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-20-2026/event/090064BBE49DEE4D) |
 | Tue 12/22 | 2 | Pentatonix: Christmas in the City Tour  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/pentatonix-christmas-in-the-city-tour-inglewood-california-12-22-2026/event/09006504E828CC6A) |
 
@@ -450,6 +453,7 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Tue 2/2 | 2 | Christine D'Clario - La Novia Tour  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/christine-dclario-la-novia-tour-inglewood-california-02-02-2027/event/0A006179983A3029) |
+| Thu 2/18 | 2 | PABLO ALBORAN - GLOBAL TOUR KM0 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/pablo-alboran-global-tour-km0-inglewood-california-02-18-2027/event/0A0064CAC3AADDB8) |
 
 ## October 2026
 

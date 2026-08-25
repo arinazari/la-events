@@ -2,10 +2,10 @@
 
 *Soonest first · rebuilt daily*
 
-- **Fri 8/28 – Sun 8/30** — 19 events · top pick: WORK Harder presents: RIKHTER [4 HR Set] & EMILIANA — [weekend digest](weekends/2026-08-28.md)
-- **Fri 9/4 – Sun 9/6** — 17 events · top pick: Lights Down Low Feat. Interplanetary Criminal — [weekend digest](weekends/2026-09-04.md)
-- **Fri 9/11 – Sun 9/13** — 11 events — [weekend digest](weekends/2026-09-11.md)
-- **Fri 9/18 – Sun 9/20** — 17 events · top pick: Âme, DJ Tennis, Kaz James - Chinatown Block Party — [weekend digest](weekends/2026-09-18.md)
+- **Fri 8/28 – Sun 8/30** — 18 events · top pick: SUBSHIFT - FRNDZ LA — [weekend digest](weekends/2026-08-28.md)
+- **Fri 9/4 – Sun 9/6** — 19 events — [weekend digest](weekends/2026-09-04.md)
+- **Fri 9/11 – Sun 9/13** — 12 events — [weekend digest](weekends/2026-09-11.md)
+- **Fri 9/18 – Sun 9/20** — 18 events · top pick: Âme, DJ Tennis, Kaz James - Chinatown Block Party — [weekend digest](weekends/2026-09-18.md)
 - **Fri 9/25 – Sun 9/27** — 11 events · top pick: Boiler Room: LA | Sunday — [weekend digest](weekends/2026-09-25.md)
 - **Fri 10/2 – Sun 10/4** — 19 events — [weekend digest](weekends/2026-10-02.md)
 - **Fri 10/9 – Sun 10/11** — 20 events · top pick: Marques Wyatt B2B Doc Martin - Imagine Luv presents: A Celebration of House Music — [weekend digest](weekends/2026-10-09.md)
