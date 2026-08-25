@@ -319,5 +319,6 @@ Start at Studio Barnhus's day party at The Bridge (5pm) — dinner's easy to gra
 - **[Coachella 2027](https://www.coachella.com/)** — 4/9–11 and 4/16–18 · Empire Polo Club, Indio CA · **lineup pending** — Advance GA already sold out (~$549–599); lineup typically drops Sept 2026–Jan 2027. Worth tracking the lineup announce to decide if a resale is worth it.
 
 ---
-> ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
+> ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request). (Note: today's Posh fetch itself still succeeded — 84 events — the JWT's exp claim is just past due, so treat this as a heads-up before it actually breaks.)
 *⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 7d (449 events)*
+*Editorial layer: LAist, Time Out LA, We Like LA, UncoverLA, Discover LA fetched; LA Times failed twice in a row (now marked `flaky` in sources.yaml); 6AM Group returned no current LA listings (Movement Festival recap only). Gmail "Events" label not found on this account — skipped.*
