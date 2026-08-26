@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/25/2026 deterministically (no API). 278 candidates. Signals: big-venue 249, festival 21, editorial 8, tracked 4._
+_Generated 8/26/2026 deterministically (no API). 275 candidates. Signals: big-venue 246, festival 21, editorial 8, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -165,7 +165,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 9/29 | 4 | Zara Larsson | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 9/30 | 4 | Zara Larsson 2nd Show Added! | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 9/30 | 4 | Rubén Blades & Roberto Delgado Big Band: Fotografías Tour | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events) |
 
@@ -222,12 +221,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Whethan - WAREHOUSE.WAVS TOUR (360 SHOW) | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507538) |
 | Fri 12/18 | 4 | Love Actually in Concert | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Tue 9/29 | 3 | Erykah Badu w/ DJ Pee .Wee | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events/performances/) |
 
 ## October 2026
 
@@ -302,6 +295,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/14 | 3 | Camp Flog Gnaw 2026 | Dodger Stadium | big-venue | [link](https://www.axs.com/events/1475989/camp-flog-gnaw-2026-tickets) |
 | Sat 11/14 | 3 | Gladys Knight - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZbO_) |
 | Wed 11/18 | 3 | Jonas Brothers: The Burning Up Tour All Over Again | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-hollywood-california-11-18-2026/event/0B00650ECDC0DD8B) |
+| Thu 11/19 | 3 | Jonas Brothers: The Burning Up Tour All Over Again | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-hollywood-california-11-19-2026/event/0B006511309DB401) |
 | Fri 11/20 | 3 | Arcángel - La 8va Maravilla World Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/arcangel-la-8va-maravilla-world-tour-inglewood-california-11-20-2026/event/0A0064A792CA7806) |
 | Sat 11/21 | 3 | NieR: Orchestra Concert | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 11/21 | 3 | Bunbury - Nuevas Mutaciones Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/bunbury-nuevas-mutaciones-tour-2026-inglewood-california-11-21-2026/event/0A00644ADAD09F63) |
@@ -346,8 +340,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 9/29 | 2 | Julieta Venegas - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Tue 9/29 | 2 | ISAIAH RASHAD: The Anniversary Show | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/isaiah-rashad-the-anniversary-show-inglewood-california-09-29-2026/event/0A0064F2085FC86E) |
 | Wed 9/30 | 2 | Disney Descendants, ZOMBIES & Camp Rock: Worlds Collide Co | Kia Forum | big-venue | [link](https://www.ticketmaster.com/disney-descendants-zombies-camp-rock-worlds-inglewood-california-09-30-2026/event/0900646CCB2DC5B5) |
 | Wed 9/30 | 2 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-09-30-2026/event/0A006451D6B8C1D4) |
 | Wed 9/30 | 2 | KETTAMA - 3rd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1446844/kettama-3rd-night-added-tickets) |
