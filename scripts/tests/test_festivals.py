@@ -10,8 +10,24 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from lib.festivals import pretty_when, timely  # noqa: E402
+from lib.festivals import festival_scope, pretty_when, timely  # noqa: E402
 import render_digest as R  # noqa: E402
+
+
+def test_festival_scope_heuristic_and_override():
+    """Greater-LA locations -> local; everything else (incl. SD/Indio — overnight-shaped
+    drives) -> travel; an explicit yaml scope always wins; junk explicit values fall back."""
+    assert festival_scope("Great Park Live, Irvine (OC — ~45 mi, worth the drive)") == "local"
+    assert festival_scope("Los Angeles State Historic Park") == "local"
+    assert festival_scope("Exposition Park, LA") == "local"            # bare 'LA', word-bounded
+    assert festival_scope("Golden Gate Park, San Francisco") == "travel"
+    assert festival_scope("Waterfront Park, San Diego") == "travel"
+    assert festival_scope("Empire Polo Club, Indio CA") == "travel"
+    assert festival_scope("Peckham Rye Park, South London") == "travel"  # 'gala'/'Atlanta' safe too
+    assert festival_scope("") == "travel"                              # unknown -> travel
+    assert festival_scope("San Francisco", explicit="local") == "local"
+    assert festival_scope("Los Angeles", explicit="TRAVEL") == "travel"
+    assert festival_scope("Los Angeles", explicit="bogus") == "local"
 
 
 def test_timely_gate_matches_the_yaml_relevance_contract():
@@ -25,6 +41,7 @@ def test_timely_gate_matches_the_yaml_relevance_contract():
 
 def test_pretty_when_uses_md_convention():
     assert pretty_when("2026-09-26..27") == "9/26–27"
+    assert pretty_when("2026-08-07..09") == "8/7–9"     # range tail sheds its leading zero
     assert pretty_when("2027-04-09..11 and 2027-04-16..18") == "4/9–11 and 4/16–18"
     assert pretty_when("2026-08-29") == "8/29"
     assert pretty_when("typically late May") == "typically late May"

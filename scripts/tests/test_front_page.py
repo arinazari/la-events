@@ -267,6 +267,11 @@ def test_festivals_watchlist_lift():
         "  - name: GALA London\n"
         "    when: typically late May\n"
         "    status: annual_watch\n"
+        "  - name: Hometown Fest\n"
+        "    location: State Historic Park, Los Angeles\n"
+        "    scope: travel\n"
+        "    when: 2026-10-03\n"
+        "    status: announced\n"
     )
     with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False) as f:
         f.write(yml)
@@ -275,10 +280,13 @@ def test_festivals_watchlist_lift():
         fests = B.load_festivals(p)
     finally:
         os.unlink(p)
-    assert [x["name"] for x in fests] == ["Portola 2026", "GALA London"]
+    assert [x["name"] for x in fests] == ["Portola 2026", "Hometown Fest", "GALA London"]
     assert fests[0]["first_date"] == "2026-09-26" and fests[0]["status"] == "on_sale"
     assert fests[0]["why"] == "THE one for you."
-    assert fests[1]["first_date"] is None
+    assert fests[0]["scope"] == "travel" and fests[0]["when_pretty"] == "9/26–27"
+    assert fests[1]["scope"] == "travel"     # explicit scope beats the LA-location heuristic
+    assert fests[2]["first_date"] is None
+    assert fests[2]["scope"] == "travel"     # no location -> travel (watch-list skews destination)
     assert B.load_festivals("/nonexistent/festivals.yaml") == []
     fp = B.build_front_page([], {}, TODAY, festivals=fests)
     assert fp["festivals"] == fests

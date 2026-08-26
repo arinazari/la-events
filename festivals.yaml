@@ -8,13 +8,23 @@
 #
 # Fields:
 #   name, location, when (dates or typical window), status (announced|on_sale|lineup_pending|
-#   past|annual_watch), tickets (url), why (one-line, taste-relevant), refresh (what to web-check)
+#   past|annual_watch), tickets (url), why (one-line, taste-relevant), refresh (what to web-check),
+#   scope (local|travel — optional; the dashboard splits the front-page section on it. Omitted =
+#   heuristic from location: Greater LA/OC -> local, everything else -> travel. local means you
+#   sleep at home; SD/Indio count as travel.)
 # Keep it tight and taste-aligned (house/techno/European/groove lean + a few must-knows).
+#
+# Discovery (each refresh pass): sweep Music Festival Wizard for new on-taste electronic
+# festivals — via WebSearch ONLY (e.g. `site:musicfestivalwizard.com electronic 2026`,
+# or "<festival name> musicfestivalwizard"); the site itself is Cloudflare-bot-walled
+# (403s WebFetch/curl/feed/wp-json — verified 2026-07-29), so never fetch it directly.
+# Travel-worthy finds are in scope by design — that's what scope: travel is for.
 # Last refreshed: 2026-06-16
 
 festivals:
   - name: Outside Lands 2026
     location: Golden Gate Park, San Francisco
+    scope: travel
     when: 2026-08-07..09
     status: past
     tickets: https://www.sfoutsidelands.com/
@@ -25,6 +35,7 @@ festivals:
 
   - name: Portola 2026
     location: Pier 80, San Francisco
+    scope: travel
     when: 2026-09-26..27
     status: on_sale
     tickets: https://www.portolamusicfestival.com/
@@ -36,6 +47,7 @@ festivals:
 
   - name: CRSSD Festival — Fall 2026
     location: Waterfront Park, San Diego
+    scope: travel
     when: 2026-09-26..27
     status: on_sale
     tickets: https://www.crssdfest.com/
@@ -48,6 +60,7 @@ festivals:
 
   - name: Coachella 2027
     location: Empire Polo Club, Indio CA
+    scope: travel
     when: 2027-04-09..11 and 2027-04-16..18
     status: lineup_pending
     tickets: https://www.coachella.com/
@@ -58,6 +71,7 @@ festivals:
 
   - name: GALA Festival (London) — 2027 edition
     location: Peckham Rye Park, South London
+    scope: travel
     when: ~2027-05 (annual, late May; 2026 already happened May 22–24)
     status: dormant   # ~11 months out, no tickets yet — do NOT surface in digest until ~Jan 2027
     tickets: https://galafestival.co.uk
@@ -68,6 +82,7 @@ festivals:
 
   - name: Daisy Chain Fields (Olivia Rodrigo)
     location: Great Park Live, Irvine (OC — ~45 mi, worth the drive)
+    scope: local
     when: 2026-08-29
     status: sold_out   # presale sold out in 30 min (6/24); organizers confirmed no general sale
     tickets: https://www.daisychainfields.com/tickets
