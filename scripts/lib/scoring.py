@@ -106,6 +106,10 @@ def _scoring_cfg(profile: dict, taste: dict = None) -> dict:
         "far": tuple(pick("far_terms", DEFAULT_FAR_TERMS)),
         "rating_thresholds": [tuple(t) for t in pick("rating_thresholds", DEFAULT_RATING_THRESHOLDS)],
         "card_cap": pick("card_cap", 4),   # max points from the shared event card (0 disables)
+        # Hard vibe opt-outs (-6 each): vibe TAGS the person wants out of their feed entirely.
+        # Fires on the deterministic tags.vibe AND the enrichment card's asserted `vibes`, so
+        # implicitly-identified events (no keyword in the listing text) are caught too.
+        "penalty_vibes": tuple(str(v).lower() for v in pick("penalty_vibes", [])),
     }
 
 
@@ -294,6 +298,19 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         if term in hay:
             score -= 2
             reasons.append(f"-2 {term}")
+
+    # Hard vibe opt-outs (scoring.penalty_vibes, -6 each): matches the deterministic vibe tag
+    # OR the enrichment card's asserted vibes — the card is how an implicitly-identified event
+    # (e.g. a queer-oriented party whose listing text never says so) still gets caught.
+    if cfg["penalty_vibes"]:
+        ev_vibes = {str(v).lower() for v in ((ev.get("tags") or {}).get("vibe") or [])}
+        if card:
+            ev_vibes |= {str(v).lower() for v in (card.get("vibes") or [])}
+        for pv in cfg["penalty_vibes"]:
+            if pv in ev_vibes:
+                score -= 6
+                reasons.append(f"-6 vibe you've opted out of ({pv})")
+
     # Far-flung penalty — WAIVED for festival-scale events. A marquee festival in the OC/SD/
     # Ventura orbit (Coachella, CRSSD, Daisy Chain Fields) is a worth-the-trip radar item, not a
     # far-flung club night, so it's judged on taste rather than auto-killed by geography. An

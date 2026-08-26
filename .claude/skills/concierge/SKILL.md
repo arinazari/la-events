@@ -50,6 +50,14 @@ record it — but pick the **right** path:
    directly in the right field (`artists_tracked` / `venues_loved` / `venues_banned` /
    `comedians_loved` / `pinned_series` / `categories` / `boosts` / `penalties`), keep it a minimal
    structured change, and **show the one-line diff**. Never rewrite the file wholesale.
+   **Record the FULL breadth stated, and pick the layer that can actually enforce it** (the
+   2026-08 lesson): "queer-specific events aren't of interest" persisted as only "drag show /
+   cabaret" text terms — too narrow, and text terms can't catch an implicitly-identified event
+   (Bears in Space never says "queer" in its listing). A category/identity-level opt-out goes in
+   `scoring.penalty_vibes` (tag + enrichment-card layer, -6) PLUS a `penalties` prose line so the
+   editor/voice briefs carry it; keyword terms alone are only for phrasings that appear verbatim
+   in listings. A preference is NOT recorded until the file edit is committed — say so explicitly
+   in your reply ("written to taste.yaml") or the preference does not exist next run.
 3. **Location or ranking mechanics → `profile.yaml` (the engine knobs).** When the change is about
    *where he is* or *how the math weights things* rather than what he likes — "I moved to Glendale,"
    "staying in Highland Park this month" (→ `home:` neighborhood + cross-streets + **coords**, so the

@@ -14,7 +14,7 @@
 # last_discovery: updated whenever Discover mode runs
 # ---------------------------------------------------------------------------
 
-last_discovery: 2026-08-11
+last_discovery: 2026-08-25
 
 sources:
 
@@ -64,7 +64,9 @@ sources:
       - townhouse-venice-d8ve              # Del Monte Speakeasy / Townhouse (Venice)
       - the-virgil-39bl                    # The Virgil (East Hollywood)
       - 2220-arts--archives-bdyv           # 2220 Arts + Archives (Historic Filipinotown)
-      - permanent-records-roadhouse-olyg   # Permanent Records Roadhouse (Cypress Park)
+      - permanent-records-roadhouse-olyg   # Permanent Records Roadhouse — SLIVER ONLY since the venue
+                                           #   moved to Opendate (8/2026); own-page fetcher is primary.
+                                           #   Slug kept for dedupe + the DICE ticket links it still gets.
       - grand-star-jazz-club-6kx8          # Grand Star Jazz Club (Chinatown)
       - sid-the-cat-auditorium-2wr5m       # Sid The Cat Auditorium (South Pasadena) — indie dance/electropop (Discover 6/19; 18 ev/30d)
       - catch-one-e582                     # Catch One (Mid-City) — house/techno + queer nightlife (Discover 6/19; 7 ev/30d)
@@ -106,6 +108,27 @@ sources:
       real-venue listing elsewhere may not fuzzy-merge). These drops are limited-cap
       first-come — surface them EARLY when they appear.
 
+  - name: Permanent Records Roadhouse (own calendar)
+    category: live_music
+    method: scrape
+    url: http://roadhouse.permanentrecordsla.com/
+    priority: 1
+    status: active
+    notes: >
+      THE calendar of record for the Roadhouse (Cypress Park record store + venue; garage/
+      indie/punk bills, plus the shop's free oddities — Fred Armisen's Playlist Live!
+      in-stores, vinyl happy hours, comedy, trivia). Registered 2026-08-12 after the DICE
+      slug quietly shrank to a SLIVER: the venue moved ticketing to Opendate
+      (app.opendate.io; a few DICE/Venuepilot links remain), and DICE returned 4 events vs
+      ~51 on the page. Page is hand-authored static HTML (1996-style tables, no JSON-LD)
+      and HTTP-ONLY — the host doesn't answer https, so the WebFetch tool (which force-
+      upgrades to https) CANNOT read it; scripts/fetch_roadhouse.py (run by run_digest,
+      far-capable — listings run ~4 months out) parses the stable row pattern, takes the
+      year from the flyer image path, skips RESCHEDULED/CANCELLED + store-hours rows, and
+      ignores the hand-typed (sometimes wrong) weekday names. Overlap with the DICE slug
+      dedupes; the main permanentrecordsla.com store site is Cloudflare-walled and NOT
+      needed — the subdomain has everything.
+
   - name: Gmail "Events" label
     category: multi
     method: gmail
@@ -120,17 +143,21 @@ sources:
   - name: LAist — Best Things To Do
     category: editorial
     method: scrape
-    url: https://laist.com/news/la-history/best-things-to-do-los-angeles
+    url: https://laist.com/news/arts-and-entertainment/best-things-to-do
     priority: 1
     status: active
     notes: Weekly roundup; URL pattern varies — search site if stale.
+      URL corrected 2026-08-18 (old la-history path 404s; LAist moved the section).
 
   - name: Time Out Los Angeles
     category: editorial
     method: scrape
-    url: https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-this-weekend
+    url: https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events
     priority: 1
     status: active
+    notes: >
+      URL corrected 2026-08-18 (old "...this-weekend" path 404s / served a stale cache;
+      Time Out restructured its site).
 
   - name: We Like LA
     category: editorial
@@ -144,28 +171,39 @@ sources:
     method: scrape
     url: https://secretlosangeles.com/things-to-do/
     priority: 2
-    status: active
-    notes: Site, not the IG. IG account is manual-capture only.
+    status: flaky
+    notes: >
+      Site, not the IG. IG account is manual-capture only.
+      2026-08-22: WebFetch returned empty content on two attempts — first observed failure.
+      2026-08-23: WebFetch returned empty content again (repeat) — marked flaky.
 
   - name: LA Times — Things to Do
     category: editorial
     method: scrape
     url: https://www.latimes.com/entertainment-arts/things-to-do
     priority: 2
-    status: active
-    notes: Possible paywall friction; degrade gracefully.
+    status: flaky
+    notes: >
+      Possible paywall friction; degrade gracefully.
+      2026-08-23: WebFetch blocked/unable to fetch — first observed failure, not yet flaky
+      (watch for a repeat before escalating).
+      2026-08-25: WebFetch failed again (retried once, failed both times) — second
+      consecutive failure, marked flaky per routine policy.
 
   - name: Eater LA
     category: editorial
     method: webfetch
     url: https://la.eater.com/
     priority: 1
-    status: active
+    status: flaky
     notes: >
       THE source for food & drink pop-ups, restaurant openings, and brand activations (e.g. a
       Campari spritz block party). Read via WebFetch at digest time; extract the on-taste daytime/
       lifestyle happenings (markets, spritz parties, pop-ups, openings worth knowing). Signal +
       catalog when no structured source has it.
+      Marked flaky 2026-08-17 — 2 consecutive fetch failures (8/16: no fetchable content; 8/17:
+      bot-blocked, WebFetch couldn't reach la.eater.com at all after 2 tries). Re-probe periodically;
+      revert to active once it fetches cleanly again.
 
   - name: UncoverLA
     category: editorial
@@ -190,8 +228,11 @@ sources:
     method: scrape
     url: https://dirtyepic.com/
     priority: 2
-    status: active
-    notes: Underground techno editorial. Newsletter available → Gmail label.
+    status: flaky
+    notes: >
+      Underground techno editorial. Newsletter available → Gmail label.
+      Marked flaky 2026-08-18 — domain resolves to a GoDaddy parking page (site appears
+      expired/lapsed). Re-probe periodically; revert to active once it resolves for real.
 
   - name: Restless Nites
     category: electronic
@@ -223,6 +264,10 @@ sources:
     priority: 2
     status: active
     organizers:
+      - https://www.eventbrite.com/o/chai-rave-114748992331   # Chai Rave
+      - https://www.eventbrite.com/o/its-just-noize-44777855123   # it's just noize.
+      - https://www.eventbrite.com/o/fesser-and-friends-inc-121282329785   # Fesser and Friends Inc.
+      - https://www.eventbrite.com/o/club-decades-presents-33433911507   # Club Decades Presents
       - https://www.eventbrite.com/o/lut-20199799688   # LUT
       - https://www.eventbrite.com/o/habibi-nights-17947027904   # Habibi Nights
       - https://www.eventbrite.com/o/loverevenge-entertainement-33224429325   # LOVE&REVENGE ENTERTAINEMENT
@@ -802,9 +847,10 @@ sources:
     method: webfetch
     url: https://alvasshowroom.com/events/
     priority: 3
-    status: flaky
+    status: dead
     notes: 99-cap seated jazz/acoustic/world listening room. Plain HTML, no JSON-LD.
-      Blocking WebFetch with HTTP 403 (bot-blocked) as of 2026-07-21; 5+ days stale before that too.
+      Blocking WebFetch with HTTP 403 (bot-blocked) continuously since 2026-07-21
+      (still 403 as of 2026-08-15) — escalated flaky -> dead, ~1 month unreachable.
   - name: The Venice West
     category: live_music
     method: webfetch
@@ -827,7 +873,9 @@ sources:
     status: flaky
     notes: Free nightly local garage/punk/R&B + burlesque. WordPress + Events Manager; no JSON-LD. Close to Silver Lake.
       Marked flaky 2026-07-18 — the /events/ page has served a stale cached month (dates already
-      past by fetch time) two runs in a row (2026-07-17, 2026-07-18).
+      past by fetch time) two runs in a row (2026-07-17, 2026-07-18). Reconfirmed still stale
+      2026-08-22 (over a month later, same symptom — mixed past/recurring dates, no ticket links).
+      Escalate to dead if it hasn't cleared by ~2026-09-22.
   - name: Highland Park Bowl
     category: live_music
     method: webfetch

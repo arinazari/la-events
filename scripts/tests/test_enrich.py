@@ -226,6 +226,13 @@ def test_update_cache_validates_card_and_scene_facts_exposes_it():
     assert facts.get("card") == {"draw": 2}, "editor must see the card via scene_facts"
 
 
+def test_validate_card_keeps_vibes():
+    assert E.validate_card({"draw": 1, "vibes": ["Queer", " goth "]}) == \
+        {"draw": 1, "vibes": ["queer", "goth"]}
+    assert E.validate_card({"vibes": ["queer"]}) == {"vibes": ["queer"]}   # vibes-only card survives
+    assert E.validate_card({"vibes": [1, ""]}) is None                      # nothing usable
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):
