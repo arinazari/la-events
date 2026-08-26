@@ -1538,6 +1538,8 @@ class Component extends DCLogic {
       hood: r.neighborhood || r.hood || r.area || 'Los Angeles',
       cat, genre,
       genres: genreArr, vibes: axOf('vibe'), settings: axOf('setting'), regions: axOf('region'),
+      // region is a scalar axis in the tagger ('far', 'eastside', …) — axOf reads arrays only
+      region: (typeof tags.region === 'string' ? tags.region : (Array.isArray(tags.region) && tags.region[0]) || ''),
       lineup: Array.isArray(r.lineup) ? r.lineup : [],
       artistNotes: Array.isArray(enr.artist_notes) ? enr.artist_notes.filter(n => n && n.name) : [],
       pmin: pr.pmin, pmax: pr.pmax, priceDisplay: pr.display,
@@ -3614,6 +3616,7 @@ class Component extends DCLogic {
     "",
     "## August 2026 — marquees & tables",
     "",
+    "- **Festivals split near & far.** The Festivals table is now two: **Close to home** (Greater LA — block the date) and **Worth the trip** (the destination end — SF, San Diego, London — plan the trip). The watch-list's hand-tagged scope decides which side; catalog festivals split on their region tag (OC still counts as home turf). Dates read *9/26–27* style throughout.",
     "- **The front page reorganized around two marquees.** What's *featured* — the lead, the shortlist, and two card shelves: **Sets and shows** (DJ sets, club nights, live rooms, plus any big concert the editor rates must-see) and **Events** (comedy, art, and one-off happenings). Everything program-shaped moved out of the shelves into compact **tables**, each formatted to its kind: **Seasonal and repeating** (markets, fleas, standing series — with their cadence: *Every Sunday*), **Movies** (now playing by closing date, then openings — *the marquee →* still holds the full boards), **Theater** (runs + one-night stages), **Festivals** (the date-sorted season: catalog festivals merged with the hand-curated watch-list), and **FYI** (big or far shows worth knowing about that aren't your lanes — arena bookings, on-sales, radar finds). A movie, a season, or a festival is never a featured card anymore; it's listed where you expect it.",
     "- **Retired:** the *Now running*, *On the radar*, and *Around town* sections — their contents live in the new tables.",
     "",
@@ -4003,15 +4006,19 @@ class Component extends DCLogic {
       const tblEvents = id => this.resolveKeys((((tablesSrv||[]).find(t => t.id===id))||{}).keys)
         .filter(e => !this.isSeen(e) && (e.series && e.series.last ? e.series.last >= T : e.iso >= T));
       const FEST_TONE = { on_sale:'green', announced:'blue', lineup_pending:'amber', annual_watch:'gray' };
+      // Watch-list fixture rows carry a server-stamped scope (local|travel, lib/festivals);
+      // rows from feeds predating it default travel — the watch-list skews destination.
       const festFixture = (FP.festivals || []).map(fx => tone({ id:null, canStar:false, friendChips:[], sortDate: fx.first_date || '9998',
+        scope: fx.scope || 'travel',
         dateShort: fx.first_date ? (() => { const f = this.fmt(fx.first_date, ''); return f.wd + ' ' + f.md; })()
-                                 : String(fx.when||'').replace(/\.\./g,' – '), title:fx.name, venue:fx.location||'',
+                                 : (fx.when_pretty || String(fx.when||'').replace(/\.\./g,' – ')).replace(/\s*\(.*$/, ''), title:fx.name, venue:fx.location||'',
         tag:(fx.status ? String(fx.status).replace(/_/g,' ') : '').toUpperCase(), hasTag:!!fx.status,
         onOpen: fx.tickets ? (() => window.open(fx.tickets, '_blank', 'noopener')) : (() => {}) }, FEST_TONE[fx.status] || 'gray'));
       const TABLE_SUB = { seasonal:'markets, fleas & standing series', movies:'now playing & opening',
-                          theater:'runs & one-night stages', festivals:'date-sorted — the season ahead',
+                          theater:'runs & one-night stages', festivals:'Greater LA — block the date',
+                          'festivals-trip':'worth traveling for — plan the trip',
                           fyi:'big & far — worth knowing about' };
-      const TABLE_CAP = { seasonal:10, movies:10, theater:10, festivals:12, fyi:12 };
+      const TABLE_CAP = { seasonal:10, movies:10, theater:10, festivals:12, 'festivals-trip':12, fyi:12 };
       const fpTables = [];
       const pushTable = (id, label, rows, link) => {
         if (!rows.length) return;
@@ -4029,9 +4036,20 @@ class Component extends DCLogic {
           else if (t.id === 'movies') pushTable(t.id, t.label, tblEvents(t.id).map(progRow),
             ['the marquee', this.openMovies, 'Every film program — boards, openings, one-nights']);
           else if (t.id === 'theater') pushTable(t.id, t.label, tblEvents(t.id).map(progRow), null);
-          else if (t.id === 'festivals') pushTable(t.id, t.label,
-            tblEvents(t.id).map(progRow).concat(festFixture).sort((a,b) => a.sortDate < b.sortDate ? -1 : 1),
-            ['the festival watch-list', this.openFestivals, 'The standing festival watch-list']);
+          else if (t.id === 'festivals') {
+            // Split local vs travel (Ari 2026-08-12): destination festivals are worth the
+            // trip but they're a different decision — separate table, same section. Fixture
+            // rows split on their server-stamped scope; catalog rows on the region tag —
+            // 'far' means travel unless the venue text reads OC (Irvine/Dana Point are
+            // worth-the-drive home turf, same line the yaml heuristic draws).
+            const OC_RE = /irvine|anaheim|santa ana|costa mesa|dana point|huntington beach|newport|fullerton|laguna|san juan capistrano|garden grove/i;
+            const catScope = e => (e.region === 'far' && !OC_RE.test((e.venue||'')+' '+(e.hood||''))) ? 'travel' : 'local';
+            const festAll = tblEvents(t.id).map(e => Object.assign(progRow(e), { scope: catScope(e) }))
+              .concat(festFixture).sort((a,b) => a.sortDate < b.sortDate ? -1 : 1);
+            const wl = ['the festival watch-list', this.openFestivals, 'The standing festival watch-list'];
+            pushTable(t.id, 'Festivals: close to home', festAll.filter(r => r.scope !== 'travel'), wl);
+            pushTable('festivals-trip', 'Festivals: worth the trip', festAll.filter(r => r.scope === 'travel'), wl);
+          }
           else if (t.id === 'fyi') pushTable(t.id, t.label, tblEvents(t.id).map(e =>
             tRow(e, onSaleE(e) ? 'on sale' : (isNewE(e) ? 'just announced' : ''), onSaleE(e) ? 'green' : 'amber')), null);
         }
@@ -4128,7 +4146,7 @@ class Component extends DCLogic {
                        annual_watch:{label:'ANNUAL WATCH', color:'#76746b', bg:'rgba(118,116,107,0.12)'} };
       const mk = f => { const st = STATUS[f.status]
           || (f.status ? { label:String(f.status).replace(/_/g,' ').toUpperCase(), color:'#76746b', bg:'rgba(118,116,107,0.12)' } : null);
-        return { name:f.name, when:String(f.when||'').replace(/\.\./g,' – '), location:f.location||'',
+        return { name:f.name, when:f.when_pretty || String(f.when||'').replace(/\.\./g,' – '), location:f.location||'',
           why:f.why||'', hasWhy:!!f.why, tickets:f.tickets||'', hasTickets:!!f.tickets,
           hasStatus:!!st, stLabel:st?st.label:'', stColor:st?st.color:'', stBg:st?st.bg:'',
           stop:(ev)=>ev.stopPropagation() }; };
