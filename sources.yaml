@@ -64,7 +64,9 @@ sources:
       - townhouse-venice-d8ve              # Del Monte Speakeasy / Townhouse (Venice)
       - the-virgil-39bl                    # The Virgil (East Hollywood)
       - 2220-arts--archives-bdyv           # 2220 Arts + Archives (Historic Filipinotown)
-      - permanent-records-roadhouse-olyg   # Permanent Records Roadhouse (Cypress Park)
+      - permanent-records-roadhouse-olyg   # Permanent Records Roadhouse — SLIVER ONLY since the venue
+                                           #   moved to Opendate (8/2026); own-page fetcher is primary.
+                                           #   Slug kept for dedupe + the DICE ticket links it still gets.
       - grand-star-jazz-club-6kx8          # Grand Star Jazz Club (Chinatown)
       - sid-the-cat-auditorium-2wr5m       # Sid The Cat Auditorium (South Pasadena) — indie dance/electropop (Discover 6/19; 18 ev/30d)
       - catch-one-e582                     # Catch One (Mid-City) — house/techno + queer nightlife (Discover 6/19; 7 ev/30d)
@@ -105,6 +107,27 @@ sources:
       Venue usually TBA-until-RSVP -> rows carry "TBA (RSVP)" (Posh-style tradeoff: a later
       real-venue listing elsewhere may not fuzzy-merge). These drops are limited-cap
       first-come — surface them EARLY when they appear.
+
+  - name: Permanent Records Roadhouse (own calendar)
+    category: live_music
+    method: scrape
+    url: http://roadhouse.permanentrecordsla.com/
+    priority: 1
+    status: active
+    notes: >
+      THE calendar of record for the Roadhouse (Cypress Park record store + venue; garage/
+      indie/punk bills, plus the shop's free oddities — Fred Armisen's Playlist Live!
+      in-stores, vinyl happy hours, comedy, trivia). Registered 2026-08-12 after the DICE
+      slug quietly shrank to a SLIVER: the venue moved ticketing to Opendate
+      (app.opendate.io; a few DICE/Venuepilot links remain), and DICE returned 4 events vs
+      ~51 on the page. Page is hand-authored static HTML (1996-style tables, no JSON-LD)
+      and HTTP-ONLY — the host doesn't answer https, so the WebFetch tool (which force-
+      upgrades to https) CANNOT read it; scripts/fetch_roadhouse.py (run by run_digest,
+      far-capable — listings run ~4 months out) parses the stable row pattern, takes the
+      year from the flyer image path, skips RESCHEDULED/CANCELLED + store-hours rows, and
+      ignores the hand-typed (sometimes wrong) weekday names. Overlap with the DICE slug
+      dedupes; the main permanentrecordsla.com store site is Cloudflare-walled and NOT
+      needed — the subdomain has everything.
 
   - name: Gmail "Events" label
     category: multi
