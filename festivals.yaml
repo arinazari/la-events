@@ -95,7 +95,18 @@ festivals:
       lottery (125 pairs) or resale.
     refresh: watch resale prices as 8/29 nears; note the volunteer-drive lottery for Lori's profile
 
-big_concerts:
+  - name: Sun Soaked 2026 (Kaskade)
+    location: Huntington State Beach, Huntington Beach (OC)
+    scope: local
+    when: 2026-09-12
+    status: on_sale
+    tickets: https://sunsoaked.insomniac.com/
+    why: >
+      Kaskade's one-day beach party, back via Insomniac — Bunt. b2b Kaskade, Cassian, D.O.D,
+      Matroda; tech/progressive house on the sand, noon–9pm, 18+. Big-room end of the house
+      lane, but sand-underfoot day-party is squarely the setting. GA from ~$110. Sold on a
+      white-label Front Gate storefront the TM API doesn't carry — 19hz is the catalog source.
+    refresh: price tiers climbing / sellout as 9/12 nears; set times
   # seed sparingly with travel-worthy / must-know shows; the digest also pulls far-dated
   # Goldenvoice/TM entries + does a live web check for on-taste tours hitting LA.
   - name: (auto-populated each run)

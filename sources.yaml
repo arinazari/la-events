@@ -86,6 +86,8 @@ sources:
       ticket URL). MANDATORY: a real Chrome User-Agent — DICE 403s the default urllib agent.
       scripts/fetch_dice.py (verified 2026-06-16: 112 events across 9 venues, incl. Zebulon's
       "Mama's Gun" 6/17). Some shows also hit RA/TM — dedupe expected.
+      2026-08-27: run_digest now threads --days (+far) — the script's internal 21-day default
+      was clipping far-listed shows; the venue pages embed the full schedule either way.
 
   - name: Beatport (Beatport Tickets / Beatport Live)
     category: electronic

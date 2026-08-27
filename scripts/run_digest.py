@@ -75,7 +75,11 @@ FETCHERS = [
     # ticketed events — Rose Bowl Flea sells months out — could never enter until 2 weeks before).
     {"name": "Eventbrite", "source": "eventbrite", "script": "fetch_eventbrite.py",
      "args": ["--days", "{days}"]},
-    {"name": "DICE", "source": "dice", "script": "fetch_dice.py", "args": []},
+    # Threaded --days + far (same internal-default bug as 19hz above): the script's own
+    # 21-day default clipped venue schedules, but each dice.fm/venue page already embeds its
+    # full months-out calendar — the window is a free post-filter, no extra requests.
+    {"name": "DICE", "source": "dice", "script": "fetch_dice.py",
+     "args": ["--days", "{days}"], "far": True},
     # Permanent Records Roadhouse's own hand-authored calendar (HTTP-only — WebFetch can't
     # read it). The venue moved ticketing DICE -> Opendate mid-2026, so the DICE slug now
     # sees a sliver; this page is the calendar of record (~4 months out -> far: True) and
