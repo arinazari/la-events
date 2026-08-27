@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T12:52:35+00:00",
+  "generated_at": "2026-08-27T22:54:22+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "e90826c853ba",
@@ -1198,6 +1198,17 @@
         "first_date": "2026-08-29"
       },
       {
+        "name": "Sun Soaked 2026 (Kaskade)",
+        "location": "Huntington State Beach, Huntington Beach (OC)",
+        "when": "2026-09-12",
+        "when_pretty": "9/12",
+        "status": "on_sale",
+        "scope": "local",
+        "tickets": "https://sunsoaked.insomniac.com/",
+        "why": "Kaskade's one-day beach party, back via Insomniac \u2014 Bunt. b2b Kaskade, Cassian, D.O.D, Matroda; tech/progressive house on the sand, noon\u20139pm, 18+. Big-room end of the house lane, but sand-underfoot day-party is squarely the setting. GA from ~$110. Sold on a white-label Front Gate storefront the TM API doesn't carry \u2014 19hz is the catalog source.",
+        "first_date": "2026-09-12"
+      },
+      {
         "name": "CRSSD Festival \u2014 Fall 2026",
         "location": "Waterfront Park, San Diego",
         "when": "2026-09-26..27",
@@ -1229,6 +1240,17 @@
         "tickets": "https://www.coachella.com/",
         "why": "Advance GA already sold out (~$549\u2013599); lineup typically drops Sept 2026\u2013Jan 2027. Worth tracking the lineup announce to decide if a resale is worth it.",
         "first_date": "2027-04-09"
+      },
+      {
+        "name": "(auto-populated each run)",
+        "location": "",
+        "when": "",
+        "when_pretty": "",
+        "status": null,
+        "scope": "travel",
+        "tickets": null,
+        "why": "",
+        "first_date": null
       },
       {
         "name": "GALA Festival (London) \u2014 2027 edition",
@@ -308148,14 +308170,14 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-08-16",
-            "summary": "digest: 2026-08-16 (3600 events, 44 new, 132 updated; 1 profile refreshed)"
+            "date": "2026-06-19",
+            "summary": "dashboard: per-person taste profiles (profile switcher)"
           }
         ],
-        "diff": "",
-        "diff_kind": "none",
+        "diff": "diff --git a/profiles/demo/taste.yaml b/profiles/demo/taste.yaml\nnew file mode 100644\nindex 0000000..0f1306c\n--- /dev/null\n+++ b/profiles/demo/taste.yaml\n@@ -0,0 +1,62 @@\n+# Taste profile \u2014 EXAMPLE friend profile for the dashboard profile-switcher (username: demo).\n+# Deliberately different from the root taste.yaml so switching visibly re-ranks: this person is\n+# an indie/rock + jazz + comedy head who's lukewarm on big-room electronic. Copy this file to\n+# profiles/<name>/taste.yaml, edit it, add an entry to profiles.yaml, then run build_profiles.py.\n+\n+categories:\n+  high:    # +3\n+    - indie / rock / post-punk / garage / dream-pop / experimental band shows\n+      (Troubadour, Echo, Zebulon, Lodge Room, Teragram, Moroccan)\n+    - jazz, soul, funk, and live-band nights (listening rooms, small clubs)\n+    - rep & arthouse cinema (Vidiots, Vista, New Beverly, Cinematheque, Brain Dead)\n+    - singer-songwriter / folk / Americana in intimate rooms\n+  medium:  # +2\n+    - standup comedy at clubs and theaters (a genuine draw here, not the exception)\n+    - theater (black-box + Pantages-scale)\n+    - daytime & lifestyle \u2014 flea / vintage / design markets, farmers markets, food pop-ups\n+    - melodic / organic / disco-leaning house in a chill setting (not the main thing)\n+  low:     # +1, only if exceptional\n+    - big-room / festival EDM and warehouse techno \u2014 occasional, only marquee names\n+\n+boosts:    # +1 each\n+  - intimate / seated / listening-room setting\n+  - walkable or short drive from Santa Monica / the Westside\n+  - Friday or Saturday night\n+  - independent editorial mention (LAist, Time Out, DiscoverLA)\n+  - vinyl / all-analog presentation\n+\n+penalties: # -2 each\n+  - big-room / festival-scale EDM as the main draw\n+  - warehouse / afterhours raves\n+  - bottle-service / table-service clubs\n+  - hardstyle / dubstep / bass-music mega-shows\n+  - far-flung (OC / SD / Temecula / Ventura) unless genuinely worth the trip\n+\n+# Match in a lineup => +2 and a \"tracked\" badge.\n+artists_tracked:\n+  - Phoebe Bridgers\n+  - Big Thief\n+  - Vampire Weekend\n+  - Khruangbin\n+  - Mac DeMarco\n+  - Parquet Courts\n+  - King Krule\n+  - black midi\n+  - BadBadNotGood\n+  - Kamasi Washington\n+  - Robert Glasper\n+  - Thundercat\n+  - Unknown Mortal Orchestra\n+  - Beach House\n+  - Father John Misty\n+  - Andy Shauf\n+  - Japanese Breakfast\n+  - Alvvays\n+  - The War on Drugs\n+  - Bon Iver\n+\n+comedians_loved: [John Mulaney, Nate Bargatze, Tig Notaro, Maria Bamford, Hannibal Buress]\n+venues_loved: [Troubadour, Lodge Room, Zebulon, The Greek, Vista, New Beverly, McCabe's, Largo]\n+\n+feedback:\n+  - \"Example profile. Indie/rock + jazz + comedy core; lukewarm on big-room electronic and raves.\"",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-16"
+        "enriched_at": "2026-07-15"
       },
       "profile": {
         "file": "profiles/demo/profile.yaml",

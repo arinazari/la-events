@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T12:52:48+00:00",
+  "generated_at": "2026-08-27T22:54:34+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "e90826c853ba",
@@ -1198,6 +1198,17 @@
         "first_date": "2026-08-29"
       },
       {
+        "name": "Sun Soaked 2026 (Kaskade)",
+        "location": "Huntington State Beach, Huntington Beach (OC)",
+        "when": "2026-09-12",
+        "when_pretty": "9/12",
+        "status": "on_sale",
+        "scope": "local",
+        "tickets": "https://sunsoaked.insomniac.com/",
+        "why": "Kaskade's one-day beach party, back via Insomniac \u2014 Bunt. b2b Kaskade, Cassian, D.O.D, Matroda; tech/progressive house on the sand, noon\u20139pm, 18+. Big-room end of the house lane, but sand-underfoot day-party is squarely the setting. GA from ~$110. Sold on a white-label Front Gate storefront the TM API doesn't carry \u2014 19hz is the catalog source.",
+        "first_date": "2026-09-12"
+      },
+      {
         "name": "CRSSD Festival \u2014 Fall 2026",
         "location": "Waterfront Park, San Diego",
         "when": "2026-09-26..27",
@@ -1229,6 +1240,17 @@
         "tickets": "https://www.coachella.com/",
         "why": "Advance GA already sold out (~$549\u2013599); lineup typically drops Sept 2026\u2013Jan 2027. Worth tracking the lineup announce to decide if a resale is worth it.",
         "first_date": "2027-04-09"
+      },
+      {
+        "name": "(auto-populated each run)",
+        "location": "",
+        "when": "",
+        "when_pretty": "",
+        "status": null,
+        "scope": "travel",
+        "tickets": null,
+        "why": "",
+        "first_date": null
       },
       {
         "name": "GALA Festival (London) \u2014 2027 edition",
@@ -308631,28 +308653,40 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-08-16",
-            "summary": "digest: 2026-08-16 (3600 events, 44 new, 132 updated; 1 profile refreshed)"
+            "date": "2026-07-06",
+            "summary": "taste(Lori): Added classic rock, goth, alternative, indie, grunge, and punk as high-i"
+          },
+          {
+            "date": "2026-06-26",
+            "summary": "taste(Lori): Added Kacey Musgraves, Grateful Dead, David Bowie, and Lauryn Hill to tr"
+          },
+          {
+            "date": "2026-06-24",
+            "summary": "Surface big destination festivals + 6-month plan-ahead horizon (Phase 1) (#50)"
+          },
+          {
+            "date": "2026-06-19",
+            "summary": "Add tailored dashboard profile for Lori (band-forward, Glendale) (#12)"
           }
         ],
-        "diff": "",
-        "diff_kind": "none",
+        "diff": "diff --git a/profiles/lori/taste.yaml b/profiles/lori/taste.yaml\nindex e9886f6..2086d01 100644\n--- a/profiles/lori/taste.yaml\n+++ b/profiles/lori/taste.yaml\n@@ -20,6 +20,12 @@ categories:\n       (ETA, Gold Line)\n     - craft / songwriter pop with a point of view (Olivia Rodrigo, Mitski,\n       Caroline Polachek tier)\n+    - classic rock\n+    - goth\n+    - alternative\n+    - indie\n+    - grunge\n+    - punk\n   medium:\n     # +2\n     - rep & arthouse cinema (Vidiots, Vista, New Beverly, Cinematheque, Aero,\n@@ -131,3 +137,5 @@ feedback:\n     penalize only bottle-service clubs / cover bands / junk.\"\n   - \"2026-06-26: Added Kacey Musgraves, Grateful Dead, David Bowie, and Lauryn\n     Hill to tracked artists. (self-edit via concierge)\"\n+  - \"2026-07-06: Added classic rock, goth, alternative, indie, grunge, and punk\n+    as high-interest genres. (self-edit via concierge)\"",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-16"
+        "enriched_at": "2026-08-12"
       },
       "profile": {
         "file": "profiles/lori/profile.yaml",
         "exists": true,
         "history": [
           {
-            "date": "2026-08-16",
-            "summary": "digest: 2026-08-16 (3600 events, 44 new, 132 updated; 1 profile refreshed)"
+            "date": "2026-06-19",
+            "summary": "Add tailored dashboard profile for Lori (band-forward, Glendale) (#12)"
           }
         ],
-        "diff": "",
-        "diff_kind": "none",
+        "diff": "diff --git a/profiles/lori/profile.yaml b/profiles/lori/profile.yaml\nnew file mode 100644\nindex 0000000..df2cf8e\n--- /dev/null\n+++ b/profiles/lori/profile.yaml\n@@ -0,0 +1,168 @@\n+# profile.yaml \u2014 MECHANISM config for Lori's dashboard feed (username: lori).\n+# Mirrors the root profile.yaml schema; only the lanes that actually differ from Ari's are\n+# changed. Lori is band/live-music-forward (not an electronic head) with a knowledgeable,\n+# diverse, ethnomusicologist's ear, and she's based in Glendale (East LA) \u2014 so the geo,\n+# category weights, and penalties are retuned for her. taste.yaml = CONTENT; this = MECHANISM.\n+\n+city: Los Angeles\n+timezone: America/Los_Angeles\n+\n+# Home base \u2014 Glendale (drives the \"close to home\" boost + night-planner travel times).\n+home:\n+  neighborhood: Glendale\n+  cross_streets: Brand & Broadway\n+  coords: [34.1469, -118.2554]   # central Glendale; used by scripts/lib/geo.py\n+\n+sources:\n+  ticketmaster_dma_id: \"324\"   # LA DMA\n+  ra_area_id: 23               # RA's LA area number\n+\n+scoring:\n+  # Band/live-music-forward. Live music is the top lane; electronic is welcome but secondary\n+  # (she's \"more into bands than electronic\", not anti-electronic). Pop is a real lane\n+  # (Olivia Rodrigo); art bumped for the ethnomusicologist's cultural appetite.\n+  category_weights:\n+    music: 3          # live music (catalog's term) \u2014 her spine\n+    live_music: 3\n+    pop: 2            # craft pop (Olivia Rodrigo tier)\n+    film: 2           # rep & arthouse cinema\n+    theater: 2\n+    beer_food: 2\n+    art: 2            # cultural / heritage / museum programming\n+    electronic: 2     # secondary, not unwelcome \u2014 a good DJ/live-electronic act still counts\n+    party: 1          # club / warehouse / afterhours \u2014 not her scene\n+    comedy: 1\n+    general: 1\n+\n+  rating_thresholds:\n+    - [8, 5]\n+    - [6, 4]\n+    - [4, 3]\n+    - [2, 2]\n+\n+  # Walkable / short drive from Glendale (+1). Glendale-centric Eastside / NELA / valley radius.\n+  near_home_neighborhoods:\n+    - glendale\n+    - atwater village\n+    - atwater\n+    - los feliz\n+    - silver lake\n+    - silverlake\n+    - echo park\n+    - eagle rock\n+    - highland park\n+    - glassell park\n+    - mount washington\n+    - cypress park\n+    - lincoln heights\n+    - east hollywood\n+    - hollywood\n+    - burbank\n+    - toluca lake\n+    - north hollywood\n+    - noho arts district\n+    - pasadena\n+    - south pasadena\n+    - downtown\n+    - dtla\n+    - chinatown\n+\n+  # +1: setting boost retuned for a band-head \u2014 rewards intimate / analog / outdoor rooms,\n+  # NOT afterhours DJ parties. (Dropped \"groove\"/\"disco\"/\"all night\" etc., which were inflating\n+  # electronic afters \u2014 \"groove\" even substring-matched \"Groovers Inn\".)\n+  groove_terms:\n+    - vinyl\n+    - all-analog\n+    - all analog\n+    - listening\n+    - record store\n+    - in-store\n+    - rooftop\n+    - sunset\n+    - golden hour\n+    - open-air\n+    - open air\n+    - outdoor\n+    - garden\n+    - patio\n+\n+  # European house-label boost is electronic-scene specific and largely irrelevant to her;\n+  # kept inert (a token that won't match) so the engine doesn't fall back to Ari's label list.\n+  eu_terms:\n+    - __no_eu_boost__\n+\n+  # -2 each. Pared down from Ari's list: NO hip-hop / dubstep / hardstyle / EDM-genre penalties\n+  # (she's a diverse, knowledgeable music head \u2014 genre breadth is the point). Kept: the genuinely\n+  # off-taste stuff (bottle-service clubs, generic no-billing Top-40 nights, tribute/cover/decade\n+  # nostalgia) and the non-music junk.\n+  penalty_terms:\n+    - bottle service\n+    - bottle-service\n+    - vip table\n+    - table service\n+    - top 40\n+    - top-40\n+    - open format\n+    - open-format\n+    - tribute\n+    - cover band\n+    - watch party\n+    - world cup\n+    - fifa\n+    - sports bar\n+    - trivia\n+    - bingo\n+    - karaoke\n+    - networking\n+    - webinar\n+    - virtual\n+    - zoom\n+\n+  # -2: far-flung from Glendale (not worth the trip by default).\n+  far_terms:\n+    - anaheim\n+    - santa ana\n+    - irvine\n+    - san diego\n+    - temecula\n+    - ventura\n+    - riverside\n+    - long beach\n+    - costa mesa\n+    - huntington beach\n+\n+  # Spotify + feedback music layer (Phase C) \u2014 same mechanics as root; inert until Lori has a\n+  # Spotify artifact / feedback log of her own. Enriches taste.yaml, never overwrites it.\n+  spotify:\n+    tier_points:\n+      core: 3\n+      strong: 2\n+      light: 1\n+      hidden: -3\n+    artist_cap: 5\n+    genre_points: 1\n+    genre_threshold: 0.5\n+    genre_cap: 1\n+    min_name_len: 3\n+    ambiguous_names: [train, future, juice, jungle, lights, justice, work, sanctuary, paradise,\n+                      chance, hold, alive]\n+\n+  feedback:\n+    weights:\n+      loved: 2.0\n+      went: 1.5\n+      clicked_ticket: 0.5\n+      added_calendar: 0.5\n+      skipped: -0.5\n+      hide: -10.0\n+\n+# Travel / geography for the night-planner (scripts/lib/geo.py) \u2014 same tunables as root.\n+geo:\n+  travel:\n+    walk_max_miles: 0.8\n+    walk_min_per_mile: 20.0\n+    drive_floor_min: 8\n+    park_buffer_min: 6\n+    short_min_per_mile: 4.0\n+    long_min_per_mile: 2.4\n+    short_threshold_miles: 4",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-16"
+        "enriched_at": "2026-08-12"
       }
     }
   }
