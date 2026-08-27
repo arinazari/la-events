@@ -1,0 +1,404 @@
+{
+  "verdicts": {
+    "114666199e4b": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Underground Resistance headlining a free Lincoln Heights bar is the real deal — Mad Mike Banks' Detroit techno institution on a bill with an inducted UR member (Esteban Adame) and a UR alum (Nomadico) at a room that holds maybe 80 people.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 10,
+      "model": "claude-sonnet-5"
+    },
+    "559223a61f8b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Fun 25th-anniversary crowd screening of a genre classic, but it's a nostalgia play, not a discovery.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "10891892f1c4": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "No lineup, no scene signal, generic bar booking — nothing distinguishes it from the dozens of other Thursday sets.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "0df5e7114816": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Legit underground tech-house/minimal night with real scene pedigree, just not a name that pulls a crowd on its own.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "a0fb16d30ebf": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Free restaurant house night way out in Rowland Heights with zero lineup detail — filler.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "fe9640b84329": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Own-label album-release show gives it a reason to exist beyond another Thursday DJ set.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "214c892fef51": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Wong Kar-wai's The Grandmaster on 35mm at Vidiots is a genuinely great print of a genuinely great film — this is what rep cinema is for.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "fd22da405e7b": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Same thin-info problem as the other Redwood booking tonight — no lineup, no scene detail to hang a recommendation on.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "29bed431926f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Free art-party framing but nothing on lineup or venue character to distinguish it from filler.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "752bf44f1fdc": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Solid all-night house/techno lineup at Better Tomorrow, no single name that jumps out but real breadth across the bill.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "43a40c020d08": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Free NIGHTSHIFT afters right in DTLA is a dependable late-night option, no surprises but reliable.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "a6eadb3df60b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "14 volumes in, this bass/dnb night clearly has staying power even without a marquee name tonight.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "d6615ea21656": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Free-before-1am afters at The Lexington, first of a two-night run — go this one if you're only doing one.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "acf31cc7994d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Listening-bar electronic set at Bar Franca, dependable neighborhood spot but no standout detail tonight.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "82ff764ee2a7": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free-before-11 tech-house night at Sound, functional Hollywood option without a distinguishing booking.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "a584c63135fa": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Monthly free dance party, a dependable format but nothing marquee about tonight's lineup.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "0bdd69d0d981": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Papa Lu has real festival pedigree (Kazbah, EDC/Escape-tier bookings) — a rooftop sunset set from him is a cut above the average DTLA Thursday.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 5,
+      "model": "claude-sonnet-5"
+    },
+    "ba360849b994": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Standard drum-and-bass afterhours at Jungle, no lineup depth beyond the headline name.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 4,
+      "model": "claude-sonnet-5"
+    },
+    "e6af407b2e3a": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Wax and DJ Hoppa carry real underground hip-hop credentials — a step up from most of tonight's unnamed DJ sets, though the actual draw here is hard to size up.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "e016fc146b27": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Danielle Nicole is a Grammy-nominated bassist with a real touring pedigree (Trampled Under Foot) — the score flattened this into generic medium-interest music when it's a legit blues booking.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "8c39b4793d4d": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Video-game symphony shows fill amphitheaters for a reason — Undertale has a genuinely devoted fanbase; this is night one of two at the Greek, go this one over the repeat.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "2c44b9e00810": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Local rock bill at Moroccan Lounge, no name recognition to lean on either way.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "92a30d6649e3": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Third Eye Blind is a legitimate multi-platinum headliner — real draw even if the casino venue out in Highland is a haul.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "740eac4ad088": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Crankdat is a genuine name in the bass scene playing a real production at Shrine Expo Hall — the score's flat medium-interest tag undersells it.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "bc8b4fb098cd": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Niche French-chanson set at a respected jazz room, charming but low-key with no name recognition.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "0b7edb0dcc83": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Generic benefit jam session with no named lineup to evaluate — could be great in person, nothing on paper to sell it.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "79e65a73dfe4": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Bob Schneider has a genuine cult songwriter following — a real headline booking the score flattened into medium-interest noise.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "85333e8f9d74": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Sweet Pill headlining the El Rey is a real room for a band on the way up — better than the score's flat music tag suggests.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "19b3a844b8a8": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Pop show at the Roxy, no strong signal on the headliner's draw either way.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "11457438b017": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Day one of a local underground-rap fest at Harvard & Stone — unnamed-to-us lineup, can't gauge the draw.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "7f8137108982": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Molly Santana plus North West at a ~2,300-cap room is a real curiosity booking — genuine buzz, but the artistic substance is hard to vouch for.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "9f0473f1f83c": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Pitchblack Playback plays J Dilla's The Shining front-to-back in total darkness — a canonical hip-hop production record, and this format is the best way to actually hear it.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "96a8e45435e3": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "XXL Freshman Class is a real industry showcase with a track record of breaking names — the score's flat music tag doesn't capture how notable this booking is.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "a5b4234d9e15": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free weekly jazz residency at the Dresden — charming room, but the same booking every Thursday.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "6a8b4450651c": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Syndee Winters has real pedigree (Hamilton tour, Beyoncé backing vocals) doing a Lena Horne tribute at Sam First — legit vocal talent in a serious listening room.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "fc62991ad103": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Com Truise is a legit Ghostly International signee with a real following — a warehouse show from him is a genuine booking, not filler.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "ee6b293d11e9": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Indie two-hander comedy show, no name recognition to lean on.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "f7560c0c0251": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Record-release show for an unfamiliar artist at a trendy room — could be good, nothing to confirm it.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    },
+    "cbe757fe98c4": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Jazz/blues bill at The Mint, a genuinely good small room, but an unfamiliar lineup.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 2,
+      "model": "claude-sonnet-5"
+    },
+    "9ded0b6200b4": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "DITZ have real UK post-punk buzz and Zebulon is exactly the kind of room for it — a sharper booking than the score's flat tag suggests.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:57:28",
+      "input_version": 2,
+      "score_at_judge": 3,
+      "model": "claude-sonnet-5"
+    }
+  }
+}
