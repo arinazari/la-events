@@ -4,7 +4,7 @@
 # climbing, low stock, selling out, sold out, or a lineup just dropped). Items marked
 # status: dormant / annual_watch stay here and do NOT go in the digest until they're timely.
 # Keep it taste-aligned (house/techno/European/groove + a few must-knows). Refresh status with
-# a quick live web lookup per run. Last refreshed: 2026-06-16
+# a quick live web lookup per run. Last refreshed: 2026-08-27
 #
 # Fields:
 #   name, location, when (dates or typical window), status (announced|on_sale|lineup_pending|
@@ -22,17 +22,6 @@
 # Last refreshed: 2026-06-16
 
 festivals:
-  - name: Outside Lands 2026
-    location: Golden Gate Park, San Francisco
-    scope: travel
-    when: 2026-08-07..09
-    status: past
-    tickets: https://www.sfoutsidelands.com/
-    why: >
-      Rüfüs Du Sol + The xx headline the on-taste end; Charli xcx, The Strokes, Turnstile,
-      Empire of the Sun broaden it. 3-day GA from ~$569.
-    refresh: happened 8/7-8/9/2026 — drop from radar, revisit for 2027
-
   - name: Portola 2026
     location: Pier 80, San Francisco
     scope: travel
