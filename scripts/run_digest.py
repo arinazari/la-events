@@ -52,7 +52,14 @@ FETCHERS = [
     {"name": "Ticketmaster", "source": "ticketmaster", "script": "fetch_ticketmaster.py",
      "args": ["--days", "{days}"], "needs": ["TM_API_KEY"], "far": True},
     {"name": "Resident Advisor", "source": "ra", "script": "fetch_ra.py", "args": ["--days", "{days}"]},
-    {"name": "19hz", "source": "19hz", "script": "fetch_19hz.py", "args": []},
+    # far: True + threaded --days (mirrors Goldenvoice/Eventbrite — same internal-default bug):
+    # left with no args, the script clipped to its own 14-day default, so festivals 19hz lists
+    # weeks out could never enter until 2 weeks before (caught 2026-08-27: Sun Soaked 9/12 at
+    # Huntington State Beach — Insomniac/Front Gate inventory the TM Discovery API does NOT
+    # carry, so 19hz is its only structured source). The fetch is ONE page regardless of
+    # horizon, so the wide window costs nothing extra.
+    {"name": "19hz", "source": "19hz", "script": "fetch_19hz.py",
+     "args": ["--days", "{days}"], "far": True},
     # far: True + threaded --days (mirrors Ticketmaster) — GV carries festivals/big tours that sell
     # months out (e.g. the Ocean Way Festival ~2mo ahead); left on the fetcher's internal 14-day
     # default it could never reach the catalog/radar until 2 weeks before, same bug Eventbrite hit.

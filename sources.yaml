@@ -28,6 +28,10 @@ sources:
     notes: >
       Free key, 5000 calls/day. dmaId=324 for LA. Covers TM, TicketWeb, Universe,
       FrontGate — incl. Pantages (Broadway in Hollywood). Use scripts/fetch_ticketmaster.py.
+      CAVEAT (2026-08-27): FrontGate coverage is PARTIAL — Insomniac's white-label FGT
+      storefronts don't propagate to Discovery (Sun Soaked 9/12 @ Huntington State Beach:
+      0 results nationwide by keyword while the venue itself resolves in /venues). For those,
+      19hz is the structured catcher.
 
   - name: Resident Advisor (LA)
     category: electronic
@@ -50,6 +54,9 @@ sources:
       no JSON-LD. scripts/fetch_19hz.py. Verified 2026-06-16: ~200 events/2wk, ~half flagged
       afterhours, with price tiers (incl. early-bird) and organizer/promoter names — the
       organizer column is a goldmine for Discover mode. Best single electronic source.
+      2026-08-27: run_digest now threads --days (+far) — it was silently clipped to the
+      script's internal 14-day default, hiding far-listed festivals (Sun Soaked 9/12,
+      Insomniac/Front Gate, absent from TM Discovery). One-page fetch either way.
 
   - name: DICE (LA venues)
     category: live_music
