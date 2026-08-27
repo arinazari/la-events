@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/26/2026 deterministically (no API). 275 candidates. Signals: big-venue 246, festival 21, editorial 8, tracked 4._
+_Generated 8/27/2026 deterministically (no API). 269 candidates. Signals: big-venue 242, festival 19, editorial 8, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -96,12 +96,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 11/14 | 3 | MOVEMENTS - HAPPIER NOW USA TOUR | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/movements-happier-now-usa-tour-santa-ana-california-11-14-2026/event/090064A6060A0AEE) |
 
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Wed 9/30 | 2 | Leap - Entropy World Tour | The Parish at House of Blues Anahe | festival | [link](https://www.ticketmaster.com/leap-entropy-world-tour-anaheim-california-09-30-2026/event/090064AEB253F4FD) |
-
 ## October 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -135,17 +129,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Tue 12/1 | 1 | The Wiz (Touring) | Fox Performing Arts Center | festival | [link](https://www.ticketmaster.com/the-wiz-touring-riverside-california-12-01-2026/event/0B0064F4C60F386B) |
 | Sun 12/20 | 1 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-20-2026/event/0B00648CEFF257C5) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Wed 9/30 | 0 | Latin Music Conference- 2 DAY PASS | Luckman Fine Arts Complex | festival | [link](https://www.ticketmaster.com/latin-music-conference-2-day-pass-los-angeles-california-09-30-2026/event/0B0064D8B7114353) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
 | Sun 12/13 | 0 | Slackfest West | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/slackfest-west-anaheim-california-12-13-2026/event/09006506EF9C1651) |
 
 ## October 2026
@@ -160,18 +143,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 10/17 | 5 | Vulfpeck | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/vulfpeck-los-angeles-california-10-17-2026/event/0900648DE474A9BA) |
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Wed 9/30 | 4 | Zara Larsson 2nd Show Added! | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
-| Wed 9/30 | 4 | Rubén Blades & Roberto Delgado Big Band: Fotografías Tour | Hollywood Bowl | big-venue | [link](https://www.hollywoodbowl.com/events) |
-
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
 | Fri 10/2 | 4 | Los Parras | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 10/3 | 4 | Max Styler | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507517) |
 | Mon 10/5 | 4 | Roxette 40th Anniversary Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/roxette-40th-anniversary-tour-2026-los-angeles-california-10-05-2026/event/090064B5F366772F) |
@@ -290,6 +261,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/7 | 3 | Eros Ramazzotti - UNA HISTORIA IMPORTANTE | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/eros-ramazzotti-una-historia-importante-inglewood-california-11-07-2026/event/0A00628C082C6464) |
 | Sat 11/7 | 3 | Ramon Ayala " Historia De Un Final" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/ramon-ayala-historia-de-un-final-ontario-california-11-07-2026/event/0900647FAF9A9CF5) |
 | Sat 11/7 | 3 | Moby + Underworld | Brookside at the Rose Bowl | big-venue | [link](https://www.axs.com/events/1527850/moby-underworld-tickets) |
+| Sun 11/8 | 3 | Ms. Lauryn Hill & Wyclef Jean: Celebrating 30 years of The | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/ms-lauryn-hill-wyclef-jean-celebrating-hollywood-california-11-08-2026/event/0B0065036C4F1623) |
 | Fri 11/13 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B) |
 | Sat 11/14 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-14-2026/event/09006494FCC71433) |
 | Sat 11/14 | 3 | Camp Flog Gnaw 2026 | Dodger Stadium | big-venue | [link](https://www.axs.com/events/1475989/camp-flog-gnaw-2026-tickets) |
@@ -335,14 +307,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
 | Sat 2/13 | 3 | Los Tucanes De Tijuana | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/los-tucanes-de-tijuana-inglewood-california-02-13-2027/event/090064DEC0F49512) |
-
-## September 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Wed 9/30 | 2 | Disney Descendants, ZOMBIES & Camp Rock: Worlds Collide Co | Kia Forum | big-venue | [link](https://www.ticketmaster.com/disney-descendants-zombies-camp-rock-worlds-inglewood-california-09-30-2026/event/0900646CCB2DC5B5) |
-| Wed 9/30 | 2 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-09-30-2026/event/0A006451D6B8C1D4) |
-| Wed 9/30 | 2 | KETTAMA - 3rd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1446844/kettama-3rd-night-added-tickets) |
 
 ## October 2026
 

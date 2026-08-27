@@ -41955,30 +41955,33 @@
     },
     "0d3a22746827": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Nick Waterhouse is a real touring retro-soul/garage act, not a random Friday booking, and Zebulon is exactly the small-room-headliner slot you want.",
+      "adjust": 1,
+      "why": "Zebulon's explicitly your kind of room and Waterhouse is a genuine touring draw in the analog-soul-revival lane, not a bar-filler booking.",
       "confidence": "high",
-      "judged_at": "2026-08-25T12:47:12",
+      "judged_at": "2026-08-27T12:44:39",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8,
+      "model": "claude-sonnet-5"
     },
     "e4f477ef91c9": {
-      "tier": "great",
+      "tier": "must-see",
       "adjust": 2,
-      "why": "Legend at a venue you love — off your electronic lane but Who Is the Sky is a genuinely distinct art-rock production worth the trip.",
+      "why": "Byrne's a strong Spotify artist for you and this is a rare full-band Bowl run, not a nostalgia package — go Friday, the marquee night of the two.",
       "confidence": "high",
-      "judged_at": "2026-08-25T12:47:12",
+      "judged_at": "2026-08-27T12:44:39",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 12,
+      "model": "claude-sonnet-5"
     },
     "402d0a6a62f4": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Commodores/Sheila E./Boney James is a legit legacy-funk bill at a venue you love — crowd-pleasing even outside the house/techno lane.",
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Legacy funk/soul package at a venue you love, but Boney James is adult-contemporary radio, not a deep-cuts pull — worth knowing about, not building a night around.",
       "confidence": "high",
-      "judged_at": "2026-08-25T12:47:12",
+      "judged_at": "2026-08-27T12:44:39",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 10,
+      "model": "claude-sonnet-5"
     },
     "dced916e4dd4": {
       "tier": "solid",
@@ -42024,6 +42027,96 @@
       "judged_at": "2026-08-26T12:43:41",
       "input_version": 2,
       "score_at_judge": 6
+    },
+    "66b944df61b6": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Ian Llorens is a strong-tier Spotify artist for you, free, walkable from home, and a late groove set — the score's cap undersells this one.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:44:39",
+      "input_version": 2,
+      "score_at_judge": 8,
+      "model": "claude-sonnet-5"
+    },
+    "73a2487f3058": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Same Byrne run as Friday — go that night instead; Saturday's the redundant second helping.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:44:39",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-5"
+    },
+    "8a7d37b91c68": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free house night close to home hits the boosts, but there's no billed DJ to gauge the draw off — could be better or worse than the score suggests.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:44:39",
+      "input_version": 2,
+      "score_at_judge": 7,
+      "model": "claude-sonnet-5"
+    },
+    "892e5d450880": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Spiñorita's a legit vinyl-digging name, but Pomona on a Friday is a real trek when Bar Franca and Zebulon are ten minutes from home the same night.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:44:39",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "2b7d70197ea3": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Small punk bill in the right eastside spirit but the names are unverified — no way to tell if this is a real show or a filler local lineup.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:44:39",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "94435de022c5": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Same reliable free-DTLA-listening-bar formula as the Llorens night, just with an unbilled lineup — safe bet, no standout name to chase.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:44:39",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "0142e65153ac": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hard-techno/hard-dance is explicitly off the lane for you — production-forward warehouse rave, not the selector-driven groove you actually want.",
+      "confidence": "high",
+      "judged_at": "2026-08-27T12:44:39",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "2fea7df7f865": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Low-key Tuesday vinyl happy hour, not a night to plan around — nice if you're already at the Roadhouse, not a destination.",
+      "confidence": "med",
+      "judged_at": "2026-08-27T12:44:39",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "1024c833091b": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Unbilled local rock show with nothing in the scene cache to confirm the draw — fine filler, not a pick.",
+      "confidence": "low",
+      "judged_at": "2026-08-27T12:44:39",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
     }
   }
 }
