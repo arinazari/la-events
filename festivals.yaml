@@ -96,6 +96,29 @@ festivals:
       lane, but sand-underfoot day-party is squarely the setting. GA from ~$110. Sold on a
       white-label Front Gate storefront the TM API doesn't carry — 19hz is the catalog source.
     refresh: price tiers climbing / sellout as 9/12 nears; set times
+
+  # ── The one cross-domain (food) watch item: dineLA is a booking-deadline story, not a
+  # show. Pick-making belongs to la-dining; this entry exists so the dates-announced /
+  # reservations-open moment hits "On the radar". In-window city pulse comes free via the
+  # DiscoverLA roundup (sources.yaml — same org, LA Tourism) into "Around town".
+  - name: dineLA Restaurant Week — Winter 2027
+    location: Citywide, Los Angeles
+    scope: local
+    when: ~2027 late Jan–early Feb (biannual ~2-wk window; summer 2026 ran 8/14–28)
+    status: annual_watch   # flip to announced when LA Tourism posts dates + the list
+                           # (~4 wks out); on_sale when reservations open — the Michelin/
+                           # Bib prix-fixe rooms book out fast; past after the window.
+    tickets: https://www.discoverlosangeles.com/dinela
+    why: >
+      LA Tourism's citywide prix-fixe promotion — 400–500+ restaurants incl. Michelin/Bib
+      rooms at fixed $15–$65+ lunch/dinner menus: the best value-at-quality dining window
+      of the year under dining-taste.yaml's affordability policy. Surface only when timely;
+      hand the actual picks to la-dining.
+    refresh: >
+      Web-check discoverlosangeles.com/dinela for winter 2027 dates + the participating
+      list + reservation-open; when it flips timely, point the la-dining radar at the picks.
+
+big_concerts:
   # seed sparingly with travel-worthy / must-know shows; the digest also pulls far-dated
   # Goldenvoice/TM entries + does a live web check for on-taste tours hitting LA.
   - name: (auto-populated each run)
