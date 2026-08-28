@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/27/2026 deterministically (no API). 269 candidates. Signals: big-venue 242, festival 19, editorial 8, tracked 4._
+_Generated 8/28/2026 deterministically (no API). 271 candidates. Signals: big-venue 239, festival 22, editorial 8, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -48,6 +48,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 11/22 | 2 | Three Days Grace - Alienation Tour  | Intuit Dome | festival, big-venue | [link](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0) |
+| Sat 11/28 | 6 | Solomun | Hollywood Blvd (Los Angeles) | tracked:Solomun | [link](https://dice.fm/event/7dbax7-solomun-28th-nov-hollywood-blvd-los-angeles-tickets) |
 
 ## October 2026
 
@@ -55,6 +56,12 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 10/30 | 5 | Escape | NOS Events Center | tracked:Cloonee,Richie Hawtin | [link](https://on.fgtix.com/trk/Ni5m) |
 | Sat 10/31 | 5 | THE MAZE Halloween: Arts District Block Party | TBA - Arts District Los Angeles | festival | [link](https://ra.co/events/2491883) |
+
+## November 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
 
 ## December 2026
 
@@ -66,7 +73,10 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 10/3 | 4 | Pier Play Festival: Kaz James, Lp Giobbi, Mind Against, Mo | Santa Monica Pier | festival | [link](https://ra.co/events/2493729) |
+| Sat 10/3 | 4 | Sidepiece | Hollywood Block Party 1749 N Vine  | festival | [link](https://insomniac.frontgatetickets.com/event/bipz4vljzm73btil/?utm_source=Promoters&utm_medium=19hz&utm_campaign=19hz) |
 | Fri 10/9 | 4 | Parrotfish | The Moroccan Lounge | festival | [link](https://www.ticketmaster.com/parrotfish-los-angeles-california-10-09-2026/event/090064E905D61695) |
+| Sat 10/10 | 4 | Palm Tree Music Festival - Montecito 2026: Chainsmokers, K | Santa Barbara Polo & Racquet Club  | festival | [link](https://posh.vip/e/palm-tree-music-festival-montecito-2026) |
 
 ## November 2026
 
@@ -135,7 +145,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/3 | 5 | Factory 93 presents: OUTWORLD: KlangKuenstler All Night Lo | The Forum | big-venue | [link](https://ra.co/events/2452834) |
+| Sat 10/3 | 6 | Factory 93 presents: OUTWORLD: KlangKuenstler All Night Lo | The Forum | big-venue | [link](https://ra.co/events/2452834) |
 | Sat 10/3 | 5 | KCRW Presents The Growlers | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/kcrw-presents-the-growlers-los-angeles-california-10-03-2026/event/090064A94B001599) |
 | Fri 10/9 | 5 | for KING & COUNTRY | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/for-king-country-los-angeles-california-10-09-2026/event/090064AEDD6E900E) |
 | Sat 10/10 | 5 | Air Supply | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/air-supply-los-angeles-california-10-10-2026/event/090064FFD304DE2B) |
@@ -144,6 +154,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
 | Fri 10/2 | 4 | Los Parras | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
+| Fri 10/2 | 4 | KETTAMA - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1446842/kettama-2nd-night-added-tickets) |
 | Sat 10/3 | 4 | Max Styler | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507517) |
 | Mon 10/5 | 4 | Roxette 40th Anniversary Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/roxette-40th-anniversary-tour-2026-los-angeles-california-10-05-2026/event/090064B5F366772F) |
 | Thu 10/8 | 4 | Empire of the Sun - Ask That God: Afterlife North American | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/empire-of-the-sun-ask-that-hollywood-california-10-08-2026/event/0B006465E365551D) |
@@ -184,12 +195,14 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/21 | 4 | Steve Lacy: Oh yeah? Tour | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/steve-lacy-oh-yeah-tour-hollywood-california-11-21-2026/event/0B00650521CA821D) |
 | Fri 11/27 | 4 | Tierra Cali w/ Banda Machos | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 11/27 | 4 | Afrojack presents: CONTROL | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507536) |
+| Fri 11/27 | 4 | Afrojack: Control | Shrine Expo Hall (Los Angeles) | big-venue | [link](https://www.axs.com/events/1468576) |
 | Sat 11/28 | 4 | Cristian Castro | Peacock Theater - LA | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-f4V) |
 
 ## December 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Fri 12/4 | 4 | Whethan - WAREHOUSE.WAVS TOUR (360 SHOW) - Ages 18+ | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Fri 12/4 | 4 | Whethan - WAREHOUSE.WAVS TOUR (360 SHOW) | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507538) |
 | Fri 12/18 | 4 | Love Actually in Concert | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 
@@ -201,7 +214,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 10/2 | 3 | The Offspring (21 and Over) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 10/2 | 3 | CODICIADO - Así Es La Vida Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/codiciado-asi-es-la-vida-tour-ontario-california-10-02-2026/event/09006384C6E3B8C7) |
 | Fri 10/2 | 3 | Elefante | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/elefante-inglewood-california-10-02-2026/event/0A00635DDD016CD7) |
-| Fri 10/2 | 3 | KETTAMA - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1446842/kettama-2nd-night-added-tickets) |
 | Sat 10/3 | 3 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-10-03-2026/event/0A006396E80D747B) |
 | Sat 10/3 | 3 | aespa LIVE TOUR - SYNK : COMPLæXITY - in LOS ANGELES | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/aespa-live-tour-synk-complxity-in-inglewood-california-10-03-2026/event/09006495E8BC30ED) |
 | Sat 10/3 | 3 | Max Styler | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1376580/max-styler-tickets) |
@@ -228,14 +240,15 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 10/17 | 3 | Taking Back Sunday (21+) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 10/18 | 3 | Kacey Musgraves w/ Gabriella Rose | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Sun 10/18 | 3 | it's murph | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507528) |
+| Sun 10/18 | 3 | it's murph, Tobiahs | Shrine Expo Hall (Los Angeles) | big-venue | [link](https://www.axs.com/events/1511170) |
 | Mon 10/19 | 3 | Kacey Musgraves w/ Estevie | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Wed 10/21 | 3 | My Chemical Romance The Black Parade 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-the-black-parade-hollywood-california-10-21-2026/event/0B006332CBDC3993) |
-| Fri 10/23 | 3 | WORSHIP NORTH AMERICA 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/worship-north-america-2026-inglewood-california-10-23-2026/event/090064D3F4CB4635) |
+| Fri 10/23 | 3 | Worship (Sub Focus, Dimension, Culture Shock, 1991) | Kia Forum | big-venue | [link](https://www.ticketmaster.com/worship-north-america-2026-inglewood-california-10-23-2026/event/090064D3F4CB4635) |
 | Fri 10/23 | 3 | Foreigner (21+) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 10/23 | 3 | JAY-Z30 | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/jayz30-inglewood-california-10-23-2026/event/0A0064C8CED8B734) |
-| Fri 10/23 | 3 | Channel Tres | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1428029/channel-tres-tickets) |
+| Fri 10/23 | 3 | Channel Tres, &Friends, Fifi | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1428029/channel-tres-tickets) |
 | Sat 10/24 | 3 | Gorillaz - The Mountain Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gorillaz-the-mountain-tour-inglewood-california-10-24-2026/event/0900645BA891CBBF) |
-| Sat 10/24 | 3 | Pokémon Night Out | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/pokemon-night-out-inglewood-california-10-24-2026/event/09006475CBE3957B) |
+| Sat 10/24 | 3 | Pokemon Night Out: Marshmello, Alison Wonderland | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/pokemon-night-out-inglewood-california-10-24-2026/event/09006475CBE3957B) |
 | Sat 10/24 | 3 | Foreigner (21+) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 10/24 | 3 | Madeon presents Victory Live | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1432437/madeon-presents-victory-live-tickets) |
 | Sat 10/24 | 3 | YG: THE GENTLEMEN'S CLUB TOUR | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/yg-the-gentlemens-club-tour-ontario-california-10-24-2026/event/090064F1E2752F3D) |
@@ -260,7 +273,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/7 | 3 | Mon Laferte - Femme Fatale Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mon-laferte-femme-fatale-tour-inglewood-california-11-07-2026/event/0900646CEE46EEFD) |
 | Sat 11/7 | 3 | Eros Ramazzotti - UNA HISTORIA IMPORTANTE | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/eros-ramazzotti-una-historia-importante-inglewood-california-11-07-2026/event/0A00628C082C6464) |
 | Sat 11/7 | 3 | Ramon Ayala " Historia De Un Final" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/ramon-ayala-historia-de-un-final-ontario-california-11-07-2026/event/0900647FAF9A9CF5) |
-| Sat 11/7 | 3 | Moby + Underworld | Brookside at the Rose Bowl | big-venue | [link](https://www.axs.com/events/1527850/moby-underworld-tickets) |
+| Sat 11/7 | 3 | Moby, Underworld, fcukers, Nia Archives (DJ set), DJ Holog | Brookside at the Rose Bowl | big-venue | [link](https://www.axs.com/events/1527850/moby-underworld-tickets) |
 | Sun 11/8 | 3 | Ms. Lauryn Hill & Wyclef Jean: Celebrating 30 years of The | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/ms-lauryn-hill-wyclef-jean-celebrating-hollywood-california-11-08-2026/event/0B0065036C4F1623) |
 | Fri 11/13 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B) |
 | Sat 11/14 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-14-2026/event/09006494FCC71433) |
@@ -282,7 +295,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/4 | 3 | The Neighbourhood: THE WOURLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-neighbourhood-the-wourld-tour-inglewood-california-12-04-2026/event/09006443CD5C89D1) |
-| Fri 12/4 | 3 | Whethan - WAREHOUSE.WAVS TOUR (360 SHOW) - Ages 18+ | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Fri 12/4 | 3 | TRIVIUM: CROWN IN THE GRAVE WORLD TOUR | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/trivium-crown-in-the-grave-world-inglewood-california-12-04-2026/event/0A0064E9DDF7CB1C) |
 | Fri 12/4 | 3 | KFROG'S CHRISTMAS THROWDOWN | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/kfrogs-christmas-throwdown-ontario-california-12-04-2026/event/09006506E331F419) |
 | Sat 12/5 | 3 | The Neighbourhood: THE WOURLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-neighbourhood-the-wourld-tour-inglewood-california-12-05-2026/event/0900645403D3F8BA) |
@@ -312,11 +324,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 10/1 | 2 | Thomas Rhett: The Soundtrack to Life Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/thomas-rhett-the-soundtrack-to-life-inglewood-california-10-01-2026/event/09006466BF660B98) |
-| Thu 10/1 | 2 | Wu-Tang Forever: The Final Chapter / 
-with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Thu 10/1 | 2 | Rod Wave: Don't Look Down Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/rod-wave-dont-look-down-tour-inglewood-california-10-01-2026/event/090064D1B0F2AB13) |
-| Thu 10/1 | 2 | KETTAMA | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1436234/kettama-tickets) |
 | Sat 10/3 | 2 | Ron White | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 10/4 | 2 | Lynyrd Skynyrd - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 10/4 | 2 | YSL Records & Young Thug Present: The New Generation Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/ysl-records-young-thug-present-the-inglewood-california-10-04-2026/event/0A0064E8DBC9B8C9) |
@@ -451,7 +458,6 @@ with special guests | Yaamava Resort & Casino at San Man | big-venue | [link](ht
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 10/1 | 0 | Disney Descendants, ZOMBIES & Camp Rock: Worlds Collide Co | Honda Center | big-venue | [link](https://www.ticketmaster.com/disney-descendants-zombies-camp-rock-worlds-anaheim-california-10-01-2026/event/0900646DA1FB989B) |
 | Thu 10/8 | 0 | Chayanne - Bailemos Otra Vez Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/chayanne-bailemos-otra-vez-tour-anaheim-california-10-08-2026/event/0900646997EF72E7) |
 | Thu 10/15 | 0 | Phil Wickham / Official Ticket + Hotel Packages | Honda Center | big-venue | [link](https://www.ticketmaster.com/song-of-the-saints-tour-with-anaheim-california-10-15-2026/event/0900644DD420500D) |
 | Thu 10/22 | 0 | Bryson Tiller Presents: The Neo Trapsoul Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/bryson-tiller-presents-the-neo-trapsoul-anaheim-california-10-22-2026/event/090064B5DC213A81) |
