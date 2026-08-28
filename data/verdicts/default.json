@@ -36482,13 +36482,12 @@
     },
     "5798da5dde04": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Adam X co-founded the Bunker NY and is genuine industrial-techno royalty — real pedigree on a no-frills TBA bill.",
-      "confidence": "high",
-      "judged_at": "2026-08-01T12:34:09",
+      "adjust": 3,
+      "why": "Setaoc Mass is legit Berghain/Bassiani-level techno and Adam X carries real Sonic Groove pedigree — this reads underscored at a 7 for a bill with actual international credibility.",
+      "confidence": "med",
+      "judged_at": "2026-08-28T12:43:32",
       "input_version": 2,
-      "score_at_judge": 5,
-      "model": "sonnet"
+      "score_at_judge": 7
     },
     "2e3e86b1f247": {
       "tier": "solid",
@@ -37738,13 +37737,13 @@
       "score_at_judge": 6
     },
     "a8308138ea4b": {
-      "tier": "great",
-      "adjust": 2,
-      "why": "Loco Dice is a genuinely major tech-house name — Desolat founder, longtime Ibiza resident — headlining an outdoor day party; the score's treating this like a generic day party instead of crediting the actual headliner.",
+      "tier": "must-see",
+      "adjust": 1,
+      "why": "Loco Dice is a genuine Ibiza/Desolat institution and Archie Hamilton's MicroHertz sound is the real rugged-minimal deal — an outdoor day party with actual international headliners, not just a local bill filling a park.",
       "confidence": "high",
-      "judged_at": "2026-08-25T12:39:24",
+      "judged_at": "2026-08-28T12:43:32",
       "input_version": 2,
-      "score_at_judge": 8
+      "score_at_judge": 13
     },
     "cbc3a0c8319a": {
       "tier": "solid",
@@ -40404,11 +40403,11 @@
     "4df2e7969182": {
       "tier": "solid",
       "adjust": 0,
-      "why": "All-night single-DJ set is the exact format you like, but Yair's an unknown quantity with nothing in the scene notes to gauge the draw.",
-      "confidence": "low",
-      "judged_at": "2026-08-25T12:39:24",
+      "why": "Same Certified Groovers crew running the vinyl-deep-house parties elsewhere in this batch, but Yair alone has no track record here or in the scene notes to vouch for — trust-the-series, not a standout.",
+      "confidence": "med",
+      "judged_at": "2026-08-28T12:43:32",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 9
     },
     "d8c8f8aec087": {
       "tier": "solid",
@@ -42040,13 +42039,12 @@
     },
     "73a2487f3058": {
       "tier": "great",
-      "adjust": 0,
-      "why": "Same Byrne run as Friday — go that night instead; Saturday's the redundant second helping.",
+      "adjust": 1,
+      "why": "Closing night of Byrne's reworked Talking Heads show at the Bowl — a real artistic event, not a legacy-act cash-in, though it sits in the live-music lane rather than your electronic spine.",
       "confidence": "high",
-      "judged_at": "2026-08-27T12:44:39",
+      "judged_at": "2026-08-28T12:43:32",
       "input_version": 2,
-      "score_at_judge": 7,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 11
     },
     "8a7d37b91c68": {
       "tier": "solid",
@@ -42117,6 +42115,187 @@
       "input_version": 2,
       "score_at_judge": 6,
       "model": "claude-sonnet-5"
+    },
+    "ed1c84324757": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Chemtrail Johnny and Hazy are names you've already reacted to, and Mario Liberti's the actual founder behind the label this showcase is named for — deeper than the flat score suggests.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 11
+    },
+    "e0bf9830cfa7": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "The score caps artist affinity at +5, but six of these seven names are already on your radar with Gilbert0 at core tier — the exact sleeper a cap can't fully credit.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 11
+    },
+    "1d9a326d562d": {
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "Daphni is Dan Snaith's (Caribou, tracked) club alias — the deterministic match only fires on 'Caribou' so the tracked bonus never landed; an all-night set from him is a genuinely rare booking.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 11
+    },
+    "09590633eec8": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Ame's tracked, but DJ Tennis — the guy who founded Life and Death and put Tale Of Us and Mind Against on the map — is the score's blind spot; a stronger bill than the number implies.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 10
+    },
+    "edab80bd44cb": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Overmono's tracked and this is an actual world-tour stop rather than a DJ-set drop-in — Palladium-scale, and the card's draw score underrates it.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 9
+    },
+    "b92eae62d6ed": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Scene notes confirm this is a long-running queer disco day party — the tagger missed the vibe flag, but that's a hard opt-out regardless of Lovefingers and Heidi Lawden being genuinely deep-crate bookings.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 8
+    },
+    "75336cad1aec": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "No lineup listed to judge — reads as a generic disco night at El Cid; fine as eastside Friday filler, nothing to build a night around.",
+      "confidence": "low",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 8
+    },
+    "57301c93001a": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same no-lineup situation as Donuts down the street — free-RSVP house/disco night, functional but the draw is unverifiable.",
+      "confidence": "low",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 8
+    },
+    "ab4c4aaefbb6": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "BAE BAE's own bio flags Hood Rave as a queer-Black underground party, and the lineup (Dance Mania, footwork/juke) isn't the house/techno lane despite the genre tag — bury per the hard queer opt-out.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "7c43ef473db9": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Free Chinatown warehouse-bar night stacked with real diggers — Dj Kerry's Paradise Garage lineage, Stacy Christine's Harvey/Moodymann opening slots, Xica Soul (a strong Spotify artist for you) — the score's capped bump undersells this sleeper.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "ac050cc8ddd5": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free rooftop-adjacent disco/house night in the right lane, but Blake Weber/Chi Chi Dango aren't names you can gauge draw on — fine to include, not a reach beyond that.",
+      "confidence": "low",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "82eaca2cb90b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tech-house warehouse afterhours checks the boxes, but Adam Auburn is an unverified headliner — can't confirm this is more than a generic late-night rave.",
+      "confidence": "low",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "dd581e502511": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Tagged dubstep/bass, not house — the score's 'on-taste genre (house)' line is a mismatch; bass-music warehouse raves are the explicit penalty category, not the lane.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "8e7813093f04": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Scotty Boy is a legit vet (three Billboard Dance #1s, runs Deep House Brunch) but plays crowd-friendly jackin'/nu-disco rather than the digger sound — a real name, just festival-polish over the underground groove.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "0892ad31c23d": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Generic warehouse tech-house billing with no verifiable draw on any of the three DJs — fine as filler, nothing pulling it up.",
+      "confidence": "low",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "2ea674a1cd69": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Recurring bar-scale disco night near home, no marquee name but exactly the low-key groove lane — second of the two nights tracked, no reason to rank it any differently than the other.",
+      "confidence": "med",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "28dc68deadbd": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "This is literally the '[decade] night' nostalgia format the taste brief calls out to bury — 2010-2015 pop/EDM playback night, not a DJ booking; the 'on-taste genre (edm)' score bump is a false positive.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "b0b27b3fd4bd": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Azure's Lemon Pepper is an explicitly queer party series per the scene note, and the actual music (Mahragan/Sha3bi, Arabic diaspora pop) isn't the house/techno lane the genre tags implied — hard opt-out plus a taste mismatch.",
+      "confidence": "high",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "5f03f3359f7a": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Textbook fit for the flea/vintage-market medium category — free, walkable from Silver Lake, Saturday morning — the score's low base rate undersells how squarely this lands for a recurring weekend errand.",
+      "confidence": "med",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "193586d56def": {
+      "tier": "solid",
+      "lane": "community",
+      "adjust": 2,
+      "why": "The '-2 tribute' tag looks like a mis-scrape — Jose James is a real touring jazz/soul artist headlining an actual 7th-annual community festival with editorial pickup, not a cover act; the score is underselling a legit free rooftop bill.",
+      "confidence": "med",
+      "judged_at": "2026-08-28T12:43:32",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }
