@@ -1044,7 +1044,7 @@
             <span style="font:700 12.5px/1.2 -apple-system,system-ui,sans-serif;">↻ Ranks &amp; Digest</span>
             <span style="flex:none; font:700 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.07em; padding:4px 7px; background:rgba(255,255,255,0.18); border-radius:999px;">{{ syncBadge }}</span>
           </div>
-          <div style="margin-top:4px; font:400 10.5px/1.4 ui-monospace,Menlo,monospace; opacity:0.82;">last synced {{ dbSynced }}</div>
+          <div style="margin-top:4px; font:400 10.5px/1.4 ui-monospace,Menlo,monospace; opacity:0.82;">{{ syncStamp }}</div>
         </sc-if>
         <sc-if value="{{ isUpdating }}" hint-placeholder-val="{{ false }}">
           <div style="font:700 12.5px/1.2 -apple-system,system-ui,sans-serif;">↻ Re-ranking your feed…</div>
@@ -3145,6 +3145,7 @@ class Component extends DCLogic {
     const m = String(iso || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
     return m ? (+m[2] + '/' + +m[3]) : null;
   }
+  curatedDay() { return this.fmtDay(this.lastEnrichedAt()); }
   layerBehind() {
     if (!(this.state.profile && this.state.profile.hash)) return false;
     const d = this.daysSince(this.lastEnrichedAt());
@@ -3283,6 +3284,7 @@ class Component extends DCLogic {
       { k:'near home', v: (sc.near_home_neighborhoods || []).slice(0, 4).join(' · ') || '—' },
       { k:'high categories', v: (((cfg.taste || {}).categories || {}).high || []).slice(0, 3).join(' · ') || '—' },
       { k:'weights', v: weights || '—' },
+      { k:'picks curated', v: this.curatedDay() || '—' },
       { k:'feed generated', v: this.fmtStamp(this.META.generated_at) },
     ];
   }
@@ -4343,7 +4345,17 @@ class Component extends DCLogic {
         const line = c => (c.title||'?') + (c.fields && c.fields.length ? ' ('+c.fields.join(', ')+')' : '');
         this.showToast('Moved on the last pull: ' + ch.slice(0,3).map(line).join(' · ') + (ch.length>3 ? ' · +'+(ch.length-3)+' more' : ''), null);
       },
-      siteUpdate:this.fmtStamp(document.lastModified), dbSynced:this.fmtStamp(this.META.generated_at),
+      siteUpdate:this.fmtStamp(document.lastModified),
+      // The Ranks & Digest tile is the CURATED layer (editor verdicts + written digest), which only
+      // rebuilds on a taste change or a manual Update (owner: nightly) — never on catalog movement
+      // alone. Its stamp must be the last curation, not generated_at: the deterministic re-rank bumps
+      // generated_at nightly for every profile, which read as "your taste was re-processed last night".
+      syncStamp: (() => {
+        const cur = this.curatedDay();
+        if (!cur) return 'last synced ' + this.fmtStamp(this.META.generated_at);
+        const rank = this.fmtDay(this.META.generated_at);
+        return 'picks curated ' + cur + (rank ? ' · re-ranked ' + rank : '');
+      })(),
       syncTitle:'Ranks & Digest: ' + (this.needsUpdate() ? 'Update available' : 'Current'),
       pullTitle:'Events database: ' + (this.getRefreshing() ? ('Refreshing… ' + this.fmtElapsed((this.getRefreshing()||{}).startedAt)) : 'Current'),
       isRefreshing: !!this.getRefreshing(),
@@ -4408,7 +4420,7 @@ class Component extends DCLogic {
       tastePending: this.isTasteDirty(),
       tasteBanner: this.isTasteDirty()
         ? 'NOT YET APPLIED — the latest edit isn\u2019t in your ranking/digest yet. Hit Ranks & Digest (☰) to fold it in.'
-        : 'In your latest ranking & digest · ' + String(this.META.generated_at || '').slice(0, 10),
+        : 'In your ranking & digest · curated ' + (this.curatedDay() || String(this.META.generated_at || '').slice(0, 10)),
       tasteBannerBg: this.isTasteDirty() ? '#fdf4e3' : '#eef5ef',
       tasteBannerBorder: this.isTasteDirty() ? '#ecd9ae' : '#dbe8dd',
       tasteBannerColor: this.isTasteDirty() ? '#8a6d3b' : '#1f7a4d',
