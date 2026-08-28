@@ -5880,6 +5880,10 @@
       {
         "source": "ra",
         "url": "https://ra.co/events/2523101"
+      },
+      {
+        "source": "posh",
+        "url": "https://posh.vip/e/block-party-teckmeout-x-los-perros"
       }
     ],
     "sources": [
@@ -6150,50 +6154,6 @@
         "sunset"
       ],
       "region": "hollywood",
-      "near_home": false
-    }
-  },
-  {
-    "title": "BLOCK PARTY [TECKMEOUT X LOS PERROS]",
-    "date": "2026-08-28",
-    "start": "23:45",
-    "venue": "SECRET [OPEN-AIR + WAREHOUSE]",
-    "neighborhood": null,
-    "category": "party",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "posh",
-        "url": "https://posh.vip/e/block-party-teckmeout-x-los-perros"
-      }
-    ],
-    "sources": [
-      "posh"
-    ],
-    "organizers": "KNKT.",
-    "detail": null,
-    "image": "https://images.posh.vip/originals/6a8c715c75abf4e1c7a72c60",
-    "price": "free",
-    "ra_pick": false,
-    "afterhours": true,
-    "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25",
-    "tags": {
-      "type": "club",
-      "genre": [
-        "electronic"
-      ],
-      "setting": [
-        "warehouse",
-        "outdoor"
-      ],
-      "scale": null,
-      "vibe": [
-        "block-party",
-        "free"
-      ],
-      "region": null,
       "near_home": false
     }
   },
@@ -6639,6 +6599,222 @@
     "changed_fields": [
       "lineup"
     ]
+  },
+  {
+    "title": "Urgh! A Music War (1981)",
+    "date": "2026-08-28",
+    "start": null,
+    "venue": "Philosophical Research Society",
+    "neighborhood": "Los Feliz",
+    "category": "Film",
+    "genre": "Music Documentary/Concert Film",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.eventbrite.com/e/urgh-a-music-war-1981-presented-by-revolutions-per-movie-tickets-1995478090686"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "film",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Lucha VaVoom de la Liz",
+    "date": "2026-08-28",
+    "start": null,
+    "venue": "The Mayan",
+    "neighborhood": "DTLA",
+    "category": "Miscellaneous",
+    "genre": "Lucha Libre/Burlesque/Comedy",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://luchavavoomdelaliz.com"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "KCRW Summer Nights with LA Plaza de Cultura y Artes",
+    "date": "2026-08-28",
+    "start": null,
+    "venue": "La Plaza de Cultura y Artes",
+    "neighborhood": "DTLA",
+    "category": "Music",
+    "genre": "Latin/Variety",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.kcrw.com/events/kcrw-summer-nights-with-la-plaza-de-cultura-y-artes"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Taqueando After Dark DTLA",
+    "date": "2026-08-28",
+    "start": null,
+    "venue": "Level 8 DTLA",
+    "neighborhood": "South Park",
+    "category": "food-drink",
+    "genre": "Taco festival",
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.welikela.com/feed/"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Moonlight Hike",
+    "date": "2026-08-28",
+    "start": null,
+    "venue": "Coldwater Canyon Park",
+    "neighborhood": "Studio City",
+    "category": "community",
+    "genre": "Guided Nature Walk",
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Yoiyami Night at Common Space",
+    "date": "2026-08-28",
+    "start": null,
+    "venue": "Common Space",
+    "neighborhood": "Hawthorne",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -9372,12 +9548,13 @@
       "region": "hollywood",
       "near_home": false
     },
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-28",
     "changed_fields": [
       "start"
     ],
     "editorial_mentions": [
-      "Time Out LA"
+      "Time Out LA",
+      "We Like LA"
     ]
   },
   {
@@ -9528,8 +9705,11 @@
       "near_home": false
     },
     "editorial_mentions": [
-      "Time Out LA"
-    ]
+      "Time Out LA",
+      "We Like LA",
+      "LAist"
+    ],
+    "updated_at": "2026-08-28"
   },
   {
     "title": "Bobby Dee Presents: MKY & The Intruders",
@@ -9609,7 +9789,11 @@
       ],
       "region": null,
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "updated_at": "2026-08-28"
   },
   {
     "source": "editorial",
@@ -9690,10 +9874,14 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "updated_at": "2026-08-08",
+    "updated_at": "2026-08-28",
     "changed_fields": [
       "price",
       "lineup"
+    ],
+    "editorial_mentions": [
+      "Time Out LA",
+      "We Like LA"
     ]
   },
   {
@@ -13195,7 +13383,8 @@
     "ra_pick": false,
     "afterhours": false,
     "editorial_mentions": [
-      "Time Out LA"
+      "Time Out LA",
+      "We Like LA"
     ],
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
@@ -13207,7 +13396,8 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "updated_at": "2026-08-28"
   },
   {
     "title": "Echo Park Rising 2026 feat. The Mainliners, Seko, Gusty + more",
@@ -13655,6 +13845,190 @@
       "region": null,
       "near_home": false
     }
+  },
+  {
+    "title": "Labyrinth",
+    "date": "2026-08-29",
+    "start": null,
+    "venue": "Hollywood Forever Cemetery",
+    "neighborhood": "Hollywood",
+    "category": "Film",
+    "genre": "Cult Classic Screening (Cinespia)",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://cinespia.org/event/labyrinth-40/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "film",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Inolvidable: Celebrating the Legacy of Juan Gabriel",
+    "date": "2026-08-29",
+    "start": null,
+    "venue": "La Plaza de Cultura y Artes",
+    "neighborhood": "DTLA",
+    "category": "Music",
+    "genre": "Latin/Tribute",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://give.lapca.org/event/20260829-inolvidable-celebrating-the-legacy-of-juan-gabriel/e825338"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Anja Huwe (Xmal Deutschland)",
+    "date": "2026-08-29",
+    "start": null,
+    "venue": "The Paramount",
+    "neighborhood": null,
+    "category": "Music",
+    "genre": "Post-Punk/Goth",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://dice.fm/event/pyblrk-anja-huwe-xmal-deutschland-29th-aug-the-paramount-los-angeles-tickets"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Dancing Storytellers",
+    "date": "2026-08-29",
+    "start": null,
+    "venue": "Sierra Madre Playhouse",
+    "neighborhood": "Sierra Madre",
+    "category": "Arts & Theatre",
+    "genre": "Dance",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://sierramadreplayhouse.org/event/dancingstorytellers2026"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "stage",
+      "genre": [
+        "dance"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "East Hollywood Block Party",
+    "date": "2026-08-29",
+    "start": null,
+    "venue": "Heliotrope Drive",
+    "neighborhood": "East Hollywood",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "block-party"
+      ],
+      "region": "eastside",
+      "near_home": true
+    },
+    "updated_at": "2026-08-28"
   },
   {
     "title": "Day Trip In The Park LA: Loco Dice, Archie Hamilton",
@@ -17318,6 +17692,154 @@
       "region": "eastside",
       "near_home": true
     }
+  },
+  {
+    "title": "Ramones 50th Anniversary Tribute",
+    "date": "2026-08-30",
+    "start": null,
+    "venue": "Hollywood Forever Cemetery",
+    "neighborhood": "Hollywood",
+    "category": "Music",
+    "genre": "Punk/Tribute",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.ticketweb.com/event/the-official-ramones-50th-anniversary-hollywood-forever-tickets/14222084"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "tribute"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Element Band / Pyur",
+    "date": "2026-08-30",
+    "start": null,
+    "venue": "The Ford",
+    "neighborhood": "Hollywood",
+    "category": "Music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://theford.com/events/performances/4865/2026-08-30/element-band-pyur"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Sip of Japan",
+    "date": "2026-08-30",
+    "start": null,
+    "venue": "Torrance",
+    "neighborhood": "Torrance",
+    "category": "food-drink",
+    "genre": "Japanese food & sake",
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "south-bay",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Dino Fest",
+    "date": "2026-08-30",
+    "start": null,
+    "venue": "Natural History Museum",
+    "neighborhood": "Exposition Park",
+    "category": "community",
+    "genre": "Family/Educational Festival",
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "gallery"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
   },
   {
     "title": "Muse - The Wow! Signal Tour",
@@ -32372,6 +32894,46 @@
     }
   },
   {
+    "title": "GRATEFUL BRUNCH w/ Wall of Cube",
+    "date": "2026-09-05",
+    "start": "11:00",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "category": "Music",
+    "genre": "Grateful Dead Tribute",
+    "lineup": [
+      "Wall of Cube"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/grateful-brunch-w-wall-of-cube-204902"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
     "title": "Intercell LA: Annika Wolfe, DAX J, Grace Dahl, Max Gardner b2b Lorely Mur, & Stef Mendesidis",
     "date": "2026-09-06",
     "start": "3pm-11pm",
@@ -45492,6 +46054,48 @@
     }
   },
   {
+    "title": "Donna Summer & The Disco Divas - Tribute to Donna Summer",
+    "date": "2026-09-11",
+    "start": "20:00",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "category": "Music",
+    "genre": "Disco/Tribute",
+    "lineup": [
+      "Donna Summer & The Disco Divas"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/donna-summer-the-disco-divas-tribute-to-donna-summer--204539"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "tribute"
+      ],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
     "date": "2026-09-12",
     "start": "14:30",
@@ -50480,6 +51084,46 @@
       "region": "dtla",
       "near_home": true
     }
+  },
+  {
+    "title": "GRATEFUL BRUNCH w/ Deadbolt",
+    "date": "2026-09-12",
+    "start": "11:00",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "category": "Music",
+    "genre": "Grateful Dead Tribute",
+    "lineup": [
+      "Deadbolt"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/grateful-brunch-w-deadbolt-204903"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
   },
   {
     "title": "Tyler Henry - Hollywood Medium",
@@ -67105,6 +67749,126 @@
     }
   },
   {
+    "title": "IT TAKES A VILLAGE: Sam First's Annual Benefit Honoring LA Jazz Icons",
+    "date": "2026-09-19",
+    "start": null,
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "category": "Music",
+    "genre": "Jazz",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.samfirstbar.com/events/it-takes-a-village-2026"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "Flashback: A 2010s EDM Tribute Party",
+    "date": "2026-09-19",
+    "start": null,
+    "venue": "Avalon Hollywood",
+    "neighborhood": "Hollywood",
+    "category": "Music",
+    "genre": "Electronic",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://avalonhollywood.com/event/flashback-nightclub-near-me-discover-avalon-hollywood-2026-september-19-best-night-club-near-me-hollywood-los-angeles/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [
+        "tribute"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
+    "title": "GRATEFUL BRUNCH w/ Cats on the Bandstand",
+    "date": "2026-09-19",
+    "start": "11:00",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "category": "Music",
+    "genre": "Grateful Dead Tribute",
+    "lineup": [
+      "Cats on the Bandstand"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/grateful-brunch-w-cats-on-the-bandstand-204904"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
     "title": "KIDZ BOP LIVE Birthday Concert Event",
     "date": "2026-09-20",
     "start": "16:00",
@@ -69288,6 +70052,48 @@
       "region": "eastside",
       "near_home": true
     }
+  },
+  {
+    "title": "The Meditations",
+    "date": "2026-09-20",
+    "start": "20:00",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "category": "Music",
+    "genre": "Reggae",
+    "lineup": [
+      "The Meditations"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/the-meditations-204901"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "reggae"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
   },
   {
     "title": "Beauty And The Beast (Touring)",
@@ -71636,6 +72442,50 @@
       "region": "eastside",
       "near_home": true
     }
+  },
+  {
+    "title": "Bokani Dyer Trio with Timothy Norton & Malachi Whitson",
+    "date": "2026-09-23",
+    "start": null,
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "category": "Music",
+    "genre": "Jazz",
+    "lineup": [
+      "Bokani Dyer",
+      "Timothy Norton",
+      "Malachi Whitson"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.samfirstbar.com/events/bokani-dyer-trio-with-timothy-norton-malachi-whitson"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
   },
   {
     "title": "Bluey's Big Play",
@@ -80619,47 +81469,6 @@
     "lineup_genre": "Rock"
   },
   {
-    "title": "Faye Webster (Live Band) w/ Laila!",
-    "date": "2026-09-26",
-    "start": "19:00",
-    "venue": "Fonda Theatre",
-    "neighborhood": "Hollywood",
-    "category": "music",
-    "genre": null,
-    "lineup": [
-      "Faye Webster (Live Band) w/ Laila!",
-      "Faye Webster Invitational"
-    ],
-    "links": [
-      {
-        "source": "goldenvoice",
-        "url": "https://www.axs.com/events/1541880/faye-webster-live-band-w-laila-tickets"
-      }
-    ],
-    "sources": [
-      "goldenvoice"
-    ],
-    "organizers": null,
-    "detail": null,
-    "image": "https://images.discovery-prod.axs.com/2026/08/faye-webster-invitational-tickets_09-26-26_86_6a71267669bb9.jpg",
-    "price": null,
-    "ra_pick": false,
-    "afterhours": false,
-    "first_seen": "2026-08-06",
-    "last_seen": "2026-08-27",
-    "tags": {
-      "type": "live-music",
-      "genre": [],
-      "setting": [
-        "theater"
-      ],
-      "scale": "room",
-      "vibe": [],
-      "region": "hollywood",
-      "near_home": false
-    }
-  },
-  {
     "title": "WORK OVER/TIME Day 2: JIA, MARRØN, Rene Wise, & Sarah Wreath (LIVE)",
     "date": "2026-09-26",
     "start": "23:00",
@@ -82062,6 +82871,46 @@
       "region": "hollywood",
       "near_home": false
     }
+  },
+  {
+    "title": "GRATEFUL BRUNCH w/ Jeromes Jukebox",
+    "date": "2026-09-26",
+    "start": "11:00",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "category": "Music",
+    "genre": "Grateful Dead Tribute",
+    "lineup": [
+      "Jeromes Jukebox"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/grateful-brunch-w-jeromes-jukebox-204905"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
   },
   {
     "title": "La Mirada Theatre presents: Little Shop of Horrors",
@@ -83751,47 +84600,6 @@
     "lineup_genre": "Rock"
   },
   {
-    "title": "Faye Webster (Live Band) w/ Laila!",
-    "date": "2026-09-27",
-    "start": "19:00",
-    "venue": "Fonda Theatre",
-    "neighborhood": "Hollywood",
-    "category": "music",
-    "genre": null,
-    "lineup": [
-      "Faye Webster (Live Band) w/ Laila!",
-      "Faye Webster Invitational"
-    ],
-    "links": [
-      {
-        "source": "goldenvoice",
-        "url": "https://www.axs.com/events/1541902/faye-webster-live-band-w-laila-tickets"
-      }
-    ],
-    "sources": [
-      "goldenvoice"
-    ],
-    "organizers": null,
-    "detail": null,
-    "image": "https://images.discovery-prod.axs.com/2026/08/faye-webster-invitational-tickets_09-27-26_86_6a712694e450b.jpg",
-    "price": null,
-    "ra_pick": false,
-    "afterhours": false,
-    "first_seen": "2026-08-06",
-    "last_seen": "2026-08-27",
-    "tags": {
-      "type": "live-music",
-      "genre": [],
-      "setting": [
-        "theater"
-      ],
-      "scale": "room",
-      "vibe": [],
-      "region": "hollywood",
-      "near_home": false
-    }
-  },
-  {
     "title": "Allison Euforia USA Tour",
     "date": "2026-09-27",
     "start": "19:00",
@@ -84651,6 +85459,46 @@
       "region": "eastside",
       "near_home": true
     }
+  },
+  {
+    "title": "Salsa & Vinyls Brunch",
+    "date": "2026-09-27",
+    "start": "11:00",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "category": "Music",
+    "genre": "Salsa/Brunch",
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/salsa-vinyls-brunch-204587"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "latin"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
   },
   {
     "title": "Disney Worlds Collide Concert Tour",
@@ -121171,6 +122019,46 @@
     }
   },
   {
+    "title": "Asi Wind",
+    "date": "2026-10-20",
+    "start": "19:00",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "category": "Miscellaneous",
+    "genre": "Magic/Mentalism",
+    "lineup": [
+      "Asi Wind"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/asi-wind-204582"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
     "title": "Post Sex Nachos",
     "date": "2026-10-21",
     "start": "19:00",
@@ -125434,6 +126322,46 @@
     }
   },
   {
+    "title": "Led Zepagain",
+    "date": "2026-10-23",
+    "start": "20:00",
+    "venue": "The Venice West",
+    "neighborhood": "Venice",
+    "category": "Music",
+    "genre": "Rock/Tribute",
+    "lineup": [
+      "Led Zepagain"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.tixr.com/groups/thevenicewest/events/led-zepagain-204571"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
+  },
+  {
     "title": "Bluey's Big Play",
     "date": "2026-10-24",
     "start": "14:00",
@@ -127685,7 +128613,7 @@
     }
   },
   {
-    "title": "About My Friend",
+    "title": "ABOUT MY FRIEND x micahs market",
     "date": "2026-10-24",
     "start": "21:00",
     "venue": "Permanent Records Roadhouse",
@@ -127699,14 +128627,19 @@
       {
         "source": "roadhouse",
         "url": "http://roadhouse.permanentrecordsla.com/"
+      },
+      {
+        "source": "dice",
+        "url": "https://dice.fm/event/6a8d8cadee7135000145b0e8"
       }
     ],
     "sources": [
-      "roadhouse"
+      "roadhouse",
+      "dice"
     ],
     "organizers": null,
     "detail": null,
-    "price": "$15",
+    "price": "$15.00",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-27",
@@ -127724,7 +128657,12 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
-    }
+    },
+    "image": "https://dice-media.imgix.net/attachments/2026-08-24/28119e16-38b7-4272-a9f7-58f932decb38.jpg?rect=0%2C0%2C1080%2C1080",
+    "updated_at": "2026-08-28",
+    "changed_fields": [
+      "lineup"
+    ]
   },
   {
     "title": "DJ Whales",
@@ -127843,47 +128781,6 @@
       "vibe": [],
       "region": "far",
       "near_home": false
-    }
-  },
-  {
-    "title": "ABOUT MY FRIEND x micahs market",
-    "date": "2026-10-24",
-    "start": "21:00",
-    "venue": "Permanent Records Roadhouse",
-    "neighborhood": "Cypress Park",
-    "category": "music",
-    "genre": null,
-    "lineup": [],
-    "links": [
-      {
-        "source": "dice",
-        "url": "https://dice.fm/event/6a8d8cadee7135000145b0e8"
-      }
-    ],
-    "sources": [
-      "dice"
-    ],
-    "organizers": null,
-    "detail": null,
-    "image": "https://dice-media.imgix.net/attachments/2026-08-24/28119e16-38b7-4272-a9f7-58f932decb38.jpg?rect=0%2C0%2C1080%2C1080",
-    "price": "$15.00",
-    "ra_pick": false,
-    "afterhours": false,
-    "first_seen": "2026-08-28",
-    "last_seen": "2026-08-28",
-    "tags": {
-      "type": "live-music",
-      "genre": [
-        "punk",
-        "rock"
-      ],
-      "setting": [
-        "bar"
-      ],
-      "scale": "bar",
-      "vibe": [],
-      "region": "eastside",
-      "near_home": true
     }
   },
   {
@@ -164964,6 +165861,49 @@
       "region": "eastside",
       "near_home": true
     }
+  },
+  {
+    "title": "Larry Campbell & Teresa Williams",
+    "date": "2026-12-05",
+    "start": "20:00",
+    "venue": "McCabe's Guitar Shop",
+    "neighborhood": "Santa Monica",
+    "category": "Music",
+    "genre": "Folk/Americana",
+    "lineup": [
+      "Larry Campbell",
+      "Teresa Williams"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.mccabes.com/product/larry-campbell-teresa-williams/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "folk"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "updated_at": "2026-08-28"
   },
   {
     "title": "The Nutcracker",
