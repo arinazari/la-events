@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/28/2026 deterministically (no API). 271 candidates. Signals: big-venue 239, festival 22, editorial 8, tracked 6._
+_Generated 8/29/2026 deterministically (no API). 265 candidates. Signals: big-venue 233, festival 22, editorial 8, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -48,13 +48,23 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 11/22 | 2 | Three Days Grace - Alienation Tour  | Intuit Dome | festival, big-venue | [link](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0) |
+
+## October 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 10/30 | 9 | Escape Halloween | NOS Events Center | tracked:Cloonee,Jamie Jones | [link](https://on.fgtix.com/trk/Ni5m) |
+
+## November 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
 | Sat 11/28 | 6 | Solomun | Hollywood Blvd (Los Angeles) | tracked:Solomun | [link](https://dice.fm/event/7dbax7-solomun-28th-nov-hollywood-blvd-los-angeles-tickets) |
 
 ## October 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/30 | 5 | Escape | NOS Events Center | tracked:Cloonee,Richie Hawtin | [link](https://on.fgtix.com/trk/Ni5m) |
 | Sat 10/31 | 5 | THE MAZE Halloween: Arts District Block Party | TBA - Arts District Los Angeles | festival | [link](https://ra.co/events/2491883) |
 
 ## November 2026
@@ -153,8 +163,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 10/17 | 5 | Vulfpeck | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/vulfpeck-los-angeles-california-10-17-2026/event/0900648DE474A9BA) |
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Fri 10/2 | 4 | Los Parras | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
-| Fri 10/2 | 4 | KETTAMA - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1446842/kettama-2nd-night-added-tickets) |
 | Sat 10/3 | 4 | Max Styler | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507517) |
 | Mon 10/5 | 4 | Roxette 40th Anniversary Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/roxette-40th-anniversary-tour-2026-los-angeles-california-10-05-2026/event/090064B5F366772F) |
 | Thu 10/8 | 4 | Empire of the Sun - Ask That God: Afterlife North American | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/empire-of-the-sun-ask-that-hollywood-california-10-08-2026/event/0B006465E365551D) |
@@ -210,10 +218,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/2 | 3 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-10-02-2026/event/0A006396BA615BBE) |
-| Fri 10/2 | 3 | The Offspring (21 and Over) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Fri 10/2 | 3 | CODICIADO - Así Es La Vida Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/codiciado-asi-es-la-vida-tour-ontario-california-10-02-2026/event/09006384C6E3B8C7) |
-| Fri 10/2 | 3 | Elefante | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/elefante-inglewood-california-10-02-2026/event/0A00635DDD016CD7) |
 | Sat 10/3 | 3 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-10-03-2026/event/0A006396E80D747B) |
 | Sat 10/3 | 3 | aespa LIVE TOUR - SYNK : COMPLæXITY - in LOS ANGELES | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/aespa-live-tour-synk-complxity-in-inglewood-california-10-03-2026/event/09006495E8BC30ED) |
 | Sat 10/3 | 3 | Max Styler | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1376580/max-styler-tickets) |
@@ -380,6 +384,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Mon 11/16 | 2 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-11-16-2026/event/0A006494C82189BE) |
 | Tue 11/17 | 2 | Enrique Bunbury (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 11/18 | 2 | Teddy Swims: The UGLY Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/teddy-swims-the-ugly-tour-inglewood-california-11-18-2026/event/0900648DE2F4A831) |
+| Thu 11/19 | 2 | Brutalismus 3000 | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1541331/brutalismus-3000-tickets) |
 | Fri 11/20 | 2 | Martin Lawrence with Nate Jackson, Karlous Miller and more | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/martin-lawrence-yall-still-know-what-ontario-california-11-20-2026/event/090064F6CAC4B270) |
 | Tue 11/24 | 2 | Los Tucanes de Tijuana (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7Paao) |
 
@@ -422,7 +427,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/2 | 1 | Thomas Rhett: The Soundtrack to Life Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/thomas-rhett-the-soundtrack-to-life-anaheim-california-10-02-2026/event/0900646409D672A2) |
 | Sat 10/3 | 1 | Premium Club Seats - Breaking Benjamin | Honda Center | big-venue | [link](https://www.ticketmaster.com/breaking-benjamin-anaheim-california-10-03-2026/event/0900644BB38E9BE4) |
 | Thu 10/8 | 1 | Insecure: The 10th Anniversary Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/insecure-the-10th-anniversary-tour-inglewood-california-10-08-2026/event/0A0064DA9DF5740E) |
 | Fri 10/9 | 1 | SOMBR - You Are The Reason Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/sombr-you-are-the-reason-tour-anaheim-california-10-09-2026/event/090064891741C9C1) |
