@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T12:40:34+00:00",
+  "generated_at": "2026-08-29T23:57:58+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "23515c0052d6",
@@ -9493,6 +9493,12 @@
       },
       "lane": "live-music",
       "key": "7bb58c12ac7b",
+      "stars": [
+        {
+          "name": "Lori",
+          "hash": "f9097a7ff01d7b4d"
+        }
+      ],
       "final_rank": 676
     },
     {
@@ -312264,14 +312270,14 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-08-18",
-            "summary": "digest: 2026-08-18 core fetch + squarespace/ics/jsonld layer (WIP)"
+            "date": "2026-06-25",
+            "summary": "Add three empty friend profiles: garo, taylor, alexa (#62)"
           }
         ],
-        "diff": "",
-        "diff_kind": "none",
+        "diff": "diff --git a/profiles/alexa/taste.yaml b/profiles/alexa/taste.yaml\nnew file mode 100644\nindex 0000000..0cd4c9e\n--- /dev/null\n+++ b/profiles/alexa/taste.yaml\n@@ -0,0 +1,19 @@\n+# Taste profile \u2014 Alexa. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only alexa\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium:  []   # +2 each\n+  low:     []   # +1, include only if exceptional\n+\n+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: []   # -2 each (the \"not for me\" list)\n+\n+artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n+comedians_loved:  []\n+venues_loved:     []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-18"
+        "enriched_at": "2026-07-15"
       },
       "profile": {
         "file": "profiles/alexa/profile.yaml",
