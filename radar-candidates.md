@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 8/30/2026 deterministically (no API). 254 candidates. Signals: big-venue 226, festival 18, editorial 8, tracked 6._
+_Generated 8/31/2026 deterministically (no API). 253 candidates. Signals: big-venue 226, festival 17, editorial 8, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -117,7 +117,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 10/4 | 2 | Neverender Festival - Single Day 10/4 | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/neverender-festival-single-day-104-santa-ana-california-10-04-2026/event/090064C8E765DE6B) |
 | Sun 10/18 | 2 | TURNSTILE: THE NEVER ENOUGH TOUR PT. 2  | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/turnstile-the-never-enough-tour-pt-santa-ana-california-10-18-2026/event/090064D2E8C3F042) |
 
 ## November 2026
@@ -313,13 +312,12 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
 | Sat 2/13 | 3 | Los Tucanes De Tijuana | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/los-tucanes-de-tijuana-inglewood-california-02-13-2027/event/090064DEC0F49512) |
+| Fri 2/26 | 3 | Morat YEM World Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/morat-yem-world-tour-2027-inglewood-california-02-26-2027/event/090064AFF1A0DF67) |
 
 ## October 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 10/4 | 2 | Lynyrd Skynyrd - 21 & Over | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Sun 10/4 | 2 | YSL Records & Young Thug Present: The New Generation Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/ysl-records-young-thug-present-the-inglewood-california-10-04-2026/event/0A0064E8DBC9B8C9) |
 | Tue 10/6 | 2 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-10-06-2026/event/0A006426C23B4B2A) |
 | Tue 10/6 | 2 | Mumford & Sons - Prizefighter Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mumford-sons-prizefighter-tour-inglewood-california-10-06-2026/event/09006452D41C6346) |
 | Wed 10/7 | 2 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-10-07-2026/event/0A006426C2444B31) |
@@ -411,6 +409,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Tue 2/2 | 2 | Christine D'Clario - La Novia Tour  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/christine-dclario-la-novia-tour-inglewood-california-02-02-2027/event/0A006179983A3029) |
 | Thu 2/18 | 2 | PABLO ALBORAN - GLOBAL TOUR KM0 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/pablo-alboran-global-tour-km0-inglewood-california-02-18-2027/event/0A0064CAC3AADDB8) |
+| Fri 2/26 | 2 | The Basement Yard Live | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/the-basement-yard-live-inglewood-california-02-26-2027/event/0A0064C2CCB3BA66) |
 
 ## October 2026
 
