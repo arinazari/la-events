@@ -1,22 +1,9 @@
 # Source candidates — Discover mode
 
-_Generated 2026-08-25. Review → approve → fold into `sources.yaml`, then update `last_discovery`._
+_Generated 2026-09-01 (previous pass: 2026-08-25). Review → approve → fold into `sources.yaml`,
+then update `last_discovery`._
 
-## Gap-mining (catalog venues with no registry row)
-
-Most recurring venue names already flow in via existing structured pipelines (TM/RA/Goldenvoice/
-DICE/19hz) even without their own row — not gaps. Promoter-based gap-mining wasn't usable this
-pass (`organizers` is null on every sampled catalog row).
-
-Checked and **no action needed** (already adequately covered):
-- Blue Note Los Angeles — already on Ticketmaster (dmaId 324)
-- Boardner's by La Belle / Bar Sinister — TM-adjacent ticketing already flows in
-- Matriarch LA (Koreatown rooftop-for-hire) — scattered promoters better caught by the existing
-  Eventbrite `--scan-catalog` harvest than a dedicated row
-- Ostbahnhof, Another Castle, "The Foundry" (underground collectives) — ticket exclusively via RA,
-  already inside the active RA source
-
-## Proposed additions
+## Still pending from 2026-08-25 (nobody has approved/merged these yet)
 
 | Name | Category | Method | Endpoint | What it lists | Confidence |
 |---|---|---|---|---|---|
@@ -28,26 +15,64 @@ Checked and **no action needed** (already adequately covered):
 | The Comedy Bureau (LA shows) | comedy | ics | https://thecomedybureau.com/?post_type=tribe_events&tribe_events_cat=los-angeles-shows&ical=1&eventDisplay=list | ~40 indie LA comedy shows/week (The Elysian, The Fable, Lyric Hyperion, Largo…) | Very high — real ICS export confirmed |
 | CurationsLA | editorial | webfetch | https://curatedla.beehiiv.com/ | Weekly "Events: Week of…" LA roundup + pop-ups/openings, public no-login archive | High |
 
-Ready-to-paste `sources.yaml` snippets (DICE `venues:` extension + 4 new standalone entries) are
-in the source-scout agent transcript from this run — ask if you want them regenerated.
+Ready-to-paste `sources.yaml` snippets are in the 2026-08-25 source-scout transcript — ask if you
+want them regenerated.
 
-## Watch — not yet ticketing
+**Resolved since last pass:** ORIGIN Los Angeles (the Arts District club noted as "not yet
+ticketing" on 8/25) is now selling via Eventbrite and was picked up automatically by today's
+`fetch_eventbrite.py --scan-catalog` organizer-harvest — no longer needs a manual add.
 
-- **ORIGIN Los Angeles** — new Arts District club (613 Imperial St; SBCLTR/Minimal Effort team),
-  opening late summer/fall 2026. RA club page provisioned (`ra.co/clubs/296836`) but 0 events.
-  Re-probe next Discover pass once it's ticketing.
+## New this pass (2026-09-01)
 
-## Notes for the approval call
+### Gap-mining
 
-- Comedy is a low-priority taste lane (skip except `comedians_loved`) — The Comedy Bureau is
-  proposed at `priority: 3` rather than 1/2; say if you'd rather leave it out and hand-check for
-  named comedians only.
-- CurationsLA is broad/lifestyle like the DiscoverLA weekend roundup — needs the same
-  "extract what's on-taste, don't dump the newsletter" discipline at digest time.
-- The 3 DICE slugs are high-confidence by pattern/venue-name match (also show up on RA) but
-  haven't been fetched with `fetch_dice.py`'s real Chrome UA yet — verify content on first real run.
+Sampled venue/organizer frequency across the catalog (3,928 events) against `sources.yaml`.
+**Every recurring venue/promoter found is already covered** by an active structured source —
+mostly Resident Advisor and 19hz. Checked and confirmed no action needed: 1720, The Bridge, Que
+Sera, El Cid, The Redwood Bar And Grill, Community (Berlin), Dirt Dog Compound, Boomtown Brewery,
+Sound Nightclub, Academy Nightclub, The Spotlight, Exchange, Time Nightclub (Costa Mesa); Stereo
+Punks, Hump Events, Midnight Lovers, Azure SoCal, Into The Woods LA, Green Life Ent, Factory 93,
+FNGRS CRSSD, Brownies & Lemonade, Melt Collective, Lights Down Low, TUNNEL. A genuinely useful
+negative result — RA + 19hz are carrying the electronic/warehouse lane well; no new dedicated
+fetcher would add meaningful incremental coverage there right now.
+
+### Proposed additions
+
+| Name | Category | Method | Endpoint | What it lists | Confidence |
+|---|---|---|---|---|---|
+| The Upstairs LA (DTLA comedy club) | comedy | eventbrite | https://www.eventbrite.com/o/the-upstairs-comedy-club-108469330261 | New DTLA club (opened 5/1/26, debuted with Dave Chappelle); regular showcases. Has a TM venue page (id 90459, TicketWeb-backed) but 0 rows currently reach the catalog via TM — same FrontGate-style propagation gap already documented elsewhere. Also sells via Tixr. | Medium-high |
+| Centerfold Market (Fairfax vintage/maker flea) | market | eventbrite | https://www.eventbrite.com/e/centerfold-market-tickets-1988367028307 | Curated pop-up flea at 716 N Fairfax Ave (LouLou Brazill & Violet Getty). Dated, irregular listings — not weekly, so a fetched source rather than a `recurring.yaml` cadence. Organizer `/o/...` URL not yet resolved — needs one `fetch_eventbrite.py --harvest` pass on the event URL. | Medium |
+| DoLA (dolosangeles.com) | editorial | gmail (newsletter) | https://dolosangeles.com/p/newsletter | Broad LA "what to do" aggregator/newsletter (concerts, comedy, LGBTQ+, food/drink) that surfaced independently across multiple unrelated searches this pass. Site hard-403s WebFetch (bot wall, same symptom as KCRW) — don't scrape directly; subscribe + route via Gmail "Events" label instead. Likely heavy overlap with LAist/Time Out/Secret LA — low-priority supplemental signal at best. | Low-medium |
+
+Ready-to-paste `sources.yaml` snippets are in the 2026-09-01 source-scout transcript — ask if you
+want them regenerated.
+
+### Status-change flags for existing entries
+
+- **Harvard & Stone** (`flaky`, escalate-to-`dead` 2026-09-22): re-probed today — `/events/` now
+  shows current September 2026 dates (stale-cache symptom from 7/17–8/22 appears cleared). One
+  oddity: listed a "Sept 31" entry (nonexistent date) — a recurring-event date-generation quirk.
+  Recommend one more clean automated fetch to confirm before flipping back to `active`.
+- **Dirty Epic** (`flaky`, parked-domain note): re-probe today returned no retrievable content —
+  inconclusive, leave as `flaky`.
+- **Restless Nites** (`candidate`, "verify current activity on first run"): not re-verified this
+  pass — still open for a future Discover run.
+
+### Open questions for the approval call
+
+- **The Upstairs LA**: also worth a look on the Ticketmaster side — it has a TM venue ID (90459)
+  that isn't surfacing rows; may be a `fetch_ticketmaster.py` filter issue rather than a true
+  white-label gap, separate from just adding the Eventbrite organizer.
+- **Centerfold Market**: needs one `fetch_eventbrite.py --harvest <event URL>` run to resolve the
+  organizer URL before it can be added as a standing source.
+- **DoLA**: judgment call — a third general-aggregator newsletter given LAist + Time Out + Secret
+  LA + Discover LA already cover this lane. Lean toward skipping unless it turns up something
+  unique.
+- No IG-only finds this pass requiring the flyer-capture reminder.
 
 ## Also this pass (already committed, no approval needed)
 
 Eventbrite organizer auto-harvest (`--scan-catalog`, precise per-event signal, not a Discover
-proposal per CLAUDE.md): added **Chai Rave**, **it's just noize.**, **Fesser and Friends Inc.**
+proposal per CLAUDE.md): added **Soundflow LA**, **The Regent Theater**, **UPEND**, **Enfuze**,
+**ITAI & Friends**, **City Of Monterey Park**, **Wasted Presents**, **ORIGIN**, **SBCLTR**,
+**COSRAVES**.
