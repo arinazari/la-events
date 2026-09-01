@@ -179,6 +179,41 @@ artists_tracked:
   - Robert Hood
   - Tini Gessler
   - Monkey Safari
+  # legends / foundational headliners (Carl Cox tier) — added 2026-09-01 after the ranker
+  # missed Carl Cox @ the Palladium (untracked -> below the editor head + off the radar).
+  # Word-collision names deliberately left off (Underworld = film titles, Sasha = first name,
+  # Luciano = the reggae singer); Digweed covers the Sasha & Digweed pairing.
+  - Carl Cox
+  - Jeff Mills
+  - Carl Craig
+  - Juan Atkins
+  - Kevin Saunderson
+  - Sven Väth
+  - Laurent Garnier
+  - Ben Klock
+  - Marcel Dettmann
+  - Ricardo Villalobos
+  - Loco Dice
+  - Dubfire
+  - Ellen Allien
+  # Chicago / NY house masters (the Moodymann–Kerri Chandler axis, headliner tier)
+  - Louie Vega
+  - Kenny Dope
+  - Masters at Work
+  - Danny Tenaglia
+  - David Morales
+  - Todd Terry
+  - Derrick Carter
+  - Mark Farina
+  - Green Velvet
+  - Doc Martin
+  # progressive / big-room / live legends
+  - John Digweed
+  - Eric Prydz
+  - Fatboy Slim
+  - Armand Van Helden
+  - Paul Kalkbrenner
+  - The Chemical Brothers
 
 comedians_loved: [ Stavros Halkias, Chris D'Elia, Larry David, Conan O'Brien ] # the comedy exception — these get surfaced; others don't
 venues_loved:
@@ -235,6 +270,10 @@ feedback:
     concierge)"
   - "2026-08-24: Loved Monkey Safari live — track them (melodic/organic house,
     Anjuna/Innervisions orbit). (self-edit via concierge)"
+  - "2026-09-01: Track Carl Cox + legend-tier peers (Mills, Väth, Garnier, Vega,
+    Tenaglia, Digweed, Prydz, …) — the ranker under-surfaced Carl Cox @ Palladium
+    11/6 because he wasn't tracked. Legends of that caliber should surface.
+    (self-edit via concierge)"
 
 # Scoring overrides (mechanism knobs — profile.yaml wins where both set a key).
 scoring:
