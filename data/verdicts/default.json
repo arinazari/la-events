@@ -42756,13 +42756,12 @@
     },
     "f3b8ff438f36": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Punk/rock bill with almost no info beyond band names — low-key possibility, can't rate the draw.",
-      "confidence": "low",
-      "judged_at": "2026-08-31T12:41:25",
+      "adjust": -1,
+      "why": "Scene notes peg this as cosmic-folk/dream-pop (Weyes Blood-Marina Allen orbit), not house — the score's genre bump is a mis-tag; still a legit dream-pop booking for the rock lane, just a niche bar show, not a pull-you-out-of-the-house night.",
+      "confidence": "high",
+      "judged_at": "2026-09-02T12:38:35",
       "input_version": 2,
-      "score_at_judge": 6,
-      "model": "claude-sonnet-5"
+      "score_at_judge": 8
     },
     "20c09abe0d8e": {
       "tier": "solid",
@@ -42898,6 +42897,24 @@
       "judged_at": "2026-09-01T12:51:10",
       "input_version": 2,
       "score_at_judge": 7
+    },
+    "e65210096485": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Techno and minimal are literally your top Spotify genres and O.B.I./Per Pleks are legit German hard-techno/schranz names (Definition of Hard Techno, Beatport hard-techno #1) — a real warehouse-adjacent night at 1720, not a generic rave.",
+      "confidence": "high",
+      "judged_at": "2026-09-02T12:38:35",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "59f50b50817d": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "The 'on-taste genre (theater)' bump is just the venue's name, not a theater program — it's a generic vintage/record flea, fine daytime filler but nothing to build around.",
+      "confidence": "high",
+      "judged_at": "2026-09-02T12:38:35",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }
