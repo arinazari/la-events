@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/1/2026 deterministically (no API). 252 candidates. Signals: big-venue 225, festival 17, editorial 8, tracked 6._
+_Generated 9/2/2026 deterministically (no API). 252 candidates. Signals: big-venue 224, festival 18, editorial 8, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -113,6 +113,12 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 11/14 | 3 | MOVEMENTS - HAPPIER NOW USA TOUR | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/movements-happier-now-usa-tour-santa-ana-california-11-14-2026/event/090064A6060A0AEE) |
 
+## December 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Thu 12/31 | 3 | Hollywood Blvd Block Party NYE 2027 LA | Jameson's Irish Pub | festival | [link](https://ra.co/events/2500017) |
+
 ## October 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -166,6 +172,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Tue 10/13 | 4 | Ella Langley | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 10/14 | 4 | Ella Langley | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Thu 10/15 | 4 | Role Model Presents: Chuck On Tour | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
+| Fri 10/16 | 4 | Miley: Bass Persuades - Live at the Hollywood Bowl | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/miley-bass-persuades-live-at-the-hollywood-california-10-16-2026/event/0B00651CAD82598A) |
 | Mon 10/19 | 4 | Dermot Kennedy: The Weight of the Woods Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/dermot-kennedy-the-weight-of-the-los-angeles-california-10-19-2026/event/090064787D02336C) |
 | Tue 10/20 | 4 | Jessie Ware: The Superbloom Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/jessie-ware-the-superbloom-tour-los-angeles-california-10-20-2026/event/0900648D8AE9388F) |
 | Wed 10/21 | 4 | Ravyn Lenae Presents: Blue Island | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
@@ -209,7 +216,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 10/6 | 3 | "The Hayley Williams Show" | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/the-hayley-williams-show-hollywood-california-10-06-2026/event/0B0064A1EBEF953D) |
 | Fri 10/9 | 3 | The Neighbourhood: THE WOURLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-neighbourhood-the-wourld-tour-inglewood-california-10-09-2026/event/0900635E02A5A5C0) |
 | Fri 10/9 | 3 | The Righteous Brothers - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 10/9 | 3 | Jorge Medina - Legendario Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jorge-medina-legendario-tour-inglewood-california-10-09-2026/event/0A0064C1BB80C9A1) |
@@ -232,6 +238,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sun 10/18 | 3 | Kacey Musgraves w/ Gabriella Rose | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Sun 10/18 | 3 | it's murph | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507528) |
 | Sun 10/18 | 3 | it's murph, Tobiahs | Shrine Expo Hall (Los Angeles) | big-venue | [link](https://www.axs.com/events/1511170) |
+| Sun 10/18 | 3 | Miley: Bass Persuades - Live at the Hollywood Bowl | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/miley-bass-persuades-live-at-the-hollywood-california-10-18-2026/event/0B00651CAD89599B) |
 | Mon 10/19 | 3 | Kacey Musgraves w/ Estevie | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Wed 10/21 | 3 | My Chemical Romance The Black Parade 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-the-black-parade-hollywood-california-10-21-2026/event/0B006332CBDC3993) |
 | Fri 10/23 | 3 | Worship (Sub Focus, Dimension, Culture Shock, 1991) | Kia Forum | big-venue | [link](https://www.ticketmaster.com/worship-north-america-2026-inglewood-california-10-23-2026/event/090064D3F4CB4635) |
@@ -317,8 +324,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 10/6 | 2 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-10-06-2026/event/0A006426C23B4B2A) |
-| Tue 10/6 | 2 | Mumford & Sons - Prizefighter Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mumford-sons-prizefighter-tour-inglewood-california-10-06-2026/event/09006452D41C6346) |
 | Wed 10/7 | 2 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-10-07-2026/event/0A006426C2444B31) |
 | Wed 10/7 | 2 | Mumford & Sons - Prizefighter Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mumford-sons-prizefighter-tour-inglewood-california-10-07-2026/event/09006457A9B1D055) |
 | Wed 10/7 | 2 | Chayanne - Bailemos Otra Vez Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/chayanne-bailemos-otra-vez-tour-ontario-california-10-07-2026/event/0900646AE4D518AD) |
