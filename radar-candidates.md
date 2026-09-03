@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/2/2026 deterministically (no API). 252 candidates. Signals: big-venue 224, festival 18, editorial 8, tracked 6._
+_Generated 9/3/2026 deterministically (no API). 255 candidates. Signals: big-venue 226, festival 19, editorial 8, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -104,6 +104,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Fri 10/16 | 3 | Faultline Festival 2-Day Pass | Morongo Field | festival | [link](https://www.ticketmaster.com/faultline-festival-2day-pass-rancho-cucamonga-california-10-16-2026/event/09006521BC3C9F9C) |
 | Sat 10/17 | 3 | Lost In Dreams & The Observatory Present ARMNHMR (18+) | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/lost-in-dreams-the-observatory-present-santa-ana-california-10-17-2026/event/0900649CF4A8321F) |
 | Sat 10/17 | 3 | Faultline Festival with Dustin Lynch | Morongo Field | festival | [link](https://www.ticketmaster.com/faultline-festival-with-dustin-lynch-rancho-cucamonga-california-10-17-2026/event/0900651220D620B6) |
 
@@ -287,6 +288,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 11/27 | 3 | Gerardo Ortiz - El Ejemplar Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/gerardo-ortiz-el-ejemplar-tour-inglewood-california-11-27-2026/event/0A006473C7B5D973) |
 | Fri 11/27 | 3 | Afrojack Presents: CONTROL | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1468576/afrojack-presents-control-tickets) |
 | Sat 11/28 | 3 | Ohgeesy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1533707/ohgeesy-tickets) |
+| Sat 11/28 | 3 | Jonathan Lee - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZsja) |
 
 ## December 2026
 
@@ -324,9 +326,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 10/7 | 2 | Bruno Mars - The Romantic Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bruno-mars-the-romantic-tour-inglewood-california-10-07-2026/event/0A006426C2444B31) |
-| Wed 10/7 | 2 | Mumford & Sons - Prizefighter Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mumford-sons-prizefighter-tour-inglewood-california-10-07-2026/event/09006457A9B1D055) |
-| Wed 10/7 | 2 | Chayanne - Bailemos Otra Vez Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/chayanne-bailemos-otra-vez-tour-ontario-california-10-07-2026/event/0900646AE4D518AD) |
 | Wed 10/14 | 2 | Banda MS de Sergio Lizarraga (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 10/14 | 2 | Prospa present Prophecy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1447132/prospa-present-prophecy-tickets) |
 | Thu 10/15 | 2 | Cynthia Erivo: Let Me Sing To You | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/cynthia-erivo-let-me-sing-to-hollywood-california-10-15-2026/event/0B0064A783483613) |
@@ -385,10 +384,13 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Tue 12/1 | 2 | Sin Bandera (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 12/2 | 2 | BEAT: Belew/Vai/Levin/Bozzio Performing the Music of KING  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/beat-belewvailevinbozzio-performing-the-music-of-inglewood-california-12-02-2026/event/0A0064FEFC6652B8) |
+| Sat 12/5 | 2 | Matt Rife | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZzjw) |
+| Wed 12/9 | 2 | Gipsy Kings featuring Nicolas Reyes - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAvAPz) |
 | Thu 12/10 | 2 | Triumph: The Rock & Roll Machine Reloaded Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-inglewood-california-12-10-2026/event/090065149FC06F66) |
 | Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
 | Mon 12/14 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-14-2026/event/090064B49319A5BE) |
+| Mon 12/14 | 2 | Creedmas - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZIfF) |
 | Wed 12/16 | 2 | TYLA - THE A*POP WORLD TOUR | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/tyla-the-apop-world-tour-inglewood-california-12-16-2026/event/0A0064E99D9E6DC8) |
 | Wed 12/16 | 2 | Wang Leehom - The Best Place II World Tour  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/wang-leehom-the-best-place-ii-inglewood-california-12-16-2026/event/09006515BC62BB28) |
 | Sun 12/20 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-20-2026/event/090064BBE49DEE4D) |
@@ -440,6 +442,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 12/6 | 1 | Adrian Uribe: 50 y Pico Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/adrian-uribe-50-y-pico-tour-inglewood-california-12-06-2026/event/0A0064F6C4A3A0B9) |
+| Sun 12/6 | 1 | Matt Rife | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZzp7) |
 | Sun 12/13 | 1 | Rose Bowl Flea Market Sunday, December 13, 2026 | Rose Bowl Stadium | big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-december-13-2026-tickets-1977732048797) |
 
 ## February 2027

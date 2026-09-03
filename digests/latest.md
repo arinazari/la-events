@@ -1,73 +1,73 @@
-# LA Events — 2026-09-02
+# LA Events — 2026-09-03
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Updated Wed 9/2 · 1 updated since the last pull · 🆕 new · ↻ updated*
+*Checked Thu 9/3 · no new or changed events since the last pull*
 
-<!-- take: Labor Day Saturday goes deep at The Bridge — Studio Barnhus's own founders headlining an outdoor day party. -->
-Quiet Wednesday and Thursday, then Labor Day weekend hits hard: Studio Barnhus's own founders headline an outdoor day party at The Bridge Saturday, with DJ Sneak going all-night vinyl-only and Korolova landing a rare club-sized room the same night. The two Fridays after keep the momentum — Massimiliano Pagliara's Berghain-lineage electro-disco on 9/11, then Negativland's rare culture-jamming set on 9/18. If you're picking one thing to build the whole stretch around, make it Amelie Lens's day-to-dusk set at Grand Park on 9/26 — a real headliner slot, not a shared festival stage.
+<!-- take: Labor Day splits clean — Amadeus at the Bowl tonight, then warehouse heat all weekend, with the real payoff a Friday further out at The Bridge. -->
+Labor Day weekend splits in two: tonight's a proper night at the Bowl — LA Phil live-scoring *Amadeus* — then Friday and Saturday both go warehouse. Lights Down Low's set with Interplanetary Criminal tomorrow is the sharpest booking of the long weekend, and Saturday stacks a surf-punk day fest at the Belasco against Studio Barnhus's own co-founders playing The Bridge that same night. If you can only do one Saturday: skip the day show and go straight to Barnhus — Axel Boman and Kornel Kovacs together, in person, beats anything else on this stretch. The real headline, though, is a week and a half out — Massimiliano Pagliara at Midnight Lovers on 9/11 is the one booking worth actually planning around, with Amelie Lens's own day-to-dusk set on 9/26 right behind it.
 
 ## Tonight & tomorrow
 
-Nothing urgent tonight or tomorrow — The Dresden's free jazz jam is the low-key move, save the real energy for Saturday.
+Amadeus at the Bowl tonight is a genuine one-off; save the real energy for tomorrow — Lights Down Low's Interplanetary Criminal set is the best booking of the next 48 hours, not just the most convenient one.
 
-- `Today 8:30pm` **[Luke Strand & Friends](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=d52d06eef0e8) — *Free weekly jazz jam at The Dresden, first night of a three-night run — pleasant and low-key, not urgent.*
-- `Today 6pm` **[Vinyl Happy Hour](http://roadhouse.permanentrecordsla.com/)** — Permanent Records Roadhouse, Cypress Park · [card ↗](https://arinazari.github.io/la-events/?e=2fea7df7f865) — *Plain recurring vinyl happy hour with no billed selector — easy low-key Tuesday, not a pick to plan around.*
-- `Today 6pm` **[Krautrock Happy Hour](http://roadhouse.permanentrecordsla.com/)** — Permanent Records Roadhouse, Cypress Park · FREE · [card ↗](https://arinazari.github.io/la-events/?e=d113440a1185)
-- `Tomorrow 8pm` **[Amadeus in Concert](https://www.hollywoodbowl.com/events)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=df1c20809247)
-- `Tomorrow 10pm` **[[CANCELLED] - Afrobeats Downtown LA | Thursdays • Amapiano • Dancehall • Afro House](https://posh.vip/e/nwanne-nights-2026-9-4-9-0-1)** — Vuuka Lounge · free · [card ↗](https://arinazari.github.io/la-events/?e=dee30b21d165)
-- `Tomorrow 8:30pm` **[BALLS: A Clown Show](https://www.elysiantheater.com/shows/balls0903)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=36ad74e5ad15)
+- `Today 8pm` **[Amadeus in Concert](https://www.hollywoodbowl.com/events)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=df1c20809247) — *Loved venue plus a real format hook (LA Phil live-scoring Amadeus) beats a plain screening — worth the bump over a generic Bowl night.*
+- `Today 10pm` **[[CANCELLED] - Afrobeats Downtown LA | Thursdays • Amapiano • Dancehall • Afro House](https://posh.vip/e/nwanne-nights-2026-9-4-9-0-1)** — Vuuka Lounge · free · [card ↗](https://arinazari.github.io/la-events/?e=dee30b21d165)
+- `Today 11pm-5am` **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2524556)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23-28 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=7bed4bdfa190)
+- `Tomorrow 11pm-5am` ⭐ **[Lights Down Low Feat. Interplanetary Criminal](https://ra.co/events/2510630)** — TBA - Downtown Los Angeles, DTLA · $20-40 · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=b504b1dfb3a1) — *Highest score in the batch for a reason — genuine UK bassline heat (Interplanetary Criminal) fronting an LDL warehouse night with two residents you already spin; TBA doors at 11pm is exactly the lane you build a Friday around.*
+- `Tomorrow 7:30pm` 🆕 **[Jeru The Damaja - Wrath Of The Math 30th Anniversary Tour](https://www.facebook.com/events/1358803962318125/)** — Lodge Room (Los Angeles), Highland Park · $39 · [card ↗](https://arinazari.github.io/la-events/?e=89aa8aeae16b) — *Real artist on a real anniversary tour (not a tribute act) at a loved room, but hip-hop sits outside the core electronic/indie lane so it doesn't earn more than a nod.*
+- `Tomorrow 5pm` **[Put Together](https://www.elysiantheater.com/shows/puttogether0904)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=653aab47b498) — *This is a play about aspiration/gender politics, not a live-music set — relabeling the lane; fine black-box theater if the topic interests you.*
 
 ## Don't miss
 
+- `Thu 9/3` **[Amadeus in Concert](https://www.hollywoodbowl.com/events)** — Hollywood Bowl, Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=df1c20809247)  
+  LA Phil live-scoring the whole film beats a plain screening every time — this is the Bowl doing the one thing only the Bowl can do. <!-- tier3:why df1c20809247 -->
 - `Sat 9/5` **[Penniback Presents: Summer Mass with Wavves, Modern Color, and MORE](https://www.ticketmaster.com/penniback-presents-summer-mass-with-wavves-los-angeles-california-09-05-2026/event/090064D6BEC28C27)** — The Belasco, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=5997a24526ee)  
-  More surf-punk day festival than headline show — Waax and The Paranoyds are strong enough that showing up early beats catching just the top of the bill. <!-- tier3:why 5997a24526ee -->
+  Less a Wavves show than a surf-punk day festival — Waax and The Paranoyds both hold their own, so get there early instead of drifting in for the headliner. <!-- tier3:why 5997a24526ee -->
 - `Fri 9/11` **[Midnight Lovers with Massimiliano Pagliara, Masha Mar, James Axon](https://ra.co/events/2432189)** — The Bridge, DTLA · $29 pre · *🎟 tiered pricing — buy early* · [card ↗](https://arinazari.github.io/la-events/?e=8a862e604d08)  
-  Berghain-lineage electro-disco headlining a real European-club booking, with Masha Mar and James Axon bringing the LA deep-house/dublab crowd — exactly the night the fabric-London comparisons are built for. <!-- tier3:why 8a862e604d08 -->
+  Berghain-lineage electro-disco headlining a real European-club booking, with Masha Mar and James Axon bringing LA's own deep-house/dublab crowd — exactly the night the fabric-London comparisons are built for. <!-- tier3:why 8a862e604d08 -->
 - `Sat 9/12` **[Caller ID](https://www.elysiantheater.com/shows/callerid0910)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=a84b70220dc9)  
   Sold out already, but worth tracking for a rerun — a one-person show staged entirely as a phone call is exactly the format-forward weirdness the Elysian does best. <!-- tier3:why a84b70220dc9 -->
-- `Fri 9/18` **[Negativland + SUE-C w/ Irene Moon, DJ Professor Cantaloupe](https://dice.fm/event/6a5a70bb9cd07000017e1339)** — 2220 Arts + Archives, Historic Filipinotown · $22.66 · [card ↗](https://arinazari.github.io/la-events/?e=801aba466fd0)  
-  Negativland basically invented sample-collage culture-jamming (the U2 lawsuit made them infamous) and almost never play LA — SUE-C's live visuals plus Irene Moon round out one of the stranger, better-programmed nights at a venue you already love. <!-- tier3:why 801aba466fd0 -->
 - `Fri 9/25` **[Gene On Earth, Momo Trosman, Cromie, Chemtrail Johnny, Hazy, Ian Llorens, Gilbert0](https://ra.co/events/2457514)** — TBA - Downtown Los Angeles, DTLA · $35-50 · *📍 location TBA — watch for the drop* · [card ↗](https://arinazari.github.io/la-events/?e=e0bf9830cfa7)  
   The TBA-warehouse afterhours format you already like, with a lineup a notch deeper than most — Momo Trosman and Cromie are legit diggers, not flyer filler. <!-- tier3:why e0bf9830cfa7 -->
 - `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park, DTLA · $69+ · [card ↗](https://arinazari.github.io/la-events/?e=d535a0dbfe40)  
-  A dedicated day-to-dusk set, not a shared festival stage — genuinely the better way to catch her than the HARD Summer slot the same month, extended techno-into-acid-into-trance from a real headliner. <!-- tier3:why d535a0dbfe40 -->
+  A dedicated day-to-dusk set at Grand Park, not a shared festival stage — genuinely the better way to catch her than the HARD Summer slot the same month, extended techno-into-acid-into-trance from a tracked headliner. <!-- tier3:why d535a0dbfe40 -->
 
 ## What changed
 
 
 **New to the slate**
-- `Fri 10/2` 🆕 **[Toy Tonics Jam - Los Angeles](https://ra.co/events/2526491)** — TBA - DTLA, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=50724a39249b)
+- `Fri 9/4` 🆕 **[Jeru The Damaja - Wrath Of The Math 30th Anniversary Tour](https://www.facebook.com/events/1358803962318125/)** — Lodge Room (Los Angeles), Highland Park · $39 · [card ↗](https://arinazari.github.io/la-events/?e=89aa8aeae16b) — *Real artist on a real anniversary tour (not a tribute act) at a loved room, but hip-hop sits outside the core electronic/indie lane so it doesn't earn more than a nod.*
+- `Mon 9/7` 🆕 **[Wasteland Recovery Party - Tmw X Hard Havoc](https://shotgun.live/en/events/wasteland-recovery-party-tmw-x-hard-havoc)** — TBA (DTLA/Los Angeles), DTLA · afters · $6-17 · [card ↗](https://arinazari.github.io/la-events/?e=5849761544b1)
+- `Mon 9/7` 🆕 **[VICE / Labor Day Carry & Children of the Revolution EP Release](https://ra.co/events/2528029)** — TBA, Los Angeles · afters · [card ↗](https://arinazari.github.io/la-events/?e=71998c2bfd7f)
+- `Thu 9/17` 🆕 **[RECOLLECT UNDERGROUND](https://ra.co/events/2528104)** — TBA - Location Link in Bio on Instagram @recollectunderground, Los Angeles · $12.51 · [card ↗](https://arinazari.github.io/la-events/?e=caf16a13a1d0)
+- `Fri 9/18` 🆕 **[CATEGORY VOL.002: Rouge](https://ra.co/events/2528035)** — District 7, Los Angeles · [card ↗](https://arinazari.github.io/la-events/?e=3d6aa8a3ebda) — *Masha Mar is a core Spotify listen and the rest of the bill (Kim Anh's classic house, Flabbergast's acid techno) is a genuinely deep-crate underground booking, not filler.*
+- `Thu 10/1` 🆕 **[Permanent Records 20th Anniversary Party](https://app.opendate.io/e/valley-fever-excess-express-october-01-2026-746954)** — Permanent Records Roadhouse, Cypress Park · $10 · [card ↗](https://arinazari.github.io/la-events/?e=c35de945230e)
+- `Sun 10/4` 🆕 **[Into The Woods](https://ra.co/events/2527987)** — TBA, Los Angeles · day party · [card ↗](https://arinazari.github.io/la-events/?e=d15377f2590f)
+- `Thu 10/8` 🆕 **[Sweet Gloom](http://roadhouse.permanentrecordsla.com/)** — Permanent Records Roadhouse, Cypress Park · $ · [card ↗](https://arinazari.github.io/la-events/?e=441803d50db0)
+- *…plus 1 more*
 
 **Updated**
-- `Sat 9/5` **[Deep House Brunch POOL PARTY [Labor Day Saturday]](https://ra.co/events/2498530)** — White Rabbit Sky Lounge at The Valorian (Formerly Skybar at Mondrian), West Hollywood · day party · $19.25 · ↻ updated (start) · [card ↗](https://arinazari.github.io/la-events/?e=f9b50c196afe) — *Scotty Boy's brunch-pool formula again, but daytime rooftop-pool house on Labor Day Saturday earns the setting boost even without a digger's lineup.*
-- `Sun 9/6` **[Sunday Sessions LA x trommel (Vinyl Only) Open air](https://ra.co/events/2514109)** — The Bridge, DTLA · day party · $5 b4 7 /$23-34 · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=97ab1bec544f) — *Open-air vinyl-only with a Frankie Knuckles-mentored selector (Silky) — this is the same rooftop-groove Sunday-Sessions pattern you keep coming back for.*
-- `Sat 9/12` **[Burnin' Chancla 006 (Hi-Fi All-Vinyl Dance Night): Chris Pavlov, VHS King](https://ra.co/events/2504607)** — TBA, Los Angeles · $23-31.50 · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=331bb51f77c7) — *Chris Pavlov's Burnin' Chancla is precisely the all-vinyl, dug-up disco/Balearic groove format you keep gravitating to — the score's flat +6 undersells the format fit.*
+- `Thu 9/3` (+2 more dates) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2524556)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23-28 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=7bed4bdfa190)
+- `Sat 9/5` **[Deep House Brunch POOL PARTY [Labor Day Saturday]](https://ra.co/events/2498530)** — White Rabbit Sky Lounge at The Valorian (Formerly Skybar at Mondrian), West Hollywood · day party · $19.25 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=f9b50c196afe) — *Scotty Boy's brunch-pool formula again, but daytime rooftop-pool house on Labor Day Saturday earns the setting boost even without a digger's lineup.*
+- `Sun 9/6` **[Deep House Brunch Boat Party Ft. Mark Farina, Scotty Boy, House Zaddy, Lavenge, Aplex, Bets, Wlater Guest](https://ra.co/events/2457853)** — Catalina Classic Cruises, Los Angeles · $56.25 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=c073c173de32) — *Mark Farina is a genuine deep-house/Mushroom Jazz legend and this is exactly the groove/soulful boat-party format the taste rewards, not just a generic 'house' tag match.*
 - `Sat 9/19` **[FLOAT Rooftop Pool Party feat. Apache [2-8 PM]](https://ra.co/events/2449816)** — Level 8 DTLA, DTLA · day party · $31.58 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=e46641e7b265) — *Daytime rooftop pool party with a groove-driven Abracadabra-label DJ — exactly the sunset/daytime open-air house setting you gravitate to.*
+- `Fri 10/2` **[Friendship Commanders](https://app.opendate.io/e/friendship-commanders-doomboyz-october-02-2026-734589)** — Permanent Records Roadhouse, Cypress Park · $10 ADVANCE $15 DOS · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=e5dc854a8740)
 
 ## Next two weeks
-
-### Wednesday · September 2
-
-**Electronic & dance**
-- `11pm` (Wed 9/2 +3 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2524555)** — The Lexington, DTLA · afters · [card ↗](https://arinazari.github.io/la-events/?e=43edf48bee4f)
-
-**Live music**
-- `8:30pm` (Wed 9/2 + Wed 9/9) **[Luke Strand & Friends](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=d52d06eef0e8) — *Free weekly jazz jam at The Dresden, first night of a three-night run — pleasant and low-key, not urgent.*
-- `6pm` **[Vinyl Happy Hour](http://roadhouse.permanentrecordsla.com/)** — Permanent Records Roadhouse, Cypress Park · [card ↗](https://arinazari.github.io/la-events/?e=2fea7df7f865) — *Plain recurring vinyl happy hour with no billed selector — easy low-key Tuesday, not a pick to plan around.*
-- `6pm` **[Krautrock Happy Hour](http://roadhouse.permanentrecordsla.com/)** — Permanent Records Roadhouse, Cypress Park · FREE · [card ↗](https://arinazari.github.io/la-events/?e=d113440a1185)
-
-- *Also:* [Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZF) (Festival of Arts Pageant of the Masters)
 
 ### Thursday · September 3
 
 **Electronic & dance**
 - `10pm` **[[CANCELLED] - Afrobeats Downtown LA | Thursdays • Amapiano • Dancehall • Afro House](https://posh.vip/e/nwanne-nights-2026-9-4-9-0-1)** — Vuuka Lounge · free · [card ↗](https://arinazari.github.io/la-events/?e=dee30b21d165)
+- `11pm-5am` (Thu 9/3 +2 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2524556)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23-28 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=7bed4bdfa190)
 
 **Live music**
 - `8pm` **[Amadeus in Concert](https://www.hollywoodbowl.com/events)** — Hollywood Bowl, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=df1c20809247)
 - `8:30pm` **[BALLS: A Clown Show](https://www.elysiantheater.com/shows/balls0903)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=36ad74e5ad15)
 
+- *Also:* [Pageant of the Masters](https://www.ticketmaster.com/event/Z7r9jZ1A7xeZa) (Festival of Arts Pageant of the Masters)
+
 ### Friday · September 4
-Dinner at Pizzeria Bianco DTLA, then wait for the LDL location text — doors 11pm for Interplanetary Criminal's bassline-heavy set.
+Dinner at Pizzeria Bianco or San Laurel downtown, then hold tight — LDL's location drops later in the evening, so eat slow and be ready to move when the text comes through for Interplanetary Criminal's 11pm doors.
 
 **Electronic & dance**
 - `11pm-5am` ⭐ **[Lights Down Low Feat. Interplanetary Criminal](https://ra.co/events/2510630)** — TBA - Downtown Los Angeles, DTLA · $20-40 · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=b504b1dfb3a1)  
@@ -75,13 +75,13 @@ Dinner at Pizzeria Bianco DTLA, then wait for the LDL location text — doors 11
 - `4pm` **[Grace Bones presents House of Chic](https://ra.co/events/2524571)** — TBA -  Select Fm London, Los Angeles · day party · [card ↗](https://arinazari.github.io/la-events/?e=1c34238d1e4a) — *GraceBones is a real Sound Nightclub house resident, but a TBA daytime slot on an unclear London-radio-branded bill is hard to size up.*
 
 **Live music**
-- `6pm` **[Caterwaul West](https://app.opendate.io/e/733621)** — Permanent Records Roadhouse, Cypress Park · [card ↗](https://arinazari.github.io/la-events/?e=1024c833091b) — *Punk/rock band with zero listing info beyond the name — can't gauge if this is a real bill.*
+- `7:30pm` 🆕 **[Jeru The Damaja - Wrath Of The Math 30th Anniversary Tour](https://www.facebook.com/events/1358803962318125/)** — Lodge Room (Los Angeles), Highland Park · $39 · [card ↗](https://arinazari.github.io/la-events/?e=89aa8aeae16b) — *Real artist on a real anniversary tour (not a tribute act) at a loved room, but hip-hop sits outside the core electronic/indie lane so it doesn't earn more than a nod.*
 
 **Comedy & stage**
 - `5pm` **[Put Together](https://www.elysiantheater.com/shows/puttogether0904)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=653aab47b498) — *This is a play about aspiration/gender politics, not a live-music set — relabeling the lane; fine black-box theater if the topic interests you.*
 
 ### Saturday · September 5
-Studio Barnhus at The Bridge runs 5pm to 2am — grab a bite at San Laurel beforehand and let the day party carry straight through into the night, no afters needed.
+Studio Barnhus at The Bridge runs 5pm to 2am — grab a bite at San Laurel or Pizzeria Bianco beforehand and let the day party carry straight through into the night, no afters needed. Wavves' day fest at the Belasco (3pm) is a real option too if you want to start earlier, but Barnhus is the one to build the night around.
 
 **Electronic & dance**
 - `5pm-2am` ⭐ **[Studio Barnhus Summer Dance Party with Axel Boman, Kornel Kovacs, Nikki Nair](https://ra.co/events/2423932)** — The Bridge, DTLA · $29 pre · [card ↗](https://arinazari.github.io/la-events/?e=f32e99937543)  
@@ -90,7 +90,7 @@ Studio Barnhus at The Bridge runs 5pm to 2am — grab a bite at San Laurel befor
   DJ Sneak going all night on vinyl only is the kind of booking that makes a TBA text worth waiting for — Chicago jacking house from one of its actual architects, not a nostalgia lap.
 - `10pm-3am` **[Korolova](https://ra.co/events/2496100)** — Avalon Hollywood, Hollywood · big room · $30 · [card ↗](https://arinazari.github.io/la-events/?e=6b877afff2ca)  
   She's a legit DJ Mag top-60 name working the Anjunabeats/Tomorrowland melodic-techno lane — not underground-digger territory, but a genuinely festival-caliber headliner landing in a club-sized room for once.
-- `1pm` **[Deep House Brunch POOL PARTY [Labor Day Saturday]](https://ra.co/events/2498530)** — White Rabbit Sky Lounge at The Valorian (Formerly Skybar at Mondrian), West Hollywood · day party · $19.25 · ↻ updated (start) · [card ↗](https://arinazari.github.io/la-events/?e=f9b50c196afe) — *Scotty Boy's brunch-pool formula again, but daytime rooftop-pool house on Labor Day Saturday earns the setting boost even without a digger's lineup.*
+- `1pm` **[Deep House Brunch POOL PARTY [Labor Day Saturday]](https://ra.co/events/2498530)** — White Rabbit Sky Lounge at The Valorian (Formerly Skybar at Mondrian), West Hollywood · day party · $19.25 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=f9b50c196afe) — *Scotty Boy's brunch-pool formula again, but daytime rooftop-pool house on Labor Day Saturday earns the setting boost even without a digger's lineup.*
 - `10pm-5am` **[NAACH x SOUNDWAVE present Simon Vuarambon & Volen Sentir](https://ra.co/events/2511087)** — Community Berlin, Los Angeles · afters · $29.40-43.55 · [card ↗](https://arinazari.github.io/la-events/?e=644c08a6b7d6)
 
 **Live music**
@@ -102,23 +102,28 @@ Studio Barnhus at The Bridge runs 5pm to 2am — grab a bite at San Laurel befor
 ### Sunday · September 6
 
 **Electronic & dance**
-- `6pm-2am` **[Sunday Sessions LA x trommel (Vinyl Only) Open air](https://ra.co/events/2514109)** — The Bridge, DTLA · day party · $5 b4 7 /$23-34 · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=97ab1bec544f)  
+- `5pm` **[Deep House Brunch Boat Party Ft. Mark Farina, Scotty Boy, House Zaddy, Lavenge, Aplex, Bets, Wlater Guest](https://ra.co/events/2457853)** — Catalina Classic Cruises, Los Angeles · $56.25 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=c073c173de32)  
+  Mark Farina — Chicago-born, SF-based house legend behind the long-running 'Mushroom Jazz' series — a jazzy, downtempo-inflected strain of house he's been refining since the mid-90s.
+- `6pm-2am` **[Sunday Sessions LA x trommel (Vinyl Only) Open air](https://ra.co/events/2514109)** — The Bridge, DTLA · day party · $5 b4 7 /$23-34 · [card ↗](https://arinazari.github.io/la-events/?e=97ab1bec544f)  
   Silky's grey-zone deep-house-into-techno pedigree (mentored by Frankie Knuckles, records on Culprit and My Favorite Robot) tops this vinyl-only open-air at The Bridge, with Trommel's European underground-media machine behind the booking — couldn't turn up anything real on nanaceba or Stepushin, so treat the rest of the bill as a wildcard.
-- `10pm-3am` **[HYPNOSIS 001: Mama J's Birthday Celebration](https://ra.co/events/2499317)** — TBA - Secret DTLA warehouse, DTLA · free w/rsvp b4 11pm / $12 · [card ↗](https://arinazari.github.io/la-events/?e=325cc6935f51) — *Debut installment of a new warehouse series with no lineup announced — on-genre techno, but nothing yet to judge the night on.*
 
-**Comedy & stage**
-- `7:30pm` (Sun 9/6 + Sun 9/13) **[The Famous People Improv Show (IN-PERSON & LIVESTREAM)](https://www.elysiantheater.com/shows/famousimprov0906)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=9b4424dc96ee)
+**Live music**
+- `8:30pm` **[Murder House](https://www.elysiantheater.com/shows/murderhouse0906)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=56b307165e66)
 
 **Elsewhere**
 - `10am` **[Smorgasburg LA](https://www.smorgasburg.com/)** — ROW DTLA, 777 S Alameda St, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=c206a4e20a1a) — *Standard Smorgasburg Sunday — reliable food-market filler, nothing new to flag.*
 
 ### Monday · September 7
 
+**Electronic & dance**
+- `1am-8am` 🆕 **[Wasteland Recovery Party - Tmw X Hard Havoc](https://shotgun.live/en/events/wasteland-recovery-party-tmw-x-hard-havoc)** — TBA (DTLA/Los Angeles), DTLA · afters · $6-17 · [card ↗](https://arinazari.github.io/la-events/?e=5849761544b1)
+- `1am` 🆕 **[VICE / Labor Day Carry & Children of the Revolution EP Release](https://ra.co/events/2528029)** — TBA, Los Angeles · afters · [card ↗](https://arinazari.github.io/la-events/?e=71998c2bfd7f)
+
 **Live music**
 - `8pm` **[J. Cole: The Fall-Off Tour](https://www.ticketmaster.com/j-cole-the-falloff-tour-los-angeles-california-09-07-2026/event/2C0064529BE01DBE)** — Crypto.com Arena, DTLA · big venue · [card ↗](https://arinazari.github.io/la-events/?e=ac27fd471a8b)
 - `7pm` **[Mega X](https://ra.co/events/2524743)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=236ed253489b)
 
-- *Also:* [Western Revenge](https://santamonica.harvelles.com/events/139987) (Harvelle's) · [very good mondays](https://dice.fm/event/7dxd66-very-good-mondays-7th-sep-gold-diggers-los-angeles-tickets) (Gold Diggers) · [Beats By Da Beach | Labor Day 2026 | Lost at The Rave & Friends](https://www.facebook.com/events/1005275342345075/) (Rosie's Dog Beach (Long Beach/Los Angeles))
+- *Also:* [Beats By Da Beach | Labor Day 2026 | Lost at The Rave & Friends](https://www.facebook.com/events/1005275342345075/) (Rosie's Dog Beach (Long Beach/Los Angeles))
 
 ### Tuesday · September 8
 
@@ -140,6 +145,7 @@ Studio Barnhus at The Bridge runs 5pm to 2am — grab a bite at San Laurel befor
 - `7pm` **[Casey Adams, Feed Fatigue, Nicki Chen, The Gan-Baseer Duo, Noelle, Clementine, Juno](https://pools.events/t/4tg21fn4)** — Coaxial (Los Angeles), DTLA · $17 · [card ↗](https://arinazari.github.io/la-events/?e=fc9532167467)
 
 **Live music**
+- `8:30pm` (Wed 9/9 + Wed 9/16) **[Luke Strand & Friends](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=b864e9390d45) — *Same weekly Dresden jazz hang, second night of three — go the first week if you're curious, no need to repeat.*
 - `9pm` **[Spoon River Anthology: A Clown Melodrama](https://www.elysiantheater.com/shows/csra0909)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=e5e16302bc88)
 - `8pm` **[Pablo House presents…      Racecar Racecar    julie f the rulies    Roxy Green  ](https://www.thesmell.org/events/wednesday-september-9-2026)** — The Smell, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=95c6a4091efa)
 
@@ -168,12 +174,12 @@ Dinner at Yess in the Arts District, then Massimiliano Pagliara's Berghain-linea
 - *Also:* [Road To Otg Ft. Justin Martin](https://shotgun.live/en/events/road-to-otg-ft-justin-martin) (True Hq (Santa Ana))
 
 ### Saturday · September 12
-Start early at HOOD RAVE's day party at The Airliner (2pm, Lincoln Heights), then close it out with Chris Pavlov's all-vinyl Burnin' Chancla from 10 — bookend the day and skip everything in between.
+Start early at HOOD RAVE's day party at The Airliner (2pm, Lincoln Heights), then close it out with Chris Pavlov's all-vinyl Burnin' Chancla from 10 — bookend the day and skip everything in between. (Caller ID at the Elysian is already sold out — worth watching for a rerun, not a Saturday plan.)
 
 **Electronic & dance**
 - `11pm-6am` **[Deep In Dis Showcase: Choice, Chemtrail, Johnny Hazy, Mikeb, Mario Liberti](https://ra.co/events/2504340)** — TBA - DTLA, DTLA · $10 b4 1 / $20 · [card ↗](https://arinazari.github.io/la-events/?e=ed1c84324757)  
   A cheap, late TBA showcase built around Deep In Dis's own founder — solid if you're already out in DTLA that night, but two of the five names (CHOÍCE, Mikeb) I couldn't verify, so treat this as a minor pick rather than a must.
-- `10pm-3am` **[Burnin' Chancla 006 (Hi-Fi All-Vinyl Dance Night): Chris Pavlov, VHS King](https://ra.co/events/2504607)** — TBA, Los Angeles · $23-31.50 · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=331bb51f77c7)  
+- `10pm-3am` **[Burnin' Chancla 006 (Hi-Fi All-Vinyl Dance Night): Chris Pavlov, VHS King](https://ra.co/events/2504607)** — TBA, Los Angeles · $23-31.50 · [card ↗](https://arinazari.github.io/la-events/?e=331bb51f77c7)  
   Chris Pavlov's Burnin' Chancla keeps doing the thing right — warm, dug-up disco on a proper hi-fi rig, no bottle service, just crate-digging done well.
 - `2pm` **[HOOD RAVE: THE AIRLINER TAKEOVER](https://ra.co/events/2525473)** — The Airliner, Lincoln Heights · day party · [card ↗](https://arinazari.github.io/la-events/?e=3a7fb2bde51c) — *Sonrisita's boogie-disco-soul digging is a real match for the groove/disco boost, and Oscar Osorio's Groovers Ball pedigree adds depth — a legit daytime bar sleeper, just small-scale.*
 - `5pm-12am` **[Planet X - Ben Sterling, Dean Turnley, Rafael](https://ra.co/events/2453761)** — California Plaza, DTLA · big room · $80 pre · [card ↗](https://arinazari.github.io/la-events/?e=a3d485841799) — *Diynamic/Crosstown Rebels/Solid Grooves lineage and an open-air DTLA plaza reads good on paper, but none of these three have registered with you before and $80 is steep for an unproven draw.*
@@ -190,6 +196,9 @@ Start early at HOOD RAVE's day party at The Airliner (2pm, Lincoln Heights), the
 - `7:30pm` **[The Wes Hutchinson Duo](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=bc3fb0010c4d)
 - `6:30pm` **[Mr. Goldblum's Neighborhood](https://www.elysiantheater.com/shows/mr-goldblums-neighborhood0913)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=b4b0051f5fd7)
 
+**Comedy & stage**
+- `9:30pm` **[The Famous People Improv Show (IN-PERSON & LIVESTREAM)](https://www.elysiantheater.com/shows/famousimprov0913)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=94de6c5615db)
+
 ### Monday · September 14
 
 **Live music**
@@ -204,13 +213,22 @@ Start early at HOOD RAVE's day party at The Airliner (2pm, Lincoln Heights), the
 - `7:30pm` **[Vidura Bandara Rajapaksa - The Paradise Gothic Tour](https://www.elysiantheater.com/shows/vidura0915)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=8b78b3702d87)
 - `8pm` **[Jakone & A.V.G](https://avalonhollywood.com/event/jakone-avg-nightclub-near-me-discover-avalon-hollywood-2026-september-15-best-night-club-near-me-los-angeles/)** — Avalon Hollywood, Hollywood · big venue · [card ↗](https://arinazari.github.io/la-events/?e=38ce73709798)
 
+### Wednesday · September 16
+
+**Live music**
+- `8:30pm` **[CoPilots](https://www.elysiantheater.com/shows/copilots0916)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=7b7a7d7a915f)
+- `2pm` **[Geoff Stradling and the StradBand – Big Band Jazz for the 21st Century](https://www.vibratogrilljazz.com/music/geoff-stradling-and-the-stradband-big-band-jazz-for-the-21st-century)** — Vibrato Grill Jazz, Bel Air · [card ↗](https://arinazari.github.io/la-events/?e=d1464030c96f)
+
+**Comedy & stage**
+- `7:30pm` **[Popular Kids Club Comedy Show](https://dice.fm/event/6a2233b6a4d5c8000138d317)** — Permanent Records Roadhouse, Cypress Park · $15 ADVANCE $17 DOS · [card ↗](https://arinazari.github.io/la-events/?e=d23c0e786515)
+
 ## Weekends ahead
 
 ### Weekend of Fri 9/18
 - `Sat 9/19` ⭐ **[Ame, DJ Tennis, Kaz James, Masha Mar | Chinatown Block Party](https://ra.co/events/2487802)** — Gin Ling Way, Chinatown, Chinatown · big room · $71.07 · [card ↗](https://arinazari.github.io/la-events/?e=09590633eec8) — *Âme (Innervisions) headlining an outdoor Chinatown block party with Masha Mar, who's a core artist in your own listening, and DJ Tennis — this is the marquee booking of the batch and it's near home on a Friday.*
 - `Fri 9/18` **[Lights Down Low feat 2ManyDJs](https://ra.co/events/2521036)** — TBA - Downtown, DTLA · $20-44 · [card ↗](https://arinazari.github.io/la-events/?e=bbfa346ea242) — *Same LDL warehouse series two weeks later, but the ceiling is higher — 2ManyDJs are actual Soulwax legends, a real festival-level bootleg-mashup draw, not just residents.*
 - `Sat 9/19` **[body wave: Felix Dickinson (UK), Masha Mar, Junior](https://ra.co/events/2516016)** — TBA - Downtown Los Angeles, DTLA · $11.50-34.50 · [card ↗](https://arinazari.github.io/la-events/?e=e203ae55361e) — *Felix Dickinson's a real Block9/Houghton-lineage disco selector, not a tourist booking, and Masha Mar's your most-listened name on the bill — warehouse afterhours right in the Balearic-disco pocket you chase.*
-- `Fri 9/18` **[Panic Room feat. James Axon, Gecki, Shane Thomas & Rob Aquino](https://ra.co/events/2525605)** — TBA - Silverlake, Silver Lake · [card ↗](https://arinazari.github.io/la-events/?e=91e2bbdb3d3e) — *James Axon is a dublab resident with real strong-affinity pull, and this is squarely the TBA-warehouse-night format you're built for — flagging low-confidence only because the rest of the bill's thin on detail.*
+- `Fri 9/18` 🆕 **[CATEGORY VOL.002: Rouge](https://ra.co/events/2528035)** — District 7, Los Angeles · [card ↗](https://arinazari.github.io/la-events/?e=3d6aa8a3ebda) — *Masha Mar is a core Spotify listen and the rest of the bill (Kim Anh's classic house, Flabbergast's acid techno) is a genuinely deep-crate underground booking, not filler.*
 - *…plus 18 more that weekend — full list: [weekend digest](weekends/2026-09-18.md)*
 
 ### Weekend of Fri 9/25
@@ -221,42 +239,44 @@ Start early at HOOD RAVE's day party at The Airliner (2pm, Lincoln Heights), the
 - *…plus 9 more that weekend — full list: [weekend digest](weekends/2026-09-25.md)*
 
 ### Weekend of Fri 10/2
-- `Fri 10/2` 🆕 **[Toy Tonics Jam - Los Angeles](https://ra.co/events/2526491)** — TBA - DTLA, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=50724a39249b)
+- `Fri 10/2` **[Toy Tonics Jam - Los Angeles](https://ra.co/events/2526491)** — TBA - DTLA, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=50724a39249b)
 - `Sat 10/3` **[Certified Groovers: Sabrosura Boyz [all night long]](https://ra.co/events/2521358)** — TBA - Downtown Los Angeles, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=cc1a9fece3cc)
-- `Fri 10/2` **[Friendship Commanders](https://app.opendate.io/e/friendship-commanders-doomboyz-october-02-2026-734589)** — Permanent Records Roadhouse, Cypress Park · $10 ADVANCE $15 DOS · [card ↗](https://arinazari.github.io/la-events/?e=e5dc854a8740)
+- `Fri 10/2` **[Friendship Commanders](https://app.opendate.io/e/friendship-commanders-doomboyz-october-02-2026-734589)** — Permanent Records Roadhouse, Cypress Park · $10 ADVANCE $15 DOS · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=e5dc854a8740)
 - `Fri 10/2` **[Will Varley](https://app.opendate.io/e/will-varley-october-02-2026-711319)** — Permanent Records Roadhouse, Cypress Park · $15 · [card ↗](https://arinazari.github.io/la-events/?e=dcbaf0b6e7a5)
 - *…plus 14 more that weekend — full list: [weekend digest](weekends/2026-10-02.md)*
+
+### Weekend of Fri 10/9
+- `Thu 10/8` **[Fisher and Thames - Sounds Of the 70s](https://www.vibratogrilljazz.com/music/fisher-and-thames-sounds-of-the-70s-1)** — Vibrato Grill Jazz, Bel Air · [card ↗](https://arinazari.github.io/la-events/?e=a261be6aac77)
+- `Thu 10/8` 🆕 **[Sweet Gloom](http://roadhouse.permanentrecordsla.com/)** — Permanent Records Roadhouse, Cypress Park · $ · [card ↗](https://arinazari.github.io/la-events/?e=441803d50db0)
+- `Thu 10/8` 🆕 **[Eliza Thorn](https://app.opendate.io/e/eliza-thorn-will-worden-october-08-2026-746952)** — Permanent Records Roadhouse, Cypress Park · $10 · [card ↗](https://arinazari.github.io/la-events/?e=350b6179719b)
+- `Thu 10/8` **[Soiree Sets](https://speakeasygo.com/event/EVE-1L2HZC)** — The Spotlight (Los Angeles) · 21+ · [card ↗](https://arinazari.github.io/la-events/?e=bac846defb28)
 
 ## On the marquee
 
 *Movies live here (and on the site's marquee page): runs opening this stretch, then the one-night screenings worth a seat.*
-- `Wed 9/2` **[Camelot](/purchase/4076?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens tonight · 2 nights thru Thu 9/17* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=317e0d16392b) <!-- tier3:gloss 317e0d16392b -->
 - `Fri 9/4` **[Onslaught](https://ticketing.uswest.veezi.com/purchase/3977?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 14 nights thru Thu 9/17* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=3844031befb8) <!-- tier3:gloss 3844031befb8 -->
 - `Fri 9/4` **[Steel](https://ticketing.uswest.veezi.com/purchase/4052?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sat 9/5* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=e24e030fe2a3) <!-- tier3:gloss e24e030fe2a3 -->
-- `Fri 9/4` **[Wet Hot American Summer](https://vidiotsfoundation.org/showtimes/wet-hot-american-summer-9-4-26-700-pm/)** — *opens · 2 nights thru Fri 9/11* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=1459e3222703)  
-  Cult camp comedy — always plays great with a crowd. <!-- tier3:gloss 1459e3222703 -->
+- `Fri 9/4` **[The Samurai and the Prisoner](https://vidiotsfoundation.org/showtimes/the-samurai-and-the-prisoner-9-4-26-330-pm/)** — *opens · 4 nights thru Mon 9/7* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=b43a1549e4eb) <!-- tier3:gloss b43a1549e4eb -->
+- `Fri 9/4` **[Wet Hot American Summer](https://vidiotsfoundation.org/showtimes/wet-hot-american-summer-9-4-26-700-pm/)** — *opens · 2 nights thru Fri 9/11* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=1459e3222703) <!-- tier3:gloss 1459e3222703 -->
 - `Fri 9/4` **[Teenage Sex and Death at Camp Miasma](https://vidiotsfoundation.org/showtimes/teenage-sex-and-death-at-camp-miasma-9-4-26-720-pm/)** — *opens · 8 nights thru Sun 9/13* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=0b5ab22cab5c) <!-- tier3:gloss 0b5ab22cab5c -->
 - `Fri 9/4` **[CatVideoFest 2026](https://vidiotsfoundation.org/showtimes/catvideofest-2026-9-4-26-1015-pm/)** — *opens · 3 nights thru Sun 9/6* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=d890c38c1cdb) <!-- tier3:gloss d890c38c1cdb -->
-- `Fri 9/4` **[Kill Bill Vol. 1](https://ticketing.uswest.veezi.com/purchase/4929?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 4 nights thru Fri 9/25* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=8ca04c12daab)  
-  Tarantino's own revival house doing a proper repertory run. <!-- tier3:gloss 8ca04c12daab -->
+- `Fri 9/4` **[Kill Bill Vol. 1](https://ticketing.uswest.veezi.com/purchase/4929?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 4 nights thru Fri 9/25* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=8ca04c12daab) <!-- tier3:gloss 8ca04c12daab -->
 - `Sat 9/5` **[Live and Let Die](https://ticketing.uswest.veezi.com/purchase/4039?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sun 9/6* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=323f98abb06e) <!-- tier3:gloss 323f98abb06e -->
 
 ## Around town
 
 *Notable around the city — not ranked to taste; here so you stay apprised.*
-- `Thu 9/3` **[Voz De Mando w/ Banda Carnaval](https://www.ticketmaster.com/event/Z7r9jZ1AAZek_)** — Eastern Sierra Tri-County Fairgrounds · Bishop  ·  *civic* · [card ↗](https://arinazari.github.io/la-events/?e=ce5ba6045be4) <!-- tier3:gloss ce5ba6045be4 -->
-- `Fri 9/4` **[Niko Moon w/ Drew Green](https://www.ticketmaster.com/event/Z7r9jZ1AAZekb)** — Eastern Sierra Tri-County Fairgrounds · Bishop  ·  *civic* · [card ↗](https://arinazari.github.io/la-events/?e=b74ca14b1593) <!-- tier3:gloss b74ca14b1593 -->
-- `Sat 9/5` **[Hypnotique Presents: Sway Festival - 2 DAY PASS](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE)** — Teragram Ballroom · Westlake  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=1edb63fd2e80) <!-- tier3:gloss 1edb63fd2e80 -->
-- `Sun 9/6` **[Ankara Festival LA](https://ra.co/events/2524295)** — Sunset Room Hollywood · Hollywood  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=0ac2217fd8cd) <!-- tier3:gloss 0ac2217fd8cd -->
-- `Sun 9/6` **[Hypnotique Presents: Sway Festival - DAY 2](https://www.ticketmaster.com/hypnotique-presents-sway-festival-day-2-los-angeles-california-09-06-2026/event/090064C8A6207A7D)** — Teragram Ballroom · Westlake  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=5900ac0a20b0) <!-- tier3:gloss 5900ac0a20b0 -->
-- `Wed 9/9` **[The Warning](https://www.fondatheatre.com/)** — The Fonda Theatre · Hollywood  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=ec41608780f9) <!-- tier3:gloss ec41608780f9 -->
+- `Fri 9/4` **[The Charlatans UK - North American Tour 2026](https://www.ticketmaster.com/the-charlatans-uk-north-american-tour-hollywood-california-09-04-2026/event/09006490B9D99051)** — Hollywood Palladium · Hollywood  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=57d4da6f3c2a) <!-- tier3:gloss 57d4da6f3c2a -->
+- `Sat 9/5` **[Hypnotique Presents: Sway Festival - 2 DAY PASS](https://www.ticketmaster.com/hypnotique-presents-sway-festival-2-day-los-angeles-california-09-05-2026/event/090064C8A9B080AE)** — Teragram Ballroom · Westlake  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=1edb63fd2e80) <!-- tier3:gloss 1edb63fd2e80 -->
+- `Sat 9/5` **[Guns N' Roses: World Tour 2026](https://www.ticketmaster.com/guns-n-roses-world-tour-2026-pasadena-california-09-05-2026/event/0B006375B6DA8A5E)** — Rose Bowl · Pasadena  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=c0c3f35a2724) <!-- tier3:gloss c0c3f35a2724 -->
+- `Sat 9/5` **[BTS WORLD TOUR 'ARIRANG' IN LOS ANGELES](https://www.ticketmaster.com/bts-world-tour-arirang-in-los-inglewood-california-09-05-2026/event/0A006429B2CB6418)** — SoFi Stadium · Inglewood  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=870b25cbc42b) <!-- tier3:gloss 870b25cbc42b -->
+- `Sat 9/5` **Pre-Oktoberfest Night Market** — Blossom Market Hall · San Gabriel Valley  ·  *festival, civic* · [card ↗](https://arinazari.github.io/la-events/?e=62a7e9734586) <!-- tier3:gloss 62a7e9734586 -->
+- `Sun 9/6` **[ASAKE](https://www.lagreektheatre.com/)** — Greek Theatre-Los Angeles · Los Feliz  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=443ae7aa0b71) <!-- tier3:gloss 443ae7aa0b71 -->
+- `Sun 9/6` **[Chicago & Styx: The Windy Cities Tour](https://www.ticketmaster.com/chicago-styx-the-windy-cities-tour-inglewood-california-09-06-2026/event/09006379EB8CC553)** — Kia Forum · Inglewood  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=3a853a0442c6) <!-- tier3:gloss 3a853a0442c6 -->
+- `Sun 9/6` **[Healing Gems](https://dice.fm/event/v3xg3v-healing-gems-6th-sep-sid-the-cat-auditorium-south-pasadena-tickets)** — Sid The Cat Auditorium · South Pasadena  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=83ede7161db3) <!-- tier3:gloss 83ede7161db3 -->
+- `Sun 9/6` **[Frankie Rose, Begging Dog, Ribcage](https://dice.fm/event/k65bp9-frankie-rose-begging-dog-6th-sep-zebulon-los-angeles-tickets)** — Zebulon · Frogtown  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=98dfa2eff143) <!-- tier3:gloss 98dfa2eff143 -->
 - `Fri 9/11` **[Fireworks Finale: OneRepublic](https://www.hollywoodbowl.com/events/performances/)** — Hollywood Bowl · Hollywood  ·  *big-venue, civic* · [card ↗](https://arinazari.github.io/la-events/?e=1d66df477bf0) <!-- tier3:gloss 1d66df477bf0 -->
-- `Fri 9/11` **[Cold Waves 2-Day (9/11/26-9/12/26)](https://www.ticketmaster.com/cold-waves-2day-9112691226-los-angeles-california-09-11-2026/event/090064B338282C76)** — Pacific Electric · DTLA  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=fb68efb436c1)  
-  Long-running industrial/post-punk festival — always a deep bill for that scene. <!-- tier3:gloss fb68efb436c1 -->
 - `Sat 9/12` **[LAWineFest (21st annual)](https://laist.com/events/lawinefest)** — Los Angeles Equestrian Center · Burbank  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=f3a72e6ed6d1) <!-- tier3:gloss f3a72e6ed6d1 -->
-- `Sat 9/12` **[Dnbnl Block Party: Pendulum,Andromedik, Blossom, Danny Byrd, Dirtyphonics, Fred V, K Motionz, Manila Killa, Mozey, Natty Lou, Skanka, S.P.Y, T & Sugah](https://dice.fm/event/k6lm7o-bl-presents-dnbnl-block-party-la-12th-sep-mateo-warehouse-los-angeles-tickets)** — The Compound (Los Angeles)  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=decf2883e6b6)  
-  Pendulum headlining a stacked drum & bass bill — outside your usual lane, but a real heavy-hitter if DnB ever pulls you. <!-- tier3:gloss decf2883e6b6 -->
-- `Sat 9/12` **[32nd Festival of Philippine Arts & Culture](https://laist.com/news/arts-and-entertainment/best-things-to-do)** — San Pedro, CA · San Pedro  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=ea3fb0a63845) <!-- tier3:gloss ea3fb0a63845 -->
 - `Sun 9/13` **[Rose Bowl Flea Market Sunday, September 13, 2026](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-september-13-2026-tickets-1977731831146)** — Rose Bowl Stadium · Pasadena  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=71a56711da05) <!-- tier3:gloss 71a56711da05 -->
 
 ## On the radar
@@ -276,8 +296,7 @@ Start early at HOOD RAVE's day party at The Airliner (2pm, Lincoln Heights), the
 **November 2026**
 - `Sat 11/7` **[And Always Forever 2026 - 2-DAY PASS](https://www.ticketmaster.com/and-always-forever-2026-2day-pass-los-angeles-california-11-07-2026/event/090064F8C0F8A145)** — Echoplex · Echo Park  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=f8270a79763f) <!-- tier3:gloss f8270a79763f -->
 - `Sun 11/8` **[Rose Bowl Flea Market Sunday, November 8, 2026](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-november-8-2026-tickets-1977731982599)** — Rose Bowl Stadium · Pasadena  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=76c77f040c95) <!-- tier3:gloss 76c77f040c95 -->
-- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* · [card ↗](https://arinazari.github.io/la-events/?e=5cfd176b0544)  
-  Bonobo's a real one — worth grabbing before it sells out. <!-- tier3:gloss 5cfd176b0544 -->
+- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* · [card ↗](https://arinazari.github.io/la-events/?e=5cfd176b0544) <!-- tier3:gloss 5cfd176b0544 -->
 - `Sun 11/22` **[El Tri - 21 & Over](https://yaamava.com/yaamava-theater)** — Yaamava Resort & Casino at San Manuel · Highland  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=0d979c907ddb) <!-- tier3:gloss 0d979c907ddb -->
 - `Sun 11/22` **[Three Days Grace - Alienation Tour ](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0)** — Intuit Dome · Inglewood  ·  *festival, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=a275d78b3f74) <!-- tier3:gloss a275d78b3f74 -->
 - `Sat 11/28` **[Solomun](https://dice.fm/event/7dbax7-solomun-28th-nov-hollywood-blvd-los-angeles-tickets)** — Hollywood Blvd (Los Angeles) · Hollywood  ·  *Solomun* · [card ↗](https://arinazari.github.io/la-events/?e=4edb53aea20f) <!-- tier3:gloss 4edb53aea20f -->
@@ -285,8 +304,7 @@ Start early at HOOD RAVE's day party at The Airliner (2pm, Lincoln Heights), the
 
 **December 2026**
 - `Fri 12/4` **[Angine de Poitrine](https://www.ticketmaster.com/angine-de-poitrine-los-angeles-california-12-04-2026/event/090064A7ABE2D617)** — The Wiltern · Koreatown  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=2c1594f123c1) <!-- tier3:gloss 2c1594f123c1 -->
-- `Sat 12/12` **[JOHN SUMMIT - CTRL ESCAPE TOUR](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7)** — Los Angeles Memorial Coliseum · Exposition Park  ·  *John Summit* · [card ↗](https://arinazari.github.io/la-events/?e=c9505e7363e5)  
-  Summit's current arena-tour peak — expect this to move fast. <!-- tier3:gloss c9505e7363e5 -->
+- `Sat 12/12` **[JOHN SUMMIT - CTRL ESCAPE TOUR](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7)** — Los Angeles Memorial Coliseum · Exposition Park  ·  *John Summit* · [card ↗](https://arinazari.github.io/la-events/?e=c9505e7363e5) <!-- tier3:gloss c9505e7363e5 -->
 
 **The watch-list** — *festivals worth planning around*
 - **[Sun Soaked 2026 (Kaskade)](https://sunsoaked.insomniac.com/)** — 9/12 · Huntington State Beach, Huntington Beach (OC) · **on sale** — Kaskade's one-day beach party, back via Insomniac — Bunt. b2b Kaskade, Cassian, D.O.D, Matroda; tech/progressive house on the sand, noon–9pm, 18+. Big-room end of the house lane, but sand-underfoot day-party is squarely the setting. GA from ~$110. Sold on a white-label Front Gate storefront the TM API doesn't carry — 19hz is the catalog source.
@@ -296,4 +314,4 @@ Start early at HOOD RAVE's day party at The Airliner (2pm, Lincoln Heights), the
 
 ---
 > ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
-*⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 3d (439 events), harvelles 3d (30 events)*
+*⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 4d (432 events), harvelles 4d (29 events)*
