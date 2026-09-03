@@ -1,0 +1,358 @@
+<title>Detroit Weekender</title>
+<style>
+  :root{
+    --bg:#f4f3ef; --card:#ffffff; --ink:#161512; --ink2:#1b1a17;
+    --mut:#76746b; --faint:#a7a59b; --line:#d9d7cf; --line2:#d2d0c7;
+    --accent:#b3441a; --accent-bright:#d95c2b; --accent-deep:#93370f;
+    --hot:#c14f20; --warm:#a06a10; --cool:#8a887e;
+    --lane-elec:oklch(0.52 0.14 285); --lane-live:oklch(0.52 0.13 32);
+    --lane-film:oklch(0.5 0.1 205); --lane-jazz:oklch(0.5 0.12 255);
+    --lane-free:oklch(0.48 0.11 145);
+    --mono:ui-monospace,Menlo,Consolas,monospace;
+    --sans:-apple-system,system-ui,'Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  body{background:var(--bg); color:var(--ink2); font-family:var(--sans); margin:0;}
+  a{color:var(--accent); text-decoration:none;} a:hover{color:var(--accent-deep);}
+  ::selection{background:var(--accent-bright); color:#fff;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 22px;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+  /* ---- masthead ---- */
+  header.mast{border-bottom:1px solid var(--line); background:rgba(244,243,239,0.92); position:sticky; top:0; backdrop-filter:blur(6px); z-index:5;}
+  .mastrow{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0 10px; flex-wrap:wrap;}
+  .brand{display:inline-flex; align-items:center; gap:8px;}
+  .brand .dia{width:9px; height:9px; background:var(--ink); transform:rotate(45deg); flex:none;}
+  .brand .wm{font:700 12px/1 var(--mono); letter-spacing:0.14em; color:var(--ink);}
+  .brand .ed{font:700 12px/1 var(--mono); letter-spacing:0.14em; color:var(--accent);}
+  .sep{width:1px; height:15px; background:var(--line2);}
+  .live{display:inline-flex; align-items:center; gap:6px; font:600 11px/1 var(--mono); letter-spacing:0.06em; color:#3f3d36;}
+  .live i{width:6px; height:6px; border-radius:50%; background:var(--accent-bright); animation:pulse 2s ease-in-out infinite;}
+  .runchip{font:700 9.5px/1.4 var(--mono); letter-spacing:0.05em; color:var(--mut); border:1px solid var(--line2); background:#fff; border-radius:999px; padding:6px 11px;}
+
+  /* ---- section kicker ---- */
+  .kick{display:flex; align-items:center; gap:9px; margin:34px 0 12px;}
+  .kick b{font:800 10px/1 var(--mono); letter-spacing:0.14em; color:var(--accent);}
+  .kick i{flex:1; height:1px; background:#dedcd4;}
+  .kick span{font:600 10px/1 var(--mono); color:var(--faint); letter-spacing:0.04em;}
+
+  /* ---- hero ---- */
+  .heroRow{display:flex; gap:14px; align-items:stretch;}
+  .heroCard{flex:1 1 640px; min-width:0; position:relative; display:flex; background:var(--card); border:1px solid var(--line2); overflow:hidden;}
+  .heroCard:hover{border-color:var(--faint);}
+  .heroBar{position:absolute; top:0; left:0; right:0; height:3px; background:var(--hot);}
+  .poster{flex:0 0 190px; background:var(--lane-elec); display:flex; flex-direction:column; justify-content:space-between; padding:16px; min-height:230px;}
+  .poster .plabel{font:700 9px/1 var(--mono); letter-spacing:0.1em; color:#f4f3ef; opacity:.85;}
+  .poster .pname{font:800 22px/1.05 var(--sans); color:#f4f3ef; text-wrap:balance;}
+  .heroBody{flex:1; min-width:0; display:flex; flex-direction:column; gap:11px; padding:18px 20px 16px;}
+  .mastrow > span{min-width:0;}
+  .heroTop{display:flex; align-items:flex-start; justify-content:space-between; gap:16px;}
+  .metaRow{display:flex; align-items:center; gap:9px; margin-bottom:7px; flex-wrap:wrap;}
+  .rank{font:800 22px/1 var(--mono); color:#c7c5bb;}
+  .when{font:600 11px/1 var(--mono); color:var(--mut);}
+  h1.evt{margin:0; font:700 28px/1.1 var(--sans); letter-spacing:-0.01em; color:var(--ink); text-wrap:balance;}
+  .venueLine{margin-top:6px; font:500 12px/1.5 var(--mono); color:var(--mut);}
+  .match{flex:none; text-align:right;}
+  .match .pct{font:700 26px/1 var(--mono);}
+  .match .lbl{font:800 8px/1 var(--mono); letter-spacing:0.12em; color:var(--faint); margin-top:3px;}
+  .segs{display:inline-flex; align-items:flex-end; gap:2px; height:9px; margin-top:6px;}
+  .segs b{width:4px; height:9px; border-radius:1px; display:inline-block;}
+  .why{margin:0; font:400 14px/1.55 var(--sans); color:#3f3d36; max-width:64ch; text-wrap:pretty;}
+  .tags{display:flex; flex-wrap:wrap; gap:5px;}
+  .tag{font:700 8.5px/1 var(--mono); letter-spacing:0.03em; padding:4px 6px; border-radius:2px; color:#fff;}
+  .tik{display:inline-flex; align-items:center; gap:6px; font:700 11px/1 var(--mono); padding:9px 14px; color:var(--accent); border:1px solid var(--accent); border-radius:999px; margin-left:auto;}
+  .tik:hover{background:var(--accent); color:#fff;}
+  .heroFoot{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-top:auto;}
+  .conf{font:700 8.5px/1.4 var(--mono); letter-spacing:0.05em; color:var(--warm); border:1px solid rgba(160,106,16,0.35); padding:3px 6px; border-radius:2px; white-space:nowrap;}
+  .conf.free{color:#1f7a4d; border-color:rgba(31,122,77,0.3);}
+
+  /* ---- rail ---- */
+  .rail{flex:0 0 300px; display:flex; flex-direction:column; gap:8px; min-width:0;}
+  .railHead{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:2px;}
+  .railHead b{font:700 13px/1 var(--sans); color:var(--ink);}
+  .railHead span{font:600 9.5px/1 var(--mono); color:var(--faint);}
+  .railCard{flex:1; display:flex; align-items:center; gap:11px; background:var(--card); border:1px solid var(--line2); padding:10px 12px; position:relative; overflow:hidden;}
+  .railCard:hover{border-color:var(--faint);}
+  .railCard .lbar{position:absolute; left:0; top:0; bottom:0; width:3px;}
+  .railCard .rr{font:800 13px/1 var(--mono); color:#c7c5bb; flex:none;}
+  .railCard .rbody{min-width:0; flex:1;}
+  .railCard .rt{font:700 13px/1.25 var(--sans); color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .railCard .rm{font:500 10px/1.5 var(--mono); color:var(--mut); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .railCard .rp{flex:none; font:700 13px/1 var(--mono);}
+
+  /* ---- day grids + cards ---- */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr)); gap:12px;}
+  .card{position:relative; background:var(--card); border:1px solid var(--line2); padding:15px 16px 13px; display:flex; flex-direction:column; gap:9px; overflow:hidden;}
+  .card:hover{border-color:var(--faint);}
+  .card .tbar{position:absolute; top:0; left:0; right:0; height:3px;}
+  .card h3{margin:0; font:700 16.5px/1.2 var(--sans); letter-spacing:-0.005em; color:var(--ink); text-wrap:balance;}
+  .card .venueLine{margin-top:0;}
+  .card .why{font-size:12.5px;}
+  .cfoot{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto; padding-top:2px;}
+  .mini{display:inline-flex; align-items:center; gap:7px;}
+  .mini .pct{font:700 14px/1 var(--mono);}
+  .mini .segs{height:7px; margin:0;} .mini .segs b{height:7px; width:3.5px;}
+  .tik.sm{padding:7px 11px; font-size:10px;}
+
+  /* ---- quiet block (tonight) ---- */
+  .quiet{background:var(--card); border:1px solid var(--line2); border-left:3px solid var(--faint); padding:16px 18px; max-width:760px;}
+  .quiet p{margin:0 0 8px; font:400 13.5px/1.6 var(--sans); color:#3f3d36; text-wrap:pretty;}
+  .quiet p:last-child{margin:0;}
+
+  /* ---- route strip ---- */
+  .route{background:#1b1a17; color:#e8e6df; padding:15px 18px; display:flex; flex-wrap:wrap; align-items:center; gap:7px 10px; font:600 11.5px/1.7 var(--mono);}
+  .route .rlab{font:800 9px/1 var(--mono); letter-spacing:0.14em; color:var(--accent-bright); flex:none; margin-right:4px;}
+  .route .arr{color:#8a887e;}
+  .route em{font-style:normal; color:#b5b3a9; font-weight:500;}
+
+  /* ---- compact rows (around town / radar) ---- */
+  .rows{display:flex; flex-direction:column;}
+  .row{display:flex; gap:14px; padding:9px 2px; border-bottom:1px solid #e7e5dc; align-items:baseline;}
+  .row:last-child{border-bottom:none;}
+  .row .rd{flex:none; width:64px; font:700 10px/1.7 var(--mono); letter-spacing:0.04em; color:var(--faint);}
+  .row .rx{font:400 13px/1.55 var(--sans); color:#3f3d36; min-width:0;}
+  .row .rx b{color:var(--ink); font-weight:600;}
+  .row .rx .skip{color:var(--faint);}
+
+  /* ---- footer ---- */
+  .ops{margin:40px 0 46px; border-top:1px solid var(--line); padding-top:14px; font:500 10.5px/1.75 var(--mono); color:var(--faint); max-width:86ch;}
+  .ops b{color:var(--mut); font-weight:700; letter-spacing:0.06em;}
+
+  @media (max-width:940px){
+    .heroRow{flex-direction:column;}
+    .rail{flex:none;}
+    .railCard{flex:none;}
+  }
+  @media (max-width:640px){
+    .poster{display:none;}
+    h1.evt{font-size:22px;}
+    .mastrow{padding:10px 0 8px;}
+  }
+</style>
+
+<header class="mast">
+  <div class="wrap mastrow">
+    <span style="display:inline-flex; align-items:center; gap:12px; min-width:0; flex-wrap:wrap;">
+      <span class="brand"><span class="dia"></span><span class="wm">LA&nbsp;EVENTS</span><span class="ed">/ DETROIT</span></span>
+      <span class="sep"></span>
+      <span class="live"><i></i>WED 9/2 → FRI 9/4 · LABOR DAY WKND</span>
+    </span>
+    <span class="runchip">travel run · hand-ranked vs taste.yaml · built Wed 9/2 10:30 PM ET</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ THE LEAD ============ -->
+  <div class="kick" style="margin-top:26px;"><b>◆ THE PICK OF THE WINDOW</b><i></i></div>
+  <div class="heroRow">
+    <article class="heroCard">
+      <span class="heroBar"></span>
+      <div class="poster"><span class="plabel">◍ FRI 9/4 · HOLDEN ST</span><span class="pname">HAUFF<br>AT THE<br>FACTORY</span></div>
+      <div class="heroBody">
+        <div class="heroTop">
+          <div style="min-width:0;">
+            <div class="metaRow"><span class="rank">01</span><span class="when">FRI 9/4 · ~9 PM</span><span class="conf">RA-GUIDE SOURCED · CHECK RA FOR TICKETS</span></div>
+            <h1 class="evt">Helena Hauff</h1>
+            <div class="venueLine">Lincoln Factory · NW Goldberg (1331 Holden St) · from the Marble Bar team</div>
+          </div>
+          <div class="match">
+            <div class="pct" style="color:var(--hot);">96%</div>
+            <div class="lbl">MATCH</div>
+            <span class="segs"><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:#e0ded5;"></b></span>
+          </div>
+        </div>
+        <p class="why">Hamburg's analog electro / acid / techno queen on a rare Motor City stop, in the gritty warehouse room two blocks from Marble Bar. Hardware, no laptop, no mercy — the single most on-taste booking of the window. Undercard unknown; the RA event page was unreachable from this run, so open it before you commit.</p>
+        <div class="tags">
+          <span class="tag" style="background:var(--lane-elec);">ELECTRO</span>
+          <span class="tag" style="background:var(--lane-elec);">TECHNO</span>
+          <span class="tag" style="background:var(--lane-elec);">ACID</span>
+          <span class="tag" style="background:#3f3d36;">WAREHOUSE</span>
+          <span class="tag" style="background:#3f3d36;">EU HEADLINER</span>
+        </div>
+        <div class="heroFoot">
+          <span style="font:600 10px/1.5 var(--mono); color:var(--faint);">pairs with Marble Bar (2 blocks) + Leland til 3:30 AM</span>
+          <a class="tik" href="https://ra.co/clubs/232557">LINCOLN FACTORY ON RA →</a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="rail">
+      <div class="railHead"><b>Also high on your list</b><span>ranked by match</span></div>
+      <a class="railCard" href="https://ra.co/clubs/6019">
+        <span class="lbar" style="background:var(--lane-elec);"></span><span class="rr">02</span>
+        <span class="rbody"><span class="rt">Elixir: Drexciya Tribute</span><span class="rm">THU 9/3 · Northern Lights · 9 PM</span></span>
+        <span class="rp" style="color:var(--hot);">93</span>
+      </a>
+      <a class="railCard" href="https://www.detroitjazzfest.org/">
+        <span class="lbar" style="background:var(--lane-jazz);"></span><span class="rr">03</span>
+        <span class="rbody"><span class="rt">Detroit Jazz Fest opens</span><span class="rm">FRI 9/4 · Hart Plaza · free</span></span>
+        <span class="rp" style="color:var(--hot);">91</span>
+      </a>
+      <a class="railCard" href="https://motorcitycinema.org/special-events-1">
+        <span class="lbar" style="background:var(--lane-film);"></span><span class="rr">04</span>
+        <span class="rbody"><span class="rt">One Battle After Another · 70mm</span><span class="rm">FRI 9/4 · Redford · 8 PM · $15</span></span>
+        <span class="rp" style="color:var(--hot);">90</span>
+      </a>
+      <a class="railCard" href="https://ra.co/clubs/174435">
+        <span class="lbar" style="background:var(--lane-elec);"></span><span class="rr">05</span>
+        <span class="rbody"><span class="rt">Marcellus Pittman @ Paramita</span><span class="rm">THU or FRI · date unpinned</span></span>
+        <span class="rp" style="color:var(--warm);">89</span>
+      </a>
+    </aside>
+  </div>
+
+  <!-- ============ TONIGHT ============ -->
+  <div class="kick"><b>◆ TONIGHT — WED 9/2</b><i></i><span>it's 10:30 PM · honest call</span></div>
+  <div class="quiet">
+    <p><b style="font:700 13.5px/1.5 var(--sans); color:var(--ink);">Stay in.</b> The club rooms — Marble Bar, TV Lounge, Lincoln Factory — are dark Wednesdays, Cliff Bell's closes at 11, and the one touring rock bill in town (PJ's Lager House, Corktown) is wrapping by the time you'd get there. Detroit saves itself for the weekend, and so should you.</p>
+    <p>If you need a nightcap: <a href="https://motorcitywine.com"><b>MotorCity Wine</b></a> — Corktown — free Wednesday jazz on the patio, usually pouring til ~11–midnight. Walk-in gamble, zero stakes.</p>
+  </div>
+
+  <!-- ============ THURSDAY ============ -->
+  <div class="kick"><b>◆ TOMORROW — THU 9/3</b><i></i><span>warm-up night</span></div>
+  <div class="grid">
+
+    <article class="card">
+      <span class="tbar" style="background:var(--hot);"></span>
+      <div class="metaRow"><span class="rank" style="font-size:15px;">02</span><span class="when">9 PM–2 AM · cheap</span><span class="conf">TIMES = SERIES USUAL</span></div>
+      <h3>Elixir Thursdays: Drexciya Tribute</h3>
+      <div class="venueLine">Northern Lights Lounge · New Center</div>
+      <p class="why">The weekly session turned Drexciya homage — Scott Zacharias + DJ K2 join the residents. Detroit electro canon played by the city's deepest crate-diggers. Tomorrow's head pick.</p>
+      <div class="tags"><span class="tag" style="background:var(--lane-elec);">ELECTRO</span><span class="tag" style="background:var(--lane-elec);">VINYL</span><span class="tag" style="background:#3f3d36;">DETROIT CANON</span></div>
+      <div class="cfoot"><span class="mini"><span class="pct" style="color:var(--hot);">93%</span><span class="segs"><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:#e0ded5;"></b></span></span><a class="tik sm" href="https://ra.co/clubs/6019">VENUE ON RA →</a></div>
+    </article>
+
+    <article class="card">
+      <span class="tbar" style="background:var(--warm);"></span>
+      <div class="metaRow"><span class="rank" style="font-size:15px;">05</span><span class="when">THU or FRI · shop session</span><span class="conf">DATE UNPINNED — CONFIRM FIRST</span></div>
+      <h3>Marcellus Pittman opens Deon Jamar's residency</h3>
+      <div class="venueLine">Paramita Sound · downtown record shop / wine bar</div>
+      <p class="why">Three Chairs / Unirhythm royalty in a listening-bar setting — a bullseye for your Theo Parrish–Moodymann lane. RA's guide has it this week but the opening day wouldn't pin from here; check RA or @paramita_xyz before rolling.</p>
+      <div class="tags"><span class="tag" style="background:var(--lane-elec);">DEEP HOUSE</span><span class="tag" style="background:var(--lane-elec);">VINYL</span><span class="tag" style="background:#3f3d36;">LISTENING BAR</span></div>
+      <div class="cfoot"><span class="mini"><span class="pct" style="color:var(--warm);">89%</span><span class="segs"><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:#e0ded5;"></b></span></span><a class="tik sm" href="https://ra.co/clubs/174435">VENUE ON RA →</a></div>
+    </article>
+
+    <article class="card">
+      <span class="tbar" style="background:var(--hot);"></span>
+      <div class="metaRow"><span class="rank" style="font-size:15px;">06</span><span class="when">8 PM · limited capacity</span></div>
+      <h3>Stella Cole — rooftop with string quartet</h3>
+      <div class="venueLine">Detroit Opera House roof · Grand Circus Park</div>
+      <p class="why">Fast-rising Great American Songbook voice, live strings, open sky, tiny crowd — "big name in a place you wouldn't expect," literally. Outdoor; dress for the weather.</p>
+      <div class="tags"><span class="tag" style="background:var(--lane-jazz);">JAZZ VOCAL</span><span class="tag" style="background:#3f3d36;">ROOFTOP</span><span class="tag" style="background:#3f3d36;">SMALL ROOM</span></div>
+      <div class="cfoot"><span class="mini"><span class="pct" style="color:var(--warm);">86%</span><span class="segs"><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:#e0ded5;"></b><b style="background:#e0ded5;"></b></span></span><a class="tik sm" href="https://www.ticketmaster.com/stella-cole-detroit-michigan-09-03-2026/event/080064F5E509AB55">TICKETS →</a></div>
+    </article>
+
+  </div>
+  <div class="rows" style="margin-top:10px;">
+    <div class="row"><span class="rd">ALSO THU</span><span class="rx"><a href="https://www.ticketmaster.com/labrinth-the-undoing-tour-presented-by-detroit-michigan-09-03-2026/event/08006491F673CC4A"><b>Labrinth with the Detroit Opera Orchestra</b></a> · Opera House main hall · 8 PM — the Euphoria composer closes his orchestral Undoing Tour downstairs from Stella Cole (the building's double-booked in the best way). Spectacle option; strict no-bag policy.</span></div>
+    <div class="row"><span class="rd"></span><span class="rx"><a href="https://jazzcafedetroit.com/"><b>Sky Covington — unofficial Jazz Fest kickoff</b></a> · Aretha's Jazz Cafe at Music Hall · 7–10 PM · $35 — the scene's actual fest-eve warm-up party.</span></div>
+    <div class="row"><span class="rd"></span><span class="rx"><a href="https://www.ticketweb.com/event/castle-and-tba-smalls-tickets/14954813"><b>Castle</b></a> · Small's, Hamtramck · 7 PM · ~$14 — occult doom-rock duo, tour opener the night before the album drops. If you lean heavy.</span></div>
+  </div>
+
+  <!-- ============ FRIDAY ============ -->
+  <div class="kick"><b>◆ FRI 9/4 — THE WEEKEND OPENS</b><i></i><span>jazz fest · 70mm · Holden St</span></div>
+  <div class="grid">
+
+    <article class="card">
+      <span class="tbar" style="background:var(--hot);"></span>
+      <div class="metaRow"><span class="rank" style="font-size:15px;">03</span><span class="when">gates 5:30 PM · FREE</span><span class="conf free">FREE · RUNS THRU MON</span></div>
+      <h3>Detroit Jazz Festival — opening night</h3>
+      <div class="venueLine">Hart Plaza · downtown riverfront</div>
+      <p class="why">World's largest free jazz fest, all three stages consolidated riverside this year. Dr. Valade's Brass Band ~6:15 → Miles Electric Band 7:00 → artist-in-residence Joe Lovano's Paramount Quartet with Julian Lage 9:15.</p>
+      <div class="tags"><span class="tag" style="background:var(--lane-jazz);">JAZZ</span><span class="tag" style="background:var(--lane-free);">FREE</span><span class="tag" style="background:#3f3d36;">INSTITUTION</span></div>
+      <div class="cfoot"><span class="mini"><span class="pct" style="color:var(--hot);">91%</span><span class="segs"><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:#e0ded5;"></b></span></span><a class="tik sm" href="https://www.detroitjazzfest.org/">SCHEDULE →</a></div>
+    </article>
+
+    <article class="card">
+      <span class="tbar" style="background:var(--hot);"></span>
+      <div class="metaRow"><span class="rank" style="font-size:15px;">04</span><span class="when">8 PM · $15</span><span class="conf">ALSO SAT 9/5</span></div>
+      <h3>One Battle After Another — 70mm</h3>
+      <div class="venueLine">Redford Theatre · Old Redford (25 min NW)</div>
+      <p class="why">Michigan's first 70mm presentation of PTA's Oscar-winner, in a 1928 atmospheric movie palace, for fifteen dollars. If you're staying the weekend: fest Friday, film Saturday. If not — Hauff vs. PTA is your call to make, not mine.</p>
+      <div class="tags"><span class="tag" style="background:var(--lane-film);">70MM</span><span class="tag" style="background:var(--lane-film);">REP CINEMA</span><span class="tag" style="background:#3f3d36;">DIRECTOR TRACKED</span></div>
+      <div class="cfoot"><span class="mini"><span class="pct" style="color:var(--hot);">90%</span><span class="segs"><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:var(--hot);"></b><b style="background:#e0ded5;"></b></span></span><a class="tik sm" href="https://motorcitycinema.org/special-events-1">TICKETS →</a></div>
+    </article>
+
+    <article class="card">
+      <span class="tbar" style="background:var(--warm);"></span>
+      <div class="metaRow"><span class="rank" style="font-size:15px;">07</span><span class="when">8–11 PM · $20–25</span></div>
+      <h3>Malik Alston &amp; the Linwood Ensemble</h3>
+      <div class="venueLine">Moondog Café · Dexter-Linwood (west side)</div>
+      <p class="why">Truth Manifest boss playing his spiritual jazz × Detroit-house constructions live, Rafael Leafar (UR orbit) on horns — billed as the extended welcome to fest weekend. The early-evening stack before Holden St.</p>
+      <div class="tags"><span class="tag" style="background:var(--lane-elec);">HOUSE</span><span class="tag" style="background:var(--lane-jazz);">LIVE JAZZ</span><span class="tag" style="background:#3f3d36;">DETROIT CANON</span></div>
+      <div class="cfoot"><span class="mini"><span class="pct" style="color:var(--warm);">85%</span><span class="segs"><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:#e0ded5;"></b><b style="background:#e0ded5;"></b></span></span><a class="tik sm" href="https://community.metrotimes.com/detroit/EventSearch?narrowByDate=This+Weekend&amp;sortType=date&amp;v=g">LISTING →</a></div>
+    </article>
+
+    <article class="card">
+      <span class="tbar" style="background:var(--warm);"></span>
+      <div class="metaRow"><span class="rank" style="font-size:15px;">08</span><span class="when">FRI night</span><span class="conf">LINEUP TBA — JS-WALLED</span></div>
+      <h3>Marble Bar — Friday event</h3>
+      <div class="venueLine">Marble Bar · 1501 Holden St · 2 blocks from Hauff</div>
+      <p class="why">A ticketed Friday event is confirmed on the venue's own page, but the bill wouldn't render from this run. Whatever it is, this room's booking policy — techno, house, electro, ghettotech — is your default habitat. Door-check it between Factory sets.</p>
+      <div class="tags"><span class="tag" style="background:var(--lane-elec);">TECHNO</span><span class="tag" style="background:var(--lane-elec);">HOUSE</span><span class="tag" style="background:#3f3d36;">FLAGSHIP ROOM</span></div>
+      <div class="cfoot"><span class="mini"><span class="pct" style="color:var(--warm);">82%</span><span class="segs"><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:var(--warm);"></b><b style="background:#e0ded5;"></b><b style="background:#e0ded5;"></b></span></span><a class="tik sm" href="https://themarblebar.com/events">VENUE PAGE →</a></div>
+    </article>
+
+    <article class="card">
+      <span class="tbar" style="background:var(--cool);"></span>
+      <div class="metaRow"><span class="rank" style="font-size:15px;">10</span><span class="when">10:45 PM · Midtown</span></div>
+      <h3>Tia Fuller "Fuller Sound" — after-hours</h3>
+      <div class="venueLine">Detroit Jazz Hall · Valade Jazz Center, Wayne State</div>
+      <p class="why">The festival's official late move: a serious saxophonist (Beyoncé's band, Berklee) at 10:45 PM in a real listening room, after the Hart Plaza stages wrap.</p>
+      <div class="tags"><span class="tag" style="background:var(--lane-jazz);">JAZZ</span><span class="tag" style="background:#3f3d36;">LATE NIGHT</span></div>
+      <div class="cfoot"><span class="mini"><span class="pct" style="color:var(--cool);">77%</span><span class="segs"><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:#e0ded5;"></b><b style="background:#e0ded5;"></b></span></span><a class="tik sm" href="https://www.detroitjazzfest.org/">INFO →</a></div>
+    </article>
+
+    <article class="card">
+      <span class="tbar" style="background:var(--cool);"></span>
+      <div class="metaRow"><span class="rank" style="font-size:15px;">11</span><span class="when">9 PM–3:30 AM · ~$5–10 cash</span></div>
+      <h3>City Club — the Friday institution</h3>
+      <div class="venueLine">Leland City Club · Leland Hotel basement, downtown</div>
+      <p class="why">Detroit's decades-running goth / industrial / EBM basement, every Friday until 3:30 AM. Not the core lane — but it's the canonical chaser once Holden St winds down, and the room is unduplicable.</p>
+      <div class="tags"><span class="tag" style="background:var(--lane-elec);">INDUSTRIAL / EBM</span><span class="tag" style="background:#3f3d36;">TIL 3:30 AM</span></div>
+      <div class="cfoot"><span class="mini"><span class="pct" style="color:var(--cool);">74%</span><span class="segs"><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:var(--cool);"></b><b style="background:#e0ded5;"></b><b style="background:#e0ded5;"></b><b style="background:#e0ded5;"></b></span></span><a class="tik sm" href="https://lelandcityclub.net/events">VENUE →</a></div>
+    </article>
+
+  </div>
+  <div class="rows" style="margin-top:10px;">
+    <div class="row"><span class="rd">ALSO FRI</span><span class="rx"><a href="https://dice.fm/venue/el-club-detroit-lyel"><b>Mietze Conte</b></a> · El Club, Mexicantown · 7 PM — Vienna's fast, weird euro-club-pop project (filous side gig) in the city's essential small indie room.</span></div>
+    <div class="row"><span class="rd"></span><span class="rx"><a href="https://www.songkick.com/venues/49255-old-miami"><b>Past Dog Beach + A Rueful Noise + Elephant Den</b></a> · The Old Miami, Cass Corridor — backyard triple bill at the veteran-owned dive. Pure scene hang.</span></div>
+    <div class="row"><span class="rd"></span><span class="rx"><a href="https://community.metrotimes.com/detroit/EventSearch?narrowByDate=This+Weekend&amp;sortType=date&amp;v=g"><b>Paxton/Spangler Band + DJ Top Kat</b></a> · Bowlero Lanes, Royal Oak · live 9–11, DJ til 1 AM · free — Detroit jazz/soul lifers in a mid-century bowling lounge; pairs with an Arts Beats &amp; Eats graze.</span></div>
+    <div class="row"><span class="rd"></span><span class="rx"><b>TV Lounge</b> <span class="skip">may have a Friday event — unconfirmed (site only shows a Sat save-the-date); check <a href="https://ra.co/clubs/10838">RA</a>.</span></span></div>
+  </div>
+
+  <!-- ============ ROUTE ============ -->
+  <div class="kick"><b>◆ THE FRIDAY ROUTE</b><i></i></div>
+  <div class="route">
+    <span class="rlab">NIGHT-PLAN</span>
+    <span>Hart Plaza early sets 6:15–7:45 <em>(free)</em></span><span class="arr">→</span>
+    <span>Redford 8:00–10:50 <em>(70mm)</em></span><span class="arr">→</span>
+    <span>Lincoln Factory ~11:15 <em>(Hauff)</em></span><span class="arr">→</span>
+    <span>Leland til 3:30 <em>(if still standing)</em></span>
+    <span style="flex-basis:100%; font:500 10.5px/1.6 var(--mono); color:#8a887e;">swap the film for Moondog + Marble Bar if the floor beats the print · Redford↔Holden St ≈ 20 min drive</span>
+  </div>
+
+  <!-- ============ AROUND TOWN ============ -->
+  <div class="kick"><b>◆ AROUND TOWN</b><i></i><span>context, not picks</span></div>
+  <div class="rows">
+    <div class="row"><span class="rd">FRI–MON</span><span class="rx"><a href="https://www.showpass.com/2026abe/"><b>Arts, Beats &amp; Eats</b></a> · downtown Royal Oak · 11 AM–11 PM · $10 adv / $15 door — 11 stages, juried art fair, 40+ food vendors. Friday's national stage is Jason Bonham's Led Zeppelin Evening — bloodline tribute, so a graze, not a pilgrimage.</span></div>
+    <div class="row"><span class="rd">THU–MON</span><span class="rx"><b>Michigan State Fair</b> · Novi expo center — classic fair scene, suburban edition.</span></div>
+    <div class="row"><span class="rd">FRI</span><span class="rx"><b>Rob Zombie + Marilyn Manson</b> · Pine Knob (45 min north) — noted mostly because it's why downtown is quiet-except-jazz. <span class="skip">Justin Moore at The Aretha — country; skip.</span></span></div>
+    <div class="row"><span class="rd">DAYTIME</span><span class="rx"><b>DIA</b> open til 9 PM Friday (Rivera Court is the move) · <b>MOCAD</b> Wed–Sun: Olayami Dabls retrospective + three more shows.</span></div>
+  </div>
+
+  <!-- ============ RADAR ============ -->
+  <div class="kick"><b>◆ STAYING THROUGH MONDAY?</b><i></i><span>sat 9/5 – mon 9/7 radar</span></div>
+  <div class="rows">
+    <div class="row"><span class="rd">MON 9/7</span><span class="rx"><a href="https://ra.co/events/2496283"><b>Where Are My Keys — Detroit Labor Day</b></a> · 3fifty Terrace (Music Hall <b>rooftop</b>) · 5 AM–2 AM — BMG (Interdimensional Transmissions), Andrés, DJ Godfather, Danny Daze, britty. A rooftop open-air Detroit-canon marathon — frankly the most on-taste event of the entire weekend. If Monday is in play, build around this.</span></div>
+    <div class="row"><span class="rd">SAT 9/5</span><span class="rx"><b>Detroit Festival of Records</b> @ Eastern Market (daytime vinyl fair) · Marble Bar + TV Lounge weekend programming lands · Cliff Bell's official Jazz Fest jam, 11:30 PM · <b>Hamtramck Labor Day Festival</b> opens (free, 50+ garage/rock acts, Sat–Mon) · Jazz Fest day 2 (Ron Carter, Dee Dee Bridgewater, Artemis…) · 70mm PTA encore at the Redford, 8 PM.</span></div>
+    <div class="row"><span class="rd">MON 9/7</span><span class="rx"><b>MotorCity Wine "Monday Is the New Monday"</b> house/techno marathon · Jazz Fest closes with Lovano's "Coltrane 100."</span></div>
+    <div class="row"><span class="rd">BEYOND</span><span class="rx"><span class="skip">Dally in the Alley Sat 9/12 · Eastern Market After Dark Thu 9/17 — if the trip stretches.</span></span></div>
+  </div>
+
+  <!-- ============ OPS FOOTER ============ -->
+  <div class="ops">
+    <b>OPS ·</b> manual travel run from a cloud session — no TM/RA/POSH keys; ra.co, dice.fm, ticketmaster.com, 19hz.info and all venue sites were egress-blocked, so everything above was verified via search-indexed primary pages (fest schedules, TM/TicketWeb event pages, Metro Times listings). Confidence chips mark what needs a re-check. <b>SCENE NOTES ·</b> Spot Lite (6/28) and UFO Factory (6/30) closed permanently this summer; Willis Show Bar temporarily closed. Dark this window: Saint Andrew's/Shelter, Fillmore, Fox, Masonic, DSO, Fisher, Third Man in-stores, Sanctuary, Loving Touch, DFT, Senate. Tigers away all week. Comedy Castle's Thu/Fri headliner unverifiable — no tracked name, so it stays off the slate. <b>RANKING ·</b> hand-ranked against taste.yaml (electronic spine → film lane → live rooms); match numbers are curator's calls, not the scorer's.
+  </div>
+
+</div>
