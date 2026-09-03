@@ -42252,12 +42252,12 @@
     },
     "b92eae62d6ed": {
       "tier": "skip",
-      "adjust": -3,
-      "why": "Scene notes confirm this is a long-running queer disco day party — the tagger missed the vibe flag, but that's a hard opt-out regardless of Lovefingers and Heidi Lawden being genuinely deep-crate bookings.",
+      "adjust": -1,
+      "why": "Lovefingers and Heidi Lawden are a genuinely deep ESP Institute/DJ Harvey-orbit booking, but this is the explicit queer opt-out — the taste rule buries it regardless of the bill.",
       "confidence": "high",
-      "judged_at": "2026-08-28T12:43:32",
+      "judged_at": "2026-09-03T12:44:48",
       "input_version": 2,
-      "score_at_judge": 8
+      "score_at_judge": 6
     },
     "75336cad1aec": {
       "tier": "solid",
@@ -42913,6 +42913,124 @@
       "why": "The 'on-taste genre (theater)' bump is just the venue's name, not a theater program — it's a generic vintage/record flea, fine daytime filler but nothing to build around.",
       "confidence": "high",
       "judged_at": "2026-09-02T12:38:35",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "3d6aa8a3ebda": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Masha Mar is a core Spotify listen and the rest of the bill (Kim Anh's classic house, Flabbergast's acid techno) is a genuinely deep-crate underground booking, not filler.",
+      "confidence": "high",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 8
+    },
+    "43b0fbb29a65": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "TBA warehouse afterhours with techno/acid is exactly the high-priority lane (warehouse+TBA), and Etari's a legit LDL/HARD-circuit selector even if the rest of the bill is unproven.",
+      "confidence": "med",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "96782c900568": {
+      "tier": "must-see",
+      "lane": "live-music:big",
+      "adjust": 2,
+      "why": "Beach festival with The Killers, Jack White and Sublime headlining plus DJ Harvey (tracked) on the electronic stage is arena/festival scale, not a small-room live-music booking.",
+      "confidence": "high",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "df1c20809247": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Loved venue plus a real format hook (LA Phil live-scoring Amadeus) beats a plain screening — worth the bump over a generic Bowl night.",
+      "confidence": "med",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "c0324a84352e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free rooftop-vinyl-adjacent house night at Dusty Vinyl but no lineup names to judge the draw on.",
+      "confidence": "low",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "89aa8aeae16b": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Real artist on a real anniversary tour (not a tribute act) at a loved room, but hip-hop sits outside the core electronic/indie lane so it doesn't earn more than a nod.",
+      "confidence": "med",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "05aade33f3e9": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Genre fits the tech-house/deep-house/minimal core squarely but every name on the bill is unknown, so it's a genre bet, not a draw bet.",
+      "confidence": "low",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "e9bb053b9b81": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Free, near-home, house/techno at a scrappy Lincoln Heights bar — low stakes, easy add even without knowing the DJs.",
+      "confidence": "low",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "51229db3a9fb": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hard-techno/hard-dance as the headline genre is the explicit penalty lane (production-over-selection), not the deep-house/melodic core this profile actually wants.",
+      "confidence": "med",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "c073c173de32": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Mark Farina is a genuine deep-house/Mushroom Jazz legend and this is exactly the groove/soulful boat-party format the taste rewards, not just a generic 'house' tag match.",
+      "confidence": "high",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "f597cb7441ed": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Sunset house/amapiano day-party is the exact recurring 'golden-hour rooftop' format the narrative calls out as a favorite, even with no lineup names yet.",
+      "confidence": "med",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "24f30f937821": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Reliable recurring vinyl/rock flea, correctly mid-tier — nice add, not a headline.",
+      "confidence": "high",
+      "judged_at": "2026-09-03T12:44:48",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "eaca6403e182": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Charity stair-climb has no music/film/nightlife hook at all — fine as filler mention, not worth a real slot.",
+      "confidence": "high",
+      "judged_at": "2026-09-03T12:44:48",
       "input_version": 2,
       "score_at_judge": 4
     }
