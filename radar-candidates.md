@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/3/2026 deterministically (no API). 255 candidates. Signals: big-venue 226, festival 19, editorial 8, tracked 6._
+_Generated 9/4/2026 deterministically (no API). 253 candidates. Signals: big-venue 224, festival 20, editorial 7, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -27,7 +27,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 10/8 | 4 | Lukas Nelson & Molly Tuttle | The Bellwether | editorial | [link](https://www.ticketmaster.com/lukas-nelson-molly-tuttle-los-angeles-california-10-08-2026/event/090064A6DEE093AB) |
 | Sat 10/17 | 4 | Boots in the Park | Rancho Mission Viejo Riding Park | editorial | [link](https://www.ticketmaster.com/event/Z7r9jZ1A707OS) |
 | Mon 10/19 | 4 | Chinchilla | Pacific Electric | editorial | [link](https://www.ticketmaster.com/chinchilla-los-angeles-california-10-19-2026/event/090064F7158AAC30) |
 
@@ -71,6 +70,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Fri 11/20 | 5 | WORK Weekender: Fadi Mohem, FJAAK, Lindsey Herbert, Luigi  | TBA - Los Angeles | festival | [link](https://ra.co/events/2526746) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
 
 ## December 2026
@@ -163,7 +163,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 10/17 | 5 | Vulfpeck | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/vulfpeck-los-angeles-california-10-17-2026/event/0900648DE474A9BA) |
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Thu 10/8 | 4 | Empire of the Sun - Ask That God: Afterlife North American | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/empire-of-the-sun-ask-that-hollywood-california-10-08-2026/event/0B006465E365551D) |
 | Fri 10/9 | 4 | Mac DeMarco | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/mac-demarco-hollywood-california-10-09-2026/event/0B006444D4704F5D) |
 | Fri 10/9 | 4 | Los Horoscopos de Durango | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 10/10 | 4 | Jack Johnson: SURFILMUSIC Tour 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jack-johnson-surfilmusic-tour-2026-hollywood-california-10-10-2026/event/0B0063640AC5639F) |
@@ -227,6 +226,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 10/10 | 3 | Menudo 50 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/menudo-50-inglewood-california-10-10-2026/event/0A0064C91ECE9C3A) |
 | Sun 10/11 | 3 | Jack Johnson: SURFILMUSIC Tour 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jack-johnson-surfilmusic-tour-2026-hollywood-california-10-11-2026/event/0B0063640AC863A4) |
 | Wed 10/14 | 3 | Prospa present Prophecy - 3rd night added | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507521) |
+| Thu 10/15 | 3 | Taemin | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 10/16 | 3 | Harry Connick Jr - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 10/16 | 3 | Juanes North America Tour 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/juanes-north-america-tour-2026-inglewood-california-10-16-2026/event/0900644E0BF15E32) |
 | Fri 10/16 | 3 | Prospa present Prophecy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1303213/prospa-present-prophecy-tickets) |
@@ -421,7 +421,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 10/8 | 1 | Insecure: The 10th Anniversary Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/insecure-the-10th-anniversary-tour-inglewood-california-10-08-2026/event/0A0064DA9DF5740E) |
 | Fri 10/9 | 1 | SOMBR - You Are The Reason Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/sombr-you-are-the-reason-tour-anaheim-california-10-09-2026/event/090064891741C9C1) |
 | Sat 10/17 | 1 | Los Tigres Del Norte: Los Tigres Del Mundo Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-los-tigres-anaheim-california-10-17-2026/event/09006458A0D5CC52) |
 | Sat 10/24 | 1 | Intocable: Cultura Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/intocable-cultura-tour-2026-anaheim-california-10-24-2026/event/090064E1B08C886A) |
@@ -457,7 +456,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 10/8 | 0 | Chayanne - Bailemos Otra Vez Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/chayanne-bailemos-otra-vez-tour-anaheim-california-10-08-2026/event/0900646997EF72E7) |
 | Thu 10/15 | 0 | Phil Wickham / Official Ticket + Hotel Packages | Honda Center | big-venue | [link](https://www.ticketmaster.com/song-of-the-saints-tour-with-anaheim-california-10-15-2026/event/0900644DD420500D) |
 | Thu 10/22 | 0 | Bryson Tiller Presents: The Neo Trapsoul Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/bryson-tiller-presents-the-neo-trapsoul-anaheim-california-10-22-2026/event/090064B5DC213A81) |
 
