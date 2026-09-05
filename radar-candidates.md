@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/4/2026 deterministically (no API). 253 candidates. Signals: big-venue 224, festival 20, editorial 7, tracked 6._
+_Generated 9/5/2026 deterministically (no API). 250 candidates. Signals: big-venue 219, festival 22, editorial 7, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -83,8 +83,9 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/9 | 4 | Parrotfish | The Moroccan Lounge | festival | [link](https://www.ticketmaster.com/parrotfish-los-angeles-california-10-09-2026/event/090064E905D61695) |
 | Sat 10/10 | 4 | Palm Tree Music Festival - Montecito 2026: Chainsmokers, K | Santa Barbara Polo & Racquet Club  | festival | [link](https://posh.vip/e/palm-tree-music-festival-montecito-2026) |
+| Sat 10/17 | 4 | Indie Sleaze Festival w/ Juicebox + Public Pervert | The Paramount (Los Angeles) | festival | [link](https://www.facebook.com/events/1050720464419531/) |
+| Fri 10/23 | 4 | Cold Cave X Pixel Grip - Moon Block Party | The Glass House (Pomona) | festival | [link](https://www.facebook.com/events/1043607385234558/) |
 
 ## November 2026
 
@@ -93,6 +94,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/7 | 4 | And Always Forever 2026 - 2-DAY PASS | Echoplex | festival | [link](https://www.ticketmaster.com/and-always-forever-2026-2day-pass-los-angeles-california-11-07-2026/event/090064F8C0F8A145) |
 | Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
 | Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
+| Fri 11/13 | 4 | DARKER WAVES PRE-FESTIVAL PARTY | The Circle OC | festival |  |
 
 ## December 2026
 
@@ -157,14 +159,11 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/9 | 5 | for KING & COUNTRY | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/for-king-country-los-angeles-california-10-09-2026/event/090064AEDD6E900E) |
 | Sat 10/10 | 5 | Air Supply | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/air-supply-los-angeles-california-10-10-2026/event/090064FFD304DE2B) |
 | Fri 10/16 | 5 | Role Model Presents: Chuck on Tour | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Sat 10/17 | 5 | Vulfpeck | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/vulfpeck-los-angeles-california-10-17-2026/event/0900648DE474A9BA) |
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Fri 10/9 | 4 | Mac DeMarco | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/mac-demarco-hollywood-california-10-09-2026/event/0B006444D4704F5D) |
-| Fri 10/9 | 4 | Los Horoscopos de Durango | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 10/10 | 4 | Jack Johnson: SURFILMUSIC Tour 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jack-johnson-surfilmusic-tour-2026-hollywood-california-10-10-2026/event/0B0063640AC5639F) |
 | Sat 10/10 | 4 | Elefante | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 10/10 | 4 | Jungle | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
@@ -216,9 +215,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/9 | 3 | The Neighbourhood: THE WOURLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-neighbourhood-the-wourld-tour-inglewood-california-10-09-2026/event/0900635E02A5A5C0) |
-| Fri 10/9 | 3 | The Righteous Brothers - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Fri 10/9 | 3 | Jorge Medina - Legendario Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jorge-medina-legendario-tour-inglewood-california-10-09-2026/event/0A0064C1BB80C9A1) |
 | Sat 10/10 | 3 | Staind: Break The Cycle 25th Anniversary Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/staind-break-the-cycle-25th-anniversary-ontario-california-10-10-2026/event/0900643C9E919007) |
 | Sat 10/10 | 3 | SOMBR - You Are The Reason Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/sombr-you-are-the-reason-tour-inglewood-california-10-10-2026/event/09006489037C8590) |
 | Sat 10/10 | 3 | TLC & Salt-N-Pepa with En Vogue - IT'S ICONIC | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/tlc-saltnpepa-with-en-vogue-its-inglewood-california-10-10-2026/event/09006472C809AD90) |
@@ -301,6 +297,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 12/5 | 3 | Alicia Villarreal - Bendita Locura Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alicia-villarreal-bendita-locura-tour-2026-inglewood-california-12-05-2026/event/0A0064C91DB19A75) |
 | Fri 12/11 | 3 | Marisela: La Dama de Hierro | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/marisela-la-dama-de-hierro-inglewood-california-12-11-2026/event/0A00645BE3CDB957) |
 | Fri 12/11 | 3 | Pepe Aguilar (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Sat 12/12 | 3 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597291/red-bull-home-ground-world-finals-2026-tickets) |
 | Thu 12/17 | 3 | Cece Winans | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/18 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-18-2026/event/090064BBE484EE0D) |
 | Sat 12/19 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-19-2026/event/090064BBE48FEE25) |
@@ -374,7 +371,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Mon 11/16 | 2 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-11-16-2026/event/0A006494C82189BE) |
 | Tue 11/17 | 2 | Enrique Bunbury (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 11/18 | 2 | Teddy Swims: The UGLY Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/teddy-swims-the-ugly-tour-inglewood-california-11-18-2026/event/0900648DE2F4A831) |
-| Thu 11/19 | 2 | Brutalismus 3000 - Ages 16+ | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1541331/brutalismus-3000-tickets) |
+| Thu 11/19 | 2 | Brutalismus 3000, Eurohead, Oza, Ali Rq, Debasement | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1541331/brutalismus-3000-tickets) |
 | Fri 11/20 | 2 | Martin Lawrence with Nate Jackson, Karlous Miller and more | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/martin-lawrence-yall-still-know-what-ontario-california-11-20-2026/event/090064F6CAC4B270) |
 | Tue 11/24 | 2 | Los Tucanes de Tijuana (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7Paao) |
 
@@ -389,6 +386,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Thu 12/10 | 2 | Triumph: The Rock & Roll Machine Reloaded Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-inglewood-california-12-10-2026/event/090065149FC06F66) |
 | Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
+| Sun 12/13 | 2 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597468/red-bull-home-ground-world-finals-2026-tickets) |
 | Mon 12/14 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-14-2026/event/090064B49319A5BE) |
 | Mon 12/14 | 2 | Creedmas - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZIfF) |
 | Wed 12/16 | 2 | TYLA - THE A*POP WORLD TOUR | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/tyla-the-apop-world-tour-inglewood-california-12-16-2026/event/0A0064E99D9E6DC8) |
@@ -421,7 +419,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/9 | 1 | SOMBR - You Are The Reason Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/sombr-you-are-the-reason-tour-anaheim-california-10-09-2026/event/090064891741C9C1) |
 | Sat 10/17 | 1 | Los Tigres Del Norte: Los Tigres Del Mundo Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-los-tigres-anaheim-california-10-17-2026/event/09006458A0D5CC52) |
 | Sat 10/24 | 1 | Intocable: Cultura Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/intocable-cultura-tour-2026-anaheim-california-10-24-2026/event/090064E1B08C886A) |
 | Sat 10/31 | 1 | THE B-52s * DEVO:  COSMIC DE-EVOLUTION TOUR | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/the-b52s-devo-cosmic-deevolution-tour-palm-desert-california-10-31-2026/event/0A0064D093588054) |
