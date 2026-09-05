@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T12:48:36+00:00",
+  "generated_at": "2026-09-05T02:06:48+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "9658bae0a29b",
@@ -328838,14 +328838,14 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-08-29",
-            "summary": "react(Lori): loved Daisy Chain Fields +11"
+            "date": "2026-08-27",
+            "summary": "profiles: add blank profile for marissa"
           }
         ],
-        "diff": "",
-        "diff_kind": "none",
+        "diff": "diff --git a/profiles/marissa/taste.yaml b/profiles/marissa/taste.yaml\nnew file mode 100644\nindex 0000000..39764b2\n--- /dev/null\n+++ b/profiles/marissa/taste.yaml\n@@ -0,0 +1,19 @@\n+# Taste profile \u2014 Marissa. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only marissa\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium:  []   # +2 each\n+  low:     []   # +1, include only if exceptional\n+\n+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: []   # -2 each (the \"not for me\" list)\n+\n+artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n+comedians_loved:  []\n+venues_loved:     []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-08-29"
+        "enriched_at": "2026-08-28"
       },
       "profile": {
         "file": "profiles/marissa/profile.yaml",
