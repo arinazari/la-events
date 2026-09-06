@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/5/2026 deterministically (no API). 250 candidates. Signals: big-venue 219, festival 22, editorial 7, tracked 6._
+_Generated 9/6/2026 deterministically (no API). 240 candidates. Signals: big-venue 210, festival 21, editorial 7, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -83,7 +83,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/10 | 4 | Palm Tree Music Festival - Montecito 2026: Chainsmokers, K | Santa Barbara Polo & Racquet Club  | festival | [link](https://posh.vip/e/palm-tree-music-festival-montecito-2026) |
 | Sat 10/17 | 4 | Indie Sleaze Festival w/ Juicebox + Public Pervert | The Paramount (Los Angeles) | festival | [link](https://www.facebook.com/events/1050720464419531/) |
 | Fri 10/23 | 4 | Cold Cave X Pixel Grip - Moon Block Party | The Glass House (Pomona) | festival | [link](https://www.facebook.com/events/1043607385234558/) |
 
@@ -94,7 +93,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/7 | 4 | And Always Forever 2026 - 2-DAY PASS | Echoplex | festival | [link](https://www.ticketmaster.com/and-always-forever-2026-2day-pass-los-angeles-california-11-07-2026/event/090064F8C0F8A145) |
 | Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
 | Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
-| Fri 11/13 | 4 | DARKER WAVES PRE-FESTIVAL PARTY | The Circle OC | festival |  |
+| Fri 11/13 | 4 | DARKER WAVES PRE-FESTIVAL PARTY | The Circle OC | festival | [link](https://www.thecircleoc.com/upcoming-events/darker-waves-pre-festival-party) |
 
 ## December 2026
 
@@ -159,14 +158,10 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/10 | 5 | Air Supply | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/air-supply-los-angeles-california-10-10-2026/event/090064FFD304DE2B) |
 | Fri 10/16 | 5 | Role Model Presents: Chuck on Tour | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Sat 10/17 | 5 | Vulfpeck | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/vulfpeck-los-angeles-california-10-17-2026/event/0900648DE474A9BA) |
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Sat 10/10 | 4 | Jack Johnson: SURFILMUSIC Tour 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jack-johnson-surfilmusic-tour-2026-hollywood-california-10-10-2026/event/0B0063640AC5639F) |
-| Sat 10/10 | 4 | Elefante | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
-| Sat 10/10 | 4 | Jungle | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Sun 10/11 | 4 | Palace - USA & Canada Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/palace-usa-canada-tour-2026-los-angeles-california-10-11-2026/event/090064943F8E8F86) |
 | Tue 10/13 | 4 | Ella Langley | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 10/14 | 4 | Ella Langley | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
@@ -215,11 +210,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/10 | 3 | Staind: Break The Cycle 25th Anniversary Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/staind-break-the-cycle-25th-anniversary-ontario-california-10-10-2026/event/0900643C9E919007) |
-| Sat 10/10 | 3 | SOMBR - You Are The Reason Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/sombr-you-are-the-reason-tour-inglewood-california-10-10-2026/event/09006489037C8590) |
-| Sat 10/10 | 3 | TLC & Salt-N-Pepa with En Vogue - IT'S ICONIC | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/tlc-saltnpepa-with-en-vogue-its-inglewood-california-10-10-2026/event/09006472C809AD90) |
-| Sat 10/10 | 3 | Marco Antonio Solis - Tour Gratitud 2026 - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1436204/marco-antonio-solis-tickets) |
-| Sat 10/10 | 3 | Menudo 50 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/menudo-50-inglewood-california-10-10-2026/event/0A0064C91ECE9C3A) |
 | Sun 10/11 | 3 | Jack Johnson: SURFILMUSIC Tour 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jack-johnson-surfilmusic-tour-2026-hollywood-california-10-11-2026/event/0B0063640AC863A4) |
 | Wed 10/14 | 3 | Prospa present Prophecy - 3rd night added | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507521) |
 | Thu 10/15 | 3 | Taemin | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
