@@ -43499,6 +43499,88 @@
       "judged_at": "2026-09-06T12:28:15",
       "input_version": 2,
       "score_at_judge": 4
+    },
+    "04c65fbd3e71": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Weekly bar afterhours slot with no billed DJs — fits the afterhours boost structurally but there's nothing here to gauge an actual draw.",
+      "confidence": "low",
+      "judged_at": "2026-09-07T12:41:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a7958e108d06": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Three names on a bill with zero context — could be a real funk/garage trio or just the undercard on Harvard & Stone's recurring variety night; can't tell which.",
+      "confidence": "low",
+      "judged_at": "2026-09-07T12:41:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "eaa30ecf1a9c": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "This is a burlesque revue, not the garage/indie band show the score's genre reason implies — cabaret-adjacent variety is a stated penalty, not a live-music pick.",
+      "confidence": "high",
+      "judged_at": "2026-09-07T12:41:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "628eae3eea9e": {
+      "tier": "solid",
+      "lane": "club:underground",
+      "adjust": -1,
+      "why": "Same recurring 11pm bar night as Friday's instance — that's not genuinely post-close afters despite the name, so matching it to the sibling's lane rather than club:afters.",
+      "confidence": "low",
+      "judged_at": "2026-09-07T12:41:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "b6b0f77e801e": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Same weekly burlesque series as the 9/11 date at this venue — bury both, the genre tags are boilerplate not a real garage-band booking.",
+      "confidence": "high",
+      "judged_at": "2026-09-07T12:41:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "47a18a8c1214": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "PARTIBOI69 is a genuine touring headliner (his own Mutual Pleasure label, wild ghetto-house/Miami-bass/ghettotech sets), not a support name, and Strawbry's already in your rotation — the score's capping this well below what it actually is.",
+      "confidence": "high",
+      "judged_at": "2026-09-07T12:41:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "2744ad35929e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Reads like an actual indie/pop band showcase rather than the venue's burlesque nights this same week, but there's no lineup detail to confirm the quality.",
+      "confidence": "low",
+      "judged_at": "2026-09-07T12:41:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "49da13198152": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "TBA-location warehouse framing is exactly the format he likes, just no lineup yet to know if the night delivers.",
+      "confidence": "low",
+      "judged_at": "2026-09-07T12:41:12",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "ba22518ec571": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Genre tags point to a punk/garage bill rather than the burlesque nights sharing this venue's calendar this week, but nothing here verifies the actual draw.",
+      "confidence": "low",
+      "judged_at": "2026-09-07T12:41:12",
+      "input_version": 2,
+      "score_at_judge": 6
     }
   }
 }
