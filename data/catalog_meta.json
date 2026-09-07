@@ -1,14 +1,22 @@
 {
-  "version": "8ea941a6a7c8",
-  "content_version": "d37ef10a88a9",
-  "count": 3955,
-  "fetched_at": "2026-09-06T12:25:11+00:00",
+  "version": "1fe0128b5fa5",
+  "content_version": "a4b2931f415d",
+  "count": 3899,
+  "fetched_at": "2026-09-07T12:31:10+00:00",
   "added": 0,
-  "updated": 1,
+  "updated": 2,
   "changes": [
     {
       "title": "Rose Bowl Flea Market Sunday, September 13, 2026",
       "date": "2026-09-13",
+      "venue": "Rose Bowl Stadium",
+      "fields": [
+        "start"
+      ]
+    },
+    {
+      "title": "Rose Bowl Flea Market Sunday, October 11, 2026",
+      "date": "2026-10-11",
       "venue": "Rose Bowl Stadium",
       "fields": [
         "start"
@@ -18,13 +26,23 @@
   "stale_sources": [
     {
       "source": "webfetch",
-      "days": 7,
-      "count": 399
+      "days": 8,
+      "count": 383
     },
     {
       "source": "harvelles",
-      "days": 7,
-      "count": 26
+      "days": 8,
+      "count": 25
+    },
+    {
+      "source": "editorial",
+      "days": 3,
+      "count": 27
+    },
+    {
+      "source": "Harvelle's (Santa Monica)",
+      "days": 3,
+      "count": 29
     }
   ]
 }
