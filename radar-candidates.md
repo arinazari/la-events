@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/6/2026 deterministically (no API). 240 candidates. Signals: big-venue 210, festival 21, editorial 7, tracked 6._
+_Generated 9/7/2026 deterministically (no API). 238 candidates. Signals: big-venue 207, festival 22, editorial 6, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -10,17 +10,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 11/22 | 3 | El Tri - 21 & Over | Yaamava Resort & Casino at San Man | editorial, big-venue | [link](https://yaamava.com/yaamava-theater) |
-
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 10/11 | 2 | Rose Bowl Flea Market Sunday, October 11, 2026 | Rose Bowl Stadium | editorial, big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-october-11-2026-tickets-1977731925428) |
-
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
 | Sun 11/8 | 2 | Rose Bowl Flea Market Sunday, November 8, 2026 | Rose Bowl Stadium | editorial, big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-november-8-2026-tickets-1977731982599) |
 
 ## October 2026
@@ -140,6 +129,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 12/18 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-18-2026/event/0B00648CEFEE57B8) |
 | Sat 12/19 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-19-2026/event/0B00648CEFEF57BB) |
 
+## October 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Wed 10/21 | 1 | Elliott Brothers Present COMEDY BLOCK PARTY Hosted by Chri | The Miracle Theater | festival | [link](https://www.ticketmaster.com/elliott-brothers-present-comedy-block-party-inglewood-california-10-21-2026/event/0B00652103F07EE4) |
+
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -162,7 +157,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 10/17 | 5 | Vulfpeck | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/vulfpeck-los-angeles-california-10-17-2026/event/0900648DE474A9BA) |
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Sun 10/11 | 4 | Palace - USA & Canada Tour 2026 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/palace-usa-canada-tour-2026-los-angeles-california-10-11-2026/event/090064943F8E8F86) |
 | Tue 10/13 | 4 | Ella Langley | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 10/14 | 4 | Ella Langley | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Thu 10/15 | 4 | Role Model Presents: Chuck On Tour | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
@@ -210,7 +204,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 10/11 | 3 | Jack Johnson: SURFILMUSIC Tour 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jack-johnson-surfilmusic-tour-2026-hollywood-california-10-11-2026/event/0B0063640AC863A4) |
 | Wed 10/14 | 3 | Prospa present Prophecy - 3rd night added | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507521) |
 | Thu 10/15 | 3 | Taemin | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 10/16 | 3 | Harry Connick Jr - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
