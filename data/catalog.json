@@ -1484,12 +1484,14 @@
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/stella-prince-201280",
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "pop"
       ],
       "setting": [
@@ -1846,12 +1848,12 @@
       "Sam First"
     ],
     "organizers": null,
-    "detail": "Weekly series curated by 7x Grammy-nominated pianist/composer Gerald Clayton; house band 7:30pm, jam session 9:30-11pm",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-13",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -3406,12 +3408,15 @@
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/emily-laliotis-friends-200937",
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -3702,7 +3707,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -4571,6 +4576,39 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Art & The Resistance-Johnny Majestic-The Falling Doves",
+    "date": "2026-09-09",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "Art & The Resistance-Johnny Majestic-The Falling Doves"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/art-the-resistance-johnny-majestic-the-falling-doves/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
     "title": "Obscene LA Cold Waves LA Kickoff Party (Goth / Industrial / EBM / Darkwave)",
     "date": "2026-09-10",
     "start": "9pm-2am",
@@ -5367,12 +5405,15 @@
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/dr-spaceman-w-the-royal-huntingtones-201247",
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -5887,12 +5928,12 @@
       "Sam First"
     ],
     "organizers": null,
-    "detail": "Trumpeter and composer leads an all-star ensemble in original and reimagined jazz standards.",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-15",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -6586,7 +6627,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-21",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "club",
       "genre": [
@@ -7303,6 +7344,39 @@
         "afterhours"
       ],
       "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Songwriters Soapbox: Serapis-Vanessa Marie",
+    "date": "2026-09-10",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "Songwriters Soapbox: Serapis-Vanessa Marie"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/songwriter-soapbox-serapis-vanessa-marie/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
       "near_home": true
     }
   },
@@ -9304,7 +9378,7 @@
   {
     "title": "J. PLANK (Jeff Plankenhorn) / Cammy Kurtzman",
     "date": "2026-09-11",
-    "start": "8pm",
+    "start": "20:00",
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "category": "live_music",
@@ -9333,7 +9407,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-12",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -9485,7 +9559,7 @@
       "Avalon Hollywood"
     ],
     "organizers": null,
-    "detail": "Nightclub event; no time/price listed on calendar page.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: EDM.",
     "price": "$19.95",
     "ra_pick": false,
     "afterhours": true,
@@ -9494,7 +9568,8 @@
     "tags": {
       "type": "club",
       "genre": [
-        "electronic"
+        "house",
+        "edm"
       ],
       "setting": [
         "club"
@@ -10534,10 +10609,10 @@
       "samfirst",
       "Sam First"
     ],
-    "detail": "Fresh voice in jazz fusion blending modern jazz, fusion, and dynamic improvisation.",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "price": null,
     "first_seen": "2026-08-26",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -11068,7 +11143,7 @@
     "category": "Music",
     "genre": "Disco/Tribute",
     "lineup": [
-      "Donna Summer & The Disco Divas"
+      "Donna Summer & The Disco Divas - Tribute to Donna Summer"
     ],
     "links": [
       {
@@ -11083,15 +11158,18 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -12101,6 +12179,72 @@
       "scale": "bar",
       "vibe": [],
       "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Chico Rivera-Crooks-Sam Kogon",
+    "date": "2026-09-11",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "Chico Rivera-Crooks-Sam Kogon"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/chico-rivera-crooks-sam-kogon/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Empowerment in Heels Burlesque",
+    "date": "2026-09-11",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "Empowerment in Heels Burlesque"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/empowerment-in-heels-burlesque/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
       "near_home": true
     }
   },
@@ -13907,7 +14051,7 @@
   {
     "title": "Evidence",
     "date": "2026-09-12",
-    "start": "8:00 PM",
+    "start": "20:00",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "Music",
@@ -13927,12 +14071,12 @@
       }
     ],
     "organizers": null,
-    "detail": "Live music performance (Dilated Peoples member)",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "sources": [
       "venicewest",
       "webfetch",
@@ -13941,7 +14085,10 @@
     ],
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -16044,7 +16191,7 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.samfirstbar.com/events/vardan-ovsepian-trio-with-darek-oles-jimmy-branly",
-    "detail": "Breathing new and luminous life into the timeless ghosts of the standard book.",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "sources": [
       "webfetch",
       "samfirst",
@@ -16052,7 +16199,7 @@
       "Sam First"
     ],
     "first_seen": "2026-08-22",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -17175,7 +17322,7 @@
     "category": "Music",
     "genre": "Grateful Dead Tribute",
     "lineup": [
-      "Deadbolt"
+      "Grateful Brunch w/ Deadbolt"
     ],
     "links": [
       {
@@ -17189,15 +17336,18 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -17736,7 +17886,7 @@
     }
   },
   {
-    "title": "Bad Boombox, Madgavs, Mischluft, Ollie Lishman, Supergloss",
+    "title": "Bad Boombox, Madgavs, Mischluft, Ollie Lishman, Supergloss (HOTMEAL)",
     "date": "2026-09-12",
     "start": "21:00",
     "venue": "Avalon Hollywood",
@@ -17760,7 +17910,7 @@
       "ra"
     ],
     "organizers": null,
-    "detail": "Multi-artist electronic music event featuring five performers.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: EDM.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
@@ -17769,7 +17919,8 @@
     "tags": {
       "type": "club",
       "genre": [
-        "electronic"
+        "house",
+        "edm"
       ],
       "setting": [
         "club"
@@ -17939,6 +18090,39 @@
         "afterhours"
       ],
       "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Empowerment in Heels Burlesque Takeover with Miss Marquez",
+    "date": "2026-09-12",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "Empowerment in Heels Burlesque Takeover with Miss Marquez"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/empowerment-in-heels-burlesque-takeover-with-miss-marquez/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
       "near_home": true
     }
   },
@@ -18445,17 +18629,20 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
-      "Suzy Williams"
+      "Suzy Williams - Songs of Venice"
     ],
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/suzy-williams-songs-of-venice-190744",
-    "detail": "Live show at The Venice West: Suzy Williams - Songs of Venice.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -18597,7 +18784,7 @@
     "category": "live_music",
     "genre": "Rock",
     "lineup": [
-      "The Weasels"
+      "The Weasels - Rock n' Roll Sundays"
     ],
     "links": [
       {
@@ -18620,15 +18807,17 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West: The Weasels - Rock n' Roll Sundays.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-18",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "rock"
       ],
       "setting": [
@@ -19960,12 +20149,14 @@
   {
     "title": "Americana in the Park 2026",
     "date": "2026-09-13",
-    "start": "1:30pm",
+    "start": "20:00",
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Americana in the Park 2026"
+    ],
     "links": [
       {
         "source": "scrape",
@@ -19980,19 +20171,20 @@
       "McCabe's Guitar Shop"
     ],
     "organizers": null,
-    "detail": "Americana music event running from 1:30 PM to 6:30 PM.",
+    "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-27",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
         "folk"
       ],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -20700,6 +20892,39 @@
         "afterhours"
       ],
       "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Supergloom-Exiter-Bad Light",
+    "date": "2026-09-13",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "Supergloom-Exiter-Bad Light"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/supergloom-exiter-bad-light/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
       "near_home": true
     }
   },
@@ -21932,7 +22157,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-11",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -22088,7 +22313,7 @@
     "source": "webfetch",
     "title": "Black Uhuru with Self Control",
     "date": "2026-09-15",
-    "start": "8:00 PM",
+    "start": "20:00",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -22099,12 +22324,14 @@
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/black-uhuru-w-self-control-184204",
-    "detail": "Reggae and worldbeat performance with a supporting act.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "reggae"
       ],
       "setting": [
@@ -22292,12 +22519,12 @@
       "Sam First"
     ],
     "organizers": null,
-    "detail": "Weekly series curated by 7x GRAMMY-nominated pianist/composer with house band and jam sessions.",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-17",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -22896,7 +23123,9 @@
     "neighborhood": "Venice",
     "category": "Nightlife",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Clever Girl Trivia - 1st & 3rd Tuesdays"
+    ],
     "links": [
       {
         "url": "https://www.tixr.com/groups/thevenicewest/events/clever-girl-trivia-1st-3rd-tuesdays--204330",
@@ -22910,12 +23139,12 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-25",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "other",
       "genre": [],
@@ -23565,7 +23794,7 @@
     "source": "The Venice West",
     "title": "Kirk Fletcher",
     "date": "2026-09-16",
-    "start": "8:00 PM",
+    "start": "20:00",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -23574,12 +23803,14 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/kirk-fletcher-195677",
-    "detail": "Live show at The Venice West: Kirk Fletcher.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "blues"
       ],
       "setting": [
@@ -24212,12 +24443,12 @@
       "Sam First"
     ],
     "organizers": null,
-    "detail": "Bay Area artist known for a boisterous voice and fun, interesting originals and arrangements.",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -24550,6 +24781,39 @@
       ],
       "scale": "room",
       "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Girlfriend on the Moon-Antique Angels-Baldosa-Secretary",
+    "date": "2026-09-16",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "Girlfriend on the Moon-Antique Angels-Baldosa-Secretary"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/girlfriend-on-the-moon-antique-angels-baldosa-secretary/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
       "region": "eastside",
       "near_home": true
     }
@@ -26302,7 +26566,7 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.samfirstbar.com/events/kcrw-presents-third-thursdays-with-brandon-coleman-quartet-with-eric-sittner-horace-bray-efa-etorom",
-    "detail": "Four-piece ensemble performing original music and reimagined compositions through soul, jazz, and electronics.",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "sources": [
       "webfetch",
       "samfirst",
@@ -26310,12 +26574,11 @@
       "Sam First"
     ],
     "first_seen": "2026-08-22",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "jazz",
-        "funk-soul"
+        "jazz"
       ],
       "setting": [
         "listening-bar"
@@ -26344,21 +26607,26 @@
     "start": "18:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
-    "lineup": [],
+    "lineup": [
+      "\"Venice Western\" Line Dancing"
+    ],
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/-venice-western-line-dancing-204122",
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "sources": [
       "webfetch",
       "venicewest",
       "The Venice West"
     ],
     "first_seen": "2026-08-22",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -27397,6 +27665,39 @@
       "scale": "bar",
       "vibe": [],
       "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Songwriter Soapbox: Genevieve La Court-Jodie Rae",
+    "date": "2026-09-17",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "Songwriter Soapbox: Genevieve La Court-Jodie Rae"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/songwriter-soapbox-genevieve-la-court-jodie-rae/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
       "near_home": true
     }
   },
@@ -28545,7 +28846,7 @@
     "source": "McCabe's Guitar Shop",
     "title": "Claudia Russell &amp; Bruce Kaplan / Milo Binder",
     "date": "2026-09-18",
-    "start": "8pm",
+    "start": "20:00",
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "lineup": [
@@ -28558,7 +28859,7 @@
     "url": "https://www.mccabes.com/product/claudia-russell-bruce-kaplan-milo-binder/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -29062,15 +29363,17 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Supergroup drawing from Guns N' Roses, Jane's Addiction, Garbage, Alice Cooper's bands.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-17",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "rock"
       ],
       "setting": [
@@ -29131,7 +29434,7 @@
   },
   {
     "source": "webfetch",
-    "title": "PARTIBOI69 w/ Strawbry, Coldsweat",
+    "title": "PARTIBOI69 with Strawbry & Coldsweat",
     "date": "2026-09-18",
     "start": "10pm-2am",
     "venue": "Avalon Hollywood",
@@ -29145,13 +29448,14 @@
     "price": "$23 pre",
     "image": null,
     "url": "https://avalonhollywood.com/event/partiboi69-nightclub-near-me-discover-avalon-hollywood-2026-september-18-best-night-club-near-me-hollywood-los-angeles/",
-    "detail": "Nightclub event; no time/price listed on calendar page.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: EDM.",
     "first_seen": "2026-07-27",
     "last_seen": "2026-09-07",
     "tags": {
       "type": "club",
       "genre": [
-        "electronic"
+        "house",
+        "edm"
       ],
       "setting": [
         "club"
@@ -30515,7 +30819,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-21",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -32105,6 +32409,40 @@
       ],
       "scale": null,
       "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Pop Cautious Presents",
+    "date": "2026-09-18",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "Pop Cautious Presents"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/pop-cautious-presents-4/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock",
+        "pop"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
       "region": "eastside",
       "near_home": true
     }
@@ -33864,13 +34202,13 @@
     "category": "electronic",
     "price": null,
     "url": "https://avalonhollywood.com/event/rnb-fest-nightclub-near-me-discover-avalon-hollywood-2026-september-19-best-night-club-near-me-hollywood-los-angeles/",
-    "detail": "Nightclub event; no time/price listed on calendar page.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: R&B.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "club",
       "genre": [
-        "electronic"
+        "house"
       ],
       "setting": [
         "club"
@@ -33917,7 +34255,7 @@
     "source": "McCabe's Guitar Shop",
     "title": "I See Hawks in L.A. w/ special guest Nora Germain, Rick Shea and Tony Gilkyson open",
     "date": "2026-09-19",
-    "start": "8pm",
+    "start": "20:00",
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "lineup": [
@@ -33931,7 +34269,7 @@
     "url": "https://www.mccabes.com/product/i-see-hawks-in-l-a/",
     "detail": "I See Hawks in L.A. performs with special guest Nora Germain, featuring Rick Shea and Tony Gilkyson as openers.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -34884,7 +35222,7 @@
   {
     "title": "Boogaloo Assassins",
     "date": "2026-09-19",
-    "start": "8:00 PM",
+    "start": "20:00",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
@@ -34910,15 +35248,18 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -35053,15 +35394,18 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Late-night set at The Venice West (same night as Boogaloo Assassins' earlier show).",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-09",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -37132,12 +37476,12 @@
       "Sam First"
     ],
     "organizers": null,
-    "detail": "Annual benefit honoring NEA Jazz Master Herbie Hancock and jazz impresario Darlene Chan.",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -37161,7 +37505,9 @@
     "neighborhood": "Hollywood",
     "category": "Music",
     "genre": "Electronic",
-    "lineup": [],
+    "lineup": [
+      "Flashback: A 2010s EDM Tribute Party"
+    ],
     "links": [
       {
         "source": "webfetch",
@@ -37180,7 +37526,7 @@
       "19hz"
     ],
     "organizers": null,
-    "detail": "Tribute party celebrating 2010s electronic dance music era.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: EDM.",
     "price": "free w/rsvp b4 11pm / $15",
     "ra_pick": false,
     "afterhours": true,
@@ -37189,6 +37535,7 @@
     "tags": {
       "type": "club",
       "genre": [
+        "house",
         "edm"
       ],
       "setting": [
@@ -37217,7 +37564,7 @@
     "category": "Music",
     "genre": "Grateful Dead Tribute",
     "lineup": [
-      "Cats on the Bandstand"
+      "Grateful Brunch w/ Cats on the Bandstand"
     ],
     "links": [
       {
@@ -37231,15 +37578,18 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -38130,6 +38480,39 @@
       "scale": "bar",
       "vibe": [],
       "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "BKO Fest",
+    "date": "2026-09-19",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "BKO Fest"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/bko-fest/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
       "near_home": true
     }
   },
@@ -39238,9 +39621,9 @@
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/rolling-stones-boozy-bingo-brunch-201108",
-    "detail": "Stones tribute with bingo games",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "other",
       "genre": [],
@@ -39248,9 +39631,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "tribute"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     },
@@ -40354,15 +40735,17 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "reggae"
       ],
       "setting": [
@@ -41641,12 +42024,12 @@
       "Sam First"
     ],
     "organizers": null,
-    "detail": "Weekly series hosted by LA creative music scene voice with house band and jam session.",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-30",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43374,12 +43757,12 @@
       "Sam First"
     ],
     "organizers": null,
-    "detail": "Award-winning pianist leads trio in modern Afro-jazz, post bop, and groove with fearless improvisation.",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -44660,7 +45043,7 @@
     "url": "https://avalonhollywood.com/event/janaga-nightclub-near-me-discover-avalon-hollywood-2026-24-september-best-night-club-near-me-hollywood-los-angeles/",
     "detail": "Touring Russian rap/pop artist stop on his 2026 USA tour.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "club",
       "genre": [
@@ -44717,21 +45100,21 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/red-not-chili-peppers-184205",
-    "detail": "Tribute band performing Red Hot Chili Peppers music.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "rock"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "tribute"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     },
@@ -46298,12 +46681,12 @@
       "Sam First"
     ],
     "organizers": null,
-    "detail": "Award-winning NYC-based trumpeter leads quartet in original music and contemporary jazz.",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-30",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -46635,6 +47018,39 @@
       "scale": "room",
       "vibe": [],
       "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "The Hail Maries",
+    "date": "2026-09-24",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "The Hail Maries"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/the-hail-maries/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
       "near_home": true
     }
   },
@@ -48488,15 +48904,18 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West: Canned Heat.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -51225,7 +51644,9 @@
     "neighborhood": "Hollywood",
     "category": "electronic",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Gasolina"
+    ],
     "links": [
       {
         "source": "webfetch",
@@ -51238,16 +51659,16 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Latin-themed electronic music and dance event.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St).",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "club",
       "genre": [
-        "electronic"
+        "house"
       ],
       "setting": [
         "club"
@@ -51781,6 +52202,39 @@
     "ra_pick": false,
     "afterhours": false,
     "price": "free"
+  },
+  {
+    "source": "webfetch",
+    "title": "Club Nevermore",
+    "date": "2026-09-25",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "Club Nevermore"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/club-nevermore/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
+      "near_home": true
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -53374,13 +53828,15 @@
     "category": "electronic",
     "price": "$23 pre",
     "url": "https://avalonhollywood.com/event/tritonal-nightclub-near-me-discover-avalon-hollywood-2026-september-26-best-night-club-near-me-hollywood-los-angeles/",
-    "detail": "Electronic music showcase featuring Tritonal and guest performers.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: EDM.",
     "first_seen": "2026-07-04",
     "last_seen": "2026-09-07",
     "tags": {
       "type": "club",
       "genre": [
-        "trance"
+        "house",
+        "trance",
+        "edm"
       ],
       "setting": [
         "club"
@@ -53442,12 +53898,14 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/andy-frasco-the-u-n--189913",
-    "detail": "Live show at The Venice West: Andy Frasco & The U.N..",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "rock"
       ],
       "setting": [
@@ -53784,12 +54242,15 @@
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/tio-199656",
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -55787,7 +56248,7 @@
     "category": "Music",
     "genre": "Grateful Dead Tribute",
     "lineup": [
-      "Jeromes Jukebox"
+      "Grateful Brunch w/ Jeromes Jukebox"
     ],
     "links": [
       {
@@ -55801,15 +56262,18 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -56352,6 +56816,39 @@
         "sunset"
       ],
       "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "SPIT",
+    "date": "2026-09-26",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "SPIT"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/spit-3/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
       "near_home": true
     }
   },
@@ -57313,18 +57810,18 @@
     "source": "McCabe's Guitar Shop",
     "title": "Deke Dickerson &amp; Friends",
     "date": "2026-09-27",
-    "start": "8pm",
+    "start": "20:00",
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "lineup": [
-      "Deke Dickerson"
+      "Deke Dickerson & Friends"
     ],
     "category": "live_music",
     "price": null,
     "url": "https://www.mccabes.com/product/deke-dickerson/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -57380,12 +57877,14 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/wall-of-sound-185855",
-    "detail": "Live show at The Venice West: Wall of Sound.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "rock"
       ],
       "setting": [
@@ -58923,7 +59422,9 @@
     "neighborhood": "Venice",
     "category": "Music",
     "genre": "Salsa/Brunch",
-    "lineup": [],
+    "lineup": [
+      "Salsa & Vinyls Brunch"
+    ],
     "links": [
       {
         "url": "https://www.tixr.com/groups/thevenicewest/events/salsa-vinyls-brunch-204587",
@@ -58936,15 +59437,17 @@
       "The Venice West"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "latin"
       ],
       "setting": [
@@ -60009,6 +60512,40 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "SWYNDLE: Indie rock n roll party",
+    "date": "2026-09-28",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "SWYNDLE: Indie rock n roll party"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/swyndle-indie-rock-n-roll-party-4/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "indie",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
     "title": "Beauty And The Beast (Touring)",
     "date": "2026-09-29",
     "start": "19:30",
@@ -60567,9 +61104,9 @@
     "category": "live_music",
     "price": "Sold Out",
     "url": "https://www.mccabes.com/product/val-mccallum-2/",
-    "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
+    "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room. SOLD OUT.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -60580,7 +61117,9 @@
         "listening-bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "sold-out"
+      ],
       "region": "westside",
       "near_home": false
     },
@@ -62164,12 +62703,15 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/mike-dawes-135433",
-    "detail": "Live show at The Venice West: Mike Dawes.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -63204,12 +63746,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "World-renowned guitarist presents music from recent albums 'As The Crow Flies' and 'Sketchbook.'",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65191,23 +65733,25 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Blues/soul/funk/burlesque show at Harvelle's Santa Monica (since 1931).",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "funk-soul",
+        "blues"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "burlesque"
+      ],
       "region": "westside",
       "near_home": false
     }
@@ -65221,7 +65765,7 @@
     "category": "live_music",
     "genre": null,
     "lineup": [
-      "THE NO CHASERS"
+      "The No Chasers"
     ],
     "links": [
       {
@@ -65238,23 +65782,25 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Blues/soul/funk/burlesque show at Harvelle's Santa Monica (since 1931).",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "funk-soul",
+        "blues"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "burlesque"
+      ],
       "region": "westside",
       "near_home": false
     }
@@ -65358,9 +65904,9 @@
     "price": null,
     "image": null,
     "url": "https://www.samfirstbar.com/events/efajemue-etoroma-jr-quartet-with-michael-ragonese-ted-taforo-francisco-ojeda",
-    "detail": "JUNO-nominated drummer/producer/educator bringing versatility and deep musical intuition",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "other",
       "genre": [],
@@ -67018,15 +67564,18 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West: Steel Beans.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-16",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -67364,7 +67913,7 @@
     "category": "live_music",
     "genre": "Folk",
     "lineup": [
-      "LES FRÈRES SAVOY"
+      "Les Freres Savoy"
     ],
     "links": [
       {
@@ -67384,7 +67933,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -68630,7 +69179,9 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "Come Sing With the Band - Live Band Karaoke"
+    ],
     "links": [
       {
         "url": "https://santamonica.harvelles.com/shows/379988",
@@ -68641,23 +69192,25 @@
       "Harvelle's (Santa Monica)"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Blues/soul/funk/burlesque show at Harvelle's Santa Monica (since 1931).",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "funk-soul",
+        "blues"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "burlesque"
+      ],
       "region": "westside",
       "near_home": false
     }
@@ -68955,14 +69508,16 @@
     "start": "19:30",
     "venue": "Sam First (Westchester)",
     "neighborhood": "Westchester",
-    "lineup": [],
+    "lineup": [
+      "Josh Nelson Trio with Karl McComas-Reichl & Dan Schnelle"
+    ],
     "category": "live_music",
     "price": null,
     "image": null,
     "url": "https://www.samfirstbar.com/events/josh-nelson-trio-with-karl-mccomas-reichl-dan-schnelle",
-    "detail": null,
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "first_seen": "2026-09-05",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -68975,7 +69530,13 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Thelma and the Sleaze",
@@ -70620,7 +71181,7 @@
     "url": "https://www.mccabes.com/product/rebecca-pidgeon/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -70718,7 +71279,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "detail": "Live show at The Venice West: Jackie Greene.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "lineup": [
       "Jackie Greene",
       "The Daisy Revue"
@@ -70727,10 +71288,12 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "rock"
       ],
       "setting": [
@@ -71094,12 +71657,12 @@
       }
     ],
     "organizers": null,
-    "detail": "Oasis tribute band, late set.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "sources": [
       "venicewest",
       "webfetch"
@@ -71107,6 +71670,8 @@
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
+        "folk",
         "rock"
       ],
       "setting": [
@@ -72530,7 +73095,7 @@
     "category": "live_music",
     "genre": null,
     "lineup": [
-      "7 A DREAMSCAPE"
+      "7 A Dreamscape"
     ],
     "links": [
       {
@@ -72547,23 +73112,25 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Blues/soul/funk/burlesque show at Harvelle's Santa Monica (since 1931).",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "funk-soul",
+        "blues"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "burlesque"
+      ],
       "region": "westside",
       "near_home": false
     }
@@ -72864,6 +73431,37 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "Josh Nelson Trio with Karl McComas-Reichl & Dan Schnelle - 2nd set Live Radio Broadcast on KJAZZ 88.1 FM",
+    "date": "2026-10-03",
+    "start": null,
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "lineup": [
+      "Josh Nelson Trio with Karl McComas-Reichl & Dan Schnelle - 2nd set Live Radio Broadcast on KJAZZ 88.1 FM"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://www.samfirstbar.com/events/josh-nelson-trio-with-karl-mccomas-reichl-dan-schnelle-2nd-set-live-radio-broadcast-on-kjazz-88-1-fm",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -73676,7 +74274,7 @@
     "url": "https://www.mccabes.com/product/maya-de-vitry-mark-erelli/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -73726,17 +74324,20 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
-      "Marcus Rezak"
+      "Marcus Rezak Shred Is Dead"
     ],
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/marcus-rezak-shred-is-dead-196037",
-    "detail": "Live show at The Venice West: Marcus Rezak Shred Is Dead.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -74785,7 +75386,7 @@
     "category": "live_music",
     "genre": null,
     "lineup": [
-      "WESTERN REVENGE"
+      "Western Revenge"
     ],
     "links": [
       {
@@ -74802,23 +75403,25 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Blues/soul/funk/burlesque show at Harvelle's Santa Monica (since 1931).",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "funk-soul",
+        "blues"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "burlesque"
+      ],
       "region": "westside",
       "near_home": false
     }
@@ -75743,7 +76346,7 @@
     "category": "live_music",
     "genre": null,
     "lineup": [
-      "THE TOLEDO SHOW"
+      "The Toledo Show"
     ],
     "links": [
       {
@@ -75760,23 +76363,25 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Blues/soul/funk/burlesque show at Harvelle's Santa Monica (since 1931).",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "funk-soul",
+        "blues"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "burlesque"
+      ],
       "region": "westside",
       "near_home": false
     }
@@ -75825,14 +76430,16 @@
     "start": "18:00",
     "venue": "The Venice West",
     "neighborhood": "Venice",
-    "lineup": [],
+    "lineup": [
+      "Clever Girl Trivia - 1st & 3rd Tuesdays"
+    ],
     "category": "community",
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/clever-girl-trivia-1st-3rd-tuesdays--204329",
-    "detail": null,
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "other",
       "genre": [],
@@ -75843,7 +76450,13 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Paycheque, Foxix, Wormwood Star",
@@ -75881,6 +76494,37 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "\"Tuesday Happenings\": Hosted by Gerald Clayton",
+    "date": "2026-10-06",
+    "start": "19:30",
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "lineup": [
+      "\"Tuesday Happenings\": Hosted by Gerald Clayton"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-gerald-clayton-76",
+    "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -76573,15 +77217,18 @@
       "scrape"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West: Fantastic Negrito.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -77151,7 +77798,9 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "genre": null,
-    "lineup": [],
+    "lineup": [
+      "All-Star Jam Session Benefit"
+    ],
     "links": [
       {
         "url": "https://santamonica.harvelles.com/shows/379979",
@@ -77167,23 +77816,25 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Blues/soul/funk/burlesque show at Harvelle's Santa Monica (since 1931).",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "funk-soul",
+        "blues"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "burlesque"
+      ],
       "region": "westside",
       "near_home": false
     }
@@ -78237,12 +78888,15 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/aj-lee-blue-summit-179087",
-    "detail": "Live show at The Venice West: Aj Lee & Blue Summit.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -78874,7 +79528,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-19",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -81481,12 +82135,12 @@
       "McCabe's Guitar Shop"
     ],
     "organizers": null,
-    "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
+    "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room. SOLD OUT.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-30",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -81497,7 +82151,9 @@
         "listening-bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "sold-out"
+      ],
       "region": "westside",
       "near_home": false
     },
@@ -81669,7 +82325,8 @@
     "tags": {
       "type": "club",
       "genre": [
-        "electronic"
+        "house",
+        "edm"
       ],
       "setting": [
         "club"
@@ -81702,7 +82359,7 @@
       "19hz",
       "Avalon Hollywood"
     ],
-    "detail": "Nightclub event; no time/price listed on calendar page.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: EDM.",
     "organizers": null,
     "genre": "Electronic",
     "ra_pick": false,
@@ -84361,7 +85018,7 @@
     "url": "https://www.mccabes.com/product/amy-speace-jesse-lynn-madera/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -84915,12 +85572,15 @@
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/the-breaks-ft-eddie-roberts-the-new-mastersounds-stanton-moore-galactic-robert-walter-the-greyboy-allstars--175798",
-    "detail": "Ft Eddie Roberts (The New Mastersounds), Stanton Moore (Galactic) & Robert Walter.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -87092,7 +87752,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "club",
       "genre": [
@@ -87143,7 +87803,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -90183,7 +90843,7 @@
   {
     "title": "Souls of Mischief",
     "date": "2026-10-14",
-    "start": "8:00 PM",
+    "start": "20:00",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "Music",
@@ -90207,15 +90867,18 @@
       "scrape"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -91916,7 +92579,7 @@
     ],
     "price": null,
     "first_seen": "2026-08-06",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -93650,7 +94313,7 @@
     "url": "https://www.mccabes.com/product/kim-richey/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -93918,18 +94581,21 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
-      "Cubensis"
+      "Cubensis - Bob Weir Birthday Celebration"
     ],
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/cubensis-bob-weir-birthday-celebration--199714",
-    "detail": "Live show at The Venice West: Cubensis - Bob Weir Birthday Celebration!.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "organizers": null,
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -95821,6 +96487,40 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "SWYNDLE: Indie rock n roll party",
+    "date": "2026-09-21",
+    "start": null,
+    "venue": "Harvard & Stone",
+    "neighborhood": "East Hollywood",
+    "lineup": [
+      "SWYNDLE: Indie rock n roll party"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://harvardandstone.com/events/swyndle-indie-rock-n-roll-party-3/",
+    "detail": "Free nightly garage/punk/R&B/burlesque bill at Harvard & Stone. Note: this venue's page has repeatedly served stale cached months in past runs; dates reflect the page as fetched 2026-09-07.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "punk",
+        "indie",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "burlesque"
+      ],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
     "title": "Arch Enemy & The Black Dahlia Murder - Wrath Across North America 2026",
     "date": "2026-10-05",
     "start": "17:00",
@@ -96461,7 +97161,7 @@
     "category": "live_music",
     "genre": null,
     "lineup": [
-      "Alligator Beach"
+      "Alligator Beach 'New Orleans Funk Party'"
     ],
     "links": [
       {
@@ -96478,22 +97178,25 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Blues/soul/funk/burlesque show at Harvelle's Santa Monica (since 1931).",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "funk-soul"
+        "funk-soul",
+        "blues"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "burlesque"
+      ],
       "region": "westside",
       "near_home": false
     }
@@ -96506,27 +97209,36 @@
     "venue": "Harvelle's (Santa Monica)",
     "neighborhood": "Santa Monica",
     "lineup": [
-      "7 A DREAMSCAPE"
+      "7 A Dreamscape"
     ],
     "category": "live_music",
     "url": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Blues/soul/funk/burlesque show at Harvelle's Santa Monica (since 1931).",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues",
-        "funk-soul"
+        "funk-soul",
+        "blues"
       ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "burlesque"
+      ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "price": null
   },
   {
     "title": "very good mondays",
@@ -97970,7 +98682,7 @@
     "url": "https://www.mccabes.com/product/laurence-juber/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -98016,7 +98728,7 @@
     "source": "The Venice West",
     "title": "Shovels & Rope with Nolan Taylor",
     "date": "2026-10-17",
-    "start": "8:00 PM",
+    "start": "20:00",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -98026,12 +98738,15 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/shovels-rope-w-nolan-taylor-176962",
-    "detail": "Live show at The Venice West headlined by Shovels & Rope.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -98696,7 +99411,7 @@
       "Avalon Hollywood"
     ],
     "organizers": "Insomniac, Orlove Entertainment",
-    "detail": "Electronic music performance with special guest appearance.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: EDM.",
     "price": "$25",
     "ra_pick": false,
     "afterhours": true,
@@ -98705,7 +99420,8 @@
     "tags": {
       "type": "club",
       "genre": [
-        "electronic"
+        "house",
+        "edm"
       ],
       "setting": [
         "club"
@@ -100939,7 +101655,7 @@
     "category": "Music",
     "genre": null,
     "lineup": [
-      "David Nail"
+      "David Nail (solo)"
     ],
     "links": [
       {
@@ -100952,12 +101668,12 @@
       }
     ],
     "organizers": null,
-    "detail": "Country singer-songwriter, solo show",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "sources": [
       "venicewest",
       "webfetch"
@@ -100965,8 +101681,8 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "folk",
-        "country"
+        "funk-soul",
+        "folk"
       ],
       "setting": [
         "bar"
@@ -101229,7 +101945,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -103155,15 +103871,18 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -105240,10 +105959,13 @@
     ],
     "price": null,
     "first_seen": "2026-08-06",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -105267,7 +105989,7 @@
       "venicewest",
       "scrape"
     ],
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "organizers": null,
     "genre": "Live Music",
     "ra_pick": false,
@@ -106894,7 +107616,7 @@
     "url": "https://www.mccabes.com/product/holly-near/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -107463,7 +108185,7 @@
       "Avalon Hollywood"
     ],
     "organizers": null,
-    "detail": "Nightclub event; no time/price listed on calendar page.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: Electronic/Funk.",
     "price": "$30+",
     "ra_pick": false,
     "afterhours": true,
@@ -107472,7 +108194,7 @@
     "tags": {
       "type": "club",
       "genre": [
-        "electronic"
+        "house"
       ],
       "setting": [
         "club"
@@ -107948,15 +108670,18 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -109780,7 +110505,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-29",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -111754,7 +112479,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -113598,15 +114323,18 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West headlined by The Last Revel.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-16",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -116625,7 +117353,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -116882,19 +117610,22 @@
       }
     ],
     "organizers": null,
-    "detail": "Electronic music collaboration",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "sources": [
       "venicewest",
       "webfetch"
     ],
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -119925,7 +120656,7 @@
     "category": "Music",
     "genre": "Electronic",
     "lineup": [
-      "Gasolina (Halloween)"
+      "Gasolina"
     ],
     "links": [
       {
@@ -119947,7 +120678,7 @@
     "detail": "Nightclub event; no time/price listed on calendar page.",
     "price": null,
     "first_seen": "2026-08-26",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -121320,23 +122051,26 @@
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "lineup": [
-      "Jim Keller"
+      "Jim Keller Show (Sunday)"
     ],
     "category": "live-music",
     "price": null,
     "image": null,
     "url": "https://www.mccabes.com/product/jim-keller-show/",
-    "detail": "Sunday performance by Jim Keller.",
+    "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room. SOLD OUT.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "other",
       "genre": [],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "sold-out"
+      ],
       "region": "westside",
       "near_home": false
     },
@@ -121714,23 +122448,26 @@
     "venue": "McCabe's Guitar Shop",
     "neighborhood": "Santa Monica",
     "lineup": [
-      "Jim Keller"
+      "Jim Keller Show (Monday)"
     ],
     "category": "live-music",
     "price": null,
     "image": null,
     "url": "https://www.mccabes.com/product/jim-keller-show/",
-    "detail": "Monday performance by Jim Keller.",
+    "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room. SOLD OUT.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "other",
       "genre": [],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
-      "vibe": [],
+      "vibe": [
+        "sold-out"
+      ],
       "region": "westside",
       "near_home": false
     },
@@ -123328,15 +124065,18 @@
       "venicewest"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West headlined by DICE.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -123407,7 +124147,7 @@
     "url": "https://www.mccabes.com/product/jeffrey-foucault/",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -124772,7 +125512,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -126014,12 +126754,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Electronic music performance by DJ Innellea.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: EDM.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "other",
       "genre": [],
@@ -127082,7 +127822,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -127128,15 +127868,18 @@
       "venicewest"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West: Yellowman.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -128675,7 +129418,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -128698,7 +129441,7 @@
   {
     "title": "Keller Williams",
     "date": "2026-11-08",
-    "start": "7:00 PM",
+    "start": "19:00",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
@@ -128721,15 +129464,18 @@
       "venicewest"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West: Keller Williams.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-06",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -131700,15 +132446,18 @@
       "venicewest"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West: Bombargo.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -131734,7 +132483,7 @@
     "url": "https://www.mccabes.com/product/john-mceuen-the-circle-band/",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -133264,19 +134013,22 @@
       }
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "sources": [
       "venicewest",
       "webfetch"
     ],
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -135228,7 +135980,7 @@
     "category": "live_music",
     "genre": "Folk/Americana",
     "lineup": [
-      "Chris Smither"
+      "Chris Smither (Saturday)"
     ],
     "links": [
       {
@@ -135254,7 +136006,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -135300,15 +136052,18 @@
       "venicewest"
     ],
     "organizers": null,
-    "detail": "Live show at The Venice West: Yachty By Nature.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -137319,7 +138074,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "club",
       "genre": [
@@ -137347,7 +138102,7 @@
     "category": "live_music",
     "genre": "Folk/Americana",
     "lineup": [
-      "Chris Smither"
+      "Chris Smither (Sunday)"
     ],
     "links": [
       {
@@ -137373,7 +138128,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -137988,12 +138743,15 @@
     ],
     "category": "live_music",
     "url": "https://www.tixr.com/groups/thevenicewest/events/lissie-204123",
-    "detail": "Live show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -141301,7 +142059,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -142540,14 +143298,16 @@
     "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
-    "lineup": [],
+    "lineup": [
+      "Jammy Buffet"
+    ],
     "category": "live-music",
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/jammy-buffet-204889",
-    "detail": "Jimmy Buffett tribute",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "other",
       "genre": [],
@@ -142555,12 +143315,16 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "tribute"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "WORK Weekender: Fadi Mohem, FJAAK, Lindsey Herbert, Luigi Tozzi, The Lady Machine & More",
@@ -143407,7 +144171,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -144385,7 +145149,7 @@
     }
   },
   {
-    "title": "Barely Alive w/ Luci, Edison Cole, Elden",
+    "title": "Barely Alive with Luci Edison Cole & Elden",
     "date": "2026-11-21",
     "start": "10pm",
     "venue": "Avalon Hollywood",
@@ -144415,14 +145179,15 @@
       "avalonhollywood",
       "Avalon Hollywood"
     ],
-    "detail": "Drum and bass event featuring Barely Alive and supporting artists.",
+    "detail": "In-house club night at Avalon Hollywood (1735 Vine St). Genre: EDM.",
     "price": "$25",
     "first_seen": "2026-08-26",
     "last_seen": "2026-09-07",
     "tags": {
       "type": "club",
       "genre": [
-        "dnb"
+        "house",
+        "edm"
       ],
       "setting": [
         "club"
@@ -145128,7 +145893,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -149502,7 +150267,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -150698,7 +151463,7 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "category": "live_music",
-    "detail": "Show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "lineup": [
       "Dragon Smoke",
       "Strange Hotels"
@@ -150707,10 +151472,13 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -153707,19 +154475,20 @@
       "McCabe's Guitar Shop"
     ],
     "organizers": null,
-    "detail": "Collaborative performance by Larry Campbell & Teresa Williams.",
+    "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
         "folk"
       ],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -154783,14 +155552,15 @@
     "price": null,
     "image": null,
     "url": "https://www.mccabes.com/product/gill-landry-opener-kiki-cavazos/",
-    "detail": "Gill Landry with opener Kiki Cavazos.",
+    "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "other",
       "genre": [],
       "setting": [
-        "bar"
+        "bar",
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -155708,7 +156478,7 @@
     "category": "live_music",
     "genre": null,
     "lineup": [
-      "Harbour"
+      "HARBOUR"
     ],
     "links": [
       {
@@ -155725,15 +156495,16 @@
       "venicewest"
     ],
     "organizers": null,
-    "detail": "Singer-songwriter performance",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
+        "funk-soul",
         "folk"
       ],
       "setting": [
@@ -156590,7 +157361,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-05",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "club",
       "genre": [
@@ -156660,7 +157431,7 @@
     "category": "live_music",
     "genre": null,
     "lineup": [
-      "Oliver Hazard"
+      "Oliver Hazard w/ Downey Chase"
     ],
     "links": [
       {
@@ -156677,15 +157448,18 @@
       "venicewest"
     ],
     "organizers": null,
-    "detail": "Show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -157657,16 +158431,17 @@
       "venicewest"
     ],
     "organizers": null,
-    "detail": "Psychedelic rock with opener",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
       "genre": [
-        "rock"
+        "funk-soul",
+        "folk"
       ],
       "setting": [
         "bar"
@@ -161018,7 +161793,7 @@
     "source": "webfetch",
     "title": "Satin Jackets (Dec 18)",
     "date": "2026-12-18",
-    "start": "10:30pm-2:30am",
+    "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -161028,7 +161803,7 @@
     "price": "$29",
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/satin-jackets-193430",
-    "detail": "Show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
     "last_seen": "2026-09-07",
     "tags": {
@@ -161944,18 +162719,21 @@
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
-      "Petty or Not"
+      "Petty or Not... A Tribute to Tom Petty & The Heartbreakers"
     ],
     "category": "live_music",
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/petty-or-not-a-tribute-to-tom-petty-the-heartbreakers-199223",
-    "detail": "Show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
@@ -161989,7 +162767,7 @@
     "source": "webfetch",
     "title": "Satin Jackets (Dec 19)",
     "date": "2026-12-19",
-    "start": "10:30pm-2:30am",
+    "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -161999,7 +162777,7 @@
     "price": "$29",
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/satin-jackets-193431",
-    "detail": "Show at The Venice West.",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
     "last_seen": "2026-09-07",
     "tags": {
@@ -164206,19 +164984,20 @@
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/steely-dead-198443",
-    "detail": "Steely Dan/Grateful Dead mashup tribute",
+    "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-07",
     "tags": {
       "type": "live-music",
-      "genre": [],
+      "genre": [
+        "funk-soul",
+        "folk"
+      ],
       "setting": [
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "tribute"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     },
