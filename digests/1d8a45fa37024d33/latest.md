@@ -289,4 +289,4 @@ The night's real decision: Âme at the Chinatown block party (6-midnight) or Fra
 ---
 > ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
 *⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 9d (380 events), harvelles 9d (24 events)*
-*Also skipped this run (fetch failed — JS-rendered/blocked, not faked): Saint Rocke, Highland Park Bowl, The Baked Potato, Vitello's, KCRW Presents. Editorial roundups (Eater LA, UncoverLA, Secret LA, 6AM Group, Dirty Epic) yielded no current data (dead domain, 503s, stale archives). Eventbrite fetcher also failed this run.*
+*Also skipped this run (fetch failed — JS-rendered/blocked, not faked): Saint Rocke, Highland Park Bowl, The Baked Potato, Vitello's, KCRW Presents. Editorial roundups (Eater LA, UncoverLA, Secret LA, 6AM Group, Dirty Epic) yielded no current data (dead domain, 503s, stale archives). Eventbrite timed out on the first pass but completed on retry (96 events, 2 new/updated).*
