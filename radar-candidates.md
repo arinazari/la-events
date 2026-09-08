@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/7/2026 deterministically (no API). 238 candidates. Signals: big-venue 207, festival 22, editorial 6, tracked 6._
+_Generated 9/8/2026 deterministically (no API). 239 candidates. Signals: big-venue 208, festival 22, editorial 6, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -284,6 +284,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Thu 12/17 | 3 | Cece Winans | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/18 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-18-2026/event/090064BBE484EE0D) |
 | Sat 12/19 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-19-2026/event/090064BBE48FEE25) |
+| Sat 12/19 | 3 | Stevie Wonder Songs in The Key of Life Performances 50th A | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/stevie-wonder-songs-in-the-key-inglewood-california-12-19-2026/event/09006524823041CB) |
 
 ## January 2027
 
