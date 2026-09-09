@@ -1,38 +1,20 @@
 {
-  "version": "06506b9b296b",
-  "content_version": "f22c70f46bfa",
-  "count": 3913,
-  "fetched_at": "2026-09-08T12:43:36+00:00",
+  "version": "827c78d26baa",
+  "content_version": "f5edf41d17e9",
+  "count": 3941,
+  "fetched_at": "2026-09-09T12:33:52+00:00",
   "added": 0,
-  "updated": 2,
-  "changes": [
-    {
-      "title": "Rose Bowl Flea Market Sunday, September 13, 2026",
-      "date": "2026-09-13",
-      "venue": "Rose Bowl Stadium",
-      "fields": [
-        "start"
-      ]
-    },
-    {
-      "title": "Rose Bowl Flea Market Sunday, October 11, 2026",
-      "date": "2026-10-11",
-      "venue": "Rose Bowl Stadium",
-      "fields": [
-        "start"
-      ]
-    }
-  ],
+  "updated": 0,
   "stale_sources": [
     {
       "source": "webfetch",
-      "days": 9,
-      "count": 380
+      "days": 10,
+      "count": 399
     },
     {
       "source": "harvelles",
-      "days": 9,
-      "count": 24
+      "days": 10,
+      "count": 23
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/8/2026 deterministically (no API). 239 candidates. Signals: big-venue 208, festival 22, editorial 6, tracked 6._
+_Generated 9/9/2026 deterministically (no API). 240 candidates. Signals: big-venue 209, festival 22, editorial 6, tracked 6._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -157,7 +157,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 10/17 | 5 | Vulfpeck | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/vulfpeck-los-angeles-california-10-17-2026/event/0900648DE474A9BA) |
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Tue 10/13 | 4 | Ella Langley | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 10/14 | 4 | Ella Langley | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Thu 10/15 | 4 | Role Model Presents: Chuck On Tour | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/16 | 4 | Miley: Bass Persuades - Live at the Hollywood Bowl | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/miley-bass-persuades-live-at-the-hollywood-california-10-16-2026/event/0B00651CAD82598A) |
@@ -290,9 +289,9 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 1/16 | 3 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-16-2027/event/0900649DE84C64CD) |
+| Sat 1/16 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-16-2027/event/0900649DE84C64CD) |
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
-| Fri 1/29 | 3 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
+| Fri 1/29 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
 
 ## February 2027
 
@@ -301,6 +300,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
 | Fri 2/12 | 3 | Jorge Medina | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jorge-medina-ontario-california-02-12-2027/event/0900651BED2C1C79) |
 | Sat 2/13 | 3 | Los Tucanes De Tijuana | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/los-tucanes-de-tijuana-inglewood-california-02-13-2027/event/090064DEC0F49512) |
+| Sat 2/20 | 3 | Yuridia - Cartas Sobre La Mesa Tour 2027 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-inglewood-california-02-20-2027/event/0A006521AE4654FC) |
 | Fri 2/26 | 3 | Morat YEM World Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/morat-yem-world-tour-2027-inglewood-california-02-26-2027/event/090064AFF1A0DF67) |
 
 ## October 2026
@@ -382,14 +382,14 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 1/12 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-12-2027/event/0900649DE7C663B2) |
-| Wed 1/13 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-13-2027/event/0900649DE7FE6418) |
-| Sun 1/17 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-17-2027/event/0900649DE899654B) |
-| Wed 1/20 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-20-2027/event/090064A4B79AF95E) |
-| Thu 1/21 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-21-2027/event/090064A4B7A6F97C) |
-| Sun 1/24 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-24-2027/event/090064A4B7B2F9A0) |
-| Mon 1/25 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-25-2027/event/090064A4B7BFF9BB) |
-| Thu 1/28 | 2 | Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-28-2027/event/090064A4B7CBF9E1) |
+| Tue 1/12 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-12-2027/event/0900649DE7C663B2) |
+| Wed 1/13 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-13-2027/event/0900649DE7FE6418) |
+| Sun 1/17 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-17-2027/event/0900649DE899654B) |
+| Wed 1/20 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-20-2027/event/090064A4B79AF95E) |
+| Thu 1/21 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-21-2027/event/090064A4B7A6F97C) |
+| Sun 1/24 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-24-2027/event/090064A4B7B2F9A0) |
+| Mon 1/25 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-25-2027/event/090064A4B7BFF9BB) |
+| Thu 1/28 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-28-2027/event/090064A4B7CBF9E1) |
 
 ## February 2027
 
@@ -452,6 +452,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Wed 12/2 | 0 | Jonas Brothers: The Burning Up Tour All Over Again | Honda Center | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-anaheim-california-12-02-2026/event/0900650C4618D89F) |
+
+## February 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Thu 2/11 | 0 | Yuridia - Cartas Sobre La Mesa Tour 2027 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-palm-desert-california-02-11-2027/event/0A006522DD1BE418) |
 
 ## November 2026
 
