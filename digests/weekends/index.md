@@ -4,8 +4,8 @@
 
 - **Fri 9/11 – Sun 9/13** — 16 events · top pick: Midnight Lovers with Massimiliano Pagliara, Masha Mar, James Axon — [weekend digest](weekends/2026-09-11.md)
 - **Fri 9/18 – Sun 9/20** — 19 events · top pick: Category Vol. 002 - Rouge: Kim Anh, Masha Mar, Soul Purpose B2B Flabbergast — [weekend digest](weekends/2026-09-18.md)
-- **Fri 9/25 – Sun 9/27** — 13 events · top pick: Factory 93 presents: Amelie Lens at Grand Park Block 2 — [weekend digest](weekends/2026-09-25.md)
-- **Fri 10/2 – Sun 10/4** — 17 events · top pick: CSW Open Air: DjRUM [4hr], Mark Ernestus [3hr], Akanbi b2b The Large [Double set] — [weekend digest](weekends/2026-10-02.md)
+- **Fri 9/25 – Sun 9/27** — 14 events · top pick: Factory 93 presents: Amelie Lens at Grand Park Block 2 — [weekend digest](weekends/2026-09-25.md)
+- **Fri 10/2 – Sun 10/4** — 18 events · top pick: CSW Open Air: DjRUM [4hr], Mark Ernestus [3hr], Akanbi b2b The Large [Double set] — [weekend digest](weekends/2026-10-02.md)
 - **Fri 10/9 – Sun 10/11** — 20 events · top pick: Dublon [rooftop party] — [weekend digest](weekends/2026-10-09.md)
 - **Fri 10/16 – Sun 10/18** — 20 events · top pick: Emanate - Twisted Tour (Open To Close) — [weekend digest](weekends/2026-10-16.md)
 - **Fri 10/23 – Sun 10/25** — 20 events · top pick: SYNTHESIS 002: Anastasia Giovani, Blazej Malinowski, Kameliia & Secus — [weekend digest](weekends/2026-10-23.md)
