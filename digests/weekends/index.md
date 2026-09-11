@@ -1,20 +1,20 @@
-# Weekend digests — index
+# Weekend look-ahead — index
 
-*Soonest first · rebuilt daily*
+*One row per upcoming weekend, soonest first. Each links to its full digest.*
 
-- **Fri 9/11 – Sun 9/13** — 18 events · top pick: Midnight Lovers with Massimiliano Pagliara, Masha Mar, James Axon — [weekend digest](weekends/2026-09-11.md)
-- **Fri 9/18 – Sun 9/20** — 19 events · top pick: Category Vol. 002 - Rouge: Kim Anh, Masha Mar, Soul Purpose B2B Flabbergast — [weekend digest](weekends/2026-09-18.md)
-- **Fri 9/25 – Sun 9/27** — 14 events · top pick: Factory 93 presents: Amelie Lens at Grand Park Block 2 — [weekend digest](weekends/2026-09-25.md)
-- **Fri 10/2 – Sun 10/4** — 18 events · top pick: CSW Open Air: DjRUM [4hr], Mark Ernestus [3hr], Akanbi b2b The Large [Double set] — [weekend digest](weekends/2026-10-02.md)
-- **Fri 10/9 – Sun 10/11** — 20 events · top pick: Dublon [rooftop party] — [weekend digest](weekends/2026-10-09.md)
-- **Fri 10/16 – Sun 10/18** — 20 events · top pick: Emanate - Twisted Tour (Open To Close) — [weekend digest](weekends/2026-10-16.md)
-- **Fri 10/23 – Sun 10/25** — 20 events · top pick: SYNTHESIS 002: Anastasia Giovani, Blazej Malinowski, Kameliia & Secus — [weekend digest](weekends/2026-10-23.md)
-- **Fri 10/30 – Sun 11/1** — 14 events · top pick: Escape Halloween — [weekend digest](weekends/2026-10-30.md)
-- **Fri 11/6 – Sun 11/8** — 19 events · top pick: WORK presents: Narciss, Masha Mar, & Marc Homer — [weekend digest](weekends/2026-11-06.md)
-- **Fri 11/13 – Sun 11/15** — 16 events · top pick: Sneak's Birthday Beats 2026: Derrick Carter, DJ Sneak, DJ Heather, H-Foundation, Hector Moralez, J-Dub, Juliet Mendoza, Masha Mar, Ian Llorens, Stacy Christine, Tom Carle, Your Unkle Magik — [weekend digest](weekends/2026-11-13.md)
-- **Fri 11/20 – Sun 11/22** — 19 events · top pick: Dreamstate Socal 2026 — [weekend digest](weekends/2026-11-20.md)
-- **Fri 11/27 – Sun 11/29** — 19 events · top pick: Hostile: Benda B2B Vastive — [weekend digest](weekends/2026-11-27.md)
-- **Fri 12/4 – Sun 12/6** — 21 events · top pick: Shrek Rave — [weekend digest](weekends/2026-12-04.md)
-- **Fri 12/11 – Sun 12/13** — 21 events · top pick: Speed of Sound — [weekend digest](weekends/2026-12-11.md)
-- **Fri 12/18 – Sun 12/20** — 17 events · top pick: Love Actually in Concert — [weekend digest](weekends/2026-12-18.md)
-- **Fri 12/25 – Sun 12/27** — 7 events · top pick: A Swingin' Jazz Affair (Matt Forbes, Jesse Goddard, David Moscoe Trio) — [weekend digest](weekends/2026-12-25.md)
+- **[Sep 11–13](./2026-09-11.md)** — 18 picks · top: [Midnight Lovers with Massimiliano Pagliara, Masha Mar, James Axon](https://ra.co/events/2432189)
+- **[Sep 18–20](./2026-09-18.md)** — 19 picks · top: [Category Vol. 002 - Rouge: Kim Anh, Masha Mar, Soul Purpose B2B Flabbergast](https://ra.co/events/2528035)
+- **[Sep 25–27](./2026-09-25.md)** — 14 picks · top: [Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)
+- **[Oct 2–4](./2026-10-02.md)** — 17 picks · top: [CSW Open Air: DjRUM [4hr], Mark Ernestus [3hr], Akanbi b2b The Large [Double set]](https://ra.co/events/2521281)
+- **[Oct 9–11](./2026-10-09.md)** — 16 picks · top: [Lights Down Low Feat. Ben UFO](https://ra.co/events/2527911)
+- **[Oct 16–18](./2026-10-16.md)** — 20 picks · top: —
+- **[Oct 23–25](./2026-10-23.md)** — 20 picks · top: —
+- **[Oct 30 – Nov 1](./2026-10-30.md)** — 14 picks · top: [Escape Halloween](https://on.fgtix.com/trk/Ni5m)
+- **[Nov 6–8](./2026-11-06.md)** — 19 picks · top: [WORK presents: Narciss, Masha Mar, & Marc Homer](https://ra.co/events/2525849)
+- **[Nov 13–15](./2026-11-13.md)** — 21 picks · top: [Sneak's Birthday Beats 2026: Derrick Carter, DJ Sneak, DJ Heather, H-Foundation, Hector Moralez, J-Dub, Juliet Mendoza, Masha Mar, Ian Llorens, Stacy Christine, Tom Carle, Your Unkle Magik](https://ra.co/events/2499458)
+- **[Nov 20–22](./2026-11-20.md)** — 19 picks · top: [Dreamstate Socal 2026](https://dreamstate.frontgatetickets.com/?utm_source=Promoters&utm_medium=19hz&utm_campaign=19hz)
+- **[Nov 27–29](./2026-11-27.md)** — 19 picks · top: —
+- **[Dec 4–6](./2026-12-04.md)** — 21 picks · top: —
+- **[Dec 11–13](./2026-12-11.md)** — 21 picks · top: —
+- **[Dec 18–20](./2026-12-18.md)** — 17 picks · top: —
+- **[Dec 25–27](./2026-12-25.md)** — 7 picks · top: —

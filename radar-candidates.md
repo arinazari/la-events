@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/10/2026 deterministically (no API). 238 candidates. Signals: big-venue 207, festival 22, editorial 6, tracked 6._
+_Generated 9/11/2026 deterministically (no API). 230 candidates. Signals: big-venue 201, festival 21, tracked 6, editorial 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -24,12 +24,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Angine de Poitrine | The Wiltern | editorial | [link](https://www.ticketmaster.com/angine-de-poitrine-los-angeles-california-12-04-2026/event/090064A7ABE2D617) |
-
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Thu 10/15 | 3 | GEESE | Hollywood Forever Cemetary | editorial | [link](https://www.ticketmaster.com/event/Z7r9jZ1A70vqI) |
 
 ## November 2026
 
@@ -59,7 +53,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 11/20 | 5 | WORK Weekender: Fadi Mohem, FJAAK, Lindsey Herbert, Luigi  | TBA - Los Angeles | festival | [link](https://ra.co/events/2526746) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
 
 ## December 2026
@@ -157,7 +150,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 10/17 | 5 | Vulfpeck | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/vulfpeck-los-angeles-california-10-17-2026/event/0900648DE474A9BA) |
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Thu 10/15 | 4 | Role Model Presents: Chuck On Tour | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/16 | 4 | Miley: Bass Persuades - Live at the Hollywood Bowl | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/miley-bass-persuades-live-at-the-hollywood-california-10-16-2026/event/0B00651CAD82598A) |
 | Mon 10/19 | 4 | Dermot Kennedy: The Weight of the Woods Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/dermot-kennedy-the-weight-of-the-los-angeles-california-10-19-2026/event/090064787D02336C) |
 | Tue 10/20 | 4 | Jessie Ware: The Superbloom Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/jessie-ware-the-superbloom-tour-los-angeles-california-10-20-2026/event/0900648D8AE9388F) |
@@ -202,7 +194,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 10/15 | 3 | Taemin | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 10/16 | 3 | Harry Connick Jr - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 10/16 | 3 | Juanes North America Tour 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/juanes-north-america-tour-2026-inglewood-california-10-16-2026/event/0900644E0BF15E32) |
 | Fri 10/16 | 3 | Prospa present Prophecy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1303213/prospa-present-prophecy-tickets) |
@@ -306,10 +297,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 10/15 | 2 | Cynthia Erivo: Let Me Sing To You | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/cynthia-erivo-let-me-sing-to-hollywood-california-10-15-2026/event/0B0064A783483613) |
-| Thu 10/15 | 2 | Prospa present Prophecy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1443876/prospa-present-prophecy-tickets) |
-| Thu 10/15 | 2 | Nelly (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Thu 10/15 | 2 | Pedro Fernández - Ave Fénix Two'r | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/pedro-fernandez-ave-fenix-twor-inglewood-california-10-15-2026/event/0A006503C05DB7D2) |
 | Sun 10/18 | 2 | Phil Wickham / Official Ticket + Hotel Packages | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/song-of-the-saints-tour-with-ontario-california-10-18-2026/event/0900644DDDEA6E26) |
 | Sun 10/18 | 2 | ANGEL TICKETS - Charli xcx - Music, Fashion, Film Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/charli-xcx-music-fashion-film-tour-inglewood-california-10-18-2026/event/090064C5F509BA04) |
 | Sun 10/18 | 2 | it's murph - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1511170/it-s-murph-2nd-night-added-tickets) |
@@ -363,6 +350,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Tue 12/1 | 2 | Sin Bandera (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 12/2 | 2 | BEAT: Belew/Vai/Levin/Bozzio Performing the Music of KING  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/beat-belewvailevinbozzio-performing-the-music-of-inglewood-california-12-02-2026/event/0A0064FEFC6652B8) |
 | Sat 12/5 | 2 | Matt Rife | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZzjw) |
+| Tue 12/8 | 2 | Victoria Monét: Frequency Of Love Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/victoria-monet-frequency-of-love-tour-inglewood-california-12-08-2026/event/0A006528B4649609) |
 | Wed 12/9 | 2 | Gipsy Kings featuring Nicolas Reyes - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAvAPz) |
 | Thu 12/10 | 2 | Triumph: The Rock & Roll Machine Reloaded Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-inglewood-california-12-10-2026/event/090065149FC06F66) |
 | Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
@@ -435,7 +423,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 10/15 | 0 | Phil Wickham / Official Ticket + Hotel Packages | Honda Center | big-venue | [link](https://www.ticketmaster.com/song-of-the-saints-tour-with-anaheim-california-10-15-2026/event/0900644DD420500D) |
 | Thu 10/22 | 0 | Bryson Tiller Presents: The Neo Trapsoul Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/bryson-tiller-presents-the-neo-trapsoul-anaheim-california-10-22-2026/event/090064B5DC213A81) |
 
 ## November 2026
