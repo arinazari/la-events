@@ -1,20 +1,25 @@
 {
-  "version": "b1a91040b3ff",
-  "content_version": "a7fc2f6724cb",
-  "count": 3985,
-  "fetched_at": "2026-09-11T12:22:57+00:00",
+  "version": "dffe39f073fa",
+  "content_version": "c546295c9fbe",
+  "count": 3915,
+  "fetched_at": "2026-09-12T12:20:42+00:00",
   "added": 0,
   "updated": 0,
   "stale_sources": [
     {
       "source": "webfetch",
-      "days": 12,
-      "count": 382
+      "days": 13,
+      "count": 368
     },
     {
       "source": "harvelles",
-      "days": 12,
-      "count": 21
+      "days": 13,
+      "count": 20
+    },
+    {
+      "source": "Harvelle's (Santa Monica)",
+      "days": 3,
+      "count": 29
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/11/2026 deterministically (no API). 230 candidates. Signals: big-venue 201, festival 21, tracked 6, editorial 5._
+_Generated 9/12/2026 deterministically (no API). 225 candidates. Signals: big-venue 197, festival 20, tracked 6, editorial 5._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -87,7 +87,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/16 | 3 | Faultline Festival 2-Day Pass | Morongo Field | festival | [link](https://www.ticketmaster.com/faultline-festival-2day-pass-rancho-cucamonga-california-10-16-2026/event/09006521BC3C9F9C) |
 | Sat 10/17 | 3 | Lost In Dreams & The Observatory Present ARMNHMR (18+) | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/lost-in-dreams-the-observatory-present-santa-ana-california-10-17-2026/event/0900649CF4A8321F) |
 | Sat 10/17 | 3 | Faultline Festival with Dustin Lynch | Morongo Field | festival | [link](https://www.ticketmaster.com/faultline-festival-with-dustin-lynch-rancho-cucamonga-california-10-17-2026/event/0900651220D620B6) |
 
@@ -146,11 +145,9 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/16 | 5 | Role Model Presents: Chuck on Tour | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Sat 10/17 | 5 | Vulfpeck | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/vulfpeck-los-angeles-california-10-17-2026/event/0900648DE474A9BA) |
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Fri 10/16 | 4 | Miley: Bass Persuades - Live at the Hollywood Bowl | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/miley-bass-persuades-live-at-the-hollywood-california-10-16-2026/event/0B00651CAD82598A) |
 | Mon 10/19 | 4 | Dermot Kennedy: The Weight of the Woods Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/dermot-kennedy-the-weight-of-the-los-angeles-california-10-19-2026/event/090064787D02336C) |
 | Tue 10/20 | 4 | Jessie Ware: The Superbloom Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/jessie-ware-the-superbloom-tour-los-angeles-california-10-20-2026/event/0900648D8AE9388F) |
 | Wed 10/21 | 4 | Ravyn Lenae Presents: Blue Island | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
@@ -194,10 +191,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/16 | 3 | Harry Connick Jr - 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Fri 10/16 | 3 | Juanes North America Tour 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/juanes-north-america-tour-2026-inglewood-california-10-16-2026/event/0900644E0BF15E32) |
-| Fri 10/16 | 3 | Prospa present Prophecy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1303213/prospa-present-prophecy-tickets) |
-| Fri 10/16 | 3 | Chuy Lizarraga y Julio Preciado con Luis Angel "El Flaco" | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/chuy-lizarraga-y-julio-preciado-con-los-angeles-california-10-16-2026/event/0A006512F2408494) |
 | Sat 10/17 | 3 | SmartLess Live with Jason Bateman, Sean Hayes, & Will Arne | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/smartless-live-with-jason-bateman-sean-hollywood-california-10-17-2026/event/0B006482D29D6B01) |
 | Sat 10/17 | 3 | Young Miko - Late Checkout Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/young-miko-late-checkout-tour-inglewood-california-10-17-2026/event/09006483C17A7B4A) |
 | Sat 10/17 | 3 | ANGEL TICKETS - Charli xcx - Music, Fashion, Film Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/charli-xcx-music-fashion-film-tour-inglewood-california-10-17-2026/event/090064C5EF12A97C) |
@@ -381,7 +374,9 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Tue 2/2 | 2 | Christine D'Clario - La Novia Tour  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/christine-dclario-la-novia-tour-inglewood-california-02-02-2027/event/0A006179983A3029) |
+| Wed 2/17 | 2 | Yuridia - 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 2/18 | 2 | PABLO ALBORAN - GLOBAL TOUR KM0 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/pablo-alboran-global-tour-km0-inglewood-california-02-18-2027/event/0A0064CAC3AADDB8) |
+| Sun 2/21 | 2 | Yuridia - Cartas Sobre La Mesa Tour 2027 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-inglewood-california-02-21-2027/event/0A006524AD56A71F) |
 | Fri 2/26 | 2 | The Basement Yard Live | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/the-basement-yard-live-inglewood-california-02-26-2027/event/0A0064C2CCB3BA66) |
 
 ## October 2026
