@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/12/2026 deterministically (no API). 225 candidates. Signals: big-venue 197, festival 20, tracked 6, editorial 5._
+_Generated 9/13/2026 deterministically (no API). 214 candidates. Signals: big-venue 190, festival 17, tracked 6, editorial 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -16,7 +16,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/17 | 4 | Boots in the Park | Rancho Mission Viejo Riding Park | editorial | [link](https://www.ticketmaster.com/event/Z7r9jZ1A707OS) |
 | Mon 10/19 | 4 | Chinchilla | Pacific Electric | editorial | [link](https://www.ticketmaster.com/chinchilla-los-angeles-california-10-19-2026/event/090064F7158AAC30) |
 
 ## December 2026
@@ -65,7 +64,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/17 | 4 | Indie Sleaze Festival w/ Juicebox + Public Pervert | The Paramount (Los Angeles) | festival | [link](https://www.facebook.com/events/1050720464419531/) |
 | Fri 10/23 | 4 | Cold Cave X Pixel Grip - Moon Block Party | The Glass House (Pomona) | festival | [link](https://www.facebook.com/events/1043607385234558/) |
 
 ## November 2026
@@ -82,13 +80,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Grateful Shred: Holiday Homecoming - 2-DAY Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91) |
-
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 10/17 | 3 | Lost In Dreams & The Observatory Present ARMNHMR (18+) | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/lost-in-dreams-the-observatory-present-santa-ana-california-10-17-2026/event/0900649CF4A8321F) |
-| Sat 10/17 | 3 | Faultline Festival with Dustin Lynch | Morongo Field | festival | [link](https://www.ticketmaster.com/faultline-festival-with-dustin-lynch-rancho-cucamonga-california-10-17-2026/event/0900651220D620B6) |
 
 ## November 2026
 
@@ -145,7 +136,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/17 | 5 | Vulfpeck | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/vulfpeck-los-angeles-california-10-17-2026/event/0900648DE474A9BA) |
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
 | Mon 10/19 | 4 | Dermot Kennedy: The Weight of the Woods Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/dermot-kennedy-the-weight-of-the-los-angeles-california-10-19-2026/event/090064787D02336C) |
@@ -191,11 +181,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/17 | 3 | SmartLess Live with Jason Bateman, Sean Hayes, & Will Arne | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/smartless-live-with-jason-bateman-sean-hollywood-california-10-17-2026/event/0B006482D29D6B01) |
-| Sat 10/17 | 3 | Young Miko - Late Checkout Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/young-miko-late-checkout-tour-inglewood-california-10-17-2026/event/09006483C17A7B4A) |
-| Sat 10/17 | 3 | ANGEL TICKETS - Charli xcx - Music, Fashion, Film Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/charli-xcx-music-fashion-film-tour-inglewood-california-10-17-2026/event/090064C5EF12A97C) |
-| Sat 10/17 | 3 | It's Murph - Ages 18+ | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1496233/its-murph-tickets) |
-| Sat 10/17 | 3 | Taking Back Sunday (21+) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 10/18 | 3 | Kacey Musgraves w/ Gabriella Rose | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Sun 10/18 | 3 | it's murph | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507528) |
 | Sun 10/18 | 3 | it's murph, Tobiahs | Shrine Expo Hall (Los Angeles) | big-venue | [link](https://www.axs.com/events/1511170) |
@@ -383,7 +368,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/17 | 1 | Los Tigres Del Norte: Los Tigres Del Mundo Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-los-tigres-anaheim-california-10-17-2026/event/09006458A0D5CC52) |
 | Sat 10/24 | 1 | Intocable: Cultura Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/intocable-cultura-tour-2026-anaheim-california-10-24-2026/event/090064E1B08C886A) |
 | Sat 10/31 | 1 | THE B-52s * DEVO:  COSMIC DE-EVOLUTION TOUR | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/the-b52s-devo-cosmic-deevolution-tour-palm-desert-california-10-31-2026/event/0A0064D093588054) |
 
