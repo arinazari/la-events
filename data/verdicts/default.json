@@ -44237,6 +44237,27 @@
       "judged_at": "2026-09-13T12:26:09",
       "input_version": 2,
       "score_at_judge": 4
+    },
+    "564e1d377d2e": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Broken Shaker rooftop with Akumen (Made to Move co-founder, Rinse FM/NTS/BBC Radio 1 pedigree) and agraybé's psychedelic groove sets — this is the rooftop-vinyl-groove lane almost to spec, undersold by a flat score-6.",
+      "confidence": "high",
+      "judged_at": "2026-09-14T12:29:36",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
+    },
+    "a5905f129164": {
+      "tier": "solid",
+      "lane": "market",
+      "adjust": -1,
+      "why": "Title and billing read as a KCHUNG vendor/record market at the Roadhouse, not a live rock booking — a fine free eastside daytime pick, but the score's 'live music, high interest' framing overstates the draw.",
+      "confidence": "low",
+      "judged_at": "2026-09-14T12:29:36",
+      "input_version": 2,
+      "score_at_judge": 6,
+      "model": "claude-sonnet-5"
     }
   }
 }
