@@ -1,60 +1,54 @@
-# LA Events — 2026-09-13
+# LA Events — 2026-09-14
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Checked Sun 9/13 · no new or changed events since the last pull*
+*Updated Mon 9/14 · 1 updated since the last pull · 🆕 new · ↻ updated*
 
-<!-- take: Quiet through midweek, then two loaded weekends stack up — Chinatown's Âme block party first, then Amelie Lens and a deep TBA afters the Saturday after. -->
-Slow open — Sunday's mostly the free all-vinyl sunset session and a skippable Monday. Real heat doesn't start till next weekend: Saturday the 19th is a stacked double-header, Âme's Chinatown block party against Francis Mercier's Solèy, same 6-to-midnight slot (take Chinatown — deeper bill, DJ Tennis and Kaz James do the work). The weekend after keeps going, with Amelie Lens getting her own day-to-dusk stage at Grand Park and a sharper TBA afters on Friday. And two weekends out, 10/3 is already the best night on the board — DjRUM, Mark Ernestus, and KlangKuenstler's sold-out Forum takeover all land the same Saturday.
+<!-- take: Free Axel Boman Wednesday, then Saturday goes off twice — Âme's Chinatown block party against Francis Mercier's outdoor Afro-house set. -->
+Quiet open to the week, then it builds fast. Wednesday's the sleeper: Axel Boman playing open-to-close, free, at a DTLA listening bar — the kind of night this whole digest exists for. Saturday doubles up with two real must-sees at the same hour — if you're only doing one, Âme's Chinatown block party is the closer call to the fabric-London energy you're chasing over Francis Mercier's Afro-house set, though either is a good night. Keep half an eye on the weekend of 10/2–10/3, which is shaping up to be one of the best of the fall — Mark Ernestus, DjRUM, SHERELLE, Todd Edwards, Pangaea, plus KlangKuenstler's sold-out Forum takeover.
 
 ## Tonight & tomorrow
 
-Nothing essential tonight — the free all-vinyl sunset session (before 7pm) is a nice low-stakes way to close the weekend if you're around, otherwise save it; tomorrow's a dead Monday too.
+Quiet Monday/Tuesday — nothing here is worth rearranging plans for; save it, the week gets going Wednesday.
 
-- `Today 6pm-12am` **[Sunday Sessions La (Vinyl Only) Open Air: Xica Soul, Gil Tamazyan,  Julian](https://ra.co/events/2514110)** — TBA, Los Angeles · day party · free b4 7pm / $23-34 · [card ↗](https://arinazari.github.io/la-events/?e=3defb0a1746c) — *All-vinyl sunset open-air with Xica Soul again and an RA pick tag — the exact sunset/vinyl groove format you keep gravitating to.*
-- `Today 4pm-11:59pm` **[Rooftop Sessions w/ Juliet Mendoza](https://shotgun.live/en/events/rooftop-sessions-with-juliet-mendoza)** — 301 South Garey Avenue (Pomona), Pomona · day party · $13.21-20 · [card ↗](https://arinazari.github.io/la-events/?e=e67ffa495b8a) — *Juliet Mendoza again, but Pomona's a real trek for a rooftop day set — the affinity doesn't cancel out the distance.*
-- `Today time TBA` **[Supergloom-Exiter-Bad Light](https://harvardandstone.com/events/supergloom-exiter-bad-light/)** — Harvard & Stone, East Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=c2358d3d8506)
-- `Tomorrow 4am-11am` **[Afters @ Tooneyverse](https://stageglo.me/events/afters-tooneyverse-free-cocktail-w-entry-2026-09-14)** — 1253 S Los Angeles St (Los Angeles) · afters · $15 · [card ↗](https://arinazari.github.io/la-events/?e=f78d921239a4)
-- `Tomorrow 7:30pm` **[Rumbo Tumba](https://dice.fm/event/6a03cadc13b4960001ea11e2)** — 2220 Arts + Archives, Historic Filipinotown · $31.90 · [card ↗](https://arinazari.github.io/la-events/?e=e2b14078ff2e)
-- `Tomorrow 7pm` **[ZEE MACHINE](https://www.ticketmaster.com/zee-machine-los-angeles-california-09-14-2026/event/090064E8B5F7921E)** — The Echo, Echo Park · [card ↗](https://arinazari.github.io/la-events/?e=fa420efa6356)
+- `Today 11pm` **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2535578)** — The Lexington, DTLA · afters · [card ↗](https://arinazari.github.io/la-events/?e=9e890c34f267)
+- `Today 4am-11am` **[Afters @ Tooneyverse](https://stageglo.me/events/afters-tooneyverse-free-cocktail-w-entry-2026-09-14)** — 1253 S Los Angeles St (Los Angeles) · afters · $15 · [card ↗](https://arinazari.github.io/la-events/?e=f78d921239a4)
+- `Today 7:30pm` **[Rumbo Tumba](https://dice.fm/event/6a03cadc13b4960001ea11e2)** — 2220 Arts + Archives, Historic Filipinotown · $31.90 · [card ↗](https://arinazari.github.io/la-events/?e=e2b14078ff2e)
+- `Tomorrow 8:30pm` **[The Nightmare](https://www.elysiantheater.com/shows/thenightmare0915)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=e9272a6a5230)
+- `Tomorrow 7:30pm` **[Vidura Bandara Rajapaksa - The Paradise Gothic Tour](https://www.elysiantheater.com/shows/vidura0915)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=8b78b3702d87)
+- `Tomorrow 8pm` **[ROOMIES with Dylan Adler, Sam Morrison & Kylie Vincent](https://www.elysiantheater.com/shows/roomies0915)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=572649b43d83)
 
 ## Don't miss
 
 - `Fri 9/18` **[Caller ID](https://www.elysiantheater.com/shows/callerid0917)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=146202841bcb)  
-  Sold out already — FYI only — but a one-person show staged entirely as a phone call is exactly the format-forward weirdness the Elysian does best; mistagged as live music, it's really theater. <!-- tier3:why 146202841bcb -->
+  Already sold out, so FYI-only — but a one-person immersive telephone play is a format worth tracking if Elysian runs it back. Theater, not the live-music booking it got tagged as.
 - `Sat 9/19` **[Ame, DJ Tennis, Kaz James, Masha Mar | Chinatown Block Party](https://ra.co/events/2487802)** — Gin Ling Way, Chinatown, Chinatown · $71.07 · [card ↗](https://arinazari.github.io/la-events/?e=09590633eec8)  
-  Âme headlining an outdoor Chinatown block party is close to the fabric-London energy you're after — DJ Tennis and Kaz James make this a genuinely stacked bill, not just a headliner carrying two openers. Same night as Francis Mercier's Solèy; take this one — deeper bill. <!-- tier3:why 09590633eec8 -->
+  Âme headlining an outdoor Chinatown block party, with DJ Tennis and Kaz James actually filling out the bill instead of padding it — the closest thing this week has to real fabric-London energy. The Saturday pick if you're only doing one (see the take above).
 - `Fri 9/25` **[Gene On Earth, Momo Trosman, Cromie, Chemtrail Johnny, Hazy, Ian Llorens, Gilbert0](https://ra.co/events/2457514)** — TBA - Downtown Los Angeles, DTLA · $35-50 · *📍 location TBA — watch for the drop* · [card ↗](https://arinazari.github.io/la-events/?e=e0bf9830cfa7)  
-  This is the TBA-warehouse afterhours format you already like, and the lineup runs a notch deeper than most — Momo Trosman and Cromie are legit diggers, not just names filling out a flyer. <!-- tier3:why e0bf9830cfa7 -->
+  The TBA-warehouse afterhours format you already like, with a lineup a notch deeper than most — Momo Trosman and Cromie are real diggers, not flyer filler.
 - `Fri 9/25` **[A Swingin' Jazz Affair (Matt Forbes & Jesse Goddard w/ David Moscoe Trio)](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=694730c59c72)  
-  Forbes and Goddard picked up the Marty & Elayne torch here, and it shows — old-Hollywood standards with Moscoe's trio behind them, free and low-stakes, a good easy-Friday opener before the late stuff. <!-- tier3:why 694730c59c72 -->
+  Forbes and Goddard picked up the Marty & Elayne torch and it shows — old-Hollywood standards, Moscoe's trio behind them, free, and about as low-stakes a Friday as it gets.
 - `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park, DTLA · $69+ · [card ↗](https://arinazari.github.io/la-events/?e=d535a0dbfe40)  
-  A dedicated day-to-dusk set at Grand Park, not a shared festival stage — genuinely the better way to catch her than a HARD Summer slot. Techno into acid into trance from a real headliner, in a proper Factory 93 room. <!-- tier3:why d535a0dbfe40 -->
+  A dedicated day-to-dusk Amelie Lens set in Grand Park, not a shared festival stage — the better way to catch her than a HARD Summer slot. Extended techno-into-acid-into-trance from a real headliner, worth planning the day around.
 - `Sat 9/26` **[Salton City Surf Club    The Martian Sunset    3LH      8:00 pm    $10 in advanc](https://www.thesmell.org/events/wednesday-september-30-2026)** — The Smell, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=7bd1c5e73ad7)  
-  The Smell's the real DIY dive for this exact punk/experimental lane — cheap, all-ages, rare energy the flat score doesn't know to reward. <!-- tier3:why 7bd1c5e73ad7 -->
+  Three names at The Smell I can't verify anything about — that's the venue's whole ethos, so it's a fair $10 all-ages gamble, not a night to build around.
 
 ## What changed
 
 
 **New to the slate**
-- `Mon 9/14` (+5 more dates) 🆕 **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2535584)** — The Lexington, DTLA · afters · [card ↗](https://arinazari.github.io/la-events/?e=0d7c031a86f4) — *Same unbooked after-hours format as Friday's, but Saturday's the stronger of the two nights if you're picking one.*
+- `Sat 9/19` 🆕 **[Higher Grooves Rooftop Party](https://ra.co/events/2536094)** — The Broken Shaker Los Angeles, DTLA · day party · [card ↗](https://arinazari.github.io/la-events/?e=564e1d377d2e) — *Broken Shaker rooftop with Akumen (Made to Move co-founder, Rinse FM/NTS/BBC Radio 1 pedigree) and agraybé's psychedelic groove sets — this is the rooftop-vinyl-groove lane almost to spec, undersold by a flat score-6.*
+- `Sun 10/18` 🆕 **[Silverlake Flea](https://www.silverlakeflea.com/)** — 4561 W Colorado Blvd (Atwater Village), Atwater Village · [card ↗](https://arinazari.github.io/la-events/?e=e06b5257dd1c)
+
+**Updated**
+- `Thu 9/17` **[Recollect Underground: Mama J, Arisa, Miss Capri, Kayla Rae, Xuliet, Plavka, Vilena](https://ra.co/events/2528104)** — TBA - Location Link in Bio on Instagram @recollectunderground, Los Angeles · $12.51 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=3ee04afc36d3) — *VILENA and Miss Capri are credible but strictly local-circuit names — decent tech-house/minimal night, no marquee pull.*
+- `Fri 10/9` **[Dublon [rooftop party]](https://ra.co/events/2455911)** — Harbor House DTLA, DTLA · day party · $31.58 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=bf5bb21c979b) — *Tagged dubstep/bass but it's actually a jazz-inflected sunset rooftop set — Dublon's the TikTok-viral Oslo producer with real London Jazz Café touring, and Xica Soul's also on the bill. The golden-hour-vinyl lane you keep coming back to.*
+- `Sun 10/11` **[Rose Bowl Flea Market Sunday, October 11, 2026](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-october-11-2026-tickets-1977731925428)** — Rose Bowl Stadium, Pasadena · $16.88 · ↻ updated (start) · [card ↗](https://arinazari.github.io/la-events/?e=968953e06ebc) — *Reliable monthly flea — always fine to include, never a headline.*
 
 ## Next two weeks
-
-### Sunday · September 13
-
-**Electronic & dance**
-- `6pm-12am` **[Sunday Sessions La (Vinyl Only) Open Air: Xica Soul, Gil Tamazyan,  Julian](https://ra.co/events/2514110)** — TBA, Los Angeles · day party · free b4 7pm / $23-34 · [card ↗](https://arinazari.github.io/la-events/?e=3defb0a1746c)  
-  Free before 7pm, all-vinyl, and Xica Soul's soul-and-house digging alone is worth swinging by even with the location still TBA — Gil Tamazyan and Julian I couldn't verify.
-- `11pm` (Sun 9/13 +6 more) 🆕 **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2535584)** — The Lexington, DTLA · afters · [card ↗](https://arinazari.github.io/la-events/?e=0d7c031a86f4) — *Same unbooked after-hours format as Friday's, but Saturday's the stronger of the two nights if you're picking one.*
-- `4pm-11:59pm` **[Rooftop Sessions w/ Juliet Mendoza](https://shotgun.live/en/events/rooftop-sessions-with-juliet-mendoza)** — 301 South Garey Avenue (Pomona), Pomona · day party · $13.21-20 · [card ↗](https://arinazari.github.io/la-events/?e=e67ffa495b8a) — *Juliet Mendoza again, but Pomona's a real trek for a rooftop day set — the affinity doesn't cancel out the distance.*
-
-**Live music**
-- `time TBA` **[Supergloom-Exiter-Bad Light](https://harvardandstone.com/events/supergloom-exiter-bad-light/)** — Harvard & Stone, East Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=c2358d3d8506)
-
-- *Also:* [Water for Elephants (Touring)](https://www.ticketmaster.com/water-for-elephants-touring-los-angeles-california-09-26-2026/event/0B0064BDCE058EEA) (Hollywood Pantages Theatre)
 
 ### Monday · September 14
 
 **Electronic & dance**
+- `11pm` (Mon 9/14 +5 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2535584)** — The Lexington, DTLA · afters · [card ↗](https://arinazari.github.io/la-events/?e=0d7c031a86f4) — *Same unbooked after-hours format as Friday's, but Saturday's the stronger of the two nights if you're picking one.*
 - `4am-11am` **[Afters @ Tooneyverse](https://stageglo.me/events/afters-tooneyverse-free-cocktail-w-entry-2026-09-14)** — 1253 S Los Angeles St (Los Angeles) · afters · $15 · [card ↗](https://arinazari.github.io/la-events/?e=f78d921239a4)
 
 **Live music**
@@ -69,6 +63,8 @@ Nothing essential tonight — the free all-vinyl sunset session (before 7pm) is 
 - `7:30pm` **[Vidura Bandara Rajapaksa - The Paradise Gothic Tour](https://www.elysiantheater.com/shows/vidura0915)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=8b78b3702d87)
 - `8pm` **[ROOMIES with Dylan Adler, Sam Morrison & Kylie Vincent](https://www.elysiantheater.com/shows/roomies0915)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=572649b43d83)
 
+- *Also:* [Water for Elephants (Touring)](https://www.ticketmaster.com/water-for-elephants-touring-los-angeles-california-09-26-2026/event/0B0064BDCE058EEA) (Hollywood Pantages Theatre)
+
 ### Wednesday · September 16
 
 **Electronic & dance**
@@ -81,14 +77,14 @@ Nothing essential tonight — the free all-vinyl sunset session (before 7pm) is 
 ### Thursday · September 17
 
 **Electronic & dance**
-- `11pm` **[Recollect Underground: Mama J, Arisa, Miss Capri, Kayla Rae, Xuliet, Plavka, Vilena](https://ra.co/events/2528104)** — TBA - Location Link in Bio on Instagram @recollectunderground, Los Angeles · $12.51 · [card ↗](https://arinazari.github.io/la-events/?e=3ee04afc36d3) — *VILENA and Miss Capri are credible but strictly local-circuit names — decent tech-house/minimal night, no marquee pull.*
+- `11pm` **[Recollect Underground: Mama J, Arisa, Miss Capri, Kayla Rae, Xuliet, Plavka, Vilena](https://ra.co/events/2528104)** — TBA - Location Link in Bio on Instagram @recollectunderground, Los Angeles · $12.51 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=3ee04afc36d3) — *VILENA and Miss Capri are credible but strictly local-circuit names — decent tech-house/minimal night, no marquee pull.*
 
 **Live music**
 - `6pm` **[Ramsey Lee](https://app.opendate.io/e/ramsey-lee-down-time-rum-lunch-september-17-2026-732598)** — Permanent Records Roadhouse, Cypress Park · $15 · [card ↗](https://arinazari.github.io/la-events/?e=f66b5ff306fa)
 - `7pm` (Thu 9/17 + Fri 9/18) **[Caller ID](https://www.elysiantheater.com/shows/callerid0917)** — Elysian Theater (Frogtown), Frogtown · [card ↗](https://arinazari.github.io/la-events/?e=e86cea046d30)
 
 ### Friday · September 18
-Negativland's rare culture-jamming set at 2220 Arts (8pm) for something different first, then Lights Down Low's 2ManyDJs bill (from 11) is the pick of the warehouse nights — skip Category Vol. 002 unless the queer-rave mood is specifically what you're after.
+If you want the actual dance floor, Spiritual Systems' monthly at the Airliner is the unpretentious deep-house/garage pick — cheap, close, doors by 10. Save Lights Down Low's 2ManyDJs for the bigger-draw warehouse option instead if that's more the mood. Negativland at 2220 Arts (8pm) is the novelty detour, not a core pick.
 
 **Electronic & dance**
 - `10pm-5am` ⭐ **[Category Vol. 002 - Rouge: Kim Anh, Masha Mar, Soul Purpose B2B Flabbergast](https://ra.co/events/2528035)** — District 7, Los Angeles · afters · $25 b4 12 / $35-75 · [card ↗](https://arinazari.github.io/la-events/?e=f44ae9209167)  
@@ -107,7 +103,7 @@ Negativland's rare culture-jamming set at 2220 Arts (8pm) for something differen
 - `8pm` **[Negativland + SUE-C w/ Irene Moon, DJ Professor Cantaloupe](https://dice.fm/event/6a5a70bb9cd07000017e1339)** — 2220 Arts + Archives, Historic Filipinotown · $22.66 · [card ↗](https://arinazari.github.io/la-events/?e=801aba466fd0) — *Negativland is a legitimately rare, legendary booking (the band behind the U2 fair-use lawsuit) at a venue you love, but plunderphonics/culture-jamming is a real stretch from the house-and-techno spine — go for the novelty, not as a core pick.*
 
 ### Saturday · September 19
-Âme's Chinatown block party edges out Francis Mercier's Solèy for me — same 6-to-midnight window, but DJ Tennis and Kaz James make the deeper bill (go Solèy instead if Afro house is the mood tonight) — then body wave's Felix Dickinson/Masha Mar afters (TBA, 11pm) is the natural landing spot once either one wraps.
+Chinatown's the move: grab something quick around Frank n Franks, then Âme/DJ Tennis's block party runs 6–midnight (or Francis Mercier's Afro-house set over in Elysian Valley if that's more your speed — same hours). Either one's an early-out night, so Higher Grooves' 7pm rooftop at Broken Shaker also works as a lower-key day-into-evening alternative.
 
 **Electronic & dance**
 - `6pm-12am` ⭐ **[Ame, DJ Tennis, Kaz James, Masha Mar | Chinatown Block Party](https://ra.co/events/2487802)** — Gin Ling Way, Chinatown, Chinatown · big room · $71.07 · [card ↗](https://arinazari.github.io/la-events/?e=09590633eec8)
@@ -117,8 +113,8 @@ Negativland's rare culture-jamming set at 2220 Arts (8pm) for something differen
   Felix Dickinson's chuggy, dub-inflected disco is the UK-import half of this booking, but Masha Mar — one of your heaviest-played artists per your Spotify feedback — running her regular body wave series is the real reason to go; TBA venue is standard for this crew, not a red flag.
 - `10pm-4am` **[CSW - Andy Martin [3hr], OK EG [live], sysk](https://ra.co/events/2511807)** — TBA - Downtown, DTLA · $16.50-33.05 · [card ↗](https://arinazari.github.io/la-events/?e=5896613574e3)  
   Canary Sound Werk keeps booking real depth for these secret-location nights — Andy Martin's Lee Scratch Perry pedigree and OK EG's all-live hardware set make this worth the late start, not just another TBA-techno filler.
-- `2pm` **[FLOAT Rooftop Pool Party feat. Apache [2-8 PM]](https://ra.co/events/2449816)** — Level 8 DTLA, DTLA · day party · $31.58 · [card ↗](https://arinazari.github.io/la-events/?e=e46641e7b265)  
-  A genuine rooftop-pool day party — Apache isn't a name you'll recognize, but Abracadabra's house lane is legit groove, not brostep-adjacent EDM, and the setting alone (2-8pm, DTLA rooftop) is the Sunset-Sessions kind of afternoon you like.
+- `7pm` 🆕 **[Higher Grooves Rooftop Party](https://ra.co/events/2536094)** — The Broken Shaker Los Angeles, DTLA · day party · [card ↗](https://arinazari.github.io/la-events/?e=564e1d377d2e)  
+  Akumen — Chinatown-based LA house/techno/disco DJ-producer and Made to Move co-founder — releases on Fortune Signal and Juke Bounce Werk, played BBC Radio 1, Rinse FM, and NTS.
 
 **Live music**
 - `6pm` **[Reckless Magazine Presents:](https://app.opendate.io/e/street-play-trap-girl-kit-major-ughh-chorduroy-moby-clit-september-18-2026-733909)** — Permanent Records Roadhouse, Cypress Park · $20 · [card ↗](https://arinazari.github.io/la-events/?e=b074670402a4) — *DIY punk/underground art-music fest at Permanent Records Roadhouse — exactly the small-club rock lane you like, just an unfamiliar bill so it's a $20 flier, not a must-build-around night.*
@@ -175,7 +171,7 @@ Negativland's rare culture-jamming set at 2220 Arts (8pm) for something differen
 - *Also:* [RECOLLECT UNDERGROUND (AFTERS): SEPT 24TH](https://www.eventbrite.com/e/recollect-underground-afters-sept-24th-tickets-1999737026277) (TBD)
 
 ### Friday · September 25
-Dresden's free Swingin' Jazz Affair (9:15) is the easy, no-stakes start — then Gene On Earth's afterhours lineup (Momo Trosman, Cromie, from 10) is the sharper of the two late options over Soundwave's Rodriguez Jr. night.
+Dinner downtown (San Laurel or Pizzeria Bianco), then the Dresden's free jazz affair (9:15) for an easy start — or hold out for Gene On Earth's TBA warehouse afters if you want to go the distance (doors 10, runs to 8am).
 
 **Electronic & dance**
 - `10pm-8am` **[Gene On Earth, Momo Trosman, Cromie, Chemtrail Johnny, Hazy, Ian Llorens, Gilbert0](https://ra.co/events/2457514)** — TBA - Downtown Los Angeles, DTLA · $35-50 · [card ↗](https://arinazari.github.io/la-events/?e=e0bf9830cfa7)
@@ -189,7 +185,7 @@ Dresden's free Swingin' Jazz Affair (9:15) is the easy, no-stakes start — then
 - `6:30pm` **[The Welsh Twins](https://www.ticketmaster.com/the-welsh-twins-los-angeles-california-09-25-2026/event/090064AC8BF478CD)** — The Regent Theater, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=b3ab3a800b21)
 
 ### Saturday · September 26
-Amelie Lens' day-to-dusk set at Grand Park (from 5pm) is the one to build around — if you're still going after, The Smell's DIY punk bill (8pm) is a hard-left turn worth it just for the whiplash.
+Amelie Lens' day-to-dusk set at Grand Park starts at 5 and runs into the evening on its own — grab a pre-show bite downtown (San Laurel, Pizzeria Bianco) beforehand rather than planning around an afters.
 
 **Electronic & dance**
 - `5pm` ⭐ **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park, DTLA · day party · $69+ · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=d535a0dbfe40)
@@ -197,14 +193,19 @@ Amelie Lens' day-to-dusk set at Grand Park (from 5pm) is the one to build around
 **Live music**
 - `8pm` **[Salton City Surf Club    The Martian Sunset    3LH      8:00 pm    $10 in advanc](https://www.thesmell.org/events/wednesday-september-30-2026)** — The Smell, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=7bd1c5e73ad7)
 
-## Weekends ahead
+### Sunday · September 27
 
-### Weekend of Fri 9/25
-- `Sun 9/27` ⭐ **[Into The Woods presents Theo Parrish (Open To Close)](https://ra.co/events/2502776)** — TBA, Los Angeles · day party · $34-40 · [card ↗](https://arinazari.github.io/la-events/?e=41b2cfe2f284) — *Theo Parrish open-to-close is a rare booking — deep house royalty, exactly the vinyl-groove day-party lane this profile builds weekends around.*
-- `Sun 9/27` **[Boiler Room: LA | Sunday](https://ra.co/events/2404470)** — TBA, Los Angeles · day party · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=b55dc359c0e1) — *Floorplan is Robert Hood's outfit (real Detroit-techno pedigree) and HoneyLuv's tech-house draw is legit, but Skepta and the troll-rave Vieze Asbak slot make this a grab-bag Boiler Room bill, not a pure fit.*
-- `Sun 9/27` **[Aaron Halford & the Soul Solution](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=f263bfb37239)
-- `Sun 9/27` **[Information: Agonis (LA Debut) + Slip](https://ra.co/events/2533953)** — TBA - NOTHING USUAL, Los Angeles · afters · [card ↗](https://arinazari.github.io/la-events/?e=69b0e22e2543)
-- *…plus 1 more that weekend — full list: [weekend digest](weekends/2026-09-25.md)*
+**Electronic & dance**
+- `3pm-10pm` ⭐ **[Into The Woods presents Theo Parrish (Open To Close)](https://ra.co/events/2502776)** — TBA, Los Angeles · day party · $34-40 · [card ↗](https://arinazari.github.io/la-events/?e=41b2cfe2f284)  
+  Theo Parrish doesn't do quick sets — this is a full afternoon-into-night arc from one of the most respected deep-house DJs alive, and open-to-close is where he's actually at his best.
+- `3pm` **[Boiler Room: LA | Sunday](https://ra.co/events/2404470)** — TBA, Los Angeles · day party · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=b55dc359c0e1)  
+  Boiler Room's Sunday day party stacks Floorplan's gospel house and HoneyLuv's tech-house heat against Hannah Laing's hard-house hype and a Dutch memecore act, with several names even RA barely has bios for — genuinely one of the most eclectic single-day bills on the radar, go in expecting variety over consistency.
+- `5am` **[Information: Agonis (LA Debut) + Slip](https://ra.co/events/2533953)** — TBA - NOTHING USUAL, Los Angeles · afters · [card ↗](https://arinazari.github.io/la-events/?e=69b0e22e2543)
+
+**Live music**
+- `7:30pm` **[Aaron Halford & the Soul Solution](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=f263bfb37239)
+
+## Weekends ahead
 
 ### Weekend of Fri 10/2
 - `Sat 10/3` ⭐ **[CSW Open Air: DjRUM [4hr], Mark Ernestus [3hr], Akanbi b2b The Large [Double set]](https://ra.co/events/2521281)** — TBA - Downtown, DTLA · day party · $39-44 · [card ↗](https://arinazari.github.io/la-events/?e=ac41ac86343d) — *Mark Ernestus's 3hr set is a Basic Channel/Hard Wax legend almost never touching down in LA, and DjRUM's rare 4hr all-vinyl narrative set is a reason to build the whole day around this.*
@@ -215,40 +216,40 @@ Amelie Lens' day-to-dusk set at Grand Park (from 5pm) is the one to build around
 
 ### Weekend of Fri 10/9
 - `Fri 10/9` ⭐ **[Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)** — TBA - Downtown Los Angeles, DTLA · $23.25-46.50 · [card ↗](https://arinazari.github.io/la-events/?e=d0cab332db78) — *Ben UFO is about as close to a proper fabric/London booking as this city gets — a genre-agnostic legend at a TBA warehouse, exactly the energy you chase, and the score has it too low.*
-- `Fri 10/9` **[Dublon [rooftop party]](https://ra.co/events/2455911)** — Harbor House DTLA, DTLA · day party · $31.58 · [card ↗](https://arinazari.github.io/la-events/?e=bf5bb21c979b) — *Tagged dubstep/bass but it's actually a jazz-inflected sunset rooftop set — Dublon's the TikTok-viral Oslo producer with real London Jazz Café touring, and Xica Soul's also on the bill. The golden-hour-vinyl lane you keep coming back to.*
+- `Fri 10/9` **[Dublon [rooftop party]](https://ra.co/events/2455911)** — Harbor House DTLA, DTLA · day party · $31.58 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=bf5bb21c979b) — *Tagged dubstep/bass but it's actually a jazz-inflected sunset rooftop set — Dublon's the TikTok-viral Oslo producer with real London Jazz Café touring, and Xica Soul's also on the bill. The golden-hour-vinyl lane you keep coming back to.*
 - `Sat 10/10` **[Anfisa Letyago](https://ra.co/events/2516024)** — Exchange LA, DTLA · big room · $30-93 · [card ↗](https://arinazari.github.io/la-events/?e=04471a755954) — *Same Nina Kraviz/Charlotte de Witte-adjacent techno lane as your tracked names — solid solo headline set at a room built for it.*
 - `Thu 10/8` **[cater2u halloween: y2k, 2010's, house dance party](https://ra.co/events/2531491)** — Gold Diggers, East Hollywood · free · [card ↗](https://arinazari.github.io/la-events/?e=c05ab6cf3862)
 - *…plus 14 more that weekend — full list: [weekend digest](weekends/2026-10-09.md)*
 
 ### Weekend of Fri 10/16
-- `Sat 10/17` **[WA$TED x TRINITY: SAMUEL MORIERO (LA DEBUT) @ 1720 Warehouse [18+]](https://www.etix.com/ticket/p/45388566/samuel-moriero-la-debut-los-angeles-1720?partner_id=100)** — 1720 (Los Angeles), Arts District · $25 b4 1030 / $30+ · [card ↗](https://arinazari.github.io/la-events/?e=ba7cf6f43291)
+- `Sat 10/17` **[WA$TED x TRINITY: SAMUEL MORIERO (LA DEBUT) @ 1720 Warehouse [18+]](https://www.etix.com/ticket/p/45388566/samuel-moriero-la-debut-los-angeles-1720?partner_id=100)** — 1720 (Los Angeles), Arts District · $25.38 · [card ↗](https://arinazari.github.io/la-events/?e=ba7cf6f43291)
 - `Sat 10/17` **[Oppidan](https://ra.co/events/2523078)** — Academy LA, Hollywood · afters · $17 · [card ↗](https://arinazari.github.io/la-events/?e=5360e31e4b2e)
 - `Sat 10/17` **[Certified Groovers: SHROOMIE [Open to Close]](https://ra.co/events/2529202)** — TBA - Downtown Los Angeles, DTLA · $17.15 · [card ↗](https://arinazari.github.io/la-events/?e=1bd79767c701)
 - `Fri 10/16` **[Emanate - Twisted Tour (Open To Close)](https://ra.co/events/2509981)** — TBA - Los Angeles, Los Angeles · $11.50-28.75 · [card ↗](https://arinazari.github.io/la-events/?e=f700f98ba924)
-- *…plus 17 more that weekend — full list: [weekend digest](weekends/2026-10-16.md)*
+- *…plus 16 more that weekend — full list: [weekend digest](weekends/2026-10-16.md)*
 
 ## On the marquee
 
 *Movies live here (and on the site's marquee page): runs opening this stretch, then the one-night screenings worth a seat.*
+- `Tue 9/15` **[Kill Bill Vol. 1](https://ticketing.uswest.veezi.com/purchase/4961?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 4 nights thru Fri 9/25* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=57a0c23520c6) <!-- tier3:gloss 57a0c23520c6 -->
 - `Thu 9/17` **[Resident Evil](https://ticketing.uswest.veezi.com/purchase/4016?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 8 nights thru Thu 9/24* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=8d2cc7003db0) <!-- tier3:gloss 8d2cc7003db0 -->
 - `Thu 9/17` **[Filipiñana](https://vidiotsfoundation.org/showtimes/filipinana-9-18-26-415-pm/)** — *opens · 6 nights thru Tue 9/22* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=b6dd82260746) <!-- tier3:gloss b6dd82260746 -->
 - `Thu 9/17` **[Fight Club](https://ticketing.uswest.veezi.com/purchase/4958?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 3 nights thru Sat 9/19* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=04b460d418c0) <!-- tier3:gloss 04b460d418c0 -->
-- `Fri 9/18` **[Kill Bill Vol. 1](https://ticketing.uswest.veezi.com/purchase/4961?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 2 nights thru Fri 9/25* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=57a0c23520c6) <!-- tier3:gloss 57a0c23520c6 -->
 - `Sat 9/19` **[High Society](https://ticketing.uswest.veezi.com/purchase/4046?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sun 9/20* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=47285292e0ac) <!-- tier3:gloss 47285292e0ac -->
 - `Sat 9/19` **[The Incredible Journey](https://ticketing.uswest.veezi.com/purchase/4962?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 5 nights thru Wed 9/23* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=5b7b340ace9e) <!-- tier3:gloss 5b7b340ace9e -->
-- `Thu 9/24` **[JFK](https://ticketing.uswest.veezi.com/purchase/4974?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 2 nights thru Fri 9/25* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=957abe611377) <!-- tier3:gloss 957abe611377 -->
 - `Fri 9/25` **[Hell Ride](https://ticketing.uswest.veezi.com/purchase/4048?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sat 9/26* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=629075de3216) <!-- tier3:gloss 629075de3216 -->
+- `Sat 9/26` **[Munster, Go Home!](https://ticketing.uswest.veezi.com/purchase/4050?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sun 9/27* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=40b14aef8934) <!-- tier3:gloss 40b14aef8934 -->
 
 ## Around town
 
 *Notable around the city — not ranked to taste; here so you stay apprised.*
-- `Sun 9/13` **[Rose Bowl Flea Market Sunday, September 13, 2026](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-september-13-2026-tickets-1977731831146)** — Rose Bowl Stadium · Pasadena  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=71a56711da05) <!-- tier3:gloss 71a56711da05 -->
 - `Sat 9/19` **[Fuego Fest feat. Blood Club, Nikko Rubio, Katzu Oso, DustBowlChampion](https://www.ticketmaster.com/fuego-fest-feat-blood-club-nikko-los-angeles-california-09-19-2026/event/090064E7CE1693CA)** — Echoplex · Echo Park  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=33c2216d15dc) <!-- tier3:gloss 33c2216d15dc -->
 - `Sat 9/19` **[6th Annual Lake Elsinore Mariachi Fest 2026](https://www.ticketmaster.com/6th-annual-lake-elsinore-mariachi-fest-lake-elsinore-california-09-19-2026/event/090064F0954D6982)** — LAKE ELSINORE DIAMOND STADIUM · Lake Elsinore  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=85ff43f3e43e) <!-- tier3:gloss 85ff43f3e43e -->
 - `Sat 9/19` **Mezcal Por Siempre** — Los Angeles River Center & Gardens · Cypress Park  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=9161a1dbb046) <!-- tier3:gloss 9161a1dbb046 -->
+- `Sat 9/19` **Thai Fest by the Beach** — Santa Monica Pier · Santa Monica  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=310cdc2f38d4) <!-- tier3:gloss 310cdc2f38d4 -->
 - `Wed 9/23` **[Melanie C (Live)](https://www.fondatheatre.com/)** — The Fonda Theatre · Hollywood  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=0871fde2287c) <!-- tier3:gloss 0871fde2287c -->
 - `Fri 9/25` **[33rd Annual YMCA Stair Climb & Urban Hike](https://laist.com/news/arts-and-entertainment/best-things-to-do)** — U.S. Bank Tower, 401 S. Hope Street, Downtown LA · DTLA  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=eaca6403e182) <!-- tier3:gloss eaca6403e182 -->
-- `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono* · [card ↗](https://arinazari.github.io/la-events/?e=edab80bd44cb) — one of the more genuinely interesting UK dance acts touring right now, not just another Palladium DJ night <!-- tier3:gloss edab80bd44cb -->
+- `Fri 9/25` **[Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)** — Hollywood Palladium · Hollywood  ·  *Overmono* · [card ↗](https://arinazari.github.io/la-events/?e=edab80bd44cb) — Warp's biggest electronic export crossing over from club underground to a room this size; scale over intimacy.
 - `Sat 9/26` **[Ocean Way Festival - 09/26 Saturday](https://www.axs.com/events/1459419/ocean-way-festival-tickets)** — The Beach at Santa Monica · Santa Monica  ·  *editorial, festival, DJ Harvey* · [card ↗](https://arinazari.github.io/la-events/?e=96782c900568) <!-- tier3:gloss 96782c900568 -->
 - `Sat 9/26` **[Oceanway Festival: SG lewis, Hot Chip, DJ Harvey, Austin Millz, Nala, Heidi Lawden, Blond:Ish, Poolside, Carlita, Vandelux, Coco & Breezy, Good Neighbours](https://oceanwayfestival.com)** — Santa Monica Beach (Los Angeles) · Santa Monica  ·  *festival, DJ Harvey* · [card ↗](https://arinazari.github.io/la-events/?e=1d2529b6944a) <!-- tier3:gloss 1d2529b6944a -->
 - `Sat 9/26` **Los Angeles Libros Festival** — Central Library · DTLA  ·  *festival, civic* · [card ↗](https://arinazari.github.io/la-events/?e=31b6a322b363) <!-- tier3:gloss 31b6a322b363 -->
@@ -279,7 +280,7 @@ Amelie Lens' day-to-dusk set at Grand Park (from 5pm) is the one to build around
 **December 2026**
 - `Fri 12/4` **[Angine de Poitrine](https://www.ticketmaster.com/angine-de-poitrine-los-angeles-california-12-04-2026/event/090064A7ABE2D617)** — The Wiltern · Koreatown  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=2c1594f123c1) <!-- tier3:gloss 2c1594f123c1 -->
 - `Fri 12/4` **[Grateful Shred: Holiday Homecoming - 2-DAY Pass](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91)** — The Bellwether · DTLA  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=3b54c7947074) <!-- tier3:gloss 3b54c7947074 -->
-- `Sat 12/12` **[JOHN SUMMIT - CTRL ESCAPE TOUR](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7)** — Los Angeles Memorial Coliseum · Exposition Park  ·  *John Summit* · [card ↗](https://arinazari.github.io/la-events/?e=c9505e7363e5) — arena-scale EDM, not really your lane, but the kind of date that moves fast <!-- tier3:gloss c9505e7363e5 -->
+- `Sat 12/12` **[JOHN SUMMIT - CTRL ESCAPE TOUR](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7)** — Los Angeles Memorial Coliseum · Exposition Park  ·  *John Summit* · [card ↗](https://arinazari.github.io/la-events/?e=c9505e7363e5) <!-- tier3:gloss c9505e7363e5 -->
 - `Thu 12/31` **[Hollywood Blvd Block Party NYE 2027 LA](https://ra.co/events/2500017)** — Jameson's Irish Pub · Los Angeles  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=2f84a537d64b) <!-- tier3:gloss 2f84a537d64b -->
 
 **The watch-list** — *festivals worth planning around*
@@ -290,4 +291,4 @@ Amelie Lens' day-to-dusk set at Grand Park (from 5pm) is the one to build around
 
 ---
 > ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
-*⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 14d (358 events), Harvelle's (Santa Monica) 4d (29 events), The Venice West 3d (20 events)*
+*⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 15d (346 events), Harvelle's (Santa Monica) 5d (29 events)*

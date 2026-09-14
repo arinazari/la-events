@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/13/2026 deterministically (no API). 214 candidates. Signals: big-venue 190, festival 17, tracked 6, editorial 4._
+_Generated 9/14/2026 deterministically (no API). 205 candidates. Signals: big-venue 182, festival 16, tracked 6, editorial 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -93,12 +93,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Thu 12/31 | 3 | Hollywood Blvd Block Party NYE 2027 LA | Jameson's Irish Pub | festival | [link](https://ra.co/events/2500017) |
 
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 10/18 | 2 | TURNSTILE: THE NEVER ENOUGH TOUR PT. 2  | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/turnstile-the-never-enough-tour-pt-santa-ana-california-10-18-2026/event/090064D2E8C3F042) |
-
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -181,10 +175,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 10/18 | 3 | Kacey Musgraves w/ Gabriella Rose | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
-| Sun 10/18 | 3 | it's murph | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507528) |
-| Sun 10/18 | 3 | it's murph, Tobiahs | Shrine Expo Hall (Los Angeles) | big-venue | [link](https://www.axs.com/events/1511170) |
-| Sun 10/18 | 3 | Miley: Bass Persuades - Live at the Hollywood Bowl | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/miley-bass-persuades-live-at-the-hollywood-california-10-18-2026/event/0B00651CAD89599B) |
 | Mon 10/19 | 3 | Kacey Musgraves w/ Estevie | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Wed 10/21 | 3 | My Chemical Romance The Black Parade 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-the-black-parade-hollywood-california-10-21-2026/event/0B006332CBDC3993) |
 | Fri 10/23 | 3 | Worship (Sub Focus, Dimension, Culture Shock, 1991) | Kia Forum | big-venue | [link](https://www.ticketmaster.com/worship-north-america-2026-inglewood-california-10-23-2026/event/090064D3F4CB4635) |
@@ -275,10 +265,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 10/18 | 2 | Phil Wickham / Official Ticket + Hotel Packages | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/song-of-the-saints-tour-with-ontario-california-10-18-2026/event/0900644DDDEA6E26) |
-| Sun 10/18 | 2 | ANGEL TICKETS - Charli xcx - Music, Fashion, Film Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/charli-xcx-music-fashion-film-tour-inglewood-california-10-18-2026/event/090064C5F509BA04) |
-| Sun 10/18 | 2 | it's murph - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1511170/it-s-murph-2nd-night-added-tickets) |
-| Sun 10/18 | 2 | Alicia Villarreal (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Tue 10/20 | 2 | Juanes North America Tour 2026 | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1333351/juanes-tickets) |
 | Tue 10/20 | 2 | 2026 MONSTA X WORLD TOUR [THE X : NEXUS] IN LOS ANGELES | Kia Forum | big-venue | [link](https://www.ticketmaster.com/2026-monsta-x-world-tour-the-inglewood-california-10-20-2026/event/09006481D49ADEBB) |
 | Tue 10/20 | 2 | Basement | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1413484/basement-tickets) |
