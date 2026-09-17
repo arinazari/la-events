@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/16/2026 deterministically (no API). 211 candidates. Signals: big-venue 182, festival 22, tracked 7, editorial 3._
+_Generated 9/17/2026 deterministically (no API). 205 candidates. Signals: big-venue 177, festival 21, tracked 7, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -116,12 +116,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 12/18 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-18-2026/event/0B00648CEFEE57B8) |
 | Sat 12/19 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-19-2026/event/0B00648CEFEF57BB) |
 
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Wed 10/21 | 1 | Elliott Brothers Present COMEDY BLOCK PARTY Hosted by Chri | The Miracle Theater | festival | [link](https://www.ticketmaster.com/elliott-brothers-present-comedy-block-party-inglewood-california-10-21-2026/event/0B00652103F07EE4) |
-
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -143,7 +137,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Wed 10/21 | 4 | Ravyn Lenae Presents: Blue Island | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/23 | 4 | My Chemical Romance The Black Parade 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-the-black-parade-hollywood-california-10-23-2026/event/0B006332CBDF3996) |
 | Fri 10/23 | 4 | Channel Tres | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507529) |
 | Sat 10/24 | 4 | WEEZER: The Gathering | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/weezer-the-gathering-los-angeles-california-10-24-2026/event/2C00646D97C50FA8) |
@@ -184,7 +177,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 10/21 | 3 | My Chemical Romance The Black Parade 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-the-black-parade-hollywood-california-10-21-2026/event/0B006332CBDC3993) |
 | Fri 10/23 | 3 | Worship (Sub Focus, Dimension, Culture Shock, 1991) | Kia Forum | big-venue | [link](https://www.ticketmaster.com/worship-north-america-2026-inglewood-california-10-23-2026/event/090064D3F4CB4635) |
 | Fri 10/23 | 3 | Foreigner (21+) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 10/23 | 3 | JAY-Z30 | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/jayz30-inglewood-california-10-23-2026/event/0A0064C8CED8B734) |
@@ -216,7 +208,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/7 | 3 | Eros Ramazzotti - UNA HISTORIA IMPORTANTE | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/eros-ramazzotti-una-historia-importante-inglewood-california-11-07-2026/event/0A00628C082C6464) |
 | Sat 11/7 | 3 | Ramon Ayala " Historia De Un Final" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/ramon-ayala-historia-de-un-final-ontario-california-11-07-2026/event/0900647FAF9A9CF5) |
 | Sat 11/7 | 3 | Moby, Underworld, fcukers, Nia Archives (DJ set), DJ Holog | Brookside at the Rose Bowl | big-venue | [link](https://www.axs.com/events/1527850/moby-underworld-tickets) |
-| Sun 11/8 | 3 | Ms. Lauryn Hill & Wyclef Jean: Celebrating 30 years of The | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/ms-lauryn-hill-wyclef-jean-celebrating-hollywood-california-11-08-2026/event/0B0065036C4F1623) |
+| Sun 11/8 | 3 | Ms Lauryn Hill & Wyclef Jean Celebrating 30 years of Fugee | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/ms-lauryn-hill-wyclef-jean-celebrating-hollywood-california-11-08-2026/event/0B0065036C4F1623) |
 | Mon 11/9 | 3 | Karan Aujla | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/karan-aujla-los-angeles-california-11-09-2026/event/2C00652AF5740D18) |
 | Fri 11/13 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B) |
 | Sat 11/14 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-14-2026/event/09006494FCC71433) |
@@ -276,9 +268,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 10/21 | 2 | Logic & G-Eazy: The Endless Summer Tour Part II | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/logic-geazy-the-endless-summer-tour-inglewood-california-10-21-2026/event/0A006496ABA0B4F9) |
-| Wed 10/21 | 2 | beabadoobee: The Powerlines Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/beabadoobee-the-powerlines-tour-inglewood-california-10-21-2026/event/090064D3B945BAFD) |
-| Wed 10/21 | 2 | The Super Graphic Spectacular | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1455622/the-super-graphic-spectacular-tickets) |
 | Thu 10/22 | 2 | Doja Cat - Tour Ma Vie World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/doja-cat-tour-ma-vie-world-inglewood-california-10-22-2026/event/0900633A1B2389F9) |
 | Thu 10/22 | 2 | The Super Graphic Spectacular | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1515497/the-super-graphic-spectacular-tickets) |
 | Sun 10/25 | 2 | Bryson Tiller Presents: The Neo Trapsoul Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/bryson-tiller-presents-the-neo-trapsoul-inglewood-california-10-25-2026/event/090064B9EC44AB68) |
