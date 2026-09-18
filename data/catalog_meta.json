@@ -1,8 +1,20 @@
 {
-  "version": "e6faf9afdfe6",
-  "content_version": "2f616a30f5d5",
-  "count": 3895,
-  "fetched_at": "2026-09-17T12:27:14+00:00",
+  "version": "6daf16fddf81",
+  "content_version": "0d16cbfc326c",
+  "count": 3887,
+  "fetched_at": "2026-09-18T12:21:44+00:00",
   "added": 0,
-  "updated": 0
+  "updated": 0,
+  "stale_sources": [
+    {
+      "source": "webfetch",
+      "days": 3,
+      "count": 369
+    },
+    {
+      "source": "Harvelle's (Santa Monica)",
+      "days": 3,
+      "count": 29
+    }
+  ]
 }
