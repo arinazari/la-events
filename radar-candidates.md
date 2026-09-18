@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/17/2026 deterministically (no API). 205 candidates. Signals: big-venue 177, festival 21, tracked 7, editorial 3._
+_Generated 9/18/2026 deterministically (no API). 204 candidates. Signals: big-venue 175, festival 22, tracked 7, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -62,6 +62,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 10/23 | 4 | Cold Cave X Pixel Grip - Moon Block Party | The Glass House (Pomona) | festival | [link](https://www.facebook.com/events/1043607385234558/) |
+| Wed 10/28 | 4 | Psyched! Fest presents…      Biblioteka ‍  ‍ (Seattle, WA) | The Smell | festival | [link](https://www.thesmell.org/events/joen6n5w12wlbluz8zcqzakkg4gz0u) |
 
 ## November 2026
 
@@ -268,8 +269,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 10/22 | 2 | Doja Cat - Tour Ma Vie World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/doja-cat-tour-ma-vie-world-inglewood-california-10-22-2026/event/0900633A1B2389F9) |
-| Thu 10/22 | 2 | The Super Graphic Spectacular | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1515497/the-super-graphic-spectacular-tickets) |
 | Sun 10/25 | 2 | Bryson Tiller Presents: The Neo Trapsoul Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/bryson-tiller-presents-the-neo-trapsoul-inglewood-california-10-25-2026/event/090064B9EC44AB68) |
 | Sun 10/25 | 2 | Mon Laferte (21+ event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 10/25 | 2 | Jodeci - 35th Anniversary Tour of Forever My Lady | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jodeci-35th-anniversary-tour-of-forever-inglewood-california-10-25-2026/event/0A0064F7D00DB5D5) |
@@ -367,6 +366,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 11/6 | 1 | Dan + Shay - The Young Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/dan-shay-the-young-tour-anaheim-california-11-06-2026/event/090064AEC5BA3C3B) |
 | Sat 11/7 | 1 | Brand New | Honda Center | big-venue | [link](https://www.ticketmaster.com/brand-new-anaheim-california-11-07-2026/event/090064D08DD25B6F) |
+| Thu 11/12 | 1 | Nick Cannon Presents: Wild N Out Live - The Next Generatio | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/nick-cannon-presents-wild-n-out-inglewood-california-11-12-2026/event/0900652C600617CB) |
 | Fri 11/13 | 1 | Los Tigres del Norte | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-palm-desert-california-11-13-2026/event/0A0064588664F5A1) |
 | Sat 11/14 | 1 | 90s Corridos Tour 2026 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/90s-corridos-tour-2026-palm-desert-california-11-14-2026/event/0A00649D95C0C8DC) |
 | Thu 11/19 | 1 | Nikki Glaser | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -387,12 +387,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 2/12 | 1 | Cristian Castro: Nada Solo Exitos Tour 2027 | Honda Center | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-anaheim-california-02-12-2027/event/09006454A8EDEE77) |
 | Sat 2/13 | 1 | Cristian Castro: Nada Solo Éxitos Tour 2027 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-palm-desert-california-02-13-2027/event/0A0064AF217B07C1) |
 | Thu 2/25 | 1 | Puppers Presents Letterkenny Live | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/puppers-presents-letterkenny-live-inglewood-california-02-25-2027/event/0A0064C9D0ACDE80) |
-
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Thu 10/22 | 0 | Bryson Tiller Presents: The Neo Trapsoul Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/bryson-tiller-presents-the-neo-trapsoul-anaheim-california-10-22-2026/event/090064B5DC213A81) |
 
 ## November 2026
 

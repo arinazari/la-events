@@ -2,7 +2,7 @@
 
 *One row per upcoming weekend, soonest first. Each links to its full digest.*
 
-- **[Sep 18–20](./2026-09-18.md)** — 18 picks · top: [Category Vol. 002 - Rouge: Kim Anh, Masha Mar, Soul Purpose B2B Flabbergast](https://ra.co/events/2528035)
+- **[Sep 18–20](./2026-09-18.md)** — 15 picks · top: [Lights Down Low feat 2ManyDJs](https://ra.co/events/2521036)
 - **[Sep 25–27](./2026-09-25.md)** — 16 picks · top: [Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)
 - **[Oct 2–4](./2026-10-02.md)** — 17 picks · top: [Into The Woods presents Conducta (All Night Long)](https://ra.co/events/2527978)
 - **[Oct 9–11](./2026-10-09.md)** — 20 picks · top: [Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)
