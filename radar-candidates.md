@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/18/2026 deterministically (no API). 204 candidates. Signals: big-venue 175, festival 22, tracked 7, editorial 3._
+_Generated 9/19/2026 deterministically (no API). 198 candidates. Signals: big-venue 169, festival 22, tracked 7, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -61,7 +61,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/23 | 4 | Cold Cave X Pixel Grip - Moon Block Party | The Glass House (Pomona) | festival | [link](https://www.facebook.com/events/1043607385234558/) |
 | Wed 10/28 | 4 | Psyched! Fest presents…      Biblioteka ‍  ‍ (Seattle, WA) | The Smell | festival | [link](https://www.thesmell.org/events/joen6n5w12wlbluz8zcqzakkg4gz0u) |
 
 ## November 2026
@@ -78,6 +77,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Grateful Shred: Holiday Homecoming - 2-DAY Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91) |
+
+## October 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 10/24 | 3 | Jerome Robbins Festival | Ahmanson Theatre | festival | [link](https://www.centertheatregroup.org/) |
 
 ## November 2026
 
@@ -136,10 +141,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/23 | 5 | Foster the People w/ Goth Babe | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Fri 10/23 | 4 | My Chemical Romance The Black Parade 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-the-black-parade-hollywood-california-10-23-2026/event/0B006332CBDF3996) |
-| Fri 10/23 | 4 | Channel Tres | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507529) |
 | Sat 10/24 | 4 | WEEZER: The Gathering | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/weezer-the-gathering-los-angeles-california-10-24-2026/event/2C00646D97C50FA8) |
 | Sat 10/24 | 4 | My Chemical Romance The Black Parade 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-the-black-parade-hollywood-california-10-24-2026/event/0B006332CBE23998) |
 | Sat 10/24 | 4 | Madeon presents Victory Live | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507532) |
@@ -178,10 +180,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/23 | 3 | Worship (Sub Focus, Dimension, Culture Shock, 1991) | Kia Forum | big-venue | [link](https://www.ticketmaster.com/worship-north-america-2026-inglewood-california-10-23-2026/event/090064D3F4CB4635) |
-| Fri 10/23 | 3 | Foreigner (21+) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Fri 10/23 | 3 | JAY-Z30 | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/jayz30-inglewood-california-10-23-2026/event/0A0064C8CED8B734) |
-| Fri 10/23 | 3 | Channel Tres, &Friends, Fifi | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1428029/channel-tres-tickets) |
 | Sat 10/24 | 3 | Gorillaz - The Mountain Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gorillaz-the-mountain-tour-inglewood-california-10-24-2026/event/0900645BA891CBBF) |
 | Sat 10/24 | 3 | Pokemon Night Out: Marshmello, Alison Wonderland | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/pokemon-night-out-inglewood-california-10-24-2026/event/09006475CBE3957B) |
 | Sat 10/24 | 3 | Foreigner (21+) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -236,6 +234,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 12/4 | 3 | KFROG'S CHRISTMAS THROWDOWN | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/kfrogs-christmas-throwdown-ontario-california-12-04-2026/event/09006506E331F419) |
 | Sat 12/5 | 3 | The Neighbourhood: THE WOURLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-neighbourhood-the-wourld-tour-inglewood-california-12-05-2026/event/0900645403D3F8BA) |
 | Sat 12/5 | 3 | Alicia Villarreal - Bendita Locura Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alicia-villarreal-bendita-locura-tour-2026-inglewood-california-12-05-2026/event/0A0064C91DB19A75) |
+| Sat 12/5 | 3 | Trans-Siberian Orchestra | Toyota Arena-CA | big-venue | [link](https://www.cbbankarena.com) |
 | Fri 12/11 | 3 | Marisela: La Dama de Hierro | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/marisela-la-dama-de-hierro-inglewood-california-12-11-2026/event/0A00645BE3CDB957) |
 | Fri 12/11 | 3 | Pepe Aguilar (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 12/12 | 3 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597291/red-bull-home-ground-world-finals-2026-tickets) |
