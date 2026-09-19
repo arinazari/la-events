@@ -19,7 +19,7 @@
 # or "<festival name> musicfestivalwizard"); the site itself is Cloudflare-bot-walled
 # (403s WebFetch/curl/feed/wp-json — verified 2026-07-29), so never fetch it directly.
 # Travel-worthy finds are in scope by design — that's what scope: travel is for.
-# Last refreshed: 2026-06-16
+# Last refreshed: 2026-09-19
 
 festivals:
   - name: Portola 2026
@@ -32,7 +32,10 @@ festivals:
       THE one for you — electronic-forward with DESPACIO (James Murphy + 2ManyDJs sound system),
       Four Tet, Soulwax, Groove Armada, DJ Shadow, Fatboy Slim, Skepta, plus Robyn, Tiësto,
       Swedish House Mafia. European/house energy in a warehouse-pier setting. 2-day ~$380.
-    refresh: set times / DESPACIO schedule, single-day availability
+    refresh: >
+      ONE WEEK OUT (9/26-27). Single-day GA ~$249.95-269.95, VIP single-day from $439.95;
+      resale (Vivid Seats) shows Sunday (Swedish House Mafia/Tiësto/Zara Larsson) already
+      thinning out — Dog Blood's reunion set makes early tiers a real sell-out risk. Decide now.
 
   - name: CRSSD Festival — Fall 2026
     location: Waterfront Park, San Diego
@@ -45,7 +48,10 @@ festivals:
       Armada (DJ set), Helena Hauff, Ben UFO, I Hate Models, Mathame, Carlita, salute. House/
       techno/melodic, European lean, waterfront, 21+. NOTE: same weekend as Portola (SF) —
       can't do both; pick one.
-    refresh: single-day GA now ~$112 (up from ~$68), limited single-days dropping in waves via crssdfest.com/Showclix — check availability before committing; still needs set times; resolve the Portola clash
+    refresh: >
+      ONE WEEK OUT (9/26-27). Single-days still dropping in limited waves via crssdfest.com/
+      Showclix (not confirmed sold out, but availability is tight) — check before committing;
+      resolve the Portola clash this week.
 
   - name: Coachella 2027
     location: Empire Polo Club, Indio CA
@@ -54,9 +60,10 @@ festivals:
     status: lineup_pending
     tickets: https://www.coachella.com/
     why: >
-      Advance GA already sold out (~$549–599); lineup typically drops Sept 2026–Jan 2027.
-      Worth tracking the lineup announce to decide if a resale is worth it.
-    refresh: lineup announcement date + any resale/waitlist
+      Advance GA already sold out (~$549–599); official lineup not yet announced. Industry
+      trades (Hits Daily Double) rumor Tame Impala + Dua Lipa headlining with Fred again..
+      in the "Returning to the Desert" slot — unconfirmed, ~7 months out.
+    refresh: lineup announcement date (typically Jan) + any resale/waitlist
 
   - name: GALA Festival (London) — 2027 edition
     location: Peckham Rye Park, South London
@@ -73,16 +80,13 @@ festivals:
     location: Great Park Live, Irvine (OC — ~45 mi, worth the drive)
     scope: local
     when: 2026-08-29
-    status: sold_out   # presale sold out in 30 min (6/24); organizers confirmed no general sale
+    status: past   # happened 8/29; no longer radar-worthy
     tickets: https://www.daisychainfields.com/tickets
     why: >
       Olivia Rodrigo's first festival — a one-day, all-women lineup (Chappell Roan, Doechii,
       Mitski, The Breeders, Bikini Kill, Garbage, Santigold + special guests Stevie Nicks, Karen O,
-      Sarah McLachlan), 100% of net proceeds to women/girls nonprofits. Off the core house/techno
-      lane, but a marquee must-know — and squarely on-taste for the Lori profile (she tracks Olivia
-      Rodrigo + Mitski). Sold out; only path in now is the L.A. Works volunteer-drive ticket
-      lottery (125 pairs) or resale.
-    refresh: watch resale prices as 8/29 nears; note the volunteer-drive lottery for Lori's profile
+      Sarah McLachlan), 100% of net proceeds to women/girls nonprofits.
+    refresh: n/a — past; drop from festivals.yaml on the next content pass
 
   # seed sparingly with travel-worthy / must-know shows; the digest also pulls far-dated
   # Goldenvoice/TM entries + does a live web check for on-taste tours hitting LA.
