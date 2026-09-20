@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/19/2026 deterministically (no API). 198 candidates. Signals: big-venue 169, festival 22, tracked 7, editorial 3._
+_Generated 9/20/2026 deterministically (no API). 187 candidates. Signals: big-venue 159, festival 21, tracked 7, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -78,12 +78,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Grateful Shred: Holiday Homecoming - 2-DAY Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91) |
 
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 10/24 | 3 | Jerome Robbins Festival | Ahmanson Theatre | festival | [link](https://www.centertheatregroup.org/) |
-
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -142,9 +136,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Sat 10/24 | 4 | WEEZER: The Gathering | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/weezer-the-gathering-los-angeles-california-10-24-2026/event/2C00646D97C50FA8) |
-| Sat 10/24 | 4 | My Chemical Romance The Black Parade 2026 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-the-black-parade-hollywood-california-10-24-2026/event/0B006332CBE23998) |
-| Sat 10/24 | 4 | Madeon presents Victory Live | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507532) |
 | Mon 10/26 | 4 | Tom Jones : Come Gather Round Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/tom-jones-come-gather-round-tour-los-angeles-california-10-26-2026/event/090064B43E17B4D1) |
 | Tue 10/27 | 4 | Shaboozey w/ Carter Faith | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 10/28 | 4 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-28-2026/event/090064C3B5A6FC88) |
@@ -180,12 +171,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/24 | 3 | Gorillaz - The Mountain Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gorillaz-the-mountain-tour-inglewood-california-10-24-2026/event/0900645BA891CBBF) |
-| Sat 10/24 | 3 | Pokemon Night Out: Marshmello, Alison Wonderland | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/pokemon-night-out-inglewood-california-10-24-2026/event/09006475CBE3957B) |
-| Sat 10/24 | 3 | Foreigner (21+) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Sat 10/24 | 3 | Madeon presents Victory Live | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1432437/madeon-presents-victory-live-tickets) |
-| Sat 10/24 | 3 | YG: THE GENTLEMEN'S CLUB TOUR | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/yg-the-gentlemens-club-tour-ontario-california-10-24-2026/event/090064F1E2752F3D) |
-| Sat 10/24 | 3 | JAY-Z30 | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/jayz30-inglewood-california-10-24-2026/event/0A0064C8E971D777) |
 | Wed 10/28 | 3 | YG: THE GENTLEMAN'S CLUB TOUR  | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/yg-the-gentlemans-club-tour-los-angeles-california-10-28-2026/event/2C0064F1FBFA0D9C) |
 | Fri 10/30 | 3 | Phoebe Bridgers: The Lost Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/phoebe-bridgers-the-lost-tour-inglewood-california-10-30-2026/event/090064B9E57FA522) |
 | Fri 10/30 | 3 | Bronco | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/bronco-inglewood-california-10-30-2026/event/0A00649EC45AF008) |
@@ -356,7 +341,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 10/24 | 1 | Intocable: Cultura Tour 2026 | Honda Center | big-venue | [link](https://www.ticketmaster.com/intocable-cultura-tour-2026-anaheim-california-10-24-2026/event/090064E1B08C886A) |
 | Sat 10/31 | 1 | THE B-52s * DEVO:  COSMIC DE-EVOLUTION TOUR | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/the-b52s-devo-cosmic-deevolution-tour-palm-desert-california-10-31-2026/event/0A0064D093588054) |
 
 ## November 2026
