@@ -187,6 +187,9 @@
     "updated_at": "2026-09-11",
     "changed_fields": [
       "lineup"
+    ],
+    "editorial_mentions": [
+      "Time Out LA"
     ]
   },
   {
@@ -675,7 +678,7 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Japanese pop music legend Haruomi Hosono performs, with Toro y Moi opening.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
@@ -1138,7 +1141,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/rolling-stones-boozy-bingo-brunch-201108",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -1306,7 +1309,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -1621,7 +1624,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out LA"
+    ]
   },
   {
     "title": "Silverlake Flea",
@@ -2306,7 +2312,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -2425,7 +2431,7 @@
     "source": "editorial",
     "title": "Bob Baker Day",
     "date": "2026-09-20",
-    "start": null,
+    "start": "10:00",
     "venue": "Los Angeles State Historic Park",
     "neighborhood": "Chinatown Lincoln Heights",
     "lineup": [],
@@ -2433,9 +2439,9 @@
     "price": "Free",
     "image": null,
     "url": "https://www.welikela.com/feed/",
-    "detail": "12th annual community celebration of the puppeteer's legacy with shows and interactive activities.",
+    "detail": "Free outdoor fest/carnival celebrating puppet-theater founder Bob Baker: live puppet shows, vendors, local art exhibits, music, and a first-ever doggie costume contest. Runs 10am-5pm.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -3102,12 +3108,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Garden spiders, tarantulas and other arachnids, indoor/outdoor.",
+    "detail": "Seasonal walk-through exhibition of live garden spiders, tarantulas and other arachnids with on-site educators, running through December 6.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-09-16",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -3119,7 +3125,11 @@
       "vibe": [],
       "region": "dtla",
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "Time Out LA",
+      "We Like LA"
+    ]
   },
   {
     "title": "The Toledo Show",
@@ -3184,7 +3194,7 @@
       "editorial"
     ],
     "organizers": null,
-    "detail": "Traditional lion dance with live music from the Immortals Lion Dance crew (Third Weekends program).",
+    "detail": "Free, no-ticket-required traditional lion dance with live music from the Immortals Lion Dance crew, marking the Mid-Autumn Festival.",
     "price": "Free",
     "ra_pick": false,
     "afterhours": false,
@@ -3192,7 +3202,7 @@
       "Time Out LA"
     ],
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -3238,6 +3248,123 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Pasadena ARTWalk",
+    "date": "2026-09-20",
+    "start": "11:00",
+    "venue": "Green Street (Los Robles to El Molino)",
+    "neighborhood": "Pasadena Playhouse District",
+    "lineup": [],
+    "category": "market",
+    "price": null,
+    "image": null,
+    "url": null,
+    "detail": "Seasonal outdoor artisan marketplace with 180+ hand-selected vendors (fine art, fashion, jewelry), plus live music and tarot readings. Today (9/20) is the final day of the Sept 19-20 run.",
+    "editorial_mentions": [
+      "Time Out LA",
+      "We Like LA"
+    ],
+    "first_seen": "2026-09-20",
+    "last_seen": "2026-09-20",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Riso Art & Zine Fest",
+    "date": "2026-09-20",
+    "start": "11:00",
+    "venue": "Gallery Nucleus",
+    "neighborhood": "Alhambra",
+    "lineup": [],
+    "category": "market",
+    "price": null,
+    "image": null,
+    "url": null,
+    "detail": "Two-day weekend zine/print market (Sept 19-20, today is day 2) across gallery spaces with dozens of independent Risograph artists, small presses and printmakers. 11am-5pm.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-09-20",
+    "last_seen": "2026-09-20",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [
+        "gallery"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Los Angeles Record Fair",
+    "date": "2026-09-20",
+    "start": "12:00",
+    "venue": "Arts District Brewing Company",
+    "neighborhood": "Arts District",
+    "lineup": [],
+    "category": "market",
+    "price": null,
+    "image": null,
+    "url": null,
+    "detail": "Monthly vinyl/DJ-culture/hip-hop market with vendors plus a live album listening session and Q&A. Noon-5pm.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-09-20",
+    "last_seen": "2026-09-20",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Thai Fest by the Beach",
+    "date": "2026-09-20",
+    "start": null,
+    "venue": "Santa Monica Pier",
+    "neighborhood": "Santa Monica",
+    "lineup": [],
+    "category": "food-drink",
+    "price": null,
+    "image": null,
+    "url": null,
+    "detail": "Two-day (Sept 19-20) celebration of Thai food, art & crafts, live performances and traditional wellness activations at the pier.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-09-20",
+    "last_seen": "2026-09-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -3495,7 +3622,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1790132400000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -3798,7 +3925,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -4039,7 +4166,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-paint-night-9-22-26",
     "detail": "WORKSHOP | $25 | AGES 12+ |  Walk in at your leisure between 6-9pm for 2hr access to 12 brightly colored glazes to decorate your own ceramic sculptures led by instructor Chelsie Rivera (@la_rosebud ). Paint like its queer color-me-mine!  Students may return to glaze their previously made class piece",
     "first_seen": "2026-08-22",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -4215,7 +4342,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-30",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -5443,7 +5570,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -6217,7 +6344,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -6678,9 +6805,9 @@
     "category": "comedy",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/comedy-night-w-jessimae-peluso-jonathan-kite-sarah-tiana-hank-chen-206267",
-    "detail": null,
+    "detail": "Comedy show.",
     "first_seen": "2026-09-12",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "comedy",
       "genre": [],
@@ -7827,7 +7954,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/red-not-chili-peppers-184205",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -8214,7 +8341,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -8254,7 +8381,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -9402,7 +9529,7 @@
     "lineup": [
       "Alexandra Ridout",
       "Yvonne Rogers",
-      "Simón Willson",
+      "Simon Willson",
       "David Sirkis"
     ],
     "links": [
@@ -9422,7 +9549,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-30",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -10297,7 +10424,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-18",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "club",
       "genre": [
@@ -12224,7 +12351,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -12443,7 +12570,7 @@
     "url": "https://www.thesmell.org/events/friday-september-25-2026",
     "detail": "Sleep Again Records and Frowny Face Records present…      Von’s Island   Pulse  Honk!     8:00 pm    $10 in advance, $15 at the door    Advance tickets available    here   .",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -12667,7 +12794,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/sew-silly-septem2026",
     "detail": "WORKSHOP | SUGGESTED $5-10 DONATION | ALL AGES | Join Jr Hi buds Chelsie and Eden in this monthly fiber arts meet up to practice your textile skills! Whether you prefer crocheting, knitting, sewing, or have never picked up a needle (or hook) — all are welcome! The Sew Silly Crafting Circle will be f",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -12898,13 +13025,13 @@
       "squarespace"
     ],
     "organizers": null,
-    "detail": "Daughter of blues legend Johnny Taylor and winner of Best R&B Vocalist & Blues Performer at the BMA awards  Shows: 7pm & 9:30pm   Reserve Now",
+    "detail": "Daughter of blues legend Johnnie Taylor and winner of Best R&B Vocalist & Blues Performer at the BMA awards  Shows: 7pm & 9:30pm   Reserve Now",
     "image": "https://static1.squarespace.com/static/5f8c8fac18720a0179e319eb/5f94932eb0954566e631a85b/6a6e60f784f37750b3f0ca06/1785618785204/",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -15033,7 +15160,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "club",
       "genre": [
@@ -16098,7 +16225,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "club",
       "genre": [
@@ -16143,7 +16270,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -18048,7 +18175,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/andy-frasco-the-u-n--189913",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -18396,7 +18523,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/tio-199656",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -18661,7 +18788,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-9-26-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | MASK MANDATORY | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, ",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -18847,7 +18974,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -18865,7 +18992,7 @@
   {
     "title": "Intricacy Absolute: 11 Year Anniversary",
     "date": "2026-09-26",
-    "start": "9pm",
+    "start": "21:00",
     "venue": "The Circle OC",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -20432,7 +20559,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21010,7 +21137,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-06",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21360,7 +21487,7 @@
     "url": "https://www.samfirstbar.com/events/tamir-hendelman-trio-celebrating-the-music-of-bill-evans-with-kevin-axt-joe-labarbera",
     "detail": "Trio honors pianist Bill Evans' legacy through lyrical interplay and harmonic beauty.",
     "first_seen": "2026-09-12",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -22905,9 +23032,9 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.mccabes.com/product/deke-dickerson/",
-    "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
+    "detail": "Roots/rockabilly guitarist Deke Dickerson performs at McCabe's back-room listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -22965,7 +23092,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/wall-of-sound-185855",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -23517,7 +23644,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -23559,7 +23686,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -23741,7 +23868,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/legalsalonforartist-sept2026",
     "detail": "COMMUNITY | FREE | 21+ | Inspired by the long tradition of the salon as a space for interdisciplinary dialogue, Creative Practice is an informal gathering hosted by California Lawyers for the Arts centered on the realities of building and sustaining an artistic life. The vitality of artistic practic",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -23783,7 +23910,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/sexycowfolkworkshop-2026",
     "detail": "WORKSHOP | $35 | 18+ | Tired of boring old sexy cowboys and cowgirls? Saddle up for this workshop all about embellishing some hunks and babes with needle and thread.   Embroidery artist Jamie Maloney will show you how to decorate already printed fabric of cowboys and cowgirls with tattoos, fringe an",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -24552,7 +24679,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27024,7 +27151,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1790737200000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27068,7 +27195,7 @@
     "url": "https://www.mccabes.com/product/val-mccallum-2/",
     "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room. SOLD OUT.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27372,7 +27499,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/juniorhigh-bookclub-september2026",
     "detail": "COMMUNITY | FREE | ALL AGES |  We're throwing it back to bring us forward. The ancestors gave us invaluable tools for us current organizers, but it's up to us to make sure they're adapted to these times. Similarly, it's our obligation to ensure the seeds we plant come to fruition for future generati",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -27518,7 +27645,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27876,7 +28003,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/bodypractice-9-29-26",
     "detail": "WELLNESS | $20 | ALL AGES + SKILL LEVELS | Are you interested in somatics, but not sure where to start? BODY PRACTICE is a monthly community space to come together and practice being in a body. Each two hour workshop is led by hannah rubin (they/them) of   slow body somatics  , and is grounded in bo",
     "first_seen": "2026-09-05",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -28247,7 +28374,7 @@
   {
     "title": "The Outsiders (Touring)",
     "date": "2026-09-30",
-    "start": "14:00",
+    "start": "2026-09-30T19:30:00-07:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Arts & Theatre",
@@ -28973,7 +29100,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/mike-dawes-135433",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -29554,7 +29681,7 @@
     "url": "https://www.vibratogrilljazz.com/music/h9tjnk6zmfnafetenj8gghsyyndfyt-yey2m",
     "detail": "The Bee Gees Gold tribute is the ultimate salute, and experience of seeing ‪the Bee Gees‬ in their prime, LIVE ONCE AGAIN!  Show: 7:30pm   Reserve Now",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -30028,7 +30155,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -30177,7 +30304,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-sept-17-sebastian-zjnwf",
     "detail": "GUEST ARTIST WORKSHOP | $35 | AGES 16+ | Join resident Clay Artist, Chelsie Rivera, for this hands-on beginner ceramic workshop. Students will learn how to build the challenging form of Candelabras, which is a multi-branched candle holder that can be used to decorate and illuminate a home table scap",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -30230,7 +30357,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-14",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -32234,7 +32361,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -32284,7 +32411,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-15",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -32337,7 +32464,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-15",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -32449,7 +32576,7 @@
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "lineup": [
-      "Efajemue Etoroma Jr.",
+      "Efajemue Etoroma, Jr.",
       "Michael Ragonese",
       "Ted Taforo",
       "Francisco Ojeda"
@@ -32460,7 +32587,7 @@
     "url": "https://www.samfirstbar.com/events/efajemue-etoroma-jr-quartet-with-michael-ragonese-ted-taforo-francisco-ojeda",
     "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -32743,7 +32870,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-rory-10-1-26",
     "detail": "GUEST ARTIST WORKSHOP | $35 | AGES 16+ |  Join Clay Date guest instructor Sebastian Schiff for a fun and informative experience!  Enjoy a beginner friendly ceramic workshop where we will be making our very own Tic Tac Toe boards out of clay. Led by Sebastian Montes-Schiff, an LA based Queer Mexican ",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -32840,12 +32967,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Benefit concert.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -33086,7 +33213,7 @@
     "url": "https://www.thesmell.org/events/ul3c7e8hyqbk4g8jw7j5tz0iz4b14a",
     "detail": "Jasper’s birthday show, featuring…     Androgyny  Uncle  Duplicity     8:00 pm    $15    Advance tickets available    here   .",
     "first_seen": "2026-09-19",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -33100,7 +33227,13 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Resident Evil",
@@ -34654,7 +34787,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-16",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -35022,7 +35155,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -36287,7 +36420,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -36337,7 +36470,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-15",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -36625,7 +36758,7 @@
     "url": "https://www.thecircleoc.com/upcoming-events/wasted-calcium",
     "detail": "Kick off Halloween month with CALCIUM at The Circle OC on Friday, October 2nd for a night of heavy bass and pure chaos.",
     "first_seen": "2026-09-05",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "club",
       "genre": [
@@ -36671,7 +36804,7 @@
     "url": "https://www.samfirstbar.com/events/josh-nelson-trio-with-karl-mccomas-reichl-dan-schnelle",
     "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "first_seen": "2026-09-05",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -36885,12 +37018,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Emo and alternative music celebration",
+    "detail": "Emo/pop-punk throwback DJ party at Avalon Hollywood.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-09",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "club",
       "genre": [
@@ -37114,7 +37247,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-13",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -37262,7 +37395,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/aj-theone-irl-10-2-26",
     "detail": "COMMUNITY | $10 | 18+ | need a break from the binge watch, the doom scroll, the label talk but still tryna hang? come kick it w/ AJ, THE ONE IRL. this ain’t another industry event. just folx that love art, music, and women.   we’re screening the new  HOPSCOTCH  music video, celebrating the launch of",
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -39140,7 +39273,7 @@
     "url": "https://www.mccabes.com/product/rebecca-pidgeon/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -39247,7 +39380,7 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -39633,7 +39766,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "sources": [
       "venicewest",
       "webfetch"
@@ -41056,7 +41189,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41108,7 +41241,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-15",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41235,7 +41368,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-10-3-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, and slab techniqu",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -41279,7 +41412,7 @@
     "url": "https://www.samfirstbar.com/events/josh-nelson-trio-with-karl-mccomas-reichl-dan-schnelle-2nd-set-live-radio-broadcast-on-kjazz-88-1-fm",
     "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "first_seen": "2026-09-05",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41556,7 +41689,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/artclub-oct2026",
     "detail": "COMMUNITY | $12 PRE // $15 DOS | ALL AGES | It’s finally the month we’ve all been waiting for and it’s time to launch your spooky celebrations with this movie+craft+snack night! We are so excited to bring you our regular do-it-yourself environment not just with a spooky theme but with a double featu",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "film",
       "genre": [],
@@ -41960,7 +42093,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-18",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43077,7 +43210,7 @@
     "url": "https://www.mccabes.com/product/maya-de-vitry-mark-erelli/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43134,7 +43267,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/marcus-rezak-shred-is-dead-196037",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -44238,7 +44371,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -44708,7 +44841,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -44737,7 +44870,7 @@
     "url": "https://www.thesmell.org/events/587mqg9slvpea0rftqhllmv32b8q4d",
     "detail": "So Vain    Sky Creature   ( NYC)    LottoRPG      8:00 pm    $10    Advance tickets available    here   .",
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -45229,7 +45362,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1791342000000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -45582,7 +45715,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -45632,7 +45765,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -45703,7 +45836,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/clever-girl-trivia-1st-3rd-tuesdays--204329",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -45787,7 +45920,7 @@
     "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-gerald-clayton-76",
     "detail": "Live jazz set at Sam First, the tiny modern-jazz room near LAX; general nightly sets around 7:30pm & 9:30pm, doors 6pm.",
     "first_seen": "2026-09-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -46025,12 +46158,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Live music showcase.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -46744,7 +46877,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47299,7 +47432,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47349,7 +47482,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47550,7 +47683,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-09",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -48716,7 +48849,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/aj-lee-blue-summit-179087",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -49353,20 +49486,19 @@
       "McCabe's Guitar Shop"
     ],
     "organizers": null,
-    "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
+    "detail": "Texas songwriting legends Jimmie Dale Gilmore and Butch Hancock, first of two nights.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-19",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
         "folk"
       ],
       "setting": [
-        "bar",
-        "listening-bar"
+        "bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -49679,7 +49811,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -49724,12 +49856,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -50125,7 +50257,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/healing-with-clay-10-8-26",
     "detail": "WORKSHOP | PAY-WHAT-YOU-CAN | AGES 12+ | Walk in at your leisure between 6-9pm for 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures. Join instructor Chelsie Rivera (@la_rosebud ) for loosely guided hand building practice.  Attendees of Healing With Clay will choose their pri",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -50170,7 +50302,7 @@
     "detail": "Multiple GRAMMY-winning trumpeter returns West Coast with jazz tradition and innovation.",
     "price": null,
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -52471,7 +52603,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-30",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53512,7 +53644,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53556,12 +53688,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:00.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -54118,10 +54250,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": null,
+    "detail": "Live music.",
     "price": null,
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -54331,7 +54463,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-13",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -55965,7 +56097,7 @@
     "url": "https://www.mccabes.com/product/amy-speace-jesse-lynn-madera/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -56530,7 +56662,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/the-breaks-ft-eddie-roberts-the-new-mastersounds-stanton-moore-galactic-robert-walter-the-greyboy-allstars--175798",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -57515,12 +57647,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 20:00.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -57695,7 +57827,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-10-10-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, and slab techniqu",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -58114,7 +58246,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/whyamilikethis-10-10-26",
     "detail": "COMEDY | $10 | 13+ | Through Internal Family Systems therapy I have discovered the multiplicitous and complicated selves within and we worked together to make a show that will make you laugh (clown self) and maybe cry (adult child of alcoholic self), at the very least you will walk away knowing why ",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -58587,7 +58719,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-18",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -59518,7 +59650,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -60194,7 +60326,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-25",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -60449,7 +60581,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -60495,12 +60627,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -60923,7 +61055,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -61450,7 +61582,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1791946800000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -61793,7 +61925,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -61838,12 +61970,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -61910,7 +62042,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-paint-night-10-13-26",
     "detail": "WORKSHOP | $25 | AGES 12+ |  Walk in at your leisure between 6-9pm for 2hr access to 12 brightly colored glazes to decorate your own ceramic sculptures led by instructor Chelsie Rivera (@la_rosebud ).   Students may return to glaze their previously made class pieces AND/OR purchase new pots to glaze",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -63162,7 +63294,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/fet-ish-workshop-oct2026",
     "detail": "WORKSHOP | $25 | 18+ | Fet-ish is a 5 week course on kink, bdsm, and fetish taught by Grace Vee, a Pro Domme of 8 years. The full course will cover everything from safety and protocol, to safe play and building a scene including demonstrations and hands on exercises.   July 8th - Intro to Kink & Ter",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -63226,7 +63358,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -63395,7 +63527,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -63440,12 +63572,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -63734,7 +63866,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-13",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65274,7 +65406,7 @@
     ],
     "price": null,
     "first_seen": "2026-08-06",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65757,7 +65889,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65799,12 +65931,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66299,7 +66431,7 @@
     "url": "https://www.samfirstbar.com/events/kcrw-presents-third-thursdays-with-max-light-quartet-with-julian-shore-walter-stinson-steven-crammer",
     "detail": "Brooklyn-based guitarist presents music from upcoming album with inventive improvisation.",
     "first_seen": "2026-09-19",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66312,11 +66444,17 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "source": "webfetch",
-    "title": "Venice Western Line Dancing",
+    "title": "\"Venice Western\" Line Dancing",
     "date": "2026-10-15",
     "start": "18:30",
     "venue": "The Venice West",
@@ -66325,9 +66463,9 @@
     "category": "community",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/-venice-western-line-dancing-207274",
-    "detail": null,
+    "detail": "Line dancing event.",
     "first_seen": "2026-09-19",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -66338,7 +66476,13 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Tinzo + Jojo's Dark Library - Los Angeles",
@@ -67363,7 +67507,7 @@
     "url": "https://www.mccabes.com/product/kim-richey/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -67639,7 +67783,7 @@
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "organizers": null,
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -68767,7 +68911,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -68809,12 +68953,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:00.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69599,7 +69743,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/bluewithoneinstitute-10-16-26",
     "detail": "MUSIC | PAY-WHAT-YOU-CAN | 18+ | Sometimes the fragments make more sense than the line. BLUE, the first collaboration of SOUL (Saunders/Outlaw/Udoh/Lyons), is a genre-bending new work of devised performance re-embodying queer legacies of blues music through music, storytelling and improvisation. We ",
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69691,7 +69835,7 @@
     "url": "https://www.samfirstbar.com/events/the-darynn-dean-quartet-feat-donald-dean-sr-with-joshua-wong-marlonius-mailo-rakotonanahary",
     "detail": "Vocalist performs evening of jazz and original music with legendary drummer grandfather.",
     "first_seen": "2026-09-19",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69704,7 +69848,13 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "BAJO w. Jeremy Sole & Captain Planet",
@@ -71242,7 +71392,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -71274,7 +71424,7 @@
     "url": null,
     "detail": "Blues/soul/funk/burlesque show at Harvelle's Santa Monica (since 1931).",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -71801,9 +71951,9 @@
     "price": null,
     "image": null,
     "url": "https://santamonica.harvelles.com/calendar",
-    "detail": null,
+    "detail": "Live show at Harvelle's Santa Monica, doors 20:30.",
     "first_seen": "2026-09-05",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -73013,7 +73163,7 @@
     "url": "https://www.mccabes.com/product/laurence-juber/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -73071,7 +73221,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/shovels-rope-w-nolan-taylor-176962",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -74646,7 +74796,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -74693,12 +74843,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -74998,7 +75148,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-10-17-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, and slab techniqu",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -76900,7 +77050,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "sources": [
       "venicewest",
       "webfetch"
@@ -77182,7 +77332,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -77523,7 +77673,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -77565,12 +77715,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -78084,7 +78234,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -78607,9 +78757,9 @@
     ],
     "category": "live_music",
     "url": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -78657,7 +78807,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/mindfulness-meditation-10-19-26",
     "detail": "WORKSHOP |$20 | 18+ | Eileen is a mindfulness meditation teacher with 15 years of teaching experience. Her teaching is grounded in a commitment to making meditation approachable and relevant to everyday life. Eileen brings both traditional mindfulness teachings and evidence-based practices to her wo",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -79039,7 +79189,7 @@
   {
     "title": "Bonnie Raitt: Live 2026 with Special Guest Jon Cleary",
     "date": "2026-10-20",
-    "start": "19:30",
+    "start": "2026-10-20T19:30:00-07:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Music",
@@ -79280,7 +79430,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1792551600000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -79701,7 +79851,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -79743,7 +79893,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -79786,12 +79936,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -80924,7 +81074,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -80964,12 +81114,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -81178,7 +81328,7 @@
     "url": "https://www.thesmell.org/events/wednesday-october-21-2026",
     "detail": "Record release show and short film screening…      slimdan‍      8:00 pm    $20    Advance tickets available    here    starting at 10:00 am on 9/18.",
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "film",
       "genre": [],
@@ -81267,7 +81417,7 @@
     "url": "https://www.samfirstbar.com/events/devon-gates-christina-galisatus-with-nicole-mccabe-mark-valdes",
     "detail": "Musical collaboration blending jazz, chamber music, songwriting, and storytelling.",
     "first_seen": "2026-09-19",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -81281,7 +81431,13 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "DJ Spiral Architect",
@@ -82315,7 +82471,7 @@
     ],
     "price": null,
     "first_seen": "2026-08-06",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -82631,7 +82787,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -82673,12 +82829,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -82892,7 +83048,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/healing-with-clay-10-22-26",
     "detail": "WORKSHOP | PAY-WHAT-YOU-CAN | AGES 12+ | Walk in at your leisure between 6-9pm for 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures. Join instructor Chelsie Rivera (@la_rosebud ) for loosely guided hand building practice.  Attendees of Healing With Clay will choose their pri",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -83131,6 +83287,69 @@
     }
   },
   {
+    "source": "webfetch",
+    "title": "Holly Near (Thursday)",
+    "date": "2026-10-22",
+    "start": "20:00",
+    "venue": "McCabe's Guitar Shop",
+    "neighborhood": "Santa Monica",
+    "lineup": [],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://www.mccabes.com/product/holly-near-thursday-show/",
+    "detail": "Singer-activist Holly Near, first of two nights.",
+    "first_seen": "2026-09-20",
+    "last_seen": "2026-09-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "folk"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "\"Feed The Fire\" Presents: Yvonne Rogers Quartet",
+    "date": "2026-10-22",
+    "start": "19:30",
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "lineup": [
+      "Yvonne Rogers",
+      "Jermaine Paul",
+      "Mark Ferber",
+      "Nicolaus Gelin"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://www.samfirstbar.com/events/feed-the-fire-presents-yvonne-rogers-quartet-with-jermaine-paul-mark-ferber-nicolaus-gelin",
+    "detail": "Pianist Yvonne Rogers' West Coast bandleading debut, previewing upcoming quartet album Brackish.",
+    "first_seen": "2026-09-20",
+    "last_seen": "2026-09-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
     "title": "Saosin: 20 Years of Self-Titled",
     "date": "2026-10-23",
     "start": "18:00",
@@ -83177,7 +83396,7 @@
   {
     "title": "Bluey's Big Play",
     "date": "2026-10-23",
-    "start": "18:00",
+    "start": "2026-10-23T18:00:00-07:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Arts & Theatre",
@@ -84365,7 +84584,7 @@
   },
   {
     "source": "McCabe's Guitar Shop",
-    "title": "Holly Near",
+    "title": "Holly Near (Friday)",
     "date": "2026-10-23",
     "start": "20:00",
     "venue": "McCabe's Guitar Shop",
@@ -84378,7 +84597,7 @@
     "url": "https://www.mccabes.com/product/holly-near/",
     "detail": "Concert at McCabe's Guitar Shop, folk/acoustic/Americana listening room.",
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -85455,7 +85674,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -85552,7 +85771,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -85594,12 +85813,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:00.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -85668,7 +85887,7 @@
     "url": "https://www.thecircleoc.com/upcoming-events/borgeous-halloween",
     "detail": "You know the records. You know the name. Now we’re bringing  @borgeousmusic   to OC for a Ha lloween takeover 🔥Costumes highly encouraged 🩸",
     "first_seen": "2026-09-05",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "club",
       "genre": [
@@ -87697,7 +87916,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-29",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -88595,7 +88814,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -88641,12 +88860,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:00.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -88676,7 +88895,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-10-24-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, and slab techniqu",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -88762,7 +88981,7 @@
     "url": "https://www.thecircleoc.com/upcoming-events/wasted-hurtbox",
     "detail": "@hurtboxofficial   brings the NO LO VE LOST TOUR to The  @circleoc   on Saturd ay, October 24 💥One of bass music’s fastest-rising names is pulling up with one of his biggest headline shows yet! Get your costumes ready. This Halloween is going to be loud, heavy, and out of control. 🎃",
     "first_seen": "2026-09-05",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "club",
       "genre": [
@@ -89157,12 +89376,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Live music.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -90269,7 +90488,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-14",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -90355,7 +90574,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-27",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -90434,7 +90653,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -90477,12 +90696,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -90685,7 +90904,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -90764,12 +90983,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Fundraiser event.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -91235,12 +91454,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -91602,7 +91821,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1793156400000",
     "detail": null,
     "first_seen": "2026-07-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -91636,7 +91855,7 @@
     "id": "https://www.broadwayinhollywood.com/events/detail/the-whos-tommy",
     "title": "The Who's Tommy (Touring)",
     "date": "2026-10-27",
-    "start": "19:30",
+    "start": "2026-10-27T19:30:00-07:00",
     "end": "2026-11-15T20:30:00-08:00",
     "venue": "Pantages Theatre",
     "neighborhood": "Hollywood",
@@ -92054,7 +92273,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -92097,12 +92316,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -92143,7 +92362,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -92170,7 +92389,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/bodypractice-10-27-26",
     "detail": "WELLNESS | $20 | ALL AGES + SKILL LEVELS | Are you interested in somatics, but not sure where to start? BODY PRACTICE is a monthly community space to come together and practice being in a body. Each two hour workshop is led by hannah rubin (they/them) of   slow body somatics  , and is grounded in bo",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -92596,7 +92815,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-16",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -93082,7 +93301,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -93123,12 +93342,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -93211,7 +93430,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-18",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -94416,7 +94635,7 @@
     "url": "https://www.vibratogrilljazz.com/music/ann-hampton-callaway-i-get-a-kick-out-of-cole",
     "detail": "Tony-nominee Ann Hampton Callaway celebrates Cole Porter with witty-to-wistful classics, stories & the song she wrote with him  Show:7pm   Reserve Now",
     "first_seen": "2026-08-16",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -94728,12 +94947,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:30.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -95023,7 +95242,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-rory-10-29-26",
     "detail": "GUEST ARTIST WORKSHOP | $45 | AGES 16+ |  Join Clay Date guest instructor Rory Nic for a fun and informative experience!  Great for those who are looking for access to ceramics, clay friends, or sharpening your skill set! No experience necessary. No reservations necessary to attend Clay Date. You ar",
     "first_seen": "2026-09-12",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -95897,7 +96116,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -96184,7 +96403,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "sources": [
       "venicewest",
       "webfetch"
@@ -97284,7 +97503,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -97324,12 +97543,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": "Live show at Harvelle's Santa Monica.",
+    "detail": "Live show at Harvelle's Santa Monica, doors 21:00.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -97649,7 +97868,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/sew-silly-oct2026",
     "detail": "WORKSHOP | SUGGESTED $5-10 DONATION | ALL AGES | Join Jr Hi buds Chelsie and Eden in this monthly fiber arts meet up to practice your textile skills! Whether you prefer crocheting, knitting, sewing, or have never picked up a need (or hook) — all are welcome! The Sew Silly Crafting Circle will be ful",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -99568,7 +99787,7 @@
     "detail": "Nightclub event; no time/price listed on calendar page.",
     "price": null,
     "first_seen": "2026-08-26",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -99958,7 +100177,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -100083,7 +100302,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-10-31-26",
     "detail": "WORKSHOP | $25 |  AGES 12+  | Looking for access to ceramics, clay sculpting with friends, or sharpening your skill set? Walk in at your leisure and join us at Clay Date! Here you can have 2hr access to 2 lbs of clay and tools to make your own ceramic sculptures! Learn pinch, coil, and slab techniqu",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -100387,7 +100606,7 @@
     "url": "https://www.thesmell.org/events/rimvau87zjm17sgtxtrv9302pvgars",
     "detail": "Sad Park    bed   cinnamon     8:00 pm    $20    Advance tickets available    here   , starting at 10:00 am on 9/18.",
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -101508,7 +101727,7 @@
     "url": "https://www.mccabes.com/product/jim-keller-show/",
     "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room. SOLD OUT.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-16",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -101689,7 +101908,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -101769,12 +101988,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Brunch with bottomless mimosas.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -102167,7 +102386,7 @@
     "url": "https://www.mccabes.com/product/jim-keller-show/",
     "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room. SOLD OUT.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-16",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -102431,7 +102650,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-06",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -103912,7 +104131,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -103989,7 +104208,7 @@
     "url": "https://www.mccabes.com/product/jeffrey-foucault/",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -105629,7 +105848,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-14",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -107279,12 +107498,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Solo performance.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-13",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -108478,7 +108697,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -108533,7 +108752,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -110485,7 +110704,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -110540,7 +110759,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -111841,7 +112060,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-13",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -112978,9 +113197,9 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/tyler-hilton-207661",
-    "detail": null,
+    "detail": "Live music.",
     "first_seen": "2026-09-19",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -112991,7 +113210,13 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Sabaton: Legends on Tour",
@@ -113737,7 +113962,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -113769,7 +113994,7 @@
     "url": "https://www.mccabes.com/product/john-mceuen-the-circle-band/",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -115448,7 +115673,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-26",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "sources": [
       "venicewest",
       "webfetch"
@@ -116229,7 +116454,7 @@
     "url": "https://www.thecircleoc.com/upcoming-events/darker-waves-pre-festival-party",
     "detail": "THE OFFICIAL DARKER WAVES FB GROUP PRE-FESTIVAL PARTY! We’re taking over   The Circle     OC  for a one -night-only gathering of the c ommunity that  lives and breathes this music. No filler. No distractions. Just  the people,  the sound, and the energy you’ve been waiting for.",
     "first_seen": "2026-09-05",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "club",
       "genre": [
@@ -117886,7 +118111,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -119139,7 +119364,7 @@
   {
     "title": "WA$TED x TRINITY: YOSUF",
     "date": "2026-11-14",
-    "start": "9pm-2am",
+    "start": "21:00",
     "venue": "The Circle OC (Huntington Beach)",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -120173,7 +120398,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -120802,7 +121027,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/lissie-204123",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -121559,7 +121784,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -122688,7 +122913,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/fet-ish-workshop-nov2026",
     "detail": "WORKSHOP | $25 | 18+ | Fet-ish is a 5 week course on kink, bdsm, and fetish taught by Grace Vee, a Pro Domme of 8 years. The full course will cover everything from safety and protocol, to safe play and building a scene including demonstrations and hands on exercises.   July 8th - Intro to Kink & Ter",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -123604,7 +123829,7 @@
   {
     "title": "Jackson Browne",
     "date": "2026-11-19",
-    "start": "20:00",
+    "start": "2026-11-19T20:00:00-08:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Music",
@@ -124567,7 +124792,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -125842,7 +126067,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/jammy-buffet-204889",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -126972,7 +127197,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -129078,7 +129303,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -130219,7 +130444,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -134202,7 +134427,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -134626,7 +134851,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -134823,7 +135048,7 @@
   {
     "title": "Elf The Musical (Touring)",
     "date": "2026-12-01",
-    "start": "19:30",
+    "start": "2026-12-01T19:30:00-08:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Arts & Theatre",
@@ -135762,7 +135987,7 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -137859,12 +138084,12 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Solo performance with guest.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-13",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -139095,20 +139320,19 @@
       "McCabe's Guitar Shop"
     ],
     "organizers": null,
-    "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room.",
+    "detail": "Husband-and-wife Americana duo Larry Campbell and Teresa Williams perform.",
     "price": null,
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
         "folk"
       ],
       "setting": [
-        "bar",
-        "listening-bar"
+        "bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -139520,7 +139744,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/fraxiommusicshow-9-9-26",
     "detail": "MUSIC | $15 | ALL AGES | Fraxiom brings The Adventures in Question to Junior High. Chicago hyperpop and rap, half of Food House, out on the road behind the debut album The Adventures of Jester Jackalope. Local support from mood killer and DJ PuppyWuppy. Doors at 7 PM, all ages, everybody welcome.   ",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -140435,7 +140659,7 @@
     "url": "https://www.mccabes.com/product/gill-landry-opener-kiki-cavazos/",
     "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "other",
       "genre": [],
@@ -140816,7 +141040,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -141652,7 +141876,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -142676,7 +142900,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -143855,7 +144079,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -145760,9 +145984,9 @@
     "category": "live_music",
     "price": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/fayuca-206466",
-    "detail": null,
+    "detail": "Live music.",
     "first_seen": "2026-09-19",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -145773,7 +145997,13 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Gracie Abrams: The Look at My Life Tour presented by Capital One",
@@ -146021,7 +146251,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-19",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -147812,7 +148042,7 @@
     "source": "webfetch",
     "title": "Satin Jackets (Dec 18)",
     "date": "2026-12-18",
-    "start": "10:30pm-2:30am",
+    "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -148817,7 +149047,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/petty-or-not-a-tribute-to-tom-petty-the-heartbreakers-199223",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -148861,7 +149091,7 @@
     "source": "webfetch",
     "title": "Satin Jackets (Dec 19)",
     "date": "2026-12-19",
-    "start": "10:30pm-2:30am",
+    "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -150439,7 +150669,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1798603200000",
     "detail": null,
     "first_seen": "2026-08-31",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -151693,7 +151923,7 @@
   },
   {
     "source": "webfetch",
-    "title": "Steely Dead",
+    "title": "Steely Dead - A Sonic Fusion of the Grateful Dead and Steely Dan",
     "date": "2027-01-02",
     "start": "20:00",
     "venue": "The Venice West",
@@ -151707,7 +151937,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/steely-dead-198443",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-16",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -153759,7 +153989,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-14",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -156786,7 +157016,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1797998400000",
     "detail": null,
     "first_seen": "2026-08-24",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -157733,7 +157963,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1799208000000",
     "detail": null,
     "first_seen": "2026-09-07",
-    "last_seen": "2026-09-19",
+    "last_seen": "2026-09-20",
     "tags": {
       "type": "live-music",
       "genre": [
