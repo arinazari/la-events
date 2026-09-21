@@ -752,7 +752,7 @@ sources:
     method: api
     url: https://posh.vip/api/web/v2/trpc/events.fetchMarketplaceEvents
     priority: 1
-    status: active
+    status: flaky
     notes: >
       Nightlife/party platform, strong LA afterhours + warehouse coverage (incl. TBA
       "revealed after RSVP" locations) and the promoter on every event. Authenticated tRPC API:
@@ -762,6 +762,9 @@ sources:
       network tab (events.fetchMarketplaceEvents request → x-jwt-token header). When it 401s,
       it's expired — re-capture and update POSH_TOKEN. Broad feed (some watch-party/webinar
       noise) — lean on taste.yaml ranking. Overlaps RA/19hz on afterhours — dedupe expected.
+      Marked flaky 2026-09-21: POSH_TOKEN has been expired 36+ days AND (as of 2026-09-21) both
+      fetch routes (direct + Worker relay) are now also blocked by Cloudflare — a fresh token
+      alone may not fix it; check the Worker relay too before re-capturing.
 
   # ── Discovered 2026-06-16 — live-music bar/restaurant/listening lane ──────
   # Vetted via Discover web research (4 parallel passes). The DICE-backed venues
