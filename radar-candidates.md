@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/20/2026 deterministically (no API). 187 candidates. Signals: big-venue 159, festival 21, tracked 7, editorial 3._
+_Generated 9/21/2026 deterministically (no API). 184 candidates. Signals: big-venue 156, festival 21, tracked 7, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -253,9 +253,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 10/25 | 2 | Bryson Tiller Presents: The Neo Trapsoul Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/bryson-tiller-presents-the-neo-trapsoul-inglewood-california-10-25-2026/event/090064B9EC44AB68) |
-| Sun 10/25 | 2 | Mon Laferte (21+ event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Sun 10/25 | 2 | Jodeci - 35th Anniversary Tour of Forever My Lady | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jodeci-35th-anniversary-tour-of-forever-inglewood-california-10-25-2026/event/0A0064F7D00DB5D5) |
 | Tue 10/27 | 2 | Morissette Live In Los Angeles! | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/morissette-live-in-los-angeles-inglewood-california-10-27-2026/event/0A0064F0D87DC06E) |
 | Tue 10/27 | 2 | Jodeci - 35th Anniversary Tour of Forever My Lady | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jodeci-35th-anniversary-tour-of-forever-ontario-california-10-27-2026/event/090064F8C7A6AA1D) |
 | Thu 10/29 | 2 | Knocked Loose w/ Denzel Curry | Shrine LA Outdoors | big-venue | [link](https://www.shrineauditorium.com) |
