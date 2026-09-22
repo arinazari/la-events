@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/21/2026 deterministically (no API). 184 candidates. Signals: big-venue 156, festival 21, tracked 7, editorial 3._
+_Generated 9/22/2026 deterministically (no API). 185 candidates. Signals: big-venue 157, festival 21, tracked 7, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -136,7 +136,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Mon 10/26 | 4 | Tom Jones : Come Gather Round Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/tom-jones-come-gather-round-tour-los-angeles-california-10-26-2026/event/090064B43E17B4D1) |
 | Tue 10/27 | 4 | Shaboozey w/ Carter Faith | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 10/28 | 4 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-28-2026/event/090064C3B5A6FC88) |
 | Thu 10/29 | 4 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-29-2026/event/090064C591D293A2) |
@@ -192,6 +191,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/7 | 3 | Eros Ramazzotti - UNA HISTORIA IMPORTANTE | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/eros-ramazzotti-una-historia-importante-inglewood-california-11-07-2026/event/0A00628C082C6464) |
 | Sat 11/7 | 3 | Ramon Ayala " Historia De Un Final" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/ramon-ayala-historia-de-un-final-ontario-california-11-07-2026/event/0900647FAF9A9CF5) |
 | Sat 11/7 | 3 | Moby, Underworld, fcukers, Nia Archives (DJ set), DJ Holog | Brookside at the Rose Bowl | big-venue | [link](https://www.axs.com/events/1527850/moby-underworld-tickets) |
+| Sat 11/7 | 3 | Grupo Cañaveral & Los Hermanos Flores | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-canaveral-los-hermanos-flores-inglewood-california-11-07-2026/event/0A006532A1D27C43) |
 | Sun 11/8 | 3 | Ms Lauryn Hill & Wyclef Jean Celebrating 30 years of Fugee | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/ms-lauryn-hill-wyclef-jean-celebrating-hollywood-california-11-08-2026/event/0B0065036C4F1623) |
 | Mon 11/9 | 3 | Karan Aujla | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/karan-aujla-los-angeles-california-11-09-2026/event/2C00652AF5740D18) |
 | Fri 11/13 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B) |
@@ -234,6 +234,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 1/16 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-16-2027/event/0900649DE84C64CD) |
+| Sat 1/16 | 3 | D.O.D | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1592102/d-o-d-tickets) |
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
 | Fri 1/29 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
 
