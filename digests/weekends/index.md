@@ -2,11 +2,11 @@
 
 *One row per upcoming weekend, soonest first. Each links to its full digest.*
 
-- **[Sep 25–27](./2026-09-25.md)** — 16 picks · top: [Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)
-- **[Oct 2–4](./2026-10-02.md)** — 18 picks · top: [Into The Woods presents Conducta (All Night Long)](https://ra.co/events/2527978)
-- **[Oct 9–11](./2026-10-09.md)** — 20 picks · top: [Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)
+- **[Sep 25–27](./2026-09-25.md)** — 15 picks · top: [Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)
+- **[Oct 2–4](./2026-10-02.md)** — 17 picks · top: [Into The Woods presents Conducta (All Night Long)](https://ra.co/events/2527978)
+- **[Oct 9–11](./2026-10-09.md)** — 21 picks · top: [Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)
 - **[Oct 16–18](./2026-10-16.md)** — 17 picks · top: [Deep Steppe & Handpicked presents..Subb-an + Halo Varga + Babylon Beach](https://ra.co/events/2538217)
-- **[Oct 23–25](./2026-10-23.md)** — 20 picks · top: [Producing Techno with Pilo](https://ra.co/events/2509870)
+- **[Oct 23–25](./2026-10-23.md)** — 18 picks · top: [Producing Techno with Pilo](https://ra.co/events/2509870)
 - **[Oct 30 – Nov 1](./2026-10-30.md)** — 14 picks · top: [Escape Halloween](https://on.fgtix.com/trk/Ni5m)
 - **[Nov 6–8](./2026-11-06.md)** — 19 picks · top: [WORK presents: Narciss, Masha Mar, & Marc Homer](https://ra.co/events/2525849)
 - **[Nov 13–15](./2026-11-13.md)** — 21 picks · top: [Sneak's Birthday Beats 2026: Derrick Carter, DJ Sneak, DJ Heather, H-Foundation, Hector Moralez, J-Dub, Juliet Mendoza, Masha Mar, Ian Llorens, Stacy Christine, Tom Carle, Your Unkle Magik](https://ra.co/events/2499458)

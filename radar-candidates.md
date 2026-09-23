@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/22/2026 deterministically (no API). 185 candidates. Signals: big-venue 157, festival 21, tracked 7, editorial 3._
+_Generated 9/23/2026 deterministically (no API). 183 candidates. Signals: big-venue 155, festival 21, tracked 7, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -136,7 +136,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Tue 10/27 | 4 | Shaboozey w/ Carter Faith | Greek Theatre-Los Angeles | big-venue | [link](https://www.lagreektheatre.com/) |
 | Wed 10/28 | 4 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-28-2026/event/090064C3B5A6FC88) |
 | Thu 10/29 | 4 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-29-2026/event/090064C591D293A2) |
 | Fri 10/30 | 4 | My Chemical Romance with Special Guest The Used | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-with-special-guest-hollywood-california-10-30-2026/event/0B006332CBE5399E) |
@@ -228,6 +227,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 12/18 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-18-2026/event/090064BBE484EE0D) |
 | Sat 12/19 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-19-2026/event/090064BBE48FEE25) |
 | Sat 12/19 | 3 | Stevie Wonder Songs in The Key of Life Performances 50th A | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/stevie-wonder-songs-in-the-key-inglewood-california-12-19-2026/event/09006524823041CB) |
+| Sat 12/19 | 3 | Mike Sherm | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/mike-sherm-inglewood-california-12-19-2026/event/0A006535A88C8A26) |
 
 ## January 2027
 
@@ -254,8 +254,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 10/27 | 2 | Morissette Live In Los Angeles! | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/morissette-live-in-los-angeles-inglewood-california-10-27-2026/event/0A0064F0D87DC06E) |
-| Tue 10/27 | 2 | Jodeci - 35th Anniversary Tour of Forever My Lady | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jodeci-35th-anniversary-tour-of-forever-ontario-california-10-27-2026/event/090064F8C7A6AA1D) |
 | Thu 10/29 | 2 | Knocked Loose w/ Denzel Curry | Shrine LA Outdoors | big-venue | [link](https://www.shrineauditorium.com) |
 | Thu 10/29 | 2 | Tom Jones (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7P6r4) |
 | Thu 10/29 | 2 | Don Omar "The Last King World Tour" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-ontario-california-10-29-2026/event/090064AFE55AB260) |
@@ -347,7 +345,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 11/6 | 1 | Dan + Shay - The Young Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/dan-shay-the-young-tour-anaheim-california-11-06-2026/event/090064AEC5BA3C3B) |
 | Sat 11/7 | 1 | Brand New | Honda Center | big-venue | [link](https://www.ticketmaster.com/brand-new-anaheim-california-11-07-2026/event/090064D08DD25B6F) |
-| Thu 11/12 | 1 | Nick Cannon Presents: Wild N Out Live - The Next Generatio | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/nick-cannon-presents-wild-n-out-inglewood-california-11-12-2026/event/0900652C600617CB) |
+| Thu 11/12 | 1 | Nick Cannon Presents: Wild 'N Out Live - The Next Generati | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/nick-cannon-presents-wild-n-out-inglewood-california-11-12-2026/event/0900652C600617CB) |
 | Fri 11/13 | 1 | Los Tigres del Norte | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-palm-desert-california-11-13-2026/event/0A0064588664F5A1) |
 | Sat 11/14 | 1 | 90s Corridos Tour 2026 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/90s-corridos-tour-2026-palm-desert-california-11-14-2026/event/0A00649D95C0C8DC) |
 | Thu 11/19 | 1 | Nikki Glaser | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
