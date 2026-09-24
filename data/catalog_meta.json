@@ -1,24 +1,237 @@
 {
-  "version": "ab0ad250c9c6",
-  "content_version": "7c2b334aa906",
-  "count": 3918,
-  "fetched_at": "2026-09-23T12:15:58+00:00",
-  "added": 0,
-  "updated": 0,
+  "version": "644168d2fe5b",
+  "content_version": "8757d084bda2",
+  "count": 3970,
+  "fetched_at": "2026-09-24T12:11:57+00:00",
+  "added": 127,
+  "updated": 52,
+  "changes": [
+    {
+      "title": "LIVE N' LOUD",
+      "date": "2026-09-24",
+      "venue": "The Virgil",
+      "fields": [
+        "price"
+      ]
+    },
+    {
+      "title": "Cola",
+      "date": "2026-09-24",
+      "venue": "Sid The Cat Auditorium",
+      "fields": [
+        "price"
+      ]
+    },
+    {
+      "title": "NewLife + Jeremy Sole",
+      "date": "2026-09-24",
+      "venue": "General Lee\u2019s Bamboo Room",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Blips n Bass vol 15",
+      "date": "2026-09-24",
+      "venue": "Blipsy Bar",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "NIGHTSHIFT AFTER HOURS",
+      "date": "2026-09-24",
+      "venue": "The Lexington",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Overmono - Pure Devotion World Tour",
+      "date": "2026-09-25",
+      "venue": "Hollywood Palladium",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Jack White",
+      "date": "2026-09-25",
+      "venue": "The Fox Theater-Pomona",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Bea Miller",
+      "date": "2026-09-25",
+      "venue": "The Roxy",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "AMADEEZY 9/25",
+      "date": "2026-09-25",
+      "venue": "TBA (DTLA/Los Angeles)",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Rhythm 2 Revolt Weekend 1: Zuri Adia, Mansaf Mama, Dizi, ts GO, Naach, Xochii",
+      "date": "2026-09-25",
+      "venue": "TBA",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "NIGHTSHIFT AFTER HOURS",
+      "date": "2026-09-25",
+      "venue": "The Lexington",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Tribal Seeds w/ Arise Roots",
+      "date": "2026-09-26",
+      "venue": "The Novo by Microsoft",
+      "fields": [
+        "start"
+      ]
+    },
+    {
+      "title": "Intricacy Absolute: 11 Year Anniversary",
+      "date": "2026-09-26",
+      "venue": "The Circle OC",
+      "fields": [
+        "start"
+      ]
+    },
+    {
+      "title": "WA$TED x TRINITY: O.B.I. + PER PLEKS [18+]",
+      "date": "2026-09-26",
+      "venue": "1720 (Los Angeles)",
+      "fields": [
+        "price"
+      ]
+    },
+    {
+      "title": "Reflections: Lando Polo, Evade Robots, Olive",
+      "date": "2026-09-26",
+      "venue": "The Airliner",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "NIGHTSHIFT AFTER HOURS",
+      "date": "2026-09-26",
+      "venue": "The Lexington",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Higher Power ",
+      "date": "2026-09-26",
+      "venue": "TBA (DTLA/Los Angeles)",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Fruit",
+      "date": "2026-09-26",
+      "venue": "Silverlake Lounge",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Utopia Presents: MALFUNKTION - SAEED YOUNAM + SURPRISE GUEST DJs",
+      "date": "2026-09-26",
+      "venue": "TBA (drops after RSVP/approval)",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "UTOPIA x REUNITE = MALFUNKTION - Saturday \nSAEED YOUNAN\nRAY KASH\nRCKSLVR\nROBI\u00d1HO\nTEMPO LOCCO",
+      "date": "2026-09-26",
+      "venue": "Los Angeles",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Charlotte Sands w/ Yonaka",
+      "date": "2026-09-27",
+      "venue": "Roxy Theatre-CA",
+      "fields": [
+        "start"
+      ]
+    },
+    {
+      "title": "NIGHTSHIFT AFTER HOURS",
+      "date": "2026-09-27",
+      "venue": "The Lexington",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Ecca Vandal",
+      "date": "2026-09-28",
+      "venue": "Teragram Ballroom",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "NIGHTSHIFT AFTER HOURS",
+      "date": "2026-09-28",
+      "venue": "The Lexington",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Ecca Vandal",
+      "date": "2026-09-29",
+      "venue": "Teragram Ballroom",
+      "fields": [
+        "lineup"
+      ]
+    }
+  ],
   "stale_sources": [
     {
       "source": "webfetch",
-      "days": 3,
-      "count": 304
+      "days": 4,
+      "count": 296
     },
     {
       "source": "venicewest",
-      "days": 3,
+      "days": 4,
       "count": 37
     },
     {
       "source": "Harvelle's (Santa Monica)",
-      "days": 3,
+      "days": 4,
       "count": 29
     }
   ]
