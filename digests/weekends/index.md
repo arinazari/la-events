@@ -2,7 +2,7 @@
 
 *One row per upcoming weekend, soonest first. Each links to its full digest.*
 
-- **[Sep 25–27](./2026-09-25.md)** — 15 picks · top: [Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)
+- **[Sep 25–27](./2026-09-25.md)** — 16 picks · top: [Overmono - Pure Devotion World Tour](https://ra.co/events/2446440)
 - **[Oct 2–4](./2026-10-02.md)** — 17 picks · top: [Into The Woods presents Conducta (All Night Long)](https://ra.co/events/2527978)
 - **[Oct 9–11](./2026-10-09.md)** — 21 picks · top: [Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)
 - **[Oct 16–18](./2026-10-16.md)** — 17 picks · top: [Deep Steppe & Handpicked presents..Subb-an + Halo Varga + Babylon Beach](https://ra.co/events/2538217)

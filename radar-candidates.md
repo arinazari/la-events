@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/23/2026 deterministically (no API). 183 candidates. Signals: big-venue 155, festival 21, tracked 7, editorial 3._
+_Generated 9/24/2026 deterministically (no API). 182 candidates. Signals: big-venue 154, festival 20, tracked 8, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -57,12 +57,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 12/12 | 5 | JOHN SUMMIT - CTRL ESCAPE TOUR | Los Angeles Memorial Coliseum | tracked:John Summit | [link](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7) |
 
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Wed 10/28 | 4 | Psyched! Fest presents…      Biblioteka ‍  ‍ (Seattle, WA) | The Smell | festival | [link](https://www.thesmell.org/events/joen6n5w12wlbluz8zcqzakkg4gz0u) |
-
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -77,6 +71,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Grateful Shred: Holiday Homecoming - 2-DAY Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91) |
+| Tue 12/15 | 4 | Trippie Redd - The Non-disclosure Agreement Tour | Hollywood Palladium | tracked:Disclosure | [link](https://www.ticketmaster.com/trippie-redd-the-nondisclosure-agreement-tour-hollywood-california-12-15-2026/event/090065303EFFBE81) |
 
 ## November 2026
 
@@ -136,7 +131,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Wed 10/28 | 4 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-28-2026/event/090064C3B5A6FC88) |
 | Thu 10/29 | 4 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-29-2026/event/090064C591D293A2) |
 | Fri 10/30 | 4 | My Chemical Romance with Special Guest The Used | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-with-special-guest-hollywood-california-10-30-2026/event/0B006332CBE5399E) |
 | Sat 10/31 | 4 | My Chemical Romance with Special Guest Thrice | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-with-special-guest-hollywood-california-10-31-2026/event/0B006332CBE839B4) |
@@ -169,7 +163,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 10/28 | 3 | YG: THE GENTLEMAN'S CLUB TOUR  | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/yg-the-gentlemans-club-tour-los-angeles-california-10-28-2026/event/2C0064F1FBFA0D9C) |
 | Fri 10/30 | 3 | Phoebe Bridgers: The Lost Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/phoebe-bridgers-the-lost-tour-inglewood-california-10-30-2026/event/090064B9E57FA522) |
 | Fri 10/30 | 3 | Bronco | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/bronco-inglewood-california-10-30-2026/event/0A00649EC45AF008) |
 | Sat 10/31 | 3 | Skillet: Comatose 20 Years, Still Screaming Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/skillet-comatose-20-years-still-screaming-inglewood-california-10-31-2026/event/0A0064CCA697D3CD) |
@@ -242,6 +235,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Fri 2/5 | 3 | Noche de Leyendas | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/noche-de-leyendas-ontario-california-02-05-2027/event/09006536E34FE13E) |
 | Sat 2/6 | 3 | DRAIN | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1598806/drain-tickets) |
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
 | Fri 2/12 | 3 | Jorge Medina | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jorge-medina-ontario-california-02-12-2027/event/0900651BED2C1C79) |
