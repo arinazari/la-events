@@ -7560,7 +7560,20 @@
     "detail": "Genre-film festival — B-movie classics, retrospectives and under-the-radar premieres across multiple rep venues, through Oct 6.",
     "url": "https://www.timeout.com/los-angeles/movies/beyond-fest",
     "first_seen": "2026-09-25",
-    "last_seen": "2026-09-25"
+    "last_seen": "2026-09-25",
+    "tags": {
+      "type": "film",
+      "genre": [
+        "rep/arthouse"
+      ],
+      "setting": [
+        "cinema"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -15981,7 +15994,19 @@
     "detail": "Indie rock reunion — final headlining LA show before Ohana Festival.",
     "url": "https://www.timeout.com/los-angeles/music/rilo-kiley",
     "first_seen": "2026-09-25",
-    "last_seen": "2026-09-25"
+    "last_seen": "2026-09-25",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "indie",
+        "rock"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "La Mirada Theatre presents: Little Shop of Horrors",
@@ -100983,7 +101008,18 @@
     "category": "club",
     "url": "https://avalonhollywood.com/event/gag-upcoming-edm-shows-nightlife-concerts-events-tonight-tomorrow-2026-oct-29-best-nightclub-near-me-hollywood-los-angeles/",
     "first_seen": "2026-09-25",
-    "last_seen": "2026-09-25"
+    "last_seen": "2026-09-25",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "Lenny Pearce - Toddler Rave World Tour",
