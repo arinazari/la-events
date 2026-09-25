@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/24/2026 deterministically (no API). 182 candidates. Signals: big-venue 154, festival 20, tracked 8, editorial 3._
+_Generated 9/25/2026 deterministically (no API). 177 candidates. Signals: big-venue 149, festival 20, tracked 8, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -131,7 +131,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Thu 10/29 | 4 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-29-2026/event/090064C591D293A2) |
 | Fri 10/30 | 4 | My Chemical Romance with Special Guest The Used | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-with-special-guest-hollywood-california-10-30-2026/event/0B006332CBE5399E) |
 | Sat 10/31 | 4 | My Chemical Romance with Special Guest Thrice | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-with-special-guest-hollywood-california-10-31-2026/event/0B006332CBE839B4) |
 | Sat 10/31 | 4 | "Weird Al" Yankovic: UHF Live-to-Screen with Orchestra and | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/weird-al-yankovic-uhf-livetoscreen-with-los-angeles-california-10-31-2026/event/090064CBDC58F3C8) |
@@ -243,15 +242,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 2/20 | 3 | Yuridia - Cartas Sobre La Mesa Tour 2027 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-inglewood-california-02-20-2027/event/0A006521AE4654FC) |
 | Fri 2/26 | 3 | Morat YEM World Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/morat-yem-world-tour-2027-inglewood-california-02-26-2027/event/090064AFF1A0DF67) |
 | Fri 2/26 | 3 | Joe - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
-
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Thu 10/29 | 2 | Knocked Loose w/ Denzel Curry | Shrine LA Outdoors | big-venue | [link](https://www.shrineauditorium.com) |
-| Thu 10/29 | 2 | Tom Jones (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7P6r4) |
-| Thu 10/29 | 2 | Don Omar "The Last King World Tour" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-ontario-california-10-29-2026/event/090064AFE55AB260) |
-| Thu 10/29 | 2 | Moenia + Maria Jose Us Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/moenia-maria-jose-us-tour-2026-inglewood-california-10-29-2026/event/0A0064BC930E670C) |
 
 ## November 2026
 
