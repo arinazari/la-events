@@ -45431,12 +45431,12 @@
     },
     "79d6d412c597": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Real warehouse room (1720) but Kozlov/Ojjisin/Nvbeel/Energ/Denkai is a total unknown quantity — can't vouch for the draw.",
-      "confidence": "low",
-      "judged_at": "2026-09-24T12:25:20",
+      "adjust": -1,
+      "why": "Kozlov's a legit touring hard-techno/schranz name, but this is harder-edged industrial than the groove/melodic house you actually reach for — solid warehouse night, not a top pick.",
+      "confidence": "med",
+      "judged_at": "2026-09-26T12:21:52",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 9
     },
     "80fcd88d610e": {
       "tier": "skip",
@@ -45475,13 +45475,14 @@
       "score_at_judge": 6
     },
     "a8851dd99f59": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Fun novelty night at a venue you love, but a costumed sing-along isn't really the electronic or rep-cinema lane — nice if you're already Bowl-bound.",
-      "confidence": "med",
-      "judged_at": "2026-09-24T12:25:20",
+      "tier": "skip",
+      "lane": "film",
+      "adjust": -2,
+      "why": "This is a costumed movie sing-along, not a format screening or director event — the Bowl love doesn't rescue a nostalgia crowd-sing outing, and it's really a film listing mislabeled as a concert.",
+      "confidence": "high",
+      "judged_at": "2026-09-26T12:21:52",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "1a7ef08a59a6": {
       "tier": "solid",
@@ -45574,6 +45575,179 @@
       "judged_at": "2026-09-25T12:28:06",
       "input_version": 2,
       "score_at_judge": 5
+    },
+    "8aec3c031711": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Rilo Kiley reunions don't happen often — genuine indie draw at a great outdoor room, worth building the night around even outside the electronic lane.",
+      "confidence": "high",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 8
+    },
+    "9f0f8bea7e78": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Sarah Register is a core listen for you and this is her own bill, not just a sideman credit — small-room post-punk pedigree (Kim Gordon's band, Talk Normal) the score's capped bump undersells.",
+      "confidence": "high",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 8
+    },
+    "e75b5ccf730f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "House night at a venue you love, but the Carolyn Pennypacker Riggs/opera-house billing is unfamiliar enough that I can't gauge the actual draw — worth a look, not a bet.",
+      "confidence": "low",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "e0ebcca7e004": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Cheap rooftop day party with the right setting boost but zero lineup info to confirm it's more than a generic hang — score's about right.",
+      "confidence": "med",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "09385ed3eaa4": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free DTLA afterhours slot with no billed lineup — fine filler, first of the run so it gets the mild benefit of the doubt over its sibling night.",
+      "confidence": "med",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "88af00a4c0a2": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "Reads like a promoter-crew birthday party, not a real DJ booking — 'These Fools' + free + 18+ at Los Globos smells like the generic open-format night the taste brief wants buried, tags just mislabeled it underground.",
+      "confidence": "low",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "4a282e9fef88": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Armand Van Helden is a genuine house legend, not a background name — a $35 outdoor day party with him headlining is underrated at a plain 6.",
+      "confidence": "high",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "68add0d59a1d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tove Lo's a fine big-name pop booking to stay aware of, not a redirect from your house/techno lane — score's right where it should be.",
+      "confidence": "high",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "af0315e6ea96": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Same free afterhours run playing out again the following week — give the slot to night one and treat this as the rerun.",
+      "confidence": "med",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "0c4df6333ee9": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Flabbergast founded VICE Underground and runs acid-driven, transformative sets, and BUCK/OFF's Reverb pedigree gives this real DJ credibility — pick of tonight's DTLA afters glut, not just another TBA warehouse.",
+      "confidence": "high",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "dbe7f134f28a": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Third week of this Lexington run and still no lineup posted — minimal/tech-house tags track your lane but there's nothing here yet to set it apart from the rest of the night's afters.",
+      "confidence": "med",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "974b9ae1e42f": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "The Airliner's a grab-bag dive booking and SOLTERA has no footprint to speak of — tagged generically 'electronic,' not specifically the house/techno lane.",
+      "confidence": "low",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "64168ff0ac75": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "No DJ billing at all, just a promoter handle and a 'Libra szn' hook — reads like the open-format, no-real-lineup club night the brief says to bury, not a curated set.",
+      "confidence": "med",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "2a6d62172927": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Closing night of a three-night run and it's never once posted a lineup — free DTLA late-night with nothing behind the name to vouch for it.",
+      "confidence": "low",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "1cc5178a70b7": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tagged punk/rock but a record-store happy hour called 'Vinyl Happy Hour' usually means eclectic all-vinyl spins — worth a look if it leans soul/disco, though the genre tag itself argues the venue's regular booking is guitar music, not house.",
+      "confidence": "low",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "d2d1a26adc6f": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Carnival rides and cultural performances at a museum block party — editorial mentions are inflating a family daytime event that's nowhere near the electronic/film/rooftop lane.",
+      "confidence": "high",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "e5f00e6bb22f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Rooftop-view flea with free parking, an easy walk from Silver Lake — the better of the two same-day fleas in this batch.",
+      "confidence": "high",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "9de97c009a0f": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Week 13 of the same recurring Atwater flea — fine Saturday filler, but no reason to rank it above the fresher Los Feliz one on the same morning.",
+      "confidence": "high",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "64e53bae685e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Standing Sunset Blvd farmers market, walkable from home — background-lane filler, correctly the lowest-scored of the daytime cluster.",
+      "confidence": "high",
+      "judged_at": "2026-09-26T12:21:52",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }

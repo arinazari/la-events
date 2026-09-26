@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/25/2026 deterministically (no API). 177 candidates. Signals: big-venue 149, festival 20, tracked 8, editorial 3._
+_Generated 9/26/2026 deterministically (no API). 176 candidates. Signals: big-venue 148, festival 20, tracked 8, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -28,8 +28,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/30 | 9 | Escape Halloween | NOS Events Center | tracked:Cloonee,Jamie Jones | [link](https://on.fgtix.com/trk/Ni5m) |
-| Sat 10/31 | 6 | MAYAN WARRIOR HALLOWEEN (FULL ART CAR) | TBA - Los Angeles | tracked:CamelPhat | [link](https://ra.co/events/2502381) |
+| Sat 10/31 | 6 | Mayan Warrior Halloween: Camelphat, Darco, Luch, Yamagucci | TBA - Los Angeles | tracked:CamelPhat | [link](https://ra.co/events/2502381) |
 
 ## November 2026
 
@@ -50,6 +49,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 11/20 | 5 | WORK Weekender Day 1: Fadi Mohem, Fizch, & Lindsey Herbert | TBA - Los Angeles | festival | [link](https://ra.co/events/2537227) |
 | Sat 11/21 | 5 | WORK Weekender Day 2: Adrian Reyes, Luigi Tozzi [Live], &  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537247) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
+| Sat 11/28 | 5 | Nu Moda San Diego w/ Max Styler, Hot Since 82, Scenarios | Gallagher Square (San Diego) | tracked:Hot Since 82 | [link](https://laylo.com/ledpresents/maxstyler) |
 
 ## December 2026
 
@@ -130,8 +130,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/30 | 5 | Malcolm Todd: Do That Again Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/malcolm-todd-do-that-again-tour-los-angeles-california-10-30-2026/event/090064C591DF93F9) |
-| Fri 10/30 | 4 | My Chemical Romance with Special Guest The Used | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-with-special-guest-hollywood-california-10-30-2026/event/0B006332CBE5399E) |
 | Sat 10/31 | 4 | My Chemical Romance with Special Guest Thrice | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-with-special-guest-hollywood-california-10-31-2026/event/0B006332CBE839B4) |
 | Sat 10/31 | 4 | "Weird Al" Yankovic: UHF Live-to-Screen with Orchestra and | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/weird-al-yankovic-uhf-livetoscreen-with-los-angeles-california-10-31-2026/event/090064CBDC58F3C8) |
 
@@ -156,14 +154,14 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Whethan - WAREHOUSE.WAVS TOUR (360 SHOW) - Ages 18+ | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
 | Fri 12/4 | 4 | Whethan - WAREHOUSE.WAVS TOUR (360 SHOW) | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507538) |
+| Fri 12/4 | 4 | 102.7 KIIS FM's Jingle Ball Presented by Capital One | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/1027-kiis-fms-jingle-ball-presented-inglewood-california-12-04-2026/event/09006524E7B61513) |
+| Fri 12/11 | 4 | Brent Faiyaz | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 12/18 | 4 | Love Actually in Concert | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 
 ## October 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 10/30 | 3 | Phoebe Bridgers: The Lost Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/phoebe-bridgers-the-lost-tour-inglewood-california-10-30-2026/event/090064B9E57FA522) |
-| Fri 10/30 | 3 | Bronco | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/bronco-inglewood-california-10-30-2026/event/0A00649EC45AF008) |
 | Sat 10/31 | 3 | Skillet: Comatose 20 Years, Still Screaming Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/skillet-comatose-20-years-still-screaming-inglewood-california-10-31-2026/event/0A0064CCA697D3CD) |
 | Sat 10/31 | 3 | Phoebe Bridgers: The Lost Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/phoebe-bridgers-the-lost-tour-inglewood-california-10-31-2026/event/090064C476614C4F) |
 | Sat 10/31 | 3 | Bronco (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -227,6 +225,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 1/16 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-16-2027/event/0900649DE84C64CD) |
 | Sat 1/16 | 3 | D.O.D | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1592102/d-o-d-tickets) |
+| Sat 1/16 | 3 | D.O.D. - Ages 18+ | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
 | Fri 1/29 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
 
