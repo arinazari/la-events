@@ -23,24 +23,14 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 11/22 | 2 | Three Days Grace - Alienation Tour  | Intuit Dome | festival, big-venue | [link](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0) |
+| Sat 11/28 | 7 | Solomun | Hollywood Blvd (Los Angeles) | tracked:Solomun | [link](https://dice.fm/event/7dbax7-solomun-28th-nov-hollywood-blvd-los-angeles-tickets) |
 
 ## October 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 10/31 | 6 | THE MAZE Halloween: Arts District Block Party | TBA - Arts District Los Angeles | festival | [link](https://ra.co/events/2491883) |
 | Sat 10/31 | 6 | Mayan Warrior Halloween: Camelphat, Darco, Luch, Yamagucci | TBA - Los Angeles | tracked:CamelPhat | [link](https://ra.co/events/2502381) |
-
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 11/28 | 6 | Solomun | Hollywood Blvd (Los Angeles) | tracked:Solomun | [link](https://dice.fm/event/7dbax7-solomun-28th-nov-hollywood-blvd-los-angeles-tickets) |
-
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 10/31 | 5 | THE MAZE Halloween: Arts District Block Party | TBA - Arts District Los Angeles | festival | [link](https://ra.co/events/2491883) |
 
 ## November 2026
 
