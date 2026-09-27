@@ -108,7 +108,7 @@ ranking code** (append-once per event+kind, so flapping can't stack weight; `uns
 teaches — a past star still meant interest). Feedback rows carry a **full-ISO `ts`** + the
 `event_key`: the editor uses them to force a fresh verdict for exactly the tapped event
 (`editor._stale` re-judges a reaction newer than `judged_at`, bypassing the `DRIFT_MIN` score
-gate that dampens diffuse ripples). Routing changes here ship on the next `wrangler deploy`.
+gate that dampens diffuse ripples). Routing changes here ship when they merge to `main` (see Deploy).
 
 Gate = a **valid profile hash** (`resolveProfile` maps it via `profiles.yaml` — a name-derived
 feed hash today; a capability token once Track A lands) **+ `GITHUB_TOKEN`**. There is **no
@@ -140,9 +140,8 @@ the payload client-side (mirroring `lib/prices.match_gametime`) and swaps the fr
 in. **Unauthenticated by design**, like `/calendar.ics`: public market data, no secrets
 read, no repo writes — the auth gate exists to protect Anthropic spend and commits, and
 this route touches neither. Responses carry a 5-minute edge cache so a hot card doesn't
-hammer the upstream. Ships in `VERSION 2026-08-01-prices` — **needs a `wrangler deploy`**
-to go live; until then the page's live check fails soft (toast; baked rows + the compare
-links keep working).
+hammer the upstream. Shipped in `VERSION 2026-08-01-prices`; against an older build the
+page's live check fails soft (toast; baked rows + the compare links keep working).
 
 ## Contract
 
@@ -156,7 +155,7 @@ POST  { messages: [{role:'user'|'assistant', content:string}, ...], profile?: "<
         {t:"error", code, error, detail}                                    <- in-band failure
 Auth: optional  Authorization: Bearer <CONCIERGE_TOKEN>
 GET / (no auth) -> { ok, service, v }   deploy fingerprint — `curl https://<worker>/` answers
-                                        "which build is live?" (wrangler deploys are manual)
+                                        "which build is live?" (auto-deploys can fail or lag)
 GET /calendar.ics (no auth) -> text/calendar   the calendar-subscription feed. Settings ride the
     query string (parsed by dashboard/calendar-core.js — the SAME file the page's calendar modal
     uses for its preview/snapshot, imported at bundle time, so they can't drift):
@@ -237,16 +236,23 @@ Then point the dashboard at it: set the `BACKEND_URL` constant in `dashboard/ind
 printed Worker URL and redeploy Pages. Visitors connect from the page itself — **connect** in the
 chat header stores the token / personal key (per profile, in that browser's localStorage).
 
-> Re-run `npx wrangler deploy` after Worker-code changes in this repo. Current pending changes
-> (2026-07-21): the `opener` field is retired — the chat's take is display-only and the page no
-> longer sends it, so a stale deployed Worker is harmless — the **calendar feed**
-> (`GET /calendar.ics`) ships, and **stars** (`POST /react` + `GET /calendar.ics?saved=1`) at build
-> `2026-07-21-star1`. The calendar modal probes the live route when opened and shows a "redeploy"
-> note (subscribe links hidden, snapshot download still works) until the deploy lands; the Starred
-> tab additionally checks the live build via the ping and warns if it's older than
-> `2026-07-21-star1` (an older calendar build would serve picks for a `saved=1` URL, and `/react`
-> wouldn't exist at all). Stars need `GITHUB_TOKEN` set (else `/react` returns 501). A stale Worker
-> degrades gracefully — but stars + the starred calendar don't exist until you redeploy.
+**After that first deploy, deploys are automatic.** The Worker is connected to this repo through
+Cloudflare **Workers Builds**: a push to `main` builds `backend/` and deploys it to production
+(~30 s after the merge), and every other branch gets a preview version whose URLs the Cloudflare
+bot posts on the PR. Confirm a deploy landed with `curl https://<worker>/` (the `v` fingerprint —
+see below). `npx wrangler deploy` from `backend/` stays the manual fallback. Two consequences:
+
+- `[vars]` in `wrangler.toml` ship with every deploy and **replace** values edited in the
+  Cloudflare dashboard — change knobs (`EFFORT`, `ADVISOR_MODEL`, `MAX_TOKENS`, …) in
+  `wrangler.toml` and merge. Secrets (`wrangler secret put`) are unaffected.
+- A build that fails leaves the previous version live; the page's fingerprint check (below) is
+  how you notice.
+
+> A stale Worker degrades gracefully: the calendar modal probes the live route when opened and
+> shows a "redeploy" note (subscribe links hidden, snapshot download still works) until the build
+> serves `GET /calendar.ics`; the Starred tab checks the live build via the ping and warns if it's
+> older than `2026-07-21-star1` (an older calendar build would serve picks for a `saved=1` URL, and
+> `/react` wouldn't exist at all). Stars need `GITHUB_TOKEN` set (else `/react` returns 501).
 
 ### "I redeployed but it still fails" — verify the deploy actually landed
 
@@ -256,10 +262,12 @@ fingerprint `{ok, service, v}` (`VERSION` in concierge-worker.js). Two outcomes 
 - **`{"error":"POST only"}`** → the live build predates the fingerprint (2026-07-20, PR #96) —
   it might be the one-PR-older #95 build (which already streams but can't say so), or anything
   older. Either way, a deploy of the latest `main` did **not** land on the URL the page calls.
-  Usual causes: `wrangler deploy` run from a stale checkout (`git pull` first — fixes land on
-  `main` via PRs, so a laptop clone lags), or wrangler logged into a different Cloudflare
-  account / worker name, so it deployed *somewhere else* — compare the URL wrangler prints
-  against the page's `BACKEND_URL`.
+  Usual causes: the Workers Builds build for that merge failed or is still running (Cloudflare
+  dashboard → Workers → la-events-concierge → Builds, or the "Workers Builds" check on the
+  PR/commit); or, for a manual deploy, `wrangler deploy` run from a stale checkout (`git pull`
+  first — fixes land on `main` via PRs, so a laptop clone lags) or logged into a different
+  Cloudflare account / worker name, so it deployed *somewhere else* — compare the URL wrangler
+  prints against the page's `BACKEND_URL`.
 - **`v` with an older DATE than the page's `MIN_BACKEND_VERSION`** (dashboard/index.html;
   compared at day granularity — same-day suffixes are free-form) → same story, newer flavor.
   The page checks this on every ping and shows **old build** (amber) in the chat's connect
@@ -393,7 +401,8 @@ music layer can't drift from Ari's.
 3. **Worker secrets**: `npx wrangler secret put` each of `SPOTIFY_CLIENT_ID`,
    `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_SYNC_TOKEN` (a strong random string), `STATE_SECRET` (any
    long random string — signs the OAuth state). Keep `GITHUB_TOKEN` set so the on-connect rebuild
-   fires. Then `npx wrangler deploy`.
+   fires. Then merge the `wrangler.toml` change from step 2 — Workers Builds deploys it (or
+   `npx wrangler deploy`).
 4. **Repo secrets** (GitHub → Settings → Secrets → Actions), so the daily routine + the
    `spotify-sync` workflow can sync: `SPOTIFY_SYNC_URL` = the Worker base URL, `SPOTIFY_SYNC_TOKEN`
    = the same value you set on the Worker.
