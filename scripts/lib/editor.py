@@ -33,7 +33,7 @@ from pathlib import Path
 
 from .enrich import event_key, scene_facts
 from .assemble import LANES, event_lane
-from .affinity import _token_pat, fold, genre_hits, event_genre_tags
+from .affinity import _token_pat, fold, genre_hits, event_genre_tags, with_loved_genres
 from .series import group_series
 
 REPO = Path(__file__).resolve().parent.parent.parent
@@ -256,7 +256,7 @@ def _record(ev: dict, affinity: dict, enrichment: dict = None) -> dict:
 # deliberately NOT part of EDITOR_INPUT_VERSION (prior verdicts were judged by an agent that Read
 # taste.yaml itself; a bump would re-judge ~1,000 cached verdicts for near-zero delta).
 _TASTE_BRIEF_KEYS = ("narrative", "categories", "boosts", "penalties", "artists_tracked",
-                     "venues_loved", "comedians_loved", "film")
+                     "venues_loved", "comedians_loved", "genres_loved", "film")
 
 
 def taste_brief(taste: dict) -> dict:
@@ -298,6 +298,7 @@ def pool_doc(judge: list, *, today, window_days, per_lane, floor, affinity: dict
     block. Records that are one night of a series carry a `series` note (night i of n, span,
     venues) so the editor judges the program once instead of must-seeing every night."""
     sctx = _series_context(judge)
+    affinity = with_loved_genres(affinity, taste)          # same genre floor the scorer applies
     records = []
     for e in judge:
         rec = _record(e, affinity, enrichment)

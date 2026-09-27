@@ -180,6 +180,11 @@ artists_tracked:
   - Tini Gessler
   - Monkey Safari
 
+# Core genres — always count at full weight for the +1 genre bonus (tagging vocab keys, see
+# scripts/lib/tagging.py VOCAB). Learned genre weights are relative to your most-starred genre,
+# so list the ones that must never drop below the bar here.
+genres_loved: [ tech-house ]
+
 comedians_loved: [ Stavros Halkias, Chris D'Elia, Larry David, Conan O'Brien ] # the comedy exception — these get surfaced; others don't
 venues_loved:
   [

@@ -139,6 +139,26 @@ def test_scored_warehouse_party_no_longer_gets_house_credit():
     assert any("on-taste genre (house)" in r for r in score_event(ev, TASTE, PROFILE, aff)["reasons"])
 
 
+def test_genres_loved_is_a_stable_full_weight_floor():
+    """taste.yaml genres_loved counts at 1.0 even when learned (relative) weight is below the bar."""
+    from lib.affinity import with_loved_genres
+    aff = {"source": "feedback", "artists": {}, "genres": {"house": 1.0, "tech-house": 0.4}}
+    out = with_loved_genres(aff, {"genres_loved": ["Tech House"]})
+    assert out["genres"]["tech-house"] == 1.0 and aff["genres"]["tech-house"] == 0.4   # no mutation
+    assert with_loved_genres(aff, {}) is aff                                            # nothing declared
+    assert with_loved_genres(None, {}) is None
+    solo = with_loved_genres(None, {"genres_loved": ["techno"]})                       # no music layer
+    assert solo["source"] == "taste" and solo["genres"] == {"techno": 1.0}
+    ev = {"title": "Night", "category": "electronic", "venue": "TBA", "date": "2026-06-20",
+          "lineup": ["Someone"], "tags": {"genre": ["tech-house"]}}
+    taste = dict(TASTE, genres_loved=["tech-house"])
+    low = {"source": "feedback", "artists": {}, "genres": {"techno": 1.0, "tech-house": 0.4}}
+    bare = {k: v for k, v in TASTE.items() if k != "genres_loved"}
+    assert not any("on-taste genre" in r for r in score_event(ev, bare, PROFILE, low)["reasons"])
+    assert any("on-taste genre (tech-house)" in r for r in score_event(ev, taste, PROFILE, low)["reasons"])
+    assert any("on-taste genre (tech-house)" in r for r in score_event(ev, taste, PROFILE, None)["reasons"])
+
+
 def test_affinity_enriches_but_never_replaces():
     """Same event scored with and without affinity: affinity only adds, taste.yaml unchanged."""
     ev = {"title": "Antal all night long", "category": "electronic",

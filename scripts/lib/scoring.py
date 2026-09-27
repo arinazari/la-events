@@ -27,7 +27,7 @@ try:
 except Exception:  # pragma: no cover - zoneinfo always present on py3.9+
     _LA = None
 
-from .affinity import artist_affinity, genre_affinity, event_genre_tags, tracked_hits, ambiguous_set, \
+from .affinity import artist_affinity, genre_affinity, event_genre_tags, with_loved_genres, tracked_hits, ambiguous_set, \
     fold, _token_pat
 
 # ── Defaults (verbatim from pre-refactor build_dashboard.py) ─────────────────
@@ -279,6 +279,7 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
 
     # Spotify + feedback music layer (Phase C) — graded artist/genre affinity, capped so
     # it nudges rather than dominates. Enriches the taste.yaml signals above; no-op if absent.
+    affinity = with_loved_genres(affinity, taste)          # taste.yaml genres_loved -> full weight
     if affinity:
         lineup_text = " ".join(str(a) for a in lineup).lower()
         name_text = title.lower() + " " + lineup_text          # where artists are actually billed
