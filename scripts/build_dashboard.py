@@ -48,7 +48,7 @@ from lib.assemble import rank_key, event_lane, top_picks, TOP_PICKS_LANE_CAP  # 
 from lib.series import group_series, series_summary, is_film, showtimes_url  # noqa: E402
 from lib.festivals import load_festivals  # noqa: E402  (festivals.yaml -> front_page.festivals)
 from lib.dedupe import _fest_core, _FEST_SIGNAL, normalize as _norm  # noqa: E402  (festival rollup)
-from lib.tagging import VOCAB as TAG_VOCAB  # noqa: E402
+from lib.tagging import VOCAB as TAG_VOCAB, VENUE_SCALE  # noqa: E402
 from lib import catalog_meta as CM  # noqa: E402
 from lib.pipeline import today_la  # noqa: E402
 from lib import artist_links as ALINK  # noqa: E402  (direct ▶ listen links for the feed)
@@ -110,6 +110,7 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
             "boosts": taste.get("boosts") or [],
             "penalties": taste.get("penalties") or [],
             "artists_tracked": taste.get("artists_tracked") or [],
+            "fyi_artists": taste.get("fyi_artists") or [],
             "comedians_loved": taste.get("comedians_loved") or [],
             "venues_loved": taste.get("venues_loved") or [],
             "film": taste.get("film") or {},
@@ -144,9 +145,9 @@ def build_config(taste: dict, profile: dict, sources: dict) -> dict:
 # category: "Seasonal and repeating" (standing markets/fleas/showcase series), "Movies" (film
 # programs — the dedicated marquee view holds the full boards), "Theater" (stage runs +
 # one-offs), "Festivals" (date-sorted: festivals.yaml fixture + festival-tagged catalog rows),
-# and "FYI" (big/far shows worth knowing about that aren't taste matches — the non-must-see
-# arena tier, judged-skip stadium bookings, and the radar leftovers). Marquee sections are
-# lens-windowed; the tables are fixtures (lens-independent). Only marquee-class rows are
+# and "FYI" (a big act you'd care about is in town — see FYI_* below: big-room shows billing
+# an act this profile tracks/lists/plays, that the page isn't already featuring). Marquee
+# sections are lens-windowed; the tables are fixtures (lens-independent). Only marquee-class rows are
 # hero-eligible: a movie, a season, or a destination festival is never the featured card —
 # but the LOCAL one-day fest tier is events-class (Ari 2026-08-02: a block fest or popup is
 # an "event", a happening — only the destination class stays table-only).
@@ -169,6 +170,69 @@ FP_RUN_MIN_DAYS = 14
 FP_RUN_MIN_NIGHTS = 3
 # Hero size/diversity knobs live in lib/assemble (TOP_PICKS_*): the hero row IS the shared
 # Don't-miss policy (assemble.top_picks — one shelf definition with the digest's "Don't miss").
+
+# FYI = "a big act is in town or nearby" (Ari 2026-09-27) — and only the acts that matter to
+# this profile. It used to list every arena booking the editor didn't feature (plus judged
+# skips and radar leftovers): a date-sorted dump of Ticketmaster's arena calendar, where the
+# two rows that belonged (Erykah Badu, Jon Batiste) drowned in Iron Maiden and Disney tours.
+# Now a show needs BOTH halves:
+#   big act     a big room: the big-live concert lane (hall/arena), or an arena-tier venue
+#               for any other lane (John Summit at the Coliseum is club:mainstream);
+#   that matters  the HEADLINER is an act this profile cares about (fyi_acts): a tracked
+#               artist, the taste.yaml `fyi_artists` list (big names to KNOW about that aren't
+#               picks — no score boost, never featured), a loved comedian, or a Spotify core/
+#               heavy-rotation artist. Headline billing only (title + first lineup entry): an
+#               opener doesn't make it your show. Listening only on the affinity side — "on
+#               rotation" (light) is too loose, and feedback-only artists don't count: a star
+#               on a 12-act Boiler Room or HARD Summer bill lifts every act on it, which says
+#               nothing about wanting an FYI when one of them plays the Forum.
+# …and the page must not already be featuring it (build_front_page).
+FYI_NAME_LISTS = ("artists_tracked", "fyi_artists", "comedians_loved")
+FYI_AFFINITY_TIERS = ("core", "strong")
+# Arena-tier keys of the venue gazetteer — the big-room gate's fallback for a row whose stored
+# scale tag is unknown (catalog tags are stamped each run_digest pass, so a feed built between
+# a gazetteer edit and the next pass would otherwise miss the room).
+_ARENA_KEYS = tuple(k for k, v in VENUE_SCALE.items() if v == "arena")
+
+
+def _big_room(e: dict) -> bool:
+    """The "big act" half of FYI: the big-live concert lane (hall/arena), or an arena-tier
+    room for any other lane. A stored scale tag is authoritative; the gazetteer is consulted
+    only when it's unknown — and never for a pool party (lib/tagging's casino-resort
+    carve-out: a poolside DJ at Yaamava isn't the headliner theater)."""
+    if (e.get("lane") or "") == "live-music:big":
+        return True
+    tags = e.get("tags") or {}
+    if tags.get("scale"):
+        return tags["scale"] == "arena"
+    if "pool" in (tags.get("setting") or []):
+        return False
+    venue = (e.get("venue") or "").lower()
+    return any(k in venue for k in _ARENA_KEYS)
+
+
+def fyi_acts(ev: dict, taste: dict, profile: dict, affinity: dict = None) -> list:
+    """The headlining acts that make a show worth an FYI to THIS profile (the "that matters"
+    half — see FYI_*): tracked artists, `fyi_artists`, loved comedians, and Spotify-backed
+    core/strong artists, matched in the headline billing (title + first lineup entry) with
+    the scorer's own matchers (lineup-first tracked_hits; billed_artists) — so an FYI row and
+    its score can't disagree about who's on the bill. Sorted display names, de-duplicated."""
+    taste = taste or {}
+    title = ev.get("title") or ""
+    lineup = ev.get("lineup") or []
+    if not isinstance(lineup, list):
+        lineup = [str(lineup)]
+    head = [str(lineup[0])] if lineup else []
+    names = [n for k in FYI_NAME_LISTS for n in (taste.get(k) or []) if n]
+    acts = {AF.normalize_name(n): n for n in AF.tracked_hits(
+        names, title, head, ambiguous=AF.ambiguous_set(profile, taste))}
+    head_text = " ".join(head).lower()
+    for key, info in AF.billed_artists(title.lower() + " " + head_text, head_text,
+                                       affinity, profile):
+        if (info.get("tier") in FYI_AFFINITY_TIERS
+                and set(info.get("sources") or []) - {"feedback"}):
+            acts.setdefault(AF.normalize_name(key), info.get("name") or key)
+    return sorted(acts.values(), key=str.lower)
 
 
 # "The Take" — the one-sentence teaser the voice pass writes into the consolidated digest's
@@ -258,7 +322,8 @@ def _fp_section(e: dict) -> str:
         return "theater"
     if lane == "live-music:big":
         # A big concert the editor rates IS of interest — it belongs with the featured music.
-        # The rest of the arena tier is exactly "FYI": know about it, not featured.
+        # The rest of the arena tier is never featured; the ones billing an act this profile
+        # cares about are listed in FYI (build_front_page), the others nowhere on the front page.
         tier = (e.get("verdict") or {}).get("tier")
         return "sets" if tier in ("must-see", "great") else "fyi"
     if lane.startswith("club:") or lane == "live-music":
@@ -375,27 +440,30 @@ def build_front_page(events, verdicts, today, radar_rows=None, around_rows=None,
             rolled.append(e)
     fest_evs = rolled
 
-    # FYI = the arena tier that isn't a taste match — including judged SKIPS (excluded from
-    # every other surface, but "big show I'd skip" is exactly what FYI exists to list) — plus
-    # any radar row not already placed in a section. Date-sorted: it reads as a calendar of
-    # things to know about, not a ranking.
-    reps = {e["key"]: e for e in events
-            if not e.get("is_past") and e.get("iso_date")
-            and (e.get("series_rep") or "series_key" not in e)}
-    fyi = list(by_sec.get("fyi") or [])
-    fyi += [e for e in reps.values()
-            if (e.get("lane") or "") == "live-music:big"
-            and (e.get("verdict") or {}).get("tier") == "skip"]
-    placed = {e["key"] for sec in ("sets", "events", "seasonal", "movies", "theater",
-                                   "festivals") for e in (by_sec.get(sec) or [])}
-    fyi_keys = {e["key"] for e in fyi}
-    for r in (radar_rows or []):
-        k = r.get("key") or event_key(r)
-        e = reps.get(k)
-        if e is not None and k not in placed and k not in fyi_keys:
+    # FYI = a big act this profile cares about is in town (see FYI_*): a big-room show whose
+    # bill carries one of its fyi_acts (stamped in main()), that the page isn't already
+    # featuring. Two ways a show goes unfeatured: the arena tier the editor didn't call
+    # must-see/great (never shelved — the "fyi" section), and a marquee row no lens can reach —
+    # dated past the plan-ahead horizon (today+60), or cut from its shelf's key-list. The
+    # horizon case is how a tracked headliner at a stadium 2+ months out (John Summit, Coliseum,
+    # 12/12) used to vanish: shelved in "Sets and shows", so nothing else claimed it, yet no
+    # lens ever rendered it. Judged skips and negative scores stay out (the pool filter above);
+    # festivals/film/stage keep their own tables. Date-sorted by the program's first night: a
+    # calendar of things to know about, not a ranking. One row per act-night: sources that
+    # list the same show under different venue spellings ("Shrine Expo Hall" / "Shrine
+    # Auditorium and Expo Hall") can survive dedupe as two rows; here the best-ranked wins.
+    lens_end = _fp_windows(today)["ahead"][1]
+    shelved = {k for sh in shelves for k in sh["near"] + sh["ahead"]}
+    first_night = lambda e: (e.get("series") or {}).get("first") or e["iso_date"]  # noqa: E731
+    fyi, seen_shows = [], set()
+    for e in sorted((e for sec in ("fyi", "sets", "events") for e in (by_sec.get(sec) or [])
+                     if e.get("fyi_acts") and _big_room(e)
+                     and not (e["key"] in shelved and e["iso_date"] <= lens_end)),
+                    key=lambda e: (first_night(e), e.get("final_rank") or 10 ** 9)):
+        show = (first_night(e), tuple(a.lower() for a in e["fyi_acts"]))
+        if show not in seen_shows:
+            seen_shows.add(show)
             fyi.append(e)
-            fyi_keys.add(k)
-    fyi.sort(key=lambda e: e["iso_date"])
 
     tables = [{"id": sid, "label": label, "keys": [e["key"] for e in rows[:FP_TABLE_CAP]]}
               for sid, label, rows in (
@@ -621,6 +689,11 @@ def main() -> int:
         out["lane"] = event_lane(out, verdicts)      # verdict lane override else tag-derived
         k = event_key(ev)
         out["key"] = k                               # stable id — front_page joins + feedback + stars
+
+        if not out["is_past"] and _big_room(out):   # the FYI table's "that matters" half —
+            acts = fyi_acts(out, taste, profile, affinity)   # big rooms only (lean feed)
+            if acts:
+                out["fyi_acts"] = acts               # billed acts this profile cares about
 
         starred = stars_for(smap, star_names, k)
         if starred:

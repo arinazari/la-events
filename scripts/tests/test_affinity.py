@@ -200,6 +200,37 @@ def test_tracked_hits_lineup_first_and_ambiguous_gate():
     assert tracked_hits(["None"], "no lineup here", None, amb, min_len=2) == set()
 
 
+def test_tracked_hits_exact_entry_ignores_billing_qualifier():
+    """A trailing "(AU)" / "(DJ Set)" on a lineup entry still names the act, so the ambiguous
+    exact-entry match sees through it — while the word inside a title stays dead (Trippie
+    Redd's 'Non-disclosure Agreement Tour' badged tracked Disclosure until it went ambiguous)."""
+    amb = {"fisher", "disclosure"}
+    assert tracked_hits(["FISHER"], "HARD", ["FISHER (AU)"], amb) == {"FISHER"}
+    assert tracked_hits(["Disclosure"], "x", ["Disclosure (DJ Set)"], amb) == {"Disclosure"}
+    assert tracked_hits(["Disclosure"], "Trippie Redd - The Non-disclosure Agreement Tour",
+                        ["Trippie Redd"], amb) == set()
+    assert tracked_hits(["FISHER"], "x", ["Fisher and Thames (Live)"], amb) == set()
+    assert "disclosure" in ambiguous_set({})          # the baseline default carries it too
+
+
+def test_billed_artists_is_the_scoring_matcher():
+    """billed_artists (the dashboard FYI table's reader) and artist_affinity (the scorer) share
+    one matcher: whole-token in title+lineup, ambiguous names lineup-only, short names never."""
+    from lib.affinity import billed_artists
+    aff = {"artists": {"antal": {"name": "Antal", "tier": "core"},
+                       "future": {"name": "Future", "tier": "strong"},
+                       "ab": {"name": "AB", "tier": "core"}}}
+    prof = {"scoring": {"spotify": {"ambiguous_names": ["future"]}}}
+    keys = lambda name_text, lineup_text: sorted(  # noqa: E731
+        k for k, _ in billed_artists(name_text, lineup_text, aff, prof))
+    assert keys("antal all night long future sounds", "") == ["antal"]   # 'future' only in title
+    assert keys("x antal future", "antal future") == ["antal", "future"]
+    assert keys("ab ab ab", "ab") == []                                    # under min_name_len
+    assert billed_artists("antal", "antal", None) == []
+    pts, reasons = artist_affinity("x antal future", "antal future", aff, prof)
+    assert len(reasons) == 2 and pts > 0
+
+
 def test_ambiguous_set_resolves_profile_then_taste_then_default():
     prof = {"scoring": {"spotify": {"ambiguous_names": ["FISHER", " Drama "]}}}
     assert ambiguous_set(prof) == {"fisher", "drama"}
