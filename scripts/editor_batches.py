@@ -21,6 +21,7 @@ Usage:
 
 import argparse
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -58,6 +59,11 @@ def main() -> int:
     args = ap.parse_args()
 
     h = args.profile_hash
+    # Same shape the Worker + rebuild workflow enforce — and it's the name of a dir this script
+    # deletes and recreates, so nothing path-like gets through.
+    if h is not None and not re.fullmatch(r"[0-9a-f]{8,32}", h):
+        print(json.dumps({"error": f"invalid profile hash {h!r}", "judging": 0, "batches": []}))
+        return 2
     pool_path = Path(args.pool) if args.pool else \
         REPO / (f"data/editor_pool.{h}.json" if h else "data/editor_pool.json")
     if not pool_path.exists():
@@ -80,7 +86,8 @@ def main() -> int:
         out_dir.mkdir(parents=True, exist_ok=True)
         bp = out_dir / f"batch-{b['batch']}.json"
         rp = out_dir / f"batch-{b['batch']}.results.json"
-        body = {"batch": b["batch"], "of": b["of"], "results_path": _rel(rp),
+        # Absolute: the agent hands it straight to its Write tool, which wants an absolute path.
+        body = {"batch": b["batch"], "of": b["of"], "results_path": str(rp),
                 **{k: v for k, v in b.items() if k not in ("batch", "of")}}
         bp.write_text(json.dumps(body, indent=1, ensure_ascii=False) + "\n")
         files.append({"file": _rel(bp), "results": _rel(rp), "n": b["count"]})
