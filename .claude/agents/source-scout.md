@@ -8,6 +8,7 @@ description: >
   fetcher, sweep a directory) and returns a vetted PROPOSAL table. Never modifies sources.yaml
   itself — proposes; the human approves. Not run on a schedule; not part of the daily digest.
 tools: Read, Glob, Grep, WebSearch, WebFetch
+model: sonnet
 ---
 
 # source-scout

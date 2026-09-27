@@ -10,6 +10,7 @@ description: >
   the deltas the heuristic can't see.
 tools: Read, Write, WebSearch, WebFetch
 model: sonnet
+effort: medium
 ---
 
 # event-editor
