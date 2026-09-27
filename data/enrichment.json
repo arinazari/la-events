@@ -590,10 +590,39 @@
     },
     "3414a86419eb": {
       "id": "3414a86419eb",
-      "description": "Minimal house DJ Jimi Jules open-to-close set at Gin Ling Way.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-22T12:33:07",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house",
+        "disco"
+      ],
+      "label_orbit": [
+        "Innervisions",
+        "Watergate",
+        "Defected"
+      ],
+      "energy": "groove / all-night",
+      "setting": "outdoor",
+      "vibe": [],
+      "sounds_like": [
+        "Dixon",
+        "Ame"
+      ],
+      "card": {
+        "draw": 2,
+        "rarity": 1,
+        "lineup_depth": 0
+      },
+      "artist_notes": [
+        {
+          "name": "Jimi Jules",
+          "note": "Zurich-born, Berlin-based (longtime Watergate resident) house producer now signed to Innervisions — jazzy, soulful, musician's-ear house that broke through via 2014's Defected hit 'Pushing On.'"
+        }
+      ],
+      "curator_note": "An open-to-close booking from an Innervisions/Watergate name is the kind of set where the arc matters more than any single hour — Gin Ling Way's alley setting should suit his deeper, jazzier register.",
+      "description": "Swiss house/disco producer Jimi Jules (Innervisions, longtime Watergate resident) plays a rare open-to-close set at Gin Ling Way in Chinatown (Sat 9/26).",
+      "confidence": "high",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "1a81684f9ece": {
       "id": "1a81684f9ece",
@@ -1053,10 +1082,74 @@
     },
     "9fccd5f01050": {
       "id": "9fccd5f01050",
-      "description": "Festival at Santa Monica beach with Olivia Dean, Khruangbin, Hiatus Kaiyote, Poolside, and more (Sun 12pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-23T12:34:37",
-      "confidence": "high"
+      "type": "live-music",
+      "subgenres": [
+        "funk-soul",
+        "jazz",
+        "house",
+        "disco",
+        "indie"
+      ],
+      "label_orbit": [
+        "Dead Oceans",
+        "Ninja Tune"
+      ],
+      "energy": "day-into-night / eclectic groove",
+      "setting": "outdoor",
+      "vibe": [],
+      "sounds_like": [],
+      "card": {
+        "draw": 3,
+        "rarity": 0,
+        "lineup_depth": 2
+      },
+      "artist_notes": [
+        {
+          "name": "Olivia Dean",
+          "note": "British neo-soul/pop singer-songwriter (Mercury-nominated album 'Messy') — warm, jazz-inflected pop, leans more soul-show than dance."
+        },
+        {
+          "name": "Khruangbin",
+          "note": "Houston trio — hypnotic, largely wordless psych-soul/funk built on Thai-funk-inspired guitar; now a genuine amphitheater-level draw."
+        },
+        {
+          "name": "Durand Jones & The Indications",
+          "note": "Indiana retro-soul band (Dead Oceans) — horn-driven, deeply '60s/'70s soul-revival sound."
+        },
+        {
+          "name": "Hiatus Kaiyote",
+          "note": "Melbourne 'future soul' band led by Nai Palm — dense, virtuosic jazz-funk that's drawn Grammy nods and real respect from the Thundercat/D'Angelo circle."
+        },
+        {
+          "name": "Poolside",
+          "note": "LA duo (Filip Nikolic, Jeffrey Paradise) who more or less invented 'daytime disco' — slow-motion, sun-baked grooves. Built for a beach day."
+        },
+        {
+          "name": "Carlita",
+          "note": "Istanbul-born, classically-trained (cello) house/melodic-techno producer signed to Ninja Tune — genre-blending sets with live instrumentation."
+        },
+        {
+          "name": "Vandelux",
+          "note": "Vancouver-born, SF-based producer/vocalist (Evan White) — groove-driven electronic/soul; 'Matter of Time' charted on Billboard Dance."
+        },
+        {
+          "name": "Good Neighbours",
+          "note": "UK indie-pop duo behind 2024's viral hit 'Home' — tropical-leaning festival pop, not really a dance booking."
+        },
+        {
+          "name": "Coco & Breezy",
+          "note": "Twin sisters (also the eyewear-brand founders) turned house/dance DJ duo — danceable, R&B-tinged, more crossover-pop than underground."
+        },
+        {
+          "name": "Erez",
+          "note": "NY/LA-based producer-vocalist — sultry, emotionally-charged house released via Crosstown Rebels, DFTD (Defected) and Get Physical."
+        }
+      ],
+      "curator_note": "Khruangbin and Hiatus Kaiyote alone make this a stacked day before you even get to Poolside and Carlita on the house end — a real cross-genre beach bill, not just a soul show wearing a festival name.",
+      "description": "Beach-day festival at Santa Monica spanning soul/funk (Khruangbin, Durand Jones & The Indications, Hiatus Kaiyote, Olivia Dean) and house/disco (Poolside, Carlita, Erez, Coco & Breezy).",
+      "confidence": "high",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "f263bfb37239": {
       "id": "f263bfb37239",
@@ -1074,17 +1167,74 @@
     },
     "4a282e9fef88": {
       "id": "4a282e9fef88",
-      "description": "Day party featuring Armand Van Helden and Adam Auburn at LA State Historic Park (Sun 2pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-23T12:34:37",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house",
+        "tech-house"
+      ],
+      "label_orbit": [
+        "Hot Creations",
+        "Elrow"
+      ],
+      "energy": "day-party / groove",
+      "setting": "outdoor",
+      "vibe": [],
+      "sounds_like": [],
+      "card": {
+        "draw": 2,
+        "rarity": 1,
+        "lineup_depth": 1
+      },
+      "artist_notes": [
+        {
+          "name": "Armand Van Helden",
+          "note": "Grammy-winning house/garage veteran since the '90s ('You Don't Know Me,' half of Duck Sauce) — a genuinely legacy name for an afternoon park party."
+        },
+        {
+          "name": "James Poole",
+          "note": "Rising North-of-England house DJ/producer — releases on Hot Creations, Elrow and Experts Only, directly in the fabric/Hot Creations European house orbit."
+        },
+        {
+          "name": "Adam Auburn",
+          "note": "LA house DJ and promoter — Exchange LA's longtime marketing/entertainment director, runs the long-running poolside party 'Afternoon Delight.'"
+        },
+        {
+          "name": "Athena",
+          "note": "Couldn't verify a confident bio for this booking — flagging as unknown rather than guessing."
+        }
+      ],
+      "curator_note": "Armand Van Helden headlining a State Historic Park afternoon is a real house pedigree get for a season finale, and James Poole's Hot Creations pedigree backs it up as more than a nostalgia booking.",
+      "description": "Day Trip's outdoor house-party season finale at LA State Historic Park, headlined by house/garage veteran Armand Van Helden with James Poole, Adam Auburn and Athena.",
+      "confidence": "high",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "68add0d59a1d": {
       "id": "68add0d59a1d",
-      "description": "Tove Lo with Mallrat at Greek Theatre Los Angeles (Sun 8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-23T12:34:37",
-      "confidence": "high"
+      "type": "live-music",
+      "subgenres": [
+        "pop"
+      ],
+      "label_orbit": [],
+      "energy": "arena / anthemic",
+      "setting": "amphitheater",
+      "sounds_like": [],
+      "card": {
+        "draw": 2,
+        "rarity": 0,
+        "lineup_depth": 1
+      },
+      "artist_notes": [
+        {
+          "name": "Mallrat",
+          "note": "Grace Shaw — Brisbane dream-pop/indie artist known for wistful, synth-laced tracks like 'Charlie' and 'Rockstar'; more atmospheric bedroom-pop than club music."
+        }
+      ],
+      "curator_note": "Outside the house/techno wheelhouse entirely, but Tove Lo is a genuinely strong live pop act and Mallrat's dreamy synth-pop opening slot is a nice pairing if you're just going for the songs at the Greek.",
+      "description": "Swedish pop artist Tove Lo tours behind new material with Australian dream-pop artist Mallrat opening, at the Greek Theatre.",
+      "confidence": "high",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "e366296e1ad8": {
       "id": "e366296e1ad8",
@@ -2625,9 +2775,42 @@
     },
     "70c8bafab162": {
       "id": "70c8bafab162",
-      "description": "Sunday Sessions La: all-vinyl open-air tech house/deep house/minimal (TBA), 6pm-12am, free before 7pm/$23-34 after.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-08-28T12:49:38"
+      "type": "club",
+      "subgenres": [
+        "house",
+        "techno"
+      ],
+      "label_orbit": [],
+      "energy": "day-into-night / groove",
+      "setting": "outdoor",
+      "vibe": [],
+      "sounds_like": [
+        "Hunee"
+      ],
+      "card": {
+        "draw": 1,
+        "rarity": 0,
+        "lineup_depth": 1
+      },
+      "artist_notes": [
+        {
+          "name": "Kana Hishiya",
+          "note": "LA-based, Japanese-born DJ/producer — an eclectic all-vinyl selector who threads house and techno through dub, funk, acid and breakbeat; jazz-trained from age 4, has played EU underground fixtures like Romania's 3SO Festival."
+        },
+        {
+          "name": "Nelzon",
+          "note": "A recurring Sunday Sessions resident (recorded sets from past editions are online) — couldn't pin down a fuller bio beyond that, so treat as an unknown quantity."
+        },
+        {
+          "name": "Roman A",
+          "note": "Couldn't verify a confident bio for this name — flagging rather than guessing."
+        }
+      ],
+      "curator_note": "This is close to the exact rooftop-vinyl-groove format on paper — an all-vinyl open-air session — anchored by Kana Hishiya's eclectic house/techno digging; the two openers are unverified but the format alone earns a look.",
+      "description": "All-vinyl, open-air house/techno session (Sunday Sessions LA) with Kana Hishiya, Nelzon and Roman A; free before 7pm.",
+      "confidence": "medium",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "60662e141c12": {
       "id": "60662e141c12",
@@ -7807,10 +7990,44 @@
     },
     "f59873278740": {
       "id": "f59873278740",
-      "description": "Daytime electronic party with live performances at TBA - DTLA (Sat 9/27, 4pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-09T12:39:06",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "ambient",
+        "techno",
+        "house"
+      ],
+      "label_orbit": [
+        "Non Projects",
+        "Gost Zvuk",
+        "Kajunga"
+      ],
+      "energy": "downtempo / eclectic",
+      "setting": null,
+      "sounds_like": [],
+      "card": {
+        "draw": 1,
+        "rarity": 1,
+        "lineup_depth": 2
+      },
+      "artist_notes": [
+        {
+          "name": "Buttechno",
+          "note": "Pavel Milyakov — Moscow underground fixture (John's Kingdom collective, tight with Gost Zvuk and Klasse Wrecks) making spacious, dystopian techno; this is a live set, not a DJ set."
+        },
+        {
+          "name": "Anenon",
+          "note": "Brian Allen Simon — LA ambient/jazz producer and Non Projects label founder who folds his own saxophone into dreamy, abstract electronic-jazz soundscapes (Friends of Friends' 'Petrol'). A live set, not a DJ set."
+        },
+        {
+          "name": "agraybé",
+          "note": "LA/Minnesota DJ (Ariana Gray Bé), part of the Made to Move orbit — psychedelic, groove-forward house selections; releases via Kajunga."
+        }
+      ],
+      "curator_note": "An afternoon that arcs from Anenon's live ambient sax through Buttechno's raw Moscow techno into agraybé's groove-forward house — an unusually well-curated spread for a TBA DTLA day-into-night, closer to a proper European lineup than most local bills.",
+      "description": "TBA-location DTLA party (4pm–10pm) with live sets from Moscow techno artist Buttechno (Pavel Milyakov) and LA ambient producer Anenon, plus a DJ set from agraybé.",
+      "confidence": "high",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "dc46d3d00f40": {
       "id": "dc46d3d00f40",
@@ -13874,10 +14091,25 @@
     },
     "e44fc01534e1": {
       "id": "e44fc01534e1",
-      "description": "Electric Ave: tech house and bass house night at Los Globos with multiple DJs (10pm-2am, 21+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-21T12:31:48",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "edm"
+      ],
+      "label_orbit": [],
+      "energy": "open-format",
+      "setting": null,
+      "sounds_like": [],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "Five names I can't verify under an EMX-branded 'Electric Ave' banner reads like a generic open-format EDM night rather than a real selector booking — pass unless you already know one of these acts.",
+      "description": "Electric Ave's recurring EDM night at Los Globos with five local DJs: Justin Furey, Amutay, Matt A D, Kayoz, and Zenboyye X Simrit.",
+      "confidence": "low",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "a8e4031c7470": {
       "id": "a8e4031c7470",
@@ -13957,10 +14189,23 @@
     },
     "9f6748dcf325": {
       "id": "9f6748dcf325",
-      "description": "Late-night electronic at The Lexington bar in DTLA (11pm, afterhours).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-21T12:31:48",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "unknown",
+      "setting": "bar",
+      "sounds_like": [],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "No DJs posted yet — Nightshift's recurring free-before-1am Lex afterhours is a fine late stop on a night out, but there's nothing here to build a night around until a lineup drops.",
+      "description": "Recurring after-hours night at the Lexington, DTLA, running 11pm–5am; free RSVP before 1am, $23 after. No lineup posted.",
+      "confidence": "low",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "092adf66169c": {
       "id": "092adf66169c",
@@ -14911,10 +15156,23 @@
     },
     "dbe7f134f28a": {
       "id": "dbe7f134f28a",
-      "description": "Electronic afterhours party at The Lexington, DTLA (11pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-23T12:22:23",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [],
+      "label_orbit": [],
+      "energy": "unknown",
+      "setting": "bar",
+      "sounds_like": [],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "Same deal as every week — Nightshift's Lex afterhours, no lineup posted, worth knowing about as a fallback rather than a destination.",
+      "description": "Recurring after-hours night at the Lexington, DTLA, running 11pm–5am; free RSVP before 1am, $23 after. No lineup posted.",
+      "confidence": "low",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "fd4064f39e18": {
       "id": "fd4064f39e18",
@@ -14964,13 +15222,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-23T12:22:23",
       "confidence": "low"
-    },
-    "240c5ee6cb81": {
-      "id": "240c5ee6cb81",
-      "description": "Day party with Cut Snake and Sketti at Perry's Beach Club, Santa Monica (3pm, $20).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-23T12:22:23",
-      "confidence": "high"
     },
     "b09ac9ba85a4": {
       "id": "b09ac9ba85a4",
@@ -15086,10 +15337,26 @@
     },
     "4c38dd4bcb79": {
       "id": "4c38dd4bcb79",
-      "description": "Resident Evil 35mm screening at Vista Theater with multiple evening showtimes.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-23T12:22:23",
-      "confidence": "high"
+      "type": "film",
+      "subgenres": [
+        "rep/arthouse"
+      ],
+      "label_orbit": [],
+      "energy": "cult / late-night",
+      "setting": "cinema",
+      "vibe": [],
+      "sounds_like": [],
+      "card": {
+        "draw": 1,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "A straightforward 35mm rep screening of the 2002 zombie-actioner — fun if you're already a Resident Evil head, but no Q&A or rare-print pedigree here to lift it above a solid ordinary rep-house pick.",
+      "description": "35mm screening of Paul W.S. Anderson's 2002 video-game adaptation Resident Evil at the Vista Theater, with three showtimes.",
+      "confidence": "high",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "207b2117605c": {
       "id": "207b2117605c",
@@ -15731,13 +15998,6 @@
     "09818d9efc8d": {
       "id": "09818d9efc8d",
       "description": "Sukkot Parlor Night (Jewish Silver Lake), $25; location TBA post-RSVP.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-23T12:22:23",
-      "confidence": "medium"
-    },
-    "e44c6b422534": {
-      "id": "e44c6b422534",
-      "description": "Free Pre-ComplexCon party with KREATE STUDIOS and ARKYVE in West Hollywood.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-23T12:22:23",
       "confidence": "medium"
@@ -16582,10 +16842,31 @@
     },
     "5f39752eddbc": {
       "id": "5f39752eddbc",
-      "description": "Free tech house and deep house day party at Jungle Hollywood (4pm-2am).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-24T12:30:39",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "house"
+      ],
+      "label_orbit": [],
+      "energy": "day-party / groove",
+      "setting": "club",
+      "vibe": [],
+      "sounds_like": [],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [
+        {
+          "name": "Bawab",
+          "note": "Couldn't verify a confident bio for this DJ — flagging as unknown rather than guessing."
+        }
+      ],
+      "curator_note": "Free house day party at Jungle Hollywood, but with nothing to confirm about Bawab beyond the flyer — a casual daytime hang, not a lineup worth planning a Sunday around.",
+      "description": "Free daytime house party ('Groove & Grill') at Jungle Hollywood with Bawab and friends on the decks.",
+      "confidence": "low",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "07c307b327c0": {
       "id": "07c307b327c0",
@@ -17273,13 +17554,6 @@
       "enriched_at": "2026-09-24T12:30:39",
       "confidence": "high"
     },
-    "704fdde87bcf": {
-      "id": "704fdde87bcf",
-      "description": "Wicked: Part 1 sing-along screening at The Miracle Theater (Inglewood) with costumes and activities.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-24T12:30:39",
-      "confidence": "high"
-    },
     "15df1306211b": {
       "id": "15df1306211b",
       "description": "Blippi Live performs Be Like Blippi Tour interactive show at Fred Kavli Theatre (Thousand Oaks).",
@@ -17412,10 +17686,32 @@
     },
     "0c4df6333ee9": {
       "id": "0c4df6333ee9",
-      "description": "Tech house afterhours with Miguel Clark and BUCK/OFF in DTLA warehouse (11pm-5am).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-25T12:31:30",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "tech-house",
+        "techno"
+      ],
+      "label_orbit": [],
+      "energy": "peak / dark-room",
+      "setting": "warehouse",
+      "vibe": [
+        "queer"
+      ],
+      "sounds_like": [],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0,
+        "vibes": [
+          "queer"
+        ]
+      },
+      "artist_notes": [],
+      "curator_note": "Voltique is a recurring queer tech-house/techno party (dark room, laser rig, heavy-bass production) rather than the vinyl-groove lane, and every name on this particular bill is a local unknown, so there's nothing here pulling you across town.",
+      "description": "Recurring queer-oriented tech-house/techno party at a TBA DTLA space, this edition running Miguel Clark, BUCK/OFF, Flabbergast and Laser Fox from 11pm-5am.",
+      "confidence": "medium",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "2a6d62172927": {
       "id": "2a6d62172927",
@@ -17742,13 +18038,6 @@
     "185691b9d6ac": {
       "id": "185691b9d6ac",
       "description": "Day-party electronic event SUNDANCE (season finale) in DTLA (4pm, location TBA).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-25T12:31:30",
-      "confidence": "high"
-    },
-    "82589788047a": {
-      "id": "82589788047a",
-      "description": "Early-morning electronic rave at Pluto LA with EarlyBirdz ($12.74, 10am).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-25T12:31:30",
       "confidence": "high"
@@ -18254,10 +18543,36 @@
     },
     "e75b5ccf730f": {
       "id": "e75b5ccf730f",
-      "description": "House music at 2220 Arts + Archives in Historic Filipinotown (8pm, $15).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-26T12:25:55",
-      "confidence": "medium"
+      "type": "live-music",
+      "subgenres": [
+        "experimental"
+      ],
+      "label_orbit": [
+        "Hologram Opera"
+      ],
+      "energy": "listening / theatrical",
+      "setting": "diy",
+      "sounds_like": [],
+      "card": {
+        "draw": 1,
+        "rarity": 1,
+        "lineup_depth": 1
+      },
+      "artist_notes": [
+        {
+          "name": "Holy Sun Opera House",
+          "note": "LA duo of opera singer/drummer Krissy Barker and composer dl Salo (A Story of Rats, Saint Genet) — symphonic synths, operatic vocals and heavy drums, self-titled debut just out on Hologram Opera."
+        },
+        {
+          "name": "Carolyn Pennypacker Riggs",
+          "note": "LA composer and multimedia artist working across sound, sculpture and ritual-performance; leads the resistance-chorus project Community Chorus and is half of the pop duo Bouquet."
+        }
+      ],
+      "curator_note": "This is the weirder end of the live-band lane done right — an operatic drum-and-synth duo paired with a composer who builds whole ritual-performance worlds, at 2220 no less. Not a DJ night, but a real discovery if you're up for it.",
+      "description": "A double bill of LA experimental duo Holy Sun Opera House (operatic vocals over heavy drums and synths) and multimedia composer Carolyn Pennypacker Riggs at 2220 Arts + Archives.",
+      "confidence": "medium",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
     },
     "cd2121693236": {
       "id": "cd2121693236",
@@ -18643,13 +18958,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-26T12:25:55",
       "confidence": "high"
-    },
-    "82705dfad303": {
-      "id": "82705dfad303",
-      "description": "Electronic afterparty with SIDEPIECE and MAESIC at Avalon Hollywood.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-26T12:25:55",
-      "confidence": "medium"
     },
     "4e0c44826dbe": {
       "id": "4e0c44826dbe",
@@ -19160,6 +19468,292 @@
       "description": "Hypnotist and comedian Kevin Stone (audience participation comedy) at Pechanga Resort Casino, Temecula (Sat 10/31, 9pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-26T12:25:55",
+      "confidence": "high"
+    },
+    "423855c65a48": {
+      "id": "423855c65a48",
+      "type": "live-music",
+      "subgenres": [
+        "pop"
+      ],
+      "label_orbit": [],
+      "energy": "pop / big-room",
+      "setting": null,
+      "vibe": [],
+      "sounds_like": [],
+      "card": {
+        "draw": 3,
+        "rarity": 0,
+        "lineup_depth": 2
+      },
+      "artist_notes": [],
+      "curator_note": "Outside the lane entirely — the annual iHeartRadio pop mega-bill, not a DJ set or a rep screening — but Olivia Rodrigo is a genuine arena headliner if mainstream pop is ever on the table.",
+      "description": "iHeartRadio's annual Jingle Ball pop radio show at Intuit Dome, headlined by Olivia Rodrigo with Hilary Duff, RAYE, OneRepublic and more.",
+      "confidence": "high",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
+    },
+    "c9505e7363e5": {
+      "id": "c9505e7363e5",
+      "type": "club",
+      "subgenres": [
+        "tech-house",
+        "house"
+      ],
+      "label_orbit": [
+        "Experts Only"
+      ],
+      "energy": "peak / big-room",
+      "setting": "outdoor",
+      "sounds_like": [],
+      "card": {
+        "draw": 3,
+        "rarity": 1,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "John Summit soloing the Coliseum is as big as tech-house gets in this city right now — no support acts announced yet, but this is exactly the mainstream end of the lane that's priority, not noise.",
+      "description": "John Summit headlines his CTRL Escape Tour solo at the LA Memorial Coliseum; no supporting acts listed yet.",
+      "confidence": "high",
+      "enriched_at": "2026-09-27T04:37:11",
+      "enriched_tier": "full"
+    },
+    "a0e3c3527b84": {
+      "id": "a0e3c3527b84",
+      "description": "Birthday reggaeton party at Los Globos, Silver Lake (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "e618f276313a": {
+      "id": "e618f276313a",
+      "description": "Three-band live show at The Smell: 3LH, The Martian Sunset, Salton City Surf Club ($10-$15).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "b9211a52620c": {
+      "id": "b9211a52620c",
+      "description": "SIDEPIECE and MAESIC electronic afterparty set at Avalon Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "9f14df876cd4": {
+      "id": "9f14df876cd4",
+      "description": "Day party at Perry's Beach Club Santa Monica: CUT SNAKE, NEGUS, SKETTI, special guests (3pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "41debf68a73d": {
+      "id": "41debf68a73d",
+      "description": "2010s hits party at The Continental Club (10pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "2db38d7ead22": {
+      "id": "2db38d7ead22",
+      "description": "UCLA jazz ensemble house set (7:30pm) and jam session (9:30-11pm) at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "e8d2711a0729": {
+      "id": "e8d2711a0729",
+      "description": "Warehouse party with Anastasia, Aundreja, Marie Nyx, Selective Response (11pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "1a1cf14f5b93": {
+      "id": "1a1cf14f5b93",
+      "description": "Deaf Touch Records presents Conch and SLUG at The Smell ($10).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "c1a32b9ab8bf": {
+      "id": "c1a32b9ab8bf",
+      "description": "CHIRLA benefit show at The Smell: Special Forces, The Chapel, Uncle ($10, Halloween-themed).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "8541ef42442e": {
+      "id": "8541ef42442e",
+      "description": "Theater production 'Spades: the Play' at 2415 W Washington Blvd (7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "medium"
+    },
+    "0ec4babb719e": {
+      "id": "0ec4babb719e",
+      "description": "Grace C Elliot, Alternity, Michael Strauss perform at Creative Technology Center (7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "3fbb312e39a7": {
+      "id": "3fbb312e39a7",
+      "description": "Suicide Queen live performance at Drac'Haus (1am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "b68ebad2f732": {
+      "id": "b68ebad2f732",
+      "description": "Day party at The Reserve Lounge (GENTS Presents: Dice House theme, 1pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "medium"
+    },
+    "caa24c5f7694": {
+      "id": "caa24c5f7694",
+      "description": "Rooftop party at Sunset Rooftop (Wild N Out Wednesdays).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "8c453c89d789": {
+      "id": "8c453c89d789",
+      "description": "Benefit concert for Free Them All Now with Beli, Immortal Nightbody, and Protect Me; all proceeds support ICE detainee commissaries ($10).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "871fa937ebc2": {
+      "id": "871fa937ebc2",
+      "description": "Live show at The Smell featuring Twig & Ezra, Rubber O Cement, Siggy, Soiled Doilies, War Hippy, and Sgt. Cobra Queef ($10).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "4595b1ca47e6": {
+      "id": "4595b1ca47e6",
+      "description": "3D short film screening curated by Blake Williams at 2220 Arts + Archives.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "3e8239dbafa6": {
+      "id": "3e8239dbafa6",
+      "description": "Live music at 2220 Arts + Archives with Max Jaffe, Tim Dahl, Nick Reinhart, and Jonathon Haffner.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "medium"
+    },
+    "17a5437b0897": {
+      "id": "17a5437b0897",
+      "description": "Tenor saxophonist Joel Frahm Trio performs his Lumination tour at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "9b6e3608bc1e": {
+      "id": "9b6e3608bc1e",
+      "description": "Jazz trio with Michael Ragonese, Anthony Fung, and Luca Alemanno at Sam First.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "medium"
+    },
+    "85f69d95f62b": {
+      "id": "85f69d95f62b",
+      "description": "Italian-themed brunch party at Votana (La Dolce Vita, 11am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "medium"
+    },
+    "e01534130e35": {
+      "id": "e01534130e35",
+      "description": "Pre-ComplexCon party with KREATE x ARKYVE (now on Partiful) hosted by TrendyJosh, Baby7, and CozyRaf.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "40998c2d641d": {
+      "id": "40998c2d641d",
+      "description": "Classic silent film Häxan screens at Vista Theater.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "334c05b28527": {
+      "id": "334c05b28527",
+      "description": "Early morning rave at Pluto LA penthouse (Early Birdz Flight, 10am start).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "a15a40bcc77c": {
+      "id": "a15a40bcc77c",
+      "description": "Lip sync party at Jungle Hollywood.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "01e59d07c808": {
+      "id": "01e59d07c808",
+      "description": "Karaoke and chill party at The Hype Spot.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "18b28f0a8d47": {
+      "id": "18b28f0a8d47",
+      "description": "Pop-up market with local vendors selling Dodgers apparel and food at Common Space Brewery (game day).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "436576fd7653": {
+      "id": "436576fd7653",
+      "description": "Community open house at Cabrillo Marine Aquarium exploring salt marsh ecology with binoculars and magnifying glasses.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "91d04760bf80": {
+      "id": "91d04760bf80",
+      "description": "Phish tribute band The Great Divide plays at The Mint on Halloween.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "039bf0237cd9": {
+      "id": "039bf0237cd9",
+      "description": "Electronic DJ night with Gay Felony and Jen Ferrer at Apotheke (9:30pm-1am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "1375ce9c9f8e": {
+      "id": "1375ce9c9f8e",
+      "description": "Multi-DJ electronic party featuring BAE BAE, Gay Felony, Spinorita, Yessi, and 5p3c141 (midnight-5am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "b6740ec5149e": {
+      "id": "b6740ec5149e",
+      "description": "Wicked Part 1 sing-along screening with costumes, music, potions bar, and Halloween entertainment.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "03e14b407b21": {
+      "id": "03e14b407b21",
+      "description": "Queer Halloween electronic party at The Catwalk Club (9pm-2am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
+      "confidence": "high"
+    },
+    "67feaed7841f": {
+      "id": "67feaed7841f",
+      "description": "Halloween electronic party with DJ Cali at Catch One (9pm-2am).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-09-27T04:37:11",
       "confidence": "high"
     }
   },
@@ -22991,6 +23585,66 @@
     "shefa": {
       "note": "Couldn't verify a substantive bio — no confirmed public profile as a touring DJ; treat as unproven/local until more turns up.",
       "seen": "2026-09-26T12:25:55"
+    },
+    "armand van helden": {
+      "note": "Grammy-winning house/garage veteran since the '90s ('You Don't Know Me,' half of Duck Sauce) — a genuinely legacy name for an afternoon park party.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "james poole": {
+      "note": "Rising North-of-England house DJ/producer — releases on Hot Creations, Elrow and Experts Only, directly in the fabric/Hot Creations European house orbit.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "athena": {
+      "note": "Couldn't verify a confident bio for this booking — flagging as unknown rather than guessing.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "nelzon": {
+      "note": "A recurring Sunday Sessions resident (recorded sets from past editions are online) — couldn't pin down a fuller bio beyond that, so treat as an unknown quantity.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "roman a": {
+      "note": "Couldn't verify a confident bio for this name — flagging rather than guessing.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "olivia dean": {
+      "note": "British neo-soul/pop singer-songwriter (Mercury-nominated album 'Messy') — warm, jazz-inflected pop, leans more soul-show than dance.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "khruangbin": {
+      "note": "Houston trio — hypnotic, largely wordless psych-soul/funk built on Thai-funk-inspired guitar; now a genuine amphitheater-level draw.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "durand jones and the indications": {
+      "note": "Indiana retro-soul band (Dead Oceans) — horn-driven, deeply '60s/'70s soul-revival sound.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "hiatus kaiyote": {
+      "note": "Melbourne 'future soul' band led by Nai Palm — dense, virtuosic jazz-funk that's drawn Grammy nods and real respect from the Thundercat/D'Angelo circle.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "erez": {
+      "note": "NY/LA-based producer-vocalist — sultry, emotionally-charged house released via Crosstown Rebels, DFTD (Defected) and Get Physical.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "bawab": {
+      "note": "Couldn't verify a confident bio for this DJ — flagging as unknown rather than guessing.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "mallrat": {
+      "note": "Grace Shaw — Brisbane dream-pop/indie artist known for wistful, synth-laced tracks like 'Charlie' and 'Rockstar'; more atmospheric bedroom-pop than club music.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "holy sun opera house": {
+      "note": "LA duo of opera singer/drummer Krissy Barker and composer dl Salo (A Story of Rats, Saint Genet) — symphonic synths, operatic vocals and heavy drums, self-titled debut just out on Hologram Opera.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "carolyn pennypacker riggs": {
+      "note": "LA composer and multimedia artist working across sound, sculpture and ritual-performance; leads the resistance-chorus project Community Chorus and is half of the pop duo Bouquet.",
+      "seen": "2026-09-27T04:37:11"
+    },
+    "anenon": {
+      "note": "Brian Allen Simon — LA ambient/jazz producer and Non Projects label founder who folds his own saxophone into dreamy, abstract electronic-jazz soundscapes (Friends of Friends' 'Petrol'). A live set, not a DJ set.",
+      "seen": "2026-09-27T04:37:11"
     }
   }
 }
