@@ -45,8 +45,11 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    Discovery API's 1000-results/query cap (which was silently truncating even the 120-day pull).
    Ghost-detection stays on the near (120d) window, so far events aren't flagged unlisted before
    their feeds list them. Capture the run report (failed/skipped sources) for footers. Degrades
-   gracefully. The Phase C music layer rides along: if `SPOTIFY_REFRESH_TOKEN` is set it syncs
-   Spotify and folds it with `data/feedback.jsonl` into the scoring (report prints a `music layer …` line).
+   gracefully. The Phase C music layer rides along: it syncs the owner's Spotify — via
+   `SPOTIFY_REFRESH_TOKEN`, else the dashboard-connected account through the concierge Worker
+   (`SPOTIFY_SYNC_TOKEN`) — and folds it with `data/feedback.jsonl` into the scoring BEFORE the
+   enrichment head / editor pool are cut (report prints a `music layer …` line; a missing or failed
+   sync lands in the digest footer).
 2. **Layer in + re-score:** add the sources the core doesn't cover (SKILL Step 2) — the Gmail
    "Events" label if available, `webfetch`/`squarespace`/`ics` venues (≤15-source budget), and this
    week's editorial roundups as `editorial_mentions`. Then `python scripts/run_digest.py --no-fetch`
@@ -129,8 +132,8 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
 6. Maintain `digests/weekends/index.md`: one row per weekend (date range, # events, top pick),
    soonest first; drop past weekends.
 7. **Sync Spotify, rebuild ALL dashboard feeds (deterministic — free), then gate the LLM layer.**
-   - First, if the per-profile music layer is configured (env `SPOTIFY_SYNC_URL` +
-     `SPOTIFY_SYNC_TOKEN` — the concierge Worker), `python scripts/sync_profiles_spotify.py`
+   - First, if the per-profile music layer is configured (env `SPOTIFY_SYNC_TOKEN` — the concierge
+     Worker; `SPOTIFY_SYNC_URL` defaults to the owner's Worker), `python scripts/sync_profiles_spotify.py`
      (SKIPs cleanly if unset).
    - Refresh resale floors: `python scripts/check_prices.py --auto` — one Gametime query per
      featured act (the ranked head + starred events, ~60 max) + SeatGeek when

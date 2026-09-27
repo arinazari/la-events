@@ -84,6 +84,85 @@ def test_spotify_success_is_marked_ok():
     assert isinstance(sp, dict) and sp["ok"] is True
 
 
+def _run_affinity_worker_path(env, fake_sync=None):
+    """Drive load_affinity_layer with SPOTIFY_* env set to `env` (others unset), R.REPO pointed at a
+    temp repo, and sync_profiles_spotify stubbed (owner hash fixed; `fake_sync(repo)` plays the
+    subprocess — write the artifact to succeed, print a WARN to fail). Returns (report, affinity)."""
+    import os
+    import tempfile
+    import sync_profiles_spotify as S
+
+    keys = ("SPOTIFY_REFRESH_TOKEN", "SPOTIFY_SYNC_TOKEN")
+    saved = {k: os.environ.get(k) for k in keys}
+    orig_repo, orig_run, orig_oh = R.REPO, R.subprocess.run, S._owner_hash
+    calls = []
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp)
+        (repo / "data").mkdir()
+
+        class _Proc:
+            returncode = 0
+            stdout = ""
+            stderr = ""
+
+        def run(cmd, **_k):
+            calls.append(cmd)
+            p = _Proc()
+            if fake_sync:
+                p.stdout, p.stderr = fake_sync(repo)
+            return p
+        try:
+            for k in keys:
+                os.environ.pop(k, None)
+            os.environ.update(env)
+            R.REPO, R.subprocess.run, S._owner_hash = repo, run, (lambda: "ownerhash0000000")
+            report = {}
+            aff = R.load_affinity_layer(no_fetch=False, report=report, profile={})
+            return report, aff, calls
+        finally:
+            R.REPO, R.subprocess.run, S._owner_hash = orig_repo, orig_run, orig_oh
+            for k, v in saved.items():
+                if v is None:
+                    os.environ.pop(k, None)
+                else:
+                    os.environ[k] = v
+
+
+def test_worker_path_syncs_owner_spotify_into_the_digest_layer():
+    """No SPOTIFY_REFRESH_TOKEN but a Worker token: the owner's dashboard-connected Spotify is
+    pulled BEFORE scoring, so the enrichment head / editor pool / digest see it (not only feeds)."""
+    import json
+
+    def fake(repo):
+        (repo / "data" / "spotify_affinity.json").write_text(json.dumps({
+            "source": "spotify", "genres": {},
+            "artists": {"antal": {"name": "Antal", "weight": 3.4, "tier": "core", "sources": ["top_long"]}}}))
+        return "  owner bridge: ...\nSynced 1/1 connected profile(s).", ""
+    report, aff, calls = _run_affinity_worker_path({"SPOTIFY_SYNC_TOKEN": "t"}, fake)
+    assert calls and calls[0][-2:] == ["--only", "ownerhash0000000"]
+    assert report["spotify"] == {"ok": True, "note": "Synced owner Spotify via Worker (1 artists)"}
+    assert aff and "antal" in aff["artists"] and aff["source"] == "spotify"
+
+
+def test_worker_path_failure_is_recorded():
+    """Owner not connected / Worker down: the sync exits 0 without writing — recorded ok=False."""
+    report, aff, _ = _run_affinity_worker_path(
+        {"SPOTIFY_SYNC_TOKEN": "t"},
+        lambda repo: ("Synced 0/1 connected profile(s). 1 FAILED — …",
+                      "  WARN: ownerhash0000000 failed (HTTP Error 404: Not Found); skipped."))
+    assert report["spotify"]["ok"] is False
+    assert report["spotify"]["note"].startswith("ownerhash0000000 failed (HTTP Error 404")
+    assert aff is None
+
+
+def test_unconfigured_music_layer_is_disclosed_not_silent():
+    """Neither token set: previously NO report entry (the footer said nothing while ranking ran
+    feedback-only for weeks). Now it's an explicit ok=False the footer discloses."""
+    report, _, calls = _run_affinity_worker_path({})
+    assert calls == []
+    assert report["spotify"]["ok"] is False and "not configured" in report["spotify"]["note"]
+
+
 def test_clean_spotify_note_strips_markers():
     assert R._clean_spotify_note("SKIP: set SPOTIFY_CLIENT_ID …") == "set SPOTIFY_CLIENT_ID …"
     assert R._clean_spotify_note("Wrote Spotify affinity -> x") == "Wrote Spotify affinity -> x"

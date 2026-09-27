@@ -157,10 +157,21 @@ def load_affinity_layer(no_fetch: bool, report: dict, profile: dict) -> dict:
     digest and the dashboard. Degrades gracefully: any failure leaves the scorer on the
     taste.yaml-only path. The music layer only ever enriches. Returns the affinity dict or None.
 
+    Two ways to get the owner's Spotify, tried in order:
+      1. SPOTIFY_REFRESH_TOKEN -> fetch_spotify.py (the direct path).
+      2. SPOTIFY_SYNC_TOKEN -> the concierge Worker (the owner connected Spotify in the dashboard;
+         the Worker holds the token). sync_profiles_spotify.py --only <owner hash> bridges it into
+         data/spotify_affinity.json. This MUST happen here, not only in the routine's later feed
+         step: the artifact is gitignored, so without it the enrichment head, editor pool, and
+         digest all score feedback-only in a fresh container.
+
     Records `report["spotify"]` as {"ok": bool, "note": str} so the run report + the digest
-    footer can disclose a failed refresh (revoked token / API error) instead of swallowing it.
+    footer can disclose a failed refresh (revoked token / API error) — or a music layer that
+    isn't configured at all — instead of swallowing it.
     """
-    if not no_fetch and os.environ.get("SPOTIFY_REFRESH_TOKEN"):
+    if no_fetch:
+        return FB.merged_affinity(REPO, profile)
+    if os.environ.get("SPOTIFY_REFRESH_TOKEN"):
         try:
             proc = subprocess.run([sys.executable, str(REPO / "scripts" / "fetch_spotify.py"),
                                    "-o", str(REPO / "data" / "spotify_affinity.json")],
@@ -175,7 +186,38 @@ def load_affinity_layer(no_fetch: bool, report: dict, profile: dict) -> dict:
             report["spotify"] = {"ok": ok, "note": _clean_spotify_note(note)}
         except Exception as ex:  # noqa: BLE001
             report["spotify"] = {"ok": False, "note": f"sync failed: {str(ex).splitlines()[0][:100]}"}
-    return FB.merged_affinity(REPO, profile)
+    elif os.environ.get("SPOTIFY_SYNC_TOKEN"):
+        report["spotify"] = _owner_worker_sync()
+    affinity = FB.merged_affinity(REPO, profile)
+    if "spotify" not in report and "spotify" not in ((affinity or {}).get("source") or ""):
+        report["spotify"] = {"ok": False, "note": "not configured — set SPOTIFY_SYNC_TOKEN "
+                             "(dashboard-connected Spotify) or SPOTIFY_REFRESH_TOKEN"}
+    return affinity
+
+
+def _owner_worker_sync() -> dict:
+    """Pull the owner's dashboard-connected Spotify through the Worker into
+    data/spotify_affinity.json (sync_profiles_spotify's owner bridge). Health is read from the
+    artifact actually being rewritten — the script exits 0 on every failure by design."""
+    art = REPO / "data" / "spotify_affinity.json"
+    try:
+        from sync_profiles_spotify import _owner_hash
+        oh = _owner_hash()
+        if not oh:
+            return {"ok": False, "note": "no owner profile in profiles.yaml to sync Spotify for"}
+        before = art.stat().st_mtime_ns if art.exists() else None
+        proc = subprocess.run([sys.executable, str(REPO / "scripts" / "sync_profiles_spotify.py"),
+                               "--only", oh], capture_output=True, timeout=120, cwd=str(REPO), text=True)
+        after = art.stat().st_mtime_ns if art.exists() else None
+        if proc.returncode == 0 and after is not None and after != before:
+            n = len((json.loads(art.read_text()).get("artists")) or {})
+            return {"ok": True, "note": f"Synced owner Spotify via Worker ({n} artists)"}
+        lines = ((proc.stderr or "") + "\n" + (proc.stdout or "")).strip().splitlines()
+        warn = next((ln.strip() for ln in lines if "WARN" in ln or "SKIP" in ln), None)
+        note = warn or (lines[-1] if lines else f"exit {proc.returncode}")
+        return {"ok": False, "note": _clean_spotify_note(note)[:160]}
+    except Exception as ex:  # noqa: BLE001
+        return {"ok": False, "note": f"Worker sync failed: {str(ex).splitlines()[0][:100]}"}
 
 
 def main() -> int:
