@@ -349,6 +349,25 @@ def event_genre_tags(ev: dict):
     return tags.get("genre") or []
 
 
+def with_loved_genres(affinity: dict, taste: dict) -> dict:
+    """Fold taste.yaml `genres_loved` into the affinity's genres at full weight (1.0).
+
+    The learned genre weights are RELATIVE to your most-reinforced genre, so a genre you name as
+    core can sit under genre_threshold just because another one collected more stars. Declared
+    genres are a stable floor; learned ones still stack on top. Per-person (taste.yaml, never the
+    shared profile.yaml). Returns the affinity unchanged when nothing is declared; a declared list
+    with no affinity yields a genre-only layer (source "taste")."""
+    loved = [genre_key(g) for g in ((taste or {}).get("genres_loved") or []) if genre_key(g)]
+    if not loved:
+        return affinity
+    out = dict(affinity or {"source": "taste", "artists": {}})
+    genres = dict(out.get("genres") or {})
+    for g in loved:
+        genres[g] = 1.0
+    out["genres"] = genres
+    return out
+
+
 def genre_affinity(hay: str, affinity: dict, profile: dict = None, event_tags=None) -> tuple:
     """(points, reasons) when a high-affinity genre is on this event (see genre_hits). Conservative."""
     genres = (affinity or {}).get("genres") or {}
