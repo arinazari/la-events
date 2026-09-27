@@ -107,18 +107,22 @@ The reasons in `candidates.json` cite it ("Spotify core rotation (Antal)", "more
 
 Step 1/3 also emitted `data/editor_pool.json` — the per-lane set worth LLM ranking-judgment
 (`scripts/lib/editor.py` `editor_pool`: top-K per surfaceable lane ∪ a score floor, over the next
-~4 weeks). Fan out the **`event-editor`** agent over the not-yet-judged events (`select_for_verdict`,
-so only new/changed ones cost a call) in parallel batches, passing `taste.yaml`; each pool record
-carries the deterministic score + reasons + tags + lane and — when Spotify is connected — an
-`affinity` hint plus the profile's listening lane. The agent returns a per-event **verdict**
-(`{tier, lane?, adjust, why, confidence}`) — the judgment the heuristic can't make: headliner draw,
-tired formats, sleepers, lane fixes. Merge with `python scripts/merge_verdicts.py <results.json>`
-(writes the per-profile store `data/verdicts/default.json`). `assemble()` folds verdicts onto the
+~4 weeks). `python scripts/editor_batches.py` selects the not-yet-judged events (`select_for_verdict`,
+so only new/changed ones cost a call) and writes self-contained batch files to
+`data/editor_batches/default/`; fan out one **`event-editor`** agent per file, in parallel, passing
+only the file path. Each pool record carries the deterministic score + reasons + tags + lane and —
+when Spotify is connected — an `affinity` hint; each file carries the taste brief + the profile's
+listening lane. The agent writes a per-event **verdict** (`{tier, lane?, adjust, why, confidence}`)
+to its file's `results_path` and replies with one summary line — the judgment the heuristic can't
+make: headliner draw, tired formats, sleepers, lane fixes. Merge with
+`python scripts/merge_verdicts.py data/editor_batches/default/*.results.json` (writes the
+per-profile store `data/verdicts/default.json`). `assemble()` folds verdicts onto the
 slate in Step 6 (tier orders, `adjust` de-clusters, `lane` overrides, `skip` buries); the dashboard
 shows the verdict-adjusted **final rank** beside the deterministic score. Verdicts are cached +
 committed, so a daily run only judges the delta. *Per-profile:* `build_profiles.py` emits each
-profile's own pool (`data/editor_pool.<hash>.json`); run the editor per profile and merge with
-`merge_verdicts.py --profile-hash <hash>`.
+profile's own pool (`data/editor_pool.<hash>.json`); plan it with `editor_batches.py --profile-hash
+<hash>`, run the editor per batch file, and merge with `merge_verdicts.py
+data/editor_batches/<hash>/*.results.json --profile-hash <hash>`.
 
 ### Step 5 — Enrich the candidates  *(two tiers: scene-researcher + blurb-writer)*
 

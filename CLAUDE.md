@@ -85,6 +85,8 @@ scripts/lib/                        # shared modules: scoring, dedupe, pipeline,
                                     #     top_picks, the ONE Don't-miss policy shared by digest shelf & front-page hero),
                                     #   artist_links (Spotify artist-page resolver → data/artist_links.json — the
                                     #     dashboard's direct ▶ listen links; creds-gated, runs inside run_digest) — tested
+scripts/editor_batches.py           # plan the event-editor fan-out: one self-contained batch file per agent
+                                    #   (records + taste brief + its results_path) → data/editor_batches/<hash>/
 scripts/merge_verdicts.py           # fold event-editor results JSON → per-profile data/verdicts/<hash>.json
 scripts/profile_refresh_gate.py     # nightly taste-change gate: per profile REFRESH/SKIP/OWNER — friends' LLM
                                     #   passes run on taste change or manual Update, never on catalog movement alone
@@ -114,6 +116,7 @@ data/catalog.json                   # deduped events store (committed = the stat
 data/candidates.json                # scored, ranked top-N (full-enrichment head) (runtime; gitignored)
 data/blurb_pool.json                # cheap-tier (blurb-writer) candidate band below the head (runtime; gitignored)
 data/editor_pool*.json              # event-editor judging pool, per profile (runtime; gitignored)
+data/editor_batches/<hash>/         # event-editor batch + results files, one pair per agent (runtime; gitignored)
 data/radar.json                     # "on the radar" set for the consolidated digest (runtime; gitignored)
 data/verdicts/<hash>.json           # event-editor verdicts, per profile (committed; only the delta is judged each run)
 data/enrichment.json                # scene-graph cache: per-event enrichment (full + blurb tiers) + artist notes (committed; grows each run)

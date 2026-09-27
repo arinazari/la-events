@@ -157,6 +157,13 @@ jobs:
           HASH: ${{ steps.target.outputs.hash }}
           IS_OWNER: ${{ steps.target.outputs.is_owner }}
         run: |
+          # Salvage first: fold in editor batch results the LLM step wrote but never merged (its
+          # wall clock killed it mid-run). Re-merging an already-merged batch is harmless — same
+          # verdicts, fresh judged_at. Owner results land in the default store, which the commit
+          # step below carries.
+          if ls data/editor_batches/"$HASH"/*.results.json >/dev/null 2>&1; then
+            python scripts/merge_verdicts.py data/editor_batches/"$HASH"/*.results.json --profile-hash "$HASH" || true
+          fi
           mkdir -p "digests/$HASH"
           if [ "$IS_OWNER" = "true" ]; then
             cp digests/latest.md "digests/$HASH/latest.md"
