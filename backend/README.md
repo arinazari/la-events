@@ -280,9 +280,9 @@ fingerprint before debugging anything else.
 | `CONCIERGE_TOKEN`   | `wrangler secret put` | optional shared token gating the proxy (see Auth) |
 | `GITHUB_TOKEN`      | `wrangler secret put` | optional — a **fine-grained PAT scoped to this repo, Contents: read & write**. That one scope covers taste **and** profile self-edit AND the refresh/update buttons (the `repository_dispatch` endpoint requires Contents: write — *not* Actions). Set it to enable those; leave it unset and the Worker is chat-only. |
 | `POSH_TOKEN`        | `wrangler secret put` | optional — enables the `/posh` relay: `scripts/fetch_posh.py` retries through it when posh.vip's Cloudflare challenges the digest runner's datacenter IP (cloud sessions, GH Actions). Same session JWT as everywhere else; the route requires the caller to present a matching one, so **update this copy too at each ~monthly re-capture** or the fetcher will flag "sync the Worker copy". Unset → the route answers 501 and the fetcher degrades with an honest footer line. |
-| `ANTHROPIC_MODEL`   | `wrangler.toml [vars]` | **executor** model — does the bulk of generation (default `claude-sonnet-4-6`) |
-| `ADVISOR_MODEL`     | `wrangler.toml [vars]` | **advisor** the executor consults for multi-step planning (default `claude-opus-4-8`; `""` disables; must be ≥ the executor) |
-| `EFFORT`            | `wrangler.toml [vars]` | executor effort `low`/`medium`/`high`/`max` (default `max`) |
+| `ANTHROPIC_MODEL`   | `wrangler.toml [vars]` | **executor** model — does the bulk of generation (default `claude-sonnet-5`) |
+| `ADVISOR_MODEL`     | `wrangler.toml [vars]` | **advisor** the executor consults for multi-step planning (default `claude-opus-4-8`; `""` disables; must be ≥ the executor; skipped automatically when the executor *is* this model) |
+| `EFFORT`            | `wrangler.toml [vars]` | executor effort `low`/`medium`/`high`/`xhigh`/`max` (default `medium`) |
 | `MAX_TOKENS`        | `wrangler.toml [vars]` | output cap (default `8000`; raise if complex plans truncate — `stop_reason: max_tokens`) |
 | `DATA_URL`          | `wrangler.toml [vars]` | the published `data.json` to ground on (profile feeds are derived from it) |
 | `ALLOWED_ORIGIN`    | `wrangler.toml [vars]` | CORS origin (your Pages site) |
@@ -291,13 +291,21 @@ fingerprint before debugging anything else.
 
 ## Quality & cost
 
-Tuned for **multi-step, high-quality planning**:
+Tuned for **good multi-step planning at a sane per-message cost** (2026-09 model-tiering pass —
+it used to run Sonnet 4.6 at `max` with an uncapped, uncached Opus consult on every request):
 
-- **Advisor mode** — the cheap **executor** (Sonnet 4.6) does the generation and consults a stronger
+- **Advisor mode** — the cheap **executor** (Sonnet 5) does the generation and consults a stronger
   **advisor** (Opus 4.8) for planning (the `advisor_20260301` server tool). Opus-level plans at
-  Sonnet-level bulk cost. The advisor must be ≥ the executor — if you set `ANTHROPIC_MODEL` to Opus,
-  set `ADVISOR_MODEL` to the same Opus (or `""`), or the request 400s.
-- **Max effort + adaptive thinking** — `EFFORT=max` + `thinking: adaptive` for the deepest reasoning.
+  Sonnet-level bulk cost. The consult is capped at **one per API call** (`max_uses: 1`; the
+  post-tool follow-up call gets its own) and its prompt is **cached** (5-min TTL), so a follow-up
+  turn re-reads the grounded prefix at ~0.1× instead of full Opus input price. The advisor must be
+  ≥ the executor — when the executor *is* the advisor model (the page's **Use Opus** toggle, or
+  `ANTHROPIC_MODEL` set to that Opus) the Worker drops the advisor, since Opus consulting Opus pays
+  twice for the same model. `buildTools` holds these rules (tested in `test-edits.mjs`).
+- **Medium effort + adaptive thinking** — `EFFORT=medium` + `thinking: adaptive`. Anthropic's
+  migration guidance puts Sonnet 5 at `medium` on par with Sonnet 4.6 at `high`; raise to
+  `high`/`max` if plans ever read thin (and then give `MAX_TOKENS` headroom — Sonnet 5's tokenizer
+  uses ~30% more tokens for the same text).
 - **Prompt caching** — the persona + grounded feed (the big, stable prefix) is sent as a cache block,
   so turns 2+ of a conversation read it at ~0.1× input cost.
 - **Streaming upstream** — the Worker calls Anthropic with `stream: true` and folds the SSE back
@@ -320,12 +328,12 @@ Tuned for **multi-step, high-quality planning**:
 
 **Executor upgrade:** the page's **Use Opus** toggle sends `model: "opus"` in the body, and the
 Worker honors it for **any authed caller** — shared-token users included (Ari's call: the token
-already gates who can spend at all). BYOK callers pay on their own key as before.
+already gates who can spend at all). BYOK callers pay on their own key as before. The advisor is
+skipped on those requests (the executor already is the advisor model).
 
-**Tradeoff:** max effort + adaptive thinking + an Opus advisor is **slower and pricier per message**
-(a complex "plan my Saturday" can take tens of seconds — the page shows a spinner and a stop button).
-Dial it back anytime without code: set `EFFORT=high` (or `medium`), or `ADVISOR_MODEL=""` to drop the
-Opus consult. If long plans get cut off, raise `MAX_TOKENS`.
+**Tradeoff:** the defaults favor cost — medium effort and one capped Opus consult. Dial up anytime
+without code: `EFFORT=high` (or `max`) for deeper reasoning; dial down further with `EFFORT=low` or
+`ADVISOR_MODEL=""` to drop the Opus consult entirely. If long plans get cut off, raise `MAX_TOKENS`.
 
 ## Auth — read this
 
