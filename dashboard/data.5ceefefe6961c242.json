@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T12:29:11+00:00",
+  "generated_at": "2026-09-27T02:18:17+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "a006775acbfb",
@@ -1166,9 +1166,9 @@
       "76c77f040c95",
       "2c1594f123c1",
       "a275d78b3f74",
-      "a7aa11b84fa4",
       "4edb53aea20f",
       "d49eb8554c26",
+      "a7aa11b84fa4",
       "8ed43da5edb4",
       "4d874f91d64b",
       "ed0972c5b32f",
@@ -5945,6 +5945,12 @@
       },
       "lane": "club:underground",
       "key": "4d33fae4bb60",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "final_rank": 7
     },
     {
@@ -9837,6 +9843,12 @@
       },
       "lane": "club:day",
       "key": "85717528a66f",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "final_rank": 675
     },
     {
@@ -307826,14 +307838,14 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-09-19",
-            "summary": "digest: 2026-09-19 checkpoint \u2014 deterministic core (3808 events) + Step-2 layering (squarespace/ics/jsonld/webfetch/editorial) merged"
+            "date": "2026-06-25",
+            "summary": "Add three empty friend profiles: garo, taylor, alexa (#62)"
           }
         ],
-        "diff": "",
-        "diff_kind": "none",
+        "diff": "diff --git a/profiles/alexa/taste.yaml b/profiles/alexa/taste.yaml\nnew file mode 100644\nindex 0000000..0cd4c9e\n--- /dev/null\n+++ b/profiles/alexa/taste.yaml\n@@ -0,0 +1,19 @@\n+# Taste profile \u2014 Alexa. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only alexa\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium:  []   # +2 each\n+  low:     []   # +1, include only if exceptional\n+\n+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: []   # -2 each (the \"not for me\" list)\n+\n+artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n+comedians_loved:  []\n+venues_loved:     []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-09-19"
+        "enriched_at": "2026-07-15"
       },
       "profile": {
         "file": "profiles/alexa/profile.yaml",

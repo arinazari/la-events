@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T12:29:13+00:00",
+  "generated_at": "2026-09-27T02:18:19+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "a006775acbfb",
@@ -1166,9 +1166,9 @@
       "76c77f040c95",
       "2c1594f123c1",
       "a275d78b3f74",
-      "a7aa11b84fa4",
       "4edb53aea20f",
       "d49eb8554c26",
+      "a7aa11b84fa4",
       "8ed43da5edb4",
       "4d874f91d64b",
       "ed0972c5b32f",
@@ -5966,6 +5966,12 @@
       },
       "lane": "club:underground",
       "key": "4d33fae4bb60",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "final_rank": 7
     },
     {
@@ -9858,6 +9864,12 @@
       },
       "lane": "club:day",
       "key": "85717528a66f",
+      "stars": [
+        {
+          "name": "Ari",
+          "hash": "1d8a45fa37024d33"
+        }
+      ],
       "final_rank": 677
     },
     {
@@ -307850,28 +307862,36 @@
         "exists": true,
         "history": [
           {
-            "date": "2026-09-19",
-            "summary": "digest: 2026-09-19 checkpoint \u2014 deterministic core (3808 events) + Step-2 layering (squarespace/ics/jsonld/webfetch/editorial) merged"
+            "date": "2026-09-04",
+            "summary": "taste(Raffi): Track John Summit (Alesso and Kaskade already tracked)"
+          },
+          {
+            "date": "2026-07-06",
+            "summary": "taste(Raffi): Added Alesso, Kaskade, Swedish House Mafia as tracked artists; boosted b"
+          },
+          {
+            "date": "2026-06-26",
+            "summary": "Add Raffi profile (blank taste)"
           }
         ],
-        "diff": "",
-        "diff_kind": "none",
+        "diff": "diff --git a/profiles/raffi/taste.yaml b/profiles/raffi/taste.yaml\nindex b0ba074..e489e68 100644\n--- a/profiles/raffi/taste.yaml\n+++ b/profiles/raffi/taste.yaml\n@@ -11,7 +11,7 @@ categories:\n boosts: [ Dodgers ] # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n penalties: [] # -2 each (the \"not for me\" list)\n \n-artists_tracked: [ Alesso, Kaskade, Swedish House Mafia ] # lineup match => +2 and a \"tracked\" badge\n+artists_tracked: [ Alesso, Kaskade, Swedish House Mafia, John Summit ] # lineup match => +2 and a \"tracked\" badge\n comedians_loved: []\n venues_loved: []\n \n@@ -20,3 +20,5 @@ feedback:\n   - \"2026-07-07: Added Alesso, Kaskade, Swedish House Mafia as tracked artists;\n     boosted big-room/festival EDM; added Dodgers as a boost interest. (self-edit\n     via concierge)\"\n+  - \"2026-09-05: Track John Summit (Alesso and Kaskade already tracked)\n+    (self-edit via concierge)\"",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-09-19"
+        "enriched_at": "2026-09-05"
       },
       "profile": {
         "file": "profiles/raffi/profile.yaml",
         "exists": true,
         "history": [
           {
-            "date": "2026-09-19",
-            "summary": "digest: 2026-09-19 checkpoint \u2014 deterministic core (3808 events) + Step-2 layering (squarespace/ics/jsonld/webfetch/editorial) merged"
+            "date": "2026-07-06",
+            "summary": "profile(Raffi): Moved home to Studio City (Ventura & Laurel Canyon area)."
           }
         ],
-        "diff": "",
-        "diff_kind": "none",
+        "diff": "diff --git a/profiles/raffi/profile.yaml b/profiles/raffi/profile.yaml\nnew file mode 100644\nindex 0000000..5e03964\n--- /dev/null\n+++ b/profiles/raffi/profile.yaml\n@@ -0,0 +1,8 @@\n+# profile.yaml \u2014 MECHANISM overrides for Raffi's feed, created by the dashboard concierge.\n+# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs\n+# that differ need to live here \u2014 anything absent falls back to the repo defaults.\n+\n+home:\n+  neighborhood: Studio City\n+  cross_streets: Ventura Blvd & Laurel Canyon Blvd\n+  coords: [ 34.14, -118.39 ]",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-09-19"
+        "enriched_at": "2026-09-05"
       }
     }
   }
