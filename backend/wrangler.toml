@@ -1,5 +1,9 @@
 # Cloudflare Worker config for the la-events concierge backend.
-# Deploy:  cd backend && npm i && npx wrangler deploy
+# Deploy:  automatic — Cloudflare Workers Builds (the Worker's Git integration) deploys `main` to
+#          production on push (~30s) and uploads a preview version for other branches (URLs on the
+#          PR). Manual fallback: cd backend && npm i && npx wrangler deploy
+#          [vars] below ship with every deploy and replace values edited in the Cloudflare
+#          dashboard — change knobs here and merge. Secrets are unaffected.
 # Secrets: npx wrangler secret put ANTHROPIC_API_KEY
 #          npx wrangler secret put CONCIERGE_TOKEN     (optional shared token — recommended)
 #          npx wrangler secret put GITHUB_TOKEN        (optional — taste self-edit + Spotify rebuild kick)

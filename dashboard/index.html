@@ -2409,7 +2409,7 @@ class Component extends DCLogic {
   // ---------- backend health ping + deploy fingerprint ----------
   // "Connected" means the Worker answered a ping with these credentials — not just that a token
   // is typed. The ping's `v` is the live build; day-prefix-older than MIN_BACKEND_VERSION flags
-  // "old build — redeploy" (wrangler deploys are manual and can silently not land).
+  // "old build — redeploy" (the auto-deploy from main can fail or lag; a manual one can land elsewhere).
   MIN_BACKEND_VERSION = '2026-07-24-react2';
   async pingBackend() {
     if (!this.BACKEND_URL) { this.setState({ backendStatus: null }); return; }

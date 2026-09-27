@@ -57,8 +57,9 @@ import { parse as yamlParse, parseDocument } from "yaml";
 import CalendarCore from "../dashboard/calendar-core.js";
 
 // Deploy fingerprint, surfaced by GET / (unauthenticated) and the authed ping. Bump on every
-// change that ships: wrangler deploys are MANUAL, so "is the fix actually live?" must be
-// checkable from outside — `curl https://<worker>/` — instead of guessed. Keep the YYYY-MM-DD
+// change that ships: Cloudflare Workers Builds deploys `main` automatically, but a build can fail
+// or lag a merge, so "is the fix actually live?" must be checkable from outside —
+// `curl https://<worker>/` — instead of guessed. Keep the YYYY-MM-DD
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
