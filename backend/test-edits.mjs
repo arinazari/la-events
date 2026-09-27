@@ -79,6 +79,28 @@ const ok = (name) => { console.log("ok  " + name); passed++; };
   ok("taste: add_artists + feedback trail still works");
 }
 {
+  // The FYI list is its own key: adding creates it (not artists_tracked — no ranking boost),
+  // de-dupes case-insensitively, and both remove_fyi_artists and remove_lines can drop entries.
+  const doc = parseDocument("categories:\n  high: [a]\nartists_tracked: [Foo]\n");
+  applyPatchDoc(doc, { add_fyi_artists: ["Erykah Badu", "Sade"], summary: "fyi" }, "2026-09-27");
+  applyPatchDoc(doc, { add_fyi_artists: ["erykah badu", "Jon Batiste"], summary: "fyi" }, "2026-09-27");
+  let out = yamlParse(String(doc));
+  assert.deepEqual(out.fyi_artists, ["Erykah Badu", "Sade", "Jon Batiste"]);
+  assert.deepEqual(out.artists_tracked, ["Foo"]);
+  applyPatchDoc(doc, { remove_fyi_artists: ["sade"], summary: "fyi" }, "2026-09-27");
+  applyPatchDoc(doc, { remove_lines: ["Jon Batiste"], summary: "fyi" }, "2026-09-27");
+  out = yamlParse(String(doc));
+  assert.deepEqual(out.fyi_artists, ["Erykah Badu"]);
+  ok("taste: fyi_artists add (dedupe) + remove_fyi_artists + remove_lines");
+}
+{
+  const s = buildSystem({ events: [], dining: [], config: { taste: { categories: {}, fyi_artists: ["Erykah Badu"] } } },
+                        { canEdit: true, profileName: "Ari" });
+  assert.ok(/FYI list[^\n]*Erykah Badu/.test(s), "taste block shows the FYI list");
+  assert.ok(/add_fyi_artists/.test(s), "edit persona explains track vs FYI");
+  ok("system prompt carries the FYI list + the track-vs-FYI distinction");
+}
+{
   const doc = parseDocument("home:\n  neighborhood: Silver Lake\n");
   const touched = applyProfilePatchDoc(doc, { home: { neighborhood: "Glendale", coords: [34.14, -118.25] } }, {});
   const out = yamlParse(String(doc));
