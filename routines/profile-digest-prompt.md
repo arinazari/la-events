@@ -22,29 +22,36 @@ contract; this file is the scoped version.
 Run, for the profile feed hash `<HASH>`:
 
 > **Bounded run — finish, don't be exhaustive.** This is one on-demand click, capped at a small turn
-> budget AND a hard wall clock: **the workflow kills this step at 10 minutes** (whatever is merged on
-> disk by then still gets committed; unfinished work is simply lost). The deterministic feed
+> budget AND a hard wall clock: **the workflow kills this step at 8 minutes** (whatever is on disk
+> by then still gets committed — the workflow merges any batch results you didn't get to;
+> unfinished work is simply lost). The deterministic feed
 > (`dashboard/data.<HASH>.json` + `data/editor_pool.<HASH>.json`) was ALREADY built by the workflow
 > before you started, so the ranking is safe even if you do nothing. Your job is the *thin* LLM layer
 > + the digest. **Hard caps:** judge at most **24 events total** — from the top ~40 pool events by
-> score, the not-yet-judged/stale ones, highest score first — in at most **2 event-editor batches
+> score, the not-yet-judged/stale ones, highest score first — in at most **4 event-editor batches
 > launched together in ONE message so they run in parallel**; at most **1 scene-researcher batch**.
 > If more than 24 are unjudged or stale (a scoring change or a reaction can re-select a pile of
 > already-judged events at once), take the top 24 and leave the rest — **a backlog is the nightly
-> routine's job, never this click's.** The deliverable is the VERDICT layer: merge each editor batch
-> the moment it returns (step 1) so a mid-run kill keeps the work, then re-score (step 3). If you're
+> routine's job, never this click's.** The deliverable is the VERDICT layer: merge the editor batches
+> as soon as they return (step 1), then re-score (step 3). If you're
 > low on turns or clock, skip enrichment (step 2) — never the merge or the re-score. Never re-fetch
 > the catalog or judge the whole backlog.
 
-1. **Judge the top of the ranking (event-editor) — ≤24 events, ≤4 parallel batches.** Load
-   `data/editor_pool.<HASH>.json`. Take the **top ~40 by score** and select the not-yet-judged ones
-   with `editor.select_for_verdict` against `data/verdicts/<HASH>.json` (the cache carries the rest —
-   only new/changed events cost a call). **Cap the selection at 24** (highest score first; the rest
-   is the nightly's backlog). Fan the **event-editor** agent (Task tool) over them in **at most 4
-   batches (~6 events each), all launched in one message** so they run concurrently; each record carries the
-   deterministic score + reasons + tags + lane, plus its Spotify `affinity_hint` / `profile_affinity`
-   when connected. Merge each batch as it returns: `python scripts/merge_verdicts.py <results.json>
-   --profile-hash <HASH>` → `data/verdicts/<HASH>.json`. If nothing needs judging, skip.
+1. **Judge the top of the ranking (event-editor) — ≤24 events, ≤4 parallel batches.** Run
+   `python scripts/editor_batches.py --profile-hash <HASH> --top 40 --cap 24 --batches 4`: it takes
+   the **top ~40 pool events by score**, selects the not-yet-judged/stale ones
+   (`editor.select_for_verdict` against this profile's verdict store — only new/changed events cost
+   a call), **caps at 24** (highest score first; the rest is the nightly's backlog), and writes ≤4
+   self-contained batch files to `data/editor_batches/<HASH>/`, printing ONE JSON line
+   (`selected`, `judging`, `backlog`, `batches[]`, `merge`). If `judging` is 0, skip to step 2.
+   Otherwise launch one **event-editor** agent (Task tool) per batch file, **all in one message** so
+   they run concurrently, and tell each ONLY its batch-file path — the file carries the records, the
+   taste brief, the Spotify lane, and its `results_path`. **If the workflow says this run's judging
+   tier is `opus`, pass `model: "opus"` on each event-editor Task call** (the agent is pinned to
+   sonnet otherwise). Each agent writes its verdicts to its `results_path` and replies with one
+   summary line; don't ask for the JSON back or cat the files. Then run the printed `merge` command
+   (`python scripts/merge_verdicts.py data/editor_batches/<HASH>/*.results.json --profile-hash
+   <HASH>`) → this profile's verdict store.
 
 2. **Enrich the very top picks (scene-researcher) — ≤1 batch, optional.** Only the top ~10–12 cache-miss
    candidates (`enrich.select_for_enrichment`): one **scene-researcher** batch → tags, artist notes,

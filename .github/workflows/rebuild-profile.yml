@@ -56,6 +56,7 @@ jobs:
         id: target
         env:
           HASH: ${{ github.event.client_payload.profile || github.event.inputs.hash }}
+          REQ_MODEL: ${{ github.event.client_payload.model || github.event.inputs.model }}
         run: |
           if ! echo "$HASH" | grep -Eq '^[0-9a-f]{8,32}$'; then
             echo "Invalid or missing profile hash: '$HASH'" >&2
@@ -68,12 +69,16 @@ jobs:
           owner="$(python -c "import hashlib,yaml; m=yaml.safe_load(open('profiles.yaml')) or {}; s=m.get('salt') or 'la-events/v1:'; print('true' if any(p.get('owner') and hashlib.sha256((s+p['username'].strip().lower()).encode()).hexdigest()[:16]=='$HASH' for p in (m.get('profiles') or []) if p.get('username')) else 'false')")"
           echo "is_owner=${owner:-false}" >> "$GITHUB_OUTPUT"
           # Model for the LLM pass: sonnet by default (Q3), 'opus' when it matters (or an explicit
-          # claude-* id). repository_dispatch may carry client_payload.model; the manual run takes the input.
-          MODEL="${{ github.event.client_payload.model || github.event.inputs.model }}"
-          case "$MODEL" in
-            opus) MODEL="claude-opus-4-8" ;;
-            claude-*) : ;;
-            *) MODEL="claude-sonnet-4-6" ;;
+          # claude-* id). repository_dispatch may carry client_payload.model; the manual run takes the
+          # input. It arrives via env — never interpolated into this script — and must match a strict
+          # pattern before it reaches --model. Aliases, not pinned ids: Claude Code resolves
+          # sonnet/opus to the current models, the same resolution the agents' `model:` frontmatter
+          # gets, so the Update click judges on the same model as the nightly (pinned ids had left
+          # this workflow a generation behind).
+          case "$REQ_MODEL" in
+            opus) MODEL="opus" ;;
+            claude-*) if [[ "$REQ_MODEL" =~ ^claude-[a-z0-9.-]{1,40}$ ]]; then MODEL="$REQ_MODEL"; else MODEL="sonnet"; fi ;;
+            *) MODEL="sonnet" ;;
           esac
           echo "model=$MODEL" >> "$GITHUB_OUTPUT"
 
@@ -137,6 +142,7 @@ jobs:
           prompt: |
             Execute routines/profile-digest-prompt.md exactly, for the single profile whose dashboard
             feed hash is ${{ steps.target.outputs.hash }}. Wherever the file says <HASH>, use that hash.
+            This run's judging tier is ${{ steps.target.outputs.model }}.
             The deterministic feed has already been built + committed — your job is the VERDICT layer
             (the digest is rendered + voiced by later workflow steps); stay within the per-step caps
             in that file so you finish. Do NOT git commit or push — leave every changed file in the
@@ -157,6 +163,13 @@ jobs:
           HASH: ${{ steps.target.outputs.hash }}
           IS_OWNER: ${{ steps.target.outputs.is_owner }}
         run: |
+          # Salvage first: fold in editor batch results the LLM step wrote but never merged (its
+          # wall clock killed it mid-run). Re-merging an already-merged batch is harmless — same
+          # verdicts, fresh judged_at. Owner results land in the default store, which the commit
+          # step below carries.
+          if ls data/editor_batches/"$HASH"/*.results.json >/dev/null 2>&1; then
+            python scripts/merge_verdicts.py data/editor_batches/"$HASH"/*.results.json --profile-hash "$HASH" || true
+          fi
           mkdir -p "digests/$HASH"
           if [ "$IS_OWNER" = "true" ]; then
             cp digests/latest.md "digests/$HASH/latest.md"

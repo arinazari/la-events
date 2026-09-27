@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """Merge an event-editor batch's verdicts into the shared cache (the step after the fan-out).
 
-The event-editor agent returns a JSON array of verdicts (one per event, each with `id`). This
-folds them into data/enrichment.json via editor.update_verdicts — validating each, stamping
-judged_at, and recording score_at_judge from data/editor_pool.json so a later score drift (>= editor.DRIFT_MIN)
-re-selects the event. Mirrors how scene-researcher results land via enrich.update_cache.
+Each event-editor agent writes a JSON array of verdicts (one per event, each with `id`) to the
+`results_path` of its batch file (scripts/editor_batches.py plans the fan-out). This folds them into
+the profile's verdict store via editor.update_verdicts — validating each, stamping judged_at, and
+recording score_at_judge from data/editor_pool.json so a later score drift (>= editor.DRIFT_MIN)
+re-selects the event. A missing or unparseable results file is skipped with a warning, so one failed
+batch never blocks the others. Mirrors how scene-researcher results land via enrich.update_cache.
 
 Usage:
-  python scripts/merge_verdicts.py results.json [more.json ...]
+  python scripts/merge_verdicts.py data/editor_batches/default/*.results.json
+  python scripts/merge_verdicts.py data/editor_batches/<hash>/*.results.json --profile-hash <hash>
   python scripts/merge_verdicts.py -                 # read one results array from stdin
   python scripts/merge_verdicts.py r.json --model claude-opus-4-8
 """
@@ -30,11 +33,16 @@ def _resolve(p: str) -> Path:
 
 
 def _load_results(paths) -> list:
-    """Flatten one-or-more results files (each a JSON array, or {verdicts|results: [...]})."""
+    """Flatten one-or-more results files (each a JSON array, or {verdicts|results: [...]}). A file
+    that's missing or isn't valid JSON (an agent killed mid-write) is skipped with a warning."""
     out = []
     for p in paths:
-        text = sys.stdin.read() if p == "-" else _resolve(p).read_text()
-        data = json.loads(text)
+        try:
+            text = sys.stdin.read() if p == "-" else _resolve(p).read_text()
+            data = json.loads(text)
+        except (OSError, ValueError) as e:
+            print(f"merge_verdicts: skipping {p}: {e}", file=sys.stderr)
+            continue
         if isinstance(data, dict):
             data = data.get("verdicts") or data.get("results") or []
         out.extend(data)

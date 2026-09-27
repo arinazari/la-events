@@ -349,6 +349,49 @@ def test_editor_pool_top_k_caps_recall_mode():
     assert len(ED.editor_pool(pool, today=_date(2026, 7, 4))) == 7   # None = uncapped
 
 
+# ── Fan-out: plan_batches (scripts/editor_batches.py) ──
+
+def _pool(events, **ctx):
+    return {"today": "2026-07-04", "taste_profile": {"narrative": "warehouse techno"},
+            "profile_affinity": {"top_genres": ["techno"]}, **ctx, "events": events}
+
+
+def test_plan_batches_top_cap_backlog_and_context():
+    evs = [_ev(f"E{s}", CLUB_U, s) for s in range(1, 11)]              # scores 1..10
+    cache = {"verdicts": {}}
+    ED.update_verdicts(cache, [{"id": ED.event_key(evs[9]), "tier": "great"}],
+                       scores={ED.event_key(evs[9]): 10})               # E10 already judged
+    plan = ED.plan_batches(_pool(evs), cache, top=8, cap=4, batches=2)
+    assert plan["considered"] == 8                                       # E3..E10
+    assert plan["selected"] == 7                                         # minus judged E10
+    assert plan["judging"] == 4 and plan["backlog"] == 3
+    judged = {e["title"] for b in plan["batches"] for e in b["events"]}
+    assert judged == {"E9", "E8", "E7", "E6"}, "cap keeps the highest scores"
+    b = plan["batches"][0]
+    assert b["of"] == 2 and b["count"] == 2 and all(e.get("id") for e in b["events"])
+    assert b["taste_profile"] == {"narrative": "warehouse techno"}      # shared context rides along
+    assert b["profile_affinity"] and b["today"] == "2026-07-04"
+
+
+def test_plan_batches_even_split_and_batch_size():
+    evs = [_ev(f"E{s}", CLUB_U, s) for s in range(7)]
+    sizes = [b["count"] for b in ED.plan_batches(_pool(evs), {}, batches=3)["batches"]]
+    assert sorted(sizes) == [2, 2, 3] and sum(sizes) == 7
+    assert len(ED.plan_batches(_pool(evs), {}, batch_size=3)["batches"]) == 3
+    assert len(ED.plan_batches(_pool(evs), {}, batches=20)["batches"]) == 7   # never an empty batch
+    none = ED.plan_batches(_pool([]), {})
+    assert none["judging"] == 0 and none["batches"] == []
+
+
+def test_plan_batches_keep_a_night_together():
+    """Scores interleave the two nights; the cut is by date so each agent sees a whole night
+    (adjust de-clusters within a night)."""
+    evs = [_ev(f"A{i}", CLUB_U, 10 - 2 * i, d="2026-07-10") for i in range(3)] + \
+          [_ev(f"B{i}", CLUB_U, 9 - 2 * i, d="2026-07-11") for i in range(3)]
+    batches = ED.plan_batches(_pool(evs), {}, batches=2)["batches"]
+    assert [{e["date"] for e in b["events"]} for b in batches] == [{"2026-07-10"}, {"2026-07-11"}]
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

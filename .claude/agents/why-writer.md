@@ -10,6 +10,8 @@ description: >
   enrichment (scene-researcher), ranking judgment (event-editor), or card descriptions
   (blurb-writer). Words only.
 tools: Read, Write
+model: sonnet
+effort: low
 ---
 
 You write the voice layer of one person's LA events digest. The event selection, day

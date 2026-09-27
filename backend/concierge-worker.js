@@ -42,7 +42,7 @@
  *   GITHUB_TOKEN       (secret, optional — repo-scoped contents:write PAT; enables taste + profile self-edit)
  *   ANTHROPIC_MODEL    (var, optional — executor model that does the bulk of generation; default Sonnet)
  *   ADVISOR_MODEL      (var, optional — stronger model the executor consults for planning; "" disables)
- *   EFFORT             (var, optional — executor effort: low | medium | high | max; default max)
+ *   EFFORT             (var, optional — executor effort: low | medium | high | xhigh | max; default medium)
  *   MAX_TOKENS         (var, optional — output cap; must leave room for adaptive thinking)
  *   DATA_URL           (var, optional — the published data.json to ground on)
  *   ALLOWED_ORIGIN     (var, optional — CORS origin; defaults to the Pages site)
@@ -62,12 +62,12 @@ import CalendarCore from "../dashboard/calendar-core.js";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-08-01-stars-prices";
+const VERSION = "2026-09-27-model-tiering";
 
 const DEFAULTS = {
-  ANTHROPIC_MODEL: "claude-sonnet-4-6",   // executor — does the bulk of generation
+  ANTHROPIC_MODEL: "claude-sonnet-5",     // executor — does the bulk of generation
   ADVISOR_MODEL: "claude-opus-4-8",        // advisor — consulted for multi-step planning (must be >= executor)
-  EFFORT: "max",                            // executor effort: low | medium | high | max
+  EFFORT: "medium",                         // executor effort: low | medium | high | xhigh | max
   DATA_URL: "https://arinazari.github.io/la-events/data.json",
   ALLOWED_ORIGIN: "https://arinazari.github.io",
   GITHUB_REPO: "arinazari/la-events",
@@ -166,18 +166,18 @@ async function handleRequest(request, env, cors, ctx) {
   // Contents-only PAT.
   const canEdit = !!(profileHash && env.GITHUB_TOKEN);
   const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name });
-  // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
-  // set ADVISOR_MODEL to "" to disable. Plus the two self-edit tools when this profile can edit.
-  const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
-  const tools = [
-    ...(advisorModel ? [{ type: "advisor_20260301", name: "advisor", model: advisorModel }] : []),
-    PLAN_TOOL,                                  // read-only group planning — available to any authed caller
-    ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL, DIGEST_TOOL] : []),
-  ];
   // Any authed caller may upgrade the executor via `model: "opus"` in the body — Ari's call:
   // shared-token users get Opus too (the token already gates who can spend at all; per-message
   // cost is an accepted tradeoff). BYOK callers pay on their own key as before.
   const execModel = (body && body.model) ? resolveModel(env, body.model) : null;
+  // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
+  // set ADVISOR_MODEL to "" to disable. Plus the self-edit tools when this profile can edit.
+  const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
+  const tools = buildTools({
+    advisorModel,
+    execModel: execModel || env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL,
+    canEdit,
+  });
 
   const chatOpts = { system, tools, apiKey, model: execModel, canEdit, profileHash };
 
@@ -333,6 +333,23 @@ function toolStatusLine(uses) {
 }
 
 /* ----- Anthropic ----- */
+/* The tool list for one chat request. The advisor rides along only when it can add something: it's
+ * configured ("" disables) AND it isn't the executor itself — the Use Opus toggle makes the executor
+ * the advisor model, and Opus consulting Opus pays twice for the same brain. When present it's held
+ * to ONE consult per API call (the post-tool follow-up call gets its own) and its prompt is cached
+ * (5-min TTL), so a follow-up turn re-reads the ~20K-token grounded prefix at ~0.1x instead of full
+ * Opus input price. Exported for tests. */
+export function buildTools({ advisorModel, execModel, canEdit }) {
+  const advisor = advisorModel && advisorModel !== execModel
+    ? [{ type: "advisor_20260301", name: "advisor", model: advisorModel, max_uses: 1, caching: { type: "ephemeral" } }]
+    : [];
+  return [
+    ...advisor,
+    PLAN_TOOL,                                  // read-only group planning — available to any authed caller
+    ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL, DIGEST_TOOL] : []),
+  ];
+}
+
 /* Map a friendly model choice to a configured id — reuses the existing executor/advisor constants
  * (no new hardcoded ids). Aliases ONLY, no arbitrary `claude-*` passthrough: the advisor tool
  * requires advisor >= executor, so an id above the Opus advisor (e.g. claude-fable-5) would 400

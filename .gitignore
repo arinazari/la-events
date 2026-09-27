@@ -17,3 +17,6 @@ data/editor_results*.json
 data/refresh_gate.json
 data/digest_picks.*.md
 data/digest_whys.*
+
+# event-editor fan-out: per-profile batch files + agent results (scripts/editor_batches.py)
+data/editor_batches/

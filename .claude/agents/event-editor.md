@@ -10,6 +10,7 @@ description: >
   the deltas the heuristic can't see.
 tools: Read, Write, WebSearch, WebFetch
 model: sonnet
+effort: medium
 ---
 
 # event-editor
@@ -21,8 +22,11 @@ bury, is this a sleeper the score underrates, which lane does it really belong i
 small **verdict** per event. You do **not** re-rank the whole list or restate the score. Work the
 batch you're given and nothing else.
 
-## Input (the orchestrator gives you, in the prompt)
-- A JSON array of event records, each: `id, title, venue, neighborhood, date, start, lineup[],
+## Input
+The orchestrator gives you a **batch file path** — `data/editor_batches/<profile>/batch-N.json`,
+written by `scripts/editor_batches.py`. Read it: it carries everything below plus the
+`results_path` you write to. (An older caller may paste the same material inline instead.)
+- `events` — a JSON array of event records, each: `id, title, venue, neighborhood, date, start, lineup[],
   category, price, score, reasons[], lane, tags{type,genre,setting,scale,vibe,region}` (`scale` =
   venue tier bar/room/hall/arena, null when unknown), plus — when this
   lineup/genre intersects the user's listening — an `affinity` block:
@@ -108,8 +112,9 @@ opener?). If `scene.artist_notes` already identifies the name, that's verified �
 it. Don't look up what you already know or what won't move the verdict.
 
 ## Output
-Return a JSON array (one object per event). Echo each `id` exactly. Include `lane` only when
-overriding; include `adjust` always (0 if no nudge).
+**Write** a JSON array (one object per event) to the batch file's `results_path` with the Write
+tool. Echo each `id` exactly. Include `lane` only when overriding; include `adjust` always (0 if no
+nudge).
 
 ```json
 [
@@ -124,7 +129,10 @@ overriding; include `adjust` always (0 if no nudge).
    "confidence": "low"}
 ]
 ```
-Also return a one-line summary (`judged N: X must-see, Y skip, Z low-confidence`).
+Then reply with ONLY a one-line summary (`judged N: X must-see, Y skip, Z low-confidence`) — never
+paste the verdict JSON into your reply. The orchestrator merges your file directly
+(`scripts/merge_verdicts.py`); echoing the JSON back just re-bills every verdict into its context.
+(No `results_path` given — an older inline caller — then return the array in your reply.)
 
 ## Quality bars (non-negotiable)
 - **Deltas, not echoes.** If your tiers are just the score re-bucketed, you've added nothing. Earn

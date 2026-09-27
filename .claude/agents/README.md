@@ -44,10 +44,23 @@ not on a schedule.
   the per-call work is already delta-gated (only new/changed events are judged or enriched).
   `blurb-writer` is pinned a tier lower to **`haiku`** with no web tools — it only writes one
   factual line from fields it's handed, so it's the cheapest of the three and runs over the widest
-  band (the events below the full head). Escalate
-  to Opus only **when it matters**, never by default: the orchestrator may spawn the editor with a
-  `model: opus` override for a tier-boundary or genuinely ambiguous batch, and the per-user rebuild
-  (`rebuild-profile.yml`) takes a `model` input (default Sonnet) so an owner can request an Opus pass.
+  band (the events below the full head). `why-writer` (one-line digest whys) and `source-scout`
+  (web crawl + vetting) are pinned to `sonnet` too, so neither silently inherits an Opus session;
+  `night-planner` deliberately inherits (interactive, the flagship — Opus there is fine). The
+  aliases float: Claude Code resolves `sonnet`/`haiku`/`opus` to the current models, and the
+  Update workflow (`rebuild-profile.yml`) uses the same aliases, so CI and the nightly judge on
+  the same model.
+- **Effort:** subagents inherit the session's reasoning effort unless pinned. `why-writer` runs at
+  **`effort: low`** (a one-line why doesn't need deep thinking — a 27-why batch used to take ~8
+  min), `event-editor` at **`medium`** (Sonnet 5 at medium ≈ Sonnet 4.6 at high). Research
+  (`scene-researcher`) keeps the default; effort doesn't apply to Haiku.
+- **Editor hand-off:** `scripts/editor_batches.py` writes one self-contained batch file per
+  `event-editor` agent; the agent writes its verdicts to that batch's `results_path` and replies
+  with one line, so verdict JSON never passes through (or gets re-typed by) the orchestrator.
+- **Escalation:** Opus only **when it matters**, never by default: the orchestrator may spawn the
+  editor with a `model: opus` override for a tier-boundary or genuinely ambiguous batch, and the
+  per-user rebuild (`rebuild-profile.yml`) takes a `model` input (default Sonnet) — an opus run
+  passes `model: "opus"` to its editor batches, so an owner can request an Opus judging pass.
   A bring-your-own-key concierge caller can run the **live chat** on Opus on their own spend (the
   Worker honors a per-request `model` override for BYOK). Keep annotation quality the bar: if a
   Sonnet gloss ever reads thin, bump `scene-researcher` back up.

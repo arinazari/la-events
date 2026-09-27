@@ -54,13 +54,19 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    "Events" label if available, `webfetch`/`squarespace`/`ics` venues (≤15-source budget), and this
    week's editorial roundups as `editorial_mentions`. Then `python scripts/run_digest.py --no-fetch`
    to re-dedupe + re-score and refresh `data/candidates.json` + `data/editor_pool.json`.
-3. **Judge the ranking (event-editor):** fan out the `event-editor` agent over the not-yet-judged
-   events in `data/editor_pool.json` (`editor.select_for_verdict` — only new/changed events cost a
-   call), passing `taste.yaml`; each record carries the deterministic score + reasons + tags + lane,
-   plus a Spotify `affinity` hint + the profile's listening lane when connected. Collect the per-event
-   verdicts (`{tier, lane?, adjust, why, confidence}`) and merge: `python scripts/merge_verdicts.py
-   <results.json>` → `data/verdicts/default.json`. These drive the slate (render) and the dashboard's
-   final rank. Cached + committed, so only the delta is judged each day.
+3. **Judge the ranking (event-editor):** `python scripts/editor_batches.py` selects the
+   not-yet-judged events in `data/editor_pool.json` (`editor.select_for_verdict` — only new/changed
+   events cost a call) and writes self-contained batch files to `data/editor_batches/default/`
+   (each record carries the deterministic score + reasons + tags + lane, plus a Spotify `affinity`
+   hint; each file carries the taste brief + the profile's listening lane), printing ONE JSON line
+   with the batch paths. If `judging` is 0, skip to step 4. Otherwise launch one `event-editor`
+   agent per batch file, all in one message (waves of ≤8 if there are more) — tell each ONLY its
+   batch-file path. Each writes its verdicts (`{tier, lane?, adjust, why, confidence}`) to the
+   file's `results_path` and replies with one summary line; don't ask for the JSON back, and don't
+   cat the batch or results files. Then merge: `python scripts/merge_verdicts.py
+   data/editor_batches/default/*.results.json` → `data/verdicts/default.json`. These drive the
+   slate (render) and the dashboard's final rank. Cached + committed, so only the delta is judged
+   each day.
 4. **Enrich — two tiers (hybrid coverage).** Both write to `data/enrichment.json`, keyed the same,
    so the dashboard reads one place; both are write-once cached (only the daily delta costs calls).
    - **Full head (~100):** fan out the `scene-researcher` agent over the cache-miss candidates in
@@ -161,10 +167,12 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
      full digest — GitHub and locally-served dashboards read it directly), then STAMP:
      `python scripts/digest_gate.py stamp --feed dashboard/data.<hash>.json --md digests/<hash>/latest.md`
    - **Each REFRESH profile — the single-profile slice** (same contract and caps as
-     `routines/profile-digest-prompt.md`): judge its editor pool `data/editor_pool.<hash>.json`
-     (top ~40 by score, `editor.select_for_verdict` against `data/verdicts/<hash>.json`, ≤2
-     `event-editor` batches) → `python scripts/merge_verdicts.py <results.json> --profile-hash
-     <hash>` → re-fold with `python scripts/build_profiles.py --only-hash <hash>` → write the
+     `routines/profile-digest-prompt.md`): judge its editor pool —
+     `python scripts/editor_batches.py --profile-hash <hash> --top 40 --batches 2` (top ~40 by
+     score, `editor.select_for_verdict` against its verdict store, ≤2 batch files), one
+     `event-editor` agent per batch file exactly as in step 3 → `python scripts/merge_verdicts.py
+     data/editor_batches/<hash>/*.results.json --profile-hash <hash>` → re-fold with
+     `python scripts/build_profiles.py --only-hash <hash>` → write the
      personalized narrative digest to `digests/<hash>/latest.md` — conversational, opinionated,
      ranked to THAT person: top picks across the next ~2–3 weekends, grouped by day, a one-line
      *why* each; thin feed → a couple of honest lines, don't pad. **Honor

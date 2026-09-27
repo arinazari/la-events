@@ -8,7 +8,7 @@ import { readFileSync } from "node:fs";
 import { parse as yamlParse, parseDocument } from "yaml";
 import {
   applyDigestPatchDoc, newDigestDoc, applyProfilePatchDoc, applyPatchDoc, buildSystem, profileHash,
-  accumulateSSE, foldReaction, foldFeedback,
+  accumulateSSE, foldReaction, foldFeedback, buildTools,
 } from "./concierge-worker.js";
 
 let passed = 0;
@@ -223,6 +223,24 @@ const SSE_OK = [
   assert.ok(foldFeedback(f.text, { ...frec, kind: "hide" }).changed);   // a different kind still lands
   assert.equal(foldFeedback("not json\n" + f.text, frec).changed, false);  // junk lines tolerated
   ok("react: foldFeedback appends once per (event, kind)");
+}
+
+/* ---- chat tool list: advisor rules ---- */
+{
+  const names = (tools) => tools.map((t) => t.name);
+  const sonnet = buildTools({ advisorModel: "claude-opus-4-8", execModel: "claude-sonnet-5", canEdit: false });
+  const adv = sonnet.find((t) => t.name === "advisor");
+  assert.ok(adv, "Sonnet executor gets the Opus advisor");
+  assert.equal(adv.model, "claude-opus-4-8");
+  assert.equal(adv.max_uses, 1);                                    // one consult per API call
+  assert.deepEqual(adv.caching, { type: "ephemeral" });             // advisor prompt cached
+  assert.deepEqual(names(sonnet), ["advisor", "plan_with_friends"]);
+  const opus = buildTools({ advisorModel: "claude-opus-4-8", execModel: "claude-opus-4-8", canEdit: true });
+  assert.ok(!names(opus).includes("advisor"), "Opus executor never consults itself");
+  assert.equal(opus.length, 4);                                     // plan + taste/profile/digest edits
+  const off = buildTools({ advisorModel: "", execModel: "claude-sonnet-5", canEdit: false });
+  assert.deepEqual(names(off), ["plan_with_friends"]);             // ADVISOR_MODEL="" disables it
+  ok("tools: advisor capped + cached, skipped for an Opus executor or when disabled");
 }
 
 console.log(`\nall ${passed} worker edit tests passed`);

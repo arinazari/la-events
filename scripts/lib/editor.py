@@ -19,6 +19,7 @@ default.json) — NOT in the shared enrichment.json (that's scene facts, which a
   pool_doc(judge, ..., affinity, profile) -> the editor-pool doc (records + the profile's Spotify lane)
   verdict_path / load_verdicts / save_verdicts  -> per-profile verdict store I/O
   select_for_verdict(pool, cache, ...)    -> pool minus already-judged (misses / stale / score drift >= DRIFT_MIN)
+  plan_batches(doc, cache, ...)           -> that selection cut into self-contained batch docs (one per agent)
   verdict_map(cache)                      -> {event_key: verdict} for assemble()
   update_verdicts(cache, results, scores) -> fold a judging batch back in (validated)
   validate_verdict(v)                     -> coerce/validate one LLM verdict; None if unusable
@@ -373,6 +374,46 @@ def select_for_verdict(pool: list, cache: dict, refresh_days=None, today: date =
             ee["id"] = k
             out.append(ee)
     return out
+
+
+# ── Fan-out: self-contained batch docs for parallel event-editor agents ────────────────
+
+BATCH_SIZE = 12          # events per agent when the caller doesn't fix a batch count
+_BATCH_CONTEXT = ("today", "window_days", "taste_profile", "profile_affinity")
+
+
+def plan_batches(doc: dict, cache: dict, *, top: int = 0, cap: int = 0, batches: int = 0,
+                 batch_size: int = BATCH_SIZE, refresh_days=None, today: date = None) -> dict:
+    """Cut what still needs judging in an editor-pool doc into self-contained batch docs, so each
+    parallel event-editor agent reads ONE file and writes ONE results file. Verdict JSON then never
+    round-trips through the orchestrator's context (it used to come back inline, only to be
+    re-typed into a results file for merge_verdicts — output tokens spent copying data).
+
+      top      consider only the N highest-scoring pool events (0 = the whole pool)
+      cap      judge at most N of the selected, highest score first (0 = no cap); the rest is
+               reported as `backlog` — the next pass's work
+      batches  split into at most this many roughly-even batches; else `batch_size` per batch
+
+    The judged set is re-ordered by date (then start, then score) before it's cut, so one night's
+    events share a batch: `adjust` de-clusters WITHIN a night, which an agent can only do for the
+    events it can see. Each batch carries the pool's shared context (taste brief, Spotify lane,
+    today). Returns {considered, selected, judging, backlog, batches: [batch docs]}."""
+    events = sorted(doc.get("events") or [], key=lambda e: -(e.get("score") or 0))
+    if top:
+        events = events[:top]
+    selected = select_for_verdict(events, cache, refresh_days=refresh_days, today=today)
+    judging = selected[:cap] if cap else selected
+    judging = sorted(judging, key=lambda e: (str(e.get("date") or ""), str(e.get("start") or ""),
+                                             -(e.get("score") or 0)))
+    n = len(judging)
+    k = 0 if not n else min(batches, n) if batches else -(-n // max(1, batch_size))
+    ctx = {f: doc[f] for f in _BATCH_CONTEXT if doc.get(f) is not None}
+    out = []
+    for i in range(k):
+        chunk = judging[i * n // k:(i + 1) * n // k]
+        out.append({"batch": i + 1, "of": k, **ctx, "count": len(chunk), "events": chunk})
+    return {"considered": len(events), "selected": len(selected), "judging": n,
+            "backlog": len(selected) - n, "batches": out}
 
 
 def verdict_map(cache: dict) -> dict:
