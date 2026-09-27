@@ -41,6 +41,16 @@ def test_apply_to_empty_affinity_creates_feedback_layer():
     assert cl["tier"] == "strong" and "feedback" in cl["sources"]   # 2.0 -> strong tier
 
 
+def test_feedback_genres_scale_relative_to_most_reinforced():
+    """One star used to max a genre (+2.0 clamped to 1.0), so every genre ever starred counted.
+    Now weights are relative to the most-reinforced genre."""
+    rx = ([{"kind": "loved", "genres": ["house"]}] * 5 + [{"kind": "loved", "genres": ["techno"]}] * 3
+          + [{"kind": "loved", "genres": ["pop"]}] + [{"kind": "skipped", "genres": ["edm"]}])
+    g = apply_feedback(None, aggregate(rx, PROFILE))["genres"]
+    assert g["house"] == 1.0 and g["techno"] == 0.6 and g["pop"] == 0.2
+    assert g["edm"] == 0.0                                        # negative clamps at 0
+
+
 def test_feedback_stacks_onto_spotify_and_hide_overrides():
     spotify = {"artists": {"antal": {"name": "Antal", "weight": 2.0, "tier": "strong",
                                      "sources": ["top_long"]}},

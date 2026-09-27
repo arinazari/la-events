@@ -111,8 +111,14 @@ def apply_feedback(affinity: dict, agg: dict) -> dict:
             elif key in artists:
                 del artists[key]   # feedback drove it below the 'light' floor -> stop scoring it
 
+    # Genre nudges are RELATIVE to the most-reinforced genre, on the same 0..1 scale as the
+    # max-normalized Spotify genres. Raw deltas clamped to 1.0 meant one star (+2.0) maxed a genre:
+    # every genre ever starred cleared genre_threshold, and the +1 genre term fired on most music
+    # events. Relative scaling keeps it to the genres you keep coming back to.
+    pos_max = max((d for d in agg["genre_delta"].values() if d > 0), default=0.0)
     for gk, delta in agg["genre_delta"].items():
-        genres[gk] = round(min(1.0, max(0.0, genres.get(gk, 0.0) + delta)), 3)
+        rel = delta / pos_max if pos_max else delta
+        genres[gk] = round(min(1.0, max(0.0, genres.get(gk, 0.0) + rel)), 3)
 
     had_music = bool(aff.get("artists") or aff.get("genres"))
     has_feedback = bool(agg["artist_delta"] or agg["genre_delta"])

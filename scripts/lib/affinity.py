@@ -286,13 +286,76 @@ def artist_affinity(name_text: str, lineup_text: str, affinity: dict, profile: d
     return capped, reasons
 
 
-def genre_affinity(hay: str, affinity: dict, profile: dict = None) -> tuple:
-    """(points, reasons) when a high-affinity Spotify genre appears in the haystack. Conservative."""
+# Parent credit for the tagger's shadowed specifics: tagging drops the general "house" when
+# "deep-house" fires, but a house fan should still count a deep-house night. NOT hard-techno ->
+# techno (a penalized lane in taste.yaml — it must never inherit loved-techno credit).
+_GENRE_PARENTS = {"tech-house": "house", "deep-house": "house", "afro-house": "house",
+                  "psytrance": "trance"}
+
+
+def genre_key(g: str) -> str:
+    """Vocab-style genre key: 'Deep House' / 'deep_house' -> 'deep-house'."""
+    return re.sub(r"[\s_]+", "-", fold(g or "").strip())
+
+
+@functools.lru_cache(maxsize=1)
+def _vocab_genres() -> frozenset:
+    from .tagging import VOCAB             # lazy: keeps this module import-light
+    return frozenset(VOCAB["genre"])
+
+
+@functools.lru_cache(maxsize=2048)
+def _genre_token_pat(key: str):
+    """Whole-token matcher for a genre in free text, hyphen/space-insensitive ('deep-house'
+    matches 'deep house'); never inside a word ('house' != 'warehouse', 'pop' != 'popup')."""
+    body = r"[\s-]+".join(re.escape(p) for p in key.split("-") if p)
+    return re.compile(r"(?<![a-z0-9])" + body + r"(?![a-z0-9])")
+
+
+def genre_hits(genres: dict, threshold: float, text: str, event_tags=None) -> list:
+    """The affinity genres (weight >= threshold) this event carries, in affinity order.
+
+    A genre in the controlled vocabulary (tagging.VOCAB — what feedback reactions record) is
+    matched against the event's deterministic `tags.genre` when it has them, NOT the raw text:
+    substring matching let 'house' fire on every warehouse party and House of Blues show, and
+    'pop' on every popup. Genres outside the vocab ('balearic', a Spotify-style 'french house'),
+    or events with no tags at all, fall back to a whole-token match on `text`."""
+    tags = None
+    if event_tags is not None:
+        tags = {genre_key(t) for t in event_tags}
+        tags |= {_GENRE_PARENTS[t] for t in tags if t in _GENRE_PARENTS}
+    low = fold(text or "")
+    out = []
+    for g, v in (genres or {}).items():
+        if (v or 0) < threshold:
+            continue
+        k = genre_key(g)
+        if not k:
+            continue
+        if tags is not None and k in _vocab_genres():
+            hit = k in tags
+        else:
+            hit = bool(_genre_token_pat(k).search(low))
+        if hit:
+            out.append(g)
+    return out
+
+
+def event_genre_tags(ev: dict):
+    """The event's deterministic genre tags, or None when it was never tagged (-> text fallback)."""
+    tags = (ev or {}).get("tags")
+    if not isinstance(tags, dict):
+        return None
+    return tags.get("genre") or []
+
+
+def genre_affinity(hay: str, affinity: dict, profile: dict = None, event_tags=None) -> tuple:
+    """(points, reasons) when a high-affinity genre is on this event (see genre_hits). Conservative."""
     genres = (affinity or {}).get("genres") or {}
     if not genres:
         return 0, []
     cfg = _scoring_cfg(profile)
-    hits = [g for g, v in genres.items() if v >= cfg["genre_threshold"] and g in hay]
+    hits = genre_hits(genres, cfg["genre_threshold"], hay, event_tags)
     if not hits:
         return 0, []
     pts = min(cfg["genre_points"], cfg["genre_cap"])

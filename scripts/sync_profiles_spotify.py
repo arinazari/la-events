@@ -13,14 +13,15 @@ The artifact is gitignored (data/spotify/ — it's a friend's listening; regener
 Only the derived feed (dashboard/data.<hash>.json) is ever committed.
 
 Config (env or flags):
-  SPOTIFY_SYNC_URL    base URL of the deployed Worker (e.g. https://la-events-concierge.x.workers.dev)
+  SPOTIFY_SYNC_URL    base URL of the deployed Worker (default: the owner's workers.dev URL,
+                      WORKER_DEFAULT below; set it only to point at a different Worker)
   SPOTIFY_SYNC_TOKEN  the Worker's SPOTIFY_SYNC_TOKEN secret (Bearer-presented to /spotify/*)
 
 Usage:
   python scripts/sync_profiles_spotify.py                 # every connected profile
   python scripts/sync_profiles_spotify.py --only <hash>   # just this feed hash (the CI fast path)
 
-Degrades gracefully: no URL/token -> SKIP (exit 0, never blocks a digest); one profile failing
+Degrades gracefully: no token -> SKIP (exit 0, never blocks a digest); one profile failing
 is logged and skipped, the rest still sync.
 """
 
@@ -44,6 +45,11 @@ except ImportError:  # pragma: no cover - pyyaml always installed in CI/runtime
 
 REPO = Path(__file__).resolve().parent.parent
 UA = "la-events/1.0 (+https://github.com/arinazari/la-events)"
+# The concierge Worker. Hardcoding the owner's workers.dev URL matches this repo's convention
+# (fetch_posh.py PROXY_DEFAULT, wrangler.toml [vars]) — only the Bearer token is a secret, so an
+# environment that carries SPOTIFY_SYNC_TOKEN alone must still sync (a missing URL silently left
+# every feed, the owner's included, on the feedback-only layer for weeks).
+WORKER_DEFAULT = "https://la-events-concierge.arinazari.workers.dev"
 
 
 def _owner_hash() -> str:
@@ -89,8 +95,9 @@ def sync_one(base: str, token: str, h: str, out_dir: Path) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Sync friends' Spotify -> data/spotify/<hash>.json")
-    ap.add_argument("--url", default=os.environ.get("SPOTIFY_SYNC_URL"),
-                    help="Worker base URL (or $SPOTIFY_SYNC_URL)")
+    # `or`, not a get() default: CI passes an unset secret through as "" — fall back, don't SKIP.
+    ap.add_argument("--url", default=os.environ.get("SPOTIFY_SYNC_URL") or WORKER_DEFAULT,
+                    help="Worker base URL (or $SPOTIFY_SYNC_URL; default: the owner's Worker)")
     ap.add_argument("--token", default=os.environ.get("SPOTIFY_SYNC_TOKEN"),
                     help="Worker SPOTIFY_SYNC_TOKEN (or $SPOTIFY_SYNC_TOKEN)")
     ap.add_argument("--only", help="sync just this feed hash (default: every connected profile)")
@@ -98,7 +105,7 @@ def main() -> int:
     args = ap.parse_args()
 
     if not (args.url and args.token):
-        print("SKIP: set SPOTIFY_SYNC_URL + SPOTIFY_SYNC_TOKEN to sync per-profile Spotify "
+        print("SKIP: set SPOTIFY_SYNC_TOKEN to sync per-profile Spotify "
               "(friends just won't have a music layer until then).", file=sys.stderr)
         return 0
 

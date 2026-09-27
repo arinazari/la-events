@@ -27,7 +27,7 @@ try:
 except Exception:  # pragma: no cover - zoneinfo always present on py3.9+
     _LA = None
 
-from .affinity import artist_affinity, genre_affinity, tracked_hits, ambiguous_set, \
+from .affinity import artist_affinity, genre_affinity, event_genre_tags, tracked_hits, ambiguous_set, \
     fold, _token_pat
 
 # ── Defaults (verbatim from pre-refactor build_dashboard.py) ─────────────────
@@ -283,7 +283,7 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         lineup_text = " ".join(str(a) for a in lineup).lower()
         name_text = title.lower() + " " + lineup_text          # where artists are actually billed
         a_pts, a_reasons = artist_affinity(name_text, lineup_text, affinity, profile)
-        g_pts, g_reasons = genre_affinity(hay, affinity, profile)
+        g_pts, g_reasons = genre_affinity(hay, affinity, profile, event_genre_tags(ev))
         score += a_pts + g_pts
         reasons.extend(a_reasons + g_reasons)
 

@@ -33,7 +33,7 @@ from pathlib import Path
 
 from .enrich import event_key, scene_facts
 from .assemble import LANES, event_lane
-from .affinity import _token_pat, fold
+from .affinity import _token_pat, fold, genre_hits, event_genre_tags
 from .series import group_series
 
 REPO = Path(__file__).resolve().parent.parent.parent
@@ -196,8 +196,9 @@ def affinity_hint(ev: dict, affinity: dict) -> dict:
              if len(key) >= 3 and _token_pat(key).search(name_text)]
     hit_a.sort(key=lambda a: -(a.get("weight") or 0))
 
-    hay = name_text + " " + " ".join((ev.get("tags") or {}).get("genre") or [])
-    hit_g = [g for g, v in genres.items() if v >= 0.5 and g in hay]
+    # Same matcher the scorer uses (tags-first, whole-token fallback) so the hint never
+    # claims a genre the score didn't credit ('house' inside 'Warehouse' in a title).
+    hit_g = genre_hits(genres, 0.5, name_text, event_genre_tags(ev))
 
     if not hit_a and not hit_g:
         return None

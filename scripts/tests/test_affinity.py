@@ -101,6 +101,44 @@ def test_genre_affinity_conservative():
     assert genre_affinity("an electronica set", SAMPLE, PROFILE)[0] == 0
 
 
+def test_genre_match_is_tags_first_not_substring():
+    """'house' used to substring-match every warehouse party / House of Blues show and 'pop'
+    every popup. Vocab genres now read the event's deterministic tags.genre."""
+    from lib.affinity import genre_hits
+    g = {"house": 1.0, "pop": 0.9, "techno": 0.8}
+    hay = "techno warehouse rave at house of blues — popup bar"
+    assert genre_hits(g, 0.5, hay, ["techno"]) == ["techno"]            # tags decide, text ignored
+    assert genre_hits(g, 0.5, hay, []) == []                             # tagged, no genre -> nothing
+    assert genre_hits(g, 0.5, "the warehouse popup", None) == []         # untagged: whole-token only
+    assert genre_hits(g, 0.5, "house and techno all night", None) == ["house", "techno"]
+
+
+def test_genre_parents_and_penalized_lanes():
+    from lib.affinity import genre_hits
+    g = {"house": 1.0, "techno": 1.0, "trance": 1.0}
+    assert genre_hits(g, 0.5, "", ["deep-house"]) == ["house"]          # tagger shadows 'house'
+    assert genre_hits(g, 0.5, "", ["psytrance"]) == ["trance"]
+    assert genre_hits(g, 0.5, "", ["hard-techno"]) == []                 # penalized lane: no credit
+
+
+def test_genre_non_vocab_and_spotify_style_keys_fall_back_to_text():
+    from lib.affinity import genre_hits
+    # 'balearic' isn't a tag — whole-token text match even on a tagged event.
+    assert genre_hits({"balearic": 1.0}, 0.5, "a balearic sunset session", ["house"]) == ["balearic"]
+    # Spotify-style 'deep house' normalizes to the vocab key and reads the tags.
+    assert genre_hits({"deep house": 1.0}, 0.5, "", ["deep-house"]) == ["deep house"]
+    assert genre_hits({"deep house": 1.0}, 0.5, "deep house", ["techno"]) == []
+
+
+def test_scored_warehouse_party_no_longer_gets_house_credit():
+    ev = {"title": "Warehouse Rave", "category": "electronic", "venue": "TBA", "date": "2026-06-20",
+          "lineup": ["Someone"], "tags": {"genre": ["techno"]}}
+    aff = {"source": "feedback", "artists": {}, "genres": {"house": 1.0}}
+    assert not any("on-taste genre" in r for r in score_event(ev, TASTE, PROFILE, aff)["reasons"])
+    ev["tags"]["genre"] = ["tech-house"]
+    assert any("on-taste genre (house)" in r for r in score_event(ev, TASTE, PROFILE, aff)["reasons"])
+
+
 def test_affinity_enriches_but_never_replaces():
     """Same event scored with and without affinity: affinity only adds, taste.yaml unchanged."""
     ev = {"title": "Antal all night long", "category": "electronic",
