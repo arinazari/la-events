@@ -2,12 +2,12 @@
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Sun 9/27 · no new or changed events since the last pull*
 
-<!-- take: -->
-<!-- tier3:intro -->
+<!-- take: Deep-house weekend, back to back — Amelie Lens tonight, Theo Parrish open-to-close tomorrow, then Mark Ernestus's rare LA date headlines next Saturday. -->
+<!-- tier3:intro -->A strong stretch on both ends: tonight's Amelie Lens day party and tomorrow's Theo Parrish open-to-close bookend a weekend that doesn't let up, then next Friday/Saturday (10/2–10/3) stacks Fast At Work's anniversary, Into The Woods' Conducta all-nighter, Mark Ernestus's rare 3-hour set, and Lee Burridge's All Day I Dream on top of each other. If you can only do one tonight: Amelie Lens's dedicated Grand Park set beats catching her in a shared HARD Summer-style slot. Tomorrow, Theo Parrish's full open-to-close arc is the better bet over the Boiler Room's scattershot multi-stage bill — go deep instead of wide.
 
 ## Tonight & tomorrow
 
-<!-- tier3:call -->
+<!-- tier3:call -->Amelie Lens's day party is the move tonight; tomorrow, take Theo Parrish's open-to-close over the Boiler Room if you're picking just one.
 
 - `Today 5pm` ⭐ **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park, DTLA · day party · $69+ · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=d535a0dbfe40) — *Amelie Lens headlining a day-to-dusk RA-pick outdoor set, with Truncate's own OBSERVE crew on the undercard — the clearest build-a-Saturday-around booking in this batch.*
 - `Today Sat:12pm-Sun:10pm` **[Oceanway Festival: SG lewis, Hot Chip, DJ Harvey, Austin Millz, Nala, Heidi Lawden, Blond:Ish, Poolside, Carlita, Vandelux, Coco & Breezy, Good Neighbours](https://oceanwayfestival.com)** — Santa Monica Beach (Los Angeles), Santa Monica · day party · $400 2 days / $229 1 · [card ↗](https://arinazari.github.io/la-events/?e=1d2529b6944a) — *The dance stage of Ocean Way — DJ Harvey, Poolside, Blond:ish, Carlita — is the actual draw here; the Killers/Jack White are along for the ride.*
@@ -19,22 +19,22 @@
 ## Don't miss
 
 - `Sat 9/26` **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park, DTLA · $69+ · [card ↗](https://arinazari.github.io/la-events/?e=d535a0dbfe40)  
-  A dedicated day-to-dusk Amelie Lens set at Grand Park, not a shared festival stage — genuinely the better way to catch her than the HARD Summer slot the same month. Extended techno-into-acid-into-trance from a real headliner in a proper Factory 93 room. <!-- tier3:why d535a0dbfe40 -->
+  A full day-to-dusk Amelie Lens set beats catching her in a shared festival slot — techno into acid into trance, uninterrupted, in a proper Factory 93 room. <!-- tier3:why d535a0dbfe40 -->
 - `Sat 9/26` **[Oceanway Festival: SG lewis, Hot Chip, DJ Harvey, Austin Millz, Nala, Heidi Lawden, Blond:Ish, Poolside, Carlita, Vandelux, Coco & Breezy, Good Neighbours](https://oceanwayfestival.com)** — Santa Monica Beach (Los Angeles), Santa Monica · $400 2 days / $229 1 · [card ↗](https://arinazari.github.io/la-events/?e=1d2529b6944a)  
-  DJ Harvey, Poolside and Blond:ish give this real disco/house teeth, but Hot Chip, SG Lewis and Good Neighbours pull it toward general-festival territory rather than a pure dance lineup — go for the beach-day format and the top of the bill, not expecting a club night. <!-- tier3:why 1d2529b6944a -->
+  DJ Harvey, Poolside and Blond:ish are the real reason to go — Hot Chip and SG Lewis make it feel more like a general festival than a dance one, so come for the beach-day format, not a club night. <!-- tier3:why 1d2529b6944a -->
 - `Sat 9/26` **[Rilo Kiley & Beachwood Sparks](https://www.timeout.com/los-angeles/music/rilo-kiley)** — Hollywood Forever Cemetery (Fairbanks Lawn), Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=8aec3c031711)  
-  A genuine reunion booking, not a nostalgia-tour cash grab — Jenny Lewis and co. at Hollywood Forever's outdoor lawn with Beachwood Sparks' cosmic-country twang opening is a real night even outside the usual house/techno lane. <!-- tier3:why 8aec3c031711 -->
+  Jenny Lewis and Rilo Kiley back together at Hollywood Forever's lawn, Beachwood Sparks opening — a genuine reunion, not a cash-grab tour, worth it even outside the usual house/techno lane. <!-- tier3:why 8aec3c031711 -->
 - `Fri 10/9` **[Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)** — TBA - Downtown Los Angeles, DTLA · $23.25-46.50 · *📍 location TBA — watch for the drop* · [card ↗](https://arinazari.github.io/la-events/?e=d0cab332db78)  
-  Ben UFO doesn't play a lane so much as ignore the concept of one — this is a real London import at a TBA warehouse, which is exactly the Lights Down Low afterhours energy that's usually worth building a night around. <!-- tier3:why d0cab332db78 -->
+  Ben UFO doesn't play a lane, he ignores the concept of one — a real London import at a TBA warehouse, exactly the energy Lights Down Low nights are built around. <!-- tier3:why d0cab332db78 -->
 - `Sun 10/18` **[Kacey Musgraves w/ Gabriella Rose](https://www.cryptoarena.com/)** — Crypto.com Arena, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=6d1613301e21)  
-  Not remotely the club lane, but Kacey's a real Spotify staple for you and this is the 'Middle of Nowhere' arena tour hitting DTLA — go for the songs, not the scene. <!-- tier3:why 6d1613301e21 -->
+  Not the club lane at all, but Kacey's in heavy rotation for you and this is the 'Middle of Nowhere' tour landing at Crypto.com — go for the songs, not the scene. <!-- tier3:why 6d1613301e21 -->
 - `Sat 10/24` **[KCRW Presents: Hannah Lew with Sarah Register](https://www.ticketmaster.com/kcrw-presents-hannah-lew-with-sarah-los-angeles-california-10-24-2026/event/09006504B27380A3)** — The Moroccan Lounge, Arts District · [card ↗](https://arinazari.github.io/la-events/?e=9f0f8bea7e78)  
-  Not the house/vinyl lane, but a genuinely credible underground-indie bill — Grass Widow and Talk Normal pedigree dressed up as a KCRW pop night. Worth it if the post-punk/dream-pop side of the taste is in the mood. <!-- tier3:why 9f0f8bea7e78 -->
+  Off the house/vinyl lane, but a legit underground-indie bill — Grass Widow and Talk Normal pedigree wearing a KCRW pop-night name. Worth it if you're in a post-punk/dream-pop mood. <!-- tier3:why 9f0f8bea7e78 -->
 
 ## Next two weeks
 
 ### Saturday · September 26
-<!-- tier3:blueprint 2026-09-26 -->
+<!-- tier3:blueprint 2026-09-26 -->Amelie Lens runs day-to-dusk at Grand Park; grab dinner nearby at San Laurel or Yess in DTLA/Arts District, then swing over to Jimi Jules' open-to-close at Gin Ling Way in Chinatown for the deeper back half of the night.
 
 **Electronic & dance**
 - `5pm` ⭐ **[Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)** — Grand Park, DTLA · day party · $69+ · ★ Ari · [card ↗](https://arinazari.github.io/la-events/?e=d535a0dbfe40)
@@ -113,7 +113,7 @@
 - *Also:* [NIGHT SHIFT AFTER HOURS](https://ra.co/events/2543648) (The Lexington) · [The Outsiders (Touring)](https://www.ticketmaster.com/the-outsiders-touring-los-angeles-california-10-02-2026/event/0B0064C3A6FF55D2) (Hollywood Pantages Theatre)
 
 ### Friday · October 2
-<!-- tier3:blueprint 2026-10-02 -->
+<!-- tier3:blueprint 2026-10-02 -->Two all-nighters collide — Fast At Work's 5-year anniversary (Darwin, Verraco, Trax Unit) vs. Into The Woods' Conducta all-night garage set. Pizzeria Bianco for dinner, then pick your genre (techno or garage) early — both run till 5-6am.
 
 **Electronic & dance**
 - `11pm-6am` ⭐ **[Fast At Work 5-Year Anniversary: Darwin, Verraco, Carré, Trax Unit, Samwise ](https://ra.co/events/2517924)** — TBA, Los Angeles · $11.20-33.55 · [card ↗](https://arinazari.github.io/la-events/?e=5af0b0459666)  
@@ -130,7 +130,7 @@
 - `8pm` **[The Snares](https://ra.co/events/2488451)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=f9af2e44ada6)
 
 ### Saturday · October 3
-<!-- tier3:blueprint 2026-10-03 -->
+<!-- tier3:blueprint 2026-10-03 -->The real call of the weekend: Mark Ernestus's rare 3-hour set at CSW Open Air (with DjRUM, Akanbi) overlaps Lee Burridge's All Day I Dream at Pershing Square. Early dinner at Yess, then pick one day party and ride it into the night rather than splitting the difference.
 
 **Electronic & dance**
 - `4pm-3am` ⭐ **[CSW Open Air: DjRUM [4hr], Mark Ernestus [3hr], Akanbi b2b The Large [Double set]](https://ra.co/events/2521281)** — TBA - Downtown, DTLA · day party · $39-44 · [card ↗](https://arinazari.github.io/la-events/?e=ac41ac86343d)  
@@ -203,7 +203,7 @@
 - `8pm` **[tp Dutchkiss, deep glens, strangejane, SLC](https://dice.fm/event/6a595ec531479c0001f83d8d)** — 2220 Arts + Archives, Historic Filipinotown · $20.00 · [card ↗](https://arinazari.github.io/la-events/?e=d1c3cc712d60)
 
 ### Friday · October 9
-<!-- tier3:blueprint 2026-10-09 -->
+<!-- tier3:blueprint 2026-10-09 -->Three ⭐ nights on one Friday — Ben UFO's Lights Down Low, Roman Flügel's In Between, and Bart Skils' 4-hour WORK set. Dinner at San Laurel, then Ben UFO's the pick if you can only do one; the other two are both TBA-DTLA-adjacent enough to bar-hop between.
 
 **Electronic & dance**
 - `11pm-5am` ⭐ **[Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)** — TBA - Downtown Los Angeles, DTLA · $23.25-46.50 · [card ↗](https://arinazari.github.io/la-events/?e=d0cab332db78)
@@ -271,7 +271,7 @@
 *Notable around the city — not ranked to taste; here so you stay apprised.*
 - `Sat 9/26` **[Ocean Way Festival - 09/26 Saturday](https://www.axs.com/events/1459419/ocean-way-festival-tickets)** — The Beach at Santa Monica · Santa Monica  ·  *editorial, festival, DJ Harvey* · [card ↗](https://arinazari.github.io/la-events/?e=96782c900568) <!-- tier3:gloss 96782c900568 -->
 - `Sat 9/26` **Los Angeles Libros Festival** — Central Library · DTLA  ·  *editorial, festival, civic* · [card ↗](https://arinazari.github.io/la-events/?e=31b6a322b363) <!-- tier3:gloss 31b6a322b363 -->
-- `Sat 9/26` **[Autry's Annual Block Party: Love Letters to L.A.](https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events)** — The Autry Museum of the American West · Griffith Park  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=d2d1a26adc6f) <!-- tier3:gloss d2d1a26adc6f -->
+- `Sat 9/26` **[Autry's Annual Block Party: Love Letters to L.A.](https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events)** — The Autry Museum of the American West · Griffith Park  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=d2d1a26adc6f) <!-- tier3:gloss d2d1a26adc6f -->Showing up on four separate roundups this week — the most-mentioned thing happening today.
 - `Sat 9/26` **[Ohana Music Festival](https://on.fgtix.com/trk/ycJM)** — Doheny State Beach · Dana Point  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=a53ad699d58f) <!-- tier3:gloss a53ad699d58f -->
 - `Sat 9/26` **[Pasadena Chalk Festival](https://www.timeout.com/los-angeles/art/pasadena-chalk-festival)** — Brookside Park, Pasadena · Pasadena  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=64101052ec0e) <!-- tier3:gloss 64101052ec0e -->
 - `Sat 9/26` **[Oktoberfest at Lawless Brewing Co.](https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events)** — Lawless Brewing Co. · North Hollywood  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=535fb5b4a1c5) <!-- tier3:gloss 535fb5b4a1c5 -->
@@ -280,19 +280,19 @@
 - `Sat 9/26` **[Oktoberfest at Wurstküche Venice](https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events)** — Wurstküche · Venice  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=13e6e0cfe74b) <!-- tier3:gloss 13e6e0cfe74b -->
 - `Sat 9/26` **[Rodgers & Hammerstein's The Sound of Music Sing-A-Long](https://www.hollywoodbowl.com/events)** — Hollywood Bowl · Hollywood  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=a8851dd99f59) <!-- tier3:gloss a8851dd99f59 -->
 - `Sun 9/27` **[Oktoberfest at Benny Boy Brewing](https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events)** — Benny Boy Brewing · Lincoln Heights  ·  *editorial, festival* · [card ↗](https://arinazari.github.io/la-events/?e=e253c73c802e) <!-- tier3:gloss e253c73c802e -->
-- `Sun 9/27` **[Tove Lo w/ Mallrat](https://www.lagreektheatre.com/)** — Greek Theatre-Los Angeles · Los Feliz  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=68add0d59a1d) <!-- tier3:gloss 68add0d59a1d -->
+- `Sun 9/27` **[Tove Lo w/ Mallrat](https://www.lagreektheatre.com/)** — Greek Theatre-Los Angeles · Los Feliz  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=68add0d59a1d) <!-- tier3:gloss 68add0d59a1d -->Off the club lane, but a real dance-pop headliner with a strong opener in Mallrat.
 
 ## On the radar
 
 
 **October 2026**
 - `Sat 10/31` **[THE MAZE Halloween: Arts District Block Party](https://ra.co/events/2491883)** — TBA - Arts District Los Angeles · Arts District  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=d49eb8554c26) <!-- tier3:gloss d49eb8554c26 -->
-- `Sat 10/31` **[Mayan Warrior Halloween: Camelphat, Darco, Luch, Yamagucci](https://ra.co/events/2502381)** — TBA - Los Angeles · Los Angeles  ·  *CamelPhat* · [card ↗](https://arinazari.github.io/la-events/?e=a7aa11b84fa4) <!-- tier3:gloss a7aa11b84fa4 -->
+- `Sat 10/31` **[Mayan Warrior Halloween: Camelphat, Darco, Luch, Yamagucci](https://ra.co/events/2502381)** — TBA - Los Angeles · Los Angeles  ·  *CamelPhat* · [card ↗](https://arinazari.github.io/la-events/?e=a7aa11b84fa4) <!-- tier3:gloss a7aa11b84fa4 -->CamelPhat headlines; Mayan Warrior's own art-car production is the draw as much as the lineup.
 
 **November 2026**
 - `Sat 11/7` **[And Always Forever 2026 - 2-DAY PASS](https://www.ticketmaster.com/and-always-forever-2026-2day-pass-los-angeles-california-11-07-2026/event/090064F8C0F8A145)** — Echoplex · Echo Park  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=f8270a79763f) <!-- tier3:gloss f8270a79763f -->
 - `Sun 11/8` **[Rose Bowl Flea Market Sunday, November 8, 2026](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-november-8-2026-tickets-1977731982599)** — Rose Bowl Stadium · Pasadena  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=76c77f040c95) <!-- tier3:gloss 76c77f040c95 -->
-- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* · [card ↗](https://arinazari.github.io/la-events/?e=5cfd176b0544) <!-- tier3:gloss 5cfd176b0544 -->
+- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* · [card ↗](https://arinazari.github.io/la-events/?e=5cfd176b0544) <!-- tier3:gloss 5cfd176b0544 -->Bonobo added a second Wiltern night — same live band show either date.
 - `Thu 11/12` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4)** — The Wiltern · Koreatown  ·  *Bonobo* · [card ↗](https://arinazari.github.io/la-events/?e=cf6cd35ddcc5) <!-- tier3:gloss cf6cd35ddcc5 -->
 - `Fri 11/13` **[DARKER WAVES PRE-FESTIVAL PARTY](https://www.thecircleoc.com/upcoming-events/darker-waves-pre-festival-party)** — The Circle OC · Huntington Beach  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=468880c54a64) <!-- tier3:gloss 468880c54a64 -->
 - `Fri 11/20` **[WORK Weekender Day 1: Fadi Mohem, Fizch, & Lindsey Herbert](https://ra.co/events/2537227)** — TBA - Los Angeles · Los Angeles  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=8ed43da5edb4) <!-- tier3:gloss 8ed43da5edb4 -->
@@ -306,7 +306,7 @@
 **December 2026**
 - `Fri 12/4` **[Angine de Poitrine](https://www.ticketmaster.com/angine-de-poitrine-los-angeles-california-12-04-2026/event/090064A7ABE2D617)** — The Wiltern · Koreatown  ·  *editorial* · [card ↗](https://arinazari.github.io/la-events/?e=2c1594f123c1) <!-- tier3:gloss 2c1594f123c1 -->
 - `Fri 12/4` **[Grateful Shred: Holiday Homecoming - 2-DAY Pass](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91)** — The Bellwether · DTLA  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=3b54c7947074) <!-- tier3:gloss 3b54c7947074 -->
-- `Sat 12/12` **[JOHN SUMMIT - CTRL ESCAPE TOUR](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7)** — Los Angeles Memorial Coliseum · Exposition Park  ·  *John Summit* · [card ↗](https://arinazari.github.io/la-events/?e=c9505e7363e5) <!-- tier3:gloss c9505e7363e5 -->
+- `Sat 12/12` **[JOHN SUMMIT - CTRL ESCAPE TOUR](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7)** — Los Angeles Memorial Coliseum · Exposition Park  ·  *John Summit* · [card ↗](https://arinazari.github.io/la-events/?e=c9505e7363e5) <!-- tier3:gloss c9505e7363e5 -->A stadium-scale solo booking for a house DJ — genuinely unusual room size, worth grabbing early.
 - `Tue 12/15` **[Trippie Redd - The Non-disclosure Agreement Tour](https://www.ticketmaster.com/trippie-redd-the-nondisclosure-agreement-tour-hollywood-california-12-15-2026/event/090065303EFFBE81)** — Hollywood Palladium · Hollywood  ·  *Disclosure* · [card ↗](https://arinazari.github.io/la-events/?e=bcf91784c59d) <!-- tier3:gloss bcf91784c59d -->
 
 **The watch-list** — *festivals worth planning around*
