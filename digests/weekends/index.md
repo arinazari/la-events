@@ -2,9 +2,8 @@
 
 *One row per upcoming weekend, soonest first. Each links to its full digest.*
 
-- **[Sep 25–27](./2026-09-25.md)** — 11 picks · top: [Factory 93 presents: Amelie Lens at Grand Park Block 2](https://ra.co/events/2400834)
 - **[Oct 2–4](./2026-10-02.md)** — 17 picks · top: [Fast At Work 5-Year Anniversary: Darwin, Verraco, Carré, Trax Unit, Samwise ](https://ra.co/events/2517924)
-- **[Oct 9–11](./2026-10-09.md)** — 21 picks · top: [Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)
+- **[Oct 9–11](./2026-10-09.md)** — 20 picks · top: [Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)
 - **[Oct 16–18](./2026-10-16.md)** — 19 picks · top: [Deep Steppe & Handpicked presents..Subb-an + Halo Varga + Babylon Beach](https://ra.co/events/2538217)
 - **[Oct 23–25](./2026-10-23.md)** — 18 picks · top: [SYNTHESIS 002: Anastasia Giovani, Blazej Malinowski, Kameliia & Secus](https://ra.co/events/2434324)
 - **[Oct 30 – Nov 1](./2026-10-30.md)** — 14 picks · top: [Escape Halloween](https://on.fgtix.com/trk/Ni5m)
@@ -18,3 +17,4 @@
 - **[Dec 25–27](./2026-12-25.md)** — 8 picks · top: [A Swingin' Jazz Affair (Matt Forbes, Jesse Goddard, David Moscoe Trio)](https://www.thedresden.com/events/)
 - **[Jan 1–3](./2027-01-01.md)** — 11 picks · top: [SIGNAL NYD](https://ra.co/events/2538327)
 - **[Jan 8–10](./2027-01-08.md)** — 10 picks · top: [Arley Perez](https://www.ticketmaster.com/arley-perez-cabazon-california-01-08-2027/event/0900651D014AC6B5)
+- **[Jan 15–17](./2027-01-15.md)** — 13 picks · top: [TWINSICK](https://www.axs.com/events/1607302/twinsick-tickets)
