@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/26/2026 deterministically (no API). 176 candidates. Signals: big-venue 148, festival 20, tracked 8, editorial 3._
+_Generated 9/28/2026 deterministically (no API). 165 candidates. Signals: big-venue 139, festival 19, tracked 7, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -24,18 +24,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sun 11/22 | 2 | Three Days Grace - Alienation Tour  | Intuit Dome | festival, big-venue | [link](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0) |
 | Sat 11/28 | 7 | Solomun | Hollywood Blvd (Los Angeles) | tracked:Solomun | [link](https://dice.fm/event/7dbax7-solomun-28th-nov-hollywood-blvd-los-angeles-tickets) |
-
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 10/31 | 6 | THE MAZE Halloween: Arts District Block Party | TBA - Arts District Los Angeles | festival | [link](https://ra.co/events/2491883) |
-| Sat 10/31 | 6 | Mayan Warrior Halloween: Camelphat, Darco, Luch, Yamagucci | TBA - Los Angeles | tracked:CamelPhat | [link](https://ra.co/events/2502381) |
-
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
 | Fri 11/20 | 5 | WORK Weekender Day 1: Fadi Mohem, Fizch, & Lindsey Herbert | TBA - Los Angeles | festival | [link](https://ra.co/events/2537227) |
 | Sat 11/21 | 5 | WORK Weekender Day 2: Adrian Reyes, Luigi Tozzi [Live], &  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537247) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
@@ -116,13 +104,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sun 12/20 | 1 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-20-2026/event/0B00648CEFF257C5) |
 | Sun 12/13 | 0 | Slackfest West | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/slackfest-west-anaheim-california-12-13-2026/event/09006506EF9C1651) |
 
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 10/31 | 4 | My Chemical Romance with Special Guest Thrice | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/my-chemical-romance-with-special-guest-hollywood-california-10-31-2026/event/0B006332CBE839B4) |
-| Sat 10/31 | 4 | "Weird Al" Yankovic: UHF Live-to-Screen with Orchestra and | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/weird-al-yankovic-uhf-livetoscreen-with-los-angeles-california-10-31-2026/event/090064CBDC58F3C8) |
-
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -147,14 +128,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 12/4 | 4 | 102.7 KIIS FM's Jingle Ball Presented by Capital One | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/1027-kiis-fms-jingle-ball-presented-inglewood-california-12-04-2026/event/09006524E7B61513) |
 | Fri 12/11 | 4 | Brent Faiyaz | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 12/18 | 4 | Love Actually in Concert | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
-
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 10/31 | 3 | Skillet: Comatose 20 Years, Still Screaming Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/skillet-comatose-20-years-still-screaming-inglewood-california-10-31-2026/event/0A0064CCA697D3CD) |
-| Sat 10/31 | 3 | Phoebe Bridgers: The Lost Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/phoebe-bridgers-the-lost-tour-inglewood-california-10-31-2026/event/090064C476614C4F) |
-| Sat 10/31 | 3 | Bronco (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 
 ## November 2026
 
@@ -236,9 +209,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 11/1 | 2 | Phoebe Bridgers: The Lost Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/phoebe-bridgers-the-lost-tour-inglewood-california-11-01-2026/event/090064C477C34F02) |
-| Sun 11/1 | 2 | Caifanes | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/caifanes-ontario-california-11-01-2026/event/090064AFAED8EBF7) |
-| Sun 11/1 | 2 | Richard Marx - Ages 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 11/5 | 2 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-05-2026/event/0A0064C5CA9BB7A7) |
 | Sun 11/8 | 2 | Mon Laferte - Femme Fatale Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mon-laferte-femme-fatale-tour-inglewood-california-11-08-2026/event/090064C7E0BCDF3F) |
 | Sun 11/8 | 2 | Jose Mari Chan and The CompanY (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -305,12 +275,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 3/7 | 2 | Elevation Worship & Steven Furtick | Kia Forum | big-venue | [link](https://www.ticketmaster.com/elevation-worship-steven-furtick-inglewood-california-03-07-2027/event/09006528E7F4DAA3) |
-
-## October 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 10/31 | 1 | THE B-52s * DEVO:  COSMIC DE-EVOLUTION TOUR | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/the-b52s-devo-cosmic-deevolution-tour-palm-desert-california-10-31-2026/event/0A0064D093588054) |
 
 ## November 2026
 
