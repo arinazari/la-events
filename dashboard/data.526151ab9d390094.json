@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T12:50:31+00:00",
+  "generated_at": "2026-09-28T17:48:19+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "ec2a852aaf11",
@@ -1092,53 +1092,13 @@
       {
         "id": "fyi",
         "label": "FYI",
-        "keys": [
-          "65fe3154cfb5",
-          "c0d3e8b35c7a",
-          "65b48994e708",
-          "93586c996a50",
-          "7d503091776b",
-          "e66ff8183579",
-          "e29575e1e13d",
-          "bd6f8c6d77c8",
-          "cc4d9608c1f4",
-          "865f15219d5c",
-          "dd9c326867d1",
-          "ca29545275d2",
-          "631dca96ae32",
-          "290315589965",
-          "11d3c0e23ce8",
-          "7af2319a08bf",
-          "5e69d30cc344",
-          "5ce79010e3ac",
-          "3ba9cac710f6",
-          "213c34bb9c54",
-          "fc1725e212a6",
-          "fc16a0be4c36",
-          "41f7708b12b7",
-          "a3388ccb7f28",
-          "761f9e39bfab",
-          "2fb9472ea05a",
-          "ff3bd9183eb1",
-          "d8c5c446137b",
-          "b59113d3134c",
-          "b2e695dfd326",
-          "99ec12c4b797",
-          "7644db2ee633",
-          "54795bbc6242",
-          "f6f14744e71a",
-          "5fbea26fb0b6",
-          "c9e68aa6f1c9",
-          "c2e9b5666abf",
-          "bb10e50f4daf",
-          "24cac07140e0",
-          "b8d40caf7cb3"
-        ]
+        "keys": []
       }
     ],
     "radar": [
       "0d979c907ddb",
       "76c77f040c95",
+      "c9505e7363e5",
       "2c1594f123c1",
       "a275d78b3f74",
       "4edb53aea20f",
@@ -1146,13 +1106,12 @@
       "4d874f91d64b",
       "ed0972c5b32f",
       "491ec6158b40",
-      "c9505e7363e5",
       "f8270a79763f",
       "5cfd176b0544",
       "cf6cd35ddcc5",
       "468880c54a64",
       "3b54c7947074",
-      "bcf91784c59d"
+      "3580be7c8904"
     ],
     "around": [
       "968953e06ebc",
@@ -4593,6 +4552,7 @@
       "boosts": [],
       "penalties": [],
       "artists_tracked": [],
+      "fyi_artists": [],
       "comedians_loved": [],
       "venues_loved": [],
       "film": {}
@@ -294214,11 +294174,16 @@
       "taste": {
         "file": "profiles/jake/taste.yaml",
         "exists": true,
-        "history": [],
-        "diff": "",
-        "diff_kind": "none",
+        "history": [
+          {
+            "date": "2026-08-26",
+            "summary": "profiles: add blank profiles for cherry, andy, jake"
+          }
+        ],
+        "diff": "diff --git a/profiles/jake/taste.yaml b/profiles/jake/taste.yaml\nnew file mode 100644\nindex 0000000..0743b99\n--- /dev/null\n+++ b/profiles/jake/taste.yaml\n@@ -0,0 +1,19 @@\n+# Taste profile \u2014 Jake. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only jake\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium:  []   # +2 each\n+  low:     []   # +1, include only if exceptional\n+\n+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: []   # -2 each (the \"not for me\" list)\n+\n+artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n+comedians_loved:  []\n+venues_loved:     []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-09-23"
+        "enriched_at": "2026-08-27"
       },
       "profile": {
         "file": "profiles/jake/profile.yaml",

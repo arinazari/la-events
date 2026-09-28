@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T12:50:13+00:00",
+  "generated_at": "2026-09-28T17:48:07+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "ec2a852aaf11",
@@ -1093,52 +1093,14 @@
         "id": "fyi",
         "label": "FYI",
         "keys": [
-          "65fe3154cfb5",
-          "c0d3e8b35c7a",
-          "65b48994e708",
-          "93586c996a50",
-          "7d503091776b",
-          "e66ff8183579",
-          "e29575e1e13d",
-          "bd6f8c6d77c8",
-          "cc4d9608c1f4",
-          "865f15219d5c",
-          "dd9c326867d1",
-          "ca29545275d2",
-          "631dca96ae32",
-          "290315589965",
-          "11d3c0e23ce8",
-          "7af2319a08bf",
-          "5e69d30cc344",
-          "5ce79010e3ac",
-          "3ba9cac710f6",
-          "213c34bb9c54",
-          "fc1725e212a6",
-          "fc16a0be4c36",
-          "41f7708b12b7",
-          "a3388ccb7f28",
-          "761f9e39bfab",
-          "2fb9472ea05a",
-          "ff3bd9183eb1",
-          "d8c5c446137b",
-          "b59113d3134c",
-          "b2e695dfd326",
-          "99ec12c4b797",
-          "7644db2ee633",
-          "54795bbc6242",
-          "f6f14744e71a",
-          "5fbea26fb0b6",
-          "c9e68aa6f1c9",
-          "c2e9b5666abf",
-          "bb10e50f4daf",
-          "24cac07140e0",
-          "b8d40caf7cb3"
+          "c9505e7363e5"
         ]
       }
     ],
     "radar": [
       "0d979c907ddb",
       "76c77f040c95",
+      "c9505e7363e5",
       "2c1594f123c1",
       "a275d78b3f74",
       "4edb53aea20f",
@@ -1146,13 +1108,12 @@
       "4d874f91d64b",
       "ed0972c5b32f",
       "491ec6158b40",
-      "c9505e7363e5",
       "f8270a79763f",
       "5cfd176b0544",
       "cf6cd35ddcc5",
       "468880c54a64",
       "3b54c7947074",
-      "bcf91784c59d"
+      "3580be7c8904"
     ],
     "around": [
       "968953e06ebc",
@@ -4607,6 +4568,7 @@
         "Swedish House Mafia",
         "John Summit"
       ],
+      "fyi_artists": [],
       "comedians_loved": [],
       "venues_loved": [],
       "film": {}
@@ -236632,6 +236594,9 @@
       },
       "lane": "club:mainstream",
       "key": "c9505e7363e5",
+      "fyi_acts": [
+        "John Summit"
+      ],
       "final_rank": 8
     },
     {
@@ -294238,20 +294203,38 @@
       "taste": {
         "file": "profiles/raffi/taste.yaml",
         "exists": true,
-        "history": [],
-        "diff": "",
-        "diff_kind": "none",
+        "history": [
+          {
+            "date": "2026-09-04",
+            "summary": "taste(Raffi): Track John Summit (Alesso and Kaskade already tracked)"
+          },
+          {
+            "date": "2026-07-06",
+            "summary": "taste(Raffi): Added Alesso, Kaskade, Swedish House Mafia as tracked artists; boosted b"
+          },
+          {
+            "date": "2026-06-26",
+            "summary": "Add Raffi profile (blank taste)"
+          }
+        ],
+        "diff": "diff --git a/profiles/raffi/taste.yaml b/profiles/raffi/taste.yaml\nindex b0ba074..e489e68 100644\n--- a/profiles/raffi/taste.yaml\n+++ b/profiles/raffi/taste.yaml\n@@ -11,7 +11,7 @@ categories:\n boosts: [ Dodgers ] # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n penalties: [] # -2 each (the \"not for me\" list)\n \n-artists_tracked: [ Alesso, Kaskade, Swedish House Mafia ] # lineup match => +2 and a \"tracked\" badge\n+artists_tracked: [ Alesso, Kaskade, Swedish House Mafia, John Summit ] # lineup match => +2 and a \"tracked\" badge\n comedians_loved: []\n venues_loved: []\n \n@@ -20,3 +20,5 @@ feedback:\n   - \"2026-07-07: Added Alesso, Kaskade, Swedish House Mafia as tracked artists;\n     boosted big-room/festival EDM; added Dodgers as a boost interest. (self-edit\n     via concierge)\"\n+  - \"2026-09-05: Track John Summit (Alesso and Kaskade already tracked)\n+    (self-edit via concierge)\"",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-09-23"
+        "enriched_at": "2026-09-05"
       },
       "profile": {
         "file": "profiles/raffi/profile.yaml",
         "exists": true,
-        "history": [],
-        "diff": "",
-        "diff_kind": "none",
+        "history": [
+          {
+            "date": "2026-07-06",
+            "summary": "profile(Raffi): Moved home to Studio City (Ventura & Laurel Canyon area)."
+          }
+        ],
+        "diff": "diff --git a/profiles/raffi/profile.yaml b/profiles/raffi/profile.yaml\nnew file mode 100644\nindex 0000000..5e03964\n--- /dev/null\n+++ b/profiles/raffi/profile.yaml\n@@ -0,0 +1,8 @@\n+# profile.yaml \u2014 MECHANISM overrides for Raffi's feed, created by the dashboard concierge.\n+# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs\n+# that differ need to live here \u2014 anything absent falls back to the repo defaults.\n+\n+home:\n+  neighborhood: Studio City\n+  cross_streets: Ventura Blvd & Laurel Canyon Blvd\n+  coords: [ 34.14, -118.39 ]",
+        "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-09-23"
+        "enriched_at": "2026-09-05"
       }
     }
   }
