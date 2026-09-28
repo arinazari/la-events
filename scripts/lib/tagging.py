@@ -206,7 +206,10 @@ VENUE_SCALE = {
         "peacock theater", "honda center", "youtube theater", "toyota arena", "acrisure",
         "yaamava", "shrine", "dodger stadium", "rose bowl", "banc of california",
         "morongo", "pechanga", "agua caliente", "fantasy springs", "pacific amphitheatre",
-        "glen helen", "cerritos center")},
+        "glen helen", "cerritos center",
+        # the Coliseum stadium itself — NOT "the torch at la coliseum", the separate
+        # plaza-side stage Insomniac books (its tier isn't pinned down; leave it unknown)
+        "memorial coliseum")},
     **{v: "hall" for v in (
         "wiltern", "hollywood palladium", "the bellwether", "the novo", "belasco",
         "avalon", "house of blues", "walt disney concert hall", "orpheum",

@@ -39,7 +39,8 @@ REPO = Path(__file__).resolve().parent.parent
 BIG_VENUE = ("hollywood bowl", "kia forum", "the forum", "crypto.com arena", "bmo stadium",
              "sofi stadium", "greek theatre", "intuit dome", "microsoft theater", "peacock theater",
              "honda center", "youtube theater", "toyota arena", "acrisure", "yaamava", "shrine",
-             "dodger stadium", "rose bowl", "banc of california", "frost amphitheater")
+             "dodger stadium", "rose bowl", "banc of california", "frost amphitheater",
+             "memorial coliseum")
 FEST_TERMS = ("festival", "fest ", "fest)", "two-day", "three-day", "2-day", "3-day",
               "weekender", "block party")
 # Civic/seasonal one-offs (Track B4) — the "make the city feel alive" class: notable for the

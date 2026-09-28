@@ -57,7 +57,8 @@ DEFAULT_SCORING = {
     # rapper Future, …). Auto-pulled from Spotify they false-match party titles, so they only
     # count when they appear in the STRUCTURED lineup, not loose title text. Grow as needed.
     "ambiguous_names": ["train", "future", "juice", "jungle", "lights", "justice", "work",
-                        "sanctuary", "paradise", "chance", "hold", "alive", "fisher", "drama"],
+                        "sanctuary", "paradise", "chance", "hold", "alive", "fisher", "drama",
+                        "disclosure"],
 }
 
 
@@ -100,6 +101,9 @@ def ambiguous_set(profile, taste=None) -> set:
 # "A vs B"). Split on these before the exact-entry ambiguous match — but never on "and"/"&",
 # which sit INSIDE band names (the duo "Fisher and Thames" must stay one entry).
 _ENTRY_SPLIT = re.compile(r"\s+(?:b2b|b3b|vs\.?|×)\s+", re.I)
+# A trailing billing qualifier on one entry — "ARLO (UK)", "Disclosure (DJ Set)" — which the
+# exact-entry match ignores (the entry still names the act; the qualifier isn't part of it).
+_ENTRY_QUALIFIER = re.compile(r"\s*\([^()]*\)\s*$")
 
 
 def tracked_hits(names, title, lineup, ambiguous=frozenset(), min_len=2) -> set:
@@ -108,10 +112,11 @@ def tracked_hits(names, title, lineup, ambiguous=frozenset(), min_len=2) -> set:
     Non-ambiguous names match as whole tokens in title+lineup text ('antal' at a word edge).
     Ambiguous names — artist names that are also ordinary words or common surnames (FISHER,
     Drama, Future) — must EQUAL a normalized lineup entry (after splitting composite b2b/vs
-    billings): token presence isn't enough, because 'fisher' sits as a whole token inside the
-    unrelated duo 'Fisher and Thames', and a title-only billing can't disambiguate the word
-    from the artist. Exact-entry means FISHER billed solo (or in a b2b) still matches while
-    name-collisions don't. Returns the matching names as given."""
+    billings and dropping a trailing "(UK)"/"(DJ Set)" qualifier): token presence isn't
+    enough, because 'fisher' sits as a whole token inside the unrelated duo 'Fisher and
+    Thames', and a title-only billing can't disambiguate the word from the artist. Exact-entry
+    means FISHER billed solo (or in a b2b) still matches while name-collisions don't. Returns
+    the matching names as given."""
     if lineup is None:
         lineup = []
     lineup = [str(a) for a in lineup] if isinstance(lineup, (list, tuple)) else [str(lineup)]
@@ -119,6 +124,7 @@ def tracked_hits(names, title, lineup, ambiguous=frozenset(), min_len=2) -> set:
     for a in lineup:
         for part in _ENTRY_SPLIT.split(a):
             entries.add(normalize_name(part))
+            entries.add(normalize_name(_ENTRY_QUALIFIER.sub("", part)))
     text = fold((title or "") + " " + " ".join(lineup))
     hits = set()
     for a in names or []:
@@ -240,30 +246,40 @@ def _scoring_cfg(profile: dict) -> dict:
     return cfg
 
 
-def artist_affinity(name_text: str, lineup_text: str, affinity: dict, profile: dict = None) -> tuple:
-    """(points, reasons) for affinity artists billed in an event.
+def billed_artists(name_text: str, lineup_text: str, affinity: dict, profile: dict = None,
+                   cfg: dict = None) -> list:
+    """[(key, info)] for the affinity artists actually BILLED on an event — the one matcher
+    artist_affinity scores with and the dashboard's FYI table reads, so the two can't disagree
+    about who's on a bill.
 
     Matches against where artists actually appear — `name_text` (lowercased title + lineup),
     NOT the venue/detail/promoter blob (which collides: a 'jungle' genre tag, a 'Future' night).
     Whole-token match only (so 'hanson' != 'chansons'); ambiguous common-word names (Train,
-    Future, …) must land in `lineup_text` to count. Graded by tier, capped (artist_cap); a
-    'hidden' tier (feedback "never show") down-ranks.
+    Future, …) must land in `lineup_text` to count; names under min_name_len never match."""
+    artists = (affinity or {}).get("artists") or {}
+    if not artists:
+        return []
+    cfg = cfg or _scoring_cfg(profile)
+    minlen = cfg["min_name_len"]
+    ambiguous = cfg["ambiguous"]
+    folded_name, folded_lineup = fold(name_text), fold(lineup_text)
+    return [(key, info) for key, info in artists.items()
+            if len(key) >= minlen
+            and _token_pat(key).search(folded_lineup if key in ambiguous else folded_name)]
+
+
+def artist_affinity(name_text: str, lineup_text: str, affinity: dict, profile: dict = None) -> tuple:
+    """(points, reasons) for affinity artists billed in an event (billed_artists matching).
+    Graded by tier, capped (artist_cap); a 'hidden' tier (feedback "never show") down-ranks.
     """
     artists = (affinity or {}).get("artists") or {}
     if not artists:
         return 0, []
     cfg = _scoring_cfg(profile)
     tier_points = cfg["tier_points"]
-    minlen = cfg["min_name_len"]
-    ambiguous = cfg["ambiguous"]
 
     pts, reasons, suppress = 0, [], 0
-    for key, info in artists.items():
-        if len(key) < minlen:
-            continue
-        target = fold(lineup_text if key in ambiguous else name_text)
-        if not _token_pat(key).search(target):
-            continue
+    for key, info in billed_artists(name_text, lineup_text, affinity, cfg=cfg):
         tier = info.get("tier", "light")
         p = tier_points.get(tier, 0)
         name = info.get("name", key)

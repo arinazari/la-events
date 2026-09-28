@@ -3616,6 +3616,10 @@ class Component extends DCLogic {
     "",
     "Recent upgrades to the site. See **how it works** (Settings → About) any time for the full tour.",
     "",
+    "## September 2026",
+    "",
+    "- **FYI is now *your* big acts.** It used to list every arena booking the editor didn't feature — Iron Maiden, Disney tours, whoever had the Forum that night. Now a big-room show makes FYI only when its headliner is someone you track, someone on your **FYI list** (big names you want to know about even when they're not your lane — tell the concierge *add Sade to my FYI list*), a comedian you love, or an artist in your Spotify core/heavy rotation — and the page isn't already featuring it. It also catches big shows past the *plan ahead* window: a tracked headliner's stadium date three months out is on the page now, not just in the digest.",
+    "",
     "## August 2026 — marquees & tables",
     "",
     "- **Festivals split near & far.** The Festivals table is now two: **Close to home** (Greater LA — block the date) and **Worth the trip** (the destination end — SF, San Diego, London — plan the trip). The watch-list's hand-tagged scope decides which side; catalog festivals split on their region tag (OC still counts as home turf). Dates read *9/26–27* style throughout.",
@@ -3975,8 +3979,9 @@ class Component extends DCLogic {
       // shelves above carry what's FEATURED; these list what's program-shaped, standing, or
       // stay-informed. Movies/Theater lead with the program's span (server order: open runs
       // closing-soonest, then openings by date); Festivals merges the catalog's festival
-      // rows with the festivals.yaml watch-list fixture, date-sorted; FYI is the big/far
-      // know-about tier, date-sorted.
+      // rows with the festivals.yaml watch-list fixture, date-sorted; FYI is big-room shows
+      // headlined by an act this profile tracks/lists/streams that aren't featured above
+      // (server-side gate: build_dashboard FYI_*), date-sorted.
       const TAG_TONE = { green:['#1f7a4d','rgba(31,122,77,0.1)'], amber:['#b06a00','rgba(176,106,0,0.1)'],
                          blue:['#2b5cd9','rgba(43,92,217,0.1)'], gray:['#76746b','rgba(118,116,107,0.12)'] };
       const tone = (r, t) => { const [c, b] = TAG_TONE[t || 'green']; r.tagColor = c; r.tagBg = b; return r; };
@@ -4019,7 +4024,7 @@ class Component extends DCLogic {
       const TABLE_SUB = { seasonal:'markets, fleas & standing series', movies:'now playing & opening',
                           theater:'runs & one-night stages', festivals:'Greater LA — block the date',
                           'festivals-trip':'worth traveling for — plan the trip',
-                          fyi:'big & far — worth knowing about' };
+                          fyi:'your big acts — in town or nearby' };
       const TABLE_CAP = { seasonal:10, movies:10, theater:10, festivals:12, 'festivals-trip':12, fyi:12 };
       const fpTables = [];
       const pushTable = (id, label, rows, link) => {
@@ -4052,8 +4057,15 @@ class Component extends DCLogic {
             pushTable(t.id, 'Festivals: close to home', festAll.filter(r => r.scope !== 'travel'), wl);
             pushTable('festivals-trip', 'Festivals: worth the trip', festAll.filter(r => r.scope === 'travel'), wl);
           }
-          else if (t.id === 'fyi') pushTable(t.id, t.label, tblEvents(t.id).map(e =>
-            tRow(e, onSaleE(e) ? 'on sale' : (isNewE(e) ? 'just announced' : ''), onSaleE(e) ? 'green' : 'amber')), null);
+          else if (t.id === 'fyi') pushTable(t.id, t.label, tblEvents(t.id).map(e => {
+            // A multi-night arena run (Intuit Dome x10) reads as its span, not the rep night's
+            // date; the run count takes the tag slot when there's no on-sale/new status.
+            const run = this.runLabel(e);
+            const status = onSaleE(e) ? 'on sale' : (isNewE(e) ? 'just announced' : '');
+            const r = tRow(e, status || (run ? run.count : ''),
+                           onSaleE(e) ? 'green' : (status ? 'amber' : 'gray'));
+            if (run) r.dateShort = run.span;
+            return r; }), null);
         }
       } else {
         // Legacy feed (no front_page.tables yet): keep the old radar list alive as FYI so the

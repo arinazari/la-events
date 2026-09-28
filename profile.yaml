@@ -229,7 +229,8 @@ scoring:
     # Train, the rapper Future, the tech-house FISHER). These only count when they match a
     # structured lineup ENTRY, never loose title text — shared by the Spotify layer AND the
     # tracked-artist/radar matchers (Track B3: 'Fisher and Thames' must not badge FISHER,
-    # 'The Drama' must not badge DRAMA). Grow this as you spot more.
+    # 'The Drama' must not badge DRAMA; Trippie Redd's 'Non-disclosure Agreement Tour' must not
+    # badge Disclosure). Grow this as you spot more.
     ambiguous_names:
       [
         train,
@@ -245,7 +246,8 @@ scoring:
         hold,
         alive,
         fisher,
-        drama
+        drama,
+        disclosure
       ]
 
   # Feedback loop (Phase C). Reactions in data/feedback.jsonl fold into the affinity layer

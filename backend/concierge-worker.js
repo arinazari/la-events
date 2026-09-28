@@ -509,6 +509,8 @@ const TASTE_TOOL = {
       remove_artists: { type: "array", items: { type: "string" }, description: "Tracked artists to stop tracking." },
       add_venues: { type: "array", items: { type: "string" }, description: "Venue names they love (boost)." },
       add_comedians: { type: "array", items: { type: "string" }, description: "Comedians they want surfaced." },
+      add_fyi_artists: { type: "array", items: { type: "string" }, description: "Big-name acts they want to KNOW about when they play a big room in/near town, without tracking them (no ranking boost — listed in the page's FYI table). E.g. 'let me know when Sade comes through', 'add Erykah Badu to my FYI'." },
+      remove_fyi_artists: { type: "array", items: { type: "string" }, description: "Acts to drop from their FYI list." },
       add_high_category: { type: "array", items: { type: "string" }, description: "A genre/scene phrase to rank highly (e.g. 'warehouse techno parties')." },
       add_boost: { type: "array", items: { type: "string" }, description: "A soft-preference phrase to boost (e.g. 'rooftop / open-air sets')." },
       add_penalty: { type: "array", items: { type: "string" }, description: "A phrase to down-rank (e.g. 'bottle-service clubs')." },
@@ -661,7 +663,10 @@ export function buildSystem(feed, opts = {}) {
       "when removing an entry. When they express a lasting preference change (not a one-off query),",
       "call propose_taste_change with just the fields that change. After it succeeds, confirm in one",
       "line and tell them their feed re-ranks in about a minute — they should refresh (the ↻ button)",
-      "to see it. If it fails, say so plainly; don't pretend.",
+      "to see it. If it fails, say so plainly; don't pretend. Tracking an artist (add_artists) boosts",
+      "their shows in the ranking; the FYI list (add_fyi_artists) only lists their big-room shows in",
+      "the page's FYI table, no boost — use it for 'let me know when X is in town' / 'not my lane,",
+      "but I'd want to know'.",
       "",
       "MECHANISM EDITING: they can also tune HOW their feed ranks — via propose_profile_change, which",
       "is SEPARATE from taste. Their current mechanism is shown below (MECHANISM). Use this tool when",
@@ -702,6 +707,7 @@ export function buildSystem(feed, opts = {}) {
     taste.boosts && taste.boosts.length ? "Boosts: " + clean(taste.boosts).join("; ") : null,
     taste.penalties && taste.penalties.length ? "Down-ranks: " + clean(taste.penalties).join("; ") : null,
     taste.artists_tracked && taste.artists_tracked.length ? "Tracked artists: " + clean(taste.artists_tracked, 80).join(", ") : null,
+    taste.fyi_artists && taste.fyi_artists.length ? "FYI list (big acts to know about, not picks — the page's FYI table): " + clean(taste.fyi_artists, 80).join(", ") : null,
     taste.comedians_loved && taste.comedians_loved.length ? "Comedians to surface: " + clean(taste.comedians_loved).join(", ") : null,
     taste.venues_loved && taste.venues_loved.length ? "Loved venues: " + clean(taste.venues_loved).join(", ") : null,
   ].filter(Boolean).join("\n");
@@ -878,11 +884,13 @@ export function applyPatchDoc(doc, patch, today) {
   if (patch.remove_artists) removeDoc(doc, ["artists_tracked"], patch.remove_artists);
   addUniqDoc(doc, ["venues_loved"], patch.add_venues);
   addUniqDoc(doc, ["comedians_loved"], patch.add_comedians);
+  addUniqDoc(doc, ["fyi_artists"], patch.add_fyi_artists);
+  if (patch.remove_fyi_artists) removeDoc(doc, ["fyi_artists"], patch.remove_fyi_artists);
   addUniqDoc(doc, ["categories", "high"], patch.add_high_category);
   addUniqDoc(doc, ["boosts"], patch.add_boost);
   addUniqDoc(doc, ["penalties"], patch.add_penalty);
   if (patch.remove_lines && patch.remove_lines.length) {
-    for (const path of [["categories", "high"], ["categories", "medium"], ["categories", "low"], ["boosts"], ["penalties"], ["artists_tracked"], ["venues_loved"], ["comedians_loved"]]) {
+    for (const path of [["categories", "high"], ["categories", "medium"], ["categories", "low"], ["boosts"], ["penalties"], ["artists_tracked"], ["venues_loved"], ["comedians_loved"], ["fyi_artists"]]) {
       removeDoc(doc, path, patch.remove_lines);
     }
   }

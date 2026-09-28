@@ -416,6 +416,15 @@ def test_comedy_subtype_not_from_venue_name():
     assert "improv" not in g
 
 
+def test_scale_coliseum_stadium_not_the_torch():
+    """The Coliseum is a stadium (John Summit's 12/12 date read as scale-unknown before); the
+    Torch — Insomniac's separate plaza stage there — stays unknown rather than borrowing it."""
+    assert T.tag_event(ev(category="Music", venue="Los Angeles Memorial Coliseum",
+                          title="JOHN SUMMIT - CTRL ESCAPE TOUR"))["scale"] == "arena"
+    assert T.tag_event(ev(category="Music", venue="The Torch at LA Coliseum",
+                          title="x"))["scale"] is None
+
+
 def test_scale_parish_beats_house_of_blues():
     assert T.tag_event(ev(category="Music", venue="House of Blues Anaheim", title="x"))["scale"] == "hall"
     assert T.tag_event(ev(category="Music", venue="The Parish at House of Blues Anaheim",

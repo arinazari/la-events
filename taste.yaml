@@ -180,6 +180,18 @@ artists_tracked:
   - Tini Gessler
   - Monkey Safari
 
+# FYI artists — big names you want to KNOW about when they play a big room in or near LA, even
+# though they're not your lane ("FYI a big act is in town or nearby", 2026-09-27). Membership
+# only: no score boost, never featured — they land in the front page's FYI table. Tracked
+# artists, comedians_loved, and your Spotify core/heavy-rotation artists already qualify on
+# their own; this list is for the ones you'd otherwise miss.
+fyi_artists:
+  - Erykah Badu
+  - Jon Batiste
+  - Kendrick Lamar
+  - Kacey Musgraves
+  - Tame Impala
+
 # Core genres — always count at full weight for the +1 genre bonus (tagging vocab keys, see
 # scripts/lib/tagging.py VOCAB). Learned genre weights are relative to your most-starred genre,
 # so list the ones that must never drop below the bar here.

@@ -152,19 +152,128 @@ def test_unopened_standing_market_is_still_seasonal():
 
 
 def test_big_shows_split_by_editor_interest():
-    """live-music:big: an editor must-see/great is featured music (Sets and shows); the
-    unjudged/solid arena tier — and even judged SKIPS, excluded from every other surface —
-    land in FYI, date-sorted."""
+    """live-music:big: an editor must-see/great is featured music (Sets and shows); the rest
+    of the arena tier is never featured, and FYI lists only the shows headlined by an act this
+    profile cares about (fyi_acts, stamped in main) — date-sorted. The arena calendar at large
+    (Iron Maiden, a Disney tour) and judged SKIPS are on no front-page surface (Ari 2026-09-27:
+    of a whole FYI table, only Erykah Badu and Jon Batiste belonged)."""
     hot = ev("hot", "2026-07-18", "live-music:big", 1, tier="must-see")
     meh = ev("meh", "2026-07-25", "live-music:big", 2, tier="solid")
+    meh["fyi_acts"] = ["Jon Batiste"]
     unj = ev("unjudged", "2026-07-20", "live-music:big", 3)
+    unj["fyi_acts"] = ["Erykah Badu"]
+    noise = ev("iron-maiden", "2026-07-19", "live-music:big", 5)
     skip = ev("stadium-skip", "2026-07-17", "live-music:big", 4, tier="skip")
-    vmap = {B.event_key(e): e.get("verdict") for e in (hot, meh, unj, skip) if e.get("verdict")}
-    fp = B.build_front_page([hot, meh, unj, skip], vmap, TODAY)
+    skip["fyi_acts"] = ["Somebody"]
+    evs = [hot, meh, unj, noise, skip]
+    vmap = {B.event_key(e): e.get("verdict") for e in evs if e.get("verdict")}
+    fp = B.build_front_page(evs, vmap, TODAY)
     sets = next(s for s in fp["shelves"] if s["id"] == "sets")
     assert sets["near"] == ["hot"]
-    assert table(fp, "fyi")["keys"] == ["stadium-skip", "unjudged", "meh"]  # date order
+    assert table(fp, "fyi")["keys"] == ["unjudged", "meh"]  # date order; no noise, no skip
     assert "hot" in fp["hero"]["twoweeks"]
+
+
+def test_fyi_catches_featured_rows_no_lens_can_reach():
+    """The John Summit gap (LA Memorial Coliseum, 12/12 — ~76 days out): a tracked headliner
+    at a stadium is shelved in Sets and shows, but the farthest lens (plan ahead) ends at
+    today+60, so no lens ever rendered it — and since it was "placed", nothing else claimed
+    it. FYI lists shelved big-room rows past that horizon; inside it they stay featured-only
+    (no duplicate), and a small-room row waits for the plan-ahead lens to reach it."""
+    far = ev("summit", "2026-09-26", "club:mainstream", 5, scale="arena")      # past 9/13
+    far["fyi_acts"] = ["John Summit"]
+    near = ev("prospa", "2026-08-01", "club:mainstream", 6, scale="arena")     # inside the lens
+    near["fyi_acts"] = ["Prospa"]
+    small = ev("antal-far", "2026-10-01", "club:underground", 7, scale="room")
+    small["fyi_acts"] = ["Antal"]
+    fp = B.build_front_page([far, near, small], {}, TODAY)
+    assert fp["windows"]["ahead"][1] == "2026-09-13"
+    sets = next(s for s in fp["shelves"] if s["id"] == "sets")
+    assert {"summit", "prospa", "antal-far"} <= set(sets["ahead"])
+    assert table(fp, "fyi")["keys"] == ["summit"]
+
+
+def test_fyi_catches_big_rows_cut_from_their_shelf():
+    """A big-room row inside the lens but below its shelf's key cap renders nowhere on the
+    front page — FYI lists it (the page isn't featuring it); a shelved one stays out."""
+    rows = [ev(f"club{i}", "2026-07-17", "club:underground", i + 1)
+            for i in range(B.FP_SHELF_CAP)]
+    cut = ev("cut", "2026-07-18", "club:mainstream", B.FP_SHELF_CAP + 1, scale="arena")
+    cut["fyi_acts"] = ["Channel Tres"]
+    fp = B.build_front_page(rows + [cut], {}, TODAY)
+    sets = next(s for s in fp["shelves"] if s["id"] == "sets")
+    assert "cut" not in sets["near"]
+    assert table(fp, "fyi")["keys"] == ["cut"]
+
+
+def test_fyi_one_row_per_act_night_sorted_by_first_night():
+    """Two sources' spellings of one show (Shrine Expo Hall / Shrine Auditorium and Expo Hall)
+    collapse to the best-ranked row; two nights at two rooms stay two rows; a multi-night run
+    sorts by its FIRST night (the rep can be any night of it)."""
+    ct_a = ev("ct-goldenvoice", "2026-10-23", "club:mainstream", 3, scale="arena")
+    ct_b = ev("ct-ra", "2026-10-23", "club:mainstream", 9, scale="arena")
+    run = ev("olivia", "2026-10-29", "live-music:big", 5, series="or", rep=True)
+    run["series"] = {"first": "2026-10-12", "last": "2026-10-29", "count": 10}
+    badu_1 = ev("badu-yaamava", "2026-09-28", "live-music:big", 7)
+    badu_2 = ev("badu-bowl", "2026-09-29", "live-music:big", 8)
+    for e, acts in ((ct_a, ["Channel Tres"]), (ct_b, ["Channel Tres"]), (run, ["Olivia Rodrigo"]),
+                    (badu_1, ["Erykah Badu"]), (badu_2, ["Erykah Badu"])):
+        e["fyi_acts"] = acts
+    fp = B.build_front_page([ct_b, ct_a, run, badu_2, badu_1], {}, TODAY)
+    assert table(fp, "fyi")["keys"] == ["badu-yaamava", "badu-bowl", "olivia", "ct-goldenvoice"]
+
+
+def test_fyi_big_room_gate():
+    """FYI's "big act" half: the big-live lane, or an arena-tier room for any other lane. A
+    stored scale tag is authoritative; the gazetteer covers an unknown one (a catalog tagged
+    before the venue was known — the Coliseum), but never a pool party, and not the Torch
+    (the Coliseum's separate plaza stage)."""
+    def row(lane, venue, scale=None, setting=()):
+        return {"lane": lane, "venue": venue, "tags": {"scale": scale, "setting": list(setting)}}
+    assert B._big_room(row("live-music:big", "The Wiltern", "hall"))
+    assert B._big_room(row("club:mainstream", "Shrine Expo Hall", "arena"))
+    assert not B._big_room(row("club:mainstream", "Academy LA", "hall"))
+    assert B._big_room(row("club:mainstream", "Los Angeles Memorial Coliseum"))
+    assert not B._big_room(row("club:mainstream", "The Torch at LA Coliseum"))
+    assert not B._big_room(row("club:day", "Yaamava Resort & Casino", setting=["pool"]))
+    assert not B._big_room(row("club:mainstream", "Hollywood Bowl", "room"))   # the tag wins
+
+
+def test_fyi_acts_are_headliners_this_profile_cares_about():
+    """fyi_acts — the "that matters" half: tracked artists, the fyi_artists list, loved
+    comedians, and Spotify-backed core/strong artists, matched in the HEADLINE billing (title
+    + first lineup entry) with the scorer's own matchers. Not: light rotation, hidden, a
+    feedback-only artist (one star on a 12-act festival bill lifts every act on it), an
+    opener, or an ordinary word that happens to be a tracked name."""
+    taste = {"artists_tracked": ["John Summit", "Disclosure"], "fyi_artists": ["Erykah Badu"],
+             "comedians_loved": ["Conan O'Brien"]}
+    aff = {"artists": {
+        "john summit": {"name": "John Summit", "tier": "core", "sources": ["top_long"]},
+        "charli xcx": {"name": "Charli xcx", "tier": "core", "sources": ["top_long"]},
+        "prospa": {"name": "Prospa", "tier": "strong", "sources": ["followed", "feedback"]},
+        "onerepublic": {"name": "OneRepublic", "tier": "light", "sources": ["recent"]},
+        "zedd": {"name": "Zedd", "tier": "strong", "sources": ["feedback"]},
+        "nickelback": {"name": "Nickelback", "tier": "hidden", "sources": ["top_long", "feedback"]},
+        "sasami": {"name": "SASAMI", "tier": "core", "sources": ["top_long"]},
+    }}
+
+    def acts(title, lineup=()):
+        return B.fyi_acts({"title": title, "lineup": list(lineup)}, taste, {}, aff)
+
+    assert acts("JOHN SUMMIT - CTRL ESCAPE TOUR", ["John Summit"]) == ["John Summit"]  # once
+    assert acts("Erykah Badu w/ DJ Pee .Wee", ["Erykah Badu", "DJ Pee .Wee"]) == ["Erykah Badu"]
+    assert acts("Conan O'Brien Must Go Live") == ["Conan O'Brien"]
+    assert acts("ANGEL TICKETS - Charli xcx - Music, Fashion, Film Tour",
+                ["Charli xcx", "Underscores"]) == ["Charli xcx"]
+    assert acts("Prospa present Prophecy") == ["Prospa"]          # listening + a star is fine
+    assert acts("Jingle Ball", ["Jingle Ball", "OneRepublic"]) == []
+    assert acts("OneRepublic Live", ["OneRepublic"]) == []        # light rotation
+    assert acts("Zedd: Telos Tour", ["Zedd"]) == []               # feedback-only
+    assert acts("Nickelback Live", ["Nickelback"]) == []          # hidden
+    assert acts("Michelle Branch: Tour", ["Michelle Branch", "SASAMI"]) == []   # opener
+    assert acts("Trippie Redd - The Non-disclosure Agreement Tour", ["Trippie Redd"]) == []
+    assert acts("Disclosure (DJ Set)", ["Disclosure (DJ Set)"]) == ["Disclosure"]
+    assert B.fyi_acts({"title": "Erykah Badu"}, {}, {}, None) == []   # no taste, no affinity
 
 
 def test_festival_routing_destination_vs_local():
@@ -209,15 +318,15 @@ def test_festivals_table_rolls_up_sub_events():
     assert table(fp, "festivals")["keys"] == ["hard", "wg0", "ow1"]   # date order, one row per festival
 
 
-def test_radar_leftovers_join_fyi_placed_rows_dont():
-    """Radar rows not already placed in a section fold into FYI (resolved via the feed);
-    a radar row that IS placed (e.g. a featured set) never duplicates into FYI."""
+def test_radar_rows_no_longer_feed_fyi():
+    """The old radar-leftover fold listed any far-out radar row nothing else claimed — the
+    arena calendar again, by another door. FYI is only the taste-gated rule now (a big room
+    AND fyi_acts); the raw radar join still rides for the chat."""
     placed = ev("placed", "2026-07-17", "club:underground", 1)
-    farshow = ev("farshow", "2026-09-20", "other", 2)
+    farshow = ev("farshow", "2026-09-20", "live-music:big", 2)   # an arena date, no act you follow
     fp = B.build_front_page([placed, farshow], {}, TODAY,
                             radar_rows=[{"key": "placed"}, {"key": "farshow"},
                                         {"key": "ghost"}])
-    # only rows NOT placed in any section join FYI; both are placed here, so FYI is empty
     assert table(fp, "fyi")["keys"] == []
     assert fp["radar"] == ["placed", "farshow"]   # the raw join still rides for the chat
 

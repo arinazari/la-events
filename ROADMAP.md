@@ -513,7 +513,7 @@ closing-soonest then openings; *the marquee →* keeps the full boards), **Theat
 runs + one-offs), **Festivals** (festival-tagged catalog rows merged date-sorted with the
 festivals.yaml fixture; *the festival watch-list →* keeps the dedicated view), and **FYI**
 (the arena tier that isn't a taste match — including judged skips, which this table alone
-surfaces — plus radar leftovers, date-sorted). The hero (lead + shortlist) draws from the
+surfaces — plus radar leftovers, date-sorted; *redefined 2026-09-27, below*). The hero (lead + shortlist) draws from the
 marquee pool ONLY: a movie/season/festival is never a featured card. Server:
 `build_front_page` emits `shelves` (2 marquees) + `tables` (5 key-lists); `nowrunning` is
 retired (subsumed), `radar`/`around` still emitted for the chat but no longer rendered as
@@ -549,6 +549,29 @@ walls block datacenter fetches but not Ari's browser; StubHub's current search p
 `/search?q=`, the old `/find/s/` 404s). Concierge routes "cheapest tickets for X" to the new
 la-events **Mode 4** (`--query` → optional WebFetch dig → `--record`). Films, free events,
 and markets never get the block — no resale market exists for them.
+
+### 2026-09-27 — FYI = your big acts; the beyond-the-lens gap (Ari's feedback, in-session)
+Two reports: (1) "not seeing John Summit in LA on my page" — his 12/12 LA Memorial Coliseum
+date was in the catalog (tracked + Spotify core, final_rank 27) and shelved in *Sets and
+shows*, but the farthest lens (*plan ahead*) ends at today+60, so nothing ever rendered it,
+and the old FYI radar fold skipped it as already "placed". (2) FYI listed every arena booking
+the editor didn't feature — of a whole table only **Erykah Badu** and **Jon Batiste** belonged
+("FYI a big act is in town or nearby"). FYI now needs both halves (`build_dashboard` `FYI_*`,
+tested): a **big room** (the `live-music:big` lane, or an arena-tier venue for any lane) AND a
+**headliner this profile cares about** (`fyi_acts`: tracked artists, the new taste.yaml
+**`fyi_artists`** list — names to *know about*, no score boost, never featured — loved
+comedians, Spotify-backed core/heavy rotation; not light rotation, not feedback-only artists,
+whom one star on a 12-act festival bill lifts wholesale), and the page mustn't already be
+featuring it — so a shelved row past the lens horizon or cut from its shelf lands here. Judged
+skips and the radar-leftover fold are gone; one row per act-night. Owner FYI went from 40 arena
+dates to 8 (Batiste, Badu ×2, Prospa, Charli xcx, Channel Tres, John Summit, Olivia Rodrigo).
+Riders: LA Memorial Coliseum joins the arena gazetteer; `Disclosure` joins `ambiguous_names`
+(Trippie Redd's "Non-disclosure Agreement Tour" was scoring +2 tracked), with the exact-entry
+match now ignoring a trailing "(UK)"/"(DJ Set)" qualifier; the concierge edits the list
+(`add_fyi_artists` / `remove_fyi_artists`). **Open (Ari's call):** an editor `fyi` verdict flag
+would catch big names nobody listed, but needs the arena tier judged (~250 rows in the 28-day
+window once, then ~9/day as arena dates age into it) — the list + listening cover it
+deterministically for now.
 
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
