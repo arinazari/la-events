@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/28/2026 deterministically (no API). 165 candidates. Signals: big-venue 139, festival 19, tracked 7, editorial 3._
+_Generated 9/29/2026 deterministically (no API). 165 candidates. Signals: big-venue 141, festival 19, tracked 6, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -16,6 +16,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 12/12 | 5 | JOHN SUMMIT - CTRL ESCAPE TOUR | Los Angeles Memorial Coliseum | tracked:John Summit, big-venue | [link](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7) |
 | Fri 12/4 | 4 | Angine de Poitrine | The Wiltern | editorial | [link](https://www.ticketmaster.com/angine-de-poitrine-los-angeles-california-12-04-2026/event/090064A7ABE2D617) |
 
 ## November 2026
@@ -28,17 +29,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/21 | 5 | WORK Weekender Day 2: Adrian Reyes, Luigi Tozzi [Live], &  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537247) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
 | Sat 11/28 | 5 | Nu Moda San Diego w/ Max Styler, Hot Since 82, Scenarios | Gallagher Square (San Diego) | tracked:Hot Since 82 | [link](https://laylo.com/ledpresents/maxstyler) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 12/12 | 5 | JOHN SUMMIT - CTRL ESCAPE TOUR | Los Angeles Memorial Coliseum | tracked:John Summit | [link](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7) |
-
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
 | Sat 11/7 | 4 | And Always Forever 2026 - 2-DAY PASS | Echoplex | festival | [link](https://www.ticketmaster.com/and-always-forever-2026-2day-pass-los-angeles-california-11-07-2026/event/090064F8C0F8A145) |
 | Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
 | Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
@@ -49,7 +39,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Grateful Shred: Holiday Homecoming - 2-DAY Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91) |
-| Tue 12/15 | 4 | Trippie Redd - The Non-disclosure Agreement Tour | Hollywood Palladium | tracked:Disclosure | [link](https://www.ticketmaster.com/trippie-redd-the-nondisclosure-agreement-tour-hollywood-california-12-15-2026/event/090065303EFFBE81) |
 
 ## November 2026
 
@@ -204,6 +193,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 2/20 | 3 | Yuridia - Cartas Sobre La Mesa Tour 2027 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-inglewood-california-02-20-2027/event/0A006521AE4654FC) |
 | Fri 2/26 | 3 | Morat YEM World Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/morat-yem-world-tour-2027-inglewood-california-02-26-2027/event/090064AFF1A0DF67) |
 | Fri 2/26 | 3 | Joe - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+
+## March 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 3/5 | 3 | The Love of Soul Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/the-love-of-soul-tour-ontario-california-03-05-2027/event/09006538BF19D600) |
 
 ## November 2026
 
