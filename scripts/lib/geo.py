@@ -101,6 +101,7 @@ DEFAULT_VENUES = {
     "exchange la": "dtla", "exchange": "dtla", "the bellwether": "dtla",
     "catch one": "mid-city", "1720": "arts district", "sound": "hollywood",
     "sound nightclub": "hollywood", "academy la": "hollywood", "academy": "hollywood",
+    "sound del mar": "san diego",   # The Sound at the Del Mar Fairgrounds (SD County), not "sound"
     "avalon": "hollywood", "hollywood palladium": "hollywood", "palladium": "hollywood",
     "los globos": "silver lake", "the satellite": "silver lake", "gold room": "echo park",
     "the short stop": "echo park", "club tee gee": "atwater", "footsies": "cypress park",
@@ -136,6 +137,7 @@ DEFAULT_VENUES = {
     "california plaza": "dtla", "grand park": "dtla", "palace theatre": "dtla",
     "hotel figueroa": "dtla", "broken shaker": "dtla", "the broad": "dtla",
     "coaxial": "dtla", "anderson st": "boyle heights",
+    "historic sears building": "boyle heights",   # Olympic & Soto; else "vista" takes "Rio Vista Lot"
     "los angeles county museum of art": "miracle mile", "lacma": "miracle mile",
     "wilshire ebell": "mid-wilshire", "akbar": "silver lake", "que sera": "long beach",
     "the forum": "inglewood", "kia forum": "inglewood", "the glass house": "pomona",

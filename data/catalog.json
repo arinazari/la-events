@@ -52546,7 +52546,7 @@
     "date": "2026-10-16",
     "start": "17:00",
     "venue": "Rio Vista Lot at The Historic Sears Building",
-    "neighborhood": "Los Feliz",
+    "neighborhood": "Boyle Heights",
     "category": "music",
     "genre": null,
     "lineup": [
@@ -52572,13 +52572,11 @@
     "tags": {
       "type": "live-music",
       "genre": [],
-      "setting": [
-        "cinema"
-      ],
+      "setting": [],
       "scale": null,
       "vibe": [],
       "region": "eastside",
-      "near_home": true
+      "near_home": false
     }
   },
   {
@@ -59453,7 +59451,7 @@
     "date": "2026-10-17",
     "start": "8pm",
     "venue": "The Sound (Del Mar)",
-    "neighborhood": "Hollywood",
+    "neighborhood": "San Diego",
     "category": "electronic",
     "genre": "darkwave, industrial",
     "lineup": [],
@@ -59481,7 +59479,7 @@
       "setting": [],
       "scale": null,
       "vibe": [],
-      "region": "hollywood",
+      "region": "far",
       "near_home": false
     }
   },
@@ -61548,7 +61546,7 @@
     "date": "2026-10-17",
     "start": "4pm-12am",
     "venue": "The Rio Vista Lot - The Historic Sears Building (Los Angeles)",
-    "neighborhood": "Los Feliz",
+    "neighborhood": "Boyle Heights",
     "category": "electronic",
     "genre": "tech house",
     "lineup": [],
@@ -61573,15 +61571,13 @@
       "genre": [
         "tech-house"
       ],
-      "setting": [
-        "cinema"
-      ],
+      "setting": [],
       "scale": null,
       "vibe": [
         "day-party"
       ],
       "region": "eastside",
-      "near_home": true
+      "near_home": false
     }
   },
   {
@@ -118455,7 +118451,7 @@
     "date": "2026-11-20",
     "start": "16:00",
     "venue": "The Dock at Historic Sears Building",
-    "neighborhood": "Los Angeles",
+    "neighborhood": "Boyle Heights",
     "category": "music",
     "genre": null,
     "lineup": [
@@ -118483,7 +118479,7 @@
       "setting": [],
       "scale": null,
       "vibe": [],
-      "region": null,
+      "region": "eastside",
       "near_home": false
     }
   },
@@ -121229,7 +121225,7 @@
     "date": "2026-11-21",
     "start": "6pm-12am",
     "venue": "The Dock At The Historic Sears Building (Los Angeles)",
-    "neighborhood": null,
+    "neighborhood": "Boyle Heights",
     "category": "electronic",
     "genre": "tech house",
     "lineup": [],
@@ -121257,7 +121253,7 @@
       "setting": [],
       "scale": null,
       "vibe": [],
-      "region": null,
+      "region": "eastside",
       "near_home": false
     }
   },
@@ -158678,7 +158674,7 @@
     "date": "2027-03-01",
     "start": "8pm",
     "venue": "The Sound (Del Mar)",
-    "neighborhood": "Hollywood",
+    "neighborhood": "San Diego",
     "category": "electronic",
     "genre": "indie dance, electropop",
     "lineup": [],
@@ -158706,7 +158702,7 @@
       "setting": [],
       "scale": null,
       "vibe": [],
-      "region": "hollywood",
+      "region": "far",
       "near_home": false
     }
   },
