@@ -266,10 +266,11 @@ def score_event(ev: dict, taste: dict = None, profile: dict = None,
         score += 1
         reasons.append("+1 Friday/Saturday night")
 
-    # Near home.
+    # Near home — whatever home this profile's near_home_neighborhoods describe, so the label
+    # names no place (a friend near Culver City must not read "close to Silver Lake").
     if hood in cfg["near_home"]:
         score += 1
-        reasons.append("+1 close to Silver Lake")
+        reasons.append("+1 close to home")
 
     # Editorial mentions (+1 each).
     mentions = ev.get("editorial_mentions") or []
