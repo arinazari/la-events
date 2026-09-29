@@ -153,6 +153,20 @@ def test_canonical_location_mark_taper_forum_is_dtla():
     assert geo.venue_to_hood("Kia Forum", PROFILE) == "inglewood"
 
 
+def test_canonical_location_generic_keys_dont_steal_venues():
+    # Regression: short keys ("vista" = Vista Theatre, "sound" = Sound Nightclub) substring-
+    # matched the Historic Sears Building's "Rio Vista Lot" (Boyle Heights -> Los Feliz) and
+    # The Sound at the Del Mar Fairgrounds (SD County -> Hollywood). San Diego on purpose: it
+    # picks up the existing SD out-of-market drop + far penalty.
+    for venue in ("Rio Vista Lot at The Historic Sears Building",
+                  "The Rio Vista Lot - The Historic Sears Building (Los Angeles)",
+                  "The Dock At The Historic Sears Building (Los Angeles)"):
+        assert geo.canonical_location(venue, "Los Angeles", PROFILE) == "Boyle Heights", venue
+    assert geo.canonical_location("The Sound (Del Mar)", "Los Angeles", PROFILE) == "San Diego"
+    assert geo.venue_to_hood("Vista Theatre", PROFILE) == "los feliz"
+    assert geo.venue_to_hood("Sound Nightclub", PROFILE) == "hollywood"
+
+
 def test_canonical_location_collapses_or_keeps_blank():
     # Unplaceable city-level collapses to ONE label; a true blank stays blank (the view
     # owns that fallback) — so we never invent a neighborhood we don't know.

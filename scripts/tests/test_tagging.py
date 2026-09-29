@@ -94,6 +94,15 @@ def test_rep_cinema_venue_sets_cinema():
     assert T.tag_event(ev(category="film", venue="Vidiots", title="A Movie"))["setting"] == ["cinema"]
 
 
+def test_vista_is_the_theatre_only_as_the_leading_word():
+    # Regression: a bare "vista" substring tagged the Sears building's Rio Vista Lot a cinema.
+    for venue in ("Vista Theater", "The Vista", "Vista"):
+        tags = T.tag_event(ev(category="film", venue=venue, title="A Movie"))
+        assert tags["setting"] == ["cinema"] and "rep/arthouse" in tags["genre"], venue
+    for venue in ("Rio Vista Lot at The Historic Sears Building", "Mar Vista Farmers Market"):
+        assert "cinema" not in T.tag_event(ev(category="music", venue=venue, title="PAWSA"))["setting"], venue
+
+
 # ── vibe (the "afterhours"-style cross-cutting flags) ─────────────────────────────
 def test_afterhours_is_post_close_not_merely_late():
     # a 10pm+ start is a normal club night, and the fetchers' crude flag (same rule)

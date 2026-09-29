@@ -154,7 +154,7 @@ VENUE_GENRE = {
 }
 VENUE_SETTING = {
     # cinemas / theaters / amphitheaters (the original tier)
-    "vidiots": ["cinema"], "new beverly": ["cinema"], "vista": ["cinema"],
+    "vidiots": ["cinema"], "new beverly": ["cinema"],   # the Vista: _rep_cinema (anchored)
     "aero": ["cinema"], "egyptian": ["cinema"], "academy museum": ["cinema"],
     "cinematheque": ["cinema"],
     "del monte speakeasy": ["speakeasy"], "the smell": ["diy"],
@@ -189,9 +189,18 @@ VENUE_SETTING = {
     "state historic park": ["outdoor"], "grand park": ["outdoor"],
     "pershing square": ["outdoor"], "cinespia": ["outdoor"],
 }
-REP_CINEMA = ("vidiots", "new beverly", "vista", "cinematheque", "brain dead",
+REP_CINEMA = ("vidiots", "new beverly", "cinematheque", "brain dead",
               "aero", "egyptian", "academy museum", "cinespia",
               "palm springs cultural center", "nuart")
+# The Vista Theatre only as the venue's LEADING word ("Vista Theater", "The Vista"): a bare
+# "vista" substring also hits the Sears building's Rio Vista Lot, and would any Mar / Playa /
+# Buena Vista room — none of them cinemas.
+_VISTA = re.compile(r"(the\s+)?vista\b")
+
+
+def _rep_cinema(venue: str) -> bool:
+    """A rep/arthouse cinema, from the lowercased venue string."""
+    return any(r in venue for r in REP_CINEMA) or bool(_VISTA.match(venue))
 
 # ── Axis 4: SCALE — the venue TIER, a pure fact axis. Explicit gazetteer only (no
 #    name-keyword sweep: "Garden Amphitheatre" is a Garden Grove punk shed and "Libbey
@@ -601,7 +610,7 @@ def _genre(ev: dict, typ: str, hay: str, cfg: dict) -> list:
             if re.search(pat, ghay):     # NOT hay — 'Hollywood Improv' the VENUE must not
                 out.append(tag)          # mint an 'improv' subtype on a standup show
     elif typ == "film":
-        if any(r in venue for r in REP_CINEMA):
+        if _rep_cinema(venue):
             out.append("rep/arthouse")
     return _uniq(out)
 
@@ -612,7 +621,7 @@ def _setting(ev: dict, hay: str, cfg: dict) -> list:
     for vk, ss in cfg["venue_setting"].items():
         if vk in venue:
             out.extend(ss)
-    if any(r in venue for r in REP_CINEMA):
+    if _rep_cinema(venue):
         out = ["cinema"]
     if re.search(r"\brooftop\b", hay):
         out.append("rooftop")
