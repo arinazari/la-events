@@ -143,6 +143,16 @@ def test_canonical_location_bar_franca_is_dtla():
     assert geo.venue_to_hood("Bar Franca", PROFILE) == "dtla"
 
 
+def test_canonical_location_mark_taper_forum_is_dtla():
+    # Regression: "forum" (The Forum's key) substring-matched the Music Center's Mark Taper
+    # Forum, so its TM rows landed in Inglewood (wrong region + near-home boost). The longer
+    # key must win — without stealing the real Forum from Inglewood.
+    assert geo.canonical_location("Mark Taper Forum", "Los Angeles", PROFILE) == "DTLA"
+    assert geo.venue_to_hood("Mark Taper Forum", PROFILE) == "dtla"
+    assert geo.venue_to_hood("The Forum", PROFILE) == "inglewood"
+    assert geo.venue_to_hood("Kia Forum", PROFILE) == "inglewood"
+
+
 def test_canonical_location_collapses_or_keeps_blank():
     # Unplaceable city-level collapses to ONE label; a true blank stays blank (the view
     # owns that fallback) — so we never invent a neighborhood we don't know.

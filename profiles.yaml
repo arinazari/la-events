@@ -102,3 +102,8 @@ profiles:
   - username: marissa        # friend profile (not owner/admin). EMPTY — taste not configured yet.
     name: Marissa            #   username is the access key + is guessable here; swap for something
     taste: profiles/marissa/taste.yaml      #   non-obvious before sharing the feed widely.
+
+  - username: danny          # friend profile (not owner/admin). EMPTY — taste not configured yet.
+    name: Danny              #   username is the access key + is guessable here; swap for something
+    taste: profiles/danny/taste.yaml        #   non-obvious before sharing the feed widely.
+    profile: profiles/danny/profile.yaml    # geo only: Culver City home + Westside near-home radius.

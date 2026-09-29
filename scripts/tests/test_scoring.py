@@ -101,6 +101,23 @@ def test_taste_yaml_scoring_fallback():
     assert "zzztest" in _scoring_cfg({}, {"scoring": {"groove_terms": ["zzztest"]}})["groove"]
 
 
+def test_near_home_follows_the_profile_and_names_no_place():
+    """The +1 fires on THIS profile's near-home list (not Silver Lake's), and its reason is
+    place-neutral — friends living elsewhere must not see "close to Silver Lake"."""
+    westside = {"home": {"neighborhood": "Culver City"},
+                "scoring": {"near_home_neighborhoods": ["culver city", "venice"]}}
+    ev = {"title": "Some Band", "category": "music", "venue": "X", "date": "2026-06-16"}
+    near = score_event({**ev, "neighborhood": "Culver City"}, {}, westside)
+    away = score_event({**ev, "neighborhood": "Echo Park"}, {}, westside)
+    assert near["score"] - away["score"] == 1, (near, away)
+    assert "+1 close to home" in near["reasons"]
+    assert not any("close to" in r for r in away["reasons"]), away["reasons"]
+    # The owner's default list still boosts the Eastside, under the same neutral label.
+    eastside = score_event({**ev, "neighborhood": "Echo Park"}, TASTE, PROFILE)["reasons"]
+    assert "+1 close to home" in eastside
+    assert not any("Silver Lake" in r for r in near["reasons"] + eastside)
+
+
 def test_profile_preserves_code_defaults():
     """profile.yaml is the live, user-editable scoring config (the city-portable knob);
     the DEFAULT_* in scoring.py are the generic fallback used only when a key is absent.

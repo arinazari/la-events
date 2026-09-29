@@ -1,0 +1,45 @@
+# profile.yaml — MECHANISM overrides for Danny's feed (username: danny).
+# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs
+# that differ need to live here — anything absent falls back to the repo defaults.
+#
+# Danny lives near Culver City, so geo is the only override. Without this file a friend's feed
+# falls back to the code-default near-home list — Ari's Silver Lake / Eastside radius.
+
+home:
+  neighborhood: Culver City
+  coords: [ 34.0211, -118.3965 ] # geo.py's Culver City centroid; drives night-planner travel times
+
+scoring:
+  # Walkable / short drive from Culver City (+1). Matched case-insensitively against each event's
+  # neighborhood (whole name, not substring). The Westside plus Culver City's Mid-City / Baldwin
+  # Hills side, out to ~5 mi — the same reach as the Silver Lake default. The Hollywood side
+  # (Miracle Mile, Fairfax, Mid-Wilshire, WeHo) stays out, the way the default leaves out
+  # Hollywood / Koreatown.
+  near_home_neighborhoods:
+    - culver city
+    - palms
+    - mar vista
+    - del rey
+    - cheviot hills
+    - rancho park
+    - beverlywood
+    - century city
+    - west la
+    - west los angeles
+    - sawtelle
+    - mid-city
+    - mid city
+    - baldwin hills
+    - ladera heights
+    - leimert park
+    - crenshaw
+    - west adams
+    - beverly hills
+    - westwood
+    - brentwood
+    - playa vista
+    - marina del rey
+    - venice
+    - santa monica
+    - westchester
+    - inglewood
