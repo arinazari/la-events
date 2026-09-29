@@ -114,6 +114,7 @@ DEFAULT_VENUES = {
     "the peppermint club": "west hollywood", "peppermint club": "west hollywood",
     "grammy museum": "dtla", "comedy store": "west hollywood",
     "ahmanson theatre": "dtla", "ahmanson": "dtla",
+    "mark taper forum": "dtla",   # else "forum" (The Forum's key) substring-matches it to Inglewood
     "dorothy chandler pavilion": "dtla", "walt disney concert hall": "dtla",
     "disney concert hall": "dtla", "crypto com arena": "dtla",
     "peacock theater": "dtla", "microsoft theater": "dtla",
