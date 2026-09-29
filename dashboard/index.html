@@ -1134,12 +1134,6 @@
     <input value="{{ apiKey }}" onChange="{{ onApiKey }}" onKeyDown="{{ onApiKeyDown }}" placeholder="sk-ant-…" style="width:100%; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:9px 11px; font:500 13px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17; outline:none;" style-focus="border-color:#2b5cd9;" />
     <div style="font:400 11px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:7px 0 16px;">When ON, your key pays for every message. Stored only in this browser. If it errors or hits a limit, switch it OFF to fall back to the token.</div>
 
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:6px;">
-      <span style="font:700 14px/1.2 -apple-system,system-ui,sans-serif; color:#161512;">Use Opus <span style="font-weight:400; color:#8a887e;">(sharper, slower)</span></span>
-      <span style="display:inline-flex; align-items:center; gap:8px;"><span style="font:700 9.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.08em; color:#8a887e;">{{ opusSwLabel }}</span><span onClick="{{ toggleOpus }}" style="{{ opusSwTrack }}"><span style="{{ opusSwKnob }}"></span></span></span>
-    </div>
-    <div style="font:400 11px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:0 0 16px;">Works with either connection — the shared token or your own key. Off = the default model. Opus replies are sharper but slower and pricier.</div>
-
     <div style="font:700 14px/1.2 -apple-system,system-ui,sans-serif; color:#161512; margin-bottom:8px;">Shared access token <span style="font-weight:400; color:#8a887e;">(from Ari)</span></div>
     <input value="{{ sharedToken }}" onChange="{{ onSharedToken }}" onKeyDown="{{ onApiKeyDown }}" placeholder="access token" style="width:100%; border:1px solid #cfcdc4; background:#fff; border-radius:5px; padding:9px 11px; font:500 13px/1.2 ui-monospace,Menlo,monospace; color:#1b1a17; outline:none;" style-focus="border-color:#2b5cd9;" />
     <div style="font:400 11px/1.5 ui-monospace,Menlo,monospace; color:#a7a59b; margin:7px 0 0;">Used when your key is OFF (or unset). Enter once — it's saved on this device.</div>
@@ -1760,7 +1754,7 @@ class Component extends DCLogic {
 
   state = { lens:'weekend', view:'front', sceneId:null, detailId:null, reactions:{}, seen:{}, navHidden:false, isMobile:false, exploreSort:'rank', exploreDir:1, exploreSearch:'', toast:null, dataSource:'loading', profile:null,
     settingsOpen:false, loggedIn:false, apiModal:false, tasteModal:false, tasteTab:'taste', username:'',
-    apiKeyOn:false, opusOn:false, apiKey:'', sharedToken:'',
+    apiKeyOn:false, apiKey:'', sharedToken:'',
     chatOpen:false, chatInput:'', chatMsgs:[], chatBusy:false, updating:null,
     backendStatus:null, backendVer:null, liveReply:null, chatFiltered:null, chatFilterLabel:'',
     digestModalOpen:false, spotifyStatus:null, spotifyName:'',
@@ -2354,10 +2348,10 @@ class Component extends DCLogic {
     if (s.length > 34) s = s.slice(0, 32).replace(/[\s,;:·|/-]+\S*$/, '').trim() + '…';
     return s;
   }
-  // ---------- per-profile connection store (token + Claude key + on/off + Opus) ----------
+  // ---------- per-profile connection store (token + Claude key + on/off) ----------
   // Scoped to the signed-in profile (keyed by feed hash; 'default' logged out) so credentials
   // never leak across profiles; a 45-day freshness TTL ages out dormant connections.
-  // Shape: {token, key, enabled, opus, ts}.
+  // Shape: {token, key, enabled, ts}.
   CONN_TTL_MS = 45 * 24 * 60 * 60 * 1000;
   connKey(p) { p = (p === undefined) ? this.state.profile : p; return 'la-conn:' + ((p && p.hash) || 'default'); }
   readConn(p) {
@@ -2373,7 +2367,8 @@ class Component extends DCLogic {
   writeConn(patch, p) {
     try {
       const next = { ...this.readConn(p), ...patch, ts: Date.now() };
-      const empty = !next.token && !next.key && !next.enabled && !next.opus;
+      delete next.opus;   // the retired Use Opus toggle's flag (2026-09-29) — dropped on the next write
+      const empty = !next.token && !next.key && !next.enabled;
       empty ? localStorage.removeItem(this.connKey(p)) : localStorage.setItem(this.connKey(p), JSON.stringify(next));
     } catch (e) {}
   }
@@ -2390,20 +2385,17 @@ class Component extends DCLogic {
           if (cfg.sharedToken) patch.token = cfg.sharedToken;
           if (cfg.apiKey) patch.key = cfg.apiKey;
           if (cfg.apiKeyOn) patch.enabled = true;
-          if (cfg.opusOn) patch.opus = true;
         }
       } catch (e) {}
       const tok = localStorage.getItem('la-concierge-token'); if (tok && !patch.token) patch.token = tok;
       const key = localStorage.getItem('la-claude-api-key'); if (key && !patch.key) patch.key = key;
       if (localStorage.getItem('la-claude-api-enabled') === '1') patch.enabled = true;
-      if (localStorage.getItem('la-claude-use-opus') === '1') patch.opus = true;
       if (Object.keys(patch).length && !localStorage.getItem(this.connKey())) this.writeConn(patch);
       for (const k of ['la-concierge-cfg', 'la-concierge-token', 'la-claude-api-key', 'la-claude-api-enabled', 'la-claude-use-opus']) { try { localStorage.removeItem(k); } catch (e) {} }
     } catch (e) {}
   }
   rawClaudeKey() { try { return (this.readConn().key || '').trim(); } catch (e) { return ''; } }
   apiEnabled() { try { return !!this.readConn().enabled; } catch (e) { return false; } }
-  useOpus() { try { return !!this.readConn().opus; } catch (e) { return false; } }
   byokKey() { const k = this.rawClaudeKey(); return (this.apiEnabled() && k) ? k : ''; }
 
   // ---------- backend health ping + deploy fingerprint ----------
@@ -2465,7 +2457,6 @@ class Component extends DCLogic {
   async askBackend(msgs) {
     const body = { messages: msgs.filter(m => !m.welcome).slice(-12).map(m => ({ role:m.role, content:String(m.content||'') })), stream: true };
     const p = this.state.profile; if (p && p.hash) body.profile = p.hash;
-    if (this.useOpus()) body.model = 'opus';
     this._abort = new AbortController();
     try {
       const res = await fetch(this.BACKEND_URL, { method:'POST', headers:this.backendHeaders(), body: JSON.stringify(body), signal: this._abort.signal });
@@ -3288,17 +3279,16 @@ class Component extends DCLogic {
       { k:'feed generated', v: this.fmtStamp(this.META.generated_at) },
     ];
   }
-  openApiModal = () => { const c = this.readConn(); this.setState({ apiModal:true, settingsOpen:false, apiKey:c.key||'', sharedToken:c.token||'', apiKeyOn:!!c.enabled, opusOn:!!c.opus }); if (this.BACKEND_URL) this.pingBackend(); };
+  openApiModal = () => { const c = this.readConn(); this.setState({ apiModal:true, settingsOpen:false, apiKey:c.key||'', sharedToken:c.token||'', apiKeyOn:!!c.enabled }); if (this.BACKEND_URL) this.pingBackend(); };
   closeApiModal = () => this.setState({ apiModal:false });
   toggleApiKey = () => this.setState(s => ({ apiKeyOn:!s.apiKeyOn }));
-  toggleOpus = () => this.setState(s => ({ opusOn:!s.opusOn }));
   onApiKey = (e) => { const v=e.target.value; this.setState({ apiKey:v }); };
   onSharedToken = (e) => { const v=e.target.value; this.setState({ sharedToken:v }); };
   saveApi = () => {
     const key = (this.state.apiKey || '').trim();
     if (this.state.apiKeyOn && key && !/^sk-ant-/.test(key)) { this.showToast('That doesn’t look like a Claude API key (sk-ant-…) — fix it or switch the key OFF', null); return; }
     const tok = (this.state.sharedToken || '').trim();
-    this.writeConn({ token: tok, key: key, enabled: !!this.state.apiKeyOn, opus: !!this.state.opusOn });
+    this.writeConn({ token: tok, key: key, enabled: !!this.state.apiKeyOn });
     this.BACKEND_TOKEN = tok;
     this.setState({ apiModal:false });
     const via = (this.state.apiKeyOn && key) ? 'your Claude API key' : (tok ? 'the shared access token' : null);
@@ -3619,6 +3609,7 @@ class Component extends DCLogic {
     "## September 2026",
     "",
     "- **FYI is now *your* big acts.** It used to list every arena booking the editor didn't feature — Iron Maiden, Disney tours, whoever had the Forum that night. Now a big-room show makes FYI only when its headliner is someone you track, someone on your **FYI list** (big names you want to know about even when they're not your lane — tell the concierge *add Sade to my FYI list*), a comedian you love, or an artist in your Spotify core/heavy rotation — and the page isn't already featuring it. It also catches big shows past the *plan ahead* window: a tracked headliner's stadium date three months out is on the page now, not just in the digest.",
+    "- **Retired:** the **Use Opus** switch (Settings → Claude API key). The concierge always writes with Sonnet and checks its plans with the latest Opus, so there's nothing left to toggle.",
     "",
     "## August 2026 — marquees & tables",
     "",
@@ -4329,7 +4320,7 @@ class Component extends DCLogic {
 
     // ---- SETTINGS + MODALS ----
     const sw = (on) => ({ track:'width:36px; height:20px; border-radius:999px; background:'+(on?'#2b5cd9':'#cfcdc4')+'; position:relative; cursor:pointer; flex:none; transition:background .15s;', knob:'position:absolute; top:2px; left:'+(on?'18px':'2px')+'; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.3); transition:left .15s;', label:on?'ON':'OFF' });
-    const sK = sw(this.state.apiKeyOn), sO = sw(this.state.opusOn);
+    const sK = sw(this.state.apiKeyOn);
     const bstat = this.state.backendStatus;
     const backendReady = bstat === 'ok';
     const backendOld = backendReady && this.backendStale();
@@ -4410,9 +4401,8 @@ class Component extends DCLogic {
       openApiModal:this.openApiModal, openTasteFn:() => this.openTaste('taste'),
       apiModal:this.state.apiModal, closeApiModal:this.closeApiModal, saveApi:this.saveApi,
       apiKey:this.state.apiKey, sharedToken:this.state.sharedToken, onApiKey:this.onApiKey, onSharedToken:this.onSharedToken, onApiKeyDown:this.onApiKeyDown,
-      toggleApiKey:this.toggleApiKey, toggleOpus:this.toggleOpus,
+      toggleApiKey:this.toggleApiKey,
       apiKeySwTrack:sK.track, apiKeySwKnob:sK.knob, apiKeySwLabel:sK.label,
-      opusSwTrack:sO.track, opusSwKnob:sO.knob, opusSwLabel:sO.label,
       conDot: backendOld ? '#a8781c' : backendReady ? '#1f7a4d' : (bstat === 'err' ? '#b4453a' : '#a7a59b'),
       conStatusText: (() => {
         const key = this.byokKey();

@@ -250,14 +250,14 @@ const SSE_OK = [
 /* ---- chat tool list: advisor rules ---- */
 {
   const names = (tools) => tools.map((t) => t.name);
-  const sonnet = buildTools({ advisorModel: "claude-opus-4-8", execModel: "claude-sonnet-5", canEdit: false });
+  const sonnet = buildTools({ advisorModel: "claude-opus-5-5", execModel: "claude-sonnet-5", canEdit: false });
   const adv = sonnet.find((t) => t.name === "advisor");
   assert.ok(adv, "Sonnet executor gets the Opus advisor");
-  assert.equal(adv.model, "claude-opus-4-8");
+  assert.equal(adv.model, "claude-opus-5-5");
   assert.equal(adv.max_uses, 1);                                    // one consult per API call
   assert.deepEqual(adv.caching, { type: "ephemeral" });             // advisor prompt cached
   assert.deepEqual(names(sonnet), ["advisor", "plan_with_friends"]);
-  const opus = buildTools({ advisorModel: "claude-opus-4-8", execModel: "claude-opus-4-8", canEdit: true });
+  const opus = buildTools({ advisorModel: "claude-opus-5-5", execModel: "claude-opus-5-5", canEdit: true });
   assert.ok(!names(opus).includes("advisor"), "Opus executor never consults itself");
   assert.equal(opus.length, 4);                                     // plan + taste/profile/digest edits
   const off = buildTools({ advisorModel: "", execModel: "claude-sonnet-5", canEdit: false });
