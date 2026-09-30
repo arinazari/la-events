@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/29/2026 deterministically (no API). 165 candidates. Signals: big-venue 141, festival 19, tracked 6, editorial 3._
+_Generated 9/30/2026 deterministically (no API). 168 candidates. Signals: big-venue 143, festival 20, tracked 6, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -63,6 +63,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Fri 2/5 | 3 | Dark Star Orchestra 2 Day Pass | The Wiltern | festival | [link](https://www.ticketmaster.com/dark-star-orchestra-los-angeles-california-02-05-2027/event/09006538CB1DEB91) |
 | Sat 2/6 | 3 | Classics : Painting in Notes | Terrace Theater - Long Beach Conve | festival | [link](https://www.ticketmaster.com/classics-painting-in-notes-long-beach-california-02-06-2027/event/0B0064279F502922) |
 
 ## November 2026
@@ -180,6 +181,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 1/16 | 3 | D.O.D. - Ages 18+ | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
 | Fri 1/29 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
+| Fri 1/29 | 3 | AYYBO | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1629391/ayybo-tickets) |
 
 ## February 2027
 
@@ -254,6 +256,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sun 1/24 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-24-2027/event/090064A4B7B2F9A0) |
 | Mon 1/25 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-25-2027/event/090064A4B7BFF9BB) |
 | Thu 1/28 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-28-2027/event/090064A4B7CBF9E1) |
+| Fri 1/29 | 2 | Tom Segura | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAeFjg) |
 
 ## February 2027
 
