@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 9/30/2026 deterministically (no API). 168 candidates. Signals: big-venue 143, festival 20, tracked 6, editorial 3._
+_Generated 10/1/2026 deterministically (no API). 172 candidates. Signals: big-venue 146, festival 20, tracked 7, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -24,6 +24,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 11/22 | 2 | Three Days Grace - Alienation Tour  | Intuit Dome | festival, big-venue | [link](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0) |
+| Fri 11/27 | 9 | Time Warp Los Angeles 2026 | Ace*Mission Studios | tracked:Gerd Janson,Richie Hawtin | [link](https://ra.co/events/2512911) |
 | Sat 11/28 | 7 | Solomun | Hollywood Blvd (Los Angeles) | tracked:Solomun | [link](https://dice.fm/event/7dbax7-solomun-28th-nov-hollywood-blvd-los-angeles-tickets) |
 | Fri 11/20 | 5 | WORK Weekender Day 1: Fadi Mohem, Fizch, & Lindsey Herbert | TBA - Los Angeles | festival | [link](https://ra.co/events/2537227) |
 | Sat 11/21 | 5 | WORK Weekender Day 2: Adrian Reyes, Luigi Tozzi [Live], &  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537247) |
@@ -33,6 +34,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
 | Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
 | Fri 11/13 | 4 | DARKER WAVES PRE-FESTIVAL PARTY | The Circle OC | festival | [link](https://www.thecircleoc.com/upcoming-events/darker-waves-pre-festival-party) |
+| Sun 11/22 | 4 | WORK Weekender Day 3: BB Shaine, David Castellani [LIVE],  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537315) |
 
 ## December 2026
 
@@ -45,7 +47,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 11/14 | 3 | MOVEMENTS - HAPPIER NOW USA TOUR | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/movements-happier-now-usa-tour-santa-ana-california-11-14-2026/event/090064A6060A0AEE) |
-| Sun 11/22 | 3 | WORK Weekender Day 3: BB Shaine, David Castellani [LIVE],  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537315) |
 
 ## December 2026
 
@@ -137,6 +138,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sun 11/8 | 3 | Ms Lauryn Hill & Wyclef Jean Celebrating 30 years of Fugee | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/ms-lauryn-hill-wyclef-jean-celebrating-hollywood-california-11-08-2026/event/0B0065036C4F1623) |
 | Mon 11/9 | 3 | Karan Aujla | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/karan-aujla-los-angeles-california-11-09-2026/event/2C00652AF5740D18) |
 | Fri 11/13 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B) |
+| Fri 11/13 | 3 | How The West Was Won | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/how-the-west-was-won-inglewood-california-11-13-2026/event/0A00653DB7DFFC81) |
 | Sat 11/14 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-14-2026/event/09006494FCC71433) |
 | Sat 11/14 | 3 | Camp Flog Gnaw 2026 | Dodger Stadium | big-venue | [link](https://www.axs.com/events/1475989/camp-flog-gnaw-2026-tickets) |
 | Sat 11/14 | 3 | Gladys Knight - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZbO_) |
@@ -248,6 +250,8 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Tue 1/5 | 2 | Styx | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Wed 1/6 | 2 | Styx | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Tue 1/12 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-12-2027/event/0900649DE7C663B2) |
 | Wed 1/13 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-13-2027/event/0900649DE7FE6418) |
 | Sun 1/17 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-17-2027/event/0900649DE899654B) |
