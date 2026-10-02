@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/1/2026 deterministically (no API). 172 candidates. Signals: big-venue 146, festival 20, tracked 7, editorial 3._
+_Generated 10/2/2026 deterministically (no API). 172 candidates. Signals: big-venue 146, festival 20, tracked 7, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -124,7 +124,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 11/5 | 3 | XG | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 11/6 | 3 | Don Omar "The Last King World Tour" | Kia Forum | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-11-06-2026/event/090064B1D40799CD) |
 | Fri 11/6 | 3 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-06-2026/event/0A0064C8F29DE297) |
 | Fri 11/6 | 3 | ZULAN - Ages 18+ | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1413525/zulan-tickets) |
@@ -135,6 +134,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 11/7 | 3 | Ramon Ayala " Historia De Un Final" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/ramon-ayala-historia-de-un-final-ontario-california-11-07-2026/event/0900647FAF9A9CF5) |
 | Sat 11/7 | 3 | Moby, Underworld, fcukers, Nia Archives (DJ set), DJ Holog | Brookside at the Rose Bowl | big-venue | [link](https://www.axs.com/events/1527850/moby-underworld-tickets) |
 | Sat 11/7 | 3 | Grupo Cañaveral & Los Hermanos Flores | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-canaveral-los-hermanos-flores-inglewood-california-11-07-2026/event/0A006532A1D27C43) |
+| Sat 11/7 | 3 | The Internet for Palestine; benefitting PCRF | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1634011/the-internet-for-palestine-benefitting-pcrf-tickets) |
 | Sun 11/8 | 3 | Ms Lauryn Hill & Wyclef Jean Celebrating 30 years of Fugee | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/ms-lauryn-hill-wyclef-jean-celebrating-hollywood-california-11-08-2026/event/0B0065036C4F1623) |
 | Mon 11/9 | 3 | Karan Aujla | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/karan-aujla-los-angeles-california-11-09-2026/event/2C00652AF5740D18) |
 | Fri 11/13 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B) |
@@ -189,7 +189,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 2/5 | 3 | Noche de Leyendas | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/noche-de-leyendas-ontario-california-02-05-2027/event/09006536E34FE13E) |
+| Fri 2/5 | 3 | Conjunto Primavera, Banda Machos, Montez de Durango | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/noche-de-leyendas-ontario-california-02-05-2027/event/09006536E34FE13E) |
 | Sat 2/6 | 3 | DRAIN | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1598806/drain-tickets) |
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
 | Fri 2/12 | 3 | Jorge Medina | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jorge-medina-ontario-california-02-12-2027/event/0900651BED2C1C79) |
@@ -208,7 +208,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 11/5 | 2 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-05-2026/event/0A0064C5CA9BB7A7) |
 | Sun 11/8 | 2 | Mon Laferte - Femme Fatale Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mon-laferte-femme-fatale-tour-inglewood-california-11-08-2026/event/090064C7E0BCDF3F) |
 | Sun 11/8 | 2 | Jose Mari Chan and The CompanY (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Mon 11/9 | 2 | Jessie Reyez: A Little Vengeance Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/jessie-reyez-a-little-vengeance-tour-inglewood-california-11-09-2026/event/09006513CD44C3BA) |
@@ -282,7 +281,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 11/6 | 1 | Dan + Shay - The Young Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/dan-shay-the-young-tour-anaheim-california-11-06-2026/event/090064AEC5BA3C3B) |
+| Fri 11/6 | 1 | Premium Club Seats - Dan + Shay - The Young Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/dan-shay-the-young-tour-anaheim-california-11-06-2026/event/090064AEC5BA3C3B) |
 | Sat 11/7 | 1 | Brand New | Honda Center | big-venue | [link](https://www.ticketmaster.com/brand-new-anaheim-california-11-07-2026/event/090064D08DD25B6F) |
 | Thu 11/12 | 1 | Nick Cannon Presents: Wild 'N Out Live - The Next Generati | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/nick-cannon-presents-wild-n-out-inglewood-california-11-12-2026/event/0900652C600617CB) |
 | Fri 11/13 | 1 | Los Tigres del Norte | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-palm-desert-california-11-13-2026/event/0A0064588664F5A1) |
@@ -305,6 +304,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 2/12 | 1 | Cristian Castro: Nada Solo Exitos Tour 2027 | Honda Center | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-anaheim-california-02-12-2027/event/09006454A8EDEE77) |
 | Sat 2/13 | 1 | Cristian Castro: Nada Solo Éxitos Tour 2027 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-palm-desert-california-02-13-2027/event/0A0064AF217B07C1) |
 | Thu 2/25 | 1 | Puppers Presents Letterkenny Live | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/puppers-presents-letterkenny-live-inglewood-california-02-25-2027/event/0A0064C9D0ACDE80) |
+
+## March 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 3/19 | 1 | Greta Van Fleet - Into The Beginning | Honda Center | big-venue | [link](https://www.ticketmaster.com/greta-van-fleet-into-the-beginning-anaheim-california-03-19-2027/event/0900653DC495E09B) |
 
 ## November 2026
 

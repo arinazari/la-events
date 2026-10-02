@@ -2,7 +2,7 @@
 
 *One row per upcoming weekend, soonest first. Each links to its full digest.*
 
-- **[Oct 2–4](./2026-10-02.md)** — 18 picks · top: [Into The Woods presents Conducta (All Night Long)](https://ra.co/events/2527978)
+- **[Oct 2–4](./2026-10-02.md)** — 18 picks · top: [MELT: DPR (BR), Nicky Macha (UK), Jiggy Boyz ](https://ra.co/events/2500905)
 - **[Oct 9–11](./2026-10-09.md)** — 21 picks · top: [Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)
 - **[Oct 16–18](./2026-10-16.md)** — 18 picks · top: [Deep Steppe & Handpicked presents..Subb-an + Halo Varga + Babylon Beach](https://ra.co/events/2538217)
 - **[Oct 23–25](./2026-10-23.md)** — 18 picks · top: [SYNTHESIS 002: Anastasia Giovani, Blazej Malinowski, Kameliia & Secus](https://ra.co/events/2434324)
