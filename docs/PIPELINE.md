@@ -197,7 +197,7 @@ no backend; the static page just renders it.
 | `blurb-writer` `model:` | agent frontmatter | `haiku` | cheap-tier description writer (no web tools) |
 | `why-writer` / `source-scout` `model:` | agent frontmatter | `sonnet` | pinned so neither silently inherits an Opus session |
 | `effort:` | agent frontmatter | `event-editor` medium · `why-writer` low · others inherit | per-agent reasoning depth (thinking = output tokens) |
-| `ANTHROPIC_MODEL` / `EFFORT` / `ADVISOR_MODEL` | Worker `wrangler.toml` | `claude-sonnet-5` / `medium` / `claude-opus-4-8` | concierge chat cost/quality dial; the advisor is capped at 1 consult per call, prompt-cached, and skipped when the executor is Opus |
+| `ANTHROPIC_MODEL` / `EFFORT` / `ADVISOR_MODEL` | Worker `wrangler.toml` | `claude-sonnet-5` / `medium` / `claude-opus-5-5` | concierge chat cost/quality dial — one setup for every chat (no page-side model switch); the advisor (the newest Opus) is capped at 1 consult per call, prompt-cached, and skipped when the executor is Opus |
 | `--top` | `run_digest` | 100 | full-enrichment head size (scene-researcher) |
 | `--blurb-window` / `--blurb-top` | `run_digest` | 35d / 0 | blurb (cheap-tier) pool span (the real bound) + optional safety cap (0 = off, cover the whole window) |
 | `refresh_days` | `select_for_verdict` / `select_for_enrichment` | `None` (write-once) | optional periodic re-judge / re-research |

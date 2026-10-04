@@ -63,11 +63,11 @@ import CalendarCore from "../dashboard/calendar-core.js";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-09-27-model-tiering";
+const VERSION = "2026-09-29-opus-advisor";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-5",     // executor — does the bulk of generation
-  ADVISOR_MODEL: "claude-opus-4-8",        // advisor — consulted for multi-step planning (must be >= executor)
+  ADVISOR_MODEL: "claude-opus-5-5",        // advisor — consulted for multi-step planning (the newest Opus; must be a valid advisor for the executor)
   EFFORT: "medium",                         // executor effort: low | medium | high | xhigh | max
   DATA_URL: "https://arinazari.github.io/la-events/data.json",
   ALLOWED_ORIGIN: "https://arinazari.github.io",
@@ -167,18 +167,14 @@ async function handleRequest(request, env, cors, ctx) {
   // Contents-only PAT.
   const canEdit = !!(profileHash && env.GITHUB_TOKEN);
   const system = buildSystem(feed, { canEdit, profileName: feed && feed.profile && feed.profile.name });
-  // Any authed caller may upgrade the executor via `model: "opus"` in the body — Ari's call:
-  // shared-token users get Opus too (the token already gates who can spend at all; per-message
-  // cost is an accepted tradeoff). BYOK callers pay on their own key as before.
-  const execModel = (body && body.model) ? resolveModel(env, body.model) : null;
+  // The executor is fixed server-side (ANTHROPIC_MODEL — Sonnet): no per-request model switch.
+  // The page's Use Opus toggle is retired (2026-09-29, Ari's call — Opus's part is the advisor
+  // below); a `model` field from a cached old page is ignored.
+  const execModel = env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL;
   // Advisor mode: a stronger model (Opus) the executor (Sonnet) consults for multi-step planning —
   // set ADVISOR_MODEL to "" to disable. Plus the self-edit tools when this profile can edit.
   const advisorModel = env.ADVISOR_MODEL === undefined ? DEFAULTS.ADVISOR_MODEL : env.ADVISOR_MODEL;
-  const tools = buildTools({
-    advisorModel,
-    execModel: execModel || env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL,
-    canEdit,
-  });
+  const tools = buildTools({ advisorModel, execModel, canEdit });
 
   const chatOpts = { system, tools, apiKey, model: execModel, canEdit, profileHash };
 
@@ -335,11 +331,14 @@ function toolStatusLine(uses) {
 
 /* ----- Anthropic ----- */
 /* The tool list for one chat request. The advisor rides along only when it can add something: it's
- * configured ("" disables) AND it isn't the executor itself — the Use Opus toggle makes the executor
- * the advisor model, and Opus consulting Opus pays twice for the same brain. When present it's held
+ * configured ("" disables) AND it isn't the executor itself — ANTHROPIC_MODEL set to the advisor's
+ * Opus would have Opus consulting Opus, paying twice for the same brain. When present it's held
  * to ONE consult per API call (the post-tool follow-up call gets its own) and its prompt is cached
  * (5-min TTL), so a follow-up turn re-reads the ~20K-token grounded prefix at ~0.1x instead of full
- * Opus input price. Exported for tests. */
+ * Opus input price. The pair must be one Anthropic accepts (else EVERY request 400s): Sonnet 5 takes
+ * Opus 5.5 or 4.8, Sonnet 5.5 rejects any Opus 4.x — bump them together. Opus 5.x advice
+ * arrives encrypted (advisor_redacted_result); that's fine here, the Worker never reads it, only
+ * echoes the block back within the request. Exported for tests. */
 export function buildTools({ advisorModel, execModel, canEdit }) {
   const advisor = advisorModel && advisorModel !== execModel
     ? [{ type: "advisor_20260301", name: "advisor", model: advisorModel, max_uses: 1, caching: { type: "ephemeral" } }]
@@ -349,16 +348,6 @@ export function buildTools({ advisorModel, execModel, canEdit }) {
     PLAN_TOOL,                                  // read-only group planning — available to any authed caller
     ...(canEdit ? [TASTE_TOOL, PROFILE_TOOL, DIGEST_TOOL] : []),
   ];
-}
-
-/* Map a friendly model choice to a configured id — reuses the existing executor/advisor constants
- * (no new hardcoded ids). Aliases ONLY, no arbitrary `claude-*` passthrough: the advisor tool
- * requires advisor >= executor, so an id above the Opus advisor (e.g. claude-fable-5) would 400
- * EVERY request — a bad parameter masquerading as an outage. Junk falls back to the default. */
-function resolveModel(env, m) {
-  const k = String(m || "").trim().toLowerCase();
-  if (k === "opus") return env.ADVISOR_MODEL || DEFAULTS.ADVISOR_MODEL;
-  return env.ANTHROPIC_MODEL || DEFAULTS.ANTHROPIC_MODEL;
 }
 
 /* STREAMING is load-bearing here, not cosmetic. At EFFORT=max with adaptive thinking + an Opus

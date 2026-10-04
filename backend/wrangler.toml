@@ -30,7 +30,7 @@ id = "b42b9da0f2d54d63b753ed4e12864d85"
 # Non-secret vars (override the in-code defaults). Secrets go via `wrangler secret put`.
 [vars]
 ANTHROPIC_MODEL = "claude-sonnet-5"     # executor (does the bulk of generation)
-ADVISOR_MODEL = "claude-opus-4-8"        # advisor the executor consults for planning ("" disables; must be >= executor)
+ADVISOR_MODEL = "claude-opus-5-5"        # advisor the executor consults for planning — the newest Opus ("" disables; must be a valid advisor for the executor)
 EFFORT = "medium"                         # executor effort: low | medium | high | xhigh | max
 MAX_TOKENS = "8000"                       # output cap (leave room for adaptive thinking; raise if plans truncate)
 DATA_URL = "https://arinazari.github.io/la-events/data.json"
