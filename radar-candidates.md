@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/3/2026 deterministically (no API). 169 candidates. Signals: big-venue 142, festival 20, tracked 8, editorial 3._
+_Generated 10/4/2026 deterministically (no API). 160 candidates. Signals: big-venue 134, festival 19, tracked 8, editorial 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -31,7 +31,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 11/27 | 5 | Time Warp LA | Ace * Mission Studios | tracked:Richie Hawtin | [link](https://on.fgtix.com/trk/CFLtc) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
 | Sat 11/28 | 5 | Nu Moda San Diego w/ Max Styler, Hot Since 82, Scenarios | Gallagher Square (San Diego) | tracked:Hot Since 82 | [link](https://laylo.com/ledpresents/maxstyler) |
-| Sat 11/7 | 4 | And Always Forever 2026 - 2-DAY PASS | Echoplex | festival | [link](https://www.ticketmaster.com/and-always-forever-2026-2day-pass-los-angeles-california-11-07-2026/event/090064F8C0F8A145) |
 | Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
 | Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
 | Fri 11/13 | 4 | DARKER WAVES PRE-FESTIVAL PARTY | The Circle OC | festival | [link](https://www.thecircleoc.com/upcoming-events/darker-waves-pre-festival-party) |
@@ -100,7 +99,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 11/7 | 4 | Jimmy Eat World + The Format: Sing It Back! | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jimmy-eat-world-the-format-sing-hollywood-california-11-07-2026/event/0B0064F5C75F3BBB) |
 | Fri 11/20 | 4 | BOYNEXTDOOR | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 11/21 | 4 | KATSEYE: THE WILDWORLD TOUR | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/katseye-the-wildworld-tour-los-angeles-california-11-21-2026/event/2C0064ABC62217BE) |
 | Sat 11/21 | 4 | El Fantasma | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
@@ -124,13 +122,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 11/7 | 3 | Jorge Medina - Legendario Tour | Yaamava Resort & Casino at San Man | big-venue | [link](https://www.axs.com/events/1492293/jorge-medina-tickets?skin=yaamava) |
-| Sat 11/7 | 3 | Mon Laferte - Femme Fatale Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/mon-laferte-femme-fatale-tour-inglewood-california-11-07-2026/event/0900646CEE46EEFD) |
-| Sat 11/7 | 3 | Eros Ramazzotti - UNA HISTORIA IMPORTANTE | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/eros-ramazzotti-una-historia-importante-inglewood-california-11-07-2026/event/0A00628C082C6464) |
-| Sat 11/7 | 3 | Ramon Ayala " Historia De Un Final" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/ramon-ayala-historia-de-un-final-ontario-california-11-07-2026/event/0900647FAF9A9CF5) |
-| Sat 11/7 | 3 | Moby, Underworld, fcukers, Nia Archives (DJ set), DJ Holog | Brookside at the Rose Bowl | big-venue | [link](https://www.axs.com/events/1527850/moby-underworld-tickets) |
-| Sat 11/7 | 3 | Grupo Cañaveral & Los Hermanos Flores | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-canaveral-los-hermanos-flores-inglewood-california-11-07-2026/event/0A006532A1D27C43) |
-| Sat 11/7 | 3 | The Internet for Palestine; benefitting PCRF | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1634011/the-internet-for-palestine-benefitting-pcrf-tickets) |
 | Sun 11/8 | 3 | Ms Lauryn Hill & Wyclef Jean Celebrating 30 years of Fugee | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/ms-lauryn-hill-wyclef-jean-celebrating-hollywood-california-11-08-2026/event/0B0065036C4F1623) |
 | Mon 11/9 | 3 | Karan Aujla | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/karan-aujla-los-angeles-california-11-09-2026/event/2C00652AF5740D18) |
 | Fri 11/13 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B) |
@@ -284,7 +275,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 11/7 | 1 | Brand New | Honda Center | big-venue | [link](https://www.ticketmaster.com/brand-new-anaheim-california-11-07-2026/event/090064D08DD25B6F) |
 | Thu 11/12 | 1 | Nick Cannon Presents: Wild 'N Out Live - The Next Generati | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/nick-cannon-presents-wild-n-out-inglewood-california-11-12-2026/event/0900652C600617CB) |
 | Fri 11/13 | 1 | Los Tigres del Norte | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-palm-desert-california-11-13-2026/event/0A0064588664F5A1) |
 | Sat 11/14 | 1 | 90s Corridos Tour 2026 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/90s-corridos-tour-2026-palm-desert-california-11-14-2026/event/0A00649D95C0C8DC) |
@@ -312,6 +302,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 3/19 | 1 | Greta Van Fleet - Into The Beginning | Honda Center | big-venue | [link](https://www.ticketmaster.com/greta-van-fleet-into-the-beginning-anaheim-california-03-19-2027/event/0900653DC495E09B) |
+
+## April 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 4/2 | 1 | Hans Zimmer | Honda Center | big-venue | [link](https://www.axs.com/events/1615242/hans-zimmer-tickets) |
 
 ## November 2026
 
