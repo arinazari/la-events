@@ -2,16 +2,12 @@
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Mon 10/5 · no new or changed events since the last pull*
 
-<!-- take: Techno-heavy Friday and Saturday — Lights Down Low, WORK and DVS1 all want your weekend. -->
+<!-- take: -->
 <!-- tier3:intro -->
-Quiet Monday, loud weekend. Friday and Saturday carry the heat: Ben UFO's Lights Down Low afters and Roman Flügel's In Between on Friday, then DVS1 four hours open-to-close at WORK on Saturday. If you can only do one: DVS1 — it's the rarer booking. The following weekend leans Subb-an/Halo Varga and the Halloween bills start to take shape.
-
 
 ## Tonight & tomorrow
 
 <!-- tier3:call -->
-Quiet night — skip the Monday afters and save yourself for Friday.
-
 
 - `Today 11pm` **[AFTERS 10-05 ( MONDAY )](https://posh.vip/e/afters-1005-monday-)** — 129 E 3rd St, DTLA · afters · free · ↻ updated (status) · [card ↗](https://arinazari.github.io/la-events/?e=902fc7152aba)
 - `Today 4am-11am` **[Afters @ Tooneyverse](https://stageglo.me/events/afters-tooneyverse-free-cocktail-w-entry-2026-10-05/hz20261005)** — 1253 S Los Angeles St Ste C (Los Angeles) · afters · $15 · [card ↗](https://arinazari.github.io/la-events/?e=104025ec9633)
@@ -99,7 +95,6 @@ Quiet night — skip the Monday afters and save yourself for Friday.
 
 ### Friday · October 9
 <!-- tier3:blueprint 2026-10-09 -->
-*Flügel at In Between from 9, then slide over to Lights Down Low for Ben UFO after 11.*
 
 **Electronic & dance**
 - `11pm-5am` ⭐ **[Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)** — TBA - Downtown Los Angeles, DTLA · $23.25-46.50 · [card ↗](https://arinazari.github.io/la-events/?e=d0cab332db78)
@@ -119,7 +114,6 @@ Quiet night — skip the Monday afters and save yourself for Friday.
 
 ### Saturday · October 10
 <!-- tier3:blueprint 2026-10-10 -->
-*Early deep-house at The Airliner (Aaron Paar, 9pm), then DVS1 at WORK from 11.*
 
 **Electronic & dance**
 - `11pm-6am` ⭐ **[WORK presents: DVS1 [4 Hour Set], Mary Yuzovskaya, & Pleasures](https://ra.co/events/2510218)** — TBA - Los Angeles, Los Angeles · $25 b4 12 / $35-42 · [card ↗](https://arinazari.github.io/la-events/?e=57bc39bfbea8)  
