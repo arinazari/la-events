@@ -100,6 +100,26 @@ const TODAY = "2026-07-20";
   ok("select: per-day cap keeps the highest-rated, output stays date-ordered");
 }
 
+{
+  // Editor verdicts: a judged skip never lands, final_rating gates the floor, rank_score orders.
+  const f = feed([
+    row({ title: "skipped", rating: 5, score: 12, key: "k1", verdict: { tier: "skip" }, rank_score: 5, final_rating: 3 }),
+    row({ title: "lifted", rating: 3, score: 6, key: "k2", verdict: { tier: "must-see" }, rank_score: 10, final_rating: 4 }),
+    row({ title: "plain", rating: 4, score: 9, key: "k3" }),
+    row({ title: "sunk", rating: 4, score: 9, key: "k4", verdict: { tier: "solid", adjust: -3 }, rank_score: 7, final_rating: 3 }),
+  ]);
+  assert.deepEqual(Cal.selectEvents(f, {}, TODAY).map(e => e.title), ["lifted", "plain"]);
+  assert.deepEqual(Cal.selectEvents(f, { min: 1 }, TODAY).map(e => e.title).sort(), ["lifted", "plain", "sunk"]);
+  const tie = feed([
+    row({ title: "a", rating: 4, score: 9, key: "k5" }),
+    row({ title: "b", rating: 4, score: 8, key: "k6", verdict: { tier: "great" }, rank_score: 10, final_rating: 4 }),
+  ]);
+  assert.deepEqual(Cal.selectEvents(tie, { perday: 1 }, TODAY).map(e => e.title), ["b"]);
+  const ics = Cal.buildIcs(f, {}, { todayISO: TODAY });
+  assert.ok(ics.includes("Recommended for you: 4/5"));
+  ok("select: verdicts — skip excluded, final_rating floor, rank_score breaks per-day ties");
+}
+
 /* ---- ICS document ---- */
 {
   const ics = Cal.buildIcs(feed([row()]), {}, { todayISO: TODAY });

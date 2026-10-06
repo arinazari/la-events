@@ -44,7 +44,7 @@ from lib.enrich import load_cache, merge_enrichment, event_key  # noqa: E402
 from lib.reactions import load_reactions, star_map, stars_for  # noqa: E402  (stars — the social fold)
 from lib.profiles import hash_names  # noqa: E402
 from lib import editor as ED  # noqa: E402
-from lib.assemble import rank_key, event_lane, top_picks, TOP_PICKS_LANE_CAP  # noqa: E402
+from lib.assemble import rank_key, rank_score, event_lane, top_picks, TOP_PICKS_LANE_CAP  # noqa: E402
 from lib.series import group_series, series_summary, is_film, showtimes_url  # noqa: E402
 from lib.festivals import load_festivals  # noqa: E402  (festivals.yaml -> front_page.festivals)
 from lib.dedupe import _fest_core, _FEST_SIGNAL, normalize as _norm  # noqa: E402  (festival rollup)
@@ -686,6 +686,12 @@ def main() -> int:
         v = verdicts.get(event_key(ev))
         if v:
             out["verdict"] = v                       # {tier, lane?, adjust, why, confidence}
+            # The verdict-blended merit (score + adjust + tier bonus — the SAME rank_score that
+            # final_rank orders by) and its star mapping, so the calendar feed (calendar-core.js)
+            # selects + orders on the editor-refined rank instead of the raw score. Unjudged rows
+            # omit both; consumers fall back to score / rating.
+            out["rank_score"] = rank_score(out, verdicts)
+            out["final_rating"] = score_to_rating(out["rank_score"], profile, taste)
         out["lane"] = event_lane(out, verdicts)      # verdict lane override else tag-derived
         k = event_key(ev)
         out["key"] = k                               # stable id — front_page joins + feedback + stars

@@ -190,7 +190,19 @@
 
   // ---------- selection ----------
 
-  // The subscription slate: date-window → rating threshold → weekday → type/genre
+  // Editor-refined merit: build_dashboard stamps rank_score (score + verdict adjust + tier bonus —
+  // the same blend final_rank orders by) and final_rating (its star mapping) on judged rows only;
+  // unjudged rows fall back to the raw score / rating. A judged SKIP never makes the calendar
+  // (same rule as the Don't-miss shelf).
+  function effRating(r) {
+    return typeof r.final_rating === "number" ? r.final_rating : (typeof r.rating === "number" ? r.rating : 0);
+  }
+  function effScore(r) {
+    return typeof r.rank_score === "number" ? r.rank_score : (r.score || 0);
+  }
+  function isSkipped(r) { return !!(r.verdict && r.verdict.tier === "skip"); }
+
+  // The subscription slate: date-window → skip verdicts out → rating threshold → weekday → type/genre
   // include/exclude (exclusion wins) → best-N per day. Returns raw rows, (date, time, title)
   // ordered, so the page preview and the served feed literally share this list.
   function selectEvents(feed, settings, todayISO) {
@@ -204,8 +216,8 @@
       var r = rows[i];
       if (!r || !r.title || !isISODate(r.iso_date)) continue;
       if (r.iso_date < todayISO || r.iso_date > lastISO) continue;    // recompute vs today — is_past is build-time
-      var rating = typeof r.rating === "number" ? r.rating : 0;
-      if (rating < s.min) continue;
+      if (isSkipped(r)) continue;
+      if (effRating(r) < s.min) continue;
       if (s.days.length && s.days.indexOf(weekdayOf(r.iso_date)) === -1) continue;
       var t = eventType(r);
       if (s.xtypes.length && s.xtypes.indexOf(t) !== -1) continue;
@@ -219,10 +231,10 @@
       if (s.genres.length && !hit(s.genres)) continue;
       picked.push(r);
     }
-    // Per-day cap keeps the BEST of each day: rank by rating, then raw score, then title
-    // (a stable tiebreak so the same feed always yields the same calendar).
+    // Per-day cap keeps the BEST of each day: rank by (verdict-aware) rating, then rank score,
+    // then title (a stable tiebreak so the same feed always yields the same calendar).
     picked.sort(function (a, b) {
-      return (b.rating || 0) - (a.rating || 0) || (b.score || 0) - (a.score || 0) ||
+      return effRating(b) - effRating(a) || effScore(b) - effScore(a) ||
         String(a.title).localeCompare(String(b.title));
     });
     var perDay = {}, kept = [];
@@ -362,7 +374,8 @@
     var url = (links[0] && links[0].url) || row.url || "";
     var enr = row.enrichment || {};
     var desc = [];
-    if (typeof row.rating === "number") desc.push("Recommended for you: " + row.rating + "/5");
+    if (typeof row.rating === "number" || typeof row.final_rating === "number")
+      desc.push("Recommended for you: " + effRating(row) + "/5");
     if (Array.isArray(row.lineup) && row.lineup.length) desc.push("Lineup: " + row.lineup.join(", "));
     var about = enr.description || row.detail || "";
     if (about) desc.push(String(about).slice(0, 500));

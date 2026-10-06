@@ -161,6 +161,9 @@ GET /calendar.ics (no auth) -> text/calendar   the calendar-subscription feed. S
     uses for its preview/snapshot, imported at bundle time, so they can't drift):
       p=<feed-hash>        whose feed (omit = the default data.json)
       min=1..5             minimum rating (default 4)         perday=1..10  max events/day (default 3)
+                           (rating + per-day order are EDITOR-AWARE: judged rows carry final_rating /
+                           rank_score — the same verdict blend final_rank uses — and judged skips are
+                           dropped; unjudged rows use the raw rating / score)
       horizon=7..120       days ahead (default 60)            days=fri,sat  weekdays (empty = all)
       types= / xtypes=     include/exclude tags.type          genres= / xgenres=  include/exclude genres
       saved=1              STARRED mode: the calendar is every event this profile (p=) STARRED,
