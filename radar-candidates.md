@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/5/2026 deterministically (no API). 158 candidates. Signals: big-venue 131, festival 19, tracked 9, editorial 2._
+_Generated 10/6/2026 deterministically (no API). 162 candidates. Signals: big-venue 133, festival 21, tracked 9, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -44,6 +44,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
 | Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
 | Fri 11/13 | 4 | DARKER WAVES PRE-FESTIVAL PARTY | The Circle OC | festival | [link](https://www.thecircleoc.com/upcoming-events/darker-waves-pre-festival-party) |
+| Fri 11/13 | 4 | Bees Trees & Water Music Festival | TBA - ON Website | festival | [link](https://ra.co/events/2553982) |
 | Sun 11/22 | 4 | WORK Weekender Day 3: BB Shaine, David Castellani [LIVE],  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537315) |
 
 ## December 2026
@@ -51,6 +52,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Grateful Shred: Holiday Homecoming - 2-DAY Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91) |
+
+## January 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 1/23 | 4 | 2 DAY PASS - ALLEYCVT | Hollywood Palladium | festival | [link](https://www.ticketmaster.com/2-day-pass-alleycvt-hollywood-california-01-23-2027/event/09006541B491DF63) |
 
 ## November 2026
 
@@ -132,7 +139,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 11/9 | 3 | Karan Aujla | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/karan-aujla-los-angeles-california-11-09-2026/event/2C00652AF5740D18) |
 | Fri 11/13 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B) |
 | Fri 11/13 | 3 | How The West Was Won | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/how-the-west-was-won-inglewood-california-11-13-2026/event/0A00653DB7DFFC81) |
 | Sat 11/14 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-14-2026/event/09006494FCC71433) |
@@ -199,6 +205,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 3/5 | 3 | The Love of Soul Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/the-love-of-soul-tour-ontario-california-03-05-2027/event/09006538BF19D600) |
+| Sat 3/6 | 3 | Freestyle Explosion | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/freestyle-explosion-inglewood-california-03-06-2027/event/0A00653EBBF9FC1B) |
 
 ## April 2027
 
@@ -211,7 +218,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 11/9 | 2 | Jessie Reyez: A Little Vengeance Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/jessie-reyez-a-little-vengeance-tour-inglewood-california-11-09-2026/event/09006513CD44C3BA) |
 | Tue 11/10 | 2 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-10-2026/event/0A0064C8F2ADE2A5) |
 | Wed 11/11 | 2 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-11-2026/event/0A0064C8F2BAE2BF) |
 | Wed 11/11 | 2 | Pedro Fernandez - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAv3J6) |
@@ -260,6 +266,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Thu 1/21 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-21-2027/event/090064A4B7A6F97C) |
 | Sun 1/24 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-24-2027/event/090064A4B7B2F9A0) |
 | Mon 1/25 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-25-2027/event/090064A4B7BFF9BB) |
+| Wed 1/27 | 2 | FLO - Therapy At The Club Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/flo-therapy-at-the-club-tour-inglewood-california-01-27-2027/event/0A00653DFE3BB997) |
 | Thu 1/28 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-28-2027/event/090064A4B7CBF9E1) |
 | Fri 1/29 | 2 | Tom Segura | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAeFjg) |
 
@@ -303,6 +310,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 2/12 | 1 | Cristian Castro: Nada Solo Exitos Tour 2027 | Honda Center | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-anaheim-california-02-12-2027/event/09006454A8EDEE77) |
 | Sat 2/13 | 1 | Cristian Castro: Nada Solo Éxitos Tour 2027 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-palm-desert-california-02-13-2027/event/0A0064AF217B07C1) |
+| Sat 2/13 | 1 | La Arrolladora Banda El Limon: Si Las Miradas Matan | Honda Center | big-venue | [link](https://www.ticketmaster.com/la-arrolladora-banda-el-limon-si-anaheim-california-02-13-2027/event/09006543C9DE61DB) |
 | Thu 2/25 | 1 | Puppers Presents Letterkenny Live | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/puppers-presents-letterkenny-live-inglewood-california-02-25-2027/event/0A0064C9D0ACDE80) |
 
 ## March 2027
@@ -310,6 +318,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 3/19 | 1 | Greta Van Fleet - Into The Beginning | Honda Center | big-venue | [link](https://www.ticketmaster.com/greta-van-fleet-into-the-beginning-anaheim-california-03-19-2027/event/0900653DC495E09B) |
+| Sat 3/27 | 1 | 90's Corridos Tour 2027 | Honda Center | big-venue | [link](https://www.ticketmaster.com/90s-corridos-tour-2027-anaheim-california-03-27-2027/event/09006539CAF3F23D) |
 
 ## April 2027
 
