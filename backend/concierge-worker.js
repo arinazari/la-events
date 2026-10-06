@@ -63,7 +63,7 @@ import CalendarCore from "../dashboard/calendar-core.js";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-09-29-opus-advisor";
+const VERSION = "2026-10-06-cal-verdicts";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-5",     // executor — does the bulk of generation
