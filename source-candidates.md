@@ -1,6 +1,37 @@
 # Source candidates — Discover mode
 
-_Generated 2026-09-01 (previous pass: 2026-08-25). Review → approve → fold into `sources.yaml`,
+_Generated 2026-10-06 (previous pass: 2026-09-01). Review → approve → fold into `sources.yaml`,
+then update `last_discovery`. Eventbrite `--scan-catalog` run today: no new organizers._
+
+## New this pass (2026-10-06)
+
+Scout had WebFetch/WebSearch only: DICE slugs below are **unverified** (DICE 403s WebFetch) — run
+`fetch_dice.py` with the real UA before merging.
+
+| Name | Category | Method | Endpoint | What it lists | Confidence |
+|---|---|---|---|---|---|
+| Sunday Sessions LA (Vinyl Only) | electronic | webfetch | https://www.sundaysessions.la/events | Weekly vinyl-only open-air house/tech Sunday series, 1746 N Spring St DTLA; ~8 dated Sundays (10/11–11/29) w/ lineups + Shotgun links. RA/19hz carry only 1 wk w/ venue "TBA". Core taste. | High — **ADD** (priority 1) |
+| High Tide (DTLA) | electronic | dice `high-tide-6nk3` | dice.fm/venue/high-tide-6nk3 | Vinyl nights/day parties/disco; ~4 rows already in catalog via RA/19hz | Medium-high (verify) |
+| Golden Hour @ Level 8 | electronic | dice `golden-hour--level-8-g8w2` | dice.fm/venue/golden-hour--level-8-g8w2 | Sunset Sessions rooftop (named favorite); Level 8 already via Eventbrite organizer | Medium (may be 0) |
+| ROW DTLA events | market | webfetch | https://www.rowdtla.com/events | Vintage fairs, sample sales, pop-ups; noisy (workshops) | Medium (priority 3) |
+| LA/Smorgasburg record fairs | market | recurring.yaml | — | Monthly record fair; venue/cadence sources disagree (Smorgasburg 3rd Sun at ROW most reliable) | Low-medium — human call |
+| HOUSE·LA | editorial | webfetch (signal) | https://housemusicla.com/ | Deep/afro-house calendar; overlaps RA/19hz | Low — skip |
+
+Ready-to-paste snippets: `high-tide-6nk3` and `golden-hour--level-8-g8w2` under the DICE `venues:` list;
+new `webfetch` rows for Sunday Sessions (`status: candidate`, priority 1) and ROW DTLA (priority 3).
+
+### Status-change flags
+- **Los Feliz Flea** (`candidate`): server-rendered dated Saturdays through 11/7 → promote to `active`.
+- **Harvard & Stone** (`flaky`): only a past 9/28 entry on the calendar; escalate-to-dead date (9/22) passed → recommend `dead`.
+- **Bar Franca** (`candidate`): Squarespace calendar abandoned (newest 12/14/24) → downgrade to `manual`.
+- **Eater LA** (`flaky`): WebFetch refuses outright; keep flaky.
+- Rejected: LP Vinyl Bar, Homage Brewing, Grand Central Market, downtownla.com, STILE/Somewhere Special. Re-probe Circle Bar (503).
+- Gap-mine: Moroccan Lounge (via TM), Dusty Vinyl (via LOVE&REVENGE EB organizer) already covered; nothing else actionable.
+
+## Still pending from 2026-09-01 / 2026-08-25 (unapproved)
+
+(see prior sections below)
+
 then update `last_discovery`._
 
 ## Still pending from 2026-08-25 (nobody has approved/merged these yet)
