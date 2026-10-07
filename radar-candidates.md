@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/6/2026 deterministically (no API). 162 candidates. Signals: big-venue 133, festival 21, tracked 9, editorial 2._
+_Generated 10/7/2026 deterministically (no API). 164 candidates. Signals: big-venue 135, festival 21, tracked 9, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -135,6 +135,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 12/11 | 4 | Brent Faiyaz | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 12/18 | 4 | Love Actually in Concert | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 
+## April 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 4/2 | 4 | Dancing with the Stars: Live! - 2027 Tour | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/dancing-with-the-stars-live-2027-los-angeles-california-04-02-2027/event/2C00654197E40B25) |
+
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -199,6 +205,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 2/20 | 3 | Yuridia - Cartas Sobre La Mesa Tour 2027 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-inglewood-california-02-20-2027/event/0A006521AE4654FC) |
 | Fri 2/26 | 3 | Morat YEM World Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/morat-yem-world-tour-2027-inglewood-california-02-26-2027/event/090064AFF1A0DF67) |
 | Fri 2/26 | 3 | Joe - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Sat 2/27 | 3 | Kenia OS: K de Karma Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/kenia-os-k-de-karma-tour-inglewood-california-02-27-2027/event/0A00653EC6F228E1) |
 
 ## March 2027
 
@@ -218,7 +225,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 11/10 | 2 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-10-2026/event/0A0064C8F2ADE2A5) |
 | Wed 11/11 | 2 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-11-2026/event/0A0064C8F2BAE2BF) |
 | Wed 11/11 | 2 | Pedro Fernandez - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAv3J6) |
 | Thu 11/12 | 2 | Miranda Lamber (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -350,6 +356,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Wed 3/3 | 0 | Elevation Worship & Steven Furtick | Honda Center | big-venue | [link](https://www.ticketmaster.com/elevation-worship-steven-furtick-anaheim-california-03-03-2027/event/09006528065A0CBA) |
+
+## April 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Thu 4/1 | 0 | Dancing with the Stars: Live! - 2027 Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/dancing-with-the-stars-live-2027-anaheim-california-04-01-2027/event/0900653E9B4AA1E1) |
 
 ## November 2026
 
