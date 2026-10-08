@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/7/2026 deterministically (no API). 164 candidates. Signals: big-venue 135, festival 21, tracked 9, editorial 2._
+_Generated 10/8/2026 deterministically (no API). 165 candidates. Signals: big-venue 136, festival 22, tracked 8, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -41,7 +41,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 11/27 | 5 | Time Warp LA | Ace * Mission Studios | tracked:Richie Hawtin | [link](https://on.fgtix.com/trk/CFLtc) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
 | Sat 11/28 | 5 | Nu Moda San Diego w/ Max Styler, Hot Since 82, Scenarios | Gallagher Square (San Diego) | tracked:Hot Since 82 | [link](https://laylo.com/ledpresents/maxstyler) |
-| Wed 11/11 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7) |
 | Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
 | Fri 11/13 | 4 | DARKER WAVES PRE-FESTIVAL PARTY | The Circle OC | festival | [link](https://www.thecircleoc.com/upcoming-events/darker-waves-pre-festival-party) |
 | Fri 11/13 | 4 | Bees Trees & Water Music Festival | TBA - ON Website | festival | [link](https://ra.co/events/2553982) |
@@ -76,6 +75,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 1/1 | 3 | Totally Tubular Festival | The Show at Agua Caliente Casino R | festival | [link](https://www.ticketmaster.com/totally-tubular-festival-rancho-mirage-california-01-01-2027/event/0900652A153D27DB) |
+| Sat 1/2 | 3 | Lost In Dreams Presents: ARMNHMR(18+) (FROM OBS OC FESTIVA | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/lost-in-dreams-presents-armnhmr18-from-anaheim-california-01-02-2027/event/090065468B706282) |
 
 ## February 2027
 
@@ -186,6 +186,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Fri 1/15 | 3 | New Edition - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 1/16 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-16-2027/event/0900649DE84C64CD) |
 | Sat 1/16 | 3 | D.O.D Twin Diplomacy, Nate Band, Teeb | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1592102/d-o-d-tickets) |
 | Sat 1/16 | 3 | D.O.D. - Ages 18+ | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
@@ -225,8 +226,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 11/11 | 2 | Alanis Morissette: Butterfly with a Machete, The LA Reside | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alanis-morissette-butterfly-with-a-machete-inglewood-california-11-11-2026/event/0A0064C8F2BAE2BF) |
-| Wed 11/11 | 2 | Pedro Fernandez - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAv3J6) |
 | Thu 11/12 | 2 | Miranda Lamber (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 11/12 | 2 | The Smashing Pumpkins: The Rats In A Cage Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-smashing-pumpkins-the-rats-in-inglewood-california-11-12-2026/event/090064AFCB095819) |
 | Sun 11/15 | 2 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-11-15-2026/event/0A006494C5CE878D) |
@@ -257,6 +256,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Wed 12/16 | 2 | Wang Leehom - The Best Place II World Tour  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/wang-leehom-the-best-place-ii-inglewood-california-12-16-2026/event/09006515BC62BB28) |
 | Sun 12/20 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-20-2026/event/090064BBE49DEE4D) |
 | Tue 12/22 | 2 | Pentatonix: Christmas in the City Tour  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/pentatonix-christmas-in-the-city-tour-inglewood-california-12-22-2026/event/09006504E828CC6A) |
+| Thu 12/31 | 2 | Flo Rida - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 
 ## January 2027
 
@@ -269,6 +269,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 1/16 | 2 | Iliza Shlesinger (21+ Event) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 1/17 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-17-2027/event/0900649DE899654B) |
 | Wed 1/20 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-20-2027/event/090064A4B79AF95E) |
+| Wed 1/20 | 2 | Steve Winwood | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 1/21 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-21-2027/event/090064A4B7A6F97C) |
 | Sun 1/24 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-24-2027/event/090064A4B7B2F9A0) |
 | Mon 1/25 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-25-2027/event/090064A4B7BFF9BB) |
