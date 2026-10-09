@@ -2,12 +2,12 @@
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Fri 10/9 · no new or changed events since the last pull*
 
-<!-- take: Techno weekend — Ben UFO and Roman Flügel tonight, DVS1 for four hours at WORK on Saturday. -->
-A proper club stretch: tonight and Saturday are stacked with real underground bookings downtown, then the heat shifts to Halloween-season mega-fests and themed warehouse parties. If you can only do one this weekend, make it DVS1's four-hour set at WORK on Saturday.
+<!-- take: -->
+<!-- tier3:intro -->
 
 ## Tonight & tomorrow
 
-Go out both nights: Lights Down Low or In Between tonight, then save your energy for DVS1 at WORK Saturday.
+<!-- tier3:call -->
 
 - `Today 11pm-5am` ⭐ **[Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)** — TBA - Downtown Los Angeles, DTLA · $23.25-46.50 · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=d0cab332db78) — *Ben UFO is about as close to a real fabric/London booking as LA gets — Hessle Audio co-founder, genre-agnostic legend — and the score's TBA-location afterhours cap badly undersells this one.*
 - `Today 9pm-4am` ⭐ **[In Between: Roman Flugel & Josh Caffe, Jane Margarette](https://ra.co/events/2526488)** — TBA - DTLA, DTLA · $16.25 b4 11 / $22-27 · [card ↗](https://arinazari.github.io/la-events/?e=00ffffa31eda) — *Alter Ego / Ongaku Musik veteran with real Robert Johnson pedigree, plus Josh Caffé's Crosstown Rebels/Classic credentials — this is the fabric-style night the whole brief is describing.*
@@ -51,7 +51,7 @@ Go out both nights: Lights Down Low or In Between tonight, then save your energy
 ## Next two weeks
 
 ### Friday · October 9
-*Night sketch: In Between with Roman Flügel from 9, then slide to Lights Down Low for Ben UFO after 11.*
+<!-- tier3:blueprint 2026-10-09 -->
 
 **Electronic & dance**
 - `11pm-5am` ⭐ **[Lights Down Low Feat. Ben Ufo, Bianca Lexis](https://ra.co/events/2527911)** — TBA - Downtown Los Angeles, DTLA · $23.25-46.50 · ↻ updated (lineup) · [card ↗](https://arinazari.github.io/la-events/?e=d0cab332db78)  
@@ -73,7 +73,7 @@ Go out both nights: Lights Down Low or In Between tonight, then save your energy
 - *Also:* [Ludovico Einaudi](https://www.laphil.com/) (Walt Disney Concert Hall)
 
 ### Saturday · October 10
-*Night sketch: eat early and rest up, then WORK's DVS1 four-hour set from 11 — open-to-close, so pace yourself.*
+<!-- tier3:blueprint 2026-10-10 -->
 
 **Electronic & dance**
 - `11pm-6am` ⭐ **[WORK presents: DVS1 [4 Hour Set], Mary Yuzovskaya, & Pleasures](https://ra.co/events/2510218)** — TBA - Los Angeles, Los Angeles · $25 b4 12 / $35-42 · [card ↗](https://arinazari.github.io/la-events/?e=57bc39bfbea8)  
@@ -154,7 +154,7 @@ Go out both nights: Lights Down Low or In Between tonight, then save your energy
   Second night of the Hollywood Forever run, so it's the easier one to get into if the first sells out. Loose, wiry, sweaty rock in a cemetery setting is a good fall night.
 
 ### Friday · October 16
-*Night sketch: BAJO at The Airliner from 9 for the loose disco warm-up, then Deep Steppe's all-nighter from 10.*
+<!-- tier3:blueprint 2026-10-16 -->
 
 **Electronic & dance**
 - `10pm-6am` ⭐ **[Deep Steppe & Handpicked presents..Subb-an + Halo Varga + Babylon Beach](https://ra.co/events/2538217)** — TBA, Los Angeles · $10.50-37 · [card ↗](https://arinazari.github.io/la-events/?e=763b607e37cd)  
@@ -165,6 +165,7 @@ Go out both nights: Lights Down Low or In Between tonight, then save your energy
 - `8pm` **[PayDay Underground Superstar Experience](https://posh.vip/e/payday-underground-superstar-experience)** — Hotel Ziggy on Sunset, West Hollywood · day party · $2.59 · ↻ updated (status) · [card ↗](https://arinazari.github.io/la-events/?e=bab8580e4f51)
 
 ### Saturday · October 17
+<!-- tier3:blueprint 2026-10-17 -->
 
 **Electronic & dance**
 - `11pm-4am` **[Oppidan](https://ra.co/events/2523078)** — Academy LA, Hollywood · afters · $17 · [card ↗](https://arinazari.github.io/la-events/?e=5360e31e4b2e)  

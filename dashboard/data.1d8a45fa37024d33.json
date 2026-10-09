@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T12:29:49+00:00",
+  "generated_at": "2026-10-09T17:53:36+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "06906110dfbf",
@@ -290601,14 +290601,14 @@
             "summary": "taste: genres_loved \u2014 declared core genres count at full weight (tech-house)"
           },
           {
-            "date": "2026-09-25",
-            "summary": "digest: 2026-09-25 checkpoint \u2014 render consolidated digest, voice pass (intro/take/call/4 blueprints/38 glosses)"
+            "date": "2026-08-24",
+            "summary": "taste(Ari): Loved Monkey Safari live \u2014 track them (melodic/organic house, Anjuna/Inn"
           }
         ],
         "diff": "diff --git a/taste.yaml b/taste.yaml\nindex 26a9b98..39b1b08 100644\n--- a/taste.yaml\n+++ b/taste.yaml\n@@ -180,6 +180,7 @@ artists_tracked:\n   - Tini Gessler\n   - Monkey Safari\n   - Lara Sarkissian\n+  - Darone Sarkissian\n \n # FYI artists \u2014 big names you want to KNOW about when they play a big room in or near LA, even\n # though they're not your lane (\"FYI a big act is in town or nearby\", 2026-09-27). Membership\n@@ -255,6 +256,7 @@ feedback:\n     Anjuna/Innervisions orbit). (self-edit via concierge)\"\n   - \"2026-10-03: Track Lara Sarkissian. (self-edit via concierge)\"\n   - \"2026-10-03: Track Lara Sarkissian (self-edit via concierge)\"\n+  - \"2026-10-03: Track Darone Sarkissian (self-edit via concierge)\"\n \n # Scoring overrides (mechanism knobs \u2014 profile.yaml wins where both set a key).\n scoring:",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-10-08"
+        "enriched_at": "2026-10-09"
       },
       "profile": {
         "file": "profile.yaml",
@@ -290619,14 +290619,30 @@
             "summary": "dashboard: FYI lists your big acts, not every arena booking; far-out big shows no longer vanish"
           },
           {
-            "date": "2026-09-25",
-            "summary": "digest: 2026-09-25 checkpoint \u2014 render consolidated digest, voice pass (intro/take/call/4 blueprints/38 glosses)"
+            "date": "2026-08-12",
+            "summary": "Roll back the event-photos feature and its admin toggle (#127)"
+          },
+          {
+            "date": "2026-08-03",
+            "summary": "profile(Ari): Bump down film category weight from 3 to 1 to de-prioritize movies in th"
+          },
+          {
+            "date": "2026-08-03",
+            "summary": "profile(Ari): Raise live_music category weight from 2 to 3 and add boost terms for sma"
+          },
+          {
+            "date": "2026-07-27",
+            "summary": "sources: add Beatport (Beatport Tickets / Beatport Live) via beatportal.com"
+          },
+          {
+            "date": "2026-07-25",
+            "summary": "Mobile UX polish, card dates, digest deep links, and a \"Saw this\" reaction"
           }
         ],
         "diff": "diff --git a/profile.yaml b/profile.yaml\nindex fd106f2..2569f8e 100644\n--- a/profile.yaml\n+++ b/profile.yaml\n@@ -229,7 +229,8 @@ scoring:\n     # Train, the rapper Future, the tech-house FISHER). These only count when they match a\n     # structured lineup ENTRY, never loose title text \u2014 shared by the Spotify layer AND the\n     # tracked-artist/radar matchers (Track B3: 'Fisher and Thames' must not badge FISHER,\n-    # 'The Drama' must not badge DRAMA). Grow this as you spot more.\n+    # 'The Drama' must not badge DRAMA; Trippie Redd's 'Non-disclosure Agreement Tour' must not\n+    # badge Disclosure). Grow this as you spot more.\n     ambiguous_names:\n       [\n         train,\n@@ -245,7 +246,8 @@ scoring:\n         hold,\n         alive,\n         fisher,\n-        drama\n+        drama,\n+        disclosure\n       ]\n \n   # Feedback loop (Phase C). Reactions in data/feedback.jsonl fold into the affinity layer",
         "diff_kind": "applied",
         "reflected": true,
-        "enriched_at": "2026-10-08"
+        "enriched_at": "2026-10-09"
       }
     },
     "digest_prefs": {
