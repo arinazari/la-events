@@ -818,7 +818,7 @@ def main() -> int:
         except (json.JSONDecodeError, OSError, AttributeError):
             pass
     # Festivals watch-list — sample builds skip it (a demo feed shouldn't carry the real list).
-    festivals = [] if is_sample else load_festivals(REPO / "festivals.yaml")
+    festivals = [] if is_sample else load_festivals(REPO / "festivals.yaml", today)
     front_page = build_front_page(events, verdicts, today, radar_rows, around_rows,
                                   take=take, festivals=festivals)
 

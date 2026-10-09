@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from lib.festivals import festival_scope, pretty_when, timely  # noqa: E402
+from lib.festivals import festival_scope, last_date, load_festivals, pretty_when, timely  # noqa: E402
 import render_digest as R  # noqa: E402
 
 
@@ -37,6 +37,32 @@ def test_timely_gate_matches_the_yaml_relevance_contract():
              {"name": "C", "status": "lineup_pending"}, {"name": "D", "status": "annual_watch"},
              {"name": "E", "status": "dormant"}, {"name": "F", "status": None}]
     assert [f["name"] for f in timely(fests)] == ["A", "B", "C"]
+
+
+def test_dated_rows_expire_on_the_calendar():
+    """A row whose last day is behind today drops even if its status was never flipped to
+    past (CRSSD/Portola 9/26–27 still rendering as 'on sale' on 10/9). Range tails count
+    as the end; undated rows never expire; no `today` = no date filter (back-compat)."""
+    import os
+    import tempfile
+    from datetime import date
+    assert last_date("2026-09-26..27") == "2026-09-27"
+    assert last_date("2027-04-09..11 and 2027-04-16..18") == "2027-04-18"
+    assert last_date("typically late May") is None
+    yml = ("festivals:\n"
+           "  - {name: Stale, when: '2026-09-26..27', status: on_sale}\n"
+           "  - {name: Endsday, when: '2026-10-08..09', status: on_sale}\n"
+           "  - {name: Future, when: '2027-04-09..11', status: lineup_pending}\n"
+           "  - {name: Undated, when: typically late May, status: annual_watch}\n")
+    with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False) as f:
+        f.write(yml)
+        p = f.name
+    try:
+        names = [x["name"] for x in load_festivals(p, date(2026, 10, 9))]
+        assert names == ["Endsday", "Future", "Undated"]          # last day == today survives
+        assert len(load_festivals(p)) == 4
+    finally:
+        os.unlink(p)
 
 
 def test_pretty_when_uses_md_convention():

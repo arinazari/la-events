@@ -319,8 +319,6 @@
 - `Fri 2/5` **[Hot Since 82](https://dice.fm/event/7d5ea9-hot-since-82-5th-feb-reframe-studios-indoors-los-angeles-tickets)** — Reframe Studios Indoors (Los Angeles)  ·  *Hot Since 82* · [card ↗](https://arinazari.github.io/la-events/?e=9b53596f2eb9) <!-- tier3:gloss 9b53596f2eb9 -->
 
 **The watch-list** — *festivals worth planning around*
-- **[CRSSD Festival — Fall 2026](https://www.crssdfest.com/)** — 9/26–27 · Waterfront Park, San Diego · **on sale** — SD is a drive, but this is festival-tier and on-taste — Disclosure, Chris Lake, Groove Armada (DJ set), Helena Hauff, Ben UFO, I Hate Models, Mathame, Carlita, salute. House/ techno/melodic, European lean, waterfront, 21+. NOTE: same weekend as Portola (SF) — can't do both; pick one.
-- **[Portola 2026](https://www.portolamusicfestival.com/)** — 9/26–27 · Pier 80, San Francisco · **on sale** — THE one for you — electronic-forward with DESPACIO (James Murphy + 2ManyDJs sound system), Four Tet, Soulwax, Groove Armada, DJ Shadow, Fatboy Slim, Skepta, plus Robyn, Tiësto, Swedish House Mafia. European/house energy in a warehouse-pier setting. 2-day ~$380.
 - **[Coachella 2027](https://www.coachella.com/)** — 4/9–11 and 4/16–18 · Empire Polo Club, Indio CA · **lineup pending** — Advance GA already sold out (~$549–599); official lineup not yet announced. Industry trades (Hits Daily Double) rumor Tame Impala + Dua Lipa headlining with Fred again.. in the "Returning to the Desert" slot — unconfirmed, ~7 months out.
 
 ---

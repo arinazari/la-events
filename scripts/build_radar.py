@@ -208,7 +208,7 @@ def refresh_files(catalog_path="data/catalog.json", out="data/radar.json",
     # (the yaml header's relevance gate: a live ticket story). These are out-of-catalog rows
     # (no event key), so they never enter `events`/the dashboard radar join; render_digest
     # gives them their own block under "On the radar".
-    watchlist = timely(load_festivals(REPO / "festivals.yaml"))
+    watchlist = timely(load_festivals(REPO / "festivals.yaml", today))
 
     doc = {"generated_at": datetime.now().isoformat(timespec="seconds"),
            "today": today.isoformat(), "cutoff_days": cutoff_days,

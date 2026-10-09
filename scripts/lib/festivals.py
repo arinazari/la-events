@@ -29,6 +29,7 @@ from pathlib import Path
 from .config import load_yaml
 
 _DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+_RANGE_TAIL_RE = re.compile(r"(\d{4})-(\d{2})-(\d{2})\.\.(\d{1,2})\b")
 
 # Greater-LA location markers — "local" means you sleep at home (LA + OC). San Diego and
 # Indio are drives but overnight-shaped, so they classify travel; override with scope: in
@@ -61,9 +62,22 @@ def festival_scope(location: str, explicit=None) -> str:
     return "travel"
 
 
-def load_festivals(path) -> list:
+def last_date(when) -> str | None:
+    """Latest ISO date a `when` string names, with '..DD' range tails expanded
+    ('2026-09-26..27' -> '2026-09-27'). None when it names no date (free text)."""
+    s = str(when or "")
+    dates = _DATE_RE.findall(s)
+    dates += [f"{y}-{m}-{int(d):02d}" for y, m, _d0, d in _RANGE_TAIL_RE.findall(s)]
+    return max(dates) if dates else None
+
+
+def load_festivals(path, today=None) -> list:
     """festivals.yaml -> watch-list rows. [] when the file is absent/empty. Filters
-    status:past; sorts dated items first (by first parseable date), undated last."""
+    status:past AND — when `today` is given — any dated row whose last day is before today,
+    so a row the refresh pass never flipped to past (CRSSD/Portola 2026-10, still on_sale
+    two weeks after the fact) expires on the calendar alone. Undated rows never expire.
+    Sorts dated items first (by first parseable date), undated last."""
+    today_iso = today.isoformat() if hasattr(today, "isoformat") else (str(today) if today else None)
     p = Path(path)
     if not p.exists():
         return []
@@ -76,6 +90,9 @@ def load_festivals(path) -> list:
         if status == "past":
             continue
         when = str(f.get("when") or "").strip()
+        end = last_date(when)
+        if today_iso and end and end < today_iso:
+            continue
         m = _DATE_RE.search(when)
         location = str(f.get("location") or "").strip()
         out.append({
