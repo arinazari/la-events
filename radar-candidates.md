@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/8/2026 deterministically (no API). 165 candidates. Signals: big-venue 136, festival 22, tracked 8, editorial 2._
+_Generated 10/9/2026 deterministically (no API). 161 candidates. Signals: big-venue 133, festival 22, tracked 7, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -41,7 +41,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 11/27 | 5 | Time Warp LA | Ace * Mission Studios | tracked:Richie Hawtin | [link](https://on.fgtix.com/trk/CFLtc) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
 | Sat 11/28 | 5 | Nu Moda San Diego w/ Max Styler, Hot Since 82, Scenarios | Gallagher Square (San Diego) | tracked:Hot Since 82 | [link](https://laylo.com/ledpresents/maxstyler) |
-| Thu 11/12 | 4 | KCRW Presents Bonobo: Distance in Static Live North Americ | The Wiltern | tracked:Bonobo | [link](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4) |
 | Fri 11/13 | 4 | DARKER WAVES PRE-FESTIVAL PARTY | The Circle OC | festival | [link](https://www.thecircleoc.com/upcoming-events/darker-waves-pre-festival-party) |
 | Fri 11/13 | 4 | Bees Trees & Water Music Festival | TBA - ON Website | festival | [link](https://ra.co/events/2553982) |
 | Sun 11/22 | 4 | WORK Weekender Day 3: BB Shaine, David Castellani [LIVE],  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537315) |
@@ -226,8 +225,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 11/12 | 2 | Miranda Lamber (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
-| Thu 11/12 | 2 | The Smashing Pumpkins: The Rats In A Cage Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-smashing-pumpkins-the-rats-in-inglewood-california-11-12-2026/event/090064AFCB095819) |
 | Sun 11/15 | 2 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-11-15-2026/event/0A006494C5CE878D) |
 | Sun 11/15 | 2 | RAWAYANA - ¿Dónde es el after? World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rawayana-donde-es-el-after-world-inglewood-california-11-15-2026/event/0900646DB256B395) |
 | Mon 11/16 | 2 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-11-16-2026/event/0A006494C82189BE) |
@@ -297,7 +294,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 11/12 | 1 | Nick Cannon Presents: Wild 'N Out Live - The Next Generati | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/nick-cannon-presents-wild-n-out-inglewood-california-11-12-2026/event/0900652C600617CB) |
 | Fri 11/13 | 1 | Los Tigres del Norte | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-palm-desert-california-11-13-2026/event/0A0064588664F5A1) |
 | Sat 11/14 | 1 | 90s Corridos Tour 2026 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/90s-corridos-tour-2026-palm-desert-california-11-14-2026/event/0A00649D95C0C8DC) |
 | Thu 11/19 | 1 | Nikki Glaser | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |

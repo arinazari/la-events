@@ -1,35 +1,5 @@
 {
   "events": {
-    "bf5bb21c979b": {
-      "id": "bf5bb21c979b",
-      "type": "club",
-      "subgenres": [
-        "house",
-        "jazz"
-      ],
-      "label_orbit": [],
-      "energy": "groove / sunset",
-      "setting": "rooftop",
-      "sounds_like": [
-        "Nathan Haines"
-      ],
-      "artist_notes": [
-        {
-          "name": "Dublon",
-          "note": "Oslo producer/DJ who went viral on TikTok with jazz-inflected house ('Summer in Marseile,' 'belle') — his 'Nectar' EP features jazz saxophonist Nathan Haines; real touring history across European clubs (London's Jazz Café) despite the social-media breakout."
-        }
-      ],
-      "curator_note": "TikTok-viral is a red flag on paper, but the jazz-house sound is legit and a 5pm rooftop slot at Harbor House is the right room for it — closer to a sunset groove set than a hype booking.",
-      "description": "5pm sunset rooftop party at Harbor House DTLA headlined by Oslo jazz-house producer Dublon.",
-      "confidence": "medium",
-      "enriched_at": "2026-07-05T12:25:26",
-      "enriched_tier": "full",
-      "card": {
-        "draw": 1,
-        "rarity": 0,
-        "lineup_depth": 0
-      }
-    },
     "6d1613301e21": {
       "id": "6d1613301e21",
       "type": "live-music",
@@ -1151,350 +1121,6 @@
       },
       "enriched_at": "2026-09-02T12:41:19"
     },
-    "70f46e586b3f": {
-      "id": "70f46e586b3f",
-      "description": "Billy T and the Fam play saxophone-led instrumental jazz at The Dresden in Los Feliz (8:30-11:30pm, no cover).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "a261be6aac77": {
-      "id": "a261be6aac77",
-      "description": "Fisher and Thames perform 70s rock and disco hits as a modern-day Sonny and Cher at Vibrato Grill Jazz (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "350b6179719b": {
-      "id": "350b6179719b",
-      "description": "Live music with Eliza Thorn and Will Worden at Permanent Records Roadhouse in Cypress Park (6pm, $10).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "441803d50db0": {
-      "id": "441803d50db0",
-      "description": "Sweet Gloom performs at Permanent Records Roadhouse in Cypress Park (6pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "1445b92deb30": {
-      "id": "1445b92deb30",
-      "type": "live-music",
-      "subgenres": [
-        "electronic",
-        "pop"
-      ],
-      "label_orbit": [],
-      "energy": "listening / dance-adjacent",
-      "setting": "amphitheater",
-      "vibe": [],
-      "sounds_like": [],
-      "card": {
-        "draw": 2,
-        "rarity": 0,
-        "lineup_depth": 1
-      },
-      "artist_notes": [
-        {
-          "name": "Polo & Pan",
-          "note": "French duo (Paul Armand-Delille & Alexandre Grynszpan) — lush, tropical-tinged synth-pop with real Balearic-disco touches; a strong opener even outside the core electronic lane."
-        }
-      ],
-      "curator_note": "Empire of the Sun is more festival nostalgia-pop than dancefloor, but Polo & Pan opening gives this real Balearic-disco flavor if you go for that set alone.",
-      "description": "Empire of the Sun's Afterlife tour stops at the Hollywood Bowl with Polo & Pan and Midnight Generation opening.",
-      "confidence": "high",
-      "enriched_at": "2026-09-28T12:42:19",
-      "enriched_tier": "full"
-    },
-    "0a397d2eceb8": {
-      "id": "0a397d2eceb8",
-      "description": "Lukas Nelson and Molly Tuttle co-headline roots music at The Bellwether (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "bac846defb28": {
-      "id": "bac846defb28",
-      "description": "Tech house and disco DJs at The Spotlight (10pm, afterhours, 21+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "0a9067109801": {
-      "id": "0a9067109801",
-      "description": "Electronic music at The Redwood Bar and Grill (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "medium"
-    },
-    "9d1589c5e2b6": {
-      "id": "9d1589c5e2b6",
-      "description": "Arrows in Action, Good Boy Daisy, and Instant Crush at Echoplex (6pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "bdbcafed044a": {
-      "id": "bdbcafed044a",
-      "description": "Death From Above 1979 on the Private Lives tour at The Belasco (7pm, all ages).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "e330a91c544b": {
-      "id": "e330a91c544b",
-      "description": "Son Lux and mmeadows at Pacific Electric (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "af02d42def13": {
-      "id": "af02d42def13",
-      "description": "Aj Lee and Blue Summit play bluegrass at The Venice West (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "e67163b9041c": {
-      "id": "e67163b9041c",
-      "description": "Stephen Dawes and Jojomber on the Skin to Skin tour at The Echo (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "76c19a9171fc": {
-      "id": "76c19a9171fc",
-      "description": "Ben Kessler plays rock at The Moroccan Lounge (9:30pm, all ages, $20–$25).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "1848e7aec879": {
-      "id": "1848e7aec879",
-      "description": "Swapmeet and Joyer at El Cid (7:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "b590b844825f": {
-      "id": "b590b844825f",
-      "description": "Last Dinosaurs and Golf Alpha Bravo at Fox Theater Pomona (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "96f2a96315a1": {
-      "id": "96f2a96315a1",
-      "description": "R&B artist Ambré at The Moroccan Lounge (6:30pm, all ages, $20).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "c9725d5ccc51": {
-      "id": "c9725d5ccc51",
-      "description": "This Wild Life and Nate Bergman on their debut full-band country tour at Teragram Ballroom (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "6891df1617ed": {
-      "id": "6891df1617ed",
-      "description": "Folk legends Jimmie Dale Gilmore and Butch Hancock perform at McCabe's Guitar Shop, an acoustic listening room in Santa Monica.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "11fd334a988e": {
-      "id": "11fd334a988e",
-      "description": "Music trivia night at Permanent Records Roadhouse, a punk and rock bar in Cypress Park ($5 per player).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "e93ffe276536": {
-      "id": "e93ffe276536",
-      "description": "Vagabon performs at Brain Dead Studios in Hollywood.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "0721e3c5eaf4": {
-      "id": "0721e3c5eaf4",
-      "description": "Live blues and funk-soul performance at Harvelle's in Santa Monica (9:30 PM).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "e10241408166": {
-      "id": "e10241408166",
-      "description": "The Outsiders touring Broadway musical at Hollywood Pantages Theatre (7:30 PM).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "a6cc8e32e5c9": {
-      "id": "a6cc8e32e5c9",
-      "description": "Cavetown with opener Chloe Moriondo at The Wiltern in Koreatown (7 PM).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "13cd6b3e210e": {
-      "id": "13cd6b3e210e",
-      "description": "Punch Brothers perform country music at The Ford, an outdoor venue in Hollywood (8 PM).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "13089f2208f6": {
-      "id": "13089f2208f6",
-      "description": "Ashley Cooke with Just Jayne at El Rey Theatre in Mid-Wilshire (8 PM).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "417d4237ade1": {
-      "id": "417d4237ade1",
-      "description": "Pop artist ADÉLA performs at The Fonda Theatre in Hollywood (9 PM).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "2a90e48db3d0": {
-      "id": "2a90e48db3d0",
-      "description": "Issa Rae's Insecure 10th Anniversary Tour at YouTube Theater in Inglewood (8 PM).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "2e62268caef8": {
-      "id": "2e62268caef8",
-      "description": "Lilyisthatyou with special guest James the Seventh at The Roxy in West Hollywood (8 PM).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "322c0c2b051c": {
-      "id": "322c0c2b051c",
-      "description": "Live jazz and blues night with Allisongrace, Danny Zucker, Dingbat, and Sustain Petals at The Mint in Mid-City (7:30 PM).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "a4d503e45636": {
-      "id": "a4d503e45636",
-      "description": "Comedian Jeff Arcuri performs at Oxnard Levity Live.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "medium"
-    },
-    "1e248c7b5509": {
-      "id": "1e248c7b5509",
-      "description": "Musical production of Little Shop of Horrors at La Mirada Theatre for the Performing Arts.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "7967ff8c87b9": {
-      "id": "7967ff8c87b9",
-      "description": "Rock artist Twin Shadow performs at Farm House Collective, Riverside.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "b2ec1899f0ce": {
-      "id": "b2ec1899f0ce",
-      "description": "Dogman: The Musical at Kirk Douglas Theatre, Culver City.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "low"
-    },
-    "baa12293eeeb": {
-      "id": "baa12293eeeb",
-      "description": "Drag performance night at Hamburger Mary's, West Hollywood.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "dac73cb03882": {
-      "id": "dac73cb03882",
-      "description": "Comedian Ron Feingold performs his Comedy A Cappella show at Pechanga Resort Casino, Temecula.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "4d00cbd3d62e": {
-      "id": "4d00cbd3d62e",
-      "description": "Rock band The Used performs at The Majestic Ventura Theater.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "d7b06fbd6eec": {
-      "id": "d7b06fbd6eec",
-      "description": "DJ Morgan Page performs big room house and EDM at Ventura Music Hall (8pm–midnight).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "cec14f119492": {
-      "id": "cec14f119492",
-      "description": "Mendeleyev and ITAI present live music and intentional dance community at Zula Den.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "77471e848304": {
-      "id": "77471e848304",
-      "description": "Drag show Thirsty Thursdays at Hamburger Mary's, Long Beach.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "2854ee8321f1": {
-      "id": "2854ee8321f1",
-      "description": "Pop artist oskar med k with Lilya Mandre at The Observatory, Santa Ana (all ages, 7pm doors).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "720c4c71b89b": {
-      "id": "720c4c71b89b",
-      "description": "Latin artist Fey performs the Forever 17 Tour at Riverside Municipal Auditorium (all ages).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "dbd9d8071250": {
-      "id": "dbd9d8071250",
-      "description": "Latin artist Chayanne performs the Bailemos Otra Vez Tour at Honda Center, Anaheim.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "3be88db76f05": {
-      "id": "3be88db76f05",
-      "description": "R&B artist Keith Sweat performs at Pechanga Resort Casino, Temecula.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "deefaef6be95": {
-      "id": "deefaef6be95",
-      "description": "Tribute show honoring Dolly Parton, Whitney Houston, Lady Gaga, Cher, and Tina Turner at Cerritos Center for the Performing Arts.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "high"
-    },
-    "0eb6950861f4": {
-      "id": "0eb6950861f4",
-      "description": "R&B artist RaiNao performs at Constellation Room, Santa Ana.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-03T12:44:59",
-      "confidence": "medium"
-    },
     "dae79844974a": {
       "id": "dae79844974a",
       "type": "live-music",
@@ -1771,13 +1397,6 @@
     "47e2d986afcc": {
       "id": "47e2d986afcc",
       "description": "Live music with somesurprises, Ilyas Ahmed, and Cate Kennan at 2220 Arts + Archives (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-04T12:39:58",
-      "confidence": "high"
-    },
-    "d1c3cc712d60": {
-      "id": "d1c3cc712d60",
-      "description": "Live show with Dutchkiss, deep glens, strangejane, and SLC at 2220 Arts + Archives (8pm, $20).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-04T12:39:58",
       "confidence": "high"
@@ -2264,31 +1883,6 @@
       "description": "Edmonton dream/synth-pop artist Calvin Love headlines with Berlin's John Moods and Jimmy Cicero at Permanent Records Roadhouse (9pm, $17.49).",
       "confidence": "medium",
       "enriched_at": "2026-09-21T12:31:48",
-      "enriched_tier": "full"
-    },
-    "400747d09d83": {
-      "id": "400747d09d83",
-      "type": "club",
-      "subgenres": [
-        "hard-techno"
-      ],
-      "label_orbit": [],
-      "energy": "peak / hard techno",
-      "setting": "warehouse",
-      "vibe": [
-        "afterhours"
-      ],
-      "sounds_like": [],
-      "card": {
-        "draw": 0,
-        "rarity": 0,
-        "lineup_depth": 0
-      },
-      "artist_notes": [],
-      "curator_note": "Otak, Hldrvsn and Rios don't turn up anywhere searchable, and the venue's still TBA — a total blind bet on a hard-techno afterhours unless you already run with this Warehouse X/Protocol X crew.",
-      "description": "Hard-techno/schranz afterhours warehouse party (Otak, Hldrvsn, Rios) at a TBA Los Angeles location, 9pm-2am.",
-      "confidence": "low",
-      "enriched_at": "2026-09-20T12:36:26",
       "enriched_tier": "full"
     },
     "7c95f1e38baa": {
@@ -3203,20 +2797,6 @@
       "enriched_at": "2026-09-07T12:41:18",
       "confidence": "high"
     },
-    "c05ab6cf3862": {
-      "id": "c05ab6cf3862",
-      "description": "Y2K and 2010s-themed house dance party at Gold Diggers in East Hollywood (10:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-08T12:33:08",
-      "confidence": "high"
-    },
-    "8c44af1180f8": {
-      "id": "8c44af1180f8",
-      "description": "Electronic DJ set with Buddyhead and Joe Cardamone at Sid The Cat Auditorium in South Pasadena (5pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-08T12:33:08",
-      "confidence": "medium"
-    },
     "f544dcb23afb": {
       "id": "f544dcb23afb",
       "description": "Country artist Ella Langley with Kameron Marlowe & Laci Kaye Booth at the Greek Theatre in Los Feliz.",
@@ -3632,12 +3212,6 @@
       "confidence": "high",
       "enriched_tier": "blurb"
     },
-    "c1c7842a6060": {
-      "id": "c1c7842a6060",
-      "description": "Fish Narc listening party (free RSVP) at Permanent Records Roadhouse patio (Cypress Park).",
-      "confidence": "high",
-      "enriched_tier": "blurb"
-    },
     "d048fa2dd6be": {
       "id": "d048fa2dd6be",
       "description": "The Palms live performance at The Venice West (Venice), 8pm.",
@@ -3699,20 +3273,6 @@
     "5fa6e7b2d648": {
       "id": "5fa6e7b2d648",
       "description": "Spanish vocal group Mocedades performs at Alex Theatre, Glendale.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-10T12:32:51",
-      "confidence": "high"
-    },
-    "30d8aaec7300": {
-      "id": "30d8aaec7300",
-      "description": "Tony Award-winning musical Come from Away touring production at A Noise Within, Pasadena.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-10T12:32:51",
-      "confidence": "high"
-    },
-    "f275f0f7220c": {
-      "id": "f275f0f7220c",
-      "description": "Pay-what-you-can ceramic hand-building workshop with Chelsie Rivera at Junior High, ages 12+.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-10T12:32:51",
       "confidence": "high"
@@ -4191,13 +3751,6 @@
       "enriched_at": "2026-09-11T12:28:00",
       "confidence": "low"
     },
-    "3f22b20d76ca": {
-      "id": "3f22b20d76ca",
-      "description": "Ácido Pantera with special guests at The Regent Theater (DTLA), 8pm doors 7pm, 18+.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-11T12:28:00",
-      "confidence": "high"
-    },
     "d7a81eb03857": {
       "id": "d7a81eb03857",
       "description": "Electronic DJ set at Sid The Cat Auditorium (South Pasadena, 5pm).",
@@ -4437,13 +3990,6 @@
     "eb3ccdb3e608": {
       "id": "eb3ccdb3e608",
       "description": "Latin regional music show with Chuy Lizarraga, Julio Preciado, and Luis Angel El Flaco at BMO Stadium.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-11T12:28:00",
-      "confidence": "high"
-    },
-    "77538181797c": {
-      "id": "77538181797c",
-      "description": "Two-day country festival with Dustin Lynch, Bush, Mitchell Tenpenny, and Highly Suspect at Morongo Field.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-11T12:28:00",
       "confidence": "high"
@@ -5490,18 +5036,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-13T12:26:22"
     },
-    "d7b91dd6a4ac": {
-      "id": "d7b91dd6a4ac",
-      "description": "L.A. Underground live music night at Gold Diggers, East Hollywood.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-13T12:26:22"
-    },
-    "4a4cf6983ac7": {
-      "id": "4a4cf6983ac7",
-      "description": "DJ night with DJPR95 & thotdaughter at Gold Diggers, 10:30pm.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-13T12:26:22"
-    },
     "41de9c716f24": {
       "id": "41de9c716f24",
       "description": "The Beths – live show at Sid The Cat Auditorium, South Pasadena.",
@@ -6260,13 +5794,6 @@
       "enriched_at": "2026-09-16T12:34:36",
       "confidence": "low"
     },
-    "233db1957932": {
-      "id": "233db1957932",
-      "description": "Live music night at The Virgil.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-16T12:34:36",
-      "confidence": "low"
-    },
     "93a47a83c387": {
       "id": "93a47a83c387",
       "description": "Weekly Silver Lake farmers market on Sunset Blvd — Tuesdays 1:30–7pm and Saturdays 8am–1:30pm.",
@@ -6501,13 +6028,6 @@
     "d2606e568d9f": {
       "id": "d2606e568d9f",
       "description": "Paris Chansons: French music with global influences at Vibrato Grill Jazz (Bel Air, 7:30pm show).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-17T12:33:43",
-      "confidence": "high"
-    },
-    "2a195957399f": {
-      "id": "2a195957399f",
-      "description": "South Side Sessions: classical music featuring Dr. Marcus Norris with local Inglewood musicians at The Miracle Theater.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-17T12:33:43",
       "confidence": "high"
@@ -7362,13 +6882,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-19T12:26:36",
       "confidence": "low"
-    },
-    "bacfb3b88e66": {
-      "id": "bacfb3b88e66",
-      "description": "GRAMMY-winning trumpeter Shunzo Ohno leads ensemble blending jazz tradition & innovation at Sam First, 7:30pm.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-19T12:26:36",
-      "confidence": "high"
     },
     "93cc22c654da": {
       "id": "93cc22c654da",
@@ -8639,13 +8152,6 @@
       "enriched_at": "2026-09-21T12:31:48",
       "confidence": "high"
     },
-    "e5f37e24c8b6": {
-      "id": "e5f37e24c8b6",
-      "description": "Future house and bass house DJ night at Kitsch Bar Costa Mesa, 9pm, 21+.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-21T12:31:48",
-      "confidence": "high"
-    },
     "579ec9004984": {
       "id": "579ec9004984",
       "description": "Vintage and design flea market at Fairfax High, Sundays 10am-4pm.",
@@ -8851,13 +8357,6 @@
     "a96a1dc650ac": {
       "id": "a96a1dc650ac",
       "description": "Ax and the Hatchetmen with The Rare Occasions at The Bellwether, DTLA (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-22T12:25:15",
-      "confidence": "high"
-    },
-    "99b474041995": {
-      "id": "99b474041995",
-      "description": "Metal band ASAVA at The Echo, Echo Park (7pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-22T12:25:15",
       "confidence": "high"
@@ -9075,13 +8574,6 @@
       "enriched_at": "2026-09-23T12:22:23",
       "confidence": "high"
     },
-    "0e9ab0362af0": {
-      "id": "0e9ab0362af0",
-      "description": "Your Mother Your Mother Your Mother 35mm at Vista Theater Los Feliz (multiple times).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-23T12:22:23",
-      "confidence": "high"
-    },
     "5547f4ec5e82": {
       "id": "5547f4ec5e82",
       "description": "The Blair Witch Project late-night screening at Vista Theater Los Feliz (11:59pm).",
@@ -9291,13 +8783,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-23T12:22:23",
       "confidence": "high"
-    },
-    "addb79698b4c": {
-      "id": "addb79698b4c",
-      "description": "PERPVA001 release day party with Xen Model, dj toy, DJ Smog, Airball at Homage Brewing Pomona.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-23T12:22:23",
-      "confidence": "medium"
     },
     "a5ebe6219269": {
       "id": "a5ebe6219269",
@@ -9547,13 +9032,6 @@
     "fcea3e447445": {
       "id": "fcea3e447445",
       "description": "Jazz and blues ensemble (Molly Bogin, Alyce & Katy, Nanseera, Jillian Ann) at The Mint (Mid-City), 7pm ($15.45).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-23T12:22:23",
-      "confidence": "high"
-    },
-    "733983d5ec46": {
-      "id": "733983d5ec46",
-      "description": "Psychological horror repertory at New Beverly Cinema (Fairfax), 7:30pm.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-23T12:22:23",
       "confidence": "high"
@@ -10619,13 +10097,6 @@
       "enriched_at": "2026-09-25T12:31:30",
       "confidence": "high"
     },
-    "c11c9cac51f8": {
-      "id": "c11c9cac51f8",
-      "description": "Electric Feels indie rock + electronic dance party (18+) at House of Blues Anaheim (9pm doors).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-25T12:31:30",
-      "confidence": "high"
-    },
     "4eaa06c252d2": {
       "id": "4eaa06c252d2",
       "description": "Lenny Pearce Toddler Rave World Tour at Riverside Municipal Auditorium (5pm doors, 3+ welcome).",
@@ -11665,13 +11136,6 @@
       "enriched_at": "2026-09-27T04:37:11",
       "confidence": "high"
     },
-    "8c453c89d789": {
-      "id": "8c453c89d789",
-      "description": "Benefit concert for Free Them All Now with Beli, Immortal Nightbody, and Protect Me; all proceeds support ICE detainee commissaries ($10).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-27T04:37:11",
-      "confidence": "high"
-    },
     "871fa937ebc2": {
       "id": "871fa937ebc2",
       "description": "Live show at The Smell featuring Twig & Ezra, Rubber O Cement, Siggy, Soiled Doilies, War Hippy, and Sgt. Cobra Queef ($10).",
@@ -11901,39 +11365,6 @@
       "enriched_at": "2026-09-28T12:42:19",
       "confidence": "high"
     },
-    "05a472fc534e": {
-      "id": "05a472fc534e",
-      "type": "club",
-      "subgenres": [
-        "tech-house",
-        "minimal"
-      ],
-      "label_orbit": [],
-      "energy": "peak",
-      "setting": "bar",
-      "sounds_like": [],
-      "card": {
-        "draw": 0,
-        "rarity": 0,
-        "lineup_depth": 0,
-        "vibes": [
-          "afterhours"
-        ]
-      },
-      "artist_notes": [],
-      "curator_note": "Blind Tiger's weekly late-night tech-house and minimal session in DTLA, with free entry if you RSVP before 1. Lineup is unannounced, so go for the room and the hours, not a name.",
-      "description": "Recurring after-hours tech-house and minimal night at The Lexington, 11pm to 5am.",
-      "confidence": "medium",
-      "enriched_at": "2026-10-05T12:26:39",
-      "enriched_tier": "full"
-    },
-    "50cdf7fb8b9b": {
-      "id": "50cdf7fb8b9b",
-      "description": "Free electronic afterhours party at 129 E 3rd St DTLA (Thu 10/8).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-28T12:42:19",
-      "confidence": "high"
-    },
     "f139235aa935": {
       "id": "f139235aa935",
       "description": "Electronic afterhours night at The Lexington DTLA (11pm Sun 10/11).",
@@ -11968,13 +11399,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-28T12:42:19",
       "confidence": "high"
-    },
-    "c775999c42cf": {
-      "id": "c775999c42cf",
-      "description": "Free fashion week event at The Majestic Downtown DTLA (7pm Thu 10/8).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-28T12:42:19",
-      "confidence": "medium"
     },
     "a4d7135fcd06": {
       "id": "a4d7135fcd06",
@@ -12052,13 +11476,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-28T12:42:19",
       "confidence": "high"
-    },
-    "4e38dc8a391a": {
-      "id": "4e38dc8a391a",
-      "description": "Free Caribbean cultural event at Taste of The Caribbean (5pm Thu 10/8).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-28T12:42:19",
-      "confidence": "medium"
     },
     "890490913a66": {
       "id": "890490913a66",
@@ -12503,20 +11920,6 @@
       "enriched_at": "2026-09-29T12:27:08",
       "confidence": "high"
     },
-    "cd32ac6982f1": {
-      "id": "cd32ac6982f1",
-      "description": "LAALLS, Crisco, and Ian Zunich at Surface DIY, Better Tomorrow on Wed 10/8 (22:00, afterhours).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-29T12:27:08",
-      "confidence": "high"
-    },
-    "3c8a9b1f2c32": {
-      "id": "3c8a9b1f2c32",
-      "description": "Free Tumbado party at La Cita Bar in DTLA on Wed 10/8 (21:00).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-29T12:27:08",
-      "confidence": "high"
-    },
     "4832e5fad00d": {
       "id": "4832e5fad00d",
       "description": "Free reggaeton party (Calle 8: Sin Control) at West Eight on Fri 10/9 (19:00).",
@@ -12576,13 +11979,6 @@
     "efc46482754e": {
       "id": "efc46482754e",
       "description": "Live performance by Fenne Lily and Niamh Regan at Zebulon, Frogtown (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-29T12:27:08",
-      "confidence": "high"
-    },
-    "bd42abca1825": {
-      "id": "bd42abca1825",
-      "description": "Live performance by Body/Head and My Generation at Zebulon, Frogtown (8pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-29T12:27:08",
       "confidence": "high"
@@ -12873,13 +12269,6 @@
       "enriched_at": "2026-09-30T12:18:52",
       "confidence": "high"
     },
-    "6d9cdc7b9b3b": {
-      "id": "6d9cdc7b9b3b",
-      "description": "Emily Apollo's Liftoff Experience at Members (10pm, free, afterhours).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-30T12:18:52",
-      "confidence": "high"
-    },
     "44a76772f410": {
       "id": "44a76772f410",
       "description": "Chase Bell and Lira perform at 'Do Me' celebration (6pm, free).",
@@ -12890,13 +12279,6 @@
     "5dba1d12561e": {
       "id": "5dba1d12561e",
       "description": "Colin Stauber spins a live electronic DJ set at TBA (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-30T12:18:52",
-      "confidence": "high"
-    },
-    "c82997c12308": {
-      "id": "c82997c12308",
-      "description": "Free Halloween music festival on Third Street Promenade with food vendors and multiple stages (5pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-30T12:18:52",
       "confidence": "high"
@@ -12974,20 +12356,6 @@
     "da42423463d0": {
       "id": "da42423463d0",
       "description": "Electronic event with DJ Earl, DJ Strawberry, Tommaso, and others at De La Playa Records & Leisure.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-30T12:18:52",
-      "confidence": "high"
-    },
-    "414c3ebca926": {
-      "id": "414c3ebca926",
-      "description": "Free studio session with David Ira at Give Hope Studios.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-09-30T12:18:52",
-      "confidence": "high"
-    },
-    "a2f9ab544ee7": {
-      "id": "a2f9ab544ee7",
-      "description": "Free R&B night at Lost But Found featuring Syade.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-09-30T12:18:52",
       "confidence": "high"
@@ -13367,13 +12735,6 @@
       "enriched_at": "2026-10-01T12:22:30",
       "confidence": "high"
     },
-    "b27bfb9765fe": {
-      "id": "b27bfb9765fe",
-      "description": "Tooneyverse Afters: early morning house and hip-hop (4am-11am, $15).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-01T12:22:30",
-      "confidence": "high"
-    },
     "cfebb0b8aae4": {
       "id": "cfebb0b8aae4",
       "description": "Brainjack Halloween Event at Dirty Laundry (10pm+).",
@@ -13430,13 +12791,6 @@
       "enriched_at": "2026-10-01T12:22:30",
       "confidence": "high"
     },
-    "06a75753554a": {
-      "id": "06a75753554a",
-      "description": "Hauterageous LA Debut Deluxe: Isabella Lovestory, Kamixlo, DIME, Monib, and Siren Mars at TBA (11pm+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-01T12:22:30",
-      "confidence": "high"
-    },
     "0034f39170b3": {
       "id": "0034f39170b3",
       "description": "Tooneyverse Afters: early morning house and hip-hop (4am-11am, $15).",
@@ -13454,20 +12808,6 @@
     "ed6cd609a5f7": {
       "id": "ed6cd609a5f7",
       "description": "Christian Loffler DJs deep house and progressive at Lot 613 (9pm, 21+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-01T12:22:30",
-      "confidence": "high"
-    },
-    "66abf953203b": {
-      "id": "66abf953203b",
-      "description": "Jaden Bojsen DJs with Reicho at Sound Nightclub in Hollywood (10pm, free, 21+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-01T12:22:30",
-      "confidence": "high"
-    },
-    "fd2af50586b8": {
-      "id": "fd2af50586b8",
-      "description": "Free spooky house music night at Banana Bay Restaurant in Rowland Heights (9pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-01T12:22:30",
       "confidence": "high"
@@ -13618,27 +12958,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-01T12:22:30",
       "confidence": "high"
-    },
-    "e975814274b7": {
-      "id": "e975814274b7",
-      "description": "Alex Warren pop performance at Grammy Museum LA Live terrace (7:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-01T12:22:30",
-      "confidence": "high"
-    },
-    "08c09ad6e7e6": {
-      "id": "08c09ad6e7e6",
-      "description": "V/H/S/Mixtape found-footage horror anthology at Vista Theater in Los Feliz (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-01T12:22:30",
-      "confidence": "high"
-    },
-    "9dac2635ec5c": {
-      "id": "9dac2635ec5c",
-      "description": "Spades: the Play national tour performance in LA (6pm, $40).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-01T12:22:30",
-      "confidence": "medium"
     },
     "3f6cf767fb0e": {
       "id": "3f6cf767fb0e",
@@ -14159,13 +13478,6 @@
       "enriched_at": "2026-10-02T12:23:06",
       "confidence": "high"
     },
-    "94813af17bdf": {
-      "id": "94813af17bdf",
-      "description": "Hyperpop night at El Cid Silver Lake (free w/RSVP before 11pm, $7.50 after).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-02T12:23:06",
-      "confidence": "high"
-    },
     "cf590b3a6945": {
       "id": "cf590b3a6945",
       "description": "Hard techno all-nighter at a secret location with Sxtcy X Los Perros crew ($21 before 1am).",
@@ -14183,13 +13495,6 @@
     "5afb3d1d9c01": {
       "id": "5afb3d1d9c01",
       "description": "House night at Del Monte Speakeasy with KCRW DJ Boogie Boudreaux ($12.36).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-02T12:23:06",
-      "confidence": "high"
-    },
-    "d96373d92d7a": {
-      "id": "d96373d92d7a",
-      "description": "Late-night electronic set with alice.km, AKIVA, and GESHAY at Matriarch LA.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-02T12:23:06",
       "confidence": "high"
@@ -14439,26 +13744,12 @@
       "enriched_at": "2026-10-02T12:23:06",
       "confidence": "high"
     },
-    "0cb3963a8186": {
-      "id": "0cb3963a8186",
-      "description": "Electronic/jazz night with WST CMPLX, Jade Antenna, and DJ Jacob Han at Del Monte Speakeasy, Venice ($14.63).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-02T12:23:06",
-      "confidence": "high"
-    },
     "e4388fc30e5b": {
       "id": "e4388fc30e5b",
       "description": "Jazz performance with Eli Boreth, Sebastian Cruz, and Michael Islas at Del Monte Speakeasy, Venice ($14.63).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-02T12:23:06",
       "confidence": "high"
-    },
-    "fcd388404bdb": {
-      "id": "fcd388404bdb",
-      "description": "Subculture Party: Freakshow! at Catch One, Mid-City (9pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-02T12:23:06",
-      "confidence": "medium"
     },
     "9cb8ee5c09f8": {
       "id": "9cb8ee5c09f8",
@@ -14470,13 +13761,6 @@
     "d37554cc7f54": {
       "id": "d37554cc7f54",
       "description": "Jazz performance with David Cultura at Del Monte Speakeasy, Venice, presented by JIJI's Jazz Club ($18.03).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-02T12:23:06",
-      "confidence": "high"
-    },
-    "27d0b8f38059": {
-      "id": "27d0b8f38059",
-      "description": "Official after-party for Victoria's Secret Fashion Show; electronic music at Say Yes (9pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-02T12:23:06",
       "confidence": "high"
@@ -14874,13 +14158,6 @@
     "a3c27b6b6425": {
       "id": "a3c27b6b6425",
       "description": "Electronic music at Kiso.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-03T12:20:00",
-      "confidence": "low"
-    },
-    "7521b1affb35": {
-      "id": "7521b1affb35",
-      "description": "Live music, salsa bachata dancing and DJ at Katsin Restaurant and Dinning Bar.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-03T12:20:00",
       "confidence": "low"
@@ -15456,13 +14733,6 @@
     "9216a402133f": {
       "id": "9216a402133f",
       "description": "Diplo-hosted day party and run at LA River (Sat 11/8, 1pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-04T12:13:17",
-      "confidence": "high"
-    },
-    "5c7ab0f508a0": {
-      "id": "5c7ab0f508a0",
-      "description": "Electronic night with Pauliewog and !OSO¡ at Fountain LA (Wed 10/9, 10pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-04T12:13:17",
       "confidence": "high"
@@ -16461,13 +15731,6 @@
       "enriched_at": "2026-10-05T12:26:39",
       "confidence": "high"
     },
-    "a4353aaf601b": {
-      "id": "a4353aaf601b",
-      "description": "Electronic show with Daine, Lola Blue, Fawn Burke, and Ryann Barnes at UCLA Sigma Pi Fraternity (9pm Wednesday).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-05T12:26:39",
-      "confidence": "high"
-    },
     "0fe893446f32": {
       "id": "0fe893446f32",
       "description": "Lolo's birthday movie night party at Alloy (6pm Monday, free).",
@@ -16566,13 +15829,6 @@
       "enriched_at": "2026-10-05T12:26:39",
       "confidence": "high"
     },
-    "cd4562c9454f": {
-      "id": "cd4562c9454f",
-      "description": "Cronenberg sci-fi horror classic at New Beverly Cinema, Fairfax (7:30pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-05T12:26:39",
-      "confidence": "high"
-    },
     "e2a92aecf47d": {
       "id": "e2a92aecf47d",
       "description": "Virtual workshop on marketing yourself as a travel creator via Travel Noire App (3pm, free).",
@@ -16615,20 +15871,6 @@
       "enriched_at": "2026-10-06T12:22:47",
       "confidence": "high"
     },
-    "e08ddff07844": {
-      "id": "e08ddff07844",
-      "description": "Free 18+ costume party at Los Globos (10pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-06T12:22:47",
-      "confidence": "high"
-    },
-    "56907c77514e": {
-      "id": "56907c77514e",
-      "description": "Day party at Perry's Beach Club on Santa Monica Beach (3pm, $20).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-06T12:22:47",
-      "confidence": "high"
-    },
     "b05c288627d6": {
       "id": "b05c288627d6",
       "description": "King Gizzard Super Fan Drop live show at Permanent Records Roadhouse, Cypress Park.",
@@ -16656,13 +15898,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-06T12:22:47",
       "confidence": "high"
-    },
-    "14a73fbdc4c9": {
-      "id": "14a73fbdc4c9",
-      "description": "Tierra Taco Popup live performance at Permanent Records Roadhouse (7pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-06T12:22:47",
-      "confidence": "medium"
     },
     "1d02e2434536": {
       "id": "1d02e2434536",
@@ -16832,23 +16067,9 @@
       "enriched_at": "2026-10-06T12:22:47",
       "confidence": "high"
     },
-    "3298763e6fc1": {
-      "id": "3298763e6fc1",
-      "description": "Late-night electronic show with Jack Faulkner at a TBA DTLA venue (11pm Thu 10/23).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-06T12:22:47",
-      "confidence": "high"
-    },
     "a14289003dc2": {
       "id": "a14289003dc2",
       "description": "LICKNDIP and GOATBALL electronic afterhours party at a secret LA location (11:45pm Wed 10/9).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-06T12:22:47",
-      "confidence": "high"
-    },
-    "5c25e631ed34": {
-      "id": "5c25e631ed34",
-      "description": "LICKNDIP presents TROMAC electronic afterhours party at a secret location (11:45pm Thu 10/10).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-06T12:22:47",
       "confidence": "high"
@@ -16940,13 +16161,6 @@
     "c8b8f886afcc": {
       "id": "c8b8f886afcc",
       "description": "Shungu performs live musical score at 2220 Arts + Archives in Historic Filipinotown (8pm Mon 11/10).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-06T12:22:47",
-      "confidence": "high"
-    },
-    "35e88e6b9d31": {
-      "id": "35e88e6b9d31",
-      "description": "Mad Professor live dub set with Q&A at Zizou (9pm Wed 10/8).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-06T12:22:47",
       "confidence": "high"
@@ -17088,13 +16302,6 @@
     "92eb92ef8c98": {
       "id": "92eb92ef8c98",
       "description": "Free afterhours electronic party with GAIA, Milan Torne, Hectorr and others (11pm, TBA venue).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-07T12:26:41",
-      "confidence": "high"
-    },
-    "27e86494e13e": {
-      "id": "27e86494e13e",
-      "description": "Afterhours electronic set with DJ Kita and BAE BAE in DTLA (11:59pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-07T12:26:41",
       "confidence": "high"
@@ -17393,13 +16600,6 @@
       "enriched_at": "2026-10-07T12:26:41",
       "confidence": "high"
     },
-    "d3dacbfe87cc": {
-      "id": "d3dacbfe87cc",
-      "description": "Free electronic afterhours party by SXTCY x Los Perros, secret location (11pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-07T12:26:41",
-      "confidence": "high"
-    },
     "b8f18fbe7c99": {
       "id": "b8f18fbe7c99",
       "description": "Your Mother Your Mother Your Mother in 35mm at Vista Theater, Los Feliz (7:30pm).",
@@ -17431,13 +16631,6 @@
     "99962b8098bc": {
       "id": "99962b8098bc",
       "description": "Book launch for Veronica Gonzalez Peña's Secret Daughter at 2220 Arts + Archives (8pm).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-07T12:26:41",
-      "confidence": "high"
-    },
-    "33d29b618712": {
-      "id": "33d29b618712",
-      "description": "Spooky Feels Halloween indie and electronic dance party with Electric Feels, Echoplex (9pm).",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-07T12:26:41",
       "confidence": "high"
@@ -17610,13 +16803,6 @@
       "enriched_at": "2026-10-07T12:26:41",
       "confidence": "high"
     },
-    "8e4c0c996295": {
-      "id": "8e4c0c996295",
-      "description": "2000s night hosted by DJ SMOKE ONE at Hollywood Venue (10pm, free, 18+).",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-07T12:26:41",
-      "confidence": "high"
-    },
     "2c42d841cb00": {
       "id": "2c42d841cb00",
       "description": "Tribe Block Party day party with Fireboy DML, Rotimi, Nektunez, Tomi Tribe, RJMrLA, Joe Moses (2pm, $35).",
@@ -17774,13 +16960,6 @@
     "d6845b466156": {
       "id": "d6845b466156",
       "description": "Free late-evening electronic party on the Sunset Rooftop in Hollywood (10pm start), organized by First Class Society LA.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-08T12:22:51",
-      "confidence": "high"
-    },
-    "ac4fe03cf042": {
-      "id": "ac4fe03cf042",
-      "description": "Late-night electronic club night at The Slipper Clutch in DTLA, starting 10pm.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-08T12:22:51",
       "confidence": "high"
@@ -17953,26 +17132,12 @@
       "enriched_at": "2026-10-08T12:22:51",
       "confidence": "medium"
     },
-    "2f5b075aa621": {
-      "id": "2f5b075aa621",
-      "description": "Free queer-focused house and tech-house party, The Sapphic Raver's Big Gay Heaven Rave, at Beaches Tropicana, 9pm, with Adaj, Ariel Brayy, Lady Vanity Roux and Crux My Heart.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-08T12:22:51",
-      "confidence": "high"
-    },
     "dda97a8e8543": {
       "id": "dda97a8e8543",
       "description": "All-night electronic party with Main Phase and re:ni starting 10pm Nov 7 at a downtown LA venue not yet announced.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-08T12:22:51",
       "confidence": "low"
-    },
-    "8f378589a2cf": {
-      "id": "8f378589a2cf",
-      "description": "Late-night deep house and minimal deep tech session from 11pm Oct 15 with James Blonde, JTJ and Tamara Lanza; venue is TBA in DTLA.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-08T12:22:51",
-      "confidence": "high"
     },
     "2f8d321a7b90": {
       "id": "2f8d321a7b90",
@@ -18158,10 +17323,25 @@
     },
     "6f5b6842c505": {
       "id": "6f5b6842c505",
-      "description": "Electronic club night at Club Tee Gee in Atwater Village, Fri 10/9 from 10pm, with Thomaas Banks and Travis Holcombe.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-08T12:22:51",
-      "confidence": "high"
+      "type": "club",
+      "subgenres": [
+        "electronic"
+      ],
+      "label_orbit": [],
+      "energy": "peak / late night",
+      "setting": "club",
+      "sounds_like": [],
+      "card": {
+        "draw": 0,
+        "rarity": 0,
+        "lineup_depth": 0
+      },
+      "artist_notes": [],
+      "curator_note": "Thin on detail: a 10pm Atwater club night with no genre listed and names I can't vouch for, so treat it as a maybe. Close to home if you feel like a gamble.",
+      "description": "Late-night electronic party 'Freaks Only' at Club Tee Gee in Atwater Village, with Thomaas Banks and Travis Holcombe, from 10pm.",
+      "confidence": "low",
+      "enriched_at": "2026-10-09T12:27:24",
+      "enriched_tier": "full"
     },
     "2fd1bc99fd72": {
       "id": "2fd1bc99fd72",
@@ -18373,13 +17553,6 @@
       "enriched_at": "2026-10-08T12:22:51",
       "confidence": "high"
     },
-    "11b3a9ab52c2": {
-      "id": "11b3a9ab52c2",
-      "description": "Electronic club night 'EGIRL #05.2' at the 2n1t3 HQ venue, Oct 17 from 10:30pm; no lineup listed.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-08T12:22:51",
-      "confidence": "medium"
-    },
     "cac8f446f2f3": {
       "id": "cac8f446f2f3",
       "description": "Electronic after-hours night at The Lexington bar in DTLA, Oct 19 from 11pm.",
@@ -18435,13 +17608,6 @@
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-08T12:22:51",
       "confidence": "high"
-    },
-    "1024dd2b85c8": {
-      "id": "1024dd2b85c8",
-      "description": "Free 21+ Thursday night at Los Globos hosted by DJ SMOKE ONE, Oct 8 from 9:45pm; the listed venue reads 'Hollywood Venue'.",
-      "enriched_tier": "blurb",
-      "enriched_at": "2026-10-08T12:22:51",
-      "confidence": "medium"
     },
     "4cac8bf20bbe": {
       "id": "4cac8bf20bbe",
@@ -18539,6 +17705,892 @@
       "description": "Rock show by Kate Nash at the Constellation Room in Santa Ana (outside LA proper), Nov 12 at 7pm.",
       "enriched_tier": "blurb",
       "enriched_at": "2026-10-08T12:22:51",
+      "confidence": "high"
+    },
+    "408cbfc6ada2": {
+      "id": "408cbfc6ada2",
+      "type": "club",
+      "subgenres": [
+        "house",
+        "disco"
+      ],
+      "label_orbit": [],
+      "energy": "chill / sunset groove",
+      "setting": "rooftop",
+      "sounds_like": [],
+      "card": {
+        "draw": 1,
+        "rarity": 0,
+        "lineup_depth": 1
+      },
+      "artist_notes": [
+        {
+          "name": "Dublon",
+          "note": "Oslo producer/DJ who went viral on TikTok with jazz-inflected house; real European club touring behind the breakout."
+        },
+        {
+          "name": "Xica Soul",
+          "note": "LA DJ and radio host (Artform, KQBH) - soul, funk and house selector."
+        }
+      ],
+      "curator_note": "The RA listing tags this dubstep/bass, but Dublon's actual sound is jazzy house, and a 5pm Level 8 rooftop slot with Xica Soul's soul-and-funk selections makes it more sunset groove than bass show. Worth a look if you want an early rooftop start.",
+      "description": "5pm rooftop party at Harbor House DTLA's Level 8 with Oslo jazz-house producer Dublon, Xica Soul and Mayari.",
+      "confidence": "medium",
+      "enriched_at": "2026-10-09T12:27:24",
+      "enriched_tier": "full"
+    },
+    "712e9f64e52c": {
+      "id": "712e9f64e52c",
+      "description": "Late-night electronic rave at a TBA downtown LA venue, 9pm to 2am, with electroclash, hyperpop and house-leaning sets; $10-15 presale, $20 at the door.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "bcc40ca2ffde": {
+      "id": "bcc40ca2ffde",
+      "description": "House and bass-house night at Dirty Laundry, 10pm to 1:30am, with Damon Sharpe, Tima Dee, Cavin Scott, Vreden and Nina Nevra; free with RSVP.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "01192032dada": {
+      "id": "01192032dada",
+      "description": "Late-night hard groove, techno and trance party (11pm to 6am) at a TBA LA venue, with Isabella Lovestory, Kamixlo, DIME, Monib and Siren Mars; $23-34.50.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "1f2f77d4369c": {
+      "id": "1f2f77d4369c",
+      "description": "Dubstep, trap and EDM night at The Slipper Clutch in DTLA, 10pm to 1:30am, with DJ Venus The Fly Trap; free entry.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "bf1be49a89ab": {
+      "id": "bf1be49a89ab",
+      "description": "House night at Sound Nightclub in Hollywood, 10pm to 2am, with Joss Dean; $31+.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "67952d912bcf": {
+      "id": "67952d912bcf",
+      "description": "Hard techno and schranz night at a TBA Los Angeles location, 9pm to 2am, with Otak, Hldrvsn and Rios; $15+.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "46f2d71ac192": {
+      "id": "46f2d71ac192",
+      "description": "Free electronic party from TeckMeOut at a TBA venue, starting 11:45pm; no lineup listed.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "1fe3bf2640f1": {
+      "id": "1fe3bf2640f1",
+      "description": "Saturday day party on Santa Monica Beach at Perry's Beach Club, 3pm, with hadO, Doknow, DJ Austin Mills and Dominic Carter; $20.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "6a45e0ccff0c": {
+      "id": "6a45e0ccff0c",
+      "description": "Late-night psytrance, hard techno and hard house party at a secret location, 11pm, with Antigamut, Danny G Luvs U, Denali, DJ Softpaws, Kemosabe and Testkit; free.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "7e2985732993": {
+      "id": "7e2985732993",
+      "description": "Electronic party at Harvard and Stone in East Hollywood, 8pm, with Las Calabasas and BipoLarte; free, presented by Midway Concerts.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "9f779f7d1018": {
+      "id": "9f779f7d1018",
+      "description": "Late hard-dance night (10pm to 4am) at a TBA LA venue with Lexxy Jax, Manapool, Munequita, Jeanenlighten, Gata Man1aca and DJ Apathy, spanning gabber, trance and hardstyle; free.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "22f11a0c3c7d": {
+      "id": "22f11a0c3c7d",
+      "description": "Halloween electronic party in the Arts District starting 9pm at a TBA venue, presented by Almostdecent and Mainframe.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "ef67ece7d7d0": {
+      "id": "ef67ece7d7d0",
+      "description": "Electronic club night at a TBA Los Angeles venue, 11pm; no lineup listed.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "807f0f2e0ce8": {
+      "id": "807f0f2e0ce8",
+      "description": "Punk and rock show at Permanent Records Roadhouse in Cypress Park, 6pm; the full lineup has not been announced.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "low"
+    },
+    "1e763a8809ad": {
+      "id": "1e763a8809ad",
+      "description": "Punk and rock show headlined by Nodaway at Permanent Records Roadhouse in Cypress Park, 6pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "b80435f754d1": {
+      "id": "b80435f754d1",
+      "description": "Punk and rock show with Zoe Lloyd and Clark Engine Company at Permanent Records Roadhouse in Cypress Park, 9pm, $15.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "384f7fc2ca21": {
+      "id": "384f7fc2ca21",
+      "description": "House and pop-EDM night with Altego at Time Nightclub in Costa Mesa, 10pm to 1:30am, $20; a long drive from LA.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "0bc0032c40b1": {
+      "id": "0bc0032c40b1",
+      "description": "Live show by Dani Offline (Lover's Discourse, with Bobbyy) at Gold Diggers in East Hollywood, 7pm, $19.57.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "4596ecb33a16": {
+      "id": "4596ecb33a16",
+      "description": "Halloween electronic night at White Rabbit Sky Lounge at The Valorian (formerly Skybar at Mondrian) in West Hollywood, 8:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "b68b5739a033": {
+      "id": "b68b5739a033",
+      "description": "Punk and rock show at Permanent Records Roadhouse in Cypress Park, 9pm; the lineup has not been announced.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "low"
+    },
+    "0a43557f982d": {
+      "id": "0a43557f982d",
+      "description": "Rock show by panicbaby on their 'this might hurt a little' tour, at The Echo in Echo Park, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "0eac452dc811": {
+      "id": "0eac452dc811",
+      "description": "Jazz-leaning show by Ned Evett and Neo, blending fretless glass guitar, bass and vocals, at Alva's Showroom in San Pedro, 8pm, $25.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "468880c54a64": {
+      "id": "468880c54a64",
+      "description": "One-night pre-festival party for the Darker Waves community at The Circle OC in Huntington Beach, 9pm; electronic music.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "2ca600e7f51d": {
+      "id": "2ca600e7f51d",
+      "description": "Cortex, an R&B and funk-soul act, live at The Moroccan Lounge in the Arts District, doors 9:30pm, $20 advance, all ages.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "bb95937b9d17": {
+      "id": "bb95937b9d17",
+      "description": "Daytime electronic music festival starting 3:30pm at a TBA LA location, with Ardalan, goodie bags and Kana Hishiya.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "bf44e993445d": {
+      "id": "bf44e993445d",
+      "description": "Free electronic party at Break Room 86 from Allovus, 9pm; no lineup listed.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "06b607c11db7": {
+      "id": "06b607c11db7",
+      "description": "Two-day country and rock festival at Morongo Field in Rancho Cucamonga, 6:30pm, with Bush, Dustin Lynch, Mitchell Tenpenny and Highly Suspect.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "26fb11bbc07d": {
+      "id": "26fb11bbc07d",
+      "description": "Electronic night #07 of the 2N1T3 Kill Eva series at High Tide, 9pm, with DISKQ.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "b4ce75f7d330": {
+      "id": "b4ce75f7d330",
+      "description": "Live show by Gabriela Richardson at Zebulon in Frogtown, 8pm, $32.71.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "f68f5909441f": {
+      "id": "f68f5909441f",
+      "description": "Rock show with Stop Light Observations and Runner and Bobby at The Peppermint Club in West Hollywood, 7pm; 21+.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "405cd220bab0": {
+      "id": "405cd220bab0",
+      "description": "Nine-man a cappella group Straight No Chaser on tour at Cerritos Center for the Performing Arts, 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "e4c9e83c7151": {
+      "id": "e4c9e83c7151",
+      "description": "Country act The Cactus Blossoms with Margo Cilker at The Roxy in West Hollywood, 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "266a076db74d": {
+      "id": "266a076db74d",
+      "description": "Touring production of The Who's Tommy, the rock musical, at the Hollywood Pantages Theatre, 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "1d595e2cb442": {
+      "id": "1d595e2cb442",
+      "description": "Performance piece Destiny of Desire at the Mark Taper Forum in downtown LA, 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "0ed653472f11": {
+      "id": "0ed653472f11",
+      "description": "Screening of Death Becomes Her as a Halloween party at Vidiots in Eagle Rock, 7:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "275d67cc632c": {
+      "id": "275d67cc632c",
+      "description": "Birthday bash with The Alligators and Universe Peoples, a jazz and blues bill, at The Mint in Mid-City, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "4db89a94515e": {
+      "id": "4db89a94515e",
+      "description": "Pumped Fridays drag show at Hamburger Mary's in West Hollywood, 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "58ed0559a3e0": {
+      "id": "58ed0559a3e0",
+      "description": "Crystal Castles-themed night at Boardner's by La Belle in Los Angeles, 10pm, $18.91.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "4c7b440317a1": {
+      "id": "4c7b440317a1",
+      "description": "ABBA tribute act ABBA LA at The Venice West in Venice, 8pm, tickets via Tixr.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "17431731063e": {
+      "id": "17431731063e",
+      "description": "Latin-genre show '¿Eres Emo?' (18+) at Riverside Municipal Auditorium in Riverside, 9pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "9da23f406706": {
+      "id": "9da23f406706",
+      "description": "Comedy show OCT (On Company Time) with Billy Marchiafava at The Parish at House of Blues Anaheim, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "2ed916763d5e": {
+      "id": "2ed916763d5e",
+      "description": "Stand-up show by comedian Joey Medina at Pechanga Resort Casino in Temecula, 9pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "4bcd892cdd97": {
+      "id": "4bcd892cdd97",
+      "description": "Outdoor electronic night in DTLA (11pm start, venue TBA) with Jack Faulkner and Jonny Cota.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "7a73106dd577": {
+      "id": "7a73106dd577",
+      "description": "Progressive and deep house night at Matriarch LA, 10pm-2am, with alice.km, Akiva and Geshay; free with RSVP before 11pm, $10 after.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "a859c0813180": {
+      "id": "a859c0813180",
+      "description": "Tech house and techno night at 1533 N La Brea Ave, 8pm-2am, organized by Exxbarz.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "cc35bd920181": {
+      "id": "cc35bd920181",
+      "description": "Trance and techno night, 11pm-5am, at a TBA LA venue, with AEREA's LA live debut, Orly Gal and heelbite316.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "97c0366c02d7": {
+      "id": "97c0366c02d7",
+      "description": "Dubstep night at Exchange in DTLA, 10pm-3am, with Leotrix and Mvrda.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "4f133a81cfd9": {
+      "id": "4f133a81cfd9",
+      "description": "Hard techno and schranz night, 11:30pm-4:30am, at an unannounced Inland Empire location, with Ojjisin, Ikilledpurple, Marez and Narcissist.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "f85e8e91ec09": {
+      "id": "f85e8e91ec09",
+      "description": "Free street music festival on Santa Monica's Third Street Promenade from 5pm, with Laidback Luke, Seduza, Payso and Lily Ardalan, plus a food market and afters.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "7bd381052ad2": {
+      "id": "7bd381052ad2",
+      "description": "Electro and club night, 11:45pm-6am, at a secret location, organized by LICKNDIP, with Tromac, Luc111e and Noel Le Freak; $10-20.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "162040fe7a72": {
+      "id": "162040fe7a72",
+      "description": "Free Wednesday techno night at Jungle Hollywood from 9pm, with Normalize, Electric Field and Tamara.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "2d718e0beb7a": {
+      "id": "2d718e0beb7a",
+      "description": "Free R&B-only party at 953 N Sycamore Ave from 10pm, with Vestia and Dirty Dell.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "84c1d755736b": {
+      "id": "84c1d755736b",
+      "description": "Free costume party from 10pm hosted by MEMORRAGE; the venue is shared only after RSVP/approval.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "8ab0592586de": {
+      "id": "8ab0592586de",
+      "description": "Electronic night at The Compound by Dirt Dog in Commerce from 10pm, billed as RIOT: The Machine World Tour; no lineup listed.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "889b58dd58f8": {
+      "id": "889b58dd58f8",
+      "description": "Hardstyle and hard techno show at Globe Theater, 9pm-2am, headlined by Neek; $19-45.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "619291722e5a": {
+      "id": "619291722e5a",
+      "description": "Punk and rock show by Desperate Hauswives at Permanent Records Roadhouse in Cypress Park, 9pm; $18 advance.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "a90b597cb34d": {
+      "id": "a90b597cb34d",
+      "description": "Afternoon house and EDM open-decks day party, 2-8pm, at an unannounced LA location, hosted by Helipad Society; lineup includes Wenzl, Splata and Azula.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "d5a1799ece3e": {
+      "id": "d5a1799ece3e",
+      "description": "Free patio listening party at Permanent Records Roadhouse in Cypress Park, 7pm; RSVP required.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "dcf87f054033": {
+      "id": "dcf87f054033",
+      "description": "Electronic party at The Mayan in DTLA, 9pm, with Rocket Rese, Softest Hard and Dani Thorne; $15.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "37d189f25035": {
+      "id": "37d189f25035",
+      "description": "Afternoon DJ set at Sid The Cat Auditorium in South Pasadena, 5pm, by DJ Maust (Cold War Kids) and Dan (Tijuana Panthers).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "0994c3c272e3": {
+      "id": "0994c3c272e3",
+      "description": "Annual Halloween cover-song show at Zebulon in Frogtown, 6:30pm, benefiting Selah; $20.09.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "ac0263688583": {
+      "id": "ac0263688583",
+      "description": "Rock show by Lawrence with Jacob Jeffries and Oh He Dead at The Novo in DTLA, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "dee16775235a": {
+      "id": "dee16775235a",
+      "description": "All-ages rock show by Gene at The Regent Theater in DTLA, doors 7pm, show 8pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "1ce57952cd84": {
+      "id": "1ce57952cd84",
+      "description": "Punk-leaning rock show by SWMRS with The Happy Return at Teragram Ballroom in Westlake, 8pm; all ages, $20 advance.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "570b041d62f0": {
+      "id": "570b041d62f0",
+      "description": "Rock show by bed at The Moroccan Lounge in the Arts District, doors 6:30pm; $20 advance, 16+.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "195e5547bf4f": {
+      "id": "195e5547bf4f",
+      "description": "Multi-day bass music event (dubstep, drum and bass, downtempo) at an unannounced Apple Valley location, Fri 10am to Sun 7am; $50-60.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "4bb560767a99": {
+      "id": "4bb560767a99",
+      "description": "Free afternoon deep house and disco brunch at The Bungalow in Huntington Beach from 2pm, hosted by Scotty Boy.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "b10060c962b1": {
+      "id": "b10060c962b1",
+      "description": "Vinyl-focused night at Stage Red in Fontana, 7pm; no lineup listed.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "2ae5937779d6": {
+      "id": "2ae5937779d6",
+      "description": "Electronic after-party for the Victoria's Secret Fashion Show at Say Yes, 9pm; $15, organized by Affinity Nightlife.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "87d284044c79": {
+      "id": "87d284044c79",
+      "description": "Metal show by ASAVA with Salt at The Echo in Echo Park, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "7e9116285864": {
+      "id": "7e9116285864",
+      "description": "Show by aeter (Haunting Hour) with Ja66 at The Echo in Echo Park, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "2187f6a4a734": {
+      "id": "2187f6a4a734",
+      "description": "Comedy show by Gianmarco Soresi at the Orpheum Theatre in DTLA, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "3e0ba11f1b69": {
+      "id": "3e0ba11f1b69",
+      "description": "Electronic and bass show by Ninajirachi with MGNA Crrrta at The Fonda Theatre in Hollywood, 9pm; second show added, $181-462.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "345d44982c14": {
+      "id": "345d44982c14",
+      "description": "Rock stop on Underoath's 20th-anniversary Define the Great Line tour at Hollywood Palladium, 5:30pm, with August Burns Red, Atreyu and As Cities Burn.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "f2d6583d93a0": {
+      "id": "f2d6583d93a0",
+      "description": "Latin show by Pimpinela on their Leyendas tour at Dolby Theatre in Hollywood, 8pm, celebrating 40+ years of hits.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "cd9da0df16d8": {
+      "id": "cd9da0df16d8",
+      "description": "Hip-hop show at YouTube Theater in Inglewood, 7:30pm, with E-40, Too $hort, Mack 10, Daz, Kid Ink and others.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "5ce7d0599e11": {
+      "id": "5ce7d0599e11",
+      "description": "18+ Halloween indie rock and electronic dance party at House of Blues Anaheim, 9pm, featuring Electric Feels; $21-28.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "19f74a348f82": {
+      "id": "19f74a348f82",
+      "description": "Comedy show by Kathy Griffin at the Fred Kavli Theatre in Thousand Oaks, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "7b5b3a3028a1": {
+      "id": "7b5b3a3028a1",
+      "description": "GTA-themed night at Boardner's by La Belle, 10pm, sold via Eventbrite at $18.91; no further details given.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "low"
+    },
+    "9ecb2a7647a0": {
+      "id": "9ecb2a7647a0",
+      "description": "Rock show by Blue Oyster Cult with Hillbilly Vegas at Grove of Anaheim, 7:30pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "ff1821acf147": {
+      "id": "ff1821acf147",
+      "description": "Punk show by Buzzcocks with Modern English and Grade 2 at The Observatory in Santa Ana, 6pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "fa9c7494f443": {
+      "id": "fa9c7494f443",
+      "description": "All-ages rock show by Adam Ant at Fox Performing Arts Center in Riverside, 7pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "101dbc669b3a": {
+      "id": "101dbc669b3a",
+      "description": "Stand-up comedy show by Alfred Robles at Improv Comedy Club in Irvine, 9:45pm.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "d5350857d2c5": {
+      "id": "d5350857d2c5",
+      "description": "Muah club night at Fountain LA (Fri 10/9, 10pm-2am) with DJ Paulie, Muneko and Scorpioso, mixing R&B, house, jersey club and baile funk.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "b794284d096d": {
+      "id": "b794284d096d",
+      "description": "Late-night deep house and minimal tech-house session (Thu 10/15, 11pm-5am) with James Blonde, JTJ and Tamara Lanza; venue TBA in DTLA.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "3f434b7f42a4": {
+      "id": "3f434b7f42a4",
+      "description": "House and tech-house night (Fri 10/16, 8pm-4am) organized by Secret SFV at a TBA Los Angeles location; no lineup listed.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "aa3f772280c8": {
+      "id": "aa3f772280c8",
+      "description": "House night at Academy LA in Hollywood (Fri 11/13, 10pm-3am) headlined by Angrybaby.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "b51c6251d405": {
+      "id": "b51c6251d405",
+      "description": "Progressive house night (Fri 11/13, 10pm-5am) with LEBLANC, presented by Soundwave at a TBA Los Angeles location.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "aad95e9a2759": {
+      "id": "aad95e9a2759",
+      "description": "Free afterparty hosted by Utopia LA at 2233 Jesse St, starting 2am on Fri 10/9, featuring Jaden Bojsen and Reicho.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "250d0dd5bba0": {
+      "id": "250d0dd5bba0",
+      "description": "Multi-genre club night at Catch One in Mid-City (Sat 10/10, 9pm), with Flabbergast, Elijah Daniel, Ducki B2B Tru and others across hyperpop, hard house and trance.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "20ea97551612": {
+      "id": "20ea97551612",
+      "description": "Free electronic party by TeckMeOut (Sat 10/10, 11:45pm) at an undisclosed location, listed on Posh.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "13b289bfc62b": {
+      "id": "13b289bfc62b",
+      "description": "21+ Thursday night at Los Globos in Silver Lake (Thu 10/15, 10pm) hosted by DJ Smoke One; listed free.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "6daacb633cef": {
+      "id": "6daacb633cef",
+      "description": "Installment of the 2N1T3 Park and Rave electronic event series at 2n1t3 HQ (Sat 10/17, 7pm), with Tanfa on the lineup.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "1cb6ff3bba20": {
+      "id": "1cb6ff3bba20",
+      "description": "Free electronic party by TeckMeOut (Sat 10/17, 11:45pm) at an undisclosed location, listed on Posh.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "0d4212d79d34": {
+      "id": "0d4212d79d34",
+      "description": "All-night electronic set by Adrian Mills with Serafina and zwilling. at Ace*Mission Studios (Fri 11/13, 9pm), presented by Factory 93.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "ac85d2ed05c0": {
+      "id": "ac85d2ed05c0",
+      "description": "Show by Erik Yarosh at The Redwood Bar and Grill in DTLA (Fri 11/13, 8pm); the listing is tagged electronic on RA.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "low"
+    },
+    "04b268f763d4": {
+      "id": "04b268f763d4",
+      "description": "Live punk and rock night at Permanent Records Roadhouse in Cypress Park (Tue 11/10, 6pm); lineup not yet announced.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "8a03c6d41523": {
+      "id": "8a03c6d41523",
+      "description": "18+ party at a Hollywood venue (Thu 10/15, 10pm) hosted by DJ Smoke One; listed free.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "b1b582d8adaa": {
+      "id": "b1b582d8adaa",
+      "description": "Leftfield and experimental electronic night at Coaxial in DTLA (Thu 10/22, 7pm) with Laura Shumate, Adam Lion, Mike Meanstreetz, Clementine Wink and Hexpressionist.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "e2d3c9d2063b": {
+      "id": "e2d3c9d2063b",
+      "description": "21+ Halloween indie and electronic dance party at Echoplex in Echo Park (Sat 10/31, 9pm) with Electric Feels.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "52bdafe0ca62": {
+      "id": "52bdafe0ca62",
+      "description": "Folk show with Jervis Campbell and Allie Paige at Echoplex in Echo Park (Fri 11/13, 7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "2042f1bd25e3": {
+      "id": "2042f1bd25e3",
+      "description": "Band of Horses plays Everything All the Time's 20th-anniversary show at Pacific Electric in DTLA (Fri 11/13, 9pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "ad018321ad4e": {
+      "id": "ad018321ad4e",
+      "description": "Electronic rock show by Boombox at Dreamland in Malibu (Fri 11/13, 8pm); ticketed from $40.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "43d7f7696d35": {
+      "id": "43d7f7696d35",
+      "description": "DJ Meredith Marks's YOU. CAN. DANCE. tour stop at The Bellwether in DTLA (Fri 11/13, 7pm-11:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "08785e872abe": {
+      "id": "08785e872abe",
+      "description": "Ambient and experimental concert by Icelandic composer Olafur Arnalds at The Wiltern in Koreatown (Fri 11/13, 7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "06b4237478c2": {
+      "id": "06b4237478c2",
+      "description": "Free electronic day party by Electric LA at a secret LA location (Sun 10/11, 2pm), listed on Posh.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "07705bb607d1": {
+      "id": "07705bb607d1",
+      "description": "Goth, industrial and darkwave night, The Hunger X Das Bunker, with Rev.John and Maldoror at 216 N Brand Blvd in Glendale (Wed 10/14, 6pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "04883e828e8b": {
+      "id": "04883e828e8b",
+      "description": "Day party La Sociedad at Planta (Sun 10/18, 2pm) from The Flaco Project; electronic, ticketed from $17.28.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "277f81810bc5": {
+      "id": "277f81810bc5",
+      "description": "Halloween night at Only The Wild Ones in Venice (Sat 10/31, 9pm), a listening-bar style live music show ticketed at $33.99.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "e9d3eb24c356": {
+      "id": "e9d3eb24c356",
+      "description": "Slayer's Reign in Blood 40th-anniversary show at the Kia Forum in Inglewood (Fri 11/13, 6pm) with Cannibal Corpse, Cavalera and Crowbar.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "166217b7888b": {
+      "id": "166217b7888b",
+      "description": "Acoustic classic-rock show by Mike Massé at Scherr Forum in Thousand Oaks (Fri 11/13, 7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "030fc15b2647": {
+      "id": "030fc15b2647",
+      "description": "Electronic show with Dennett, Okayjake and cozy kev at El Rey Theatre in Mid-Wilshire (Fri 11/13, 9pm), a Goldenvoice event.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "3190d3f58fa8": {
+      "id": "3190d3f58fa8",
+      "description": "Touring production of the musical comedy Oh, Mary! at the Ahmanson Theatre in DTLA (Fri 11/13, 8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "850df3e3e049": {
+      "id": "850df3e3e049",
+      "description": "Touring stage musical MARVIN - The Marvin Gaye Musical at Redondo Beach Performing Arts Center (Fri 11/13, 8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "a736ecf39a2b": {
+      "id": "a736ecf39a2b",
+      "description": "Film screening at Vidiots in Eagle Rock (Thu 10/22, 7pm), part of its repertory and arthouse programming.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "medium"
+    },
+    "54ef792ab303": {
+      "id": "54ef792ab303",
+      "description": "Rock show at Club UFO (Tue 11/3, 6pm) with Paralysis Epletive, Denature, Funeral SFV and False Wtness.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "9c31d8ecda72": {
+      "id": "9c31d8ecda72",
+      "description": "La Mirada Theatre production of the musical Dear Evan Hansen (Fri 11/13, 8pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "669a73461e03": {
+      "id": "669a73461e03",
+      "description": "Dance showcase For the Love of Dance at The Miracle Theater in Inglewood (Fri 11/13, 7:30pm), featuring Greater LA dance artists.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "c9bd3a385aef": {
+      "id": "c9bd3a385aef",
+      "description": "Los Tigres del Norte play Acrisure Arena in Palm Desert (Fri 11/13, 8pm); well outside LA proper.",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "28efe82766cc": {
+      "id": "28efe82766cc",
+      "description": "Hip-hop show with 2DEAD BOYZ, The Underachievers and Dizzy Wright at Constellation Room in Santa Ana (Fri 11/13, 7pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "dad51c046604": {
+      "id": "dad51c046604",
+      "description": "DJ set by Mark Farina at Ventura Music Hall in Ventura (Fri 11/13, 9pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
+      "confidence": "high"
+    },
+    "185fd9a5be95": {
+      "id": "185fd9a5be95",
+      "description": "Touring stage production of Water for Elephants at Segerstrom Hall in Costa Mesa (Fri 11/13, 7:30pm).",
+      "enriched_tier": "blurb",
+      "enriched_at": "2026-10-09T12:27:24",
       "confidence": "high"
     }
   },
