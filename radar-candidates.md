@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/9/2026 deterministically (no API). 161 candidates. Signals: big-venue 133, festival 22, tracked 7, editorial 2._
+_Generated 10/10/2026 deterministically (no API). 157 candidates. Signals: big-venue 131, festival 20, tracked 7, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -41,8 +41,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 11/27 | 5 | Time Warp LA | Ace * Mission Studios | tracked:Richie Hawtin | [link](https://on.fgtix.com/trk/CFLtc) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
 | Sat 11/28 | 5 | Nu Moda San Diego w/ Max Styler, Hot Since 82, Scenarios | Gallagher Square (San Diego) | tracked:Hot Since 82 | [link](https://laylo.com/ledpresents/maxstyler) |
-| Fri 11/13 | 4 | DARKER WAVES PRE-FESTIVAL PARTY | The Circle OC | festival | [link](https://www.thecircleoc.com/upcoming-events/darker-waves-pre-festival-party) |
-| Fri 11/13 | 4 | Bees Trees & Water Music Festival | TBA - ON Website | festival | [link](https://ra.co/events/2553982) |
 | Sun 11/22 | 4 | WORK Weekender Day 3: BB Shaine, David Castellani [LIVE],  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537315) |
 
 ## December 2026
@@ -144,8 +142,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 11/13 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B) |
-| Fri 11/13 | 3 | How The West Was Won | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/how-the-west-was-won-inglewood-california-11-13-2026/event/0A00653DB7DFFC81) |
 | Sat 11/14 | 3 | SLAYER: Reign In Blood 40th Anniversary 2026 | Kia Forum | big-venue | [link](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-14-2026/event/09006494FCC71433) |
 | Sat 11/14 | 3 | Camp Flog Gnaw 2026 | Dodger Stadium | big-venue | [link](https://www.axs.com/events/1475989/camp-flog-gnaw-2026-tickets) |
 | Sat 11/14 | 3 | Gladys Knight - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZbO_) |
@@ -220,6 +216,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Thu 4/1 | 3 | HANS ZIMMER LIVE | Crypto.com Arena | big-venue | [link](https://www.axs.com/events/1590917/hans-zimmer-live-tickets) |
 | Sat 4/3 | 3 | FINAL FANTASY 40th Anniversary | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1621573/final-fantasy-40th-anniversary-tickets) |
+| Sat 4/3 | 3 | Distant Worlds: Music from Final Fantasy | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 
 ## November 2026
 
@@ -294,7 +291,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 11/13 | 1 | Los Tigres del Norte | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/los-tigres-del-norte-palm-desert-california-11-13-2026/event/0A0064588664F5A1) |
 | Sat 11/14 | 1 | 90s Corridos Tour 2026 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/90s-corridos-tour-2026-palm-desert-california-11-14-2026/event/0A00649D95C0C8DC) |
 | Thu 11/19 | 1 | Nikki Glaser | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 11/28 | 1 | Los Gemelos de Sinaloa: The Gemeliza Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/los-gemelos-de-sinaloa-the-gemeliza-anaheim-california-11-28-2026/event/09006523992B5AEA) |

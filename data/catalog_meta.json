@@ -1,50 +1,50 @@
 {
-  "version": "06906110dfbf",
-  "content_version": "a6badbfebb50",
-  "count": 3628,
-  "fetched_at": "2026-10-09T12:25:42+00:00",
+  "version": "5b551a3f5c01",
+  "content_version": "a4254fb8f3c2",
+  "count": 3535,
+  "fetched_at": "2026-10-10T12:12:10+00:00",
   "added": 0,
   "updated": 0,
   "stale_sources": [
     {
       "source": "webfetch",
-      "days": 19,
-      "count": 197
+      "days": 20,
+      "count": 189
     },
     {
       "source": "Harvelle's (Santa Monica)",
-      "days": 19,
-      "count": 22
-    },
-    {
-      "source": "mccabes",
-      "days": 11,
-      "count": 23
-    },
-    {
-      "source": "McCabe's Guitar Shop",
-      "days": 11,
-      "count": 27
-    },
-    {
-      "source": "squarespace",
-      "days": 11,
-      "count": 63
-    },
-    {
-      "source": "The Venice West",
-      "days": 11,
-      "count": 25
-    },
-    {
-      "source": "editorial",
-      "days": 11,
+      "days": 20,
       "count": 21
     },
     {
+      "source": "mccabes",
+      "days": 12,
+      "count": 22
+    },
+    {
+      "source": "editorial",
+      "days": 12,
+      "count": 21
+    },
+    {
+      "source": "McCabe's Guitar Shop",
+      "days": 12,
+      "count": 26
+    },
+    {
       "source": "venicewest",
-      "days": 11,
+      "days": 12,
       "count": 24
+    },
+    {
+      "source": "The Venice West",
+      "days": 12,
+      "count": 24
+    },
+    {
+      "source": "squarespace",
+      "days": 12,
+      "count": 60
     }
   ]
 }
