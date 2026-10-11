@@ -1,50 +1,185 @@
 {
-  "version": "5b551a3f5c01",
-  "content_version": "a4254fb8f3c2",
-  "count": 3535,
-  "fetched_at": "2026-10-10T12:12:10+00:00",
-  "added": 0,
-  "updated": 0,
+  "version": "61c27e62e77a",
+  "content_version": "be00d879aaab",
+  "count": 3409,
+  "fetched_at": "2026-10-11T12:10:43+00:00",
+  "added": 42,
+  "updated": 17,
+  "changes": [
+    {
+      "title": "Junkyard Cat, American Women, Sleeping With Socks On",
+      "date": "2026-10-11",
+      "venue": "Gold Diggers",
+      "fields": [
+        "price"
+      ]
+    },
+    {
+      "title": "FREE! Dominoes & Spades Tournament",
+      "date": "2026-10-11",
+      "venue": "The Nursery Garden",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Where You  At  Day Party",
+      "date": "2026-10-11",
+      "venue": "Lost",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "PayDay Underground Superstar Experience",
+      "date": "2026-10-16",
+      "venue": "Hotel Ziggy on Sunset",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Hot Flash Heat Wave",
+      "date": "2026-10-17",
+      "venue": "The Parish at House of Blues Anaheim",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Perry\u2019s Beach Club \u2022 Santa Monica Beach Sat, Oct 17th ",
+      "date": "2026-10-17",
+      "venue": "Perry's Beach Club | Santa Monica Beach",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "404 Del Sol x Ugly Flower Presents: Halloween Bash",
+      "date": "2026-10-17",
+      "venue": "CrasHaus",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "DIRTY-ONE",
+      "date": "2026-10-17",
+      "venue": "Club Lagos",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "DAYCATION: GOLDEN HOUR [10.17]",
+      "date": "2026-10-17",
+      "venue": "White Rabbit Sky Lounge at The Valorian",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "\u041f\u0423\u0421\u0422\u042c \u0413\u041e\u0412\u041e\u0420\u042f\u0422 | 21+",
+      "date": "2026-10-17",
+      "venue": "6510 Santa Monica Blvd",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "SUNDAZE IN LA",
+      "date": "2026-10-18",
+      "venue": "TBA (drops after RSVP/approval)",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Dermot Kennedy: The Weight of the Woods Tour",
+      "date": "2026-10-19",
+      "venue": "Greek Theatre",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Aqu\u00ednom\u00e1s, Pushing Daisys, Little Sister presented Vert Ventures",
+      "date": "2026-10-22",
+      "venue": "Gold Diggers",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "title": "Music for the Masses: Dark 80's New Wave Halloween [Los Angeles]",
+      "date": "2026-10-30",
+      "venue": "The Moroccan Lounge",
+      "fields": [
+        "price",
+        "start"
+      ]
+    },
+    {
+      "title": "Rodriguez Jr. - Cielo du Sol w/Bawab, Julean, Robinho, Guy B.",
+      "date": "2026-10-31",
+      "venue": "Cielo Farms (Malibu)",
+      "fields": [
+        "start",
+        "lineup"
+      ]
+    },
+    {
+      "title": "SHELTER   -       XI",
+      "date": "2026-11-07",
+      "venue": "TBA",
+      "fields": [
+        "lineup"
+      ]
+    },
+    {
+      "title": "Lightstruck: The Alchemical Furnace Of Jan \u0160vankmajer (Pg 4)",
+      "date": "2026-11-12",
+      "venue": "2220 Arts + Archives",
+      "fields": [
+        "status"
+      ]
+    }
+  ],
   "stale_sources": [
     {
       "source": "webfetch",
-      "days": 20,
-      "count": 189
+      "days": 21,
+      "count": 181
     },
     {
       "source": "Harvelle's (Santa Monica)",
-      "days": 20,
-      "count": 21
+      "days": 21,
+      "count": 20
     },
     {
       "source": "mccabes",
-      "days": 12,
-      "count": 22
-    },
-    {
-      "source": "editorial",
-      "days": 12,
+      "days": 13,
       "count": 21
     },
     {
       "source": "McCabe's Guitar Shop",
-      "days": 12,
-      "count": 26
-    },
-    {
-      "source": "venicewest",
-      "days": 12,
-      "count": 24
-    },
-    {
-      "source": "The Venice West",
-      "days": 12,
-      "count": 24
+      "days": 13,
+      "count": 25
     },
     {
       "source": "squarespace",
-      "days": 12,
-      "count": 60
+      "days": 13,
+      "count": 55
+    },
+    {
+      "source": "venicewest",
+      "days": 13,
+      "count": 23
+    },
+    {
+      "source": "The Venice West",
+      "days": 13,
+      "count": 23
     }
   ]
 }
