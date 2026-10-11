@@ -1,0 +1,137 @@
+# Taste profile — Sevag (dashboard profile-switcher, username: sevag).
+#
+# Sevag is early 30s, lives in Sherman Oaks (the Valley), and is married to Alexa (username:
+# alexa). Seeded 2026-10-11 as a straight copy of Lori's taste (profiles/lori/taste.yaml):
+# band / live-music-forward, broad ear — proto-punk / garage / post-punk through craft pop, plus
+# global / diaspora / jazz / soul. Only the geo bits were retuned for Sherman Oaks. Diverges from
+# Lori's from here on. Mechanism (geo + weights) lives in profiles/sevag/profile.yaml.
+# Edit this, then: python scripts/build_profiles.py --only sevag
+
+categories:
+  high:
+    # +3
+    - live bands across the spectrum — garage / proto-punk / post-punk / indie /
+      art-rock / experimental in intimate clubs (Zebulon, The Echo, Lodge Room,
+      Teragram, Gold Diggers)
+    - global / diaspora / traditional & roots music — desert blues, Latin
+      alternative, cumbia, Afro-funk, highlife, Anatolian/psych, world & folk
+      traditions (the ethnomusicologist core)
+    - jazz, soul, funk & live-band nights in listening rooms and small clubs
+      (ETA, Gold Line)
+    - craft / songwriter pop with a point of view (Olivia Rodrigo, Mitski,
+      Caroline Polachek tier)
+    - classic rock
+    - goth
+    - alternative
+    - indie
+    - grunge
+    - punk
+  medium:
+    # +2
+    - rep & arthouse cinema (Vidiots, Vista, New Beverly, Cinematheque, Aero,
+      Alex Theatre)
+    - record fairs, listening bars, vinyl nights, in-stores & album-listening
+      events
+    - cultural / heritage programming — museum nights, music-doc screenings,
+      talks & performances
+    - daytime & lifestyle — flea / vintage / record / design markets, farmers
+      markets, street fairs
+    - theater & performing arts (black-box through Pantages / Ahmanson scale)
+  low:
+    # +1, only if exceptional
+    - DJ sets / electronic in a chill, musical, listening-forward setting (not
+      the main thing)
+    - big-room / festival EDM and warehouse techno — only a marquee, genuinely
+      special name
+
+boosts:
+  # +1 each (stack)
+  - intimate / seated / listening-room setting
+  - vinyl / all-analog presentation, record-store & in-store shows
+  - walkable or short drive from Sherman Oaks / the Valley (Studio City, NoHo,
+    Burbank, Encino, Toluca Lake)
+  - Friday or Saturday night
+  - independent editorial mention (LAist, Time Out, DiscoverLA, KCRW)
+  - outdoor / garden / sunset setting
+
+penalties:
+  # -2 each
+  - bottle-service / table-service nightclubs
+  - generic Top-40 / open-format club nights with no real billing
+  - tribute / cover bands and "[decade] night" nostalgia nights
+  - far-flung (OC / SD / Temecula / Ventura / Long Beach) unless genuinely worth
+    the trip
+
+# Match in a lineup => +2 and a "tracked" badge. Copied from Lori's list — proto-punk & garage,
+# indie / art-rock, craft pop, and the global / diaspora / jazz spine.
+artists_tracked:
+  # proto-punk / garage / punk (the Stooges end)
+  - Iggy Pop
+  - The Stooges
+  - Osees
+  - Ty Segall
+  - King Gizzard & the Lizard Wizard
+  - Parquet Courts
+  - Viagra Boys
+  - Fontaines D.C.
+  - Idles
+  # indie / art-rock / post-punk
+  - black midi
+  - Black Country, New Road
+  - Big Thief
+  - Cate Le Bon
+  - Weyes Blood
+  - Angel Olsen
+  - Sharon Van Etten
+  - Dry Cleaning
+  # craft / songwriter pop (the Olivia Rodrigo end)
+  - Olivia Rodrigo
+  - Mitski
+  - Caroline Polachek
+  - Japanese Breakfast
+  - Faye Webster
+  - boygenius
+  - Alanis Morissette # 90s confessional alt-rock — the ancestor of the craft-pop lane; arena tours
+  # global / diaspora / Latin alt / desert blues (the ethnomusicologist spine)
+  - Chicano Batman
+  - Hermanos Gutiérrez
+  - Khruangbin
+  - Mdou Moctar
+  - Tinariwen
+  - Bombino
+  - Altın Gün
+  - Combo Chimbita
+  - Meridian Brothers
+  - Helado Negro
+  - Y La Bamba
+  - Hurray for the Riff Raff
+  # jazz / soul / funk (LA scene)
+  - Kamasi Washington
+  - Thundercat
+  - BadBadNotGood
+  - Adrian Younge
+  - Kacey Musgraves
+  - Grateful Dead
+  - David Bowie
+  - Lauryn Hill
+
+comedians_loved: []
+venues_loved:
+  [
+    Alex Theatre,
+    Zebulon,
+    Lodge Room,
+    ETA,
+    Permanent Records Roadhouse,
+    The Echo,
+    Teragram Ballroom,
+    The Greek,
+    Gold Line,
+    Masonic Lodge at Hollywood Forever
+  ]
+
+feedback:
+  - "2026-10-11: New profile, seeded as a copy of Lori's taste (band/live-music
+    forward, broad genre range; penalize only bottle-service clubs / cover
+    bands / junk). Early 30s, lives in Sherman Oaks (Valley geo). Married to
+    Alexa (username: alexa) — good default pairing for group picks."

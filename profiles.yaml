@@ -107,3 +107,8 @@ profiles:
     name: Danny              #   username is the access key + is guessable here; swap for something
     taste: profiles/danny/taste.yaml        #   non-obvious before sharing the feed widely.
     profile: profiles/danny/profile.yaml    # geo only: Culver City home + Westside near-home radius.
+
+  - username: sevag          # friend profile (not owner/admin). Seeded as a copy of Lori's taste.
+    name: Sevag              #   Early 30s, Sherman Oaks; married to Alexa (username: alexa).
+    taste: profiles/sevag/taste.yaml        #   username is guessable — swap before sharing widely.
+    profile: profiles/sevag/profile.yaml    # Lori's mechanism, geo retuned to Sherman Oaks.
