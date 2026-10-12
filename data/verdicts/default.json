@@ -48066,6 +48066,43 @@
       "judged_at": "2026-10-11T12:11:41",
       "input_version": 2,
       "score_at_judge": 7
+    },
+    "b481b015a4e4": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "Pre-Halloween perreo is a reggaeton open-format party with no DJ billing; close to home, but nothing in the house/techno lane.",
+      "confidence": "med",
+      "judged_at": "2026-10-12T12:28:34",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "ab8dc0b39c0e": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Ronny J is a rap producer, so a 'house set' at an unnamed house show is more likely a party than a real selector; the house tag is thin. Unknown venue and no lineup, so worth a look only if you know the crew.",
+      "confidence": "low",
+      "judged_at": "2026-10-12T12:28:34",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "31dc65671c0f": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free Wednesday afters in DTLA with no lineup. The 'Wednesday' Spotify match is the band name, not this night, so it earns no lift.",
+      "confidence": "low",
+      "judged_at": "2026-10-12T12:28:34",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "516d561b4987": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Tech-house/minimal after-hours at The Lexington, 11pm-5am, free with RSVP before 1. It's the only real late-night house room in this batch. Night 11 of a 13-night run, so one Thursday is enough; no lineup listed.",
+      "confidence": "med",
+      "judged_at": "2026-10-12T12:28:34",
+      "input_version": 2,
+      "score_at_judge": 6
     }
   }
 }

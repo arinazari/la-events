@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/11/2026 deterministically (no API). 152 candidates. Signals: big-venue 127, festival 19, tracked 7, editorial 2._
+_Generated 10/12/2026 deterministically (no API). 150 candidates. Signals: big-venue 125, festival 19, tracked 7, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -213,8 +213,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 11/15 | 2 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-11-15-2026/event/0A006494C5CE878D) |
-| Sun 11/15 | 2 | RAWAYANA - ¿Dónde es el after? World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/rawayana-donde-es-el-after-world-inglewood-california-11-15-2026/event/0900646DB256B395) |
 | Mon 11/16 | 2 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-11-16-2026/event/0A006494C82189BE) |
 | Tue 11/17 | 2 | Enrique Bunbury (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 11/18 | 2 | Teddy Swims: The UGLY Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/teddy-swims-the-ugly-tour-inglewood-california-11-18-2026/event/0900648DE2F4A831) |
