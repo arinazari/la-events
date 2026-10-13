@@ -1,22 +1,22 @@
-# LA Events — 2026-10-12
-*Digest regenerated Mon 10/12 — picks updated.*
+# LA Events — 2026-10-13
+*Digest regenerated Tue 10/13 — picks updated.*
 
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Checked Mon 10/12 · no new or changed events since the last pull*
+*Checked Tue 10/13 · no new or changed events since the last pull*
 
-<!-- take: Quiet Monday, then the heat arrives Friday — Detroit royalty Saturday and a Halloween run of techno behind it. -->
-A slow start to the week — Monday and Tuesday are afters and small rooms — but the weekend of 10/16 is where it turns. Saturday is the one to protect: Carl Craig and Octave One (Live) is a rare Detroit pairing. Halloween weekend is stacking up behind it, with Hawtin, Kraviz and Ellen Allien all on the board. If you can only do one night this week, make it Saturday.
+<!-- take: Techno-heavy week — Marco Carola at the Shrine Wednesday, Carl Craig & Octave One Saturday, Halloween ramping behind it. -->
+A stretch where the techno calendar leads: Marco Carola's rolling set at the Shrine hits tomorrow, and Carl Craig with Octave One live is the Saturday anchor. Underneath, Halloween season is already pulling in the big fests and the Lights Down Low crowd. If you can only do one of the Carola dates, take Friday over Wednesday unless you need the weeknight.
 
 ## Tonight & tomorrow
 
-Quiet stretch — the afters at Lexington are there if you want one, otherwise save it for Friday.
+Tomorrow's the move: Prospa's Prophecy at the Shrine with Marco Carola; tonight is arena-pop or skip.
 
-- `Today 11pm-5am` **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2555204)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23 · [card ↗](https://arinazari.github.io/la-events/?e=af1456ca7e2c) — *Night 3 of 10 of Lexington's weeknight afters: no lineup named, tech-house, walkable DTLA. Fine as a run, but nothing to plan around.*
-- `Today 4am-11am` **[Afters @ Tooneyverse](https://stageglo.me/events/afters-tooneyverse-free-cocktail-w-entry-2026-10-12/hz20261012)** — 1253 S Los Angeles St Ste C (Los Angeles) · afters · $15 · [card ↗](https://arinazari.github.io/la-events/?e=c41d78d8b8be)
-- `Today 8:30pm` **[Lucian Ban & Mat Maneri's Transylvanian Dance](https://dice.fm/event/6a78becc75539100011ec653)** — 2220 Arts + Archives, Historic Filipinotown · $16.85 · [card ↗](https://arinazari.github.io/la-events/?e=1c84b6222de8)
-- `Tomorrow 7:10pm` **[Ella Langley](https://www.lagreektheatre.com/)** — Greek Theatre-Los Angeles, Los Feliz · big venue · [card ↗](https://arinazari.github.io/la-events/?e=f544dcb23afb)
-- `Tomorrow 5pm` **[DJ Slow Roller & DJ Contact High](https://dice.fm/event/6a986b59d5e71d0001106432)** — Sid The Cat Auditorium, South Pasadena · [card ↗](https://arinazari.github.io/la-events/?e=d7a81eb03857)
-- `Tomorrow 6pm` **[Pink Noise: For the Girls ft. ALLYSAD, Selma Eriksen & Rey Solei](https://www.ticketmaster.com/pink-noise-for-the-girls-ft-los-angeles-california-10-13-2026/event/0900653CAA85A556)** — The Moroccan Lounge, Arts District · [card ↗](https://arinazari.github.io/la-events/?e=fbaf6779c3b4)
+- `Today 4am-11am` **[Afters @ Tooneyverse](https://stageglo.me/events/afters-tooneyverse-free-cocktail-w-entry-2026-10-13/hz20261013)** — 1253 S Los Angeles St Ste C (Los Angeles) · afters · $15 · [card ↗](https://arinazari.github.io/la-events/?e=aae286ee03a2)
+- `Today 7:10pm` **[Ella Langley](https://www.lagreektheatre.com/)** — Greek Theatre-Los Angeles, Los Feliz · big venue · [card ↗](https://arinazari.github.io/la-events/?e=f544dcb23afb)
+- `Today 5pm` **[DJ Slow Roller & DJ Contact High](https://dice.fm/event/6a986b59d5e71d0001106432)** — Sid The Cat Auditorium, South Pasadena · [card ↗](https://arinazari.github.io/la-events/?e=d7a81eb03857)
+- `Tomorrow 7pm` ⭐ **[Prospa present Prophecy](https://www.axs.com/events/1447132/prospa-present-prophecy-tickets)** — Shrine Expo Hall, University Park · big room · $53-59 · [card ↗](https://arinazari.github.io/la-events/?e=99c05e6fde93) — *Marco Carola, a tracked name, in a long Music On-style rolling set at a Goldenvoice/Framework Shrine night, with Prospa from your rotation on the bill. Two-night run: this is the 10/14 Wednesday, so compare it with the 10/16 Friday before locking in.*
+- `Tomorrow time TBA` **[Prospa (3rd Show Added!)](https://www.axs.com/events/1447132/prospa-present-prophecy-tickets)** — Framework / re:frame (LA) · [card ↗](https://arinazari.github.io/la-events/?e=9fe84a9fab56)
+- `Tomorrow 11pm-5am` **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2555206)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23 · [card ↗](https://arinazari.github.io/la-events/?e=c52d3710d3e7) — *Same Nightshift run, Wednesday with no lineup. Weeknight filler that duplicates the other nights.*
 
 ## Don't miss
 
@@ -37,28 +37,20 @@ Quiet stretch — the afters at Lexington are there if you want one, otherwise s
 
 
 **New to the slate**
-- `Tue 10/20` 🆕 **[THRiLLER NiGHT](https://posh.vip/e/thriller-night-3)** — El Cid, Silver Lake · $8.19 · [card ↗](https://arinazari.github.io/la-events/?e=64fe2f080111)
-- `Tue 10/20` 🆕 **[Mosaic Coyote](https://ra.co/events/2558828)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=fb1976f98269)
-- `Wed 10/21` 🆕 **[9PM SHARP • October 21th • hosted by D.Sharp](https://posh.vip/e/9pm-sharp-2026-10-22-8-0)** — The Silverlake Lounge, Silver Lake · free · [card ↗](https://arinazari.github.io/la-events/?e=d9af36f1a281)
-- `Thu 10/22` 🆕 **[Soiree Sets x Galerie on Sunset Presents: Halloween](https://posh.vip/e/soiree-sets-x-sunset-at-galerie-presents-halloween)** — Galerie on Sunset · day party · $29.13 · [card ↗](https://arinazari.github.io/la-events/?e=c4124849334f)
+- `Sat 10/17` 🆕 **[Higher Grooves Rooftop Party](https://ra.co/events/2559420)** — The Broken Shaker Los Angeles, DTLA · day party · [card ↗](https://arinazari.github.io/la-events/?e=6a8fe75bd738) — *A DTLA rooftop with groove-forward house from agraybé and Andy Oro (Made to Move orbit), early evening and close to home. It's the rooftop-groove night you like, and the score of 6 undersells it.*
+- `Mon 10/19` 🆕 **[AFTERS 10-19 ( MONDAY )](https://posh.vip/e/afters-1019-monday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=62b48cb42c92)
+- `Wed 10/21` 🆕 **[Clinic Wednesday x Amore](https://ra.co/events/2559635)** — Jungle Hollywood, Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=e19af0d3cdfc)
+- `Sun 11/15` 🆕 **[Groove Motive featuring Ragie Ban](https://ra.co/events/2559660)** — The Spotlight, Los Angeles · day party · [card ↗](https://arinazari.github.io/la-events/?e=dea111d46107)
+
+**Updated**
+- `Fri 10/23` **[Channel Tres, &Friends, Fifi](https://www.axs.com/events/1428029/channel-tres-tickets)** — Shrine Expo Hall, University Park · big room · $53+ · ↻ updated (start) · [card ↗](https://arinazari.github.io/la-events/?e=9aa15851e23f) — *Channel Tres is core rotation, a live deep-house/funk act in the Moodymann vein, with &Friends and FIFI on the bill. Go with this listing.*
 
 ## Next two weeks
-
-### Monday · October 12
-
-**Electronic & dance**
-- `11pm-5am` (Mon 10/12 +10 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2555214)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23 · [card ↗](https://arinazari.github.io/la-events/?e=d01b474ff697)  
-  Blind Tiger's weekly late-night room at the Lex: no named bill, but tech-house and minimal until 5 is the pitch, and RSVP before 1 gets you in free. Reliable fallback when nothing bigger is calling.
-- `4am-11am` (Mon 10/12 + Tue 10/13) **[Afters @ Tooneyverse](https://stageglo.me/events/afters-tooneyverse-free-cocktail-w-entry-2026-10-12/hz20261012)** — 1253 S Los Angeles St Ste C (Los Angeles) · afters · $15 · [card ↗](https://arinazari.github.io/la-events/?e=c41d78d8b8be)
-
-**Live music**
-- `8:30pm` **[Lucian Ban & Mat Maneri's Transylvanian Dance](https://dice.fm/event/6a78becc75539100011ec653)** — 2220 Arts + Archives, Historic Filipinotown · $16.85 · [card ↗](https://arinazari.github.io/la-events/?e=1c84b6222de8)
-
-- *Also:* [The Rasmus with Special Guests: Saint Agnes and Death Valley Dreams](https://www.ticketmaster.com/the-rasmus-with-special-guests-saint-los-angeles-california-10-12-2026/event/090064E22BDDEF96) (The Regent Theater) · [ScHoolboy Q - 10 Years of BLANK FACE LP](https://www.axs.com/events/1542408/schoolboy-q-tickets) (The Novo)
 
 ### Tuesday · October 13
 
 **Electronic & dance**
+- `4am-11am` **[Afters @ Tooneyverse](https://stageglo.me/events/afters-tooneyverse-free-cocktail-w-entry-2026-10-13/hz20261013)** — 1253 S Los Angeles St Ste C (Los Angeles) · afters · $15 · [card ↗](https://arinazari.github.io/la-events/?e=aae286ee03a2)
 - `5pm` **[DJ Slow Roller & DJ Contact High](https://dice.fm/event/6a986b59d5e71d0001106432)** — Sid The Cat Auditorium, South Pasadena · [card ↗](https://arinazari.github.io/la-events/?e=d7a81eb03857)
 
 **Live music**
@@ -71,6 +63,8 @@ Quiet stretch — the afters at Lexington are there if you want one, otherwise s
 **Electronic & dance**
 - `7pm` (Wed 10/14 + Fri 10/16) ⭐ **[Prospa present Prophecy](https://www.axs.com/events/1447132/prospa-present-prophecy-tickets)** — Shrine Expo Hall, University Park · big room · $53-59 · [card ↗](https://arinazari.github.io/la-events/?e=99c05e6fde93)  
   Carola is the reason to go: a rolling, hypnotic Music On style set in a big Shrine room, and he is already on your tracked list. Expect scale over intimacy, but the price is reasonable for a headliner of his weight.
+- `11pm-5am` (Wed 10/14 +9 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2555214)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23 · [card ↗](https://arinazari.github.io/la-events/?e=d01b474ff697)  
+  Blind Tiger's weekly late-night room at the Lex: no named bill, but tech-house and minimal until 5 is the pitch, and RSVP before 1 gets you in free. Reliable fallback when nothing bigger is calling.
 
 **Live music**
 - `time TBA` **[Prospa (3rd Show Added!)](https://www.axs.com/events/1447132/prospa-present-prophecy-tickets)** — Framework / re:frame (LA) · [card ↗](https://arinazari.github.io/la-events/?e=9fe84a9fab56)
@@ -91,7 +85,7 @@ Quiet stretch — the afters at Lexington are there if you want one, otherwise s
   Second night of the Hollywood Forever run, so it's the easier one to get into if the first sells out. Loose, wiry, sweaty rock in a cemetery setting is a good fall night.
 
 ### Friday · October 16
-Subb-an and Halo Varga run 10pm to 6am — a late start, so eat early and pace yourself.
+Deep Steppe's all-nighter from 10pm is the main event; eat early in the Arts District and pace yourself.
 
 **Electronic & dance**
 - `10pm-6am` ⭐ **[Deep Steppe & Handpicked presents..Subb-an + Halo Varga + Babylon Beach](https://ra.co/events/2538217)** — TBA, Los Angeles · $10.50-37 · [card ↗](https://arinazari.github.io/la-events/?e=763b607e37cd)  
@@ -104,7 +98,7 @@ Subb-an and Halo Varga run 10pm to 6am — a late start, so eat early and pace y
   A Stones Throw 30th afterparty with J.Rocc behind the decks should be a proper crate-digger set, soul, funk and boogie. It's at the Lodge Room, which you like, and nearby. This is a beats and records night, not a house one.
 
 ### Saturday · October 17
-Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reveal before you plan dinner.
+Carl Craig & Octave One live from 11pm is the night; keep the early evening easy.
 
 **Electronic & dance**
 - `11pm-5am` ⭐ **[Carl Craig & Octave One (Live)](https://ra.co/events/2553888)** — TBA, Los Angeles · $34.50-51.70 · [card ↗](https://arinazari.github.io/la-events/?e=d8c62f0cbe3a)  
@@ -115,8 +109,8 @@ Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reve
   A solo headline set from a rising UK garage name — good if you want UKG specifically, but it's a headliner-only booking at Academy with no support billed yet.
 - `10pm-6am` **[Better Tomorrow Presents: Rodney (all night long)](https://ra.co/events/2528098)** — Better Tomorrow, Los Angeles · afters · $10-25 · [card ↗](https://arinazari.github.io/la-events/?e=fa8716a99f2f)  
   Better Tomorrow is the small, no-phones, big-sound room this lane is built for, and an all-night open-to-close set is exactly the format worth clearing a night for — but Rodney himself doesn't turn up any verifiable public profile, so this is a bet on the room more than the name.
-- `4pm-12am` **[Pawsa](https://dice.fm/event/6d83r3-pawsa-17th-oct-the-rio-vista-lot-the-historic-sears-building-los-angeles-tickets)** — The Rio Vista Lot - The Historic Sears Building (Los Angeles), Boyle Heights · day party · $120+ · [card ↗](https://arinazari.github.io/la-events/?e=3406f6b9e9d5)  
-  A single-headliner day party at the Sears building with one of tech-house's real tastemakers — no undercard listed yet, so it lives or dies on how long Pawsa's own set runs. (It's an open-air lot party.)
+- `7pm` 🆕 **[Higher Grooves Rooftop Party](https://ra.co/events/2559420)** — The Broken Shaker Los Angeles, DTLA · day party · [card ↗](https://arinazari.github.io/la-events/?e=6a8fe75bd738)  
+  agraybé — LA/Minnesota DJ (Ariana Gray Bé), part of the Made to Move orbit — psychedelic, groove-forward house selections; releases via Kajunga.
 
 - *Also:* [SmartLess Live with Jason Bateman, Sean Hayes, & Will Arnett](https://www.ticketmaster.com/smartless-live-with-jason-bateman-sean-hollywood-california-10-17-2026/event/0B006482D29D6B01) (Hollywood Bowl)
 
@@ -131,20 +125,22 @@ Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reve
 
 ### Monday · October 19
 
+**Electronic & dance**
+- `11pm` 🆕 **[AFTERS 10-19 ( MONDAY )](https://posh.vip/e/afters-1019-monday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=62b48cb42c92)
+
 **Live music**
 - `7:30pm` **[Kacey Musgraves w/ Estevie](https://www.cryptoarena.com/)** — Crypto.com Arena, DTLA · big venue · [card ↗](https://arinazari.github.io/la-events/?e=c5a4ec16269a)  
   Same arena run as the night before, just a different opener (LA pop act Estevie instead of Gabriella Rose) — pick whichever date works, the calculus doesn't change.
 - `8pm` **[Chinchilla](https://www.ticketmaster.com/chinchilla-los-angeles-california-10-19-2026/event/090064F7158AAC30)** — Pacific Electric, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=cb442ff70481)
 - `6pm` **[Deaf Club](https://app.opendate.io/e/deaf-club-presser-null-october-19-2026-760898)** — Permanent Records Roadhouse, Cypress Park · $20 · [card ↗](https://arinazari.github.io/la-events/?e=6506ed381765)
-- `8pm` **[Channel Surfing: 3D Short Films Curated by Blake Williams](https://dice.fm/event/6ab825bd6081a30001dbda88)** — 2220 Arts + Archives, Historic Filipinotown · $15.00 · [card ↗](https://arinazari.github.io/la-events/?e=4595b1ca47e6)
 
 ### Tuesday · October 20
 
 **Electronic & dance**
-- `10pm` 🆕 **[THRiLLER NiGHT](https://posh.vip/e/thriller-night-3)** — El Cid, Silver Lake · $8.19 · [card ↗](https://arinazari.github.io/la-events/?e=64fe2f080111)
+- `10pm` **[THRiLLER NiGHT](https://posh.vip/e/thriller-night-3)** — El Cid, Silver Lake · $8.19 · [card ↗](https://arinazari.github.io/la-events/?e=64fe2f080111)
 
 **Live music**
-- `6:30pm` 🆕 **[Mosaic Coyote](https://ra.co/events/2558828)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=fb1976f98269)
+- `6:30pm` **[Mosaic Coyote](https://ra.co/events/2558828)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=fb1976f98269)
 - `8pm` **[Jessie Ware: The Superbloom Tour](https://www.ticketmaster.com/jessie-ware-the-superbloom-tour-los-angeles-california-10-20-2026/event/0900648D8AE9388F)** — Greek Theatre, Los Feliz · big venue · [card ↗](https://arinazari.github.io/la-events/?e=c8c0cec9cb91)
 
 - *Also:* [Hablando Huevadas - US Tour 2026](https://www.ticketmaster.com/hablando-huevadas-us-tour-2026-los-angeles-california-10-20-2026/event/090064FEF473F3BA) (Orpheum Theatre)
@@ -153,7 +149,7 @@ Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reve
 
 **Electronic & dance**
 - `11pm` **[AFTERS 10-21 ( WEDNESDAY )](https://posh.vip/e/afters-1021-wednesday-)** — 129 E 3rd St, DTLA · afters · free · [card ↗](https://arinazari.github.io/la-events/?e=31dc65671c0f) — *Free Wednesday afters in DTLA with no lineup. The 'Wednesday' Spotify match is the band name, not this night, so it earns no lift.*
-- `9pm` 🆕 **[9PM SHARP • October 21th • hosted by D.Sharp](https://posh.vip/e/9pm-sharp-2026-10-22-8-0)** — The Silverlake Lounge, Silver Lake · free · [card ↗](https://arinazari.github.io/la-events/?e=d9af36f1a281)
+- `10pm` 🆕 **[Clinic Wednesday x Amore](https://ra.co/events/2559635)** — Jungle Hollywood, Hollywood · [card ↗](https://arinazari.github.io/la-events/?e=e19af0d3cdfc)
 
 **Live music**
 - `7:30pm` **[Ravyn Lenae Presents: Blue Island](https://www.lagreektheatre.com/)** — Greek Theatre-Los Angeles, Los Feliz · big venue · [card ↗](https://arinazari.github.io/la-events/?e=17d1133a1d08)  
@@ -163,7 +159,7 @@ Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reve
 ### Thursday · October 22
 
 **Electronic & dance**
-- `10:30pm` 🆕 **[Soiree Sets x Galerie on Sunset Presents: Halloween](https://posh.vip/e/soiree-sets-x-sunset-at-galerie-presents-halloween)** — Galerie on Sunset · day party · $29.13 · [card ↗](https://arinazari.github.io/la-events/?e=c4124849334f)
+- `10:30pm` **[Soiree Sets x Galerie on Sunset Presents: Halloween](https://posh.vip/e/soiree-sets-x-sunset-at-galerie-presents-halloween)** — Galerie on Sunset · day party · $29.13 · [card ↗](https://arinazari.github.io/la-events/?e=c4124849334f)
 - `9pm-2am` **[Obscene (Goth / Industrial / EBM / Darkwave)](https://ra.co/events/2348303)** — The Slipper Clutch, DTLA · free · [card ↗](https://arinazari.github.io/la-events/?e=baa078451075)
 - `10pm` **[Soft Beat at CLUB TEEGEE](https://ra.co/events/2552610)** — Club Tee Gee, Atwater Village · [card ↗](https://arinazari.github.io/la-events/?e=94e4e0018317)
 
@@ -171,9 +167,10 @@ Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reve
 - `8:30pm` **[Billy T and the Fam](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=d17fbb8aea9b)
 
 ### Friday · October 23
+<!-- tier3:blueprint 2026-10-23 -->
 
 **Electronic & dance**
-- `9pm` **[Channel Tres, &Friends, Fifi](https://www.axs.com/events/1428029/channel-tres-tickets)** — Shrine Expo Hall, University Park · big room · $53+ · [card ↗](https://arinazari.github.io/la-events/?e=9aa15851e23f)  
+- `9pm` **[Channel Tres, &Friends, Fifi](https://www.axs.com/events/1428029/channel-tres-tickets)** — Shrine Expo Hall, University Park · big room · $53+ · ↻ updated (start) · [card ↗](https://arinazari.github.io/la-events/?e=9aa15851e23f)  
   Channel Tres is the one in heavy rotation for you, and a Shrine Expo Hall show suits his groove-heavy live set. It's a big room, not a club, so it's more of a concert than a dance floor.
 - `5am-3pm` **[SYNTHESIS 002: Anastasia Giovani, Blazej Malinowski, Kameliia & Secus](https://ra.co/events/2434324)** — TBA - Los Angeles, Los Angeles · afters · $29 b4 6 / $34 · [card ↗](https://arinazari.github.io/la-events/?e=5d50585cdb35)  
   A legit deep-techno afterhours booking — Berlin's Blazej Malinowski and Oslo's Kameliia flying in alongside LA's own Anastasia Giovani and Secus for a 5am TBA start. Hypnotic, dense end of the spectrum, not big-room — worth it only if you're actually built for a real after-hours.
@@ -193,6 +190,7 @@ Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reve
 - *Also:* [Drag Show "Pumped Fridays" @ Mary's West Hollywood](https://www.universe.com/events/drag-show-pumped-fridays-marys-west-hollywood-tickets-86TCQV?ref=ticketmaster) (Hamburger Mary's - West Hollywood)
 
 ### Saturday · October 24
+<!-- tier3:blueprint 2026-10-24 -->
 
 **Electronic & dance**
 - `10pm-6am` **[Dialed In with Darryn Jones, Zernell & Rich A.B,](https://ra.co/events/2541572)** — TBA, Los Angeles · $23-28.75 · [card ↗](https://arinazari.github.io/la-events/?e=aeda43a5b69f)  
@@ -219,6 +217,13 @@ Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reve
 - `8pm` **[Muto Tapes](https://ra.co/events/2553071)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=fdf1bac5c5f5)
 - `2pm` **[The Dyke Agenda](https://ra.co/events/2536305)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=f93b1875a9ea)
 
+### Monday · October 26
+
+**Live music**
+- `8pm` **[Tom Jones : Come Gather Round Tour](https://www.ticketmaster.com/tom-jones-come-gather-round-tour-los-angeles-california-10-26-2026/event/090064B43E17B4D1)** — Greek Theatre, Los Feliz · big venue · [card ↗](https://arinazari.github.io/la-events/?e=35efab708604)
+
+- *Also:* [SMOKESTACK LIGHTNING (formerly BLOWIN SMOKE)](https://santamonica.harvelles.com/shows/379994) (Harvelle's (Santa Monica)) · [very good mondays](https://dice.fm/event/6a9da99d7c2ded0001a5578b) (Gold Diggers) · [The Well, Pink Fuzz](https://dice.fm/event/6a5e77918c4b420001d2bc01) (Zebulon) · [Strawberry Fuzz x Plague Vendor w/ Bitchkiss (18+)](https://www.ticketmaster.com/strawberry-fuzz-x-plague-vendor-w-los-angeles-california-10-26-2026/event/0900652FE632E2DB) (The Regent Theater)
+
 ## Weekends ahead
 
 ### Weekend of Fri 10/30
@@ -230,9 +235,9 @@ Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reve
 
 ### Weekend of Fri 11/6
 - `Sat 11/7` ⭐ **[Mixmag Lab: Los Angeles ft. Sam Divine's 555 [L.A. Debut]](https://ra.co/events/2512684)** — 1720, Arts District · $28.75-40.25 · [card ↗](https://arinazari.github.io/la-events/?e=e8aa02f1a8f7) — *Sam Divine's 555 makes its LA debut at 1720 for Mixmag Lab, with SOHMI and Juliet Mendoza (a name in your rotation). It's a Defected-orbit tech/house room in the Arts District, close to home. This is the Saturday to build around.*
+- `Sat 11/7` ⭐ **[Moby, Underworld, fcukers, Nia Archives (DJ set), DJ Holographic](https://www.axs.com/events/1527850/moby-underworld-tickets)** — Brookside at the Rose Bowl, Pasadena · day party · [card ↗](https://arinazari.github.io/la-events/?e=f5eae69f016e) — *Underworld live and Moby, with Nia Archives and your core-rotation Fcukers, at an outdoor Rose Bowl afternoon. It's a stacked electronic bill with real legends, though Pasadena logistics cost it a notch against Carl Craig.*
 - `Fri 11/6` **[WORK presents: Narciss, Masha Mar, & Marc Homer](https://ra.co/events/2525849)** — TBA - Los Angeles, Los Angeles · $25 b4 12 / $29-42 · [card ↗](https://arinazari.github.io/la-events/?e=912b65709d9c) — *WORK afterhours with Masha Mar (core rotation, Italo and house edits) and Marc Homer, a Gegen/HÖR techno regular. 11pm to 5am at a TBA location is right in the warehouse lane. The Narciss billing is ambiguous, but the other two carry it.*
 - `Fri 11/6` **[Innellea & Rafael Cerato](https://avalonhollywood.com/event/innellea-nightclub-near-me-discover-avalon-hollywood-2026-november-6-best-night-club-near-me-hollywood-los-angeles/)** — Avalon Hollywood, Hollywood · big room · $20+ · [card ↗](https://arinazari.github.io/la-events/?e=96a428cf899b) — *Innellea is a core-rotation Afterlife-orbit melodic techno headliner at Avalon. The score understates how rarely he lands in LA at this scale, and Cerato is solid support. Top pick of the night for the club lane.*
-- `Sat 11/7` **[Moby, Underworld, fcukers, Nia Archives (DJ set), DJ Holographic](https://www.axs.com/events/1527850/moby-underworld-tickets)** — Brookside at the Rose Bowl, Pasadena · day party · [card ↗](https://arinazari.github.io/la-events/?e=f5eae69f016e) — *Underworld and Moby headlining a Rose Bowl day festival, with Nia Archives and your core-rotation Fcukers. A legit electronic bill. It's a drive to Pasadena, but worth it.*
 - *…plus 16 more that weekend — full list: [weekend digest](weekends/2026-11-06.md)*
 
 ### Weekend of Fri 11/13
@@ -245,14 +250,14 @@ Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reve
 ## On the marquee
 
 *Movies live here (and on the site's marquee page): runs opening this stretch, then the one-night screenings worth a seat.*
-- `Tue 10/13` **[Burn Witch, Burn](https://ticketing.uswest.veezi.com/purchase/4186?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Wed 10/14* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=8b77f0352321) <!-- tier3:gloss 8b77f0352321 -->
+- `Wed 10/14` **[Your Mother Your Mother Your Mother 35mm](https://ticketing.uswest.veezi.com/purchase/4220?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Thu 10/15* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=b8f18fbe7c99) <!-- tier3:gloss b8f18fbe7c99 -->
 - `Thu 10/15` **[Ken Russell's The Devils 35mm](https://ticketing.uswest.veezi.com/purchase/4084?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 8 nights thru Thu 10/22* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=07e1c5c1ac49) <!-- tier3:gloss 07e1c5c1ac49 -->
 - `Thu 10/15` **[Cujo](https://ticketing.uswest.veezi.com/sessions?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 3 nights thru Fri 10/30* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=6ab63f055703) <!-- tier3:gloss 6ab63f055703 -->
 - `Thu 10/15` **[Outpost](https://vidiotsfoundation.org/showtimes/outpost-10-17-26-930-pm/)** — *opens · 2 nights thru Sat 10/17* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=fc3fa9a57508) <!-- tier3:gloss fc3fa9a57508 -->
 - `Thu 10/15` **[Something Wicked This Way Comes](https://ticketing.uswest.veezi.com/purchase/5030?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 3 nights thru Sun 10/18* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=5a40290143e8) <!-- tier3:gloss 5a40290143e8 -->
 - `Fri 10/16` **[From Dusk Till Dawn](https://ticketing.uswest.veezi.com/purchase/5029?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 3 nights thru Fri 10/30* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=7d053caab8d5) <!-- tier3:gloss 7d053caab8d5 -->
 - `Sat 10/17` **[Abbott and Costello Meet Frankenstein](https://ticketing.uswest.veezi.com/purchase/4156?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sun 10/18* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=1e4b6e3eccc0) <!-- tier3:gloss 1e4b6e3eccc0 -->
-- `Mon 10/19` **[Teenage Sex and Death at Camp Miasma](https://ticketing.uswest.veezi.com/purchase/5041?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 11 nights thru Thu 10/29* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=193163c3680d) <!-- tier3:gloss 193163c3680d -->
+- `Sat 10/17` **[The History of Concrete](https://vidiotsfoundation.org/showtimes/the-history-of-concrete-10-17-26-630-pm/)** — *opens · 4 nights thru Fri 10/23* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=4d16f4394d30) <!-- tier3:gloss 4d16f4394d30 -->
 
 ## Around town
 
@@ -303,4 +308,4 @@ Carl Craig & Octave One (Live) from 11pm — venue TBA, so watch RA for the reve
 - **[Coachella 2027](https://www.coachella.com/)** — 4/9–11 and 4/16–18 · Empire Polo Club, Indio CA · **lineup pending** — Advance GA already sold out (~$549–599); official lineup not yet announced. Industry trades (Hits Daily Double) rumor Tame Impala + Dua Lipa headlining with Fred again.. in the "Returning to the Desert" slot — unconfirmed, ~7 months out.
 
 ---
-*⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 22d (175 events), squarespace 14d (51 events), venicewest 14d (23 events), The Venice West 14d (23 events), mccabes 14d (20 events), McCabe's Guitar Shop 14d (24 events)*
+*⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 23d (174 events), squarespace 15d (51 events), venicewest 15d (23 events), The Venice West 15d (23 events), mccabes 15d (20 events), McCabe's Guitar Shop 15d (24 events)*

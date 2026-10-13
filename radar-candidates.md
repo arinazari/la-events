@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/12/2026 deterministically (no API). 150 candidates. Signals: big-venue 125, festival 19, tracked 7, editorial 2._
+_Generated 10/13/2026 deterministically (no API). 153 candidates. Signals: big-venue 127, festival 20, tracked 7, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -92,6 +92,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Wed 11/18 | 1 | Elliott Brothers' COMEDY BLOCK PARTY Hosted by Chris Spenc | The Miracle Theater | festival | [link](https://www.ticketmaster.com/elliott-brothers-comedy-block-party-hosted-inglewood-california-11-18-2026/event/0B00654C9BF53CBD) |
 | Mon 11/30 | 1 | The Wiz (Touring) | Fox Performing Arts Center | festival | [link](https://www.ticketmaster.com/the-wiz-touring-riverside-california-11-30-2026/event/0B0064F4C60A3867) |
 
 ## December 2026
@@ -162,6 +163,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 12/11 | 3 | Pepe Aguilar (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 12/12 | 3 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597291/red-bull-home-ground-world-finals-2026-tickets) |
 | Sat 12/12 | 3 | Los Gemelos de Sinaloa: The Gemeliza Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/los-gemelos-de-sinaloa-the-gemeliza-inglewood-california-12-12-2026/event/0A006523CE04D208) |
+| Sun 12/13 | 3 | Armenian Music Awards | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Thu 12/17 | 3 | Cece Winans | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/18 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-18-2026/event/090064BBE484EE0D) |
 | Sat 12/19 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-19-2026/event/090064BBE48FEE25) |
@@ -208,12 +210,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Thu 4/1 | 3 | HANS ZIMMER LIVE | Crypto.com Arena | big-venue | [link](https://www.axs.com/events/1590917/hans-zimmer-live-tickets) |
 | Sat 4/3 | 3 | FINAL FANTASY 40th Anniversary | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1621573/final-fantasy-40th-anniversary-tickets) |
 | Sat 4/3 | 3 | Distant Worlds: Music from Final Fantasy | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
+| Sat 4/10 | 3 | Jay Wheeler - La Voz Favorita Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jay-wheeler-la-voz-favorita-tour-inglewood-california-04-10-2027/event/0A00654405517B6A) |
 
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 11/16 | 2 | The R&B Tour - Starring Usher Raymond & Chris Brown | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/the-rb-tour-starring-usher-raymond-inglewood-california-11-16-2026/event/0A006494C82189BE) |
 | Tue 11/17 | 2 | Enrique Bunbury (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 11/18 | 2 | Teddy Swims: The UGLY Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/teddy-swims-the-ugly-tour-inglewood-california-11-18-2026/event/0900648DE2F4A831) |
 | Thu 11/19 | 2 | Brutalismus 3000, Eurohead, Oza, Ali Rq, Debasement | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1541331/brutalismus-3000-tickets) |
@@ -254,6 +256,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Wed 1/20 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-20-2027/event/090064A4B79AF95E) |
 | Wed 1/20 | 2 | Steve Winwood | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 1/21 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-21-2027/event/090064A4B7A6F97C) |
+| Sat 1/23 | 2 | Mike Epps (21 and Over) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAeaQb) |
 | Sun 1/24 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-24-2027/event/090064A4B7B2F9A0) |
 | Mon 1/25 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-25-2027/event/090064A4B7BFF9BB) |
 | Wed 1/27 | 2 | FLO - Therapy At The Club Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/flo-therapy-at-the-club-tour-inglewood-california-01-27-2027/event/0A00653DFE3BB997) |
