@@ -1,7 +1,30 @@
 # Source candidates — Discover mode
 
-_Generated 2026-10-06 (previous pass: 2026-09-01). Review → approve → fold into `sources.yaml`,
+_Generated 2026-10-13 (previous pass: 2026-10-06). Review → approve → fold into `sources.yaml`,
 then update `last_discovery`. Eventbrite `--scan-catalog` run today: no new organizers._
+
+## New this pass (2026-10-13) — comedy / rep cinema / live / theater
+
+Scout had WebFetch/WebSearch only (no DICE slugs verifiable). Eventbrite `--scan-catalog`: no new organizers.
+Not yet in `sources.yaml` — approve, then add and bump `last_discovery`.
+
+| Name | Category | Method | Endpoint | What it lists | Rec |
+|---|---|---|---|---|---|
+| The Comedy Bureau (LA shows) | comedy | ics | https://thecomedybureau.com/?post_type=tribe_events&tribe_events_cat=los-angeles-shows&ical=1&eventDisplay=list | ~25 LA venues (Fable, Edendale, Scribble, Lyric Hyperion, Pack, UCB Franklin, Mayan…). **30-event cap/request → fetch_ics needs `&tribe-bar-date=` date-stepping (~every 3 days) + UID dedupe**; drop Online/non-LA | ADD (p1), High |
+| Whammy! Analog Media | film | scrape/webfetch | https://www.whammyanalog.com/whammy-events | 16mm/VHS/found-footage screenings, ~18 through 11/6; no year in dates, no ticket links; skip workshops | ADD (p2), check JSON-LD on event page |
+| Akbar (Silver Lake) | live_music | webfetch | https://akbarsilverlake.com/upcoming-events/ | Disco/funk/drag nights, month-bound (Oct posted) | ADD (p2) |
+| A Noise Within (Pasadena) | theater | scrape | https://www.anoisewithin.org/upcoming-events/ | Per-performance rows + ticket links; ~15 rows already in catalog (likely TM) | ADD (p3) |
+| Geffen Playhouse | theater | webfetch | https://www.geffenplayhouse.org/shows/ | Run ranges only; low taste weight | Optional |
+| L.A. Rep-port (Battleship Pretension) | editorial | webfetch signal / newsletter | https://battleshippretension.com/ | Weekly rep-cinema roundup; 403 to WebFetch (unverified) | Optional signal |
+
+Full paste-ready YAML snippets for these are in the 2026-10-13 scout report (notes carry fetch caveats above).
+
+### Status-change flags
+- **Lodge Room** (`flaky`): page now reads cleanly via WebFetch (Oct–Nov, real artists) → recommend `active`, method `webfetch`.
+- **Harvard & Stone** (`flaky`): contradicts the 10/6 "dead" rec — page lists current dates 10/13–10/27 plus a few stale prior-month cells. Keep `flaky` or `active` with a past-date filter. **Human call.**
+- **Lumiere Cinema** (`candidate`): Veezi token unrecoverable → `scrape` lumieretickets.com schedule (unconfirmed).
+- Echo/Echoplex confirmed active (links are all TM → expect heavy dedupe). American Cinematheque stays flaky.
+- Rejected: Lyric Hyperion (calendar abandoned; covered by Comedy Bureau), Secret Movie Club (no upcoming), Peppermint Club/Comedy Chateau (via TM), Ice House (no calendar). Unreachable, retry with real UA: Flappers, UCB LA, Bootleg, Satellite, Hi Hat, Ace.
 
 ## New this pass (2026-10-06)
 
