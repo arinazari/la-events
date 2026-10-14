@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/13/2026 deterministically (no API). 153 candidates. Signals: big-venue 127, festival 20, tracked 7, editorial 2._
+_Generated 10/14/2026 deterministically (no API). 156 candidates. Signals: big-venue 126, festival 24, tracked 7, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -53,7 +53,14 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 1/16 | 4 | 2-Day Ticket: Dogs In A Pile | Pacific Electric | festival | [link](https://www.ticketmaster.com/2day-ticket-dogs-in-a-pile-los-angeles-california-01-16-2027/event/09006548DA01110F) |
 | Sat 1/23 | 4 | 2 DAY PASS - ALLEYCVT | Hollywood Palladium | festival | [link](https://www.ticketmaster.com/2-day-pass-alleycvt-hollywood-california-01-23-2027/event/09006541B491DF63) |
+
+## February 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 2/27 | 4 | 2 DAY PASS - LEVEL UP AT HOLLYWOOD PALLADIUM | Hollywood Palladium | festival | [link](https://www.ticketmaster.com/level-up-at-hollywood-palladium-hollywood-california-02-27-2027/event/0900653031A6AE16) |
 
 ## December 2026
 
@@ -74,6 +81,12 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 2/5 | 3 | Dark Star Orchestra 2 Day Pass | The Wiltern | festival | [link](https://www.ticketmaster.com/dark-star-orchestra-los-angeles-california-02-05-2027/event/09006538CB1DEB91) |
 | Sat 2/6 | 3 | Classics : Painting in Notes | Terrace Theater - Long Beach Conve | festival | [link](https://www.ticketmaster.com/classics-painting-in-notes-long-beach-california-02-06-2027/event/0B0064279F502922) |
+
+## March 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 3/19 | 3 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | The Wiltern | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-los-angeles-california-03-19-2027/event/0900654CF004D2A7) |
 
 ## November 2026
 
@@ -102,6 +115,17 @@ _Review → fold keepers into `festivals.yaml`._
 | Tue 12/1 | 1 | The Wiz (Touring) | Fox Performing Arts Center | festival | [link](https://www.ticketmaster.com/the-wiz-touring-riverside-california-12-01-2026/event/0B0064F4C60F386B) |
 | Sun 12/6 | 1 | Modi: Big Deal Comedy Festival | The Wiltern | festival | [link](https://www.ticketmaster.com/modi-big-deal-comedy-festival-los-angeles-california-12-06-2026/event/0900652AE3A9D236) |
 | Sun 12/20 | 1 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-20-2026/event/0B00648CEFF257C5) |
+
+## March 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 3/26 | 1 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-anaheim-california-03-26-2027/event/0900654BE0A3A30A) |
+
+## December 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
 | Sun 12/13 | 0 | Slackfest West | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/slackfest-west-anaheim-california-12-13-2026/event/09006506EF9C1651) |
 
 ## November 2026
@@ -178,6 +202,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 1/16 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-16-2027/event/0900649DE84C64CD) |
 | Sat 1/16 | 3 | D.O.D Twin Diplomacy, Nate Band, Teeb | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1592102/d-o-d-tickets) |
 | Sat 1/16 | 3 | D.O.D. - Ages 18+ | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
+| Sat 1/16 | 3 |  iHeartRadio ALTer EGO Presented by Capital One | Kia Forum | big-venue | [link](https://www.ticketmaster.com/iheartradio-alter-ego-presented-by-capital-inglewood-california-01-16-2027/event/09006548A834A495) |
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
 | Fri 1/29 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
 | Fri 1/29 | 3 | AYYBO | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1629391/ayybo-tickets) |
@@ -216,7 +241,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 11/17 | 2 | Enrique Bunbury (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 11/18 | 2 | Teddy Swims: The UGLY Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/teddy-swims-the-ugly-tour-inglewood-california-11-18-2026/event/0900648DE2F4A831) |
 | Thu 11/19 | 2 | Brutalismus 3000, Eurohead, Oza, Ali Rq, Debasement | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1541331/brutalismus-3000-tickets) |
 | Fri 11/20 | 2 | Martin Lawrence with Nate Jackson, Karlous Miller and more | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/martin-lawrence-yall-still-know-what-ontario-california-11-20-2026/event/090064F6CAC4B270) |
@@ -320,7 +344,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 11/17 | 0 | Jonas Brothers: The Burning Up Tour All Over Again | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-palm-desert-california-11-17-2026/event/0A00650C36443D5D) |
 | Tue 11/24 | 0 | JOURNEY - Final Frontier Tour (An Evening With) | Honda Center | big-venue | [link](https://www.ticketmaster.com/journey-final-frontier-tour-an-evening-anaheim-california-11-24-2026/event/090064A695B5BA92) |
 
 ## December 2026
