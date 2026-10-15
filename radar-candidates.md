@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/14/2026 deterministically (no API). 156 candidates. Signals: big-venue 126, festival 24, tracked 7, editorial 2._
+_Generated 10/15/2026 deterministically (no API). 153 candidates. Signals: big-venue 125, festival 22, tracked 7, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -88,12 +88,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 3/19 | 3 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | The Wiltern | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-los-angeles-california-03-19-2027/event/0900654CF004D2A7) |
 
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Wed 11/18 | 2 | Palm Springs International Jazz Festival Presents: Rachael | Plaza Theatre | festival | [link](https://www.ticketmaster.com/palm-springs-international-jazz-festival-presents-palm-springs-california-11-18-2026/event/0A0064E4BD0C898F) |
-
 ## December 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -105,7 +99,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 11/18 | 1 | Elliott Brothers' COMEDY BLOCK PARTY Hosted by Chris Spenc | The Miracle Theater | festival | [link](https://www.ticketmaster.com/elliott-brothers-comedy-block-party-hosted-inglewood-california-11-18-2026/event/0B00654C9BF53CBD) |
 | Mon 11/30 | 1 | The Wiz (Touring) | Fox Performing Arts Center | festival | [link](https://www.ticketmaster.com/the-wiz-touring-riverside-california-11-30-2026/event/0B0064F4C60A3867) |
 
 ## December 2026
@@ -161,7 +154,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 11/18 | 3 | Jonas Brothers: The Burning Up Tour All Over Again | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-hollywood-california-11-18-2026/event/0B00650ECDC0DD8B) |
 | Thu 11/19 | 3 | Jonas Brothers: The Burning Up Tour All Over Again | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-hollywood-california-11-19-2026/event/0B006511309DB401) |
 | Fri 11/20 | 3 | Arcángel - La 8va Maravilla World Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/arcangel-la-8va-maravilla-world-tour-inglewood-california-11-20-2026/event/0A0064A792CA7806) |
 | Sat 11/21 | 3 | NieR: Orchestra Concert | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
@@ -203,6 +195,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 1/16 | 3 | D.O.D Twin Diplomacy, Nate Band, Teeb | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1592102/d-o-d-tickets) |
 | Sat 1/16 | 3 | D.O.D. - Ages 18+ | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 1/16 | 3 |  iHeartRadio ALTer EGO Presented by Capital One | Kia Forum | big-venue | [link](https://www.ticketmaster.com/iheartradio-alter-ego-presented-by-capital-inglewood-california-01-16-2027/event/09006548A834A495) |
+| Fri 1/22 | 3 | Riordan Presents "Remapped" | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1642398/riordan-presents-remapped-tickets) |
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
 | Fri 1/29 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
 | Fri 1/29 | 3 | AYYBO | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1629391/ayybo-tickets) |
@@ -241,7 +234,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 11/18 | 2 | Teddy Swims: The UGLY Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/teddy-swims-the-ugly-tour-inglewood-california-11-18-2026/event/0900648DE2F4A831) |
 | Thu 11/19 | 2 | Brutalismus 3000, Eurohead, Oza, Ali Rq, Debasement | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1541331/brutalismus-3000-tickets) |
 | Fri 11/20 | 2 | Martin Lawrence with Nate Jackson, Karlous Miller and more | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/martin-lawrence-yall-still-know-what-ontario-california-11-20-2026/event/090064F6CAC4B270) |
 | Tue 11/24 | 2 | Los Tucanes de Tijuana (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7Paao) |
