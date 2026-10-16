@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/15/2026 deterministically (no API). 153 candidates. Signals: big-venue 125, festival 22, tracked 7, editorial 2._
+_Generated 10/16/2026 deterministically (no API). 154 candidates. Signals: big-venue 126, festival 22, tracked 7, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -154,7 +154,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 11/19 | 3 | Jonas Brothers: The Burning Up Tour All Over Again | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-hollywood-california-11-19-2026/event/0B006511309DB401) |
 | Fri 11/20 | 3 | Arcángel - La 8va Maravilla World Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/arcangel-la-8va-maravilla-world-tour-inglewood-california-11-20-2026/event/0A0064A792CA7806) |
 | Sat 11/21 | 3 | NieR: Orchestra Concert | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 11/21 | 3 | Bunbury - Nuevas Mutaciones Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/bunbury-nuevas-mutaciones-tour-2026-inglewood-california-11-21-2026/event/0A00644ADAD09F63) |
@@ -164,6 +163,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 11/27 | 3 | Afrojack Presents: CONTROL | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1468576/afrojack-presents-control-tickets) |
 | Sat 11/28 | 3 | Ohgeesy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1533707/ohgeesy-tickets) |
 | Sat 11/28 | 3 | Jonathan Lee - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZsja) |
+| Sat 11/28 | 3 | Welcome To The West | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/welcome-to-the-west-ontario-california-11-28-2026/event/0900654EB0C198D9) |
 
 ## December 2026
 
@@ -197,6 +197,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 1/16 | 3 |  iHeartRadio ALTer EGO Presented by Capital One | Kia Forum | big-venue | [link](https://www.ticketmaster.com/iheartradio-alter-ego-presented-by-capital-inglewood-california-01-16-2027/event/09006548A834A495) |
 | Fri 1/22 | 3 | Riordan Presents "Remapped" | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1642398/riordan-presents-remapped-tickets) |
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
+| Sat 1/23 | 3 | Swimming Paul | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1645234/swimming-paul-tickets) |
 | Fri 1/29 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
 | Fri 1/29 | 3 | AYYBO | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1629391/ayybo-tickets) |
 
@@ -206,6 +207,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 2/5 | 3 | Conjunto Primavera, Banda Machos, Montez de Durango | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/noche-de-leyendas-ontario-california-02-05-2027/event/09006536E34FE13E) |
 | Sat 2/6 | 3 | DRAIN | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1598806/drain-tickets) |
+| Sat 2/6 | 3 | KENSHI YONEZU 2026-2027 WORLD TOUR / GHOST | Kia Forum | big-venue | [link](https://www.ticketmaster.com/kenshi-yonezu-20262027-world-tour-ghost-inglewood-california-02-06-2027/event/0900653B09D0F7B1) |
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
 | Fri 2/12 | 3 | Jorge Medina | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jorge-medina-ontario-california-02-12-2027/event/0900651BED2C1C79) |
 | Sat 2/13 | 3 | Los Tucanes De Tijuana | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/los-tucanes-de-tijuana-inglewood-california-02-13-2027/event/090064DEC0F49512) |
@@ -234,9 +236,9 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 11/19 | 2 | Brutalismus 3000, Eurohead, Oza, Ali Rq, Debasement | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1541331/brutalismus-3000-tickets) |
 | Fri 11/20 | 2 | Martin Lawrence with Nate Jackson, Karlous Miller and more | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/martin-lawrence-yall-still-know-what-ontario-california-11-20-2026/event/090064F6CAC4B270) |
 | Tue 11/24 | 2 | Los Tucanes de Tijuana (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7Paao) |
+| Wed 11/25 | 2 | Eslabon Armado | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/eslabon-armado-ontario-california-11-25-2026/event/0900654EB49CA10C) |
 
 ## December 2026
 
@@ -299,7 +301,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 11/19 | 1 | Nikki Glaser | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 11/28 | 1 | Los Gemelos de Sinaloa: The Gemeliza Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/los-gemelos-de-sinaloa-the-gemeliza-anaheim-california-11-28-2026/event/09006523992B5AEA) |
 
 ## December 2026
