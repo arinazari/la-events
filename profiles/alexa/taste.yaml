@@ -4,16 +4,19 @@
 # Schema mirrors the root taste.yaml — see it for examples of what each section can hold.
 
 categories:
-  high:    []   # +3 each match — the core "yes, this is for me" buckets
-  medium:  []   # +2 each
-  low:     []   # +1, include only if exceptional
+  high: [ film, eclectic / genre-spanning events ] # +3 each match — the core "yes, this is for me" buckets
+  medium: [] # +2 each
+  low: [] # +1, include only if exceptional
 
-boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, …)
-penalties: []   # -2 each (the "not for me" list)
+boosts: [ Armenian culture & events, lively young-crowd / early-30s energy ] # +1 each (context: setting, night-of-week, editorial mention, …)
+penalties: [] # -2 each (the "not for me" list)
 
-artists_tracked:  []   # lineup match => +2 and a "tracked" badge
-comedians_loved:  []
-venues_loved:     []
+artists_tracked: [] # lineup match => +2 and a "tracked" badge
+comedians_loved: []
+venues_loved: []
 
 feedback:
   - "New empty profile — taste not configured yet."
+  - "2026-10-17: Loves movies/film, eclectic taste across genres, Armenian
+    culture/events, and lively younger-crowd (early 30s) scenes. (self-edit via
+    concierge)"
