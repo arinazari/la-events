@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T00:06:34+00:00",
+  "generated_at": "2026-10-17T00:14:22+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "47b5f3a97f12",
@@ -4426,11 +4426,17 @@
     },
     "taste": {
       "categories": {
-        "high": [],
+        "high": [
+          "film",
+          "eclectic / genre-spanning events"
+        ],
         "medium": [],
         "low": []
       },
-      "boosts": [],
+      "boosts": [
+        "Armenian culture & events",
+        "lively young-crowd / early-30s energy"
+      ],
       "penalties": [],
       "artists_tracked": [],
       "fyi_artists": [],
@@ -269270,7 +269276,7 @@
   "profile": {
     "name": "Alexa",
     "hash": "5ceefefe6961c242",
-    "taste_yaml": "# Taste profile \u2014 Alexa. EMPTY starter: no preferences set yet, so this feed scores every\n# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only alexa\n# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n\ncategories:\n  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n  medium:  []   # +2 each\n  low:     []   # +1, include only if exceptional\n\nboosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\npenalties: []   # -2 each (the \"not for me\" list)\n\nartists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\ncomedians_loved:  []\nvenues_loved:     []\n\nfeedback:\n  - \"New empty profile \u2014 taste not configured yet.\"\n",
+    "taste_yaml": "# Taste profile \u2014 Alexa. EMPTY starter: no preferences set yet, so this feed scores every\n# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only alexa\n# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n\ncategories:\n  high: [ film, eclectic / genre-spanning events ] # +3 each match \u2014 the core \"yes, this is for me\" buckets\n  medium: [] # +2 each\n  low: [] # +1, include only if exceptional\n\nboosts: [ Armenian culture & events, lively young-crowd / early-30s energy ] # +1 each (context: setting, night-of-week, editorial mention, \u2026)\npenalties: [] # -2 each (the \"not for me\" list)\n\nartists_tracked: [] # lineup match => +2 and a \"tracked\" badge\ncomedians_loved: []\nvenues_loved: []\n\nfeedback:\n  - \"New empty profile \u2014 taste not configured yet.\"\n  - \"2026-10-17: Loves movies/film, eclectic taste across genres, Armenian\n    culture/events, and lively younger-crowd (early 30s) scenes. (self-edit via\n    concierge)\"\n",
     "profile_yaml": null,
     "self_edit": {
       "taste": {
@@ -269278,13 +269284,17 @@
         "exists": true,
         "history": [
           {
+            "date": "2026-10-16",
+            "summary": "taste(Alexa): Loves movies/film, eclectic taste across genres, Armenian culture/events"
+          },
+          {
             "date": "2026-06-25",
             "summary": "Add three empty friend profiles: garo, taylor, alexa (#62)"
           }
         ],
-        "diff": "diff --git a/profiles/alexa/taste.yaml b/profiles/alexa/taste.yaml\nnew file mode 100644\nindex 0000000..0cd4c9e\n--- /dev/null\n+++ b/profiles/alexa/taste.yaml\n@@ -0,0 +1,19 @@\n+# Taste profile \u2014 Alexa. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only alexa\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium:  []   # +2 each\n+  low:     []   # +1, include only if exceptional\n+\n+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: []   # -2 each (the \"not for me\" list)\n+\n+artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n+comedians_loved:  []\n+venues_loved:     []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"",
-        "diff_kind": "applied",
-        "reflected": true,
+        "diff": "diff --git a/profiles/alexa/taste.yaml b/profiles/alexa/taste.yaml\nindex 0cd4c9e..2c2a18a 100644\n--- a/profiles/alexa/taste.yaml\n+++ b/profiles/alexa/taste.yaml\n@@ -4,16 +4,19 @@\n # Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n \n categories:\n-  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n-  medium:  []   # +2 each\n-  low:     []   # +1, include only if exceptional\n+  high: [ film, eclectic / genre-spanning events ] # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium: [] # +2 each\n+  low: [] # +1, include only if exceptional\n \n-boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n-penalties: []   # -2 each (the \"not for me\" list)\n+boosts: [ Armenian culture & events, lively young-crowd / early-30s energy ] # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: [] # -2 each (the \"not for me\" list)\n \n-artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n-comedians_loved:  []\n-venues_loved:     []\n+artists_tracked: [] # lineup match => +2 and a \"tracked\" badge\n+comedians_loved: []\n+venues_loved: []\n \n feedback:\n   - \"New empty profile \u2014 taste not configured yet.\"\n+  - \"2026-10-17: Loves movies/film, eclectic taste across genres, Armenian\n+    culture/events, and lively younger-crowd (early 30s) scenes. (self-edit via\n+    concierge)\"",
+        "diff_kind": "pending",
+        "reflected": false,
         "enriched_at": "2026-07-15"
       },
       "profile": {
