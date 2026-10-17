@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T00:05:11+00:00",
+  "generated_at": "2026-10-17T00:06:58+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "47b5f3a97f12",
@@ -268493,19 +268493,29 @@
       "taste": {
         "file": "profiles/sevryn/taste.yaml",
         "exists": true,
-        "history": [],
-        "diff": "",
-        "diff_kind": "none",
-        "reflected": null,
+        "history": [
+          {
+            "date": "2026-10-17",
+            "summary": "profiles: add blank profile for sevryn (Culver City)"
+          }
+        ],
+        "diff": "diff --git a/profiles/sevryn/taste.yaml b/profiles/sevryn/taste.yaml\nnew file mode 100644\nindex 0000000..d57a315\n--- /dev/null\n+++ b/profiles/sevryn/taste.yaml\n@@ -0,0 +1,19 @@\n+# Taste profile \u2014 Sevryn. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only sevryn\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium:  []   # +2 each\n+  low:     []   # +1, include only if exceptional\n+\n+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: []   # -2 each (the \"not for me\" list)\n+\n+artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n+comedians_loved:  []\n+venues_loved:     []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"",
+        "diff_kind": "pending",
+        "reflected": false,
         "enriched_at": null
       },
       "profile": {
         "file": "profiles/sevryn/profile.yaml",
         "exists": true,
-        "history": [],
-        "diff": "",
-        "diff_kind": "none",
-        "reflected": null,
+        "history": [
+          {
+            "date": "2026-10-17",
+            "summary": "profiles: add blank profile for sevryn (Culver City)"
+          }
+        ],
+        "diff": "diff --git a/profiles/sevryn/profile.yaml b/profiles/sevryn/profile.yaml\nnew file mode 100644\nindex 0000000..6ee05ad\n--- /dev/null\n+++ b/profiles/sevryn/profile.yaml\n@@ -0,0 +1,45 @@\n+# profile.yaml \u2014 MECHANISM overrides for Sevryn's feed (username: sevryn).\n+# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs\n+# that differ need to live here \u2014 anything absent falls back to the repo defaults.\n+#\n+# Sevryn is centered in Culver City, so geo is the only override. Without this file a friend's feed\n+# falls back to the code-default near-home list \u2014 Ari's Silver Lake / Eastside radius.\n+\n+home:\n+  neighborhood: Culver City\n+  coords: [ 34.0211, -118.3965 ] # geo.py's Culver City centroid; drives night-planner travel times\n+\n+scoring:\n+  # Walkable / short drive from Culver City (+1). Matched case-insensitively against each event's\n+  # neighborhood (whole name, not substring). The Westside plus Culver City's Mid-City / Baldwin\n+  # Hills side, out to ~5 mi \u2014 the same reach as the Silver Lake default. The Hollywood side\n+  # (Miracle Mile, Fairfax, Mid-Wilshire, WeHo) stays out, the way the default leaves out\n+  # Hollywood / Koreatown.\n+  near_home_neighborhoods:\n+    - culver city\n+    - palms\n+    - mar vista\n+    - del rey\n+    - cheviot hills\n+    - rancho park\n+    - beverlywood\n+    - century city\n+    - west la\n+    - west los angeles\n+    - sawtelle\n+    - mid-city\n+    - mid city\n+    - baldwin hills\n+    - ladera heights\n+    - leimert park\n+    - crenshaw\n+    - west adams\n+    - beverly hills\n+    - westwood\n+    - brentwood\n+    - playa vista\n+    - marina del rey\n+    - venice\n+    - santa monica\n+    - westchester\n+    - inglewood",
+        "diff_kind": "pending",
+        "reflected": false,
         "enriched_at": null
       }
     }
