@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/16/2026 deterministically (no API). 154 candidates. Signals: big-venue 126, festival 22, tracked 7, editorial 2._
+_Generated 10/17/2026 deterministically (no API). 152 candidates. Signals: big-venue 125, festival 21, tracked 7, editorial 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -36,7 +36,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 11/28 | 7 | Solomun | Hollywood Blvd (Los Angeles) | tracked:Solomun | [link](https://dice.fm/event/7dbax7-solomun-28th-nov-hollywood-blvd-los-angeles-tickets) |
-| Fri 11/20 | 5 | WORK Weekender Day 1: Fadi Mohem, Fizch, & Lindsey Herbert | TBA - Los Angeles | festival | [link](https://ra.co/events/2537227) |
 | Sat 11/21 | 5 | WORK Weekender Day 2: Adrian Reyes, Luigi Tozzi [Live], &  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537247) |
 | Fri 11/27 | 5 | Time Warp LA | Ace * Mission Studios | tracked:Richie Hawtin | [link](https://on.fgtix.com/trk/CFLtc) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
@@ -125,7 +124,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 11/20 | 4 | BOYNEXTDOOR | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 11/21 | 4 | KATSEYE: THE WILDWORLD TOUR | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/katseye-the-wildworld-tour-los-angeles-california-11-21-2026/event/2C0064ABC62217BE) |
 | Sat 11/21 | 4 | El Fantasma | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Sat 11/21 | 4 | Steve Lacy: Oh yeah? Tour | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/steve-lacy-oh-yeah-tour-hollywood-california-11-21-2026/event/0B00650521CA821D) |
@@ -154,7 +152,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 11/20 | 3 | Arcángel - La 8va Maravilla World Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/arcangel-la-8va-maravilla-world-tour-inglewood-california-11-20-2026/event/0A0064A792CA7806) |
 | Sat 11/21 | 3 | NieR: Orchestra Concert | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 11/21 | 3 | Bunbury - Nuevas Mutaciones Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/bunbury-nuevas-mutaciones-tour-2026-inglewood-california-11-21-2026/event/0A00644ADAD09F63) |
 | Sat 11/21 | 3 | Lauren Daigle - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZfot) |
@@ -236,7 +233,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 11/20 | 2 | Martin Lawrence with Nate Jackson, Karlous Miller and more | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/martin-lawrence-yall-still-know-what-ontario-california-11-20-2026/event/090064F6CAC4B270) |
 | Tue 11/24 | 2 | Los Tucanes de Tijuana (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7Paao) |
 | Wed 11/25 | 2 | Eslabon Armado | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/eslabon-armado-ontario-california-11-25-2026/event/0900654EB49CA10C) |
 
@@ -253,6 +249,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
 | Sun 12/13 | 2 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597468/red-bull-home-ground-world-finals-2026-tickets) |
+| Sun 12/13 | 2 | Lea Salonga - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA74uP) |
 | Mon 12/14 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-14-2026/event/090064B49319A5BE) |
 | Mon 12/14 | 2 | Creedmas - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZIfF) |
 | Wed 12/16 | 2 | TYLA - THE A*POP WORLD TOUR | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/tyla-the-apop-world-tour-inglewood-california-12-16-2026/event/0A0064E99D9E6DC8) |
@@ -271,6 +268,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Wed 1/13 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-13-2027/event/0900649DE7FE6418) |
 | Sat 1/16 | 2 | Iliza Shlesinger (21+ Event) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 1/17 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-17-2027/event/0900649DE899654B) |
+| Sun 1/17 | 2 | The History of R&B - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA74Qe) |
 | Wed 1/20 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-20-2027/event/090064A4B79AF95E) |
 | Wed 1/20 | 2 | Steve Winwood | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 1/21 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-21-2027/event/090064A4B7A6F97C) |
